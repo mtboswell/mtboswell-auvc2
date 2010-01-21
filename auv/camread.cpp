@@ -11,7 +11,7 @@
 #include <assert.h>
 #include <stdio.h>
 
-#define CAMREAD_LOG_STREAM 1
+#define CAMREAD_LOG_STREAM 0
 
 static int width;
 static int height;
@@ -70,7 +70,7 @@ void * camread_thread(void* in) {
 int camread_getframe(struct camframe frame) {
     int err;
     /* We can't get a frame if the capture thread isn't running. */
-    assert(video_already_open);
+    if(!video_already_open) return -1;
     while(!frameready)
         usleep(1000);
     if (frameready) {
@@ -96,7 +96,7 @@ int camread_getframe(struct camframe frame) {
 }
 
 int camread_waitframe() {
-    assert(video_already_open); /*otherwise we wait forever*/
+    if(!video_already_open) return 0; /*otherwise we wait forever*/
     while (!frameready)
         usleep(1000);
     return 0;
@@ -104,7 +104,8 @@ int camread_waitframe() {
 
 int camread_open(char const* campath, int w, int h) {
     assert(sizeof(unsigned char) == 1); /* TODO: Work anyway. */
-    assert(!video_already_open); /* TODO: Concurrent captures */
+    if(video_already_open)
+	return 0; /* TODO: Concurrent captures */
     
     pthread_attr_t at;
     struct v4l2_format fmt;
@@ -141,11 +142,11 @@ int camread_open(char const* campath, int w, int h) {
     /* Open the camera */
     //fprintf(stderr, "Opening video device...");
     camfd = open(campath, O_RDONLY, 0);
-    assert(camfd > 0);
+    if(!(camfd > 0)) return 0;
     //fprintf(stderr, "done\n");
     /* Set the image format */
     //fprintf(stderr, "Setting image format...");
-    assert(ioctl(camfd, VIDIOC_S_FMT, &fmt) >= 0);
+    if(!(ioctl(camfd, VIDIOC_S_FMT, &fmt) >= 0)) return 0;
     //fprintf(stderr, "done\n");
     
     /* We're running */
@@ -164,12 +165,12 @@ int camread_open(char const* campath, int w, int h) {
     while(!frameready) ;
     
     /* TODO: This is uninformative. */
-    return 0;
+    return 1;
 }
 
 int camread_close() {
     int err = 0;
-    assert(video_already_open); /* Can't close an already closed capture */
+    if(!video_already_open) return 0; /* Can't close an already closed capture */
     
     /* We're done, tell the worker to stop */
     video_already_open = 0;
@@ -198,3 +199,28 @@ void SwappyCopy(unsigned char* target, unsigned char* src, int w, int h) {
             *(target+h*i+j) = *(src+w*j+i);
 }
 
+/* Returns 1 if white-balace successful, 0 otherwise */
+int white_balance(){
+	struct v4l2_queryctrl queryctrl;
+	struct v4l2_control control;
+
+	memset (&queryctrl, 0, sizeof (queryctrl));
+	queryctrl.id = V4L2_CID_DO_WHITE_BALANCE;
+
+	if (-1 == ioctl (camfd, VIDIOC_QUERYCTRL, &queryctrl)) {
+		printf ("V4L2_CID_DO_WHITE_BALANCE is not supported\n");
+		return 0;
+	} else if (queryctrl.flags & V4L2_CTRL_FLAG_DISABLED) {
+		printf ("V4L2_CID_DO_WHITE_BALANCE is not supported\n");
+		return 0;
+	} else {
+		memset (&control, 0, sizeof (control));
+		control.id = V4L2_CID_DO_WHITE_BALANCE;
+		control.value = 1;
+
+		if (-1 == ioctl (camfd, VIDIOC_S_CTRL, &control)) {
+			return 0;
+		}
+	}
+	return 1;
+}

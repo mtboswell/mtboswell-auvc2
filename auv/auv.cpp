@@ -46,14 +46,14 @@ void AUV::run(){
 }
 
 void AUV::readSensors(){
-	qDebug("Reading Sensor Data");
+	//qDebug("Reading Sensor Data");
   	dataMutex->lock();
 	data.orientation = getOrientation();
 	data.depth = getDepth();
 	data.thrusterPower.voltage = getThrusterVoltage();
 	data.thrusterPower.current = getThrusterCurrent();
 	data.thrusterPower.power = getThrusterPower();
-// uncomment for manual switch override
+	// uncomment for manual switch override
 	if(data.status == RUNNING && !data.manualOverrideDisabled && !getGo()) {
 		qDebug("Waiting on Manual Switch");
 		data.status = PAUSED;
@@ -125,7 +125,7 @@ imu_data AUV::getOrientation(){return imu->getData();}
 // set thruster speeds
 void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 	if(!data.thrusterPower.state || data.status == PAUSED || data.status == READY) return;
-	qDebug("Conversing with TReXs");
+	//qDebug("Conversing with TReXs");
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
 		pControllers->setTrexSpeed(i, thrusterSpeeds[i]);
 	}
@@ -133,7 +133,7 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
 		data.thrusterSpeeds[i] = thrusterSpeeds[i];
 	}
-	qDebug("Conversation Over");
+	//qDebug("Conversation Over");
 }
 // set all of the thruster speeds to 0
 void AUV::stopThrusters(){

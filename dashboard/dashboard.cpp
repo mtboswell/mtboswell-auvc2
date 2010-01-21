@@ -94,7 +94,7 @@ void Dashboard::updateSensorsView(AUVSensors values){
 
 void Dashboard::updateBrainView(ExternalOutputs_brain values){
 	
-	qDebug("Dashboard recieving data from Brain");
+	//qDebug("Dashboard recieving data from Brain");
 
 	QString states[7];
 	states[0] = "Not Started";
@@ -105,14 +105,14 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values){
 	states[5] = "Approach Buoy";
 	states[6] = "Finished";
 	
-	qDebug("Processing Brain Data");
+	//qDebug("Processing Brain Data");
 
 	stateLabel->setText(states[values.State]);
 //	stateLabel->setText(QString::number(values.State));
 	desiredHeadingSpinBox->setValue(values.DesiredHeading);
 	desiredDepthSpinBox->setValue(values.DesiredDepth);
 	
-	qDebug("Brain Data on display");
+	//qDebug("Brain Data on display");
 	
 }
 

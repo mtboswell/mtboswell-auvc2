@@ -1,7 +1,7 @@
 #include "model.h"
 #include "auv/auvtypes.h"
 #include "auv/calibration.h"
-//#include "auv/camread.h"
+#include "auv/camread.h"
 #include <iostream>
 #include <cstdlib>
 #include <QDebug>
@@ -12,22 +12,22 @@ Model::Model(QMutex* mutex){
 
   /* Initialize model */
 	qDebug("Locating Brain");
-  brain_initialize();
+	brain_initialize();
+	  
+	modelMutex = mutex;
   
-  modelMutex = mutex;
+	//qDebug("Setting Timer");
+	  modelTimer = new QTimer(this);
+	  
+	connect(modelTimer, SIGNAL(timeout()), this, SLOT(rt_OneStep()));
+	  
   
-	qDebug("Setting Timer");
-  modelTimer = new QTimer(this);
-  
-  connect(modelTimer, SIGNAL(timeout()), this, SLOT(rt_OneStep()));
-  
-  
-	qDebug("Opening Eyes");
+	//qDebug("Allocating Framebuffer");
 	// Initialize framebuffer and start video capture 
 	myframe.y = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT);
 	myframe.cb = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
 	myframe.cr = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
-	qDebug("Eyes Open...");
+	//qDebug("Done");
 
   
 }
@@ -55,38 +55,38 @@ void Model::run(){
  */
 void Model::rt_OneStep(void)
 {
-	qDebug("Stepping Model");
+	//qDebug("Stepping Model");
 
-  /* Disable interrupts here */
-  modelMutex->lock();
+	/* Disable interrupts here */
+	modelMutex->lock();
 
-  /* Check for overrun */
-  if (OverrunFlag++) {
+	/* Check for overrun */
+	if (OverrunFlag++) {
 	qDebug("Overrun!!");
 	rtmSetErrorStatus(brain_M, "Overrun");
 	return;
-  }
+	}
 
-  /* Save FPU context here (if necessary) */
-  /* Re-enable timer or interrupt here */
-  /* Set model inputs here */
+	/* Save FPU context here (if necessary) */
+	/* Re-enable timer or interrupt here */
+	/* Set model inputs here */
 
-  /* Step the model */
-  brain_step();
-  qDebug("Model Stepped");
+	/* Step the model */
+	brain_step();
+	//qDebug("Model Stepped");
 
-  /* Get model outputs here */
+	/* Get model outputs here */
 
-  /* Indicate task complete */
-  OverrunFlag--;
+	/* Indicate task complete */
+	OverrunFlag--;
 
-  /* Disable interrupts here */
-  /* Restore FPU context here (if necessary) */
-  /* Enable interrupts here */
-  modelMutex->unlock();
-  qDebug("Model Unlocked, sending output");
-  emit outputReady(brain_Y);
-  qDebug("Output Sent");
+	/* Disable interrupts here */
+	/* Restore FPU context here (if necessary) */
+	/* Enable interrupts here */
+	modelMutex->unlock();
+	//qDebug("Model Unlocked, sending output");
+	emit outputReady(brain_Y);
+	//qDebug("Output Sent");
 }
 		
 		

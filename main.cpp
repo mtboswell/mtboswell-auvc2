@@ -8,7 +8,8 @@
 #include <iostream>
 using namespace std;
 
-extern "C" int camread_open(const char*, int, int);
+static int simulateVideo = 0;
+static int simulateSensors = 0;
 
 int main(int argc, char *argv[]){
 
@@ -17,7 +18,13 @@ int main(int argc, char *argv[]){
 	
 	/* Initialize hardware */
 	qDebug("Initializing Camera");
-	camread_open("/dev/video0", 640, 480);
+	if(camread_open("/dev/video0", 640, 480)) {
+		if(!white_balance()) qDebug("White Balance failed.");
+		qDebug("Camera Online");
+	} else {
+		simulateVideo = 1;
+		qDebug("Camera Not Found, Simulating");
+	}
 	
 	qDebug("Initializing Hardware Interfaces");
 	AUV* auv = new AUV();

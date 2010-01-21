@@ -20,8 +20,8 @@ struct camframe {
     void *y, *cb, *cr;
 };
 
-/* Example: camread_open("/dev/video0", 640, 480); */
-extern "C" int camread_open(char const* campath, int w, int h);
+//* Example: camread_open("/dev/video0", 640, 480); */
+int camread_open(char const* campath, int w, int h);
 
 /* Copies most recent frame grabbed from the camera into your buffers, if it's
    new. If there hasn't been a frame grabbed since the last call, this returns
@@ -34,6 +34,10 @@ extern "C" int camread_open(char const* campath, int w, int h);
    plus one. If it returns zero, there was no new frame since the last call
    and so frame is unchanged. */
 int camread_getframe(struct camframe frame);
+
+/* Performs a manual white balance, and disables auto white-balancing.
+   Returns 1 if successful, 0 if command fails. */
+int white_balance();
 
 /* No arguments, blocks until a frame is available */
 int camread_waitframe();
