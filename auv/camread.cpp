@@ -11,7 +11,7 @@
 #include <assert.h>
 #include <stdio.h>
 
-#define CAMREAD_LOG_STREAM 1
+#define CAMREAD_LOG_STREAM 0
 
 static int width;
 static int height;
@@ -26,6 +26,7 @@ volatile int frameready = 0;
 
 #ifdef CAMREAD_LOG_STREAM
 static int logfd = 0;
+static int vidfd = 0;
 #endif
 
 /* Really read count bytes from a file descriptor.
@@ -84,6 +85,10 @@ int camread_getframe(struct camframe frame) {
 	write(logfd, lastframe.cb, width*height/4);
 	write(logfd, lastframe.cr, width*height/4);
 #endif
+	write(vidfd, lastframe.y, width*height);
+	write(vidfd, lastframe.cb, width*height/4);
+	write(vidfd, lastframe.cr, width*height/4);
+
         err = frameready;
         frameready = 0;
         pthread_mutex_unlock(&framelock);
@@ -118,6 +123,8 @@ int camread_open(char const* campath, int w, int h) {
     logfd = open("camread_log.yuv", O_WRONLY | O_APPEND | O_CREAT,
                  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 #endif
+    vidfd = open("video_passthru", O_WRONLY | O_APPEND,
+                 S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 
     /* Set up the V4L2 format structure */
     memset(&fmt, 0, sizeof(struct v4l2_format));

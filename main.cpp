@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
 	/* Initialize hardware */
 	qDebug("Initializing Camera");
 	if(camread_open("/dev/video0", 640, 480)) {
-		if(!white_balance()) qDebug("White Balance failed.");
+//		if(!white_balance()) qDebug("White Balance failed.");
 		qDebug("Camera Online");
 	} else {
 		simulateVideo = 1;

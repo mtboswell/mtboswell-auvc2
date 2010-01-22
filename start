@@ -1,0 +1,6 @@
+#!/bin/sh
+v4lctl setattr "Auto White Balance" off
+mkfifo video_passthru 2> /dev/null
+./agent &
+sleep 3
+mplayer -really-quiet -demuxer rawvideo -rawvideo fps=7:w=640:h=480:i420 -vo x11 video_passthru 2> /dev/null &
