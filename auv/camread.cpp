@@ -11,7 +11,7 @@
 #include <assert.h>
 #include <stdio.h>
 
-#define CAMREAD_LOG_STREAM 0
+#define CAMREAD_LOG_STREAM 1
 
 static int width;
 static int height;
