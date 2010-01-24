@@ -12,10 +12,11 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
  	connect(actionStop, SIGNAL(triggered()), this, SLOT(stopAction()));
  	connect(actionReset, SIGNAL(triggered()), this, SLOT(resetAction()));
  	connect(actionKill, SIGNAL(triggered()), this, SLOT(killAction()));
+ 	connect(actionQuit, SIGNAL(triggered()), this, SLOT(close()));
  	
  	// Set Default Values for gui inputs from model
  	
- 	// controllers
+ 	// controller gain initial settings
 	fwdVelocitySpinBox->setValue(brain_P.Heading_Forward_Velocity);
 	headingDGainSpinBox->setValue(brain_P.Heading_Kd);
 	headingIGainSpinBox->setValue(brain_P.Heading_Ki);
@@ -45,6 +46,17 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
 	buoyHueLowSpinBox->setValue(brain_P.Buoy_HueLower);
 	buoySaturationSpinBox->setValue(brain_P.Buoy_Saturation);
  	
+	// Populate State Combo Box
+
+	QStringList states;
+	states << "Not Started";
+	states << "Startup";
+	states << "Validation Gate";
+	states << "Follow Track";
+	states << "Find Buoy";
+	states << "Approach Buoy";
+	states << "Finished";
+	stateComboBox->insertItems(0, states);
  
 }
  
@@ -96,18 +108,10 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values){
 	
 	//qDebug("Dashboard recieving data from Brain");
 
-	QString states[7];
-	states[0] = "Not Started";
-	states[1] = "Startup";
-	states[2] = "Validation Gate";
-	states[3] = "Follow Track";
-	states[4] = "Find Buoy";
-	states[5] = "Approach Buoy";
-	states[6] = "Finished";
 	
 	//qDebug("Processing Brain Data");
 
-	stateLabel->setText(states[values.State]);
+	stateComboBox->setCurrentIndex(values.State);
 //	stateLabel->setText(QString::number(values.State));
 	desiredHeadingSpinBox->setValue(values.DesiredHeading);
 	desiredDepthSpinBox->setValue(values.DesiredDepth);

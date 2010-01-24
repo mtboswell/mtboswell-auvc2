@@ -4,6 +4,7 @@
 
 TEMPLATE = app
 TARGET = agent
+QT += phonon
 DEPENDPATH += . \
               auv \
               brain \
@@ -181,7 +182,7 @@ HEADERS += dashboard/dashboard.h \
            brain/vipmdnfilter_rt.h \
            brain/vipopticalflow_rt.h \
            brain/vipprojective_rt.h \
-           brain/viprotate_rt.h
+           brain/viprotate_rt.h 
 FORMS += dashboard/dashboard.ui
 SOURCES += dashboard/dashboard.cpp \
            main.cpp \
@@ -198,4 +199,4 @@ SOURCES += dashboard/dashboard.cpp \
            brain/brain_data.cpp \
            brain/rt_nonfinite.cpp \
            brain/rtGetInf.cpp \
-           brain/rtGetNaN.cpp
+           brain/rtGetNaN.cpp 

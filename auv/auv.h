@@ -58,6 +58,7 @@ class AUV : public QThread {
 		// Reads the current depth from the depth sensor via the arduino.  Returns the depth in feet.  
 		// Relies on calibration.h for accurate measurement
 		double getDepth();
+		void setActualDepth(double depth = 0);
 		
 		// Reads the value of the external on/off switch.  Returns true for on, false for off.
 		bool getGo();
