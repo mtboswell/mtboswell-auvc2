@@ -5,10 +5,13 @@
 #include <iostream>
 #include <cstdlib>
 #include <QDebug>
+#include <QTime>
 
 Model::Model(QMutex* mutex){
-
-	stepTime = 100;
+	
+	// 100ms = 10Hz rate
+	// 160ms = 6.25Hz
+	stepTime = 160;
 
   /* Initialize model */
 	qDebug("Initializing Brain");
@@ -72,9 +75,14 @@ void Model::rt_OneStep(void)
 	/* Re-enable timer or interrupt here */
 	/* Set model inputs here */
 
+	// Measure step time
+//	QTime t;
+//	 t.start();
+
 	/* Step the model */
 	brain_step();
 	//qDebug("Model Stepped");
+//	qDebug("Time elapsed: %d ms", t.elapsed());
 
 	/* Get model outputs here */
 

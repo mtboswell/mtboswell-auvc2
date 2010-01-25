@@ -63,20 +63,26 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
  
  
 void Dashboard::startAction(){
-	qDebug("Dashboard Attempting to start AUV");
+//	qDebug("Dashboard Attempting to start AUV");
+	statusBar()->showMessage(tr("Attempting to start AUV"), 2000);
 	emit startAUV();
 }
 void Dashboard::stopAction(){
+	statusBar()->showMessage(tr("Attempting to stop AUV"), 2000);
 	emit stopAUV();
 }
 void Dashboard::resetAction(){
+	statusBar()->showMessage(tr("Attempting to reset AUV"), 2000);
 	emit resetAUV();
 }
 void Dashboard::killAction(){
+	statusBar()->showMessage(tr("Attempting to brutally murder AUV"), 2000);
 	emit killAUV();
 }
 
 void Dashboard::recordVideo(bool record){
+	if(record) statusBar()->showMessage(tr("Recording..."), 2000);
+	else statusBar()->showMessage(tr("Stopping Recording..."), 2000);
 	record_video = record;
 }
 
@@ -84,17 +90,21 @@ void Dashboard::updateSensorsView(AUVSensors values){
 	
 	depthLcdNumber->display(values.depth);
 	headingLcdNumber->display(values.orientation.yaw);
+	thVoltageLcdNumber->display(values.thrusterPower.voltage);
+	thCurrentLcdNumber->display(values.thrusterPower.current);
 	
-	QString statuses[4];
-	statuses[0] = "Ready";
-	statuses[1] = "Running";
-	statuses[2] = "Paused";
-	statuses[3] = "Murdered";
-	controlStateLabel->setText(statuses[values.status]);
+	QString modes[4];
+	modes[0] = "Ready";
+	modes[1] = "Running";
+	modes[2] = "Paused";
+	modes[3] = "Killed";
+	controlStateLabel->setText(modes[values.status]);
 	
 	leftThrusterProgressBar->setValue(values.thrusterSpeeds[0]);
 	rightThrusterProgressBar->setValue(values.thrusterSpeeds[1]);
 	vertThrusterProgressBar->setValue(values.thrusterSpeeds[2]);
+
+	cameraPosComboBox->setCurrentIndex(values.camera);
 	
 	/*
 	auvStatus status;

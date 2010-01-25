@@ -12,8 +12,9 @@
 #include <string>
 #include <QDebug>
 
-AUV::AUV(){
-	stepTime = 20;
+AUV::AUV(bool simulate){
+	// 160ms = 6.25Hz rate
+	stepTime = 160;
 	
 	sensorTimer = new QTimer(this);
   	connect(sensorTimer, SIGNAL(timeout()), this, SLOT(readSensors()));
@@ -27,6 +28,8 @@ AUV::AUV(){
 	imu = new IMU(IMUPORT);
 	pControllers = new Pololu(POLOLUPORT);
 	thrusterPower = new Power(POWERPORT);
+
+	if(simulate) data.manualOverrideDisabled = true;
 	data.droppedLeft = false;
 	data.droppedRight = false;
 	reset();

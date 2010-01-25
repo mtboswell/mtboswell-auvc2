@@ -8,8 +8,8 @@
 #include <iostream>
 using namespace std;
 
-static int simulateVideo = 0;
-static int simulateSensors = 0;
+static bool simulateVideo = false;
+static bool simulateSensors = true;
 
 int main(int argc, char *argv[]){
 
@@ -23,12 +23,12 @@ int main(int argc, char *argv[]){
 //		if(!white_balance()) qDebug("White Balance failed.");
 		qDebug("Camera Online");
 	} else {
-		simulateVideo = 1;
+		simulateVideo = true;
 		qDebug("Camera Not Found, Simulating");
 	}
 	
 	qDebug("Initializing Hardware Interfaces");
-	AUV* auv = new AUV();
+	AUV* auv = new AUV(simulateSensors);
 	/* Initialize Dashboard */
 	qDebug("Initializing Dashboard");
 	Dashboard* gui = new Dashboard(0, &modelMutex);

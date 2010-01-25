@@ -30,7 +30,7 @@ class AUV : public QThread {
 
 	public:
 	
-		AUV();
+		AUV(bool simulate = false);
 		~AUV();
 		
 		void setMotion(int forward, int yaw, int vertical);
