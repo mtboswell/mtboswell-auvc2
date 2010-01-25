@@ -1,6 +1,7 @@
 #include "ui_dashboard.h"
 #include "auvtypes.h"
 #include "brain.h"
+#include "auv/camread.h"
 #include <QMutex>
 #include <QMutexLocker>
 
@@ -16,6 +17,8 @@
  	void stopAUV();
  	void killAUV();
  	void resetAUV();
+	void setDepth(double depth);
+	void setState(int state);
      
  public slots:
      // Interface update slots
@@ -30,6 +33,7 @@
      void stopAction();
      void resetAction();
      void killAction();
+     void recordVideo(bool record);
      
      // Gui Event Handlers
      
@@ -58,13 +62,17 @@
      // Vision
      void on_pathHueHighSpinBox_valueChanged(double value);
      void on_pathHueLowSpinBox_valueChanged(double value);
-     void on_pathSaturationSpinBox_2_valueChanged(double value);
+     void on_pathSaturationSpinBox_valueChanged(double value);
      void on_buoyHueHighSpinBox_valueChanged(double value);
      void on_buoyHueLowSpinBox_valueChanged(double value);
      void on_buoySaturationSpinBox_valueChanged(double value);
      
+	// Calibration
+	void on_zeroDepthPushButton_clicked();
+	void on_setActualDepthPushButton_clicked();
      
-     
+    // Other
+	void on_stateComboBox_activated(int index); 
      
 
  private:

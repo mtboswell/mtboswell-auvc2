@@ -8,10 +8,10 @@
 
 Model::Model(QMutex* mutex){
 
-	stepTime = 20;
+	stepTime = 100;
 
   /* Initialize model */
-	qDebug("Locating Brain");
+	qDebug("Initializing Brain");
 	brain_initialize();
 	  
 	modelMutex = mutex;
@@ -34,6 +34,7 @@ Model::Model(QMutex* mutex){
 
 Model::~Model(){
 //	delete modelTimer;
+	qDebug("Shutting Down Brain");
 	camread_close();
 	wait();
 }
@@ -114,4 +115,8 @@ void Model::updateSensorsInput(AUVSensors values){
 	bool droppedLeft;
 	bool droppedRight;
 	*/
+}
+
+void Model::setState(int state){
+	// TODO: set model state input
 }

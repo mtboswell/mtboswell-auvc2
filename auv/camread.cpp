@@ -11,7 +11,6 @@
 #include <assert.h>
 #include <stdio.h>
 
-#define CAMREAD_LOG_STREAM 0
 
 static int width;
 static int height;
@@ -24,10 +23,8 @@ static pthread_mutex_t framelock;
 static int video_already_open = 0; /* TODO: Semaphore? */
 volatile int frameready = 0;
 
-#ifdef CAMREAD_LOG_STREAM
 static int logfd = 0;
 static int vidfd = 0;
-#endif
 
 /* Really read count bytes from a file descriptor.
    This'll hang if those bytes never show up. */
@@ -80,11 +77,11 @@ int camread_getframe(struct camframe frame) {
         memcpy(frame.y, lastframe.y, width*height);
         memcpy(frame.cb, lastframe.cb, width*height/4);
         memcpy(frame.cr, lastframe.cr, width*height/4);
-#ifdef CAMREAD_LOG_STREAM
+    if(record_video){
 	write(logfd, lastframe.y, width*height);
 	write(logfd, lastframe.cb, width*height/4);
 	write(logfd, lastframe.cr, width*height/4);
-#endif
+    }
 	write(vidfd, lastframe.y, width*height);
 	write(vidfd, lastframe.cb, width*height/4);
 	write(vidfd, lastframe.cr, width*height/4);
@@ -119,10 +116,8 @@ int camread_open(char const* campath, int w, int h) {
     width = w;
     height = h;
     
-#ifdef CAMREAD_LOG_STREAM
     logfd = open("camread_log.yuv", O_WRONLY | O_APPEND | O_CREAT,
                  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-#endif
     vidfd = open("video_passthru", O_WRONLY | O_APPEND,
                  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 
@@ -185,9 +180,7 @@ int camread_close() {
     err = pthread_join(worker, NULL); /* Wait for the worker to stop */
     /* Clean up */
     close(camfd);
-#ifdef CAMERA_LOG_STREAM
     close(logfd);
-#endif
     pthread_mutex_destroy(&framelock);
     free(lastframe.y);
     free(lastframe.cb);

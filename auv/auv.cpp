@@ -10,6 +10,7 @@
 #include "auv.h"
 #include <iostream>
 #include <string>
+#include <QDebug>
 
 AUV::AUV(){
 	stepTime = 20;
@@ -31,6 +32,7 @@ AUV::AUV(){
 	reset();
 }
 AUV::~AUV(){
+	qDebug("Shutting Down AUV Interface");
 	stopThrusters();
 	delete adc;
 	delete imu;

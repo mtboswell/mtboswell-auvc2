@@ -20,6 +20,8 @@ struct camframe {
     void *y, *cb, *cr;
 };
 
+static volatile bool record_video = 0;
+
 //* Example: camread_open("/dev/video0", 640, 480); */
 int camread_open(char const* campath, int w, int h);
 

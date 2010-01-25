@@ -26,6 +26,7 @@ class Model : public QThread
 		
 	public slots:
 		void updateSensorsInput(AUVSensors values);
+		void setState(int state);
 
 	private slots:
 		// rt_OneStep should be called every 0.2 seconds (or 0.02 seconds, depending on the model)

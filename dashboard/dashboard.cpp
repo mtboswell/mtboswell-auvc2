@@ -13,6 +13,7 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
  	connect(actionReset, SIGNAL(triggered()), this, SLOT(resetAction()));
  	connect(actionKill, SIGNAL(triggered()), this, SLOT(killAction()));
  	connect(actionQuit, SIGNAL(triggered()), this, SLOT(close()));
+ 	connect(actionRecord_Video, SIGNAL(triggered(bool)), this, SLOT(recordVideo(bool)));
  	
  	// Set Default Values for gui inputs from model
  	
@@ -41,7 +42,7 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
 	// Vision
 	pathHueHighSpinBox->setValue(brain_P.Track_HueHigher);
 	pathHueLowSpinBox->setValue(brain_P.Track_HueLower);
-	pathSaturationSpinBox_2->setValue(brain_P.Track_Saturation);
+	pathSaturationSpinBox->setValue(brain_P.Track_Saturation);
 	buoyHueHighSpinBox->setValue(brain_P.Buoy_HueHigher);
 	buoyHueLowSpinBox->setValue(brain_P.Buoy_HueLower);
 	buoySaturationSpinBox->setValue(brain_P.Buoy_Saturation);
@@ -75,6 +76,9 @@ void Dashboard::killAction(){
 	emit killAUV();
 }
 
+void Dashboard::recordVideo(bool record){
+	record_video = record;
+}
 
 void Dashboard::updateSensorsView(AUVSensors values){
 	
@@ -120,6 +124,10 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values){
 	
 }
 
+// State Select
+void Dashboard::on_stateComboBox_activated(int index){
+	emit setState(index);
+}
 
      
  // controller gains
@@ -213,7 +221,7 @@ void Dashboard::on_pathHueLowSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
 	brain_P.Track_HueLower = value;
 }
-void Dashboard::on_pathSaturationSpinBox_2_valueChanged(double value){
+void Dashboard::on_pathSaturationSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
 	brain_P.Track_Saturation = value;
 }
@@ -230,3 +238,10 @@ void Dashboard::on_buoySaturationSpinBox_valueChanged(double value){
 	brain_P.Buoy_Saturation = value;
 }
 
+// Calibration
+void Dashboard::on_zeroDepthPushButton_clicked(){
+	emit setDepth(0);
+}
+void Dashboard::on_setActualDepthPushButton_clicked(){
+	emit setDepth(actualDepthDoubleSpinBox->value());
+}
