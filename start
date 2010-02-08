@@ -1,0 +1,17 @@
+#!/bin/sh
+## AUVC Start script
+## Do a white balance at startup
+echo -n "Setting White Balance\n"
+if `v4lctl setattr "Auto White Balance" on` 
+then 
+sleep 3
+v4lctl setattr "Auto White Balance" off -v 0
+fi
+echo -n "Done\n"
+#mkfifo video_passthru 2> /dev/null
+echo -n "Launching Agent\n"
+./agent &
+sleep 3
+#echo -n "Starting Video Stream\n"
+#mplayer -really-quiet -demuxer rawvideo -rawvideo fps=7:w=640:h=480:i420 -vo x11 video_passthru 2> /dev/null &
+echo -n "System Initiated\n"
