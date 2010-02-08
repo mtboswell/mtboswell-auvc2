@@ -67,14 +67,15 @@ int main(int argc, char *argv[]){
 	qDebug("Starting Dashboard");
 	gui->show();
 	cerr << "Initialization Complete, System Online" << endl;
-	appReturn = app.exec();
-
-	delete auv;
-	delete brain;
-	delete gui;
-
-	sleep(1000);
-
-	return appReturn;
+	return app.exec();
+//	appReturn = app.exec();
+//
+//	delete auv;
+//	delete brain;
+//	delete gui;
+//
+//	sleep(1000);
+//
+//	return appReturn;
 
 }

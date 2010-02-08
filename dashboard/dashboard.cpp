@@ -58,6 +58,13 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
 	states << "Approach Buoy";
 	states << "Finished";
 	stateComboBox->insertItems(0, states);
+
+	// Heading display graphics
+	headingScene = new QGraphicsScene;
+	headingLine = new QGraphicsLineItem(0, 0, 0, 50);
+	headingScene->addItem(headingLine);
+
+	headingGraphicsView->setScene(headingScene);
  
 }
  
@@ -105,6 +112,8 @@ void Dashboard::updateSensorsView(AUVSensors values){
 	vertThrusterProgressBar->setValue(values.thrusterSpeeds[2]);
 
 	cameraPosComboBox->setCurrentIndex(values.camera);
+
+	headingLine->setRotation(values.orientation.yaw);
 	
 	/*
 	auvStatus status;

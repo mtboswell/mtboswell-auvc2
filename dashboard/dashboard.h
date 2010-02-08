@@ -4,6 +4,8 @@
 #include "auv/camread.h"
 #include <QMutex>
 #include <QMutexLocker>
+#include <QGraphicsLineItem>
+#include <QGraphicsView>
 
  class Dashboard : public QMainWindow, private Ui::DashboardWindow
  {
@@ -77,4 +79,7 @@
 
  private:
 	QMutex* modelMutex;  // Make it safe to access model data directly
+	QGraphicsScene* headingScene;
+        QGraphicsLineItem* headingLine;
+
  };

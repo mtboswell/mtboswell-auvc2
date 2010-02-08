@@ -811,7 +811,7 @@
         <enum>QTabWidget::North</enum>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>3</number>
        </property>
        <widget class="QWidget" name="controllersTab">
         <attribute name="title">
@@ -1464,7 +1464,29 @@
         </attribute>
         <layout class="QHBoxLayout" name="horizontalLayout_12">
          <item>
-          <widget class="QGraphicsView" name="headingGraphicsView"/>
+          <widget class="QGraphicsView" name="headingGraphicsView">
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Plain</enum>
+           </property>
+           <property name="backgroundBrush">
+            <brush brushstyle="Dense6Pattern">
+             <color alpha="255">
+              <red>0</red>
+              <green>0</green>
+              <blue>200</blue>
+             </color>
+            </brush>
+           </property>
+           <property name="interactive">
+            <bool>true</bool>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
