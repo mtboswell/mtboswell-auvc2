@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.153
+ * Model version                        : 1.168
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Sat Dec 12 18:49:35 2009
+ * Real-Time Workshop file generated on : Mon Feb  8 16:28:35 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Sat Dec 12 18:49:36 2009
+ * C/C++ source code generated on       : Mon Feb  8 16:28:35 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic
@@ -103,9 +103,9 @@ typedef struct {
   real32_T SFunction_o30;              /* '<Root>/Chart' */
   real32_T SFunction_o35;              /* '<Root>/Chart' */
   real32_T SFunction_o36;              /* '<Root>/Chart' */
-  real32_T RedDataTypeConversion[307200];/* '<S2>/Red Data Type Conversion' */
-  real32_T GreenDataTypeConversion1[307200];/* '<S2>/Green Data Type Conversion1' */
-  real32_T Gain[307200];               /* '<S2>/Gain' */
+  real32_T viddR[307200];              /* '<S2>/Red Data Type Conversion' */
+  real32_T viddG[307200];              /* '<S2>/Green Data Type Conversion1' */
+  real32_T viddB[307200];              /* '<S2>/Blue Data Type Conversion2' */
   int32_T BlobArea;                    /* '<S3>/Embedded MATLAB Function' */
   int8_T Right;                        /* '<Root>/Chart' */
   int8_T Left;                         /* '<Root>/Chart' */
@@ -128,19 +128,19 @@ typedef struct {
   int8_T DoubleToint1_c;               /* '<S10>/DoubleToint1' */
   int8_T DoubleToint8_b;               /* '<S10>/DoubleToint8' */
   uint8_T State;                       /* '<Root>/Chart' */
-  uint8_T ColorSpaceConversion_o3[307200];/* '<S2>/Color Space  Conversion' */
-  uint8_T ColorSpaceConversion_o1[307200];/* '<S2>/Color Space  Conversion' */
-  uint8_T ColorSpaceConversion_o2[307200];/* '<S2>/Color Space  Conversion' */
+  uint8_T vidB[307200];                /* '<S2>/Color Space  Conversion' */
+  uint8_T vidR[307200];                /* '<S2>/Color Space  Conversion' */
+  uint8_T vidG[307200];                /* '<S2>/Color Space  Conversion' */
   boolean_T Compare[307200];           /* '<S28>/Compare' */
   boolean_T Compare_o[307200];         /* '<S49>/Compare' */
   boolean_T Compare_a[307200];         /* '<S39>/Compare' */
   boolean_T Compare_e[10800];          /* '<S13>/Compare' */
   boolean_T Compare_c[307200];         /* '<S67>/Compare' */
-  boolean_T LogicalOperator1[307200];  /* '<S23>/Logical Operator1' */
-  boolean_T LogicalOperator1_a[307200];/* '<S7>/Logical Operator1' */
-  boolean_T LogicalOperator1_f[307200];/* '<S6>/Logical Operator1' */
-  boolean_T LogicalOperator1_l[10800]; /* '<S3>/Logical Operator1' */
-  boolean_T LogicalOperator1_e[307200];/* '<S62>/Logical Operator1' */
+  boolean_T buoy1Bitmap[307200];       /* '<S23>/Logical Operator1' */
+  boolean_T track3Bitmap[307200];      /* '<S7>/Logical Operator1' */
+  boolean_T track2Bitmap[307200];      /* '<S6>/Logical Operator1' */
+  boolean_T buoy2Bitmap[10800];        /* '<S3>/Logical Operator1' */
+  boolean_T track1Bitmap[307200];      /* '<S62>/Logical Operator1' */
   rtB_BigNegativeErrorS2_brain BigNegativeErrorS2_c;/* '<S8>/BigNegativeError S2' */
   rtB_BigErrorS1_brain BigErrorS1_l;   /* '<S8>/BigError S1' */
   rtB_BigNegativeErrorS2_brain BigNegativeErrorS2_h;/* '<S5>/BigNegativeError S2' */
@@ -159,8 +159,8 @@ typedef struct {
   real_T DepthDiscreteTimeIntegrator_D_k;/* '<S31>/Depth Discrete-Time Integrator' */
   real_T UD_DSTATE_l;                  /* '<S34>/UD' */
   real_T HeadingDiscreteTimeIntegrator_d;/* '<S32>/Heading Discrete-Time Integrator' */
-  real_T UD_DSTATE_c;                  /* '<S53>/UD' */
-  real_T XPositionDiscreteTimeIntegrator;/* '<S51>/XPosition Discrete-Time Integrator' */
+  real_T UD_DSTATE_n;                  /* '<S53>/UD' */
+  real_T DepthDiscreteTimeIntegrator_D_p;/* '<S51>/Depth Discrete-Time Integrator' */
   real_T UD_DSTATE_d;                  /* '<S55>/UD' */
   real_T YBuoyDiscreteTimeIntegrator_DST;/* '<S54>/Y-Buoy Discrete-Time Integrator' */
   real_T UD_DSTATE_db;                 /* '<S52>/UD' */
@@ -173,7 +173,7 @@ typedef struct {
   real_T XBuoyDiscreteTimeIntegrator_DST;/* '<S19>/X-Buoy Discrete-Time Integrator' */
   real_T UD_DSTATE_de;                 /* '<S22>/UD' */
   real_T YBuoyDiscreteTimeIntegrator_D_n;/* '<S21>/Y-Buoy Discrete-Time Integrator' */
-  real_T UD_DSTATE_n;                  /* '<S72>/UD' */
+  real_T UD_DSTATE_nh;                 /* '<S72>/UD' */
   real_T DepthDiscreteTimeIntegrator_D_e;/* '<S70>/Depth Discrete-Time Integrator' */
   real_T UD_DSTATE_b;                  /* '<S73>/UD' */
   real_T HeadingDiscreteTimeIntegrato_dv;/* '<S71>/Heading Discrete-Time Integrator' */
@@ -242,14 +242,14 @@ typedef struct {
    * '<S16>/ResizeH'
    * '<S16>/ResizeS'
    */
-  int32_T pooled20[990];
+  int32_T pooled19[990];
 
   /* Computed Parameter: Xindex
    * Referenced by blocks:
    * '<S16>/ResizeH'
    * '<S16>/ResizeS'
    */
-  int32_T pooled21[1320];
+  int32_T pooled20[1320];
 
   /* Computed Parameter: WALKER_RTP
    * '<S3>/Buoy Blob Analysis'
@@ -263,7 +263,7 @@ typedef struct {
    * '<S45>/Blob Analysis'
    * '<S62>/Blob Analysis'
    */
-  int32_T pooled22[8];
+  int32_T pooled21[8];
 } ConstParam_brain;
 
 /* External inputs (root inport signals with auto storage) */
@@ -274,6 +274,7 @@ typedef struct {
   uint8_T Cb[76800];                   /* '<Root>/Cb' */
   uint8_T Cr[76800];                   /* '<Root>/Cr' */
   int8_T Status;                       /* '<Root>/Status' */
+  int8_T DesiredState;                 /* '<Root>/DesiredState' */
 } ExternalInputs_brain;
 
 /* External outputs (root outports fed by signals with auto storage) */
@@ -565,7 +566,7 @@ extern "C" {
  * '<S50>'  : brain/Chart/Running.FollowTrack.Stage2Position.TrackStage2/AimAtTrack/PID Controller Depth S3
  * '<S51>'  : brain/Chart/Running.FollowTrack.Stage2Position.TrackStage2/AimAtTrack/PID Controller XPosition
  * '<S52>'  : brain/Chart/Running.FollowTrack.Stage2Position.TrackStage2/AimAtTrack/PID Controller Depth S3/Depth Discrete Derivative
- * '<S53>'  : brain/Chart/Running.FollowTrack.Stage2Position.TrackStage2/AimAtTrack/PID Controller XPosition/XPosition Discrete Derivative
+ * '<S53>'  : brain/Chart/Running.FollowTrack.Stage2Position.TrackStage2/AimAtTrack/PID Controller XPosition/Depth Discrete Derivative
  * '<S54>'  : brain/Chart/Running.FollowTrack.Stage2Position.TrackStage2/PositionOverCentroid/PID Controller Y Position
  * '<S55>'  : brain/Chart/Running.FollowTrack.Stage2Position.TrackStage2/PositionOverCentroid/PID Controller Y Position/Y-Buoy Discrete Derivative
  * '<S56>'  : brain/Chart/Running.FollowTrack.Stage3ReOrient.DirectionalControl/BigError S1

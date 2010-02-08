@@ -62,7 +62,7 @@ Model {
       Name		      "DesiredHeading"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.157"
+    ComputedModelVersion    "1.172"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -80,15 +80,15 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Dec 14 18:07:27 2009"
+  LastModifiedDate	  "Mon Feb  8 16:52:12 2010"
   RTWModifiedTimeStamp	  0
-  ModelVersionFormat	  "1.%<AutoIncrement:157>"
+  ModelVersionFormat	  "1.%<AutoIncrement:172>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
   WideLines		  off
-  ShowLineDimensions	  off
+  ShowLineDimensions	  on
   ShowPortDataTypes	  on
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
@@ -886,7 +886,7 @@ Model {
   }
   System {
     Name		    "brain"
-    Location		    [6, 123, 1018, 645]
+    Location		    [236, 178, 1248, 700]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1481,6 +1481,12 @@ Model {
 	      OutDataTypeMode	      "boolean"
 	      LogicDataType	      "fixdt(0, 8)"
 	      OutDataTypeStr	      "boolean"
+	      Port {
+		PortNumber		1
+		Name			"buoy2Bitmap"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
 	    }
 	    Block {
 	      BlockType		      SubSystem
@@ -1546,8 +1552,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "30"
 		  roundingMode		  "Floor"
-		  overflowMode		  "off"
-		  LockScale		  "off"
+		  overflowMode		  off
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -1573,8 +1579,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "30"
 		  roundingMode		  "Floor"
-		  overflowMode		  "off"
-		  LockScale		  "off"
+		  overflowMode		  off
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  Outport
@@ -1670,9 +1676,9 @@ Model {
 		  outRows		  "25"
 		  outRowsCols		  "[25 35]"
 		  interp_method		  "Bilinear"
-		  antialias		  "on"
-		  useROI		  "off"
-		  roiFlag		  "off"
+		  antialias		  on
+		  useROI		  off
+		  roiFlag		  off
 		  firstCoeffMode	  "Same word length as input"
 		  firstCoeffWordLength	  "32"
 		  firstCoeffFracLength	  "31"
@@ -1686,8 +1692,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "10"
 		  roundingMode		  "Nearest"
-		  overflowMode		  "on"
-		  LockScale		  "off"
+		  overflowMode		  on
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -1704,9 +1710,9 @@ Model {
 		  outRows		  "25"
 		  outRowsCols		  "[25 35]"
 		  interp_method		  "Bilinear"
-		  antialias		  "on"
-		  useROI		  "off"
-		  roiFlag		  "off"
+		  antialias		  on
+		  useROI		  off
+		  roiFlag		  off
 		  firstCoeffMode	  "Same word length as input"
 		  firstCoeffWordLength	  "32"
 		  firstCoeffFracLength	  "31"
@@ -1720,8 +1726,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "10"
 		  roundingMode		  "Nearest"
-		  overflowMode		  "on"
-		  LockScale		  "off"
+		  overflowMode		  on
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  Outport
@@ -1934,7 +1940,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -1948,9 +1954,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "off"
+		    DoSatur		    off
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -2326,7 +2332,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -2340,9 +2346,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "off"
+		    DoSatur		    off
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -2716,6 +2722,8 @@ Model {
 	      DstPort		      2
 	    }
 	    Line {
+	      Name		      "buoy2Bitmap"
+	      Labels		      [0, 0]
 	      SrcBlock		      "Logical\nOperator1"
 	      SrcPort		      1
 	      DstBlock		      "Buoy Blob Analysis"
@@ -2740,7 +2748,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Running.FindBuoy.LookforBuoy"
-	    Location		    [109, 261, 689, 572]
+	    Location		    [593, 341, 1173, 652]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2832,30 +2840,30 @@ Model {
 		  DialogControllerArgs	  "DataTag5"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  "off"
-		  centroid		  "off"
-		  bBox			  "off"
-		  majorAxis		  "off"
-		  minorAxis		  "off"
-		  angle			  "off"
-		  eccentricity		  "on"
-		  equivDiameterSq	  "off"
-		  extent		  "on"
-		  perimeter		  "off"
+		  area			  off
+		  centroid		  off
+		  bBox			  off
+		  majorAxis		  off
+		  minorAxis		  off
+		  angle			  off
+		  eccentricity		  on
+		  equivDiameterSq	  off
+		  extent		  on
+		  perimeter		  off
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  "on"
-		  isCount		  "off"
-		  useMinArea		  "on"
+		  warnIfNumBlobsExceeded  on
+		  isCount		  off
+		  useMinArea		  on
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  "on"
+		  useMaxArea		  on
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  "off"
+		  excludeBorderBlob	  off
 		  outDT			  "single"
-		  isOutVarDim		  "off"
-		  isFill		  "on"
+		  isOutVarDim		  off
+		  isFill		  on
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  "off"
+		  isLabel		  off
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -2875,8 +2883,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  "off"
-		  LockScale		  "off"
+		  overflowMode		  off
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -2887,7 +2895,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -2896,7 +2904,7 @@ Model {
 		  relop			  ">"
 		  const			  "Buoy_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -2907,7 +2915,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -2916,7 +2924,7 @@ Model {
 		  relop			  "<"
 		  const			  "Buoy_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -3005,6 +3013,12 @@ Model {
 		  OutDataTypeMode	  "boolean"
 		  LogicDataType		  "fixdt(0, 8)"
 		  OutDataTypeStr	  "boolean"
+		  Port {
+		    PortNumber		    1
+		    Name		    "buoy1Bitmap"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -3074,7 +3088,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -3083,7 +3097,7 @@ Model {
 		  relop			  ">"
 		  const			  "Buoy_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Line {
 		  SrcBlock		  "H"
@@ -3161,6 +3175,8 @@ Model {
 		  DstPort		  2
 		}
 		Line {
+		  Name			  "buoy1Bitmap"
+		  Labels		  [0, 0]
 		  SrcBlock		  "Logical\nOperator1"
 		  SrcPort		  1
 		  DstBlock		  "Blob Analysis"
@@ -3759,7 +3775,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -3773,9 +3789,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "on"
+		  DoSatur		  on
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -3959,7 +3975,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -3973,9 +3989,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "off"
+		  DoSatur		  off
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -4351,7 +4367,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Running.FollowTrack.Stage1Aim.TrackStage1"
-	    Location		    [58, 121, 1137, 545]
+	    Location		    [1679, 206, 2758, 630]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -4446,7 +4462,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"AimAtTrack"
-		Location		[145, 95, 1128, 703]
+		Location		[1753, 157, 2736, 765]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -4605,7 +4621,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -4619,9 +4635,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "on"
+		    DoSatur		    on
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -4790,7 +4806,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -4804,9 +4820,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "on"
+		    DoSatur		    on
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -4971,7 +4987,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "ChangetoRight"
-		  Position		  [690, 103, 720, 117]
+		  Position		  [685, 173, 715, 187]
 		  IconDisplay		  "Port number"
 		  DataType		  "int8"
 		  OutDataType		  "fixdt(1, 16)"
@@ -4981,7 +4997,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "ChangetoLeft"
-		  Position		  [690, 173, 720, 187]
+		  Position		  [645, 103, 675, 117]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
 		  DataType		  "int8"
@@ -5025,22 +5041,16 @@ Model {
 		  DstPort		  2
 		}
 		Line {
-		  SrcBlock		  "Multiply1"
-		  SrcPort		  1
-		  DstBlock		  "ChangetoLeft"
-		  DstPort		  1
-		}
-		Line {
 		  SrcBlock		  "DoubleToint1"
 		  SrcPort		  1
 		  Points		  [25, 0]
 		  Branch {
-		    DstBlock		    "ChangetoRight"
+		    Points		    [0, 60]
+		    DstBlock		    "Multiply1"
 		    DstPort		    1
 		  }
 		  Branch {
-		    Points		    [0, 60]
-		    DstBlock		    "Multiply1"
+		    DstBlock		    "ChangetoLeft"
 		    DstPort		    1
 		  }
 		}
@@ -5080,6 +5090,12 @@ Model {
 		  DstBlock		  "Add"
 		  DstPort		  1
 		}
+		Line {
+		  SrcBlock		  "Multiply1"
+		  SrcPort		  1
+		  DstBlock		  "ChangetoRight"
+		  DstPort		  1
+		}
 		Annotation {
 		  Name			  "Error"
 		  Position		  [279, 307]
@@ -5107,6 +5123,12 @@ Model {
 	      Opaque		      off
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
+	      Port {
+		PortNumber		2
+		Name			"centX1"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
 	      System {
 		Name			"FindDesiredHeading"
 		Location		[205, 253, 1117, 552]
@@ -5168,30 +5190,30 @@ Model {
 		  DialogControllerArgs	  "DataTag6"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  "off"
-		  centroid		  "on"
-		  bBox			  "off"
-		  majorAxis		  "off"
-		  minorAxis		  "off"
-		  angle			  "on"
-		  eccentricity		  "off"
-		  equivDiameterSq	  "off"
-		  extent		  "off"
-		  perimeter		  "off"
+		  area			  off
+		  centroid		  on
+		  bBox			  off
+		  majorAxis		  off
+		  minorAxis		  off
+		  angle			  on
+		  eccentricity		  off
+		  equivDiameterSq	  off
+		  extent		  off
+		  perimeter		  off
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  "off"
-		  isCount		  "off"
-		  useMinArea		  "on"
+		  warnIfNumBlobsExceeded  off
+		  isCount		  off
+		  useMinArea		  on
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  "on"
+		  useMaxArea		  on
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  "off"
+		  excludeBorderBlob	  off
 		  outDT			  "double"
-		  isOutVarDim		  "off"
-		  isFill		  "on"
+		  isOutVarDim		  off
+		  isFill		  on
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  "off"
+		  isLabel		  off
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -5211,8 +5233,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  "off"
-		  LockScale		  "off"
+		  overflowMode		  off
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  Constant
@@ -5347,6 +5369,12 @@ Model {
 	      OutDataTypeMode	      "boolean"
 	      LogicDataType	      "fixdt(0, 8)"
 	      OutDataTypeStr	      "boolean"
+	      Port {
+		PortNumber		1
+		Name			"track2Bitmap"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
 	    }
 	    Block {
 	      BlockType		      Reference
@@ -5460,6 +5488,8 @@ Model {
 	      DstPort		      2
 	    }
 	    Line {
+	      Name		      "centX1"
+	      Labels		      [2, 0]
 	      SrcBlock		      "FindDesiredHeading"
 	      SrcPort		      2
 	      Points		      [25, 0; 0, 35]
@@ -5578,6 +5608,8 @@ Model {
 	      DstPort		      2
 	    }
 	    Line {
+	      Name		      "track2Bitmap"
+	      Labels		      [0, 0]
 	      SrcBlock		      "Logical\nOperator1"
 	      SrcPort		      1
 	      Points		      [55, 0; 0, -15]
@@ -5603,8 +5635,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Running.FollowTrack.Stage2Position.TrackStage2"
-	    Location		    [58, 128, 1137, 552]
-	    Open		    off
+	    Location		    [1556, 139, 2785, 678]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -5722,7 +5754,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"AimAtTrack"
-		Location		[145, 95, 1128, 703]
+		Location		[1686, 156, 2669, 764]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -5881,7 +5913,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -5895,9 +5927,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "on"
+		    DoSatur		    on
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -6066,7 +6098,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -6080,9 +6112,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "on"
+		    DoSatur		    on
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -6247,7 +6279,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "ChangetoRight"
-		  Position		  [690, 103, 720, 117]
+		  Position		  [685, 173, 715, 187]
 		  IconDisplay		  "Port number"
 		  DataType		  "int8"
 		  OutDataType		  "fixdt(1, 16)"
@@ -6257,7 +6289,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "ChangetoLeft"
-		  Position		  [690, 173, 720, 187]
+		  Position		  [690, 103, 720, 117]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
 		  DataType		  "int8"
@@ -6301,22 +6333,16 @@ Model {
 		  DstPort		  2
 		}
 		Line {
-		  SrcBlock		  "Multiply1"
-		  SrcPort		  1
-		  DstBlock		  "ChangetoLeft"
-		  DstPort		  1
-		}
-		Line {
 		  SrcBlock		  "DoubleToint1"
 		  SrcPort		  1
 		  Points		  [25, 0]
 		  Branch {
-		    DstBlock		    "ChangetoRight"
+		    Points		    [0, 60]
+		    DstBlock		    "Multiply1"
 		    DstPort		    1
 		  }
 		  Branch {
-		    Points		    [0, 60]
-		    DstBlock		    "Multiply1"
+		    DstBlock		    "ChangetoLeft"
 		    DstPort		    1
 		  }
 		}
@@ -6356,6 +6382,12 @@ Model {
 		  DstBlock		  "Add"
 		  DstPort		  1
 		}
+		Line {
+		  SrcBlock		  "Multiply1"
+		  SrcPort		  1
+		  DstBlock		  "ChangetoRight"
+		  DstPort		  1
+		}
 		Annotation {
 		  Name			  "Error"
 		  Position		  [279, 307]
@@ -6383,6 +6415,18 @@ Model {
 	      Opaque		      off
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
+	      Port {
+		PortNumber		2
+		Name			"centX2"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"centY2"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
 	      System {
 		Name			"FindDesiredHeading"
 		Location		[156, 207, 1068, 506]
@@ -6444,30 +6488,30 @@ Model {
 		  DialogControllerArgs	  "DataTag7"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  "off"
-		  centroid		  "on"
-		  bBox			  "off"
-		  majorAxis		  "off"
-		  minorAxis		  "off"
-		  angle			  "on"
-		  eccentricity		  "off"
-		  equivDiameterSq	  "off"
-		  extent		  "off"
-		  perimeter		  "off"
+		  area			  off
+		  centroid		  on
+		  bBox			  off
+		  majorAxis		  off
+		  minorAxis		  off
+		  angle			  on
+		  eccentricity		  off
+		  equivDiameterSq	  off
+		  extent		  off
+		  perimeter		  off
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  "off"
-		  isCount		  "off"
-		  useMinArea		  "on"
+		  warnIfNumBlobsExceeded  off
+		  isCount		  off
+		  useMinArea		  on
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  "on"
+		  useMaxArea		  on
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  "off"
+		  excludeBorderBlob	  off
 		  outDT			  "double"
-		  isOutVarDim		  "off"
-		  isFill		  "on"
+		  isOutVarDim		  off
+		  isFill		  on
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  "off"
+		  isLabel		  off
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -6487,8 +6531,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  "off"
-		  LockScale		  "off"
+		  overflowMode		  off
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  Constant
@@ -6639,6 +6683,12 @@ Model {
 	      OutDataTypeMode	      "boolean"
 	      LogicDataType	      "fixdt(0, 8)"
 	      OutDataTypeStr	      "boolean"
+	      Port {
+		PortNumber		1
+		Name			"track3Bitmap"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
 	    }
 	    Block {
 	      BlockType		      SubSystem
@@ -6769,7 +6819,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -6783,9 +6833,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "off"
+		    DoSatur		    off
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -7079,6 +7129,8 @@ Model {
 	      OutScaling	      "2^0"
 	    }
 	    Line {
+	      Name		      "centX2"
+	      Labels		      [2, 0]
 	      SrcBlock		      "FindDesiredHeading"
 	      SrcPort		      2
 	      Points		      [25, 0; 0, 85]
@@ -7119,6 +7171,8 @@ Model {
 	      DstPort		      2
 	    }
 	    Line {
+	      Name		      "centY2"
+	      Labels		      [2, 0]
 	      SrcBlock		      "FindDesiredHeading"
 	      SrcPort		      3
 	      Points		      [35, 0; 0, 180]
@@ -7233,6 +7287,8 @@ Model {
 	      DstPort		      2
 	    }
 	    Line {
+	      Name		      "track3Bitmap"
+	      Labels		      [0, 0]
 	      SrcBlock		      "Logical\nOperator1"
 	      SrcPort		      1
 	      Points		      [30, 0; 0, -25]
@@ -7739,7 +7795,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -7753,9 +7809,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "on"
+		  DoSatur		  on
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -7939,7 +7995,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -7953,9 +8009,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "off"
+		  DoSatur		  off
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -8324,7 +8380,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Running.ValidationGate.LookforTrack"
-	    Location		    [27, 157, 607, 468]
+	    Location		    [556, 247, 1136, 558]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -8399,7 +8455,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"LookforTrack"
-		Location		[93, 228, 1168, 610]
+		Location		[235, 303, 1310, 685]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -8436,30 +8492,30 @@ Model {
 		  DialogControllerArgs	  "DataTag8"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  "off"
-		  centroid		  "off"
-		  bBox			  "off"
-		  majorAxis		  "off"
-		  minorAxis		  "off"
-		  angle			  "off"
-		  eccentricity		  "on"
-		  equivDiameterSq	  "off"
-		  extent		  "off"
-		  perimeter		  "off"
+		  area			  off
+		  centroid		  off
+		  bBox			  off
+		  majorAxis		  off
+		  minorAxis		  off
+		  angle			  off
+		  eccentricity		  on
+		  equivDiameterSq	  off
+		  extent		  off
+		  perimeter		  off
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  "on"
-		  isCount		  "off"
-		  useMinArea		  "on"
+		  warnIfNumBlobsExceeded  on
+		  isCount		  off
+		  useMinArea		  on
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  "on"
+		  useMaxArea		  on
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  "off"
+		  excludeBorderBlob	  off
 		  outDT			  "single"
-		  isOutVarDim		  "off"
-		  isFill		  "on"
+		  isOutVarDim		  off
+		  isFill		  on
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  "off"
+		  isLabel		  off
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -8479,8 +8535,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  "off"
-		  LockScale		  "off"
+		  overflowMode		  off
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -8549,7 +8605,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -8558,7 +8614,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -8569,7 +8625,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -8578,7 +8634,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  If
@@ -8607,6 +8663,12 @@ Model {
 		  OutDataTypeMode	  "boolean"
 		  LogicDataType		  "fixdt(0, 8)"
 		  OutDataTypeStr	  "boolean"
+		  Port {
+		    PortNumber		    1
+		    Name		    "track1Bitmap"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -8676,7 +8738,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -8685,7 +8747,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Line {
 		  SrcBlock		  "H"
@@ -8757,6 +8819,8 @@ Model {
 		  DstPort		  2
 		}
 		Line {
+		  Name			  "track1Bitmap"
+		  Labels		  [0, 0]
 		  SrcBlock		  "Logical\nOperator1"
 		  SrcPort		  1
 		  DstBlock		  "Blob Analysis"
@@ -9335,7 +9399,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -9349,9 +9413,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "on"
+		  DoSatur		  on
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -9535,7 +9599,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -9549,9 +9613,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "off"
+		  DoSatur		  off
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -10492,7 +10556,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"GetVideo1"
-	Location		[52, 112, 1159, 521]
+	Location		[93, 179, 1200, 588]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -10542,9 +10606,16 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  "on"
+	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
+	  Port {
+	    PortNumber		    1
+	    Name		    "viddB"
+	    PropagatedSignals	    "vidB"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
 	}
 	Block {
 	  BlockType		  Reference
@@ -10558,7 +10629,7 @@ Model {
 	  antialiasing		  "Default"
 	  hcoeff		  "[0.2 0.6 0.2]"
 	  vcoeff		  "[0.5 0.5]"
-	  isInputTransposed	  "off"
+	  isInputTransposed	  off
 	}
 	Block {
 	  BlockType		  Reference
@@ -10573,6 +10644,24 @@ Model {
 	  rec			  "Rec. 601 (SDTV)"
 	  sys			  "1125/60/2:1"
 	  imagePorts		  "Separate color signals"
+	  Port {
+	    PortNumber		    1
+	    Name		    "vidR"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    2
+	    Name		    "vidG"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "vidB"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
 	}
 	Block {
 	  BlockType		  Reference
@@ -10596,9 +10685,16 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  "on"
+	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
+	  Port {
+	    PortNumber		    1
+	    Name		    "viddG"
+	    PropagatedSignals	    "vidG"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
 	}
 	Block {
 	  BlockType		  Reference
@@ -10608,9 +10704,16 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  "on"
+	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
+	  Port {
+	    PortNumber		    1
+	    Name		    "viddR"
+	    PropagatedSignals	    "vidR"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
 	}
 	Block {
 	  BlockType		  Outport
@@ -10654,6 +10757,8 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  Name			  "viddB"
+	  Labels		  [2, 0]
 	  SrcBlock		  "Blue Data Type\nConversion2"
 	  SrcPort		  1
 	  Points		  [35, 0]
@@ -10661,6 +10766,8 @@ Model {
 	  DstPort		  3
 	}
 	Line {
+	  Name			  "viddG"
+	  Labels		  [2, 0]
 	  SrcBlock		  "Green Data Type\nConversion1"
 	  SrcPort		  1
 	  Points		  [15, 0; 0, -35]
@@ -10668,6 +10775,8 @@ Model {
 	  DstPort		  2
 	}
 	Line {
+	  Name			  "viddR"
+	  Labels		  [2, 0]
 	  SrcBlock		  "Red Data Type\nConversion"
 	  SrcPort		  1
 	  Points		  [15, 0; 0, 40]
@@ -10675,6 +10784,8 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  Name			  "vidB"
+	  Labels		  [2, 0]
 	  SrcBlock		  "Color Space\n Conversion"
 	  SrcPort		  3
 	  Points		  [35, 0; 0, 125]
@@ -10682,6 +10793,8 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  Name			  "vidG"
+	  Labels		  [2, 0]
 	  SrcBlock		  "Color Space\n Conversion"
 	  SrcPort		  2
 	  Points		  [45, 0; 0, 50]
@@ -10689,6 +10802,8 @@ Model {
 	  DstPort		  1
 	}
 	Line {
+	  Name			  "vidR"
+	  Labels		  [2, 0]
 	  SrcBlock		  "Color Space\n Conversion"
 	  SrcPort		  1
 	  Points		  [45, 0; 0, -25]
@@ -10994,18 +11109,19 @@ Stateflow {
   chart {
     id			    2
     name		    "Chart"
-    windowPosition	    [1224 241.412 880.941 480.282]
-    viewLimits		    [0 693.176 0 366.069]
-    zoomFactor		    0.833
-    screen		    [1 1 2490 1680 1.180555555555556]
+    windowPosition	    [1220.612 28.8 1422.212 772.518]
+    viewLimits		    [-18.75 1697.603 -21.176 893.221]
+    zoomFactor		    1.25
+    screen		    [1 1 3120 1050 1.180555555555556]
     treeNode		    [0 28 0 0]
     firstTransition	    40
-    viewObj		    2
+    viewObj		    14
     visible		    1
     machine		    1
     subviewS {
+      zoomFactor	      0.833
     }
-    ssIdHighWaterMark	    322
+    ssIdHighWaterMark	    323
     decomposition	    CLUSTER_CHART
     firstData		    141
     updateMethod	    DISCRETE
@@ -11112,7 +11228,7 @@ Stateflow {
     visible		    0
     subviewer		    28
     subviewS {
-      x1		      -18.75
+      x1		      -21.176
       y1		      12.094
       zoomFactor	      1.25
       pos		      [0 0 1160.726 496.955]
@@ -11251,11 +11367,10 @@ Stateflow {
     treeNode		    [28 16 21 30]
     firstTransition	    35
     superState		    SUBCHART
-    visible		    0
     subviewer		    28
     subviewS {
       x1		      -18.75
-      y1		      722.25
+      y1		      418.105
       zoomFactor	      1.25
       pos		      [0 0 905.375 1277.25]
     }
@@ -11272,7 +11387,6 @@ Stateflow {
     chart		    2
     treeNode		    [16 0 18 0]
     superState		    SUBCHART
-    visible		    0
     subviewer		    14
     ssIdNumber		    202
     type		    FUNC_STATE
@@ -11292,7 +11406,6 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [14 18 0 17]
-    visible		    0
     subviewer		    14
     ssIdNumber		    213
     type		    OR_STATE
@@ -11306,7 +11419,6 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [14 20 16 25]
-    visible		    0
     subviewer		    14
     ssIdNumber		    214
     type		    OR_STATE
@@ -11320,7 +11432,6 @@ Stateflow {
     chart		    2
     treeNode		    [16 0 0 15]
     superState		    SUBCHART
-    visible		    0
     subviewer		    14
     ssIdNumber		    216
     type		    FUNC_STATE
@@ -11342,7 +11453,6 @@ Stateflow {
     chart		    2
     treeNode		    [17 0 20 0]
     superState		    SUBCHART
-    visible		    0
     subviewer		    14
     ssIdNumber		    221
     type		    FUNC_STATE
@@ -11361,7 +11471,6 @@ Stateflow {
     chart		    2
     treeNode		    [17 0 0 19]
     superState		    SUBCHART
-    visible		    0
     subviewer		    14
     ssIdNumber		    234
     type		    FUNC_STATE
@@ -11522,6 +11631,7 @@ Stateflow {
     treeNode		    [2 12 0 29]
     firstTransition	    33
     superState		    SUBCHART
+    visible		    0
     subviewer		    2
     subviewS {
       x1		      -16.59
@@ -11540,6 +11650,7 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [2 0 28 0]
+    visible		    0
     subviewer		    2
     ssIdNumber		    291
     type		    OR_STATE
@@ -11579,6 +11690,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    197
   }
@@ -11603,6 +11716,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    162
   }
@@ -11648,12 +11763,14 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    199
   }
   transition {
     id			    35
-    labelPosition	    [172.065 55.983 8.093 18.182]
+    labelPosition	    [172.065 55.983 8.472 19.035]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 186.4657 48.6563 0 0]
@@ -11665,7 +11782,6 @@ Stateflow {
     midPoint		    [186.4657 60.0477]
     chart		    2
     linkNode		    [14 0 36]
-    visible		    0
     dataLimits		    [184.066 188.866 48.656 78.656]
     subviewer		    14
     drawStyle		    SMART
@@ -11675,7 +11791,7 @@ Stateflow {
   transition {
     id			    36
     labelString		    "[ErrorCountX>3]"
-    labelPosition	    [404.375 472.594 81.938 18.182]
+    labelPosition	    [404.375 472.594 85.781 19.035]
     fontSize		    12
     src {
       id		      16
@@ -11688,7 +11804,6 @@ Stateflow {
     midPoint		    [397.6221 478.083]
     chart		    2
     linkNode		    [14 35 39]
-    visible		    0
     dataLimits		    [395.222 400.022 469.969 493.688]
     stampAngle		    NaN
     subviewer		    14
@@ -11703,11 +11818,11 @@ Stateflow {
     fontSize		    12
     src {
       id		      14
-      intersection	      [2 1 0 0.4969 432.547 99.8385 0 -0.1875]
+      intersection	      [2 1 -0 0.4969 432.547 99.8385 0 -0.1875]
     }
     dst {
       id		      21
-      intersection	      [4 -1 -0 0.5255 494.5782 99.8385 0 0.1875]
+      intersection	      [4 -1 0 0.5255 494.5782 99.8385 0 0.1875]
     }
     midPoint		    [460.6504 99.837]
     chart		    2
@@ -11717,6 +11832,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    240
   }
@@ -11741,13 +11858,15 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    241
   }
   transition {
     id			    39
     labelString		    "[ErrorCountY > 3]"
-    labelPosition	    [342.813 885.844 88.007 18.182]
+    labelPosition	    [342.813 885.844 92.135 19.035]
     fontSize		    12
     src {
       id		      17
@@ -11760,8 +11879,7 @@ Stateflow {
     midPoint		    [340.9375 895.1116]
     chart		    2
     linkNode		    [14 36 0]
-    visible		    0
-    dataLimits		    [338.477 343.277 877.313 919.594]
+    dataLimits		    [338.477 343.277 877.312 919.594]
     stampAngle		    NaN
     subviewer		    14
     drawStyle		    SMART
@@ -11771,7 +11889,7 @@ Stateflow {
   transition {
     id			    40
     labelString		    "[Status == 1]"
-    labelPosition	    [232.529 197.892 69.189 18.33]
+    labelPosition	    [232.529 197.892 69.162 18.322]
     fontSize		    12
     src {
       id		      29
@@ -11784,6 +11902,7 @@ Stateflow {
     midPoint		    [227.7533 183.6528]
     chart		    2
     linkNode		    [2 0 41]
+    visible		    0
     dataLimits		    [225.353 230.153 141.489 220.741]
     stampAngle		    NaN
     subviewer		    2
@@ -11796,7 +11915,7 @@ Stateflow {
   transition {
     id			    41
     labelString		    "[Status ~= 1]"
-    labelPosition	    [134.546 195.759 69.189 18.33]
+    labelPosition	    [134.546 195.759 69.162 18.322]
     fontSize		    12
     src {
       id		      28
@@ -11809,6 +11928,7 @@ Stateflow {
     midPoint		    [207.0806 178.5771]
     chart		    2
     linkNode		    [2 40 42]
+    visible		    0
     dataLimits		    [204.681 209.481 141.489 220.741]
     stampAngle		    NaN
     subviewer		    2
@@ -11820,7 +11940,7 @@ Stateflow {
   }
   transition {
     id			    42
-    labelPosition	    [143.342 271.391 7.766 18.33]
+    labelPosition	    [143.342 271.391 7.763 18.322]
     fontSize		    12
     src {
       intersection	      [0 1 0 0 129.6983 283.4258 0 0]
@@ -11832,6 +11952,7 @@ Stateflow {
     midPoint		    [143.0361 283.4258]
     chart		    2
     linkNode		    [2 41 0]
+    visible		    0
     dataLimits		    [129.698 163.429 281.026 285.826]
     subviewer		    2
     drawStyle		    SMART
@@ -11877,7 +11998,7 @@ Stateflow {
     }
     midPoint		    [83.5789 281.0486]
     chart		    2
-    linkNode		    [28 51 43]
+    linkNode		    [28 52 43]
     visible		    0
     dataLimits		    [81.179 85.979 149.524 415.621]
     stampAngle		    NaN
@@ -11907,6 +12028,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    2
     ssIdNumber		    302
   }
@@ -11931,6 +12054,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    2
     ssIdNumber		    303
   }
@@ -11955,6 +12080,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    2
     ssIdNumber		    304
   }
@@ -11979,6 +12106,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    3
     ssIdNumber		    318
   }
@@ -11997,12 +12126,14 @@ Stateflow {
     }
     midPoint		    [525.0639 276.4744]
     chart		    2
-    linkNode		    [28 50 52]
+    linkNode		    [28 50 51]
     visible		    0
     dataLimits		    [522.664 527.464 133.587 415.621]
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    2
     ssIdNumber		    319
   }
@@ -12027,13 +12158,15 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    4
     ssIdNumber		    320
   }
   transition {
     id			    51
     labelString		    "[DesiredState ~= 5 && DesiredState ~= 0]"
-    labelPosition	    [573.72 329.069 209.686 19.035]
+    labelPosition	    [573.72 328.3 209.686 19.035]
     fontSize		    12
     src {
       id		      7
@@ -12045,12 +12178,14 @@ Stateflow {
     }
     midPoint		    [672.8201 277.7321]
     chart		    2
-    linkNode		    [28 52 44]
+    linkNode		    [28 49 52]
     visible		    0
     dataLimits		    [670.42 675.22 136.217 415.621]
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    2
     ssIdNumber		    321
   }
@@ -12069,12 +12204,14 @@ Stateflow {
     }
     midPoint		    [718.3378 274.1055]
     chart		    2
-    linkNode		    [28 49 51]
+    linkNode		    [28 51 44]
     visible		    0
     dataLimits		    [715.938 720.738 136.217 415.621]
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    5
     ssIdNumber		    322
   }

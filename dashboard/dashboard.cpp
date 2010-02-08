@@ -1,5 +1,8 @@
 #include <QtGui>
 #include "dashboard.h"
+#include <QByteArray>
+#include <QPixmap>
+#include <QImage>
 
 Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
      : QMainWindow(parent)
@@ -114,6 +117,7 @@ void Dashboard::updateSensorsView(AUVSensors values){
 	cameraPosComboBox->setCurrentIndex(values.camera);
 
 	headingLine->setRotation(values.orientation.yaw);
+
 	
 	/*
 	auvStatus status;
@@ -138,6 +142,65 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values){
 //	stateLabel->setText(QString::number(values.State));
 	desiredHeadingSpinBox->setValue(values.DesiredHeading);
 	desiredDepthSpinBox->setValue(values.DesiredDepth);
+
+	QPixmap videoPixmap(640,480);
+	QPixmap trackPixmap(640,480);
+	QImage videoFrame(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
+	QImage trackFrame(640,480,QImage::Format_Mono);
+	trackFrame.setColor(0, 0xFF000000);
+	trackFrame.setColor(1, 0xFFFF0000);
+	videoPixmap.fill();
+	trackPixmap.fill();
+
+	// copy frame from signal to pixmap
+	int x = 639;
+	int y = 480;
+	for(int i = 307200; i > 0; --i){
+		y--;
+		unsigned int videoPixel = (0xFF000000) | ((((int)brain_B.vidR[i]) << 16)&0x00FF0000) | ((((int)brain_B.vidG[i]) << 8)&0x0000FF00) | (((int)brain_B.vidB[i])&0x000000FF); 
+		videoFrame.setPixel(x, y, videoPixel);
+		if(values.State == 2)
+			trackFrame.setPixel(x, y, brain_B.track1Bitmap[i]);
+		else if(values.State ==3){
+			if(brain_DWork.ErrorCountY > 3)
+				trackFrame.setPixel(x, y, brain_B.track3Bitmap[i]);
+			else if(brain_DWork.ErrorCountX > 3){
+				trackFrame.setPixel(x, y, brain_B.track3Bitmap[i]);
+			}
+			else{
+				trackFrame.setPixel(x, y, brain_B.track2Bitmap[i]);
+			}
+		}
+		if(x == 1) trackFrame.setPixel((int)brain_B.BlobCentroidX,y,1);
+		if(y == 1) trackFrame.setPixel(x,(int)brain_B.BlobCentroidY,1);
+//		qDebug(videoPixel);
+		if(y <= 0){
+			x--;
+			y = 480;
+		}
+	}
+	// show centroid
+/*
+	if(values.State == 2)
+		//trackFrame.setPixel(x, y, brain_B.track1Bitmap[i]);
+	else if(values.State ==3){
+		if(brain_DWork.ErrorCountY > 3)
+		//	trackFrame.setPixel(x, y, brain_B.track3Bitmap[i]);
+		else if(brain_DWork.ErrorCountX > 3){
+			trackFrame.setPixel(centX1, 2, 1);
+		}
+		else{
+			trackFrame.setPixel(x, y, brain_B.track2Bitmap[i]);
+		}
+	}
+*/
+
+	videoPixmap = QPixmap::fromImage(videoFrame);
+	trackPixmap = QPixmap::fromImage(trackFrame);
+	videoLabel->setScaledContents(true);
+	videoLabel->setPixmap(videoPixmap);
+	bitVideoLabel->setScaledContents(true);
+	bitVideoLabel->setPixmap(trackPixmap);
 	
 	//qDebug("Brain Data on display");
 	

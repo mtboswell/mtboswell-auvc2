@@ -4,7 +4,7 @@
  * Definitions required by Real-Time Workshop generated code.
  *
  * Real-Time Workshop version: 7.3
- * Generated on: 2009-12-12 18:49:41
+ * Generated on: 2010-02-08 16:28:37
  */
 
 #ifndef __RTWTYPES_H__

@@ -4,11 +4,13 @@
 
 TEMPLATE = app
 TARGET = agent
+CONFIG += qt
 QT += phonon
 DEPENDPATH += . \
               auv \
               brain \
-	      dashboard
+	      dashboard \
+		/usr/local/Trolltech/Qt-4.6.1
 INCLUDEPATH += . \
                brain \
                auv \

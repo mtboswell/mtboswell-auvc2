@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.157
+ * Model version                        : 1.170
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Mon Dec 14 18:36:17 2009
+ * Real-Time Workshop file generated on : Mon Feb  8 16:40:57 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Mon Dec 14 18:36:18 2009
+ * C/C++ source code generated on       : Mon Feb  8 16:40:57 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic
@@ -103,9 +103,9 @@ typedef struct {
   real32_T SFunction_o30;              /* '<Root>/Chart' */
   real32_T SFunction_o35;              /* '<Root>/Chart' */
   real32_T SFunction_o36;              /* '<Root>/Chart' */
-  real32_T RedDataTypeConversion[307200];/* '<S2>/Red Data Type Conversion' */
-  real32_T GreenDataTypeConversion1[307200];/* '<S2>/Green Data Type Conversion1' */
-  real32_T BlueDataTypeConversion2[307200];/* '<S2>/Blue Data Type Conversion2' */
+  real32_T viddR[307200];              /* '<S2>/Red Data Type Conversion' */
+  real32_T viddG[307200];              /* '<S2>/Green Data Type Conversion1' */
+  real32_T viddB[307200];              /* '<S2>/Blue Data Type Conversion2' */
   int32_T BlobArea;                    /* '<S3>/Embedded MATLAB Function' */
   int8_T Right;                        /* '<Root>/Chart' */
   int8_T Left;                         /* '<Root>/Chart' */
@@ -128,19 +128,19 @@ typedef struct {
   int8_T DoubleToint1_c;               /* '<S10>/DoubleToint1' */
   int8_T DoubleToint8_b;               /* '<S10>/DoubleToint8' */
   uint8_T State;                       /* '<Root>/Chart' */
-  uint8_T ColorSpaceConversion_o3[307200];/* '<S2>/Color Space  Conversion' */
-  uint8_T ColorSpaceConversion_o1[307200];/* '<S2>/Color Space  Conversion' */
-  uint8_T ColorSpaceConversion_o2[307200];/* '<S2>/Color Space  Conversion' */
+  uint8_T vidB[307200];                /* '<S2>/Color Space  Conversion' */
+  uint8_T vidR[307200];                /* '<S2>/Color Space  Conversion' */
+  uint8_T vidG[307200];                /* '<S2>/Color Space  Conversion' */
   boolean_T Compare[307200];           /* '<S28>/Compare' */
   boolean_T Compare_o[307200];         /* '<S49>/Compare' */
   boolean_T Compare_a[307200];         /* '<S39>/Compare' */
   boolean_T Compare_e[10800];          /* '<S13>/Compare' */
   boolean_T Compare_c[307200];         /* '<S67>/Compare' */
-  boolean_T LogicalOperator1[307200];  /* '<S23>/Logical Operator1' */
-  boolean_T LogicalOperator1_a[307200];/* '<S7>/Logical Operator1' */
-  boolean_T LogicalOperator1_f[307200];/* '<S6>/Logical Operator1' */
-  boolean_T LogicalOperator1_l[10800]; /* '<S3>/Logical Operator1' */
-  boolean_T LogicalOperator1_e[307200];/* '<S62>/Logical Operator1' */
+  boolean_T buoy1Bitmap[307200];       /* '<S23>/Logical Operator1' */
+  boolean_T track3Bitmap[307200];      /* '<S7>/Logical Operator1' */
+  boolean_T track2Bitmap[307200];      /* '<S6>/Logical Operator1' */
+  boolean_T buoy2Bitmap[10800];        /* '<S3>/Logical Operator1' */
+  boolean_T track1Bitmap[307200];      /* '<S62>/Logical Operator1' */
   rtB_BigNegativeErrorS2_brain BigNegativeErrorS2_c;/* '<S8>/BigNegativeError S2' */
   rtB_BigErrorS1_brain BigErrorS1_l;   /* '<S8>/BigError S1' */
   rtB_BigNegativeErrorS2_brain BigNegativeErrorS2_h;/* '<S5>/BigNegativeError S2' */
