@@ -1,0 +1,5 @@
+#! /bin/bash
+cp simulink/brain.zip brain/
+cd brain/
+unzip -qo brain.zip
+cd ../

@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.153
+ * Model version                        : 1.168
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Sat Dec 12 18:49:35 2009
+ * Real-Time Workshop file generated on : Mon Feb  8 16:28:35 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Sat Dec 12 18:49:36 2009
+ * C/C++ source code generated on       : Mon Feb  8 16:28:35 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic
@@ -35,18 +35,18 @@ Parameters_brain brain_P = {
   0.001,
   0.001,
   0.8,
-  -0.1,
-  -3.0,
+  0.0,
+  0.0,
   -75.0,
   60.0,
   0.01,
   0.01,
   0.3,
   0.9,
-  0.25,
+  0.19,
   0.4,
   15.0,
-  500000U,
+  153000U,
   50U
 };
 

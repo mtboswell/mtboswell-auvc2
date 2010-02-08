@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.157
+ * Model version                        : 1.170
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Mon Dec 14 18:36:17 2009
+ * Real-Time Workshop file generated on : Mon Feb  8 16:40:57 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Mon Dec 14 18:36:18 2009
+ * C/C++ source code generated on       : Mon Feb  8 16:40:57 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic
@@ -317,7 +317,7 @@ static void brain_ValidationGate(void)
       /* RelationalOperator: '<S65>/Compare' incorporates:
        *  Constant: '<S65>/Constant'
        */
-      brain_B.LogicalOperator1_e[i] = (brain_B.SFunction_o11[i] <
+      brain_B.track1Bitmap[i] = (brain_B.SFunction_o11[i] <
         brain_P.Track_HueLower);
 
       /* RelationalOperator: '<S64>/Compare' incorporates:
@@ -326,8 +326,7 @@ static void brain_ValidationGate(void)
       brain_B.Compare_c[i] = (brain_B.SFunction_o11[i] > brain_P.Track_HueHigher);
 
       /* Logic: '<S62>/Logical Operator' */
-      brain_B.LogicalOperator1_e[i] = (brain_B.LogicalOperator1_e[i] ||
-        brain_B.Compare_c[i]);
+      brain_B.track1Bitmap[i] = (brain_B.track1Bitmap[i] || brain_B.Compare_c[i]);
 
       /* RelationalOperator: '<S67>/Compare' incorporates:
        *  Constant: '<S67>/Constant'
@@ -336,8 +335,7 @@ static void brain_ValidationGate(void)
         brain_P.Track_Saturation);
 
       /* Logic: '<S62>/Logical Operator1' */
-      brain_B.LogicalOperator1_e[i] = (brain_B.LogicalOperator1_e[i] &&
-        brain_B.Compare_c[i]);
+      brain_B.track1Bitmap[i] = (brain_B.track1Bitmap[i] && brain_B.Compare_c[i]);
     }
 
     /* S-Function (svipblob): '<S62>/Blob Analysis' */
@@ -351,8 +349,8 @@ static void brain_ValidationGate(void)
     idx = 483;
     for (n = 0; n < 640; n++) {
       for (n_0 = 0; n_0 < 480; n_0++) {
-        brain_DWork.BlobAnalysis_PAD_DW[idx] = (uint8_T)
-          (brain_B.LogicalOperator1_e[i] ? 255 : 0);
+        brain_DWork.BlobAnalysis_PAD_DW[idx] = (uint8_T)(brain_B.track1Bitmap[i]
+          ? 255 : 0);
         i++;
         idx++;
       }
@@ -1311,8 +1309,8 @@ void brain_Chart(void)
                 /* RelationalOperator: '<S11>/Compare' incorporates:
                  *  Constant: '<S11>/Constant'
                  */
-                brain_B.LogicalOperator1_l[i_0] = (brain_B.MedianFilterGreen[i_0]
-                  > brain_P.Buoy_HueHigher);
+                brain_B.buoy2Bitmap[i_0] = (brain_B.MedianFilterGreen[i_0] >
+                  brain_P.Buoy_HueHigher);
 
                 /* RelationalOperator: '<S12>/Compare' incorporates:
                  *  Constant: '<S12>/Constant'
@@ -1321,8 +1319,8 @@ void brain_Chart(void)
                   brain_P.Buoy_HueLower);
 
                 /* Logic: '<S3>/Logical Operator' */
-                brain_B.LogicalOperator1_l[i_0] =
-                  (brain_B.LogicalOperator1_l[i_0] || brain_B.Compare_e[i_0]);
+                brain_B.buoy2Bitmap[i_0] = (brain_B.buoy2Bitmap[i_0] ||
+                  brain_B.Compare_e[i_0]);
               }
 
               /* Video Processing Blockset 2D Resize (svipresize) - '<S16>/ResizeS' */
@@ -1526,8 +1524,8 @@ void brain_Chart(void)
                   brain_P.Buoy_Saturation);
 
                 /* Logic: '<S3>/Logical Operator1' */
-                brain_B.LogicalOperator1_l[i_0] =
-                  (brain_B.LogicalOperator1_l[i_0] && brain_B.Compare_e[i_0]);
+                brain_B.buoy2Bitmap[i_0] = (brain_B.buoy2Bitmap[i_0] &&
+                  brain_B.Compare_e[i_0]);
               }
 
               /* S-Function (svipblob): '<S3>/Buoy Blob Analysis' */
@@ -1542,7 +1540,7 @@ void brain_Chart(void)
               for (n = 0; n < 120; n++) {
                 for (n_0 = 0; n_0 < 90; n_0++) {
                   brain_DWork.BlobAnalysis_PAD_DW[idx] = (uint8_T)
-                    (brain_B.LogicalOperator1_l[i_0] ? 255 : 0);
+                    (brain_B.buoy2Bitmap[i_0] ? 255 : 0);
                   i_0++;
                   idx++;
                 }
@@ -2000,7 +1998,7 @@ void brain_Chart(void)
                 /* RelationalOperator: '<S25>/Compare' incorporates:
                  *  Constant: '<S25>/Constant'
                  */
-                brain_B.LogicalOperator1[i_0] = (brain_B.SFunction_o33[i_0] <
+                brain_B.buoy1Bitmap[i_0] = (brain_B.SFunction_o33[i_0] <
                   brain_P.Buoy_HueLower);
 
                 /* RelationalOperator: '<S24>/Compare' incorporates:
@@ -2010,7 +2008,7 @@ void brain_Chart(void)
                   brain_P.Buoy_HueHigher);
 
                 /* Logic: '<S23>/Logical Operator' */
-                brain_B.LogicalOperator1[i_0] = (brain_B.LogicalOperator1[i_0] ||
+                brain_B.buoy1Bitmap[i_0] = (brain_B.buoy1Bitmap[i_0] ||
                   brain_B.Compare[i_0]);
 
                 /* RelationalOperator: '<S28>/Compare' incorporates:
@@ -2020,7 +2018,7 @@ void brain_Chart(void)
                   brain_P.Buoy_Saturation);
 
                 /* Logic: '<S23>/Logical Operator1' */
-                brain_B.LogicalOperator1[i_0] = (brain_B.LogicalOperator1[i_0] &&
+                brain_B.buoy1Bitmap[i_0] = (brain_B.buoy1Bitmap[i_0] &&
                   brain_B.Compare[i_0]);
               }
 
@@ -2036,7 +2034,7 @@ void brain_Chart(void)
               for (n = 0; n < 640; n++) {
                 for (n_0 = 0; n_0 < 480; n_0++) {
                   brain_DWork.BlobAnalysis_PAD_DW[ms] = (uint8_T)
-                    (brain_B.LogicalOperator1[i_0] ? 255 : 0);
+                    (brain_B.buoy1Bitmap[i_0] ? 255 : 0);
                   i_0++;
                   ms++;
                 }
@@ -2614,8 +2612,8 @@ void brain_Chart(void)
                     /* RelationalOperator: '<S37>/Compare' incorporates:
                      *  Constant: '<S37>/Constant'
                      */
-                    brain_B.LogicalOperator1_f[i_0] = (brain_B.SFunction_o22[i_0]
-                      > brain_P.Track_HueHigher);
+                    brain_B.track2Bitmap[i_0] = (brain_B.SFunction_o22[i_0] >
+                      brain_P.Track_HueHigher);
 
                     /* RelationalOperator: '<S38>/Compare' incorporates:
                      *  Constant: '<S38>/Constant'
@@ -2624,8 +2622,8 @@ void brain_Chart(void)
                       brain_P.Track_HueLower);
 
                     /* Logic: '<S6>/Logical Operator' */
-                    brain_B.LogicalOperator1_f[i_0] =
-                      (brain_B.LogicalOperator1_f[i_0] || brain_B.Compare_a[i_0]);
+                    brain_B.track2Bitmap[i_0] = (brain_B.track2Bitmap[i_0] ||
+                      brain_B.Compare_a[i_0]);
 
                     /* RelationalOperator: '<S39>/Compare' incorporates:
                      *  Constant: '<S39>/Constant'
@@ -2634,8 +2632,8 @@ void brain_Chart(void)
                       brain_P.Track_Saturation);
 
                     /* Logic: '<S6>/Logical Operator1' */
-                    brain_B.LogicalOperator1_f[i_0] =
-                      (brain_B.LogicalOperator1_f[i_0] && brain_B.Compare_a[i_0]);
+                    brain_B.track2Bitmap[i_0] = (brain_B.track2Bitmap[i_0] &&
+                      brain_B.Compare_a[i_0]);
                   }
 
                   /* S-Function (svipblob): '<S36>/Blob Analysis' */
@@ -2650,7 +2648,7 @@ void brain_Chart(void)
                   for (n = 0; n < 640; n++) {
                     for (n_0 = 0; n_0 < 480; n_0++) {
                       brain_DWork.BlobAnalysis_PAD_DW[ms] = (uint8_T)
-                        (brain_B.LogicalOperator1_f[i_0] ? 255 : 0);
+                        (brain_B.track2Bitmap[i_0] ? 255 : 0);
                       i_0++;
                       ms++;
                     }
@@ -2953,8 +2951,8 @@ void brain_Chart(void)
                   }
 
                   brain_B.DesiredHeading = brain_B.Add_l;
-                  brain_B.Right = brain_B.DoubleToint1_k;
-                  brain_B.Left = brain_B.Multiply1;
+                  brain_B.Right = brain_B.Multiply1;
+                  brain_B.Left = brain_B.DoubleToint1_k;
                   brain_B.Vertical = brain_B.DoubleToInt8_p;
 
                   /* Embedded MATLAB Function 'ErrorCounter': '<S1>:216' */
@@ -3009,8 +3007,8 @@ void brain_Chart(void)
                     /* RelationalOperator: '<S47>/Compare' incorporates:
                      *  Constant: '<S47>/Constant'
                      */
-                    brain_B.LogicalOperator1_a[i_0] = (brain_B.SFunction_o27[i_0]
-                      > brain_P.Track_HueHigher);
+                    brain_B.track3Bitmap[i_0] = (brain_B.SFunction_o27[i_0] >
+                      brain_P.Track_HueHigher);
 
                     /* RelationalOperator: '<S48>/Compare' incorporates:
                      *  Constant: '<S48>/Constant'
@@ -3019,8 +3017,8 @@ void brain_Chart(void)
                       brain_P.Track_HueLower);
 
                     /* Logic: '<S7>/Logical Operator' */
-                    brain_B.LogicalOperator1_a[i_0] =
-                      (brain_B.LogicalOperator1_a[i_0] || brain_B.Compare_o[i_0]);
+                    brain_B.track3Bitmap[i_0] = (brain_B.track3Bitmap[i_0] ||
+                      brain_B.Compare_o[i_0]);
 
                     /* RelationalOperator: '<S49>/Compare' incorporates:
                      *  Constant: '<S49>/Constant'
@@ -3029,8 +3027,8 @@ void brain_Chart(void)
                       brain_P.Track_Saturation);
 
                     /* Logic: '<S7>/Logical Operator1' */
-                    brain_B.LogicalOperator1_a[i_0] =
-                      (brain_B.LogicalOperator1_a[i_0] && brain_B.Compare_o[i_0]);
+                    brain_B.track3Bitmap[i_0] = (brain_B.track3Bitmap[i_0] &&
+                      brain_B.Compare_o[i_0]);
                   }
 
                   /* S-Function (svipblob): '<S45>/Blob Analysis' */
@@ -3045,7 +3043,7 @@ void brain_Chart(void)
                   for (n = 0; n < 640; n++) {
                     for (n_0 = 0; n_0 < 480; n_0++) {
                       brain_DWork.BlobAnalysis_PAD_DW[ms] = (uint8_T)
-                        (brain_B.LogicalOperator1_a[i_0] ? 255 : 0);
+                        (brain_B.track3Bitmap[i_0] ? 255 : 0);
                       i_0++;
                       ms++;
                     }
@@ -3294,12 +3292,14 @@ void brain_Chart(void)
                   }
 
                   /* Sum: '<S7>/AddLeft' */
-                  brain_B.AddLeft = (int8_T)((int8_T)(-rtb_DataTypeConversion_0)
-                    + rtAction);
+                  brain_B.AddLeft = (int8_T)(rtb_DataTypeConversion_0 + rtAction);
 
-                  /* Sum: '<S7>/AddRight' */
-                  brain_B.AddRight = (int8_T)(rtb_DataTypeConversion_0 +
-                    rtAction);
+                  /* Sum: '<S7>/AddRight' incorporates:
+                   *  Constant: '<S44>/Constant2'
+                   *  Product: '<S44>/Multiply1'
+                   */
+                  brain_B.AddRight = (int8_T)((int8_T)(-rtb_DataTypeConversion_0)
+                    + rtAction);
 
                   /* Gain: '<S51>/XPosition Integral Gain' */
                   rtb_XBuoyProportionalGain = brain_P.Cam_Down_XPos_Ki *
@@ -3746,11 +3746,11 @@ void brain_step(void)
       o = inStep;
       for (m = 0; m < 240; m++) {
         k = m << 1;
-        brain_B.ColorSpaceConversion_o1[outStep + k] = brain_U.Cb[o];
-        brain_B.ColorSpaceConversion_o1[(outStep + k) + 1] = brain_U.Cb[o];
+        brain_B.vidR[outStep + k] = brain_U.Cb[o];
+        brain_B.vidR[(outStep + k) + 1] = brain_U.Cb[o];
         k += 480;
-        brain_B.ColorSpaceConversion_o1[outStep + k] = brain_U.Cb[o];
-        brain_B.ColorSpaceConversion_o1[(outStep + k) + 1] = brain_U.Cb[o];
+        brain_B.vidR[outStep + k] = brain_U.Cb[o];
+        brain_B.vidR[(outStep + k) + 1] = brain_U.Cb[o];
         o++;
       }
 
@@ -3764,11 +3764,11 @@ void brain_step(void)
       o = inStep;
       for (m = 0; m < 240; m++) {
         k = m << 1;
-        brain_B.ColorSpaceConversion_o2[outStep + k] = brain_U.Cr[o];
-        brain_B.ColorSpaceConversion_o2[(outStep + k) + 1] = brain_U.Cr[o];
+        brain_B.vidG[outStep + k] = brain_U.Cr[o];
+        brain_B.vidG[(outStep + k) + 1] = brain_U.Cr[o];
         k += 480;
-        brain_B.ColorSpaceConversion_o2[outStep + k] = brain_U.Cr[o];
-        brain_B.ColorSpaceConversion_o2[(outStep + k) + 1] = brain_U.Cr[o];
+        brain_B.vidG[outStep + k] = brain_U.Cr[o];
+        brain_B.vidG[(outStep + k) + 1] = brain_U.Cr[o];
         o++;
       }
 
@@ -3795,8 +3795,7 @@ void brain_step(void)
 
       /* Red; 8192 in this equations is 0.5*2^14 or 2^13; adding 0.5  */
       /* before truncation will result in rounding */
-      pos = (yDiff * 19077U + (uint32_T)(brain_B.ColorSpaceConversion_o2[outStep]
-              * 26149)) + 8192U;
+      pos = (yDiff * 19077U + (uint32_T)(brain_B.vidG[outStep] * 26149)) + 8192U;
       if (pos > 3347072U) {
         cc = pos - 3347072U;
       } else {
@@ -3812,8 +3811,8 @@ void brain_step(void)
 
       /* Compute green channel */
       pos = yDiff * 19077U + 2534784U;
-      neg = (uint32_T)(brain_B.ColorSpaceConversion_o1[outStep] * 6419 +
-                       brain_B.ColorSpaceConversion_o2[outStep] * 13320);
+      neg = (uint32_T)(brain_B.vidR[outStep] * 6419 + brain_B.vidG[outStep] *
+                       13320);
       if (pos > neg) {
         cc_0 = pos - neg;
       } else {
@@ -3827,8 +3826,7 @@ void brain_step(void)
       }
 
       /* Compute blue channel */
-      pos = (yDiff * 19077U + (uint32_T)(brain_B.ColorSpaceConversion_o1[outStep]
-              * 33050)) + 8192U;
+      pos = (yDiff * 19077U + (uint32_T)(brain_B.vidR[outStep] * 33050)) + 8192U;
       if (pos > 4230400U) {
         neg = pos - 4230400U;
       } else {
@@ -3842,57 +3840,49 @@ void brain_step(void)
       }
 
       /* assign back the results */
-      brain_B.ColorSpaceConversion_o1[outStep] = (uint8_T)cc;
-      brain_B.ColorSpaceConversion_o2[outStep] = (uint8_T)cc_0;
-      brain_B.ColorSpaceConversion_o3[outStep] = (uint8_T)neg;
+      brain_B.vidR[outStep] = (uint8_T)cc;
+      brain_B.vidG[outStep] = (uint8_T)cc_0;
+      brain_B.vidB[outStep] = (uint8_T)neg;
     }
 
     for (outStep = 0; outStep < 307200; outStep++) {
       /* S-Function (svipscalenconvert): '<S2>/Red Data Type Conversion' */
-      brain_B.RedDataTypeConversion[outStep] = (real32_T)
-        brain_B.ColorSpaceConversion_o1[outStep] / 255.0F;
+      brain_B.viddR[outStep] = (real32_T)brain_B.vidR[outStep] / 255.0F;
 
       /* S-Function (svipscalenconvert): '<S2>/Green Data Type Conversion1' */
-      brain_B.GreenDataTypeConversion1[outStep] = (real32_T)
-        brain_B.ColorSpaceConversion_o2[outStep] / 255.0F;
+      brain_B.viddG[outStep] = (real32_T)brain_B.vidG[outStep] / 255.0F;
 
       /* S-Function (svipscalenconvert): '<S2>/Blue Data Type Conversion2' */
-      brain_B.BlueDataTypeConversion2[outStep] = (real32_T)
-        brain_B.ColorSpaceConversion_o3[outStep] / 255.0F;
+      brain_B.viddB[outStep] = (real32_T)brain_B.vidB[outStep] / 255.0F;
     }
 
     /* S-Function (svipcolorconv): '<S2>/Color Space  Conversion1' */
     /* temporary variables for in-place operation */
     for (outStep = 0; outStep < 307200; outStep++) {
       /* First get the min and max of the RGB triplet */
-      if (brain_B.RedDataTypeConversion[outStep] >
-          brain_B.GreenDataTypeConversion1[outStep]) {
-        if (brain_B.GreenDataTypeConversion1[outStep] <
-            brain_B.BlueDataTypeConversion2[outStep]) {
-          min = brain_B.GreenDataTypeConversion1[outStep];
+      if (brain_B.viddR[outStep] > brain_B.viddG[outStep]) {
+        if (brain_B.viddG[outStep] < brain_B.viddB[outStep]) {
+          min = brain_B.viddG[outStep];
         } else {
-          min = brain_B.BlueDataTypeConversion2[outStep];
+          min = brain_B.viddB[outStep];
         }
 
-        if (brain_B.RedDataTypeConversion[outStep] >
-            brain_B.BlueDataTypeConversion2[outStep]) {
-          max = brain_B.RedDataTypeConversion[outStep];
+        if (brain_B.viddR[outStep] > brain_B.viddB[outStep]) {
+          max = brain_B.viddR[outStep];
         } else {
-          max = brain_B.BlueDataTypeConversion2[outStep];
+          max = brain_B.viddB[outStep];
         }
       } else {
-        if (brain_B.RedDataTypeConversion[outStep] <
-            brain_B.BlueDataTypeConversion2[outStep]) {
-          min = brain_B.RedDataTypeConversion[outStep];
+        if (brain_B.viddR[outStep] < brain_B.viddB[outStep]) {
+          min = brain_B.viddR[outStep];
         } else {
-          min = brain_B.BlueDataTypeConversion2[outStep];
+          min = brain_B.viddB[outStep];
         }
 
-        if (brain_B.GreenDataTypeConversion1[outStep] >
-            brain_B.BlueDataTypeConversion2[outStep]) {
-          max = brain_B.GreenDataTypeConversion1[outStep];
+        if (brain_B.viddG[outStep] > brain_B.viddB[outStep]) {
+          max = brain_B.viddG[outStep];
         } else {
-          max = brain_B.BlueDataTypeConversion2[outStep];
+          max = brain_B.viddB[outStep];
         }
       }
 
@@ -3904,15 +3894,12 @@ void brain_step(void)
       }
 
       if (min != 0.0F) {
-        if (brain_B.RedDataTypeConversion[outStep] == max) {
-          min = (brain_B.GreenDataTypeConversion1[outStep] -
-                 brain_B.BlueDataTypeConversion2[outStep]) / min;
-        } else if (brain_B.GreenDataTypeConversion1[outStep] == max) {
-          min = (brain_B.BlueDataTypeConversion2[outStep] -
-                 brain_B.RedDataTypeConversion[outStep]) / min + 2.0F;
+        if (brain_B.viddR[outStep] == max) {
+          min = (brain_B.viddG[outStep] - brain_B.viddB[outStep]) / min;
+        } else if (brain_B.viddG[outStep] == max) {
+          min = (brain_B.viddB[outStep] - brain_B.viddR[outStep]) / min + 2.0F;
         } else {
-          min = (brain_B.RedDataTypeConversion[outStep] -
-                 brain_B.GreenDataTypeConversion1[outStep]) / min + 4.0F;
+          min = (brain_B.viddR[outStep] - brain_B.viddG[outStep]) / min + 4.0F;
         }
 
         min /= 6.0F;
