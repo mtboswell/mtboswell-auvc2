@@ -62,7 +62,7 @@ Model {
       Name		      "DesiredHeading"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.157"
+    ComputedModelVersion    "1.173"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -78,17 +78,17 @@ Model {
   Creator		  "Stephen"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "auvt"
+  LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Dec 14 18:07:27 2009"
+  LastModifiedDate	  "Mon Feb 08 12:48:27 2010"
   RTWModifiedTimeStamp	  0
-  ModelVersionFormat	  "1.%<AutoIncrement:157>"
+  ModelVersionFormat	  "1.%<AutoIncrement:173>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
   WideLines		  off
-  ShowLineDimensions	  off
+  ShowLineDimensions	  on
   ShowPortDataTypes	  on
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
@@ -409,7 +409,7 @@ Model {
 	  RTWUseSimCustomCode	  off
 	  IncludeHyperlinkInReport on
 	  LaunchReport		  on
-	  TargetLang		  "C++"
+	  TargetLang		  "C"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
 	  IncludeERTFirstTime	  off
 	  GenerateTraceInfo	  off
@@ -564,8 +564,8 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Optimization"
-      ConfigPrmDlgPosition    " [ 0, 0, 890, 659 ] "
+      CurrentDlgPage	      "Real-Time Workshop"
+      ConfigPrmDlgPosition    " [ 320, 60, 1200, 690 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -1145,7 +1145,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Running.Buoy.Buoy"
-	    Location		    [17, 120, 1207, 596]
+	    Location		    [17, 120, 1207, 597]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1161,14 +1161,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "H"
-	      Position		      [35, 113, 65, 127]
+	      Position		      [40, 88, 70, 102]
 	      IconDisplay	      "Port number"
 	      PortDimensions	      "[480 640]"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "S"
-	      Position		      [35, 143, 65, 157]
+	      Position		      [40, 123, 70, 137]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	      PortDimensions	      "[480 640]"
@@ -1186,7 +1186,7 @@ Model {
 	      BlockType		      Reference
 	      Name		      "Buoy Blob Analysis"
 	      Ports		      [1, 2]
-	      Position		      [740, 143, 870, 212]
+	      Position		      [675, 118, 805, 187]
 	      DialogController	      "vipDDGCreate"
 	      DialogControllerArgs    "DataTag0"
 	      SourceBlock	      "vipstatistics/Blob Analysis"
@@ -1241,7 +1241,7 @@ Model {
 	      BlockType		      Reference
 	      Name		      "Buoy HueHigher"
 	      Ports		      [1, 1]
-	      Position		      [355, 80, 385, 110]
+	      Position		      [360, 57, 455, 93]
 	      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
 	      SourceType	      "Compare To Constant"
 	      ShowPortLabels	      "FromPortIcon"
@@ -1261,7 +1261,7 @@ Model {
 	      BlockType		      Reference
 	      Name		      "Buoy HueLower"
 	      Ports		      [1, 1]
-	      Position		      [355, 140, 385, 170]
+	      Position		      [360, 116, 455, 154]
 	      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
 	      SourceType	      "Compare To Constant"
 	      ShowPortLabels	      "FromPortIcon"
@@ -1281,7 +1281,7 @@ Model {
 	      BlockType		      Reference
 	      Name		      "Buoy Saturation"
 	      Ports		      [1, 1]
-	      Position		      [355, 220, 385, 250]
+	      Position		      [355, 193, 465, 237]
 	      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
 	      SourceType	      "Compare To Constant"
 	      ShowPortLabels	      "FromPortIcon"
@@ -1300,7 +1300,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Embedded\nMATLAB Function"
-	      Ports		      [2, 3]
+	      Ports		      [3, 3]
 	      Position		      [925, 114, 1130, 246]
 	      PermitHierarchicalResolution "ExplicitOnly"
 	      MinAlgLoopOccurrences   off
@@ -1350,20 +1350,27 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Block {
+		  BlockType		  Inport
+		  Name			  "Image"
+		  Position		  [20, 171, 40, 189]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
 		  Ports			  [1, 1]
-		  Position		  [270, 205, 320, 245]
+		  Position		  [270, 210, 320, 250]
 		  Outputs		  "1"
 		}
 		Block {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  Tag			  "Stateflow S-Function brain 2"
-		  Ports			  [2, 4]
+		  Ports			  [3, 4]
 		  Position		  [180, 102, 230, 203]
 		  FunctionName		  "sf_sfun"
-		  PortCounts		  "[2 4]"
+		  PortCounts		  "[3 4]"
 		  EnableBusSupport	  off
 		  Port {
 		    PortNumber		    2
@@ -1387,7 +1394,7 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  Position		  [460, 216, 480, 234]
+		  Position		  [460, 221, 480, 239]
 		}
 		Block {
 		  BlockType		  Outport
@@ -1430,6 +1437,12 @@ Model {
 		  DstPort		  2
 		}
 		Line {
+		  SrcBlock		  "Image"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  3
+		}
+		Line {
 		  Name			  "BlobArea"
 		  Labels		  [0, 0]
 		  SrcBlock		  " SFunction "
@@ -1462,10 +1475,140 @@ Model {
 	      }
 	    }
 	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Embedded\nMATLAB Function1"
+	      Ports		      [1, 2]
+	      Position		      [895, 291, 1045, 349]
+	      PermitHierarchicalResolution "ExplicitOnly"
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      MaskType		      "Stateflow"
+	      MaskDescription	      "Embedded MATLAB block"
+	      MaskDisplay	      "disp('GetImageCenter');"
+	      MaskSelfModifiable      on
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      off
+	      MaskIconRotate	      "none"
+	      MaskPortRotate	      "default"
+	      MaskIconUnits	      "autoscale"
+	      System {
+		Name			"Embedded\nMATLAB Function1"
+		Location		[257, 457, 812, 717]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Image"
+		  Position		  [20, 101, 40, 119]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  " Demux "
+		  Ports			  [1, 1]
+		  Position		  [270, 180, 320, 220]
+		  Outputs		  "1"
+		}
+		Block {
+		  BlockType		  "S-Function"
+		  Name			  " SFunction "
+		  Tag			  "Stateflow S-Function brain 3"
+		  Ports			  [1, 3]
+		  Position		  [180, 100, 230, 180]
+		  FunctionName		  "sf_sfun"
+		  PortCounts		  "[1 3]"
+		  EnableBusSupport	  off
+		  Port {
+		    PortNumber		    2
+		    Name		    "XCenter"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    3
+		    Name		    "YCenter"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Terminator
+		  Name			  " Terminator "
+		  Position		  [460, 191, 480, 209]
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "XCenter"
+		  Position		  [460, 101, 480, 119]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "YCenter"
+		  Position		  [460, 136, 480, 154]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  " SFunction "
+		  SrcPort		  1
+		  DstBlock		  " Demux "
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Image"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "XCenter"
+		  Labels		  [0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  2
+		  DstBlock		  "XCenter"
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "YCenter"
+		  Labels		  [0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  3
+		  DstBlock		  "YCenter"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  " Demux "
+		  SrcPort		  1
+		  DstBlock		  " Terminator "
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
 	      BlockType		      Logic
 	      Name		      "Logical\nOperator"
 	      Ports		      [2, 1]
-	      Position		      [455, 112, 485, 143]
+	      Position		      [505, 87, 535, 118]
 	      Operator		      "OR"
 	      AllPortsSameDT	      off
 	      OutDataTypeMode	      "boolean"
@@ -1476,7 +1619,7 @@ Model {
 	      BlockType		      Logic
 	      Name		      "Logical\nOperator1"
 	      Ports		      [2, 1]
-	      Position		      [590, 162, 620, 193]
+	      Position		      [595, 137, 625, 168]
 	      AllPortsSameDT	      off
 	      OutDataTypeMode	      "boolean"
 	      LogicDataType	      "fixdt(0, 8)"
@@ -1486,7 +1629,7 @@ Model {
 	      BlockType		      SubSystem
 	      Name		      "Median Filter"
 	      Ports		      [2, 2]
-	      Position		      [230, 105, 285, 165]
+	      Position		      [215, 76, 270, 149]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
 	      RTWSystemCode	      "Auto"
@@ -1619,7 +1762,7 @@ Model {
 	      BlockType		      SubSystem
 	      Name		      "Resize"
 	      Ports		      [2, 2]
-	      Position		      [105, 104, 145, 171]
+	      Position		      [110, 79, 150, 146]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
 	      RTWSystemCode	      "Auto"
@@ -1664,11 +1807,11 @@ Model {
 		  DialogControllerArgs	  "DataTag3"
 		  SourceBlock		  "vipgeotforms/Resize"
 		  SourceType		  "Resize"
-		  specify		  "Number of output columns and preserve aspect ratio"
+		  specify		  "Number of output rows and columns"
 		  rfactor		  "[200 150]"
 		  outCols		  "120"
 		  outRows		  "25"
-		  outRowsCols		  "[25 35]"
+		  outRowsCols		  "[120 160]"
 		  interp_method		  "Bilinear"
 		  antialias		  "on"
 		  useROI		  "off"
@@ -1698,11 +1841,11 @@ Model {
 		  DialogControllerArgs	  "DataTag4"
 		  SourceBlock		  "vipgeotforms/Resize"
 		  SourceType		  "Resize"
-		  specify		  "Number of output columns and preserve aspect ratio"
+		  specify		  "Number of output rows and columns"
 		  rfactor		  "[200 150]"
 		  outCols		  "120"
 		  outRows		  "25"
-		  outRowsCols		  "[25 35]"
+		  outRowsCols		  "[120 160]"
 		  interp_method		  "Bilinear"
 		  antialias		  "on"
 		  useROI		  "off"
@@ -1765,7 +1908,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "X-HeadingControl"
-	      Ports		      [1, 2]
+	      Ports		      [2, 2]
 	      Position		      [1230, 179, 1330, 221]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
@@ -1776,7 +1919,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"X-HeadingControl"
-		Location		[293, 133, 1156, 613]
+		Location		[134, 121, 997, 601]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -1793,6 +1936,15 @@ Model {
 		  BlockType		  Inport
 		  Name			  "BuoyX"
 		  Position		  [95, 153, 125, 167]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "CenterX"
+		  Position		  [95, 108, 125, 122]
+		  Port			  "2"
 		  IconDisplay		  "Port number"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^0"
@@ -1820,17 +1972,6 @@ Model {
 		  OutScaling		  "2^-10"
 		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 		  SaturateOnIntegerOverflow off
-		}
-		Block {
-		  BlockType		  Constant
-		  Name			  "CenterX"
-		  Position		  [95, 100, 125, 130]
-		  Value			  "60"
-		  OutDataTypeMode	  "double"
-		  OutDataType		  "fixdt(1, 16)"
-		  OutScaling		  "2^0"
-		  OutDataTypeStr	  "double"
-		  SampleTime		  "-1"
 		}
 		Block {
 		  BlockType		  Constant
@@ -2096,7 +2237,7 @@ Model {
 		Block {
 		  BlockType		  Constant
 		  Name			  "Vision_Forward_Velocity2"
-		  Position		  [550, 280, 580, 310]
+		  Position		  [540, 280, 570, 310]
 		  Value			  "Vision_Forward_Velocity"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^0"
@@ -2189,7 +2330,7 @@ Model {
 		Line {
 		  SrcBlock		  "Vision_Forward_Velocity2"
 		  SrcPort		  1
-		  Points		  [0, -35; -5, 0; 0, -20]
+		  Points		  [5, 0; 0, -55]
 		  DstBlock		  "Add1"
 		  DstPort		  2
 		}
@@ -2204,7 +2345,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Y-DepthControl"
-	      Ports		      [1, 1]
+	      Ports		      [2, 1]
 	      Position		      [1230, 249, 1330, 291]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
@@ -2237,15 +2378,13 @@ Model {
 		  OutScaling		  "2^0"
 		}
 		Block {
-		  BlockType		  Constant
+		  BlockType		  Inport
 		  Name			  "CenterY"
-		  Position		  [30, 80, 60, 110]
-		  Value			  "45"
-		  OutDataTypeMode	  "double"
+		  Position		  [30, 88, 60, 102]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^0"
-		  OutDataTypeStr	  "double"
-		  SampleTime		  "-1"
 		}
 		Block {
 		  BlockType		  DataTypeConversion
@@ -2557,7 +2696,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "CentroidY"
-	      Position		      [1230, 368, 1260, 382]
+	      Position		      [1230, 398, 1260, 412]
 	      Port		      "5"
 	      IconDisplay	      "Port number"
 	      OutDataType	      "fixdt(1, 16)"
@@ -2566,7 +2705,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "CentroidX"
-	      Position		      [1230, 328, 1260, 342]
+	      Position		      [1230, 353, 1260, 367]
 	      Port		      "6"
 	      IconDisplay	      "Port number"
 	      OutDataType	      "fixdt(1, 16)"
@@ -2595,14 +2734,14 @@ Model {
 	    Line {
 	      SrcBlock		      "Buoy HueHigher"
 	      SrcPort		      1
-	      Points		      [25, 0; 0, 25]
+	      Points		      [10, 0; 0, 20]
 	      DstBlock		      "Logical\nOperator"
 	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "Buoy HueLower"
 	      SrcPort		      1
-	      Points		      [25, 0; 0, -20]
+	      Points		      [10, 0; 0, -25]
 	      DstBlock		      "Logical\nOperator"
 	      DstPort		      2
 	    }
@@ -2633,7 +2772,7 @@ Model {
 	    Line {
 	      SrcBlock		      "Median Filter"
 	      SrcPort		      1
-	      Points		      [0, -5; 25, 0]
+	      Points		      [50, 0]
 	      Branch {
 		Points			[0, 40]
 		DstBlock		"Buoy HueLower"
@@ -2648,14 +2787,13 @@ Model {
 	    Line {
 	      SrcBlock		      "Buoy Blob Analysis"
 	      SrcPort		      1
-	      Points		      [35, 0]
 	      DstBlock		      "Embedded\nMATLAB Function"
 	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "Buoy Blob Analysis"
 	      SrcPort		      2
-	      Points		      [15, 0; 0, 20]
+	      Points		      [30, 0; 0, 10]
 	      DstBlock		      "Embedded\nMATLAB Function"
 	      DstPort		      2
 	    }
@@ -2671,11 +2809,12 @@ Model {
 	      SrcPort		      2
 	      Points		      [40, 0; 0, 20; 25, 0]
 	      Branch {
+		Points			[15, 0]
 		DstBlock		"X-HeadingControl"
 		DstPort			1
 	      }
 	      Branch {
-		Points			[0, 135]
+		Points			[0, 160]
 		DstBlock		"CentroidX"
 		DstPort			1
 	      }
@@ -2685,11 +2824,12 @@ Model {
 	      SrcPort		      3
 	      Points		      [40, 0; 0, 45]
 	      Branch {
+		Points			[40, 0]
 		DstBlock		"Y-DepthControl"
 		DstPort			1
 	      }
 	      Branch {
-		Points			[0, 105]
+		Points			[0, 135]
 		DstBlock		"CentroidY"
 		DstPort			1
 	      }
@@ -2697,29 +2837,59 @@ Model {
 	    Line {
 	      SrcBlock		      "Median Filter"
 	      SrcPort		      2
-	      Points		      [15, 0; 0, 85]
+	      Points		      [35, 0; 0, 85]
 	      DstBlock		      "Buoy Saturation"
 	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "Logical\nOperator"
 	      SrcPort		      1
-	      Points		      [40, 0; 0, 40]
+	      Points		      [25, 0; 0, 40]
 	      DstBlock		      "Logical\nOperator1"
 	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "Buoy Saturation"
 	      SrcPort		      1
-	      Points		      [90, 0; 0, -50]
+	      Points		      [15, 0; 0, -55]
 	      DstBlock		      "Logical\nOperator1"
 	      DstPort		      2
 	    }
 	    Line {
 	      SrcBlock		      "Logical\nOperator1"
 	      SrcPort		      1
-	      DstBlock		      "Buoy Blob Analysis"
-	      DstPort		      1
+	      Points		      [15, 0]
+	      Branch {
+		DstBlock		"Buoy Blob Analysis"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 105; 180, 0]
+		Branch {
+		  Points		  [0, -35]
+		  DstBlock		  "Embedded\nMATLAB Function"
+		  DstPort		  3
+		}
+		Branch {
+		  Points		  [0, 60]
+		  DstBlock		  "Embedded\nMATLAB Function1"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Embedded\nMATLAB Function1"
+	      SrcPort		      1
+	      Points		      [155, 0; 0, -95]
+	      DstBlock		      "X-HeadingControl"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Embedded\nMATLAB Function1"
+	      SrcPort		      2
+	      Points		      [160, 0; 0, -55]
+	      DstBlock		      "Y-DepthControl"
+	      DstPort		      2
 	    }
 	  }
 	}
@@ -10493,7 +10663,7 @@ Model {
       System {
 	Name			"GetVideo1"
 	Location		[52, 112, 1159, 521]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -10542,7 +10712,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  "on"
+	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -10558,25 +10728,23 @@ Model {
 	  antialiasing		  "Default"
 	  hcoeff		  "[0.2 0.6 0.2]"
 	  vcoeff		  "[0.5 0.5]"
-	  isInputTransposed	  "off"
+	  isInputTransposed	  off
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Color Space\n Conversion"
-	  Ports			  [3, 3]
-	  Position		  [420, 71, 520, 129]
-	  SourceBlock		  "vipconversions/Color Space\n Conversion"
-	  SourceType		  "Color Space Conversion"
-	  conversion		  "Obsolete"
-	  conversionActive	  "Y'CbCr to R'G'B'"
-	  wp_str		  "D65"
-	  rec			  "Rec. 601 (SDTV)"
-	  sys			  "1125/60/2:1"
-	  imagePorts		  "Separate color signals"
+	  Name			  "Green Data Type\nConversion1"
+	  Ports			  [1, 1]
+	  Position		  [635, 121, 735, 179]
+	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
+	  SourceType		  "Image Data Type Conversion"
+	  outDT			  "single"
+	  isSigned		  on
+	  wordLen		  "16"
+	  numFracBits		  "0"
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Color Space\n Conversion1"
+	  Name			  "RGB to HSV\nColor Space\n Conversion"
 	  Ports			  [3, 3]
 	  Position		  [790, 86, 890, 144]
 	  SourceBlock		  "vipconversions/Color Space\n Conversion"
@@ -10590,27 +10758,29 @@ Model {
 	}
 	Block {
 	  BlockType		  Reference
-	  Name			  "Green Data Type\nConversion1"
-	  Ports			  [1, 1]
-	  Position		  [635, 121, 735, 179]
-	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
-	  SourceType		  "Image Data Type Conversion"
-	  outDT			  "single"
-	  isSigned		  "on"
-	  wordLen		  "16"
-	  numFracBits		  "0"
-	}
-	Block {
-	  BlockType		  Reference
 	  Name			  "Red Data Type\nConversion"
 	  Ports			  [1, 1]
 	  Position		  [635, 26, 735, 84]
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  "on"
+	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Y-Cb-Cr to RGB\nColor Space\n Conversion"
+	  Ports			  [3, 3]
+	  Position		  [420, 71, 520, 129]
+	  SourceBlock		  "vipconversions/Color Space\n Conversion"
+	  SourceType		  "Color Space Conversion"
+	  conversion		  "Obsolete"
+	  conversionActive	  "Y'CbCr to R'G'B'"
+	  wp_str		  "D65"
+	  rec			  "Rec. 601 (SDTV)"
+	  sys			  "1125/60/2:1"
+	  imagePorts		  "Separate color signals"
 	}
 	Block {
 	  BlockType		  Outport
@@ -10633,21 +10803,21 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcBlock		  "RGB to HSV\nColor Space\n Conversion"
 	  SrcPort		  3
 	  Points		  [55, 0; 0, 15]
 	  DstBlock		  "V"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcBlock		  "RGB to HSV\nColor Space\n Conversion"
 	  SrcPort		  2
 	  Points		  [55, 0; 0, -15]
 	  DstBlock		  "S"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcBlock		  "RGB to HSV\nColor Space\n Conversion"
 	  SrcPort		  1
 	  Points		  [55, 0; 0, -40]
 	  DstBlock		  "H"
@@ -10657,39 +10827,39 @@ Model {
 	  SrcBlock		  "Blue Data Type\nConversion2"
 	  SrcPort		  1
 	  Points		  [35, 0]
-	  DstBlock		  "Color Space\n Conversion1"
+	  DstBlock		  "RGB to HSV\nColor Space\n Conversion"
 	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "Green Data Type\nConversion1"
 	  SrcPort		  1
 	  Points		  [15, 0; 0, -35]
-	  DstBlock		  "Color Space\n Conversion1"
+	  DstBlock		  "RGB to HSV\nColor Space\n Conversion"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "Red Data Type\nConversion"
 	  SrcPort		  1
 	  Points		  [15, 0; 0, 40]
-	  DstBlock		  "Color Space\n Conversion1"
+	  DstBlock		  "RGB to HSV\nColor Space\n Conversion"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Color Space\n Conversion"
+	  SrcBlock		  "Y-Cb-Cr to RGB\nColor Space\n Conversion"
 	  SrcPort		  3
 	  Points		  [35, 0; 0, 125]
 	  DstBlock		  "Blue Data Type\nConversion2"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Color Space\n Conversion"
+	  SrcBlock		  "Y-Cb-Cr to RGB\nColor Space\n Conversion"
 	  SrcPort		  2
 	  Points		  [45, 0; 0, 50]
 	  DstBlock		  "Green Data Type\nConversion1"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Color Space\n Conversion"
+	  SrcBlock		  "Y-Cb-Cr to RGB\nColor Space\n Conversion"
 	  SrcPort		  1
 	  Points		  [45, 0; 0, -25]
 	  DstBlock		  "Red Data Type\nConversion"
@@ -10698,14 +10868,14 @@ Model {
 	Line {
 	  SrcBlock		  "Chroma\nResampling"
 	  SrcPort		  2
-	  DstBlock		  "Color Space\n Conversion"
+	  DstBlock		  "Y-Cb-Cr to RGB\nColor Space\n Conversion"
 	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "Chroma\nResampling"
 	  SrcPort		  1
 	  Points		  [0, 10]
-	  DstBlock		  "Color Space\n Conversion"
+	  DstBlock		  "Y-Cb-Cr to RGB\nColor Space\n Conversion"
 	  DstPort		  2
 	}
 	Line {
@@ -10724,7 +10894,7 @@ Model {
 	  SrcBlock		  "Y'"
 	  SrcPort		  1
 	  Points		  [270, 0]
-	  DstBlock		  "Color Space\n Conversion"
+	  DstBlock		  "Y-Cb-Cr to RGB\nColor Space\n Conversion"
 	  DstPort		  1
 	}
       }
@@ -10977,7 +11147,7 @@ MatData {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.1 (R2009a) dated Jan 27 2009, 19:23:49
+#    Stateflow Version 7.1 (R2009a) dated Jan 28 2009, 05:16:58
 #
 #
 
@@ -10994,20 +11164,21 @@ Stateflow {
   chart {
     id			    2
     name		    "Chart"
-    windowPosition	    [1224 241.412 880.941 480.282]
-    viewLimits		    [0 693.176 0 366.069]
-    zoomFactor		    0.833
-    screen		    [1 1 2490 1680 1.180555555555556]
+    windowPosition	    [18.75 52.5 886.5 480]
+    viewLimits		    [-18.75 1035 -18.75 536.25]
+    zoomFactor		    1.25
+    screen		    [1 1 1280 800 1.333333333333333]
     treeNode		    [0 28 0 0]
-    firstTransition	    40
-    viewObj		    2
+    firstTransition	    39
+    viewObj		    7
     visible		    1
     machine		    1
     subviewS {
+      zoomFactor	      1.194
     }
-    ssIdHighWaterMark	    322
+    ssIdHighWaterMark	    323
     decomposition	    CLUSTER_CHART
-    firstData		    141
+    firstData		    132
     updateMethod	    DISCRETE
     sampleTime		    "0.02"
     chartFileNumber	    1
@@ -11049,7 +11220,7 @@ Stateflow {
     ssIdNumber		    4
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    53
+    firstData		    52
     simulink {
       isSimulinkFcn	      1
       blockName		      "Running.ValidationGate.LookforTrack"
@@ -11057,27 +11228,16 @@ Stateflow {
   }
   state {
     id			    5
-    labelString		    "[ChangetoRight1, ChangetoLeft1, ChangetoVertical1] =ifbuoynotvisible(CentroidX1, CentroidY1, Cha"
-    "ngetoRight2, ChangetoLeft2, ChangetoVertical2)"
-    position		    [363.6563 264.4687 751.75 50.25]
+    labelString		    "ChooseState"
+    position		    [45.892 415.6208 736.9965 72.5355]
     fontSize		    12
     chart		    2
-    treeNode		    [7 0 0 10]
-    superState		    SUBCHART
+    treeNode		    [28 0 14 0]
     visible		    0
-    subviewer		    7
-    ssIdNumber		    186
-    type		    FUNC_STATE
+    subviewer		    28
+    ssIdNumber		    299
+    type		    OR_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    56
-    eml {
-      isEML		      1
-      script		      "function [ChangetoRight1, ChangetoLeft1, ChangetoVertical1] =ifbuoynotvisible(CentroidX1, Centroi"
-      "dY1, ChangetoRight2, ChangetoLeft2, ChangetoVertical2)\n\n\nif (CentroidX1 == -1 || CentroidY1 == -1)\n    Chang"
-      "etoRight1 = 10;\n    ChangetoLeft1 = 10;\n    ChangetoVertical1 = -100;\nelse\n    ChangetoRight1 = ChangetoRigh"
-      "t2;\n    ChangetoLeft1 = ChangetoLeft2;\n    ChangetoVertical1 = ChangetoVertical2;\nend"
-      editorLayout	      "100 M4x1[324 118 750 500]"
-    }
   }
   state {
     id			    6
@@ -11093,7 +11253,7 @@ Stateflow {
     ssIdNumber		    28
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    64
+    firstData		    55
     simulink {
       isSimulinkFcn	      1
       blockName		      "Running.ValidationGate.StraightLevelControl"
@@ -11102,20 +11262,18 @@ Stateflow {
   state {
     id			    7
     labelString		    "Buoy\n\nentry:\ncountarea = 0;\nState = 5;\n\ndu:\n[Area, Right,Left, Vertical, BuoyCentroidX, B"
-    "uoyCentroidY] = Buoy(H,S);\ncountarea = countareas(Area, countarea);\n[Right, Left, Vertical] =ifbuoynotvisible(Bu"
-    "oyCentroidX, BuoyCentroidY, Right, Left, Vertical)\n\nexit:\nBuoyDone = 1;"
+    "uoyCentroidY] = Buoy(H,S);\ncountarea = countareas(Area, countarea);\n\nexit:\nBuoyDone = 1;"
     position		    [655.6406 67.7452 76.1165 68.4716]
     fontSize		    12
     chart		    2
-    treeNode		    [28 5 3 21]
+    treeNode		    [28 10 3 21]
     superState		    SUBCHART
-    visible		    0
     subviewer		    28
     subviewS {
       x1		      -18.75
-      y1		      12.094
+      y1		      -18.75
       zoomFactor	      1.25
-      pos		      [0 0 1160.726 496.955]
+      pos		      [0 0 608.07 404.611]
     }
     ssIdNumber		    58
     type		    OR_STATE
@@ -11124,18 +11282,17 @@ Stateflow {
   state {
     id			    8
     labelString		    "[BuoyArea,ChangetoRight,ChangetoLeft,ChangetoVert,CentroidY,CentroidX] = Buoy(H,S)"
-    position		    [52.4398 341.7701 506.1895 80.249]
+    position		    [23.5336 285.9888 506.1895 80.249]
     fontSize		    12
     arrowSize		    11.255
     chart		    2
     treeNode		    [7 0 10 0]
     superState		    SUBCHART
-    visible		    0
     subviewer		    7
     ssIdNumber		    60
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    71
+    firstData		    62
     simulink {
       isSimulinkFcn	      1
       blockName		      "Running.Buoy.Buoy"
@@ -11154,7 +11311,7 @@ Stateflow {
     ssIdNumber		    154
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    79
+    firstData		    70
     eml {
       isEML		      1
       script		      "function DesiredHeadingCount1 = InitialHeadingCount(CurrentHeading1,OldHeading1,count1)\n\ntolera"
@@ -11166,21 +11323,20 @@ Stateflow {
   state {
     id			    10
     labelString		    "count2 = countareas(Size, count1)"
-    position		    [51.875 276.8743 291.0955 42.5013]
+    position		    [26.7188 228.5931 291.0955 42.5013]
     fontSize		    12
     chart		    2
-    treeNode		    [7 0 5 8]
+    treeNode		    [7 0 0 8]
     superState		    SUBCHART
-    visible		    0
     subviewer		    7
     ssIdNumber		    83
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    83
+    firstData		    74
     eml {
       isEML		      1
       script		      "function count2 = countareas(Size, count1)\n% This function acts to count the number of consecuti"
-      "ve times a particular\n% area is recognized by the recognition software\n\ncount2 = count1;\nif(Size > 8000)\n  "
+      "ve times a particular\n% area is recognized by the recognition software\n\ncount2 = count1;\nif(Size > 8500)\n  "
       "  count2 = count2 + 1;\nelse\n    count2 = 0;\nend"
       editorLayout	      "100 M4x1[107 118 750 500]"
     }
@@ -11233,7 +11389,7 @@ Stateflow {
     ssIdNumber		    15
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    86
+    firstData		    77
     eml {
       isEML		      1
       script		      "function count2 = countimages(Image, OldImage, count1)\n% This function acts to count the number "
@@ -11248,8 +11404,8 @@ Stateflow {
     position		    [342.547 70.0245 90 60]
     fontSize		    12
     chart		    2
-    treeNode		    [28 16 21 30]
-    firstTransition	    35
+    treeNode		    [28 16 21 5]
+    firstTransition	    34
     superState		    SUBCHART
     visible		    0
     subviewer		    28
@@ -11277,7 +11433,7 @@ Stateflow {
     ssIdNumber		    202
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    90
+    firstData		    81
     simulink {
       isSimulinkFcn	      1
       blockName		      "Running.FollowTrack.Stage1Aim.TrackStage1"
@@ -11325,7 +11481,7 @@ Stateflow {
     ssIdNumber		    216
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    100
+    firstData		    91
     eml {
       isEML		      1
       script		      "function ErrorCountX1 = ErrorCounter(ErrorX5,ErrorCountX5)\n\n\nif(ErrorX5 < 10 && ErrorX5 > -10)"
@@ -11347,7 +11503,7 @@ Stateflow {
     ssIdNumber		    221
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    103
+    firstData		    94
     simulink {
       isSimulinkFcn	      1
       blockName		      "Running.FollowTrack.Stage2Position.TrackStage2"
@@ -11366,7 +11522,7 @@ Stateflow {
     ssIdNumber		    234
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    113
+    firstData		    104
     eml {
       isEML		      1
       script		      "function ErrorCountX1 = ErrorCounter(ErrorX5, ErrorCountX5)\n\n\nif(ErrorX5 < 5 && ErrorX5 > -5)\n"
@@ -11411,7 +11567,7 @@ Stateflow {
     ssIdNumber		    242
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    116
+    firstData		    107
     simulink {
       isSimulinkFcn	      1
       blockName		      "Running.FindBuoy.StraightLevelControl"
@@ -11430,7 +11586,7 @@ Stateflow {
     ssIdNumber		    250
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    123
+    firstData		    114
     simulink {
       isSimulinkFcn	      1
       blockName		      "Running.FindBuoy.LookforBuoy"
@@ -11449,7 +11605,7 @@ Stateflow {
     ssIdNumber		    254
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    126
+    firstData		    117
     eml {
       isEML		      1
       script		      "function count2 = countimages(Image, OldImage, count1)\n% This function acts to count the number "
@@ -11486,7 +11642,7 @@ Stateflow {
     ssIdNumber		    261
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    130
+    firstData		    121
     simulink {
       isSimulinkFcn	      1
       blockName		      "Running.FollowTrack.Stage3ReOrient.DirectionalControl"
@@ -11505,7 +11661,7 @@ Stateflow {
     ssIdNumber		    269
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    138
+    firstData		    129
     eml {
       isEML		      1
       script		      "function ErrorCountX1 = ErrorCounter(ErrorX5, ErrorCountX5)\n\n\nif(ErrorX5 < 5 && ErrorX5 > -5)\n"
@@ -11520,8 +11676,9 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [2 12 0 29]
-    firstTransition	    33
+    firstTransition	    32
     superState		    SUBCHART
+    visible		    0
     subviewer		    2
     subviewS {
       x1		      -16.59
@@ -11535,33 +11692,21 @@ Stateflow {
   }
   state {
     id			    29
-    labelString		    "NotRunning\nentry:\nLeft = 0;\nRight = 0;\nVertical = 0;"
+    labelString		    "NotRunning\n\nentry:\nLeft = 0;\nRight = 0;\nVertical = 0;"
     position		    [163.4288 220.7408 108.8033 115.0718]
     fontSize		    12
     chart		    2
     treeNode		    [2 0 28 0]
+    visible		    0
     subviewer		    2
     ssIdNumber		    291
     type		    OR_STATE
     decomposition	    CLUSTER_STATE
   }
-  state {
-    id			    30
-    labelString		    "ChooseState"
-    position		    [45.892 415.6208 736.9965 72.5355]
-    fontSize		    12
-    chart		    2
-    treeNode		    [28 0 14 0]
-    visible		    0
-    subviewer		    28
-    ssIdNumber		    299
-    type		    OR_STATE
-    decomposition	    CLUSTER_STATE
-  }
   transition {
-    id			    31
+    id			    30
     labelString		    "[countarea>2 && DesiredState == 0]"
-    labelPosition	    [689.904 27.192 178.974 19.035]
+    labelPosition	    [689.904 27.192 191.544 16.088]
     fontSize		    12
     src {
       id		      7
@@ -11573,7 +11718,7 @@ Stateflow {
     }
     midPoint		    [749.4815 106.7878]
     chart		    2
-    linkNode		    [28 38 48]
+    linkNode		    [28 37 47]
     visible		    0
     dataLimits		    [731.757 773.895 104.388 109.188]
     stampAngle		    NaN
@@ -11583,9 +11728,9 @@ Stateflow {
     ssIdNumber		    197
   }
   transition {
-    id			    32
+    id			    31
     labelString		    "[DesiredHeadingCount >= 3 && DesiredState == 0]"
-    labelPosition	    [87.732 32.727 250.987 19.035]
+    labelPosition	    [87.732 32.727 266.73 16.088]
     fontSize		    12
     src {
       id		      11
@@ -11597,9 +11742,9 @@ Stateflow {
     }
     midPoint		    [165.9192 98.9017]
     chart		    2
-    linkNode		    [28 34 37]
+    linkNode		    [28 33 36]
     visible		    0
-    dataLimits		    [142.672 195.395 96.503 101.303]
+    dataLimits		    [142.672 195.396 96.503 101.304]
     stampAngle		    NaN
     subviewer		    28
     drawStyle		    SMART
@@ -11607,8 +11752,8 @@ Stateflow {
     ssIdNumber		    162
   }
   transition {
-    id			    33
-    labelPosition	    [70.149 41.666 8.472 19.035]
+    id			    32
+    labelPosition	    [70.149 41.666 8.056 16.088]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 84.547 33.2745 0 0]
@@ -11619,7 +11764,7 @@ Stateflow {
     }
     midPoint		    [84.547 44.666]
     chart		    2
-    linkNode		    [28 0 34]
+    linkNode		    [28 0 33]
     visible		    0
     dataLimits		    [82.148 86.948 33.275 63.275]
     subviewer		    28
@@ -11628,21 +11773,21 @@ Stateflow {
     ssIdNumber		    161
   }
   transition {
-    id			    34
+    id			    33
     labelString		    "[TrackCount > 2 && DesiredState == 0]"
-    labelPosition	    [219.991 50.888 193.8 19.035]
+    labelPosition	    [219.991 50.888 206.76 16.088]
     fontSize		    12
     src {
       id		      3
-      intersection	      [2 1 0 0.4708 296.5532 97.7728 0 -2.25]
+      intersection	      [2 1 -0 0.4708 296.5532 97.7728 0 -2.25]
     }
     dst {
       id		      14
-      intersection	      [4 -1 -0 0.5375 342.547 97.7728 0 2.25]
+      intersection	      [4 -1 0 0.5375 342.547 97.7728 0 2.25]
     }
     midPoint		    [316.2893 97.7745]
     chart		    2
-    linkNode		    [28 33 32]
+    linkNode		    [28 32 31]
     visible		    0
     dataLimits		    [296.553 342.547 95.373 100.173]
     stampAngle		    NaN
@@ -11652,8 +11797,8 @@ Stateflow {
     ssIdNumber		    199
   }
   transition {
-    id			    35
-    labelPosition	    [172.065 55.983 8.093 18.182]
+    id			    34
+    labelPosition	    [172.065 55.983 8.056 16.088]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 186.4657 48.6563 0 0]
@@ -11664,7 +11809,7 @@ Stateflow {
     }
     midPoint		    [186.4657 60.0477]
     chart		    2
-    linkNode		    [14 0 36]
+    linkNode		    [14 0 35]
     visible		    0
     dataLimits		    [184.066 188.866 48.656 78.656]
     subviewer		    14
@@ -11673,9 +11818,9 @@ Stateflow {
     ssIdNumber		    219
   }
   transition {
-    id			    36
+    id			    35
     labelString		    "[ErrorCountX>3]"
-    labelPosition	    [404.375 472.594 81.938 18.182]
+    labelPosition	    [404.375 472.594 84.136 16.088]
     fontSize		    12
     src {
       id		      16
@@ -11687,7 +11832,7 @@ Stateflow {
     }
     midPoint		    [397.6221 478.083]
     chart		    2
-    linkNode		    [14 35 39]
+    linkNode		    [14 34 38]
     visible		    0
     dataLimits		    [395.222 400.022 469.969 493.688]
     stampAngle		    NaN
@@ -11697,9 +11842,9 @@ Stateflow {
     ssIdNumber		    215
   }
   transition {
-    id			    37
+    id			    36
     labelString		    "[ErrorCountHeading > 3 && DesiredState == 0]"
-    labelPosition	    [381.412 32.623 235.102 19.035]
+    labelPosition	    [381.412 32.623 245.248 16.088]
     fontSize		    12
     src {
       id		      14
@@ -11711,7 +11856,7 @@ Stateflow {
     }
     midPoint		    [460.6504 99.837]
     chart		    2
-    linkNode		    [28 32 38]
+    linkNode		    [28 31 37]
     visible		    0
     dataLimits		    [432.547 494.578 97.438 102.239]
     stampAngle		    NaN
@@ -11721,21 +11866,21 @@ Stateflow {
     ssIdNumber		    240
   }
   transition {
-    id			    38
+    id			    37
     labelString		    "[BuoyCount > 2 && DesiredState == 0]"
-    labelPosition	    [545.2 48.253 192.741 19.035]
+    labelPosition	    [545.2 48.253 204.97 16.088]
     fontSize		    12
     src {
       id		      21
-      intersection	      [2 1 0 0.5328 591.2969 103.5841 0 0.6685]
+      intersection	      [2 1 0 0.5328 591.2969 103.5832 0 0.6685]
     }
     dst {
       id		      7
-      intersection	      [4 -1 -0 0.4766 655.6406 103.5841 0 -1.606]
+      intersection	      [4 -1 -0 0.4766 655.6406 103.5832 0 -1.606]
     }
     midPoint		    [620.6068 103.587]
     chart		    2
-    linkNode		    [28 37 31]
+    linkNode		    [28 36 30]
     visible		    0
     dataLimits		    [591.297 655.641 101.184 105.984]
     stampAngle		    NaN
@@ -11745,9 +11890,9 @@ Stateflow {
     ssIdNumber		    241
   }
   transition {
-    id			    39
+    id			    38
     labelString		    "[ErrorCountY > 3]"
-    labelPosition	    [342.813 885.844 88.007 18.182]
+    labelPosition	    [342.813 885.844 93.087 16.088]
     fontSize		    12
     src {
       id		      17
@@ -11759,7 +11904,7 @@ Stateflow {
     }
     midPoint		    [340.9375 895.1116]
     chart		    2
-    linkNode		    [14 36 0]
+    linkNode		    [14 35 0]
     visible		    0
     dataLimits		    [338.477 343.277 877.313 919.594]
     stampAngle		    NaN
@@ -11769,9 +11914,9 @@ Stateflow {
     ssIdNumber		    260
   }
   transition {
-    id			    40
+    id			    39
     labelString		    "[Status == 1]"
-    labelPosition	    [232.529 197.892 69.189 18.33]
+    labelPosition	    [232.529 197.892 70.71 16.088]
     fontSize		    12
     src {
       id		      29
@@ -11783,20 +11928,19 @@ Stateflow {
     }
     midPoint		    [227.7533 183.6528]
     chart		    2
-    linkNode		    [2 0 41]
+    linkNode		    [2 0 40]
+    visible		    0
     dataLimits		    [225.353 230.153 141.489 220.741]
     stampAngle		    NaN
     subviewer		    2
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    293
   }
   transition {
-    id			    41
+    id			    40
     labelString		    "[Status ~= 1]"
-    labelPosition	    [134.546 195.759 69.189 18.33]
+    labelPosition	    [134.546 195.759 70.71 16.088]
     fontSize		    12
     src {
       id		      28
@@ -11808,19 +11952,18 @@ Stateflow {
     }
     midPoint		    [207.0806 178.5771]
     chart		    2
-    linkNode		    [2 40 42]
+    linkNode		    [2 39 41]
+    visible		    0
     dataLimits		    [204.681 209.481 141.489 220.741]
     stampAngle		    NaN
     subviewer		    2
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    292
   }
   transition {
-    id			    42
-    labelPosition	    [143.342 271.391 7.766 18.33]
+    id			    41
+    labelPosition	    [143.342 271.391 8.056 16.088]
     fontSize		    12
     src {
       intersection	      [0 1 0 0 129.6983 283.4258 0 0]
@@ -11831,7 +11974,8 @@ Stateflow {
     }
     midPoint		    [143.0361 283.4258]
     chart		    2
-    linkNode		    [2 41 0]
+    linkNode		    [2 40 0]
+    visible		    0
     dataLimits		    [129.698 163.429 281.026 285.826]
     subviewer		    2
     drawStyle		    SMART
@@ -11839,21 +11983,21 @@ Stateflow {
     ssIdNumber		    295
   }
   transition {
-    id			    43
+    id			    42
     labelString		    "[DesiredState ~= 1 && DesiredState ~= 0]"
-    labelPosition	    [59.217 252.067 209.686 19.035]
+    labelPosition	    [59.217 252.067 221.977 16.088]
     fontSize		    12
     src {
       id		      11
       intersection	      [3 -0 1 0.187 118.5022 149.5245 0 -40.4575]
     }
     dst {
-      id		      30
+      id		      5
       intersection	      [1 0 -1 0.0985 118.5022 415.6208 0 40.4575]
     }
     midPoint		    [118.5022 284.0966]
     chart		    2
-    linkNode		    [28 44 0]
+    linkNode		    [28 43 0]
     visible		    0
     dataLimits		    [116.102 120.902 149.525 415.621]
     stampAngle		    NaN
@@ -11863,12 +12007,12 @@ Stateflow {
     ssIdNumber		    300
   }
   transition {
-    id			    44
+    id			    43
     labelString		    "[DesiredState == 1 || DesiredState == 0]"
-    labelPosition	    [2.398 271.224 194.859 19.035]
+    labelPosition	    [2.398 271.224 211.236 16.088]
     fontSize		    12
     src {
-      id		      30
+      id		      5
       intersection	      [1 0 -1 0.0511 83.5789 415.6208 0 5.533]
     }
     dst {
@@ -11877,7 +12021,7 @@ Stateflow {
     }
     midPoint		    [83.5789 281.0486]
     chart		    2
-    linkNode		    [28 51 43]
+    linkNode		    [28 50 42]
     visible		    0
     dataLimits		    [81.179 85.979 149.524 415.621]
     stampAngle		    NaN
@@ -11887,21 +12031,21 @@ Stateflow {
     ssIdNumber		    301
   }
   transition {
-    id			    45
+    id			    44
     labelString		    "[DesiredState ~= 2 && DesiredState ~= 0]"
-    labelPosition	    [224.115 189.926 209.686 19.035]
+    labelPosition	    [224.115 189.926 221.977 16.088]
     fontSize		    12
     src {
       id		      3
       intersection	      [3 -0 1 0.1667 279.6902 131.7721 0 -33.7202]
     }
     dst {
-      id		      30
+      id		      5
       intersection	      [1 0 -1 0.3172 279.6902 415.6208 0 33.7202]
     }
     midPoint		    [279.6902 275.6063]
     chart		    2
-    linkNode		    [28 46 50]
+    linkNode		    [28 45 49]
     visible		    0
     dataLimits		    [277.29 282.09 131.772 415.621]
     stampAngle		    NaN
@@ -11911,12 +12055,12 @@ Stateflow {
     ssIdNumber		    302
   }
   transition {
-    id			    46
+    id			    45
     labelString		    "[DesiredState == 2]"
-    labelPosition	    [165.815 156.875 95.312 19.035]
+    labelPosition	    [165.815 156.875 103.828 16.088]
     fontSize		    12
     src {
-      id		      30
+      id		      5
       intersection	      [1 0 -1 0.2686 243.8703 415.6208 0 -2.0998]
     }
     dst {
@@ -11925,7 +12069,7 @@ Stateflow {
     }
     midPoint		    [243.8703 271.7865]
     chart		    2
-    linkNode		    [28 47 45]
+    linkNode		    [28 46 44]
     visible		    0
     dataLimits		    [241.47 246.27 131.772 415.621]
     stampAngle		    NaN
@@ -11935,21 +12079,21 @@ Stateflow {
     ssIdNumber		    303
   }
   transition {
-    id			    47
+    id			    46
     labelString		    "[DesiredState ~= 3 && DesiredState ~= 0]"
-    labelPosition	    [269.572 366.711 209.686 19.035]
+    labelPosition	    [269.572 366.711 221.977 16.088]
     fontSize		    12
     src {
       id		      14
       intersection	      [3 -0 1 0.7631 363.868 130.0245 0 23.6755]
     }
     dst {
-      id		      30
+      id		      5
       intersection	      [1 0 -1 0.4314 363.868 415.6208 0 -23.6755]
     }
     midPoint		    [363.868 274.7705]
     chart		    2
-    linkNode		    [28 48 46]
+    linkNode		    [28 47 45]
     visible		    0
     dataLimits		    [361.468 366.268 130.025 415.621]
     stampAngle		    NaN
@@ -11959,12 +12103,12 @@ Stateflow {
     ssIdNumber		    304
   }
   transition {
-    id			    48
+    id			    47
     labelString		    "[DesiredState == 3]"
-    labelPosition	    [374.275 342.663 95.312 19.035]
+    labelPosition	    [374.275 342.663 103.828 16.088]
     fontSize		    12
     src {
-      id		      30
+      id		      5
       intersection	      [1 0 -1 0.4934 409.543 415.6208 0 22.8905]
     }
     dst {
@@ -11973,7 +12117,7 @@ Stateflow {
     }
     midPoint		    [409.543 270.8747]
     chart		    2
-    linkNode		    [28 31 47]
+    linkNode		    [28 30 46]
     visible		    0
     dataLimits		    [407.143 411.943 130.024 415.621]
     stampAngle		    NaN
@@ -11983,21 +12127,21 @@ Stateflow {
     ssIdNumber		    318
   }
   transition {
-    id			    49
+    id			    48
     labelString		    "[DesiredState ~= 4 && DesiredState ~= 0]"
-    labelPosition	    [429.952 234.049 209.686 19.035]
+    labelPosition	    [429.952 234.049 221.977 16.088]
     fontSize		    12
     src {
       id		      21
       intersection	      [3 -0 1 0.6848 525.0639 133.5871 0 17.876]
     }
     dst {
-      id		      30
+      id		      5
       intersection	      [1 0 -1 0.6502 525.0639 415.6208 0 -17.876]
     }
     midPoint		    [525.0639 276.4744]
     chart		    2
-    linkNode		    [28 50 52]
+    linkNode		    [28 49 51]
     visible		    0
     dataLimits		    [522.664 527.464 133.587 415.621]
     stampAngle		    NaN
@@ -12007,12 +12151,12 @@ Stateflow {
     ssIdNumber		    319
   }
   transition {
-    id			    50
+    id			    49
     labelString		    "[DesiredState == 4]"
-    labelPosition	    [540.199 265.457 95.312 19.035]
+    labelPosition	    [540.199 265.457 103.828 16.088]
     fontSize		    12
     src {
-      id		      30
+      id		      5
       intersection	      [1 0 -1 0.7109 569.835 415.6208 0 26.899]
     }
     dst {
@@ -12021,7 +12165,7 @@ Stateflow {
     }
     midPoint		    [569.835 272.7335]
     chart		    2
-    linkNode		    [28 45 49]
+    linkNode		    [28 44 48]
     visible		    0
     dataLimits		    [567.435 572.235 133.587 415.621]
     stampAngle		    NaN
@@ -12031,21 +12175,21 @@ Stateflow {
     ssIdNumber		    320
   }
   transition {
-    id			    51
+    id			    50
     labelString		    "[DesiredState ~= 5 && DesiredState ~= 0]"
-    labelPosition	    [573.72 329.069 209.686 19.035]
+    labelPosition	    [573.72 329.069 221.977 16.088]
     fontSize		    12
     src {
       id		      7
       intersection	      [3 -0 1 0.7743 672.8201 136.2168 0 20.8798]
     }
     dst {
-      id		      30
+      id		      5
       intersection	      [1 0 -1 0.8507 672.8201 415.6208 0 -20.8798]
     }
     midPoint		    [672.8201 277.7321]
     chart		    2
-    linkNode		    [28 52 44]
+    linkNode		    [28 51 43]
     visible		    0
     dataLimits		    [670.42 675.22 136.217 415.621]
     stampAngle		    NaN
@@ -12055,12 +12199,12 @@ Stateflow {
     ssIdNumber		    321
   }
   transition {
-    id			    52
+    id			    51
     labelString		    "[DesiredState == 5]"
-    labelPosition	    [690.378 368.444 95.312 19.035]
+    labelPosition	    [690.378 368.444 103.828 16.088]
     fontSize		    12
     src {
-      id		      30
+      id		      5
       intersection	      [1 0 -1 0.9124 718.3378 415.6208 0 27.4772]
     }
     dst {
@@ -12069,7 +12213,7 @@ Stateflow {
     }
     midPoint		    [718.3378 274.1055]
     chart		    2
-    linkNode		    [28 49 51]
+    linkNode		    [28 48 50]
     visible		    0
     dataLimits		    [715.938 720.738 136.217 415.621]
     stampAngle		    NaN
@@ -12079,10 +12223,10 @@ Stateflow {
     ssIdNumber		    322
   }
   data {
-    id			    53
+    id			    52
     ssIdNumber		    171
     name		    "Image"
-    linkNode		    [4 0 54]
+    linkNode		    [4 0 53]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
@@ -12101,10 +12245,32 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    54
+    id			    53
     ssIdNumber		    174
     name		    "H"
-    linkNode		    [4 53 55]
+    linkNode		    [4 52 54]
+    scope		    FUNCTION_INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    54
+    ssIdNumber		    175
+    name		    "S"
+    linkNode		    [4 53 0]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
@@ -12124,9 +12290,9 @@ Stateflow {
   }
   data {
     id			    55
-    ssIdNumber		    175
-    name		    "S"
-    linkNode		    [4 54 0]
+    ssIdNumber		    50
+    name		    "CurrentDepth"
+    linkNode		    [6 0 56]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
@@ -12146,138 +12312,186 @@ Stateflow {
   }
   data {
     id			    56
-    ssIdNumber		    187
-    name		    "CentroidX1"
-    linkNode		    [5 0 57]
+    ssIdNumber		    51
+    name		    "DesiredDepth"
+    linkNode		    [6 55 57]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    57
-    ssIdNumber		    188
-    name		    "CentroidY1"
-    linkNode		    [5 56 58]
+    ssIdNumber		    52
+    name		    "DesiredHeading"
+    linkNode		    [6 56 58]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    58
-    ssIdNumber		    189
-    name		    "ChangetoRight2"
-    linkNode		    [5 57 59]
+    ssIdNumber		    53
+    name		    "CurrentHeading"
+    linkNode		    [6 57 59]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    59
-    ssIdNumber		    190
-    name		    "ChangetoLeft2"
-    linkNode		    [5 58 60]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    54
+    name		    "ChangetoVertical"
+    linkNode		    [6 58 60]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    60
-    ssIdNumber		    191
-    name		    "ChangetoVertical2"
-    linkNode		    [5 59 61]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    55
+    name		    "ChangetoLeft"
+    linkNode		    [6 59 61]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    61
-    ssIdNumber		    192
-    name		    "ChangetoRight1"
-    linkNode		    [5 60 62]
+    ssIdNumber		    56
+    name		    "ChangetoRight"
+    linkNode		    [6 60 0]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    62
-    ssIdNumber		    193
-    name		    "ChangetoLeft1"
-    linkNode		    [5 61 63]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    141
+    name		    "H"
+    linkNode		    [8 0 63]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    63
-    ssIdNumber		    194
-    name		    "ChangetoVertical1"
-    linkNode		    [5 62 0]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    142
+    name		    "S"
+    linkNode		    [8 62 64]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    64
-    ssIdNumber		    50
-    name		    "CurrentDepth"
-    linkNode		    [6 0 65]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    180
+    name		    "BuoyArea"
+    linkNode		    [8 63 65]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -12296,10 +12510,10 @@ Stateflow {
   }
   data {
     id			    65
-    ssIdNumber		    51
-    name		    "DesiredDepth"
-    linkNode		    [6 64 66]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    181
+    name		    "ChangetoRight"
+    linkNode		    [8 64 66]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -12318,10 +12532,10 @@ Stateflow {
   }
   data {
     id			    66
-    ssIdNumber		    52
-    name		    "DesiredHeading"
-    linkNode		    [6 65 67]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    182
+    name		    "ChangetoLeft"
+    linkNode		    [8 65 67]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -12340,10 +12554,10 @@ Stateflow {
   }
   data {
     id			    67
-    ssIdNumber		    53
-    name		    "CurrentHeading"
-    linkNode		    [6 66 68]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    183
+    name		    "ChangetoVert"
+    linkNode		    [8 66 68]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -12362,9 +12576,9 @@ Stateflow {
   }
   data {
     id			    68
-    ssIdNumber		    54
-    name		    "ChangetoVertical"
-    linkNode		    [6 67 69]
+    ssIdNumber		    184
+    name		    "CentroidY"
+    linkNode		    [8 67 69]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
@@ -12384,9 +12598,9 @@ Stateflow {
   }
   data {
     id			    69
-    ssIdNumber		    55
-    name		    "ChangetoLeft"
-    linkNode		    [6 68 70]
+    ssIdNumber		    185
+    name		    "CentroidX"
+    linkNode		    [8 68 0]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
@@ -12406,207 +12620,153 @@ Stateflow {
   }
   data {
     id			    70
-    ssIdNumber		    56
-    name		    "ChangetoRight"
-    linkNode		    [6 69 0]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    155
+    name		    "CurrentHeading1"
+    linkNode		    [9 0 71]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    71
-    ssIdNumber		    141
-    name		    "H"
-    linkNode		    [8 0 72]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    156
+    name		    "DesiredHeadingCount1"
+    linkNode		    [9 70 72]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    72
-    ssIdNumber		    142
-    name		    "S"
-    linkNode		    [8 71 73]
+    ssIdNumber		    157
+    name		    "OldHeading1"
+    linkNode		    [9 71 73]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    73
-    ssIdNumber		    180
-    name		    "BuoyArea"
-    linkNode		    [8 72 74]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    158
+    name		    "count1"
+    linkNode		    [9 72 0]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    74
-    ssIdNumber		    181
-    name		    "ChangetoRight"
-    linkNode		    [8 73 75]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    84
+    name		    "Size"
+    linkNode		    [10 0 75]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    75
-    ssIdNumber		    182
-    name		    "ChangetoLeft"
-    linkNode		    [8 74 76]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    86
+    name		    "count1"
+    linkNode		    [10 74 76]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    76
-    ssIdNumber		    183
-    name		    "ChangetoVert"
-    linkNode		    [8 75 77]
+    ssIdNumber		    87
+    name		    "count2"
+    linkNode		    [10 75 0]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    77
-    ssIdNumber		    184
-    name		    "CentroidY"
-    linkNode		    [8 76 78]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    16
+    name		    "Image"
+    linkNode		    [13 0 78]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    78
-    ssIdNumber		    185
-    name		    "CentroidX"
-    linkNode		    [8 77 0]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    17
+    name		    "OldImage"
+    linkNode		    [13 77 79]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    79
-    ssIdNumber		    155
-    name		    "CurrentHeading1"
-    linkNode		    [9 0 80]
+    ssIdNumber		    19
+    name		    "count1"
+    linkNode		    [13 78 80]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
@@ -12620,9 +12780,9 @@ Stateflow {
   }
   data {
     id			    80
-    ssIdNumber		    156
-    name		    "DesiredHeadingCount1"
-    linkNode		    [9 79 81]
+    ssIdNumber		    79
+    name		    "count2"
+    linkNode		    [13 79 0]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
@@ -12636,153 +12796,207 @@ Stateflow {
   }
   data {
     id			    81
-    ssIdNumber		    157
-    name		    "OldHeading1"
-    linkNode		    [9 80 82]
+    ssIdNumber		    203
+    name		    "CurrentHeading"
+    linkNode		    [15 0 82]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    82
-    ssIdNumber		    158
-    name		    "count1"
-    linkNode		    [9 81 0]
+    ssIdNumber		    204
+    name		    "DesiredDepth"
+    linkNode		    [15 81 83]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    83
-    ssIdNumber		    84
-    name		    "Size"
-    linkNode		    [10 0 84]
+    ssIdNumber		    205
+    name		    "CurrentDepth"
+    linkNode		    [15 82 84]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    84
-    ssIdNumber		    86
-    name		    "count1"
-    linkNode		    [10 83 85]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    206
+    name		    "DesiredHeading"
+    linkNode		    [15 83 85]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    85
-    ssIdNumber		    87
-    name		    "count2"
-    linkNode		    [10 84 0]
+    ssIdNumber		    207
+    name		    "ChangetoRight"
+    linkNode		    [15 84 86]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    86
-    ssIdNumber		    16
-    name		    "Image"
-    linkNode		    [13 0 87]
-    scope		    FUNCTION_INPUT_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    87
-    ssIdNumber		    17
-    name		    "OldImage"
-    linkNode		    [13 86 88]
-    scope		    FUNCTION_INPUT_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    88
-    ssIdNumber		    19
-    name		    "count1"
-    linkNode		    [13 87 89]
-    scope		    FUNCTION_INPUT_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    89
-    ssIdNumber		    79
-    name		    "count2"
-    linkNode		    [13 88 0]
+    ssIdNumber		    208
+    name		    "ChangetoLeft"
+    linkNode		    [15 85 87]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    87
+    ssIdNumber		    209
+    name		    "ChangetoVertical"
+    linkNode		    [15 86 88]
+    scope		    FUNCTION_OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    88
+    ssIdNumber		    210
+    name		    "ErrorX"
+    linkNode		    [15 87 89]
+    scope		    FUNCTION_OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    89
+    ssIdNumber		    211
+    name		    "H"
+    linkNode		    [15 88 90]
+    scope		    FUNCTION_INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    90
-    ssIdNumber		    203
-    name		    "CurrentHeading"
-    linkNode		    [15 0 91]
+    ssIdNumber		    212
+    name		    "S"
+    linkNode		    [15 89 0]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
@@ -12802,76 +13016,58 @@ Stateflow {
   }
   data {
     id			    91
-    ssIdNumber		    204
-    name		    "DesiredDepth"
-    linkNode		    [15 90 92]
+    ssIdNumber		    217
+    name		    "ErrorX5"
+    linkNode		    [18 0 92]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    92
-    ssIdNumber		    205
-    name		    "CurrentDepth"
-    linkNode		    [15 91 93]
+    ssIdNumber		    218
+    name		    "ErrorCountX5"
+    linkNode		    [18 91 93]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    93
-    ssIdNumber		    206
-    name		    "DesiredHeading"
-    linkNode		    [15 92 94]
+    ssIdNumber		    275
+    name		    "ErrorCountX1"
+    linkNode		    [18 92 0]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    94
-    ssIdNumber		    207
-    name		    "ChangetoRight"
-    linkNode		    [15 93 95]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    232
+    name		    "CurrentHeading"
+    linkNode		    [19 0 95]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
       array {
@@ -12890,10 +13086,10 @@ Stateflow {
   }
   data {
     id			    95
-    ssIdNumber		    208
-    name		    "ChangetoLeft"
-    linkNode		    [15 94 96]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    223
+    name		    "DesiredDepth"
+    linkNode		    [19 94 96]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
       array {
@@ -12912,10 +13108,10 @@ Stateflow {
   }
   data {
     id			    96
-    ssIdNumber		    209
-    name		    "ChangetoVertical"
-    linkNode		    [15 95 97]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    224
+    name		    "CurrentDepth"
+    linkNode		    [19 95 97]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
       array {
@@ -12934,9 +13130,9 @@ Stateflow {
   }
   data {
     id			    97
-    ssIdNumber		    210
-    name		    "ErrorX"
-    linkNode		    [15 96 98]
+    ssIdNumber		    225
+    name		    "DesiredHeading"
+    linkNode		    [19 96 98]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
@@ -12956,10 +13152,10 @@ Stateflow {
   }
   data {
     id			    98
-    ssIdNumber		    211
-    name		    "H"
-    linkNode		    [15 97 99]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    226
+    name		    "ChangetoRight"
+    linkNode		    [19 97 99]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -12978,10 +13174,10 @@ Stateflow {
   }
   data {
     id			    99
-    ssIdNumber		    212
-    name		    "S"
-    linkNode		    [15 98 0]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    227
+    name		    "ChangetoLeft"
+    linkNode		    [19 98 100]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -13000,57 +13196,75 @@ Stateflow {
   }
   data {
     id			    100
-    ssIdNumber		    217
-    name		    "ErrorX5"
-    linkNode		    [18 0 101]
-    scope		    FUNCTION_INPUT_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    101
-    ssIdNumber		    218
-    name		    "ErrorCountX5"
-    linkNode		    [18 100 102]
-    scope		    FUNCTION_INPUT_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    102
-    ssIdNumber		    275
-    name		    "ErrorCountX1"
-    linkNode		    [18 101 0]
+    ssIdNumber		    228
+    name		    "ChangetoVertical"
+    linkNode		    [19 99 101]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    101
+    ssIdNumber		    230
+    name		    "H"
+    linkNode		    [19 100 102]
+    scope		    FUNCTION_INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    102
+    ssIdNumber		    233
+    name		    "ErrorY"
+    linkNode		    [19 101 103]
+    scope		    FUNCTION_OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    103
-    ssIdNumber		    232
-    name		    "CurrentHeading"
-    linkNode		    [19 0 104]
+    ssIdNumber		    286
+    name		    "S"
+    linkNode		    [19 102 0]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
@@ -13070,76 +13284,58 @@ Stateflow {
   }
   data {
     id			    104
-    ssIdNumber		    223
-    name		    "DesiredDepth"
-    linkNode		    [19 103 105]
+    ssIdNumber		    235
+    name		    "ErrorX5"
+    linkNode		    [20 0 105]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    105
-    ssIdNumber		    224
-    name		    "CurrentDepth"
-    linkNode		    [19 104 106]
+    ssIdNumber		    236
+    name		    "ErrorCountX5"
+    linkNode		    [20 104 106]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    106
-    ssIdNumber		    225
-    name		    "DesiredHeading"
-    linkNode		    [19 105 107]
+    ssIdNumber		    273
+    name		    "ErrorCountX1"
+    linkNode		    [20 105 0]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    107
-    ssIdNumber		    226
-    name		    "ChangetoRight"
-    linkNode		    [19 106 108]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    243
+    name		    "CurrentDepth"
+    linkNode		    [22 0 108]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
       array {
@@ -13158,10 +13354,10 @@ Stateflow {
   }
   data {
     id			    108
-    ssIdNumber		    227
-    name		    "ChangetoLeft"
-    linkNode		    [19 107 109]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    244
+    name		    "DesiredDepth"
+    linkNode		    [22 107 109]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
       array {
@@ -13180,10 +13376,10 @@ Stateflow {
   }
   data {
     id			    109
-    ssIdNumber		    228
-    name		    "ChangetoVertical"
-    linkNode		    [19 108 110]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    245
+    name		    "DesiredHeading"
+    linkNode		    [22 108 110]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
       array {
@@ -13202,9 +13398,9 @@ Stateflow {
   }
   data {
     id			    110
-    ssIdNumber		    230
-    name		    "H"
-    linkNode		    [19 109 111]
+    ssIdNumber		    246
+    name		    "CurrentHeading"
+    linkNode		    [22 109 111]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
@@ -13224,9 +13420,9 @@ Stateflow {
   }
   data {
     id			    111
-    ssIdNumber		    233
-    name		    "ErrorY"
-    linkNode		    [19 110 112]
+    ssIdNumber		    247
+    name		    "ChangetoVertical"
+    linkNode		    [22 110 112]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
@@ -13246,10 +13442,10 @@ Stateflow {
   }
   data {
     id			    112
-    ssIdNumber		    286
-    name		    "S"
-    linkNode		    [19 111 0]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    248
+    name		    "ChangetoLeft"
+    linkNode		    [22 111 113]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -13268,57 +13464,75 @@ Stateflow {
   }
   data {
     id			    113
-    ssIdNumber		    235
-    name		    "ErrorX5"
-    linkNode		    [20 0 114]
-    scope		    FUNCTION_INPUT_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    114
-    ssIdNumber		    236
-    name		    "ErrorCountX5"
-    linkNode		    [20 113 115]
-    scope		    FUNCTION_INPUT_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    115
-    ssIdNumber		    273
-    name		    "ErrorCountX1"
-    linkNode		    [20 114 0]
+    ssIdNumber		    249
+    name		    "ChangetoRight"
+    linkNode		    [22 112 0]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    114
+    ssIdNumber		    251
+    name		    "Image"
+    linkNode		    [23 0 115]
+    scope		    FUNCTION_OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    115
+    ssIdNumber		    252
+    name		    "H"
+    linkNode		    [23 114 116]
+    scope		    FUNCTION_INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    116
-    ssIdNumber		    243
-    name		    "CurrentDepth"
-    linkNode		    [22 0 117]
+    ssIdNumber		    253
+    name		    "S"
+    linkNode		    [23 115 0]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
@@ -13338,98 +13552,74 @@ Stateflow {
   }
   data {
     id			    117
-    ssIdNumber		    244
-    name		    "DesiredDepth"
-    linkNode		    [22 116 118]
+    ssIdNumber		    255
+    name		    "Image"
+    linkNode		    [24 0 118]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    118
-    ssIdNumber		    245
-    name		    "DesiredHeading"
-    linkNode		    [22 117 119]
+    ssIdNumber		    256
+    name		    "OldImage"
+    linkNode		    [24 117 119]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    119
-    ssIdNumber		    246
-    name		    "CurrentHeading"
-    linkNode		    [22 118 120]
+    ssIdNumber		    257
+    name		    "count1"
+    linkNode		    [24 118 120]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    120
-    ssIdNumber		    247
-    name		    "ChangetoVertical"
-    linkNode		    [22 119 121]
+    ssIdNumber		    258
+    name		    "count2"
+    linkNode		    [24 119 0]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    121
-    ssIdNumber		    248
-    name		    "ChangetoLeft"
-    linkNode		    [22 120 122]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    262
+    name		    "CurrentDepth"
+    linkNode		    [26 0 122]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
       array {
@@ -13448,10 +13638,10 @@ Stateflow {
   }
   data {
     id			    122
-    ssIdNumber		    249
-    name		    "ChangetoRight"
-    linkNode		    [22 121 0]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    263
+    name		    "DesiredDepth"
+    linkNode		    [26 121 123]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
       array {
@@ -13470,10 +13660,10 @@ Stateflow {
   }
   data {
     id			    123
-    ssIdNumber		    251
-    name		    "Image"
-    linkNode		    [23 0 124]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    264
+    name		    "DesiredHeading"
+    linkNode		    [26 122 124]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
       array {
@@ -13492,9 +13682,9 @@ Stateflow {
   }
   data {
     id			    124
-    ssIdNumber		    252
-    name		    "H"
-    linkNode		    [23 123 125]
+    ssIdNumber		    265
+    name		    "CurrentHeading"
+    linkNode		    [26 123 125]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
@@ -13514,10 +13704,10 @@ Stateflow {
   }
   data {
     id			    125
-    ssIdNumber		    253
-    name		    "S"
-    linkNode		    [23 124 0]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    266
+    name		    "ChangetoVertical"
+    linkNode		    [26 124 126]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -13536,58 +13726,76 @@ Stateflow {
   }
   data {
     id			    126
-    ssIdNumber		    255
-    name		    "Image"
-    linkNode		    [24 0 127]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    267
+    name		    "ChangetoLeft"
+    linkNode		    [26 125 127]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    127
-    ssIdNumber		    256
-    name		    "OldImage"
-    linkNode		    [24 126 128]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    268
+    name		    "ChangetoRight"
+    linkNode		    [26 126 128]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    128
-    ssIdNumber		    257
-    name		    "count1"
-    linkNode		    [24 127 129]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    272
+    name		    "ErrorHeading1"
+    linkNode		    [26 127 0]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
+      array {
+	size			"-1"
+      }
       type {
+	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "double"
+    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    129
-    ssIdNumber		    258
-    name		    "count2"
-    linkNode		    [24 128 0]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    270
+    name		    "ErrorX5"
+    linkNode		    [27 0 130]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
       type {
@@ -13600,186 +13808,157 @@ Stateflow {
   }
   data {
     id			    130
-    ssIdNumber		    262
-    name		    "CurrentDepth"
-    linkNode		    [26 0 131]
+    ssIdNumber		    271
+    name		    "ErrorCountX5"
+    linkNode		    [27 129 131]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    131
-    ssIdNumber		    263
-    name		    "DesiredDepth"
-    linkNode		    [26 130 132]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    274
+    name		    "ErrorCountX1"
+    linkNode		    [27 130 0]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    132
-    ssIdNumber		    264
-    name		    "DesiredHeading"
-    linkNode		    [26 131 133]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    9
+    name		    "CurrentDepth"
+    linkNode		    [2 0 133]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
-	size			"-1"
+	size			"1"
       }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    133
-    ssIdNumber		    265
+    ssIdNumber		    10
     name		    "CurrentHeading"
-    linkNode		    [26 132 134]
-    scope		    FUNCTION_INPUT_DATA
+    linkNode		    [2 132 134]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
-	size			"-1"
+	size			"1"
       }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    134
-    ssIdNumber		    266
-    name		    "ChangetoVertical"
-    linkNode		    [26 133 135]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    11
+    name		    "Right"
+    linkNode		    [2 133 135]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
-	size			"-1"
+	size			"1"
       }
       type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
+	primitive		SF_INT8_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "int8"
   }
   data {
     id			    135
-    ssIdNumber		    267
-    name		    "ChangetoLeft"
-    linkNode		    [26 134 136]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    12
+    name		    "Left"
+    linkNode		    [2 134 136]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
-	size			"-1"
+	size			"1"
       }
       type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
+	primitive		SF_INT8_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "int8"
   }
   data {
     id			    136
-    ssIdNumber		    268
-    name		    "ChangetoRight"
-    linkNode		    [26 135 137]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    13
+    name		    "Vertical"
+    linkNode		    [2 135 137]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
-	size			"-1"
+	size			"1"
       }
       type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
+	primitive		SF_INT8_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "int8"
   }
   data {
     id			    137
-    ssIdNumber		    272
-    name		    "ErrorHeading1"
-    linkNode		    [26 136 0]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    22
+    name		    "DesiredDepth"
+    linkNode		    [2 136 138]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
-      array {
-	size			"-1"
-      }
       type {
-	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
-    dataType		    "Inherit: Same as Simulink"
+    dataType		    "double"
   }
   data {
     id			    138
-    ssIdNumber		    270
-    name		    "ErrorX5"
-    linkNode		    [27 0 139]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    25
+    name		    "count"
+    linkNode		    [2 137 139]
+    scope		    LOCAL_DATA
     machine		    1
     props {
       type {
@@ -13792,26 +13971,30 @@ Stateflow {
   }
   data {
     id			    139
-    ssIdNumber		    271
-    name		    "ErrorCountX5"
-    linkNode		    [27 138 140]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    26
+    name		    "Obstacle"
+    linkNode		    [2 138 140]
+    scope		    LOCAL_DATA
     machine		    1
     props {
+      array {
+	size			"1"
+      }
       type {
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      frame		      SF_FRAME_NO
     }
     dataType		    "double"
   }
   data {
     id			    140
-    ssIdNumber		    274
-    name		    "ErrorCountX1"
-    linkNode		    [27 139 0]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    27
+    name		    "OldObstacle"
+    linkNode		    [2 139 141]
+    scope		    LOCAL_DATA
     machine		    1
     props {
       type {
@@ -13824,34 +14007,29 @@ Stateflow {
   }
   data {
     id			    141
-    ssIdNumber		    9
-    name		    "CurrentDepth"
-    linkNode		    [2 0 142]
-    scope		    INPUT_DATA
+    ssIdNumber		    57
+    name		    "DesiredHeading"
+    linkNode		    [2 140 142]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
-      array {
-	size			"1"
-      }
       type {
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
+      frame		      SF_FRAME_NO
     }
     dataType		    "double"
   }
   data {
     id			    142
-    ssIdNumber		    10
-    name		    "CurrentHeading"
+    ssIdNumber		    75
+    name		    "Area"
     linkNode		    [2 141 143]
-    scope		    INPUT_DATA
+    scope		    LOCAL_DATA
     machine		    1
     props {
-      array {
-	size			"1"
-      }
       type {
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
@@ -13862,70 +14040,10 @@ Stateflow {
   }
   data {
     id			    143
-    ssIdNumber		    11
-    name		    "Right"
+    ssIdNumber		    76
+    name		    "BuoyDone"
     linkNode		    [2 142 144]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"1"
-      }
-      type {
-	primitive		SF_INT8_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "int8"
-  }
-  data {
-    id			    144
-    ssIdNumber		    12
-    name		    "Left"
-    linkNode		    [2 143 145]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"1"
-      }
-      type {
-	primitive		SF_INT8_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "int8"
-  }
-  data {
-    id			    145
-    ssIdNumber		    13
-    name		    "Vertical"
-    linkNode		    [2 144 146]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"1"
-      }
-      type {
-	primitive		SF_INT8_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "int8"
-  }
-  data {
-    id			    146
-    ssIdNumber		    22
-    name		    "DesiredDepth"
-    linkNode		    [2 145 147]
-    scope		    OUTPUT_DATA
+    scope		    LOCAL_DATA
     machine		    1
     props {
       type {
@@ -13933,14 +14051,61 @@ Stateflow {
 	isSigned		1
 	wordLength		"16"
       }
-      frame		      SF_FRAME_NO
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    144
+    ssIdNumber		    88
+    name		    "countarea"
+    linkNode		    [2 143 145]
+    scope		    LOCAL_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    145
+    ssIdNumber		    124
+    name		    "ErrorX"
+    linkNode		    [2 144 146]
+    scope		    LOCAL_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    146
+    ssIdNumber		    125
+    name		    "Flag"
+    linkNode		    [2 145 147]
+    scope		    LOCAL_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
     }
     dataType		    "double"
   }
   data {
     id			    147
-    ssIdNumber		    25
-    name		    "count"
+    ssIdNumber		    126
+    name		    "track1"
     linkNode		    [2 146 148]
     scope		    LOCAL_DATA
     machine		    1
@@ -13955,174 +14120,25 @@ Stateflow {
   }
   data {
     id			    148
-    ssIdNumber		    26
-    name		    "Obstacle"
+    ssIdNumber		    127
+    name		    "ErrorY"
     linkNode		    [2 147 149]
     scope		    LOCAL_DATA
     machine		    1
     props {
-      array {
-	size			"1"
-      }
       type {
 	primitive		SF_DOUBLE_TYPE
 	isSigned		1
 	wordLength		"16"
       }
-      frame		      SF_FRAME_NO
     }
     dataType		    "double"
   }
   data {
     id			    149
-    ssIdNumber		    27
-    name		    "OldObstacle"
-    linkNode		    [2 148 150]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    150
-    ssIdNumber		    57
-    name		    "DesiredHeading"
-    linkNode		    [2 149 151]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    151
-    ssIdNumber		    75
-    name		    "Area"
-    linkNode		    [2 150 152]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    152
-    ssIdNumber		    76
-    name		    "BuoyDone"
-    linkNode		    [2 151 153]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    153
-    ssIdNumber		    88
-    name		    "countarea"
-    linkNode		    [2 152 154]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    154
-    ssIdNumber		    124
-    name		    "ErrorX"
-    linkNode		    [2 153 155]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    155
-    ssIdNumber		    125
-    name		    "Flag"
-    linkNode		    [2 154 156]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    156
-    ssIdNumber		    126
-    name		    "track1"
-    linkNode		    [2 155 157]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    157
-    ssIdNumber		    127
-    name		    "ErrorY"
-    linkNode		    [2 156 158]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    158
     ssIdNumber		    130
     name		    "CameraPosition"
-    linkNode		    [2 157 159]
+    linkNode		    [2 148 150]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -14139,10 +14155,10 @@ Stateflow {
     dataType		    "int8"
   }
   data {
-    id			    159
+    id			    150
     ssIdNumber		    135
     name		    "H"
-    linkNode		    [2 158 160]
+    linkNode		    [2 149 151]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -14158,10 +14174,10 @@ Stateflow {
     dataType		    "single"
   }
   data {
-    id			    160
+    id			    151
     ssIdNumber		    136
     name		    "S"
-    linkNode		    [2 159 161]
+    linkNode		    [2 150 152]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -14177,10 +14193,10 @@ Stateflow {
     dataType		    "single"
   }
   data {
-    id			    161
+    id			    152
     ssIdNumber		    137
     name		    "V"
-    linkNode		    [2 160 162]
+    linkNode		    [2 151 153]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -14196,10 +14212,10 @@ Stateflow {
     dataType		    "single"
   }
   data {
-    id			    162
+    id			    153
     ssIdNumber		    164
     name		    "BuoyCentroidX"
-    linkNode		    [2 161 163]
+    linkNode		    [2 152 154]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -14209,15 +14225,160 @@ Stateflow {
 	wordLength		"16"
       }
       frame		      SF_FRAME_NO
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    154
+    ssIdNumber		    165
+    name		    "BuoyCentroidY"
+    linkNode		    [2 153 155]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    155
+    ssIdNumber		    166
+    name		    "DesiredHeadingCount"
+    linkNode		    [2 154 156]
+    scope		    LOCAL_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    156
+    ssIdNumber		    167
+    name		    "OldHeading"
+    linkNode		    [2 155 157]
+    scope		    LOCAL_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    157
+    ssIdNumber		    168
+    name		    "ResetSwitch"
+    linkNode		    [2 156 158]
+    scope		    LOCAL_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    158
+    ssIdNumber		    169
+    name		    "CentroidX"
+    linkNode		    [2 157 159]
+    scope		    LOCAL_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    159
+    ssIdNumber		    170
+    name		    "CentroidY"
+    linkNode		    [2 158 160]
+    scope		    LOCAL_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    160
+    ssIdNumber		    201
+    name		    "TrackCount"
+    linkNode		    [2 159 161]
+    scope		    LOCAL_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    161
+    ssIdNumber		    277
+    name		    "BuoyCount"
+    linkNode		    [2 160 162]
+    scope		    LOCAL_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "double"
+  }
+  data {
+    id			    162
+    ssIdNumber		    278
+    name		    "ErrorCount"
+    linkNode		    [2 161 163]
+    scope		    LOCAL_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
     }
     dataType		    "double"
   }
   data {
     id			    163
-    ssIdNumber		    165
-    name		    "BuoyCentroidY"
+    ssIdNumber		    279
+    name		    "ErrorCountHeading"
     linkNode		    [2 162 164]
-    scope		    OUTPUT_DATA
+    scope		    LOCAL_DATA
     machine		    1
     props {
       type {
@@ -14225,14 +14386,13 @@ Stateflow {
 	isSigned		1
 	wordLength		"16"
       }
-      frame		      SF_FRAME_NO
     }
     dataType		    "double"
   }
   data {
     id			    164
-    ssIdNumber		    166
-    name		    "DesiredHeadingCount"
+    ssIdNumber		    280
+    name		    "ErrorCountX"
     linkNode		    [2 163 165]
     scope		    LOCAL_DATA
     machine		    1
@@ -14247,8 +14407,8 @@ Stateflow {
   }
   data {
     id			    165
-    ssIdNumber		    167
-    name		    "OldHeading"
+    ssIdNumber		    281
+    name		    "ErrorCountY"
     linkNode		    [2 164 166]
     scope		    LOCAL_DATA
     machine		    1
@@ -14263,8 +14423,8 @@ Stateflow {
   }
   data {
     id			    166
-    ssIdNumber		    168
-    name		    "ResetSwitch"
+    ssIdNumber		    282
+    name		    "ErrorHeading"
     linkNode		    [2 165 167]
     scope		    LOCAL_DATA
     machine		    1
@@ -14279,153 +14439,9 @@ Stateflow {
   }
   data {
     id			    167
-    ssIdNumber		    169
-    name		    "CentroidX"
-    linkNode		    [2 166 168]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    168
-    ssIdNumber		    170
-    name		    "CentroidY"
-    linkNode		    [2 167 169]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    169
-    ssIdNumber		    201
-    name		    "TrackCount"
-    linkNode		    [2 168 170]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    170
-    ssIdNumber		    277
-    name		    "BuoyCount"
-    linkNode		    [2 169 171]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    171
-    ssIdNumber		    278
-    name		    "ErrorCount"
-    linkNode		    [2 170 172]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    172
-    ssIdNumber		    279
-    name		    "ErrorCountHeading"
-    linkNode		    [2 171 173]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    173
-    ssIdNumber		    280
-    name		    "ErrorCountX"
-    linkNode		    [2 172 174]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    174
-    ssIdNumber		    281
-    name		    "ErrorCountY"
-    linkNode		    [2 173 175]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    175
-    ssIdNumber		    282
-    name		    "ErrorHeading"
-    linkNode		    [2 174 176]
-    scope		    LOCAL_DATA
-    machine		    1
-    props {
-      type {
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-    }
-    dataType		    "double"
-  }
-  data {
-    id			    176
     ssIdNumber		    287
     name		    "State"
-    linkNode		    [2 175 177]
+    linkNode		    [2 166 168]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -14442,10 +14458,10 @@ Stateflow {
     dataType		    "uint8"
   }
   data {
-    id			    177
+    id			    168
     ssIdNumber		    294
     name		    "Status"
-    linkNode		    [2 176 178]
+    linkNode		    [2 167 169]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -14462,10 +14478,10 @@ Stateflow {
     dataType		    "int8"
   }
   data {
-    id			    178
+    id			    169
     ssIdNumber		    296
     name		    "DesiredState"
-    linkNode		    [2 177 0]
+    linkNode		    [2 168 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -14478,26 +14494,26 @@ Stateflow {
     dataType		    "int8"
   }
   instance {
-    id			    179
+    id			    170
     name		    "Chart"
     machine		    1
     chart		    2
   }
   chart {
-    id			    180
+    id			    171
     name		    "Chart/Running.Buoy.Buoy/Embedded\nMATLAB Function"
     windowPosition	    [281.813 354 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 181 0 0]
-    firstTransition	    183
-    firstJunction	    182
-    viewObj		    180
+    treeNode		    [0 172 0 0]
+    firstTransition	    174
+    firstJunction	    173
+    viewObj		    171
     machine		    1
-    ssIdHighWaterMark	    8
+    ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    184
+    firstData		    175
     chartFileNumber	    2
     disableImplicitCasting  1
     eml {
@@ -14505,36 +14521,38 @@ Stateflow {
     }
   }
   state {
-    id			    181
+    id			    172
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    180
-    treeNode		    [180 0 0 0]
+    chart		    171
+    treeNode		    [171 0 0 0]
     superState		    SUBCHART
-    subviewer		    180
+    subviewer		    171
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [BlobArea, BlobCentroidX, BlobCentroidY] = PickBiggestBlob(Area1, Centroid1)\n% This fun"
-      "ction will choose and return data about the largest blob given a \n% set of blobs\n\n[BlobArea, index] = max(Are"
-      "a1);\nBlobCentroidX = Centroid1(index,2);\nBlobCentroidY = Centroid1(index,1);"
+      script		      "function [BlobArea, BlobCentroidX, BlobCentroidY] = PickBiggestBlob(Area1, Centroid1, Image)\n% T"
+      "his function will choose and return data about the largest blob given a \n% set of blobs\n\nif(Centroid1(1,1) =="
+      " -1 && Centroid1(2,1) == -1)\n    [ImageY ImageX] = size(Image);\n    BlobCentroidX = floor(ImageX/2);\n    Blob"
+      "CentroidY = floor(ImageY/2);\n    BlobArea = -1;\nelse\n    [BlobArea, index] = max(Area1);\n    BlobCentroidX ="
+      " Centroid1(index,2);\n    BlobCentroidY = Centroid1(index,1);\nend\n\nreturn\n"
       editorLayout	      "100 M4x1[151 34 914 567]"
     }
   }
   junction {
-    id			    182
+    id			    173
     position		    [23.5747 49.5747 7]
-    chart		    180
-    linkNode		    [180 0 0]
-    subviewer		    180
+    chart		    171
+    linkNode		    [171 0 0]
+    subviewer		    171
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    183
+    id			    174
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -14542,23 +14560,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      182
+      id		      173
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    180
-    linkNode		    [180 0 0]
+    chart		    171
+    linkNode		    [171 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    180
+    subviewer		    171
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    184
+    id			    175
     ssIdNumber		    4
     name		    "Area1"
-    linkNode		    [180 0 185]
+    linkNode		    [171 0 176]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -14574,10 +14592,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    185
+    id			    176
     ssIdNumber		    5
     name		    "BlobArea"
-    linkNode		    [180 184 186]
+    linkNode		    [171 175 177]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -14594,10 +14612,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    186
+    id			    177
     ssIdNumber		    6
     name		    "Centroid1"
-    linkNode		    [180 185 187]
+    linkNode		    [171 176 178]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -14616,10 +14634,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    187
+    id			    178
     ssIdNumber		    7
     name		    "BlobCentroidX"
-    linkNode		    [180 186 188]
+    linkNode		    [171 177 179]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -14638,10 +14656,170 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    188
+    id			    179
     ssIdNumber		    8
     name		    "BlobCentroidY"
-    linkNode		    [180 187 0]
+    linkNode		    [171 178 180]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    180
+    ssIdNumber		    9
+    name		    "Image"
+    linkNode		    [171 179 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    181
+    name		    "Chart/Running.Buoy.Buoy/Embedded\nMATLAB Function"
+    machine		    1
+    chart		    171
+  }
+  chart {
+    id			    182
+    name		    "Chart/Running.Buoy.Buoy/Embedded\nMATLAB Function1"
+    windowPosition	    [281.813 354 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1280 800 1.333333333333333]
+    treeNode		    [0 183 0 0]
+    firstTransition	    185
+    firstJunction	    184
+    viewObj		    182
+    machine		    1
+    toolbarMode		    LIBRARY_TOOLBAR
+    ssIdHighWaterMark	    6
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    186
+    chartFileNumber	    3
+    disableImplicitCasting  1
+    eml {
+      name		      "GetImageCenter"
+    }
+  }
+  state {
+    id			    183
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    182
+    treeNode		    [182 0 0 0]
+    superState		    SUBCHART
+    subviewer		    182
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [XCenter,YCenter] = GetImageCenter(Image)\n% This function finds the center of an image\n"
+      "\n[rows cols] = size(Image);\n\nXCenter = floor(cols/2);\nYCenter = floor(rows/2);\n\nreturn\n"
+      editorLayout	      "100 M4x1[146 214 671 364]"
+    }
+  }
+  junction {
+    id			    184
+    position		    [23.5747 49.5747 7]
+    chart		    182
+    linkNode		    [182 0 0]
+    subviewer		    182
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    185
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      184
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    182
+    linkNode		    [182 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    182
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    186
+    ssIdNumber		    4
+    name		    "Image"
+    linkNode		    [182 0 187]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    187
+    ssIdNumber		    5
+    name		    "XCenter"
+    linkNode		    [182 186 188]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    188
+    ssIdNumber		    6
+    name		    "YCenter"
+    linkNode		    [182 187 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -14661,9 +14839,9 @@ Stateflow {
   }
   instance {
     id			    189
-    name		    "Chart/Running.Buoy.Buoy/Embedded\nMATLAB Function"
+    name		    "Chart/Running.Buoy.Buoy/Embedded\nMATLAB Function1"
     machine		    1
-    chart		    180
+    chart		    182
   }
   target {
     id			    190
