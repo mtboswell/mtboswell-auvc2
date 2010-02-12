@@ -11,6 +11,7 @@
 #include <iostream>
 #include <string>
 #include <QDebug>
+#include <QTime>
 
 AUV::AUV(bool simulate){
 	// 160ms = 6.25Hz rate
@@ -52,7 +53,9 @@ void AUV::run(){
 
 void AUV::readSensors(){
 	//qDebug("Reading Sensor Data");
+	QTime t;
   	dataMutex->lock();
+	t.start();
 	data.orientation = getOrientation();
 	data.depth = getDepth();
 	data.thrusterPower.voltage = getThrusterVoltage();
@@ -65,11 +68,12 @@ void AUV::readSensors(){
 	  	dataMutex->unlock();
 		stopThrusters();
 	}else dataMutex->unlock();
+	qDebug() << "Sensor Reading Time: " << QString::number(t.elapsed()) << "ms";
 	emit sensorUpdate(data);
 }
 
 
-void AUV::inputFromBrain(ExternalOutputs_brain inputs){
+void AUV::inputFromBrain(ExternalOutputs_brain inputs, int brainTime){
 	look((cameraPosition) (char) inputs.CameraPosition);
 	setThrusters(inputs.Thrusters);
 }

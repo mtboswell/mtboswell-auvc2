@@ -21,10 +21,12 @@
  	void resetAUV();
 	void setDepth(double depth);
 	void setState(int state);
+	void startRecordVideo();
+	void stopRecordVideo();
      
  public slots:
      // Interface update slots
-     void updateBrainView(ExternalOutputs_brain values);
+     void updateBrainView(ExternalOutputs_brain values, int brainTime);
      void updateSensorsView(AUVSensors values);
  	
 
@@ -81,5 +83,11 @@
 	QMutex* modelMutex;  // Make it safe to access model data directly
 	QGraphicsScene* headingScene;
         QGraphicsLineItem* headingLine;
+        QLabel* rateLabel;
+
+        QPixmap videoPixmap; 
+        QPixmap trackPixmap; 
+        QImage videoFrame; 
+        QImage trackFrame; 
 
  };

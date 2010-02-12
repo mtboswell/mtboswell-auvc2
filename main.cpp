@@ -51,14 +51,16 @@ int main(int argc, char *argv[]){
 	QObject::connect(gui, SIGNAL(setDepth(double)), auv, SLOT(setActualDepth(double)));
 	
 	// From Brain to AUV
-	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain)), auv, SLOT(inputFromBrain(ExternalOutputs_brain)));
+	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), auv, SLOT(inputFromBrain(ExternalOutputs_brain, int)));
 	
 	// From Brain to GUI
-	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain)), gui, SLOT(updateBrainView(ExternalOutputs_brain)));
+	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), gui, SLOT(updateBrainView(ExternalOutputs_brain, int)));
 	
 	// From GUI to Brain
 	// Not here (TODO)
 	QObject::connect(gui, SIGNAL(setState(int)), brain, SLOT(setState(int)));
+	QObject::connect(gui, SIGNAL(startRecordVideo()), brain, SLOT(startRecordVideo()));
+	QObject::connect(gui, SIGNAL(stopRecordVideo()), brain, SLOT(stopRecordVideo()));
 	
 	qDebug("Starting Hardware Interfaces");
 	auv->start();

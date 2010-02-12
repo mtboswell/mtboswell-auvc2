@@ -24,7 +24,7 @@ static int video_already_open = 0; /* TODO: Semaphore? */
 volatile int frameready = 0;
 
 static int logfd = 0;
-static int vidfd = 0;
+//static int vidfd = 0;
 
 /* Really read count bytes from a file descriptor.
    This'll hang if those bytes never show up. */
@@ -65,7 +65,7 @@ void * camread_thread(void* in) {
     return 0;
 }
 
-int camread_getframe(struct camframe frame) {
+int camread_getframe(struct camframe frame, bool record_video) {
     int err;
     /* We can't get a frame if the capture thread isn't running. */
     if(!video_already_open) return -1;
@@ -82,9 +82,9 @@ int camread_getframe(struct camframe frame) {
 	write(logfd, lastframe.cb, width*height/4);
 	write(logfd, lastframe.cr, width*height/4);
     }
-	write(vidfd, lastframe.y, width*height);
-	write(vidfd, lastframe.cb, width*height/4);
-	write(vidfd, lastframe.cr, width*height/4);
+//	write(vidfd, lastframe.y, width*height);
+//	write(vidfd, lastframe.cb, width*height/4);
+//	write(vidfd, lastframe.cr, width*height/4);
 
         err = frameready;
         frameready = 0;
@@ -116,10 +116,10 @@ int camread_open(char const* campath, int w, int h) {
     width = w;
     height = h;
     
-    logfd = open("camread_log.yuv", O_WRONLY | O_APPEND | O_CREAT,
+    logfd = open("recorded_video.yuv", O_WRONLY | O_APPEND | O_CREAT,
                  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-    vidfd = open("video_passthru", O_WRONLY | O_APPEND,
-                 S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+//    vidfd = open("video_passthru", O_WRONLY | O_APPEND,
+//                 S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
 
     /* Set up the V4L2 format structure */
     memset(&fmt, 0, sizeof(struct v4l2_format));

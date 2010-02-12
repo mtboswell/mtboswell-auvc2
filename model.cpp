@@ -32,6 +32,8 @@ Model::Model(QMutex* mutex){
 	myframe.cr = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
 	//qDebug("Done");
 
+	record_video = false;
+	stepTimer.start();
   
 }
 
@@ -75,10 +77,6 @@ void Model::rt_OneStep(void)
 	/* Re-enable timer or interrupt here */
 	/* Set model inputs here */
 
-	// Measure step time
-//	QTime t;
-//	 t.start();
-
 	/* Step the model */
 	brain_step();
 	//qDebug("Model Stepped");
@@ -94,7 +92,7 @@ void Model::rt_OneStep(void)
 	/* Enable interrupts here */
 	modelMutex->unlock();
 	//qDebug("Model Unlocked, sending output");
-	emit outputReady(brain_Y);
+	emit outputReady(brain_Y, stepTimer.restart());
 	//qDebug("Output Sent");
 }
 		
@@ -107,7 +105,7 @@ void Model::updateSensorsInput(AUVSensors values){
 	brain_U.Status = values.status;                       /* '<Root>/Status' */	
 	
 	// Transfer video frame into MATLAB, swapping buffers 
-	camread_getframe(myframe);
+	camread_getframe(myframe, record_video);
 	SwappyCopy(brain_U.Y, (unsigned char*)myframe.y, 640, 480);
 	SwappyCopy(brain_U.Cb, (unsigned char*)myframe.cb, 320, 240);
 	SwappyCopy(brain_U.Cr, (unsigned char*)myframe.cr, 320, 240);

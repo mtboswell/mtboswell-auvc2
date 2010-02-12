@@ -69,7 +69,7 @@ class AUV : public QThread {
 		void reset();
 		void kill();
 		void externalControl();
-		void inputFromBrain(ExternalOutputs_brain inputs);
+		void inputFromBrain(ExternalOutputs_brain inputs, int brainTime);
 		void setActualDepth(double depth = 0);
 		
 	signals:
