@@ -3,6 +3,8 @@
 #include <QByteArray>
 #include <QPixmap>
 #include <QImage>
+#include <QDebug>
+#include <QTime>
 
 Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
      : QMainWindow(parent)
@@ -68,6 +70,23 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
 	headingScene->addItem(headingLine);
 
 	headingGraphicsView->setScene(headingScene);
+
+	// Processing rate display
+	rateLabel = new QLabel("Processing at: 0 Hz");
+	statusBar()->addPermanentWidget(rateLabel);
+
+	// Set up video display
+        videoPixmap = QPixmap(640,480);
+        trackPixmap = QPixmap(640,480);
+        videoFrame = QImage(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
+        trackFrame = QImage(640,480,QImage::Format_Mono);
+
+        trackFrame.setColor(0, 0xFF000000); 
+        trackFrame.setColor(1, 0xFFFF0000); 
+        videoPixmap.fill(); 
+        trackPixmap.fill(); 
+	videoLabel->setScaledContents(true);
+	bitVideoLabel->setScaledContents(true);
  
 }
  
@@ -86,14 +105,16 @@ void Dashboard::resetAction(){
 	emit resetAUV();
 }
 void Dashboard::killAction(){
-	statusBar()->showMessage(tr("Attempting to brutally murder AUV"), 2000);
+	statusBar()->showMessage(tr("Attempting to terminate AUV"), 2000);
 	emit killAUV();
 }
 
 void Dashboard::recordVideo(bool record){
 	if(record) statusBar()->showMessage(tr("Recording..."), 2000);
 	else statusBar()->showMessage(tr("Stopping Recording..."), 2000);
-	record_video = record;
+//	record_video = record;
+	if(record) emit startRecordVideo();
+	else emit stopRecordVideo();
 }
 
 void Dashboard::updateSensorsView(AUVSensors values){
@@ -118,7 +139,6 @@ void Dashboard::updateSensorsView(AUVSensors values){
 
 	headingLine->setRotation(values.orientation.yaw);
 
-	
 	/*
 	auvStatus status;
 	imu_data orientation;
@@ -131,33 +151,28 @@ void Dashboard::updateSensorsView(AUVSensors values){
 	*/
 }
 
-void Dashboard::updateBrainView(ExternalOutputs_brain values){
+void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 	
 	//qDebug("Dashboard recieving data from Brain");
 
 	
 	//qDebug("Processing Brain Data");
+	QTime bT;
+	bT.start();
 
 	stateComboBox->setCurrentIndex(values.State);
 //	stateLabel->setText(QString::number(values.State));
 	desiredHeadingSpinBox->setValue(values.DesiredHeading);
 	desiredDepthSpinBox->setValue(values.DesiredDepth);
-
-	QPixmap videoPixmap(640,480);
-	QPixmap trackPixmap(640,480);
-	QImage videoFrame(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
-	QImage trackFrame(640,480,QImage::Format_Mono);
-	trackFrame.setColor(0, 0xFF000000);
-	trackFrame.setColor(1, 0xFFFF0000);
-	videoPixmap.fill();
-	trackPixmap.fill();
+	rateLabel->setText("Processing at: " + QString::number(1.0/((double)brainTime/1000.0)) + " Hz");
 
 	// copy frame from signal to pixmap
 	int x = 639;
 	int y = 480;
+	unsigned int videoPixel;
 	for(int i = 307200; i > 0; --i){
 		y--;
-		unsigned int videoPixel = (0xFF000000) | ((((int)brain_B.vidR[i]) << 16)&0x00FF0000) | ((((int)brain_B.vidG[i]) << 8)&0x0000FF00) | (((int)brain_B.vidB[i])&0x000000FF); 
+		videoPixel = (0xFF000000) | ((((int)brain_B.vidR[i]) << 16)&0x00FF0000) | ((((int)brain_B.vidG[i]) << 8)&0x0000FF00) | (((int)brain_B.vidB[i])&0x000000FF); 
 		videoFrame.setPixel(x, y, videoPixel);
 		if(values.State == 2)
 			trackFrame.setPixel(x, y, brain_B.track1Bitmap[i]);
@@ -171,8 +186,8 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values){
 				trackFrame.setPixel(x, y, brain_B.track2Bitmap[i]);
 			}
 		}
-		if(x == 1) trackFrame.setPixel((int)brain_B.BlobCentroidX,y,1);
-		if(y == 1) trackFrame.setPixel(x,(int)brain_B.BlobCentroidY,1);
+	//	if(x == 1) trackFrame.setPixel((int)brain_B.BlobCentroidX,y,1);
+	//	if(y == 1) trackFrame.setPixel(x,(int)brain_B.BlobCentroidY,1);
 //		qDebug(videoPixel);
 		if(y <= 0){
 			x--;
@@ -197,12 +212,11 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values){
 
 	videoPixmap = QPixmap::fromImage(videoFrame);
 	trackPixmap = QPixmap::fromImage(trackFrame);
-	videoLabel->setScaledContents(true);
 	videoLabel->setPixmap(videoPixmap);
-	bitVideoLabel->setScaledContents(true);
 	bitVideoLabel->setPixmap(trackPixmap);
 	
 	//qDebug("Brain Data on display");
+	qDebug() << "Brain Display Time: " << QString::number(bT.elapsed()) << "ms";
 	
 }
 

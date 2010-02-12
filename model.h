@@ -4,6 +4,7 @@
 #include <QThread>
 #include <QTimer>
 #include <QMutexLocker>
+#include <QTime>
 #include "auv/auvtypes.h"
 #include "auv/camread.h"
 #include "brain/brain.h"      /* Model's header file */
@@ -22,11 +23,13 @@ class Model : public QThread
 		~Model();
 		
 	signals:
-		void outputReady(ExternalOutputs_brain Output);
+		void outputReady(ExternalOutputs_brain Output, int duration);
 		
 	public slots:
 		void updateSensorsInput(AUVSensors values);
 		void setState(int state);
+		void startRecordVideo(){record_video = true;}
+		void stopRecordVideo(){record_video = false;}
 
 	private slots:
 		// rt_OneStep should be called every 0.2 seconds (or 0.02 seconds, depending on the model)
@@ -40,5 +43,7 @@ class Model : public QThread
 		QMutex *modelMutex;
 		int stepTime;
 		struct camframe myframe;
+		bool record_video;
+		QTime stepTimer;
 
 };
