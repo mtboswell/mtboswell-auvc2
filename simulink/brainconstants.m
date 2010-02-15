@@ -11,11 +11,11 @@ Heading_Kd = 0.01;
 Heading_Ki = 0.01;
 
 Track_HueHigher = 0.9;
-Track_HueLower = 0.19;
+Track_HueLower = 0.25;
 Track_Saturation = 0.4;
 
-Min_Blob_Size = 50;
-Max_Blob_Size = 153000;
+Min_Blob_Size = 100;
+Max_Blob_Size = 19200;
 Max_Num_Blobs = 1;
 
 Track_Min_Eccentricity = 0.9;
