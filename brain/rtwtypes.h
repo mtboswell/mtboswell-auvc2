@@ -4,7 +4,7 @@
  * Definitions required by Real-Time Workshop generated code.
  *
  * Real-Time Workshop version: 7.3
- * Generated on: 2010-02-08 16:28:37
+ * Generated on: 2010-02-17 18:15:32
  */
 
 #ifndef __RTWTYPES_H__
@@ -161,6 +161,32 @@ typedef struct {
 
 /* Block D-Work pointer type */
 typedef void * pointer_T;
+
+/*
+ * MultiWord supporting definitions
+ */
+typedef long int long_T;
+
+/*
+ * MultiWord types
+ */
+typedef struct {
+  uint32_T chunks[2];
+} int64m_T;
+
+typedef struct {
+  int64m_T re;
+  int64m_T im;
+} cint64m_T;
+
+typedef struct {
+  uint32_T chunks[2];
+} uint64m_T;
+
+typedef struct {
+  uint64m_T re;
+  uint64m_T im;
+} cuint64m_T;
 
 /* Simulink specific types */
 #ifndef __SIMSTRUC_TYPES_H__

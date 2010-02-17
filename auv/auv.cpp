@@ -68,7 +68,7 @@ void AUV::readSensors(){
 	  	dataMutex->unlock();
 		stopThrusters();
 	}else dataMutex->unlock();
-	qDebug() << "Sensor Reading Time: " << QString::number(t.elapsed()) << "ms";
+//	qDebug() << "Sensor Reading Time: " << QString::number(t.elapsed()) << "ms";
 	emit sensorUpdate(data);
 }
 

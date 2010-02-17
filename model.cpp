@@ -8,6 +8,8 @@
 #include <QTime>
 
 Model::Model(QMutex* mutex){
+
+	OverrunFlag = 0;
 	
 	// 100ms = 10Hz rate
 	// 160ms = 6.25Hz
@@ -125,4 +127,6 @@ void Model::updateSensorsInput(AUVSensors values){
 
 void Model::setState(int state){
 	// TODO: set model state input
+	if(state < 0 || state > 5) return;	
+	brain_U.DesiredState = state;
 }

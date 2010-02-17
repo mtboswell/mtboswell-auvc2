@@ -10,7 +10,6 @@
 #include "brain/brain.h"      /* Model's header file */
 #include "brain/rtwtypes.h"                  /* MathWorks types */
 
-static boolean_T OverrunFlag = 0;
 		
 		
 class Model : public QThread 
@@ -45,5 +44,6 @@ class Model : public QThread
 		struct camframe myframe;
 		bool record_video;
 		QTime stepTimer;
+		boolean_T OverrunFlag;
 
 };
