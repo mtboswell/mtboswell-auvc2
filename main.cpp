@@ -14,7 +14,7 @@ static bool simulateSensors = true;
 int main(int argc, char *argv[]){
 
 	QApplication app(argc, argv);
-	int appReturn;
+//	int appReturn;
 	QMutex modelMutex;
 	
 	/* Initialize hardware */
