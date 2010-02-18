@@ -62,7 +62,7 @@ Model {
       Name		      "DesiredHeading"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.197"
+    ComputedModelVersion    "1.198"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -78,11 +78,11 @@ Model {
   Creator		  "Stephen"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Stephen"
+  LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Feb 15 16:41:24 2010"
+  LastModifiedDate	  "Thu Feb 18 18:07:29 2010"
   RTWModifiedTimeStamp	  0
-  ModelVersionFormat	  "1.%<AutoIncrement:197>"
+  ModelVersionFormat	  "1.%<AutoIncrement:198>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -393,7 +393,7 @@ Model {
 	  TemplateMakefile	  "ert_default_tmf"
 	  PostCodeGenCommand	  "packNGo(buildInfo);"
 	  Description		  "Real-Time Workshop Embedded Coder"
-	  GenerateReport	  on
+	  GenerateReport	  off
 	  SaveLog		  off
 	  RTWVerbose		  on
 	  RetainRTWFile		  off
@@ -408,8 +408,8 @@ Model {
 	  RTWUseLocalCustomCode	  off
 	  RTWUseSimCustomCode	  off
 	  IncludeHyperlinkInReport on
-	  LaunchReport		  on
-	  TargetLang		  "C"
+	  LaunchReport		  off
+	  TargetLang		  "C++"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
 	  IncludeERTFirstTime	  off
 	  GenerateTraceInfo	  off
@@ -418,7 +418,7 @@ Model {
 	  GenerateTraceReportSf	  off
 	  GenerateTraceReportEml  off
 	  GenerateCodeInfo	  off
-	  RTWCompilerOptimization "Off"
+	  RTWCompilerOptimization "On"
 	  CheckMdlBeforeBuild	  "Off"
 	  Array {
 	    Type		    "Handle"
@@ -565,7 +565,7 @@ Model {
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
       CurrentDlgPage	      "Real-Time Workshop"
-      ConfigPrmDlgPosition    " [ 320, 60, 1200, 690 ] "
+      ConfigPrmDlgPosition    " [ 0, 0, 890, 659 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -886,7 +886,7 @@ Model {
   }
   System {
     Name		    "brain"
-    Location		    [4, 91, 1020, 665]
+    Location		    [5, 91, 1021, 665]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -10130,7 +10130,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -10146,7 +10146,7 @@ Model {
 	  antialiasing		  "Default"
 	  hcoeff		  "[0.2 0.6 0.2]"
 	  vcoeff		  "[0.5 0.5]"
-	  isInputTransposed	  off
+	  isInputTransposed	  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -10156,7 +10156,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -10182,7 +10182,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -10201,9 +10201,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -10217,8 +10217,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -10235,9 +10235,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -10251,8 +10251,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -10269,9 +10269,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -10285,8 +10285,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -10723,7 +10723,7 @@ MatData {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.1 (R2009a) dated Jan 28 2009, 05:16:58
+#    Stateflow Version 7.1 (R2009a) dated Jan 27 2009, 19:23:49
 #
 #
 
@@ -10741,11 +10741,11 @@ Stateflow {
     id			    2
     name		    "Chart"
     windowPosition	    [18.75 52.5 886.5 480]
-    viewLimits		    [-18.75 1035 -18.75 536.25]
-    zoomFactor		    1.25
+    viewLimits		    [0 10 0 10]
+    zoomFactor		    1.194
     screen		    [1 1 1280 800 1.333333333333333]
     treeNode		    [0 16 0 0]
-    firstTransition	    45
+    firstTransition	    46
     viewObj		    20
     machine		    1
     subviewS {
@@ -11519,8 +11519,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    199
   }
@@ -11593,8 +11591,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    240
   }
@@ -11661,8 +11657,7 @@ Stateflow {
     }
     midPoint		    [227.7533 183.6528]
     chart		    2
-    linkNode		    [2 0 46]
-    visible		    0
+    linkNode		    [2 46 47]
     dataLimits		    [225.353 230.153 141.489 220.741]
     stampAngle		    NaN
     subviewer		    2
@@ -11685,8 +11680,7 @@ Stateflow {
     }
     midPoint		    [207.0806 178.5771]
     chart		    2
-    linkNode		    [2 45 47]
-    visible		    0
+    linkNode		    [2 0 45]
     dataLimits		    [204.681 209.481 141.489 220.741]
     stampAngle		    NaN
     subviewer		    2
@@ -11707,8 +11701,7 @@ Stateflow {
     }
     midPoint		    [143.0361 283.4258]
     chart		    2
-    linkNode		    [2 46 0]
-    visible		    0
+    linkNode		    [2 45 0]
     dataLimits		    [129.698 163.429 281.026 285.826]
     subviewer		    2
     drawStyle		    SMART
@@ -11832,8 +11825,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    304
   }
@@ -11858,8 +11849,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    4
     ssIdNumber		    318
   }
