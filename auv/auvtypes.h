@@ -3,7 +3,7 @@
 
 #include "imu.h"
 
-#define NUMBER_OF_THRUSTERS 3
+#define NUMBER_OF_THRUSTERS 4
 
 enum auvStatus {READY, RUNNING, PAUSED, KILLED};
 enum cameraPosition {FORWARD, UP, DOWN, LEFT, RIGHT, UNKNOWN};
