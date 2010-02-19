@@ -2,7 +2,7 @@
 %   In particular these are the values set to the workspace before
 %   generating code for the overall stateflow chart
 %
-Depth_Kp = -75;
+Depth_Kp = 75;
 Depth_Kd = 0.0;
 Depth_Ki = 0.0;
 
