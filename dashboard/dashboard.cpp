@@ -37,12 +37,12 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
 	buoyHeadingDGainSpinBox->setValue(brain_P.Cam_Forward_XPosition_Kd);
 	buoyHeadingIGainSpinBox->setValue(brain_P.Cam_Forward_XPosition_Ki);
 	buoyHeadingPGainSpinBox->setValue(brain_P.Cam_Forward_XPosition_Kp);
-	pathHeadingDGainSpinBox->setValue(brain_P.Cam_Down_XPos_Kd);
-	pathHeadingIGainSpinBox->setValue(brain_P.Cam_Down_XPos_Ki);
-	pathHeadingPGainSpinBox->setValue(brain_P.Cam_Down_XPos_Kp);
-	pathYDGainSpinBox->setValue(brain_P.Cam_Down_YPos_Kd);
-	pathYIGainSpinBox->setValue(brain_P.Cam_Down_YPos_Ki);
-	pathYPGainSpinBox->setValue(brain_P.Cam_Down_YPos_Kp);
+//	pathHeadingDGainSpinBox->setValue(brain_P.Cam_Down_XPos_Kd);
+//	pathHeadingIGainSpinBox->setValue(brain_P.Cam_Down_XPos_Ki);
+//	pathHeadingPGainSpinBox->setValue(brain_P.Cam_Down_XPos_Kp);
+//	pathYDGainSpinBox->setValue(brain_P.Cam_Down_YPos_Kd);
+//	pathYIGainSpinBox->setValue(brain_P.Cam_Down_YPos_Ki);
+//	pathYPGainSpinBox->setValue(brain_P.Cam_Down_YPos_Kp);
 
 	// Vision
 	pathHueHighSpinBox->setValue(brain_P.Track_HueHigher);
@@ -54,7 +54,6 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
  	
 	// Populate State Combo Box
 
-	QStringList states;
 	states << "Not Started";
 	states << "Startup";
 	states << "Validation Gate";
@@ -77,14 +76,14 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
 
 	// Set up video display
         videoPixmap = QPixmap(640,480);
-        trackPixmap = QPixmap(640,480);
+        bwPixmap = QPixmap(160,120);
         videoFrame = QImage(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
-        trackFrame = QImage(640,480,QImage::Format_Mono);
+        bwFrame = QImage(160,120,QImage::Format_Mono);
 
-        trackFrame.setColor(0, 0xFF000000); 
-        trackFrame.setColor(1, 0xFFFF0000); 
+        bwFrame.setColor(0, 0xFF000000); 
+        bwFrame.setColor(1, 0xFFFF0000); 
         videoPixmap.fill(); 
-        trackPixmap.fill(); 
+        bwPixmap.fill(); 
 	videoLabel->setScaledContents(true);
 	bitVideoLabel->setScaledContents(true);
  
@@ -160,12 +159,16 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 	QTime bT;
 	bT.start();
 
-	stateComboBox->setCurrentIndex(values.State);
-//	stateLabel->setText(QString::number(values.State));
-	desiredHeadingSpinBox->setValue(values.DesiredHeading);
-	desiredDepthSpinBox->setValue(values.DesiredDepth);
-	rateLabel->setText("Processing at: " + QString::number(1.0/((double)brainTime/1000.0)) + " Hz (" + QString::number(round(100.0/((double)brainTime/1000.0))/6.25))+ "%)" );
+	stateLabel->setText(states.at(values.State));
 
+	if(brain_U.RC == 0) { // if we are operating autonomously
+	//	stateComboBox->setCurrentIndex(values.State);
+		desiredHeadingSpinBox->setValue(values.DesiredHeading);
+		desiredDepthSpinBox->setValue(values.DesiredDepth);
+	}
+	rateLabel->setText("Processing at: " + QString::number(1.0/((double)brainTime/1000.0)) + " Hz (" + QString::number(round(100.0/((double)brainTime/1000.0)/6.25))+ "%)" );
+
+	// Get full color video
 	// copy frame from signal to pixmap
 	int x = 639;
 	int y = 480;
@@ -174,46 +177,55 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 		y--;
 		videoPixel = (0xFF000000) | ((((int)brain_B.vidR[i]) << 16)&0x00FF0000) | ((((int)brain_B.vidG[i]) << 8)&0x0000FF00) | (((int)brain_B.vidB[i])&0x000000FF); 
 		videoFrame.setPixel(x, y, videoPixel);
-		if(values.State == 2)
-			trackFrame.setPixel(x, y, brain_B.track1Bitmap[i]);
-		else if(values.State ==3){
-			if(brain_DWork.ErrorCountY > 3)
-				trackFrame.setPixel(x, y, brain_B.track3Bitmap[i]);
-			else if(brain_DWork.ErrorCountX > 3){
-				trackFrame.setPixel(x, y, brain_B.track3Bitmap[i]);
-			}
-			else{
-				trackFrame.setPixel(x, y, brain_B.track2Bitmap[i]);
-			}
-		}
-	//	if(x == 1) trackFrame.setPixel((int)brain_B.BlobCentroidX,y,1);
-	//	if(y == 1) trackFrame.setPixel(x,(int)brain_B.BlobCentroidY,1);
-//		qDebug(videoPixel);
 		if(y <= 0){
 			x--;
 			y = 480;
 		}
 	}
+
+	// Get processed video
+	// copy frame from signal to pixmap
+	x = 159;
+	y = 120;
+	for(int i = 19200; i > 0; --i){
+		y--;
+		if(values.State == 2 || values.State == 4 || values.State == 5)
+			bwFrame.setPixel(x, y, brain_B.BW[i]);
+		else if(values.State == 3){
+			if(brain_DWork.countTo < 4){
+				//bwFrame.setPixel(x, y, brain_B.BWright[i]);
+				//bwFrame.setPixel(x, y, brain_B.BWleft[i]);
+			}
+			else{
+				bwFrame.setPixel(x, y, brain_B.BW[i]);
+			}
+		}else bwFrame.setPixel(x, y, 1);
+
+		if(y <= 0){
+			x--;
+			y = 120;
+		}
+	}
+
 	// show centroid
 /*
 	if(values.State == 2)
-		//trackFrame.setPixel(x, y, brain_B.track1Bitmap[i]);
+		//bwFrame.setPixel(x, y, brain_B.track1Bitmap[i]);
 	else if(values.State ==3){
 		if(brain_DWork.ErrorCountY > 3)
-		//	trackFrame.setPixel(x, y, brain_B.track3Bitmap[i]);
+		//	bwFrame.setPixel(x, y, brain_B.track3Bitmap[i]);
 		else if(brain_DWork.ErrorCountX > 3){
-			trackFrame.setPixel(centX1, 2, 1);
+			bwFrame.setPixel(centX1, 2, 1);
 		}
 		else{
-			trackFrame.setPixel(x, y, brain_B.track2Bitmap[i]);
+			bwFrame.setPixel(x, y, brain_B.track2Bitmap[i]);
 		}
 	}
 */
-
 	videoPixmap = QPixmap::fromImage(videoFrame);
-	trackPixmap = QPixmap::fromImage(trackFrame);
+	bwPixmap = QPixmap::fromImage(bwFrame);
 	videoLabel->setPixmap(videoPixmap);
-	bitVideoLabel->setPixmap(trackPixmap);
+	bitVideoLabel->setPixmap(bwPixmap);
 	
 	//qDebug("Brain Data on display");
 	//qDebug() << "Brain Display Time: " << QString::number(bT.elapsed()) << "ms";
@@ -283,6 +295,7 @@ void Dashboard::on_buoyHeadingPGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
 	brain_P.Cam_Forward_XPosition_Kp = value;
 }
+/*
 void Dashboard::on_pathHeadingDGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
 	brain_P.Cam_Down_XPos_Kd = value;
@@ -307,6 +320,7 @@ void Dashboard::on_pathYPGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
 	brain_P.Cam_Down_YPos_Kp = value;
 }
+*/
 
 // Vision
 void Dashboard::on_pathHueHighSpinBox_valueChanged(double value){
@@ -341,3 +355,19 @@ void Dashboard::on_zeroDepthPushButton_clicked(){
 void Dashboard::on_setActualDepthPushButton_clicked(){
 	emit setDepth(actualDepthDoubleSpinBox->value());
 }
+
+
+void Dashboard::on_controlGroupBox_toggled(bool rc){
+	QMutexLocker locker(modelMutex);
+	if(rc) brain_U.RC = 1;
+	else brain_U.RC = 0;
+}
+void Dashboard::on_desiredDepthSlider_valueChanged(int value){
+	QMutexLocker locker(modelMutex);
+	brain_U.RC_Depth = value;
+}
+void Dashboard::on_desiredHeadingSpinBox_valueChanged(int value){
+	QMutexLocker locker(modelMutex);
+	brain_U.RC_Heading = value;
+}
+
