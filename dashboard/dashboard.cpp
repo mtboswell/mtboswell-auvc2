@@ -164,7 +164,7 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 //	stateLabel->setText(QString::number(values.State));
 	desiredHeadingSpinBox->setValue(values.DesiredHeading);
 	desiredDepthSpinBox->setValue(values.DesiredDepth);
-	rateLabel->setText("Processing at: " + QString::number(1.0/((double)brainTime/1000.0)) + " Hz");
+	rateLabel->setText("Processing at: " + QString::number(1.0/((double)brainTime/1000.0)) + " Hz (" + QString::number(round(100.0/((double)brainTime/1000.0))/6.25))+ "%)" );
 
 	// copy frame from signal to pixmap
 	int x = 639;
@@ -216,7 +216,7 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 	bitVideoLabel->setPixmap(trackPixmap);
 	
 	//qDebug("Brain Data on display");
-	qDebug() << "Brain Display Time: " << QString::number(bT.elapsed()) << "ms";
+	//qDebug() << "Brain Display Time: " << QString::number(bT.elapsed()) << "ms";
 	
 }
 

@@ -1,0 +1,355 @@
+auv/camread.cpp:46: warning: unused parameter ‘in’
+auv/auv.cpp:76: warning: unused parameter ‘brainTime’
+brain/brain.cpp: In function ‘void brain_Start()’:
+brain/brain.cpp:182: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_nh’
+brain/brain.cpp: In function ‘void brain_ValidationGate()’:
+brain/brain.cpp:280: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountHeading’
+brain/brain.cpp:284: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:285: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountX’
+brain/brain.cpp:314: error: ‘struct BlockIO_brain’ has no member named ‘ColorSpaceConversion1_o1’
+brain/brain.cpp:315: error: ‘struct BlockIO_brain’ has no member named ‘ColorSpaceConversion1_o2’
+brain/brain.cpp:320: error: ‘struct BlockIO_brain’ has no member named ‘track1Bitmap’
+brain/brain.cpp:329: error: ‘struct BlockIO_brain’ has no member named ‘track1Bitmap’
+brain/brain.cpp:329: error: ‘struct BlockIO_brain’ has no member named ‘track1Bitmap’
+brain/brain.cpp:338: error: ‘struct BlockIO_brain’ has no member named ‘track1Bitmap’
+brain/brain.cpp:338: error: ‘struct BlockIO_brain’ has no member named ‘track1Bitmap’
+brain/brain.cpp:352: error: ‘struct BlockIO_brain’ has no member named ‘track1Bitmap’
+brain/brain.cpp:389: error: ‘const struct ConstParam_brain’ has no member named ‘pooled21’
+brain/brain.cpp:542: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_nh’
+brain/brain.cpp:704: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_nh’
+brain/brain.cpp: In function ‘void brain_exit_internal_Running()’:
+brain/brain.cpp:773: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:776: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:781: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:789: error: ‘struct BlockIO_brain’ has no member named ‘BigErrorS1_l’
+brain/brain.cpp:790: error: ‘struct BlockIO_brain’ has no member named ‘BigNegativeErrorS2_c’
+brain/brain.cpp:793: error: ‘struct BlockIO_brain’ has no member named ‘BigErrorS1_l’
+brain/brain.cpp:798: error: ‘struct BlockIO_brain’ has no member named ‘BigNegativeErrorS2_c’
+brain/brain.cpp:801: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:805: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp: In function ‘void brain_Chart_Init()’:
+brain/brain.cpp:860: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:870: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountHeading’
+brain/brain.cpp:871: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountX’
+brain/brain.cpp:872: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountY’
+brain/brain.cpp:885: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_nh’
+brain/brain.cpp:896: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage1AimTr_d’
+brain/brain.cpp:897: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage2Posit_a’
+brain/brain.cpp:904: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_k’
+brain/brain.cpp:911: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage3ReOri_a’
+brain/brain.cpp:920: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_k’
+brain/brain.cpp: In function ‘void brain_Chart()’:
+brain/brain.cpp:1106: error: ‘struct BlockIO_brain’ has no member named ‘ColorSpaceConversion1_o1’
+brain/brain.cpp:1108: error: ‘struct BlockIO_brain’ has no member named ‘ColorSpaceConversion1_o2’
+brain/brain.cpp:1119: error: ‘struct D_Work_brain’ has no member named ‘ResizeH_IntBuffer’
+brain/brain.cpp:1120: error: ‘const struct ConstParam_brain’ has no member named ‘pooled20’
+brain/brain.cpp:1121: error: ‘const struct ConstParam_brain’ has no member named ‘pooled2’
+brain/brain.cpp:1139: error: ‘const struct ConstParam_brain’ has no member named ‘pooled1’
+brain/brain.cpp:1140: error: ‘const struct ConstParam_brain’ has no member named ‘pooled19’
+brain/brain.cpp:1165: error: ‘struct D_Work_brain’ has no member named ‘ResizeH_IntBuffer’
+brain/brain.cpp:1204: error: ‘struct D_Work_brain’ has no member named ‘ResizeH_IntBuffer’
+brain/brain.cpp:1312: error: ‘struct BlockIO_brain’ has no member named ‘buoy2Bitmap’
+brain/brain.cpp:1322: error: ‘struct BlockIO_brain’ has no member named ‘buoy2Bitmap’
+brain/brain.cpp:1322: error: ‘struct BlockIO_brain’ has no member named ‘buoy2Bitmap’
+brain/brain.cpp:1330: error: ‘struct D_Work_brain’ has no member named ‘ResizeH_IntBuffer’
+brain/brain.cpp:1331: error: ‘const struct ConstParam_brain’ has no member named ‘pooled20’
+brain/brain.cpp:1332: error: ‘const struct ConstParam_brain’ has no member named ‘pooled2’
+brain/brain.cpp:1350: error: ‘const struct ConstParam_brain’ has no member named ‘pooled1’
+brain/brain.cpp:1351: error: ‘const struct ConstParam_brain’ has no member named ‘pooled19’
+brain/brain.cpp:1376: error: ‘struct D_Work_brain’ has no member named ‘ResizeH_IntBuffer’
+brain/brain.cpp:1415: error: ‘struct D_Work_brain’ has no member named ‘ResizeH_IntBuffer’
+brain/brain.cpp:1527: error: ‘struct BlockIO_brain’ has no member named ‘buoy2Bitmap’
+brain/brain.cpp:1527: error: ‘struct BlockIO_brain’ has no member named ‘buoy2Bitmap’
+brain/brain.cpp:1543: error: ‘struct BlockIO_brain’ has no member named ‘buoy2Bitmap’
+brain/brain.cpp:1582: error: ‘const struct ConstParam_brain’ has no member named ‘BuoyBlobAnalysis_WALK’
+brain/brain.cpp:1729: error: ‘struct BlockIO_brain’ has no member named ‘Add_g’
+brain/brain.cpp:1740: error: ‘struct BlockIO_brain’ has no member named ‘Add1_h’
+brain/brain.cpp:1772: error: ‘struct D_Work_brain’ has no member named ‘YBuoyDiscreteTimeIntegrator_D_n’
+brain/brain.cpp:1778: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_de’
+brain/brain.cpp:1811: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_de’
+brain/brain.cpp:1816: error: ‘struct D_Work_brain’ has no member named ‘YBuoyDiscreteTimeIntegrator_D_n’
+brain/brain.cpp:1819: error: ‘struct D_Work_brain’ has no member named ‘YBuoyDiscreteTimeIntegrator_D_n’
+brain/brain.cpp:1820: error: ‘struct D_Work_brain’ has no member named ‘YBuoyDiscreteTimeIntegrator_D_n’
+brain/brain.cpp:1821: error: ‘struct D_Work_brain’ has no member named ‘YBuoyDiscreteTimeIntegrator_D_n’
+brain/brain.cpp:1823: error: ‘struct D_Work_brain’ has no member named ‘YBuoyDiscreteTimeIntegrator_D_n’
+brain/brain.cpp:1824: error: ‘struct D_Work_brain’ has no member named ‘YBuoyDiscreteTimeIntegrator_D_n’
+brain/brain.cpp:1828: error: ‘struct BlockIO_brain’ has no member named ‘Add_g’
+brain/brain.cpp:1829: error: ‘struct BlockIO_brain’ has no member named ‘Add1_h’
+brain/brain.cpp:1878: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_nh’
+brain/brain.cpp:1897: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountHeading’
+brain/brain.cpp:1901: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:1902: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountX’
+brain/brain.cpp:1916: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_k’
+brain/brain.cpp:1993: error: invalid types ‘real32_T[int32_T]’ for array subscript
+brain/brain.cpp:1994: error: ‘struct BlockIO_brain’ has no member named ‘ColorSpaceConversion1_o1’
+brain/brain.cpp:1995: error: invalid types ‘real32_T[int32_T]’ for array subscript
+brain/brain.cpp:1996: error: ‘struct BlockIO_brain’ has no member named ‘ColorSpaceConversion1_o2’
+brain/brain.cpp:2001: error: ‘struct BlockIO_brain’ has no member named ‘buoy1Bitmap’
+brain/brain.cpp:2001: error: invalid types ‘real32_T[int32_T]’ for array subscript
+brain/brain.cpp:2007: error: invalid types ‘real32_T[int32_T]’ for array subscript
+brain/brain.cpp:2011: error: ‘struct BlockIO_brain’ has no member named ‘buoy1Bitmap’
+brain/brain.cpp:2011: error: ‘struct BlockIO_brain’ has no member named ‘buoy1Bitmap’
+brain/brain.cpp:2017: error: invalid types ‘real32_T[int32_T]’ for array subscript
+brain/brain.cpp:2021: error: ‘struct BlockIO_brain’ has no member named ‘buoy1Bitmap’
+brain/brain.cpp:2021: error: ‘struct BlockIO_brain’ has no member named ‘buoy1Bitmap’
+brain/brain.cpp:2037: error: ‘struct BlockIO_brain’ has no member named ‘buoy1Bitmap’
+brain/brain.cpp:2075: error: ‘const struct ConstParam_brain’ has no member named ‘pooled21’
+brain/brain.cpp:2229: error: incompatible types in assignment of ‘real32_T’ to ‘real_T [57600]’
+brain/brain.cpp:2230: error: incompatible types in assignment of ‘real32_T’ to ‘boolean_T [19200]’
+brain/brain.cpp:2246: error: invalid cast from type ‘boolean_T*’ to type ‘real_T’
+brain/brain.cpp:2247: error: invalid cast from type ‘real_T*’ to type ‘real_T’
+brain/brain.cpp:2270: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_k’
+brain/brain.cpp:2291: error: ‘struct BlockIO_brain’ has no member named ‘DoubleToInt8_g’
+brain/brain.cpp:2440: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_k’
+brain/brain.cpp:2443: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_k’
+brain/brain.cpp:2444: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_k’
+brain/brain.cpp:2445: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_k’
+brain/brain.cpp:2447: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_k’
+brain/brain.cpp:2448: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_k’
+brain/brain.cpp:2470: error: ‘struct BlockIO_brain’ has no member named ‘DoubleToInt8_g’
+brain/brain.cpp:2483: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountHeading’
+brain/brain.cpp:2486: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:2489: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:2494: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:2502: error: ‘struct BlockIO_brain’ has no member named ‘BigErrorS1_l’
+brain/brain.cpp:2503: error: ‘struct BlockIO_brain’ has no member named ‘BigNegativeErrorS2_c’
+brain/brain.cpp:2506: error: ‘struct BlockIO_brain’ has no member named ‘BigErrorS1_l’
+brain/brain.cpp:2511: error: ‘struct BlockIO_brain’ has no member named ‘BigNegativeErrorS2_c’
+brain/brain.cpp:2514: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:2518: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:2532: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_k’
+brain/brain.cpp:2547: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:2550: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:2555: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:2563: error: ‘struct BlockIO_brain’ has no member named ‘BigErrorS1_l’
+brain/brain.cpp:2564: error: ‘struct BlockIO_brain’ has no member named ‘BigNegativeErrorS2_c’
+brain/brain.cpp:2567: error: ‘struct BlockIO_brain’ has no member named ‘BigErrorS1_l’
+brain/brain.cpp:2572: error: ‘struct BlockIO_brain’ has no member named ‘BigNegativeErrorS2_c’
+brain/brain.cpp:2575: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:2579: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:2587: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:2590: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountX’
+brain/brain.cpp:2594: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:2595: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountY’
+brain/brain.cpp:2601: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage1AimTrac’
+brain/brain.cpp:2603: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage1AimTr_d’
+brain/brain.cpp:2604: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage1AimTr_d’
+brain/brain.cpp:2607: error: invalid types ‘real_T[int32_T]’ for array subscript
+brain/brain.cpp:2608: error: ‘struct BlockIO_brain’ has no member named ‘ColorSpaceConversion1_o1’
+brain/brain.cpp:2610: error: ‘struct BlockIO_brain’ has no member named ‘ColorSpaceConversion1_o2’
+brain/brain.cpp:2615: error: ‘struct BlockIO_brain’ has no member named ‘track2Bitmap’
+brain/brain.cpp:2615: error: invalid types ‘real_T[int32_T]’ for array subscript
+brain/brain.cpp:2621: error: ‘struct BlockIO_brain’ has no member named ‘Compare_a’
+brain/brain.cpp:2621: error: invalid types ‘real_T[int32_T]’ for array subscript
+brain/brain.cpp:2625: error: ‘struct BlockIO_brain’ has no member named ‘track2Bitmap’
+brain/brain.cpp:2625: error: ‘struct BlockIO_brain’ has no member named ‘track2Bitmap’
+brain/brain.cpp:2626: error: ‘struct BlockIO_brain’ has no member named ‘Compare_a’
+brain/brain.cpp:2631: error: ‘struct BlockIO_brain’ has no member named ‘Compare_a’
+brain/brain.cpp:2635: error: ‘struct BlockIO_brain’ has no member named ‘track2Bitmap’
+brain/brain.cpp:2635: error: ‘struct BlockIO_brain’ has no member named ‘track2Bitmap’
+brain/brain.cpp:2636: error: ‘struct BlockIO_brain’ has no member named ‘Compare_a’
+brain/brain.cpp:2651: error: ‘struct BlockIO_brain’ has no member named ‘track2Bitmap’
+brain/brain.cpp:2690: error: ‘const struct ConstParam_brain’ has no member named ‘pooled21’
+brain/brain.cpp:2804: error: ‘struct BlockIO_brain’ has no member named ‘Add_d’
+brain/brain.cpp:2812: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kp’
+brain/brain.cpp:2816: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kd’
+brain/brain.cpp:2829: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage1AimTrac’
+brain/brain.cpp:2832: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_l’
+brain/brain.cpp:2838: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_ea’
+brain/brain.cpp:2853: error: ‘struct BlockIO_brain’ has no member named ‘DoubleToint1_k’
+brain/brain.cpp:2858: error: ‘struct BlockIO_brain’ has no member named ‘Multiply1’
+brain/brain.cpp:2858: error: ‘struct BlockIO_brain’ has no member named ‘DoubleToint1_k’
+brain/brain.cpp:2861: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Ki’
+brain/brain.cpp:2885: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage1AimTrac’
+brain/brain.cpp:2888: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator__d2’
+brain/brain.cpp:2894: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_ej’
+brain/brain.cpp:2909: error: ‘struct BlockIO_brain’ has no member named ‘DoubleToInt8_p’
+brain/brain.cpp:2916: error: ‘struct BlockIO_brain’ has no member named ‘Add_l’
+brain/brain.cpp:2920: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_ea’
+brain/brain.cpp:2923: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_l’
+brain/brain.cpp:2924: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage1AimTrac’
+brain/brain.cpp:2926: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_l’
+brain/brain.cpp:2927: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_l’
+brain/brain.cpp:2928: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_l’
+brain/brain.cpp:2930: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_l’
+brain/brain.cpp:2931: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_l’
+brain/brain.cpp:2936: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_ej’
+brain/brain.cpp:2941: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator__d2’
+brain/brain.cpp:2942: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage1AimTrac’
+brain/brain.cpp:2944: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator__d2’
+brain/brain.cpp:2945: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator__d2’
+brain/brain.cpp:2946: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator__d2’
+brain/brain.cpp:2948: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator__d2’
+brain/brain.cpp:2949: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator__d2’
+brain/brain.cpp:2953: error: ‘struct BlockIO_brain’ has no member named ‘Add_l’
+brain/brain.cpp:2954: error: ‘struct BlockIO_brain’ has no member named ‘Multiply1’
+brain/brain.cpp:2955: error: ‘struct BlockIO_brain’ has no member named ‘DoubleToint1_k’
+brain/brain.cpp:2956: error: ‘struct BlockIO_brain’ has no member named ‘DoubleToInt8_p’
+brain/brain.cpp:2959: error: ‘struct BlockIO_brain’ has no member named ‘Add_d’
+brain/brain.cpp:2959: error: ‘struct BlockIO_brain’ has no member named ‘Add_d’
+brain/brain.cpp:2962: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountX’
+brain/brain.cpp:2962: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountX’
+brain/brain.cpp:2965: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountX’
+brain/brain.cpp:2972: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountY’
+brain/brain.cpp:2976: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:2977: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage3ReOri_a’
+brain/brain.cpp:2987: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_k’
+brain/brain.cpp:2993: error: incompatible types in assignment of ‘real_T’ to ‘real_T [19200]’
+brain/brain.cpp:2994: error: incompatible types in assignment of ‘real32_T’ to ‘real_T [57600]’
+brain/brain.cpp:2995: error: incompatible types in assignment of ‘real32_T’ to ‘boolean_T [9600]’
+brain/brain.cpp:2996: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage2Positio’
+brain/brain.cpp:2998: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage2Posit_a’
+brain/brain.cpp:2999: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage2Posit_a’
+brain/brain.cpp:3003: error: ‘struct BlockIO_brain’ has no member named ‘ColorSpaceConversion1_o1’
+brain/brain.cpp:3004: error: invalid types ‘real_T[int32_T]’ for array subscript
+brain/brain.cpp:3005: error: ‘struct BlockIO_brain’ has no member named ‘ColorSpaceConversion1_o2’
+brain/brain.cpp:3010: error: ‘struct BlockIO_brain’ has no member named ‘track3Bitmap’
+brain/brain.cpp:3016: error: ‘struct BlockIO_brain’ has no member named ‘Compare_o’
+brain/brain.cpp:3020: error: ‘struct BlockIO_brain’ has no member named ‘track3Bitmap’
+brain/brain.cpp:3020: error: ‘struct BlockIO_brain’ has no member named ‘track3Bitmap’
+brain/brain.cpp:3021: error: ‘struct BlockIO_brain’ has no member named ‘Compare_o’
+brain/brain.cpp:3026: error: ‘struct BlockIO_brain’ has no member named ‘Compare_o’
+brain/brain.cpp:3026: error: invalid types ‘real_T[int32_T]’ for array subscript
+brain/brain.cpp:3030: error: ‘struct BlockIO_brain’ has no member named ‘track3Bitmap’
+brain/brain.cpp:3030: error: ‘struct BlockIO_brain’ has no member named ‘track3Bitmap’
+brain/brain.cpp:3031: error: ‘struct BlockIO_brain’ has no member named ‘Compare_o’
+brain/brain.cpp:3046: error: ‘struct BlockIO_brain’ has no member named ‘track3Bitmap’
+brain/brain.cpp:3085: error: ‘const struct ConstParam_brain’ has no member named ‘pooled21’
+brain/brain.cpp:3199: error: ‘struct BlockIO_brain’ has no member named ‘Add1_i’
+brain/brain.cpp:3207: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kp’
+brain/brain.cpp:3211: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kd’
+brain/brain.cpp:3224: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage2Positio’
+brain/brain.cpp:3227: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_p’
+brain/brain.cpp:3254: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Kp’
+brain/brain.cpp:3257: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Kd’
+brain/brain.cpp:3270: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage2Positio’
+brain/brain.cpp:3295: error: ‘struct BlockIO_brain’ has no member named ‘AddLeft’
+brain/brain.cpp:3301: error: ‘struct BlockIO_brain’ has no member named ‘AddRight’
+brain/brain.cpp:3305: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Ki’
+brain/brain.cpp:3309: error: invalid cast from type ‘real_T*’ to type ‘real_T’
+brain/brain.cpp:3310: error: invalid cast from type ‘boolean_T*’ to type ‘real_T’
+brain/brain.cpp:3329: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage2Positio’
+brain/brain.cpp:3332: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_d’
+brain/brain.cpp:3338: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_db’
+brain/brain.cpp:3353: error: ‘struct BlockIO_brain’ has no member named ‘DoubleToInt8_m’
+brain/brain.cpp:3361: error: invalid operands of types ‘real_T [19200]’ and ‘real_T’ to binary ‘operator-’
+brain/brain.cpp:3367: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_p’
+brain/brain.cpp:3368: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage2Positio’
+brain/brain.cpp:3370: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_p’
+brain/brain.cpp:3371: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_p’
+brain/brain.cpp:3372: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_p’
+brain/brain.cpp:3374: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_p’
+brain/brain.cpp:3375: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_p’
+brain/brain.cpp:3386: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage2Positio’
+brain/brain.cpp:3387: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Ki’
+brain/brain.cpp:3398: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_db’
+brain/brain.cpp:3403: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_d’
+brain/brain.cpp:3404: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage2Positio’
+brain/brain.cpp:3406: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_d’
+brain/brain.cpp:3407: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_d’
+brain/brain.cpp:3408: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_d’
+brain/brain.cpp:3410: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_d’
+brain/brain.cpp:3411: error: ‘struct D_Work_brain’ has no member named ‘DepthDiscreteTimeIntegrator_D_d’
+brain/brain.cpp:3416: error: ‘struct BlockIO_brain’ has no member named ‘AddRight’
+brain/brain.cpp:3417: error: ‘struct BlockIO_brain’ has no member named ‘AddLeft’
+brain/brain.cpp:3418: error: ‘struct BlockIO_brain’ has no member named ‘DoubleToInt8_m’
+brain/brain.cpp:3421: error: ‘struct BlockIO_brain’ has no member named ‘Add1_i’
+brain/brain.cpp:3421: error: ‘struct BlockIO_brain’ has no member named ‘Add1_i’
+brain/brain.cpp:3424: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountY’
+brain/brain.cpp:3424: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountY’
+brain/brain.cpp:3427: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountY’
+brain/brain.cpp:3437: error: incompatible types in assignment of ‘real_T’ to ‘real_T [19200]’
+brain/brain.cpp:3438: error: incompatible types in assignment of ‘real_T’ to ‘real_T [19200]’
+brain/brain.cpp:3439: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage3ReOri_b’
+brain/brain.cpp:3440: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage3ReOrien’
+brain/brain.cpp:3441: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage3ReOri_b’
+brain/brain.cpp:3443: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage3ReOrien’
+brain/brain.cpp:3445: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage3ReOri_a’
+brain/brain.cpp:3448: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage3ReOri_a’
+brain/brain.cpp:3472: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage3ReOrien’
+brain/brain.cpp:3525: error: ‘struct BlockIO_brain’ has no member named ‘BigErrorS1_l’
+brain/brain.cpp:3530: error: ‘struct BlockIO_brain’ has no member named ‘BigNegativeErrorS2_c’
+brain/brain.cpp:3537: error: ‘struct BlockIO_brain’ has no member named ‘BigErrorS1_l’
+brain/brain.cpp:3542: error: ‘struct BlockIO_brain’ has no member named ‘BigNegativeErrorS2_c’
+brain/brain.cpp:3550: error: ‘struct BlockIO_brain’ has no member named ‘BigErrorS1_l’
+brain/brain.cpp:3551: error: ‘struct BlockIO_brain’ has no member named ‘BigNegativeErrorS2_c’
+brain/brain.cpp:3557: error: ‘struct BlockIO_brain’ has no member named ‘BigErrorS1_l’
+brain/brain.cpp:3561: error: ‘struct BlockIO_brain’ has no member named ‘BigNegativeErrorS2_c’
+brain/brain.cpp:3583: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage3ReOrien’
+brain/brain.cpp:3592: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_k’
+brain/brain.cpp:3628: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage3ReOrien’
+brain/brain.cpp:3640: error: ‘struct D_Work_brain’ has no member named ‘UD_DSTATE_k’
+brain/brain.cpp:3646: error: ‘struct D_Work_brain’ has no member named ‘RunningFollowTrackStage3ReOrien’
+brain/brain.cpp:3665: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountHeading’
+brain/brain.cpp:3665: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountHeading’
+brain/brain.cpp:3669: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountHeading’
+brain/brain.cpp:3676: error: ‘struct D_Work_brain’ has no member named ‘is_FollowTrack’
+brain/brain.cpp:3677: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountX’
+brain/brain.cpp: In function ‘void brain_step()’:
+brain/brain.cpp:3850: error: ‘struct BlockIO_brain’ has no member named ‘viddR’
+brain/brain.cpp:3853: error: ‘struct BlockIO_brain’ has no member named ‘viddG’
+brain/brain.cpp:3856: error: ‘struct BlockIO_brain’ has no member named ‘viddB’
+brain/brain.cpp:3863: error: ‘struct BlockIO_brain’ has no member named ‘viddR’
+brain/brain.cpp:3863: error: ‘struct BlockIO_brain’ has no member named ‘viddG’
+brain/brain.cpp:3864: error: ‘struct BlockIO_brain’ has no member named ‘viddG’
+brain/brain.cpp:3864: error: ‘struct BlockIO_brain’ has no member named ‘viddB’
+brain/brain.cpp:3865: error: ‘struct BlockIO_brain’ has no member named ‘viddG’
+brain/brain.cpp:3867: error: ‘struct BlockIO_brain’ has no member named ‘viddB’
+brain/brain.cpp:3870: error: ‘struct BlockIO_brain’ has no member named ‘viddR’
+brain/brain.cpp:3870: error: ‘struct BlockIO_brain’ has no member named ‘viddB’
+brain/brain.cpp:3871: error: ‘struct BlockIO_brain’ has no member named ‘viddR’
+brain/brain.cpp:3873: error: ‘struct BlockIO_brain’ has no member named ‘viddB’
+brain/brain.cpp:3876: error: ‘struct BlockIO_brain’ has no member named ‘viddR’
+brain/brain.cpp:3876: error: ‘struct BlockIO_brain’ has no member named ‘viddB’
+brain/brain.cpp:3877: error: ‘struct BlockIO_brain’ has no member named ‘viddR’
+brain/brain.cpp:3879: error: ‘struct BlockIO_brain’ has no member named ‘viddB’
+brain/brain.cpp:3882: error: ‘struct BlockIO_brain’ has no member named ‘viddG’
+brain/brain.cpp:3882: error: ‘struct BlockIO_brain’ has no member named ‘viddB’
+brain/brain.cpp:3883: error: ‘struct BlockIO_brain’ has no member named ‘viddG’
+brain/brain.cpp:3885: error: ‘struct BlockIO_brain’ has no member named ‘viddB’
+brain/brain.cpp:3897: error: ‘struct BlockIO_brain’ has no member named ‘viddR’
+brain/brain.cpp:3898: error: ‘struct BlockIO_brain’ has no member named ‘viddG’
+brain/brain.cpp:3898: error: ‘struct BlockIO_brain’ has no member named ‘viddB’
+brain/brain.cpp:3899: error: ‘struct BlockIO_brain’ has no member named ‘viddG’
+brain/brain.cpp:3900: error: ‘struct BlockIO_brain’ has no member named ‘viddB’
+brain/brain.cpp:3900: error: ‘struct BlockIO_brain’ has no member named ‘viddR’
+brain/brain.cpp:3902: error: ‘struct BlockIO_brain’ has no member named ‘viddR’
+brain/brain.cpp:3902: error: ‘struct BlockIO_brain’ has no member named ‘viddG’
+brain/brain.cpp:3914: error: ‘struct BlockIO_brain’ has no member named ‘ColorSpaceConversion1_o1’
+brain/brain.cpp:3915: error: ‘struct BlockIO_brain’ has no member named ‘ColorSpaceConversion1_o2’
+brain/brain.cpp:3916: error: ‘struct BlockIO_brain’ has no member named ‘ColorSpaceConversion1_o3’
+brain/brain.h: In function ‘void brain_initialize()’:
+brain/brain.h:476: error: previous declaration of ‘void brain_initialize()’ with ‘C++’ linkage
+brain/brain.cpp:3957: error: conflicts with new declaration with ‘C’ linkage
+brain/brain.h: In function ‘void brain_terminate()’:
+brain/brain.h:478: error: previous declaration of ‘void brain_terminate()’ with ‘C++’ linkage
+brain/brain.cpp:3993: error: conflicts with new declaration with ‘C’ linkage
+make: *** [brain.o] Error 1
+make: *** Waiting for unfinished jobs....
+dashboard/dashboard.cpp: In constructor ‘Dashboard::Dashboard(QMainWindow*, QMutex*)’:
+dashboard/dashboard.cpp:40: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kd’
+dashboard/dashboard.cpp:41: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Ki’
+dashboard/dashboard.cpp:42: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kp’
+dashboard/dashboard.cpp:43: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Kd’
+dashboard/dashboard.cpp:44: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Ki’
+dashboard/dashboard.cpp:45: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Kp’
+dashboard/dashboard.cpp: In member function ‘void Dashboard::updateBrainView(ExternalOutputs_brain, int)’:
+dashboard/dashboard.cpp:178: error: ‘struct BlockIO_brain’ has no member named ‘track1Bitmap’
+dashboard/dashboard.cpp:180: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountY’
+dashboard/dashboard.cpp:181: error: ‘struct BlockIO_brain’ has no member named ‘track3Bitmap’
+dashboard/dashboard.cpp:182: error: ‘struct D_Work_brain’ has no member named ‘ErrorCountX’
+dashboard/dashboard.cpp:183: error: ‘struct BlockIO_brain’ has no member named ‘track3Bitmap’
+dashboard/dashboard.cpp:186: error: ‘struct BlockIO_brain’ has no member named ‘track2Bitmap’
+dashboard/dashboard.cpp: In member function ‘void Dashboard::on_pathHeadingDGainSpinBox_valueChanged(double)’:
+dashboard/dashboard.cpp:288: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kd’
+dashboard/dashboard.cpp: In member function ‘void Dashboard::on_pathHeadingIGainSpinBox_valueChanged(double)’:
+dashboard/dashboard.cpp:292: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Ki’
+dashboard/dashboard.cpp: In member function ‘void Dashboard::on_pathHeadingPGainSpinBox_valueChanged(double)’:
+dashboard/dashboard.cpp:296: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kp’
+dashboard/dashboard.cpp: In member function ‘void Dashboard::on_pathYDGainSpinBox_valueChanged(double)’:
+dashboard/dashboard.cpp:300: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Kd’
+dashboard/dashboard.cpp: In member function ‘void Dashboard::on_pathYIGainSpinBox_valueChanged(double)’:
+dashboard/dashboard.cpp:304: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Ki’
+dashboard/dashboard.cpp: In member function ‘void Dashboard::on_pathYPGainSpinBox_valueChanged(double)’:
+dashboard/dashboard.cpp:308: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Kp’
+make: *** [dashboard.o] Error 1

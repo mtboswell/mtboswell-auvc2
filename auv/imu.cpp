@@ -149,6 +149,7 @@ using std::cin;
 using std::hex;
 using std::dec;
 
+/*
 bool IMU::calibrate()
 {
     char received[255];
@@ -233,12 +234,12 @@ bool IMU::calibrate()
         done[5] = (char)magZ;
     }
     //write(fd, done, 6);
-    /*int numRead = read(fd, received, 11); 
+    /int numRead = read(fd, received, 11); 
     if (numRead != 11)
     {
         cerr<<"Calibration failed!  Only "<<numRead<<" read!"<<endl;
         return false;
-    }*/
+    }/
     
     command = (short)received[0];
     short offsetX = (short)((received[1] << 8)|(received[2]));
@@ -261,7 +262,7 @@ bool IMU::calibrate()
         return false;
     }
 }
-
+*/
 
 
 int IMU::DecodeIMUData(const char *data, int len)
