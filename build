@@ -1,0 +1,10 @@
+#! /bin/bash
+echo "Updating Brain" \
+&& ./updateBrain \
+&& echo "Generating Makefile" \
+&& qmake -Wnone \
+&& echo "Building..." \
+&& make -j5 2> builderrors > /dev/null \
+&& echo "Cleaning up." \
+&& make clean \
+&& echo "Done!" 
