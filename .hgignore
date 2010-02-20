@@ -1,0 +1,7 @@
+# use glob syntax.
+syntax: glob
+
+*~
+recorded_video.yuv
+brain.zip
+
