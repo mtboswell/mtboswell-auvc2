@@ -1,29 +1,11 @@
-auv/auv.cpp:76: warning: unused parameter ‘brainTime’
 auv/camread.cpp:46: warning: unused parameter ‘in’
-dashboard/dashboard.cpp: In constructor ‘Dashboard::Dashboard(QMainWindow*, QMutex*)’:
-dashboard/dashboard.cpp:40: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kd’
-dashboard/dashboard.cpp:41: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Ki’
-dashboard/dashboard.cpp:42: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kp’
-dashboard/dashboard.cpp:43: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Kd’
-dashboard/dashboard.cpp:44: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Ki’
-dashboard/dashboard.cpp:45: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Kp’
+auv/auv.cpp:76: warning: unused parameter ‘brainTime’
+brain/brain.cpp: In function ‘void brain_Chart()’:
+brain/brain.cpp:2271: warning: ‘BlobAnalysis_NUM_PIX_DW’ may be used uninitialized in this function
+brain/brain.cpp:2271: note: ‘BlobAnalysis_NUM_PIX_DW’ was declared here
 dashboard/dashboard.cpp: In member function ‘void Dashboard::updateBrainView(ExternalOutputs_brain, int)’:
-dashboard/dashboard.cpp:167: error: void value not ignored as it ought to be
-dashboard/dashboard.cpp:167: error: expected `;' before ‘)’ token
-dashboard/dashboard.cpp: In member function ‘void Dashboard::on_pathHeadingDGainSpinBox_valueChanged(double)’:
-dashboard/dashboard.cpp:289: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kd’
-dashboard/dashboard.cpp: In member function ‘void Dashboard::on_pathHeadingIGainSpinBox_valueChanged(double)’:
-dashboard/dashboard.cpp:293: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Ki’
-dashboard/dashboard.cpp: In member function ‘void Dashboard::on_pathHeadingPGainSpinBox_valueChanged(double)’:
-dashboard/dashboard.cpp:297: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kp’
-dashboard/dashboard.cpp: In member function ‘void Dashboard::on_pathYDGainSpinBox_valueChanged(double)’:
-dashboard/dashboard.cpp:301: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Kd’
-dashboard/dashboard.cpp: In member function ‘void Dashboard::on_pathYIGainSpinBox_valueChanged(double)’:
-dashboard/dashboard.cpp:305: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Ki’
-dashboard/dashboard.cpp: In member function ‘void Dashboard::on_pathYPGainSpinBox_valueChanged(double)’:
-dashboard/dashboard.cpp:309: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_YPos_Kp’
+dashboard/dashboard.cpp:178: error: ‘struct BlockIO_brain’ has no member named ‘vidR’
+dashboard/dashboard.cpp:178: error: ‘struct BlockIO_brain’ has no member named ‘vidG’
+dashboard/dashboard.cpp:178: error: ‘struct BlockIO_brain’ has no member named ‘vidB’
 make: *** [dashboard.o] Error 1
 make: *** Waiting for unfinished jobs....
-brain/brain.cpp: In function ‘void brain_Chart()’:
-brain/brain.cpp:2270: warning: ‘BlobAnalysis_NUM_PIX_DW’ may be used uninitialized in this function
-brain/brain.cpp:2270: note: ‘BlobAnalysis_NUM_PIX_DW’ was declared here

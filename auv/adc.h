@@ -45,6 +45,7 @@ class ADC : public UART::UARTList
 	~ADC();
     
 	unsigned int getValue(string desc);
+	bool sendValue(char cmd);
 	
     void process(const char* data, int len);
 	private:

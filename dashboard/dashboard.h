@@ -82,7 +82,10 @@
 	// RC
 	void on_controlGroupBox_toggled(bool rc);
 	void on_desiredDepthSlider_valueChanged(int value);
+	void on_desiredStrafeSlider_valueChanged(int value);
+	void on_desiredSpeedSlider_valueChanged(int value);
 	void on_desiredHeadingSpinBox_valueChanged(int value);
+	void on_setAllZeroButton_clicked();
      
 
  private:

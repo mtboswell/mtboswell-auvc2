@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.211
+ * Model version                        : 1.221
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Fri Feb 19 17:59:02 2010
+ * Real-Time Workshop file generated on : Sat Feb 20 11:33:21 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Fri Feb 19 17:59:03 2010
+ * C/C++ source code generated on       : Sat Feb 20 11:33:21 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic
@@ -44,8 +44,8 @@ void MultiWordSignedWrap(const uint32_T u1[], int32_T n1, uint32_T n2, uint32_T
   y[]);
 void uLong2MultiWord(uint32_T u, uint32_T y[], int32_T n);
 void sLong2MultiWord(int32_T u, uint32_T y[], int32_T n);
-void brain_FoundTrack(real_T *rtd_Image_o);
-void brain_NoTrack(real_T *rtd_Image_o);
+void brain_FoundTrack(real_T *rtd_Image_d);
+void brain_NoTrack(real_T *rtd_Image_d);
 void brain_BigErrorS1_Disable(rtB_BigErrorS1_brain *localB);
 void brain_BigErrorS1(real_T rtu_In1, rtB_BigErrorS1_brain *localB);
 void brai_BigNegativeErrorS2_Disable(rtB_BigNegativeErrorS2_brain *localB);
@@ -55,14 +55,14 @@ void GetBrightestPixelPerColumnandRo(void);
 void brain_IsLinePresent(const real_T rtu_HoughTable[51660], const real_T
   rtu_ThetaValues[180], const real_T rtu_RhoValues[287], rtB_IsLinePresent_brain
   *localB);
-void GetBrightestPixelPerColumnand_k(void);
-void AutonomousFollowOnePathOne_Init(RT_MODEL_brain *rtm,
-  rtDW_AutonomousFollowOnePathOne *localDW);
-void AutonomousFollowOnePathOnePathM(real32_T rtu_DesiredDepth1, real32_T
-  rtu_CurrentDepth1, RT_MODEL_brain *rtm, rtB_AutonomousFollowOnePathOneP
-  *localB, rtDW_AutonomousFollowOnePathOne *localDW);
-void AutonomousFollowOnePathMakeHSVI(const real_T rtu_H1[19200], const real_T
-  rtu_S1[19200], const real_T rtu_V1[19200], rtB_AutonomousFollowOnePathMake
+void GetBrightestPixelPerColumnand_e(void);
+void RunningAutonomousFollowOne_Init(RT_MODEL_brain *rtm,
+  rtDW_RunningAutonomousFollowOne *localDW);
+void RunningAutonomousFollowOnePathO(real32_T rtu_DesiredDepth1, real32_T
+  rtu_CurrentDepth1, RT_MODEL_brain *rtm, rtB_RunningAutonomousFollowOneP
+  *localB, rtDW_RunningAutonomousFollowOne *localDW);
+void RunningAutonomousFollowOnePathM(const real_T rtu_H1[19200], const real_T
+  rtu_S1[19200], const real_T rtu_V1[19200], rtB_RunningAutonomousFollowOn_c
   *localB);
 void brain_Chart_Init(void);
 void brain_Chart_Start(void);

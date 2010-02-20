@@ -98,7 +98,8 @@ void AUV::reset(){
 	thrusterPower->turnOn();
   	QMutexLocker locker(dataMutex);
 	data.thrusterPower.state = 1;
-	// [TODO] - Reset servo controller here
+	// Reset servo controller
+	adc->sendValue('r');
 	data.status = READY;
 }
 
@@ -143,6 +144,7 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 	//qDebug("Conversing with TReXs");
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
 		if(i != 3 && thrusterSpeeds[i] > 40) thrusterSpeeds[i] = 40;
+		if(i != 3 && thrusterSpeeds[i] < -40) thrusterSpeeds[i] = -40;
 		pControllers->setTrexSpeed(i, thrusterSpeeds[i]);
 	}
   	QMutexLocker locker(dataMutex);

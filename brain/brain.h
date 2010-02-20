@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.211
+ * Model version                        : 1.221
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Fri Feb 19 17:59:02 2010
+ * Real-Time Workshop file generated on : Sat Feb 20 11:33:21 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Fri Feb 19 17:59:03 2010
+ * C/C++ source code generated on       : Sat Feb 20 11:33:21 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic
@@ -62,23 +62,23 @@ typedef struct {
   real_T maxVotes[2];                  /* '<S45>/IsLinePresent' */
 } rtB_IsLinePresent_brain;
 
-/* Block signals for system '<S1>/Autonomous.FollowOnePath.OnePath.MaintainDepth' */
+/* Block signals for system '<S1>/Running.Autonomous.FollowOnePath.OnePath.MaintainDepth' */
 typedef struct {
   int8_T DoubleToInt8;                 /* '<S9>/Double To Int8' */
-} rtB_AutonomousFollowOnePathOneP;
+} rtB_RunningAutonomousFollowOneP;
 
-/* Block states (auto storage) for system '<S1>/Autonomous.FollowOnePath.OnePath.MaintainDepth' */
+/* Block states (auto storage) for system '<S1>/Running.Autonomous.FollowOnePath.OnePath.MaintainDepth' */
 typedef struct {
   real_T UD_DSTATE;                    /* '<S50>/UD' */
   real_T DepthDiscreteTimeIntegrator_DST;/* '<S49>/Depth Discrete-Time Integrator' */
-  uint32_T AutonomousFollowOnePathOnePat_g;/* '<Root>/Chart' */
-  uint32_T AutonomousFollowOnePathOnePat_n;/* '<Root>/Chart' */
-} rtDW_AutonomousFollowOnePathOne;
+  uint32_T RunningAutonomousFollowOnePat_h;/* '<Root>/Chart' */
+  uint32_T RunningAutonomousFollowOnePat_j;/* '<Root>/Chart' */
+} rtDW_RunningAutonomousFollowOne;
 
-/* Block signals for system '<S1>/Autonomous.FollowOnePath.MakeHSVImage' */
+/* Block signals for system '<S1>/Running.Autonomous.FollowOnePath.MakeHSVImage' */
 typedef struct {
   real_T HSVImage1[57600];             /* '<S6>/PutHSVImageTogether' */
-} rtB_AutonomousFollowOnePathMake;
+} rtB_RunningAutonomousFollowOn_c;
 
 /* Block signals (auto storage) */
 typedef struct {
@@ -106,20 +106,20 @@ typedef struct {
   real_T SFunction_o38[19200];         /* '<Root>/Chart' */
   real_T SFunction_o39[19200];         /* '<Root>/Chart' */
   real_T SFunction_o40[19200];         /* '<Root>/Chart' */
+  real_T SFunction_o41;                /* '<Root>/Chart' */
+  real_T SFunction_o42;                /* '<Root>/Chart' */
   real_T SFunction_o43;                /* '<Root>/Chart' */
-  real_T SFunction_o44;                /* '<Root>/Chart' */
-  real_T SFunction_o45;                /* '<Root>/Chart' */
   real_T HoughTransform_o1[71820];     /* '<S57>/Hough Transform' */
   real_T HoughTransform_o2[180];       /* '<S57>/Hough Transform' */
   real_T HoughTransform_o3[399];       /* '<S57>/Hough Transform' */
   real_T Close;                        /* '<S12>/IsLineNearCenter' */
   real_T BooleanImage[19200];          /* '<S55>/Get Brightest Pixel Per Column and Row' */
-  real_T HoughTransform_o1_n[51660];   /* '<S45>/Hough Transform' */
-  real_T HoughTransform_o2_g[180];     /* '<S45>/Hough Transform' */
-  real_T HoughTransform_o3_i[287];     /* '<S45>/Hough Transform' */
-  real_T HoughTransform_o1_c[51660];   /* '<S46>/Hough Transform' */
-  real_T HoughTransform_o2_k[180];     /* '<S46>/Hough Transform' */
-  real_T HoughTransform_o3_h[287];     /* '<S46>/Hough Transform' */
+  real_T HoughTransform_o1_i[51660];   /* '<S45>/Hough Transform' */
+  real_T HoughTransform_o2_e[180];     /* '<S45>/Hough Transform' */
+  real_T HoughTransform_o3_n[287];     /* '<S45>/Hough Transform' */
+  real_T HoughTransform_o1_d[51660];   /* '<S46>/Hough Transform' */
+  real_T HoughTransform_o2_m[180];     /* '<S46>/Hough Transform' */
+  real_T HoughTransform_o3_k[287];     /* '<S46>/Hough Transform' */
   real_T ToPathHeading[2];             /* '<S8>/GetHeadingToPath' */
   real_T AlongPathHeading[2];          /* '<S8>/GetHeadingToPath' */
   real_T BWleft[9600];                 /* '<S42>/Get Brightest Pixel Per Column and Row' */
@@ -130,7 +130,7 @@ typedef struct {
   real_T BlobArea;                     /* '<S3>/Embedded MATLAB Function' */
   real_T BlobCentroidX;                /* '<S3>/Embedded MATLAB Function' */
   real_T BlobCentroidY;                /* '<S3>/Embedded MATLAB Function' */
-  real_T DataStoreRead_l;              /* '<S13>/Data Store Read' */
+  real_T DataStoreRead_b;              /* '<S13>/Data Store Read' */
   real_T MedianFilterS[19200];         /* '<S22>/Median Filter S' */
   real32_T Resize[19200];              /* '<S2>/Resize' */
   real32_T Resize1[19200];             /* '<S2>/Resize1' */
@@ -141,8 +141,8 @@ typedef struct {
   real32_T SFunction_o21;              /* '<Root>/Chart' */
   real32_T SFunction_o34;              /* '<Root>/Chart' */
   real32_T SFunction_o35;              /* '<Root>/Chart' */
-  real32_T SFunction_o41;              /* '<Root>/Chart' */
-  real32_T SFunction_o42;              /* '<Root>/Chart' */
+  real32_T SFunction_o44;              /* '<Root>/Chart' */
+  real32_T SFunction_o45;              /* '<Root>/Chart' */
   real32_T RGBtoHSVColorSpaceConversion_o1[307200];/* '<S2>/RGB to HSV Color Space  Conversion' */
   real32_T RGBtoHSVColorSpaceConversion_o2[307200];/* '<S2>/RGB to HSV Color Space  Conversion' */
   real32_T RGBtoHSVColorSpaceConversion_o3[307200];/* '<S2>/RGB to HSV Color Space  Conversion' */
@@ -154,43 +154,43 @@ typedef struct {
   int8_T CameraPosition;               /* '<Root>/Chart' */
   int8_T DoubleToint1;                 /* '<S16>/DoubleToint1' */
   int8_T DoubleToint8;                 /* '<S16>/DoubleToint8' */
-  int8_T DoubleToint1_f;               /* '<S10>/DoubleToint1' */
-  int8_T DoubleToint8_d;               /* '<S10>/DoubleToint8' */
+  int8_T DoubleToint1_c;               /* '<S10>/DoubleToint1' */
+  int8_T DoubleToint8_l;               /* '<S10>/DoubleToint8' */
   int8_T DoubleToInt8;                 /* '<S5>/Double To Int8' */
-  int8_T DoubleToint1_p;               /* '<S5>/DoubleToint1' */
-  int8_T DoubleToint8_l;               /* '<S5>/DoubleToint8' */
+  int8_T DoubleToint1_l;               /* '<S5>/DoubleToint1' */
+  int8_T DoubleToint8_c;               /* '<S5>/DoubleToint8' */
   int8_T DataTypeConversion;           /* '<S24>/Data Type Conversion' */
-  int8_T DoubleToInt8_h;               /* '<S14>/Double To Int8' */
-  int8_T DoubleToint1_a;               /* '<S14>/DoubleToint1' */
-  int8_T DoubleToint8_b;               /* '<S14>/DoubleToint8' */
+  int8_T DoubleToInt8_l;               /* '<S14>/Double To Int8' */
+  int8_T DoubleToint1_j;               /* '<S14>/DoubleToint1' */
+  int8_T DoubleToint8_i;               /* '<S14>/DoubleToint8' */
   uint8_T State;                       /* '<Root>/Chart' */
-  uint8_T vidB[307200];                /* '<S2>/Y-Cb-Cr to RGB Color Space  Conversion' */
-  uint8_T vidR[307200];                /* '<S2>/Y-Cb-Cr to RGB Color Space  Conversion' */
-  uint8_T vidG[307200];                /* '<S2>/Y-Cb-Cr to RGB Color Space  Conversion' */
+  uint8_T RGBVid_B[307200];            /* '<S2>/Y-Cb-Cr to RGB Color Space  Conversion' */
+  uint8_T RGBVid_R[307200];            /* '<S2>/Y-Cb-Cr to RGB Color Space  Conversion' */
+  uint8_T RGBVid_G[307200];            /* '<S2>/Y-Cb-Cr to RGB Color Space  Conversion' */
   boolean_T SFunction_o27[9600];       /* '<Root>/Chart' */
   boolean_T SFunction_o28[9600];       /* '<Root>/Chart' */
   boolean_T SFunction_o31[19200];      /* '<Root>/Chart' */
-  boolean_T DataTypeConversion_p[19200];/* '<S55>/Data Type Conversion' */
-  boolean_T BWleft_o[9600];            /* '<S42>/Data Type Conversion' */
-  boolean_T BWright_o[9600];           /* '<S42>/Data Type Conversion1' */
+  boolean_T DataTypeConversion_h[19200];/* '<S55>/Data Type Conversion' */
+  boolean_T BWleft_i[9600];            /* '<S42>/Data Type Conversion' */
+  boolean_T BWright_e[9600];           /* '<S42>/Data Type Conversion1' */
   boolean_T BW[19200];                 /* '<S3>/Logical Operator1' */
   boolean_T Compare[19200];            /* '<S34>/Compare' */
   boolean_T LogicalOperator[19200];    /* '<S3>/Logical Operator' */
-  boolean_T Compare_g[19200];          /* '<S19>/Compare' */
-  boolean_T Compare_i[19200];          /* '<S65>/Compare' */
-  boolean_T BW_c[19200];               /* '<S29>/Logical Operator1' */
-  boolean_T BW_j[19200];               /* '<S60>/Logical Operator1' */
-  rtB_BigNegativeErrorS2_brain BigNegativeErrorS2_n;/* '<S16>/BigNegativeError S2' */
-  rtB_BigErrorS1_brain BigErrorS1_o;   /* '<S16>/BigError S1' */
-  rtB_AutonomousFollowOnePathOneP ControlledRCMaintainDepth;/* '<S1>/ControlledRC.MaintainDepth' */
-  rtB_AutonomousFollowOnePathMake AutonomousFollowOnePathMakeHS_p;/* '<S1>/Autonomous.FollowOnePath.MakeHSVImage' */
-  rtB_BigNegativeErrorS2_brain BigNegativeErrorS2_p;/* '<S10>/BigNegativeError S2' */
-  rtB_BigErrorS1_brain BigErrorS1_h;   /* '<S10>/BigError S1' */
-  rtB_AutonomousFollowOnePathOneP AutonomousFollowOnePathOnePat_e;/* '<S1>/Autonomous.FollowOnePath.OnePath.MaintainDepth' */
+  boolean_T Compare_d[19200];          /* '<S19>/Compare' */
+  boolean_T Compare_e[19200];          /* '<S65>/Compare' */
+  boolean_T BW_p[19200];               /* '<S29>/Logical Operator1' */
+  boolean_T BW_a[19200];               /* '<S60>/Logical Operator1' */
+  rtB_RunningAutonomousFollowOneP RunningControlledRCMaintainDept;/* '<S1>/Running.ControlledRC.MaintainDepth' */
+  rtB_BigNegativeErrorS2_brain BigNegativeErrorS2_a;/* '<S16>/BigNegativeError S2' */
+  rtB_BigErrorS1_brain BigErrorS1_a;   /* '<S16>/BigError S1' */
+  rtB_RunningAutonomousFollowOn_c RunningAutonomousFollowOnePat_i;/* '<S1>/Running.Autonomous.FollowOnePath.MakeHSVImage' */
+  rtB_BigNegativeErrorS2_brain BigNegativeErrorS2_n;/* '<S10>/BigNegativeError S2' */
+  rtB_BigErrorS1_brain BigErrorS1_m;   /* '<S10>/BigError S1' */
+  rtB_RunningAutonomousFollowOneP RunningAutonomousFollowOnePa_mg;/* '<S1>/Running.Autonomous.FollowOnePath.OnePath.MaintainDepth' */
   rtB_IsLinePresent_brain sf_IsLinePresent_j;/* '<S46>/IsLinePresent' */
   rtB_IsLinePresent_brain sf_IsLinePresent;/* '<S45>/IsLinePresent' */
-  rtB_BigNegativeErrorS2_brain BigNegativeErrorS2_i;/* '<S5>/BigNegativeError S2' */
-  rtB_BigErrorS1_brain BigErrorS1_p;   /* '<S5>/BigError S1' */
+  rtB_BigNegativeErrorS2_brain BigNegativeErrorS2_h;/* '<S5>/BigNegativeError S2' */
+  rtB_BigErrorS1_brain BigErrorS1_b;   /* '<S5>/BigError S1' */
   rtB_BigNegativeErrorS2_brain BigNegativeErrorS2;/* '<S14>/BigNegativeError S2' */
   rtB_BigErrorS1_brain BigErrorS1;     /* '<S14>/BigError S1' */
 } BlockIO_brain;
@@ -199,20 +199,20 @@ typedef struct {
 typedef struct {
   real_T UD_DSTATE;                    /* '<S77>/UD' */
   real_T HeadingDiscreteTimeIntegrator_D;/* '<S76>/Heading Discrete-Time Integrator' */
-  real_T UD_DSTATE_p;                  /* '<S54>/UD' */
+  real_T UD_DSTATE_f;                  /* '<S54>/UD' */
   real_T HeadingDiscreteTimeIntegrator_h;/* '<S53>/Heading Discrete-Time Integrator' */
-  real_T UD_DSTATE_o;                  /* '<S39>/UD' */
+  real_T UD_DSTATE_g;                  /* '<S39>/UD' */
   real_T DepthDiscreteTimeIntegrator_DST;/* '<S37>/Depth Discrete-Time Integrator' */
-  real_T UD_DSTATE_i;                  /* '<S40>/UD' */
+  real_T UD_DSTATE_l;                  /* '<S40>/UD' */
   real_T HeadingDiscreteTimeIntegrator_g;/* '<S38>/Heading Discrete-Time Integrator' */
-  real_T UD_DSTATE_e;                  /* '<S26>/UD' */
+  real_T UD_DSTATE_gx;                 /* '<S26>/UD' */
   real_T XBuoyDiscreteTimeIntegrator_DST;/* '<S25>/X-Buoy Discrete-Time Integrator' */
-  real_T UD_DSTATE_h;                  /* '<S28>/UD' */
+  real_T UD_DSTATE_p;                  /* '<S28>/UD' */
   real_T YBuoyDiscreteTimeIntegrator_DST;/* '<S27>/Y-Buoy Discrete-Time Integrator' */
-  real_T UD_DSTATE_ex;                 /* '<S70>/UD' */
-  real_T DepthDiscreteTimeIntegrator_D_e;/* '<S68>/Depth Discrete-Time Integrator' */
-  real_T UD_DSTATE_pi;                 /* '<S71>/UD' */
-  real_T HeadingDiscreteTimeIntegrator_j;/* '<S69>/Heading Discrete-Time Integrator' */
+  real_T UD_DSTATE_i;                  /* '<S70>/UD' */
+  real_T DepthDiscreteTimeIntegrator_D_a;/* '<S68>/Depth Discrete-Time Integrator' */
+  real_T UD_DSTATE_k;                  /* '<S71>/UD' */
+  real_T HeadingDiscreteTimeIntegrator_m;/* '<S69>/Heading Discrete-Time Integrator' */
   real_T count;                        /* '<Root>/Chart' */
   real_T OldObstacle;                  /* '<Root>/Chart' */
   real_T countarea;                    /* '<Root>/Chart' */
@@ -230,26 +230,26 @@ typedef struct {
   real_T Done;                         /* '<Root>/Chart' */
   real_T Image;                        /* '<S4>/Found' */
   real_T MedianFilterH_PaddedInput[20336];/* '<S22>/Median Filter H' */
-  real_T Image_o;                      /* '<S13>/Data Store Memory' */
+  real_T Image_d;                      /* '<S13>/Data Store Memory' */
   real32_T RGBtoHSVColorSpaceConversion_DW[307200];/* '<S2>/RGB to HSV Color Space  Conversion' */
   real32_T Resize_IntBuffer[76800];    /* '<S2>/Resize' */
-  uint32_T AutonomousBuoyBuoy_ELAPS_T; /* '<Root>/Chart' */
-  uint32_T AutonomousBuoyBuoy_PREV_T;  /* '<Root>/Chart' */
-  uint32_T AutonomousFindBuoyStraightLevel;/* '<Root>/Chart' */
-  uint32_T AutonomousFindBuoyStraightLev_j;/* '<Root>/Chart' */
-  uint32_T AutonomousFollowOnePathOnePat_i;/* '<Root>/Chart' */
-  uint32_T AutonomousFollowOnePathOnePat_b;/* '<Root>/Chart' */
-  uint32_T AutonomousValidationGateStraigh;/* '<Root>/Chart' */
-  uint32_T AutonomousValidationGateStrai_l;/* '<Root>/Chart' */
-  uint32_T ControlledRCMaintainHeading_ELA;/* '<Root>/Chart' */
-  uint32_T ControlledRCMaintainHeading_PRE;/* '<Root>/Chart' */
+  uint32_T RunningAutonomousBuoyBuoy_ELAPS;/* '<Root>/Chart' */
+  uint32_T RunningAutonomousBuoyBuoy_PREV_;/* '<Root>/Chart' */
+  uint32_T RunningAutonomousFindBuoyStraig;/* '<Root>/Chart' */
+  uint32_T RunningAutonomousFindBuoyStra_g;/* '<Root>/Chart' */
+  uint32_T RunningAutonomousFollowOnePat_a;/* '<Root>/Chart' */
+  uint32_T RunningAutonomousFollowOnePat_m;/* '<Root>/Chart' */
+  uint32_T RunningAutonomousValidationGate;/* '<Root>/Chart' */
+  uint32_T RunningAutonomousValidationGa_h;/* '<Root>/Chart' */
+  uint32_T RunningControlledRCMaintainHead;/* '<Root>/Chart' */
+  uint32_T RunningControlledRCMaintainHe_i;/* '<Root>/Chart' */
   uint32_T BlobAnalysis_STACK_DW[19200];/* '<S29>/Blob Analysis' */
   int16_T BlobAnalysis_N_PIXLIST_DW[19200];/* '<S29>/Blob Analysis' */
   int16_T BlobAnalysis_M_PIXLIST_DW[19200];/* '<S29>/Blob Analysis' */
   int8_T If_ActiveSubsystem;           /* '<S16>/If' */
-  int8_T If_ActiveSubsystem_g;         /* '<S10>/If' */
-  int8_T If_ActiveSubsystem_j;         /* '<S5>/If' */
-  int8_T If_ActiveSubsystem_gi;        /* '<S14>/If' */
+  int8_T If_ActiveSubsystem_l;         /* '<S10>/If' */
+  int8_T If_ActiveSubsystem_m;         /* '<S5>/If' */
+  int8_T If_ActiveSubsystem_c;         /* '<S14>/If' */
   uint8_T ChromaResampling_FIRST_PASS_DW[153600];/* '<S2>/Chroma Resampling' */
   uint8_T YCbCrtoRGBColorSpaceConversion_[307200];/* '<S2>/Y-Cb-Cr to RGB Color Space  Conversion' */
   uint8_T is_active_c1_brain;          /* '<Root>/Chart' */
@@ -257,11 +257,12 @@ typedef struct {
   uint8_T is_Autonomous;               /* '<Root>/Chart' */
   uint8_T is_FollowOnePath;            /* '<Root>/Chart' */
   uint8_T is_OnePath;                  /* '<Root>/Chart' */
+  uint8_T is_Running;                  /* '<Root>/Chart' */
   uint8_T BlobAnalysis_PAD_DW[19764];  /* '<S29>/Blob Analysis' */
-  boolean_T AutonomousFindBuoyStraightLev_b;/* '<Root>/Chart' */
-  boolean_T AutonomousValidationGateStra_lv;/* '<Root>/Chart' */
-  rtDW_AutonomousFollowOnePathOne ControlledRCMaintainDepth;/* '<S1>/ControlledRC.MaintainDepth' */
-  rtDW_AutonomousFollowOnePathOne AutonomousFollowOnePathOnePat_e;/* '<S1>/Autonomous.FollowOnePath.OnePath.MaintainDepth' */
+  boolean_T RunningAutonomousFindBuoyStr_gx;/* '<Root>/Chart' */
+  boolean_T RunningAutonomousValidationGa_n;/* '<Root>/Chart' */
+  rtDW_RunningAutonomousFollowOne RunningControlledRCMaintainDept;/* '<S1>/Running.ControlledRC.MaintainDepth' */
+  rtDW_RunningAutonomousFollowOne RunningAutonomousFollowOnePa_mg;/* '<S1>/Running.Autonomous.FollowOnePath.OnePath.MaintainDepth' */
 } D_Work_brain;
 
 /* Constant parameters (auto storage) */
@@ -340,6 +341,7 @@ typedef struct {
   real_T RC_ForwardVelocity;           /* '<Root>/RC_ForwardVelocity' */
   real_T RC_Strafe;                    /* '<Root>/RC_Strafe' */
   real_T RC_Depth;                     /* '<Root>/RC_Depth' */
+  boolean_T RC;                        /* '<Root>/RC' */
 } ExternalInputs_brain;
 
 /* External outputs (root outports fed by signals with auto storage) */
@@ -546,81 +548,81 @@ extern "C" {
  * '<Root>' : brain
  * '<S1>'   : brain/Chart
  * '<S2>'   : brain/GetVideo1
- * '<S3>'   : brain/Chart/Autonomous.Buoy.Buoy
- * '<S4>'   : brain/Chart/Autonomous.FindBuoy.LookforBuoy
- * '<S5>'   : brain/Chart/Autonomous.FindBuoy.StraightLevelControl
- * '<S6>'   : brain/Chart/Autonomous.FollowOnePath.MakeHSVImage
- * '<S7>'   : brain/Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit
- * '<S8>'   : brain/Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings
- * '<S9>'   : brain/Chart/Autonomous.FollowOnePath.OnePath.MaintainDepth
- * '<S10>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MaintainHeading
- * '<S11>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel
- * '<S12>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine
- * '<S13>'  : brain/Chart/Autonomous.ValidationGate.LookforTrack
- * '<S14>'  : brain/Chart/Autonomous.ValidationGate.StraightLevelControl
- * '<S15>'  : brain/Chart/ControlledRC.MaintainDepth
- * '<S16>'  : brain/Chart/ControlledRC.MaintainHeading
- * '<S17>'  : brain/Chart/Autonomous.Buoy.Buoy/Buoy HueHigher
- * '<S18>'  : brain/Chart/Autonomous.Buoy.Buoy/Buoy HueLower
- * '<S19>'  : brain/Chart/Autonomous.Buoy.Buoy/Buoy Saturation
- * '<S20>'  : brain/Chart/Autonomous.Buoy.Buoy/Embedded MATLAB Function
- * '<S21>'  : brain/Chart/Autonomous.Buoy.Buoy/Embedded MATLAB Function1
- * '<S22>'  : brain/Chart/Autonomous.Buoy.Buoy/Median Filter
- * '<S23>'  : brain/Chart/Autonomous.Buoy.Buoy/X-HeadingControl
- * '<S24>'  : brain/Chart/Autonomous.Buoy.Buoy/Y-DepthControl
- * '<S25>'  : brain/Chart/Autonomous.Buoy.Buoy/X-HeadingControl/PID Controller X Position
- * '<S26>'  : brain/Chart/Autonomous.Buoy.Buoy/X-HeadingControl/PID Controller X Position/X-Buoy Discrete Derivative
- * '<S27>'  : brain/Chart/Autonomous.Buoy.Buoy/Y-DepthControl/PID Controller Y Position
- * '<S28>'  : brain/Chart/Autonomous.Buoy.Buoy/Y-DepthControl/PID Controller Y Position/Y-Buoy Discrete Derivative
- * '<S29>'  : brain/Chart/Autonomous.FindBuoy.LookforBuoy/Analysis
- * '<S30>'  : brain/Chart/Autonomous.FindBuoy.LookforBuoy/Analysis/Buoy_HueHigher
- * '<S31>'  : brain/Chart/Autonomous.FindBuoy.LookforBuoy/Analysis/Buoy_HueLower
- * '<S32>'  : brain/Chart/Autonomous.FindBuoy.LookforBuoy/Analysis/FoundBuoy
- * '<S33>'  : brain/Chart/Autonomous.FindBuoy.LookforBuoy/Analysis/NoBuoy
- * '<S34>'  : brain/Chart/Autonomous.FindBuoy.LookforBuoy/Analysis/Saturation Comparison
- * '<S35>'  : brain/Chart/Autonomous.FindBuoy.StraightLevelControl/BigError S1
- * '<S36>'  : brain/Chart/Autonomous.FindBuoy.StraightLevelControl/BigNegativeError S2
- * '<S37>'  : brain/Chart/Autonomous.FindBuoy.StraightLevelControl/PID Controller Depth S3
- * '<S38>'  : brain/Chart/Autonomous.FindBuoy.StraightLevelControl/PID Controller Heading S4
- * '<S39>'  : brain/Chart/Autonomous.FindBuoy.StraightLevelControl/PID Controller Depth S3/Depth Discrete Derivative
- * '<S40>'  : brain/Chart/Autonomous.FindBuoy.StraightLevelControl/PID Controller Heading S4/Heading Discrete Derivative
- * '<S41>'  : brain/Chart/Autonomous.FollowOnePath.MakeHSVImage/PutHSVImageTogether
- * '<S42>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit/Finding Brightest Pixel
- * '<S43>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit/Finding Brightest Pixel/Get Brightest Pixel Per Column and Row
- * '<S44>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/GetHeadingToPath
- * '<S45>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left
- * '<S46>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right
- * '<S47>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left/IsLinePresent
- * '<S48>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right/IsLinePresent
- * '<S49>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MaintainDepth/PID Controller Depth S3
- * '<S50>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MaintainDepth/PID Controller Depth S3/Depth Discrete Derivative
- * '<S51>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MaintainHeading/BigError S1
- * '<S52>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MaintainHeading/BigNegativeError S2
- * '<S53>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MaintainHeading/PID Controller Heading S4
- * '<S54>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MaintainHeading/PID Controller Heading S4/Heading Discrete Derivative
- * '<S55>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel/Finding Brightest Pixel
- * '<S56>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel/Finding Brightest Pixel/Get Brightest Pixel Per Column and Row
- * '<S57>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/Hough Transform Stuff
- * '<S58>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/IsLineNearCenter
- * '<S59>'  : brain/Chart/Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/Hough Transform Stuff/IsLinePresent
- * '<S60>'  : brain/Chart/Autonomous.ValidationGate.LookforTrack/LookforTrack
- * '<S61>'  : brain/Chart/Autonomous.ValidationGate.LookforTrack/LookforTrack/FoundTrack
- * '<S62>'  : brain/Chart/Autonomous.ValidationGate.LookforTrack/LookforTrack/Hue Higher Comparison
- * '<S63>'  : brain/Chart/Autonomous.ValidationGate.LookforTrack/LookforTrack/Hue Lower Comparison
- * '<S64>'  : brain/Chart/Autonomous.ValidationGate.LookforTrack/LookforTrack/NoTrack
- * '<S65>'  : brain/Chart/Autonomous.ValidationGate.LookforTrack/LookforTrack/Saturation Comparison
- * '<S66>'  : brain/Chart/Autonomous.ValidationGate.StraightLevelControl/BigError S1
- * '<S67>'  : brain/Chart/Autonomous.ValidationGate.StraightLevelControl/BigNegativeError S2
- * '<S68>'  : brain/Chart/Autonomous.ValidationGate.StraightLevelControl/PID Controller Depth S3
- * '<S69>'  : brain/Chart/Autonomous.ValidationGate.StraightLevelControl/PID Controller Heading S4
- * '<S70>'  : brain/Chart/Autonomous.ValidationGate.StraightLevelControl/PID Controller Depth S3/Depth Discrete Derivative
- * '<S71>'  : brain/Chart/Autonomous.ValidationGate.StraightLevelControl/PID Controller Heading S4/Heading Discrete Derivative
- * '<S72>'  : brain/Chart/ControlledRC.MaintainDepth/PID Controller Depth S3
- * '<S73>'  : brain/Chart/ControlledRC.MaintainDepth/PID Controller Depth S3/Depth Discrete Derivative
- * '<S74>'  : brain/Chart/ControlledRC.MaintainHeading/BigError S1
- * '<S75>'  : brain/Chart/ControlledRC.MaintainHeading/BigNegativeError S2
- * '<S76>'  : brain/Chart/ControlledRC.MaintainHeading/PID Controller Heading S4
- * '<S77>'  : brain/Chart/ControlledRC.MaintainHeading/PID Controller Heading S4/Heading Discrete Derivative
+ * '<S3>'   : brain/Chart/Running.Autonomous.Buoy.Buoy
+ * '<S4>'   : brain/Chart/Running.Autonomous.FindBuoy.LookforBuoy
+ * '<S5>'   : brain/Chart/Running.Autonomous.FindBuoy.StraightLevelControl
+ * '<S6>'   : brain/Chart/Running.Autonomous.FollowOnePath.MakeHSVImage
+ * '<S7>'   : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit
+ * '<S8>'   : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings
+ * '<S9>'   : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MaintainDepth
+ * '<S10>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MaintainHeading
+ * '<S11>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel
+ * '<S12>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine
+ * '<S13>'  : brain/Chart/Running.Autonomous.ValidationGate.LookforTrack
+ * '<S14>'  : brain/Chart/Running.Autonomous.ValidationGate.StraightLevelControl
+ * '<S15>'  : brain/Chart/Running.ControlledRC.MaintainDepth
+ * '<S16>'  : brain/Chart/Running.ControlledRC.MaintainHeading
+ * '<S17>'  : brain/Chart/Running.Autonomous.Buoy.Buoy/Buoy HueHigher
+ * '<S18>'  : brain/Chart/Running.Autonomous.Buoy.Buoy/Buoy HueLower
+ * '<S19>'  : brain/Chart/Running.Autonomous.Buoy.Buoy/Buoy Saturation
+ * '<S20>'  : brain/Chart/Running.Autonomous.Buoy.Buoy/Embedded MATLAB Function
+ * '<S21>'  : brain/Chart/Running.Autonomous.Buoy.Buoy/Embedded MATLAB Function1
+ * '<S22>'  : brain/Chart/Running.Autonomous.Buoy.Buoy/Median Filter
+ * '<S23>'  : brain/Chart/Running.Autonomous.Buoy.Buoy/X-HeadingControl
+ * '<S24>'  : brain/Chart/Running.Autonomous.Buoy.Buoy/Y-DepthControl
+ * '<S25>'  : brain/Chart/Running.Autonomous.Buoy.Buoy/X-HeadingControl/PID Controller X Position
+ * '<S26>'  : brain/Chart/Running.Autonomous.Buoy.Buoy/X-HeadingControl/PID Controller X Position/X-Buoy Discrete Derivative
+ * '<S27>'  : brain/Chart/Running.Autonomous.Buoy.Buoy/Y-DepthControl/PID Controller Y Position
+ * '<S28>'  : brain/Chart/Running.Autonomous.Buoy.Buoy/Y-DepthControl/PID Controller Y Position/Y-Buoy Discrete Derivative
+ * '<S29>'  : brain/Chart/Running.Autonomous.FindBuoy.LookforBuoy/Analysis
+ * '<S30>'  : brain/Chart/Running.Autonomous.FindBuoy.LookforBuoy/Analysis/Buoy_HueHigher
+ * '<S31>'  : brain/Chart/Running.Autonomous.FindBuoy.LookforBuoy/Analysis/Buoy_HueLower
+ * '<S32>'  : brain/Chart/Running.Autonomous.FindBuoy.LookforBuoy/Analysis/FoundBuoy
+ * '<S33>'  : brain/Chart/Running.Autonomous.FindBuoy.LookforBuoy/Analysis/NoBuoy
+ * '<S34>'  : brain/Chart/Running.Autonomous.FindBuoy.LookforBuoy/Analysis/Saturation Comparison
+ * '<S35>'  : brain/Chart/Running.Autonomous.FindBuoy.StraightLevelControl/BigError S1
+ * '<S36>'  : brain/Chart/Running.Autonomous.FindBuoy.StraightLevelControl/BigNegativeError S2
+ * '<S37>'  : brain/Chart/Running.Autonomous.FindBuoy.StraightLevelControl/PID Controller Depth S3
+ * '<S38>'  : brain/Chart/Running.Autonomous.FindBuoy.StraightLevelControl/PID Controller Heading S4
+ * '<S39>'  : brain/Chart/Running.Autonomous.FindBuoy.StraightLevelControl/PID Controller Depth S3/Depth Discrete Derivative
+ * '<S40>'  : brain/Chart/Running.Autonomous.FindBuoy.StraightLevelControl/PID Controller Heading S4/Heading Discrete Derivative
+ * '<S41>'  : brain/Chart/Running.Autonomous.FollowOnePath.MakeHSVImage/PutHSVImageTogether
+ * '<S42>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit/Finding Brightest Pixel
+ * '<S43>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit/Finding Brightest Pixel/Get Brightest Pixel Per Column and Row
+ * '<S44>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/GetHeadingToPath
+ * '<S45>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left
+ * '<S46>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right
+ * '<S47>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left/IsLinePresent
+ * '<S48>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right/IsLinePresent
+ * '<S49>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MaintainDepth/PID Controller Depth S3
+ * '<S50>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MaintainDepth/PID Controller Depth S3/Depth Discrete Derivative
+ * '<S51>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MaintainHeading/BigError S1
+ * '<S52>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MaintainHeading/BigNegativeError S2
+ * '<S53>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MaintainHeading/PID Controller Heading S4
+ * '<S54>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MaintainHeading/PID Controller Heading S4/Heading Discrete Derivative
+ * '<S55>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel/Finding Brightest Pixel
+ * '<S56>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel/Finding Brightest Pixel/Get Brightest Pixel Per Column and Row
+ * '<S57>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/Hough Transform Stuff
+ * '<S58>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/IsLineNearCenter
+ * '<S59>'  : brain/Chart/Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/Hough Transform Stuff/IsLinePresent
+ * '<S60>'  : brain/Chart/Running.Autonomous.ValidationGate.LookforTrack/LookforTrack
+ * '<S61>'  : brain/Chart/Running.Autonomous.ValidationGate.LookforTrack/LookforTrack/FoundTrack
+ * '<S62>'  : brain/Chart/Running.Autonomous.ValidationGate.LookforTrack/LookforTrack/Hue Higher Comparison
+ * '<S63>'  : brain/Chart/Running.Autonomous.ValidationGate.LookforTrack/LookforTrack/Hue Lower Comparison
+ * '<S64>'  : brain/Chart/Running.Autonomous.ValidationGate.LookforTrack/LookforTrack/NoTrack
+ * '<S65>'  : brain/Chart/Running.Autonomous.ValidationGate.LookforTrack/LookforTrack/Saturation Comparison
+ * '<S66>'  : brain/Chart/Running.Autonomous.ValidationGate.StraightLevelControl/BigError S1
+ * '<S67>'  : brain/Chart/Running.Autonomous.ValidationGate.StraightLevelControl/BigNegativeError S2
+ * '<S68>'  : brain/Chart/Running.Autonomous.ValidationGate.StraightLevelControl/PID Controller Depth S3
+ * '<S69>'  : brain/Chart/Running.Autonomous.ValidationGate.StraightLevelControl/PID Controller Heading S4
+ * '<S70>'  : brain/Chart/Running.Autonomous.ValidationGate.StraightLevelControl/PID Controller Depth S3/Depth Discrete Derivative
+ * '<S71>'  : brain/Chart/Running.Autonomous.ValidationGate.StraightLevelControl/PID Controller Heading S4/Heading Discrete Derivative
+ * '<S72>'  : brain/Chart/Running.ControlledRC.MaintainDepth/PID Controller Depth S3
+ * '<S73>'  : brain/Chart/Running.ControlledRC.MaintainDepth/PID Controller Depth S3/Depth Discrete Derivative
+ * '<S74>'  : brain/Chart/Running.ControlledRC.MaintainHeading/BigError S1
+ * '<S75>'  : brain/Chart/Running.ControlledRC.MaintainHeading/BigNegativeError S2
+ * '<S76>'  : brain/Chart/Running.ControlledRC.MaintainHeading/PID Controller Heading S4
+ * '<S77>'  : brain/Chart/Running.ControlledRC.MaintainHeading/PID Controller Heading S4/Heading Discrete Derivative
  */
 #endif                                 /* RTW_HEADER_brain_h_ */
 
