@@ -1091,7 +1091,11 @@
                </widget>
               </item>
               <item row="1" column="1">
-               <widget class="QDoubleSpinBox" name="fwdVelocitySpinBox"/>
+               <widget class="QDoubleSpinBox" name="fwdVelocitySpinBox">
+                <property name="maximum">
+                 <double>127.000000000000000</double>
+                </property>
+               </widget>
               </item>
               <item row="2" column="0">
                <widget class="QLabel" name="label_22">
@@ -1101,7 +1105,11 @@
                </widget>
               </item>
               <item row="2" column="1">
-               <widget class="QDoubleSpinBox" name="approachVelocitySpinBox"/>
+               <widget class="QDoubleSpinBox" name="approachVelocitySpinBox">
+                <property name="maximum">
+                 <double>127.000000000000000</double>
+                </property>
+               </widget>
               </item>
              </layout>
             </item>
@@ -1132,6 +1140,9 @@
                </item>
                <item row="1" column="1">
                 <widget class="QDoubleSpinBox" name="headingPGainSpinBox">
+                 <property name="minimum">
+                  <double>-99.989999999999995</double>
+                 </property>
                  <property name="singleStep">
                   <double>0.010000000000000</double>
                  </property>
@@ -1222,10 +1233,10 @@
                   </sizepolicy>
                  </property>
                  <property name="minimum">
-                  <double>-100.000000000000000</double>
+                  <double>-99.000000000000000</double>
                  </property>
                  <property name="maximum">
-                  <double>100.000000000000000</double>
+                  <double>99.000000000000000</double>
                  </property>
                  <property name="singleStep">
                   <double>0.010000000000000</double>
@@ -1299,6 +1310,12 @@
                </item>
                <item row="0" column="1">
                 <widget class="QDoubleSpinBox" name="buoyDepthPGainSpinBox">
+                 <property name="minimum">
+                  <double>-1000.000000000000000</double>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
+                 </property>
                  <property name="singleStep">
                   <double>0.010000000000000</double>
                  </property>
@@ -1306,6 +1323,12 @@
                </item>
                <item row="1" column="1">
                 <widget class="QDoubleSpinBox" name="buoyDepthIGainSpinBox">
+                 <property name="minimum">
+                  <double>-1000.000000000000000</double>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
+                 </property>
                  <property name="singleStep">
                   <double>0.010000000000000</double>
                  </property>
@@ -1313,6 +1336,12 @@
                </item>
                <item row="2" column="1">
                 <widget class="QDoubleSpinBox" name="buoyDepthDGainSpinBox">
+                 <property name="minimum">
+                  <double>-1000.000000000000000</double>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
+                 </property>
                  <property name="singleStep">
                   <double>0.010000000000000</double>
                  </property>
@@ -1339,6 +1368,12 @@
                </item>
                <item row="0" column="1">
                 <widget class="QDoubleSpinBox" name="buoyHeadingPGainSpinBox">
+                 <property name="minimum">
+                  <double>-1000.000000000000000</double>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
+                 </property>
                  <property name="singleStep">
                   <double>0.010000000000000</double>
                  </property>
@@ -1353,6 +1388,12 @@
                </item>
                <item row="1" column="1">
                 <widget class="QDoubleSpinBox" name="buoyHeadingIGainSpinBox">
+                 <property name="minimum">
+                  <double>-1000.000000000000000</double>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
+                 </property>
                  <property name="singleStep">
                   <double>0.010000000000000</double>
                  </property>
@@ -1367,6 +1408,12 @@
                </item>
                <item row="2" column="1">
                 <widget class="QDoubleSpinBox" name="buoyHeadingDGainSpinBox">
+                 <property name="minimum">
+                  <double>-1000.000000000000000</double>
+                 </property>
+                 <property name="maximum">
+                  <double>1000.000000000000000</double>
+                 </property>
                  <property name="singleStep">
                   <double>0.010000000000000</double>
                  </property>

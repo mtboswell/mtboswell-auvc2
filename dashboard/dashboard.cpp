@@ -201,10 +201,10 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 		}else if(values.State == 3){
 			if(brain_DWork.countTo < 4){
 				if(i < 9600)	bwFrame.setPixel(x, y, brain_B.BWleft_i[i]);
-				else	bwFrame.setPixel(x, y, brain_B.BWright_e[i]);
+				else	bwFrame.setPixel(x, y, brain_B.BWright_e[i-9600]);
 			}
 			else{
-				bwFrame.setPixel(x, y, brain_B.BW[i]);
+				bwFrame.setPixel(x, y, brain_B.DataTypeConversion_h[i]);
 			}
 		}else if(values.State == 4){
 			bwFrame.setPixel(x, y, brain_B.BW_p[i]);
