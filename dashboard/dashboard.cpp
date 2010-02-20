@@ -176,7 +176,7 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 	int x = 639;
 	int y = 480;
 	unsigned int videoPixel;
-	for(int i = 307200; i > 0; --i){
+	for(int i = 307199; i >= 0; --i){
 		y--;
 		videoPixel = (0xFF000000) | ((((int)brain_B.RGBVid_R[i]) << 16)&0x00FF0000) | ((((int)brain_B.RGBVid_G[i]) << 8)&0x0000FF00) | (((int)brain_B.RGBVid_B[i])&0x000000FF); 
 		videoFrame.setPixel(x, y, videoPixel);
@@ -185,19 +185,23 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 			y = 480;
 		}
 	}
+	videoPixmap = QPixmap::fromImage(videoFrame);
+	videoLabel->setPixmap(videoPixmap);
+	
+	if(brain_U.RC == 1) return;
 
 	// Get processed video
 	// copy frame from signal to pixmap
 	x = 159;
 	y = 120;
-	for(int i = 19200; i > 0; --i){
+	for(int i = 19199; i >= 0; --i){
 		y--;
 		if(values.State == 2){
 			bwFrame.setPixel(x, y, brain_B.BW_a[i]);
 		}else if(values.State == 3){
 			if(brain_DWork.countTo < 4){
-				//bwFrame.setPixel(x, y, brain_B.BWright[i]);
-				//bwFrame.setPixel(x, y, brain_B.BWleft[i]);
+				if(i < 9600)	bwFrame.setPixel(x, y, brain_B.BWleft_i[i]);
+				else	bwFrame.setPixel(x, y, brain_B.BWright_e[i]);
 			}
 			else{
 				bwFrame.setPixel(x, y, brain_B.BW[i]);
@@ -229,9 +233,7 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 		}
 	}
 */
-	videoPixmap = QPixmap::fromImage(videoFrame);
 	bwPixmap = QPixmap::fromImage(bwFrame);
-	videoLabel->setPixmap(videoPixmap);
 	bitVideoLabel->setPixmap(bwPixmap);
 	
 	//qDebug("Brain Data on display");

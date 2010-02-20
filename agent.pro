@@ -4,8 +4,8 @@
 
 TEMPLATE = app
 TARGET = agent
-CONFIG += qt
-QT += phonon
+#CONFIG += qt
+#QT += phonon
 DEPENDPATH += . \
               auv \
               brain \
