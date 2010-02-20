@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.198
+ * Model version                        : 1.211
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Thu Feb 18 18:09:04 2010
+ * Real-Time Workshop file generated on : Fri Feb 19 17:59:02 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Thu Feb 18 18:09:04 2010
+ * C/C++ source code generated on       : Fri Feb 19 17:59:03 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic
@@ -31,7 +31,7 @@ Parameters_brain brain_P = {
   0.8,
   0.0,
   0.0,
-  -75.0,
+  75.0,
   60.0,
   0.01,
   0.01,
@@ -48,9 +48,9 @@ Parameters_brain brain_P = {
 const ConstParam_brain brain_ConstP = {
   /* Computed Parameter: SINE_TABLE_RTP
    * Referenced by blocks:
-   * '<S43>/Hough Transform'
-   * '<S44>/Hough Transform'
-   * '<S55>/Hough Transform'
+   * '<S45>/Hough Transform'
+   * '<S46>/Hough Transform'
+   * '<S57>/Hough Transform'
    */
   { -1.0, -9.9984769515639127E-01, -9.9939082701909576E-01,
     -9.9862953475457383E-01, -9.9756405025982420E-01, -9.9619469809174555E-01,
@@ -86,13 +86,13 @@ const ConstParam_brain brain_ConstP = {
 
   /* Computed Parameter: FIRSTRHO_RTP
    * Referenced by blocks:
-   * '<S43>/Hough Transform'
-   * '<S44>/Hough Transform'
+   * '<S45>/Hough Transform'
+   * '<S46>/Hough Transform'
    */
   -143.0,
 
   /* Computed Parameter: FIRSTRHO_RTP
-   * '<S55>/Hough Transform'
+   * '<S57>/Hough Transform'
    */
   -199.0,
 
@@ -592,8 +592,8 @@ const ConstParam_brain brain_ConstP = {
   /* Computed Parameter: WALKER_RTP
    * Referenced by blocks:
    * '<S3>/Buoy Blob Analysis'
-   * '<S27>/Blob Analysis'
-   * '<S58>/Blob Analysis'
+   * '<S29>/Blob Analysis'
+   * '<S60>/Blob Analysis'
    */
   { -1, 121, 122, 123, 1, -121, -122, -123 }
 };
