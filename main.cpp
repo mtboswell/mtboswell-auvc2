@@ -9,7 +9,7 @@
 using namespace std;
 
 static bool simulateVideo = false;
-static bool simulateSensors = true;
+static bool simulateSensors = false;
 
 int main(int argc, char *argv[]){
 
