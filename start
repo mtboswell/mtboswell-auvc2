@@ -11,7 +11,7 @@ fi
 echo -n "Done\n"
 #mkfifo video_passthru 2> /dev/null
 echo -n "Launching Agent\n"
-if `hostname` = "auvt-auv"
+if hostname | grep auvt-auv > /dev/null
 then
 ./agent &
 else
