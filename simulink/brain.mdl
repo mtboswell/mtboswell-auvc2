@@ -3,7 +3,7 @@ Model {
   Version		  7.3
   MdlSubVersion		  0
   GraphicalInterface {
-    NumRootInports	    11
+    NumRootInports	    12
     Inport {
       Name		      "CurrentDepth"
     }
@@ -36,6 +36,9 @@ Model {
     }
     Inport {
       Name		      "RC_Depth"
+    }
+    Inport {
+      Name		      "RC"
     }
     NumRootOutports	    7
     Outport {
@@ -74,7 +77,7 @@ Model {
       Name		      "DesiredHeading"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.211"
+    ComputedModelVersion    "1.221"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -92,9 +95,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Feb 18 19:49:45 2010"
+  LastModifiedDate	  "Fri Feb 19 21:11:09 2010"
   RTWModifiedTimeStamp	  0
-  ModelVersionFormat	  "1.%<AutoIncrement:211>"
+  ModelVersionFormat	  "1.%<AutoIncrement:221>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -898,7 +901,7 @@ Model {
   }
   System {
     Name		    "brain"
-    Location		    [4, 91, 1020, 665]
+    Location		    [4, 91, 1160, 684]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -915,7 +918,7 @@ Model {
     Block {
       BlockType		      Inport
       Name		      "CurrentDepth"
-      Position		      [280, 83, 310, 97]
+      Position		      [315, 68, 345, 82]
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
       OutScaling	      "2^0"
@@ -923,7 +926,7 @@ Model {
     Block {
       BlockType		      Inport
       Name		      "CurrentHeading"
-      Position		      [280, 118, 310, 132]
+      Position		      [315, 103, 345, 117]
       Port		      "2"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -932,7 +935,7 @@ Model {
     Block {
       BlockType		      Inport
       Name		      "Y"
-      Position		      [45, 153, 75, 167]
+      Position		      [100, 138, 130, 152]
       Port		      "3"
       IconDisplay	      "Port number"
       PortDimensions	      "[480 640]"
@@ -944,7 +947,7 @@ Model {
     Block {
       BlockType		      Inport
       Name		      "Cb"
-      Position		      [45, 188, 75, 202]
+      Position		      [100, 173, 130, 187]
       Port		      "4"
       IconDisplay	      "Port number"
       PortDimensions	      "[240 320]"
@@ -956,7 +959,7 @@ Model {
     Block {
       BlockType		      Inport
       Name		      "Cr"
-      Position		      [45, 223, 75, 237]
+      Position		      [100, 208, 130, 222]
       Port		      "5"
       IconDisplay	      "Port number"
       PortDimensions	      "[240 320]"
@@ -968,7 +971,7 @@ Model {
     Block {
       BlockType		      Inport
       Name		      "Status"
-      Position		      [280, 258, 310, 272]
+      Position		      [315, 243, 345, 257]
       Port		      "6"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -977,7 +980,7 @@ Model {
     Block {
       BlockType		      Inport
       Name		      "DesiredState"
-      Position		      [280, 293, 310, 307]
+      Position		      [315, 278, 345, 292]
       Port		      "7"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -986,7 +989,7 @@ Model {
     Block {
       BlockType		      Inport
       Name		      "RC_Heading"
-      Position		      [280, 328, 310, 342]
+      Position		      [315, 313, 345, 327]
       Port		      "8"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -995,7 +998,7 @@ Model {
     Block {
       BlockType		      Inport
       Name		      "RC_ForwardVelocity"
-      Position		      [280, 363, 310, 377]
+      Position		      [315, 348, 345, 362]
       Port		      "9"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -1004,7 +1007,7 @@ Model {
     Block {
       BlockType		      Inport
       Name		      "RC_Strafe"
-      Position		      [280, 398, 310, 412]
+      Position		      [315, 383, 345, 397]
       Port		      "10"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -1013,8 +1016,17 @@ Model {
     Block {
       BlockType		      Inport
       Name		      "RC_Depth"
-      Position		      [280, 433, 310, 447]
+      Position		      [315, 418, 345, 432]
       Port		      "11"
+      IconDisplay	      "Port number"
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "RC"
+      Position		      [315, 453, 345, 467]
+      Port		      "12"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
       OutScaling	      "2^0"
@@ -1022,19 +1034,14 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "Chart"
-      Ports		      [11, 10]
-      Position		      [370, 61, 730, 469]
+      Ports		      [12, 10]
+      Position		      [410, 66, 895, 469]
       PermitHierarchicalResolution "ExplicitOnly"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1139,6 +1146,13 @@ Model {
 	  IconDisplay		  "Port number"
 	}
 	Block {
+	  BlockType		  Inport
+	  Name			  "RC"
+	  Position		  [20, 496, 40, 514]
+	  Port			  "12"
+	  IconDisplay		  "Port number"
+	}
+	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
 	  Ports			  [1, 14]
@@ -1149,10 +1163,10 @@ Model {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
 	  Tag			  "Stateflow S-Function brain 1"
-	  Ports			  [38, 45]
+	  Ports			  [39, 45]
 	  Position		  [180, 115, 230, 1035]
 	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[38 45]"
+	  PortCounts		  "[39 45]"
 	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
@@ -1217,7 +1231,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Autonomous.Buoy.Buoy"
+	  Name			  "Running.Autonomous.Buoy.Buoy"
 	  Ports			  [2, 6, 0, 1]
 	  Position		  [180, 1365, 230, 1485]
 	  BlockMirror		  on
@@ -1231,7 +1245,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Autonomous.Buoy.Buoy"
+	    Name		    "Running.Autonomous.Buoy.Buoy"
 	    Location		    [17, 120, 1207, 597]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -1395,11 +1409,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -1577,11 +1586,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -2840,7 +2844,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Autonomous.FindBuoy.LookforBuoy"
+	  Name			  "Running.Autonomous.FindBuoy.LookforBuoy"
 	  Ports			  [2, 1, 0, 1]
 	  Position		  [180, 1515, 230, 1575]
 	  BlockMirror		  on
@@ -2854,7 +2858,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Autonomous.FindBuoy.LookforBuoy"
+	    Name		    "Running.Autonomous.FindBuoy.LookforBuoy"
 	    Location		    [109, 261, 689, 572]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -3344,7 +3348,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Autonomous.FindBuoy.StraightLevelControl"
+	  Name			  "Running.Autonomous.FindBuoy.StraightLevelControl"
 	  Ports			  [4, 3, 0, 1]
 	  Position		  [180, 1605, 230, 1695]
 	  BlockMirror		  on
@@ -3358,7 +3362,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Autonomous.FindBuoy.StraightLevelControl"
+	    Name		    "Running.Autonomous.FindBuoy.StraightLevelControl"
 	    Location		    [155, 74, 1257, 705]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -4459,7 +4463,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Autonomous.FollowOnePath.MakeHSVImage"
+	  Name			  "Running.Autonomous.FollowOnePath.MakeHSVImage"
 	  Ports			  [3, 1, 0, 1]
 	  Position		  [180, 1727, 230, 1803]
 	  BlockMirror		  on
@@ -4473,7 +4477,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Autonomous.FollowOnePath.MakeHSVImage"
+	    Name		    "Running.Autonomous.FollowOnePath.MakeHSVImage"
 	    Location		    [480, 85, 1242, 426]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -4530,11 +4534,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -4696,7 +4695,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
+	  Name			  "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
 	  Ports			  [1, 2, 0, 1]
 	  Position		  [180, 1830, 230, 1890]
 	  BlockMirror		  on
@@ -4710,7 +4709,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
+	    Name		    "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
 	    Location		    [480, 85, 1186, 386]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -4820,11 +4819,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -5034,7 +5028,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
+	  Name			  "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
 	  Ports			  [3, 2, 0, 1]
 	  Position		  [180, 1922, 230, 1998]
 	  BlockMirror		  on
@@ -5048,7 +5042,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
+	    Name		    "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
 	    Location		    [111, 162, 1116, 533]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -5108,11 +5102,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -5350,11 +5339,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -5664,11 +5648,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -6042,7 +6021,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Autonomous.FollowOnePath.OnePath.MaintainDepth"
+	  Name			  "Running.Autonomous.FollowOnePath.OnePath.MaintainDepth"
 	  Ports			  [2, 1, 0, 1]
 	  Position		  [180, 2025, 230, 2085]
 	  BlockMirror		  on
@@ -6056,7 +6035,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Autonomous.FollowOnePath.OnePath.MaintainDepth"
+	    Name		    "Running.Autonomous.FollowOnePath.OnePath.MaintainDepth"
 	    Location		    [480, 85, 1137, 387]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -6371,7 +6350,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Autonomous.FollowOnePath.OnePath.MaintainHeading"
+	  Name			  "Running.Autonomous.FollowOnePath.OnePath.MaintainHeading"
 	  Ports			  [2, 2, 0, 1]
 	  Position		  [180, 2115, 230, 2175]
 	  BlockMirror		  on
@@ -6385,7 +6364,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Autonomous.FollowOnePath.OnePath.MaintainHeading"
+	    Name		    "Running.Autonomous.FollowOnePath.OnePath.MaintainHeading"
 	    Location		    [112, 267, 1195, 662]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -7196,7 +7175,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel"
+	  Name			  "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel"
 	  Ports			  [1, 1, 0, 1]
 	  Position		  [180, 2207, 230, 2253]
 	  BlockMirror		  on
@@ -7210,7 +7189,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel"
+	    Name		    "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel"
 	    Location		    [399, 101, 935, 402]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -7303,11 +7282,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -7458,7 +7432,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
+	  Name			  "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
 	  Ports			  [3, 1, 0, 1]
 	  Position		  [180, 2282, 230, 2358]
 	  BlockMirror		  on
@@ -7472,7 +7446,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
+	    Name		    "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
 	    Location		    [199, 170, 1185, 552]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -7621,11 +7595,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -7831,11 +7800,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -8068,7 +8032,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Autonomous.ValidationGate.LookforTrack"
+	  Name			  "Running.Autonomous.ValidationGate.LookforTrack"
 	  Ports			  [2, 1, 0, 1]
 	  Position		  [180, 2385, 230, 2445]
 	  BlockMirror		  on
@@ -8082,7 +8046,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Autonomous.ValidationGate.LookforTrack"
+	    Name		    "Running.Autonomous.ValidationGate.LookforTrack"
 	    Location		    [27, 157, 607, 468]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -8564,7 +8528,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Autonomous.ValidationGate.StraightLevelControl"
+	  Name			  "Running.Autonomous.ValidationGate.StraightLevelControl"
 	  Ports			  [4, 3, 0, 1]
 	  Position		  [180, 2475, 230, 2565]
 	  BlockMirror		  on
@@ -8578,7 +8542,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "Autonomous.ValidationGate.StraightLevelControl"
+	    Name		    "Running.Autonomous.ValidationGate.StraightLevelControl"
 	    Location		    [69, 98, 1171, 729]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -9679,7 +9643,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "ControlledRC.MaintainDepth"
+	  Name			  "Running.ControlledRC.MaintainDepth"
 	  Ports			  [2, 1, 0, 1]
 	  Position		  [180, 2595, 230, 2655]
 	  BlockMirror		  on
@@ -9693,7 +9657,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "ControlledRC.MaintainDepth"
+	    Name		    "Running.ControlledRC.MaintainDepth"
 	    Location		    [480, 85, 1137, 387]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -9902,42 +9866,15 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  SrcBlock		  "e"
+		  SrcBlock		  "Depth\nIntegral\nGain"
 		  SrcPort		  1
-		  Points		  [15, 0]
-		  Branch {
-		    Points		    [0, -75]
-		    DstBlock		    "Depth\nProportional\nGain"
-		    DstPort		    1
-		  }
-		  Branch {
-		    DstBlock		    "Depth\nDerivative\nGain"
-		    DstPort		    1
-		  }
-		  Branch {
-		    Points		    [0, 90]
-		    DstBlock		    "Depth\nIntegral\nGain"
-		    DstPort		    1
-		  }
-		}
-		Line {
-		  SrcBlock		  "Depth\nDiscrete-Time\nIntegrator"
-		  SrcPort		  1
-		  Points		  [50, 0]
-		  DstBlock		  "Sum"
-		  DstPort		  3
-		}
-		Line {
-		  SrcBlock		  "Depth\nProportional\nGain"
-		  SrcPort		  1
-		  Points		  [205, 0]
-		  DstBlock		  "Sum"
+		  DstBlock		  "Depth\nDiscrete-Time\nIntegrator"
 		  DstPort		  1
 		}
 		Line {
-		  SrcBlock		  "Sum"
+		  SrcBlock		  "Depth\nDerivative\nGain"
 		  SrcPort		  1
-		  DstBlock		  "u"
+		  DstBlock		  "Depth\nDiscrete Derivative"
 		  DstPort		  1
 		}
 		Line {
@@ -9947,16 +9884,43 @@ Model {
 		  DstPort		  2
 		}
 		Line {
-		  SrcBlock		  "Depth\nDerivative\nGain"
+		  SrcBlock		  "Sum"
 		  SrcPort		  1
-		  DstBlock		  "Depth\nDiscrete Derivative"
+		  DstBlock		  "u"
 		  DstPort		  1
 		}
 		Line {
-		  SrcBlock		  "Depth\nIntegral\nGain"
+		  SrcBlock		  "Depth\nProportional\nGain"
 		  SrcPort		  1
-		  DstBlock		  "Depth\nDiscrete-Time\nIntegrator"
+		  Points		  [205, 0]
+		  DstBlock		  "Sum"
 		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Depth\nDiscrete-Time\nIntegrator"
+		  SrcPort		  1
+		  Points		  [50, 0]
+		  DstBlock		  "Sum"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "e"
+		  SrcPort		  1
+		  Points		  [15, 0]
+		  Branch {
+		    Points		    [0, 90]
+		    DstBlock		    "Depth\nIntegral\nGain"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Depth\nDerivative\nGain"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, -75]
+		    DstBlock		    "Depth\nProportional\nGain"
+		    DstPort		    1
+		  }
 		}
 	      }
 	    }
@@ -9971,21 +9935,9 @@ Model {
 	      OutDataTypeStr	      "int8"
 	    }
 	    Line {
-	      SrcBlock		      "Add"
+	      SrcBlock		      "DesiredDepth1"
 	      SrcPort		      1
-	      DstBlock		      "PID Controller\nDepth S3"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "PID Controller\nDepth S3"
-	      SrcPort		      1
-	      DstBlock		      "Double To Int8"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Double To Int8"
-	      SrcPort		      1
-	      DstBlock		      "ChangetoVertical"
+	      DstBlock		      "Add"
 	      DstPort		      1
 	    }
 	    Line {
@@ -9995,9 +9947,21 @@ Model {
 	      DstPort		      2
 	    }
 	    Line {
-	      SrcBlock		      "DesiredDepth1"
+	      SrcBlock		      "Double To Int8"
 	      SrcPort		      1
-	      DstBlock		      "Add"
+	      DstBlock		      "ChangetoVertical"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "PID Controller\nDepth S3"
+	      SrcPort		      1
+	      DstBlock		      "Double To Int8"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Add"
+	      SrcPort		      1
+	      DstBlock		      "PID Controller\nDepth S3"
 	      DstPort		      1
 	    }
 	    Annotation {
@@ -10008,7 +9972,7 @@ Model {
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "ControlledRC.MaintainHeading"
+	  Name			  "Running.ControlledRC.MaintainHeading"
 	  Ports			  [3, 2, 0, 1]
 	  Position		  [180, 2687, 230, 2763]
 	  BlockMirror		  on
@@ -10022,7 +9986,7 @@ Model {
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  System {
-	    Name		    "ControlledRC.MaintainHeading"
+	    Name		    "Running.ControlledRC.MaintainHeading"
 	    Location		    [112, 267, 1195, 662]
 	    Open		    off
 	    ModelBrowserVisibility  off
@@ -10164,7 +10128,6 @@ Model {
 		  BlockType		  ActionPort
 		  Name			  "Action Port"
 		  Position		  [170, 15, 229, 43]
-		  ActionType		  "then"
 		}
 		Block {
 		  BlockType		  Sum
@@ -10216,9 +10179,16 @@ Model {
 		  InitialOutput		  "[0]"
 		}
 		Line {
-		  SrcBlock		  "In1"
+		  SrcBlock		  "Constant1"
 		  SrcPort		  1
-		  DstBlock		  "Add"
+		  DstBlock		  "Out2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Add"
+		  SrcPort		  1
+		  Points		  [90, 0; 0, -10]
+		  DstBlock		  "Out1"
 		  DstPort		  1
 		}
 		Line {
@@ -10229,16 +10199,9 @@ Model {
 		  DstPort		  2
 		}
 		Line {
-		  SrcBlock		  "Add"
+		  SrcBlock		  "In1"
 		  SrcPort		  1
-		  Points		  [90, 0; 0, -10]
-		  DstBlock		  "Out1"
-		  DstPort		  1
-		}
-		Line {
-		  SrcBlock		  "Constant1"
-		  SrcPort		  1
-		  DstBlock		  "Out2"
+		  DstBlock		  "Add"
 		  DstPort		  1
 		}
 	      }
@@ -10283,7 +10246,6 @@ Model {
 		  BlockType		  ActionPort
 		  Name			  "Action Port"
 		  Position		  [170, 15, 229, 43]
-		  ActionType		  "elseif"
 		}
 		Block {
 		  BlockType		  Sum
@@ -10335,9 +10297,16 @@ Model {
 		  InitialOutput		  "[0]"
 		}
 		Line {
-		  SrcBlock		  "In1"
+		  SrcBlock		  "Constant1"
 		  SrcPort		  1
-		  DstBlock		  "Add"
+		  DstBlock		  "Out2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Add"
+		  SrcPort		  1
+		  Points		  [35, 0; 0, -10]
+		  DstBlock		  "Out1"
 		  DstPort		  1
 		}
 		Line {
@@ -10348,16 +10317,9 @@ Model {
 		  DstPort		  2
 		}
 		Line {
-		  SrcBlock		  "Add"
+		  SrcBlock		  "In1"
 		  SrcPort		  1
-		  Points		  [35, 0; 0, -10]
-		  DstBlock		  "Out1"
-		  DstPort		  1
-		}
-		Line {
-		  SrcBlock		  "Constant1"
-		  SrcPort		  1
-		  DstBlock		  "Out2"
+		  DstBlock		  "Add"
 		  DstPort		  1
 		}
 	      }
@@ -10576,42 +10538,15 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  SrcBlock		  "e"
+		  SrcBlock		  "Heading\nIntegral\nGain"
 		  SrcPort		  1
-		  Points		  [15, 0]
-		  Branch {
-		    Points		    [0, -75]
-		    DstBlock		    "Heading\nProportional\nGain"
-		    DstPort		    1
-		  }
-		  Branch {
-		    DstBlock		    "Heading\nDerivative\nGain"
-		    DstPort		    1
-		  }
-		  Branch {
-		    Points		    [0, 90]
-		    DstBlock		    "Heading\nIntegral\nGain"
-		    DstPort		    1
-		  }
-		}
-		Line {
-		  SrcBlock		  "Heading\nDiscrete-Time\nIntegrator"
-		  SrcPort		  1
-		  Points		  [50, 0]
-		  DstBlock		  "Sum"
-		  DstPort		  3
-		}
-		Line {
-		  SrcBlock		  "Heading\nProportional\nGain"
-		  SrcPort		  1
-		  Points		  [225, 0]
-		  DstBlock		  "Sum"
+		  DstBlock		  "Heading\nDiscrete-Time\nIntegrator"
 		  DstPort		  1
 		}
 		Line {
-		  SrcBlock		  "Sum"
+		  SrcBlock		  "Heading\nDerivative\nGain"
 		  SrcPort		  1
-		  DstBlock		  "u"
+		  DstBlock		  "Heading\nDiscrete Derivative"
 		  DstPort		  1
 		}
 		Line {
@@ -10621,16 +10556,43 @@ Model {
 		  DstPort		  2
 		}
 		Line {
-		  SrcBlock		  "Heading\nDerivative\nGain"
+		  SrcBlock		  "Sum"
 		  SrcPort		  1
-		  DstBlock		  "Heading\nDiscrete Derivative"
+		  DstBlock		  "u"
 		  DstPort		  1
 		}
 		Line {
-		  SrcBlock		  "Heading\nIntegral\nGain"
+		  SrcBlock		  "Heading\nProportional\nGain"
 		  SrcPort		  1
-		  DstBlock		  "Heading\nDiscrete-Time\nIntegrator"
+		  Points		  [225, 0]
+		  DstBlock		  "Sum"
 		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Heading\nDiscrete-Time\nIntegrator"
+		  SrcPort		  1
+		  Points		  [50, 0]
+		  DstBlock		  "Sum"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "e"
+		  SrcPort		  1
+		  Points		  [15, 0]
+		  Branch {
+		    Points		    [0, 90]
+		    DstBlock		    "Heading\nIntegral\nGain"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Heading\nDerivative\nGain"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, -75]
+		    DstBlock		    "Heading\nProportional\nGain"
+		    DstPort		    1
+		  }
 		}
 	      }
 	    }
@@ -10652,142 +10614,23 @@ Model {
 	      OutScaling	      "2^0"
 	    }
 	    Line {
-	      SrcBlock		      "DesiredHeading1"
+	      SrcBlock		      "PID Controller\nHeading S4"
 	      SrcPort		      1
-	      DstBlock		      "Add1"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Constant"
-	      SrcPort		      1
-	      DstBlock		      "Multiply"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "Add1"
-	      SrcPort		      1
-	      Points		      [50, 0]
+	      Points		      [25, 0]
 	      Branch {
-		Points			[0, 75]
-		Branch {
-		  Points		  [0, 5]
-		  DstBlock		  "BigError S1"
-		  DstPort		  1
-		}
-		Branch {
-		  Points		  [0, 90]
-		  DstBlock		  "BigNegativeError S2"
-		  DstPort		  1
-		}
-	      }
-	      Branch {
-		DstBlock		"If"
+		Points			[0, 80]
+		DstBlock		"Multiply"
 		DstPort			1
 	      }
 	      Branch {
-		Points			[0, -45; 210, 0; 0, 40]
-		DstBlock		"Multiport\nSwitch"
-		DstPort			2
-	      }
-	    }
-	    Line {
-	      SrcBlock		      "If"
-	      SrcPort		      1
-	      Points		      [5, 0; 0, 57]
-	      DstBlock		      "BigError S1"
-	      DstPort		      ifaction
-	    }
-	    Line {
-	      SrcBlock		      "If"
-	      SrcPort		      2
-	      Points		      [60, 0; 0, 112]
-	      DstBlock		      "BigNegativeError S2"
-	      DstPort		      ifaction
-	    }
-	    Line {
-	      SrcBlock		      "BigError S1"
-	      SrcPort		      1
-	      Points		      [105, 0; 0, -65]
-	      DstBlock		      "Multiport\nSwitch"
-	      DstPort		      3
-	    }
-	    Line {
-	      SrcBlock		      "BigNegativeError S2"
-	      SrcPort		      1
-	      Points		      [115, 0]
-	      DstBlock		      "Multiport\nSwitch"
-	      DstPort		      4
-	    }
-	    Line {
-	      SrcBlock		      "Multiport\nSwitch"
-	      SrcPort		      1
-	      DstBlock		      "PID Controller\nHeading S4"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Constant1"
-	      SrcPort		      1
-	      DstBlock		      "Add2"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "BigError S1"
-	      SrcPort		      2
-	      Points		      [55, 0]
-	      DstBlock		      "Add2"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "BigNegativeError S2"
-	      SrcPort		      2
-	      Points		      [50, 0]
-	      DstBlock		      "Add2"
-	      DstPort		      3
-	    }
-	    Line {
-	      SrcBlock		      "Add2"
-	      SrcPort		      1
-	      Points		      [0, -245]
-	      DstBlock		      "Multiport\nSwitch"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "CurrentHeading1"
-	      SrcPort		      1
-	      DstBlock		      "Add1"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "Multiply"
-	      SrcPort		      1
-	      DstBlock		      "Add3"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "ForwardVelocity1"
-	      SrcPort		      1
-	      Points		      [15, 0]
-	      Branch {
-		Points			[65, 0]
-		DstBlock		"Add3"
-		DstPort			2
-	      }
-	      Branch {
-		Points			[0, -140]
 		DstBlock		"Add4"
-		DstPort			2
+		DstPort			1
 	      }
 	    }
 	    Line {
-	      SrcBlock		      "Add3"
+	      SrcBlock		      "DoubleToint8"
 	      SrcPort		      1
-	      DstBlock		      "DoubleToint1"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "DoubleToint1"
-	      SrcPort		      1
-	      DstBlock		      "ChangetoRight"
+	      DstBlock		      "ChangetoLeft"
 	      DstPort		      1
 	    }
 	    Line {
@@ -10797,24 +10640,143 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "DoubleToint8"
+	      SrcBlock		      "DoubleToint1"
 	      SrcPort		      1
-	      DstBlock		      "ChangetoLeft"
+	      DstBlock		      "ChangetoRight"
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "PID Controller\nHeading S4"
+	      SrcBlock		      "Add3"
 	      SrcPort		      1
-	      Points		      [25, 0]
+	      DstBlock		      "DoubleToint1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "ForwardVelocity1"
+	      SrcPort		      1
+	      Points		      [15, 0]
 	      Branch {
+		Points			[0, -140]
 		DstBlock		"Add4"
+		DstPort			2
+	      }
+	      Branch {
+		Points			[65, 0]
+		DstBlock		"Add3"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Multiply"
+	      SrcPort		      1
+	      DstBlock		      "Add3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "CurrentHeading1"
+	      SrcPort		      1
+	      DstBlock		      "Add1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Add2"
+	      SrcPort		      1
+	      Points		      [0, -245]
+	      DstBlock		      "Multiport\nSwitch"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "BigNegativeError S2"
+	      SrcPort		      2
+	      Points		      [50, 0]
+	      DstBlock		      "Add2"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "BigError S1"
+	      SrcPort		      2
+	      Points		      [55, 0]
+	      DstBlock		      "Add2"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Constant1"
+	      SrcPort		      1
+	      DstBlock		      "Add2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Multiport\nSwitch"
+	      SrcPort		      1
+	      DstBlock		      "PID Controller\nHeading S4"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "BigNegativeError S2"
+	      SrcPort		      1
+	      Points		      [115, 0]
+	      DstBlock		      "Multiport\nSwitch"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "BigError S1"
+	      SrcPort		      1
+	      Points		      [105, 0; 0, -65]
+	      DstBlock		      "Multiport\nSwitch"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "If"
+	      SrcPort		      2
+	      Points		      [60, 0; 0, 112]
+	      DstBlock		      "BigNegativeError S2"
+	      DstPort		      ifaction
+	    }
+	    Line {
+	      SrcBlock		      "If"
+	      SrcPort		      1
+	      Points		      [5, 0; 0, 57]
+	      DstBlock		      "BigError S1"
+	      DstPort		      ifaction
+	    }
+	    Line {
+	      SrcBlock		      "Add1"
+	      SrcPort		      1
+	      Points		      [50, 0]
+	      Branch {
+		Points			[0, -45; 210, 0; 0, 40]
+		DstBlock		"Multiport\nSwitch"
+		DstPort			2
+	      }
+	      Branch {
+		DstBlock		"If"
 		DstPort			1
 	      }
 	      Branch {
-		Points			[0, 80]
-		DstBlock		"Multiply"
-		DstPort			1
+		Points			[0, 75]
+		Branch {
+		  Points		  [0, 90]
+		  DstBlock		  "BigNegativeError S2"
+		  DstPort		  1
+		}
+		Branch {
+		  Points		  [0, 5]
+		  DstBlock		  "BigError S1"
+		  DstPort		  1
+		}
 	      }
+	    }
+	    Line {
+	      SrcBlock		      "Constant"
+	      SrcPort		      1
+	      DstBlock		      "Multiply"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "DesiredHeading1"
+	      SrcPort		      1
+	      DstBlock		      "Add1"
+	      DstPort		      1
 	    }
 	    Annotation {
 	      Name		      "Error"
@@ -10964,6 +10926,12 @@ Model {
 	  DstPort		  11
 	}
 	Line {
+	  SrcBlock		  "RC"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  12
+	}
+	Line {
 	  Name			  "Right"
 	  Labels		  [0, 0]
 	  SrcBlock		  " SFunction "
@@ -11046,451 +11014,451 @@ Model {
 	Line {
 	  SrcBlock		  " SFunction "
 	  SrcPort		  12
-	  DstBlock		  "Autonomous.ValidationGate.LookforTrack"
+	  DstBlock		  "Running.Autonomous.ValidationGate.LookforTrack"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  " SFunction "
 	  SrcPort		  13
-	  DstBlock		  "Autonomous.ValidationGate.LookforTrack"
+	  DstBlock		  "Running.Autonomous.ValidationGate.LookforTrack"
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "Autonomous.ValidationGate.LookforTrack"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  12
-	}
-	Line {
-	  SrcBlock		  " Demux "
-	  SrcPort		  1
-	  DstBlock		  "Autonomous.ValidationGate.LookforTrack"
-	  DstPort		  trigger
-	}
-	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  14
-	  DstBlock		  "Autonomous.ValidationGate.StraightLevelControl"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  15
-	  DstBlock		  "Autonomous.ValidationGate.StraightLevelControl"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  16
-	  DstBlock		  "Autonomous.ValidationGate.StraightLevelControl"
-	  DstPort		  3
-	}
-	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  17
-	  DstBlock		  "Autonomous.ValidationGate.StraightLevelControl"
-	  DstPort		  4
-	}
-	Line {
-	  SrcBlock		  "Autonomous.ValidationGate.StraightLevelControl"
+	  SrcBlock		  "Running.Autonomous.ValidationGate.LookforTrack"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  13
 	}
 	Line {
-	  SrcBlock		  "Autonomous.ValidationGate.StraightLevelControl"
-	  SrcPort		  2
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  "Running.Autonomous.ValidationGate.LookforTrack"
+	  DstPort		  trigger
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  14
+	  DstBlock		  "Running.Autonomous.ValidationGate.StraightLevelControl"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  15
+	  DstBlock		  "Running.Autonomous.ValidationGate.StraightLevelControl"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  16
+	  DstBlock		  "Running.Autonomous.ValidationGate.StraightLevelControl"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  17
+	  DstBlock		  "Running.Autonomous.ValidationGate.StraightLevelControl"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Running.Autonomous.ValidationGate.StraightLevelControl"
+	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  14
 	}
 	Line {
-	  SrcBlock		  "Autonomous.ValidationGate.StraightLevelControl"
-	  SrcPort		  3
+	  SrcBlock		  "Running.Autonomous.ValidationGate.StraightLevelControl"
+	  SrcPort		  2
 	  DstBlock		  " SFunction "
 	  DstPort		  15
 	}
 	Line {
+	  SrcBlock		  "Running.Autonomous.ValidationGate.StraightLevelControl"
+	  SrcPort		  3
+	  DstBlock		  " SFunction "
+	  DstPort		  16
+	}
+	Line {
 	  SrcBlock		  " Demux "
 	  SrcPort		  2
-	  DstBlock		  "Autonomous.ValidationGate.StraightLevelControl"
+	  DstBlock		  "Running.Autonomous.ValidationGate.StraightLevelControl"
 	  DstPort		  trigger
 	}
 	Line {
 	  SrcBlock		  " SFunction "
 	  SrcPort		  18
-	  DstBlock		  "Autonomous.Buoy.Buoy"
+	  DstBlock		  "Running.Autonomous.Buoy.Buoy"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  " SFunction "
 	  SrcPort		  19
-	  DstBlock		  "Autonomous.Buoy.Buoy"
+	  DstBlock		  "Running.Autonomous.Buoy.Buoy"
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "Autonomous.Buoy.Buoy"
+	  SrcBlock		  "Running.Autonomous.Buoy.Buoy"
 	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  16
-	}
-	Line {
-	  SrcBlock		  "Autonomous.Buoy.Buoy"
-	  SrcPort		  2
 	  DstBlock		  " SFunction "
 	  DstPort		  17
 	}
 	Line {
-	  SrcBlock		  "Autonomous.Buoy.Buoy"
-	  SrcPort		  3
+	  SrcBlock		  "Running.Autonomous.Buoy.Buoy"
+	  SrcPort		  2
 	  DstBlock		  " SFunction "
 	  DstPort		  18
 	}
 	Line {
-	  SrcBlock		  "Autonomous.Buoy.Buoy"
-	  SrcPort		  4
+	  SrcBlock		  "Running.Autonomous.Buoy.Buoy"
+	  SrcPort		  3
 	  DstBlock		  " SFunction "
 	  DstPort		  19
 	}
 	Line {
-	  SrcBlock		  "Autonomous.Buoy.Buoy"
-	  SrcPort		  5
+	  SrcBlock		  "Running.Autonomous.Buoy.Buoy"
+	  SrcPort		  4
 	  DstBlock		  " SFunction "
 	  DstPort		  20
 	}
 	Line {
-	  SrcBlock		  "Autonomous.Buoy.Buoy"
-	  SrcPort		  6
+	  SrcBlock		  "Running.Autonomous.Buoy.Buoy"
+	  SrcPort		  5
 	  DstBlock		  " SFunction "
 	  DstPort		  21
 	}
 	Line {
+	  SrcBlock		  "Running.Autonomous.Buoy.Buoy"
+	  SrcPort		  6
+	  DstBlock		  " SFunction "
+	  DstPort		  22
+	}
+	Line {
 	  SrcBlock		  " Demux "
 	  SrcPort		  3
-	  DstBlock		  "Autonomous.Buoy.Buoy"
+	  DstBlock		  "Running.Autonomous.Buoy.Buoy"
 	  DstPort		  trigger
 	}
 	Line {
 	  SrcBlock		  " SFunction "
 	  SrcPort		  20
-	  DstBlock		  "Autonomous.FindBuoy.StraightLevelControl"
+	  DstBlock		  "Running.Autonomous.FindBuoy.StraightLevelControl"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  " SFunction "
 	  SrcPort		  21
-	  DstBlock		  "Autonomous.FindBuoy.StraightLevelControl"
+	  DstBlock		  "Running.Autonomous.FindBuoy.StraightLevelControl"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  " SFunction "
 	  SrcPort		  22
-	  DstBlock		  "Autonomous.FindBuoy.StraightLevelControl"
+	  DstBlock		  "Running.Autonomous.FindBuoy.StraightLevelControl"
 	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  " SFunction "
 	  SrcPort		  23
-	  DstBlock		  "Autonomous.FindBuoy.StraightLevelControl"
+	  DstBlock		  "Running.Autonomous.FindBuoy.StraightLevelControl"
 	  DstPort		  4
 	}
 	Line {
-	  SrcBlock		  "Autonomous.FindBuoy.StraightLevelControl"
+	  SrcBlock		  "Running.Autonomous.FindBuoy.StraightLevelControl"
 	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  22
-	}
-	Line {
-	  SrcBlock		  "Autonomous.FindBuoy.StraightLevelControl"
-	  SrcPort		  2
 	  DstBlock		  " SFunction "
 	  DstPort		  23
 	}
 	Line {
-	  SrcBlock		  "Autonomous.FindBuoy.StraightLevelControl"
-	  SrcPort		  3
+	  SrcBlock		  "Running.Autonomous.FindBuoy.StraightLevelControl"
+	  SrcPort		  2
 	  DstBlock		  " SFunction "
 	  DstPort		  24
 	}
 	Line {
-	  SrcBlock		  " Demux "
-	  SrcPort		  4
-	  DstBlock		  "Autonomous.FindBuoy.StraightLevelControl"
-	  DstPort		  trigger
-	}
-	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  24
-	  DstBlock		  "Autonomous.FindBuoy.LookforBuoy"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  25
-	  DstBlock		  "Autonomous.FindBuoy.LookforBuoy"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Autonomous.FindBuoy.LookforBuoy"
-	  SrcPort		  1
+	  SrcBlock		  "Running.Autonomous.FindBuoy.StraightLevelControl"
+	  SrcPort		  3
 	  DstBlock		  " SFunction "
 	  DstPort		  25
 	}
 	Line {
 	  SrcBlock		  " Demux "
-	  SrcPort		  5
-	  DstBlock		  "Autonomous.FindBuoy.LookforBuoy"
+	  SrcPort		  4
+	  DstBlock		  "Running.Autonomous.FindBuoy.StraightLevelControl"
 	  DstPort		  trigger
 	}
 	Line {
 	  SrcBlock		  " SFunction "
-	  SrcPort		  26
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
+	  SrcPort		  24
+	  DstBlock		  "Running.Autonomous.FindBuoy.LookforBuoy"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
+	  SrcBlock		  " SFunction "
+	  SrcPort		  25
+	  DstBlock		  "Running.Autonomous.FindBuoy.LookforBuoy"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Running.Autonomous.FindBuoy.LookforBuoy"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  26
 	}
 	Line {
-	  SrcBlock		  "Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
-	  SrcPort		  2
+	  SrcBlock		  " Demux "
+	  SrcPort		  5
+	  DstBlock		  "Running.Autonomous.FindBuoy.LookforBuoy"
+	  DstPort		  trigger
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  26
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
+	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  27
 	}
 	Line {
+	  SrcBlock		  "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
+	  SrcPort		  2
+	  DstBlock		  " SFunction "
+	  DstPort		  28
+	}
+	Line {
 	  SrcBlock		  " Demux "
 	  SrcPort		  6
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
 	  DstPort		  trigger
 	}
 	Line {
 	  SrcBlock		  " SFunction "
 	  SrcPort		  27
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  " SFunction "
 	  SrcPort		  28
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  " SFunction "
 	  SrcPort		  29
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
 	  DstPort		  3
 	}
 	Line {
-	  SrcBlock		  "Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
+	  SrcBlock		  "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
 	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  28
-	}
-	Line {
-	  SrcBlock		  "Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
-	  SrcPort		  2
 	  DstBlock		  " SFunction "
 	  DstPort		  29
 	}
 	Line {
-	  SrcBlock		  " Demux "
-	  SrcPort		  7
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
-	  DstPort		  trigger
-	}
-	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  30
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel"
-	  SrcPort		  1
+	  SrcBlock		  "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
+	  SrcPort		  2
 	  DstBlock		  " SFunction "
 	  DstPort		  30
 	}
 	Line {
 	  SrcBlock		  " Demux "
-	  SrcPort		  8
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel"
+	  SrcPort		  7
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
 	  DstPort		  trigger
 	}
 	Line {
 	  SrcBlock		  " SFunction "
-	  SrcPort		  31
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
+	  SrcPort		  30
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  32
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  33
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
-	  DstPort		  3
-	}
-	Line {
-	  SrcBlock		  "Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
+	  SrcBlock		  "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  31
 	}
 	Line {
 	  SrcBlock		  " Demux "
-	  SrcPort		  9
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
+	  SrcPort		  8
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel"
 	  DstPort		  trigger
 	}
 	Line {
 	  SrcBlock		  " SFunction "
-	  SrcPort		  34
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.MaintainDepth"
+	  SrcPort		  31
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  " SFunction "
-	  SrcPort		  35
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.MaintainDepth"
+	  SrcPort		  32
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "Autonomous.FollowOnePath.OnePath.MaintainDepth"
+	  SrcBlock		  " SFunction "
+	  SrcPort		  33
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  32
 	}
 	Line {
 	  SrcBlock		  " Demux "
-	  SrcPort		  10
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.MaintainDepth"
+	  SrcPort		  9
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
 	  DstPort		  trigger
 	}
 	Line {
 	  SrcBlock		  " SFunction "
-	  SrcPort		  36
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.MaintainHeading"
+	  SrcPort		  34
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.MaintainDepth"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  " SFunction "
-	  SrcPort		  37
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.MaintainHeading"
+	  SrcPort		  35
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.MaintainDepth"
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "Autonomous.FollowOnePath.OnePath.MaintainHeading"
+	  SrcBlock		  "Running.Autonomous.FollowOnePath.OnePath.MaintainDepth"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  33
 	}
 	Line {
-	  SrcBlock		  "Autonomous.FollowOnePath.OnePath.MaintainHeading"
-	  SrcPort		  2
-	  DstBlock		  " SFunction "
-	  DstPort		  34
-	}
-	Line {
 	  SrcBlock		  " Demux "
-	  SrcPort		  11
-	  DstBlock		  "Autonomous.FollowOnePath.OnePath.MaintainHeading"
+	  SrcPort		  10
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.MaintainDepth"
 	  DstPort		  trigger
 	}
 	Line {
 	  SrcBlock		  " SFunction "
-	  SrcPort		  38
-	  DstBlock		  "Autonomous.FollowOnePath.MakeHSVImage"
+	  SrcPort		  36
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.MaintainHeading"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  " SFunction "
-	  SrcPort		  39
-	  DstBlock		  "Autonomous.FollowOnePath.MakeHSVImage"
+	  SrcPort		  37
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.MaintainHeading"
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  40
-	  DstBlock		  "Autonomous.FollowOnePath.MakeHSVImage"
-	  DstPort		  3
+	  SrcBlock		  "Running.Autonomous.FollowOnePath.OnePath.MaintainHeading"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  34
 	}
 	Line {
-	  SrcBlock		  "Autonomous.FollowOnePath.MakeHSVImage"
-	  SrcPort		  1
+	  SrcBlock		  "Running.Autonomous.FollowOnePath.OnePath.MaintainHeading"
+	  SrcPort		  2
 	  DstBlock		  " SFunction "
 	  DstPort		  35
 	}
 	Line {
 	  SrcBlock		  " Demux "
-	  SrcPort		  12
-	  DstBlock		  "Autonomous.FollowOnePath.MakeHSVImage"
+	  SrcPort		  11
+	  DstBlock		  "Running.Autonomous.FollowOnePath.OnePath.MaintainHeading"
 	  DstPort		  trigger
 	}
 	Line {
 	  SrcBlock		  " SFunction "
-	  SrcPort		  41
-	  DstBlock		  "ControlledRC.MaintainDepth"
+	  SrcPort		  38
+	  DstBlock		  "Running.Autonomous.FollowOnePath.MakeHSVImage"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  " SFunction "
-	  SrcPort		  42
-	  DstBlock		  "ControlledRC.MaintainDepth"
+	  SrcPort		  39
+	  DstBlock		  "Running.Autonomous.FollowOnePath.MakeHSVImage"
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "ControlledRC.MaintainDepth"
+	  SrcBlock		  " SFunction "
+	  SrcPort		  40
+	  DstBlock		  "Running.Autonomous.FollowOnePath.MakeHSVImage"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Running.Autonomous.FollowOnePath.MakeHSVImage"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  36
 	}
 	Line {
 	  SrcBlock		  " Demux "
-	  SrcPort		  13
-	  DstBlock		  "ControlledRC.MaintainDepth"
+	  SrcPort		  12
+	  DstBlock		  "Running.Autonomous.FollowOnePath.MakeHSVImage"
 	  DstPort		  trigger
 	}
 	Line {
 	  SrcBlock		  " SFunction "
-	  SrcPort		  43
-	  DstBlock		  "ControlledRC.MaintainHeading"
+	  SrcPort		  41
+	  DstBlock		  "Running.ControlledRC.MaintainHeading"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  " SFunction "
-	  SrcPort		  44
-	  DstBlock		  "ControlledRC.MaintainHeading"
+	  SrcPort		  42
+	  DstBlock		  "Running.ControlledRC.MaintainHeading"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  " SFunction "
-	  SrcPort		  45
-	  DstBlock		  "ControlledRC.MaintainHeading"
+	  SrcPort		  43
+	  DstBlock		  "Running.ControlledRC.MaintainHeading"
 	  DstPort		  3
 	}
 	Line {
-	  SrcBlock		  "ControlledRC.MaintainHeading"
+	  SrcBlock		  "Running.ControlledRC.MaintainHeading"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  37
 	}
 	Line {
-	  SrcBlock		  "ControlledRC.MaintainHeading"
+	  SrcBlock		  "Running.ControlledRC.MaintainHeading"
 	  SrcPort		  2
 	  DstBlock		  " SFunction "
 	  DstPort		  38
 	}
 	Line {
 	  SrcBlock		  " Demux "
+	  SrcPort		  13
+	  DstBlock		  "Running.ControlledRC.MaintainHeading"
+	  DstPort		  trigger
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  44
+	  DstBlock		  "Running.ControlledRC.MaintainDepth"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  45
+	  DstBlock		  "Running.ControlledRC.MaintainDepth"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Running.ControlledRC.MaintainDepth"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  39
+	}
+	Line {
+	  SrcBlock		  " Demux "
 	  SrcPort		  14
-	  DstBlock		  "ControlledRC.MaintainHeading"
+	  DstBlock		  "Running.ControlledRC.MaintainDepth"
 	  DstPort		  trigger
 	}
       }
@@ -11499,7 +11467,7 @@ Model {
       BlockType		      SubSystem
       Name		      "GetVideo1"
       Ports		      [3, 3]
-      Position		      [120, 143, 225, 247]
+      Position		      [175, 128, 280, 232]
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
       RTWSystemCode	      "Auto"
@@ -11562,13 +11530,6 @@ Model {
 	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
-	  Port {
-	    PortNumber		    1
-	    Name		    "RGBVid_B"
-	    PropagatedSignals	    "vidB"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
 	}
 	Block {
 	  BlockType		  Reference
@@ -11595,13 +11556,6 @@ Model {
 	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
-	  Port {
-	    PortNumber		    1
-	    Name		    "RGBVid_G"
-	    PropagatedSignals	    "vidG"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
 	}
 	Block {
 	  BlockType		  Reference
@@ -11628,13 +11582,6 @@ Model {
 	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
-	  Port {
-	    PortNumber		    1
-	    Name		    "RGBVid_R"
-	    PropagatedSignals	    "vidR"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
 	}
 	Block {
 	  BlockType		  Reference
@@ -11753,19 +11700,19 @@ Model {
 	  imagePorts		  "Separate color signals"
 	  Port {
 	    PortNumber		    1
-	    Name		    "vidR"
+	    Name		    "RGBVid_R"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    2
-	    Name		    "vidG"
+	    Name		    "RGBVid_G"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    3
-	    Name		    "vidB"
+	    Name		    "RGBVid_B"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -11811,8 +11758,6 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "RGBVid_B"
-	  Labels		  [0, 0]
 	  SrcBlock		  "Blue Data Type\nConversion2"
 	  SrcPort		  1
 	  Points		  [45, 0; 0, -75]
@@ -11820,16 +11765,12 @@ Model {
 	  DstPort		  3
 	}
 	Line {
-	  Name			  "RGBVid_G"
-	  Labels		  [0, 0]
 	  SrcBlock		  "Green Data Type\nConversion1"
 	  SrcPort		  1
 	  DstBlock		  "RGB to HSV\nColor Space\n Conversion"
 	  DstPort		  2
 	}
 	Line {
-	  Name			  "RGBVid_R"
-	  Labels		  [0, 1]
 	  SrcBlock		  "Red Data Type\nConversion"
 	  SrcPort		  1
 	  Points		  [35, 0; 0, 75]
@@ -11837,7 +11778,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "vidB"
+	  Name			  "RGBVid_B"
 	  Labels		  [0, 0]
 	  SrcBlock		  "Y-Cb-Cr to RGB\nColor Space\n Conversion"
 	  SrcPort		  3
@@ -11846,7 +11787,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "vidG"
+	  Name			  "RGBVid_G"
 	  Labels		  [0, 0]
 	  SrcBlock		  "Y-Cb-Cr to RGB\nColor Space\n Conversion"
 	  SrcPort		  2
@@ -11855,7 +11796,7 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "vidR"
+	  Name			  "RGBVid_R"
 	  Labels		  [0, 0]
 	  SrcBlock		  "Y-Cb-Cr to RGB\nColor Space\n Conversion"
 	  SrcPort		  1
@@ -11919,14 +11860,14 @@ Model {
       BlockType		      Mux
       Name		      "Mux"
       Ports		      [4, 1]
-      Position		      [835, 79, 850, 201]
+      Position		      [1010, 79, 1025, 201]
       ShowName		      off
       DisplayOption	      "bar"
     }
     Block {
       BlockType		      Outport
       Name		      "CameraPosition"
-      Position		      [875, 318, 905, 332]
+      Position		      [1050, 318, 1080, 332]
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
       OutScaling	      "2^0"
@@ -11934,7 +11875,7 @@ Model {
     Block {
       BlockType		      Outport
       Name		      "BuoyCentroidX"
-      Position		      [875, 358, 905, 372]
+      Position		      [1050, 358, 1080, 372]
       Port		      "2"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -11943,7 +11884,7 @@ Model {
     Block {
       BlockType		      Outport
       Name		      "BuoyCentroidY"
-      Position		      [875, 398, 905, 412]
+      Position		      [1050, 398, 1080, 412]
       Port		      "3"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -11952,7 +11893,7 @@ Model {
     Block {
       BlockType		      Outport
       Name		      "Thrusters"
-      Position		      [885, 133, 915, 147]
+      Position		      [1060, 133, 1090, 147]
       Port		      "4"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -11961,7 +11902,7 @@ Model {
     Block {
       BlockType		      Outport
       Name		      "State"
-      Position		      [875, 438, 905, 452]
+      Position		      [1050, 438, 1080, 452]
       Port		      "5"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -11970,7 +11911,7 @@ Model {
     Block {
       BlockType		      Outport
       Name		      "DesiredDepth"
-      Position		      [875, 238, 905, 252]
+      Position		      [1050, 238, 1080, 252]
       Port		      "6"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -11979,7 +11920,7 @@ Model {
     Block {
       BlockType		      Outport
       Name		      "DesiredHeading"
-      Position		      [875, 278, 905, 292]
+      Position		      [1050, 278, 1080, 292]
       Port		      "7"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -12115,7 +12056,7 @@ Model {
     Line {
       SrcBlock		      "Chart"
       SrcPort		      1
-      Points		      [60, 0; 0, 10]
+      Points		      [0, 10]
       DstBlock		      "Mux"
       DstPort		      1
     }
@@ -12128,16 +12069,22 @@ Model {
     Line {
       SrcBlock		      "Chart"
       SrcPort		      3
-      Points		      [30, 0; 0, -10]
+      Points		      [70, 0; 0, -10]
       DstBlock		      "Mux"
       DstPort		      3
     }
     Line {
       SrcBlock		      "Chart"
       SrcPort		      4
-      Points		      [60, 0; 0, -20]
+      Points		      [0, -20]
       DstBlock		      "Mux"
       DstPort		      4
+    }
+    Line {
+      SrcBlock		      "RC"
+      SrcPort		      1
+      DstBlock		      "Chart"
+      DstPort		      12
     }
   }
 }
@@ -12217,25 +12164,24 @@ Stateflow {
     name		    "brain"
     created		    "23-Aug-2009 14:16:32"
     isLibrary		    0
-    firstTarget		    306
+    firstTarget		    307
     sfVersion		    71014000.000008
   }
   chart {
     id			    2
     name		    "Chart"
     windowPosition	    [18.75 52.5 886.5 480]
-    viewLimits		    [-19.11 1054.872 -19.11 546.546]
-    zoomFactor		    1.274
+    viewLimits		    [0 1006.542 0 530.136]
+    zoomFactor		    1.194
     screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 16 0 0]
-    firstTransition	    66
-    viewObj		    16
-    visible		    1
+    treeNode		    [0 39 0 0]
+    firstTransition	    50
+    viewObj		    2
     machine		    1
     subviewS {
       zoomFactor	      1.194
     }
-    ssIdHighWaterMark	    433
+    ssIdHighWaterMark	    440
     decomposition	    CLUSTER_CHART
     firstData		    157
     updateMethod	    DISCRETE
@@ -12255,6 +12201,7 @@ Stateflow {
     chart		    2
     treeNode		    [16 6 20 7]
     superState		    SUBCHART
+    visible		    0
     subviewer		    16
     subviewS {
       x1		      -15
@@ -12281,7 +12228,7 @@ Stateflow {
     firstData		    67
     simulink {
       isSimulinkFcn	      1
-      blockName		      "Autonomous.ValidationGate.LookforTrack"
+      blockName		      "Running.Autonomous.ValidationGate.LookforTrack"
     }
   }
   state {
@@ -12291,6 +12238,7 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [16 0 18 0]
+    visible		    0
     subviewer		    16
     ssIdNumber		    299
     type		    OR_STATE
@@ -12313,7 +12261,7 @@ Stateflow {
     firstData		    70
     simulink {
       isSimulinkFcn	      1
-      blockName		      "Autonomous.ValidationGate.StraightLevelControl"
+      blockName		      "Running.Autonomous.ValidationGate.StraightLevelControl"
     }
   }
   state {
@@ -12325,6 +12273,7 @@ Stateflow {
     chart		    2
     treeNode		    [16 10 3 18]
     superState		    SUBCHART
+    visible		    0
     subviewer		    16
     subviewS {
       x1		      -18.75
@@ -12353,7 +12302,7 @@ Stateflow {
     firstData		    77
     simulink {
       isSimulinkFcn	      1
-      blockName		      "Autonomous.Buoy.Buoy"
+      blockName		      "Running.Autonomous.Buoy.Buoy"
     }
   }
   state {
@@ -12410,6 +12359,7 @@ Stateflow {
     chart		    2
     treeNode		    [16 9 12 20]
     superState		    SUBCHART
+    visible		    0
     subviewer		    16
     subviewS {
       x1		      -18.75
@@ -12428,6 +12378,7 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [16 0 0 11]
+    visible		    0
     subviewer		    16
     ssIdNumber		    151
     type		    OR_STATE
@@ -12458,11 +12409,10 @@ Stateflow {
   state {
     id			    14
     labelString		    "NotRunning\n\nentry:\nLeft = 0;\nRight = 0;\nVertical = 0;"
-    position		    [163.4288 220.7408 108.8033 115.0718]
+    position		    [163.8766 369.8416 108.8033 115.0718]
     fontSize		    12
     chart		    2
-    treeNode		    [2 0 36 0]
-    visible		    0
+    treeNode		    [2 0 39 0]
     subviewer		    2
     ssIdNumber		    291
     type		    OR_STATE
@@ -12493,11 +12443,11 @@ Stateflow {
   state {
     id			    16
     labelString		    "Autonomous"
-    position		    [143.7278 26.4173 160.7423 115.0719]
+    position		    [142.9816 85.0726 160.7423 115.0719]
     fontSize		    12
     chart		    2
-    treeNode		    [2 12 0 36]
-    firstTransition	    41
+    treeNode		    [39 12 38 0]
+    firstTransition	    42
     superState		    SUBCHART
     subviewer		    2
     subviewS {
@@ -12527,7 +12477,7 @@ Stateflow {
     firstData		    100
     simulink {
       isSimulinkFcn	      1
-      blockName		      "Autonomous.FindBuoy.StraightLevelControl"
+      blockName		      "Running.Autonomous.FindBuoy.StraightLevelControl"
     }
   }
   state {
@@ -12541,6 +12491,7 @@ Stateflow {
     chart		    2
     treeNode		    [16 15 7 5]
     superState		    SUBCHART
+    visible		    0
     subviewer		    16
     subviewS {
       x1		      -18.75
@@ -12568,7 +12519,7 @@ Stateflow {
     firstData		    107
     simulink {
       isSimulinkFcn	      1
-      blockName		      "Autonomous.FindBuoy.LookforBuoy"
+      blockName		      "Running.Autonomous.FindBuoy.LookforBuoy"
     }
   }
   state {
@@ -12578,8 +12529,9 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [16 21 11 3]
-    firstTransition	    58
+    firstTransition	    59
     superState		    SUBCHART
+    visible		    0
     subviewer		    16
     subviewS {
       x1		      -18.75
@@ -12598,7 +12550,7 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [20 22 0 34]
-    firstTransition	    60
+    firstTransition	    61
     superState		    SUBCHART
     visible		    0
     subviewer		    20
@@ -12655,7 +12607,7 @@ Stateflow {
     firstData		    110
     simulink {
       isSimulinkFcn	      1
-      blockName		      "Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
+      blockName		      "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit"
     }
   }
   state {
@@ -12739,7 +12691,7 @@ Stateflow {
     firstData		    124
     simulink {
       isSimulinkFcn	      1
-      blockName		      "Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
+      blockName		      "Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings"
     }
   }
   state {
@@ -12781,7 +12733,7 @@ Stateflow {
     firstData		    129
     simulink {
       isSimulinkFcn	      1
-      blockName		      "Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel"
+      blockName		      "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel"
     }
   }
   state {
@@ -12822,7 +12774,7 @@ Stateflow {
     firstData		    134
     simulink {
       isSimulinkFcn	      1
-      blockName		      "Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
+      blockName		      "Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine"
     }
   }
   state {
@@ -12854,7 +12806,7 @@ Stateflow {
     firstData		    138
     simulink {
       isSimulinkFcn	      1
-      blockName		      "Autonomous.FollowOnePath.OnePath.MaintainDepth"
+      blockName		      "Running.Autonomous.FollowOnePath.OnePath.MaintainDepth"
     }
   }
   state {
@@ -12873,13 +12825,13 @@ Stateflow {
     firstData		    141
     simulink {
       isSimulinkFcn	      1
-      blockName		      "Autonomous.FollowOnePath.OnePath.MaintainHeading"
+      blockName		      "Running.Autonomous.FollowOnePath.OnePath.MaintainHeading"
     }
   }
   state {
     id			    34
-    labelString		    "Initialize\n\nentry:\nDesiredDepth = 5;\nDesiredHeading = 0;\nDone = 0;\n\nHSVImage = MakeHSVIma"
-    "ge(H,S,V);"
+    labelString		    "Initialize\n\nentry:\nDesiredDepth = 5;\nDesiredHeading = 0;\nDone = 0;\nState = 3;\n\nHSVImage "
+    "= MakeHSVImage(H,S,V);"
     position		    [9.4259 45.9289 256.25 269.0625]
     fontSize		    12
     chart		    2
@@ -12906,19 +12858,57 @@ Stateflow {
     firstData		    145
     simulink {
       isSimulinkFcn	      1
-      blockName		      "Autonomous.FollowOnePath.MakeHSVImage"
+      blockName		      "Running.Autonomous.FollowOnePath.MakeHSVImage"
     }
   }
   state {
     id			    36
-    labelString		    "ControlledRC\n\ndu:\nVertical = MaintainDepth(CurrentDepth,RC_Depth);\n[Left, Right] = MaintainH"
-    "eading(RC_Heading,CurrentHeading,RC_ForwardVelocity);\nStrafe = RC_Strafe;"
-    position		    [439.0935 42.984 163.2795 269.5455]
+    labelString		    "[ChangetoLeft,ChangetoRight] = MaintainHeading(DesiredHeading1, CurrentHeading1, ForwardVelocity"
+    "1)"
+    position		    [24.375 332.8125 573.375 70.875]
     fontSize		    12
     chart		    2
-    treeNode		    [2 37 16 14]
+    treeNode		    [38 0 37 0]
     superState		    SUBCHART
     visible		    0
+    subviewer		    38
+    ssIdNumber		    428
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    firstData		    149
+    simulink {
+      isSimulinkFcn	      1
+      blockName		      "Running.ControlledRC.MaintainHeading"
+    }
+  }
+  state {
+    id			    37
+    labelString		    "ChangetoVertical = MaintainDepth(CurrentDepth1, DesiredDepth1)"
+    position		    [23.5 258.1875 442.625 69.375]
+    fontSize		    12
+    chart		    2
+    treeNode		    [38 0 0 36]
+    superState		    SUBCHART
+    visible		    0
+    subviewer		    38
+    ssIdNumber		    424
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    firstData		    154
+    simulink {
+      isSimulinkFcn	      1
+      blockName		      "Running.ControlledRC.MaintainDepth"
+    }
+  }
+  state {
+    id			    38
+    labelString		    "ControlledRC\n\ndu:\nVertical = MaintainDepth(CurrentDepth,RC_Depth);\n[Left, Right] = MaintainH"
+    "eading(RC_Heading,CurrentHeading,RC_ForwardVelocity);\nStrafe = RC_Strafe;"
+    position		    [412.2285 82.8338 166.2645 127.161]
+    fontSize		    12
+    chart		    2
+    treeNode		    [39 37 0 16]
+    superState		    SUBCHART
     subviewer		    2
     subviewS {
       x1		      -15
@@ -12930,45 +12920,20 @@ Stateflow {
     decomposition	    CLUSTER_STATE
   }
   state {
-    id			    37
-    labelString		    "ChangetoVertical = MaintainDepth(CurrentDepth1,DesiredDepth1)"
-    position		    [23.5 258.1875 442.625 69.375]
+    id			    39
+    labelString		    "Running"
+    position		    [110.8928 20.1488 500.1367 278.9483]
     fontSize		    12
     chart		    2
-    treeNode		    [36 0 0 38]
-    superState		    SUBCHART
-    visible		    0
-    subviewer		    36
-    ssIdNumber		    424
-    type		    FUNC_STATE
+    treeNode		    [2 38 0 14]
+    firstTransition	    64
+    subviewer		    2
+    ssIdNumber		    435
+    type		    OR_STATE
     decomposition	    CLUSTER_STATE
-    firstData		    149
-    simulink {
-      isSimulinkFcn	      1
-      blockName		      "ControlledRC.MaintainDepth"
-    }
-  }
-  state {
-    id			    38
-    labelString		    "[ChangetoLeft,ChangetoRight] = MaintainHeading(DesiredHeading1,CurrentHeading1,ForwardVelocity1)"
-    position		    [24.375 332.8125 573.375 70.875]
-    fontSize		    12
-    chart		    2
-    treeNode		    [36 0 37 0]
-    superState		    SUBCHART
-    visible		    0
-    subviewer		    36
-    ssIdNumber		    428
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    firstData		    152
-    simulink {
-      isSimulinkFcn	      1
-      blockName		      "ControlledRC.MaintainHeading"
-    }
   }
   transition {
-    id			    39
+    id			    40
     labelString		    "[countarea>2 && DesiredState == 0]"
     labelPosition	    [689.904 27.192 189.097 16.212]
     fontSize		    12
@@ -12982,18 +12947,17 @@ Stateflow {
     }
     midPoint		    [749.4815 106.7878]
     chart		    2
-    linkNode		    [16 46 54]
+    linkNode		    [16 47 55]
+    visible		    0
     dataLimits		    [731.757 773.895 104.388 109.188]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    197
   }
   transition {
-    id			    40
+    id			    41
     labelString		    "[DesiredHeadingCount >= 3 && DesiredState == 0]"
     labelPosition	    [87.732 32.727 267.411 16.212]
     fontSize		    12
@@ -13007,63 +12971,62 @@ Stateflow {
     }
     midPoint		    [165.9192 98.9017]
     chart		    2
-    linkNode		    [16 45 46]
+    linkNode		    [16 46 47]
+    visible		    0
     dataLimits		    [142.672 195.396 96.503 101.304]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    162
   }
   transition {
-    id			    41
-    labelPosition	    [70.149 41.666 8.595 16.212]
+    id			    42
+    labelPosition	    [24.458 41.666 8.595 16.212]
     fontSize		    12
     src {
-      intersection	      [0 0 1 0 84.547 33.2745 0 0]
+      intersection	      [0 0 1 0 38.857 43.953 0 0]
     }
     dst {
       id		      11
-      intersection	      [1 0 -1 0.5503 84.5483 63.2745 0 0]
+      intersection	      [1 0 -1 0.1968 38.857 63.2745 0 0]
     }
-    midPoint		    [84.547 44.666]
+    midPoint		    [38.857 49.7731]
     chart		    2
-    linkNode		    [16 0 42]
-    dataLimits		    [82.148 86.948 33.275 63.275]
+    linkNode		    [16 0 43]
+    visible		    0
+    dataLimits		    [36.457 41.257 43.953 63.275]
     subviewer		    16
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    161
   }
   transition {
-    id			    42
+    id			    43
     labelString		    "[TrackCount > 2 && DesiredState == 0]"
     labelPosition	    [220.543 48.271 202.468 16.212]
     fontSize		    12
     src {
       id		      3
-      intersection	      [2 1 0 0.4301 296.5532 95.158 0 -5.8594]
+      intersection	      [2 1 0 0.4301 296.5532 95.1571 0 -5.8594]
     }
     dst {
       id		      20
-      intersection	      [4 -1 -0 0.5874 348.2538 95.158 0 5.8594]
+      intersection	      [4 -1 -0 0.5874 348.2538 95.1571 0 5.8594]
     }
     midPoint		    [319.2667 95.1563]
     chart		    2
-    linkNode		    [16 41 45]
+    linkNode		    [16 42 46]
+    visible		    0
     dataLimits		    [296.553 348.254 92.757 97.557]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    199
   }
   transition {
-    id			    43
+    id			    44
     labelString		    "[DesiredState == 5]"
     labelPosition	    [690.378 368.444 102.189 16.212]
     fontSize		    12
@@ -13077,18 +13040,17 @@ Stateflow {
     }
     midPoint		    [718.3378 274.1055]
     chart		    2
-    linkNode		    [16 55 44]
+    linkNode		    [16 56 45]
+    visible		    0
     dataLimits		    [715.938 720.738 136.217 415.621]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    5
     ssIdNumber		    322
   }
   transition {
-    id			    44
+    id			    45
     labelString		    "[DesiredState ~= 5 && DesiredState ~= 0]"
     labelPosition	    [573.72 329.069 217.749 16.212]
     fontSize		    12
@@ -13102,68 +13064,65 @@ Stateflow {
     }
     midPoint		    [672.8201 277.7321]
     chart		    2
-    linkNode		    [16 43 52]
+    linkNode		    [16 44 53]
+    visible		    0
     dataLimits		    [670.42 675.22 136.217 415.621]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    321
   }
   transition {
-    id			    45
+    id			    46
     labelString		    "[Done ~= 0 && DesiredState == 0]"
     labelPosition	    [390.612 27.941 177.637 16.212]
     fontSize		    12
     src {
       id		      20
-      intersection	      [2 1 0 0.4126 441.8475 95.1571 0 -2.1027]
+      intersection	      [2 1 -0 0.4126 441.8475 95.1571 0 -2.1027]
     }
     dst {
       id		      18
-      intersection	      [4 -1 -0 0.5984 494.5782 95.1571 0 2.1027]
+      intersection	      [4 -1 0 0.5984 494.5782 95.1571 0 2.1027]
     }
     midPoint		    [465.0985 95.1563]
     chart		    2
-    linkNode		    [16 42 40]
+    linkNode		    [16 43 41]
+    visible		    0
     dataLimits		    [441.848 494.578 92.757 97.557]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    240
   }
   transition {
-    id			    46
+    id			    47
     labelString		    "[BuoyCount > 2 && DesiredState == 0]"
     labelPosition	    [545.2 48.253 199.603 16.212]
     fontSize		    12
     src {
       id		      18
-      intersection	      [2 1 0 0.5328 591.2969 103.5841 0 0.6685]
+      intersection	      [2 1 0 0.5328 591.2969 103.5832 0 0.6685]
     }
     dst {
       id		      7
-      intersection	      [4 -1 -0 0.4766 655.6406 103.5841 0 -1.606]
+      intersection	      [4 -1 -0 0.4766 655.6406 103.5832 0 -1.606]
     }
     midPoint		    [620.6068 103.587]
     chart		    2
-    linkNode		    [16 40 39]
-    dataLimits		    [591.297 655.641 101.184 105.984]
+    linkNode		    [16 41 40]
+    visible		    0
+    dataLimits		    [591.297 655.641 101.183 105.983]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    241
   }
   transition {
-    id			    47
+    id			    48
     labelString		    "[DesiredState == 4]"
     labelPosition	    [540.199 265.457 102.189 16.212]
     fontSize		    12
@@ -13177,34 +13136,32 @@ Stateflow {
     }
     midPoint		    [569.835 272.7335]
     chart		    2
-    linkNode		    [16 53 57]
+    linkNode		    [16 54 58]
+    visible		    0
     dataLimits		    [567.435 572.235 133.587 415.621]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    3
     ssIdNumber		    320
   }
   transition {
-    id			    48
+    id			    49
     labelString		    "[Status == 1]"
-    labelPosition	    [232.529 197.892 70.71 16.088]
+    labelPosition	    [240.292 347.208 70.71 16.088]
     fontSize		    12
     src {
       id		      14
-      intersection	      [1 -0 -1 0.5912 227.7533 220.7408 0 158.8766]
+      intersection	      [1 0 -1 0.6584 235.5165 369.8416 0 17.2383]
     }
     dst {
-      id		      16
-      intersection	      [3 0 1 0.4773 227.7533 141.4892 0 -158.8766]
+      id		      39
+      intersection	      [3 0 1 0.7508 235.5165 299.097 0 -17.2383]
     }
-    midPoint		    [227.7533 183.6528]
+    midPoint		    [235.5165 337.1921]
     chart		    2
-    linkNode		    [2 63 49]
-    visible		    0
-    dataLimits		    [225.353 230.153 141.489 220.741]
+    linkNode		    [2 50 51]
+    dataLimits		    [233.117 237.917 299.097 369.842]
     stampAngle		    NaN
     subviewer		    2
     drawStyle		    SMART
@@ -13214,23 +13171,22 @@ Stateflow {
     ssIdNumber		    293
   }
   transition {
-    id			    49
+    id			    50
     labelString		    "[Status == 0]"
-    labelPosition	    [134.546 195.759 70.71 16.088]
+    labelPosition	    [132.386 344.86 70.71 16.088]
     fontSize		    12
     src {
-      id		      16
-      intersection	      [3 0 1 0.6059 207.0807 141.4892 0 82.0129]
+      id		      39
+      intersection	      [3 0 1 0.812 204.9203 299.097 0 13.358]
     }
     dst {
       id		      14
-      intersection	      [1 -0 -1 0.4012 207.0807 220.7408 0 -82.0129]
+      intersection	      [1 0 -1 0.3772 204.9203 369.8416 0 -13.358]
     }
-    midPoint		    [207.0806 178.5771]
+    midPoint		    [204.9203 331.7465]
     chart		    2
-    linkNode		    [2 48 65]
-    visible		    0
-    dataLimits		    [204.681 209.481 141.489 220.741]
+    linkNode		    [2 0 49]
+    dataLimits		    [202.52 207.32 299.097 369.842]
     stampAngle		    NaN
     subviewer		    2
     drawStyle		    SMART
@@ -13240,28 +13196,27 @@ Stateflow {
     ssIdNumber		    292
   }
   transition {
-    id			    50
-    labelPosition	    [143.342 271.391 8.056 16.088]
+    id			    51
+    labelPosition	    [143.703 420.492 8.056 16.088]
     fontSize		    12
     src {
-      intersection	      [0 1 0 0 129.6983 283.4258 0 0]
+      intersection	      [0 1 0 0 130.1461 432.5266 0 0]
     }
     dst {
       id		      14
-      intersection	      [4 -1 0 0.4553 163.4288 283.4258 0 0]
+      intersection	      [4 -1 0 0.4553 163.8766 432.5266 0 0]
     }
-    midPoint		    [143.0361 283.4258]
+    midPoint		    [143.4839 432.5266]
     chart		    2
-    linkNode		    [2 65 64]
-    visible		    0
-    dataLimits		    [129.698 163.429 281.026 285.826]
+    linkNode		    [2 49 0]
+    dataLimits		    [130.146 163.877 430.127 434.927]
     subviewer		    2
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    295
   }
   transition {
-    id			    51
+    id			    52
     labelString		    "[DesiredState ~= 1 && DesiredState ~= 0]"
     labelPosition	    [59.217 252.067 217.749 16.212]
     fontSize		    12
@@ -13275,18 +13230,17 @@ Stateflow {
     }
     midPoint		    [118.5022 284.0966]
     chart		    2
-    linkNode		    [16 52 0]
+    linkNode		    [16 53 0]
+    visible		    0
     dataLimits		    [116.102 120.902 149.525 415.621]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    300
   }
   transition {
-    id			    52
+    id			    53
     labelString		    "[DesiredState == 1 || DesiredState == 0]"
     labelPosition	    [2.398 271.224 208.198 16.212]
     fontSize		    12
@@ -13300,20 +13254,19 @@ Stateflow {
     }
     midPoint		    [83.5789 281.0486]
     chart		    2
-    linkNode		    [16 44 51]
+    linkNode		    [16 45 52]
+    visible		    0
     dataLimits		    [81.179 85.979 149.524 415.621]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    301
   }
   transition {
-    id			    53
+    id			    54
     labelString		    "[DesiredState ~= 2 && DesiredState ~= 0]"
-    labelPosition	    [224.115 189.926 217.749 16.212]
+    labelPosition	    [224.115 190.695 217.749 16.212]
     fontSize		    12
     src {
       id		      3
@@ -13323,20 +13276,19 @@ Stateflow {
       id		      5
       intersection	      [1 0 -1 0.3172 279.6902 415.6208 0 33.7202]
     }
-    midPoint		    [279.6902 275.6063]
+    midPoint		    [279.6902 275.6064]
     chart		    2
-    linkNode		    [16 54 47]
+    linkNode		    [16 55 48]
+    visible		    0
     dataLimits		    [277.29 282.09 131.772 415.621]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    302
   }
   transition {
-    id			    54
+    id			    55
     labelString		    "[DesiredState == 2]"
     labelPosition	    [165.815 156.875 102.189 16.212]
     fontSize		    12
@@ -13350,18 +13302,17 @@ Stateflow {
     }
     midPoint		    [243.8703 271.7865]
     chart		    2
-    linkNode		    [16 39 53]
+    linkNode		    [16 40 54]
+    visible		    0
     dataLimits		    [241.47 246.27 131.772 415.621]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    303
   }
   transition {
-    id			    55
+    id			    56
     labelString		    "[DesiredState ~= 3 && DesiredState ~= 0]"
     labelPosition	    [274.27 366.578 217.749 16.212]
     fontSize		    12
@@ -13375,18 +13326,17 @@ Stateflow {
     }
     midPoint		    [368.5663 276.926]
     chart		    2
-    linkNode		    [16 56 43]
+    linkNode		    [16 57 44]
+    visible		    0
     dataLimits		    [366.164 370.964 134.531 415.621]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    304
   }
   transition {
-    id			    56
+    id			    57
     labelString		    "[DesiredState == 3]"
     labelPosition	    [380.173 343.101 102.189 16.212]
     fontSize		    12
@@ -13400,18 +13350,17 @@ Stateflow {
     }
     midPoint		    [415.4413 273.2261]
     chart		    2
-    linkNode		    [16 57 55]
+    linkNode		    [16 58 56]
+    visible		    0
     dataLimits		    [413.045 417.845 134.531 415.621]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    4
     ssIdNumber		    318
   }
   transition {
-    id			    57
+    id			    58
     labelString		    "[DesiredState ~= 4 && DesiredState ~= 0]"
     labelPosition	    [429.952 234.049 217.749 16.212]
     fontSize		    12
@@ -13425,19 +13374,18 @@ Stateflow {
     }
     midPoint		    [525.0639 276.4744]
     chart		    2
-    linkNode		    [16 47 56]
+    linkNode		    [16 48 57]
+    visible		    0
     dataLimits		    [522.664 527.464 133.587 415.621]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    319
   }
   transition {
-    id			    58
-    labelPosition	    [134.606 23.807 8.433 16.842]
+    id			    59
+    labelPosition	    [134.606 23.807 8.056 16.088]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 149.0053 15.9289 0 0]
@@ -13448,7 +13396,7 @@ Stateflow {
     }
     midPoint		    [149.0053 27.3204]
     chart		    2
-    linkNode		    [20 0 59]
+    linkNode		    [20 0 60]
     visible		    0
     dataLimits		    [146.605 151.405 15.929 45.929]
     subviewer		    20
@@ -13456,34 +13404,32 @@ Stateflow {
     ssIdNumber		    326
   }
   transition {
-    id			    59
-    labelPosition	    [274.447 169.688 8.433 16.842]
+    id			    60
+    labelPosition	    [274.447 169.688 8.056 16.088]
     fontSize		    12
     src {
       id		      34
-      intersection	      [2 1 0 0.5262 265.6759 187.5122 0 4.2188]
+      intersection	      [2 1 0 0.5262 265.6759 187.5096 0 4.2188]
     }
     dst {
       id		      21
-      intersection	      [4 -1 -0 0.4814 344.9687 187.5122 0 -4.2188]
+      intersection	      [4 -1 -0 0.4814 344.9687 187.5096 0 -4.2188]
     }
     midPoint		    [302.7854 187.5]
     chart		    2
-    linkNode		    [20 58 0]
+    linkNode		    [20 59 0]
     visible		    0
     dataLimits		    [265.676 344.969 185.112 189.912]
     stampAngle		    NaN
     subviewer		    20
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    327
   }
   transition {
-    id			    60
+    id			    61
     labelString		    "[countTo >= 4]"
-    labelPosition	    [198.668 94.219 81.523 16.842]
+    labelPosition	    [198.668 94.219 77.871 16.088]
     fontSize		    12
     src {
       id		      22
@@ -13495,21 +13441,19 @@ Stateflow {
     }
     midPoint		    [233.9356 112.9687]
     chart		    2
-    linkNode		    [21 0 61]
+    linkNode		    [21 0 62]
     visible		    0
     dataLimits		    [186.797 285.313 110.572 115.373]
     stampAngle		    NaN
     subviewer		    21
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    329
   }
   transition {
-    id			    61
+    id			    62
     labelString		    "[count >= 2]"
-    labelPosition	    [420.781 97.031 68.404 16.842]
+    labelPosition	    [420.781 97.031 65.34 16.088]
     fontSize		    12
     src {
       id		      27
@@ -13521,20 +13465,18 @@ Stateflow {
     }
     midPoint		    [445.4811 113.4372]
     chart		    2
-    linkNode		    [21 60 62]
+    linkNode		    [21 61 63]
     visible		    0
     dataLimits		    [397.813 497.344 111.037 115.838]
     stampAngle		    NaN
     subviewer		    21
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    330
   }
   transition {
-    id			    62
-    labelPosition	    [105.938 180.218 8.433 16.842]
+    id			    63
+    labelPosition	    [105.938 180.218 8.056 16.088]
     fontSize		    12
     src {
       intersection	      [0 0 -1 0 100.9375 197.1094 0 0]
@@ -13545,7 +13487,7 @@ Stateflow {
     }
     midPoint		    [100.9375 186.7831]
     chart		    2
-    linkNode		    [21 61 0]
+    linkNode		    [21 62 0]
     visible		    0
     dataLimits		    [98.537 103.338 167.109 197.109]
     subviewer		    21
@@ -13553,108 +13495,74 @@ Stateflow {
     ssIdNumber		    331
   }
   transition {
-    id			    63
-    labelString		    "[Status == 2]"
-    labelPosition	    [337.454 100.744 70.71 16.088]
-    fontSize		    12
-    src {
-      id		      16
-      intersection	      [2 1 -0 0.8054 304.4701 119.1015 0 35.1482]
-    }
-    dst {
-      id		      36
-      intersection	      [4 -1 0 0.7176 439.0935 119.1015 0 -35.1482]
-    }
-    midPoint		    [370.4477 119.1015]
-    chart		    2
-    linkNode		    [2 66 48]
-    visible		    0
-    dataLimits		    [304.47 439.094 116.702 121.502]
-    stampAngle		    NaN
-    subviewer		    2
-    drawStyle		    SMART
-    slide {
-    }
-    executionOrder	    2
-    ssIdNumber		    410
-  }
-  transition {
     id			    64
-    labelString		    "[Status == 2]"
-    labelPosition	    [323.126 273.575 70.71 16.088]
+    labelPosition	    [246.86 51.043 8.056 16.088]
     fontSize		    12
     src {
-      id		      14
-      intersection	      [2 1 -0 0.6187 272.2321 291.933 0 13.6563]
+      intersection	      [0 0 1 0 245.964 55.0726 0 0]
     }
     dst {
-      id		      36
-      intersection	      [4 -1 0 0.0764 439.0935 291.933 0 -13.6563]
+      id		      16
+      intersection	      [1 0 -1 0.6407 245.964 85.0726 0 0]
     }
-    midPoint		    [355.0295 291.933]
+    midPoint		    [245.964 66.464]
     chart		    2
-    linkNode		    [2 50 0]
-    visible		    0
-    dataLimits		    [272.232 439.094 289.533 294.333]
-    stampAngle		    NaN
+    linkNode		    [39 0 65]
+    dataLimits		    [243.564 248.364 55.073 85.073]
     subviewer		    2
     drawStyle		    SMART
-    slide {
-    }
-    executionOrder	    2
-    ssIdNumber		    411
+    executionOrder	    1
+    ssIdNumber		    436
   }
   transition {
     id			    65
-    labelString		    "[Status == 0]"
-    labelPosition	    [320.44 235.069 70.71 16.088]
+    labelString		    "[RC == 1]"
+    labelPosition	    [350.063 103.878 52.809 16.088]
     fontSize		    12
     src {
-      id		      36
-      intersection	      [4 -1 0 0.2292 439.0935 250.74 0 27.5367]
+      id		      16
+      intersection	      [2 1 0 0.2802 303.7239 117.3105 0 -25.298]
     }
     dst {
-      id		      14
-      intersection	      [2 1 -0 0.2607 272.2321 250.74 0 -27.5367]
+      id		      38
+      intersection	      [4 -1 0 0.7289 412.2285 117.3105 0 25.298]
     }
-    midPoint		    [356.2961 250.74]
+    midPoint		    [356.0743 117.3105]
     chart		    2
-    linkNode		    [2 49 50]
-    visible		    0
-    dataLimits		    [272.232 439.094 248.34 253.14]
+    linkNode		    [39 64 66]
+    dataLimits		    [303.724 412.228 114.911 119.711]
     stampAngle		    NaN
     subviewer		    2
     drawStyle		    SMART
     slide {
     }
     executionOrder	    1
-    ssIdNumber		    412
+    ssIdNumber		    438
   }
   transition {
     id			    66
-    labelString		    "[Status == 1]"
-    labelPosition	    [342.678 59.998 70.71 16.088]
+    labelString		    "[RC == 0]"
+    labelPosition	    [337.954 162.981 52.809 16.088]
     fontSize		    12
     src {
-      id		      36
-      intersection	      [4 -1 0 0.8837 439.0935 74.3265 0 6.9402]
+      id		      38
+      intersection	      [4 -1 0 0.25 412.2285 178.2045 0 -33.805]
     }
     dst {
       id		      16
-      intersection	      [2 1 -0 0.4163 304.4701 74.3265 0 -9.6268]
+      intersection	      [2 1 0 0.8093 303.7239 178.2045 0 33.805]
     }
-    midPoint		    [373.1159 74.3265]
+    midPoint		    [359.8781 178.2045]
     chart		    2
-    linkNode		    [2 0 63]
-    visible		    0
-    dataLimits		    [304.47 439.094 71.926 76.727]
+    linkNode		    [39 65 0]
+    dataLimits		    [303.724 412.228 175.805 180.605]
     stampAngle		    NaN
     subviewer		    2
     drawStyle		    SMART
     slide {
     }
-    executionOrder	    2
-    ssIdNumber		    413
+    executionOrder	    1
+    ssIdNumber		    439
   }
   data {
     id			    67
@@ -15303,9 +15211,9 @@ Stateflow {
   }
   data {
     id			    149
-    ssIdNumber		    425
-    name		    "CurrentDepth1"
-    linkNode		    [37 0 150]
+    ssIdNumber		    429
+    name		    "DesiredHeading1"
+    linkNode		    [36 0 150]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
@@ -15325,9 +15233,9 @@ Stateflow {
   }
   data {
     id			    150
-    ssIdNumber		    426
-    name		    "DesiredDepth1"
-    linkNode		    [37 149 151]
+    ssIdNumber		    430
+    name		    "CurrentHeading1"
+    linkNode		    [36 149 151]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
@@ -15347,9 +15255,9 @@ Stateflow {
   }
   data {
     id			    151
-    ssIdNumber		    427
-    name		    "ChangetoVertical"
-    linkNode		    [37 150 0]
+    ssIdNumber		    431
+    name		    "ChangetoLeft"
+    linkNode		    [36 150 152]
     scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
@@ -15369,10 +15277,10 @@ Stateflow {
   }
   data {
     id			    152
-    ssIdNumber		    429
-    name		    "DesiredHeading1"
-    linkNode		    [38 0 153]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    432
+    name		    "ChangetoRight"
+    linkNode		    [36 151 153]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -15391,9 +15299,9 @@ Stateflow {
   }
   data {
     id			    153
-    ssIdNumber		    430
-    name		    "CurrentHeading1"
-    linkNode		    [38 152 154]
+    ssIdNumber		    433
+    name		    "ForwardVelocity1"
+    linkNode		    [36 152 0]
     scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
@@ -15413,10 +15321,10 @@ Stateflow {
   }
   data {
     id			    154
-    ssIdNumber		    431
-    name		    "ChangetoLeft"
-    linkNode		    [38 153 155]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    425
+    name		    "CurrentDepth1"
+    linkNode		    [37 0 155]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
       array {
@@ -15435,10 +15343,10 @@ Stateflow {
   }
   data {
     id			    155
-    ssIdNumber		    432
-    name		    "ChangetoRight"
-    linkNode		    [38 154 156]
-    scope		    FUNCTION_OUTPUT_DATA
+    ssIdNumber		    426
+    name		    "DesiredDepth1"
+    linkNode		    [37 154 156]
+    scope		    FUNCTION_INPUT_DATA
     machine		    1
     props {
       array {
@@ -15457,10 +15365,10 @@ Stateflow {
   }
   data {
     id			    156
-    ssIdNumber		    433
-    name		    "ForwardVelocity1"
-    linkNode		    [38 155 0]
-    scope		    FUNCTION_INPUT_DATA
+    ssIdNumber		    427
+    name		    "ChangetoVertical"
+    linkNode		    [37 155 0]
+    scope		    FUNCTION_OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -16353,7 +16261,7 @@ Stateflow {
     id			    207
     ssIdNumber		    406
     name		    "RC_Depth"
-    linkNode		    [2 206 0]
+    linkNode		    [2 206 208]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -16365,27 +16273,43 @@ Stateflow {
     }
     dataType		    "double"
   }
-  instance {
+  data {
     id			    208
+    ssIdNumber		    437
+    name		    "RC"
+    linkNode		    [2 207 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_BOOLEAN_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+    }
+    dataType		    "boolean"
+  }
+  instance {
+    id			    209
     name		    "Chart"
     machine		    1
     chart		    2
   }
   chart {
-    id			    209
-    name		    "Chart/Autonomous.Buoy.Buoy/Embedded\nMATLAB Function"
+    id			    210
+    name		    "Chart/Running.Autonomous.Buoy.Buoy/Embedded\nMATLAB Function"
     windowPosition	    [281.813 354 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 210 0 0]
-    firstTransition	    212
-    firstJunction	    211
-    viewObj		    209
+    treeNode		    [0 211 0 0]
+    firstTransition	    213
+    firstJunction	    212
+    viewObj		    210
     machine		    1
     ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    213
+    firstData		    214
     chartFileNumber	    2
     disableImplicitCasting  1
     eml {
@@ -16393,14 +16317,14 @@ Stateflow {
     }
   }
   state {
-    id			    210
+    id			    211
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    209
-    treeNode		    [209 0 0 0]
+    chart		    210
+    treeNode		    [210 0 0 0]
     superState		    SUBCHART
-    subviewer		    209
+    subviewer		    210
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -16415,16 +16339,16 @@ Stateflow {
     }
   }
   junction {
-    id			    211
+    id			    212
     position		    [23.5747 49.5747 7]
-    chart		    209
-    linkNode		    [209 0 0]
-    subviewer		    209
+    chart		    210
+    linkNode		    [210 0 0]
+    subviewer		    210
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    212
+    id			    213
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -16432,23 +16356,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      211
+      id		      212
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    209
-    linkNode		    [209 0 0]
+    chart		    210
+    linkNode		    [210 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    209
+    subviewer		    210
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    213
+    id			    214
     ssIdNumber		    4
     name		    "Area1"
-    linkNode		    [209 0 214]
+    linkNode		    [210 0 215]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -16464,10 +16388,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    214
+    id			    215
     ssIdNumber		    5
     name		    "BlobArea"
-    linkNode		    [209 213 215]
+    linkNode		    [210 214 216]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -16484,10 +16408,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    215
+    id			    216
     ssIdNumber		    6
     name		    "Centroid1"
-    linkNode		    [209 214 216]
+    linkNode		    [210 215 217]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -16506,32 +16430,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    216
+    id			    217
     ssIdNumber		    7
     name		    "BlobCentroidX"
-    linkNode		    [209 215 217]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    217
-    ssIdNumber		    8
-    name		    "BlobCentroidY"
-    linkNode		    [209 216 218]
+    linkNode		    [210 216 218]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -16551,9 +16453,31 @@ Stateflow {
   }
   data {
     id			    218
+    ssIdNumber		    8
+    name		    "BlobCentroidY"
+    linkNode		    [210 217 219]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    219
     ssIdNumber		    9
     name		    "Image"
-    linkNode		    [209 217 0]
+    linkNode		    [210 218 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -16572,27 +16496,27 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    219
-    name		    "Chart/Autonomous.Buoy.Buoy/Embedded\nMATLAB Function"
+    id			    220
+    name		    "Chart/Running.Autonomous.Buoy.Buoy/Embedded\nMATLAB Function"
     machine		    1
-    chart		    209
+    chart		    210
   }
   chart {
-    id			    220
-    name		    "Chart/Autonomous.Buoy.Buoy/Embedded\nMATLAB Function1"
+    id			    221
+    name		    "Chart/Running.Autonomous.Buoy.Buoy/Embedded\nMATLAB Function1"
     windowPosition	    [281.813 354 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 221 0 0]
-    firstTransition	    223
-    firstJunction	    222
-    viewObj		    220
+    treeNode		    [0 222 0 0]
+    firstTransition	    224
+    firstJunction	    223
+    viewObj		    221
     machine		    1
     toolbarMode		    LIBRARY_TOOLBAR
     ssIdHighWaterMark	    6
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    224
+    firstData		    225
     chartFileNumber	    3
     disableImplicitCasting  1
     eml {
@@ -16600,14 +16524,14 @@ Stateflow {
     }
   }
   state {
-    id			    221
+    id			    222
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    220
-    treeNode		    [220 0 0 0]
+    chart		    221
+    treeNode		    [221 0 0 0]
     superState		    SUBCHART
-    subviewer		    220
+    subviewer		    221
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -16619,16 +16543,16 @@ Stateflow {
     }
   }
   junction {
-    id			    222
+    id			    223
     position		    [23.5747 49.5747 7]
-    chart		    220
-    linkNode		    [220 0 0]
-    subviewer		    220
+    chart		    221
+    linkNode		    [221 0 0]
+    subviewer		    221
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    223
+    id			    224
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -16636,23 +16560,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      222
+      id		      223
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    220
-    linkNode		    [220 0 0]
+    chart		    221
+    linkNode		    [221 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    220
+    subviewer		    221
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    224
+    id			    225
     ssIdNumber		    4
     name		    "Image"
-    linkNode		    [220 0 225]
+    linkNode		    [221 0 226]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -16668,10 +16592,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    225
+    id			    226
     ssIdNumber		    5
     name		    "XCenter"
-    linkNode		    [220 224 226]
+    linkNode		    [221 225 227]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -16688,10 +16612,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    226
+    id			    227
     ssIdNumber		    6
     name		    "YCenter"
-    linkNode		    [220 225 0]
+    linkNode		    [221 226 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -16710,26 +16634,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    227
-    name		    "Chart/Autonomous.Buoy.Buoy/Embedded\nMATLAB Function1"
+    id			    228
+    name		    "Chart/Running.Autonomous.Buoy.Buoy/Embedded\nMATLAB Function1"
     machine		    1
-    chart		    220
+    chart		    221
   }
   chart {
-    id			    228
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/GetHeadingToPath"
+    id			    229
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/GetHeadingToPath"
     windowPosition	    [431.813 204 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 229 0 0]
-    firstTransition	    231
-    firstJunction	    230
-    viewObj		    228
+    treeNode		    [0 230 0 0]
+    firstTransition	    232
+    firstJunction	    231
+    viewObj		    229
     machine		    1
     ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    232
+    firstData		    233
     chartFileNumber	    4
     disableImplicitCasting  1
     eml {
@@ -16737,14 +16661,14 @@ Stateflow {
     }
   }
   state {
-    id			    229
+    id			    230
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    228
-    treeNode		    [228 0 0 0]
+    chart		    229
+    treeNode		    [229 0 0 0]
     superState		    SUBCHART
-    subviewer		    228
+    subviewer		    229
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -16770,16 +16694,16 @@ Stateflow {
     }
   }
   junction {
-    id			    230
+    id			    231
     position		    [23.5747 49.5747 7]
-    chart		    228
-    linkNode		    [228 0 0]
-    subviewer		    228
+    chart		    229
+    linkNode		    [229 0 0]
+    subviewer		    229
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    231
+    id			    232
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -16787,23 +16711,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      230
+      id		      231
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    228
-    linkNode		    [228 0 0]
+    chart		    229
+    linkNode		    [229 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    228
+    subviewer		    229
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    232
+    id			    233
     ssIdNumber		    4
     name		    "Theta"
-    linkNode		    [228 0 233]
+    linkNode		    [229 0 234]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -16815,36 +16739,14 @@ Stateflow {
 	primitive		SF_DOUBLE_TYPE
       }
       complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    233
-    ssIdNumber		    7
-    name		    "Rho"
-    linkNode		    [228 232 234]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    234
-    ssIdNumber		    8
-    name		    "Votes"
-    linkNode		    [228 233 235]
+    ssIdNumber		    7
+    name		    "Rho"
+    linkNode		    [229 233 235]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -16864,29 +16766,9 @@ Stateflow {
   }
   data {
     id			    235
-    ssIdNumber		    5
-    name		    "ToPathHeading"
-    linkNode		    [228 234 236]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    236
-    ssIdNumber		    6
-    name		    "CurrentHeading"
-    linkNode		    [228 235 237]
+    ssIdNumber		    8
+    name		    "Votes"
+    linkNode		    [229 234 236]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -16905,10 +16787,52 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
+    id			    236
+    ssIdNumber		    5
+    name		    "ToPathHeading"
+    linkNode		    [229 235 237]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
     id			    237
+    ssIdNumber		    6
+    name		    "CurrentHeading"
+    linkNode		    [229 236 238]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    238
     ssIdNumber		    9
     name		    "AlongPathHeading"
-    linkNode		    [228 236 0]
+    linkNode		    [229 237 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -16927,27 +16851,27 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    238
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/GetHeadingToPath"
+    id			    239
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/GetHeadingToPath"
     machine		    1
-    chart		    228
+    chart		    229
   }
   chart {
-    id			    239
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel/Finding Brightest Pixel/Get Brigh"
-    "test Pixel\nPer Column and Row"
+    id			    240
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel/Finding Brightest Pixel/G"
+    "et Brightest Pixel\nPer Column and Row"
     windowPosition	    [551.813 84 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 240 0 0]
-    firstTransition	    242
-    firstJunction	    241
-    viewObj		    239
+    treeNode		    [0 241 0 0]
+    firstTransition	    243
+    firstJunction	    242
+    viewObj		    240
     machine		    1
     ssIdHighWaterMark	    5
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    243
+    firstData		    244
     chartFileNumber	    5
     disableImplicitCasting  1
     eml {
@@ -16955,14 +16879,14 @@ Stateflow {
     }
   }
   state {
-    id			    240
+    id			    241
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    239
-    treeNode		    [239 0 0 0]
+    chart		    240
+    treeNode		    [240 0 0 0]
     superState		    SUBCHART
-    subviewer		    239
+    subviewer		    240
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -16980,16 +16904,16 @@ Stateflow {
     }
   }
   junction {
-    id			    241
+    id			    242
     position		    [23.5747 49.5747 7]
-    chart		    239
-    linkNode		    [239 0 0]
-    subviewer		    239
+    chart		    240
+    linkNode		    [240 0 0]
+    subviewer		    240
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    242
+    id			    243
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -16997,23 +16921,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      241
+      id		      242
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    239
-    linkNode		    [239 0 0]
+    chart		    240
+    linkNode		    [240 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    239
+    subviewer		    240
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    243
+    id			    244
     ssIdNumber		    4
     name		    "HSVImage"
-    linkNode		    [239 0 244]
+    linkNode		    [240 0 245]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -17029,10 +16953,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    244
+    id			    245
     ssIdNumber		    5
     name		    "BooleanImage"
-    linkNode		    [239 243 0]
+    linkNode		    [240 244 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -17049,27 +16973,28 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    245
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel/Finding Brightest Pixel/Get Brigh"
-    "test Pixel\nPer Column and Row"
+    id			    246
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.GetBrightestPixel/Finding Brightest Pixel/G"
+    "et Brightest Pixel\nPer Column and Row"
     machine		    1
-    chart		    239
+    chart		    240
   }
   chart {
-    id			    246
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/Hough Transform Stuff/IsLinePresent"
+    id			    247
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/Hough Transform Stuff/IsLin"
+    "ePresent"
     windowPosition	    [401.813 234 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 247 0 0]
-    firstTransition	    249
-    firstJunction	    248
-    viewObj		    246
+    treeNode		    [0 248 0 0]
+    firstTransition	    250
+    firstJunction	    249
+    viewObj		    247
     machine		    1
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    250
+    firstData		    251
     chartFileNumber	    6
     disableImplicitCasting  1
     eml {
@@ -17077,14 +17002,14 @@ Stateflow {
     }
   }
   state {
-    id			    247
+    id			    248
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    246
-    treeNode		    [246 0 0 0]
+    chart		    247
+    treeNode		    [247 0 0 0]
     superState		    SUBCHART
-    subviewer		    246
+    subviewer		    247
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -17106,16 +17031,16 @@ Stateflow {
     }
   }
   junction {
-    id			    248
+    id			    249
     position		    [23.5747 49.5747 7]
-    chart		    246
-    linkNode		    [246 0 0]
-    subviewer		    246
+    chart		    247
+    linkNode		    [247 0 0]
+    subviewer		    247
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    249
+    id			    250
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -17123,23 +17048,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      248
+      id		      249
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    246
-    linkNode		    [246 0 0]
+    chart		    247
+    linkNode		    [247 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    246
+    subviewer		    247
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    250
+    id			    251
     ssIdNumber		    4
     name		    "HoughTable"
-    linkNode		    [246 0 251]
+    linkNode		    [247 0 252]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -17155,10 +17080,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    251
+    id			    252
     ssIdNumber		    6
     name		    "Theta"
-    linkNode		    [246 250 252]
+    linkNode		    [247 251 253]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -17177,32 +17102,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    252
+    id			    253
     ssIdNumber		    7
     name		    "ThetaValues"
-    linkNode		    [246 251 253]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    253
-    ssIdNumber		    8
-    name		    "RhoValues"
-    linkNode		    [246 252 254]
+    linkNode		    [247 252 254]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -17222,9 +17125,31 @@ Stateflow {
   }
   data {
     id			    254
+    ssIdNumber		    8
+    name		    "RhoValues"
+    linkNode		    [247 253 255]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    255
     ssIdNumber		    10
     name		    "Rho"
-    linkNode		    [246 253 0]
+    linkNode		    [247 254 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -17243,26 +17168,27 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    255
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/Hough Transform Stuff/IsLinePresent"
+    id			    256
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/Hough Transform Stuff/IsLin"
+    "ePresent"
     machine		    1
-    chart		    246
+    chart		    247
   }
   chart {
-    id			    256
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/IsLineNearCenter"
+    id			    257
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/IsLineNearCenter"
     windowPosition	    [371.813 264 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 257 0 0]
-    firstTransition	    259
-    firstJunction	    258
-    viewObj		    256
+    treeNode		    [0 258 0 0]
+    firstTransition	    260
+    firstJunction	    259
+    viewObj		    257
     machine		    1
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    260
+    firstData		    261
     chartFileNumber	    7
     disableImplicitCasting  1
     eml {
@@ -17270,14 +17196,14 @@ Stateflow {
     }
   }
   state {
-    id			    257
+    id			    258
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    256
-    treeNode		    [256 0 0 0]
+    chart		    257
+    treeNode		    [257 0 0 0]
     superState		    SUBCHART
-    subviewer		    256
+    subviewer		    257
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -17299,16 +17225,16 @@ Stateflow {
     }
   }
   junction {
-    id			    258
+    id			    259
     position		    [23.5747 49.5747 7]
-    chart		    256
-    linkNode		    [256 0 0]
-    subviewer		    256
+    chart		    257
+    linkNode		    [257 0 0]
+    subviewer		    257
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    259
+    id			    260
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -17316,23 +17242,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      258
+      id		      259
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    256
-    linkNode		    [256 0 0]
+    chart		    257
+    linkNode		    [257 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    256
+    subviewer		    257
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    260
+    id			    261
     ssIdNumber		    4
     name		    "Pts"
-    linkNode		    [256 0 261]
+    linkNode		    [257 0 262]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -17344,36 +17270,14 @@ Stateflow {
 	primitive		SF_DOUBLE_TYPE
       }
       complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    261
-    ssIdNumber		    8
-    name		    "Theta"
-    linkNode		    [256 260 262]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    262
-    ssIdNumber		    9
-    name		    "HeadingAlongPath"
-    linkNode		    [256 261 263]
+    ssIdNumber		    8
+    name		    "Theta"
+    linkNode		    [257 261 263]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -17393,9 +17297,9 @@ Stateflow {
   }
   data {
     id			    263
-    ssIdNumber		    10
-    name		    "CurrentHeading"
-    linkNode		    [256 262 264]
+    ssIdNumber		    9
+    name		    "HeadingAlongPath"
+    linkNode		    [257 262 264]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -17415,9 +17319,31 @@ Stateflow {
   }
   data {
     id			    264
+    ssIdNumber		    10
+    name		    "CurrentHeading"
+    linkNode		    [257 263 265]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    265
     ssIdNumber		    5
     name		    "Close"
-    linkNode		    [256 263 265]
+    linkNode		    [257 264 266]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -17434,10 +17360,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    265
+    id			    266
     ssIdNumber		    7
     name		    "Image"
-    linkNode		    [256 264 0]
+    linkNode		    [257 265 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -17456,27 +17382,27 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    266
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/IsLineNearCenter"
+    id			    267
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.MoveOverPath.IsAUVonPathLine/IsLineNearCenter"
     machine		    1
-    chart		    256
+    chart		    257
   }
   chart {
-    id			    267
-    name		    "Chart/Autonomous.FollowOnePath.MakeHSVImage/PutHSVImageTogether"
+    id			    268
+    name		    "Chart/Running.Autonomous.FollowOnePath.MakeHSVImage/PutHSVImageTogether"
     windowPosition	    [311.813 324 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 268 0 0]
-    firstTransition	    270
-    firstJunction	    269
-    viewObj		    267
+    treeNode		    [0 269 0 0]
+    firstTransition	    271
+    firstJunction	    270
+    viewObj		    268
     machine		    1
     toolbarMode		    LIBRARY_TOOLBAR
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    271
+    firstData		    272
     chartFileNumber	    8
     disableImplicitCasting  1
     eml {
@@ -17484,14 +17410,14 @@ Stateflow {
     }
   }
   state {
-    id			    268
+    id			    269
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    267
-    treeNode		    [267 0 0 0]
+    chart		    268
+    treeNode		    [268 0 0 0]
     superState		    SUBCHART
-    subviewer		    267
+    subviewer		    268
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -17504,16 +17430,16 @@ Stateflow {
     }
   }
   junction {
-    id			    269
+    id			    270
     position		    [23.5747 49.5747 7]
-    chart		    267
-    linkNode		    [267 0 0]
-    subviewer		    267
+    chart		    268
+    linkNode		    [268 0 0]
+    subviewer		    268
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    270
+    id			    271
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -17521,23 +17447,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      269
+      id		      270
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    267
-    linkNode		    [267 0 0]
+    chart		    268
+    linkNode		    [268 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    267
+    subviewer		    268
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    271
+    id			    272
     ssIdNumber		    4
     name		    "H"
-    linkNode		    [267 0 272]
+    linkNode		    [268 0 273]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -17553,10 +17479,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    272
+    id			    273
     ssIdNumber		    5
     name		    "HSVImage1"
-    linkNode		    [267 271 273]
+    linkNode		    [268 272 274]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -17573,10 +17499,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    273
+    id			    274
     ssIdNumber		    6
     name		    "S"
-    linkNode		    [267 272 274]
+    linkNode		    [268 273 275]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -17595,10 +17521,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    274
+    id			    275
     ssIdNumber		    7
     name		    "V"
-    linkNode		    [267 273 0]
+    linkNode		    [268 274 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -17617,27 +17543,27 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    275
-    name		    "Chart/Autonomous.FollowOnePath.MakeHSVImage/PutHSVImageTogether"
+    id			    276
+    name		    "Chart/Running.Autonomous.FollowOnePath.MakeHSVImage/PutHSVImageTogether"
     machine		    1
-    chart		    267
+    chart		    268
   }
   chart {
-    id			    276
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit/Finding Brightest "
-    "Pixel/Get Brightest Pixel\nPer Column and Row"
+    id			    277
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit/Finding Br"
+    "ightest Pixel/Get Brightest Pixel\nPer Column and Row"
     windowPosition	    [521.813 114 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 277 0 0]
-    firstTransition	    279
-    firstJunction	    278
-    viewObj		    276
+    treeNode		    [0 278 0 0]
+    firstTransition	    280
+    firstJunction	    279
+    viewObj		    277
     machine		    1
     ssIdHighWaterMark	    6
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    280
+    firstData		    281
     chartFileNumber	    10
     disableImplicitCasting  1
     eml {
@@ -17645,14 +17571,14 @@ Stateflow {
     }
   }
   state {
-    id			    277
+    id			    278
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    276
-    treeNode		    [276 0 0 0]
+    chart		    277
+    treeNode		    [277 0 0 0]
     superState		    SUBCHART
-    subviewer		    276
+    subviewer		    277
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -17674,16 +17600,16 @@ Stateflow {
     }
   }
   junction {
-    id			    278
+    id			    279
     position		    [23.5747 49.5747 7]
-    chart		    276
-    linkNode		    [276 0 0]
-    subviewer		    276
+    chart		    277
+    linkNode		    [277 0 0]
+    subviewer		    277
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    279
+    id			    280
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -17691,23 +17617,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      278
+      id		      279
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    276
-    linkNode		    [276 0 0]
+    chart		    277
+    linkNode		    [277 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    276
+    subviewer		    277
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    280
+    id			    281
     ssIdNumber		    4
     name		    "HSVImage"
-    linkNode		    [276 0 281]
+    linkNode		    [277 0 282]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -17723,10 +17649,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    281
+    id			    282
     ssIdNumber		    5
     name		    "BWleft"
-    linkNode		    [276 280 282]
+    linkNode		    [277 281 283]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -17743,10 +17669,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    282
+    id			    283
     ssIdNumber		    6
     name		    "BWright"
-    linkNode		    [276 281 0]
+    linkNode		    [277 282 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -17765,28 +17691,28 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    283
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit/Finding Brightest "
-    "Pixel/Get Brightest Pixel\nPer Column and Row"
+    id			    284
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit/Finding Br"
+    "ightest Pixel/Get Brightest Pixel\nPer Column and Row"
     machine		    1
-    chart		    276
+    chart		    277
   }
   chart {
-    id			    284
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left/IsLinePrese"
-    "nt"
+    id			    285
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left/IsL"
+    "inePresent"
     windowPosition	    [416.813 219 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 285 0 0]
-    firstTransition	    287
-    firstJunction	    286
-    viewObj		    284
+    treeNode		    [0 286 0 0]
+    firstTransition	    288
+    firstJunction	    287
+    viewObj		    285
     machine		    1
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    288
+    firstData		    289
     chartFileNumber	    11
     disableImplicitCasting  1
     eml {
@@ -17794,14 +17720,14 @@ Stateflow {
     }
   }
   state {
-    id			    285
+    id			    286
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    284
-    treeNode		    [284 0 0 0]
+    chart		    285
+    treeNode		    [285 0 0 0]
     superState		    SUBCHART
-    subviewer		    284
+    subviewer		    285
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -17826,16 +17752,16 @@ Stateflow {
     }
   }
   junction {
-    id			    286
+    id			    287
     position		    [23.5747 49.5747 7]
-    chart		    284
-    linkNode		    [284 0 0]
-    subviewer		    284
+    chart		    285
+    linkNode		    [285 0 0]
+    subviewer		    285
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    287
+    id			    288
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -17843,23 +17769,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      286
+      id		      287
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    284
-    linkNode		    [284 0 0]
+    chart		    285
+    linkNode		    [285 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    284
+    subviewer		    285
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    288
+    id			    289
     ssIdNumber		    4
     name		    "HoughTable"
-    linkNode		    [284 0 289]
+    linkNode		    [285 0 290]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -17875,10 +17801,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    289
+    id			    290
     ssIdNumber		    6
     name		    "Theta"
-    linkNode		    [284 288 290]
+    linkNode		    [285 289 291]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -17897,32 +17823,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    290
+    id			    291
     ssIdNumber		    7
     name		    "ThetaValues"
-    linkNode		    [284 289 291]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    291
-    ssIdNumber		    8
-    name		    "RhoValues"
-    linkNode		    [284 290 292]
+    linkNode		    [285 290 292]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -17942,9 +17846,31 @@ Stateflow {
   }
   data {
     id			    292
+    ssIdNumber		    8
+    name		    "RhoValues"
+    linkNode		    [285 291 293]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    293
     ssIdNumber		    9
     name		    "Rho"
-    linkNode		    [284 291 293]
+    linkNode		    [285 292 294]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -17963,10 +17889,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    293
+    id			    294
     ssIdNumber		    10
     name		    "maxVotes"
-    linkNode		    [284 292 0]
+    linkNode		    [285 293 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -17985,28 +17911,28 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    294
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left/IsLinePrese"
-    "nt"
+    id			    295
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left/IsL"
+    "inePresent"
     machine		    1
-    chart		    284
+    chart		    285
   }
   chart {
-    id			    295
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right/IsLinePres"
-    "ent"
+    id			    296
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right/Is"
+    "LinePresent"
     windowPosition	    [431.813 204 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 296 0 0]
-    firstTransition	    298
-    firstJunction	    297
-    viewObj		    295
+    treeNode		    [0 297 0 0]
+    firstTransition	    299
+    firstJunction	    298
+    viewObj		    296
     machine		    1
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    299
+    firstData		    300
     chartFileNumber	    12
     disableImplicitCasting  1
     eml {
@@ -18014,14 +17940,14 @@ Stateflow {
     }
   }
   state {
-    id			    296
+    id			    297
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    295
-    treeNode		    [295 0 0 0]
+    chart		    296
+    treeNode		    [296 0 0 0]
     superState		    SUBCHART
-    subviewer		    295
+    subviewer		    296
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -18046,16 +17972,16 @@ Stateflow {
     }
   }
   junction {
-    id			    297
+    id			    298
     position		    [23.5747 49.5747 7]
-    chart		    295
-    linkNode		    [295 0 0]
-    subviewer		    295
+    chart		    296
+    linkNode		    [296 0 0]
+    subviewer		    296
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    298
+    id			    299
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -18063,23 +17989,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      297
+      id		      298
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    295
-    linkNode		    [295 0 0]
+    chart		    296
+    linkNode		    [296 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    295
+    subviewer		    296
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    299
+    id			    300
     ssIdNumber		    4
     name		    "HoughTable"
-    linkNode		    [295 0 300]
+    linkNode		    [296 0 301]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -18095,10 +18021,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    300
+    id			    301
     ssIdNumber		    6
     name		    "Theta"
-    linkNode		    [295 299 301]
+    linkNode		    [296 300 302]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -18117,32 +18043,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    301
+    id			    302
     ssIdNumber		    7
     name		    "ThetaValues"
-    linkNode		    [295 300 302]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    302
-    ssIdNumber		    8
-    name		    "RhoValues"
-    linkNode		    [295 301 303]
+    linkNode		    [296 301 303]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -18162,9 +18066,31 @@ Stateflow {
   }
   data {
     id			    303
+    ssIdNumber		    8
+    name		    "RhoValues"
+    linkNode		    [296 302 304]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    304
     ssIdNumber		    9
     name		    "Rho"
-    linkNode		    [295 302 304]
+    linkNode		    [296 303 305]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -18183,10 +18109,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    304
+    id			    305
     ssIdNumber		    10
     name		    "maxVotes"
-    linkNode		    [295 303 0]
+    linkNode		    [296 304 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -18205,23 +18131,23 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    305
-    name		    "Chart/Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right/IsLinePres"
-    "ent"
-    machine		    1
-    chart		    295
-  }
-  target {
     id			    306
-    name		    "sfun"
-    description		    "Default Simulink S-Function Target."
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right/Is"
+    "LinePresent"
     machine		    1
-    linkNode		    [1 0 307]
+    chart		    296
   }
   target {
     id			    307
+    name		    "sfun"
+    description		    "Default Simulink S-Function Target."
+    machine		    1
+    linkNode		    [1 0 308]
+  }
+  target {
+    id			    308
     name		    "rtw"
     machine		    1
-    linkNode		    [1 306 0]
+    linkNode		    [1 307 0]
   }
 }

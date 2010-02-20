@@ -134,8 +134,15 @@ imu_data AUV::getOrientation(){return imu->getData();}
 // set thruster speeds
 void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 	if(!data.thrusterPower.state || data.status == PAUSED || data.status == READY) return;
+/*
+	if(thrusterSpeeds[2] > 0){
+		thrusterSpeeds[0] = 0;
+		thrusterSpeeds[1] = 0;
+	}
+*/
 	//qDebug("Conversing with TReXs");
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
+		if(i != 3 && thrusterSpeeds[i] > 40) thrusterSpeeds[i] = 40;
 		pControllers->setTrexSpeed(i, thrusterSpeeds[i]);
 	}
   	QMutexLocker locker(dataMutex);
