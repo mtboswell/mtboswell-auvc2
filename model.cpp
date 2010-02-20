@@ -13,7 +13,8 @@ Model::Model(QMutex* mutex){
 	
 	// 100ms = 10Hz rate
 	// 160ms = 6.25Hz
-	stepTime = 160;
+	// 200ms = 5Hz
+	stepTime = 200;
 
   /* Initialize model */
 	qDebug("Initializing Brain");

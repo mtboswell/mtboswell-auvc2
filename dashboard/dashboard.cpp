@@ -169,7 +169,7 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 		desiredDepthSpinBox->setValue(values.DesiredDepth);
 	}else	stateLabel->setText("Remote Controlled");
 
-	rateLabel->setText("Processing at: " + QString::number(1.0/((double)brainTime/1000.0)) + " Hz (" + QString::number(round(100.0/((double)brainTime/1000.0)/6.25))+ "%)" );
+	rateLabel->setText("Processing at: " + QString::number(1.0/((double)brainTime/1000.0)) + " Hz (" + QString::number(round(100.0/((double)brainTime/1000.0)/5))+ "%)" );
 
 	// Get full color video
 	// copy frame from signal to pixmap

@@ -5,9 +5,9 @@
  *
  * Model version                        : 1.221
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Sat Feb 20 11:33:21 2010
+ * Real-Time Workshop file generated on : Sat Feb 20 15:15:58 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Sat Feb 20 11:33:21 2010
+ * C/C++ source code generated on       : Sat Feb 20 15:15:59 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic
@@ -975,7 +975,7 @@ void RunningAutonomousFollowOnePathO(real32_T rtu_DesiredDepth1, real32_T
      * Output0 Data Type:  Floating Point real_T
      * ElapsedTime Data Type:  Floating Point real_T
      */
-    rtb_TSamp_b = rtb_Sum_e / (((localDW->RunningAutonomousFollowOnePat_h * 0.02))*
+    rtb_TSamp_b = rtb_Sum_e / (((localDW->RunningAutonomousFollowOnePat_h * 0.2))*
                                (1.0));
 
     /* DiscreteIntegrator: '<S49>/Depth Discrete-Time Integrator' */
@@ -1008,7 +1008,7 @@ void RunningAutonomousFollowOnePathO(real32_T rtu_DesiredDepth1, real32_T
     /* Update for DiscreteIntegrator: '<S49>/Depth Discrete-Time Integrator' incorporates:
      *  Gain: '<S49>/Depth Integral Gain'
      */
-    localDW->DepthDiscreteTimeIntegrator_DST = 0.02 * (real_T)
+    localDW->DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
       localDW->RunningAutonomousFollowOnePat_h * (brain_P.Depth_Ki * rtb_Add) +
       localDW->DepthDiscreteTimeIntegrator_DST;
     if (localDW->DepthDiscreteTimeIntegrator_DST >= 10.0) {
@@ -1760,7 +1760,7 @@ static void brain_OnePath(void)
        * ElapsedTime Data Type:  Floating Point real_T
        */
       rtb_TSamp_k = rtb_Add4_p / (((brain_DWork.RunningAutonomousFollowOnePat_a *
-        0.02))*(1.0));
+        0.2))*(1.0));
 
       /* DiscreteIntegrator: '<S53>/Heading Discrete-Time Integrator' */
       rtb_Add4_p = brain_DWork.HeadingDiscreteTimeIntegrator_h;
@@ -1826,7 +1826,7 @@ static void brain_OnePath(void)
       /* Update for DiscreteIntegrator: '<S53>/Heading Discrete-Time Integrator' incorporates:
        *  Gain: '<S53>/Heading Integral Gain'
        */
-      brain_DWork.HeadingDiscreteTimeIntegrator_h = 0.02 * (real_T)
+      brain_DWork.HeadingDiscreteTimeIntegrator_h = 0.2 * (real_T)
         brain_DWork.RunningAutonomousFollowOnePat_a * (brain_P.Heading_Ki *
         eml_b) + brain_DWork.HeadingDiscreteTimeIntegrator_h;
       if (brain_DWork.HeadingDiscreteTimeIntegrator_h >= 15.0) {
@@ -2846,7 +2846,7 @@ static void brain_Autonomous(void)
          * ElapsedTime Data Type:  Floating Point real_T
          */
         rtb_TSamp_d = rtb_Error / (((brain_DWork.RunningAutonomousBuoyBuoy_ELAPS
-          * 0.02))*(1.0));
+          * 0.2))*(1.0));
 
         /* DiscreteIntegrator: '<S25>/X-Buoy Discrete-Time Integrator' */
         rtb_Error = brain_DWork.XBuoyDiscreteTimeIntegrator_DST;
@@ -2909,7 +2909,7 @@ static void brain_Autonomous(void)
          * ElapsedTime Data Type:  Floating Point real_T
          */
         rtb_TSamp_pt = rtb_Sum / (((brain_DWork.RunningAutonomousBuoyBuoy_ELAPS *
-          0.02))*(1.0));
+          0.2))*(1.0));
 
         /* DiscreteIntegrator: '<S27>/Y-Buoy Discrete-Time Integrator' */
         rtb_Sum = brain_DWork.YBuoyDiscreteTimeIntegrator_DST;
@@ -2939,7 +2939,7 @@ static void brain_Autonomous(void)
         brain_DWork.UD_DSTATE_gx = rtb_TSamp_d;
 
         /* Update for DiscreteIntegrator: '<S25>/X-Buoy Discrete-Time Integrator' */
-        brain_DWork.XBuoyDiscreteTimeIntegrator_DST = 0.02 * (real_T)
+        brain_DWork.XBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.RunningAutonomousBuoyBuoy_ELAPS *
           rtb_XBuoyProportionalGain +
           brain_DWork.XBuoyDiscreteTimeIntegrator_DST;
@@ -2957,7 +2957,7 @@ static void brain_Autonomous(void)
         /* Update for DiscreteIntegrator: '<S27>/Y-Buoy Discrete-Time Integrator' incorporates:
          *  Gain: '<S27>/Y-Buoy Integral Gain'
          */
-        brain_DWork.YBuoyDiscreteTimeIntegrator_DST = 0.02 * (real_T)
+        brain_DWork.YBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.RunningAutonomousBuoyBuoy_ELAPS *
           (brain_P.Cam_Forward_YPosition_Ki * rtb_Error) +
           brain_DWork.YBuoyDiscreteTimeIntegrator_DST;
@@ -3408,7 +3408,7 @@ static void brain_Autonomous(void)
          * ElapsedTime Data Type:  Floating Point real_T
          */
         rtb_TSamp_o = rtb_MultiportSwitch_d /
-          (((brain_DWork.RunningAutonomousFindBuoyStraig * 0.02))*(1.0));
+          (((brain_DWork.RunningAutonomousFindBuoyStraig * 0.2))*(1.0));
 
         /* DiscreteIntegrator: '<S37>/Depth Discrete-Time Integrator' */
         rtb_MultiportSwitch_d = brain_DWork.DepthDiscreteTimeIntegrator_DST;
@@ -3515,7 +3515,7 @@ static void brain_Autonomous(void)
          * ElapsedTime Data Type:  Floating Point real_T
          */
         rtb_TSamp_p = rtb_Add4_pv /
-          (((brain_DWork.RunningAutonomousFindBuoyStraig * 0.02))*(1.0));
+          (((brain_DWork.RunningAutonomousFindBuoyStraig * 0.2))*(1.0));
 
         /* DiscreteIntegrator: '<S38>/Heading Discrete-Time Integrator' */
         rtb_Add4_pv = brain_DWork.HeadingDiscreteTimeIntegrator_g;
@@ -3582,7 +3582,7 @@ static void brain_Autonomous(void)
         brain_DWork.UD_DSTATE_g = rtb_TSamp_o;
 
         /* Update for DiscreteIntegrator: '<S37>/Depth Discrete-Time Integrator' */
-        brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.02 * (real_T)
+        brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.RunningAutonomousFindBuoyStraig *
           rtb_XBuoyProportionalGain +
           brain_DWork.DepthDiscreteTimeIntegrator_DST;
@@ -3600,7 +3600,7 @@ static void brain_Autonomous(void)
         /* Update for DiscreteIntegrator: '<S38>/Heading Discrete-Time Integrator' incorporates:
          *  Gain: '<S38>/Heading Integral Gain'
          */
-        brain_DWork.HeadingDiscreteTimeIntegrator_g = 0.02 * (real_T)
+        brain_DWork.HeadingDiscreteTimeIntegrator_g = 0.2 * (real_T)
           brain_DWork.RunningAutonomousFindBuoyStraig * (brain_P.Heading_Ki *
           rtb_MultiportSwitch_d) + brain_DWork.HeadingDiscreteTimeIntegrator_g;
         if (brain_DWork.HeadingDiscreteTimeIntegrator_g >= 15.0) {
@@ -4064,7 +4064,7 @@ static void brain_Autonomous(void)
          * ElapsedTime Data Type:  Floating Point real_T
          */
         rtb_TSamp_a = rtb_MultiportSwitch_l /
-          (((brain_DWork.RunningAutonomousValidationGate * 0.02))*(1.0));
+          (((brain_DWork.RunningAutonomousValidationGate * 0.2))*(1.0));
 
         /* DiscreteIntegrator: '<S68>/Depth Discrete-Time Integrator' */
         rtb_MultiportSwitch_l = brain_DWork.DepthDiscreteTimeIntegrator_D_a;
@@ -4171,7 +4171,7 @@ static void brain_Autonomous(void)
          * ElapsedTime Data Type:  Floating Point real_T
          */
         rtb_TSamp_i = rtb_Add4_g /
-          (((brain_DWork.RunningAutonomousValidationGate * 0.02))*(1.0));
+          (((brain_DWork.RunningAutonomousValidationGate * 0.2))*(1.0));
 
         /* DiscreteIntegrator: '<S69>/Heading Discrete-Time Integrator' */
         rtb_Add4_g = brain_DWork.HeadingDiscreteTimeIntegrator_m;
@@ -4238,7 +4238,7 @@ static void brain_Autonomous(void)
         brain_DWork.UD_DSTATE_i = rtb_TSamp_a;
 
         /* Update for DiscreteIntegrator: '<S68>/Depth Discrete-Time Integrator' */
-        brain_DWork.DepthDiscreteTimeIntegrator_D_a = 0.02 * (real_T)
+        brain_DWork.DepthDiscreteTimeIntegrator_D_a = 0.2 * (real_T)
           brain_DWork.RunningAutonomousValidationGate *
           rtb_XBuoyProportionalGain +
           brain_DWork.DepthDiscreteTimeIntegrator_D_a;
@@ -4256,7 +4256,7 @@ static void brain_Autonomous(void)
         /* Update for DiscreteIntegrator: '<S69>/Heading Discrete-Time Integrator' incorporates:
          *  Gain: '<S69>/Heading Integral Gain'
          */
-        brain_DWork.HeadingDiscreteTimeIntegrator_m = 0.02 * (real_T)
+        brain_DWork.HeadingDiscreteTimeIntegrator_m = 0.2 * (real_T)
           brain_DWork.RunningAutonomousValidationGate * (brain_P.Heading_Ki *
           rtb_MultiportSwitch_l) + brain_DWork.HeadingDiscreteTimeIntegrator_m;
         if (brain_DWork.HeadingDiscreteTimeIntegrator_m >= 15.0) {
@@ -4668,7 +4668,7 @@ void brain_Chart(void)
                * ElapsedTime Data Type:  Floating Point real_T
                */
               rtb_TSamp = rtb_Add4 /
-                (((brain_DWork.RunningControlledRCMaintainHead * 0.02))*(1.0));
+                (((brain_DWork.RunningControlledRCMaintainHead * 0.2))*(1.0));
 
               /* DiscreteIntegrator: '<S76>/Heading Discrete-Time Integrator' */
               rtb_Add4 = brain_DWork.HeadingDiscreteTimeIntegrator_D;
@@ -4735,7 +4735,7 @@ void brain_Chart(void)
               /* Update for DiscreteIntegrator: '<S76>/Heading Discrete-Time Integrator' incorporates:
                *  Gain: '<S76>/Heading Integral Gain'
                */
-              brain_DWork.HeadingDiscreteTimeIntegrator_D = 0.02 * (real_T)
+              brain_DWork.HeadingDiscreteTimeIntegrator_D = 0.2 * (real_T)
                 brain_DWork.RunningControlledRCMaintainHead *
                 (brain_P.Heading_Ki * rtb_MultiportSwitch) +
                 brain_DWork.HeadingDiscreteTimeIntegrator_D;
@@ -5164,7 +5164,7 @@ void brain_step(void)
 
   /* Update absolute time for base rate */
   /* The "clockTick0" counts the number of times the code of this task has
-   * been executed. The resolution of this integer timer is 0.02, which is the step size
+   * been executed. The resolution of this integer timer is 0.2, which is the step size
    * of the task. Size of "clockTick0" ensures timer will not overflow during the
    * application lifespan selected.
    */
