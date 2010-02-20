@@ -12185,7 +12185,7 @@ Stateflow {
     decomposition	    CLUSTER_CHART
     firstData		    157
     updateMethod	    DISCRETE
-    sampleTime		    "0.02"
+    sampleTime		    "0.20"
     chartFileNumber	    1
     userSpecifiedStateTransitionExecutionOrder 1
     disableImplicitCasting  1
