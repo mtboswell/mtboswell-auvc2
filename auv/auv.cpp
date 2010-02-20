@@ -30,7 +30,8 @@ AUV::AUV(bool simulate){
 	pControllers = new Pololu(POLOLUPORT);
 	thrusterPower = new Power(POWERPORT);
 
-	if(simulate) data.manualOverrideDisabled = true;
+	data.manualOverrideDisabled = simulate;
+
 	data.droppedLeft = false;
 	data.droppedRight = false;
 	reset();

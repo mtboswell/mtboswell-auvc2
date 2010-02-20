@@ -77,7 +77,7 @@ Model {
       Name		      "DesiredHeading"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.221"
+    ComputedModelVersion    "1.222"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -93,11 +93,11 @@ Model {
   Creator		  "Stephen"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Stephen"
+  LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Feb 19 21:11:09 2010"
+  LastModifiedDate	  "Sat Feb 20 16:25:49 2010"
   RTWModifiedTimeStamp	  0
-  ModelVersionFormat	  "1.%<AutoIncrement:221>"
+  ModelVersionFormat	  "1.%<AutoIncrement:222>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -901,7 +901,7 @@ Model {
   }
   System {
     Name		    "brain"
-    Location		    [4, 91, 1160, 684]
+    Location		    [5, 91, 1161, 684]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1246,8 +1246,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Running.Autonomous.Buoy.Buoy"
-	    Location		    [17, 120, 1207, 597]
-	    Open		    off
+	    Location		    [1, 52, 1440, 866]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1796,8 +1796,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "30"
 		  roundingMode		  "Floor"
-		  overflowMode		  off
-		  LockScale		  off
+		  overflowMode		  "off"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -1823,8 +1823,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "30"
 		  roundingMode		  "Floor"
-		  overflowMode		  off
-		  LockScale		  off
+		  overflowMode		  "off"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  Outport
@@ -2035,7 +2035,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -2049,9 +2049,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -2425,7 +2425,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -2439,9 +2439,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -2951,30 +2951,30 @@ Model {
 		  DialogControllerArgs	  "DataTag3"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  off
-		  centroid		  off
-		  bBox			  off
-		  majorAxis		  off
-		  minorAxis		  off
-		  angle			  off
-		  eccentricity		  on
-		  equivDiameterSq	  off
-		  extent		  on
-		  perimeter		  off
+		  area			  "off"
+		  centroid		  "off"
+		  bBox			  "off"
+		  majorAxis		  "off"
+		  minorAxis		  "off"
+		  angle			  "off"
+		  eccentricity		  "on"
+		  equivDiameterSq	  "off"
+		  extent		  "on"
+		  perimeter		  "off"
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  on
-		  isCount		  off
-		  useMinArea		  on
+		  warnIfNumBlobsExceeded  "on"
+		  isCount		  "off"
+		  useMinArea		  "on"
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  on
+		  useMaxArea		  "on"
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  off
+		  excludeBorderBlob	  "off"
 		  outDT			  "single"
-		  isOutVarDim		  off
-		  isFill		  on
+		  isOutVarDim		  "off"
+		  isFill		  "on"
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  off
+		  isLabel		  "off"
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -2994,8 +2994,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  off
-		  LockScale		  off
+		  overflowMode		  "off"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -3006,7 +3006,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -3015,7 +3015,7 @@ Model {
 		  relop			  ">"
 		  const			  "Buoy_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -3026,7 +3026,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -3035,7 +3035,7 @@ Model {
 		  relop			  "<"
 		  const			  "Buoy_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -3199,7 +3199,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -3208,7 +3208,7 @@ Model {
 		  relop			  ">"
 		  const			  "Buoy_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Line {
 		  SrcBlock		  "H"
@@ -3886,7 +3886,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -3900,9 +3900,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -4086,7 +4086,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -4100,9 +4100,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  off
+		  DoSatur		  "off"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -5304,7 +5304,7 @@ Model {
 		  SourceType		  "Hough Transform"
 		  theta_res		  "pi/180"
 		  rho_res		  "1"
-		  out_theta_rho		  on
+		  out_theta_rho		  "on"
 		  outdtmode		  "double"
 		  firstCoeffMode	  "Binary point scaling"
 		  firstCoeffWordLength	  "16"
@@ -5325,8 +5325,8 @@ Model {
 		  memoryWordLength	  "32"
 		  memoryFracLength	  "16"
 		  roundingMode		  "Nearest"
-		  overflowMode		  on
-		  LockScale		  off
+		  overflowMode		  "on"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -5613,7 +5613,7 @@ Model {
 		  SourceType		  "Hough Transform"
 		  theta_res		  "pi/180"
 		  rho_res		  "1"
-		  out_theta_rho		  on
+		  out_theta_rho		  "on"
 		  outdtmode		  "double"
 		  firstCoeffMode	  "Binary point scaling"
 		  firstCoeffWordLength	  "16"
@@ -5634,8 +5634,8 @@ Model {
 		  memoryWordLength	  "32"
 		  memoryFracLength	  "16"
 		  roundingMode		  "Nearest"
-		  overflowMode		  on
-		  LockScale		  off
+		  overflowMode		  "on"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -6160,7 +6160,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -6174,9 +6174,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -6843,7 +6843,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -6857,9 +6857,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  off
+		  DoSatur		  "off"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -7560,7 +7560,7 @@ Model {
 		  SourceType		  "Hough Transform"
 		  theta_res		  "pi/180"
 		  rho_res		  "1"
-		  out_theta_rho		  on
+		  out_theta_rho		  "on"
 		  outdtmode		  "double"
 		  firstCoeffMode	  "Binary point scaling"
 		  firstCoeffWordLength	  "16"
@@ -7581,8 +7581,8 @@ Model {
 		  memoryWordLength	  "32"
 		  memoryFracLength	  "16"
 		  roundingMode		  "Nearest"
-		  overflowMode		  on
-		  LockScale		  off
+		  overflowMode		  "on"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -8159,30 +8159,30 @@ Model {
 		  DialogControllerArgs	  "DataTag8"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  off
-		  centroid		  off
-		  bBox			  off
-		  majorAxis		  off
-		  minorAxis		  off
-		  angle			  off
-		  eccentricity		  on
-		  equivDiameterSq	  off
-		  extent		  off
-		  perimeter		  off
+		  area			  "off"
+		  centroid		  "off"
+		  bBox			  "off"
+		  majorAxis		  "off"
+		  minorAxis		  "off"
+		  angle			  "off"
+		  eccentricity		  "on"
+		  equivDiameterSq	  "off"
+		  extent		  "off"
+		  perimeter		  "off"
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  on
-		  isCount		  off
-		  useMinArea		  on
+		  warnIfNumBlobsExceeded  "on"
+		  isCount		  "off"
+		  useMinArea		  "on"
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  on
+		  useMaxArea		  "on"
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  off
+		  excludeBorderBlob	  "off"
 		  outDT			  "single"
-		  isOutVarDim		  off
-		  isFill		  on
+		  isOutVarDim		  "off"
+		  isFill		  "on"
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  off
+		  isLabel		  "off"
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -8202,8 +8202,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  off
-		  LockScale		  off
+		  overflowMode		  "off"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -8272,7 +8272,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -8281,7 +8281,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -8292,7 +8292,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -8301,7 +8301,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  If
@@ -8405,7 +8405,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -8414,7 +8414,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Line {
 		  SrcBlock		  "H"
@@ -9066,7 +9066,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -9080,9 +9080,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -9266,7 +9266,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -9280,9 +9280,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  off
+		  DoSatur		  "off"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -9782,7 +9782,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -9796,9 +9796,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -10454,7 +10454,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -10468,9 +10468,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  off
+		  DoSatur		  "off"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -11527,7 +11527,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -11543,7 +11543,7 @@ Model {
 	  antialiasing		  "Default"
 	  hcoeff		  "[0.2 0.6 0.2]"
 	  vcoeff		  "[0.5 0.5]"
-	  isInputTransposed	  off
+	  isInputTransposed	  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -11553,7 +11553,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -11579,7 +11579,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -11598,9 +11598,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -11614,8 +11614,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -11632,9 +11632,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -11648,8 +11648,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -11666,9 +11666,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -11682,8 +11682,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -12153,7 +12153,7 @@ MatData {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.1 (R2009a) dated Jan 28 2009, 05:16:58
+#    Stateflow Version 7.1 (R2009a) dated Jan 27 2009, 19:23:49
 #
 #
 
@@ -12170,13 +12170,14 @@ Stateflow {
   chart {
     id			    2
     name		    "Chart"
-    windowPosition	    [18.75 52.5 886.5 480]
-    viewLimits		    [0 1006.542 0 530.136]
-    zoomFactor		    1.194
-    screen		    [1 1 1280 800 1.333333333333333]
+    windowPosition	    [58.447 230.4 886.871 480.282]
+    viewLimits		    [-18.75 1028.426 -18.75 530.353]
+    zoomFactor		    1.25
+    screen		    [1 1 3120 1050 1.180555555555556]
     treeNode		    [0 39 0 0]
     firstTransition	    50
-    viewObj		    2
+    viewObj		    7
+    visible		    1
     machine		    1
     subviewS {
       zoomFactor	      1.194
@@ -12273,7 +12274,6 @@ Stateflow {
     chart		    2
     treeNode		    [16 10 3 18]
     superState		    SUBCHART
-    visible		    0
     subviewer		    16
     subviewS {
       x1		      -18.75
@@ -12294,7 +12294,6 @@ Stateflow {
     chart		    2
     treeNode		    [7 0 10 0]
     superState		    SUBCHART
-    visible		    0
     subviewer		    7
     ssIdNumber		    60
     type		    FUNC_STATE
@@ -12335,7 +12334,6 @@ Stateflow {
     chart		    2
     treeNode		    [7 0 0 8]
     superState		    SUBCHART
-    visible		    0
     subviewer		    7
     ssIdNumber		    83
     type		    FUNC_STATE
@@ -12413,6 +12411,7 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [2 0 39 0]
+    visible		    0
     subviewer		    2
     ssIdNumber		    291
     type		    OR_STATE
@@ -12449,6 +12448,7 @@ Stateflow {
     treeNode		    [39 12 38 0]
     firstTransition	    42
     superState		    SUBCHART
+    visible		    0
     subviewer		    2
     subviewS {
       x1		      -19.11
@@ -12909,6 +12909,7 @@ Stateflow {
     chart		    2
     treeNode		    [39 37 0 16]
     superState		    SUBCHART
+    visible		    0
     subviewer		    2
     subviewS {
       x1		      -15
@@ -12927,6 +12928,7 @@ Stateflow {
     chart		    2
     treeNode		    [2 38 0 14]
     firstTransition	    64
+    visible		    0
     subviewer		    2
     ssIdNumber		    435
     type		    OR_STATE
@@ -12935,7 +12937,7 @@ Stateflow {
   transition {
     id			    40
     labelString		    "[countarea>2 && DesiredState == 0]"
-    labelPosition	    [689.904 27.192 189.097 16.212]
+    labelPosition	    [689.904 27.192 182.41 19.4]
     fontSize		    12
     src {
       id		      7
@@ -12953,13 +12955,15 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    197
   }
   transition {
     id			    41
     labelString		    "[DesiredHeadingCount >= 3 && DesiredState == 0]"
-    labelPosition	    [87.732 32.727 267.411 16.212]
+    labelPosition	    [87.732 32.727 255.806 19.4]
     fontSize		    12
     src {
       id		      11
@@ -12973,7 +12977,7 @@ Stateflow {
     chart		    2
     linkNode		    [16 46 47]
     visible		    0
-    dataLimits		    [142.672 195.396 96.503 101.304]
+    dataLimits		    [142.672 195.395 96.503 101.303]
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
@@ -12982,7 +12986,7 @@ Stateflow {
   }
   transition {
     id			    42
-    labelPosition	    [24.458 41.666 8.595 16.212]
+    labelPosition	    [24.458 41.666 8.635 19.4]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 38.857 43.953 0 0]
@@ -13004,7 +13008,7 @@ Stateflow {
   transition {
     id			    43
     labelString		    "[TrackCount > 2 && DesiredState == 0]"
-    labelPosition	    [220.543 48.271 202.468 16.212]
+    labelPosition	    [220.543 48.271 197.521 19.4]
     fontSize		    12
     src {
       id		      3
@@ -13028,7 +13032,7 @@ Stateflow {
   transition {
     id			    44
     labelString		    "[DesiredState == 5]"
-    labelPosition	    [690.378 368.444 102.189 16.212]
+    labelPosition	    [690.378 368.444 97.142 19.4]
     fontSize		    12
     src {
       id		      5
@@ -13046,13 +13050,15 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    5
     ssIdNumber		    322
   }
   transition {
     id			    45
     labelString		    "[DesiredState ~= 5 && DesiredState ~= 0]"
-    labelPosition	    [573.72 329.069 217.749 16.212]
+    labelPosition	    [573.72 329.069 213.712 19.4]
     fontSize		    12
     src {
       id		      7
@@ -13070,13 +13076,15 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    2
     ssIdNumber		    321
   }
   transition {
     id			    46
     labelString		    "[Done ~= 0 && DesiredState == 0]"
-    labelPosition	    [390.612 27.941 177.637 16.212]
+    labelPosition	    [390.612 27.941 173.776 19.4]
     fontSize		    12
     src {
       id		      20
@@ -13100,7 +13108,7 @@ Stateflow {
   transition {
     id			    47
     labelString		    "[BuoyCount > 2 && DesiredState == 0]"
-    labelPosition	    [545.2 48.253 199.603 16.212]
+    labelPosition	    [545.2 48.253 196.442 19.4]
     fontSize		    12
     src {
       id		      18
@@ -13118,13 +13126,15 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    241
   }
   transition {
     id			    48
     labelString		    "[DesiredState == 4]"
-    labelPosition	    [540.199 265.457 102.189 16.212]
+    labelPosition	    [540.199 265.457 97.142 19.4]
     fontSize		    12
     src {
       id		      5
@@ -13148,7 +13158,7 @@ Stateflow {
   transition {
     id			    49
     labelString		    "[Status == 1]"
-    labelPosition	    [240.292 347.208 70.71 16.088]
+    labelPosition	    [240.292 347.208 60.694 18.182]
     fontSize		    12
     src {
       id		      14
@@ -13161,19 +13171,18 @@ Stateflow {
     midPoint		    [235.5165 337.1921]
     chart		    2
     linkNode		    [2 50 51]
+    visible		    0
     dataLimits		    [233.117 237.917 299.097 369.842]
     stampAngle		    NaN
     subviewer		    2
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    293
   }
   transition {
     id			    50
     labelString		    "[Status == 0]"
-    labelPosition	    [132.386 344.86 70.71 16.088]
+    labelPosition	    [132.386 344.86 60.694 18.182]
     fontSize		    12
     src {
       id		      39
@@ -13186,18 +13195,17 @@ Stateflow {
     midPoint		    [204.9203 331.7465]
     chart		    2
     linkNode		    [2 0 49]
+    visible		    0
     dataLimits		    [202.52 207.32 299.097 369.842]
     stampAngle		    NaN
     subviewer		    2
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    292
   }
   transition {
     id			    51
-    labelPosition	    [143.703 420.492 8.056 16.088]
+    labelPosition	    [143.703 420.492 8.093 18.182]
     fontSize		    12
     src {
       intersection	      [0 1 0 0 130.1461 432.5266 0 0]
@@ -13209,6 +13217,7 @@ Stateflow {
     midPoint		    [143.4839 432.5266]
     chart		    2
     linkNode		    [2 49 0]
+    visible		    0
     dataLimits		    [130.146 163.877 430.127 434.927]
     subviewer		    2
     drawStyle		    SMART
@@ -13218,7 +13227,7 @@ Stateflow {
   transition {
     id			    52
     labelString		    "[DesiredState ~= 1 && DesiredState ~= 0]"
-    labelPosition	    [59.217 252.067 217.749 16.212]
+    labelPosition	    [59.217 252.067 213.712 19.4]
     fontSize		    12
     src {
       id		      11
@@ -13242,7 +13251,7 @@ Stateflow {
   transition {
     id			    53
     labelString		    "[DesiredState == 1 || DesiredState == 0]"
-    labelPosition	    [2.398 271.224 208.198 16.212]
+    labelPosition	    [2.398 271.224 198.601 19.4]
     fontSize		    12
     src {
       id		      5
@@ -13266,7 +13275,7 @@ Stateflow {
   transition {
     id			    54
     labelString		    "[DesiredState ~= 2 && DesiredState ~= 0]"
-    labelPosition	    [224.115 190.695 217.749 16.212]
+    labelPosition	    [224.115 190.695 213.712 19.4]
     fontSize		    12
     src {
       id		      3
@@ -13290,7 +13299,7 @@ Stateflow {
   transition {
     id			    55
     labelString		    "[DesiredState == 2]"
-    labelPosition	    [165.815 156.875 102.189 16.212]
+    labelPosition	    [165.815 156.875 97.142 19.4]
     fontSize		    12
     src {
       id		      5
@@ -13314,7 +13323,7 @@ Stateflow {
   transition {
     id			    56
     labelString		    "[DesiredState ~= 3 && DesiredState ~= 0]"
-    labelPosition	    [274.27 366.578 217.749 16.212]
+    labelPosition	    [274.27 366.578 213.712 19.4]
     fontSize		    12
     src {
       id		      20
@@ -13338,7 +13347,7 @@ Stateflow {
   transition {
     id			    57
     labelString		    "[DesiredState == 3]"
-    labelPosition	    [380.173 343.101 102.189 16.212]
+    labelPosition	    [380.173 343.101 97.142 19.4]
     fontSize		    12
     src {
       id		      5
@@ -13362,7 +13371,7 @@ Stateflow {
   transition {
     id			    58
     labelString		    "[DesiredState ~= 4 && DesiredState ~= 0]"
-    labelPosition	    [429.952 234.049 217.749 16.212]
+    labelPosition	    [429.952 234.049 213.712 19.4]
     fontSize		    12
     src {
       id		      18
@@ -13385,7 +13394,7 @@ Stateflow {
   }
   transition {
     id			    59
-    labelPosition	    [134.606 23.807 8.056 16.088]
+    labelPosition	    [134.606 23.807 8.093 18.182]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 149.0053 15.9289 0 0]
@@ -13405,7 +13414,7 @@ Stateflow {
   }
   transition {
     id			    60
-    labelPosition	    [274.447 169.688 8.056 16.088]
+    labelPosition	    [274.447 169.688 8.093 18.182]
     fontSize		    12
     src {
       id		      34
@@ -13429,7 +13438,7 @@ Stateflow {
   transition {
     id			    61
     labelString		    "[countTo >= 4]"
-    labelPosition	    [198.668 94.219 77.871 16.088]
+    labelPosition	    [198.668 94.219 68.787 18.182]
     fontSize		    12
     src {
       id		      22
@@ -13453,7 +13462,7 @@ Stateflow {
   transition {
     id			    62
     labelString		    "[count >= 2]"
-    labelPosition	    [420.781 97.031 65.34 16.088]
+    labelPosition	    [420.781 97.031 57.66 18.182]
     fontSize		    12
     src {
       id		      27
@@ -13476,7 +13485,7 @@ Stateflow {
   }
   transition {
     id			    63
-    labelPosition	    [105.938 180.218 8.056 16.088]
+    labelPosition	    [105.938 180.218 8.093 18.182]
     fontSize		    12
     src {
       intersection	      [0 0 -1 0 100.9375 197.1094 0 0]
@@ -13496,7 +13505,7 @@ Stateflow {
   }
   transition {
     id			    64
-    labelPosition	    [246.86 51.043 8.056 16.088]
+    labelPosition	    [246.86 51.043 8.093 18.182]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 245.964 55.0726 0 0]
@@ -13508,6 +13517,7 @@ Stateflow {
     midPoint		    [245.964 66.464]
     chart		    2
     linkNode		    [39 0 65]
+    visible		    0
     dataLimits		    [243.564 248.364 55.073 85.073]
     subviewer		    2
     drawStyle		    SMART
@@ -13517,20 +13527,21 @@ Stateflow {
   transition {
     id			    65
     labelString		    "[RC == 1]"
-    labelPosition	    [350.063 103.878 52.809 16.088]
+    labelPosition	    [350.063 103.878 45.521 18.182]
     fontSize		    12
     src {
       id		      16
-      intersection	      [2 1 0 0.2802 303.7239 117.3105 0 -25.298]
+      intersection	      [2 1 -0 0.2802 303.7239 117.3157 0 -25.298]
     }
     dst {
       id		      38
-      intersection	      [4 -1 0 0.7289 412.2285 117.3105 0 25.298]
+      intersection	      [4 -1 0 0.7288 412.2285 117.3157 0 25.298]
     }
     midPoint		    [356.0743 117.3105]
     chart		    2
     linkNode		    [39 64 66]
-    dataLimits		    [303.724 412.228 114.911 119.711]
+    visible		    0
+    dataLimits		    [303.724 412.228 114.91 119.711]
     stampAngle		    NaN
     subviewer		    2
     drawStyle		    SMART
@@ -13542,20 +13553,21 @@ Stateflow {
   transition {
     id			    66
     labelString		    "[RC == 0]"
-    labelPosition	    [337.954 162.981 52.809 16.088]
+    labelPosition	    [337.954 162.981 45.521 18.182]
     fontSize		    12
     src {
       id		      38
-      intersection	      [4 -1 0 0.25 412.2285 178.2045 0 -33.805]
+      intersection	      [4 -1 0 0.25 412.2285 178.2003 0 -33.805]
     }
     dst {
       id		      16
-      intersection	      [2 1 0 0.8093 303.7239 178.2045 0 33.805]
+      intersection	      [2 1 -0 0.8093 303.7239 178.2003 0 33.805]
     }
     midPoint		    [359.8781 178.2045]
     chart		    2
     linkNode		    [39 65 0]
-    dataLimits		    [303.724 412.228 175.805 180.605]
+    visible		    0
+    dataLimits		    [303.724 412.228 175.804 180.605]
     stampAngle		    NaN
     subviewer		    2
     drawStyle		    SMART
@@ -16334,7 +16346,7 @@ Stateflow {
       "his function will choose and return data about the largest blob given a \n% set of blobs\n\nif(Centroid1(1,1) =="
       " -1 && Centroid1(2,1) == -1)\n    [ImageY ImageX] = size(Image);\n    BlobCentroidX = floor(ImageX/2);\n    Blob"
       "CentroidY = floor(ImageY/2);\n    BlobArea = -1;\nelse\n    [BlobArea, index] = max(double(Area1));\n    BlobCen"
-      "troidX = Centroid1(index,2);\n    BlobCentroidY = Centroid1(index,1);\nend\n\nreturn\n"
+      "troidX = Centroid1(2, index);\n    BlobCentroidY = Centroid1(1, index);\nend\n\nreturn\n"
       editorLayout	      "100 M4x1[151 34 914 567]"
     }
   }
