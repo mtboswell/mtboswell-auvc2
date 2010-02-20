@@ -6,6 +6,7 @@
 #include "auv/camread.h"
 #include "model.h"
 #include <iostream>
+#include <QDebug>
 using namespace std;
 
 static bool simulateVideo = false;
@@ -14,6 +15,17 @@ static bool simulateSensors = false;
 int main(int argc, char *argv[]){
 
 	QApplication app(argc, argv);
+	QStringList args = app.arguments();
+	QString arg;
+	foreach(arg, args){
+		if(arg == "-s" || arg == "--simulate") simulateSensors = true;
+		else if(arg == "-h"){
+			qDebug() << "Available Arguments:";
+			qDebug() << "\t-s or --simulate : do not expect hardware to exist";
+		}
+	}
+
+
 //	int appReturn;
 	QMutex modelMutex;
 	
