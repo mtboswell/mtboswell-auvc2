@@ -75,6 +75,7 @@ void AUV::readSensors(){
 
 void AUV::inputFromBrain(ExternalOutputs_brain inputs, int brainTime){
 	look((cameraPosition) (char) inputs.CameraPosition);
+	// look(inputs.CameraX, inputs.CameraY);
 	setThrusters(inputs.Thrusters);
 }
 
@@ -199,11 +200,29 @@ void AUV::look(cameraPosition pos){
   		data.camera = pos;
 	}
 }
-/*
-void AUV::look(int x, int y){
-	// TODO
+
+void AUV::look(float x, float y){
+	// Check input ranges
+	if(((x>0)?x:-x) > 1 || ((y>0)?y:-y) > 1) return;
+
+	int xpos = 0, ypos = 0;
+
+	// Scale values
+	if(x == 0) xpos = GIMBAL_X_ZERO;	
+	else if(x > 0) xpos = (GIMBAL_X_MAX-GIMBAL_X_ZERO)*x + GIMBAL_X_ZERO;
+	else if(x < 0) xpos = (GIMBAL_X_MIN-GIMBAL_X_ZERO)*x + GIMBAL_X_ZERO;
+	if(y == 0) ypos = GIMBAL_Y_ZERO;	
+	else if(y > 0) ypos = (GIMBAL_Y_MAX-GIMBAL_Y_ZERO)*y + GIMBAL_Y_ZERO;
+	else if(y < 0) ypos = (GIMBAL_Y_MIN-GIMBAL_Y_ZERO)*y + GIMBAL_Y_ZERO;
+
+	// [TODO] - check output ranges
+
+
+	// Output to servos
+	pControllers->setPosAbs(GIMBAL_Y_SERVO, ypos);
+	pControllers->setPosAbs(GIMBAL_X_SERVO, xpos);
 }
-*/
+
 
 void AUV::dropLeft(){
 	//cout << "dropping left" << endl;

@@ -40,7 +40,7 @@ class AUV : public QThread {
 		// set all of the thruster speeds to 0
 		void stopThrusters();
 		void look(cameraPosition pos);
-		//void look(int x, int y);
+		void look(float x, float y);
 		void dropLeft();
 		void dropRight();
 	
