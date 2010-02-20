@@ -54,7 +54,7 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
  	
 	// Populate State Combo Box
 
-	states << "Not Started";
+	states << "Autonomous";
 	states << "Startup";
 	states << "Validation Gate";
 	states << "Follow Track";
@@ -132,7 +132,8 @@ void Dashboard::updateSensorsView(AUVSensors values){
 	
 	leftThrusterProgressBar->setValue(values.thrusterSpeeds[0]);
 	rightThrusterProgressBar->setValue(values.thrusterSpeeds[1]);
-	vertThrusterProgressBar->setValue(values.thrusterSpeeds[2]);
+	vertThrusterProgressBar->setValue(values.thrusterSpeeds[3]);
+	strafeThrusterProgressBar->setValue(values.thrusterSpeeds[2]);
 
 	cameraPosComboBox->setCurrentIndex(values.camera);
 
@@ -159,13 +160,15 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 	QTime bT;
 	bT.start();
 
-	stateLabel->setText(states.at(values.State));
-
 	if(brain_U.RC == 0) { // if we are operating autonomously
+		if(values.State == 0)	stateLabel->setText("Not Started");
+		else stateLabel->setText(states.at(values.State));
+		missionProgressBar->setValue(values.State*(100/6)); // 6 = number of states
 	//	stateComboBox->setCurrentIndex(values.State);
 		desiredHeadingSpinBox->setValue(values.DesiredHeading);
 		desiredDepthSpinBox->setValue(values.DesiredDepth);
-	}
+	}else	stateLabel->setText("Remote Controlled");
+
 	rateLabel->setText("Processing at: " + QString::number(1.0/((double)brainTime/1000.0)) + " Hz (" + QString::number(round(100.0/((double)brainTime/1000.0)/6.25))+ "%)" );
 
 	// Get full color video
@@ -175,7 +178,7 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 	unsigned int videoPixel;
 	for(int i = 307200; i > 0; --i){
 		y--;
-		videoPixel = (0xFF000000) | ((((int)brain_B.vidR[i]) << 16)&0x00FF0000) | ((((int)brain_B.vidG[i]) << 8)&0x0000FF00) | (((int)brain_B.vidB[i])&0x000000FF); 
+		videoPixel = (0xFF000000) | ((((int)brain_B.RGBVid_R[i]) << 16)&0x00FF0000) | ((((int)brain_B.RGBVid_G[i]) << 8)&0x0000FF00) | (((int)brain_B.RGBVid_B[i])&0x000000FF); 
 		videoFrame.setPixel(x, y, videoPixel);
 		if(y <= 0){
 			x--;
@@ -189,9 +192,9 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 	y = 120;
 	for(int i = 19200; i > 0; --i){
 		y--;
-		if(values.State == 2 || values.State == 4 || values.State == 5)
-			bwFrame.setPixel(x, y, brain_B.BW[i]);
-		else if(values.State == 3){
+		if(values.State == 2){
+			bwFrame.setPixel(x, y, brain_B.BW_a[i]);
+		}else if(values.State == 3){
 			if(brain_DWork.countTo < 4){
 				//bwFrame.setPixel(x, y, brain_B.BWright[i]);
 				//bwFrame.setPixel(x, y, brain_B.BWleft[i]);
@@ -199,6 +202,10 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 			else{
 				bwFrame.setPixel(x, y, brain_B.BW[i]);
 			}
+		}else if(values.State == 4){
+			bwFrame.setPixel(x, y, brain_B.BW_p[i]);
+		}else if(values.State == 5){
+			bwFrame.setPixel(x, y, brain_B.BW[i]);
 		}else bwFrame.setPixel(x, y, 1);
 
 		if(y <= 0){
@@ -360,14 +367,31 @@ void Dashboard::on_setActualDepthPushButton_clicked(){
 void Dashboard::on_controlGroupBox_toggled(bool rc){
 	QMutexLocker locker(modelMutex);
 	if(rc) brain_U.RC = 1;
-	else brain_U.RC = 0;
+	else {
+		brain_U.RC = 0;
+		stopAction();
+	}
 }
 void Dashboard::on_desiredDepthSlider_valueChanged(int value){
 	QMutexLocker locker(modelMutex);
 	brain_U.RC_Depth = value;
 }
+void Dashboard::on_desiredStrafeSlider_valueChanged(int value){
+	QMutexLocker locker(modelMutex);
+	brain_U.RC_Strafe = value;
+}
+void Dashboard::on_desiredSpeedSlider_valueChanged(int value){
+	QMutexLocker locker(modelMutex);
+	brain_U.RC_ForwardVelocity = value;
+}
 void Dashboard::on_desiredHeadingSpinBox_valueChanged(int value){
 	QMutexLocker locker(modelMutex);
 	brain_U.RC_Heading = value;
+}
+void Dashboard::on_setAllZeroButton_clicked(){
+	desiredDepthSlider->setValue(0);
+	desiredStrafeSlider->setValue(0);
+	desiredSpeedSlider->setValue(0);
+	desiredHeadingSpinBox->setValue(headingLcdNumber->value());
 }
 

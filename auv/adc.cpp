@@ -40,6 +40,12 @@ unsigned int ADC::getValue(string desc)
 	pthread_mutex_unlock(&dataMutex);
 	return result;
 }
+
+bool ADC::sendValue(char cmd){
+	return port->write(&cmd, 1);
+}
+
+
 void ADC::process(const char* data, int len)
 {
 	bufferAddToEnd(&rdbuf, (unsigned char*)data, len);
