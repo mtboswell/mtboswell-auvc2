@@ -3,14 +3,14 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.223
+ * Model version                        : 1.243
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Sun Feb 21 12:19:41 2010
+ * Real-Time Workshop file generated on : Tue Mar  2 17:24:21 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Sun Feb 21 12:19:41 2010
+ * C/C++ source code generated on       : Tue Mar  2 17:24:21 2010
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: 32-bit Generic
+ * Embedded hardware selection: AMD->K5/K6/Athlon
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
@@ -48,9 +48,9 @@ Parameters_brain brain_P = {
 const ConstParam_brain brain_ConstP = {
   /* Computed Parameter: SINE_TABLE_RTP
    * Referenced by blocks:
-   * '<S45>/Hough Transform'
-   * '<S46>/Hough Transform'
-   * '<S57>/Hough Transform'
+   * '<S49>/Hough Transform'
+   * '<S50>/Hough Transform'
+   * '<S61>/Hough Transform'
    */
   { -1.0, -9.9984769515639127E-01, -9.9939082701909576E-01,
     -9.9862953475457383E-01, -9.9756405025982420E-01, -9.9619469809174555E-01,
@@ -86,21 +86,21 @@ const ConstParam_brain brain_ConstP = {
 
   /* Computed Parameter: FIRSTRHO_RTP
    * Referenced by blocks:
-   * '<S45>/Hough Transform'
-   * '<S46>/Hough Transform'
+   * '<S49>/Hough Transform'
+   * '<S50>/Hough Transform'
    */
   -143.0,
 
   /* Computed Parameter: FIRSTRHO_RTP
-   * '<S57>/Hough Transform'
+   * '<S61>/Hough Transform'
    */
   -199.0,
 
   /* Computed Parameter: Yweights
    * Referenced by blocks:
-   * '<S2>/Resize'
-   * '<S2>/Resize1'
-   * '<S2>/Resize2'
+   * '<S6>/Resize'
+   * '<S6>/Resize1'
+   * '<S6>/Resize2'
    */
   { 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F,
     0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F,
@@ -243,9 +243,9 @@ const ConstParam_brain brain_ConstP = {
 
   /* Computed Parameter: Xweights
    * Referenced by blocks:
-   * '<S2>/Resize'
-   * '<S2>/Resize1'
-   * '<S2>/Resize2'
+   * '<S6>/Resize'
+   * '<S6>/Resize1'
+   * '<S6>/Resize2'
    */
   { 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F,
     0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F,
@@ -433,9 +433,9 @@ const ConstParam_brain brain_ConstP = {
 
   /* Computed Parameter: Yindex
    * Referenced by blocks:
-   * '<S2>/Resize'
-   * '<S2>/Resize1'
-   * '<S2>/Resize2'
+   * '<S6>/Resize'
+   * '<S6>/Resize1'
+   * '<S6>/Resize2'
    */
   { 0, 2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74,
     78, 82, 86, 90, 94, 98, 102, 106, 110, 114, 118, 122, 126, 130, 134, 138,
@@ -501,9 +501,9 @@ const ConstParam_brain brain_ConstP = {
 
   /* Computed Parameter: Xindex
    * Referenced by blocks:
-   * '<S2>/Resize'
-   * '<S2>/Resize1'
-   * '<S2>/Resize2'
+   * '<S6>/Resize'
+   * '<S6>/Resize1'
+   * '<S6>/Resize2'
    */
   { 0, 2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74,
     78, 82, 86, 90, 94, 98, 102, 106, 110, 114, 118, 122, 126, 130, 134, 138,
@@ -591,9 +591,9 @@ const ConstParam_brain brain_ConstP = {
 
   /* Computed Parameter: WALKER_RTP
    * Referenced by blocks:
-   * '<S3>/Buoy Blob Analysis'
-   * '<S29>/Blob Analysis'
-   * '<S60>/Blob Analysis'
+   * '<S7>/Buoy Blob Analysis'
+   * '<S33>/Blob Analysis'
+   * '<S64>/Blob Analysis'
    */
   { -1, 121, 122, 123, 1, -121, -122, -123 }
 };

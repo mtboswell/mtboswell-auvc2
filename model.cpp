@@ -66,15 +66,15 @@ void Model::rt_OneStep(void)
 {
 	//qDebug("Stepping Model");
 
-	/* Disable interrupts here */
-	modelMutex->lock();
-
 	/* Check for overrun */
 	if (OverrunFlag++) {
-	qDebug("Overrun!!");
-	rtmSetErrorStatus(brain_M, "Overrun");
-	return;
+		qDebug("Overrun!!");
+		rtmSetErrorStatus(brain_M, "Overrun");
+		return;
 	}
+
+	/* Disable interrupts here */
+	modelMutex->lock();
 
 	/* Save FPU context here (if necessary) */
 	/* Re-enable timer or interrupt here */

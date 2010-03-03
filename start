@@ -11,11 +11,11 @@ fi
 echo -n "Done\n"
 #mkfifo video_passthru 2> /dev/null
 echo -n "Launching Agent\n"
-if hostname | grep auvt-auv > /dev/null
+if !(hostname | grep auvt-auv > /dev/null)
 then
-./agent &
-else
 ./agent -s &
+else
+./agent &
 fi
 #sleep 3
 #echo -n "Starting Video Stream\n"
