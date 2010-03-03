@@ -4,7 +4,7 @@
  * Definitions required by Real-Time Workshop generated code.
  *
  * Real-Time Workshop version: 7.3
- * Generated on: 2010-02-21 12:19:44
+ * Generated on: 2010-03-02 17:24:24
  */
 
 #ifndef __RTWTYPES_H__
@@ -23,11 +23,11 @@
 
 /*=======================================================================*
  * Target hardware information
- *   Device type: 32-bit Generic
+ *   Device type: AMD->K5/K6/Athlon
  *   Number of bits:     char:   8    short:   16    int:  32
  *                       long:  32      native word size:  32
- *   Byte ordering: Unspecified
- *   Signed integer division rounds to: Undefined
+ *   Byte ordering: LittleEndian
+ *   Signed integer division rounds to: Zero
  *   Shift right on a signed integer as arithmetic shift: on
  *=======================================================================*/
 
