@@ -29,6 +29,9 @@ class Model : public QThread
 		void setState(int state);
 		void startRecordVideo(){record_video = true;}
 		void stopRecordVideo(){record_video = false;}
+//		void setParam(QString name, double value);
+//		void setIntParam(QString name, int value);
+//		void setFloatParam(QString name, float value);
 
 	private slots:
 		// rt_OneStep should be called every 0.2 seconds (or 0.02 seconds, depending on the model)

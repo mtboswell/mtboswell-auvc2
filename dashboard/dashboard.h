@@ -6,6 +6,9 @@
 #include <QMutexLocker>
 #include <QGraphicsLineItem>
 #include <QGraphicsView>
+#include <QProcess>
+#include <QX11EmbedContainer>
+#include <QVBoxLayout>
 
  class Dashboard : public QMainWindow, private Ui::DashboardWindow
  {
@@ -99,6 +102,10 @@
         QImage videoFrame; 
         QImage bwFrame; 
         QStringList states;
+
+     QX11EmbedContainer container;
+
+     QProcess* process;
 
 
  };

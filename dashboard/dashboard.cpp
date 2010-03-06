@@ -86,6 +86,22 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
         bwPixmap.fill(); 
 	videoLabel->setScaledContents(true);
 	bitVideoLabel->setScaledContents(true);
+
+        verticalLayout_4->addWidget(&container);
+      process = new QProcess(&container);
+
+     QString executable("mplayer");
+
+     QStringList arguments;
+
+        arguments << "-wid";
+     arguments << QString::number(container.winId());
+        arguments << "udp://:7960";
+	qDebug() << arguments;
+
+     process->start(executable, arguments);
+
+     //process.close();
  
 }
  
