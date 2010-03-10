@@ -77,11 +77,6 @@ int camread_getframe(struct camframe frame, bool record_video) {
         memcpy(frame.y, lastframe.y, width*height);
         memcpy(frame.cb, lastframe.cb, width*height/4);
         memcpy(frame.cr, lastframe.cr, width*height/4);
-    if(record_video){
-	write(logfd, lastframe.y, width*height);
-	write(logfd, lastframe.cb, width*height/4);
-	write(logfd, lastframe.cr, width*height/4);
-    }
 //	write(vidfd, lastframe.y, width*height);
 //	write(vidfd, lastframe.cb, width*height/4);
 //	write(vidfd, lastframe.cr, width*height/4);
@@ -89,6 +84,12 @@ int camread_getframe(struct camframe frame, bool record_video) {
         err = frameready;
         frameready = 0;
         pthread_mutex_unlock(&framelock);
+        
+    	if(record_video) {
+			write(logfd, lastframe.y, width*height);
+			write(logfd, lastframe.cb, width*height/4);
+			write(logfd, lastframe.cr, width*height/4);
+    	}
         
         /* Return the number of frames captured since the last call.
            NOTE: Only the most recent frame is returned. */
