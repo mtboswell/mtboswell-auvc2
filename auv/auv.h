@@ -19,6 +19,7 @@
 #include <QThread>
 #include <QTimer>
 #include <QMutex>
+#include <QProcess>
 #include <iostream>
 #include <string>
 
@@ -30,7 +31,7 @@ class AUV : public QThread {
 
 	public:
 	
-		AUV(bool simulate = false);
+		AUV(bool simulate, QMutex* sensorMutex);
 		~AUV();
 		
 		void setMotion(int forward, int yaw, int vertical);
@@ -71,6 +72,7 @@ class AUV : public QThread {
 		void externalControl();
 		void inputFromBrain(ExternalOutputs_brain inputs, int brainTime);
 		void setActualDepth(double depth = 0);
+		void autoWhiteBalance();
 		
 	signals:
 		void sensorUpdate(AUVSensors data);
@@ -81,10 +83,13 @@ class AUV : public QThread {
 		
 	private slots:
 		void readSensors();
+		void finishWhiteBalance();
 
 	private:
 		QTimer *sensorTimer;
 		QTimer *goTimer;
+		QTimer *wbTimer;
+		QProcess* wbProc;
 		QMutex *dataMutex;
 		ADC* adc;
 		IMU* imu;
