@@ -1,0 +1,23 @@
+##############################################
+__     ________      _   _   ___     ________ 
+\ \   / __   __|    / \ | | | \ \   / __   __|
+ \ \ / /  | |      / _ \| | | |\ \ / /  | |  
+  \ V /   | |     / ___ \ |_| | \ V /   | |  
+   \_/    |_|    /_/   \_\___/   \_/    |_|  
+                                            
+Welcome to the Virginia Tech Autonomous Underwater Vehicle Team's AUV Control Software!
+
+This guide will show you how to use the AUV.
+
+######################################################################
+ ___                _             ___                   _              
+| _ \_  _ _ _  _ _ (_)_ _  __ _  | _ ) __ _ _ _ _ _ ___| |___ _  _ ___ 
+|   / || | ' \| ' \| | ' \/ _` | | _ \/ _` | '_| '_/ -_) / -_) || / -_)
+|_|_\\_,_|_||_|_||_|_|_||_\__, | |___/\__,_|_| |_| \___|_\___|\_, \___|
+                          |___/                               |__/     
+
+Starting the AUV server software is simple.  You just have to run the ./start script.  Similarly, if you need to stop the software for some reason (rare), run ./stop .
+
+If you run ./start on the AUV, it should simply tell you that it is running and send you back to the shell.  The software is now running and you can connect to the AUV with the client software.  If you are running the server on another computer, it will start up in the foreground and display information about how the server is running.
+
+There are various other scripts that allow you to debug the software or send commands manually.  If you wish to send individual commands manually instead of using one of the interfaces, use the ./sendCmd script.  Simply give it the command you want to send as the first argument.
