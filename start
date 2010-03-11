@@ -1,24 +1,20 @@
 #!/bin/sh
 ## AUVC Start script
+# make sure we're in the right dir
 cd ~/auvc
-## Do a white balance at startup
-#echo -n "Setting White Balance\n"
-#if `v4lctl setattr "Auto White Balance" on` 
-#then 
-#sleep 3
-#v4lctl setattr "Auto White Balance" off -v 0
-#fi
-#echo -n "Done\n"
-#mkfifo video_passthru 2> /dev/null
 echo "Launching Agent"
-if !(hostname | grep auvt-auv > /dev/null)
-then
-#./agent -s 2> ./logs/run-`date +%F+%R`.log &
-./agent -s
+# Try to detect whether we are running on the AUV, and call ./agent -s if we are not
+if !(hostname | grep auvt-auv > /dev/null); then
+	if [ "$1" = "-b" ]; then 
+		./agent -s 2> ./logs/run-`date +%F+%R`.log &
+	else
+		./agent -s
+	fi
 else
-./agent 2> ./logs/run-`date +%F+%R`.log &
+	# we should be on the AUV itself
+	./agent 2> ./logs/run-`date +%F+%R`.log &
 fi
+echo -n "Starting Video Stream\n"
+./startVideoStream
 sleep 3
-#echo -n "Starting Video Stream\n"
-#mplayer -really-quiet -demuxer rawvideo -rawvideo fps=7:w=640:h=480:i420 -vo x11 video_passthru 2> /dev/null &
 echo "System Initiated"

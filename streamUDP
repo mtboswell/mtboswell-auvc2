@@ -1,1 +1,0 @@
-cvlc v4l2:///dev/video0 --sout "#transcode{vcodec=mp4v,vb=100,scale=0.25}:std{access=udp,caching=0,ttl=0.01,group=10,late=0.1,dst=$1:7960}" --no-sout-audio

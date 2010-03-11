@@ -6,6 +6,6 @@
 
 static QHash<QString, double*> parameters;
 
-void init_params();
+void init_params(QHash<QString, double*>& parameters);
 
 #endif
