@@ -44,8 +44,6 @@ int main(int argc, char *argv[]){
 		qDebug("Camera Not Found, Simulating");
 	}
 
-	init_params();
-	
 	qDebug("Initializing Hardware Interfaces");
 	AUV* auv = new AUV(simulateSensors, &sensorMutex);
 #ifndef USE_SERVER

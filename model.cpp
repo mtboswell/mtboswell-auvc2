@@ -35,7 +35,7 @@ Model::Model(QMutex* mutex){
 	myframe.cr = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
 	//qDebug("Done");
 
-	init_params();
+	if(parameters.isEmpty()) init_params(parameters);
 
 	record_video = false;
 	stepTimer.start();

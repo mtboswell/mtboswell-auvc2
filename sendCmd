@@ -1,0 +1,2 @@
+#! /bin/bash
+echo -n $1 | netcat -ub -w1 127.0.0.1 5233

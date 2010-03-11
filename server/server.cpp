@@ -1,5 +1,6 @@
 #include "server.h"
 #include <QDebug>
+#include <QHashIterator>
 
 Server::Server(QMutex* sensorMutex){
 
@@ -9,16 +10,16 @@ Server::Server(QMutex* sensorMutex){
 //	connect(timer, SIGNAL(timeout()), this, SLOT(sendData()));
 
 	socket = new QUdpSocket(this);
-	socket->bind(QHostAddress::LocalHost, DATA_PORT);
-	//socket->connectToHost("192.168.3.255", DATA_PORT);
+	socket->bind(QHostAddress::LocalHost, SERVER_DATA_PORT);
+	//socket->connectToHost("192.168.3.255", SERVER_DATA_PORT);
 	//if (socket->waitForConnected(1000))
 	//	qDebug("Connected!");
 	connect(socket, SIGNAL(readyRead()),
 	     this, SLOT(readPendingDatagrams()));
 
-	if(parameters.size() == 0) init_params();
+	if(parameters.isEmpty()) init_params(parameters);
 
-	qDebug() << "We have " << parameters.size() << " parameters";
+	//qDebug() << "We have " << parameters.size() << " parameters";
 }
 
 /* The default should work
@@ -51,7 +52,7 @@ void Server::processDatagram(QByteArray datagram){
 	QByteArray datum;
 	foreach(datum, data){
 		if(datum.isNull() || datum.isEmpty() || !datum.contains('=')) continue;
-		qDebug() << "Parsing command:" << datum;
+		qDebug() << "Received command:" << datum;
 		QString key, type, name, value;
 		QList<QByteArray> field = datum.split('=');
 		if(field.size() > 0){
@@ -65,17 +66,17 @@ void Server::processDatagram(QByteArray datagram){
 		}
 		doAction(type, name, value);	
 	}
-	qDebug() << "Processed Datagram, echoing";
-	if(!remoteHost.isNull()) socket->writeDatagram(datagram, remoteHost, 5325);
+	//qDebug() << "Processed Datagram, echoing";
+	if(!remoteHost.isNull()) socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);
 }
 
 void Server::doAction(QString type, QString name, QString value){
-	qDebug() << "Command Parsed, taking action." << type;
+	qDebug() << "Command Received, taking action:" << type << "." << name << "=" << value;
 	if(type == "Connect"){
 		// set remoteHost
-		qDebug() << "Attempting to connect to:" << value;
-		if(remoteHost.setAddress(value)) qDebug() << "Successfully set address";
-		else qDebug() << "Failed to set address";
+		//qDebug() << "Attempting to connect to:" << value;
+		if(remoteHost.setAddress(value)) qDebug() << "Sending all data to:" << value;
+		else qDebug() << "Failed to set client address";
 	}else if(type == "Mode"){
 		if(value == "Running") emit go();
 		else if(value == "Stopped") emit stop();
@@ -127,7 +128,7 @@ void Server::sendSensorData(AUVSensors sens){
 	//sensorDataMutex->unlock();
 	// write to port
 	//qDebug() << "Sending Datagram:" << sensordata;
-	socket->writeDatagram(sensordata, remoteHost, 5325);
+	socket->writeDatagram(sensordata, remoteHost, CLIENT_DATA_PORT);
 }
 
 void Server::sendBrainData(ExternalOutputs_brain outs, int brainTime){
@@ -141,7 +142,7 @@ void Server::sendBrainData(ExternalOutputs_brain outs, int brainTime){
 	addDatum(datagram, "Brain", "Time", QString::number(brainTime));
 	// write to port
 	//qDebug() << "Sending Datagram:" << datagram;
-	socket->writeDatagram(datagram, remoteHost, 5325);
+	socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);
 }
 
 void Server::sendParams(){
@@ -150,17 +151,24 @@ void Server::sendParams(){
 	QByteArray datagram;
 	// parameters data
 	// params.stuff
-
+/*
 	QList<QString> params = parameters.keys();
 
 	foreach(QString param, params){
 		qDebug() << "Getting Parameter:" << param;
 		addDatum(datagram, "Parameter", param, QString::number(*(parameters[param])));
 	}
+*/
+	 QHashIterator<QString, double*> i(parameters);
+	 while (i.hasNext()) {
+	     i.next();
+	//	qDebug() << "Getting Parameter:" << i.key();
+		addDatum(datagram, "Parameter", i.key(), QString::number(*(i.value())));
+	 }
 
 	// write to port
-	qDebug() << "Sending Params Datagram:" << datagram;
-	socket->writeDatagram(datagram, remoteHost, 5325);
+	//qDebug() << "Sending Params Datagram:" << datagram;
+	socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);
 }
 
 
