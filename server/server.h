@@ -30,6 +30,7 @@ class Server: public QThread
 		void setInput(QString name, double value);
 		void setRec(bool rec);
 		void setLog(bool log);
+		void whiteBalance();
 	
 	public slots:
 		void sendSensorData(AUVSensors sens);

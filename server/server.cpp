@@ -82,7 +82,8 @@ void Server::doAction(QString type, QString name, QString value){
 		else if(value == "Killed") emit kill();
 		else if(value == "Reset") emit reset();
 	}else if(type == "Calibrate"){
-		emit calibrateDepth(value.toDouble());
+		if(name == "Depth") emit calibrateDepth(value.toDouble());
+		else if(name == "WhiteBalance") emit whiteBalance();
 	}else if(type == "Param"){
 		emit setParam(name, value.toDouble());
 	}else if(type == "Input"){
