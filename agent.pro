@@ -11,17 +11,19 @@ DEPENDPATH += . \
               brain \
 	      dashboard \
 		server \
+		model \
 		/usr/local/Trolltech/Qt-4.6.1
 INCLUDEPATH += . \
                brain \
                auv \
 	       dashboard \
+		model \
 		server
 # Input
 HEADERS += dashboard/dashboard.h \
 	   server/server.h \
-	   parameters.h \
-           model.h \
+	   model/parameters.h \
+           model/model.h \
            auv/adc.h \
            auv/auv.h \
            auv/auvtypes.h \
@@ -193,8 +195,8 @@ FORMS += dashboard/dashboard.ui
 SOURCES += dashboard/dashboard.cpp \
 	   server/server.cpp \
            main.cpp \
-           model.cpp \
-	   parameters.cpp \
+           model/model.cpp \
+	   model/parameters.cpp \
            auv/adc.cpp \
            auv/auv.cpp \
            auv/buffer.cpp \

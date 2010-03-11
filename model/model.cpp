@@ -1,7 +1,7 @@
 #include "model.h"
-#include "auv/auvtypes.h"
-#include "auv/calibration.h"
-#include "auv/camread.h"
+#include "../auv/auvtypes.h"
+#include "../auv/calibration.h"
+#include "../auv/camread.h"
 #include <iostream>
 #include <cstdlib>
 #include <QDebug>

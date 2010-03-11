@@ -6,11 +6,11 @@
 #include <QMutexLocker>
 #include <QTime>
 #include <QHash>
-#include "auv/auvtypes.h"
-#include "auv/camread.h"
-#include "brain/brain.h"      /* Model's header file */
+#include "../auv/auvtypes.h"
+#include "../auv/camread.h"
+#include "../brain/brain.h"      /* Model's header file */
 #include "parameters.h"
-#include "brain/rtwtypes.h"                  /* MathWorks types */
+#include "../brain/rtwtypes.h"                  /* MathWorks types */
 
 		
 		

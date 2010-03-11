@@ -4,7 +4,7 @@
 #include "../config.h"
 #include "../brain/brain.h"
 #include "../auv/auvtypes.h"
-#include "../parameters.h"
+#include "../model/parameters.h"
 #include <QUdpSocket>
 #include <QThread>
 #include <QTimer>

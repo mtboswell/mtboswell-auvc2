@@ -1,0 +1,48 @@
+The AUV uses a network interface, and accepts commands via a UDP port.  The AUV also broadcasts data via the same port.
+
+The AUV will respond to commands in the format "type[.[name]]=value[;...]", where "type" is a type of command or variable to be set, "name" is the name of the command or variable to be set, and "value" is the data needed to set the command.
+
+The AUV broadcasts data in a similar format, except that "type" and "name" describe the data being sent, and "value" hold the data.
+
+== Commands ==
+These are the Commands that the AUV will respond to.
+* Connect.To=[IP address] - Tells the AUV to send data to the given ip address on the CLIENT_DATA_PORT
+* Mode=[mode] - Sets the current AUV mode to mode.  Available modes are:
+** Running
+** Stopped
+** Killed
+** Reset
+* Calibrate.Depth=[depth] - Tells the AUV what its actual depth is, it will attempt to use this data to calibrate the depth sensor.  The best use is to send a value of 0 when the AUV is at the surface.  Other values may give buggy results as of 3/11/10.
+* Calibrate.WhiteBalance=auto - Re-white-balances the AUV's camera. (Untested)
+* Param.[parameter]=[value] - Sets Brain parameter [parameter] to value [value]
+* Input.[name]=[value] - Sets Brain input [name] to value [value]
+* Flag.Rec=[true|false] - Enables/disables video recording
+* Flag.Log=[true|false] - Enables/disables data logging (not implemented as of 3/11/10)
+* GetParams=all - Triggers the AUV to send a datagram containing all of the Brain parameters
+
+== Data ==
+The AUV will periodically broadcast several packets containing data from different internal sources.  As of this writing those sources are:
+* AUV - data describing the hardware state
+* Brain - data describing the controlling software state
+* Parameter - values of the parameters that control the Brain's functions
+
+The specific data being sent is described below:
+=== AUV ===
+* AUV.Mode=[???] - a number representing something that needs to be documented better
+* AUV.Heading=[number] - the AUV compass heading, in degrees from local magnetic north
+* AUV.Depth=[number] - the depth sensor reading, in feet
+* AUV.LeftThruster/RightThruster/LateralThruster/VerticalThruster=[integer] - the velocity of each thruster, range is from -127 to 127
+* AUV.ThrusterVoltage=[number] - Voltage of thruster power supply
+* AUV.ThrusterCurrent=[number] - Current through thruster power supply
+* AUV.ManualOverrideDisabled=[true|false] - Whether or not the physical on/off switch is disabled
+* AUV.CameraX=[???] - horizontal position of camera gimbal
+* AUV.CameraY=[???] - Vertical position of camera gimbal
+
+=== Brain ===
+* Brain.State=[0|1|2|3|4|5|6|7] - enum representing the current state of the Brain state machine
+* Brain.Time=[number] - Number of milliseconds used in each brain cycle.  This should not exceed the BRAIN_TIME_STEP config constant.  If it does, the brain will crash.
+
+=== Parameter ===
+The parameters are listed somewhere, and this feature does not work as of this writing.
+
+[[Category:Interfaces]]

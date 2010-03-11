@@ -9,7 +9,7 @@
 #include "auv/auv.h"
 //#include "brain/brain.h"
 #include "auv/camread.h"
-#include "model.h"
+#include "model/model.h"
 #include <iostream>
 #include <QDebug>
 using namespace std;
