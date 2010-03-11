@@ -1,4 +1,4 @@
-# Config stuff
+// Config stuff
 
 // STEP_TIME = 1/f for system.  200 = 5Hz
 #define STEP_TIME 200

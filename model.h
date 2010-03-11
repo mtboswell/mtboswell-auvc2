@@ -9,6 +9,7 @@
 #include "auv/auvtypes.h"
 #include "auv/camread.h"
 #include "brain/brain.h"      /* Model's header file */
+#include "parameters.h"
 #include "brain/rtwtypes.h"                  /* MathWorks types */
 
 		
@@ -32,10 +33,7 @@ class Model : public QThread
 		void stopRecordVideo(){record_video = false;}
 		void setRecordVideo(bool rec){record_video = rec;}
 		void setParam(QString name, double value);
-		// the two slots below are not implemented
-		void setIntParam(QString name, int value);
-		void setFloatParam(QString name, float value);
-		void setInput(QString name, float value);
+		void setInput(QString name, double value);
 
 	private slots:
 		// rt_OneStep should be called every 1/f seconds, which is 0.2 seconds (or 0.02 seconds, depending on the model)
@@ -52,6 +50,5 @@ class Model : public QThread
 		bool record_video;
 		QTime stepTimer;
 		boolean_T OverrunFlag;
-		QHash<QString, double*> parameters;
 
 };

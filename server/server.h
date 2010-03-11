@@ -2,17 +2,22 @@
 #define SERVER_H
 
 #include "../config.h"
+#include "../brain/brain.h"
+#include "../auv/auvtypes.h"
+#include "../parameters.h"
 #include <QUdpSocket>
 #include <QThread>
 #include <QTimer>
 #include <QByteArray>
+#include <QHostAddress>
+#include <QStringList>
+#include <QMutex>
 
-
-class server: public QThread
+class Server: public QThread
 {
 	Q_OBJECT
 	public:
-		server();
+		Server(QMutex* sensorMutex);
 		
 		
 	signals:
@@ -20,17 +25,28 @@ class server: public QThread
 		void stop();
 		void reset();
 		void kill();
+		void calibrateDepth(double);
 		void setParam(QString name, double value);
 		void setInput(QString name, double value);
+		void setRec(bool rec);
+		void setLog(bool log);
+	
+	public slots:
+		void sendSensorData(AUVSensors sens);
+		void sendBrainData(ExternalOutputs_brain outs, int brainTime);
+		void sendParams();
 		
 	private slots:
-		void sendData();
+		void readPendingDatagrams();
+		void doAction(QString, QString, QString);
 
 	private:
 		void processDatagram(QByteArray);
-		portNumber; // 5233 = last 3 digits of UPC of aqua's aquarium album + track number of "Barbie Girl"
+		void addDatum(QByteArray& datagram, QString type, QString name, QString value);
 		QUdpSocket* socket;
 		QTimer* timer;
+		QHostAddress remoteHost;
+		QMutex* sensorDataMutex;
 };
 
 #endif

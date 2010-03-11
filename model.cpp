@@ -35,32 +35,10 @@ Model::Model(QMutex* mutex){
 	myframe.cr = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
 	//qDebug("Done");
 
+	init_params();
+
 	record_video = false;
 	stepTimer.start();
-
-	// Parameter lookup table
-	//parameters["Stuff"] = &Brain_P.stuff;
-	parameters["Buoy_HueHigher"] = &Brain_P.Buoy_HueHigher;
-	parameters["Buoy_HueLower"] = &Brain_P.Buoy_HueLower;
-	parameters["Buoy_Saturation"] = &Brain_P.Buoy_Saturation;
-	parameters["Cam_Forward_XPosition_Kd"] = &Brain_P.Cam_Forward_XPosition_Kd;
-	parameters["Cam_Forward_XPosition_Ki"] = &Brain_P.Cam_Forward_XPosition_Ki;
-	parameters["Cam_Forward_XPosition_Kp"] = &Brain_P.Cam_Forward_XPosition_Kp;
-	parameters["Cam_Forward_YPosition_Kd"] = &Brain_P.Cam_Forward_YPosition_Kd;
-	parameters["Cam_Forward_YPosition_Ki"] = &Brain_P.Cam_Forward_YPosition_Ki;
-	parameters["Cam_Forward_YPosition_Kp"] = &Brain_P.Cam_Forward_YPosition_Kp;
-	parameters["Depth_Kd"] = &Brain_P.Depth_Kd;
-	parameters["Depth_Ki"] = &Brain_P.Depth_Ki;
-	parameters["Depth_Kp"] = &Brain_P.Depth_Kp;
-	parameters["Heading_Forward_Velocity"] = &Brain_P.Heading_Forward_Velocity;
-	parameters["Heading_Kd"] = &Brain_P.Heading_Kd;
-	parameters["Heading_Ki"] = &Brain_P.Heading_Ki;
-	parameters["Heading_Kp"] = &Brain_P.Heading_Kp;
-	parameters["Track_HueHigher"] = &Brain_P.Track_HueHigher;
-	parameters["Track_HueLower"] = &Brain_P.Track_HueLower;
-	parameters["Track_Saturation"] = &Brain_P.Track_Saturation;
-	parameters["Vision_Forward_Velocity"] = &Brain_P.Vision_Forward_Velocity;
-  
 }
 
 Model::~Model(){
@@ -159,8 +137,13 @@ void Model::setState(int state){
 void Model::setParam(QString name, double value){
 	if(parameters.contains(name)) *(parameters[name]) = value;	
 }
-// not sure if these are needed:
-void Model::setIntParam(QString name, int value){}
-void Model::setFloatParam(QString name, float value){}
 
-void Model::setInput(QString name, float value){} // [TODO]
+void Model::setInput(QString name, double value){
+	if(name == "RC_Heading") brain_U.RC_Heading = value;
+	if(name == "RC_ForwardVelocity") brain_U.RC_ForwardVelocity = value;
+	if(name == "RC_Strafe") brain_U.RC_Strafe = value;
+	if(name == "RC_Depth") brain_U.RC_Depth = value;
+	if(name == "Status") brain_U.Status = (int8_T) value;
+	if(name == "DesiredState") brain_U.Status = (int8_T) value;
+	if(name == "RC") brain_U.RC = (boolean_T) value;
+} 

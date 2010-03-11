@@ -2,22 +2,23 @@
 ## AUVC Start script
 cd ~/auvc
 ## Do a white balance at startup
-echo -n "Setting White Balance\n"
-if `v4lctl setattr "Auto White Balance" on` 
-then 
-sleep 3
-v4lctl setattr "Auto White Balance" off -v 0
-fi
-echo -n "Done\n"
+#echo -n "Setting White Balance\n"
+#if `v4lctl setattr "Auto White Balance" on` 
+#then 
+#sleep 3
+#v4lctl setattr "Auto White Balance" off -v 0
+#fi
+#echo -n "Done\n"
 #mkfifo video_passthru 2> /dev/null
-echo -n "Launching Agent\n"
+echo "Launching Agent"
 if !(hostname | grep auvt-auv > /dev/null)
 then
-./agent -s &
+#./agent -s 2> ./logs/run-`date +%F+%R`.log &
+./agent -s
 else
-./agent &
+./agent 2> ./logs/run-`date +%F+%R`.log &
 fi
-#sleep 3
+sleep 3
 #echo -n "Starting Video Stream\n"
 #mplayer -really-quiet -demuxer rawvideo -rawvideo fps=7:w=640:h=480:i420 -vo x11 video_passthru 2> /dev/null &
-echo -n "System Initiated\n"
+echo "System Initiated"

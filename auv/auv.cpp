@@ -13,16 +13,34 @@
 #include <QDebug>
 #include <QTime>
 
-AUV::AUV(bool simulate){
+AUV::AUV(bool simulate, QMutex* sensorMutex){
 	// 160ms = 6.25Hz rate
 	stepTime = 160;
+	//stepTime = STEP_TIME;
+
+	// Initialize data
+	data.status = READY;
+	data.orientation.yaw = 0;
+	data.depth = 0;
+	data.thrusterSpeeds[0] = 0;
+	data.thrusterSpeeds[1] = 0;
+	data.thrusterSpeeds[2] = 0;
+	data.thrusterSpeeds[3] = 0;
+	data.thrusterPower.voltage = 0;
+	data.thrusterPower.current = 0;
+	data.cameraX = 0;
+	data.cameraY = 0;
+	data.manualOverrideDisabled = false;
+	
+
+	wbProc = new QProcess(this);
 	
 	sensorTimer = new QTimer(this);
   	connect(sensorTimer, SIGNAL(timeout()), this, SLOT(readSensors()));
 	goTimer = new QTimer(this);
   	connect(goTimer, SIGNAL(timeout()), this, SLOT(externalControl()));
-  	
-  	dataMutex = new QMutex();
+
+  	dataMutex = sensorMutex;
 	
 	/* Initialize hardware */
 	adc = new ADC(ARDUINOPORT, 9600);
@@ -306,6 +324,14 @@ void AUV::setMotion(AUVMotion* velocity){
 	pControllers->setTrexSpeed(1, motor2speed);
 	pControllers->setTrexSpeed(2, velocity->vertical);
 
+}
+
+void AUV::autoWhiteBalance(){
+	wbProc->start("v4lctl setattr \"Auto White Balance\" on");
+	QTimer::singleShot(3000, this, SLOT(finishWhiteBalance()));
+}
+void AUV::finishWhiteBalance(){
+	wbProc->start("v4lctl setattr \"Auto White Balance\" on");
 }
 
 #endif /*AUV_CPP_*/
