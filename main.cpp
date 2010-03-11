@@ -96,6 +96,7 @@ int main(int argc, char *argv[]){
 	QObject::connect(server, SIGNAL(reset()), auv, SLOT(reset()));
 	QObject::connect(server, SIGNAL(kill()), auv, SLOT(kill()));
 	QObject::connect(server, SIGNAL(calibrateDepth(double)), auv, SLOT(setActualDepth(double)));
+	QObject::connect(server, SIGNAL(whiteBalance()), auv, SLOT(autoWhiteBalance()));
 
 	// From Brain to server
 	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), server, SLOT(sendBrainData(ExternalOutputs_brain, int)));
