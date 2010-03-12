@@ -10,7 +10,7 @@ Server::Server(QMutex* sensorMutex){
 //	connect(timer, SIGNAL(timeout()), this, SLOT(sendData()));
 
 	socket = new QUdpSocket(this);
-	socket->bind(QHostAddress::LocalHost, SERVER_DATA_PORT);
+	socket->bind(QHostAddress::Any, SERVER_DATA_PORT);
 	//socket->connectToHost("192.168.3.255", SERVER_DATA_PORT);
 	//if (socket->waitForConnected(1000))
 	//	qDebug("Connected!");
