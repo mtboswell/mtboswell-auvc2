@@ -36,6 +36,7 @@ HEADERS += dashboard/dashboard.h \
            auv/power.h \
            auv/uart.h \
 	   auv/mechanisms.h \
+	   auv/calibrateservos.h \
 	brain/AudioDefs.h \
 	brain/autobuild.h \
 	brain/bio_sig.h \
@@ -207,6 +208,7 @@ SOURCES += dashboard/dashboard.cpp \
            auv/power.cpp \
            auv/uart.cpp \
 	   auv/mechanisms.cpp \
+	   auv/calibrateservos.cpp \
            brain/brain.cpp \
            brain/brain_data.cpp \
            brain/rt_nonfinite.cpp \

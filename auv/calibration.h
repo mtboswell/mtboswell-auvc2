@@ -8,15 +8,15 @@ static volatile int depthZero = 89;
 // 116 = 4ft - taken in Kona Kai Pool in 2009
 
 // depthScale = sensor value change per foot of depth
-static volatile int depthScale = 7.500; 
+static volatile double depthScale = 7.500; 
 
 #define CAMERA_FRAME_WIDTH 640
 #define CAMERA_FRAME_HEIGHT 480
 
 // Camera Gimbal calibration
 #define GIMBAL_X_SERVO 1
-#define GIMBAL_X_ZERO 2500
-#define GIMBAL_X_MAX 3000
+#define GIMBAL_X_ZERO 2800
+#define GIMBAL_X_MAX 4000
 #define GIMBAL_X_MIN 2000
 
 #define GIMBAL_Y_SERVO 0
