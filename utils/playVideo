@@ -3,5 +3,5 @@ if [ -n "$1" ]
 then
 mplayer -really-quiet -demuxer rawvideo -rawvideo fps=4:w=640:h=480:i420 $1
 else
-mplayer -really-quiet -demuxer rawvideo -rawvideo fps=4:w=640:h=480:i420 recorded_video.yuv
+mplayer -really-quiet -demuxer rawvideo -rawvideo fps=4:w=640:h=480:i420 ../recorded_video.yuv
 fi

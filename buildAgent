@@ -1,6 +1,6 @@
 #! /bin/bash
 echo "Updating Brain" \
-&& ./updateBrain \
+&& ./utils/updateBrain \
 && echo "Generating Makefile" \
 && qmake -Wnone \
 && echo "Building..." \
