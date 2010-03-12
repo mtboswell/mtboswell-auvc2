@@ -40,3 +40,22 @@ If you use the video recording features, you will at some point want to view and
 To re-generate and re-compile all of the software automatically, just run ./build.  If it builds successfully, the script output will end with "Done!". If not, check the builderrors file for the cause of the problem.
 
 #################################################
+  ___      _      
+ / __|__ _| |_ ___
+| (__/ _` |  _(_-<
+ \___\__,_|\__/__/
+                  
+Cats, unlike AUVs, are not rumored to like water.  Most of them are entirely landlubbers, venturing otherwise only after death. Unlike some robots, cats are autonomous.  Whether this is a good thing is debatable, since most of that autonomy is wasted on things like sleeping and licking self. The one reliable function that a cat has is the ability to find the warmest, most comfortable spot in a room and attempt to stay there at all times. An AUV, on the other hand, must be conviced, through millions of dollars in grants and man-months, to do almost exactly the same thing.  AUVs must also be constantly maintained and recharged, while most cats come with a self-cleaning feature and a food-killing option.
+
+#################################################
+
+ ___          _    _                      _ 
+|   \ __ _ __| |_ | |__  ___  __ _ _ _ __| |
+| |) / _` (_-< ' \| '_ \/ _ \/ _` | '_/ _` |
+|___/\__,_/__/_||_|_.__/\___/\__,_|_| \__,_|
+                                            
+Like all good robots, this one can be told what it should do.  Because of the nifty network protocol (nnp), the command interface can take many forms.  The one most commonly seen is of the Dashboard variety. The Dashboard interface provides the commander with the opportunity to issue commands of several different sorts, including but not limited to: remotely controlling the AUV, adjusting parameters of the agent's brain, viewing vehicle state data, and other miscellaneous tasks. To use a dashboard, simply run the dashboard binary, then select "Connect to AUV" or other similar button/widget.  You may be asked to supply the IP address of the AUV, which is most likely 192.168.3.5.  Once connected, you should see video and sensor data, as well as be able to send commands to the AUV.  If the network connection is flaky or unreliable, the sensor data/video will not be updated as often, but the system will do everything in its power to make sure everything works.
+
+#################################################
+
+#################################################
