@@ -2,6 +2,7 @@
 ## AUVC Start script
 # make sure we're in the right dir
 cd ~/auvc
+mkdir logs > /dev/null
 echo "Launching Agent"
 # Try to detect whether we are running on the AUV, and call ./agent -s if we are not
 if !(hostname | grep auvt-auv > /dev/null); then
@@ -15,6 +16,6 @@ else
 	./agent 2> ./logs/run-`date +%F+%R`.log &
 fi
 echo -n "Starting Video Stream\n"
-./startVideoStream 192.168.3.2
+./utils/startVideoStream 192.168.3.2
 sleep 3
 echo "System Initiated"
