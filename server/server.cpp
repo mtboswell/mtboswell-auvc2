@@ -78,10 +78,13 @@ void Server::doAction(QString type, QString name, QString value){
 		if(remoteHost.setAddress(value)) qDebug() << "Sending all data to:" << value;
 		else qDebug() << "Failed to set client address";
 	}else if(type == "Mode"){
-		if(value == "Running") emit go();
-		else if(value == "Stopped") emit stop();
-		else if(value == "Killed") emit kill();
+		if(value == "Running" || value == "Run") emit go();
+		else if(value == "Stopped" || value == "Stop" || value == "Pause" || value == "Paused") emit stop();
+		else if(value == "Killed" || value == "Kill" || value == "kill") emit kill();
 		else if(value == "Reset") emit reset();
+	}else if(type == "Actuate" || type == "Activate"){
+		if(name == "SelfDestruct") qDebug() << "Self Destruct in 5...";
+		else if(name =="Mech" || name == "Mechanism") emit actuateMech(value);
 	}else if(type == "Calibrate"){
 		if(name == "Depth") emit calibrateDepth(value.toDouble());
 		else if(name == "WhiteBalance") emit whiteBalance();

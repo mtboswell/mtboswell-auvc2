@@ -13,10 +13,10 @@
 #include <QDebug>
 #include <QTime>
 
-AUV::AUV(bool simulate, QMutex* sensorMutex){
+AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 	// 160ms = 6.25Hz rate
-	stepTime = 160;
-	//stepTime = STEP_TIME;
+	//stepTime = 160;
+	stepTime = AUV_STEP_TIME;
 
 	// Initialize data
 	data.status = READY;
@@ -32,28 +32,33 @@ AUV::AUV(bool simulate, QMutex* sensorMutex){
 	data.cameraY = 0;
 	data.manualOverrideDisabled = false;
 	
-
+	// set up wb (white balance) process handling
 	wbProc = new QProcess(this);
 	
+	// set up sensor reads
 	sensorTimer = new QTimer(this);
   	connect(sensorTimer, SIGNAL(timeout()), this, SLOT(readSensors()));
-	goTimer = new QTimer(this);
-  	connect(goTimer, SIGNAL(timeout()), this, SLOT(externalControl()));
 
+	// Get mutex from main
   	dataMutex = sensorMutex;
 	
-	/* Initialize hardware */
+	/* Initialize hardware interfaces */
 	adc = new ADC(ARDUINOPORT, 9600);
 	imu = new IMU(IMUPORT);
 	pControllers = new Pololu(POLOLUPORT);
 	thrusterPower = new Power(POWERPORT);
 
-	data.manualOverrideDisabled = simulate;
+	// dirty hack to disable off switch when we don't have one attached.
+	data.manualOverrideDisabled = hardwareOverrideDisabled;
 
+	// Initialize mechanisms database
 	populateMechs(mechanisms);
 
+	// these flags may eventually be useful again
 	data.droppedLeft = false;
 	data.droppedRight = false;
+
+	// make sure the AUV hardware is ready to go
 	reset();
 }
 AUV::~AUV(){
@@ -67,8 +72,8 @@ AUV::~AUV(){
 }
 
 void AUV::run(){
-  	sensorTimer->start(stepTime);
-  	//goTimer->start(stepTime); // Now obsoleted by readSensors();  
+	// start the periodic sensor updates
+  	sensorTimer->start(AUV_STEP_TIME);
 	exec();
 }
 
@@ -88,6 +93,7 @@ void AUV::readSensors(){
 		data.status = PAUSED;
 	  	dataMutex->unlock();
 		stopThrusters();
+		emit hardwareOverride();
 	}else dataMutex->unlock();
 //	qDebug() << "Sensor Reading Time: " << QString::number(t.elapsed()) << "ms";
 	emit sensorUpdate(data);
@@ -133,6 +139,7 @@ void AUV::kill(){
 	data.status = KILLED;
 }
 
+// sets data.status based on the external switch
 void AUV::externalControl(){
   	dataMutex->lock();
 	/* Wait for go */
@@ -146,6 +153,7 @@ void AUV::externalControl(){
 		data.status = RUNNING;
 		dataMutex->unlock();
 	}
+	// uncomment below loop to block.  this isn't necessary and prevents reading sensors.
 	// wait for switch
 	//while(!getGo()) wait();  // should be pause()??
 }
@@ -245,15 +253,18 @@ void AUV::look(float x, float y){
 }
 
 
-void AUV::activateMechanism(mechanism mech){
-	QHashIterator<int, int> i(mech.positions);
+// Run servo sequence for given mechanism
+void AUV::activateMechanism(QString mech){
+	mechanism thisMech = mechanisms[mech];
+	QHashIterator<int, int> i(thisMech.positions);
 	while (i.hasNext()) {
 		i.next();
-		if(i.key() == 0) moveServo(mech.servo, i.value());
-		else QTimer::singleShot(i.key(), this, SLOT(moveServo(mech.servo, i.value())));
+		if(i.key() == 0) moveServo(thisMech.servo, i.value());
+		else QTimer::singleShot(i.key(), this, SLOT(moveServo(thisMech.servo, i.value())));
 	}
 }
 
+// Abstraction!
 void AUV::moveServo(int servo, int position){
 	pControllers->setPosAbs(servo, position);
 }
