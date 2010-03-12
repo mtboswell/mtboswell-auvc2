@@ -1,5 +1,5 @@
 #define USE_SERVER
-#include <QApplication>
+#include <QCoreApplication>
 #include <QMutex>
 #ifdef USE_SERVER
 #include "server/server.h"
@@ -19,7 +19,7 @@ static bool simulateSensors = false;
 
 int main(int argc, char *argv[]){
 
-	QApplication app(argc, argv);
+	QCoreApplication app(argc, argv);
 	QStringList args = app.arguments();
 	QString arg;
 	foreach(arg, args){
@@ -120,13 +120,12 @@ int main(int argc, char *argv[]){
 #endif
 	cerr << "Initialization Complete, System Online" << endl;
 
-	// Wait for threads to end?
-	// The main thread does nothing at the moment.
+	// Wait for threads to end? But they never will.
+	// The main event loop does nothing at the moment.
 /*
 	auv->wait();
 	brain->wait();
 	server->wait();
 */
-//	while(1) pause();
 	return app.exec();
 }

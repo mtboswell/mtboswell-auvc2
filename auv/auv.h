@@ -1,12 +1,15 @@
-/* 
- * This file represents the AUV interface that all controlling code interacts with/uses to control the AUV
+/** 
+ * AUV Thread - hardware/sensors interface 
  * Author: Micah Boswell (micah27@vt.edu)
- * Date: 12/11/2009
+ * Created: 12/11/2009
+ * Description: polls hardware and emits sensor data, keeps track of hardware state, 
+ * sends commands to serial ports when needed
  */
 
 #ifndef AUV_H_
 #define AUV_H_
 
+// sensor datatypes defined in auvtypes.h
 #include "auvtypes.h"
 #include "ports.h"
 #include "calibration.h"
@@ -14,6 +17,7 @@
 #include "adc.h"
 #include "pololu.h"
 #include "power.h"
+#include "mechanisms.h"
 #include "../brain/brain.h"
 
 #include <QThread>
@@ -23,6 +27,7 @@
 #include <iostream>
 #include <string>
 
+// possibly not needed
 using namespace std;
 
 class AUV : public QThread {
@@ -30,20 +35,28 @@ class AUV : public QThread {
 	Q_OBJECT
 
 	public:
-	
+		// simulate was supposed to mean we shoudn't talk to the real serial ports	
+		// it never got implemented and will most likely be obsolete soon
 		AUV(bool simulate, QMutex* sensorMutex);
 		~AUV();
 		
+		// the setMotion api was a cool idea at one point, but we don't use it
 		void setMotion(int forward, int yaw, int vertical);
 		void setMotion(AUVMotion* velocity);
+
 		// set thruster speeds
 		void setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]);
+
 		// set all of the thruster speeds to 0
 		void stopThrusters();
+
+		// will be deprecated soon, maybe
 		void look(cameraPosition pos);
+		// use this instead
 		void look(float x, float y);
-		void dropLeft();
-		void dropRight();
+
+		// runs the appropriate mechanism script
+		void activateMechanism(mechanism mech);
 	
 		// get data from compass and orientation sensor
 		// orientation.yaw, roll, pitch
@@ -84,6 +97,7 @@ class AUV : public QThread {
 	private slots:
 		void readSensors();
 		void finishWhiteBalance();
+		void moveServo(int servo, int position);
 
 	private:
 		QTimer *sensorTimer;
