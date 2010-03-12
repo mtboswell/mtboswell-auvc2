@@ -15,6 +15,6 @@ else
 	./agent 2> ./logs/run-`date +%F+%R`.log &
 fi
 echo -n "Starting Video Stream\n"
-./startVideoStream
+./startVideoStream 192.168.3.2
 sleep 3
 echo "System Initiated"
