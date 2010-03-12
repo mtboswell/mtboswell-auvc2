@@ -1,2 +1,2 @@
 #! /bin/bash
-netcat -lu 127.0.0.1 -p 5237
+netcat -lu -p 5237
