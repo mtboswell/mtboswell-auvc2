@@ -43,6 +43,6 @@ The specific data being sent is described below:
 * Brain.Time=[number] - Number of milliseconds used in each brain cycle.  This should not exceed the BRAIN_TIME_STEP config constant.  If it does, the brain will crash.
 
 === Parameter ===
-The parameters are listed somewhere, and this feature does not work as of this writing.
+The parameters are listed somewhere. Each field is in the form Parameter.[name]=[number]
 
 [[Category:Interfaces]]

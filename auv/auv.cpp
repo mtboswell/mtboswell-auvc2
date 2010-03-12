@@ -50,6 +50,8 @@ AUV::AUV(bool simulate, QMutex* sensorMutex){
 
 	data.manualOverrideDisabled = simulate;
 
+	populateMechs(mechanisms);
+
 	data.droppedLeft = false;
 	data.droppedRight = false;
 	reset();
@@ -243,21 +245,17 @@ void AUV::look(float x, float y){
 }
 
 
-void AUV::dropLeft(){
-	//cout << "dropping left" << endl;
-	pControllers->setPosAbs(1, 600);
-	usleep(1000000);
-	pControllers->setPosAbs(1, 2500);
-  	QMutexLocker locker(dataMutex);
-	data.droppedLeft = true;
+void AUV::activateMechanism(mechanism mech){
+	QHashIterator<int, int> i(mech.positions);
+	while (i.hasNext()) {
+		i.next();
+		if(i.key() == 0) moveServo(mech.servo, i.value());
+		else QTimer::singleShot(i.key(), this, SLOT(moveServo(mech.servo, i.value())));
+	}
 }
 
-void AUV::dropRight(){
-	pControllers->setPosAbs(1, 4400);
-	usleep(1000000);
-	pControllers->setPosAbs(1, 2500);
-  	QMutexLocker locker(dataMutex);
-	data.droppedRight = true;
+void AUV::moveServo(int servo, int position){
+	pControllers->setPosAbs(servo, position);
 }
 
 
