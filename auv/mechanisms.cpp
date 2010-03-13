@@ -1,6 +1,6 @@
 #include "mechanisms.h"
 
-void populateMechs(QHash<QString, mechanism>& mechs){
+void populateMechs(QMap<QString, mechanism>& mechs){
 	mechanism DropLeft;
 	DropLeft.servo = 7; // all these values are guesses
 	DropLeft.positions.insert(0,4000);

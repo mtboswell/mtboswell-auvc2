@@ -181,8 +181,10 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
 		data.thrusterSpeeds[i] = thrusterSpeeds[i];
 	}
+
 	//qDebug("Conversation Over");
 }
+
 // set all of the thruster speeds to 0
 void AUV::stopThrusters(){
   	QMutexLocker locker(dataMutex);
@@ -255,17 +257,27 @@ void AUV::look(float x, float y){
 
 // Run servo sequence for given mechanism
 void AUV::activateMechanism(QString mech){
+	// TODO - use mechanism waitlist instead of ignoring multiple requests
+	if(!posQueue.isEmpty()) return;
 	mechanism thisMech = mechanisms[mech];
-	QHashIterator<int, int> i(thisMech.positions);
+	QMapIterator<int, int> i(thisMech.positions);
 	while (i.hasNext()) {
 		i.next();
 		if(i.key() == 0) moveServo(thisMech.servo, i.value());
-		else QTimer::singleShot(i.key(), this, SLOT(moveServo(thisMech.servo, i.value())));
+		else {
+			posQueue.enqueue(QString::number(thisMech.servo) + ":" + QString::number(i.value()));
+			QTimer::singleShot(i.key(), this, SLOT(moveServo()));
+		}
 	}
 }
 
 // Abstraction!
-void AUV::moveServo(int servo, int position){
+void AUV::moveServo(int servo = -1, int position = -1){
+	if(servo == -1 && position == -1) {
+		QString pos = posQueue.head();
+		servo = pos.split(':').value(0).toInt();
+		position = pos.split(':').value(1).toInt();
+	}
 	pControllers->setPosAbs(servo, position);
 }
 

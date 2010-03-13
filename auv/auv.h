@@ -25,6 +25,9 @@
 #include <QTimer>
 #include <QMutex>
 #include <QProcess>
+#include <QQueue>
+#include <QMap>
+#include <QMapIterator>
 #include <iostream>
 #include <string>
 
@@ -134,6 +137,8 @@ class AUV : public QThread {
 		
 		// this should be deprecated soon
 		int stepTime;
+		
+		QQueue<QString> posQueue;
 };
 
 #endif /*AUV_H_*/
