@@ -276,7 +276,7 @@ void AUV::moveServo(int servo, int position){
 	pControllers->setPosAbs(servo, position);
 }
 void AUV::moveServo(){
-	QString pos = posQueue.head();
+	QString pos = posQueue.dequeue();
 	int servo = pos.split(':').value(0).toInt();
 	int position = pos.split(':').value(1).toInt();
 	pControllers->setPosAbs(servo, position);
