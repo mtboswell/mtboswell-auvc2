@@ -94,6 +94,7 @@ class AUV : public QThread {
 
 		// runs the appropriate mechanism script to activate a given mechanism
 		void activateMechanism(QString mech);
+		void activateMechanism();
 
 		// will be deprecated soon, maybe
 		void look(cameraPosition pos);
@@ -140,6 +141,7 @@ class AUV : public QThread {
 		int stepTime;
 		
 		QQueue<QString> posQueue;
+		QQueue<QString> mechQueue;
 };
 
 #endif /*AUV_H_*/
