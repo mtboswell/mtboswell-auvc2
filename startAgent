@@ -9,13 +9,13 @@ if !(hostname | grep auvt-auv > /dev/null); then
 	if [ "$1" = "-b" ]; then 
 		./agent -s 2> ./logs/run-`date +%F+%R`.log &
 	else
-		./agent -s
+		./agent -s $1
 	fi
 else
 	# we should be on the AUV itself
 	./agent 2> ./logs/run-`date +%F+%R`.log &
+	echo "Starting Video Stream"
+	./utils/startVideoStream 192.168.3.2
+	sleep 3
 fi
-echo "Starting Video Stream"
-./utils/startVideoStream 192.168.3.2
-sleep 3
-echo "System Initiated"
+echo "Done Launching System"
