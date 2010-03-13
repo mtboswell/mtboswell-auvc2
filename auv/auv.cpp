@@ -258,7 +258,11 @@ void AUV::look(float x, float y){
 // Run servo sequence for given mechanism
 void AUV::activateMechanism(QString mech){
 	// TODO - use mechanism waitlist instead of ignoring multiple requests
-	if(!posQueue.isEmpty()) return;
+	if(!posQueue.isEmpty()){
+		mechQueue.enqueue(mech);
+		QTimer::singleShot(300, this, SLOT(activateMechanism()));
+		return;
+	} 
 	mechanism thisMech = mechanisms[mech];
 	QMapIterator<int, int> i(thisMech.positions);
 	while (i.hasNext()) {
@@ -269,6 +273,11 @@ void AUV::activateMechanism(QString mech){
 			QTimer::singleShot(i.key(), this, SLOT(moveServo()));
 		}
 	}
+}
+void AUV::activateMechanism(){
+	if(mechQueue.isEmpty()) return;
+	if(!posQueue.isEmpty()) QTimer::singleShot(300, this, SLOT(activateMechanism()));
+	activateMechanism(mechQueue.dequeue());
 }
 
 // Abstraction!
