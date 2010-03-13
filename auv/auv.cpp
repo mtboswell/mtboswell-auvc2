@@ -272,14 +272,16 @@ void AUV::activateMechanism(QString mech){
 }
 
 // Abstraction!
-void AUV::moveServo(int servo = -1, int position = -1){
-	if(servo == -1 && position == -1) {
-		QString pos = posQueue.head();
-		servo = pos.split(':').value(0).toInt();
-		position = pos.split(':').value(1).toInt();
-	}
+void AUV::moveServo(int servo, int position){
 	pControllers->setPosAbs(servo, position);
 }
+void AUV::moveServo(){
+	QString pos = posQueue.head();
+	int servo = pos.split(':').value(0).toInt();
+	int position = pos.split(':').value(1).toInt();
+	pControllers->setPosAbs(servo, position);
+}
+
 
 
 /* setMotion - tell the AUV which way to go

@@ -100,8 +100,9 @@ class AUV : public QThread {
 		// use this instead
 		void look(float x, float y);
 
-		// Move a servo to a given position.  Used for calibrating mechanisms.
+		// Move a servo to a given position.  Used for actuating mechanisms.
 		void moveServo(int servo, int position);
+		void moveServo();
 		
 	signals:
 		void sensorUpdate(AUVSensors data);
