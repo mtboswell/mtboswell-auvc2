@@ -15,6 +15,7 @@ int calibrateServos() {
 		if(servoNum < 0) break;
 		if(servoNum > 16){
 			cout << "That doesn't seem like an appropriate number for a servo. Starting over..." << endl;
+			cin.ignore();
 			continue;
 		}
 		cout << "Calibrating servo " << servoNum << "." << endl
