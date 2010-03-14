@@ -11,6 +11,7 @@ Server::Server(QMutex* sensorMutex){
 
 	socket = new QUdpSocket(this);
 	socket->bind(QHostAddress::Any, SERVER_DATA_PORT);
+	videoSocket = new QUdpSocket(this);
 	//socket->connectToHost("192.168.3.255", SERVER_DATA_PORT);
 	//if (socket->waitForConnected(1000))
 	//	qDebug("Connected!");
@@ -73,10 +74,14 @@ void Server::processDatagram(QByteArray datagram){
 void Server::doAction(QString type, QString name, QString value){
 	qDebug() << "Command Received, taking action:" << type << "." << name << "=" << value;
 	if(type == "Connect"){
-		// set remoteHost
-		//qDebug() << "Attempting to connect to:" << value;
-		if(remoteHost.setAddress(value)) qDebug() << "Sending all data to:" << value;
-		else qDebug() << "Failed to set client address";
+		if(name == "Data") {
+			// set remoteHost
+			//qDebug() << "Attempting to connect to:" << value;
+			if(remoteHost.setAddress(value)) qDebug() << "Sending all data to:" << value;
+			else qDebug() << "Failed to set client address";
+		}else if(name == "Video"){
+			videoSocket->connectToHost(value, VIDEO_PORT, QIODevice::WriteOnly);
+		}
 	}else if(type == "Mode"){
 		if(value == "Running" || value == "Run") emit go();
 		else if(value == "Stopped" || value == "Stop" || value == "Pause" || value == "Paused") emit stop();
@@ -182,4 +187,29 @@ void Server::addDatum(QByteArray& datagram, QString type, QString name, QString 
 	datagram += '=';
 	datagram += value;
 	datagram += ';';
+}
+
+
+void Server::sendVideo(){
+	if(videoSocket->state() != QAbstractSocket::ConnectedState) return;
+//  Code to get jpeg from QImage from brain:
+
+        QImage videoFrame = QImage(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
+        // Get full color video
+        // copy frame from signal to pixmap
+        int x = 639;
+        int y = 480;
+        unsigned int videoPixel;
+        for(int i = 307199; i >= 0; --i){
+                y--;
+                videoPixel = (0xFF000000) | ((((int)brain_B.RGBVid_R[i]) << 16)&0x00FF0000) | ((((int)brain_B.RGBVid_G[i]) << 8)&0x0000FF00) | (((int)brain_B.RGBVid_B[i])&0x000000FF);
+                videoFrame.setPixel(x, y, videoPixel);
+                if(y <= 0){
+                        x--;
+                        y = 480;
+                }
+        }
+        QImageWriter* jpegOut = new QImageWriter(videoSocket, "jpeg");
+        jpegOut->write(videoFrame);
+
 }

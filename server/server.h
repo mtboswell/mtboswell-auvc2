@@ -20,6 +20,8 @@
 #include <QHostAddress>
 #include <QStringList>
 #include <QMutex>
+#include <QImage>
+#include <QImageWriter>
 
 class Server: public QThread
 {
@@ -49,6 +51,7 @@ class Server: public QThread
 		void sendBrainData(ExternalOutputs_brain outs, int brainTime);
 		// sendParams() gets called when we get a GetParams command
 		void sendParams();
+		void sendVideo();
 		
 	private slots:
 		// readPendingDatagrams gets triggered every time the socket receives a datagram
@@ -63,6 +66,7 @@ class Server: public QThread
 		void addDatum(QByteArray& datagram, QString type, QString name, QString value);
 
 		QUdpSocket* socket;
+		QUdpSocket* videoSocket;
 		// timer may be usused
 		QTimer* timer;
 		// the ip address to send all the data to; may be a broadcast address
