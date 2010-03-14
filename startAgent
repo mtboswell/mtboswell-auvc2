@@ -5,7 +5,7 @@ cd ~/auvc
 
 # Create files if they are missing
 mkdir logs 2> /dev/null
-mkfifo video_passthru 2> /dev/null
+#mkfifo video_passthru 2> /dev/null
 
 echo "Launching Agent"
 
@@ -20,8 +20,9 @@ else
 	# we should be on the AUV itself
 	./agent 2> ./logs/run-`date +%F+%R`.log &
 
-	echo "Starting Video Stream"
-	./utils/startVideoStream 192.168.3.2
+# Video Streaming now built in.  This is no longer needed.
+#	echo "Starting Video Stream"
+#	./utils/startVideoStream 192.168.3.2
 
 	sleep 1
 fi

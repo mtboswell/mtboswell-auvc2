@@ -18,6 +18,10 @@ Server::Server(QMutex* sensorMutex){
 	connect(socket, SIGNAL(readyRead()),
 	     this, SLOT(readPendingDatagrams()));
 
+	
+        videoFrame = new QImage(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
+        videoOut = new QImageWriter(videoSocket, "jpeg");
+
 	if(parameters.isEmpty()) init_params(parameters);
 
 	//qDebug() << "We have " << parameters.size() << " parameters";
@@ -72,7 +76,7 @@ void Server::processDatagram(QByteArray datagram){
 }
 
 void Server::doAction(QString type, QString name, QString value){
-	qDebug() << "Command Received, taking action:" << type << "." << name << "=" << value;
+	bool completedCommand = true;
 	if(type == "Connect"){
 		if(name == "Data") {
 			// set remoteHost
@@ -81,7 +85,7 @@ void Server::doAction(QString type, QString name, QString value){
 			else qDebug() << "Failed to set client address";
 		}else if(name == "Video"){
 			videoSocket->connectToHost(value, VIDEO_PORT, QIODevice::WriteOnly);
-		}
+		}else completedCommand = false;
 	}else if(type == "Mode"){
 		if(value == "Running" || value == "Run") emit go();
 		else if(value == "Stopped" || value == "Stop" || value == "Pause" || value == "Paused") emit stop();
@@ -90,9 +94,11 @@ void Server::doAction(QString type, QString name, QString value){
 	}else if(type == "Actuate" || type == "Activate"){
 		if(name == "SelfDestruct") qDebug() << "Self Destruct in 5...";
 		else if(name =="Mech" || name == "Mechanism") emit actuateMech(value);
+		else completedCommand = false;
 	}else if(type == "Calibrate"){
 		if(name == "Depth") emit calibrateDepth(value.toDouble());
 		else if(name == "WhiteBalance") emit whiteBalance();
+		else completedCommand = false;
 	}else if(type == "Param"){
 		emit setParam(name, value.toDouble());
 	}else if(type == "Input"){
@@ -102,14 +108,19 @@ void Server::doAction(QString type, QString name, QString value){
 		else if(name == "noRec") emit setRec(false);
 		else if(name == "Log") emit setLog(value == "true");
 		else if(name == "noLog") emit setLog(false);
+		else completedCommand = false;
 	}else if(type == "GetParams"){
 		sendParams();
 	}else if(type == ""){
 		qDebug() << "Error: Missing Command Family";
+		return;
 	}else{
 		qDebug() << "Error: Invalid Command Family";
+		return;
 	}
 	//qDebug() << "Action completed";
+	if(completedCommand) ;//qDebug() << "Command Executed:" << type << "." << name << "=" << value;
+	else qDebug() << "Error: Unknown command";
 }
 
 void Server::sendSensorData(AUVSensors sens){
@@ -189,12 +200,11 @@ void Server::addDatum(QByteArray& datagram, QString type, QString name, QString 
 	datagram += ';';
 }
 
-
+// Sends a JPEG from the Brain over the VIDEO_PORT udp port.
 void Server::sendVideo(){
 	if(videoSocket->state() != QAbstractSocket::ConnectedState) return;
 //  Code to get jpeg from QImage from brain:
 
-        QImage videoFrame = QImage(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
         // Get full color video
         // copy frame from signal to pixmap
         int x = 639;
@@ -203,13 +213,13 @@ void Server::sendVideo(){
         for(int i = 307199; i >= 0; --i){
                 y--;
                 videoPixel = (0xFF000000) | ((((int)brain_B.RGBVid_R[i]) << 16)&0x00FF0000) | ((((int)brain_B.RGBVid_G[i]) << 8)&0x0000FF00) | (((int)brain_B.RGBVid_B[i])&0x000000FF);
-                videoFrame.setPixel(x, y, videoPixel);
+                videoFrame->setPixel(x, y, videoPixel);
                 if(y <= 0){
                         x--;
                         y = 480;
                 }
         }
-        QImageWriter* jpegOut = new QImageWriter(videoSocket, "jpeg");
-        jpegOut->write(videoFrame);
+        videoOut->write(*videoFrame);
+	//bitmapOut->write(bitmapFrame);
 
 }
