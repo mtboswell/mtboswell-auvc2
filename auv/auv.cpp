@@ -257,12 +257,19 @@ void AUV::look(float x, float y){
 
 // Run servo sequence for given mechanism
 void AUV::activateMechanism(QString mech){
-	// TODO - use mechanism waitlist instead of ignoring multiple requests
+	// Check to make sure we have that mech
+	if(!mechanisms.contains(mech)) {
+		qDebug() << "Error: Nonexistent Mechanism";
+		return;
+	}
+	// If we are already running a mechanism, add to waitlist
 	if(!posQueue.isEmpty()){
 		mechQueue.enqueue(mech);
 		QTimer::singleShot(300, this, SLOT(activateMechanism()));
 		return;
 	} 
+	// Once we are ready, activate the mech
+	qDebug() << "Actuating Mechanism:" << mech;
 	mechanism thisMech = mechanisms[mech];
 	QMapIterator<int, int> i(thisMech.positions);
 	while (i.hasNext()) {
@@ -359,11 +366,13 @@ void AUV::setMotion(AUVMotion* velocity){
 }
 
 void AUV::autoWhiteBalance(){
+	qDebug() << "Setting camera to automatic white balance";
 	wbProc->start("v4lctl setattr \"Auto White Balance\" on");
 	QTimer::singleShot(3000, this, SLOT(finishWhiteBalance()));
 }
 void AUV::finishWhiteBalance(){
 	wbProc->start("v4lctl setattr \"Auto White Balance\" on");
+	qDebug() << "Done white balancing";
 }
 
 #endif /*AUV_CPP_*/

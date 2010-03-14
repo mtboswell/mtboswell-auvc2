@@ -73,6 +73,8 @@ class Server: public QThread
 		QHostAddress remoteHost;
 		// this mutex is generally not used
 		QMutex* sensorDataMutex;
+        	QImage* videoFrame;
+        	QImageWriter* videoOut;
 };
 
 #endif
