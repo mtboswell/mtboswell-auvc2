@@ -1,7 +1,7 @@
 #include "ui_dashboard.h"
 #include "auvtypes.h"
-#include "brain.h"
-#include "auv/camread.h"
+//#include "brain.h"
+//#include "auv/camread.h"
 #include <QMutex>
 #include <QMutexLocker>
 #include <QGraphicsLineItem>
@@ -35,7 +35,7 @@ static QHash<QString,QString> AUVState;
      void updateSensorsView(AUVSensors values);
      
      // Receieve UDP Data slots
-     //void HandleAUVParam(QString &type, QString &name, QString &value);
+     void HandleAUVParam(QString &type, QString &name, QString &value);
  	
 
  private slots:
