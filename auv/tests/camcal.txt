@@ -1,0 +1,42 @@
+camera y (servo 0)
+down = 3800
+center = 2400
+up = 1600
+
+camera x (servo 1)
+right: 2000
+center: 2575
+left: 4100
+
+BlueBird:
+Right: 1900
+Center: 2450
+Left: 2900
+
+
+vertical thruster (5 (on left of connector)):
+2918 (full forward) (left)
+3000 (neutral) (straight)
+3053 (full reverse) (right)
+
+multiply normal RC us by 2.5 to get Trex numbers
+divide servo controller numbers by 2 to get normal RC us
+
+multiply numbers above by 1.25 to get Trex numbers
+
+normal center = 3000
+normal range = 500 to 5500
+
+Serial command to enable fine control:
+Motor 1: AF 0B 3F 55 2A
+Motor 2: AF 0C 3F 55 2A
+
+command to set accel:
+Motor 1: AF 0E 05 55 2A
+Motor 2: AF 0F 05 55 2A
+
+
+Drop mech servo (4):
+Drop left: 600
+Middle: 2500
+Drop right: 4400
