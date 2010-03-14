@@ -77,19 +77,39 @@ int camread_getframe(struct camframe frame, bool record_video) {
         memcpy(frame.y, lastframe.y, width*height);
         memcpy(frame.cb, lastframe.cb, width*height/4);
         memcpy(frame.cr, lastframe.cr, width*height/4);
-//	write(vidfd, lastframe.y, width*height);
-//	write(vidfd, lastframe.cb, width*height/4);
-//	write(vidfd, lastframe.cr, width*height/4);
 
         err = frameready;
         frameready = 0;
         pthread_mutex_unlock(&framelock);
         
+//	write(vidfd, lastframe.y, width*height);
+//	write(vidfd, lastframe.cb, width*height/4);
+//	write(vidfd, lastframe.cr, width*height/4);
     	if(record_video) {
 			write(logfd, lastframe.y, width*height);
 			write(logfd, lastframe.cb, width*height/4);
 			write(logfd, lastframe.cr, width*height/4);
     	}
+/*  Code to get jpeg from QImage from brain:
+        QImage videoFrame = QImage(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
+        // Get full color video
+        // copy frame from signal to pixmap
+        int x = 639;
+        int y = 480;
+        unsigned int videoPixel;
+        for(int i = 307199; i >= 0; --i){
+                y--;
+                videoPixel = (0xFF000000) | ((((int)brain_B.RGBVid_R[i]) << 16)&0x00FF0000) | ((((int)brain_B.RGBVid_G[i]) << 8)&0x0000FF00) | (((int)brain_B.RGBVid_B[i])&0x000000FF);
+                videoFrame.setPixel(x, y, videoPixel);
+                if(y <= 0){
+                        x--;
+                        y = 480;
+                }
+        }
+	//QImageWriter jpegOut = QImageWriter("vid.jpeg", "jpeg");
+	//jpegOut.write(videoFrame);	
+	videoFrame.save("vid.jpeg", "jpeg");
+*/
         
         /* Return the number of frames captured since the last call.
            NOTE: Only the most recent frame is returned. */
@@ -119,9 +139,9 @@ int camread_open(char const* campath, int w, int h) {
     
     logfd = open("recorded_video.yuv", O_WRONLY | O_APPEND | O_CREAT,
                  S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-//    vidfd = open("video_passthru", O_WRONLY | O_APPEND,
-//                 S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
-
+/*    vidfd = open("video_passthru", O_WRONLY | O_APPEND,
+                 S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+*/
     /* Set up the V4L2 format structure */
     memset(&fmt, 0, sizeof(struct v4l2_format));
     fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE; /* Always capture */
