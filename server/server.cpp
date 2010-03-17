@@ -84,6 +84,7 @@ void Server::doAction(QString type, QString name, QString value){
 			if(remoteHost.setAddress(value)) qDebug() << "Sending all data to:" << value;
 			else qDebug() << "Failed to set client address";
 		}else if(name == "Video"){
+			videoSocket->disconnectFromHost();
 			videoSocket->connectToHost(value, VIDEO_PORT, QIODevice::WriteOnly);
 		}else completedCommand = false;
 	}else if(type == "Mode"){
