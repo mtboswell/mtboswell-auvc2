@@ -67,6 +67,7 @@ class Server: public QThread
 
 		QUdpSocket* socket;
 		QUdpSocket* videoSocket;
+		QUdpSocket* bitmapSocket;
 		// timer may be usused
 		QTimer* timer;
 		// the ip address to send all the data to; may be a broadcast address
@@ -74,7 +75,9 @@ class Server: public QThread
 		// this mutex is generally not used
 		QMutex* sensorDataMutex;
         	QImage* videoFrame;
+        	QImage* bwFrame;
         	QImageWriter* videoOut;
+        	QImageWriter* bitmapOut;
 };
 
 #endif

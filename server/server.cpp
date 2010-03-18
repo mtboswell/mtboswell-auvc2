@@ -12,15 +12,18 @@ Server::Server(QMutex* sensorMutex){
 	socket = new QUdpSocket(this);
 	socket->bind(QHostAddress::Any, SERVER_DATA_PORT);
 	videoSocket = new QUdpSocket(this);
-	//socket->connectToHost("192.168.3.255", SERVER_DATA_PORT);
-	//if (socket->waitForConnected(1000))
-	//	qDebug("Connected!");
+	bitmapSocket = new QUdpSocket(this);
 	connect(socket, SIGNAL(readyRead()),
 	     this, SLOT(readPendingDatagrams()));
 
 	
         videoFrame = new QImage(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
         videoOut = new QImageWriter(videoSocket, "jpeg");
+
+        bwFrame = new QImage(160,120,QImage::Format_Mono);
+        bwFrame->setColor(0, 0xFF000000); 
+        bwFrame->setColor(1, 0xFFFF0000); 
+        bitmapOut = new QImageWriter(bitmapSocket, "jpeg");
 
 	if(parameters.isEmpty()) init_params(parameters);
 
@@ -86,6 +89,8 @@ void Server::doAction(QString type, QString name, QString value){
 		}else if(name == "Video"){
 			videoSocket->disconnectFromHost();
 			videoSocket->connectToHost(value, VIDEO_PORT, QIODevice::WriteOnly);
+			bitmapSocket->disconnectFromHost();
+			bitmapSocket->connectToHost(value, SECONDARY_VIDEO_PORT, QIODevice::WriteOnly);
 		}else completedCommand = false;
 	}else if(type == "Mode"){
 		if(value == "Running" || value == "Run") emit go();
@@ -203,10 +208,14 @@ void Server::addDatum(QByteArray& datagram, QString type, QString name, QString 
 
 // Sends a JPEG from the Brain over the VIDEO_PORT udp port.
 void Server::sendVideo(){
+	// This can be confusing:  Being in the connected state does not mean that there is a computer on the other end receiving the data.  It just means we have an address to send data to.
+	// The next line returns if we do not have an address to send to, but it doesn't know whether there is an actual receiver or not.
 	if(videoSocket->state() != QAbstractSocket::ConnectedState) return;
-//  Code to get jpeg from QImage from brain:
+	if(bitmapSocket->state() != QAbstractSocket::ConnectedState) qDebug() << "Bitmap socket not connected!";
 
-        // Get full color video
+	
+	// Get jpeg from QImage from brain:
+        // Get full color video (as opposed to the bitmaps)
         // copy frame from signal to pixmap
         int x = 639;
         int y = 480;
@@ -214,13 +223,45 @@ void Server::sendVideo(){
         for(int i = 307199; i >= 0; --i){
                 y--;
                 videoPixel = (0xFF000000) | ((((int)brain_B.RGBVid_R[i]) << 16)&0x00FF0000) | ((((int)brain_B.RGBVid_G[i]) << 8)&0x0000FF00) | (((int)brain_B.RGBVid_B[i])&0x000000FF);
+		// TODO - add filtered video overlay
                 videoFrame->setPixel(x, y, videoPixel);
                 if(y <= 0){
                         x--;
                         y = 480;
                 }
         }
+
+/* Get bitmap out of correct brain signal */
+
+        // Get processed video
+        // copy frame from signal to pixmap
+        x = 159;
+        y = 120;
+        for(int i = 19199; i >= 0; --i){
+                y--;
+                if(brain_Y.State == 2){
+                        bwFrame->setPixel(x, y, brain_B.BW_a[i]);
+                }else if(brain_Y.State == 3){
+                        if(brain_DWork.countTo < 4){
+                                if(i < 9600)    bwFrame->setPixel(x, y, brain_B.BWleft_i[i]);
+                                else    bwFrame->setPixel(x, y, brain_B.BWright_e[i-9600]);
+                        }
+                        else{
+                                bwFrame->setPixel(x, y, brain_B.DataTypeConversion_h[i]);
+                        }
+                }else if(brain_Y.State == 4){
+                        bwFrame->setPixel(x, y, brain_B.BW_p[i]);
+                }else if(brain_Y.State == 5){
+                        bwFrame->setPixel(x, y, brain_B.BW[i]);
+                }else bwFrame->setPixel(x, y, 0);
+
+                if(y <= 0){
+                        x--;
+                        y = 120;
+                }
+        }
+
         videoOut->write(*videoFrame);
-	//bitmapOut->write(bitmapFrame);
+	bitmapOut->write(*bwFrame);
 
 }
