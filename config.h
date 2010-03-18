@@ -13,3 +13,4 @@
 // VIDEO_PORT = UDP port used for video. 
 // 5235 = last 3 digits of UPC of aqua's aquarium album + track number of "Doctor Jones"
 #define VIDEO_PORT 5235
+#define SECONDARY_VIDEO_PORT 5239
