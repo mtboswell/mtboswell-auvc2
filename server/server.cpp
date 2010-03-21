@@ -28,9 +28,12 @@ Server::Server(QMutex* sensorMutex){
 	if(parameters.isEmpty()) init_params(parameters);
 
 	//qDebug() << "We have " << parameters.size() << " parameters";
+
+	logger = new DataLogger(this, "logs/test.log", 2000, DATA_LOG_STEP_TIME);
+	connect(this, SIGNAL(setLog(bool)), logger, SLOT(enable(bool)));
 }
 
-/* The default should work
+/* The default should work unless we need to do something weird
 void Server::run(){
 	timer->start(STEP_TIME);
 	exec();
@@ -130,41 +133,43 @@ void Server::doAction(QString type, QString name, QString value){
 }
 
 void Server::sendSensorData(AUVSensors sens){
-	if(remoteHost.isNull()) return;
 	//qDebug() << "Sending Sensor Data";
 	//sensorDataMutex->lock();
 
 	QByteArray sensordata;
 	sensordata.reserve(300);
 	//sens.stuff;
-	addDatum(sensordata, "AUV", "Mode", QString::number(sens.status));
-	addDatum(sensordata, "AUV", "Heading", QString::number(sens.orientation.yaw));
-	addDatum(sensordata, "AUV", "Depth", QString::number(sens.depth));
-	addDatum(sensordata, "AUV", "LeftThruster", QString::number((int) sens.thrusterSpeeds[0]));
-	addDatum(sensordata, "AUV", "RightThruster", QString::number((int) sens.thrusterSpeeds[1]));
-	addDatum(sensordata, "AUV", "LateralThruster", QString::number((int) sens.thrusterSpeeds[2]));
-	addDatum(sensordata, "AUV", "VerticalThruster", QString::number((int) sens.thrusterSpeeds[3]));
-	addDatum(sensordata, "AUV", "ThrusterVoltage", QString::number(sens.thrusterPower.voltage));
-	addDatum(sensordata, "AUV", "ThrusterCurrent", QString::number(sens.thrusterPower.current));
+	addDatum(sensordata, "AUV", "Mode", QString::number(sens.status), true);
+	addDatum(sensordata, "AUV", "Heading", QString::number(sens.orientation.yaw), true);
+	addDatum(sensordata, "AUV", "Depth", QString::number(sens.depth), true);
+	addDatum(sensordata, "AUV", "LeftThruster", QString::number((int) sens.thrusterSpeeds[0]), true);
+	addDatum(sensordata, "AUV", "RightThruster", QString::number((int) sens.thrusterSpeeds[1]), true);
+	addDatum(sensordata, "AUV", "LateralThruster", QString::number((int) sens.thrusterSpeeds[2]), true);
+	addDatum(sensordata, "AUV", "VerticalThruster", QString::number((int) sens.thrusterSpeeds[3]), true);
+	addDatum(sensordata, "AUV", "ThrusterVoltage", QString::number(sens.thrusterPower.voltage), true);
+	addDatum(sensordata, "AUV", "ThrusterCurrent", QString::number(sens.thrusterPower.current), true);
 	addDatum(sensordata, "AUV", "ManualOverrideDisabled", sens.manualOverrideDisabled?"true":"false");
-	addDatum(sensordata, "AUV", "CameraX", QString::number(sens.cameraX));
-	addDatum(sensordata, "AUV", "CameraY", QString::number(sens.cameraY));
+	addDatum(sensordata, "AUV", "CameraX", QString::number(sens.cameraX), true);
+	addDatum(sensordata, "AUV", "CameraY", QString::number(sens.cameraY), true);
 	sensordata.squeeze();
 	//sensorDataMutex->unlock();
+
+	if(remoteHost.isNull()) return;
 	// write to port
 	//qDebug() << "Sending Datagram:" << sensordata;
 	socket->writeDatagram(sensordata, remoteHost, CLIENT_DATA_PORT);
 }
 
 void Server::sendBrainData(ExternalOutputs_brain outs, int brainTime){
-	if(remoteHost.isNull()) return;
 	//qDebug() << "Sending Brain Data";
 	QByteArray datagram;
 	// Model Outputs
 	
 	//outs.stuff;
-	addDatum(datagram, "Brain", "State", QString::number(outs.State));
-	addDatum(datagram, "Brain", "Time", QString::number(brainTime));
+	addDatum(datagram, "Brain", "State", QString::number(outs.State), true);
+	addDatum(datagram, "Brain", "Time", QString::number(brainTime), true);
+
+	if(remoteHost.isNull()) return;
 	// write to port
 	//qDebug() << "Sending Datagram:" << datagram;
 	socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);
@@ -197,13 +202,14 @@ void Server::sendParams(){
 }
 
 
-void Server::addDatum(QByteArray& datagram, QString type, QString name, QString value){
+void Server::addDatum(QByteArray& datagram, QString type, QString name, QString value, bool log){
 	datagram += type;
 	datagram += '.';
 	datagram += name;
 	datagram += '=';
 	datagram += value;
 	datagram += ';';
+	if(log) logger->logData(type + '.' + name, value);
 }
 
 // Sends a JPEG from the Brain over the VIDEO_PORT udp port.
