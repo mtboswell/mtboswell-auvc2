@@ -13,6 +13,7 @@
 #include "../brain/brain.h"
 #include "../auv/auvtypes.h"
 #include "../model/parameters.h"
+#include "datalogger.h"
 #include <QUdpSocket>
 #include <QThread>
 #include <QTimer>
@@ -63,7 +64,7 @@ class Server: public QThread
 		// parse incoming data
 		void processDatagram(QByteArray);
 		// append a field to a datagram
-		void addDatum(QByteArray& datagram, QString type, QString name, QString value);
+		void addDatum(QByteArray& datagram, QString type, QString name, QString value, bool log = false);
 
 		QUdpSocket* socket;
 		QUdpSocket* videoSocket;
@@ -78,6 +79,8 @@ class Server: public QThread
         	QImage* bwFrame;
         	QImageWriter* videoOut;
         	QImageWriter* bitmapOut;
+
+		DataLogger* logger;
 };
 
 #endif

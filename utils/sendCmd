@@ -1,2 +1,2 @@
 #! /bin/bash
-echo -n $1 | netcat -ub -w1 192.168.`ifconfig | grep '192\.' | cut -b 29-29`.255 5233
+echo -n $1 | netcat -u -w1 192.168.`ifconfig | grep '192\.' | cut -b 29-29`.255 5233

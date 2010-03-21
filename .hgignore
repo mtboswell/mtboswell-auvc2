@@ -7,6 +7,6 @@ moc_*
 ui_*.h
 recorded_video.yuv
 brain.zip
-logs/*
+*.log
 agent
 Makefile

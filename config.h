@@ -1,9 +1,13 @@
 // Config stuff
 
-// BRAIN_STEP_TIME = 1/f for brain.  200 = 5Hz
+// BRAIN_STEP_TIME = 1000/f for brain.  200 = 5Hz
 #define BRAIN_STEP_TIME 200
-// AUV_STEP_TIME = 1/f for hardware/sensor update
+
+// AUV_STEP_TIME = 1000/f for hardware/sensor update
 #define AUV_STEP_TIME 160
+
+// DATA_LOG_STEP_TIME = 1000/f for the data logging frequency
+#define DATA_LOG_STEP_TIME 1000
 
 // DATA_PORT = UDP port used for data. 
 // 5233 = last 3 digits of UPC of aqua's aquarium album + track number of "Barbie Girl"
