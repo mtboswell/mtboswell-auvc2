@@ -8,5 +8,6 @@ ui_*.h
 recorded_video.yuv
 brain.zip
 *.log
+*.csv
 agent
 Makefile

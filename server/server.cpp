@@ -30,7 +30,7 @@ Server::Server(QMutex* sensorMutex){
 
 	//qDebug() << "We have " << parameters.size() << " parameters";
 
-	logger = new DataLogger(this, "logs/data-" + QDateTime::currentDateTime().toString("yyyy-MM-dd+hh:mm") + ".log", 1000, DATA_LOG_STEP_TIME);
+	logger = new DataLogger(this, "logs/data-" + QDateTime::currentDateTime().toString("yyyy-MM-dd+hh:mm") + ".csv", 1000, DATA_LOG_STEP_TIME, ",");
 	connect(this, SIGNAL(setLog(bool)), logger, SLOT(enable(bool)));
 }
 
