@@ -1,6 +1,6 @@
 #include "DashSocket.h"
 
-DashSocket::DashSocket(QHostAddress &addr, quint16 port) {
+DashSocket::DashSocket(QHostAddress addr, quint16 port) {
 	m_Sock.bind(port);
 	m_Addr = addr;
 	m_Port = port;

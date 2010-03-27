@@ -125,7 +125,7 @@ void IMU::process(const char* data, int len)
 bool sample = false;
 void* sample4Cal(void* hd)
 {
-    int fd = (int)hd;
+    int fd = *(int*)hd;
     char collect[] = {0x41};
     char r[255];
     int numRead = -1;

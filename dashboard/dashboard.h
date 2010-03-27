@@ -1,7 +1,9 @@
 #include "ui_dashboard.h"
 #include "auvtypes.h"
-//#include "brain.h"
+#include "brain.h"
 //#include "auv/camread.h"
+#include "../config.h"
+#include "DashSocket.h"
 #include <QMutex>
 #include <QMutexLocker>
 #include <QGraphicsLineItem>
@@ -28,11 +30,12 @@ static QHash<QString,QString> AUVState;
 	void setState(int state);
 	void startRecordVideo();
 	void stopRecordVideo();
+	void sendParam(QString key, QString value);
      
  public slots:
      // Interface update slots
-     void updateBrainView(ExternalOutputs_brain values, int brainTime);
-     void updateSensorsView(AUVSensors values);
+     //void updateBrainView(ExternalOutputs_brain values, int brainTime);
+     //void updateSensorsView(AUVSensors values);
      
      // Receieve UDP Data slots
      void HandleAUVParam(QString &type, QString &name, QString &value);
@@ -64,13 +67,13 @@ static QHash<QString,QString> AUVState;
      void on_buoyHeadingDGainSpinBox_valueChanged(double value);
      void on_buoyHeadingIGainSpinBox_valueChanged(double value);
      void on_buoyHeadingPGainSpinBox_valueChanged(double value);
-/*     void on_pathHeadingPGainSpinBox_valueChanged(double value);
+     void on_pathHeadingPGainSpinBox_valueChanged(double value);
      void on_pathHeadingIGainSpinBox_valueChanged(double value);
      void on_pathHeadingDGainSpinBox_valueChanged(double value);
      void on_pathYPGainSpinBox_valueChanged(double value);
      void on_pathYIGainSpinBox_valueChanged(double value);
      void on_pathYDGainSpinBox_valueChanged(double value);
-*/
+
      
      // Vision
      void on_pathHueHighSpinBox_valueChanged(double value);
@@ -98,6 +101,7 @@ static QHash<QString,QString> AUVState;
 
  private:
 	QMutex* modelMutex;  // Make it safe to access model data directly
+	DashSocket m_DS;
 	QGraphicsScene* headingScene;
         QGraphicsLineItem* headingLine;
         QLabel* rateLabel;
