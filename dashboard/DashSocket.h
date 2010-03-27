@@ -4,11 +4,12 @@
 #include <QUdpSocket>
 #include <QHostAddress>
 #include <QtCore>
+#include "../config.h"
 
 class DashSocket : public QObject {
 Q_OBJECT
 public:
-	DashSocket(QHostAddress &addr, quint16 port);
+	DashSocket(QHostAddress addr = QHostAddress(AUV_IP), quint16 port = SERVER_DATA_PORT);
 	virtual ~DashSocket();
 
 signals:

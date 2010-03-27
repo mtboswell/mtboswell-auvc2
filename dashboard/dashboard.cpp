@@ -8,7 +8,7 @@
 
 Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
      : QMainWindow(parent)
- {
+{
  	modelMutex = mutex;
  
     setupUi(this);
@@ -104,35 +104,72 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
      //process.close();
  
 }
- 
- 
+
+
 void Dashboard::startAction(){
-//	qDebug("Dashboard Attempting to start AUV");
 	statusBar()->showMessage(tr("Attempting to start AUV"), 2000);
-	emit startAUV();
+	emit sendParam("Mode", "Run");
 }
 void Dashboard::stopAction(){
 	statusBar()->showMessage(tr("Attempting to stop AUV"), 2000);
-	emit stopAUV();
+	emit sendParam("Mode", "Stop");
 }
 void Dashboard::resetAction(){
 	statusBar()->showMessage(tr("Attempting to reset AUV"), 2000);
-	emit resetAUV();
+	emit sendParam("Mode", "Reset");
 }
 void Dashboard::killAction(){
-	statusBar()->showMessage(tr("Attempting to terminate AUV"), 2000);
-	emit killAUV();
+	emit sendParam("Mode", "Kill");
 }
 
 void Dashboard::recordVideo(bool record){
-	if(record) statusBar()->showMessage(tr("Recording..."), 2000);
+/*	if(record) statusBar()->showMessage(tr("Recording..."), 2000);
 	else statusBar()->showMessage(tr("Stopping Recording..."), 2000);
 //	record_video = record;
 	if(record) emit startRecordVideo();
-	else emit stopRecordVideo();
+	else emit stopRecordVideo();*/
 }
 
-void Dashboard::updateSensorsView(AUVSensors values){
+void Dashboard::HandleAUVParam(QString &type, QString &name, QString &value) {
+	if (type == "Data") {
+		if (name == "Mode") {
+			QString modes[4];
+			modes[0] = "Ready";
+			modes[1] = "Running";
+			modes[2] = "Paused";
+			modes[3] = "Killed";
+			controlStateLabel->setText(modes[value.toInt()]);
+		} else if (name == "Heading")
+			headingLcdNumber->display(value.toInt());
+		else if (name == "Depth")
+			depthLcdNumber->display(value.toInt());
+		else if (name == "ThrusterVoltage")
+			thVoltageLcdNumber->display(value.toInt());
+		else if (name == "ThrusterCurrent")
+			thCurrentLcdNumber->display(value.toInt());
+		else if (name == "LeftThruster")
+			leftThrusterProgressBar->setValue(value.toInt());
+		else if (name == "RightThruster")
+			rightThrusterProgressBar->setValue(value.toInt());
+		else if (name == "LeftThruster")
+			leftThrusterProgressBar->setValue(value.toInt());
+		else if (name == "VerticalThruster")
+			vertThrusterProgressBar->setValue(value.toInt());
+		else if (name == "LateralThruster")
+			strafeThrusterProgressBar->setValue(value.toInt());
+		// cameraPosComboBox->setCurrentIndex
+		// headingLine->setRotation
+	} else if (type == "Brain") {
+		if (name == "State") {
+			stateLabel->setText(states.at(value.toInt()));
+			missionProgressBar->setValue(value.toInt() * (100 / 6));
+		} else if (name == "Time") {
+			rateLabel->setText("Processing at: " + QString::number(1.0/(value.toDouble()/1000.0)) + " Hz (" + QString::number(round(100.0/(value.toDouble()/1000.0)/5))+ "%)" );
+		}
+	}
+}
+
+/*void Dashboard::updateSensorsView(AUVSensors values){
 	
 	depthLcdNumber->display(values.depth);
 	headingLcdNumber->display(values.orientation.yaw);
@@ -164,15 +201,10 @@ void Dashboard::updateSensorsView(AUVSensors values){
 	cameraPosition camera;
 	bool droppedLeft;
 	bool droppedRight;
-	*/
-}
+	* /
+}*/
 
-void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
-	
-	//qDebug("Dashboard recieving data from Brain");
-
-	
-	//qDebug("Processing Brain Data");
+/*void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 	QTime bT;
 	bT.start();
 
@@ -234,161 +266,134 @@ void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 		}
 	}
 
-	// show centroid
-/*
-	if(values.State == 2)
-		//bwFrame.setPixel(x, y, brain_B.track1Bitmap[i]);
-	else if(values.State ==3){
-		if(brain_DWork.ErrorCountY > 3)
-		//	bwFrame.setPixel(x, y, brain_B.track3Bitmap[i]);
-		else if(brain_DWork.ErrorCountX > 3){
-			bwFrame.setPixel(centX1, 2, 1);
-		}
-		else{
-			bwFrame.setPixel(x, y, brain_B.track2Bitmap[i]);
-		}
-	}
-*/
 	bwPixmap = QPixmap::fromImage(bwFrame);
 	bitVideoLabel->setPixmap(bwPixmap);
 	
 	//qDebug("Brain Data on display");
 	//qDebug() << "Brain Display Time: " << QString::number(bT.elapsed()) << "ms";
 	
-}
+}*/
 
 // State Select
 void Dashboard::on_stateComboBox_activated(int index){
 	emit setState(index);
 }
 
-     
- // controller gains
+// controller gains
 void Dashboard::on_fwdVelocitySpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-	brain_P.Heading_Forward_Velocity = value;
+	emit sendParam("Parameter.Heading_Forward_Velocity", QString::number(value));
 }
 void Dashboard::on_headingDGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-	brain_P.Heading_Kd = value;
+	emit sendParam("Parameter.Heading_Kd", QString::number(value));
 }
 void Dashboard::on_headingIGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-	brain_P.Heading_Ki = value;
+	emit sendParam("Parameter.Heading_Ki", QString::number(value));
 }
 void Dashboard::on_headingPGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-	brain_P.Heading_Kp = value;
+	emit sendParam("Parameter.Heading_Kp", QString::number(value));
 }
 void Dashboard::on_depthDGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-	brain_P.Depth_Kd = value;
+	emit sendParam("Parameter.Depth_Kd", QString::number(value));
 }
 void Dashboard::on_depthIGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-	brain_P.Depth_Ki = value;
+	emit sendParam("Parameter.Depth_Ki", QString::number(value));
 }
 void Dashboard::on_depthPGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-	brain_P.Depth_Kp = value;
+	emit sendParam("Parameter.Depth_Kd", QString::number(value));
 }
 void Dashboard::on_approachVelocitySpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
-	brain_P.Vision_Forward_Velocity = value;
+//	brain_P.Vision_Forward_Velocity = value;
 }
 void Dashboard::on_buoyDepthDGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
-	brain_P.Cam_Forward_YPosition_Kd = value;
+//	brain_P.Cam_Forward_YPosition_Kd = value;
 }
 void Dashboard::on_buoyDepthIGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
-	brain_P.Cam_Forward_YPosition_Ki = value;
+//	brain_P.Cam_Forward_YPosition_Ki = value;
 }
 void Dashboard::on_buoyDepthPGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
-	brain_P.Cam_Forward_YPosition_Kp = value;
+//	brain_P.Cam_Forward_YPosition_Kp = value;
 }
 void Dashboard::on_buoyHeadingDGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
-	brain_P.Cam_Forward_XPosition_Kd = value;
+//	brain_P.Cam_Forward_XPosition_Kd = value;
 }
 void Dashboard::on_buoyHeadingIGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
-	brain_P.Cam_Forward_XPosition_Ki = value;
+//	brain_P.Cam_Forward_XPosition_Ki = value;
 } 
 void Dashboard::on_buoyHeadingPGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
-	brain_P.Cam_Forward_XPosition_Kp = value;
+//	brain_P.Cam_Forward_XPosition_Kp = value;
 }
-/*
+
 void Dashboard::on_pathHeadingDGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
-	brain_P.Cam_Down_XPos_Kd = value;
+//	brain_P.Cam_Down_XPos_Kd = value;
 }
+
 void Dashboard::on_pathHeadingIGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
-	brain_P.Cam_Down_XPos_Ki = value;
+//	brain_P.Cam_Down_XPos_Ki = value;
 } 
 void Dashboard::on_pathHeadingPGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
-	brain_P.Cam_Down_XPos_Kp = value;
+//	brain_P.Cam_Down_XPos_Kp = value;
 }
 void Dashboard::on_pathYDGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
-	brain_P.Cam_Down_YPos_Kd = value;
+//	brain_P.Cam_Down_YPos_Kd = value;
 }
 void Dashboard::on_pathYIGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
-	brain_P.Cam_Down_YPos_Ki = value;
+//	brain_P.Cam_Down_YPos_Ki = value;
 } 
 void Dashboard::on_pathYPGainSpinBox_valueChanged(double value){
 	QMutexLocker locker(modelMutex);
-	brain_P.Cam_Down_YPos_Kp = value;
+//	brain_P.Cam_Down_YPos_Kp = value;
 }
-*/
 
 // Vision
 void Dashboard::on_pathHueHighSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-	brain_P.Track_HueHigher = value;
+//	QMutexLocker locker(modelMutex);
+	emit sendParam("Parameter.Track_HueHigher", QString::number(value));
 }
 void Dashboard::on_pathHueLowSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-	brain_P.Track_HueLower = value;
+//	QMutexLocker locker(modelMutex);
+	emit sendParam("Parameter.Track_HueLower", QString::number(value));
 }
 void Dashboard::on_pathSaturationSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-	brain_P.Track_Saturation = value;
+//	QMutexLocker locker(modelMutex);
+	emit sendParam("Parameter.Track_Saturation", QString::number(value));
 }
 void Dashboard::on_buoyHueHighSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-	brain_P.Buoy_HueHigher = value;
+//	QMutexLocker locker(modelMutex);
+	emit sendParam("Parameter.Buoy_HueHigher", QString::number(value));
 }
 void Dashboard::on_buoyHueLowSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-	brain_P.Buoy_HueLower = value;
+//	QMutexLocker locker(modelMutex);
+	emit sendParam("Parameter.Buoy_HueLower", QString::number(value));
 }
 void Dashboard::on_buoySaturationSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-	brain_P.Buoy_Saturation = value;
+//	QMutexLocker locker(modelMutex);
+	emit sendParam("Parameter.Buoy_Saturation", QString::number(value));
 }
 
 // Calibration
 void Dashboard::on_zeroDepthPushButton_clicked(){
-	emit setDepth(0);
+	emit sendParam("Calibrate.Depth", "0");
 }
 void Dashboard::on_setActualDepthPushButton_clicked(){
-	emit setDepth(actualDepthDoubleSpinBox->value());
+//	emit setDepth(actualDepthDoubleSpinBox->value());
+	emit sendParam("Calibrate.Depth", QString::number(actualDepthDoubleSpinBox->value()));
 }
 
 
 void Dashboard::on_controlGroupBox_toggled(bool rc){
-	QMutexLocker locker(modelMutex);
-	if(rc) brain_U.RC = 1;
-	else {
-		brain_U.RC = 0;
-		stopAction();
-	}
+	emit sendParam("Mode", "Stop");
 }
 void Dashboard::on_desiredDepthSlider_valueChanged(int value){
 	QMutexLocker locker(modelMutex);

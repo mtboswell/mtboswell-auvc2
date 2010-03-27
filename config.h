@@ -13,3 +13,6 @@
 // VIDEO_PORT = UDP port used for video. 
 // 5235 = last 3 digits of UPC of aqua's aquarium album + track number of "Doctor Jones"
 #define VIDEO_PORT 5235
+
+// AUV_IP = IP address of AUV
+#define AUV_IP "192.168.3.5"
