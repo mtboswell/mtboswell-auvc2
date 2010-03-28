@@ -1,10 +1,11 @@
 #include "DashSocket.h"
+#include <QDebug>
 
 DashSocket::DashSocket(QHostAddress addr, quint16 port) {
 	m_Sock.bind(port);
-	m_Addr = addr;
-	m_Port = port;
-	QObject::connect(&m_Sock, SIGNAL(ReadyRead()),
+	m_Addr = AUV_IP;
+	m_Port = SERVER_DATA_PORT;
+	QObject::connect(&m_Sock, SIGNAL(readyRead()),
 					 this, SLOT(HandleDatagram()));
 }
 
@@ -19,7 +20,7 @@ void DashSocket::SendParam(QString key, QString value) {
 	out.append(value);
 	out.append(";");
 	m_Sock.writeDatagram(out, m_Addr, m_Port);
-	
+	qDebug() << "Wrote datagram: " << out;
 }
 
 void DashSocket::HandleDatagram() {

@@ -3,7 +3,7 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = agent
+TARGET = dashboard
 CONFIG += qt gui
 QT += network  # phonon 
 DEPENDPATH += . \

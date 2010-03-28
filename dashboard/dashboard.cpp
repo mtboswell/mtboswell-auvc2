@@ -133,7 +133,7 @@ void Dashboard::recordVideo(bool record){
 	else emit stopRecordVideo();*/
 }
 
-void Dashboard::HandleAUVParam(QString &type, QString &name, QString &value) {
+void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 	if (type == "Data") {
 		if (name == "Mode") {
 			QString modes[4];
