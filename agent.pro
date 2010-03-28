@@ -21,6 +21,7 @@ INCLUDEPATH += . \
 		server
 # Input
 HEADERS += dashboard/dashboard.h \
+    dashboard/DashSocket.h \
 	   server/server.h \
 	   server/datalogger.h \
 	   model/parameters.h \
@@ -196,6 +197,7 @@ HEADERS += dashboard/dashboard.h \
 	brain/vip_sim.h 
 FORMS += dashboard/dashboard.ui
 SOURCES += dashboard/dashboard.cpp \
+    dashboard/DashSocket.cpp \
 	   server/server.cpp \
            main.cpp \
            model/model.cpp \
