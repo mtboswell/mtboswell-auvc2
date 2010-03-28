@@ -11,6 +11,7 @@
 #include <QProcess>
 #include <QX11EmbedContainer>
 #include <QVBoxLayout>
+#include <QtGui>
 
 static QHash<QString,QString> AUVState;
 

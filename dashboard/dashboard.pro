@@ -4,7 +4,7 @@
 
 TEMPLATE = app
 TARGET = agent
-CONFIG += qt
+CONFIG += qt gui
 QT += network  # phonon 
 DEPENDPATH += . \
 	      .. \

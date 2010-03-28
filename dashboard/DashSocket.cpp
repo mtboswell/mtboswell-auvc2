@@ -19,6 +19,7 @@ void DashSocket::SendParam(QString key, QString value) {
 	out.append(value);
 	out.append(";");
 	m_Sock.writeDatagram(out, m_Addr, m_Port);
+	
 }
 
 void DashSocket::HandleDatagram() {

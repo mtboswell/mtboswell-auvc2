@@ -20,6 +20,9 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
  	connect(actionQuit, SIGNAL(triggered()), this, SLOT(close()));
  	connect(actionRecord_Video, SIGNAL(triggered(bool)), this, SLOT(recordVideo(bool)));
  	
+ 	connect(&m_DS, SIGNAL(GotAUVUpdate(QString,QString,QString)), this, SLOT(HandleAUVParam(QString,QString,QString)));
+ 	connect(this, SIGNAL(sendParam(QString,QString)), &m_DS, SLOT(SendParam(QString,QString)));
+ 	
  	// Set Default Values for gui inputs from model
  	
  	// controller gain initial settings
@@ -88,7 +91,7 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
 	bitVideoLabel->setScaledContents(true);
 
         verticalLayout_4->addWidget(&container);
-      process = new QProcess(&container);
+     /* process = new QProcess(&container);
 
      QString executable("mplayer");
 
@@ -99,7 +102,7 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
         arguments << "udp://:7960";
 	qDebug() << arguments;
 
-     process->start(executable, arguments);
+     process->start(executable, arguments);*/
 
      //process.close();
  
