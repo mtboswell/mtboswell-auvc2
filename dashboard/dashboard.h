@@ -10,6 +10,8 @@
 #include <QX11EmbedContainer>
 #include <QVBoxLayout>
 
+static QHash<QString,QString> AUVState;
+
  class Dashboard : public QMainWindow, private Ui::DashboardWindow
  {
      Q_OBJECT
@@ -31,6 +33,9 @@
      // Interface update slots
      void updateBrainView(ExternalOutputs_brain values, int brainTime);
      void updateSensorsView(AUVSensors values);
+     
+     // Receieve UDP Data slots
+     //void HandleAUVParam(QString &type, QString &name, QString &value);
  	
 
  private slots:
