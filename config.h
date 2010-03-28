@@ -15,4 +15,4 @@
 #define VIDEO_PORT 5235
 
 // AUV_IP = IP address of AUV
-#define AUV_IP "192.168.3.5"
+#define AUV_IP "127.0.0.1"
