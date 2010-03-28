@@ -13,6 +13,7 @@
 #include "../brain/brain.h"
 #include "../auv/auvtypes.h"
 #include "../model/parameters.h"
+#include "datalogger.h"
 #include <QUdpSocket>
 #include <QThread>
 #include <QTimer>
@@ -20,6 +21,8 @@
 #include <QHostAddress>
 #include <QStringList>
 #include <QMutex>
+#include <QImage>
+#include <QImageWriter>
 
 class Server: public QThread
 {
@@ -49,6 +52,7 @@ class Server: public QThread
 		void sendBrainData(ExternalOutputs_brain outs, int brainTime);
 		// sendParams() gets called when we get a GetParams command
 		void sendParams();
+		void sendVideo();
 		
 	private slots:
 		// readPendingDatagrams gets triggered every time the socket receives a datagram
@@ -60,15 +64,23 @@ class Server: public QThread
 		// parse incoming data
 		void processDatagram(QByteArray);
 		// append a field to a datagram
-		void addDatum(QByteArray& datagram, QString type, QString name, QString value);
+		void addDatum(QByteArray& datagram, QString type, QString name, QString value, bool log = false);
 
 		QUdpSocket* socket;
+		QUdpSocket* videoSocket;
+		QUdpSocket* bitmapSocket;
 		// timer may be usused
 		QTimer* timer;
 		// the ip address to send all the data to; may be a broadcast address
 		QHostAddress remoteHost;
 		// this mutex is generally not used
 		QMutex* sensorDataMutex;
+        	QImage* videoFrame;
+        	QImage* bwFrame;
+        	QImageWriter* videoOut;
+        	QImageWriter* bitmapOut;
+
+		DataLogger* logger;
 };
 
 #endif

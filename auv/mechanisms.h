@@ -3,17 +3,17 @@
  */
 #ifndef MECHANISMS
 #define MECHANISMS
-#include <QHash>
+#include <QMap>
 #include <QString>
 
 typedef struct {
 	int servo;
 	// int1 = time, int2 = position
-	QHash<int, int> positions;
+	QMap<int, int> positions;
 } mechanism;
 
-static QHash<QString, mechanism> mechanisms;
+static QMap<QString, mechanism> mechanisms;
 
-void populateMechs(QHash<QString, mechanism>& mechs);
+void populateMechs(QMap<QString, mechanism>& mechs);
 
 #endif

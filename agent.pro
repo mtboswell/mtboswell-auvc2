@@ -23,6 +23,7 @@ INCLUDEPATH += . \
 HEADERS += dashboard/dashboard.h \
     dashboard/DashSocket.h \
 	   server/server.h \
+	   server/datalogger.h \
 	   model/parameters.h \
            model/model.h \
            auv/adc.h \

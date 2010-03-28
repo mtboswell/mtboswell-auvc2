@@ -181,8 +181,10 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
 		data.thrusterSpeeds[i] = thrusterSpeeds[i];
 	}
+
 	//qDebug("Conversation Over");
 }
+
 // set all of the thruster speeds to 0
 void AUV::stopThrusters(){
   	QMutexLocker locker(dataMutex);
@@ -255,19 +257,47 @@ void AUV::look(float x, float y){
 
 // Run servo sequence for given mechanism
 void AUV::activateMechanism(QString mech){
+	// Check to make sure we have that mech
+	if(!mechanisms.contains(mech)) {
+		qDebug() << "Error: Nonexistent Mechanism";
+		return;
+	}
+	// If we are already running a mechanism, add to waitlist
+	if(!posQueue.isEmpty()){
+		mechQueue.enqueue(mech);
+		QTimer::singleShot(300, this, SLOT(activateMechanism()));
+		return;
+	} 
+	// Once we are ready, activate the mech
+	qDebug() << "Actuating Mechanism:" << mech;
 	mechanism thisMech = mechanisms[mech];
-	QHashIterator<int, int> i(thisMech.positions);
+	QMapIterator<int, int> i(thisMech.positions);
 	while (i.hasNext()) {
 		i.next();
 		if(i.key() == 0) moveServo(thisMech.servo, i.value());
-		else QTimer::singleShot(i.key(), this, SLOT(moveServo(thisMech.servo, i.value())));
+		else {
+			posQueue.enqueue(QString::number(thisMech.servo) + ":" + QString::number(i.value()));
+			QTimer::singleShot(i.key(), this, SLOT(moveServo()));
+		}
 	}
+}
+void AUV::activateMechanism(){
+	if(mechQueue.isEmpty()) return;
+	if(!posQueue.isEmpty()) QTimer::singleShot(300, this, SLOT(activateMechanism()));
+	activateMechanism(mechQueue.dequeue());
 }
 
 // Abstraction!
 void AUV::moveServo(int servo, int position){
 	pControllers->setPosAbs(servo, position);
 }
+void AUV::moveServo(){
+	QString pos = posQueue.dequeue();
+	int servo = pos.split(':').value(0).toInt();
+	int position = pos.split(':').value(1).toInt();
+	pControllers->setPosAbs(servo, position);
+}
+
 
 
 /* setMotion - tell the AUV which way to go
@@ -336,11 +366,13 @@ void AUV::setMotion(AUVMotion* velocity){
 }
 
 void AUV::autoWhiteBalance(){
+	qDebug() << "Setting camera to automatic white balance";
 	wbProc->start("v4lctl setattr \"Auto White Balance\" on");
 	QTimer::singleShot(3000, this, SLOT(finishWhiteBalance()));
 }
 void AUV::finishWhiteBalance(){
 	wbProc->start("v4lctl setattr \"Auto White Balance\" on");
+	qDebug() << "Done white balancing";
 }
 
 #endif /*AUV_CPP_*/

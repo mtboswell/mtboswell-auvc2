@@ -144,6 +144,6 @@ void Model::setInput(QString name, double value){
 	if(name == "RC_Strafe") brain_U.RC_Strafe = value;
 	if(name == "RC_Depth") brain_U.RC_Depth = value;
 	if(name == "Status") brain_U.Status = (int8_T) value;
-	if(name == "DesiredState") brain_U.Status = (int8_T) value;
+	if(name == "DesiredState") brain_U.DesiredState = (int8_T) value;
 	if(name == "RC") brain_U.RC = (boolean_T) value;
 } 

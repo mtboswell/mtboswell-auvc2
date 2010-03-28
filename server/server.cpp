@@ -1,6 +1,7 @@
 #include "server.h"
 #include <QDebug>
 #include <QHashIterator>
+#include <QDateTime>
 
 Server::Server(QMutex* sensorMutex){
 
@@ -11,18 +12,29 @@ Server::Server(QMutex* sensorMutex){
 
 	socket = new QUdpSocket(this);
 	socket->bind(QHostAddress::Any, SERVER_DATA_PORT);
-	//socket->connectToHost("192.168.3.255", SERVER_DATA_PORT);
-	//if (socket->waitForConnected(1000))
-	//	qDebug("Connected!");
+	videoSocket = new QUdpSocket(this);
+	bitmapSocket = new QUdpSocket(this);
 	connect(socket, SIGNAL(readyRead()),
 	     this, SLOT(readPendingDatagrams()));
+
+	
+        videoFrame = new QImage(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
+        videoOut = new QImageWriter(videoSocket, "jpeg");
+
+        bwFrame = new QImage(160,120,QImage::Format_Mono);
+        bwFrame->setColor(0, 0xFF000000); 
+        bwFrame->setColor(1, 0xFFFF0000); 
+        bitmapOut = new QImageWriter(bitmapSocket, "jpeg");
 
 	if(parameters.isEmpty()) init_params(parameters);
 
 	//qDebug() << "We have " << parameters.size() << " parameters";
+
+	logger = new DataLogger(this, "logs/data-" + QDateTime::currentDateTime().toString("yyyy-MM-dd+hh:mm") + ".csv", 1000, DATA_LOG_STEP_TIME, ",");
+	connect(this, SIGNAL(setLog(bool)), logger, SLOT(enable(bool)));
 }
 
-/* The default should work
+/* The default should work unless we need to do something weird
 void Server::run(){
 	timer->start(STEP_TIME);
 	exec();
@@ -71,12 +83,19 @@ void Server::processDatagram(QByteArray datagram){
 }
 
 void Server::doAction(QString type, QString name, QString value){
-	qDebug() << "Command Received, taking action:" << type << "." << name << "=" << value;
+	bool completedCommand = true;
 	if(type == "Connect"){
-		// set remoteHost
-		//qDebug() << "Attempting to connect to:" << value;
-		if(remoteHost.setAddress(value)) qDebug() << "Sending all data to:" << value;
-		else qDebug() << "Failed to set client address";
+		if(name == "Data") {
+			// set remoteHost
+			//qDebug() << "Attempting to connect to:" << value;
+			if(remoteHost.setAddress(value)) qDebug() << "Sending all data to:" << value;
+			else qDebug() << "Failed to set client address";
+		}else if(name == "Video"){
+			videoSocket->disconnectFromHost();
+			videoSocket->connectToHost(value, VIDEO_PORT, QIODevice::WriteOnly);
+			bitmapSocket->disconnectFromHost();
+			bitmapSocket->connectToHost(value, SECONDARY_VIDEO_PORT, QIODevice::WriteOnly);
+		}else completedCommand = false;
 	}else if(type == "Mode"){
 		if(value == "Running" || value == "Run") emit go();
 		else if(value == "Stopped" || value == "Stop" || value == "Pause" || value == "Paused") emit stop();
@@ -85,9 +104,11 @@ void Server::doAction(QString type, QString name, QString value){
 	}else if(type == "Actuate" || type == "Activate"){
 		if(name == "SelfDestruct") qDebug() << "Self Destruct in 5...";
 		else if(name =="Mech" || name == "Mechanism") emit actuateMech(value);
+		else completedCommand = false;
 	}else if(type == "Calibrate"){
 		if(name == "Depth") emit calibrateDepth(value.toDouble());
 		else if(name == "WhiteBalance") emit whiteBalance();
+		else completedCommand = false;
 	}else if(type == "Param"){
 		emit setParam(name, value.toDouble());
 	}else if(type == "Input"){
@@ -97,52 +118,59 @@ void Server::doAction(QString type, QString name, QString value){
 		else if(name == "noRec") emit setRec(false);
 		else if(name == "Log") emit setLog(value == "true");
 		else if(name == "noLog") emit setLog(false);
+		else completedCommand = false;
 	}else if(type == "GetParams"){
 		sendParams();
 	}else if(type == ""){
 		qDebug() << "Error: Missing Command Family";
+		return;
 	}else{
 		qDebug() << "Error: Invalid Command Family";
+		return;
 	}
 	//qDebug() << "Action completed";
+	if(completedCommand) ;//qDebug() << "Command Executed:" << type << "." << name << "=" << value;
+	else qDebug() << "Error: Unknown command";
 }
 
 void Server::sendSensorData(AUVSensors sens){
-	if(remoteHost.isNull()) return;
 	//qDebug() << "Sending Sensor Data";
 	//sensorDataMutex->lock();
 
 	QByteArray sensordata;
 	sensordata.reserve(300);
 	//sens.stuff;
-	addDatum(sensordata, "AUV", "Mode", QString::number(sens.status));
-	addDatum(sensordata, "AUV", "Heading", QString::number(sens.orientation.yaw));
-	addDatum(sensordata, "AUV", "Depth", QString::number(sens.depth));
-	addDatum(sensordata, "AUV", "LeftThruster", QString::number((int) sens.thrusterSpeeds[0]));
-	addDatum(sensordata, "AUV", "RightThruster", QString::number((int) sens.thrusterSpeeds[1]));
-	addDatum(sensordata, "AUV", "LateralThruster", QString::number((int) sens.thrusterSpeeds[2]));
-	addDatum(sensordata, "AUV", "VerticalThruster", QString::number((int) sens.thrusterSpeeds[3]));
-	addDatum(sensordata, "AUV", "ThrusterVoltage", QString::number(sens.thrusterPower.voltage));
-	addDatum(sensordata, "AUV", "ThrusterCurrent", QString::number(sens.thrusterPower.current));
+	addDatum(sensordata, "AUV", "Mode", QString::number(sens.status), true);
+	addDatum(sensordata, "AUV", "Heading", QString::number(sens.orientation.yaw), true);
+	addDatum(sensordata, "AUV", "Depth", QString::number(sens.depth), true);
+	addDatum(sensordata, "AUV", "LeftThruster", QString::number((int) sens.thrusterSpeeds[0]), true);
+	addDatum(sensordata, "AUV", "RightThruster", QString::number((int) sens.thrusterSpeeds[1]), true);
+	addDatum(sensordata, "AUV", "LateralThruster", QString::number((int) sens.thrusterSpeeds[2]), true);
+	addDatum(sensordata, "AUV", "VerticalThruster", QString::number((int) sens.thrusterSpeeds[3]), true);
+	addDatum(sensordata, "AUV", "ThrusterVoltage", QString::number(sens.thrusterPower.voltage), true);
+	addDatum(sensordata, "AUV", "ThrusterCurrent", QString::number(sens.thrusterPower.current), true);
 	addDatum(sensordata, "AUV", "ManualOverrideDisabled", sens.manualOverrideDisabled?"true":"false");
-	addDatum(sensordata, "AUV", "CameraX", QString::number(sens.cameraX));
-	addDatum(sensordata, "AUV", "CameraY", QString::number(sens.cameraY));
+	addDatum(sensordata, "AUV", "CameraX", QString::number(sens.cameraX), true);
+	addDatum(sensordata, "AUV", "CameraY", QString::number(sens.cameraY), true);
 	sensordata.squeeze();
 	//sensorDataMutex->unlock();
+
+	if(remoteHost.isNull()) return;
 	// write to port
 	//qDebug() << "Sending Datagram:" << sensordata;
 	socket->writeDatagram(sensordata, remoteHost, CLIENT_DATA_PORT);
 }
 
 void Server::sendBrainData(ExternalOutputs_brain outs, int brainTime){
-	if(remoteHost.isNull()) return;
 	//qDebug() << "Sending Brain Data";
 	QByteArray datagram;
 	// Model Outputs
 	
 	//outs.stuff;
-	addDatum(datagram, "Brain", "State", QString::number(outs.State));
-	addDatum(datagram, "Brain", "Time", QString::number(brainTime));
+	addDatum(datagram, "Brain", "State", QString::number(outs.State), true);
+	addDatum(datagram, "Brain", "Time", QString::number(brainTime), true);
+
+	if(remoteHost.isNull()) return;
 	// write to port
 	//qDebug() << "Sending Datagram:" << datagram;
 	socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);
@@ -175,11 +203,72 @@ void Server::sendParams(){
 }
 
 
-void Server::addDatum(QByteArray& datagram, QString type, QString name, QString value){
+void Server::addDatum(QByteArray& datagram, QString type, QString name, QString value, bool log){
 	datagram += type;
 	datagram += '.';
 	datagram += name;
 	datagram += '=';
 	datagram += value;
 	datagram += ';';
+	if(log) logger->logData(type + '.' + name, value);
+}
+
+// Sends a JPEG from the Brain over the VIDEO_PORT udp port.
+void Server::sendVideo(){
+	// This can be confusing:  Being in the connected state does not mean that there is a computer on the other end receiving the data.  It just means we have an address to send data to.
+	// The next line returns if we do not have an address to send to, but it doesn't know whether there is an actual receiver or not.
+	if(videoSocket->state() != QAbstractSocket::ConnectedState) return;
+	if(bitmapSocket->state() != QAbstractSocket::ConnectedState) qDebug() << "Bitmap socket not connected!";
+
+	
+	// Get jpeg from QImage from brain:
+        // Get full color video (as opposed to the bitmaps)
+        // copy frame from signal to pixmap
+        int x = 639;
+        int y = 480;
+        unsigned int videoPixel;
+        for(int i = 307199; i >= 0; --i){
+                y--;
+                videoPixel = (0xFF000000) | ((((int)brain_B.RGBVid_R[i]) << 16)&0x00FF0000) | ((((int)brain_B.RGBVid_G[i]) << 8)&0x0000FF00) | (((int)brain_B.RGBVid_B[i])&0x000000FF);
+		// TODO - add filtered video overlay
+                videoFrame->setPixel(x, y, videoPixel);
+                if(y <= 0){
+                        x--;
+                        y = 480;
+                }
+        }
+
+/* Get bitmap out of correct brain signal */
+
+        // Get processed video
+        // copy frame from signal to pixmap
+        x = 159;
+        y = 120;
+        for(int i = 19199; i >= 0; --i){
+                y--;
+                if(brain_Y.State == 2){
+                        bwFrame->setPixel(x, y, brain_B.BW_a[i]);
+                }else if(brain_Y.State == 3){
+                        if(brain_DWork.countTo < 4){
+                                if(i < 9600)    bwFrame->setPixel(x, y, brain_B.BWleft_i[i]);
+                                else    bwFrame->setPixel(x, y, brain_B.BWright_e[i-9600]);
+                        }
+                        else{
+                                bwFrame->setPixel(x, y, brain_B.DataTypeConversion_h[i]);
+                        }
+                }else if(brain_Y.State == 4){
+                        bwFrame->setPixel(x, y, brain_B.BW_p[i]);
+                }else if(brain_Y.State == 5){
+                        bwFrame->setPixel(x, y, brain_B.BW[i]);
+                }else bwFrame->setPixel(x, y, 0);
+
+                if(y <= 0){
+                        x--;
+                        y = 120;
+                }
+        }
+
+        videoOut->write(*videoFrame);
+	bitmapOut->write(*bwFrame);
+
 }
