@@ -39,7 +39,7 @@ static QHash<QString,QString> AUVState;
      //void updateSensorsView(AUVSensors values);
      
      // Receieve UDP Data slots
-     void HandleAUVParam(QString &type, QString &name, QString &value);
+     void HandleAUVParam(QString type, QString name, QString value);
  	
 
  private slots:

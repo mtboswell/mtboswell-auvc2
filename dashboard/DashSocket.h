@@ -9,7 +9,7 @@
 class DashSocket : public QObject {
 Q_OBJECT
 public:
-	DashSocket(QHostAddress addr = QHostAddress(AUV_IP), quint16 port = SERVER_DATA_PORT);
+	DashSocket(QHostAddress addr = QHostAddress::Any, quint16 port = CLIENT_DATA_PORT);
 	virtual ~DashSocket();
 
 signals:
