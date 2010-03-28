@@ -25,6 +25,9 @@
 #include <QTimer>
 #include <QMutex>
 #include <QProcess>
+#include <QQueue>
+#include <QMap>
+#include <QMapIterator>
 #include <iostream>
 #include <string>
 
@@ -91,14 +94,16 @@ class AUV : public QThread {
 
 		// runs the appropriate mechanism script to activate a given mechanism
 		void activateMechanism(QString mech);
+		void activateMechanism();
 
 		// will be deprecated soon, maybe
 		void look(cameraPosition pos);
 		// use this instead
 		void look(float x, float y);
 
-		// Move a servo to a given position.  Used for calibrating mechanisms.
+		// Move a servo to a given position.  Used for actuating mechanisms.
 		void moveServo(int servo, int position);
+		void moveServo();
 		
 	signals:
 		void sensorUpdate(AUVSensors data);
@@ -134,6 +139,9 @@ class AUV : public QThread {
 		
 		// this should be deprecated soon
 		int stepTime;
+		
+		QQueue<QString> posQueue;
+		QQueue<QString> mechQueue;
 };
 
 #endif /*AUV_H_*/
