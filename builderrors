@@ -1,0 +1,4 @@
+auv/auv.cpp:77: warning: unused parameter ‘brainTime’
+brain/brain.cpp: In function ‘void brain_Chart()’:
+brain/brain.cpp:2295: warning: ‘BlobAnalysis_NUM_PIX_DW’ may be used uninitialized in this function
+brain/brain.cpp:2295: note: ‘BlobAnalysis_NUM_PIX_DW’ was declared here

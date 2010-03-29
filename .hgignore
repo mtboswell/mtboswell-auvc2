@@ -1,0 +1,13 @@
+# use glob syntax.
+syntax: glob
+
+*~
+*.o
+moc_*
+ui_*.h
+recorded_video.yuv
+brain.zip
+*.log
+*.csv
+agent
+Makefile
