@@ -4,6 +4,8 @@
 #define BRAIN_STEP_TIME 200
 // AUV_STEP_TIME = 1/f for hardware/sensor update
 #define AUV_STEP_TIME 160
+// DATA_LOG_STEP_TIME = time period for each log file update
+#define DATA_LOG_STEP_TIME 1000
 
 // DATA_PORT = UDP port used for data. 
 // 5233 = last 3 digits of UPC of aqua's aquarium album + track number of "Barbie Girl"
@@ -13,6 +15,8 @@
 // VIDEO_PORT = UDP port used for video. 
 // 5235 = last 3 digits of UPC of aqua's aquarium album + track number of "Doctor Jones"
 #define VIDEO_PORT 5235
+// port used for second video stream:
+#define SECONDARY_VIDEO_PORT 5239
 
 // AUV_IP = IP address of AUV
 #define AUV_IP "127.0.0.1"

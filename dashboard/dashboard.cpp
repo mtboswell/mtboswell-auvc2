@@ -26,7 +26,7 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
  	// Set Default Values for gui inputs from model
  	
  	// controller gain initial settings
-	fwdVelocitySpinBox->setValue(brain_P.Heading_Forward_Velocity);
+/*	fwdVelocitySpinBox->setValue(brain_P.Heading_Forward_Velocity);
 	headingDGainSpinBox->setValue(brain_P.Heading_Kd);
 	headingIGainSpinBox->setValue(brain_P.Heading_Ki);
 	headingPGainSpinBox->setValue(brain_P.Heading_Kp);
@@ -54,7 +54,7 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
 	buoyHueHighSpinBox->setValue(brain_P.Buoy_HueHigher);
 	buoyHueLowSpinBox->setValue(brain_P.Buoy_HueLower);
 	buoySaturationSpinBox->setValue(brain_P.Buoy_Saturation);
- 	
+*/ 	
 	// Populate State Combo Box
 
 	states << "Autonomous";
@@ -105,6 +105,9 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
      process->start(executable, arguments);*/
 
      //process.close();
+
+	// Connect to AUV
+	emit sendParam("Connect.Data", "This");
  
 }
 
@@ -134,7 +137,7 @@ void Dashboard::recordVideo(bool record){
 }
 
 void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
-	if (type == "Data") {
+	if (type == "AUV") {
 		if (name == "Mode") {
 			QString modes[4];
 			modes[0] = "Ready";
@@ -145,11 +148,11 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 		} else if (name == "Heading")
 			headingLcdNumber->display(value.toInt());
 		else if (name == "Depth")
-			depthLcdNumber->display(value.toInt());
+			depthLcdNumber->display(value.toDouble());
 		else if (name == "ThrusterVoltage")
-			thVoltageLcdNumber->display(value.toInt());
+			thVoltageLcdNumber->display(value.toDouble());
 		else if (name == "ThrusterCurrent")
-			thCurrentLcdNumber->display(value.toInt());
+			thCurrentLcdNumber->display(value.toDouble());
 		else if (name == "LeftThruster")
 			leftThrusterProgressBar->setValue(value.toInt());
 		else if (name == "RightThruster")
@@ -279,7 +282,7 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 
 // State Select
 void Dashboard::on_stateComboBox_activated(int index){
-	emit setState(index);
+	emit sendParam("Input.DesiredState", QString::number(index));
 }
 
 // controller gains
@@ -396,23 +399,28 @@ void Dashboard::on_setActualDepthPushButton_clicked(){
 
 
 void Dashboard::on_controlGroupBox_toggled(bool rc){
-	emit sendParam("Mode", "Stop");
+//	emit sendParam("Mode", "Stop");
+	emit sendParam("Input.RC", rc?"1":"0");
 }
 void Dashboard::on_desiredDepthSlider_valueChanged(int value){
 	QMutexLocker locker(modelMutex);
-	brain_U.RC_Depth = value;
+//	brain_U.RC_Depth = value;
+	emit sendParam("Input.RC_Depth", QString::number(value));
 }
 void Dashboard::on_desiredStrafeSlider_valueChanged(int value){
 	QMutexLocker locker(modelMutex);
-	brain_U.RC_Strafe = value;
+//	brain_U.RC_Strafe = value;
+	emit sendParam("Input.RC_Strafe", QString::number(value));
 }
 void Dashboard::on_desiredSpeedSlider_valueChanged(int value){
 	QMutexLocker locker(modelMutex);
-	brain_U.RC_ForwardVelocity = value;
+//	brain_U.RC_ForwardVelocity = value;
+	emit sendParam("Input.RC_ForwardVelocity", QString::number(value));
 }
 void Dashboard::on_desiredHeadingSpinBox_valueChanged(int value){
 	QMutexLocker locker(modelMutex);
-	brain_U.RC_Heading = value;
+//	brain_U.RC_Heading = value;
+	emit sendParam("Input.RC_Heading", QString::number(value));
 }
 void Dashboard::on_setAllZeroButton_clicked(){
 	desiredDepthSlider->setValue(0);

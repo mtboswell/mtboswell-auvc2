@@ -52,13 +52,13 @@ void Server::readPendingDatagrams()
 		socket->readDatagram(datagram.data(), datagram.size(),
 				 &sender, &senderPort);
 
-		processDatagram(datagram);
+		processDatagram(datagram, sender, senderPort);
 	}
 }
 
 
 // called for every new incoming udp datagram
-void Server::processDatagram(QByteArray datagram){
+void Server::processDatagram(QByteArray datagram, QHostAddress fromAddr, quint16 fromPort){
 	//qDebug() << "Processing Datagram:" << datagram;
 	QList<QByteArray> data = datagram.split(';');	
 	QByteArray datum;
@@ -76,15 +76,16 @@ void Server::processDatagram(QByteArray datagram){
 				if(cmd.size() > 1) name = cmd.at(1);
 			}
 		}
-		doAction(type, name, value);	
+		doAction(type, name, value, fromAddr, fromPort);	
 	}
 	//qDebug() << "Processed Datagram, echoing";
 	if(!remoteHost.isNull()) socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);
 }
 
-void Server::doAction(QString type, QString name, QString value){
+void Server::doAction(QString type, QString name, QString value, QHostAddress fromAddr, quint16 fromPort){
 	bool completedCommand = true;
 	if(type == "Connect"){
+		if(!value.contains('.')) value = fromAddr.toString();
 		if(name == "Data") {
 			// set remoteHost
 			//qDebug() << "Attempting to connect to:" << value;
@@ -109,7 +110,7 @@ void Server::doAction(QString type, QString name, QString value){
 		if(name == "Depth") emit calibrateDepth(value.toDouble());
 		else if(name == "WhiteBalance") emit whiteBalance();
 		else completedCommand = false;
-	}else if(type == "Param"){
+	}else if(type == "Param" || type == "Parameter"){
 		emit setParam(name, value.toDouble());
 	}else if(type == "Input"){
 		emit setInput(name, value.toDouble());
