@@ -108,9 +108,18 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
 
 	// Connect to AUV
 	emit sendParam("Connect.Data", "This");
+	emit sendParam("Connect.Video", "This");
+	emit sendParam("GetParams", "all");
  
 }
 
+/*
+// For future "reconnect" button
+void Dashboard::reconnectAction(){
+	emit sendParam("Connect.Data", "This");
+	emit sendParam("Connect.Video", "This");
+}
+*/
 
 void Dashboard::startAction(){
 	statusBar()->showMessage(tr("Attempting to start AUV"), 2000);
@@ -172,6 +181,52 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 		} else if (name == "Time") {
 			rateLabel->setText("Processing at: " + QString::number(1.0/(value.toDouble()/1000.0)) + " Hz (" + QString::number(round(100.0/(value.toDouble()/1000.0)/5))+ "%)" );
 		}
+	} else if (type == "Parameter") {
+		double paramVal = value.toDouble();
+		// update parameters
+		// controller gain initial settings
+		if(name == "Heading_Forward_Velocity") 
+			fwdVelocitySpinBox->setValue(paramVal);
+		else if(name == "Heading_Kd") 
+			headingDGainSpinBox->setValue(paramVal);
+		else if(name == "Heading_Ki") 
+			headingIGainSpinBox->setValue(paramVal);
+		else if(name == "Heading_Kp") 
+			headingPGainSpinBox->setValue(paramVal);
+		else if(name == "Depth_Kd") 
+			depthDGainSpinBox->setValue(paramVal);
+		else if(name == "Depth_Ki") 
+			depthIGainSpinBox->setValue(paramVal);
+		else if(name == "Depth_Kp") 
+			depthPGainSpinBox->setValue(paramVal);
+		else if(name == "Vision_Forward_Velocity") 
+			approachVelocitySpinBox->setValue(paramVal);
+		else if(name == "Cam_Forward_YPosition_Kd") 
+			buoyDepthDGainSpinBox->setValue(paramVal);
+		else if(name == "Cam_Forward_YPosition_Ki") 
+			buoyDepthIGainSpinBox->setValue(paramVal);
+		else if(name == "Cam_Forward_YPosition_Kp") 
+			buoyDepthPGainSpinBox->setValue(paramVal);
+		else if(name == "Cam_Forward_XPosition_Kd") 
+			buoyHeadingDGainSpinBox->setValue(paramVal);
+		else if(name == "Cam_Forward_XPosition_Ki") 
+			buoyHeadingIGainSpinBox->setValue(paramVal);
+		else if(name == "Cam_Forward_XPosition_Kp") 
+			buoyHeadingPGainSpinBox->setValue(paramVal);
+		// Vision
+		else if(name == "Track_HueHigher") 
+			pathHueHighSpinBox->setValue(paramVal);
+		else if(name == "Track_HueLower") 
+			pathHueLowSpinBox->setValue(paramVal);
+		else if(name == "Track_Saturation") 
+			pathSaturationSpinBox->setValue(paramVal);
+		else if(name == "Buoy_HueHigher") 
+			buoyHueHighSpinBox->setValue(paramVal);
+		else if(name == "Buoy_HueLower") 
+			buoyHueLowSpinBox->setValue(paramVal);
+		else if(name == "Buoy_Saturation") 
+			buoySaturationSpinBox->setValue(paramVal);
+
 	}
 }
 

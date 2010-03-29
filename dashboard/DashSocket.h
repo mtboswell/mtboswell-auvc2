@@ -26,6 +26,7 @@ private:
 	QHostAddress m_Addr;
 	quint16 m_Port;
 	QByteArray m_Buf;
+	QList<QByteArray> m_Acks;
 };
 
 #endif //#ifndef __DASHSOCKET_H
