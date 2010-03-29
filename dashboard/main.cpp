@@ -7,19 +7,16 @@ int main(int argc, char *argv[]){
 
 	QApplication app(argc, argv);
 	QStringList args = app.arguments();
-		/* Initialize Dashboard */
-		qDebug("Initializing Dashboard");
-		Dashboard* gui = new Dashboard();
+
+	/* Initialize Dashboard */
+	qDebug("Initializing Dashboard");
+	Dashboard* gui = new Dashboard();
 
 	qDebug("Connecting Components");
 
-		qDebug("Starting Dashboard");
-		gui->show();
+	qDebug("Starting Dashboard");
+	gui->show();
 
-	qDebug() << "Initialization Complete, System Online";
-
-
-	/* Done, keep running forever *****************************************************************/
-	// Start main event loop (does nothing)
+	// Start main event loop
 	return app.exec();
 }

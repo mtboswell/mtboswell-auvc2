@@ -1,11 +1,6 @@
-#define USE_SERVER
 #include <QCoreApplication>
 #include <QMutex>
-#ifdef USE_SERVER
 #include "server/server.h"
-#else
-#include "dashboard/dashboard.h"
-#endif
 #include "auv/auv.h"
 #include "auv/calibrateservos.h"
 //#include "brain/brain.h"
@@ -56,15 +51,9 @@ int main(int argc, char *argv[]){
 
 	AUV* auv = new AUV(&sensorMutex, noHardSwitch);
 
-	#ifndef USE_SERVER
-		/* Initialize Dashboard */
-		qDebug("Initializing Dashboard");
-		Dashboard* gui = new Dashboard(0, &modelMutex);
-	#else
-		/* Initialize Server */
-		qDebug("Initializing Server");
-		Server* server = new Server(&sensorMutex);
-	#endif
+	/* Initialize Server */
+	qDebug("Initializing Server");
+	Server* server = new Server(&sensorMutex);
 
 	/* Initialize Brain */
 	qDebug("Initializing Model");
@@ -81,47 +70,27 @@ int main(int argc, char *argv[]){
 	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), auv, SLOT(inputFromBrain(ExternalOutputs_brain, int)));
 	
 
-	#ifndef USE_SERVER
-		// From AUV to GUI
-		QObject::connect(auv, SIGNAL(sensorUpdate(AUVSensors)), gui, SLOT(updateSensorsView(AUVSensors)));
+	// From AUV to Server
+	QObject::connect(auv, SIGNAL(sensorUpdate(AUVSensors)), server, SLOT(sendSensorData(AUVSensors)));
 
-		// From GUI to AUV
-		QObject::connect(gui, SIGNAL(startAUV()), auv, SLOT(goAUV()));
-		QObject::connect(gui, SIGNAL(stopAUV()), auv, SLOT(stop()));
-		QObject::connect(gui, SIGNAL(resetAUV()), auv, SLOT(reset()));
-		QObject::connect(gui, SIGNAL(killAUV()), auv, SLOT(kill()));
-		QObject::connect(gui, SIGNAL(setDepth(double)), auv, SLOT(setActualDepth(double)));
+	// From server to AUV
+	QObject::connect(server, SIGNAL(go()), auv, SLOT(goAUV()));
+	QObject::connect(server, SIGNAL(stop()), auv, SLOT(stop()));
+	QObject::connect(server, SIGNAL(reset()), auv, SLOT(reset()));
+	QObject::connect(server, SIGNAL(kill()), auv, SLOT(kill()));
+	QObject::connect(server, SIGNAL(calibrateDepth(double)), auv, SLOT(setActualDepth(double)));
+	QObject::connect(server, SIGNAL(whiteBalance()), auv, SLOT(autoWhiteBalance()));
+	QObject::connect(server, SIGNAL(actuateMech(QString)), auv, SLOT(activateMechanism(QString)));
 
-		// From Brain to GUI
-		QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), gui, SLOT(updateBrainView(ExternalOutputs_brain, int)));
+	// From Brain to server
+	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), server, SLOT(sendBrainData(ExternalOutputs_brain, int)));
+	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), server, SLOT(sendVideo()));
+	
+	// From server to Brain
+	QObject::connect(server, SIGNAL(setInput(QString, double)), brain, SLOT(setInput(QString, double)));
+	QObject::connect(server, SIGNAL(setParam(QString, double)), brain, SLOT(setParam(QString, double)));
+	QObject::connect(server, SIGNAL(setRec(bool)), brain, SLOT(setRecordVideo(bool)));
 		
-		// From GUI to Brain
-		QObject::connect(gui, SIGNAL(setState(int)), brain, SLOT(setState(int)));
-		QObject::connect(gui, SIGNAL(startRecordVideo()), brain, SLOT(startRecordVideo()));
-		QObject::connect(gui, SIGNAL(stopRecordVideo()), brain, SLOT(stopRecordVideo()));
-	#else
-		// From AUV to Server
-		QObject::connect(auv, SIGNAL(sensorUpdate(AUVSensors)), server, SLOT(sendSensorData(AUVSensors)));
-
-		// From server to AUV
-		QObject::connect(server, SIGNAL(go()), auv, SLOT(goAUV()));
-		QObject::connect(server, SIGNAL(stop()), auv, SLOT(stop()));
-		QObject::connect(server, SIGNAL(reset()), auv, SLOT(reset()));
-		QObject::connect(server, SIGNAL(kill()), auv, SLOT(kill()));
-		QObject::connect(server, SIGNAL(calibrateDepth(double)), auv, SLOT(setActualDepth(double)));
-		QObject::connect(server, SIGNAL(whiteBalance()), auv, SLOT(autoWhiteBalance()));
-		QObject::connect(server, SIGNAL(actuateMech(QString)), auv, SLOT(activateMechanism(QString)));
-
-		// From Brain to server
-		QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), server, SLOT(sendBrainData(ExternalOutputs_brain, int)));
-		QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), server, SLOT(sendVideo()));
-		
-		// From server to Brain
-		QObject::connect(server, SIGNAL(setInput(QString, double)), brain, SLOT(setInput(QString, double)));
-		QObject::connect(server, SIGNAL(setParam(QString, double)), brain, SLOT(setParam(QString, double)));
-		QObject::connect(server, SIGNAL(setRec(bool)), brain, SLOT(setRecordVideo(bool)));
-		
-	#endif
 
 	/* Start threads ******************************************************************************/
 	qDebug("Starting Hardware Interfaces");
@@ -131,13 +100,8 @@ int main(int argc, char *argv[]){
 	qDebug("Starting Model");
 	brain->start();
 
-	#ifndef USE_SERVER
-		qDebug("Starting Dashboard");
-		gui->show();
-	#else
-		qDebug("Starting Server");
-		server->start();
-	#endif
+	qDebug("Starting Server");
+	server->start();
 
 	qDebug() << "Initialization Complete, System Online";
 

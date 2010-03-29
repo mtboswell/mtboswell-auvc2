@@ -9,20 +9,16 @@ QT += network  # phonon
 DEPENDPATH += . \
               auv \
               brain \
-	      dashboard \
 		server \
 		model \
 		/usr/local/Trolltech/Qt-4.6.1
 INCLUDEPATH += . \
                brain \
                auv \
-	       dashboard \
 		model \
 		server
 # Input
-HEADERS += dashboard/dashboard.h \
-    dashboard/DashSocket.h \
-	   server/server.h \
+HEADERS += server/server.h \
 	   server/datalogger.h \
 	   model/parameters.h \
            model/model.h \
@@ -195,10 +191,7 @@ HEADERS += dashboard/dashboard.h \
 	brain/vipprojective_rt.h \
 	brain/viprotate_rt.h \
 	brain/vip_sim.h 
-FORMS += dashboard/dashboard.ui
-SOURCES += dashboard/dashboard.cpp \
-    dashboard/DashSocket.cpp \
-	   server/server.cpp \
+SOURCES += server/server.cpp \
            main.cpp \
            model/model.cpp \
 	   model/parameters.cpp \

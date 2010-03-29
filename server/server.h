@@ -58,11 +58,11 @@ class Server: public QThread
 		// readPendingDatagrams gets triggered every time the socket receives a datagram
 		void readPendingDatagrams();
 		// once a field is parsed, it get sent to this slot for actually doing stuff
-		void doAction(QString type, QString name, QString value);
+		void doAction(QString type, QString name, QString value, QHostAddress fromAddr, quint16 fromPort);
 
 	private:
 		// parse incoming data
-		void processDatagram(QByteArray);
+		void processDatagram(QByteArray, QHostAddress fromAddr, quint16 fromPort);
 		// append a field to a datagram
 		void addDatum(QByteArray& datagram, QString type, QString name, QString value, bool log = false);
 
