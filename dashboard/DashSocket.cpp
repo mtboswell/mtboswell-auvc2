@@ -20,6 +20,7 @@ void DashSocket::SendParam(QString key, QString value) {
 	out.append(value);
 	out.append(";");
 	m_Sock.writeDatagram(out, m_Addr, m_Port);
+	m_Acks.append(out);
 	qDebug() << "Wrote datagram: " << out;
 }
 
@@ -30,6 +31,10 @@ void DashSocket::HandleDatagram() {
 	while (m_Sock.hasPendingDatagrams()) {
 		m_Buf.resize(m_Sock.pendingDatagramSize());
 		m_Sock.readDatagram(m_Buf.data(),m_Buf.size());
+		if(m_Acks.contains(m_Buf)){
+			m_Acks.removeOne(m_Buf);
+			return;
+		}
 		pairs = m_Buf.split(';');
 		foreach (QString p, pairs) {
 			if (p.contains('=')) {
