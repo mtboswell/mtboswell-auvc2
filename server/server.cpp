@@ -13,7 +13,9 @@ Server::Server(QMutex* sensorMutex){
 	socket = new QUdpSocket(this);
 	socket->bind(QHostAddress::Any, SERVER_DATA_PORT);
 	videoSocket = new QUdpSocket(this);
+	videoSocket->bind(VIDEO_PORT);
 	bitmapSocket = new QUdpSocket(this);
+	bitmapSocket->bind(SECONDARY_VIDEO_PORT);
 	connect(socket, SIGNAL(readyRead()),
 	     this, SLOT(readPendingDatagrams()));
 
@@ -85,7 +87,24 @@ void Server::processDatagram(QByteArray datagram, QHostAddress fromAddr, quint16
 void Server::doAction(QString type, QString name, QString value, QHostAddress fromAddr, quint16 fromPort){
 	bool completedCommand = true;
 	if(type == "Connect"){
-		if(!value.contains('.')) value = fromAddr.toString();
+		if(!value.contains('.')) {
+			if(value.contains("This")) value = fromAddr.toString();
+			else if(value.contains("Broadcast")) {
+				value = "";
+				// try to find our broadcast address
+				QNetworkInterface interface;
+				QList<QNetworkAddressEntry> addrs = interface.addressEntries();
+				for (int i = 0; i < addrs.size(); ++i) {
+					// localhost and ipv6 addresses don't have broadcast
+					if (addrs.at(i).ip() != QHostAddress::LocalHost && addrs.at(i).broadcast().toIPv4Address()) {
+						value = addrs.at(i).broadcast().toString();
+						break;
+					}
+				}
+				// fallback to default address (this doesn't really help, we should output an error, but if we aren't connected, where will the error go?)
+				if(value == "") value = "192.168.3.255";
+			}else qDebug() << "Invalid IP address alias.";
+		}
 		if(name == "Data") {
 			// set remoteHost
 			//qDebug() << "Attempting to connect to:" << value;
@@ -93,9 +112,9 @@ void Server::doAction(QString type, QString name, QString value, QHostAddress fr
 			else qDebug() << "Failed to set client address";
 		}else if(name == "Video"){
 			videoSocket->disconnectFromHost();
-			videoSocket->connectToHost(value, VIDEO_PORT, QIODevice::WriteOnly);
+			videoSocket->connectToHost(value, DASH_VIDEO_PORT, QIODevice::WriteOnly);
 			bitmapSocket->disconnectFromHost();
-			bitmapSocket->connectToHost(value, SECONDARY_VIDEO_PORT, QIODevice::WriteOnly);
+			bitmapSocket->connectToHost(value, DASH_SECONDARY_VIDEO_PORT, QIODevice::WriteOnly);
 		}else completedCommand = false;
 	}else if(type == "Mode"){
 		if(value == "Running" || value == "Run") emit go();
@@ -212,6 +231,16 @@ void Server::addDatum(QByteArray& datagram, QString type, QString name, QString 
 	datagram += value;
 	datagram += ';';
 	if(log) logger->logData(type + '.' + name, value);
+}
+
+void Server::sendError(QString err){
+	if(remoteHost.isNull()) return;
+	QByteArray datagram;
+	qDebug() << "Error:" << err;
+	addDatum(datagram, "Error", "", err);
+
+	// write to port
+	socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);
 }
 
 // Sends a JPEG from the Brain over the VIDEO_PORT udp port.

@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>956</width>
-    <height>602</height>
+    <height>607</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -520,28 +520,10 @@
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="cameraPosComboBox">
-             <property name="enabled">
-              <bool>false</bool>
+            <widget class="QLabel" name="cameraPosLabel">
+             <property name="text">
+              <string/>
              </property>
-             <property name="frame">
-              <bool>false</bool>
-             </property>
-             <item>
-              <property name="text">
-               <string>Forward</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Up</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Down</string>
-              </property>
-             </item>
             </widget>
            </item>
           </layout>
@@ -1012,7 +994,7 @@
          <enum>QTabWidget::North</enum>
         </property>
         <property name="currentIndex">
-         <number>2</number>
+         <number>0</number>
         </property>
         <property name="iconSize">
          <size>
@@ -1126,12 +1108,6 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="mplayerTab">
-         <attribute name="title">
-          <string>MPlayer</string>
-         </attribute>
-         <layout class="QVBoxLayout" name="verticalLayout_4"/>
-        </widget>
        </widget>
       </item>
      </layout>
@@ -1157,7 +1133,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="usesScrollButtons">
        <bool>true</bool>
@@ -1575,47 +1551,61 @@
           <property name="title">
            <string>General</string>
           </property>
-          <layout class="QFormLayout" name="formLayout_12">
+          <layout class="QVBoxLayout" name="verticalLayout_4">
            <property name="bottomMargin">
             <number>0</number>
            </property>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_32">
-             <property name="text">
-              <string>Min. Blob Size</string>
-             </property>
-            </widget>
+           <item>
+            <layout class="QFormLayout" name="formLayout_12">
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_32">
+               <property name="text">
+                <string>Min. Blob Size</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QSpinBox" name="minBlobSpinBox">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="maximum">
+                <number>19200</number>
+               </property>
+               <property name="singleStep">
+                <number>5</number>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_33">
+               <property name="text">
+                <string>Max Blob Size</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QSpinBox" name="maxBlobSizeSpinBox">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="maximum">
+                <number>19200</number>
+               </property>
+               <property name="singleStep">
+                <number>5</number>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
-           <item row="0" column="1">
-            <widget class="QSpinBox" name="minBlobSpinBox">
+           <item>
+            <widget class="QPushButton" name="whiteBalancePushButton">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
-             <property name="maximum">
-              <number>19200</number>
-             </property>
-             <property name="singleStep">
-              <number>5</number>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QLabel" name="label_33">
              <property name="text">
-              <string>Max Blob Size</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QSpinBox" name="maxBlobSizeSpinBox">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="maximum">
-              <number>19200</number>
-             </property>
-             <property name="singleStep">
-              <number>5</number>
+              <string>Re-White-Balance</string>
              </property>
             </widget>
            </item>
@@ -1859,7 +1849,7 @@
              <item row="1" column="1">
               <widget class="QPushButton" name="setActualDepthPushButton">
                <property name="enabled">
-                <bool>false</bool>
+                <bool>true</bool>
                </property>
                <property name="text">
                 <string>Set Actual Depth</string>
@@ -2102,16 +2092,6 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton">
-          <property name="enabled">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>Re-White-Balance</string>
-          </property>
-         </widget>
-        </item>
-        <item>
          <spacer name="horizontalSpacer_5">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
@@ -2156,7 +2136,14 @@
    <addaction name="actionLogData"/>
    <addaction name="actionRecord_Video"/>
    <addaction name="separator"/>
+   <addaction name="actionReconnect"/>
+   <addaction name="actionConnect_To"/>
+   <addaction name="actionBroadcast_Data"/>
+   <addaction name="separator"/>
+   <addaction name="actionTurn_Off_AUV"/>
+   <addaction name="separator"/>
    <addaction name="actionQuit"/>
+   <addaction name="separator"/>
   </widget>
   <action name="actionQuit">
    <property name="checkable">
@@ -2202,6 +2189,38 @@
     <string>Record Video</string>
    </property>
   </action>
+  <action name="actionTurn_Off_AUV">
+   <property name="text">
+    <string>Turn Off AUV</string>
+   </property>
+   <property name="toolTip">
+    <string>Don't hit this one by accident!</string>
+   </property>
+  </action>
+  <action name="actionReconnect">
+   <property name="text">
+    <string>Reconnect</string>
+   </property>
+   <property name="toolTip">
+    <string>If the AUV data doesn't show up the first time, use this.</string>
+   </property>
+  </action>
+  <action name="actionBroadcast_Data">
+   <property name="text">
+    <string>Broadcast Data</string>
+   </property>
+   <property name="toolTip">
+    <string>If other computers need to see AUV data, click this.</string>
+   </property>
+  </action>
+  <action name="actionConnect_To">
+   <property name="text">
+    <string>Connect To IP</string>
+   </property>
+   <property name="toolTip">
+    <string>Specify the ip address of the AUV</string>
+   </property>
+  </action>
  </widget>
  <tabstops>
   <tabstop>headingPGainSpinBox</tabstop>
@@ -2223,7 +2242,6 @@
   <tabstop>controlGroupBox</tabstop>
   <tabstop>desiredSpeedSlider</tabstop>
   <tabstop>desiredSpeedSpinBox</tabstop>
-  <tabstop>cameraPosComboBox</tabstop>
   <tabstop>desiredDepthSpinBox</tabstop>
   <tabstop>desiredDepthSlider</tabstop>
  </tabstops>

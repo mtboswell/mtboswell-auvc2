@@ -17,6 +17,7 @@ signals:
 
 public slots:
 	void SendParam(QString key, QString value);
+	void setRemoteAddr(QString addr);
 
 private slots:
 	void HandleDatagram();
