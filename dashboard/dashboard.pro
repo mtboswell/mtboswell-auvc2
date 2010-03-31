@@ -16,30 +16,10 @@ INCLUDEPATH += . \
 	       ../dashboard 
 # Input
 HEADERS += dashboard.h \
-    DashSocket.h \
-           ../auv/adc.h \
-           ../auv/auv.h \
-           ../auv/auvtypes.h \
-           ../auv/buffer.h \
-           ../auv/calibration.h \
-           ../auv/camread.h \
-           ../auv/imu.h \
-           ../auv/pololu.h \
-           ../auv/ports.h \
-           ../auv/power.h \
-           ../auv/uart.h \
-	   ../auv/mechanisms.h 
+	DashSocket.h \
+	VideoSocket.h
 FORMS += dashboard.ui
 SOURCES += dashboard.cpp \
-    DashSocket.cpp \
-           main.cpp \
-           ../auv/adc.cpp \
-           ../auv/auv.cpp \
-           ../auv/buffer.cpp \
-           ../auv/camread.cpp \
-           ../auv/imu.cpp \
-           ../auv/pololu.cpp \
-           ../auv/power.cpp \
-           ../auv/uart.cpp \
-	   ../auv/mechanisms.cpp \
-	   ../auv/calibrateservos.cpp 
+	DashSocket.cpp \
+	main.cpp \
+	VideoSocket.cpp

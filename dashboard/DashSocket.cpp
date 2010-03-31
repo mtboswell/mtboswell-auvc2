@@ -12,6 +12,10 @@ DashSocket::DashSocket(QHostAddress addr, quint16 port) {
 DashSocket::~DashSocket() {
 }
 
+void DashSocket::setRemoteAddr(QString addr){
+	if(!QHostAddress(addr).isNull()) m_Addr = addr;
+}
+
 void DashSocket::SendParam(QString key, QString value) {
 	QByteArray out;
 	out.clear();

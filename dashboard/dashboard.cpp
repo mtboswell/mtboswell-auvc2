@@ -6,13 +6,12 @@
 #include <QDebug>
 #include <QTime>
 
-Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
+Dashboard::Dashboard(QMainWindow *parent)
      : QMainWindow(parent)
 {
- 	modelMutex = mutex;
- 
-    setupUi(this);
+	setupUi(this);
      
+	// Connect up Actions
  	connect(actionGo, SIGNAL(triggered()), this, SLOT(startAction()));
  	connect(actionStop, SIGNAL(triggered()), this, SLOT(stopAction()));
  	connect(actionReset, SIGNAL(triggered()), this, SLOT(resetAction()));
@@ -20,42 +19,22 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
  	connect(actionQuit, SIGNAL(triggered()), this, SLOT(stopAction()));
  	connect(actionQuit, SIGNAL(triggered()), this, SLOT(close()));
  	connect(actionRecord_Video, SIGNAL(triggered(bool)), this, SLOT(recordVideo(bool)));
- 	
+ 	connect(actionLogData, SIGNAL(triggered(bool)), this, SLOT(logData(bool)));
+	connect(actionReconnect, SIGNAL(triggered()), this, SLOT(reconnectAction()));
+	connect(actionTurn_Off_AUV, SIGNAL(triggered()), this, SLOT(turnOffAUVAction()));
+	connect(actionBroadcast_Data, SIGNAL(triggered()), this, SLOT(broadcastAction()));
+	connect(actionConnect_To, SIGNAL(triggered()), this, SLOT(connectToAddress()));
+
+	// Connect to Network Sockets 	
  	connect(&m_DS, SIGNAL(GotAUVUpdate(QString,QString,QString)), this, SLOT(HandleAUVParam(QString,QString,QString)));
  	connect(this, SIGNAL(sendParam(QString,QString)), &m_DS, SLOT(SendParam(QString,QString)));
- 	
- 	// Set Default Values for gui inputs from model
- 	
- 	// controller gain initial settings
-/*	fwdVelocitySpinBox->setValue(brain_P.Heading_Forward_Velocity);
-	headingDGainSpinBox->setValue(brain_P.Heading_Kd);
-	headingIGainSpinBox->setValue(brain_P.Heading_Ki);
-	headingPGainSpinBox->setValue(brain_P.Heading_Kp);
-	depthDGainSpinBox->setValue(brain_P.Depth_Kd);
-	depthIGainSpinBox->setValue(brain_P.Depth_Ki);
-	depthPGainSpinBox->setValue(brain_P.Depth_Kp);
-	approachVelocitySpinBox->setValue(brain_P.Vision_Forward_Velocity);
-	buoyDepthDGainSpinBox->setValue(brain_P.Cam_Forward_YPosition_Kd);
-	buoyDepthIGainSpinBox->setValue(brain_P.Cam_Forward_YPosition_Ki);
-	buoyDepthPGainSpinBox->setValue(brain_P.Cam_Forward_YPosition_Kp);
-	buoyHeadingDGainSpinBox->setValue(brain_P.Cam_Forward_XPosition_Kd);
-	buoyHeadingIGainSpinBox->setValue(brain_P.Cam_Forward_XPosition_Ki);
-	buoyHeadingPGainSpinBox->setValue(brain_P.Cam_Forward_XPosition_Kp);
-//	pathHeadingDGainSpinBox->setValue(brain_P.Cam_Down_XPos_Kd);
-//	pathHeadingIGainSpinBox->setValue(brain_P.Cam_Down_XPos_Ki);
-//	pathHeadingPGainSpinBox->setValue(brain_P.Cam_Down_XPos_Kp);
-//	pathYDGainSpinBox->setValue(brain_P.Cam_Down_YPos_Kd);
-//	pathYIGainSpinBox->setValue(brain_P.Cam_Down_YPos_Ki);
-//	pathYPGainSpinBox->setValue(brain_P.Cam_Down_YPos_Kp);
+	connect(this, SIGNAL(setAddress(QString)), &m_DS, SLOT(setRemoteAddr(QString)));
 
-	// Vision
-	pathHueHighSpinBox->setValue(brain_P.Track_HueHigher);
-	pathHueLowSpinBox->setValue(brain_P.Track_HueLower);
-	pathSaturationSpinBox->setValue(brain_P.Track_Saturation);
-	buoyHueHighSpinBox->setValue(brain_P.Buoy_HueHigher);
-	buoyHueLowSpinBox->setValue(brain_P.Buoy_HueLower);
-	buoySaturationSpinBox->setValue(brain_P.Buoy_Saturation);
-*/ 	
+	videoSocket = new VideoSocket(AUV_IP, VIDEO_PORT, DASH_VIDEO_PORT, this);
+	bitmapSocket = new VideoSocket(AUV_IP, SECONDARY_VIDEO_PORT, DASH_SECONDARY_VIDEO_PORT, this);
+	connect(videoSocket, SIGNAL(frameReady(QImage*)), this, SLOT(HandleVideoFrame(QImage*)));
+	connect(bitmapSocket, SIGNAL(frameReady(QImage*)), this, SLOT(HandleBitmapFrame(QImage*)));
+ 	
 	// Populate State Combo Box
 
 	states << "Autonomous";
@@ -68,14 +47,16 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
 	stateComboBox->insertItems(0, states);
 
 	// Heading display graphics
+/*
 	headingScene = new QGraphicsScene;
 	headingLine = new QGraphicsLineItem(0, 0, 0, 50);
 	headingScene->addItem(headingLine);
 
 	headingGraphicsView->setScene(headingScene);
+*/
 
 	// Processing rate display
-	rateLabel = new QLabel("Processing at: 0 Hz");
+	rateLabel = new QLabel("Not Connected");
 	statusBar()->addPermanentWidget(rateLabel);
 
 	// Set up video display
@@ -90,37 +71,34 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
         bwPixmap.fill(); 
 	videoLabel->setScaledContents(true);
 	bitVideoLabel->setScaledContents(true);
+/*
+	process = new QProcess();
 
-        verticalLayout_4->addWidget(&container);
-     /* process = new QProcess(&container);
+	QString executable("vlc");
 
-     QString executable("mplayer");
+	QStringList arguments;
 
-     QStringList arguments;
+	arguments << "udp://@:" + QString::number(DASH_VIDEO_PORT);
 
-        arguments << "-wid";
-     arguments << QString::number(container.winId());
-        arguments << "udp://:7960";
-	qDebug() << arguments;
-
-     process->start(executable, arguments);*/
-
-     //process.close();
-
+	process->start(executable, arguments);
+*/
 	// Connect to AUV
 	emit sendParam("Connect.Data", "This");
 	emit sendParam("Connect.Video", "This");
 	emit sendParam("GetParams", "all");
+
+	videoSocket->start();
+	bitmapSocket->start();
  
 }
 
-/*
-// For future "reconnect" button
+/* *** Actions ******************************* */
+
 void Dashboard::reconnectAction(){
 	emit sendParam("Connect.Data", "This");
 	emit sendParam("Connect.Video", "This");
+	emit sendParam("GetParams", "all");
 }
-*/
 
 void Dashboard::startAction(){
 	statusBar()->showMessage(tr("Attempting to start AUV"), 2000);
@@ -136,15 +114,37 @@ void Dashboard::resetAction(){
 }
 void Dashboard::killAction(){
 	emit sendParam("Mode", "Kill");
+	statusBar()->showMessage(tr("Die, bad Robot! Die!"), 2000);
+}
+
+void Dashboard::turnOffAUVAction() {
+	// TODO - do something with a dialog box to confirm
 }
 
 void Dashboard::recordVideo(bool record){
-/*	if(record) statusBar()->showMessage(tr("Recording..."), 2000);
-	else statusBar()->showMessage(tr("Stopping Recording..."), 2000);
-//	record_video = record;
-	if(record) emit startRecordVideo();
-	else emit stopRecordVideo();*/
+	if(record) statusBar()->showMessage(tr("Recording Video..."), 2000);
+	else statusBar()->showMessage(tr("Stopping Video Recording..."), 2000);
+	emit sendParam("Flag.Rec", record?"true":"false");
 }
+
+void Dashboard::logData(bool log){
+	emit sendParam("Flag.Log", log?"true":"false");
+}
+
+void Dashboard::broadcastAction(){
+	emit sendParam("Connect.Data", "Broadcast");
+}
+
+void Dashboard::connectToAddress(){
+	bool ok;
+	QString text = QInputDialog::getText(this, tr("What is the AUV's IP Address?"),
+			  tr("Server Address:"), QLineEdit::Normal,
+			  "192.168.3.5", &ok);
+	if (ok && !text.isEmpty()) emit setAddress(text);
+}
+
+
+/* *** Networking ******************************************** */
 
 void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 	if (type == "AUV") {
@@ -157,6 +157,7 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 			controlStateLabel->setText(modes[value.toInt()]);
 		} else if (name == "Heading")
 			headingLcdNumber->display(value.toDouble());
+			// headingLine->setRotation(value.toDouble());
 		else if (name == "Depth")
 			depthLcdNumber->display(value.toDouble());
 		else if (name == "ThrusterVoltage")
@@ -174,10 +175,10 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 		else if (name == "LateralThruster")
 			strafeThrusterProgressBar->setValue(value.toInt());
 		// cameraPosComboBox->setCurrentIndex
-		// headingLine->setRotation
 	} else if (type == "Brain") {
 		if (name == "State") {
-			stateLabel->setText(states.at(value.toInt()));
+			if(controlGroupBox->isChecked()) stateLabel->setText("Remote Controlled");
+			else stateLabel->setText(states.at(value.toInt()));
 			missionProgressBar->setValue(value.toInt() * (100 / 6));
 		} else if (name == "Time") {
 			rateLabel->setText("Processing at: " + QString::number(1.0/(value.toDouble()/1000.0)) + " Hz (" + QString::number(round(100.0/(value.toDouble()/1000.0)/5))+ "%)" );
@@ -229,57 +230,21 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 			buoySaturationSpinBox->setValue(paramVal);
 
 	}
+} // end HandleAUVParam()
+
+void Dashboard::HandleVideoFrame(QImage* frame) {
+	videoPixmap = QPixmap::fromImage(*frame);
+	videoLabel->setPixmap(videoPixmap);
+}
+void Dashboard::HandleBitmapFrame(QImage* frame) {
+	bwPixmap = QPixmap::fromImage(*frame);
+	bitVideoLabel->setPixmap(bwPixmap);
 }
 
-/*void Dashboard::updateSensorsView(AUVSensors values){
-	
-	depthLcdNumber->display(values.depth);
-	headingLcdNumber->display(values.orientation.yaw);
-	thVoltageLcdNumber->display(values.thrusterPower.voltage);
-	thCurrentLcdNumber->display(values.thrusterPower.current);
-	
-	QString modes[4];
-	modes[0] = "Ready";
-	modes[1] = "Running";
-	modes[2] = "Paused";
-	modes[3] = "Killed";
-	controlStateLabel->setText(modes[values.status]);
-	
-	leftThrusterProgressBar->setValue(values.thrusterSpeeds[0]);
-	rightThrusterProgressBar->setValue(values.thrusterSpeeds[1]);
-	vertThrusterProgressBar->setValue(values.thrusterSpeeds[3]);
-	strafeThrusterProgressBar->setValue(values.thrusterSpeeds[2]);
-
-	cameraPosComboBox->setCurrentIndex(values.camera);
-
-	headingLine->setRotation(values.orientation.yaw);
-
-	/*
-	auvStatus status;
-	imu_data orientation;
-	double depth;
-	signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]
-	powerData thrusterPower;
-	cameraPosition camera;
-	bool droppedLeft;
-	bool droppedRight;
-	* /
-}*/
-
 /*void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
-	QTime bT;
-	bT.start();
 
-	if(brain_U.RC == 0) { // if we are operating autonomously
-		if(values.State == 0)	stateLabel->setText("Not Started");
-		else stateLabel->setText(states.at(values.State));
-		missionProgressBar->setValue(values.State*(100/6)); // 6 = number of states
-	//	stateComboBox->setCurrentIndex(values.State);
 		desiredHeadingSpinBox->setValue(values.DesiredHeading);
 		desiredDepthSpinBox->setValue(values.DesiredDepth);
-	}else	stateLabel->setText("Remote Controlled");
-
-	rateLabel->setText("Processing at: " + QString::number(1.0/((double)brainTime/1000.0)) + " Hz (" + QString::number(round(100.0/((double)brainTime/1000.0)/5))+ "%)" );
 
 	// Get full color video
 	// copy frame from signal to pixmap
@@ -336,6 +301,9 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 	
 }*/
 
+
+/* *** GUI event handlers **************************************** */
+
 // State Select
 void Dashboard::on_stateComboBox_activated(int index){
 	emit sendParam("Input.DesiredState", QString::number(index));
@@ -364,84 +332,68 @@ void Dashboard::on_depthPGainSpinBox_valueChanged(double value){
 	emit sendParam("Parameter.Depth_Kd", QString::number(value));
 }
 void Dashboard::on_approachVelocitySpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-//	brain_P.Vision_Forward_Velocity = value;
+	emit sendParam("Parameter.Vision_Forward_Velocity", QString::number(value));
 }
 void Dashboard::on_buoyDepthDGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-//	brain_P.Cam_Forward_YPosition_Kd = value;
+	emit sendParam("Parameter.Cam_Forward_YPosition_Kd", QString::number(value));
 }
 void Dashboard::on_buoyDepthIGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-//	brain_P.Cam_Forward_YPosition_Ki = value;
+	emit sendParam("Parameter.Cam_Forward_YPosition_Ki", QString::number(value));
 }
 void Dashboard::on_buoyDepthPGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-//	brain_P.Cam_Forward_YPosition_Kp = value;
+	emit sendParam("Parameter.Cam_Forward_YPosition_Kp", QString::number(value));
 }
 void Dashboard::on_buoyHeadingDGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-//	brain_P.Cam_Forward_XPosition_Kd = value;
+	emit sendParam("Parameter.Cam_Forward_XPosition_Kd", QString::number(value));
 }
 void Dashboard::on_buoyHeadingIGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-//	brain_P.Cam_Forward_XPosition_Ki = value;
+	emit sendParam("Parameter.Cam_Forward_XPosition_Ki", QString::number(value));
 } 
 void Dashboard::on_buoyHeadingPGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-//	brain_P.Cam_Forward_XPosition_Kp = value;
+	emit sendParam("Parameter.Cam_Forward_XPosition_Kp", QString::number(value));
 }
 
 void Dashboard::on_pathHeadingDGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-//	brain_P.Cam_Down_XPos_Kd = value;
+	emit sendParam("Parameter.Cam_Down_XPos_Kd", QString::number(value));
 }
 
 void Dashboard::on_pathHeadingIGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-//	brain_P.Cam_Down_XPos_Ki = value;
+	emit sendParam("Parameter.Cam_Down_XPos_Ki", QString::number(value));
 } 
 void Dashboard::on_pathHeadingPGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-//	brain_P.Cam_Down_XPos_Kp = value;
+	emit sendParam("Parameter.Cam_Down_XPos_Kp", QString::number(value));
 }
 void Dashboard::on_pathYDGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-//	brain_P.Cam_Down_YPos_Kd = value;
+	emit sendParam("Parameter.Cam_Down_YPos_Kd", QString::number(value));
 }
 void Dashboard::on_pathYIGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-//	brain_P.Cam_Down_YPos_Ki = value;
+	emit sendParam("Parameter.Cam_Down_YPos_Ki", QString::number(value));
 } 
 void Dashboard::on_pathYPGainSpinBox_valueChanged(double value){
-	QMutexLocker locker(modelMutex);
-//	brain_P.Cam_Down_YPos_Kp = value;
+	emit sendParam("Parameter.Cam_Down_YPos_Kp", QString::number(value));
 }
 
 // Vision
 void Dashboard::on_pathHueHighSpinBox_valueChanged(double value){
-//	QMutexLocker locker(modelMutex);
 	emit sendParam("Parameter.Track_HueHigher", QString::number(value));
 }
 void Dashboard::on_pathHueLowSpinBox_valueChanged(double value){
-//	QMutexLocker locker(modelMutex);
 	emit sendParam("Parameter.Track_HueLower", QString::number(value));
 }
 void Dashboard::on_pathSaturationSpinBox_valueChanged(double value){
-//	QMutexLocker locker(modelMutex);
 	emit sendParam("Parameter.Track_Saturation", QString::number(value));
 }
 void Dashboard::on_buoyHueHighSpinBox_valueChanged(double value){
-//	QMutexLocker locker(modelMutex);
 	emit sendParam("Parameter.Buoy_HueHigher", QString::number(value));
 }
 void Dashboard::on_buoyHueLowSpinBox_valueChanged(double value){
-//	QMutexLocker locker(modelMutex);
 	emit sendParam("Parameter.Buoy_HueLower", QString::number(value));
 }
 void Dashboard::on_buoySaturationSpinBox_valueChanged(double value){
-//	QMutexLocker locker(modelMutex);
 	emit sendParam("Parameter.Buoy_Saturation", QString::number(value));
+}
+void Dashboard::on_whiteBalancePushButton_clicked(){
+	emit sendParam("Calibrate.WhiteBalance", "once");
 }
 
 // Calibration
@@ -449,33 +401,27 @@ void Dashboard::on_zeroDepthPushButton_clicked(){
 	emit sendParam("Calibrate.Depth", "0");
 }
 void Dashboard::on_setActualDepthPushButton_clicked(){
-//	emit setDepth(actualDepthDoubleSpinBox->value());
 	emit sendParam("Calibrate.Depth", QString::number(actualDepthDoubleSpinBox->value()));
 }
 
 
+// RC Controls
 void Dashboard::on_controlGroupBox_toggled(bool rc){
-//	emit sendParam("Mode", "Stop");
+	emit sendParam("Mode", "Stop");
 	emit sendParam("Input.RC", rc?"1":"0");
+	if(rc) stateLabel->setText("Remote Controlled");
+	else stateLabel->setText("Not Started");
 }
 void Dashboard::on_desiredDepthSlider_valueChanged(int value){
-	QMutexLocker locker(modelMutex);
-//	brain_U.RC_Depth = value;
 	emit sendParam("Input.RC_Depth", QString::number(value));
 }
 void Dashboard::on_desiredStrafeSlider_valueChanged(int value){
-	QMutexLocker locker(modelMutex);
-//	brain_U.RC_Strafe = value;
 	emit sendParam("Input.RC_Strafe", QString::number(value));
 }
 void Dashboard::on_desiredSpeedSlider_valueChanged(int value){
-	QMutexLocker locker(modelMutex);
-//	brain_U.RC_ForwardVelocity = value;
 	emit sendParam("Input.RC_ForwardVelocity", QString::number(value));
 }
 void Dashboard::on_desiredHeadingSpinBox_valueChanged(int value){
-	QMutexLocker locker(modelMutex);
-//	brain_U.RC_Heading = value;
 	emit sendParam("Input.RC_Heading", QString::number(value));
 }
 void Dashboard::on_setAllZeroButton_clicked(){

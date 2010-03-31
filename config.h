@@ -15,8 +15,10 @@
 // VIDEO_PORT = UDP port used for video. 
 // 5235 = last 3 digits of UPC of aqua's aquarium album + track number of "Doctor Jones"
 #define VIDEO_PORT 5235
+#define DASH_VIDEO_PORT 5335
 // port used for second video stream:
 #define SECONDARY_VIDEO_PORT 5239
+#define DASH_SECONDARY_VIDEO_PORT 5339
 
 // AUV_IP = IP address of AUV
 //#define AUV_IP "127.0.0.1"

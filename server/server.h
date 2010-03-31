@@ -23,6 +23,7 @@
 #include <QMutex>
 #include <QImage>
 #include <QImageWriter>
+#include <QNetworkInterface>
 
 class Server: public QThread
 {
@@ -53,6 +54,7 @@ class Server: public QThread
 		// sendParams() gets called when we get a GetParams command
 		void sendParams();
 		void sendVideo();
+		void sendError(QString err = "Unknown Error");
 		
 	private slots:
 		// readPendingDatagrams gets triggered every time the socket receives a datagram
