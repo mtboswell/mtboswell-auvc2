@@ -22,6 +22,7 @@ Server::Server(QMutex* sensorMutex){
 	
         videoFrame = new QImage(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
         videoOut = new QImageWriter(videoSocket, "jpeg");
+	videoOut->setQuality(70);
 
         bwFrame = new QImage(160,120,QImage::Format_Mono);
         bwFrame->setColor(0, 0xFF000000); 
