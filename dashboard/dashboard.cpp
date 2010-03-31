@@ -17,6 +17,7 @@ Dashboard::Dashboard(QMainWindow *parent, QMutex *mutex)
  	connect(actionStop, SIGNAL(triggered()), this, SLOT(stopAction()));
  	connect(actionReset, SIGNAL(triggered()), this, SLOT(resetAction()));
  	connect(actionKill, SIGNAL(triggered()), this, SLOT(killAction()));
+ 	connect(actionQuit, SIGNAL(triggered()), this, SLOT(stopAction()));
  	connect(actionQuit, SIGNAL(triggered()), this, SLOT(close()));
  	connect(actionRecord_Video, SIGNAL(triggered(bool)), this, SLOT(recordVideo(bool)));
  	
@@ -155,7 +156,7 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 			modes[3] = "Killed";
 			controlStateLabel->setText(modes[value.toInt()]);
 		} else if (name == "Heading")
-			headingLcdNumber->display(value.toInt());
+			headingLcdNumber->display(value.toDouble());
 		else if (name == "Depth")
 			depthLcdNumber->display(value.toDouble());
 		else if (name == "ThrusterVoltage")

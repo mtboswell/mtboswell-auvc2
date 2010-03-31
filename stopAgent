@@ -1,3 +1,2 @@
 #! /bin/bash
-./utils/stopVideoStream
 killall agent
