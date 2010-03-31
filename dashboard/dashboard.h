@@ -1,7 +1,4 @@
 #include "ui_dashboard.h"
-#include "auvtypes.h"
-//#include "brain.h"
-//#include "auv/camread.h"
 #include "../config.h"
 #include "DashSocket.h"
 #include "VideoSocket.h"

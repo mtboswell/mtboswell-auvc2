@@ -10,4 +10,5 @@ brain.zip
 *.log
 *.csv
 agent
+dashboard
 Makefile

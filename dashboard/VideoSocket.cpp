@@ -1,6 +1,8 @@
 #include "VideoSocket.h"
 #include <QDebug>
 
+#define MAX_FRAME_SIZE 100000
+
 VideoSocket::VideoSocket(QString remoteAddr, unsigned short remotePort, unsigned short localPort, QObject* parent):QThread(parent) {
 	socket = new QUdpSocket();
 	qDebug() << "Binding to port";
@@ -53,7 +55,7 @@ void VideoSocket::processDatagram(QByteArray datagram, QHostAddress fromAddr, qu
         //qDebug() << "Processing Datagram:" << datagram;
 	if(datagram.contains(0xFFD8)/* || image.loadFromData(datagram, "jpeg")*/) validFrame = true;
 	if(validFrame) imageData.append(datagram);
-	if(imageData.endsWith(0xFFD9) || imageData.size() >= 150000){
+	if(imageData.endsWith(0xFFD9) || imageData.size() >= MAX_FRAME_SIZE){
 		image.loadFromData(imageData, "jpeg");
 		emit frameReady(&image);
 		imageData.clear();

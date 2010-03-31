@@ -141,6 +141,7 @@ void Dashboard::connectToAddress(){
 			  tr("Server Address:"), QLineEdit::Normal,
 			  "192.168.3.5", &ok);
 	if (ok && !text.isEmpty()) emit setAddress(text);
+	reconnectAction();
 }
 
 
