@@ -5,18 +5,13 @@
 
 VideoSocket::VideoSocket(QString remoteAddr, unsigned short remotePort, unsigned short localPort, QObject* parent):QThread(parent) {
 	socket = new QUdpSocket();
-	qDebug() << "Binding to port";
+//	qDebug() << "Binding to port";
 	socket->bind(localPort, QUdpSocket::ShareAddress);
-	qDebug() << "Connecting to host";
-//	socket->connectToHost(remoteAddr, remotePort, QIODevice::ReadOnly);
-//	socket->connectToHost(remoteAddr, localPort, QIODevice::ReadOnly);
         connect(socket, SIGNAL(readyRead()),
              this, SLOT(readPendingDatagrams()));
 
-//	m_Addr = remoteAddr;
-//	m_Port = remotePort;
-	qDebug() << "Initializing reader";
-	reader = new QImageReader(socket, "jpeg");
+//	qDebug() << "Initializing reader";
+//	reader = new QImageReader(socket, "jpeg");
 	image = QImage(640, 480, QImage::Format_RGB32);
 }
 

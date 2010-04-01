@@ -7,12 +7,9 @@ TARGET = dashboard
 CONFIG += qt gui
 QT += network  # phonon 
 DEPENDPATH += . \
-	      .. \
-              ../auv \
-		/usr/local/Trolltech/Qt-4.6.1
+	      ..
 INCLUDEPATH += . \
 	       .. \
-               ../auv \
 	       ../dashboard 
 # Input
 HEADERS += dashboard.h \

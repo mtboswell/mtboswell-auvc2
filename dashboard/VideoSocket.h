@@ -25,10 +25,9 @@ private slots:
 
 private:
 	void processDatagram(QByteArray, QHostAddress fromAddr, quint16 fromPort);
+
 	QUdpSocket *socket;
-	QHostAddress m_Addr;
-	quint16 m_Port;
-	QImageReader* reader;
+//	QImageReader* reader;
 	QImage image;
 	QByteArray imageData;
 	bool validFrame;

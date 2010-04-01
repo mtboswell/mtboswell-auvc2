@@ -12,9 +12,7 @@ int main(int argc, char *argv[]){
 	qDebug("Initializing Dashboard");
 	Dashboard* gui = new Dashboard();
 
-	qDebug("Connecting Components");
-
-	qDebug("Starting Dashboard");
+	qDebug("Starting Display");
 	gui->show();
 
 	// Start main event loop
