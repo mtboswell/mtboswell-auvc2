@@ -311,88 +311,88 @@ void Dashboard::on_stateComboBox_activated(int index){
 }
 
 // controller gains
-void Dashboard::on_fwdVelocitySpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Heading_Forward_Velocity", QString::number(value));
+void Dashboard::on_fwdVelocitySpinBox_editingFinished(){
+	emit sendParam("Parameter.Heading_Forward_Velocity", QString::number(fwdVelocitySpinBox->value()));
 }
-void Dashboard::on_headingDGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Heading_Kd", QString::number(value));
+void Dashboard::on_headingDGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Heading_Kd", QString::number(headingDGainSpinBox->value()));
 }
-void Dashboard::on_headingIGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Heading_Ki", QString::number(value));
+void Dashboard::on_headingIGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Heading_Ki", QString::number(headingIGainSpinBox->value()));
 }
-void Dashboard::on_headingPGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Heading_Kp", QString::number(value));
+void Dashboard::on_headingPGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Heading_Kp", QString::number(headingPGainSpinBox->value()));
 }
-void Dashboard::on_depthDGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Depth_Kd", QString::number(value));
+void Dashboard::on_depthDGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Depth_Kd", QString::number(depthDGainSpinBox->value()));
 }
-void Dashboard::on_depthIGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Depth_Ki", QString::number(value));
+void Dashboard::on_depthIGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Depth_Ki", QString::number(depthIGainSpinBox->value()));
 }
-void Dashboard::on_depthPGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Depth_Kd", QString::number(value));
+void Dashboard::on_depthPGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Depth_Kd", QString::number(depthPGainSpinBox->value()));
 }
-void Dashboard::on_approachVelocitySpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Vision_Forward_Velocity", QString::number(value));
+void Dashboard::on_approachVelocitySpinBox_editingFinished(){
+	emit sendParam("Parameter.Vision_Forward_Velocity", QString::number(approachVelocitySpinBox->value()));
 }
-void Dashboard::on_buoyDepthDGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Cam_Forward_YPosition_Kd", QString::number(value));
+void Dashboard::on_buoyDepthDGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Cam_Forward_YPosition_Kd", QString::number(buoyDepthDGainSpinBox->value()));
 }
-void Dashboard::on_buoyDepthIGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Cam_Forward_YPosition_Ki", QString::number(value));
+void Dashboard::on_buoyDepthIGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Cam_Forward_YPosition_Ki", QString::number(buoyDepthIGainSpinBox->value()));
 }
-void Dashboard::on_buoyDepthPGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Cam_Forward_YPosition_Kp", QString::number(value));
+void Dashboard::on_buoyDepthPGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Cam_Forward_YPosition_Kp", QString::number(buoyDepthPGainSpinBox->value()));
 }
-void Dashboard::on_buoyHeadingDGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Cam_Forward_XPosition_Kd", QString::number(value));
+void Dashboard::on_buoyHeadingDGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Cam_Forward_XPosition_Kd", QString::number(buoyHeadingDGainSpinBox->value()));
 }
-void Dashboard::on_buoyHeadingIGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Cam_Forward_XPosition_Ki", QString::number(value));
+void Dashboard::on_buoyHeadingIGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Cam_Forward_XPosition_Ki", QString::number(buoyHeadingIGainSpinBox->value()));
 } 
-void Dashboard::on_buoyHeadingPGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Cam_Forward_XPosition_Kp", QString::number(value));
+void Dashboard::on_buoyHeadingPGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Cam_Forward_XPosition_Kp", QString::number(buoyHeadingPGainSpinBox->value()));
 }
 /*
-void Dashboard::on_pathHeadingDGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Cam_Down_XPos_Kd", QString::number(value));
+void Dashboard::on_pathHeadingDGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Cam_Down_XPos_Kd", QString::number(pathHeadingDGainSpinBox->value()));
 }
 
-void Dashboard::on_pathHeadingIGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Cam_Down_XPos_Ki", QString::number(value));
+void Dashboard::on_pathHeadingIGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Cam_Down_XPos_Ki", QString::number(pathHeadingIGainSpinBox->value()));
 } 
-void Dashboard::on_pathHeadingPGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Cam_Down_XPos_Kp", QString::number(value));
+void Dashboard::on_pathHeadingPGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Cam_Down_XPos_Kp", QString::number(pathHeadingPGainSpinBox->value()));
 }
-void Dashboard::on_pathYDGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Cam_Down_YPos_Kd", QString::number(value));
+void Dashboard::on_pathYDGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Cam_Down_YPos_Kd", QString::number(pathYDGainSpinBox->value()));
 }
-void Dashboard::on_pathYIGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Cam_Down_YPos_Ki", QString::number(value));
+void Dashboard::on_pathYIGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Cam_Down_YPos_Ki", QString::number(pathYIGainSpinBox->value()));
 } 
-void Dashboard::on_pathYPGainSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Cam_Down_YPos_Kp", QString::number(value));
+void Dashboard::on_pathYPGainSpinBox_editingFinished(){
+	emit sendParam("Parameter.Cam_Down_YPos_Kp", QString::number(pathYPGainSpinBox->value()));
 }
 */
 
 // Vision
-void Dashboard::on_pathHueHighSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Track_HueHigher", QString::number(value));
+void Dashboard::on_pathHueHighSpinBox_editingFinished(){
+	emit sendParam("Parameter.Track_HueHigher", QString::number(pathHueHighSpinBox->value()));
 }
-void Dashboard::on_pathHueLowSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Track_HueLower", QString::number(value));
+void Dashboard::on_pathHueLowSpinBox_editingFinished(){
+	emit sendParam("Parameter.Track_HueLower", QString::number(pathHueLowSpinBox->value()));
 }
-void Dashboard::on_pathSaturationSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Track_Saturation", QString::number(value));
+void Dashboard::on_pathSaturationSpinBox_editingFinished(){
+	emit sendParam("Parameter.Track_Saturation", QString::number(pathSaturationSpinBox->value()));
 }
-void Dashboard::on_buoyHueHighSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Buoy_HueHigher", QString::number(value));
+void Dashboard::on_buoyHueHighSpinBox_editingFinished(){
+	emit sendParam("Parameter.Buoy_HueHigher", QString::number(buoyHueHighSpinBox->value()));
 }
-void Dashboard::on_buoyHueLowSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Buoy_HueLower", QString::number(value));
+void Dashboard::on_buoyHueLowSpinBox_editingFinished(){
+	emit sendParam("Parameter.Buoy_HueLower", QString::number(buoyHueLowSpinBox->value()));
 }
-void Dashboard::on_buoySaturationSpinBox_valueChanged(double value){
-	emit sendParam("Parameter.Buoy_Saturation", QString::number(value));
+void Dashboard::on_buoySaturationSpinBox_editingFinished(){
+	emit sendParam("Parameter.Buoy_Saturation", QString::number(buoySaturationSpinBox->value()));
 }
 void Dashboard::on_whiteBalancePushButton_clicked(){
 	emit sendParam("Calibrate.WhiteBalance", "once");

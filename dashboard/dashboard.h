@@ -44,37 +44,37 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		// Gui Event Handlers
 
 		// controller gains
-		void on_fwdVelocitySpinBox_valueChanged(double value);
-		void on_headingDGainSpinBox_valueChanged(double value);
-		void on_headingIGainSpinBox_valueChanged(double value);
-		void on_headingPGainSpinBox_valueChanged(double value);
-		void on_depthDGainSpinBox_valueChanged(double value);
-		void on_depthIGainSpinBox_valueChanged(double value);
-		void on_depthPGainSpinBox_valueChanged(double value);
-		void on_approachVelocitySpinBox_valueChanged(double value);
-		void on_buoyDepthDGainSpinBox_valueChanged(double value);
-		void on_buoyDepthIGainSpinBox_valueChanged(double value);
-		void on_buoyDepthPGainSpinBox_valueChanged(double value);
-		void on_buoyHeadingDGainSpinBox_valueChanged(double value);
-		void on_buoyHeadingIGainSpinBox_valueChanged(double value);
-		void on_buoyHeadingPGainSpinBox_valueChanged(double value);
+		void on_fwdVelocitySpinBox_editingFinished();
+		void on_headingDGainSpinBox_editingFinished();
+		void on_headingIGainSpinBox_editingFinished();
+		void on_headingPGainSpinBox_editingFinished();
+		void on_depthDGainSpinBox_editingFinished();
+		void on_depthIGainSpinBox_editingFinished();
+		void on_depthPGainSpinBox_editingFinished();
+		void on_approachVelocitySpinBox_editingFinished();
+		void on_buoyDepthDGainSpinBox_editingFinished();
+		void on_buoyDepthIGainSpinBox_editingFinished();
+		void on_buoyDepthPGainSpinBox_editingFinished();
+		void on_buoyHeadingDGainSpinBox_editingFinished();
+		void on_buoyHeadingIGainSpinBox_editingFinished();
+		void on_buoyHeadingPGainSpinBox_editingFinished();
 /*
-		void on_pathHeadingPGainSpinBox_valueChanged(double value);
-		void on_pathHeadingIGainSpinBox_valueChanged(double value);
-		void on_pathHeadingDGainSpinBox_valueChanged(double value);
-		void on_pathYPGainSpinBox_valueChanged(double value);
-		void on_pathYIGainSpinBox_valueChanged(double value);
-		void on_pathYDGainSpinBox_valueChanged(double value);
+		void on_pathHeadingPGainSpinBox_editingFinished();
+		void on_pathHeadingIGainSpinBox_editingFinished();
+		void on_pathHeadingDGainSpinBox_editingFinished();
+		void on_pathYPGainSpinBox_editingFinished();
+		void on_pathYIGainSpinBox_editingFinished();
+		void on_pathYDGainSpinBox_editingFinished();
 */
 
 
 		// Vision
-		void on_pathHueHighSpinBox_valueChanged(double value);
-		void on_pathHueLowSpinBox_valueChanged(double value);
-		void on_pathSaturationSpinBox_valueChanged(double value);
-		void on_buoyHueHighSpinBox_valueChanged(double value);
-		void on_buoyHueLowSpinBox_valueChanged(double value);
-		void on_buoySaturationSpinBox_valueChanged(double value);
+		void on_pathHueHighSpinBox_editingFinished();
+		void on_pathHueLowSpinBox_editingFinished();
+		void on_pathSaturationSpinBox_editingFinished();
+		void on_buoyHueHighSpinBox_editingFinished();
+		void on_buoyHueLowSpinBox_editingFinished();
+		void on_buoySaturationSpinBox_editingFinished();
 		void on_whiteBalancePushButton_clicked();
 
 		// Calibration
