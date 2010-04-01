@@ -3,6 +3,8 @@ syntax: glob
 
 *~
 *.o
+*.orig
+*.rej
 moc_*
 ui_*.h
 recorded_video.yuv
