@@ -31,6 +31,7 @@ private:
 	QImage image;
 	QByteArray imageData;
 	bool validFrame;
+	QByteArray SOI, EOI;
 };
 
 #endif //#ifndef __VIDEOSOCKET_H
