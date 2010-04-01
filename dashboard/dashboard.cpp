@@ -353,7 +353,7 @@ void Dashboard::on_buoyHeadingIGainSpinBox_valueChanged(double value){
 void Dashboard::on_buoyHeadingPGainSpinBox_valueChanged(double value){
 	emit sendParam("Parameter.Cam_Forward_XPosition_Kp", QString::number(value));
 }
-
+/*
 void Dashboard::on_pathHeadingDGainSpinBox_valueChanged(double value){
 	emit sendParam("Parameter.Cam_Down_XPos_Kd", QString::number(value));
 }
@@ -373,6 +373,7 @@ void Dashboard::on_pathYIGainSpinBox_valueChanged(double value){
 void Dashboard::on_pathYPGainSpinBox_valueChanged(double value){
 	emit sendParam("Parameter.Cam_Down_YPos_Kp", QString::number(value));
 }
+*/
 
 // Vision
 void Dashboard::on_pathHueHighSpinBox_valueChanged(double value){

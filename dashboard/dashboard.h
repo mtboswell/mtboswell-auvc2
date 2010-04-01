@@ -58,12 +58,14 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void on_buoyHeadingDGainSpinBox_valueChanged(double value);
 		void on_buoyHeadingIGainSpinBox_valueChanged(double value);
 		void on_buoyHeadingPGainSpinBox_valueChanged(double value);
+/*
 		void on_pathHeadingPGainSpinBox_valueChanged(double value);
 		void on_pathHeadingIGainSpinBox_valueChanged(double value);
 		void on_pathHeadingDGainSpinBox_valueChanged(double value);
 		void on_pathYPGainSpinBox_valueChanged(double value);
 		void on_pathYIGainSpinBox_valueChanged(double value);
 		void on_pathYDGainSpinBox_valueChanged(double value);
+*/
 
 
 		// Vision
