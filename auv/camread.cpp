@@ -20,8 +20,11 @@ static struct camframe lastframe;
 static struct camframe nextframe;
 static pthread_t worker = 0;
 static pthread_mutex_t framelock;
+static pthread_mutex_t camlock;
 static int video_already_open = 0; /* TODO: Semaphore? */
 volatile int frameready = 0;
+char camerapath[50];
+struct v4l2_format fmt;
 
 static int logfd = 0;
 //static int vidfd = 0;
@@ -47,20 +50,25 @@ void * camread_thread(void* in) {
     struct camframe tmp;
     assert(video_already_open); // Started worker without go flag!
     while (video_already_open) {
-        /* Read a frame into the next buffer */
-        tenacious_read(camfd, nextframe.y, width * height);
-        tenacious_read(camfd, nextframe.cb, width * height / 4);
-        tenacious_read(camfd, nextframe.cr, width * height / 4);
-        
-        /* Lock the buffers and swap */
-        //fprintf(stderr, "lock frame...");
-        pthread_mutex_lock(&framelock);
-        tmp = nextframe;
-        nextframe = lastframe;
-        lastframe = tmp;
-        frameready++;
-        //fprintf(stderr, "unlock frame...");
-        pthread_mutex_unlock(&framelock);
+	if(video_paused || !(camfd > 0)) pause();
+	else{
+		pthread_mutex_lock(&camlock);
+		/* Read a frame into the next buffer */
+		tenacious_read(camfd, nextframe.y, width * height);
+		tenacious_read(camfd, nextframe.cb, width * height / 4);
+		tenacious_read(camfd, nextframe.cr, width * height / 4);
+		pthread_mutex_unlock(&camlock);
+
+		/* Lock the buffers and swap */
+		//fprintf(stderr, "lock frame...");
+		pthread_mutex_lock(&framelock);
+		tmp = nextframe;
+		nextframe = lastframe;
+		lastframe = tmp;
+		frameready++;
+		//fprintf(stderr, "unlock frame...");
+		pthread_mutex_unlock(&framelock);
+	}
     }
     return 0;
 }
@@ -69,6 +77,7 @@ int camread_getframe(struct camframe frame, bool record_video) {
     int err;
     /* We can't get a frame if the capture thread isn't running. */
     if(!video_already_open) return -1;
+	if(video_paused) return -1;
     while(!frameready)
         usleep(1000);
     if (frameready) {
@@ -120,6 +129,7 @@ int camread_getframe(struct camframe frame, bool record_video) {
 
 int camread_waitframe() {
     if(!video_already_open) return 0; /*otherwise we wait forever*/
+	if(video_paused) return -1;
     while (!frameready)
         usleep(1000);
     return 0;
@@ -129,9 +139,10 @@ int camread_open(char const* campath, int w, int h) {
     assert(sizeof(unsigned char) == 1); /* TODO: Work anyway. */
     if(video_already_open)
 	return 0; /* TODO: Concurrent captures */
+
+	strcpy(camerapath, campath);
     
     pthread_attr_t at;
-    struct v4l2_format fmt;
     
     /* Remember frame sizes */
     width = w;
@@ -164,7 +175,7 @@ int camread_open(char const* campath, int w, int h) {
     
     /* Open the camera */
     //fprintf(stderr, "Opening video device...");
-    camfd = open(campath, O_RDONLY, 0);
+    camfd = open(campath, O_RDONLY);
     if(!(camfd > 0)) return 0;
     //fprintf(stderr, "done\n");
     /* Set the image format */
@@ -174,6 +185,7 @@ int camread_open(char const* campath, int w, int h) {
     
     /* We're running */
     video_already_open = 1;
+	video_paused = 0;
     
     /* Create the thread */
     //fprintf(stderr, "Create thread...");
@@ -243,5 +255,36 @@ int white_balance(){
 			return 0;
 		}
 	}
+	return 1;
+}
+
+int camread_pause() {
+    int err = 0;
+    if(!video_already_open) return 0; /* Can't close an already closed capture */
+    video_paused = 1;
+	pthread_mutex_lock(&camlock);
+    
+    /* We're waiting, tell the worker to stop */
+    frameready = 0;
+    /* Release camera */
+    return close(camfd) == 0;
+}
+
+int camread_unpause() {
+	if(!video_already_open) return -1; /* Can't unpause a closed capture */
+	camfd = open("/dev/video0", O_RDONLY);
+	if(!(camfd > 0)) return -2;
+	if(!(ioctl(camfd, VIDIOC_S_FMT, &fmt) >= 0)) return -3;
+	pthread_mutex_unlock(&camlock);
+	video_paused = 0;
+	/* Dump the first two frames so my buffer fills */
+	//fprintf(stderr, "Dump garbage...");
+/*
+	while (frameready<2) ;
+	pthread_mutex_lock(&framelock);
+	frameready = 0;
+	pthread_mutex_unlock(&framelock);
+	while(!frameready) ;
+*/
 	return 1;
 }

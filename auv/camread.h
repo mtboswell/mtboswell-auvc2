@@ -48,6 +48,11 @@ int camread_close();
 /* Copy an unsigned char array, swapping rows and columns */
 void SwappyCopy(unsigned char* target, unsigned char* src, int w, int h);
 
+int camread_pause();
+
+int camread_unpause();
+
+static int video_paused;
 
 #endif /* #ifndef __CAMREAD_H */
 
