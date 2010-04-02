@@ -2,6 +2,12 @@
 #include <QApplication>
 #include <QtGui>
 #include "dashboard.h"
+#ifdef STATIC
+#include <QtPlugin>
+
+Q_IMPORT_PLUGIN(qjpeg)
+Q_IMPORT_PLUGIN(qpng)
+#endif
 
 int main(int argc, char *argv[]){
 

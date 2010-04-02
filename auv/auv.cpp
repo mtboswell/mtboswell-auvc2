@@ -8,6 +8,7 @@
 #define AUV_CPP_
 
 #include "auv.h"
+#include "camread.h"
 #include <iostream>
 #include <string>
 #include <QDebug>
@@ -367,11 +368,27 @@ void AUV::setMotion(AUVMotion* velocity){
 
 void AUV::autoWhiteBalance(){
 	qDebug() << "Setting camera to automatic white balance";
-	wbProc->start("v4lctl setattr \"Auto White Balance\" on");
-	QTimer::singleShot(3000, this, SLOT(finishWhiteBalance()));
+	qDebug() << "Turning off camera...";
+	if(!camread_pause()) qDebug() << "Failed to stop camera";
+	wait(500);
+	qDebug() << "Sending White Balance command...";
+	wbProc->execute("v4lctl setattr \"Auto White Balance\" on");
+	wait(500);
+//	qDebug() << "Turning on camera:" << camread_unpause();
+	qDebug() << "White balancing (3s)...";
+//	QTimer::singleShot(3000, this, SLOT(finishWhiteBalance()));
+//	qDebug() << "counting down...";
+	wait(3000);
+	finishWhiteBalance();
 }
 void AUV::finishWhiteBalance(){
-	wbProc->start("v4lctl setattr \"Auto White Balance\" on");
+	qDebug() << "Turning off camera...";
+//	if(!camread_pause()) qDebug() << "Failed to stop camera";
+	wait(500);
+	qDebug() << "Stopping white ballancing";
+	wbProc->execute("v4lctl setattr \"Auto White Balance\" off");
+	wait(500);
+	qDebug() << "Turning on camera:" << camread_unpause();
 	qDebug() << "Done white balancing";
 }
 

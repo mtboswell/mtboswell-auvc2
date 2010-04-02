@@ -4,7 +4,12 @@
 
 TEMPLATE = app
 TARGET = dashboard
-CONFIG += qt gui
+CONFIG += qt gui # static
+static { // Everything below takes effect with CONFIG += static
+    QTPLUGIN += qpng qjpeg
+    DEFINES += STATIC // Equivalent to "#define STATIC" in source code
+    message("Static build.")
+}
 QT += network  # phonon 
 DEPENDPATH += . \
 	      ..
