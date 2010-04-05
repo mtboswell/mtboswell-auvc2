@@ -368,27 +368,27 @@ void AUV::setMotion(AUVMotion* velocity){
 
 void AUV::autoWhiteBalance(){
 	qDebug() << "Setting camera to automatic white balance";
-	qDebug() << "Turning off camera...";
+	//qDebug() << "Turning off camera...";
 	if(!camread_pause()) qDebug() << "Failed to stop camera";
 	wait(500);
-	qDebug() << "Sending White Balance command...";
+	//qDebug() << "Sending White Balance command...";
 	wbProc->execute("v4lctl setattr \"Auto White Balance\" on");
-	wait(500);
-//	qDebug() << "Turning on camera:" << camread_unpause();
+	//wait(500);
+	if(!camread_unpause()) qDebug() << "Failed to turn on camera:";
 	qDebug() << "White balancing (3s)...";
-//	QTimer::singleShot(3000, this, SLOT(finishWhiteBalance()));
+	QTimer::singleShot(3000, this, SLOT(finishWhiteBalance()));
 //	qDebug() << "counting down...";
-	wait(3000);
-	finishWhiteBalance();
+//	wait(3000);
+//	finishWhiteBalance();
 }
 void AUV::finishWhiteBalance(){
-	qDebug() << "Turning off camera...";
-//	if(!camread_pause()) qDebug() << "Failed to stop camera";
+//	qDebug() << "Turning off camera...";
+	if(!camread_pause()) qDebug() << "Failed to stop camera";
 	wait(500);
 	qDebug() << "Stopping white ballancing";
 	wbProc->execute("v4lctl setattr \"Auto White Balance\" off");
 	wait(500);
-	qDebug() << "Turning on camera:" << camread_unpause();
+	if(!camread_unpause()) qDebug() << "Failed to turn on camera:";
 	qDebug() << "Done white balancing";
 }
 

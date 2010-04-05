@@ -102,6 +102,7 @@ void Model::rt_OneStep(void)
 		
 		
 void Model::updateSensorsInput(AUVSensors values){
+	//qDebug() << "Brain getting input from hardware";
   	QMutexLocker locker(modelMutex);
 	
 	brain_U.CurrentDepth = values.depth;                 /* '<Root>/CurrentDepth' */
@@ -110,11 +111,14 @@ void Model::updateSensorsInput(AUVSensors values){
 	
 	// Transfer video frame into MATLAB, swapping buffers 
 	if(!video_paused){
+		//qDebug() << "Getting video frame";
 		camread_getframe(myframe, record_video);
+		//qDebug() << "SwappyCopy!";
 		SwappyCopy(brain_U.Y, (unsigned char*)myframe.y, 640, 480);
 		SwappyCopy(brain_U.Cb, (unsigned char*)myframe.cb, 320, 240);
 		SwappyCopy(brain_U.Cr, (unsigned char*)myframe.cr, 320, 240);
-	}
+		//qDebug() << "We survived the Swappy";
+	}//else qDebug() << "Brain skipping video copy";
 	
 	
 	/* Values:

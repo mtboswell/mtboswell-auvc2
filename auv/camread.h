@@ -52,7 +52,7 @@ int camread_pause();
 
 int camread_unpause();
 
-static int video_paused;
+extern int video_paused;
 
 #endif /* #ifndef __CAMREAD_H */
 

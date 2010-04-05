@@ -1,4 +1,5 @@
 #include "server.h"
+#include "camread.h"
 #include <QDebug>
 #include <QHashIterator>
 #include <QDateTime>
@@ -246,6 +247,7 @@ void Server::sendError(QString err){
 
 // Sends a JPEG from the Brain over the VIDEO_PORT udp port.
 void Server::sendVideo(){
+	if(video_paused) return;
 	// This can be confusing:  Being in the connected state does not mean that there is a computer on the other end receiving the data.  It just means we have an address to send data to.
 	// The next line returns if we do not have an address to send to, but it doesn't know whether there is an actual receiver or not.
 	if(videoSocket->state() != QAbstractSocket::ConnectedState) return;

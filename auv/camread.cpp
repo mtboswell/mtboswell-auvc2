@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <stdio.h>
+#include <QDebug>
 
 
 static int width;
@@ -25,6 +26,8 @@ static int video_already_open = 0; /* TODO: Semaphore? */
 volatile int frameready = 0;
 char camerapath[50];
 struct v4l2_format fmt;
+
+int video_paused;
 
 static int logfd = 0;
 //static int vidfd = 0;
@@ -50,8 +53,10 @@ void * camread_thread(void* in) {
     struct camframe tmp;
     assert(video_already_open); // Started worker without go flag!
     while (video_already_open) {
-	if(video_paused || !(camfd > 0)) pause();
+	//qDebug() << "Doing Camera stuff";
+	if(video_paused || !(camfd > 0)) sleep(10);
 	else{
+		//qDebug() << "Reading from camera";
 		pthread_mutex_lock(&camlock);
 		/* Read a frame into the next buffer */
 		tenacious_read(camfd, nextframe.y, width * height);
@@ -59,6 +64,8 @@ void * camread_thread(void* in) {
 		tenacious_read(camfd, nextframe.cr, width * height / 4);
 		pthread_mutex_unlock(&camlock);
 
+
+		//qDebug() << "Prepping frame for copy";
 		/* Lock the buffers and swap */
 		//fprintf(stderr, "lock frame...");
 		pthread_mutex_lock(&framelock);
@@ -68,6 +75,7 @@ void * camread_thread(void* in) {
 		frameready++;
 		//fprintf(stderr, "unlock frame...");
 		pthread_mutex_unlock(&framelock);
+		//qDebug() << "frame available";
 	}
     }
     return 0;
@@ -78,9 +86,11 @@ int camread_getframe(struct camframe frame, bool record_video) {
     /* We can't get a frame if the capture thread isn't running. */
     if(!video_already_open) return -1;
 	if(video_paused) return -1;
+	//qDebug() << "Waiting for frame...";
     while(!frameready)
         usleep(1000);
     if (frameready) {
+	//qDebug() << "Got video frame";
         /* Just lock long enough to copy the frame */
         pthread_mutex_lock(&framelock);
         memcpy(frame.y, lastframe.y, width*height);
