@@ -54,7 +54,7 @@ void * camread_thread(void* in) {
     assert(video_already_open); // Started worker without go flag!
     while (video_already_open) {
 	//qDebug() << "Doing Camera stuff";
-	if(video_paused || !(camfd > 0)) sleep(10);
+	if(video_paused || !(camfd > 0)) sleep(1);
 	else{
 		//qDebug() << "Reading from camera";
 		pthread_mutex_lock(&camlock);
