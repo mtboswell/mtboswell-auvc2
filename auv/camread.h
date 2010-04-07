@@ -37,7 +37,7 @@ int camread_getframe(struct camframe frame, bool record_video);
 
 /* Performs a manual white balance, and disables auto white-balancing.
    Returns 1 if successful, 0 if command fails. */
-int white_balance();
+//int white_balance();
 
 /* No arguments, blocks until a frame is available */
 int camread_waitframe();
@@ -51,6 +51,8 @@ void SwappyCopy(unsigned char* target, unsigned char* src, int w, int h);
 int camread_pause();
 
 int camread_unpause();
+
+int camread_switchcam(char const* campath);
 
 extern int video_paused;
 
