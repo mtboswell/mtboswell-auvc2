@@ -1,4 +1,5 @@
 #include "camread.h"
+#include "ports.h"
 #include <linux/videodev2.h>
 #include <pthread.h>
 #include <sys/types.h>
@@ -243,6 +244,7 @@ void SwappyCopy(unsigned char* target, unsigned char* src, int w, int h) {
 }
 
 /* Returns 1 if white-balace successful, 0 otherwise */
+/*
 int white_balance(){
 	struct v4l2_queryctrl queryctrl;
 	struct v4l2_control control;
@@ -267,6 +269,7 @@ int white_balance(){
 	}
 	return 1;
 }
+*/
 
 int camread_pause() {
     int err = 0;
@@ -282,7 +285,7 @@ int camread_pause() {
 
 int camread_unpause() {
 	if(!video_already_open) return -1; /* Can't unpause a closed capture */
-	camfd = open("/dev/video0", O_RDONLY);
+	camfd = open(camerapath, O_RDONLY);
 	if(!(camfd > 0)) return -2;
 	if(!(ioctl(camfd, VIDIOC_S_FMT, &fmt) >= 0)) return -3;
 	pthread_mutex_unlock(&camlock);
@@ -297,4 +300,10 @@ int camread_unpause() {
 	while(!frameready) ;
 */
 	return 1;
+}
+
+int camread_switchcam(char const* campath){
+	camread_pause();
+	strcpy(camerapath, campath);
+	return camread_unpause();
 }
