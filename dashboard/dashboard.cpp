@@ -430,6 +430,6 @@ void Dashboard::on_setAllZeroButton_clicked(){
 	desiredDepthSlider->setValue(0);
 	desiredStrafeSlider->setValue(0);
 	desiredSpeedSlider->setValue(0);
-	desiredHeadingSpinBox->setValue(headingLcdNumber->value());
+	desiredHeadingSpinBox->setValue((headingLcdNumber->value()>180)?headingLcdNumber->value()-360:headingLcdNumber->value());
 }
 
