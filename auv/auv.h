@@ -54,6 +54,7 @@ class AUV : public QThread {
 		// get data from compass and orientation sensor
 		// orientation.yaw, roll, pitch
 		imu_data getOrientation();
+		double getHeading();
 		
 		// Returns Voltage of Thruster Battery pack in Volts
 		double getThrusterVoltage();
@@ -94,7 +95,6 @@ class AUV : public QThread {
 
 		// runs the appropriate mechanism script to activate a given mechanism
 		void activateMechanism(QString mech);
-		void activateMechanism();
 
 		// will be deprecated soon, maybe
 		void look(cameraPosition pos);
@@ -104,10 +104,13 @@ class AUV : public QThread {
 		// Move a servo to a given position.  Used for actuating mechanisms.
 		void moveServo(int servo, int position);
 		void moveServo();
+
+		void runScriptedMotion(QString scriptFile);
 		
 	signals:
 		void sensorUpdate(AUVSensors data);
-		void modelInputs(ExternalInputs_brain inputs);
+		void setControllers(ExternalInputs_brain inputs);
+		void setBrainInput(QString, double);
 		void hardwareOverride();
 		
 	protected:
@@ -118,6 +121,11 @@ class AUV : public QThread {
 		void readSensors();
 		// Turn off automatic white balancing (i.e. hold current setting). Gets called by autoWhiteBalance() 3s or so after it turns on automatic white balancing.
 		void finishWhiteBalance();
+		void activateMechanism();
+		void doScriptAction();
+		void setControllers(char desiredSpeed = -128, double desiredHeading = -1, double desiredDepth = -1, char desiredStrafe = -128);
+		void releaseControllers();
+		void runScriptedMotion();
 
 	private:
 		// checks sensors periodically
@@ -142,6 +150,8 @@ class AUV : public QThread {
 		
 		QQueue<QString> posQueue;
 		QQueue<QString> mechQueue;
+		QQueue<QString> scriptQueue;
+		QQueue<QString> actionQueue;
 };
 
 #endif /*AUV_H_*/

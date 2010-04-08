@@ -91,6 +91,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void on_desiredSpeedSlider_valueChanged(int value);
 		void on_desiredHeadingSpinBox_valueChanged(int value);
 		void on_setAllZeroButton_clicked();
+		void on_runScriptPushButton_clicked();
 
 
 	private:
@@ -106,6 +107,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		QImage videoFrame; 
 		QImage bwFrame; 
 		QStringList states;
+		QStringList scripts;
 
 		QProcess* process;
 

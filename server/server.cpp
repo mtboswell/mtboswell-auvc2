@@ -126,7 +126,10 @@ void Server::doAction(QString type, QString name, QString value, QHostAddress fr
 	}else if(type == "Actuate" || type == "Activate"){
 		if(name == "SelfDestruct") qDebug() << "Self Destruct in 5...";
 		else if(name =="Mech" || name == "Mechanism") emit actuateMech(value);
+		else if(name == "Script") emit runScript(value);
 		else completedCommand = false;
+	}else if(type == "RunScript"){
+		emit runScript(value);
 	}else if(type == "Calibrate"){
 		if(name == "Depth") emit calibrateDepth(value.toDouble());
 		else if(name == "WhiteBalance") emit whiteBalance();
