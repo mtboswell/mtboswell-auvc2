@@ -13,6 +13,8 @@
 #include <string>
 #include <QDebug>
 #include <QTime>
+#include <QFile>
+#include <QStringList>
 
 AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 	// 160ms = 6.25Hz rate
@@ -162,6 +164,7 @@ void AUV::externalControl(){
 // get data from compass and orientation sensor
 // orientation.yaw, roll, pitch
 imu_data AUV::getOrientation(){return imu->getData();}
+double AUV::getHeading(){return imu->getData().yaw;}
 
 // set thruster speeds
 void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
@@ -390,6 +393,127 @@ void AUV::finishWhiteBalance(){
 	wait(500);
 	if(!camread_unpause()) qDebug() << "Failed to turn on camera:";
 	qDebug() << "Done white balancing";
+}
+
+
+void AUV::runScriptedMotion(QString scriptFile){
+	// Check to make sure we have that script
+	if(!QFile::exists("scripts/" + scriptFile)) {
+		qDebug() << "Error: Nonexistent Script";
+		return;
+	}
+	// If we are already running a script, add to waitlist
+	if(!actionQueue.isEmpty()){
+		scriptQueue.enqueue(scriptFile);
+		QTimer::singleShot(300, this, SLOT(runScriptedMotion()));
+		return;
+	} 
+	// Once we are ready, activate the mech
+	qDebug() << "Running Script:" << scriptFile;
+	//open script file
+	QFile file("scripts/" + scriptFile);
+	if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+		return;
+
+	QTextStream in(&file);
+	while (!in.atEnd()) {
+		QString line = in.readLine();
+		if(line=="" || !line.contains(":")) continue;
+		int time = line.split(':').value(0).toInt();
+		QString cmd = line.split(':').value(1);
+		posQueue.enqueue(cmd);
+		if(time == 0) doScriptAction();
+		else {
+			QTimer::singleShot(time, this, SLOT(doScriptAction()));
+		}
+	}
+}
+
+void AUV::runScriptedMotion(){
+	if(scriptQueue.isEmpty()) return;
+	if(!actionQueue.isEmpty()) QTimer::singleShot(300, this, SLOT(runScriptedMotion()));
+	runScriptedMotion(scriptQueue.dequeue());
+}
+
+void AUV::doScriptAction(){
+	QString action = actionQueue.dequeue();
+	// parse action
+	if(action == "") return;
+	QStringList input = action.split(' ');
+	QString cmd = input.value(0);
+	double params[5];
+	for(int i = input.size()-1; i > 0; --i){
+		params[i-1] = input.value(i).toDouble();
+	}
+	// do action
+	emit setBrainInput("RC", 1);
+	if(cmd == "state"){
+		//setControllers(params[0], getHeading()+params[1],getDepth()+params[2]);
+		emit setBrainInput("RC_ForwardVelocity", params[0]);
+		emit setBrainInput("RC_Heading", params[1]+getHeading());
+		emit setBrainInput("RC_Depth", params[2]+getDepth());
+		emit setBrainInput("RC_Strafe", params[3]);
+	}else if(cmd == "absstate"){ 
+		//setControllers(params[0], params[1], params[2]);
+		emit setBrainInput("RC_ForwardVelocity", params[0]);
+		emit setBrainInput("RC_Heading", params[1]);
+		emit setBrainInput("RC_Depth", params[2]);
+		emit setBrainInput("RC_Strafe", params[3]);
+	}else if(cmd == "heading"){ // relative heading
+		//setControllers((char) -128,getHeading()+params[0]); 	
+		emit setBrainInput("RC_Heading", getHeading()+params[0]);
+	}else if(cmd == "absheading"){
+		//setControllers((char) -128,params[0]);
+		emit setBrainInput("RC_Heading", params[0]);
+	}else if(cmd == "depth"){ // relative depth
+		//setControllers((char) -128,-1,getDepth()+params[0]);
+		emit setBrainInput("RC_Depth", params[0]+getDepth());
+	}else if(cmd == "absdepth"){
+		//setControllers((char) -128,-1,params[0]);
+		emit setBrainInput("RC_Depth", params[0]);
+	}else if(cmd == "speed"){ // speed is always absolute
+		//setControllers(params[0]);
+		emit setBrainInput("RC_ForwardVelocity", params[0]);
+	}else if(cmd == "end" || cmd == "exit"){
+		//releaseControllers();
+		emit setBrainInput("RC", 0);
+	}else qDebug() << "Unrecognized command";
+}
+
+void AUV::setControllers(char desiredSpeed, double desiredHeading, double desiredDepth, char desiredStrafe){
+	ExternalInputs_brain inputs;
+	static char currentDesiredSpeed = 0, currentDesiredStrafe = 0;
+	static double currentDesiredHeading = 0, currentDesiredDepth = 0;
+	inputs.RC = 1;
+
+	if(desiredSpeed == -128) inputs.RC_ForwardVelocity = currentDesiredSpeed;
+	else inputs.RC_ForwardVelocity = desiredSpeed;
+
+	if(desiredHeading == -1) inputs.RC_Heading = currentDesiredHeading;
+	else inputs.RC_Heading = desiredHeading;
+
+	if(desiredDepth == -1) inputs.RC_Depth = currentDesiredDepth;
+	else inputs.RC_Depth = desiredDepth;
+
+	if(desiredStrafe == -128) inputs.RC_Strafe = currentDesiredStrafe;
+	else inputs.RC_Strafe = desiredStrafe;
+
+	emit setControllers(inputs);
+
+	currentDesiredSpeed = desiredSpeed;
+	currentDesiredStrafe = desiredStrafe;
+	currentDesiredHeading = desiredHeading;
+	currentDesiredDepth = desiredDepth;
+}
+
+void AUV::releaseControllers(){
+	ExternalInputs_brain inputs;
+	inputs.RC = 0;
+	inputs.RC_Heading = 0;
+	inputs.RC_Depth = 0;
+	inputs.RC_ForwardVelocity = 0;
+	inputs.RC_Strafe = 0;
+	emit setControllers(inputs);
 }
 
 #endif /*AUV_CPP_*/

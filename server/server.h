@@ -41,6 +41,7 @@ class Server: public QThread
 		void calibrateDepth(double);
 		void whiteBalance();
 		void actuateMech(QString);
+		void runScript(QString);
 		// Brain stuff
 		void setParam(QString name, double value);
 		void setInput(QString name, double value);

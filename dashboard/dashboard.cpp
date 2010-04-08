@@ -5,6 +5,7 @@
 #include <QImage>
 #include <QDebug>
 #include <QTime>
+#include <QDir>
 
 Dashboard::Dashboard(QMainWindow *parent)
      : QMainWindow(parent)
@@ -45,6 +46,11 @@ Dashboard::Dashboard(QMainWindow *parent)
 	states << "Approach Buoy";
 	states << "Finished";
 	stateComboBox->insertItems(0, states);
+
+	// populate Script combo box
+	QDir scriptDir("../scripts/");
+	scripts = scriptDir.entryList(QDir::Files, QDir::Name | QDir::IgnoreCase);
+	scriptsComboBox->insertItems(0, scripts);
 
 	// Heading display graphics
 /*
@@ -178,7 +184,10 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 		// cameraPosComboBox->setCurrentIndex
 	} else if (type == "Brain") {
 		if (name == "State") {
-			if(controlGroupBox->isChecked()) stateLabel->setText("Remote Controlled");
+			if(value.toInt() == -1) {
+				stateLabel->setText("Remote Controlled");
+				if(!controlGroupBox->isChecked()) controlGroupBox->setChecked(true); 
+			}//else if(controlGroupBox->isChecked()) controlGroupBox->setChecked(false);
 			else stateLabel->setText(states.at(value.toInt()));
 			missionProgressBar->setValue(value.toInt() * (100 / 6));
 		} else if (name == "Time") {
@@ -431,5 +440,9 @@ void Dashboard::on_setAllZeroButton_clicked(){
 	desiredStrafeSlider->setValue(0);
 	desiredSpeedSlider->setValue(0);
 	desiredHeadingSpinBox->setValue((headingLcdNumber->value()>180)?headingLcdNumber->value()-360:headingLcdNumber->value());
+}
+
+void Dashboard::on_runScriptPushButton_clicked(){
+	emit sendParam("Activate.Script", scriptsComboBox->currentText());
 }
 
