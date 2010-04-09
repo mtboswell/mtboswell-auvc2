@@ -11,6 +11,7 @@ Dashboard::Dashboard(QMainWindow *parent)
      : QMainWindow(parent)
 {
 	setupUi(this);
+	dashboardWidget->setEnabled(false);
      
 	// Connect up Actions
  	connect(actionGo, SIGNAL(triggered()), this, SLOT(startAction()));
@@ -28,6 +29,9 @@ Dashboard::Dashboard(QMainWindow *parent)
 
 	// Connect to Network Sockets 	
  	connect(&m_DS, SIGNAL(GotAUVUpdate(QString,QString,QString)), this, SLOT(HandleAUVParam(QString,QString,QString)));
+ 	connect(&m_DS, SIGNAL(AUVNotResponding(int)), this, SLOT(disableDashboard(int)));
+ 	connect(&m_DS, SIGNAL(connectionRestored()), this, SLOT(enableDashboard()));
+
  	connect(this, SIGNAL(sendParam(QString,QString)), &m_DS, SLOT(SendParam(QString,QString)));
 	connect(this, SIGNAL(setAddress(QString)), &m_DS, SLOT(setRemoteAddr(QString)));
 
@@ -154,6 +158,7 @@ void Dashboard::connectToAddress(){
 /* *** Networking ******************************************** */
 
 void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
+	bool badCmd = false;
 	if (type == "AUV") {
 		if (name == "Mode") {
 			QString modes[4];
@@ -161,7 +166,8 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 			modes[1] = "Running";
 			modes[2] = "Paused";
 			modes[3] = "Killed";
-			controlStateLabel->setText(modes[value.toInt()]);
+			if(value.toInt() > 3 || value.toInt() < 0) badCmd = true;
+			else controlStateLabel->setText(modes[value.toInt()]);
 		} else if (name == "Heading")
 			headingLcdNumber->display(value.toDouble());
 			// headingLine->setRotation(value.toDouble());
@@ -181,18 +187,24 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 			vertThrusterProgressBar->setValue(value.toInt());
 		else if (name == "LateralThruster")
 			strafeThrusterProgressBar->setValue(value.toInt());
+		else if (name == "CameraX") cameraPosXLabel->setText("X: " + value);
+		else if (name == "CameraY") cameraPosYLabel->setText("Y: " + value);
+		else if (name == "ManualOverrideDisabled") if(value == "true") warningLabel->setText("Warning: Off switch disabled!");
+			else warningLabel->setText("");
+		else badCmd = true;
 		// cameraPosComboBox->setCurrentIndex
 	} else if (type == "Brain") {
 		if (name == "State") {
 			if(value.toInt() == -1) {
 				stateLabel->setText("Remote Controlled");
 				if(!controlGroupBox->isChecked()) controlGroupBox->setChecked(true); 
+			// TODO - uncomment the following line when the brain is updated to output -1 for the RC state
 			}//else if(controlGroupBox->isChecked()) controlGroupBox->setChecked(false);
 			else stateLabel->setText(states.at(value.toInt()));
 			missionProgressBar->setValue(value.toInt() * (100 / 6));
 		} else if (name == "Time") {
 			rateLabel->setText("Processing at: " + QString::number(1.0/(value.toDouble()/1000.0)) + " Hz (" + QString::number(round(100.0/(value.toDouble()/1000.0)/5))+ "%)" );
-		}
+		}else badCmd = true;
 	} else if (type == "Parameter") {
 		double paramVal = value.toDouble();
 		// update parameters
@@ -238,8 +250,15 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 			buoyHueLowSpinBox->setValue(paramVal);
 		else if(name == "Buoy_Saturation") 
 			buoySaturationSpinBox->setValue(paramVal);
+		else badCmd = true;
 
+	}else if(type == "Status"){
+		if(value == "Connected") {
+			enableDashboard();
+		}
+		statusBar()->showMessage(value, 5000);
 	}
+	if(badCmd) qDebug() << "Unrecognized data: " + type + "." + name + "=" + value;
 } // end HandleAUVParam()
 
 void Dashboard::HandleVideoFrame(QImage* frame) {
@@ -250,6 +269,25 @@ void Dashboard::HandleBitmapFrame(QImage* frame) {
 	bwPixmap = QPixmap::fromImage(*frame);
 	bitVideoLabel->setPixmap(bwPixmap);
 }
+
+void Dashboard::disableDashboard(int severity){
+	if(severity > 10){
+		qDebug() << "Flaky connection or you are hitting buttons too fast";
+	}
+	if(severity > 20){
+		qDebug() << QString::number(severity) + " missing packets, pausing";
+		//dashboardWidget->setEnabled(false);
+		controlGroupBox->setEnabled(false);
+		tabContainer->setEnabled(false);
+	}
+}
+void Dashboard::enableDashboard(){
+	dashboardWidget->setEnabled(true);
+	controlGroupBox->setEnabled(true);
+	tabContainer->setEnabled(true);
+}
+
+
 
 /*void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
 

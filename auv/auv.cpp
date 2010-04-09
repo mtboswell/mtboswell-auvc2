@@ -92,7 +92,7 @@ void AUV::readSensors(){
 	data.thrusterPower.power = getThrusterPower();
 	// uncomment for manual switch override
 	if(data.status == RUNNING && !data.manualOverrideDisabled && !getGo()) {
-		qDebug("Waiting on Manual Switch");
+		emit status("Waiting on Manual Switch");
 		data.status = PAUSED;
 	  	dataMutex->unlock();
 		stopThrusters();
@@ -110,7 +110,7 @@ void AUV::inputFromBrain(ExternalOutputs_brain inputs, int brainTime){
 }
 
 void AUV::goAUV(){
-	qDebug("AUV received signal to start");
+	emit status("AUV received signal to start");
   	QMutexLocker locker(dataMutex);
 	data.status = RUNNING;
 }
@@ -119,9 +119,11 @@ void AUV::stop(){
 	stopThrusters();
   	QMutexLocker locker(dataMutex);
 	data.status = PAUSED;
+	emit status("Stopped");
 }
 
 void AUV::reset(){
+	emit status("Resetting hardware");
 	stopThrusters();
 	/* Start up everything */
 	thrusterPower->turnOn();
@@ -132,6 +134,7 @@ void AUV::reset(){
 	// Reset servo controller
 	adc->sendValue('r');
 	data.status = READY;
+	emit status("Reset done");
 }
 
 void AUV::kill(){
@@ -140,6 +143,7 @@ void AUV::kill(){
   	QMutexLocker locker(dataMutex);
 	data.thrusterPower.state = 0;
 	data.status = KILLED;
+	emit status("Power Cut");
 }
 
 // sets data.status based on the external switch
@@ -217,7 +221,7 @@ bool AUV::getGo(){return (bool)adc->getValue("GO");}
 
 void AUV::look(cameraPosition pos){
   	if(data.camera != pos) {
-		qDebug("Moving Camera");
+		emit status("Moving Camera");
 		switch(pos){
 			case FORWARD:
 				pControllers->setPosAbs(0, 2600);
@@ -263,17 +267,18 @@ void AUV::look(float x, float y){
 void AUV::activateMechanism(QString mech){
 	// Check to make sure we have that mech
 	if(!mechanisms.contains(mech)) {
-		qDebug() << "Error: Nonexistent Mechanism";
+		emit error("Nonexistent Mechanism");
 		return;
 	}
 	// If we are already running a mechanism, add to waitlist
 	if(!posQueue.isEmpty()){
 		mechQueue.enqueue(mech);
 		QTimer::singleShot(300, this, SLOT(activateMechanism()));
+		emit status("Queueing mech: " + mech);
 		return;
 	} 
 	// Once we are ready, activate the mech
-	qDebug() << "Actuating Mechanism:" << mech;
+	emit status("Actuating Mechanism: " + mech);
 	mechanism thisMech = mechanisms[mech];
 	QMapIterator<int, int> i(thisMech.positions);
 	while (i.hasNext()) {
@@ -370,14 +375,14 @@ void AUV::setMotion(AUVMotion* velocity){
 }
 
 void AUV::autoWhiteBalance(){
-	qDebug() << "Setting camera to automatic white balance";
+	emit status("White-balancing camera");
 	//qDebug() << "Turning off camera...";
-	if(!camread_pause()) qDebug() << "Failed to stop camera";
+	if(!camread_pause()) emit error("Failed to stop camera");
 	wait(500);
 	//qDebug() << "Sending White Balance command...";
 	wbProc->execute("v4lctl setattr \"Auto White Balance\" on");
 	//wait(500);
-	if(!camread_unpause()) qDebug() << "Failed to turn on camera:";
+	if(!camread_unpause()) emit error("Failed to turn on camera");
 	qDebug() << "White balancing (3s)...";
 	QTimer::singleShot(3000, this, SLOT(finishWhiteBalance()));
 //	qDebug() << "counting down...";
@@ -399,29 +404,34 @@ void AUV::finishWhiteBalance(){
 void AUV::runScriptedMotion(QString scriptFile){
 	// Check to make sure we have that script
 	if(!QFile::exists("scripts/" + scriptFile)) {
-		qDebug() << "Error: Nonexistent Script";
+		emit error("Nonexistent Script");
 		return;
 	}
-	// If we are already running a script, add to waitlist
-	if(!actionQueue.isEmpty()){
+	// If we are already running a script or we are not running, add to waitlist
+	if(!actionQueue.isEmpty() || data.status != RUNNING){
 		scriptQueue.enqueue(scriptFile);
 		QTimer::singleShot(300, this, SLOT(runScriptedMotion()));
+		emit status("Queueing Script: " + scriptFile);
 		return;
 	} 
-	// Once we are ready, activate the mech
+	// Once we are ready, activate the script
 	qDebug() << "Running Script:" << scriptFile;
 	//open script file
 	QFile file("scripts/" + scriptFile);
 	if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
 		return;
 
+	// parse file and schedule actions
 	QTextStream in(&file);
 	while (!in.atEnd()) {
 		QString line = in.readLine();
+		// each line must start with a time (in ms) followed by a ":"
 		if(line=="" || !line.contains(":")) continue;
 		int time = line.split(':').value(0).toInt();
+		// the rest of the line is the command
 		QString cmd = line.split(':').value(1);
-		posQueue.enqueue(cmd);
+		actionQueue.enqueue(cmd);
+		// time zero is right now
 		if(time == 0) doScriptAction();
 		else {
 			QTimer::singleShot(time, this, SLOT(doScriptAction()));
@@ -429,14 +439,18 @@ void AUV::runScriptedMotion(QString scriptFile){
 	}
 }
 
+// checks to see if the current script has finished, and if it has, runs the next script. Otherwise it keeps checking every 300ms
 void AUV::runScriptedMotion(){
 	if(scriptQueue.isEmpty()) return;
-	if(!actionQueue.isEmpty()) QTimer::singleShot(300, this, SLOT(runScriptedMotion()));
-	runScriptedMotion(scriptQueue.dequeue());
+	if(!actionQueue.isEmpty() || data.status != RUNNING) QTimer::singleShot(300, this, SLOT(runScriptedMotion()));
+	else runScriptedMotion(scriptQueue.dequeue());
 }
 
+// gets the next script command from the queue and sends the proper input to the brain
 void AUV::doScriptAction(){
+	if(actionQueue.isEmpty()) return;
 	QString action = actionQueue.dequeue();
+	emit status("Doing script action: " + action);
 	// parse action
 	if(action == "") return;
 	QStringList input = action.split(' ');
@@ -448,36 +462,29 @@ void AUV::doScriptAction(){
 	// do action
 	emit setBrainInput("RC", 1);
 	if(cmd == "state"){
-		//setControllers(params[0], getHeading()+params[1],getDepth()+params[2]);
 		emit setBrainInput("RC_ForwardVelocity", params[0]);
 		emit setBrainInput("RC_Heading", params[1]+getHeading());
 		emit setBrainInput("RC_Depth", params[2]+getDepth());
 		emit setBrainInput("RC_Strafe", params[3]);
 	}else if(cmd == "absstate"){ 
-		//setControllers(params[0], params[1], params[2]);
 		emit setBrainInput("RC_ForwardVelocity", params[0]);
 		emit setBrainInput("RC_Heading", params[1]);
 		emit setBrainInput("RC_Depth", params[2]);
 		emit setBrainInput("RC_Strafe", params[3]);
 	}else if(cmd == "heading"){ // relative heading
-		//setControllers((char) -128,getHeading()+params[0]); 	
 		emit setBrainInput("RC_Heading", getHeading()+params[0]);
 	}else if(cmd == "absheading"){
-		//setControllers((char) -128,params[0]);
 		emit setBrainInput("RC_Heading", params[0]);
 	}else if(cmd == "depth"){ // relative depth
-		//setControllers((char) -128,-1,getDepth()+params[0]);
 		emit setBrainInput("RC_Depth", params[0]+getDepth());
 	}else if(cmd == "absdepth"){
-		//setControllers((char) -128,-1,params[0]);
 		emit setBrainInput("RC_Depth", params[0]);
 	}else if(cmd == "speed"){ // speed is always absolute
-		//setControllers(params[0]);
 		emit setBrainInput("RC_ForwardVelocity", params[0]);
 	}else if(cmd == "end" || cmd == "exit"){
-		//releaseControllers();
 		emit setBrainInput("RC", 0);
-	}else qDebug() << "Unrecognized command";
+		stop();
+	}else emit error("Unrecognized command");
 }
 
 void AUV::setControllers(char desiredSpeed, double desiredHeading, double desiredDepth, char desiredStrafe){

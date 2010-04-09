@@ -118,6 +118,7 @@ void Server::doAction(QString type, QString name, QString value, QHostAddress fr
 			bitmapSocket->disconnectFromHost();
 			bitmapSocket->connectToHost(value, DASH_SECONDARY_VIDEO_PORT, QIODevice::WriteOnly);
 		}else completedCommand = false;
+		sendStatus("Connected");
 	}else if(type == "Mode"){
 		if(value == "Running" || value == "Run") emit go();
 		else if(value == "Stopped" || value == "Stop" || value == "Pause" || value == "Paused") emit stop();
@@ -155,12 +156,14 @@ void Server::doAction(QString type, QString name, QString value, QHostAddress fr
 	}
 	//qDebug() << "Action completed";
 	if(completedCommand) ;//qDebug() << "Command Executed:" << type << "." << name << "=" << value;
-	else qDebug() << "Error: Unknown command";
+	else sendError("Unknown Command");
 }
 
 void Server::sendSensorData(AUVSensors sens){
 	//qDebug() << "Sending Sensor Data";
 	//sensorDataMutex->lock();
+
+	static int sendCount = 0;
 
 	QByteArray sensordata;
 	sensordata.reserve(300);
@@ -172,11 +175,15 @@ void Server::sendSensorData(AUVSensors sens){
 	addDatum(sensordata, "AUV", "RightThruster", QString::number((int) sens.thrusterSpeeds[1]), true);
 	addDatum(sensordata, "AUV", "LateralThruster", QString::number((int) sens.thrusterSpeeds[2]), true);
 	addDatum(sensordata, "AUV", "VerticalThruster", QString::number((int) sens.thrusterSpeeds[3]), true);
-	addDatum(sensordata, "AUV", "ThrusterVoltage", QString::number(sens.thrusterPower.voltage), true);
-	addDatum(sensordata, "AUV", "ThrusterCurrent", QString::number(sens.thrusterPower.current), true);
-	addDatum(sensordata, "AUV", "ManualOverrideDisabled", sens.manualOverrideDisabled?"true":"false");
 	addDatum(sensordata, "AUV", "CameraX", QString::number(sens.cameraX), true);
 	addDatum(sensordata, "AUV", "CameraY", QString::number(sens.cameraY), true);
+	// some data gets updated less often
+	if(sendCount%10 == 0){
+		addDatum(sensordata, "AUV", "ThrusterVoltage", QString::number(sens.thrusterPower.voltage), true);
+		addDatum(sensordata, "AUV", "ThrusterCurrent", QString::number(sens.thrusterPower.current), true);
+		addDatum(sensordata, "AUV", "ManualOverrideDisabled", sens.manualOverrideDisabled?"true":"false");
+		sendCount = 0;
+	}
 	sensordata.squeeze();
 	//sensorDataMutex->unlock();
 
@@ -184,6 +191,7 @@ void Server::sendSensorData(AUVSensors sens){
 	// write to port
 	//qDebug() << "Sending Datagram:" << sensordata;
 	socket->writeDatagram(sensordata, remoteHost, CLIENT_DATA_PORT);
+	sendCount++;
 }
 
 void Server::sendBrainData(ExternalOutputs_brain outs, int brainTime){
@@ -239,10 +247,14 @@ void Server::addDatum(QByteArray& datagram, QString type, QString name, QString 
 }
 
 void Server::sendError(QString err){
+	sendStatus("Error: " + err);
+}
+
+void Server::sendStatus(QString status){
 	if(remoteHost.isNull()) return;
 	QByteArray datagram;
-	qDebug() << "Error:" << err;
-	addDatum(datagram, "Error", "", err);
+	qDebug() << status;
+	addDatum(datagram, "Status", "", status);
 
 	// write to port
 	socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);

@@ -112,6 +112,8 @@ class AUV : public QThread {
 		void setControllers(ExternalInputs_brain inputs);
 		void setBrainInput(QString, double);
 		void hardwareOverride();
+		void status(QString);
+		void error(QString);
 		
 	protected:
 		// Thread stuff.  Gets called from start()
