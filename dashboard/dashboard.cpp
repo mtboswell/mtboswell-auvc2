@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QTime>
 #include <QDir>
+#include "../auv/mechanisms.h"
 
 Dashboard::Dashboard(QMainWindow *parent)
      : QMainWindow(parent)
@@ -55,6 +56,10 @@ Dashboard::Dashboard(QMainWindow *parent)
 	QDir scriptDir("../scripts/");
 	scripts = scriptDir.entryList(QDir::Files, QDir::Name | QDir::IgnoreCase);
 	scriptsComboBox->insertItems(0, scripts);
+
+	// populate mech combo box
+	populateMechs(mechanisms);
+	mechsComboBox->insertItems(0, mechanisms.keys());
 
 	// Heading display graphics
 /*
@@ -195,13 +200,14 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 		// cameraPosComboBox->setCurrentIndex
 	} else if (type == "Brain") {
 		if (name == "State") {
-			if(value.toInt() == -1) {
+			if(value.toDouble() == -1) {
 				stateLabel->setText("Remote Controlled");
 				if(!controlGroupBox->isChecked()) controlGroupBox->setChecked(true); 
-			// TODO - uncomment the following line when the brain is updated to output -1 for the RC state
-			}//else if(controlGroupBox->isChecked()) controlGroupBox->setChecked(false);
-			else stateLabel->setText(states.at(value.toInt()));
-			missionProgressBar->setValue(value.toInt() * (100 / 6));
+			}else{
+				if(controlGroupBox->isChecked()) controlGroupBox->setChecked(false);
+				stateLabel->setText(states.at(value.toInt()));
+				missionProgressBar->setValue(value.toInt() * (100 / 6));
+			}
 		} else if (name == "Time") {
 			rateLabel->setText("Processing at: " + QString::number(1.0/(value.toDouble()/1000.0)) + " Hz (" + QString::number(round(100.0/(value.toDouble()/1000.0)/5))+ "%)" );
 		}else badCmd = true;
@@ -265,6 +271,8 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 			enableDashboard();
 		}
 		statusBar()->showMessage(value, 5000);
+	}else if(type == "Connect" || type == "GetParams"){
+		statusBar()->showMessage("Connecting...", 5000);
 	}else badCmd = true;
 	if(badCmd) qDebug() << "Unrecognized data: " + type + "." + name + "=" + value;
 } // end HandleAUVParam()
@@ -469,26 +477,41 @@ void Dashboard::on_controlGroupBox_clicked(bool rc){
 	if(rc) stateLabel->setText("Remote Controlled");
 	else stateLabel->setText("Not Started");
 }
-void Dashboard::on_desiredDepthSlider_sliderReleased(){
-	emit sendParam("Input.RC_Depth", QString::number(desiredDepthSlider->value()));
+void Dashboard::on_desiredDepthSlider_sliderMoved(int value){
+	emit sendParam("Input.RC_Depth", QString::number(value));
 }
-void Dashboard::on_desiredStrafeSlider_sliderReleased(){
-	emit sendParam("Input.RC_Strafe", QString::number(desiredStrafeSlider->value()));
+void Dashboard::on_desiredStrafeSlider_sliderMoved(int value){
+	emit sendParam("Input.RC_Strafe", QString::number(value));
 }
-void Dashboard::on_desiredSpeedSlider_sliderReleased(){
-	emit sendParam("Input.RC_ForwardVelocity", QString::number(desiredSpeedSlider->value()));
+void Dashboard::on_desiredSpeedSlider_sliderMoved(int value){
+	emit sendParam("Input.RC_ForwardVelocity", QString::number(value));
+}
+void Dashboard::on_desiredHeadingDial_sliderMoved(int value){
+	emit sendParam("Input.RC_Heading", QString::number(value));
 }
 void Dashboard::on_desiredHeadingSpinBox_editingFinished(){
 	emit sendParam("Input.RC_Heading", QString::number(desiredHeadingSpinBox->value()));
 }
+void Dashboard::on_desiredDepthSpinBox_editingFinished(){
+	emit sendParam("Input.RC_Depth", QString::number(desiredDepthSpinBox->value()));
+}
+void Dashboard::on_desiredSpeedSpinBox_editingFinished(){
+	emit sendParam("Input.RC_ForwardVelocity", QString::number(desiredSpeedSpinBox->value()));
+}
+void Dashboard::on_desiredStrafeSpinBox_editingFinished(){
+	emit sendParam("Input.RC_Strafe", QString::number(desiredStrafeSpinBox->value()));
+}
 void Dashboard::on_setAllZeroButton_clicked(){
-	desiredDepthSlider->setValue(0);
-	desiredStrafeSlider->setValue(0);
-	desiredSpeedSlider->setValue(0);
-	desiredHeadingSpinBox->setValue((headingLcdNumber->value()>180)?headingLcdNumber->value()-360:headingLcdNumber->value());
+	desiredDepthSlider->setSliderPosition(0);
+	desiredStrafeSlider->setSliderPosition(0);
+	desiredSpeedSlider->setSliderPosition(0);
+	desiredHeadingDial->setSliderPosition((headingLcdNumber->value()>180)?headingLcdNumber->value()-360:headingLcdNumber->value());
 }
 
 void Dashboard::on_runScriptPushButton_clicked(){
 	emit sendParam("Activate.Script", scriptsComboBox->currentText());
 }
 
+void Dashboard::on_actuateMechPushButton_clicked(){
+	emit sendParam("Actuate.Mechanism", mechsComboBox->currentText());
+}
