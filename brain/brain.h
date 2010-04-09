@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.257
+ * Model version                        : 1.260
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Fri Apr  9 18:55:12 2010
+ * Real-Time Workshop file generated on : Fri Apr  9 19:16:53 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Fri Apr  9 18:55:12 2010
+ * C/C++ source code generated on       : Fri Apr  9 19:16:53 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -201,7 +201,6 @@ typedef struct {
   real_T UD_DSTATE_kp;                 /* '<S67>/UD' */
   real_T HeadingDiscreteTimeIntegrator_m;/* '<S65>/Heading Discrete-Time Integrator' */
   real_T count;                        /* '<Root>/Chart' */
-  real_T OldObstacle;                  /* '<Root>/Chart' */
   real_T countarea;                    /* '<Root>/Chart' */
   real_T DesiredHeadingCount;          /* '<Root>/Chart' */
   real_T OldHeading;                   /* '<Root>/Chart' */
@@ -244,6 +243,7 @@ typedef struct {
   uint8_T is_OnePath;                  /* '<Root>/Chart' */
   uint8_T is_Running;                  /* '<Root>/Chart' */
   uint8_T BlobAnalysis_PAD_DW[19764];  /* '<S31>/Blob Analysis' */
+  boolean_T OldObstacle;               /* '<Root>/Chart' */
   boolean_T RunningAutonomousFindBuoyStr_gx;/* '<Root>/Chart' */
   boolean_T RunningAutonomousValidationGa_n;/* '<Root>/Chart' */
   rtDW_RunningControlledRCMaintai RunningAutonomousFollowOnePat_m;/* '<S1>/Running.Autonomous.FollowOnePath.OnePath.MaintainDepth' */
