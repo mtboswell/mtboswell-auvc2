@@ -1,4 +1,5 @@
 server/server.cpp:89: warning: unused parameter ‘fromPort’
+auv/auv.cpp:106: warning: unused parameter ‘brainTime’
 auv/imu.cpp: In function ‘void* sample4Cal(void*)’:
 auv/imu.cpp:134: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result
 auv/camread.cpp:53: warning: unused parameter ‘in’
@@ -8,7 +9,6 @@ auv/camread.cpp:110: warning: ignoring return value of ‘ssize_t write(int, con
 auv/camread.cpp:111: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result
 auv/camread.cpp: In function ‘int camread_pause()’:
 auv/camread.cpp:275: warning: unused variable ‘err’
-auv/auv.cpp:106: warning: unused parameter ‘brainTime’
 auv/uart.cpp: In member function ‘int UART::run()’:
 auv/uart.cpp:202: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result
 auv/uart.cpp:236: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result

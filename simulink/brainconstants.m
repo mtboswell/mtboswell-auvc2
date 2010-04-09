@@ -14,7 +14,7 @@ Track_HueHigher = 0.9;
 Track_HueLower = 0.25;
 Track_Saturation = 0.4;
 
-Min_Blob_Size = 100;
+Min_Blob_Size = 20;
 Max_Blob_Size = 19200;
 Max_Num_Blobs = 1;
 
