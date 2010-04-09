@@ -205,6 +205,14 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 		} else if (name == "Time") {
 			rateLabel->setText("Processing at: " + QString::number(1.0/(value.toDouble()/1000.0)) + " Hz (" + QString::number(round(100.0/(value.toDouble()/1000.0)/5))+ "%)" );
 		}else badCmd = true;
+	}else if (type == "Input"){
+		if(name == "RC_Depth") desiredDepthSlider->setValue(value.toDouble());
+		else if(name == "RC_Strafe") desiredStrafeSlider->setValue(value.toDouble());
+		else if(name == "RC_ForwardVelocity") desiredSpeedSlider->setValue(value.toDouble());
+		else if(name == "RC_Heading") desiredHeadingSpinBox->setValue(value.toDouble());
+		else if(name == "RC") controlGroupBox->setChecked((value == "1")?true:false);
+		else if(name == "DesiredState") stateComboBox->setCurrentIndex(value.toInt());
+		else badCmd = true;
 	} else if (type == "Parameter") {
 		double paramVal = value.toDouble();
 		// update parameters
@@ -257,7 +265,7 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 			enableDashboard();
 		}
 		statusBar()->showMessage(value, 5000);
-	}
+	}else badCmd = true;
 	if(badCmd) qDebug() << "Unrecognized data: " + type + "." + name + "=" + value;
 } // end HandleAUVParam()
 
@@ -455,23 +463,23 @@ void Dashboard::on_setActualDepthPushButton_clicked(){
 
 
 // RC Controls
-void Dashboard::on_controlGroupBox_toggled(bool rc){
+void Dashboard::on_controlGroupBox_clicked(bool rc){
 	emit sendParam("Mode", "Stop");
 	emit sendParam("Input.RC", rc?"1":"0");
 	if(rc) stateLabel->setText("Remote Controlled");
 	else stateLabel->setText("Not Started");
 }
-void Dashboard::on_desiredDepthSlider_valueChanged(int value){
-	emit sendParam("Input.RC_Depth", QString::number(value));
+void Dashboard::on_desiredDepthSlider_sliderReleased(){
+	emit sendParam("Input.RC_Depth", QString::number(desiredDepthSlider->value()));
 }
-void Dashboard::on_desiredStrafeSlider_valueChanged(int value){
-	emit sendParam("Input.RC_Strafe", QString::number(value));
+void Dashboard::on_desiredStrafeSlider_sliderReleased(){
+	emit sendParam("Input.RC_Strafe", QString::number(desiredStrafeSlider->value()));
 }
-void Dashboard::on_desiredSpeedSlider_valueChanged(int value){
-	emit sendParam("Input.RC_ForwardVelocity", QString::number(value));
+void Dashboard::on_desiredSpeedSlider_sliderReleased(){
+	emit sendParam("Input.RC_ForwardVelocity", QString::number(desiredSpeedSlider->value()));
 }
-void Dashboard::on_desiredHeadingSpinBox_valueChanged(int value){
-	emit sendParam("Input.RC_Heading", QString::number(value));
+void Dashboard::on_desiredHeadingSpinBox_editingFinished(){
+	emit sendParam("Input.RC_Heading", QString::number(desiredHeadingSpinBox->value()));
 }
 void Dashboard::on_setAllZeroButton_clicked(){
 	desiredDepthSlider->setValue(0);
