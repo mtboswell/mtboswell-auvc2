@@ -5,9 +5,9 @@
  *
  * Model version                        : 1.260
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Fri Apr  9 19:16:53 2010
+ * Real-Time Workshop file generated on : Fri Apr  9 19:19:04 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Fri Apr  9 19:16:53 2010
+ * C/C++ source code generated on       : Fri Apr  9 19:19:04 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
