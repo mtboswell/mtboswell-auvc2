@@ -77,6 +77,9 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void on_buoyHueHighSpinBox_editingFinished();
 		void on_buoyHueLowSpinBox_editingFinished();
 		void on_buoySaturationSpinBox_editingFinished();
+		void on_buoyEccentSpinBox_editingFinished();
+		void on_buoyMinExtentSpinBox_editingFinished();
+		void on_buoyMaxExtentSpinBox_editingFinished();
 		void on_whiteBalancePushButton_clicked();
 
 		// Calibration

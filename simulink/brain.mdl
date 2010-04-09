@@ -77,7 +77,7 @@ Model {
       Name		      "DesiredHeading"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.246"
+    ComputedModelVersion    "1.254"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -95,9 +95,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Apr  9 13:29:36 2010"
+  LastModifiedDate	  "Fri Apr  9 18:14:49 2010"
   RTWModifiedTimeStamp	  0
-  ModelVersionFormat	  "1.%<AutoIncrement:246>"
+  ModelVersionFormat	  "1.%<AutoIncrement:254>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -579,8 +579,8 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Simulation Target"
-      ConfigPrmDlgPosition    " [ 5, 24, 839, 753 ] "
+      CurrentDlgPage	      "Optimization"
+      ConfigPrmDlgPosition    " [ 0, 0, 1388, 815 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -901,7 +901,7 @@ Model {
   }
   System {
     Name		    "brain"
-    Location		    [1588, 253, 3031, 796]
+    Location		    [1511, 253, 2954, 796]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1044,6 +1044,11 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
+      Array {
+	Type			"Handle"
+	Dimension		0
+	PropName		"AvailSigsLoadSave"
+      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1248,7 +1253,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Running.Autonomous.Buoy.Buoy"
-	    Location		    [5, 52, 1444, 866]
+	    Location		    [1, 80, 1439, 862]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1411,6 +1416,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -1588,6 +1598,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -1798,8 +1813,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "30"
 		  roundingMode		  "Floor"
-		  overflowMode		  "off"
-		  LockScale		  "off"
+		  overflowMode		  off
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -1825,8 +1840,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "30"
 		  roundingMode		  "Floor"
-		  overflowMode		  "off"
-		  LockScale		  "off"
+		  overflowMode		  off
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  Outport
@@ -1881,7 +1896,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"X-HeadingControl"
-		Location		[134, 121, 997, 601]
+		Location		[57, 121, 920, 601]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -2037,7 +2052,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -2051,9 +2066,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "off"
+		    DoSatur		    off
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -2318,7 +2333,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Y-DepthControl"
-		Location		[493, 238, 1061, 549]
+		Location		[163, 384, 731, 695]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -2427,7 +2442,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -2441,9 +2456,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "off"
+		    DoSatur		    off
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -2563,7 +2578,7 @@ Model {
 		  Name			  "Subtract"
 		  Ports			  [2, 1]
 		  Position		  [145, 87, 175, 118]
-		  Inputs		  "+-"
+		  Inputs		  "-+"
 		  InputSameDT		  off
 		  OutDataTypeMode	  "double"
 		  OutDataType		  "fixdt(1, 16)"
@@ -2861,8 +2876,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Running.Autonomous.FindBuoy.LookforBuoy"
-	    Location		    [109, 261, 689, 572]
-	    Open		    off
+	    Location		    [307, 284, 887, 595]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -2905,7 +2920,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Analysis"
-	      Ports		      [2]
+	      Ports		      [2, 1]
 	      Position		      [160, 42, 270, 98]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
@@ -2916,7 +2931,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Analysis"
-		Location		[109, 261, 1335, 639]
+		Location		[1, 112, 1381, 822]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -2953,30 +2968,30 @@ Model {
 		  DialogControllerArgs	  "DataTag3"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  "off"
-		  centroid		  "off"
-		  bBox			  "off"
-		  majorAxis		  "off"
-		  minorAxis		  "off"
-		  angle			  "off"
-		  eccentricity		  "on"
-		  equivDiameterSq	  "off"
-		  extent		  "on"
-		  perimeter		  "off"
-		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  "on"
-		  isCount		  "off"
-		  useMinArea		  "on"
+		  area			  off
+		  centroid		  off
+		  bBox			  off
+		  majorAxis		  off
+		  minorAxis		  off
+		  angle			  off
+		  eccentricity		  on
+		  equivDiameterSq	  off
+		  extent		  on
+		  perimeter		  off
+		  maxBlobs		  "Max_Num_Blobs_Buoy"
+		  warnIfNumBlobsExceeded  on
+		  isCount		  off
+		  useMinArea		  on
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  "on"
+		  useMaxArea		  on
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  "off"
+		  excludeBorderBlob	  off
 		  outDT			  "single"
-		  isOutVarDim		  "off"
-		  isFill		  "on"
+		  isOutVarDim		  off
+		  isFill		  on
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  "off"
+		  isLabel		  off
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -2996,8 +3011,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  "off"
-		  LockScale		  "off"
+		  overflowMode		  off
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -3008,7 +3023,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -3017,7 +3032,7 @@ Model {
 		  relop			  ">"
 		  const			  "Buoy_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -3028,7 +3043,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -3037,14 +3052,50 @@ Model {
 		  relop			  "<"
 		  const			  "Buoy_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "Constant"
+		  Position		  [450, 316, 605, 364]
+		  Value			  "Buoy_Min_Eccentricity"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		  SampleTime		  "-1"
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "Constant1"
+		  Position		  [455, 396, 610, 444]
+		  Value			  "Buoy_Max_Eccentricity"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		  SampleTime		  "-1"
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "Constant2"
+		  Position		  [450, 471, 605, 519]
+		  Value			  "Buoy_Max_Extent"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		  SampleTime		  "-1"
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "Constant3"
+		  Position		  [450, 556, 605, 604]
+		  Value			  "Buoy_Min_Extent"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		  SampleTime		  "-1"
 		}
 		Block {
 		  BlockType		  SubSystem
-		  Name			  "FoundBuoy"
-		  Ports			  [0, 0, 0, 0, 0, 0, 0, 1]
-		  Position		  [920, 162, 1020, 198]
-		  TreatAsAtomicUnit	  on
+		  Name			  "IF Buoy Conditions"
+		  Ports			  [6, 1]
+		  Position		  [955, 102, 1160, 263]
+		  PermitHierarchicalResolution "ExplicitOnly"
 		  MinAlgLoopOccurrences	  off
 		  PropExecContextOutsideSubsystem off
 		  RTWSystemCode		  "Auto"
@@ -3052,9 +3103,18 @@ Model {
 		  Opaque		  off
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
+		  MaskType		  "Stateflow"
+		  MaskDescription	  "Embedded MATLAB block"
+		  MaskDisplay		  "disp('BuoyConditions');"
+		  MaskSelfModifiable	  on
+		  MaskIconFrame		  on
+		  MaskIconOpaque	  off
+		  MaskIconRotate	  "none"
+		  MaskPortRotate	  "default"
+		  MaskIconUnits		  "autoscale"
 		  System {
-		    Name		    "FoundBuoy"
-		    Location		    [109, 261, 959, 608]
+		    Name		    "IF Buoy Conditions"
+		    Location		    [257, 457, 812, 717]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -3068,43 +3128,141 @@ Model {
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
 		    Block {
-		    BlockType		    ActionPort
-		    Name		    "Action Port"
-		    Position		    [295, 35, 354, 63]
-		    InitializeStates	    "reset"
-		    ActionType		    "then"
-		    }
-		    Block {
-		    BlockType		    Constant
-		    Name		    "Constant"
-		    Position		    [260, 120, 290, 150]
-		    OutDataType		    "fixdt(1, 16)"
+		    BlockType		    Inport
+		    Name		    "Eccent"
+		    Position		    [20, 101, 40, 119]
+		    IconDisplay		    "Port number"
+		    OutDataType		    "sfix(16)"
 		    OutScaling		    "2^0"
-		    SampleTime		    "-1"
 		    }
 		    Block {
-		    BlockType		    DataStoreWrite
-		    Name		    "Data Store\nWrite"
-		    Position		    [390, 120, 420, 150]
-		    DataStoreName	    "Image"
-		    SampleTime		    "-1"
+		    BlockType		    Inport
+		    Name		    "Extent"
+		    Position		    [20, 136, 40, 154]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Min_Eccent"
+		    Position		    [20, 171, 40, 189]
+		    Port		    "3"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Max_Eccent"
+		    Position		    [20, 206, 40, 224]
+		    Port		    "4"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Min_Extent"
+		    Position		    [20, 246, 40, 264]
+		    Port		    "5"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Max_Extent"
+		    Position		    [20, 281, 40, 299]
+		    Port		    "6"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Demux
+		    Name		    " Demux "
+		    Ports		    [1, 1]
+		    Position		    [270, 245, 320, 285]
+		    Outputs		    "1"
+		    }
+		    Block {
+		    BlockType		    "S-Function"
+		    Name		    " SFunction "
+		    Tag			    "Stateflow S-Function brain 9"
+		    Ports		    [6, 2]
+		    Position		    [180, 102, 230, 243]
+		    FunctionName	    "sf_sfun"
+		    PortCounts		    "[6 2]"
+		    EnableBusSupport	    off
+		    Port {
+		    PortNumber		    2
+		    Name		    "Image"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    }
+		    Block {
+		    BlockType		    Terminator
+		    Name		    " Terminator "
+		    Position		    [460, 256, 480, 274]
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Image"
+		    Position		    [460, 101, 480, 119]
+		    IconDisplay		    "Port number"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
 		    }
 		    Line {
-		    SrcBlock		    "Constant"
+		    SrcBlock		    " SFunction "
 		    SrcPort		    1
-		    DstBlock		    "Data Store\nWrite"
+		    DstBlock		    " Demux "
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Eccent"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Extent"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "Min_Eccent"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    3
+		    }
+		    Line {
+		    SrcBlock		    "Max_Eccent"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    4
+		    }
+		    Line {
+		    SrcBlock		    "Min_Extent"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    5
+		    }
+		    Line {
+		    SrcBlock		    "Max_Extent"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    6
+		    }
+		    Line {
+		    Name		    "Image"
+		    Labels		    [0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    2
+		    DstBlock		    "Image"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    " Demux "
+		    SrcPort		    1
+		    DstBlock		    " Terminator "
 		    DstPort		    1
 		    }
 		  }
-		}
-		Block {
-		  BlockType		  If
-		  Name			  "If"
-		  Ports			  [2, 2]
-		  Position		  [705, 102, 805, 173]
-		  NumInputs		  "2"
-		  IfExpression		  "u1 > Buoy_Min_Eccentricity & u1<Buoy_Max_Eccentricity & u2 > Buoy_Min_Extent & u2 < Buoy_Max_Exte"
-		  "nt"
 		}
 		Block {
 		  BlockType		  Logic
@@ -3134,65 +3292,6 @@ Model {
 		  }
 		}
 		Block {
-		  BlockType		  SubSystem
-		  Name			  "NoBuoy"
-		  Ports			  [0, 0, 0, 0, 0, 0, 0, 1]
-		  Position		  [800, 237, 900, 273]
-		  TreatAsAtomicUnit	  on
-		  MinAlgLoopOccurrences	  off
-		  PropExecContextOutsideSubsystem off
-		  RTWSystemCode		  "Auto"
-		  FunctionWithSeparateData off
-		  Opaque		  off
-		  RequestExecContextInheritance	off
-		  MaskHideContents	  off
-		  System {
-		    Name		    "NoBuoy"
-		    Location		    [10, 286, 860, 633]
-		    Open		    off
-		    ModelBrowserVisibility  off
-		    ModelBrowserWidth	    200
-		    ScreenColor		    "white"
-		    PaperOrientation	    "landscape"
-		    PaperPositionMode	    "auto"
-		    PaperType		    "usletter"
-		    PaperUnits		    "inches"
-		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
-		    TiledPageScale	    1
-		    ShowPageBoundaries	    off
-		    ZoomFactor		    "100"
-		    Block {
-		    BlockType		    ActionPort
-		    Name		    "Action Port"
-		    Position		    [295, 35, 354, 63]
-		    InitializeStates	    "reset"
-		    ActionType		    "else"
-		    }
-		    Block {
-		    BlockType		    Constant
-		    Name		    "Constant"
-		    Position		    [260, 120, 290, 150]
-		    Value		    "0"
-		    OutDataType		    "fixdt(1, 16)"
-		    OutScaling		    "2^0"
-		    SampleTime		    "-1"
-		    }
-		    Block {
-		    BlockType		    DataStoreWrite
-		    Name		    "Data Store\nWrite"
-		    Position		    [390, 120, 420, 150]
-		    DataStoreName	    "Image"
-		    SampleTime		    "-1"
-		    }
-		    Line {
-		    SrcBlock		    "Constant"
-		    SrcPort		    1
-		    DstBlock		    "Data Store\nWrite"
-		    DstPort		    1
-		    }
-		  }
-		}
-		Block {
 		  BlockType		  Reference
 		  Name			  "Saturation Comparison"
 		  Ports			  [1, 1]
@@ -3201,7 +3300,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -3210,7 +3309,15 @@ Model {
 		  relop			  ">"
 		  const			  "Buoy_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Image"
+		  Position		  [1215, 178, 1245, 192]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
 		}
 		Line {
 		  SrcBlock		  "H"
@@ -3242,32 +3349,6 @@ Model {
 		  DstPort		  2
 		}
 		Line {
-		  SrcBlock		  "If"
-		  SrcPort		  1
-		  Points		  [160, 0]
-		  DstBlock		  "FoundBuoy"
-		  DstPort		  ifaction
-		}
-		Line {
-		  SrcBlock		  "Blob Analysis"
-		  SrcPort		  1
-		  DstBlock		  "If"
-		  DstPort		  1
-		}
-		Line {
-		  SrcBlock		  "Blob Analysis"
-		  SrcPort		  2
-		  DstBlock		  "If"
-		  DstPort		  2
-		}
-		Line {
-		  SrcBlock		  "If"
-		  SrcPort		  2
-		  Points		  [40, 0]
-		  DstBlock		  "NoBuoy"
-		  DstPort		  ifaction
-		}
-		Line {
 		  SrcBlock		  "S"
 		  SrcPort		  1
 		  DstBlock		  "Saturation Comparison"
@@ -3295,35 +3376,62 @@ Model {
 		  DstBlock		  "Blob Analysis"
 		  DstPort		  1
 		}
+		Line {
+		  SrcBlock		  "Blob Analysis"
+		  SrcPort		  1
+		  DstBlock		  "IF Buoy Conditions"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Blob Analysis"
+		  SrcPort		  2
+		  Points		  [45, 0; 0, -10]
+		  DstBlock		  "IF Buoy Conditions"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Constant"
+		  SrcPort		  1
+		  Points		  [50, 0; 0, -170]
+		  DstBlock		  "IF Buoy Conditions"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "Constant1"
+		  SrcPort		  1
+		  Points		  [165, 0; 0, -225]
+		  DstBlock		  "IF Buoy Conditions"
+		  DstPort		  4
+		}
+		Line {
+		  SrcBlock		  "Constant2"
+		  SrcPort		  1
+		  Points		  [230, 0; 0, -275]
+		  DstBlock		  "IF Buoy Conditions"
+		  DstPort		  5
+		}
+		Line {
+		  SrcBlock		  "Constant3"
+		  SrcPort		  1
+		  Points		  [270, 0; 0, -335]
+		  DstBlock		  "IF Buoy Conditions"
+		  DstPort		  6
+		}
+		Line {
+		  SrcBlock		  "IF Buoy Conditions"
+		  SrcPort		  1
+		  DstBlock		  "Image"
+		  DstPort		  1
+		}
 		Annotation {
 		  Position		  [353, 139]
 		}
 	      }
 	    }
 	    Block {
-	      BlockType		      DataStoreRead
-	      Name		      "Data Store\nRead"
-	      Position		      [345, 50, 375, 80]
-	      DataStoreName	      "Image"
-	      SampleTime	      "-1"
-	    }
-	    Block {
-	      BlockType		      DataStoreMemory
-	      Name		      "Found"
-	      Position		      [175, 165, 207, 195]
-	      DataStoreName	      "Image"
-	      ReadBeforeWriteMsg      "warning"
-	      WriteAfterWriteMsg      "warning"
-	      WriteAfterReadMsg	      "warning"
-	      RTWStateStorageClass    "Auto"
-	      VectorParams1D	      on
-	      OutDataType	      "fixdt(1, 16)"
-	      OutScaling	      "2^0"
-	    }
-	    Block {
 	      BlockType		      Outport
 	      Name		      "Image"
-	      Position		      [420, 58, 450, 72]
+	      Position		      [375, 63, 405, 77]
 	      IconDisplay	      "Port number"
 	      OutDataType	      "fixdt(1, 16)"
 	      OutScaling	      "2^0"
@@ -3341,7 +3449,7 @@ Model {
 	      DstPort		      2
 	    }
 	    Line {
-	      SrcBlock		      "Data Store\nRead"
+	      SrcBlock		      "Analysis"
 	      SrcPort		      1
 	      DstBlock		      "Image"
 	      DstPort		      1
@@ -3888,7 +3996,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -3902,9 +4010,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "on"
+		  DoSatur		  on
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -4088,7 +4196,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -4102,9 +4210,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "off"
+		  DoSatur		  off
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -4536,6 +4644,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -4821,6 +4934,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -5104,6 +5222,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -5306,7 +5429,7 @@ Model {
 		  SourceType		  "Hough Transform"
 		  theta_res		  "pi/180"
 		  rho_res		  "1"
-		  out_theta_rho		  "on"
+		  out_theta_rho		  on
 		  outdtmode		  "double"
 		  firstCoeffMode	  "Binary point scaling"
 		  firstCoeffWordLength	  "16"
@@ -5327,8 +5450,8 @@ Model {
 		  memoryWordLength	  "32"
 		  memoryFracLength	  "16"
 		  roundingMode		  "Nearest"
-		  overflowMode		  "on"
-		  LockScale		  "off"
+		  overflowMode		  on
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -5341,6 +5464,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -5615,7 +5743,7 @@ Model {
 		  SourceType		  "Hough Transform"
 		  theta_res		  "pi/180"
 		  rho_res		  "1"
-		  out_theta_rho		  "on"
+		  out_theta_rho		  on
 		  outdtmode		  "double"
 		  firstCoeffMode	  "Binary point scaling"
 		  firstCoeffWordLength	  "16"
@@ -5636,8 +5764,8 @@ Model {
 		  memoryWordLength	  "32"
 		  memoryFracLength	  "16"
 		  roundingMode		  "Nearest"
-		  overflowMode		  "on"
-		  LockScale		  "off"
+		  overflowMode		  on
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -5650,6 +5778,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -6162,7 +6295,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -6176,9 +6309,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "on"
+		  DoSatur		  on
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -6845,7 +6978,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -6859,9 +6992,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "off"
+		  DoSatur		  off
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -7284,6 +7417,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -7562,7 +7700,7 @@ Model {
 		  SourceType		  "Hough Transform"
 		  theta_res		  "pi/180"
 		  rho_res		  "1"
-		  out_theta_rho		  "on"
+		  out_theta_rho		  on
 		  outdtmode		  "double"
 		  firstCoeffMode	  "Binary point scaling"
 		  firstCoeffWordLength	  "16"
@@ -7583,8 +7721,8 @@ Model {
 		  memoryWordLength	  "32"
 		  memoryFracLength	  "16"
 		  roundingMode		  "Nearest"
-		  overflowMode		  "on"
-		  LockScale		  "off"
+		  overflowMode		  on
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -7597,6 +7735,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -7802,6 +7945,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -8161,30 +8309,30 @@ Model {
 		  DialogControllerArgs	  "DataTag8"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  "off"
-		  centroid		  "off"
-		  bBox			  "off"
-		  majorAxis		  "off"
-		  minorAxis		  "off"
-		  angle			  "off"
-		  eccentricity		  "on"
-		  equivDiameterSq	  "off"
-		  extent		  "off"
-		  perimeter		  "off"
+		  area			  off
+		  centroid		  off
+		  bBox			  off
+		  majorAxis		  off
+		  minorAxis		  off
+		  angle			  off
+		  eccentricity		  on
+		  equivDiameterSq	  off
+		  extent		  off
+		  perimeter		  off
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  "on"
-		  isCount		  "off"
-		  useMinArea		  "on"
+		  warnIfNumBlobsExceeded  on
+		  isCount		  off
+		  useMinArea		  on
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  "on"
+		  useMaxArea		  on
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  "off"
+		  excludeBorderBlob	  off
 		  outDT			  "single"
-		  isOutVarDim		  "off"
-		  isFill		  "on"
+		  isOutVarDim		  off
+		  isFill		  on
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  "off"
+		  isLabel		  off
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -8204,8 +8352,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  "off"
-		  LockScale		  "off"
+		  overflowMode		  off
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -8274,7 +8422,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -8283,7 +8431,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -8294,7 +8442,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -8303,7 +8451,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  If
@@ -8407,7 +8555,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -8416,7 +8564,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Line {
 		  SrcBlock		  "H"
@@ -9068,7 +9216,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -9082,9 +9230,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "on"
+		  DoSatur		  on
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -9268,7 +9416,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -9282,9 +9430,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "off"
+		  DoSatur		  off
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -9784,7 +9932,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -9798,9 +9946,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "on"
+		  DoSatur		  on
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -10458,7 +10606,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -10472,9 +10620,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "off"
+		  DoSatur		  off
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -11604,7 +11752,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  "on"
+	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -11620,7 +11768,7 @@ Model {
 	  antialiasing		  "Default"
 	  hcoeff		  "[0.2 0.6 0.2]"
 	  vcoeff		  "[0.5 0.5]"
-	  isInputTransposed	  "off"
+	  isInputTransposed	  off
 	}
 	Block {
 	  BlockType		  Reference
@@ -11630,7 +11778,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  "on"
+	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -11656,7 +11804,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  "on"
+	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -11675,9 +11823,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  "on"
-	  useROI		  "off"
-	  roiFlag		  "off"
+	  antialias		  on
+	  useROI		  off
+	  roiFlag		  off
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -11691,8 +11839,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  "on"
-	  LockScale		  "off"
+	  overflowMode		  on
+	  LockScale		  off
 	}
 	Block {
 	  BlockType		  Reference
@@ -11709,9 +11857,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  "on"
-	  useROI		  "off"
-	  roiFlag		  "off"
+	  antialias		  on
+	  useROI		  off
+	  roiFlag		  off
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -11725,8 +11873,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  "on"
-	  LockScale		  "off"
+	  overflowMode		  on
+	  LockScale		  off
 	}
 	Block {
 	  BlockType		  Reference
@@ -11743,9 +11891,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  "on"
-	  useROI		  "off"
-	  roiFlag		  "off"
+	  antialias		  on
+	  useROI		  off
+	  roiFlag		  off
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -11759,8 +11907,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  "on"
-	  LockScale		  "off"
+	  overflowMode		  on
+	  LockScale		  off
 	}
 	Block {
 	  BlockType		  Reference
@@ -11779,7 +11927,7 @@ Model {
 	  specRange		  off
 	  minInputVal		  "0"
 	  maxInputVal		  "255"
-	  FigPos		  "[874 623 410 300]"
+	  FigPos		  "[909 627 410 300]"
 	  AxisZoom		  on
 	  trueSizedOnce		  off
 	  OpenAtMdlStart	  on
@@ -12542,17 +12690,17 @@ MatData {
     "    8    (    #0         %    \"     \\    !     0         &    /        -T\"    \"P    $    \"    #    !,    5   "
     " %P   !D    ;    (0   \",    F    *          .    2     8    (    #0         %    \"     8    !     0         &   "
     " &        -T\"     0    $    #     0    X   !0    !@    @    &          4    (     0    0    !          D    @    "
-    "      !0BT       *!Z0       H'E       # <D .    .     8    (    !          %    \"     $    (     0         0    \""
+    "      !HC$       &!Z0       H'E       # <D .    .     8    (    !          %    \"     $    (     0         0    \""
     "    '5N9&]C:V5D#@   ( !   &    \"     (         !0    @    !     0    $         !0 $  H    !    *    %-C;W!E0V9G  "
     "!\";&]C:TYA;64 5FES:6)L90   %9E<G-I;VX    .    2     8    (    #0         %    \"     8    !     0         &    & "
     "       -T\"     0    $    \"     @    X   !0    !@    @    $          4    (     0   !P    !         !     <    8G"
-    ")A:6XO1V5T5FED96\\Q+U9I9&5O(%9I97=E<@     .    ,     8    (    !          %    \"     $    \"     0         0  ( ;"
-    "VX   X    X    !@    @    &          4    (     0    $    !          D    (            \\#\\.    2 4   8    (     "
-    "0         %    \"     0    !     0         .    .     8    (     @         %    \"     $          0         %  0  "
-    "0    $         #@   # !   &    \"     (         !0    @    !     0    $         !0 $  L    !    +    $YA;64       "
-    "  07)G<P        !087)S961!<F=S $%R9TYA;65S          X    P    !@    @    $          4    (               !        "
-    " !          #@   \"@    &    \"     $         !0    @               $         #@   \"@    &    \"     $         !0"
-    "    @               $         #@   \"@    &    \"     $         !0    @               $         #@   # \"   &    \""
+    ")A:6XO1V5T5FED96\\Q+U9I9&5O(%9I97=E<@     .    ,     8    (    !          %    \"     $    #     0         0  , ;V"
+    "9F  X    X    !@    @    &          4    (     0    $    !          D    (            \\#\\.    2 4   8    (     0"
+    "         %    \"     0    !     0         .    .     8    (     @         %    \"     $          0         %  0  0"
+    "    $         #@   # !   &    \"     (         !0    @    !     0    $         !0 $  L    !    +    $YA;64        "
+    " 07)G<P        !087)S961!<F=S $%R9TYA;65S          X    P    !@    @    $          4    (               !         "
+    "!          #@   \"@    &    \"     $         !0    @               $         #@   \"@    &    \"     $         !0 "
+    "   @               $         #@   \"@    &    \"     $         !0    @               $         #@   # \"   &    \""
     "     (         !0    @    !     0    $         !0 $ !4    !    ?@   $)L;V-K                     %-C;W!E           "
     "          $-U<G)E;G1#;VYF:6=U<F%T:6]N %-C;W!E0TQ)                 %!O<VET:6]N                 %=I;F1O=U-T>6QE     "
     "           #@   #     &    \"     8         !0    @               $         \"0         .    ,     8    (    !@   "
@@ -12641,18 +12789,19 @@ Stateflow {
     name		    "brain"
     created		    "23-Aug-2009 14:16:32"
     isLibrary		    0
-    firstTarget		    307
+    firstTarget		    319
     sfVersion		    71014000.000008
   }
   chart {
     id			    2
     name		    "Chart"
     windowPosition	    [7.624 159.247 1211.294 639.529]
-    viewLimits		    [-15 1147.165 -15 583.529]
+    viewLimits		    [-18.75 1433.956 -18.75 729.412]
+    zoomFactor		    1.25
     screen		    [1 1 3120 1050 1.180555555555556]
     treeNode		    [0 39 0 0]
     firstTransition	    50
-    viewObj		    38
+    viewObj		    18
     visible		    1
     machine		    1
     subviewS {
@@ -12904,7 +13053,6 @@ Stateflow {
     chart		    2
     treeNode		    [18 0 0 19]
     superState		    SUBCHART
-    visible		    0
     subviewer		    18
     ssIdNumber		    254
     type		    FUNC_STATE
@@ -12948,7 +13096,6 @@ Stateflow {
     chart		    2
     treeNode		    [18 0 19 0]
     superState		    SUBCHART
-    visible		    0
     subviewer		    18
     ssIdNumber		    242
     type		    FUNC_STATE
@@ -12970,7 +13117,6 @@ Stateflow {
     chart		    2
     treeNode		    [16 15 7 5]
     superState		    SUBCHART
-    visible		    0
     subviewer		    16
     subviewS {
       x1		      -18.75
@@ -12990,7 +13136,6 @@ Stateflow {
     chart		    2
     treeNode		    [18 0 15 17]
     superState		    SUBCHART
-    visible		    0
     subviewer		    18
     ssIdNumber		    250
     type		    FUNC_STATE
@@ -13349,6 +13494,7 @@ Stateflow {
     chart		    2
     treeNode		    [38 0 37 0]
     superState		    SUBCHART
+    visible		    0
     subviewer		    38
     ssIdNumber		    428
     type		    FUNC_STATE
@@ -13367,6 +13513,7 @@ Stateflow {
     chart		    2
     treeNode		    [38 0 0 36]
     superState		    SUBCHART
+    visible		    0
     subviewer		    38
     ssIdNumber		    424
     type		    FUNC_STATE
@@ -13386,10 +13533,11 @@ Stateflow {
     chart		    2
     treeNode		    [39 37 0 16]
     superState		    SUBCHART
+    visible		    0
     subviewer		    2
     subviewS {
-      x1		      -15
-      y1		      -15
+      x1		      -16.941
+      y1		      -16.941
       pos		      [0 0 647.248 422.282]
     }
     ssIdNumber		    408
@@ -13431,6 +13579,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    197
   }
@@ -13524,6 +13674,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    5
     ssIdNumber		    322
   }
@@ -13548,6 +13700,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    2
     ssIdNumber		    321
   }
@@ -13558,11 +13712,11 @@ Stateflow {
     fontSize		    12
     src {
       id		      20
-      intersection	      [2 1 -0 0.4126 441.8475 95.1571 0 -2.1027]
+      intersection	      [2 1 0 0.4126 441.8475 95.1586 0 -2.1027]
     }
     dst {
       id		      18
-      intersection	      [4 -1 0 0.5984 494.5782 95.1571 0 2.1027]
+      intersection	      [4 -1 -0 0.5984 494.5782 95.1586 0 2.1027]
     }
     midPoint		    [465.0985 95.1563]
     chart		    2
@@ -13572,6 +13726,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    240
   }
@@ -13582,11 +13738,11 @@ Stateflow {
     fontSize		    12
     src {
       id		      18
-      intersection	      [2 1 0 0.5328 591.2969 103.5832 0 0.6685]
+      intersection	      [2 1 -0 0.5328 591.2969 103.5832 0 0.6685]
     }
     dst {
       id		      7
-      intersection	      [4 -1 -0 0.4766 655.6406 103.5832 0 -1.606]
+      intersection	      [4 -1 0 0.4766 655.6406 103.5832 0 -1.606]
     }
     midPoint		    [620.6068 103.587]
     chart		    2
@@ -13596,6 +13752,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    241
   }
@@ -13620,6 +13778,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    3
     ssIdNumber		    320
   }
@@ -13857,6 +14017,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    16
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    2
     ssIdNumber		    319
   }
@@ -13999,11 +14161,11 @@ Stateflow {
     fontSize		    12
     src {
       id		      16
-      intersection	      [2 1 0 0.2802 303.7239 117.3199 0 -25.298]
+      intersection	      [2 1 -0 0.2802 303.7239 117.3157 0 -25.298]
     }
     dst {
       id		      38
-      intersection	      [4 -1 -0 0.7288 412.2285 117.3199 0 25.298]
+      intersection	      [4 -1 0 0.7288 412.2285 117.3157 0 25.298]
     }
     midPoint		    [356.0743 117.3105]
     chart		    2
@@ -14025,11 +14187,11 @@ Stateflow {
     fontSize		    12
     src {
       id		      38
-      intersection	      [4 -1 -0 0.25 412.2285 178.2045 0 -33.805]
+      intersection	      [4 -1 0 0.25 412.2285 178.2003 0 -33.805]
     }
     dst {
       id		      16
-      intersection	      [2 1 0 0.8093 303.7239 178.2045 0 33.805]
+      intersection	      [2 1 -0 0.8093 303.7239 178.2003 0 33.805]
     }
     midPoint		    [359.8781 178.2045]
     chart		    2
@@ -18028,24 +18190,26 @@ Stateflow {
   }
   chart {
     id			    277
-    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit/Finding Br"
-    "ightest Pixel/Get Brightest Pixel\nPer Column and Row"
-    windowPosition	    [521.813 114 200.25 189.75]
+    name		    "Chart/Running.Autonomous.FindBuoy.LookforBuoy/Analysis/IF Buoy Conditions"
+    windowPosition	    [375.75 203.25 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 1280 800 1.333333333333333]
+    screen		    [1 1 3120 1050 1.180555555555556]
     treeNode		    [0 278 0 0]
     firstTransition	    280
     firstJunction	    279
     viewObj		    277
     machine		    1
-    ssIdHighWaterMark	    6
+    toolbarMode		    LIBRARY_TOOLBAR
+    subviewS {
+    }
+    ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    281
-    chartFileNumber	    10
+    chartFileNumber	    9
     disableImplicitCasting  1
     eml {
-      name		      "GetBrightestPixels"
+      name		      "BuoyConditions"
     }
   }
   state {
@@ -18062,19 +18226,12 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [BWleft,BWright] = GetBrightestPixels(HSVImage)\n% This function takes a HSV image as in"
-      "put and determines the \n% highest intensity pixel in each row and column. From these highest\n% intensity pixel"
-      "s a new boolean image is created and reported\n\n[rows cols] = size(HSVImage(:,:,1));\n\nhalfcols = floor(cols/2"
-      ");\n\nBWleft = zeros(rows,halfcols);\nBWright = zeros(rows,halfcols);\n\nDesiredH = 0.05;\nSaturationThreshold ="
-      " 0.3;\n\nnewH = (cos(2*pi()*HSVImage(:,:,1)-2*pi()*DesiredH)+1)/2;\n\n% Left half\nfor x = 1:halfcols\n    [valu"
-      "eH indexH] = max(newH(:,x));\n    if(valueH > 0.5 && HSVImage(indexH,x,2) > SaturationThreshold)\n        BWleft"
-      "(indexH,x) = true;\n    end\nend\n\nfor y = 1:rows\n    [valueH indexH] = max(newH(y,1:halfcols));\n   if(valueH"
-      " > 0.5 && HSVImage(y,indexH,2) > SaturationThreshold)\n        BWleft(y,indexH) = true;\n   end\nend\n\n% Right "
-      "half\nfor x = halfcols+1:cols\n    [valueH indexH] = max(newH(:,x));\n    if(valueH > 0.5 && HSVImage(indexH,x,2"
-      ") > SaturationThreshold)\n        BWright(indexH,x-halfcols) = true;\n    end\nend\n\nfor y = 1:rows\n    [value"
-      "H indexH] = max(newH(y,halfcols+1:cols));\n   if(valueH > 0.5 && HSVImage(y,indexH,2) > SaturationThreshold)\n  "
-      "      BWright(y,indexH) = true;\n   end\nend\n\nreturn\n"
-      editorLayout	      "100 M4x1[85 138 720 481]"
+      script		      "function Image = BuoyConditions(Eccent, Extent,Min_Eccent, Max_Eccent,Min_Extent,Max_Extent)\n% T"
+      "his function will take in 2 1x10 vectors, eccent and extent to determine\n% if there is a buoy present in the cu"
+      "rrent image\n\nnum_blobs = length(Eccent);\nImage = 0;\n\nfor i = 1:num_blobs\n    if((Eccent(i)>Min_Eccent) && "
+      "(Eccent(i)<Max_Eccent) && (Extent(i)>Min_Extent) && (Extent(i)<Max_Extent))\n        Image = 1;\n    end\nend\n\n"
+      "return\n"
+      editorLayout	      "100 M4x1[683 251 671 364]"
     }
   }
   junction {
@@ -18110,7 +18267,7 @@ Stateflow {
   data {
     id			    281
     ssIdNumber		    4
-    name		    "HSVImage"
+    name		    "Eccent"
     linkNode		    [277 0 282]
     scope		    INPUT_DATA
     machine		    1
@@ -18129,7 +18286,7 @@ Stateflow {
   data {
     id			    282
     ssIdNumber		    5
-    name		    "BWleft"
+    name		    "Image"
     linkNode		    [277 281 283]
     scope		    OUTPUT_DATA
     machine		    1
@@ -18149,8 +18306,244 @@ Stateflow {
   data {
     id			    283
     ssIdNumber		    6
+    name		    "Extent"
+    linkNode		    [277 282 284]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    284
+    ssIdNumber		    7
+    name		    "Min_Eccent"
+    linkNode		    [277 283 285]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    285
+    ssIdNumber		    8
+    name		    "Max_Eccent"
+    linkNode		    [277 284 286]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    286
+    ssIdNumber		    9
+    name		    "Min_Extent"
+    linkNode		    [277 285 287]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    287
+    ssIdNumber		    10
+    name		    "Max_Extent"
+    linkNode		    [277 286 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    288
+    name		    "Chart/Running.Autonomous.FindBuoy.LookforBuoy/Analysis/IF Buoy Conditions"
+    machine		    1
+    chart		    277
+  }
+  chart {
+    id			    289
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit/Finding Br"
+    "ightest Pixel/Get Brightest Pixel\nPer Column and Row"
+    windowPosition	    [521.813 114 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1280 800 1.333333333333333]
+    treeNode		    [0 290 0 0]
+    firstTransition	    292
+    firstJunction	    291
+    viewObj		    289
+    machine		    1
+    ssIdHighWaterMark	    6
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    293
+    chartFileNumber	    10
+    disableImplicitCasting  1
+    eml {
+      name		      "GetBrightestPixels"
+    }
+  }
+  state {
+    id			    290
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    289
+    treeNode		    [289 0 0 0]
+    superState		    SUBCHART
+    subviewer		    289
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [BWleft,BWright] = GetBrightestPixels(HSVImage)\n% This function takes a HSV image as in"
+      "put and determines the \n% highest intensity pixel in each row and column. From these highest\n% intensity pixel"
+      "s a new boolean image is created and reported\n\n[rows cols] = size(HSVImage(:,:,1));\n\nhalfcols = floor(cols/2"
+      ");\n\nBWleft = zeros(rows,halfcols);\nBWright = zeros(rows,halfcols);\n\nDesiredH = 0.05;\nSaturationThreshold ="
+      " 0.3;\n\nnewH = (cos(2*pi()*HSVImage(:,:,1)-2*pi()*DesiredH)+1)/2;\n\n% Left half\nfor x = 1:halfcols\n    [valu"
+      "eH indexH] = max(newH(:,x));\n    if(valueH > 0.5 && HSVImage(indexH,x,2) > SaturationThreshold)\n        BWleft"
+      "(indexH,x) = true;\n    end\nend\n\nfor y = 1:rows\n    [valueH indexH] = max(newH(y,1:halfcols));\n   if(valueH"
+      " > 0.5 && HSVImage(y,indexH,2) > SaturationThreshold)\n        BWleft(y,indexH) = true;\n   end\nend\n\n% Right "
+      "half\nfor x = halfcols+1:cols\n    [valueH indexH] = max(newH(:,x));\n    if(valueH > 0.5 && HSVImage(indexH,x,2"
+      ") > SaturationThreshold)\n        BWright(indexH,x-halfcols) = true;\n    end\nend\n\nfor y = 1:rows\n    [value"
+      "H indexH] = max(newH(y,halfcols+1:cols));\n   if(valueH > 0.5 && HSVImage(y,indexH,2) > SaturationThreshold)\n  "
+      "      BWright(y,indexH) = true;\n   end\nend\n\nreturn\n"
+      editorLayout	      "100 M4x1[85 138 720 481]"
+    }
+  }
+  junction {
+    id			    291
+    position		    [23.5747 49.5747 7]
+    chart		    289
+    linkNode		    [289 0 0]
+    subviewer		    289
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    292
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      291
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    289
+    linkNode		    [289 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    289
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    293
+    ssIdNumber		    4
+    name		    "HSVImage"
+    linkNode		    [289 0 294]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    294
+    ssIdNumber		    5
+    name		    "BWleft"
+    linkNode		    [289 293 295]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    295
+    ssIdNumber		    6
     name		    "BWright"
-    linkNode		    [277 282 0]
+    linkNode		    [289 294 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -18169,28 +18562,28 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    284
+    id			    296
     name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit/Finding Br"
     "ightest Pixel/Get Brightest Pixel\nPer Column and Row"
     machine		    1
-    chart		    277
+    chart		    289
   }
   chart {
-    id			    285
+    id			    297
     name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left/IsL"
     "inePresent"
     windowPosition	    [416.813 219 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 286 0 0]
-    firstTransition	    288
-    firstJunction	    287
-    viewObj		    285
+    treeNode		    [0 298 0 0]
+    firstTransition	    300
+    firstJunction	    299
+    viewObj		    297
     machine		    1
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    289
+    firstData		    301
     chartFileNumber	    11
     disableImplicitCasting  1
     eml {
@@ -18198,268 +18591,48 @@ Stateflow {
     }
   }
   state {
-    id			    286
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    285
-    treeNode		    [285 0 0 0]
-    superState		    SUBCHART
-    subviewer		    285
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function [Theta,Rho, maxVotes]  = IsLinePresent(HoughTable, ThetaValues, RhoValues)\n% This funct"
-      "ion takes a Hough/hash table as input and  determines if a line\n% is present and if so what its Rho and Theta a"
-      "re.\n\nnum_lines = 2;\n\nminVotes = 15;\n\nRho = -999*ones(1,num_lines);\nTheta = -999*ones(1,num_lines);\nmaxVo"
-      "tes = -999*ones(1,num_lines);\nThetaIndex = -999*ones(1,num_lines);\nRhoIndex = -999*ones(1,num_lines);\n\nindex"
-      " = 1;\n\n[maxValues RhoIndices] = max(HoughTable);\n[maxVotes(index) ThetaIndex(index)] = max(maxValues);\nRhoIn"
-      "dex(index) = RhoIndices(ThetaIndex(index));\n\nif(maxVotes(1) >= 15)\n    HoughTable(RhoIndex(index),ThetaIndex("
-      "index)) = 0;\n    if(num_lines > 1)\n        index = index + 1;\n        count = 0;\n        while(index <= num_"
-      "lines && count < num_lines+10)\n            count = count + 1;\n            [maxValues RhoIndices] = max(HoughTa"
-      "ble);\n            [maxVotes(index) ThetaIndex(index)] = max(maxValues);\n            RhoIndex(index) = RhoIndic"
-      "es(ThetaIndex(index));\n            \n            HoughTable(RhoIndex(index),ThetaIndex(index)) = 0;\n          "
-      "  \n            if(abs(RhoIndex(index)-RhoIndex(index-1))>20 || abs(ThetaIndex(index)-ThetaIndex(index-1))>30)\n"
-      "                index = index + 1;\n            end\n        end\n    end\n    \n    for index = 1:num_lines\n  "
-      "      if(maxVotes(index) > minVotes)\n            Theta(index) = ThetaValues(ThetaIndex(index));\n            Rh"
-      "o(index) = RhoValues(RhoIndex(index));\n            if(Theta(index) > 0 && Rho(index) < 0)\n                Rho("
-      "index) = Rho(index) * -1;\n            end\n        end\n    end\nend\n\nreturn\n"
-      editorLayout	      "100 M4x1[125 116 917 507]"
-    }
-  }
-  junction {
-    id			    287
-    position		    [23.5747 49.5747 7]
-    chart		    285
-    linkNode		    [285 0 0]
-    subviewer		    285
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    288
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      287
-      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    285
-    linkNode		    [285 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    285
-    drawStyle		    SMART
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  data {
-    id			    289
-    ssIdNumber		    4
-    name		    "HoughTable"
-    linkNode		    [285 0 290]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    290
-    ssIdNumber		    6
-    name		    "Theta"
-    linkNode		    [285 289 291]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    291
-    ssIdNumber		    7
-    name		    "ThetaValues"
-    linkNode		    [285 290 292]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    292
-    ssIdNumber		    8
-    name		    "RhoValues"
-    linkNode		    [285 291 293]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    293
-    ssIdNumber		    9
-    name		    "Rho"
-    linkNode		    [285 292 294]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    294
-    ssIdNumber		    10
-    name		    "maxVotes"
-    linkNode		    [285 293 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  instance {
-    id			    295
-    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left/IsL"
-    "inePresent"
-    machine		    1
-    chart		    285
-  }
-  chart {
-    id			    296
-    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right/Is"
-    "LinePresent"
-    windowPosition	    [431.813 204 200.25 189.75]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 297 0 0]
-    firstTransition	    299
-    firstJunction	    298
-    viewObj		    296
-    machine		    1
-    ssIdHighWaterMark	    10
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    300
-    chartFileNumber	    12
-    disableImplicitCasting  1
-    eml {
-      name		      "IsLinePresent"
-    }
-  }
-  state {
-    id			    297
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    296
-    treeNode		    [296 0 0 0]
-    superState		    SUBCHART
-    subviewer		    296
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function [Theta,Rho, maxVotes]  = IsLinePresent(HoughTable, ThetaValues, RhoValues)\n% This funct"
-      "ion takes a Hough/hash table as input and  determines if a line\n% is present and if so what its Rho and Theta a"
-      "re.\n\nnum_lines = 2;\n\nminVotes = 15;\n\nRho = -999*ones(1,num_lines);\nTheta = -999*ones(1,num_lines);\nmaxVo"
-      "tes = -999*ones(1,num_lines);\nThetaIndex = -999*ones(1,num_lines);\nRhoIndex = -999*ones(1,num_lines);\n\nindex"
-      " = 1;\n\n[maxValues RhoIndices] = max(HoughTable);\n[maxVotes(index) ThetaIndex(index)] = max(maxValues);\nRhoIn"
-      "dex(index) = RhoIndices(ThetaIndex(index));\n\nif(maxVotes(1) >= 15)\n    HoughTable(RhoIndex(index),ThetaIndex("
-      "index)) = 0;\n    if(num_lines > 1)\n        index = index + 1;\n        count = 0;\n        while(index <= num_"
-      "lines && count < num_lines+10)\n            count = count + 1;\n            [maxValues RhoIndices] = max(HoughTa"
-      "ble);\n            [maxVotes(index) ThetaIndex(index)] = max(maxValues);\n            RhoIndex(index) = RhoIndic"
-      "es(ThetaIndex(index));\n            \n            HoughTable(RhoIndex(index),ThetaIndex(index)) = 0;\n          "
-      "  \n            if(abs(RhoIndex(index)-RhoIndex(index-1))>20 || abs(ThetaIndex(index)-ThetaIndex(index-1))>30)\n"
-      "                index = index + 1;\n            end\n        end\n    end\n    \n    for index = 1:num_lines\n  "
-      "      if(maxVotes(index) > minVotes)\n            Theta(index) = ThetaValues(ThetaIndex(index));\n            Rh"
-      "o(index) = RhoValues(RhoIndex(index));\n            if(Theta(index) > 0 && Rho(index) < 0)\n                Rho("
-      "index) = Rho(index) * -1;\n            end\n        end\n    end\nend\n\nreturn\n"
-      editorLayout	      "100 M4x1[125 116 917 507]"
-    }
-  }
-  junction {
     id			    298
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    297
+    treeNode		    [297 0 0 0]
+    superState		    SUBCHART
+    subviewer		    297
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [Theta,Rho, maxVotes]  = IsLinePresent(HoughTable, ThetaValues, RhoValues)\n% This funct"
+      "ion takes a Hough/hash table as input and  determines if a line\n% is present and if so what its Rho and Theta a"
+      "re.\n\nnum_lines = 2;\n\nminVotes = 15;\n\nRho = -999*ones(1,num_lines);\nTheta = -999*ones(1,num_lines);\nmaxVo"
+      "tes = -999*ones(1,num_lines);\nThetaIndex = -999*ones(1,num_lines);\nRhoIndex = -999*ones(1,num_lines);\n\nindex"
+      " = 1;\n\n[maxValues RhoIndices] = max(HoughTable);\n[maxVotes(index) ThetaIndex(index)] = max(maxValues);\nRhoIn"
+      "dex(index) = RhoIndices(ThetaIndex(index));\n\nif(maxVotes(1) >= 15)\n    HoughTable(RhoIndex(index),ThetaIndex("
+      "index)) = 0;\n    if(num_lines > 1)\n        index = index + 1;\n        count = 0;\n        while(index <= num_"
+      "lines && count < num_lines+10)\n            count = count + 1;\n            [maxValues RhoIndices] = max(HoughTa"
+      "ble);\n            [maxVotes(index) ThetaIndex(index)] = max(maxValues);\n            RhoIndex(index) = RhoIndic"
+      "es(ThetaIndex(index));\n            \n            HoughTable(RhoIndex(index),ThetaIndex(index)) = 0;\n          "
+      "  \n            if(abs(RhoIndex(index)-RhoIndex(index-1))>20 || abs(ThetaIndex(index)-ThetaIndex(index-1))>30)\n"
+      "                index = index + 1;\n            end\n        end\n    end\n    \n    for index = 1:num_lines\n  "
+      "      if(maxVotes(index) > minVotes)\n            Theta(index) = ThetaValues(ThetaIndex(index));\n            Rh"
+      "o(index) = RhoValues(RhoIndex(index));\n            if(Theta(index) > 0 && Rho(index) < 0)\n                Rho("
+      "index) = Rho(index) * -1;\n            end\n        end\n    end\nend\n\nreturn\n"
+      editorLayout	      "100 M4x1[125 116 917 507]"
+    }
+  }
+  junction {
+    id			    299
     position		    [23.5747 49.5747 7]
-    chart		    296
-    linkNode		    [296 0 0]
-    subviewer		    296
+    chart		    297
+    linkNode		    [297 0 0]
+    subviewer		    297
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    299
+    id			    300
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -18467,43 +18640,24 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      298
+      id		      299
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    296
-    linkNode		    [296 0 0]
+    chart		    297
+    linkNode		    [297 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    296
+    subviewer		    297
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
-  }
-  data {
-    id			    300
-    ssIdNumber		    4
-    name		    "HoughTable"
-    linkNode		    [296 0 301]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    301
-    ssIdNumber		    6
-    name		    "Theta"
-    linkNode		    [296 300 302]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    4
+    name		    "HoughTable"
+    linkNode		    [297 0 302]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -18512,20 +18666,17 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    302
-    ssIdNumber		    7
-    name		    "ThetaValues"
-    linkNode		    [296 301 303]
-    scope		    INPUT_DATA
+    ssIdNumber		    6
+    name		    "Theta"
+    linkNode		    [297 301 303]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -18538,15 +18689,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    303
-    ssIdNumber		    8
-    name		    "RhoValues"
-    linkNode		    [296 302 304]
+    ssIdNumber		    7
+    name		    "ThetaValues"
+    linkNode		    [297 302 304]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -18566,9 +18717,31 @@ Stateflow {
   }
   data {
     id			    304
+    ssIdNumber		    8
+    name		    "RhoValues"
+    linkNode		    [297 303 305]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    305
     ssIdNumber		    9
     name		    "Rho"
-    linkNode		    [296 303 305]
+    linkNode		    [297 304 306]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -18587,10 +18760,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    305
+    id			    306
     ssIdNumber		    10
     name		    "maxVotes"
-    linkNode		    [296 304 0]
+    linkNode		    [297 305 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -18609,23 +18782,243 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    306
+    id			    307
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left/IsL"
+    "inePresent"
+    machine		    1
+    chart		    297
+  }
+  chart {
+    id			    308
+    name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right/Is"
+    "LinePresent"
+    windowPosition	    [431.813 204 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1280 800 1.333333333333333]
+    treeNode		    [0 309 0 0]
+    firstTransition	    311
+    firstJunction	    310
+    viewObj		    308
+    machine		    1
+    ssIdHighWaterMark	    10
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    312
+    chartFileNumber	    12
+    disableImplicitCasting  1
+    eml {
+      name		      "IsLinePresent"
+    }
+  }
+  state {
+    id			    309
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    308
+    treeNode		    [308 0 0 0]
+    superState		    SUBCHART
+    subviewer		    308
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [Theta,Rho, maxVotes]  = IsLinePresent(HoughTable, ThetaValues, RhoValues)\n% This funct"
+      "ion takes a Hough/hash table as input and  determines if a line\n% is present and if so what its Rho and Theta a"
+      "re.\n\nnum_lines = 2;\n\nminVotes = 15;\n\nRho = -999*ones(1,num_lines);\nTheta = -999*ones(1,num_lines);\nmaxVo"
+      "tes = -999*ones(1,num_lines);\nThetaIndex = -999*ones(1,num_lines);\nRhoIndex = -999*ones(1,num_lines);\n\nindex"
+      " = 1;\n\n[maxValues RhoIndices] = max(HoughTable);\n[maxVotes(index) ThetaIndex(index)] = max(maxValues);\nRhoIn"
+      "dex(index) = RhoIndices(ThetaIndex(index));\n\nif(maxVotes(1) >= 15)\n    HoughTable(RhoIndex(index),ThetaIndex("
+      "index)) = 0;\n    if(num_lines > 1)\n        index = index + 1;\n        count = 0;\n        while(index <= num_"
+      "lines && count < num_lines+10)\n            count = count + 1;\n            [maxValues RhoIndices] = max(HoughTa"
+      "ble);\n            [maxVotes(index) ThetaIndex(index)] = max(maxValues);\n            RhoIndex(index) = RhoIndic"
+      "es(ThetaIndex(index));\n            \n            HoughTable(RhoIndex(index),ThetaIndex(index)) = 0;\n          "
+      "  \n            if(abs(RhoIndex(index)-RhoIndex(index-1))>20 || abs(ThetaIndex(index)-ThetaIndex(index-1))>30)\n"
+      "                index = index + 1;\n            end\n        end\n    end\n    \n    for index = 1:num_lines\n  "
+      "      if(maxVotes(index) > minVotes)\n            Theta(index) = ThetaValues(ThetaIndex(index));\n            Rh"
+      "o(index) = RhoValues(RhoIndex(index));\n            if(Theta(index) > 0 && Rho(index) < 0)\n                Rho("
+      "index) = Rho(index) * -1;\n            end\n        end\n    end\nend\n\nreturn\n"
+      editorLayout	      "100 M4x1[125 116 917 507]"
+    }
+  }
+  junction {
+    id			    310
+    position		    [23.5747 49.5747 7]
+    chart		    308
+    linkNode		    [308 0 0]
+    subviewer		    308
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    311
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      310
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    308
+    linkNode		    [308 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    308
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    312
+    ssIdNumber		    4
+    name		    "HoughTable"
+    linkNode		    [308 0 313]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    313
+    ssIdNumber		    6
+    name		    "Theta"
+    linkNode		    [308 312 314]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    314
+    ssIdNumber		    7
+    name		    "ThetaValues"
+    linkNode		    [308 313 315]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    315
+    ssIdNumber		    8
+    name		    "RhoValues"
+    linkNode		    [308 314 316]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    316
+    ssIdNumber		    9
+    name		    "Rho"
+    linkNode		    [308 315 317]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    317
+    ssIdNumber		    10
+    name		    "maxVotes"
+    linkNode		    [308 316 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    318
     name		    "Chart/Running.Autonomous.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right/Is"
     "LinePresent"
     machine		    1
-    chart		    296
+    chart		    308
   }
   target {
-    id			    307
+    id			    319
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 308]
+    linkNode		    [1 0 320]
   }
   target {
-    id			    308
+    id			    320
     name		    "rtw"
     machine		    1
-    linkNode		    [1 307 0]
+    linkNode		    [1 319 0]
   }
 }
