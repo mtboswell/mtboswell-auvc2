@@ -1,4 +1,6 @@
-auv/auv.cpp:77: warning: unused parameter ‘brainTime’
-brain/brain.cpp: In function ‘void brain_Chart()’:
+server/server.cpp:89: warning: unused parameter ‘fromPort’
+auv/auv.cpp:106: warning: unused parameter ‘brainTime’
+brain/brain.cpp: In function ‘void brain_Autonomous()’:
 brain/brain.cpp:2295: warning: ‘BlobAnalysis_NUM_PIX_DW’ may be used uninitialized in this function
-brain/brain.cpp:2295: note: ‘BlobAnalysis_NUM_PIX_DW’ was declared here
+brain/brain.cpp:2286: warning: ‘rtb_BlobAnalysis_o1’ may be used uninitialized in this function
+brain/brain.cpp:2287: warning: ‘rtb_BlobAnalysis_o2’ may be used uninitialized in this function

@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.243
+ * Model version                        : 1.246
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Tue Mar  2 17:24:21 2010
+ * Real-Time Workshop file generated on : Fri Apr  9 13:32:13 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Tue Mar  2 17:24:21 2010
+ * C/C++ source code generated on       : Fri Apr  9 13:32:13 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -2330,6 +2330,7 @@ static void brain_Autonomous(void)
     /* Exit 'Autonomous': '<S1>:289' */
     /* Entry 'ControlledRC': '<S1>:408' */
     brain_DWork.is_Running = (uint8_T)brain_IN_ControlledRC;
+    brain_B.State = -1;
   } else {
     switch (brain_DWork.is_Autonomous) {
      case brain_IN_Buoy:
@@ -2339,7 +2340,7 @@ static void brain_Autonomous(void)
         /* Exit 'Buoy': '<S1>:58' */
         /* Entry 'Finish': '<S1>:151' */
         brain_DWork.is_Autonomous = (uint8_T)brain_IN_Finish;
-        brain_B.State = 6U;
+        brain_B.State = 6;
         brain_B.Left = 0;
         brain_B.Right = 0;
         brain_B.Vertical = 0;
@@ -3049,7 +3050,7 @@ static void brain_Autonomous(void)
         brain_B.BuoyCentroidX = 0.0;
         brain_B.BuoyCentroidY = 0.0;
         brain_B.CameraPosition = 2;
-        brain_B.State = 1U;
+        brain_B.State = 1;
       } else if (brain_U.DesiredState == 2) {
         /* Transition: '<S1>:303' */
         /* Exit 'ChooseState': '<S1>:299' */
@@ -3079,7 +3080,7 @@ static void brain_Autonomous(void)
         brain_DWork.OldObstacle = 0.0;
         brain_DWork.count = 0.0;
         brain_DWork.TrackCount = 0.0;
-        brain_B.State = 2U;
+        brain_B.State = 2;
       } else if (brain_U.DesiredState == 4) {
         /* Transition: '<S1>:320' */
         /* Exit 'ChooseState': '<S1>:299' */
@@ -3109,7 +3110,7 @@ static void brain_Autonomous(void)
         brain_DWork.OldObstacle = 0.0;
         brain_DWork.count = 0.0;
         brain_B.CameraPosition = 0;
-        brain_B.State = 4U;
+        brain_B.State = 4;
         brain_DWork.BuoyCount = 0.0;
       } else if (brain_U.DesiredState == 3) {
         /* Transition: '<S1>:318' */
@@ -3123,7 +3124,7 @@ static void brain_Autonomous(void)
         brain_B.DesiredDepth = 5.0;
         brain_B.DesiredHeading = 0.0;
         brain_DWork.Done = 0.0;
-        brain_B.State = 3U;
+        brain_B.State = 3;
 
         /* Simulink Function 'MakeHSVImage': '<S1>:380' */
         for (i_0 = 0; i_0 < 19200; i_0++) {
@@ -3142,7 +3143,7 @@ static void brain_Autonomous(void)
           /* Entry 'Buoy': '<S1>:58' */
           brain_DWork.is_Autonomous = (uint8_T)brain_IN_Buoy;
           brain_DWork.countarea = 0.0;
-          brain_B.State = 5U;
+          brain_B.State = 5;
         }
       }
       break;
@@ -3171,7 +3172,7 @@ static void brain_Autonomous(void)
         /* Entry 'Buoy': '<S1>:58' */
         brain_DWork.is_Autonomous = (uint8_T)brain_IN_Buoy;
         brain_DWork.countarea = 0.0;
-        brain_B.State = 5U;
+        brain_B.State = 5;
       } else if ((brain_U.DesiredState != 4) && (brain_U.DesiredState != 0)) {
         /* Transition: '<S1>:319' */
         /* Exit 'FindBuoy': '<S1>:239' */
@@ -3743,7 +3744,7 @@ static void brain_Autonomous(void)
         brain_DWork.OldObstacle = 0.0;
         brain_DWork.count = 0.0;
         brain_B.CameraPosition = 0;
-        brain_B.State = 4U;
+        brain_B.State = 4;
         brain_DWork.BuoyCount = 0.0;
       } else if ((brain_U.DesiredState != 3) && (brain_U.DesiredState != 0)) {
         /* Transition: '<S1>:304' */
@@ -3783,7 +3784,7 @@ static void brain_Autonomous(void)
           brain_B.DesiredDepth = 5.0;
           brain_B.DesiredHeading = 0.0;
           brain_DWork.Done = 0.0;
-          brain_B.State = 3U;
+          brain_B.State = 3;
 
           /* Simulink Function 'MakeHSVImage': '<S1>:380' */
           for (i_0 = 0; i_0 < 19200; i_0++) {
@@ -3834,7 +3835,7 @@ static void brain_Autonomous(void)
         brain_DWork.OldObstacle = 0.0;
         brain_DWork.count = 0.0;
         brain_DWork.TrackCount = 0.0;
-        brain_B.State = 2U;
+        brain_B.State = 2;
       } else if ((brain_U.DesiredState != 1) && (brain_U.DesiredState != 0)) {
         /* Transition: '<S1>:300' */
         /* Exit 'Start': '<S1>:153' */
@@ -3914,7 +3915,7 @@ static void brain_Autonomous(void)
         brain_B.DesiredDepth = 5.0;
         brain_B.DesiredHeading = 0.0;
         brain_DWork.Done = 0.0;
-        brain_B.State = 3U;
+        brain_B.State = 3;
 
         /* Simulink Function 'MakeHSVImage': '<S1>:380' */
         for (i_0 = 0; i_0 < 19200; i_0++) {
@@ -4412,7 +4413,7 @@ static void brain_Autonomous(void)
       brain_B.BuoyCentroidX = 0.0;
       brain_B.BuoyCentroidY = 0.0;
       brain_B.CameraPosition = 2;
-      brain_B.State = 1U;
+      brain_B.State = 1;
       break;
     }
   }
@@ -4469,7 +4470,7 @@ void brain_Chart_Init(void)
   brain_B.CameraPosition = 0;
   brain_B.BuoyCentroidX = 0.0;
   brain_B.BuoyCentroidY = 0.0;
-  brain_B.State = 0U;
+  brain_B.State = 0;
   brain_DWork.RunningAutonomousValidationGa_h = brain_M->Timing.clockTick0;
 
   /* InitializeConditions for UnitDelay: '<S74>/UD'
@@ -4626,7 +4627,7 @@ void brain_Chart(void)
           brain_B.BuoyCentroidX = 0.0;
           brain_B.BuoyCentroidY = 0.0;
           brain_B.CameraPosition = 2;
-          brain_B.State = 1U;
+          brain_B.State = 1;
         }
         break;
 
@@ -4711,7 +4712,7 @@ void brain_Chart(void)
               brain_B.BuoyCentroidX = 0.0;
               brain_B.BuoyCentroidY = 0.0;
               brain_B.CameraPosition = 2;
-              brain_B.State = 1U;
+              brain_B.State = 1;
             } else {
               /* Simulink Function 'MaintainDepth': '<S1>:424' */
               brain_B.SFunction_o44 = (real32_T)brain_U.CurrentDepth;
@@ -4922,7 +4923,7 @@ void brain_Chart(void)
             brain_B.BuoyCentroidX = 0.0;
             brain_B.BuoyCentroidY = 0.0;
             brain_B.CameraPosition = 2;
-            brain_B.State = 1U;
+            brain_B.State = 1;
             break;
           }
         }
