@@ -77,7 +77,7 @@ Model {
       Name		      "DesiredHeading"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.260"
+    ComputedModelVersion    "1.261"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -95,9 +95,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Apr  9 19:14:43 2010"
+  LastModifiedDate	  "Fri Apr  9 19:24:34 2010"
   RTWModifiedTimeStamp	  0
-  ModelVersionFormat	  "1.%<AutoIncrement:260>"
+  ModelVersionFormat	  "1.%<AutoIncrement:261>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -12137,7 +12137,7 @@ Stateflow {
       isEML		      1
       script		      "function count2 = countimages(Image, OldImage, count1)\n% This function acts to count the number "
       "of consecutive times a particular\n% image is recognized by the recognition software\n\ncount2 = count1;\nif(Ima"
-      "ge ~= 0 && Image == OldImage)\n    count2 = count2 + 1;\nelse\n    count2 = 0;\nend"
+      "ge == 1)\n    count2 = count2 + 1;\nelse\n    count2 = 0;\nend"
       editorLayout	      "100 M4x1[494 81 750 500]"
     }
   }

@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.260
+ * Model version                        : 1.261
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Fri Apr  9 19:19:04 2010
+ * Real-Time Workshop file generated on : Fri Apr  9 19:27:57 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Fri Apr  9 19:19:04 2010
+ * C/C++ source code generated on       : Fri Apr  9 19:27:57 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -2707,12 +2707,11 @@ static void brain_Autonomous(void)
         }
 
         maxNumBlobsReached = (brain_B.Image != 0.0);
-        i_0 = (int32_T)maxNumBlobsReached;
 
         /* Embedded MATLAB Function 'countimages': '<S1>:254' */
         /*  This function acts to count the number of consecutive times a particular */
         /*  image is recognized by the recognition software */
-        if ((i_0 != 0) && (i_0 == brain_DWork.OldObstacle)) {
+        if (maxNumBlobsReached == 1) {
           /* '<S1>:254:6' */
           /* '<S1>:254:7' */
           brain_DWork.BuoyCount = brain_DWork.BuoyCount + 1.0;
