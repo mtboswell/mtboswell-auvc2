@@ -1,15 +1,5 @@
-auv/auv.cpp:106: warning: unused parameter ‘brainTime’
 server/server.cpp:89: warning: unused parameter ‘fromPort’
-server/server.cpp: In member function ‘void Server::sendVideo()’:
-server/server.cpp:305: error: ‘struct BlockIO_brain’ has no member named ‘DataTypeConversion_h’
-make: *** [server.o] Error 1
-make: *** Waiting for unfinished jobs....
-auv/imu.cpp: In function ‘void* sample4Cal(void*)’:
-auv/imu.cpp:134: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result
-auv/camread.cpp:53: warning: unused parameter ‘in’
-auv/camread.cpp: In function ‘int camread_getframe(camframe, bool)’:
-auv/camread.cpp:109: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result
-auv/camread.cpp:110: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result
-auv/camread.cpp:111: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’, declared with attribute warn_unused_result
-auv/camread.cpp: In function ‘int camread_pause()’:
-auv/camread.cpp:275: warning: unused variable ‘err’
+auv/auv.cpp:106: warning: unused parameter ‘brainTime’
+brain/brain.cpp: In function ‘void brain_Autonomous()’:
+brain/brain.cpp:1574: warning: ‘BlobAnalysis_NUM_PIX_DW_j’ may be used uninitialized in this function
+brain/brain.cpp:1569: warning: ‘xs’ may be used uninitialized in this function
