@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.254
+ * Model version                        : 1.257
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Fri Apr  9 18:37:37 2010
+ * Real-Time Workshop file generated on : Fri Apr  9 18:55:12 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Fri Apr  9 18:37:37 2010
+ * C/C++ source code generated on       : Fri Apr  9 18:55:12 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -21,8 +21,6 @@
 #define CALL_EVENT                     (MAX_uint8_T)
 #include "dsp_rt.h"                    /* Signal Processing Blockset general run time support functions */
 #include "vipmdnfilter_rt.h"           /* Signal Processing Blockset run time support library */
-#include "dsp_rt.h"                    /* Signal Processing Blockset general run time support functions */
-#include "viphoughlines_rt.h"          /* Signal Processing Blockset run time support library */
 #include "dsp_rt.h"                    /* Signal Processing Blockset general run time support functions */
 #ifndef __RTWTYPES_H__
 #error This file requires rtwtypes.h to be included
@@ -53,14 +51,13 @@ void GetBrightestPixelPerColumnandRo(void);
 void brain_IsLinePresent(const real_T rtu_HoughTable[51660], const real_T
   rtu_ThetaValues[180], const real_T rtu_RhoValues[287], rtB_IsLinePresent_brain
   *localB);
-void GetBrightestPixelPerColumnand_e(void);
-void RunningAutonomousFollowOne_Init(RT_MODEL_brain *rtm,
-  rtDW_RunningAutonomousFollowOne *localDW);
-void RunningAutonomousFollowOnePathO(real32_T rtu_DesiredDepth1, real32_T
-  rtu_CurrentDepth1, RT_MODEL_brain *rtm, rtB_RunningAutonomousFollowOneP
-  *localB, rtDW_RunningAutonomousFollowOne *localDW);
+void RunningControlledRCMaintai_Init(RT_MODEL_brain *rtm,
+  rtDW_RunningControlledRCMaintai *localDW);
+void RunningControlledRCMaintainDept(real32_T rtu_DesiredDepth1, real32_T
+  rtu_CurrentDepth1, RT_MODEL_brain *rtm, rtB_RunningControlledRCMaintain
+  *localB, rtDW_RunningControlledRCMaintai *localDW);
 void RunningAutonomousFollowOnePathM(const real_T rtu_H1[19200], const real_T
-  rtu_S1[19200], const real_T rtu_V1[19200], rtB_RunningAutonomousFollowOn_c
+  rtu_S1[19200], const real_T rtu_V1[19200], rtB_RunningAutonomousFollowOneP
   *localB);
 void brain_Chart_Init(void);
 void brain_Chart_Start(void);

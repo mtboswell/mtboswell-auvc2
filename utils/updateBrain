@@ -1,6 +1,6 @@
 #! /bin/bash
 cd simulink
-matlab -nodisplay -r buildModel > /dev/null
+matlab -nodisplay -r buildModel 2> /dev/null
 rm -r slprj
 rm -r brain_ert_rtw
 cd ..

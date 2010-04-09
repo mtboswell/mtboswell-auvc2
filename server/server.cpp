@@ -302,7 +302,7 @@ void Server::sendVideo(){
                                 else    bwFrame->setPixel(x, y, brain_B.BWright_e[i-9600]);
                         }
                         else{
-                                bwFrame->setPixel(x, y, brain_B.DataTypeConversion_h[i]);
+                                //bwFrame->setPixel(x, y, brain_B.DataTypeConversion_h[i]);
                         }
                 }else if(brain_Y.State == 4){
                         bwFrame->setPixel(x, y, brain_B.BW_p[i]);
