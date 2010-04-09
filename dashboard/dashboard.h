@@ -87,11 +87,11 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void on_stateComboBox_activated(int index); 
 
 		// RC
-		void on_controlGroupBox_toggled(bool rc);
-		void on_desiredDepthSlider_valueChanged(int value);
-		void on_desiredStrafeSlider_valueChanged(int value);
-		void on_desiredSpeedSlider_valueChanged(int value);
-		void on_desiredHeadingSpinBox_valueChanged(int value);
+		void on_controlGroupBox_clicked(bool rc);
+		void on_desiredDepthSlider_sliderReleased();
+		void on_desiredStrafeSlider_sliderReleased();
+		void on_desiredSpeedSlider_sliderReleased();
+		void on_desiredHeadingSpinBox_editingFinished();
 		void on_setAllZeroButton_clicked();
 		void on_runScriptPushButton_clicked();
 
