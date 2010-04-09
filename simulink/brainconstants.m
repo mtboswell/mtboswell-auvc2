@@ -8,7 +8,7 @@ Depth_Ki = 0.0;
 
 Heading_Kp = 0.3;
 Heading_Kd = 0.01;
-Heading_Ki = 0.01;
+Heading_Ki = 0.00;
 
 Track_HueHigher = 0.9;
 Track_HueLower = 0.25;
@@ -28,9 +28,9 @@ Cam_Down_YPos_Kp = 0.20;
 Cam_Down_YPos_Kd = 0.001;
 Cam_Down_YPos_Ki = 0.001;
 
-Buoy_HueLower = 0.15;
-Buoy_HueHigher = 0.9;
-Buoy_Saturation = 0.4;
+Buoy_HueLower = 0.05;
+Buoy_HueHigher = 0.8;
+Buoy_Saturation = 0.5;
 
 Buoy_Min_Eccentricity = 0;
 Buoy_Max_Eccentricity = 0.65;
@@ -39,7 +39,7 @@ Buoy_Max_Extent = 0.9;
 
 Max_Num_Blobs_Buoy = 10;
 
-Cam_Forward_XPosition_Kp =0.075;
+Cam_Forward_XPosition_Kp =0.500;
 Cam_Forward_XPosition_Kd = 0.001;
 Cam_Forward_XPosition_Ki = 0.001;
 
@@ -47,6 +47,6 @@ Cam_Forward_YPosition_Kp = 0.8;
 Cam_Forward_YPosition_Kd = 0.001;
 Cam_Forward_YPosition_Ki = 0.001;
 
-Heading_Forward_Velocity = 60;
+Heading_Forward_Velocity = 20;
 Vision_Forward_Velocity = 15;
 

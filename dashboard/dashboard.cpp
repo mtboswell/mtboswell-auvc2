@@ -264,6 +264,12 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 			buoyHueLowSpinBox->setValue(paramVal);
 		else if(name == "Buoy_Saturation") 
 			buoySaturationSpinBox->setValue(paramVal);
+		else if(name == "Buoy_Max_Eccentricity")
+			buoyEccentSpinBox->setValue(paramVal);
+		else if(name == "Buoy_Min_Extent")
+			buoyMinExtentSpinBox->setValue(paramVal);
+		else if(name == "Buoy_Max_Extent")
+			buoyMaxExtentSpinBox->setValue(paramVal);
 		else badCmd = true;
 
 	}else if(type == "Status"){
@@ -457,6 +463,16 @@ void Dashboard::on_buoyHueLowSpinBox_editingFinished(){
 void Dashboard::on_buoySaturationSpinBox_editingFinished(){
 	emit sendParam("Parameter.Buoy_Saturation", QString::number(buoySaturationSpinBox->value()));
 }
+void Dashboard::on_buoyEccentSpinBox_editingFinished(){
+	emit sendParam("Parameter.Buoy_Max_Eccentricity", QString::number(buoyEccentSpinBox->value()));
+}
+void Dashboard::on_buoyMinExtentSpinBox_editingFinished(){
+	emit sendParam("Parameter.Buoy_Min_Extent", QString::number(buoyMinExtentSpinBox->value()));
+}
+void Dashboard::on_buoyMaxExtentSpinBox_editingFinished(){
+	emit sendParam("Parameter.Buoy_Max_Extent", QString::number(buoyMaxExtentSpinBox->value()));
+}
+
 void Dashboard::on_whiteBalancePushButton_clicked(){
 	emit sendParam("Calibrate.WhiteBalance", "once");
 }
