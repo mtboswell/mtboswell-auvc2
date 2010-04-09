@@ -12,13 +12,13 @@ echo "Launching Agent"
 # Try to detect whether we are running on the AUV, and call ./agent -s if we are not
 if !(hostname | grep auvt-auv > /dev/null); then
 	if [ "$1" = "-b" ]; then 
-		./agent -s 2> ./logs/run-`date +%F+%R`.log &
+		./agent -s 2> logs/run-`date +%F+%R`.log &
 	else
 		./agent -s $1
 	fi
 else
 	# we should be on the AUV itself
-	./agent 2> ./logs/run-`date +%F+%R`.log &
+	./agent 2> logs/run-`date +%F+%R`.log &
 
 # Video Streaming now built in.  This is no longer needed.
 #	echo "Starting Video Stream"

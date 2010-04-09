@@ -40,6 +40,8 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void turnOffAUVAction();
 		void broadcastAction();
 		void connectToAddress();
+		void disableDashboard(int severity);
+		void enableDashboard();
 
 		// Gui Event Handlers
 

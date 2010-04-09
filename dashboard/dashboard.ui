@@ -30,13 +30,16 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>AUVC Dashboard V1.5 RC1</string>
+   <string>AUVC Dashboard V1.7</string>
   </property>
   <property name="windowIcon">
    <iconset>
     <normaloff>images/auvt_mini_icon.png</normaloff>images/auvt_mini_icon.png</iconset>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="dashboardWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="sizePolicy">
     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
      <horstretch>0</horstretch>
@@ -45,7 +48,7 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QWidget" name="widget" native="true">
+     <widget class="QWidget" name="stateWidget" native="true">
       <layout class="QHBoxLayout" name="horizontalLayout_10">
        <property name="margin">
         <number>0</number>
@@ -158,7 +161,7 @@
      </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="controlsLayout">
+     <layout class="QHBoxLayout" name="mainLayout">
       <property name="spacing">
        <number>0</number>
       </property>
@@ -279,6 +282,9 @@
          </item>
          <item>
           <layout class="QFormLayout" name="thrusterStatusFormLayout">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetMinimumSize</enum>
+           </property>
            <property name="fieldGrowthPolicy">
             <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
            </property>
@@ -302,6 +308,9 @@
              </property>
              <property name="value">
               <number>0</number>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
              </property>
              <property name="invertedAppearance">
               <bool>false</bool>
@@ -329,6 +338,9 @@
              <property name="value">
               <number>0</number>
              </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
              <property name="format">
               <string>%v</string>
              </property>
@@ -352,6 +364,9 @@
              <property name="value">
               <number>0</number>
              </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
              <property name="format">
               <string>%v</string>
              </property>
@@ -374,6 +389,9 @@
              </property>
              <property name="value">
               <number>0</number>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
              </property>
              <property name="format">
               <string>%v</string>
@@ -515,6 +533,13 @@
           </widget>
          </item>
          <item>
+          <widget class="Line" name="line_11">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
           <layout class="QHBoxLayout" name="horizontalLayout_7">
            <item>
             <widget class="QLabel" name="label_19">
@@ -524,13 +549,80 @@
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="cameraPosLabel">
+            <widget class="QLabel" name="cameraPosXLabel">
              <property name="text">
-              <string/>
+              <string>X:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="cameraPosYLabel">
+             <property name="text">
+              <string>Y:</string>
              </property>
             </widget>
            </item>
           </layout>
+         </item>
+         <item>
+          <widget class="Line" name="line_13">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="warningLabel">
+           <property name="palette">
+            <palette>
+             <active>
+              <colorrole role="Text">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </active>
+             <inactive>
+              <colorrole role="Text">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>255</red>
+                 <green>0</green>
+                 <blue>0</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </inactive>
+             <disabled>
+              <colorrole role="Text">
+               <brush brushstyle="SolidPattern">
+                <color alpha="255">
+                 <red>106</red>
+                 <green>104</green>
+                 <blue>100</blue>
+                </color>
+               </brush>
+              </colorrole>
+             </disabled>
+            </palette>
+           </property>
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="textFormat">
+            <enum>Qt::AutoText</enum>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -686,7 +778,10 @@
                 <number>180</number>
                </property>
                <property name="singleStep">
-                <number>5</number>
+                <number>15</number>
+               </property>
+               <property name="pageStep">
+                <number>45</number>
                </property>
               </widget>
              </item>
@@ -760,6 +855,12 @@
              <property name="maximum">
               <number>127</number>
              </property>
+             <property name="singleStep">
+              <number>10</number>
+             </property>
+             <property name="pageStep">
+              <number>20</number>
+             </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -805,6 +906,9 @@
                </property>
                <property name="maximum">
                 <number>127</number>
+               </property>
+               <property name="singleStep">
+                <number>5</number>
                </property>
               </widget>
              </item>
@@ -860,6 +964,12 @@
              <property name="maximum">
               <number>127</number>
              </property>
+             <property name="singleStep">
+              <number>10</number>
+             </property>
+             <property name="pageStep">
+              <number>20</number>
+             </property>
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
              </property>
@@ -903,6 +1013,9 @@
                <property name="maximum">
                 <number>127</number>
                </property>
+               <property name="singleStep">
+                <number>5</number>
+               </property>
               </widget>
              </item>
              <item>
@@ -944,6 +1057,13 @@
             </widget>
            </item>
            <item>
+            <widget class="Line" name="line_12">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
               <widget class="QComboBox" name="scriptsComboBox">
@@ -957,6 +1077,12 @@
              </item>
              <item>
               <widget class="QPushButton" name="runScriptPushButton">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <property name="text">
                 <string>Run</string>
                </property>

@@ -14,20 +14,26 @@ public:
 
 signals:
 	void GotAUVUpdate(QString type, QString name, QString value);
+	void AUVNotResponding(int NumberOfIgnoredCommands);
+	void connectionRestored();
 
 public slots:
 	void SendParam(QString key, QString value);
+	void SendParam(QByteArray out, bool resend = false);
 	void setRemoteAddr(QString addr);
 
 private slots:
 	void HandleDatagram();
+	void checkForLostDatagrams();
 
 private:
 	QUdpSocket m_Sock;
 	QHostAddress m_Addr;
 	quint16 m_Port;
 	QByteArray m_Buf;
-	QList<QByteArray> m_Acks;
+	QHash<QByteArray,QTime> m_Acks;
+	QTimer safetyCheckTimer;
+	bool flaky;
 };
 
 #endif //#ifndef __DASHSOCKET_H

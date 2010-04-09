@@ -73,6 +73,8 @@ int main(int argc, char *argv[]){
 
 	// From AUV to Server
 	QObject::connect(auv, SIGNAL(sensorUpdate(AUVSensors)), server, SLOT(sendSensorData(AUVSensors)));
+	QObject::connect(auv, SIGNAL(status(QString)), server, SLOT(sendStatus(QString)));
+	QObject::connect(auv, SIGNAL(error(QString)), server, SLOT(sendError(QString)));
 
 	// From server to AUV
 	QObject::connect(server, SIGNAL(go()), auv, SLOT(goAUV()));
@@ -87,6 +89,8 @@ int main(int argc, char *argv[]){
 	// From Brain to server
 	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), server, SLOT(sendBrainData(ExternalOutputs_brain, int)));
 	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), server, SLOT(sendVideo()));
+	QObject::connect(brain, SIGNAL(status(QString)), server, SLOT(sendStatus(QString)));
+	QObject::connect(brain, SIGNAL(error(QString)), server, SLOT(sendError(QString)));
 	
 	// From server to Brain
 	QObject::connect(server, SIGNAL(setInput(QString, double)), brain, SLOT(setInput(QString, double)));

@@ -56,6 +56,7 @@ class Server: public QThread
 		void sendParams();
 		void sendVideo();
 		void sendError(QString err = "Unknown Error");
+		void sendStatus(QString status);
 		
 	private slots:
 		// readPendingDatagrams gets triggered every time the socket receives a datagram

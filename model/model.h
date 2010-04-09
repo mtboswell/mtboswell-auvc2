@@ -36,6 +36,8 @@ class Model : public QThread
 		// the time from the end of one cycle to the end of the next.
 		// If duration > BRAIN_STEP_TIME, an overrun has occurred
 		void outputReady(ExternalOutputs_brain Output, int duration);
+		void status(QString);
+		void error(QString);
 		
 	public slots:
 		// Reads sensor data emitted from AUV

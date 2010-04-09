@@ -17,7 +17,7 @@ Model::Model(QMutex* mutex){
 	stepTime = 200;
 
   /* Initialize model */
-	qDebug("Initializing Brain");
+	//qDebug("Initializing Brain");
 	brain_initialize();
 	  
 	modelMutex = mutex;
@@ -69,7 +69,7 @@ void Model::rt_OneStep(void)
 
 	/* Check for overrun */
 	if (OverrunFlag++) {
-		qDebug("Overrun!!");
+		emit error("Overrun!!");
 		rtmSetErrorStatus(brain_M, "Overrun");
 		return;
 	}
@@ -134,14 +134,17 @@ void Model::updateSensorsInput(AUVSensors values){
 }
 
 void Model::setState(int state){
-	// TODO: set model state input
 	if(state < 0 || state > 5) return;	
 	brain_U.DesiredState = state;
+	emit status("Entering state " + QString::number(state));
 }
 
 
 void Model::setParam(QString name, double value){
-	if(parameters.contains(name)) *(parameters[name]) = value;	
+	if(parameters.contains(name)) {
+		*(parameters[name]) = value;
+		emit status("Set parameter " + name + " to " + QString::number(value));
+	}else emit error("Nonexistent parameter: " + name);	
 }
 
 void Model::setInput(QString name, double value){
