@@ -34,16 +34,24 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void stopAction();
 		void resetAction();
 		void killAction();
+
 		void logData(bool log);
 		void recordVideo(bool record);
-		void reconnectAction();
+
 		void turnOffAUVAction();
+
+		void reconnectAction();
 		void broadcastAction();
 		void connectToAddress();
+		void connectToLocalhost();
+
 		void disableDashboard(int severity);
 		void enableDashboard();
 
 		// Gui Event Handlers
+
+		void on_goButton_clicked();
+		void on_stopButton_clicked();
 
 		// controller gains
 		void on_fwdVelocitySpinBox_editingFinished();
