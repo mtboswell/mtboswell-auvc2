@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.262
+ * Model version                        : 1.266
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Fri Apr  9 19:35:04 2010
+ * Real-Time Workshop file generated on : Sat Apr 10 20:44:26 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Fri Apr  9 19:35:04 2010
+ * C/C++ source code generated on       : Sat Apr 10 20:44:27 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -33,10 +33,6 @@ Parameters_brain brain_P = {
   0.001,
   0.001,
   0.8,
-  0.0,
-  0.0,
-  75.0,
-  20.0,
   0.01,
   0.0,
   0.3,
@@ -45,15 +41,24 @@ Parameters_brain brain_P = {
   0.4,
   15.0,
   19200U,
-  20U
+  20U,
+
+  /* Start of '<Root>/Chart' */
+  {
+    0.0,
+    0.0,
+    75.0,
+    20.0
+  }
+  /* End of '<Root>/Chart' */
 };
 
 /* Constant parameters (auto storage) */
 const ConstParam_brain brain_ConstP = {
   /* Computed Parameter: SINE_TABLE_RTP
    * Referenced by blocks:
-   * '<S46>/Hough Transform'
-   * '<S47>/Hough Transform'
+   * '<S43>/Hough Transform'
+   * '<S44>/Hough Transform'
    */
   { -1.0, -9.9984769515639127E-01, -9.9939082701909576E-01,
     -9.9862953475457383E-01, -9.9756405025982420E-01, -9.9619469809174555E-01,
@@ -89,8 +94,8 @@ const ConstParam_brain brain_ConstP = {
 
   /* Computed Parameter: FIRSTRHO_RTP
    * Referenced by blocks:
-   * '<S46>/Hough Transform'
-   * '<S47>/Hough Transform'
+   * '<S43>/Hough Transform'
+   * '<S44>/Hough Transform'
    */
   -143.0,
 
@@ -589,9 +594,9 @@ const ConstParam_brain brain_ConstP = {
 
   /* Computed Parameter: WALKER_RTP
    * Referenced by blocks:
-   * '<S7>/Buoy Blob Analysis'
-   * '<S31>/Blob Analysis'
-   * '<S56>/Blob Analysis'
+   * '<S9>/Buoy Blob Analysis'
+   * '<S34>/Blob Analysis'
+   * '<S47>/Blob Analysis'
    */
   { -1, 121, 122, 123, 1, -121, -122, -123 }
 };

@@ -27,6 +27,7 @@ Dashboard::Dashboard(QMainWindow *parent)
 	connect(actionTurn_Off_AUV, SIGNAL(triggered()), this, SLOT(turnOffAUVAction()));
 	connect(actionBroadcast_Data, SIGNAL(triggered()), this, SLOT(broadcastAction()));
 	connect(actionConnect_To, SIGNAL(triggered()), this, SLOT(connectToAddress()));
+	connect(actionConnect_to_LocalHost, SIGNAL(triggered()), this, SLOT(connectToLocalhost()));
 
 	// Connect to Network Sockets 	
  	connect(&m_DS, SIGNAL(GotAUVUpdate(QString,QString,QString)), this, SLOT(HandleAUVParam(QString,QString,QString)));
@@ -118,14 +119,17 @@ void Dashboard::reconnectAction(){
 void Dashboard::startAction(){
 	statusBar()->showMessage(tr("Attempting to start AUV"), 2000);
 	emit sendParam("Mode", "Run");
+	controlGroupBox->setEnabled(true);
 }
 void Dashboard::stopAction(){
 	statusBar()->showMessage(tr("Attempting to stop AUV"), 2000);
 	emit sendParam("Mode", "Stop");
+	controlGroupBox->setEnabled(false);
 }
 void Dashboard::resetAction(){
 	statusBar()->showMessage(tr("Attempting to reset AUV"), 2000);
 	emit sendParam("Mode", "Reset");
+	controlGroupBox->setEnabled(true);
 }
 void Dashboard::killAction(){
 	emit sendParam("Mode", "Kill");
@@ -156,6 +160,10 @@ void Dashboard::connectToAddress(){
 			  tr("Server Address:"), QLineEdit::Normal,
 			  "192.168.3.5", &ok);
 	if (ok && !text.isEmpty()) emit setAddress(text);
+	reconnectAction();
+}
+void Dashboard::connectToLocalhost(){
+	emit setAddress("127.0.0.1");
 	reconnectAction();
 }
 
@@ -201,7 +209,7 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 	} else if (type == "Brain") {
 		if (name == "State") {
 			if(value.toDouble() == -1) {
-				stateLabel->setText("Remote Controlled");
+				stateLabel->setText("Remote Control");
 				if(!controlGroupBox->isChecked()) controlGroupBox->setChecked(true); 
 			}else{
 				if(controlGroupBox->isChecked()) controlGroupBox->setChecked(false);
@@ -374,6 +382,13 @@ void Dashboard::enableDashboard(){
 
 /* *** GUI event handlers **************************************** */
 
+void Dashboard::on_goButton_clicked(){
+	startAction();
+}
+void Dashboard::on_stopButton_clicked(){
+	stopAction();
+}
+
 // State Select
 void Dashboard::on_stateComboBox_activated(int index){
 	emit sendParam("Input.DesiredState", QString::number(index));
@@ -488,10 +503,10 @@ void Dashboard::on_setActualDepthPushButton_clicked(){
 
 // RC Controls
 void Dashboard::on_controlGroupBox_clicked(bool rc){
-	emit sendParam("Mode", "Stop");
+//	emit sendParam("Mode", "Stop");
 	emit sendParam("Input.RC", rc?"1":"0");
-	if(rc) stateLabel->setText("Remote Controlled");
-	else stateLabel->setText("Not Started");
+	if(rc) stateLabel->setText("Remote Control");
+	else stateLabel->setText("Confuzzled");
 }
 void Dashboard::on_desiredDepthSlider_sliderMoved(int value){
 	emit sendParam("Input.RC_Depth", QString::number(value));

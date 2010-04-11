@@ -1,6 +1,11 @@
 #! /bin/bash
 cd simulink
-matlab -nodisplay -r buildModel 2> /dev/null
+if matlab -nodisplay -r buildModel 2> /dev/null
+then
+echo "Brain Built Successfully"
+else
+exit 1
+fi
 rm -r slprj
 rm -r brain_ert_rtw
 cd ..
