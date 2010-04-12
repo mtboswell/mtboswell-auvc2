@@ -1,0 +1,24 @@
+% Parameters file generated Mon Apr 12 12:40:25 2010
+Heading_Forward_Velocity = 20;
+Heading_Kd = 0.2;
+Heading_Ki = 0;
+Heading_Kp = 1;
+Depth_Kd = 1;
+Depth_Ki = 0;
+Depth_Kp = 40;
+Vision_Forward_Velocity = 15;
+Cam_Forward_YPosition_Kd = 0;
+Cam_Forward_YPosition_Ki = 0;
+Cam_Forward_YPosition_Kp = 3;
+Cam_Forward_XPosition_Kd = 0.1;
+Cam_Forward_XPosition_Ki = 0;
+Cam_Forward_XPosition_Kp = 0.5;
+Track_HueHigher = 0.9;
+Track_HueLower = 0.25;
+Track_Saturation = 0.05;
+Buoy_HueHigher = 0.8;
+Buoy_HueLower = 0.15;
+Buoy_Saturation = 0.05;
+Buoy_Max_Eccentricity = 0.65;
+Buoy_Min_Extent = 0.4;
+Buoy_Max_Extent = 1;
