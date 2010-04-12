@@ -30,7 +30,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>AUVC Dashboard V2.0 RC1</string>
+   <string>AUVC Dashboard V2.0 RC2</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -297,13 +297,6 @@
      </widget>
     </item>
     <item>
-     <widget class="Line" name="line_5">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
      <layout class="QHBoxLayout" name="mainLayout">
       <property name="spacing">
        <number>5</number>
@@ -338,82 +331,153 @@
          <property name="spacing">
           <number>6</number>
          </property>
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>9</number>
-         </property>
-         <property name="rightMargin">
-          <number>3</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
+         <property name="margin">
+          <number>5</number>
          </property>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout">
-           <property name="spacing">
-            <number>3</number>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <property name="verticalSpacing">
+            <number>5</number>
            </property>
-           <item>
-            <widget class="QLabel" name="headingLabel">
-             <property name="text">
-              <string>Heading</string>
+           <property name="margin">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <property name="spacing">
+              <number>3</number>
              </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <item>
+              <widget class="QLabel" name="headingLabel">
+               <property name="text">
+                <string>Heading</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLCDNumber" name="headingLcdNumber">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Sunken</enum>
+               </property>
+               <property name="numDigits">
+                <number>4</number>
+               </property>
+               <property name="segmentStyle">
+                <enum>QLCDNumber::Flat</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="2">
+            <layout class="QHBoxLayout" name="horizontalLayout_12">
+             <item>
+              <widget class="QLabel" name="depthLabel">
+               <property name="text">
+                <string>Depth</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLCDNumber" name="depthLcdNumber">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="frameShape">
+                <enum>QFrame::StyledPanel</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Sunken</enum>
+               </property>
+               <property name="smallDecimalPoint">
+                <bool>false</bool>
+               </property>
+               <property name="numDigits">
+                <number>3</number>
+               </property>
+               <property name="segmentStyle">
+                <enum>QLCDNumber::Flat</enum>
+               </property>
+               <property name="value" stdset="0">
+                <double>0.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="2" column="2">
+            <widget class="QProgressBar" name="depthBar">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximum">
+              <number>14</number>
+             </property>
+             <property name="value">
+              <number>0</number>
+             </property>
+             <property name="textVisible">
+              <bool>false</bool>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="invertedAppearance">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QLCDNumber" name="headingLcdNumber">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
+           <item row="2" column="0">
+            <widget class="QDial" name="headingDial">
+             <property name="maximum">
+              <number>360</number>
              </property>
-             <property name="frameShadow">
-              <enum>QFrame::Sunken</enum>
+             <property name="singleStep">
+              <number>5</number>
              </property>
-             <property name="segmentStyle">
-              <enum>QLCDNumber::Flat</enum>
+             <property name="pageStep">
+              <number>45</number>
+             </property>
+             <property name="wrapping">
+              <bool>true</bool>
+             </property>
+             <property name="notchesVisible">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
-           <item>
+           <item row="0" column="1">
             <widget class="Line" name="line_3">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QLabel" name="depthLabel">
-             <property name="text">
-              <string>Depth</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLCDNumber" name="depthLcdNumber">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Sunken</enum>
-             </property>
-             <property name="smallDecimalPoint">
-              <bool>false</bool>
-             </property>
-             <property name="numDigits">
-              <number>3</number>
-             </property>
-             <property name="segmentStyle">
-              <enum>QLCDNumber::Flat</enum>
-             </property>
-             <property name="value" stdset="0">
-              <double>0.000000000000000</double>
+           <item row="2" column="1">
+            <widget class="Line" name="line_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
              </property>
             </widget>
            </item>
@@ -755,32 +819,25 @@
        </widget>
       </item>
       <item>
-       <widget class="Line" name="line_8">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QGroupBox" name="groupBox_9">
         <property name="title">
          <string>Video</string>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_8">
          <property name="leftMargin">
-          <number>0</number>
+          <number>5</number>
          </property>
          <property name="topMargin">
           <number>10</number>
          </property>
          <property name="rightMargin">
-          <number>3</number>
+          <number>5</number>
          </property>
          <property name="bottomMargin">
           <number>0</number>
          </property>
          <item>
-          <widget class="QLabel" name="videoLabel">
+          <widget class="QWidget" name="videoContainer" native="true">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -795,37 +852,64 @@
            </property>
            <property name="maximumSize">
             <size>
-             <width>320</width>
-             <height>240</height>
+             <width>640</width>
+             <height>480</height>
             </size>
            </property>
-           <property name="sizeIncrement">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="toolTip">
-            <string notr="true"/>
-           </property>
-           <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::StyledPanel</enum>
-           </property>
-           <property name="frameShadow">
-            <enum>QFrame::Sunken</enum>
-           </property>
-           <property name="lineWidth">
-            <number>2</number>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap>images/logo_320_240.png</pixmap>
-           </property>
+           <layout class="QVBoxLayout" name="videoContainerLayout">
+            <property name="margin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="videoLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>320</width>
+                <height>240</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>320</width>
+                <height>240</height>
+               </size>
+              </property>
+              <property name="sizeIncrement">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string notr="true"/>
+              </property>
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::StyledPanel</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Sunken</enum>
+              </property>
+              <property name="lineWidth">
+               <number>2</number>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>images/logo_320_240.png</pixmap>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </item>
          <item>
@@ -923,7 +1007,7 @@
         <property name="currentIndex">
          <number>0</number>
         </property>
-        <widget class="QWidget" name="tabWidgetPage1">
+        <widget class="QWidget" name="controlsPage">
          <attribute name="title">
           <string>Controls</string>
          </attribute>
@@ -955,7 +1039,7 @@
              <string>Enable Controls</string>
             </property>
             <property name="flat">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="checkable">
              <bool>true</bool>
@@ -1009,7 +1093,7 @@
                <item>
                 <widget class="Line" name="line_12">
                  <property name="lineWidth">
-                  <number>2</number>
+                  <number>1</number>
                  </property>
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
@@ -1025,7 +1109,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>Depth</string>
+                  <string>Depth:</string>
                  </property>
                  <property name="buddy">
                   <cstring>desiredDepthSpinBox</cstring>
@@ -1047,7 +1131,7 @@
                   </size>
                  </property>
                  <property name="frame">
-                  <bool>false</bool>
+                  <bool>true</bool>
                  </property>
                  <property name="suffix">
                   <string> ft</string>
@@ -1066,6 +1150,9 @@
                    </property>
                    <property name="maximum">
                     <number>18</number>
+                   </property>
+                   <property name="tracking">
+                    <bool>true</bool>
                    </property>
                    <property name="orientation">
                     <enum>Qt::Vertical</enum>
@@ -1203,8 +1290,11 @@
                    <property name="sliderPosition">
                     <number>0</number>
                    </property>
+                   <property name="tracking">
+                    <bool>true</bool>
+                   </property>
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Horizontal</enum>
                    </property>
                    <property name="invertedAppearance">
                     <bool>false</bool>
@@ -1212,10 +1302,19 @@
                    <property name="invertedControls">
                     <bool>false</bool>
                    </property>
+                   <property name="wrapping">
+                    <bool>true</bool>
+                   </property>
+                   <property name="notchesVisible">
+                    <bool>true</bool>
+                   </property>
                   </widget>
                  </item>
                  <item>
                   <widget class="QSpinBox" name="desiredHeadingSpinBox">
+                   <property name="autoFillBackground">
+                    <bool>true</bool>
+                   </property>
                    <property name="wrapping">
                     <bool>true</bool>
                    </property>
@@ -1253,7 +1352,7 @@
                   </size>
                  </property>
                  <property name="lineWidth">
-                  <number>2</number>
+                  <number>1</number>
                  </property>
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
@@ -1283,8 +1382,14 @@
                  </item>
                  <item>
                   <widget class="QSpinBox" name="desiredSpeedSpinBox">
-                   <property name="frame">
+                   <property name="autoFillBackground">
                     <bool>false</bool>
+                   </property>
+                   <property name="wrapping">
+                    <bool>false</bool>
+                   </property>
+                   <property name="frame">
+                    <bool>true</bool>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -1328,6 +1433,9 @@
                  <property name="pageStep">
                   <number>20</number>
                  </property>
+                 <property name="tracking">
+                  <bool>true</bool>
+                 </property>
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
@@ -1351,7 +1459,7 @@
                   </size>
                  </property>
                  <property name="lineWidth">
-                  <number>2</number>
+                  <number>1</number>
                  </property>
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
@@ -1381,8 +1489,11 @@
                  </item>
                  <item>
                   <widget class="QSpinBox" name="desiredStrafeSpinBox">
-                   <property name="frame">
+                   <property name="wrapping">
                     <bool>false</bool>
+                   </property>
+                   <property name="frame">
+                    <bool>true</bool>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -1414,6 +1525,9 @@
                  <property name="pageStep">
                   <number>20</number>
                  </property>
+                 <property name="tracking">
+                  <bool>true</bool>
+                 </property>
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
@@ -1439,7 +1553,7 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="tabWidgetPage2">
+        <widget class="QWidget" name="videoPage">
          <attribute name="title">
           <string>Video</string>
          </attribute>
@@ -1449,12 +1563,18 @@
             <property name="title">
              <string>Processed Video</string>
             </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
             <layout class="QVBoxLayout" name="verticalLayout_12">
              <property name="spacing">
               <number>0</number>
              </property>
              <property name="leftMargin">
               <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>3</number>
              </property>
              <property name="rightMargin">
               <number>0</number>
@@ -1523,7 +1643,7 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="tabWidgetPage3">
+        <widget class="QWidget" name="otherPage">
          <attribute name="title">
           <string>Other</string>
          </attribute>
@@ -1534,8 +1654,8 @@
              <string>Scripts</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_10">
-             <property name="bottomMargin">
-              <number>0</number>
+             <property name="margin">
+              <number>5</number>
              </property>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -1573,8 +1693,8 @@
              <string>Mechanisms</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_11">
-             <property name="bottomMargin">
-              <number>0</number>
+             <property name="margin">
+              <number>5</number>
              </property>
              <item>
               <layout class="QHBoxLayout" name="horizontalLayout_11">
@@ -1605,8 +1725,8 @@
              <string>Depth Calibration</string>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_3">
-             <property name="bottomMargin">
-              <number>0</number>
+             <property name="margin">
+              <number>5</number>
              </property>
              <item>
               <widget class="QPushButton" name="zeroDepthPushButton">
@@ -1751,13 +1871,6 @@
          </widget>
         </item>
         <item>
-         <widget class="Line" name="line_14">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QGroupBox" name="groupBox">
           <property name="title">
            <string>Heading Controller</string>
@@ -1845,13 +1958,6 @@
          </widget>
         </item>
         <item>
-         <widget class="Line" name="line_15">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QGroupBox" name="groupBox_2">
           <property name="title">
            <string>Depth Controller</string>
@@ -1930,13 +2036,6 @@
          </widget>
         </item>
         <item>
-         <widget class="Line" name="line_16">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QGroupBox" name="groupBox_3">
           <property name="title">
            <string>Buoy Approach Controller</string>
@@ -1946,16 +2045,16 @@
             <number>3</number>
            </property>
            <property name="leftMargin">
-            <number>0</number>
+            <number>5</number>
            </property>
            <property name="topMargin">
             <number>6</number>
            </property>
            <property name="rightMargin">
-            <number>0</number>
+            <number>5</number>
            </property>
            <property name="bottomMargin">
-            <number>0</number>
+            <number>3</number>
            </property>
            <item>
             <widget class="QGroupBox" name="groupBox_6">
@@ -2183,13 +2282,6 @@
          </widget>
         </item>
         <item>
-         <widget class="Line" name="line_17">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QGroupBox" name="groupBox_5">
           <property name="title">
            <string>Paths Color</string>
@@ -2253,13 +2345,6 @@
             </widget>
            </item>
           </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_18">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
          </widget>
         </item>
         <item>
@@ -2647,8 +2732,8 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>785</x>
-     <y>200</y>
+     <x>846</x>
+     <y>194</y>
     </hint>
     <hint type="destinationlabel">
      <x>730</x>
@@ -2695,8 +2780,8 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>808</x>
-     <y>290</y>
+     <x>846</x>
+     <y>285</y>
     </hint>
     <hint type="destinationlabel">
      <x>805</x>
@@ -2711,8 +2796,8 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>776</x>
-     <y>349</y>
+     <x>846</x>
+     <y>348</y>
     </hint>
     <hint type="destinationlabel">
      <x>780</x>
@@ -2747,8 +2832,8 @@
      <y>199</y>
     </hint>
     <hint type="destinationlabel">
-     <x>886</x>
-     <y>174</y>
+     <x>929</x>
+     <y>167</y>
     </hint>
    </hints>
   </connection>
@@ -2759,12 +2844,28 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>873</x>
-     <y>172</y>
+     <x>929</x>
+     <y>167</y>
     </hint>
     <hint type="destinationlabel">
      <x>871</x>
      <y>188</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>headingDial</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>headingLcdNumber</receiver>
+   <slot>display(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>115</x>
+     <y>123</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>108</x>
+     <y>103</y>
     </hint>
    </hints>
   </connection>

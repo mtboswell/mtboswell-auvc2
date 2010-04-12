@@ -8,6 +8,7 @@
 #include <QProcess>
 #include <QVBoxLayout>
 #include <QtGui>
+#include "videowidget.h"
 
 static QHash<QString,QString> AUVState;
 
@@ -131,5 +132,7 @@ void on_##guiParam##_editingFinished();
 
 		QProcess* process;
 		int RC, desiredHeading, desiredDepth, desiredSpeed, desiredStrafe;
+		
+		VideoWidget* videoWidget;
 
 };
