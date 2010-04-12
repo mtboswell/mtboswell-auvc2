@@ -62,15 +62,6 @@ Dashboard::Dashboard(QMainWindow *parent)
 	populateMechs(mechanisms);
 	mechsComboBox->insertItems(0, mechanisms.keys());
 
-	// Heading display graphics
-/*
-	headingScene = new QGraphicsScene;
-	headingLine = new QGraphicsLineItem(0, 0, 0, 50);
-	headingScene->addItem(headingLine);
-
-	headingGraphicsView->setScene(headingScene);
-*/
-
 	// Processing rate display
 	rateLabel = new QLabel("Not Connected");
 	statusBar()->addPermanentWidget(rateLabel);
@@ -87,17 +78,14 @@ Dashboard::Dashboard(QMainWindow *parent)
         bwPixmap.fill(); 
 	videoLabel->setScaledContents(true);
 	bitVideoLabel->setScaledContents(true);
-/*
-	process = new QProcess();
 
-	QString executable("vlc");
+	// init controls
+	RC = desiredSpeed = desiredHeading = desiredDepth = desiredStrafe = 0;
+	desiredSpeedSlider->setTracking(false);
+	desiredDepthSlider->setTracking(false);
+	desiredStrafeSlider->setTracking(false);
+	desiredHeadingDial->setTracking(false);
 
-	QStringList arguments;
-
-	arguments << "udp://@:" + QString::number(DASH_VIDEO_PORT);
-
-	process->start(executable, arguments);
-*/
 	// Connect to AUV
 	emit sendParam("Connect.Data", "This");
 	emit sendParam("Connect.Video", "This");
@@ -105,7 +93,7 @@ Dashboard::Dashboard(QMainWindow *parent)
 
 	videoSocket->start();
 	bitmapSocket->start();
- 
+
 }
 
 /* *** Actions ******************************* */
@@ -170,6 +158,15 @@ void Dashboard::connectToLocalhost(){
 
 /* *** Networking ******************************************** */
 
+/**
+ * HandleAuVParam
+ * Description: This gargantuan function is responsible for decoding the 
+ * 	data received by the network port.  The data may be coming from
+ * 	the AUV or other instances of the dashboard (via broadacst echo from the AUV).
+ * 	If the data does not fit one of the many possibilities below, the event
+ *	is logged with qDebug().
+ */
+
 void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 	bool badCmd = false;
 	if (type == "AUV") {
@@ -209,88 +206,90 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 	} else if (type == "Brain") {
 		if (name == "State") {
 			if(value.toDouble() == -1) {
+				// RC state
 				stateLabel->setText("Remote Control");
+				// set RC to make sure we don't send a command
+				RC = 1;
+				if(!controlGroupBox->isChecked()) controlGroupBox->setChecked(true); 
+			}else if(value.toDouble() == -2) {
+				// stopped state
+				stateLabel->setText("Stopped");
+				// enter RC state as soon as we leave the stopped state
 				if(!controlGroupBox->isChecked()) controlGroupBox->setChecked(true); 
 			}else{
+				RC = 0;
 				if(controlGroupBox->isChecked()) controlGroupBox->setChecked(false);
 				stateLabel->setText(states.at(value.toInt()));
 				missionProgressBar->setValue(value.toInt() * (100 / 6));
 			}
 		} else if (name == "Time") {
-			rateLabel->setText("Processing at: " + QString::number(1.0/(value.toDouble()/1000.0)) + " Hz (" + QString::number(round(100.0/(value.toDouble()/1000.0)/5))+ "%)" );
+			// target brain step frequency
+			// TODO - use actual define value
+			int targetRate = 5;//Hz
+			rateLabel->setText("Processing at: " 
+				+ QString::number(1.0/(value.toDouble()/1000.0)) + " Hz (" 
+				+ QString::number(round(100.0/(value.toDouble()/1000.0)/targetRate))
+				+ "%)" );
 		}else badCmd = true;
-	}else if (type == "Input"){
-		if(name == "RC_Depth") desiredDepthSlider->setValue(value.toDouble());
-		else if(name == "RC_Strafe") desiredStrafeSlider->setValue(value.toDouble());
-		else if(name == "RC_ForwardVelocity") desiredSpeedSlider->setValue(value.toDouble());
-		else if(name == "RC_Heading") desiredHeadingSpinBox->setValue(value.toDouble());
-		else if(name == "RC") controlGroupBox->setChecked((value == "1")?true:false);
-		else if(name == "DesiredState") stateComboBox->setCurrentIndex(value.toInt());
-		else badCmd = true;
-	} else if (type == "Parameter") {
+	}else if (type == "Input"){ // RC commands from other dashboards
+		int intValue = value.toInt();
+		if(name == "RC_Depth") {
+			if(intValue != desiredDepth){
+				desiredDepth = intValue;
+				desiredDepthSlider->setValue(intValue);
+			}
+		}else if(name == "RC_Strafe"){
+			if(intValue != desiredStrafe){
+				desiredStrafe = intValue;
+				desiredStrafeSlider->setValue(intValue);
+			}
+		}else if(name == "RC_ForwardVelocity") {
+			if(intValue != desiredSpeed){
+				desiredSpeed = intValue;
+				desiredSpeedSlider->setValue(intValue);
+			}
+		}else if(name == "RC_Heading"){
+			if(intValue != desiredHeading){
+				desiredHeading = intValue;
+				desiredHeadingSpinBox->setValue(intValue);
+			}
+		}else if(name == "RC") {
+			RC = value.toInt();
+			controlGroupBox->setChecked((value == "1")?true:false);
+		}else if(name == "DesiredState") {
+			stateComboBox->setCurrentIndex(value.toInt());
+		}else badCmd = true;
+	} else if (type == "Parameter") { // parameter values from Brain
+		// these get set once at startup and if changed by another dashboard
 		double paramVal = value.toDouble();
 		// update parameters
 		// controller gain initial settings
-		if(name == "Heading_Forward_Velocity") 
-			fwdVelocitySpinBox->setValue(paramVal);
-		else if(name == "Heading_Kd") 
-			headingDGainSpinBox->setValue(paramVal);
-		else if(name == "Heading_Ki") 
-			headingIGainSpinBox->setValue(paramVal);
-		else if(name == "Heading_Kp") 
-			headingPGainSpinBox->setValue(paramVal);
-		else if(name == "Depth_Kd") 
-			depthDGainSpinBox->setValue(paramVal);
-		else if(name == "Depth_Ki") 
-			depthIGainSpinBox->setValue(paramVal);
-		else if(name == "Depth_Kp") 
-			depthPGainSpinBox->setValue(paramVal);
-		else if(name == "Vision_Forward_Velocity") 
-			approachVelocitySpinBox->setValue(paramVal);
-		else if(name == "Cam_Forward_YPosition_Kd") 
-			buoyDepthDGainSpinBox->setValue(paramVal);
-		else if(name == "Cam_Forward_YPosition_Ki") 
-			buoyDepthIGainSpinBox->setValue(paramVal);
-		else if(name == "Cam_Forward_YPosition_Kp") 
-			buoyDepthPGainSpinBox->setValue(paramVal);
-		else if(name == "Cam_Forward_XPosition_Kd") 
-			buoyHeadingDGainSpinBox->setValue(paramVal);
-		else if(name == "Cam_Forward_XPosition_Ki") 
-			buoyHeadingIGainSpinBox->setValue(paramVal);
-		else if(name == "Cam_Forward_XPosition_Kp") 
-			buoyHeadingPGainSpinBox->setValue(paramVal);
-		// Vision
-		else if(name == "Track_HueHigher") 
-			pathHueHighSpinBox->setValue(paramVal);
-		else if(name == "Track_HueLower") 
-			pathHueLowSpinBox->setValue(paramVal);
-		else if(name == "Track_Saturation") 
-			pathSaturationSpinBox->setValue(paramVal);
-		else if(name == "Buoy_HueHigher") 
-			buoyHueHighSpinBox->setValue(paramVal);
-		else if(name == "Buoy_HueLower") 
-			buoyHueLowSpinBox->setValue(paramVal);
-		else if(name == "Buoy_Saturation") 
-			buoySaturationSpinBox->setValue(paramVal);
-		else if(name == "Buoy_Max_Eccentricity")
-			buoyEccentSpinBox->setValue(paramVal);
-		else if(name == "Buoy_Min_Extent")
-			buoyMinExtentSpinBox->setValue(paramVal);
-		else if(name == "Buoy_Max_Extent")
-			buoyMaxExtentSpinBox->setValue(paramVal);
+
+		// uses parameters.def to assign to the correct box
+		if(false);
+#define GEN_PARAM(guiParam,brainParam) \
+		else if(name == #brainParam) guiParam->setValue(paramVal);
+#include "parameters.def"
 		else badCmd = true;
 
 	}else if(type == "Status"){
+		// wait for the Status=Connected packet before enabling the interface
 		if(value == "Connected") {
 			enableDashboard();
 		}
+		// display AUV status messages
 		statusBar()->showMessage(value, 5000);
 	}else if(type == "Connect" || type == "GetParams"){
-		statusBar()->showMessage("Connecting...", 5000);
+		// these are special becuase the echos don't get filtered out.
+		// that means it could be us or anyone connecting
+		statusBar()->showMessage("Someone (maybe you) is connecting to the AUV...", 5000);
 	}else badCmd = true;
+	// catch and log unparsed commands or data
 	if(badCmd) qDebug() << "Unrecognized data: " + type + "." + name + "=" + value;
+
 } // end HandleAUVParam()
 
+// copy video frames into video labels
 void Dashboard::HandleVideoFrame(QImage* frame) {
 	videoPixmap = QPixmap::fromImage(*frame);
 	videoLabel->setPixmap(videoPixmap);
@@ -300,12 +299,15 @@ void Dashboard::HandleBitmapFrame(QImage* frame) {
 	bitVideoLabel->setPixmap(bwPixmap);
 }
 
+// disableDashboard gets called when the number of commands
+//  that have not been acknowledged reaches 15 or higher
+//  Severity is the number of commands that have not been acknowledged by the AUV.
 void Dashboard::disableDashboard(int severity){
-	if(severity > 10){
-		qDebug() << "Flaky connection or you are hitting buttons too fast";
-	}
+	qDebug() << "Flaky connection or you are hitting buttons too fast";
 	if(severity > 20){
-		qDebug() << QString::number(severity) + " missing packets, pausing";
+		// if enough packets go missing, disable the controls to prevent more pileup
+		// packets are re-sent every second until the AUV responds or we reconnect
+		qDebug() << QString::number(severity) + " missing packets, disabling controls";
 		//dashboardWidget->setEnabled(false);
 		controlGroupBox->setEnabled(false);
 		tabContainer->setEnabled(false);
@@ -318,66 +320,81 @@ void Dashboard::enableDashboard(){
 }
 
 
+/* *** Keyboard event handler ******************************** */
 
-/*void Dashboard::updateBrainView(ExternalOutputs_brain values, int brainTime){
-
-		desiredHeadingSpinBox->setValue(values.DesiredHeading);
-		desiredDepthSpinBox->setValue(values.DesiredDepth);
-
-	// Get full color video
-	// copy frame from signal to pixmap
-	int x = 639;
-	int y = 480;
-	unsigned int videoPixel;
-	for(int i = 307199; i >= 0; --i){
-		y--;
-		videoPixel = (0xFF000000) | ((((int)brain_B.RGBVid_R[i]) << 16)&0x00FF0000) | ((((int)brain_B.RGBVid_G[i]) << 8)&0x0000FF00) | (((int)brain_B.RGBVid_B[i])&0x000000FF); 
-		videoFrame.setPixel(x, y, videoPixel);
-		if(y <= 0){
-			x--;
-			y = 480;
-		}
+void Dashboard::keyPressEvent(QKeyEvent* event){
+	int key = event->key();
+	switch(key){
+		case Qt::Key_F1: startAction(); break;
+		case Qt::Key_F2: stopAction(); break;
+		case Qt::Key_F3: resetAction(); break;
+		case Qt::Key_F4: killAction(); break;
+		case Qt::Key_F5: reconnectAction(); break;
+		case Qt::Key_F9: connectToLocalhost(); break;
+		case Qt::Key_F35: qDebug() << "I want your keyboard!"; break;
+		case Qt::Key_0:
+			stateComboBox->setCurrentIndex(0);
+			emit sendParam("Input.DesiredState", "0");
+			break;
+		case Qt::Key_1:
+			stateComboBox->setCurrentIndex(1);
+			emit sendParam("Input.DesiredState", "1");
+			break;
+		case Qt::Key_2:
+			stateComboBox->setCurrentIndex(2);
+			emit sendParam("Input.DesiredState", "2");
+			break;
+		case Qt::Key_3:
+			stateComboBox->setCurrentIndex(3);
+			emit sendParam("Input.DesiredState", "3");
+			break;
+		case Qt::Key_4:
+			stateComboBox->setCurrentIndex(4);
+			emit sendParam("Input.DesiredState", "4");
+			break;
+		case Qt::Key_5:
+			stateComboBox->setCurrentIndex(5);
+			emit sendParam("Input.DesiredState", "5");
+			break;
+		case Qt::Key_6: // we only have 5 states as of this writing break;
+		case Qt::Key_7:
+			break;
+		case Qt::Key_8:
+			break;
+		case Qt::Key_9:
+			break;
+		case Qt::Key_BassBoost: qDebug() << "Party in the AUV!"; break;
+		case Qt::Key_LightBulb: // TODO - turn on lights break;
+		case Qt::Key_Go: startAction(); break;
+		case Qt::Key_Execute: startAction(); break;
+		case Qt::Key_Play: startAction(); break;
+		case Qt::Key_Cancel: stopAction(); break;
+		case Qt::Key_Sleep: stopAction(); break;
+		case Qt::Key_Control:
+			if(controlGroupBox->isChecked()) controlGroupBox->setChecked(false);
+			else controlGroupBox->setChecked(true);
+			break;
+		case Qt::Key_Left: desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
+		case Qt::Key_Up: desiredSpeedSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
+		case Qt::Key_Right: desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
+		case Qt::Key_Down: desiredSpeedSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
+		case Qt::Key_PageUp: desiredDepthSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
+		case Qt::Key_PageDown: desiredDepthSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
+		case Qt::Key_W: desiredSpeedSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
+		case Qt::Key_A: desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
+		case Qt::Key_S: desiredSpeedSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
+		case Qt::Key_D: desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
+		case Qt::Key_Q: desiredDepthSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
+		case Qt::Key_E: desiredDepthSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
+		case Qt::Key_Z: desiredStrafeSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
+		case Qt::Key_C: desiredStrafeSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
+		case Qt::Key_X: on_setAllZeroButton_clicked(); break;
+		case Qt::Key_K: stopAction(); break;
+		default:
+			QMainWindow::keyPressEvent(event);
+			break;
 	}
-	videoPixmap = QPixmap::fromImage(videoFrame);
-	videoLabel->setPixmap(videoPixmap);
-	
-	if(brain_U.RC == 1) return;
-
-	// Get processed video
-	// copy frame from signal to pixmap
-	x = 159;
-	y = 120;
-	for(int i = 19199; i >= 0; --i){
-		y--;
-		if(values.State == 2){
-			bwFrame.setPixel(x, y, brain_B.BW_a[i]);
-		}else if(values.State == 3){
-			if(brain_DWork.countTo < 4){
-				if(i < 9600)	bwFrame.setPixel(x, y, brain_B.BWleft_i[i]);
-				else	bwFrame.setPixel(x, y, brain_B.BWright_e[i-9600]);
-			}
-			else{
-				bwFrame.setPixel(x, y, brain_B.DataTypeConversion_h[i]);
-			}
-		}else if(values.State == 4){
-			bwFrame.setPixel(x, y, brain_B.BW_p[i]);
-		}else if(values.State == 5){
-			bwFrame.setPixel(x, y, brain_B.BW[i]);
-		}else bwFrame.setPixel(x, y, 1);
-
-		if(y <= 0){
-			x--;
-			y = 120;
-		}
-	}
-
-	bwPixmap = QPixmap::fromImage(bwFrame);
-	bitVideoLabel->setPixmap(bwPixmap);
-	
-	//qDebug("Brain Data on display");
-	//qDebug() << "Brain Display Time: " << QString::number(bT.elapsed()) << "ms";
-	
-}*/
+} // end Key Event Handler
 
 
 /* *** GUI event handlers **************************************** */
@@ -394,105 +411,12 @@ void Dashboard::on_stateComboBox_activated(int index){
 	emit sendParam("Input.DesiredState", QString::number(index));
 }
 
-// controller gains
-void Dashboard::on_fwdVelocitySpinBox_editingFinished(){
-	emit sendParam("Parameter.Heading_Forward_Velocity", QString::number(fwdVelocitySpinBox->value()));
-}
-void Dashboard::on_headingDGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Heading_Kd", QString::number(headingDGainSpinBox->value()));
-}
-void Dashboard::on_headingIGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Heading_Ki", QString::number(headingIGainSpinBox->value()));
-}
-void Dashboard::on_headingPGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Heading_Kp", QString::number(headingPGainSpinBox->value()));
-}
-void Dashboard::on_depthDGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Depth_Kd", QString::number(depthDGainSpinBox->value()));
-}
-void Dashboard::on_depthIGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Depth_Ki", QString::number(depthIGainSpinBox->value()));
-}
-void Dashboard::on_depthPGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Depth_Kd", QString::number(depthPGainSpinBox->value()));
-}
-void Dashboard::on_approachVelocitySpinBox_editingFinished(){
-	emit sendParam("Parameter.Vision_Forward_Velocity", QString::number(approachVelocitySpinBox->value()));
-}
-void Dashboard::on_buoyDepthDGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Cam_Forward_YPosition_Kd", QString::number(buoyDepthDGainSpinBox->value()));
-}
-void Dashboard::on_buoyDepthIGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Cam_Forward_YPosition_Ki", QString::number(buoyDepthIGainSpinBox->value()));
-}
-void Dashboard::on_buoyDepthPGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Cam_Forward_YPosition_Kp", QString::number(buoyDepthPGainSpinBox->value()));
-}
-void Dashboard::on_buoyHeadingDGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Cam_Forward_XPosition_Kd", QString::number(buoyHeadingDGainSpinBox->value()));
-}
-void Dashboard::on_buoyHeadingIGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Cam_Forward_XPosition_Ki", QString::number(buoyHeadingIGainSpinBox->value()));
-} 
-void Dashboard::on_buoyHeadingPGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Cam_Forward_XPosition_Kp", QString::number(buoyHeadingPGainSpinBox->value()));
-}
-/*
-void Dashboard::on_pathHeadingDGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Cam_Down_XPos_Kd", QString::number(pathHeadingDGainSpinBox->value()));
-}
-
-void Dashboard::on_pathHeadingIGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Cam_Down_XPos_Ki", QString::number(pathHeadingIGainSpinBox->value()));
-} 
-void Dashboard::on_pathHeadingPGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Cam_Down_XPos_Kp", QString::number(pathHeadingPGainSpinBox->value()));
-}
-void Dashboard::on_pathYDGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Cam_Down_YPos_Kd", QString::number(pathYDGainSpinBox->value()));
-}
-void Dashboard::on_pathYIGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Cam_Down_YPos_Ki", QString::number(pathYIGainSpinBox->value()));
-} 
-void Dashboard::on_pathYPGainSpinBox_editingFinished(){
-	emit sendParam("Parameter.Cam_Down_YPos_Kp", QString::number(pathYPGainSpinBox->value()));
-}
-*/
-
-// Vision
-void Dashboard::on_pathHueHighSpinBox_editingFinished(){
-	emit sendParam("Parameter.Track_HueHigher", QString::number(pathHueHighSpinBox->value()));
-}
-void Dashboard::on_pathHueLowSpinBox_editingFinished(){
-	emit sendParam("Parameter.Track_HueLower", QString::number(pathHueLowSpinBox->value()));
-}
-void Dashboard::on_pathSaturationSpinBox_editingFinished(){
-	emit sendParam("Parameter.Track_Saturation", QString::number(pathSaturationSpinBox->value()));
-}
-void Dashboard::on_buoyHueHighSpinBox_editingFinished(){
-	emit sendParam("Parameter.Buoy_HueHigher", QString::number(buoyHueHighSpinBox->value()));
-}
-void Dashboard::on_buoyHueLowSpinBox_editingFinished(){
-	emit sendParam("Parameter.Buoy_HueLower", QString::number(buoyHueLowSpinBox->value()));
-}
-void Dashboard::on_buoySaturationSpinBox_editingFinished(){
-	emit sendParam("Parameter.Buoy_Saturation", QString::number(buoySaturationSpinBox->value()));
-}
-void Dashboard::on_buoyEccentSpinBox_editingFinished(){
-	emit sendParam("Parameter.Buoy_Max_Eccentricity", QString::number(buoyEccentSpinBox->value()));
-}
-void Dashboard::on_buoyMinExtentSpinBox_editingFinished(){
-	emit sendParam("Parameter.Buoy_Min_Extent", QString::number(buoyMinExtentSpinBox->value()));
-}
-void Dashboard::on_buoyMaxExtentSpinBox_editingFinished(){
-	emit sendParam("Parameter.Buoy_Max_Extent", QString::number(buoyMaxExtentSpinBox->value()));
-}
-
+// White Balance Camera
 void Dashboard::on_whiteBalancePushButton_clicked(){
 	emit sendParam("Calibrate.WhiteBalance", "once");
 }
 
-// Calibration
+// Depth Calibration
 void Dashboard::on_zeroDepthPushButton_clicked(){
 	emit sendParam("Calibrate.Depth", "0");
 }
@@ -500,25 +424,40 @@ void Dashboard::on_setActualDepthPushButton_clicked(){
 	emit sendParam("Calibrate.Depth", QString::number(actualDepthDoubleSpinBox->value()));
 }
 
-
 // RC Controls
-void Dashboard::on_controlGroupBox_clicked(bool rc){
+void Dashboard::on_controlGroupBox_toggled(bool rc){
 //	emit sendParam("Mode", "Stop");
-	emit sendParam("Input.RC", rc?"1":"0");
-	if(rc) stateLabel->setText("Remote Control");
+	if(rc && RC == 0)
+		emit sendParam("Input.RC", "1");
+	else if(!rc && RC == 1)
+		emit sendParam("Input.RC", "0");
+	RC = rc?1:0;
+	if(RC == 1) stateLabel->setText("Remote Control");
 	else stateLabel->setText("Confuzzled");
 }
-void Dashboard::on_desiredDepthSlider_sliderMoved(int value){
-	emit sendParam("Input.RC_Depth", QString::number(value));
+void Dashboard::on_desiredDepthSlider_valueChanged(int value){
+	if(value != desiredDepth){
+		desiredDepth = value;
+		emit sendParam("Input.RC_Depth", QString::number(value));
+	}	
 }
-void Dashboard::on_desiredStrafeSlider_sliderMoved(int value){
-	emit sendParam("Input.RC_Strafe", QString::number(value));
+void Dashboard::on_desiredStrafeSlider_valueChanged(int value){
+	if(value != desiredStrafe){
+		desiredStrafe = value;
+		emit sendParam("Input.RC_Strafe", QString::number(value));
+	}
 }
-void Dashboard::on_desiredSpeedSlider_sliderMoved(int value){
-	emit sendParam("Input.RC_ForwardVelocity", QString::number(value));
+void Dashboard::on_desiredSpeedSlider_valueChanged(int value){
+	if(value != desiredSpeed){
+		desiredSpeed = value;
+		emit sendParam("Input.RC_ForwardVelocity", QString::number(value));
+	}
 }
-void Dashboard::on_desiredHeadingDial_sliderMoved(int value){
-	emit sendParam("Input.RC_Heading", QString::number(value));
+void Dashboard::on_desiredHeadingDial_valueChanged(int value){
+	if(value != desiredHeading){
+		desiredHeading = value;
+		emit sendParam("Input.RC_Heading", QString::number(value));
+	}
 }
 void Dashboard::on_desiredHeadingSpinBox_editingFinished(){
 	emit sendParam("Input.RC_Heading", QString::number(desiredHeadingSpinBox->value()));
@@ -533,16 +472,31 @@ void Dashboard::on_desiredStrafeSpinBox_editingFinished(){
 	emit sendParam("Input.RC_Strafe", QString::number(desiredStrafeSpinBox->value()));
 }
 void Dashboard::on_setAllZeroButton_clicked(){
-	desiredDepthSlider->setSliderPosition(0);
-	desiredStrafeSlider->setSliderPosition(0);
-	desiredSpeedSlider->setSliderPosition(0);
-	desiredHeadingDial->setSliderPosition((headingLcdNumber->value()>180)?headingLcdNumber->value()-360:headingLcdNumber->value());
+	desiredDepthSlider->setValue(0);
+	desiredStrafeSlider->setValue(0);
+	desiredSpeedSlider->setValue(0);
+	desiredHeadingDial->setValue(headingLcdNumber->value());
 }
 
+// Other buttons
 void Dashboard::on_runScriptPushButton_clicked(){
 	emit sendParam("Activate.Script", scriptsComboBox->currentText());
 }
-
 void Dashboard::on_actuateMechPushButton_clicked(){
 	emit sendParam("Actuate.Mechanism", mechsComboBox->currentText());
 }
+
+
+
+
+/* *** Parameters Interface ************************************** */
+// Code Generation!
+// Edit parameters.def to change the parameters
+
+#define GEN_PARAM(guiParam,brainParam) \
+void Dashboard::on_##guiParam##_editingFinished(){ \
+	emit sendParam(QString("Parameter.") + QString(#brainParam), QString::number(guiParam->value())); \
+}
+#include "parameters.def"
+
+
