@@ -83,8 +83,8 @@ Dashboard::Dashboard(QMainWindow *parent)
         bwFrame.setColor(1, 0xFFFF0000); 
         videoPixmap.fill(); 
         bwPixmap.fill(); 
-	videoWidget->setScaledContents(true);
-	bitVideoLabel->setScaledContents(true);
+	//videoWidget->setScaledContents(true);
+	//bitVideoLabel->setScaledContents(true);
 
 	// init controls
 	RC = desiredSpeed = desiredHeading = desiredDepth = desiredStrafe = 0;
@@ -310,11 +310,11 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 // copy video frames into video labels
 void Dashboard::HandleVideoFrame(QImage* frame) {
 	videoPixmap = QPixmap::fromImage(*frame);
-	videoWidget->setPixmap(videoPixmap);
+	videoWidget->setPixmap(videoPixmap.scaled(videoWidget->size(),Qt::KeepAspectRatio));
 }
 void Dashboard::HandleBitmapFrame(QImage* frame) {
 	bwPixmap = QPixmap::fromImage(*frame);
-	bitVideoLabel->setPixmap(bwPixmap);
+	bitVideoLabel->setPixmap(bwPixmap.scaled(bitVideoLabel->size(),Qt::KeepAspectRatio));
 }
 
 // disableDashboard gets called when the number of commands
