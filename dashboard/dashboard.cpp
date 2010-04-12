@@ -28,6 +28,8 @@ Dashboard::Dashboard(QMainWindow *parent)
 	connect(actionBroadcast_Data, SIGNAL(triggered()), this, SLOT(broadcastAction()));
 	connect(actionConnect_To, SIGNAL(triggered()), this, SLOT(connectToAddress()));
 	connect(actionConnect_to_LocalHost, SIGNAL(triggered()), this, SLOT(connectToLocalhost()));
+	connect(actionLoad_Parameters, SIGNAL(triggered()), this, SLOT(loadParameters()));
+	connect(actionSave_Parameters, SIGNAL(triggered()), this, SLOT(saveParameters()));
 
 	// Connect to Network Sockets 	
  	connect(&m_DS, SIGNAL(GotAUVUpdate(QString,QString,QString)), this, SLOT(HandleAUVParam(QString,QString,QString)));
@@ -487,6 +489,60 @@ void Dashboard::on_actuateMechPushButton_clicked(){
 }
 
 
+/* Save/Load parameters ****************************** */
+void Dashboard::saveParameters(){
+	QString  saveFilename = QFileDialog::getSaveFileName (this, "Save parameters to file", "params/", "Parameter Matlab files (*.m)");
+	QFile saveFile(saveFilename);
+
+	if (!saveFile.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
+		return;
+
+	QTextStream out(&saveFile);
+	out << QString("% Parameters file generated ") + QDateTime::currentDateTime().toString() << endl;
+
+#define GEN_PARAM(guiParam,brainParam) \
+	out << QString(#brainParam) + " = " + QString::number(guiParam->value()) + ";" << endl;
+#include "parameters.def"
+	
+	saveFile.close();
+
+}
+void Dashboard::loadParameters(){
+	QString  loadFilename = QFileDialog::getOpenFileName (this, "Load parameters from file", "params/", "Parameter files (*.params *.m)");
+	QFile loadFile(loadFilename);
+	if (!loadFile.open(QIODevice::ReadOnly | QIODevice::Text))
+		return;
+
+	QTextStream in(&loadFile);
+	while (!in.atEnd()) {
+		QString line = in.readLine();
+		loadParameter(line.simplified());
+	}
+
+	loadFile.close();
+
+}
+
+void Dashboard::loadParameter(QString param){
+	if(param.isEmpty() || param.startsWith("%") || !param.contains("=")) return;
+	QStringList codeLines = param.split(";");
+	foreach(QString codeLine, codeLines){
+		if(!codeLine.contains("=")) continue;
+		QStringList paramLine = codeLine.split("=");
+		QString paramName = paramLine.at(0).trimmed();
+		double paramVal = paramLine.at(1).trimmed().toDouble();
+		if(paramVal == 0) continue;
+		else{
+			if(false);
+#define GEN_PARAM(guiParam,brainParam) \
+			else if(paramName == #brainParam){\
+				guiParam->setValue(paramVal); \
+				emit sendParam(QString("Parameter.") + QString(#brainParam), QString::number(paramVal)); \
+			}
+#include "parameters.def"
+		}
+	}
+}
 
 
 /* *** Parameters Interface ************************************** */

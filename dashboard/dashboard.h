@@ -48,6 +48,10 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void disableDashboard(int severity);
 		void enableDashboard();
 
+		void saveParameters();
+		void loadParameters();
+		void loadParameter(QString param);
+
 		// Keyboard Event Handler
 		void keyPressEvent(QKeyEvent* event);
 
