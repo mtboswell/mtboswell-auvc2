@@ -12,6 +12,11 @@ Dashboard::Dashboard(QMainWindow *parent)
      : QMainWindow(parent)
 {
 	setupUi(this);
+
+	videoLabel->hide();
+	videoWidget = new VideoWidget(videoContainer);
+	videoContainerLayout->addWidget(videoWidget);
+
 	dashboardWidget->setEnabled(false);
      
 	// Connect up Actions
@@ -78,7 +83,7 @@ Dashboard::Dashboard(QMainWindow *parent)
         bwFrame.setColor(1, 0xFFFF0000); 
         videoPixmap.fill(); 
         bwPixmap.fill(); 
-	videoLabel->setScaledContents(true);
+	videoWidget->setScaledContents(true);
 	bitVideoLabel->setScaledContents(true);
 
 	// init controls
@@ -180,12 +185,14 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 			modes[3] = "Killed";
 			if(value.toInt() > 3 || value.toInt() < 0) badCmd = true;
 			else controlStateLabel->setText(modes[value.toInt()]);
-		} else if (name == "Heading")
+		} else if (name == "Heading"){
 			headingLcdNumber->display(value.toDouble());
+			headingDial->setValue(value.toDouble());
 			// headingLine->setRotation(value.toDouble());
-		else if (name == "Depth")
+		}else if (name == "Depth"){
 			depthLcdNumber->display(value.toDouble());
-		else if (name == "ThrusterVoltage")
+			depthBar->setValue(value.toDouble());
+		}else if (name == "ThrusterVoltage")
 			thVoltageLcdNumber->display(value.toDouble());
 		else if (name == "ThrusterCurrent")
 			thCurrentLcdNumber->display(value.toDouble());
@@ -212,15 +219,24 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 				stateLabel->setText("Remote Control");
 				// set RC to make sure we don't send a command
 				RC = 1;
-				if(!controlGroupBox->isChecked()) controlGroupBox->setChecked(true); 
+				if(!controlGroupBox->isChecked()) {
+					controlGroupBox->setChecked(true); 
+					tabWidget->setCurrentWidget(controlsPage);
+				}
 			}else if(value.toDouble() == -2) {
 				// stopped state
 				stateLabel->setText("Stopped");
 				// enter RC state as soon as we leave the stopped state
-				if(!controlGroupBox->isChecked()) controlGroupBox->setChecked(true); 
+				if(!controlGroupBox->isChecked()) {
+					controlGroupBox->setChecked(true); 
+					tabWidget->setCurrentWidget(controlsPage);
+				}
 			}else{
 				RC = 0;
-				if(controlGroupBox->isChecked()) controlGroupBox->setChecked(false);
+				if(controlGroupBox->isChecked()){
+					controlGroupBox->setChecked(false);
+					tabWidget->setCurrentWidget(videoPage);
+				}
 				stateLabel->setText(states.at(value.toInt()));
 				missionProgressBar->setValue(value.toInt() * (100 / 6));
 			}
@@ -294,7 +310,7 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 // copy video frames into video labels
 void Dashboard::HandleVideoFrame(QImage* frame) {
 	videoPixmap = QPixmap::fromImage(*frame);
-	videoLabel->setPixmap(videoPixmap);
+	videoWidget->setPixmap(videoPixmap);
 }
 void Dashboard::HandleBitmapFrame(QImage* frame) {
 	bwPixmap = QPixmap::fromImage(*frame);
@@ -373,8 +389,13 @@ void Dashboard::keyPressEvent(QKeyEvent* event){
 		case Qt::Key_Cancel: stopAction(); break;
 		case Qt::Key_Sleep: stopAction(); break;
 		case Qt::Key_Control:
-			if(controlGroupBox->isChecked()) controlGroupBox->setChecked(false);
-			else controlGroupBox->setChecked(true);
+			if(controlGroupBox->isChecked()) {
+				controlGroupBox->setChecked(false);
+				tabWidget->setCurrentWidget(videoPage);
+			}else{
+				controlGroupBox->setChecked(true);
+				tabWidget->setCurrentWidget(controlsPage);
+			}
 			break;
 		case Qt::Key_Left: desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
 		case Qt::Key_Up: desiredSpeedSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;

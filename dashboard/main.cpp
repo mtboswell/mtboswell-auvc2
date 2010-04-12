@@ -14,6 +14,8 @@ int main(int argc, char *argv[]){
 	QApplication app(argc, argv);
 	QStringList args = app.arguments();
 
+	QApplication::setStyle(new QCleanlooksStyle); 
+
 	/* Initialize Dashboard */
 	qDebug("Initializing Dashboard");
 	Dashboard* gui = new Dashboard();
