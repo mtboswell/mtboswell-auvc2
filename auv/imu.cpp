@@ -37,6 +37,7 @@ IMU::IMU(const char* dev)
 	port->addUARTList(this);
 	
     bufferInit(&rdbuf, rdbufChars, 128);
+	// put the AHRS in continuous mode (constantly sending results from command 0x31, which is "Send Gyro-Stabilized Euler Angles & Accel & Rate Vector")
 	char cmd[3] = {0x10, 0x00, 0x31};
 	port->write(cmd, 3);
 }
@@ -50,6 +51,9 @@ void IMU::initStatus()
 }
 IMU::~IMU()
 {
+	// end continuous mode (calibration doesn't work in continuous mode)
+	char cmd[3] = {0x10, 0x00, 0x00};
+	port->write(cmd, 3);
     delete port;
 }
 UART* IMU::getPort()

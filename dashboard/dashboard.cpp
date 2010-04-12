@@ -181,7 +181,7 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 			QString modes[4];
 			modes[0] = "Ready";
 			modes[1] = "Running";
-			modes[2] = "Paused";
+			modes[2] = "Stopped";
 			modes[3] = "Killed";
 			if(value.toInt() > 3 || value.toInt() < 0) badCmd = true;
 			else controlStateLabel->setText(modes[value.toInt()]);
