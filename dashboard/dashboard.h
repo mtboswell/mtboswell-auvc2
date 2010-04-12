@@ -48,10 +48,40 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void disableDashboard(int severity);
 		void enableDashboard();
 
+		// Keyboard Event Handler
+		void keyPressEvent(QKeyEvent* event);
+
 		// Gui Event Handlers
 
 		void on_goButton_clicked();
 		void on_stopButton_clicked();
+		void on_whiteBalancePushButton_clicked();
+
+		// Calibration
+		void on_zeroDepthPushButton_clicked();
+		void on_setActualDepthPushButton_clicked();
+
+		// Brain state
+		void on_stateComboBox_activated(int index); 
+
+		// RC
+		void on_controlGroupBox_toggled(bool rc);
+		void on_desiredDepthSlider_valueChanged(int value);
+		void on_desiredStrafeSlider_valueChanged(int value);
+		void on_desiredSpeedSlider_valueChanged(int value);
+		void on_desiredHeadingDial_valueChanged(int value);
+		void on_desiredHeadingSpinBox_editingFinished();
+		void on_desiredDepthSpinBox_editingFinished();
+		void on_desiredSpeedSpinBox_editingFinished();
+		void on_desiredStrafeSpinBox_editingFinished();
+		void on_setAllZeroButton_clicked();
+		void on_runScriptPushButton_clicked();
+		void on_actuateMechPushButton_clicked(); 
+/*
+#define GEN_PARAM(guiParam,brainParam) \
+void on_##guiParam##_editingFinished();
+#include "parameters.def"
+*/
 
 		// controller gains
 		void on_fwdVelocitySpinBox_editingFinished();
@@ -68,15 +98,6 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void on_buoyHeadingDGainSpinBox_editingFinished();
 		void on_buoyHeadingIGainSpinBox_editingFinished();
 		void on_buoyHeadingPGainSpinBox_editingFinished();
-/*
-		void on_pathHeadingPGainSpinBox_editingFinished();
-		void on_pathHeadingIGainSpinBox_editingFinished();
-		void on_pathHeadingDGainSpinBox_editingFinished();
-		void on_pathYPGainSpinBox_editingFinished();
-		void on_pathYIGainSpinBox_editingFinished();
-		void on_pathYDGainSpinBox_editingFinished();
-*/
-
 
 		// Vision
 		void on_pathHueHighSpinBox_editingFinished();
@@ -88,29 +109,6 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void on_buoyEccentSpinBox_editingFinished();
 		void on_buoyMinExtentSpinBox_editingFinished();
 		void on_buoyMaxExtentSpinBox_editingFinished();
-		void on_whiteBalancePushButton_clicked();
-
-		// Calibration
-		void on_zeroDepthPushButton_clicked();
-		void on_setActualDepthPushButton_clicked();
-
-		// Brain state
-		void on_stateComboBox_activated(int index); 
-
-		// RC
-		void on_controlGroupBox_clicked(bool rc);
-		void on_desiredDepthSlider_sliderMoved(int value);
-		void on_desiredStrafeSlider_sliderMoved(int value);
-		void on_desiredSpeedSlider_sliderMoved(int value);
-		void on_desiredHeadingDial_sliderMoved(int value);
-		void on_desiredHeadingSpinBox_editingFinished();
-		void on_desiredDepthSpinBox_editingFinished();
-		void on_desiredSpeedSpinBox_editingFinished();
-		void on_desiredStrafeSpinBox_editingFinished();
-		void on_setAllZeroButton_clicked();
-		void on_runScriptPushButton_clicked();
-		void on_actuateMechPushButton_clicked();
-
 
 	private:
 		DashSocket m_DS;
@@ -128,5 +126,6 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		QStringList scripts;
 
 		QProcess* process;
+		int RC, desiredHeading, desiredDepth, desiredSpeed, desiredStrafe;
 
 };

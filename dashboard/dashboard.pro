@@ -10,7 +10,8 @@ static { // Everything below takes effect with CONFIG += static
     DEFINES += STATIC // Equivalent to "#define STATIC" in source code
     message("Static build.")
 }
-QT += network  # phonon 
+QT += network # phonon 
+STYLE += gtk
 DEPENDPATH += . \
 	      ..
 INCLUDEPATH += . \
@@ -20,6 +21,7 @@ INCLUDEPATH += . \
 HEADERS += dashboard.h \
 	DashSocket.h \
 	VideoSocket.h \
+	parameters.def \
 	../auv/mechanisms.h
 FORMS += dashboard.ui
 SOURCES += dashboard.cpp \
