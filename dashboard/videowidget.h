@@ -10,15 +10,12 @@ class VideoWidget : public QLabel
 	public:
 	VideoWidget(QWidget* parent = 0):QLabel(parent){
 		container = parent;
-		QSizePolicy sizer(QSizePolicy::Fixed, QSizePolicy::Fixed);
-		sizer.setHeightForWidth(true);
-		setSizePolicy(sizer);
-		setBaseSize(320,240);
-		setSizeIncrement(320,240);
+		setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+		setAlignment(Qt::AlignCenter);
 	}
 
 	void mouseDoubleClickEvent(QMouseEvent* event){
-		//event->accept();
+		event->accept();
 		if(isWindow()){
 			if(isFullScreen()) showNormal();
 			else showFullScreen();
@@ -27,9 +24,6 @@ class VideoWidget : public QLabel
 			resize(640,480);
 			show();
 		}
-		QSizePolicy sizer(QSizePolicy::Preferred, QSizePolicy::Preferred);
-		sizer.setHeightForWidth(true);
-		setSizePolicy(sizer);
 	}
 	void closeEvent(QCloseEvent* event){
 		event->ignore();
@@ -41,9 +35,6 @@ class VideoWidget : public QLabel
 	}
 
 	QSize sizeHint() {
-		QSizePolicy sizer(QSizePolicy::Preferred, QSizePolicy::Preferred);
-		sizer.setHeightForWidth(true);
-		setSizePolicy(sizer);
 		if(isWindow()) return QSize(640,480);
 		else return QSize(320,240);
 	}
