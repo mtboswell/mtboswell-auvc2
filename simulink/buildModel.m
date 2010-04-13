@@ -1,0 +1,3 @@
+brainconstants
+rtwbuild('Brain');
+exit
