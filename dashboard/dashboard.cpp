@@ -551,8 +551,9 @@ void Dashboard::loadParameter(QString param){
 		if(!codeLine.contains("=")) continue;
 		QStringList paramLine = codeLine.split("=");
 		QString paramName = paramLine.at(0).trimmed();
-		double paramVal = paramLine.at(1).trimmed().toDouble();
-		if(paramVal == 0) continue;
+		bool ok;
+		double paramVal = paramLine.at(1).trimmed().toDouble(&ok);
+		if(!ok) continue; 
 		else{
 			if(false);
 #define GEN_PARAM(guiParam,brainParam) \
