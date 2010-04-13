@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.266
+ * Model version                        : 1.317
  * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Sat Apr 10 20:44:26 2010
+ * Real-Time Workshop file generated on : Tue Apr 13 14:33:46 2010
  * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Sat Apr 10 20:44:27 2010
+ * C/C++ source code generated on       : Tue Apr 13 14:33:46 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -29,13 +29,16 @@ Parameters_brain brain_P = {
   0.5,
   0.001,
   0.001,
+  0.25,
+  0.001,
+  0.001,
+  0.2,
+  0.001,
+  0.001,
   0.5,
   0.001,
   0.001,
   0.8,
-  0.01,
-  0.0,
-  0.3,
   0.9,
   0.25,
   0.4,
@@ -48,7 +51,10 @@ Parameters_brain brain_P = {
     0.0,
     0.0,
     75.0,
-    20.0
+    20.0,
+    0.01,
+    0.0,
+    0.3
   }
   /* End of '<Root>/Chart' */
 };
@@ -57,8 +63,10 @@ Parameters_brain brain_P = {
 const ConstParam_brain brain_ConstP = {
   /* Computed Parameter: SINE_TABLE_RTP
    * Referenced by blocks:
-   * '<S43>/Hough Transform'
-   * '<S44>/Hough Transform'
+   * '<S58>/Hough Transform'
+   * '<S59>/Hough Transform'
+   * '<S77>/Hough Transform'
+   * '<S78>/Hough Transform'
    */
   { -1.0, -9.9984769515639127E-01, -9.9939082701909576E-01,
     -9.9862953475457383E-01, -9.9756405025982420E-01, -9.9619469809174555E-01,
@@ -94,8 +102,10 @@ const ConstParam_brain brain_ConstP = {
 
   /* Computed Parameter: FIRSTRHO_RTP
    * Referenced by blocks:
-   * '<S43>/Hough Transform'
-   * '<S44>/Hough Transform'
+   * '<S58>/Hough Transform'
+   * '<S59>/Hough Transform'
+   * '<S77>/Hough Transform'
+   * '<S78>/Hough Transform'
    */
   -143.0,
 
@@ -595,10 +605,26 @@ const ConstParam_brain brain_ConstP = {
   /* Computed Parameter: WALKER_RTP
    * Referenced by blocks:
    * '<S9>/Buoy Blob Analysis'
-   * '<S34>/Blob Analysis'
-   * '<S47>/Blob Analysis'
+   * '<S12>/Buoy Blob Analysis'
+   * '<S16>/Buoy Blob Analysis'
+   * '<S38>/Blob Analysis'
+   * '<S81>/Blob Analysis'
    */
-  { -1, 121, 122, 123, 1, -121, -122, -123 }
+  { -1, 121, 122, 123, 1, -121, -122, -123 },
+
+  /* Expression: nhood
+   * Referenced by blocks:
+   * '<S9>/Dilation'
+   * '<S38>/Dilation'
+   */
+  { 1, 1, 1, 1 },
+
+  /* Expression: nhood
+   * Referenced by blocks:
+   * '<S9>/Erosion'
+   * '<S38>/Erosion'
+   */
+  { 1, 1, 1, 1, 1, 1, 1, 1 }
 };
 
 /* File trailer for Real-Time Workshop generated code.
