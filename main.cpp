@@ -68,7 +68,7 @@ int main(int argc, char *argv[]){
 	QObject::connect(auv, SIGNAL(setBrainInput(QString, double)), brain, SLOT(setInput(QString, double)));
 	
 	// From Brain to AUV
-	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), auv, SLOT(inputFromBrain(ExternalOutputs_brain, int)));
+	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), auv, SLOT(inputFromBrain(ExternalOutputs_brain)));
 	
 
 	// From AUV to Server

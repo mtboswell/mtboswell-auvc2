@@ -287,36 +287,19 @@ void Server::sendVideo(){
         }
 
 /* Get bitmap out of correct brain signal */
-/*  This is disabled until we can get a proper video signal coming from the brain.  TODO - re-enable
         // Get processed video
         // copy frame from signal to pixmap
         x = 159;
         y = 120;
         for(int i = 19199; i >= 0; --i){
                 y--;
-                if(brain_Y.State == 2){
-                        bwFrame->setPixel(x, y, brain_B.BW_a[i]);
-                }else if(brain_Y.State == 3){
-                        if(brain_DWork.countTo < 4){
-                                //if(i < 9600)    bwFrame->setPixel(x, y, brain_B.BWleft_i[i]);
-                                //else    bwFrame->setPixel(x, y, brain_B.BWright_e[i-9600]);
-                        }
-                        else{
-                                //bwFrame->setPixel(x, y, brain_B.DataTypeConversion_h[i]);
-                        }
-                }else if(brain_Y.State == 4){
-                        //bwFrame->setPixel(x, y, brain_B.BW_p[i]);
-                }else if(brain_Y.State == 5){
-                        bwFrame->setPixel(x, y, brain_B.BW[i]);
-                }else bwFrame->setPixel(x, y, 0);
-
+		bwFrame->setPixel(x, y, brain_Y.BWout[i]);
                 if(y <= 0){
                         x--;
                         y = 120;
                 }
         }
-*/
         videoOut->write(*videoFrame);
-//	bitmapOut->write(*bwFrame);
+	bitmapOut->write(*bwFrame);
 
 }

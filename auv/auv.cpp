@@ -103,7 +103,7 @@ void AUV::readSensors(){
 }
 
 
-void AUV::inputFromBrain(ExternalOutputs_brain inputs, int brainTime){
+void AUV::inputFromBrain(ExternalOutputs_brain inputs){
 	look((cameraPosition) (char) inputs.CameraPosition);
 	// look(inputs.CameraX, inputs.CameraY);
 	setThrusters(inputs.Thrusters);
