@@ -18,9 +18,9 @@ void init_params(QHash<QString, double*>& parameters){
 	parameters.insert("Depth_Ki", &brain_P.StraightLevelControl.Depth_Ki);
 	parameters.insert("Depth_Kp", &brain_P.StraightLevelControl.Depth_Kp);
 	parameters.insert("Heading_Forward_Velocity", &brain_P.StraightLevelControl.Heading_Forward_Velocity);
-	parameters.insert("Heading_Kd", &brain_P.Heading_Kd);
-	parameters.insert("Heading_Ki", &brain_P.Heading_Ki);
-	parameters.insert("Heading_Kp", &brain_P.Heading_Kp);
+	parameters.insert("Heading_Kd", &brain_P.StraightLevelControl.Heading_Kd);
+	parameters.insert("Heading_Ki", &brain_P.StraightLevelControl.Heading_Ki);
+	parameters.insert("Heading_Kp", &brain_P.StraightLevelControl.Heading_Kp);
 	parameters.insert("Track_HueHigher", &brain_P.Track_HueHigher);
 	parameters.insert("Track_HueLower", &brain_P.Track_HueLower);
 	parameters.insert("Track_Saturation", &brain_P.Track_Saturation);
