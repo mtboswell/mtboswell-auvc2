@@ -85,7 +85,7 @@ class AUV : public QThread {
 		void externalControl();
 
 		// Inputs from Brain (thruster speeds, etc.)
-		void inputFromBrain(ExternalOutputs_brain inputs, int brainTime);
+		void inputFromBrain(ExternalOutputs_brain inputs);
 
 		// Calibrate depth sensor with actual depth.
 		void setActualDepth(double depth = 0);

@@ -183,7 +183,6 @@ HEADERS += server/server.h \
 	brain/vip_fileread_sim.h \
 	brain/vip_filewrite_sim.h \
 	brain/vip_fourcclist_sim.h \
-	brain/viphoughlines_rt.h \
 	brain/viphough_rt.h \
 	brain/vip_imgcomplement_sim.h \
 	brain/vipmdnfilter_rt.h \
@@ -211,5 +210,4 @@ SOURCES += server/server.cpp \
            brain/rtGetInf.cpp \
            brain/rtGetNaN.cpp \
 		brain/hough_d_rt.c \
-		brain/houghlines_d_rt.c \
 		brain/hough_r_rt.c
