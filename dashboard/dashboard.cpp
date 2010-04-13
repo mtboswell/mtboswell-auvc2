@@ -54,9 +54,9 @@ Dashboard::Dashboard(QMainWindow *parent)
 	states << "Autonomous";
 	states << "Startup";
 	states << "Validation Gate";
-	states << "Follow Track";
-	states << "Find Buoy";
-	states << "Approach Buoy";
+	states << "Follow 1st Path";
+	states << "Buoy";
+	states << "Follow 2nd Path";
 	states << "Finished";
 	stateComboBox->insertItems(0, states);
 
