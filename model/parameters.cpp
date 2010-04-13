@@ -14,6 +14,12 @@ void init_params(QHash<QString, double*>& parameters){
 	parameters.insert("Cam_Forward_YPosition_Kd", &brain_P.Cam_Forward_YPosition_Kd);
 	parameters.insert("Cam_Forward_YPosition_Ki", &brain_P.Cam_Forward_YPosition_Ki);
 	parameters.insert("Cam_Forward_YPosition_Kp", &brain_P.Cam_Forward_YPosition_Kp);
+	parameters.insert("Cam_Down_XPos_Kd", &brain_P.Cam_Down_XPos_Kd);
+	parameters.insert("Cam_Down_XPos_Ki", &brain_P.Cam_Down_XPos_Ki);
+	parameters.insert("Cam_Down_XPos_Kp", &brain_P.Cam_Down_XPos_Kp);
+	parameters.insert("Cam_Down_YPos_Kd", &brain_P.Cam_Down_YPos_Kd);
+	parameters.insert("Cam_Down_YPos_Ki", &brain_P.Cam_Down_YPos_Ki);
+	parameters.insert("Cam_Down_YPos_Kp", &brain_P.Cam_Down_YPos_Kp);
 	parameters.insert("Depth_Kd", &brain_P.StraightLevelControl.Depth_Kd);
 	parameters.insert("Depth_Ki", &brain_P.StraightLevelControl.Depth_Ki);
 	parameters.insert("Depth_Kp", &brain_P.StraightLevelControl.Depth_Kp);

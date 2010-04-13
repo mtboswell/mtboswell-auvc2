@@ -97,12 +97,18 @@ void on_##guiParam##_editingFinished();
 		void on_depthIGainSpinBox_editingFinished();
 		void on_depthPGainSpinBox_editingFinished();
 		void on_approachVelocitySpinBox_editingFinished();
-		void on_buoyDepthDGainSpinBox_editingFinished();
-		void on_buoyDepthIGainSpinBox_editingFinished();
-		void on_buoyDepthPGainSpinBox_editingFinished();
-		void on_buoyHeadingDGainSpinBox_editingFinished();
-		void on_buoyHeadingIGainSpinBox_editingFinished();
-		void on_buoyHeadingPGainSpinBox_editingFinished();
+		void on_fwdYGainD_editingFinished();
+		void on_fwdYGainI_editingFinished();
+		void on_fwdYGainP_editingFinished();
+		void on_fwdXGainD_editingFinished();
+		void on_fwdXGainI_editingFinished();
+		void on_fwdXGainP_editingFinished();
+		void on_downYGainD_editingFinished();
+		void on_downYGainI_editingFinished();
+		void on_downYGainP_editingFinished();
+		void on_downXGainD_editingFinished();
+		void on_downXGainI_editingFinished();
+		void on_downXGainP_editingFinished();
 
 		// Vision
 		void on_pathHueHighSpinBox_editingFinished();
@@ -111,7 +117,8 @@ void on_##guiParam##_editingFinished();
 		void on_buoyHueHighSpinBox_editingFinished();
 		void on_buoyHueLowSpinBox_editingFinished();
 		void on_buoySaturationSpinBox_editingFinished();
-		void on_buoyEccentSpinBox_editingFinished();
+		void on_buoyMinEccentSpinBox_editingFinished();
+		void on_buoyMaxEccentSpinBox_editingFinished();
 		void on_buoyMinExtentSpinBox_editingFinished();
 		void on_buoyMaxExtentSpinBox_editingFinished();
 
