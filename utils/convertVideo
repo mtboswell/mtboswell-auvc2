@@ -1,0 +1,7 @@
+#! /bin/bash
+if [ -n "$2" ]
+then
+mencoder -really-quiet -demuxer rawvideo -rawvideo fps=7:w=640:h=480:i420 -ovc lavc $1 -o $2
+else
+mencoder -really-quiet -demuxer rawvideo -rawvideo fps=7:w=640:h=480:i420 -ovc lavc recorded_video.raw -o recorded_video.avi
+fi

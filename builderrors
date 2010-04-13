@@ -1,0 +1,9 @@
+model/parameters.cpp: In function ‘void init_params(QHash<QString, double*>&)’:
+model/parameters.cpp:17: error: ‘struct Parameters_brain’ has no member named ‘Depth_Kd’
+model/parameters.cpp:18: error: ‘struct Parameters_brain’ has no member named ‘Depth_Ki’
+model/parameters.cpp:19: error: ‘struct Parameters_brain’ has no member named ‘Depth_Kp’
+model/parameters.cpp:20: error: ‘struct Parameters_brain’ has no member named ‘Heading_Forward_Velocity’
+make: *** [parameters.o] Error 1
+make: *** Waiting for unfinished jobs....
+server/server.cpp:89: warning: unused parameter ‘fromPort’
+auv/auv.cpp:106: warning: unused parameter ‘brainTime’

@@ -1,0 +1,526 @@
+/* 
+ * This file represents the AUV interface that all controlling code interacts with/uses to control the AUV
+ * Author: Micah Boswell (micah27@vt.edu)
+ * Date: 12/11/2009
+ */
+
+#ifndef AUV_CPP_
+#define AUV_CPP_
+
+#include "auv.h"
+#include "camread.h"
+#include <iostream>
+#include <string>
+#include <QDebug>
+#include <QTime>
+#include <QFile>
+#include <QStringList>
+
+AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
+	// 160ms = 6.25Hz rate
+	//stepTime = 160;
+	stepTime = AUV_STEP_TIME;
+
+	// Initialize data
+	data.status = READY;
+	data.orientation.yaw = 0;
+	data.depth = 0;
+	data.thrusterSpeeds[0] = 0;
+	data.thrusterSpeeds[1] = 0;
+	data.thrusterSpeeds[2] = 0;
+	data.thrusterSpeeds[3] = 0;
+	data.thrusterPower.voltage = 0;
+	data.thrusterPower.current = 0;
+	data.cameraX = 0;
+	data.cameraY = 0;
+	data.manualOverrideDisabled = false;
+	
+	// set up wb (white balance) process handling
+	wbProc = new QProcess(this);
+	
+	// set up sensor reads
+	sensorTimer = new QTimer(this);
+  	connect(sensorTimer, SIGNAL(timeout()), this, SLOT(readSensors()));
+
+	// Get mutex from main
+  	dataMutex = sensorMutex;
+	
+	/* Initialize hardware interfaces */
+	adc = new ADC(ARDUINOPORT, 9600);
+	imu = new IMU(IMUPORT);
+	pControllers = new Pololu(POLOLUPORT);
+	thrusterPower = new Power(POWERPORT);
+
+	// dirty hack to disable off switch when we don't have one attached.
+	data.manualOverrideDisabled = hardwareOverrideDisabled;
+
+	// Initialize mechanisms database
+	populateMechs(mechanisms);
+
+	// these flags may eventually be useful again
+	data.droppedLeft = false;
+	data.droppedRight = false;
+
+	// make sure the AUV hardware is ready to go
+	reset();
+}
+AUV::~AUV(){
+	qDebug("Shutting Down AUV Interface");
+	stopThrusters();
+	delete adc;
+	delete imu;
+	delete pControllers;
+	delete thrusterPower;
+	wait();
+}
+
+void AUV::run(){
+	// start the periodic sensor updates
+  	sensorTimer->start(AUV_STEP_TIME);
+	exec();
+}
+
+void AUV::readSensors(){
+	//qDebug("Reading Sensor Data");
+	QTime t;
+  	dataMutex->lock();
+	t.start();
+	data.orientation = getOrientation();
+	data.depth = getDepth();
+	data.thrusterPower.voltage = getThrusterVoltage();
+	data.thrusterPower.current = getThrusterCurrent();
+	data.thrusterPower.power = getThrusterPower();
+	// uncomment for manual switch override
+	if(data.status == RUNNING && !data.manualOverrideDisabled && !getGo()) {
+		emit status("Waiting on Manual Switch");
+		data.status = PAUSED;
+	  	dataMutex->unlock();
+		stopThrusters();
+		emit hardwareOverride();
+	}else dataMutex->unlock();
+//	qDebug() << "Sensor Reading Time: " << QString::number(t.elapsed()) << "ms";
+	emit sensorUpdate(data);
+}
+
+
+void AUV::inputFromBrain(ExternalOutputs_brain inputs, int brainTime){
+	look((cameraPosition) (char) inputs.CameraPosition);
+	// look(inputs.CameraX, inputs.CameraY);
+	setThrusters(inputs.Thrusters);
+}
+
+void AUV::goAUV(){
+	emit status("AUV received signal to start");
+  	QMutexLocker locker(dataMutex);
+	data.status = RUNNING;
+}
+
+void AUV::stop(){
+	stopThrusters();
+  	QMutexLocker locker(dataMutex);
+	data.status = PAUSED;
+	emit status("Stopped");
+}
+
+void AUV::reset(){
+	emit status("Resetting hardware");
+	stopThrusters();
+	/* Start up everything */
+	thrusterPower->turnOn();
+	usleep(10000);
+	thrusterPower->turnOn();
+  	QMutexLocker locker(dataMutex);
+	data.thrusterPower.state = 1;
+	// Reset servo controller
+	adc->sendValue('r');
+	data.status = READY;
+	emit status("Reset done");
+}
+
+void AUV::kill(){
+	stopThrusters();
+	thrusterPower->turnOff();
+  	QMutexLocker locker(dataMutex);
+	data.thrusterPower.state = 0;
+	data.status = KILLED;
+	emit status("Power Cut");
+}
+
+// sets data.status based on the external switch
+void AUV::externalControl(){
+  	dataMutex->lock();
+	/* Wait for go */
+	if(!getGo()) {
+		data.status = PAUSED;
+		for(int i = 0; i < NUMBER_OF_THRUSTERS; i++)
+			data.thrusterSpeeds[i] = 0;
+		dataMutex->unlock();
+		stopThrusters(); // must unlock dataMutex first!!
+	}else{
+		data.status = RUNNING;
+		dataMutex->unlock();
+	}
+	// uncomment below loop to block.  this isn't necessary and prevents reading sensors.
+	// wait for switch
+	//while(!getGo()) wait();  // should be pause()??
+}
+
+// get data from compass and orientation sensor
+// orientation.yaw, roll, pitch
+imu_data AUV::getOrientation(){return imu->getData();}
+double AUV::getHeading(){return imu->getData().yaw;}
+
+// set thruster speeds
+void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
+	if(!data.thrusterPower.state || data.status == PAUSED || data.status == READY) return;
+/*
+	if(thrusterSpeeds[2] > 0){
+		thrusterSpeeds[0] = 0;
+		thrusterSpeeds[1] = 0;
+	}
+*/
+	//qDebug("Conversing with TReXs");
+	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
+		if(i != 3 && thrusterSpeeds[i] > 40) thrusterSpeeds[i] = 40;
+		if(i != 3 && thrusterSpeeds[i] < -40) thrusterSpeeds[i] = -40;
+		pControllers->setTrexSpeed(i, thrusterSpeeds[i]);
+	}
+  	QMutexLocker locker(dataMutex);
+	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
+		data.thrusterSpeeds[i] = thrusterSpeeds[i];
+	}
+
+	//qDebug("Conversation Over");
+}
+
+// set all of the thruster speeds to 0
+void AUV::stopThrusters(){
+  	QMutexLocker locker(dataMutex);
+	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
+		pControllers->setTrexSpeed(i, 0);
+		data.thrusterSpeeds[i] = 0;
+	}
+}
+
+// Returns Voltage of Thruster Battery pack in Volts
+double AUV::getThrusterVoltage() {return thrusterPower->getVoltage();}
+// Returns Current Draw on Thruster power supply in Amps
+double AUV::getThrusterCurrent() {return thrusterPower->getCurrent();}
+// Returns power being used by thrusters in Watts
+double AUV::getThrusterPower() {return thrusterPower->getVoltage()*thrusterPower->getCurrent();}
+
+// reads the current depth from the depth sensor via the arduino
+double AUV::getDepth(){return ((double)((double)adc->getValue("DEPTH")-depthZero))/(double)depthScale;}
+
+void AUV::setActualDepth(double depth){
+	if(depth == 0) depthZero = adc->getValue("DEPTH");
+	else depthScale = (adc->getValue("DEPTH")-depthZero)/depth;
+}
+
+bool AUV::getGo(){return (bool)adc->getValue("GO");}
+
+void AUV::look(cameraPosition pos){
+  	if(data.camera != pos) {
+		emit status("Moving Camera");
+		switch(pos){
+			case FORWARD:
+				pControllers->setPosAbs(0, 2600);
+				break;
+			case UP:
+				pControllers->setPosAbs(0, 1600);
+				break;
+			case DOWN:
+				pControllers->setPosAbs(0, 4000);
+				break;
+			default:
+				break;
+		}		
+  		QMutexLocker locker(dataMutex);	
+  		data.camera = pos;
+	}
+}
+
+void AUV::look(float x, float y){
+	// Check input ranges
+	if(((x>0)?x:-x) > 1 || ((y>0)?y:-y) > 1) return;
+
+	int xpos = 0, ypos = 0;
+
+	// Scale values
+	if(x == 0) xpos = GIMBAL_X_ZERO;	
+	else if(x > 0) xpos = (GIMBAL_X_MAX-GIMBAL_X_ZERO)*x + GIMBAL_X_ZERO;
+	else if(x < 0) xpos = (GIMBAL_X_MIN-GIMBAL_X_ZERO)*x + GIMBAL_X_ZERO;
+	if(y == 0) ypos = GIMBAL_Y_ZERO;	
+	else if(y > 0) ypos = (GIMBAL_Y_MAX-GIMBAL_Y_ZERO)*y + GIMBAL_Y_ZERO;
+	else if(y < 0) ypos = (GIMBAL_Y_MIN-GIMBAL_Y_ZERO)*y + GIMBAL_Y_ZERO;
+
+	// [TODO] - check output ranges
+
+
+	// Output to servos
+	pControllers->setPosAbs(GIMBAL_Y_SERVO, ypos);
+	pControllers->setPosAbs(GIMBAL_X_SERVO, xpos);
+}
+
+
+// Run servo sequence for given mechanism
+void AUV::activateMechanism(QString mech){
+	// Check to make sure we have that mech
+	if(!mechanisms.contains(mech)) {
+		emit error("Nonexistent Mechanism");
+		return;
+	}
+	// If we are already running a mechanism, add to waitlist
+	if(!posQueue.isEmpty()){
+		mechQueue.enqueue(mech);
+		QTimer::singleShot(300, this, SLOT(activateMechanism()));
+		emit status("Queueing mech: " + mech);
+		return;
+	} 
+	// Once we are ready, activate the mech
+	emit status("Actuating Mechanism: " + mech);
+	mechanism thisMech = mechanisms[mech];
+	QMapIterator<int, int> i(thisMech.positions);
+	while (i.hasNext()) {
+		i.next();
+		if(i.key() == 0) moveServo(thisMech.servo, i.value());
+		else {
+			posQueue.enqueue(QString::number(thisMech.servo) + ":" + QString::number(i.value()));
+			QTimer::singleShot(i.key(), this, SLOT(moveServo()));
+		}
+	}
+}
+void AUV::activateMechanism(){
+	if(mechQueue.isEmpty()) return;
+	if(!posQueue.isEmpty()) QTimer::singleShot(300, this, SLOT(activateMechanism()));
+	activateMechanism(mechQueue.dequeue());
+}
+
+// Abstraction!
+void AUV::moveServo(int servo, int position){
+	pControllers->setPosAbs(servo, position);
+}
+void AUV::moveServo(){
+	QString pos = posQueue.dequeue();
+	int servo = pos.split(':').value(0).toInt();
+	int position = pos.split(':').value(1).toInt();
+	pControllers->setPosAbs(servo, position);
+}
+
+
+
+/* setMotion - tell the AUV which way to go
+ * params: forward, yaw, vertical
+ * forward: forward velocity
+ * 		range: -127 (backward) to 127 (forward)
+ * yaw: clockwise yaw velocity
+ * 		range: -127 (left) to 127 (right)
+ * vertical: downward velocity
+ * 		range: -127 (full speed up) to 127 (full speed down)
+ */
+void AUV::setMotion(int forward, int yaw, int vertical){
+
+	if(forward > 127) forward = 127;
+	else if(forward < -127) forward = -127;
+
+	if(yaw > 127) yaw = 127;
+	else if(yaw < -127) yaw = -127;
+
+	if(vertical > 127) vertical = 127;
+	else if(vertical < -127) vertical = -127;
+
+	int motor1speed;
+	int motor2speed;
+
+	motor1speed = forward + yaw;
+	motor2speed = forward - yaw;
+
+	if(motor1speed > 127) motor1speed = 127;
+	else if(motor1speed < -127) motor1speed = -127;
+	if(motor2speed > 127) motor2speed = 127;
+	else if(motor2speed < -127) motor2speed = -127;
+
+	pControllers->setTrexSpeed(0, motor1speed);
+	pControllers->setTrexSpeed(1, motor2speed);
+	pControllers->setTrexSpeed(2, vertical);
+
+}
+
+void AUV::setMotion(AUVMotion* velocity){
+
+	if(velocity->forward > 127) velocity->forward = 127;
+	else if(velocity->forward < -127) velocity->forward = -127;
+
+	if(velocity->yaw > 127) velocity->yaw = 127;
+	else if(velocity->yaw < -127) velocity->yaw = -127;
+
+	if(velocity->vertical > 127) velocity->vertical = 127;
+	else if(velocity->vertical < -127) velocity->vertical = -127;
+
+	int motor1speed;
+	int motor2speed;
+
+	motor1speed = velocity->forward + velocity->yaw/5;
+	motor2speed = velocity->forward - velocity->yaw/5;
+
+	if(motor1speed > 127) motor1speed = 127;
+	else if(motor1speed < -127) motor1speed = -127;
+	if(motor2speed > 127) motor2speed = 127;
+	else if(motor2speed < -127) motor2speed = -127;
+
+	pControllers->setTrexSpeed(0, motor1speed);
+	pControllers->setTrexSpeed(1, motor2speed);
+	pControllers->setTrexSpeed(2, velocity->vertical);
+
+}
+
+void AUV::autoWhiteBalance(){
+	emit status("White-balancing camera");
+	//qDebug() << "Turning off camera...";
+	if(!camread_pause()) emit error("Failed to stop camera");
+	wait(500);
+	//qDebug() << "Sending White Balance command...";
+	wbProc->execute("v4lctl setattr \"Auto White Balance\" on");
+	//wait(500);
+	if(!camread_unpause()) emit error("Failed to turn on camera");
+	qDebug() << "White balancing (3s)...";
+	QTimer::singleShot(3000, this, SLOT(finishWhiteBalance()));
+//	qDebug() << "counting down...";
+//	wait(3000);
+//	finishWhiteBalance();
+}
+void AUV::finishWhiteBalance(){
+//	qDebug() << "Turning off camera...";
+	if(!camread_pause()) qDebug() << "Failed to stop camera";
+	wait(500);
+	qDebug() << "Stopping white ballancing";
+	wbProc->execute("v4lctl setattr \"Auto White Balance\" off");
+	wait(500);
+	if(!camread_unpause()) qDebug() << "Failed to turn on camera:";
+	qDebug() << "Done white balancing";
+}
+
+
+void AUV::runScriptedMotion(QString scriptFile){
+	// Check to make sure we have that script
+	if(!QFile::exists("scripts/" + scriptFile)) {
+		emit error("Nonexistent Script");
+		return;
+	}
+	// If we are already running a script or we are not running, add to waitlist
+	if(!actionQueue.isEmpty() || data.status != RUNNING){
+		scriptQueue.enqueue(scriptFile);
+		QTimer::singleShot(300, this, SLOT(runScriptedMotion()));
+		emit status("Queueing Script: " + scriptFile);
+		return;
+	} 
+	// Once we are ready, activate the script
+	qDebug() << "Running Script:" << scriptFile;
+	//open script file
+	QFile file("scripts/" + scriptFile);
+	if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+		return;
+
+	// parse file and schedule actions
+	QTextStream in(&file);
+	while (!in.atEnd()) {
+		QString line = in.readLine();
+		// each line must start with a time (in ms) followed by a ":"
+		if(line=="" || !line.contains(":")) continue;
+		int time = line.split(':').value(0).toInt();
+		// the rest of the line is the command
+		QString cmd = line.split(':').value(1);
+		actionQueue.enqueue(cmd);
+		// time zero is right now
+		if(time == 0) doScriptAction();
+		else {
+			QTimer::singleShot(time, this, SLOT(doScriptAction()));
+		}
+	}
+}
+
+// checks to see if the current script has finished, and if it has, runs the next script. Otherwise it keeps checking every 300ms
+void AUV::runScriptedMotion(){
+	if(scriptQueue.isEmpty()) return;
+	if(!actionQueue.isEmpty() || data.status != RUNNING) QTimer::singleShot(300, this, SLOT(runScriptedMotion()));
+	else runScriptedMotion(scriptQueue.dequeue());
+}
+
+// gets the next script command from the queue and sends the proper input to the brain
+void AUV::doScriptAction(){
+	if(actionQueue.isEmpty()) return;
+	QString action = actionQueue.dequeue();
+	emit status("Doing script action: " + action);
+	// parse action
+	if(action == "") return;
+	QStringList input = action.split(' ');
+	QString cmd = input.value(0);
+	double params[5];
+	for(int i = input.size()-1; i > 0; --i){
+		params[i-1] = input.value(i).toDouble();
+	}
+	// do action
+	emit setBrainInput("RC", 1);
+	if(cmd == "state"){
+		emit setBrainInput("RC_ForwardVelocity", params[0]);
+		emit setBrainInput("RC_Heading", params[1]+getHeading());
+		emit setBrainInput("RC_Depth", params[2]+getDepth());
+		emit setBrainInput("RC_Strafe", params[3]);
+	}else if(cmd == "absstate"){ 
+		emit setBrainInput("RC_ForwardVelocity", params[0]);
+		emit setBrainInput("RC_Heading", params[1]);
+		emit setBrainInput("RC_Depth", params[2]);
+		emit setBrainInput("RC_Strafe", params[3]);
+	}else if(cmd == "heading"){ // relative heading
+		emit setBrainInput("RC_Heading", getHeading()+params[0]);
+	}else if(cmd == "absheading"){
+		emit setBrainInput("RC_Heading", params[0]);
+	}else if(cmd == "depth"){ // relative depth
+		emit setBrainInput("RC_Depth", params[0]+getDepth());
+	}else if(cmd == "absdepth"){
+		emit setBrainInput("RC_Depth", params[0]);
+	}else if(cmd == "speed"){ // speed is always absolute
+		emit setBrainInput("RC_ForwardVelocity", params[0]);
+	}else if(cmd == "end" || cmd == "exit"){
+		emit setBrainInput("RC", 0);
+		stop();
+	}else emit error("Unrecognized command");
+}
+
+void AUV::setControllers(char desiredSpeed, double desiredHeading, double desiredDepth, char desiredStrafe){
+	ExternalInputs_brain inputs;
+	static char currentDesiredSpeed = 0, currentDesiredStrafe = 0;
+	static double currentDesiredHeading = 0, currentDesiredDepth = 0;
+	inputs.RC = 1;
+
+	if(desiredSpeed == -128) inputs.RC_ForwardVelocity = currentDesiredSpeed;
+	else inputs.RC_ForwardVelocity = desiredSpeed;
+
+	if(desiredHeading == -1) inputs.RC_Heading = currentDesiredHeading;
+	else inputs.RC_Heading = desiredHeading;
+
+	if(desiredDepth == -1) inputs.RC_Depth = currentDesiredDepth;
+	else inputs.RC_Depth = desiredDepth;
+
+	if(desiredStrafe == -128) inputs.RC_Strafe = currentDesiredStrafe;
+	else inputs.RC_Strafe = desiredStrafe;
+
+	emit setControllers(inputs);
+
+	currentDesiredSpeed = desiredSpeed;
+	currentDesiredStrafe = desiredStrafe;
+	currentDesiredHeading = desiredHeading;
+	currentDesiredDepth = desiredDepth;
+}
+
+void AUV::releaseControllers(){
+	ExternalInputs_brain inputs;
+	inputs.RC = 0;
+	inputs.RC_Heading = 0;
+	inputs.RC_Depth = 0;
+	inputs.RC_ForwardVelocity = 0;
+	inputs.RC_Strafe = 0;
+	emit setControllers(inputs);
+}
+
+#endif /*AUV_CPP_*/

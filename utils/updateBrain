@@ -1,0 +1,16 @@
+#! /bin/bash
+cd simulink
+if matlab -nodisplay -r buildModel 2> /dev/null
+then
+echo "Brain Built Successfully"
+else
+exit 1
+fi
+rm -r slprj
+rm -r brain_ert_rtw
+cd ..
+cp simulink/brain.zip brain/
+cd brain/
+unzip -qo brain.zip
+rm brain.zip
+cd ../
