@@ -76,10 +76,8 @@ void Camera::step()
 		}
 		else {
 			imageArray = QByteArray(byteStorage); 
-			if (params->identity == 0) {
-				qimage = new QImage(saveName);
-			}
-				//dynamic pointer to the qimage
+			qimage = new QImage(saveName);
+			//dynamic pointer to the qimage
 			if (qimage->isNull()) {
 				qDebug() << "image failed to load";
 			}
@@ -117,7 +115,6 @@ bool Camera::init()
 	m_nBitsPerPixel = 32;
 	//m_hCam = 0; //-> tells driver to use first avaliable camera
 	m_hCam = params->identity;
-	
 	//connect and activate the camera
 	INT nRet = is_InitCamera(&m_hCam, NULL);
 	if (nRet != IS_SUCCESS)
@@ -136,7 +133,7 @@ bool Camera::init()
 		
 		//allocate memory for a single image and activate that memory
 		is_AllocImageMem(m_hCam, m_nSizeX, m_nSizeY, m_nBitsPerPixel, &m_pcImageMemory, &m_lMemoryID);
-		is_SetImageMem (m_hCam, m_pcImageMemory, m_lMemoryID);
+		is_SetImageMem(m_hCam, m_pcImageMemory, m_lMemoryID);
 		is_SetPixelClock(m_hCam, params->pixelclock);
 		
 		
