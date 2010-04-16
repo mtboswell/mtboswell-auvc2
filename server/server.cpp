@@ -129,6 +129,16 @@ void Server::doAction(QString type, QString name, QString value, QHostAddress fr
 		else if(name =="Mech" || name == "Mechanism") emit actuateMech(value);
 		else if(name == "Script") emit runScript(value);
 		else completedCommand = false;
+	}else if(type == "Move"){
+		if(name == "Camera"){
+			QStringList coords = value.split(",");
+			if(coords.size() < 2) sendError("Invalid camera coords");
+			else{
+				double x = coords.at(0).toDouble();
+				double y = coords.at(1).toDouble();
+				emit moveCamera(x,y);
+			}
+		}else completedCommand = false;
 	}else if(type == "RunScript"){
 		emit runScript(value);
 	}else if(type == "Calibrate"){

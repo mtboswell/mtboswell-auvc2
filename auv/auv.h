@@ -99,7 +99,7 @@ class AUV : public QThread {
 		// will be deprecated soon, maybe
 		void look(cameraPosition pos);
 		// use this instead
-		void look(float x, float y);
+		void look(double x, double y);
 
 		// Move a servo to a given position.  Used for actuating mechanisms.
 		void moveServo(int servo, int position);

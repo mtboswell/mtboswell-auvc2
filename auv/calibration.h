@@ -15,13 +15,13 @@ static volatile double depthScale = 7.500;
 
 // Camera Gimbal calibration
 #define GIMBAL_X_SERVO 1
-#define GIMBAL_X_ZERO 2800
-#define GIMBAL_X_MAX 4000
-#define GIMBAL_X_MIN 2000
+#define GIMBAL_X_ZERO 2500
+#define GIMBAL_X_MAX 1500
+#define GIMBAL_X_MIN 3500
 
 #define GIMBAL_Y_SERVO 0
-#define GIMBAL_Y_ZERO 2500
-#define GIMBAL_Y_MAX 3000
+#define GIMBAL_Y_ZERO 2850
+#define GIMBAL_Y_MAX 4200
 #define GIMBAL_Y_MIN 2000
 
 #endif /*CALIB_H_*/

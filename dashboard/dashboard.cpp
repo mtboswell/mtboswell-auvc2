@@ -510,6 +510,33 @@ void Dashboard::on_actuateMechPushButton_clicked(){
 }
 
 
+// Camera
+void Dashboard::on_camXComboBox_currentIndexChanged(const QString & text){
+	QString yText = camYComboBox->currentText();
+	QString x,y;
+	if(text == "Forward") x = "0";
+	else if(text == "Left") x = "-1";
+	else if(text == "Right") x = "1";
+	if(yText == "Forward") y = "0";
+	else if(yText == "Up") y = "-1";
+	else if(yText == "Down") y = "1";
+
+	emit sendParam("Move.Camera", x + "," + y);
+}
+void Dashboard::on_camYComboBox_currentIndexChanged(const QString & text){
+	QString xText = camXComboBox->currentText();
+	QString x,y;
+	if(text == "Forward") y = "0";
+	else if(text == "Up") y = "-1";
+	else if(text == "Down") y = "1";
+	if(xText == "Forward") x = "0";
+	else if(xText == "Left") x = "-1";
+	else if(xText == "Right") x = "1";
+
+	emit sendParam("Move.Camera", x + "," + y);
+}
+
+
 /* Save/Load parameters ****************************** */
 void Dashboard::saveParameters(){
 	QString  saveFilename = QFileDialog::getSaveFileName (this, "Save parameters to file", "params/", "Parameter Matlab files (*.m)");
