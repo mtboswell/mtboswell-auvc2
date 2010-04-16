@@ -915,13 +915,6 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_7">
            <item>
-            <widget class="QLabel" name="label_19">
-             <property name="text">
-              <string>Camera Position:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <widget class="QLabel" name="cameraPosXLabel">
              <property name="text">
               <string>X:</string>
@@ -929,10 +922,48 @@
             </widget>
            </item>
            <item>
+            <widget class="QComboBox" name="camXComboBox">
+             <item>
+              <property name="text">
+               <string>Forward</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Left</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Right</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
             <widget class="QLabel" name="cameraPosYLabel">
              <property name="text">
               <string>Y:</string>
              </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="camYComboBox">
+             <item>
+              <property name="text">
+               <string>Forward</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Up</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Down</string>
+              </property>
+             </item>
             </widget>
            </item>
            <item>

@@ -240,7 +240,7 @@ void AUV::look(cameraPosition pos){
 	}
 }
 
-void AUV::look(float x, float y){
+void AUV::look(double x, double y){
 	// Check input ranges
 	if(((x>0)?x:-x) > 1 || ((y>0)?y:-y) > 1) return;
 
@@ -255,7 +255,9 @@ void AUV::look(float x, float y){
 	else if(y < 0) ypos = (GIMBAL_Y_MIN-GIMBAL_Y_ZERO)*y + GIMBAL_Y_ZERO;
 
 	// [TODO] - check output ranges
-
+	
+	data.cameraX = x;
+	data.cameraY = y;
 
 	// Output to servos
 	pControllers->setPosAbs(GIMBAL_Y_SERVO, ypos);

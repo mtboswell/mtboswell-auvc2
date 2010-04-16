@@ -41,6 +41,7 @@ class Server: public QThread
 		void calibrateDepth(double);
 		void whiteBalance();
 		void actuateMech(QString);
+		void moveCamera(double x, double y);
 		void runScript(QString);
 		// Brain stuff
 		void setParam(QString name, double value);

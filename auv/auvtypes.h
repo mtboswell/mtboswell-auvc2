@@ -23,8 +23,8 @@ typedef struct {
 	signed char thrusterSpeeds[NUMBER_OF_THRUSTERS];
 	powerData thrusterPower;
 	cameraPosition camera;
-	float cameraX;
-	float cameraY;
+	double cameraX;
+	double cameraY;
 	bool droppedLeft;
 	bool droppedRight;
 	bool manualOverrideDisabled;

@@ -85,6 +85,7 @@ int main(int argc, char *argv[]){
 	QObject::connect(server, SIGNAL(whiteBalance()), auv, SLOT(autoWhiteBalance()));
 	QObject::connect(server, SIGNAL(actuateMech(QString)), auv, SLOT(activateMechanism(QString)));
 	QObject::connect(server, SIGNAL(runScript(QString)), auv, SLOT(runScriptedMotion(QString)));
+	QObject::connect(server, SIGNAL(moveCamera(double, double)), auv, SLOT(look(double, double)));
 
 	// From Brain to server
 	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), server, SLOT(sendBrainData(ExternalOutputs_brain, int)));

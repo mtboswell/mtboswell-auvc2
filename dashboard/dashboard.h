@@ -82,6 +82,11 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void on_setAllZeroButton_clicked();
 		void on_runScriptPushButton_clicked();
 		void on_actuateMechPushButton_clicked(); 
+		
+		// Camera
+		void on_camXComboBox_currentIndexChanged(const QString & text);
+		void on_camYComboBox_currentIndexChanged(const QString & text);
+
 /*
 #define GEN_PARAM(guiParam,brainParam) \
 void on_##guiParam##_editingFinished();
