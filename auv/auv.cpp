@@ -249,10 +249,10 @@ void AUV::look(double x, double y){
 	// Scale values
 	if(x == 0) xpos = GIMBAL_X_ZERO;	
 	else if(x > 0) xpos = (GIMBAL_X_MAX-GIMBAL_X_ZERO)*x + GIMBAL_X_ZERO;
-	else if(x < 0) xpos = (GIMBAL_X_MIN-GIMBAL_X_ZERO)*x + GIMBAL_X_ZERO;
+	else if(x < 0) xpos = (GIMBAL_X_ZERO-GIMBAL_X_MIN)*x + GIMBAL_X_ZERO;
 	if(y == 0) ypos = GIMBAL_Y_ZERO;	
 	else if(y > 0) ypos = (GIMBAL_Y_MAX-GIMBAL_Y_ZERO)*y + GIMBAL_Y_ZERO;
-	else if(y < 0) ypos = (GIMBAL_Y_MIN-GIMBAL_Y_ZERO)*y + GIMBAL_Y_ZERO;
+	else if(y < 0) ypos = (GIMBAL_Y_ZERO-GIMBAL_Y_MIN)*y + GIMBAL_Y_ZERO;
 
 	// [TODO] - check output ranges
 	
