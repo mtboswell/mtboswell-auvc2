@@ -23,10 +23,12 @@ HEADERS += dashboard.h \
 	VideoSocket.h \
 	parameters.def \
 	videowidget.h \
+	../version.h \
 	../auv/mechanisms.h
 FORMS += dashboard.ui
 SOURCES += dashboard.cpp \
 	DashSocket.cpp \
 	main.cpp \
 	VideoSocket.cpp \
+	../version.cpp \
 	../auv/mechanisms.cpp

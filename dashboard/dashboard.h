@@ -1,5 +1,6 @@
 #include "ui_dashboard.h"
 #include "../config.h"
+#include "../version.h"
 #include "DashSocket.h"
 #include "VideoSocket.h"
 #include <QMutexLocker>
