@@ -94,9 +94,10 @@ Dashboard::Dashboard(QMainWindow *parent)
 	desiredHeadingDial->setTracking(false);
 
 	// Connect to AUV
-	emit sendParam("Connect.Data", "This");
-	emit sendParam("Connect.Video", "This");
-	emit sendParam("GetParams", "all");
+	//emit sendParam("Connect.Data", "This");
+	//emit sendParam("Connect.Video", "This");
+	//emit sendParam("GetParams", "all");
+	reconnectAction();
 
 	videoSocket->start();
 	bitmapSocket->start();
@@ -109,6 +110,9 @@ void Dashboard::reconnectAction(){
 	emit sendParam("Connect.Data", "This");
 	emit sendParam("Connect.Video", "This");
 	emit sendParam("GetParams", "all");
+#ifndef _WIN32
+	emit sendParam("Dashboard.Version", getVersion());
+#endif
 }
 
 void Dashboard::startAction(){
@@ -297,7 +301,10 @@ void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
 		}
 		// display AUV status messages
 		statusBar()->showMessage(value, 5000);
-	}else if(type == "Connect" || type == "GetParams"){
+		if(value.contains("Error:")){
+			QMessageBox::warning(this, "AUV Error", value);
+		}
+	}else if(type == "Connect" || type == "GetParams" || type == "Dashboard"){
 		// these are special becuase the echos don't get filtered out.
 		// that means it could be us or anyone connecting
 		statusBar()->showMessage("Someone (maybe you) is connecting to the AUV...", 5000);

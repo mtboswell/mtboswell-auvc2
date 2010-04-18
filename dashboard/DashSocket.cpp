@@ -33,7 +33,7 @@ void DashSocket::SendParam(QString key, QString value) {
 
 void DashSocket::SendParam(QByteArray out, bool resend) {
 	m_Sock.writeDatagram(out, m_Addr, m_Port);
-	if(!out.contains("Connect") && !out.contains("GetParams")) m_Acks.insert(out, QTime::currentTime());
+	if(!out.contains("Connect") && !out.contains("GetParams") && !out.contains("Dashboard")) m_Acks.insert(out, QTime::currentTime());
 	else{ 
 		flaky = false;
 		m_Acks.clear(); // discard old commands on reconnect

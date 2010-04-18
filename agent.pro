@@ -20,6 +20,7 @@ INCLUDEPATH += . \
 # Input
 HEADERS += server/server.h \
 	   server/datalogger.h \
+	   version.h \
 	   model/parameters.h \
            model/model.h \
            auv/adc.h \
@@ -192,6 +193,7 @@ HEADERS += server/server.h \
 	brain/vip_sim.h 
 SOURCES += server/server.cpp \
            main.cpp \
+           version.cpp \
            model/model.cpp \
 	   model/parameters.cpp \
            auv/adc.cpp \

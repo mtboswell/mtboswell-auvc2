@@ -13,6 +13,7 @@
 #include "../brain/brain.h"
 #include "../auv/auvtypes.h"
 #include "../model/parameters.h"
+#include "../version.h"
 #include "datalogger.h"
 #include <QUdpSocket>
 #include <QThread>

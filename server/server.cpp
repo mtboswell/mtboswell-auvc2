@@ -119,6 +119,10 @@ void Server::doAction(QString type, QString name, QString value, QHostAddress fr
 			bitmapSocket->connectToHost(value, DASH_SECONDARY_VIDEO_PORT, QIODevice::WriteOnly);
 		}else completedCommand = false;
 		sendStatus("Connected");
+	}else if(type == "Dashboard"){
+		if(name == "Version"){
+			if(value != getVersion()) sendError("Dashboard version does not match Agent version:" + getVersion());
+		}else completedCommand = false;
 	}else if(type == "Mode"){
 		if(value == "Running" || value == "Run") emit go();
 		else if(value == "Stopped" || value == "Stop" || value == "Pause" || value == "Paused") emit stop();
