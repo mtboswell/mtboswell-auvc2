@@ -20,10 +20,15 @@ Server::Server(QMutex* sensorMutex){
 	connect(socket, SIGNAL(readyRead()),
 	     this, SLOT(readPendingDatagrams()));
 
+	videoFile = new QFile("recorded_video.mjpg");
+	if (!videoFile->open(QIODevice::WriteOnly | QIODevice::Append))
+		qDebug() << "Could not open video file";
 	
         videoFrame = new QImage(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
         videoOut = new QImageWriter(videoSocket, "jpeg");
 	videoOut->setQuality(70);
+        recVideoOut = new QImageWriter(videoFile, "jpeg");
+	recVideoOut->setQuality(70);
 
         bwFrame = new QImage(160,120,QImage::Format_Mono);
         bwFrame->setColor(0, 0xFF000000); 
@@ -154,8 +159,8 @@ void Server::doAction(QString type, QString name, QString value, QHostAddress fr
 	}else if(type == "Input"){
 		emit setInput(name, value.toDouble());
 	}else if(type == "Flag"){
-		if(name == "Rec") emit setRec(value == "true");
-		else if(name == "noRec") emit setRec(false);
+		if(name == "Rec") recordVideo = (value == "true"); //emit setRec(value == "true");
+		else if(name == "noRec") recordVideo = false; //emit setRec(false);
 		else if(name == "Log") emit setLog(value == "true");
 		else if(name == "noLog") emit setLog(false);
 		else completedCommand = false;
@@ -315,5 +320,6 @@ void Server::sendVideo(){
         }
         videoOut->write(*videoFrame);
 	bitmapOut->write(*bwFrame);
+        if(recordVideo) recVideoOut->write(*videoFrame);
 
 }

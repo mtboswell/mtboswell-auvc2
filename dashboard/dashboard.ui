@@ -1104,7 +1104,7 @@
                   </size>
                  </property>
                  <property name="text">
-                  <string>Zero All</string>
+                  <string>Hold Pos</string>
                  </property>
                 </widget>
                </item>

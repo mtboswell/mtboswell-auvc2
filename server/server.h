@@ -74,6 +74,7 @@ class Server: public QThread
 
 		QUdpSocket* socket;
 		QUdpSocket* videoSocket;
+		QFile* videoFile;
 		QUdpSocket* bitmapSocket;
 		// timer may be usused
 		QTimer* timer;
@@ -84,9 +85,12 @@ class Server: public QThread
         	QImage* videoFrame;
         	QImage* bwFrame;
         	QImageWriter* videoOut;
+        	QImageWriter* recVideoOut;
         	QImageWriter* bitmapOut;
 
 		DataLogger* logger;
+		
+		bool recordVideo;
 };
 
 #endif

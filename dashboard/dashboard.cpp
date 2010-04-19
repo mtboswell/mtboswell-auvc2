@@ -411,9 +411,15 @@ void Dashboard::keyPressEvent(QKeyEvent* event){
 		case Qt::Key_PageUp: desiredDepthSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
 		case Qt::Key_PageDown: desiredDepthSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
 		case Qt::Key_W: desiredSpeedSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
-		case Qt::Key_A: desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
+		case Qt::Key_A: 
+			desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepSub); 
+			if(desiredHeadingDial->value() == 0) desiredHeadingDial->setValue(360);
+			break;
 		case Qt::Key_S: desiredSpeedSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
-		case Qt::Key_D: desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
+		case Qt::Key_D: 
+			desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepAdd); 
+			if(desiredHeadingDial->value() == 360) desiredHeadingDial->setValue(0);
+			break;
 		case Qt::Key_Q: desiredDepthSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
 		case Qt::Key_E: desiredDepthSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
 		case Qt::Key_Z: desiredStrafeSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
@@ -502,7 +508,7 @@ void Dashboard::on_desiredStrafeSpinBox_editingFinished(){
 	emit sendParam("Input.RC_Strafe", QString::number(desiredStrafeSpinBox->value()));
 }
 void Dashboard::on_setAllZeroButton_clicked(){
-	desiredDepthSlider->setValue(0);
+	desiredDepthSlider->setValue(depthLcdNumber->value());
 	desiredStrafeSlider->setValue(0);
 	desiredSpeedSlider->setValue(0);
 	desiredHeadingDial->setValue(headingLcdNumber->value());
