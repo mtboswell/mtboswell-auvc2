@@ -85,8 +85,8 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void on_actuateMechPushButton_clicked(); 
 		
 		// Camera
-		void on_camXComboBox_currentIndexChanged(const QString & text);
-		void on_camYComboBox_currentIndexChanged(const QString & text);
+		void on_camPosXSpinBox_valueChanged(double value);
+		void on_camPosYSpinBox_valueChanged(double value);
 
 /*
 #define GEN_PARAM(guiParam,brainParam) \
@@ -145,6 +145,7 @@ void on_##guiParam##_editingFinished();
 
 		QProcess* process;
 		int RC, desiredHeading, desiredDepth, desiredSpeed, desiredStrafe;
+		double desiredCameraX, desiredCameraY;
 		
 		VideoWidget* videoWidget;
 

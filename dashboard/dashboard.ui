@@ -96,9 +96,6 @@
          <property name="text">
           <string>Go</string>
          </property>
-         <property name="shortcut">
-          <string>G</string>
-         </property>
          <property name="checkable">
           <bool>false</bool>
          </property>
@@ -922,22 +919,19 @@
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="camXComboBox">
-             <item>
-              <property name="text">
-               <string>Forward</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Left</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Right</string>
-              </property>
-             </item>
+            <widget class="QDoubleSpinBox" name="camPosXSpinBox">
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="minimum">
+              <double>-1.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>1.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.100000000000000</double>
+             </property>
             </widget>
            </item>
            <item>
@@ -948,22 +942,19 @@
             </widget>
            </item>
            <item>
-            <widget class="QComboBox" name="camYComboBox">
-             <item>
-              <property name="text">
-               <string>Forward</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Up</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Down</string>
-              </property>
-             </item>
+            <widget class="QDoubleSpinBox" name="camPosYSpinBox">
+             <property name="decimals">
+              <number>1</number>
+             </property>
+             <property name="minimum">
+              <double>-1.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>1.000000000000000</double>
+             </property>
+             <property name="singleStep">
+              <double>0.100000000000000</double>
+             </property>
             </widget>
            </item>
            <item>
