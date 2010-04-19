@@ -88,6 +88,7 @@ Dashboard::Dashboard(QMainWindow *parent)
 
 	// init controls
 	RC = desiredSpeed = desiredHeading = desiredDepth = desiredStrafe = 0;
+	desiredCameraX = desiredCameraY = 0;
 	desiredSpeedSlider->setTracking(false);
 	desiredDepthSlider->setTracking(false);
 	desiredStrafeSlider->setTracking(false);
@@ -390,8 +391,8 @@ void Dashboard::keyPressEvent(QKeyEvent* event){
 			break;
 		case Qt::Key_BassBoost: qDebug() << "Party in the AUV!"; break;
 		case Qt::Key_LightBulb: // TODO - turn on lights break;
-		case Qt::Key_Go: startAction(); break;
-		case Qt::Key_Execute: startAction(); break;
+		//case Qt::Key_Go: startAction(); break;
+		//case Qt::Key_Execute: startAction(); break;
 		case Qt::Key_Play: startAction(); break;
 		case Qt::Key_Cancel: stopAction(); break;
 		case Qt::Key_Sleep: stopAction(); break;
@@ -425,6 +426,18 @@ void Dashboard::keyPressEvent(QKeyEvent* event){
 		case Qt::Key_Z: desiredStrafeSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
 		case Qt::Key_C: desiredStrafeSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
 		case Qt::Key_X: on_setAllZeroButton_clicked(); break;
+		case Qt::Key_T: 
+			camPosYSpinBox->stepDown();
+			break;
+		case Qt::Key_G:
+			camPosYSpinBox->stepUp();
+			break;
+		case Qt::Key_F:
+			camPosXSpinBox->stepDown();
+			break;
+		case Qt::Key_H:
+			camPosXSpinBox->stepUp();
+			break;
 		case Qt::Key_K: stopAction(); break;
 		default:
 			QMainWindow::keyPressEvent(event);
@@ -524,29 +537,11 @@ void Dashboard::on_actuateMechPushButton_clicked(){
 
 
 // Camera
-void Dashboard::on_camXComboBox_currentIndexChanged(const QString & text){
-	QString yText = camYComboBox->currentText();
-	QString x,y;
-	if(text == "Forward") x = "0";
-	else if(text == "Left") x = "-1";
-	else if(text == "Right") x = "1";
-	if(yText == "Forward") y = "0";
-	else if(yText == "Up") y = "-1";
-	else if(yText == "Down") y = "1";
-
-	emit sendParam("Move.Camera", x + "," + y);
+void Dashboard::on_camPosXSpinBox_valueChanged(double value){
+	emit sendParam("Move.Camera", QString::number(camPosXSpinBox->value()) + "," + QString::number(camPosYSpinBox->value())); 
 }
-void Dashboard::on_camYComboBox_currentIndexChanged(const QString & text){
-	QString xText = camXComboBox->currentText();
-	QString x,y;
-	if(text == "Forward") y = "0";
-	else if(text == "Up") y = "-1";
-	else if(text == "Down") y = "1";
-	if(xText == "Forward") x = "0";
-	else if(xText == "Left") x = "-1";
-	else if(xText == "Right") x = "1";
-
-	emit sendParam("Move.Camera", x + "," + y);
+void Dashboard::on_camPosYSpinBox_valueChanged(double value){
+	emit sendParam("Move.Camera", QString::number(camPosXSpinBox->value()) + "," + QString::number(camPosYSpinBox->value())); 
 }
 
 

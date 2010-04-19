@@ -6,7 +6,7 @@ QString getVersion(){
 	return QString();
 #endif
 	QProcess hg;
-	hg.start("hg identify");
+	hg.start("hg identify -i");
 	if (!hg.waitForStarted())
 		return QString();
 
