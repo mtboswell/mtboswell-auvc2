@@ -1,4 +1,0 @@
-server/server.cpp:89: warning: unused parameter ‘fromPort’
-brain/brain.cpp:281: warning: unused parameter ‘brain_M’
-make: *** No rule to make target `brain/houghlines_d_rt.c', needed by `houghlines_d_rt.o'.  Stop.
-make: *** Waiting for unfinished jobs....

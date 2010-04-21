@@ -7,35 +7,36 @@ TARGET = agent
 CONFIG += qt
 QT += network  # phonon 
 DEPENDPATH += . \
-              auv \
-              brain \
-		server \
-		model \
-		/usr/local/Trolltech/Qt-4.6.1
+	      auv \
+	      brain \
+	      server \
+	      model \
+	      /usr/local/Trolltech/Qt-4.6.1
 INCLUDEPATH += . \
-               brain \
-               auv \
-		model \
-		server
+	     brain \
+	     auv \
+	     model \
+	     auv/qextserialport \
+	     server
 # Input
 HEADERS += server/server.h \
-	   server/datalogger.h \
-	   version.h \
-	   model/parameters.h \
-           model/model.h \
-           auv/adc.h \
-           auv/auv.h \
-           auv/auvtypes.h \
-           auv/buffer.h \
-           auv/calibration.h \
-           auv/camread.h \
-           auv/imu.h \
-           auv/pololu.h \
-           auv/ports.h \
-           auv/power.h \
-           auv/uart.h \
-	   auv/mechanisms.h \
-	   auv/calibrateservos.h \
+	server/datalogger.h \
+	version.h \
+	model/parameters.h \
+	model/model.h \
+	auv/arduino.h \
+	auv/auv.h \
+	auv/auvtypes.h \
+	auv/buffer.h \
+	auv/calibration.h \
+	auv/camread.h \
+	auv/imu.h \
+	auv/pololu.h \
+	auv/ports.h \
+	auv/power.h \
+	auv/uart.h \
+	auv/mechanisms.h \
+	auv/calibrateservos.h \
 	brain/AudioDefs.h \
 	brain/autobuild.h \
 	brain/bio_sig.h \
@@ -190,26 +191,32 @@ HEADERS += server/server.h \
 	brain/vipopticalflow_rt.h \
 	brain/vipprojective_rt.h \
 	brain/viprotate_rt.h \
-	brain/vip_sim.h 
+	brain/vip_sim.h \
+	auv/qextserialport/qextserialenumerator.h \
+	auv/qextserialport/qextserialport_global.h \
+	auv/qextserialport/qextserialport.h
 SOURCES += server/server.cpp \
-           main.cpp \
-           version.cpp \
-           model/model.cpp \
+	   main.cpp \
+	   version.cpp \
+	   model/model.cpp \
 	   model/parameters.cpp \
-           auv/adc.cpp \
-           auv/auv.cpp \
-           auv/buffer.cpp \
-           auv/camread.cpp \
-           auv/imu.cpp \
-           auv/pololu.cpp \
-           auv/power.cpp \
-           auv/uart.cpp \
+	   auv/arduino.cpp \
+	   auv/auv.cpp \
+	   auv/buffer.cpp \
+	   auv/camread.cpp \
+	   auv/imu.cpp \
+	   auv/pololu.cpp \
+	   auv/power.cpp \
+	   auv/uart.cpp \
 	   auv/mechanisms.cpp \
 	   auv/calibrateservos.cpp \
-           brain/brain.cpp \
-           brain/brain_data.cpp \
-           brain/rt_nonfinite.cpp \
-           brain/rtGetInf.cpp \
-           brain/rtGetNaN.cpp \
-		brain/hough_d_rt.c \
-		brain/hough_r_rt.c
+	   brain/brain.cpp \
+	   brain/brain_data.cpp \
+	   brain/rt_nonfinite.cpp \
+	   brain/rtGetInf.cpp \
+	   brain/rtGetNaN.cpp \
+	   brain/hough_d_rt.c \
+	   brain/hough_r_rt.c \
+	   auv/qextserialport/posix_qextserialport.cpp \
+	   auv/qextserialport/qextserialenumerator_unix.cpp \
+	   auv/qextserialport/qextserialport.cpp

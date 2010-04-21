@@ -46,7 +46,7 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
   	dataMutex = sensorMutex;
 	
 	/* Initialize hardware interfaces */
-	adc = new ADC(ARDUINOPORT, 9600);
+	arduino = new Arduino(ARDUINOPORT);
 	imu = new IMU(IMUPORT);
 	pControllers = new Pololu(POLOLUPORT);
 	thrusterPower = new Power(POWERPORT);
@@ -67,7 +67,7 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 AUV::~AUV(){
 	qDebug("Shutting Down AUV Interface");
 	stopThrusters();
-	delete adc;
+	delete arduino;
 	delete imu;
 	delete pControllers;
 	delete thrusterPower;
@@ -132,7 +132,7 @@ void AUV::reset(){
   	QMutexLocker locker(dataMutex);
 	data.thrusterPower.state = 1;
 	// Reset servo controller
-	adc->sendValue('r');
+	arduino->sendCmd('r');
 	data.status = READY;
 	emit status("Reset done");
 }
@@ -210,14 +210,14 @@ double AUV::getThrusterCurrent() {return thrusterPower->getCurrent();}
 double AUV::getThrusterPower() {return thrusterPower->getVoltage()*thrusterPower->getCurrent();}
 
 // reads the current depth from the depth sensor via the arduino
-double AUV::getDepth(){return ((double)((double)adc->getValue("DEPTH")-depthZero))/(double)depthScale;}
+double AUV::getDepth(){return ((double)((double)arduino->getValue("DEPTH")-depthZero))/(double)depthScale;}
 
 void AUV::setActualDepth(double depth){
-	if(depth == 0) depthZero = adc->getValue("DEPTH");
-	else depthScale = (adc->getValue("DEPTH")-depthZero)/depth;
+	if(depth == 0) depthZero = arduino->getValue("DEPTH");
+	else depthScale = (arduino->getValue("DEPTH")-depthZero)/depth;
 }
 
-bool AUV::getGo(){return (bool)adc->getValue("GO");}
+bool AUV::getGo(){return (bool)arduino->getValue("GO");}
 
 void AUV::look(cameraPosition pos){
   	if(data.camera != pos) {
