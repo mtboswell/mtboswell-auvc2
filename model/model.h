@@ -28,13 +28,18 @@ class Model : public QThread
 	Q_OBJECT
 
 	public:
+		/**
+		 * Constructor
+		 * @param mutex QMutex for protecting access to model data (parameters and such).
+		 */
 		Model(QMutex* mutex);
 		~Model();
 		
 	signals:
-		// Emitted at the end of every brain processing cycle. duration measures
-		// the time from the end of one cycle to the end of the next.
-		// If duration > BRAIN_STEP_TIME, an overrun has occurred
+		/** Emitted at the end of every brain processing cycle. duration measures
+		 * the time from the end of one cycle to the end of the next.
+		 * If duration > BRAIN_STEP_TIME, an overrun has occurred
+		 */
 		void outputReady(ExternalOutputs_brain Output, int duration);
 		void status(QString);
 		void error(QString);

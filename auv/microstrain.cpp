@@ -1,6 +1,8 @@
 #include "microstrain.h"
 #include <fcntl.h>
 
+#define MAG_DECLINATION -7.85
+
 #define _Microstrain_ERROR_SUCCESS_        0
 #define _Microstrain_ERROR_NO_PACKET_    -1
 #define    _Microstrain_ERROR_PART_PACKET    -2
@@ -10,12 +12,8 @@ Microstrain::Microstrain(const QString & dev)
 {
 	port = new QextSerialPort(dev, QextSerialPort::EventDriven);
 	port->setBaudRate(BAUD38400);
-	// TODO - set packet size to: , 48);
-    initStatus();
-	if(pthread_mutex_init(&statMutex, 0)) cout << "Can't create mutex";
-	port->addUARTList(this);
+	initStatus();
 	
-    bufferInit(&rdbuf, rdbufChars, 128);
 	// put the AHRS in continuous mode (constantly sending results from command 0x31, which is "Send Gyro-Stabilized Euler Angles & Accel & Rate Vector")
 	char cmd[3] = {0x10, 0x00, 0x31};
 	port->write(cmd, 3);
@@ -26,7 +24,7 @@ void Microstrain::initStatus()
     status.roll = status.yaw = status.pitch
     = status.rollrate = status.pitchrate = status.yawrate
     = status.rollacc = status.pitchacc = status.yawacc = -1;
-    status.magDecl = -7.85;
+    status.magDecl = MAG_DECLINATION;
 }
 Microstrain::~Microstrain()
 {
