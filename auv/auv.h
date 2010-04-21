@@ -15,7 +15,7 @@
 #include "ports.h"
 #include "calibration.h"
 #include "imu.h"
-#include "adc.h"
+#include "arduino.h"
 #include "pololu.h"
 #include "power.h"
 #include "mechanisms.h"
@@ -140,7 +140,7 @@ class AUV : public QThread {
 		QMutex *dataMutex;
 
 		// Hardware interfaces
-		ADC* adc;
+		Arduino* arduino;
 		IMU* imu;
 		Pololu* pControllers;
 		Power* thrusterPower;
