@@ -1,11 +1,13 @@
 #! /bin/bash
 if echo "Updating Brain" \
-&& ./utils/updateBrain > builderrors
+&& cd .. \
+&& ./utils/updateBrain > src/builderrors \
+&& cd src
 then
 echo "Brain Built Successfully";
 else
 echo "Brain Build Failed";
-more builderrors;
+more src/builderrors;
 exit 1
 fi
 if echo "Generating Makefile" \
