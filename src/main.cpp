@@ -53,7 +53,7 @@ int main(int argc, char *argv[]){
 
 	/* Initialize Server */
 	qDebug("Initializing Server");
-	Server* server = new Server(&sensorMutex);
+	Server* server = new Server();
 
 	/* Initialize Brain */
 	qDebug("Initializing Model");

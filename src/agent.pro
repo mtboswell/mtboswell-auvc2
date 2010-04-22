@@ -3,7 +3,7 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = agent
+TARGET = ../agent
 CONFIG += qt
 QT += network  # phonon 
 DEPENDPATH += . \

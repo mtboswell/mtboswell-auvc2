@@ -1,7 +1,7 @@
 #ifndef AUV_TYPES_
 #define AUV_TYPES_
 
-#include "imu.h"
+#include "imudata.h"
 
 #define NUMBER_OF_THRUSTERS 4
 
