@@ -9,6 +9,11 @@
 #include <QTimer>
 #include <QDebug>
 
+/**
+ * Data Logger to store sensor and state data in a .CSV file for later analysis.
+ * Supports logging an arbitrary number of variables with names passed at runtime.
+ */
+
 class DataLogger: public QObject 
 {
 	Q_OBJECT
@@ -58,15 +63,26 @@ class DataLogger: public QObject
 		}
 
 	public slots:
+		/**
+		 * Enable data logging.
+		 * @param enable True = data is logged to file. False = logger does nothing.
+		 */
 		void enable(bool enable){
 			enabled = enable;
 		}
+		/**
+		 * Log a data value to a given field.
+		 * If the field does not exist, it is added.
+		 * @param key data field name.
+		 * @param value datum value.
+		 */
 		void logData(QString key, QString value){
 			if(!data.contains(key)) headerModified = true;
 			data[key] = value;
 		}
 
 	private slots:
+		// Write list of fields when field is added
 		void writeHeader(){
 			qDebug() << "Writing Log Header";
 			*out << ((QStringList)data.keys()).join(delim) << endl;

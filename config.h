@@ -1,5 +1,13 @@
 // Config stuff
 
+// MAGNETIC_DECLINATION = local magnetic declination.  Use this webpage to calculate:
+// http://www.ngdc.noaa.gov/geomagmodels/Declination.jsp
+// ' = 1/60 of a degree
+// W = negative; E = positive;
+// transdec zip code = 92106
+// transdec mag. dec. = 12.23
+#define MAGNETIC_DECLINATION -8.066
+
 // BRAIN_STEP_TIME = 1/f for brain.  200 = 5Hz
 #define BRAIN_STEP_TIME 200
 // AUV_STEP_TIME = 1/f for hardware/sensor update

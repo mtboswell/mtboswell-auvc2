@@ -30,7 +30,8 @@ HEADERS += server/server.h \
 	auv/buffer.h \
 	auv/calibration.h \
 	auv/camread.h \
-	auv/imu.h \
+	auv/imudata.h \
+	auv/microstrain.h \
 	auv/pololu.h \
 	auv/ports.h \
 	auv/power.h \
@@ -204,7 +205,7 @@ SOURCES += server/server.cpp \
 	   auv/auv.cpp \
 	   auv/buffer.cpp \
 	   auv/camread.cpp \
-	   auv/imu.cpp \
+	   auv/microstrain.cpp \
 	   auv/pololu.cpp \
 	   auv/power.cpp \
 	   auv/uart.cpp \

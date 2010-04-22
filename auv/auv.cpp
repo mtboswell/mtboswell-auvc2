@@ -47,7 +47,7 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 	
 	/* Initialize hardware interfaces */
 	arduino = new Arduino(ARDUINOPORT);
-	imu = new IMU(IMUPORT);
+	microstrain = new Microstrain(IMUPORT);
 	pControllers = new Pololu(POLOLUPORT);
 	thrusterPower = new Power(POWERPORT);
 
@@ -68,7 +68,7 @@ AUV::~AUV(){
 	qDebug("Shutting Down AUV Interface");
 	stopThrusters();
 	delete arduino;
-	delete imu;
+	delete microstrain;
 	delete pControllers;
 	delete thrusterPower;
 	wait();
@@ -167,8 +167,8 @@ void AUV::externalControl(){
 
 // get data from compass and orientation sensor
 // orientation.yaw, roll, pitch
-imu_data AUV::getOrientation(){return imu->getData();}
-double AUV::getHeading(){return imu->getData().yaw;}
+imu_data AUV::getOrientation(){return microstrain->getData();}
+double AUV::getHeading(){return microstrain->getData().yaw;}
 
 // set thruster speeds
 void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){

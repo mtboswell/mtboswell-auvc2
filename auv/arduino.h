@@ -9,14 +9,39 @@
 #include <QBuffer>
 #include <QRegExp>
 
+/**
+ * Interface with an Arduino microcontroller running our comm driver.
+ * This class takes care of reading data from the Arduino serial port in our simple format,
+ * and can also send one-byte commands.
+ */
+
 class Arduino : public QThread
 {
 	Q_OBJECT
 	public:
+		/**
+		 * Constructor
+		 * @param portName Serial port connected to Arduino
+		 */
 		Arduino(const QString & portName = "");
 		~Arduino();
 
+		/**
+		 * Looks for a value sent from the Arduino.
+		 * This class processes data values sent from the Arduino.  Each value has
+		 * an associated name.  This function returns the value corresponding to a
+		 * given data field name.
+		 * @param desc Name of the data field you want to retrieve.
+		 * @return Value of the data field specified.  Zero if field doesn't exist.
+		 */
 		unsigned int getValue(const QString & desc);
+
+		/**
+		 * Send a one-byte command to the Arduino.
+		 * Since an arduino has limited processing power, and it does not need to support
+		 * many commands, one byte is generally sufficient.
+		 * @param cmd is the byte to be sent to the Arduino.
+		 */
 		bool sendCmd(char cmd);
 
 	private slots:
