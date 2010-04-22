@@ -8,7 +8,8 @@
 #include <vector>
 
 /**
- * Class UART
+ * Old serial communication interface.
+ * Deprecated in favor of QextSerialPort
  * @author Kevin Stefanik for the Virginia Tech AUVT (stefanik@vt.edu)
  * @version Oct. 7, 2006
  */

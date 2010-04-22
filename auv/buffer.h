@@ -37,7 +37,7 @@
 
 // structure/typdefs
 
-//! cBuffer structure
+// cBuffer structure
 typedef struct struct_cBuffer
 {
 	unsigned char *dataptr;			///< the physical memory address where the buffer is stored

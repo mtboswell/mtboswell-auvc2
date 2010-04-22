@@ -16,6 +16,7 @@ Arduino::Arduino(const QString & portName){
     }else {
         qDebug() << "device failed to open:" << port->errorString();
     }
+	buf = new QByteArray();
 
 }
 
@@ -28,8 +29,8 @@ void Arduino::onReadyRead(){
 	int a = port->bytesAvailable();
 	bytes.resize(a);
 	port->read(bytes.data(), bytes.size());
-	qDebug() << "bytes read:" << bytes.size();
-	qDebug() << "bytes:" << bytes;
+	qDebug() << "Arduino bytes read:" << bytes.size();
+	qDebug() << "Arduino data:" << bytes;
 	buf->append(bytes);
 	*buf = buf->simplified();
 	if(buf->contains(" ")){

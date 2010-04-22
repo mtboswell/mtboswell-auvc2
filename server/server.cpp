@@ -4,9 +4,8 @@
 #include <QHashIterator>
 #include <QDateTime>
 
-Server::Server(QMutex* sensorMutex){
+Server::Server(){
 
-	sensorDataMutex = sensorMutex;
 
 //	timer = new QTimer(this);
 //	connect(timer, SIGNAL(timeout()), this, SLOT(sendData()));
@@ -180,7 +179,6 @@ void Server::doAction(QString type, QString name, QString value, QHostAddress fr
 
 void Server::sendSensorData(AUVSensors sens){
 	//qDebug() << "Sending Sensor Data";
-	//sensorDataMutex->lock();
 
 	static int sendCount = 0;
 
@@ -204,7 +202,6 @@ void Server::sendSensorData(AUVSensors sens){
 		sendCount = 0;
 	}
 	sensordata.squeeze();
-	//sensorDataMutex->unlock();
 
 	if(remoteHost.isNull()) return;
 	// write to port
