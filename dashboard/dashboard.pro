@@ -15,20 +15,19 @@ STYLE += gtk
 DEPENDPATH += . \
 	      ..
 INCLUDEPATH += . \
-	       .. \
-	       ../dashboard 
+	       .. 
 # Input
 HEADERS += dashboard.h \
 	DashSocket.h \
 	VideoSocket.h \
 	parameters.def \
 	videowidget.h \
-	../version.h \
-	../auv/mechanisms.h
+	../src/version.h \
+	../src/auv/mechanisms.h
 FORMS += dashboard.ui
 SOURCES += dashboard.cpp \
 	DashSocket.cpp \
 	main.cpp \
 	VideoSocket.cpp \
-	../version.cpp \
-	../auv/mechanisms.cpp
+	../src/version.cpp \
+	../src/auv/mechanisms.cpp

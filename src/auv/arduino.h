@@ -6,6 +6,7 @@
 #include <QString>
 #include <QThread>
 #include <QByteArray>
+#include <QStringList>
 #include <QBuffer>
 #include <QRegExp>
 
@@ -43,6 +44,14 @@ class Arduino : public QThread
 		 * @param cmd is the byte to be sent to the Arduino.
 		 */
 		bool sendCmd(char cmd);
+
+	signals:
+		/**
+		 * Emitted when a new data value is ready.
+		 * @param field data field that has just been updated.
+		 * @param value new value of that field.
+		 */
+		void newValueReady(QString field, unsigned int value);
 
 	private slots:
 		void onReadyRead();

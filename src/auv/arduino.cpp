@@ -5,17 +5,15 @@ Arduino::Arduino(const QString & portName){
 	port = new QextSerialPort(portName, QextSerialPort::EventDriven);
 	port->setBaudRate(BAUD9600);
 
-    if (port->open(QIODevice::ReadWrite) == true) {
+	if (port->open(QIODevice::ReadWrite) == true) {
 
-        connect(port, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
-        connect(port, SIGNAL(dsrChanged(bool)), this, SLOT(onDsrChanged(bool)));
+		connect(port, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
+		connect(port, SIGNAL(dsrChanged(bool)), this, SLOT(onDsrChanged(bool)));
 
-        if (!(port->lineStatus() & LS_DSR))
-            qDebug() << "warning: device is not turned on";
-        qDebug() << "listening for data on" << port->portName();
-    }else {
-        qDebug() << "device failed to open:" << port->errorString();
-    }
+		qDebug() << "listening for data on" << port->portName();
+	}else {
+		qDebug() << "device failed to open:" << port->errorString();
+	}
 	buf = new QByteArray();
 
 }
@@ -29,8 +27,8 @@ void Arduino::onReadyRead(){
 	int a = port->bytesAvailable();
 	bytes.resize(a);
 	port->read(bytes.data(), bytes.size());
-	qDebug() << "Arduino bytes read:" << bytes.size();
-	qDebug() << "Arduino data:" << bytes;
+	//qDebug() << "Arduino bytes read:" << bytes.size();
+	//qDebug() << "Arduino data:" << bytes;
 	buf->append(bytes);
 	*buf = buf->simplified();
 	if(buf->contains(" ")){
@@ -67,18 +65,30 @@ bool Arduino::sendCmd(char cmd){
 void Arduino::process(QByteArray data){
 
 	QString name, value;
-	QRegExp rx("(\\w+)(\\d+)");
-	if(rx.exactMatch(data)){
-		name = rx.cap(1);
-		value = rx.cap(2);
+	QRegExp rx("(\\D+\\d+)");
+	QStringList list;
+	int pos = 0;
+
+	while ((pos = rx.indexIn(data, pos)) != -1) {
+		list << rx.cap(1);
+		pos += rx.matchedLength();
 	}
 
-	if(name.isNull() || value.isNull()) return;
+	foreach(QString str, list){
+		QRegExp rx2("(\\D+)(\\d+)");
+		if(rx2.exactMatch(data)){
+			name = rx2.cap(1);
+			value = rx2.cap(2);
+		}
 
-	bool conversionWorked;
-	unsigned int val = value.toUInt(&conversionWorked);
-	if(!conversionWorked) return;
+		if(name.isNull() || value.isNull()) continue;
 
-	values[name] = val;
+		bool conversionWorked;
+		unsigned int val = value.toUInt(&conversionWorked);
+		if(!conversionWorked) continue;
+
+		values[name] = val;
+		emit newValueReady(name, val);
+	}
 
 }
