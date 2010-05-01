@@ -14,3 +14,5 @@ brain.zip
 agent
 dashboard
 Makefile
+doc/*
+Doxytags

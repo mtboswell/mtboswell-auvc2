@@ -9,8 +9,8 @@ fi
 rm -r slprj
 rm -r brain_ert_rtw
 cd ..
-cp simulink/brain.zip brain/
-cd brain/
+cp simulink/brain.zip src/brain/
+cd src/brain/
 unzip -qo brain.zip
 rm brain.zip
-cd ../
+cd ../../
