@@ -1,6 +1,6 @@
 #include "ui_dashboard.h"
-#include "../config.h"
-#include "../version.h"
+#include "../src/config.h"
+#include "../src/version.h"
 #include "DashSocket.h"
 #include "VideoSocket.h"
 #include <QMutexLocker>
@@ -40,6 +40,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void logData(bool log);
 		void recordVideo(bool record);
 
+		//! \todo Implement turn off feature
 		void turnOffAUVAction();
 
 		void reconnectAction();

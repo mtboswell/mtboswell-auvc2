@@ -6,7 +6,7 @@
 #include <QDebug>
 #include <QTime>
 #include <QDir>
-#include "../auv/mechanisms.h"
+#include "../src/auv/mechanisms.h"
 
 Dashboard::Dashboard(QMainWindow *parent)
      : QMainWindow(parent)

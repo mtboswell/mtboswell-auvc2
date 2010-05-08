@@ -4,7 +4,7 @@
 #include <QUdpSocket>
 #include <QHostAddress>
 #include <QtCore>
-#include "../config.h"
+#include "../src/config.h"
 
 class DashSocket : public QObject {
 Q_OBJECT
