@@ -1,7 +1,14 @@
 #ifndef POLOLU_H_
 #define POLOLU_H_
 
-#include "uart.h"
+#include <qextserialport.h>
+#include <QMap>
+#include <QString>
+#include <QThread>
+#include <QByteArray>
+#include <QStringList>
+#include <QBuffer>
+#include <QRegExp>
 
 /**
  * Interface for Pololu motor and servo controllers.
@@ -10,41 +17,47 @@
  * motor controller.
  */
 
-class Pololu
+class Pololu : public QThread
 {
+	Q_OBJECT
 	public:
 		/**
-		 * @param dev Serial port for pololu devices.
+		 * @param portName Serial port for pololu devices.
 		 */
-		Pololu(const char* dev = 0);
+		Pololu(const QString & portName = "");
 		~Pololu();
+		bool setTrexConfig(char param, char value);
+	public slots:
+		void setServoParams(char servoNum, bool on, bool reverse = false, char range = 15);
+		void setServoSpeed(char servoNum, char speed);
+		void setServoNeutral(char servoNum, short int neutral = 3000);
 		/**
-		 * setPosition sets the position of a servo (0-255 value)
+		 * Sets the position of a servo (0-255 value).
 		 * @param servoNum is the # of the servo to set
 		 * @param position is the position to set it to
 		 */
-		bool setPosition(int servoNum, int position);
+		void setServoPosition(char servoNum, unsigned char position);
 
 		/**
-		 * setPosAbs sets the absolute position of the servo (500-5500)
+		 * Sets the absolute position of the servo (500-5500).
+		 * Center should be 3000
 		 * @param servoNum is the servo to set
 		 * @param absPos is the amount of time for the pulse width to be (500-5500)
 		 */
-		bool setPosAbs(int servoNum, int absPos);
+		void setServoPosAbs(char servoNum, short int absPos);
 
-		bool setTrexConfig(char param, char value);
 
 		/**
 		 * Set motor speed.
 		 * @param motorNum Motor number (zero-indexed).
 		 * @param motorSpeed Speed to run motor.  Range is -127 (full reverse) to 127 (full forward).
 		 */
-		bool setTrexSpeed(int motorNum, int motorSpeed);
+		void setMotorSpeed(int motorNum, int motorSpeed);
 
+	private slots:
+		
 	private:
-		UART* port;
-		char msg[7];
-		int len;
+		QextSerialPort* port;
 		/**
 		 * sendCmd takes data and enqueues it to be sent
 		 */
