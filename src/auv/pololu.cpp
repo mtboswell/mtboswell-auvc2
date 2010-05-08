@@ -4,54 +4,49 @@
 using std::cout;
 using std::endl;
 
-Pololu::Pololu(const char* dev)
+Pololu::Pololu(const QString & portName)
 {
-	port = new UART(dev, 19200);
-/*	usleep(1000);
-	// set motor 1 speed divider
-	if(!setTrexConfig(0x0B, 0x40)){
-		cout << "Can't set Max on motor 1" << endl;
+	port = new QextSerialPort(portName, QextSerialPort::EventDriven);
+	port->setBaudRate(BAUD19200);
+
+	if (port->open(QIODevice::ReadWrite) == true) {
+
+		connect(port, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
+
+		qDebug() << "listening for data on" << port->portName();
+	}else {
+		qDebug() << "device failed to open:" << port->errorString();
 	}
-	// set motor 2 speed divider
-	if(!setTrexConfig(0x0C, 0x40)){
-		cout << "Can't set Max on motor 2" << endl;
-	}
-	// set motor 1 prescaler
-	if(!setConfig(0x09, 1)){
-		cout << "Can't set prescaler on motor 1" << endl;
-	}
-	// set motor 2 prescaler
-	if(!setConfig(0x0A, 0)){
-		cout << "Can't set prescaler on motor 2" << endl;
-	}*  //
-	// set motor 1 accel
-	if(!setTrexConfig(0x0E, 2)){
-		cout << "Can't set accel on motor 1";
-	}
-	// set motor 2 accel
-	if(!setTrexConfig(0x0F, 5)){
-		cout << "Can't set accel on motor 2";
-	}
-	*/
-	
 }
 Pololu::~Pololu()
 {
     delete port;
 }
-bool Pololu::setPosition(int servoNum, int position)
+
+void Pololu::setServoParams(char servoNum, bool on, bool reverse, char range){
+	char data = 0;
+	if(on) data = data|0x40;
+	if(reverse) data = data|0x20;
+	data = data|(range & 0x1F);
+	sendCmd(0, servoNum, data);
+}
+void Pololu::setServoSpeed(char servoNum, char speed){
+	sendCmd(1, servoNum, speed & 0x7F);
+}
+void Pololu::setServoNeutral(char servoNum, short int neutral){
+	sendCmd(5, servoNum, (neutral/128) % 2, neutral % 128);
+}
+
+bool Pololu::setServoPosition(int servoNum, int position)
 {
 	return sendCmd(3, servoNum, (position / 128) % 2, position % 128);
 }
-bool Pololu::setPosAbs(int servoNum, int absPos)
+bool Pololu::setServoPosAbs(int servoNum, int absPos)
 {
 	int val = absPos;
-	if (val < 500)
-	{
+	if (val < 500){
 		val = 500;
-	}
-	else if (val > 5500)
-	{
+	}else if (val > 5500){
 		val = 5500;
 	} 
 	return sendCmd(4, servoNum, val / 128, val % 128); 
