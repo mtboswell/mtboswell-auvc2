@@ -1,19 +1,18 @@
 #ifndef POWER_H_
 #define POWER_H_
-
-#include "buffer.h"
-#include "uart.h"
-#include <string>
-#include <map>
-using std::map;
-using std::string;
+#include <qextserialport.h>
+#include <QMap>
+#include <QString>
+#include <QThread>
+#include <QByteArray>
+#include <QStringList>
+#include <QBuffer>
+#include <QRegExp>
 
 /**
  * Interface for the ASCL power boards.
- * @author Micah Boswell for the Virginia Tech AUVT (micah27@vt.edu)
- * @version Aug. 12, 2009
  */
-class Power : public UART::UARTList
+class Power : public QThread
 {
 	public:
 		/**
@@ -21,7 +20,7 @@ class Power : public UART::UARTList
 		 * @param dev is the device file name for the desired serial 
 		 * port.
 		 */
-		Power(const char* dev = 0);
+		Power(const QString & portName = "");
 		/**
 		 * This is the destructor.
 		 */
@@ -55,15 +54,14 @@ class Power : public UART::UARTList
 		 */
 		bool setState(bool newState);
 
+	private slots:
+		void onReadyRead();
+		void process(QByteArray data);
 	private:
-		void process(const char* data, int len);
-		pthread_mutex_t dataMutex;
 		bool state;
 		double voltage;
 		double current;
-		UART* port;
-		unsigned char rdbufChars[256];
-		cBuffer rdbuf;
+		QextSerialPort* port;
 };
 
 #endif /*POWER_H_*/

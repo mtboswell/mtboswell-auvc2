@@ -4,7 +4,7 @@
 #include <QUdpSocket>
 #include <QHostAddress>
 #include <QtCore>
-#include "../config.h"
+#include "../src/config.h"
 #include <QImage>
 #include <QImageReader>
 #include <QThread>

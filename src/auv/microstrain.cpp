@@ -79,6 +79,9 @@ const double scaleRate = (8.5/32768.0)*(180.0/pi);
 const double scaleAcc = (7.0/32768.0)*9.81;
 
 // format = 23 bytes starting with decimal 49
+/** 
+ * \todo document magDecl
+ */
 void Microstrain::process(QByteArray & data){
 
 	short command = (short)data[0];
@@ -107,7 +110,6 @@ void Microstrain::process(QByteArray & data){
 	// copy vars to imu_status // angles
 	status.roll = scaleAngle*roll;
 	status.pitch = scaleAngle*pitch;
-	// TODO - find out what the purpose of magDecl is
 	status.yaw = scaleAngle*yaw + status.magDecl;
 	while(status.yaw < 0) status.yaw += 360;        // keep yaw within [0, 360]
 	while(status.yaw > 360) status.yaw -= 360;        // keep yaw within [0, 360]

@@ -6,10 +6,7 @@ Arduino::Arduino(const QString & portName){
 	port->setBaudRate(BAUD9600);
 
 	if (port->open(QIODevice::ReadWrite) == true) {
-
 		connect(port, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
-		connect(port, SIGNAL(dsrChanged(bool)), this, SLOT(onDsrChanged(bool)));
-
 		qDebug() << "listening for data on" << port->portName();
 	}else {
 		qDebug() << "device failed to open:" << port->errorString();
