@@ -62,6 +62,7 @@ class Power : public QThread
 		double voltage;
 		double current;
 		QextSerialPort* port;
+		QByteArray* buf;
 };
 
 #endif /*POWER_H_*/

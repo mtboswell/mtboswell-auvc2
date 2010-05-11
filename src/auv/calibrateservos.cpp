@@ -24,7 +24,7 @@ int calibrateServos() {
 		while(servoPos != 0){
 			cin >> servoPos;
 			if(servoPos > 5000 || servoPos < 800) continue;
-			pol->setPosAbs(servoNum, servoPos);
+			pol->setServoPosAbs(servoNum, servoPos);
 		}
 	}while(servoNum >= 0);
 	return 0;
