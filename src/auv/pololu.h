@@ -13,8 +13,10 @@
 /**
  * Interface for Pololu motor and servo controllers.
  * Supports multiple motor and servo controllers on one serial line.
- * Motors are number sequentially for each sequentially addressed TReX
- * motor controller.
+ * Assumes motors are numbered sequentially for each sequentially addressed TReX
+ * motor controller.  For example, motors 0 and 1 are on controller 0x07 (default).
+ * Motors 2 and 3 are on controller 0x08.  Motors 4 and 5 are on 0x09, etc. The
+ * device address can be set via the configurator or the setTrexAddress() command.
  */
 
 class Pololu : public QThread
@@ -26,7 +28,28 @@ class Pololu : public QThread
 		 */
 		Pololu(const QString & portName = "");
 		~Pololu();
-		bool setTrexConfig(char param, char value);
+		bool setTrexConfig(char device, char param, char value);
+
+		QString getTrexSignature(char device);
+		char getTrexMode(char device);
+		//bool trexControl(char device);
+		int getMotorCurrent(char motorNum);
+		//char getTrexConfig(char device, char param);
+
+		// emit RC or ananlog inputs periodically every msecs
+		//void startTrexAutoInputMode(char device, int channel, int msecs);
+
+		//enum TrexError { NONE, UART_ERROR, MOTOR_FAULT, MOTOR_OVERCURRENT };
+		//enum UartError { TIMEOUT, FORMAT_ERROR, CRC_ERROR, FRAME_ERROR, DATA_OVERRUN, PARITY_ERROR, READ_OVERRUN, SEND_OVERRUN };
+
+		//QHash<int, TrexError> getErrors();
+
+		void setSaneTrexParams(char device);
+
+	signals:
+		//void trexError(char device, TrexError err);
+		void trexInput(char device, int channel, char value);
+
 	public slots:
 		void setServoParams(char servoNum, bool on, bool reverse = false, char range = 15);
 		void setServoSpeed(char servoNum, char speed);
@@ -54,14 +77,14 @@ class Pololu : public QThread
 		 */
 		void setMotorSpeed(int motorNum, int motorSpeed);
 
-	private slots:
-		
 	private:
 		QextSerialPort* port;
 		/**
 		 * sendCmd takes data and enqueues it to be sent
 		 */
-		bool sendCmd(char command, char servoNum, char data1=0, char data2=0);
+		void sendServoCmd(char command, char servoNum, char data1, char data2=0);
+		void sendTrexCmd(char command, char motorNum, QByteArray data);
+		QByteArray sendTrexQuery(char command, char motorNum, int responseLength, QByteArray data);
 
 
 };

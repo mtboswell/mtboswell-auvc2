@@ -183,7 +183,7 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
 		if(i != 3 && thrusterSpeeds[i] > 40) thrusterSpeeds[i] = 40;
 		if(i != 3 && thrusterSpeeds[i] < -40) thrusterSpeeds[i] = -40;
-		pControllers->setTrexSpeed(i, thrusterSpeeds[i]);
+		pControllers->setMotorSpeed(i, thrusterSpeeds[i]);
 	}
   	QMutexLocker locker(dataMutex);
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
@@ -197,7 +197,7 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 void AUV::stopThrusters(){
   	QMutexLocker locker(dataMutex);
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
-		pControllers->setTrexSpeed(i, 0);
+		pControllers->setMotorSpeed(i, 0);
 		data.thrusterSpeeds[i] = 0;
 	}
 }
@@ -224,13 +224,13 @@ void AUV::look(cameraPosition pos){
 		emit status("Moving Camera");
 		switch(pos){
 			case FORWARD:
-				pControllers->setPosAbs(0, 2600);
+				pControllers->setServoPosAbs(0, 2600);
 				break;
 			case UP:
-				pControllers->setPosAbs(0, 1600);
+				pControllers->setServoPosAbs(0, 1600);
 				break;
 			case DOWN:
-				pControllers->setPosAbs(0, 4000);
+				pControllers->setServoPosAbs(0, 4000);
 				break;
 			default:
 				break;
@@ -260,8 +260,8 @@ void AUV::look(double x, double y){
 	data.cameraY = y;
 
 	// Output to servos
-	pControllers->setPosAbs(GIMBAL_Y_SERVO, ypos);
-	pControllers->setPosAbs(GIMBAL_X_SERVO, xpos);
+	pControllers->setServoPosAbs(GIMBAL_Y_SERVO, ypos);
+	pControllers->setServoPosAbs(GIMBAL_X_SERVO, xpos);
 }
 
 
@@ -300,13 +300,13 @@ void AUV::activateMechanism(){
 
 // Abstraction!
 void AUV::moveServo(int servo, int position){
-	pControllers->setPosAbs(servo, position);
+	pControllers->setServoPosAbs(servo, position);
 }
 void AUV::moveServo(){
 	QString pos = posQueue.dequeue();
 	int servo = pos.split(':').value(0).toInt();
 	int position = pos.split(':').value(1).toInt();
-	pControllers->setPosAbs(servo, position);
+	pControllers->setServoPosAbs(servo, position);
 }
 
 
@@ -342,9 +342,9 @@ void AUV::setMotion(int forward, int yaw, int vertical){
 	if(motor2speed > 127) motor2speed = 127;
 	else if(motor2speed < -127) motor2speed = -127;
 
-	pControllers->setTrexSpeed(0, motor1speed);
-	pControllers->setTrexSpeed(1, motor2speed);
-	pControllers->setTrexSpeed(2, vertical);
+	pControllers->setMotorSpeed(0, motor1speed);
+	pControllers->setMotorSpeed(1, motor2speed);
+	pControllers->setMotorSpeed(2, vertical);
 
 }
 
@@ -370,9 +370,9 @@ void AUV::setMotion(AUVMotion* velocity){
 	if(motor2speed > 127) motor2speed = 127;
 	else if(motor2speed < -127) motor2speed = -127;
 
-	pControllers->setTrexSpeed(0, motor1speed);
-	pControllers->setTrexSpeed(1, motor2speed);
-	pControllers->setTrexSpeed(2, velocity->vertical);
+	pControllers->setMotorSpeed(0, motor1speed);
+	pControllers->setMotorSpeed(1, motor2speed);
+	pControllers->setMotorSpeed(2, velocity->vertical);
 
 }
 

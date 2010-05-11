@@ -18,13 +18,14 @@ Power::~Power(){
 	delete port;
 }
 
+// separator = \n\r
 void Power::onReadyRead(){
 	QByteArray bytes;
 	int a = port->bytesAvailable();
 	bytes.resize(a);
 	port->read(bytes.data(), bytes.size());
 	buf->append(bytes);
-	*buf = buf->simplified();  // does this remove the line breaks?
+	//*buf = buf->simplified();  // does this remove the line breaks?
 	if(buf->contains("\n\r")){
 		QByteArray tmp;
 		int ind = 0;
@@ -70,29 +71,27 @@ double Power::getCurrent(){
 }
 
 void Power::process(QByteArray data){
-	// format: $ASVIS,[volts],[amps]*\n\r
-	// or: [millivolts],[milliamps]\n\r
-	
-	if(len < 20) return;
-	
-	int voltindex = 7;
-	int voltlength = 6;
-	int curindex = 14;
-	int curlength = 5;
-	char voltStr[voltlength+1];
-	char curStr[curlength+1];
-	
-	for(int i = voltlength-1; i >= 0; i--){
-		voltStr[i] = data[i+voltindex];
-	}	
-	for(int i = curlength-1; i >= 0; i--){
-		curStr[i] = data[i+curindex];
+	// format: $ASVIS,[volts],[amps]*
+	// or: [millivolts],[milliamps]
+	QRegExp rx;
+	int multiplier;
+	if(data.contains("$ASVIS")){
+		rx.setPattern("\\$ASVIS,([\\d\\.]+),([\\d\\.]+)\\*?");
+		multiplier = 1;
+	}else{
+		rx.setPattern("\\([\\d\\.]+),([\\d\\.]+)");
+		multiplier = 1000;
 	}
 	
+	QString voltStr, curStr;
+	if(rx.exactMatch(data)){
+		voltStr = rx.cap(1);
+		curStr = rx.cap(2);
+	}
 	
 	// add parsed value to values array
-	voltage = atof(voltStr);
-	current = atof(curStr);
+	voltage = voltStr.toDouble()*multiplier;
+	current = curStr.toDouble()*multiplier;
 
 }
 
