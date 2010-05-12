@@ -14,6 +14,7 @@
  */
 class Power : public QThread
 {
+	Q_OBJECT
 	public:
 		/**
 		 * This is the constructor.  

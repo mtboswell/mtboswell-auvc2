@@ -7,7 +7,7 @@ Power::Power(const QString & portName){
 	
 	if (port->open(QIODevice::ReadWrite) == true) {
 		connect(port, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
-		qDebug() << "listening for data on" << port->portName();
+		//qDebug() << "listening for data on" << port->portName();
 	}else{
 		qDebug() << "device failed to open:" << port->errorString();
 	}
@@ -38,22 +38,26 @@ void Power::onReadyRead(){
 }
 
 bool Power::turnOn(){
-	char cmd[4];
+/*	char cmd[4];
 	cmd[0] = 's';
 	cmd[1] = '1';
 	cmd[2] = '\n';
 	cmd[3] = '\r';
+*/
 	state = 1;
- 	return port->write(cmd, 4);
+ 	//return port->write(cmd, 4);
+	return port->write(QByteArray("s1\n\r"));
 }
 bool Power::turnOff(){
-	char cmd[4];
+/*	char cmd[4];
 	cmd[0] = 's';
 	cmd[1] = '0';
 	cmd[2] = '\n';
 	cmd[3] = '\r';
+*/
 	state = 0;
- 	return port->write(cmd, 4);
+ 	//return port->write(cmd, 4);
+	return port->write(QByteArray("s0\n\r"));
 }
 
 bool Power::setState(bool newState){

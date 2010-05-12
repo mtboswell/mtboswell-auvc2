@@ -107,6 +107,8 @@ class Server: public QThread
 		 * @param log True means start logging data, false means stop.
 		 */
 		void setLog(bool log);
+
+		void status(QString message);
 	
 	public slots:
 		// these get triggered from the other threads with the data the thread has

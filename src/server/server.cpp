@@ -266,14 +266,15 @@ void Server::sendError(QString err){
 	sendStatus("Error: " + err);
 }
 
-void Server::sendStatus(QString status){
+void Server::sendStatus(QString stat){
 	if(remoteHost.isNull()) return;
 	QByteArray datagram;
-	qDebug() << status;
-	addDatum(datagram, "Status", "", status);
+	qDebug() << stat;
+	addDatum(datagram, "Status", "", stat);
 
 	// write to port
 	socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);
+	emit status(stat);
 }
 
 // Sends a JPEG from the Brain over the VIDEO_PORT udp port.

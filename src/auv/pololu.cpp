@@ -7,10 +7,7 @@ Pololu::Pololu(const QString & portName)
 	port->setBaudRate(BAUD19200);
 
 	if (port->open(QIODevice::ReadWrite) == true) {
-
-		connect(port, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
-
-		qDebug() << "listening for data on" << port->portName();
+		//qDebug() << "listening for data on" << port->portName();
 	}else {
 		qDebug() << "device failed to open:" << port->errorString();
 	}

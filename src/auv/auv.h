@@ -14,6 +14,7 @@
 #include "arduino.h"
 #include "pololu.h"
 #include "power.h"
+#include "lcd.h"
 #include "mechanisms.h"
 #include "../brain/brain.h"
 
@@ -173,6 +174,10 @@ class AUV : public QThread {
 		 * @param scriptFile filename of script to load and run.
 		 */
 		void runScriptedMotion(QString scriptFile);
+
+		void statusMessage(QString message);
+
+		void statusField(QString name, QString msg);
 		
 	signals:
 		/**
@@ -228,6 +233,7 @@ class AUV : public QThread {
 		Microstrain* microstrain;
 		Pololu* pControllers;
 		Power* thrusterPower;
+		LCD* statusLcd;
 		
 		AUVSensors data;
 		

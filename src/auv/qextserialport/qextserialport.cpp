@@ -226,7 +226,7 @@ QString QextSerialPort::errorString()
         case E_NO_MEMORY: return "Unable to allocate memory tables (POSIX)";
         case E_CAUGHT_NON_BLOCKED_SIGNAL: return "Caught a non-blocked signal (POSIX)";
         case E_PORT_TIMEOUT: return "Operation timed out (POSIX)";
-        case E_INVALID_DEVICE: return "The file opened by the port is not a valid device";
+        case E_INVALID_DEVICE: return "The file "+this->portName()+"is not a valid device";
         case E_BREAK_CONDITION: return "The port detected a break condition";
         case E_FRAMING_ERROR: return "The port detected a framing error (usually caused by incorrect baud rate settings)";
         case E_IO_ERROR: return "There was an I/O error while communicating with the port";
@@ -236,7 +236,7 @@ QString QextSerialPort::errorString()
         case E_TRANSMIT_OVERFLOW: return "Transmit buffer overflow";
         case E_READ_FAILED: return "General read operation failure";
         case E_WRITE_FAILED: return "General write operation failure";
-        case E_FILE_NOT_FOUND: return "The "+this->portName()+" file doesn't exists";
+        case E_FILE_NOT_FOUND: return "The file "+this->portName()+" doesn't exist.";
         default: return QString("Unknown error: %1").arg(lastErr);
     }
 }
