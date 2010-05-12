@@ -22,7 +22,7 @@ int main(int argc, char *argv[]){
 		// -s means the hardware switch is missing and is not needed.  This is necessary for debugging, since we won't start anything if the switch is off or missing.
 		if(arg == "-s" || arg == "--simulate") noHardSwitch = true;
 		// -c triggers servo calibration mode.  See docs in auv/calibrateservos.h.
-		if(arg == "-c" || arg == "--calibrate-servos") return calibrateServos();
+		else if(arg == "-c" || arg == "--calibrate-servos") return calibrateServos();
 		else if(arg == "-h"){
 			qDebug() << "Available Arguments:";
 			qDebug() << "\t-s or --simulate : disable hardware on/off switch";

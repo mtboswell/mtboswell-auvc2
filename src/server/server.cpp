@@ -178,7 +178,7 @@ void Server::doAction(QString type, QString name, QString value, QHostAddress fr
 }
 
 void Server::sendSensorData(AUVSensors sens){
-	//qDebug() << "Sending Sensor Data";
+	if(DEBUG) qDebug() << "Sending Sensor Data";
 
 	static int sendCount = 0;
 
@@ -211,7 +211,7 @@ void Server::sendSensorData(AUVSensors sens){
 }
 
 void Server::sendBrainData(ExternalOutputs_brain outs, int brainTime){
-	//qDebug() << "Sending Brain Data";
+	if(DEBUG) qDebug() << "Sending Brain Data";
 	QByteArray datagram;
 	// Model Outputs
 	
@@ -319,5 +319,5 @@ void Server::sendVideo(){
         videoOut->write(*videoFrame);
 	bitmapOut->write(*bwFrame);
         if(recordVideo) recVideoOut->write(*videoFrame);
-
+	if(DEBUG) qDebug() << "Sending Video Frame";
 }

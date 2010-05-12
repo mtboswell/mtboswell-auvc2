@@ -1,13 +1,18 @@
 #include "pololu.h"
+#include "../config.h"
 #include <QDebug>
 
 Pololu::Pololu(const QString & portName)
 {
 	port = new QextSerialPort(portName);
 	port->setBaudRate(BAUD19200);
+	port->setStopBits(STOP_1);
+	port->setParity(PAR_NONE);
+	port->setDataBits(DATA_8);
+	port->setFlowControl(FLOW_OFF);
 
 	if (port->open(QIODevice::ReadWrite) == true) {
-		//qDebug() << "listening for data on" << port->portName();
+		qDebug() << "Pololus on" << port->portName();
 	}else {
 		qDebug() << "device failed to open:" << port->errorString();
 	}
@@ -53,6 +58,7 @@ void Pololu::sendServoCmd(char command, char servoNum, char data1, char data2){
 
 }
 void Pololu::sendTrexCmd(char device, char command, QByteArray data){
+	if(DEBUG) qDebug() << "Sending command:" << QString::number(command) << "to device" << QString::number(device) << "with data" << data.toUInt();
 	QByteArray cmd;
 	cmd.append(0x80);
 	cmd.append(device & 0x7F);
@@ -84,6 +90,7 @@ bool Pololu::setTrexConfig(char device, char param, char value){
 
 
 void Pololu::setMotorSpeed(int motorNum, int motorSpeed){
+	if(DEBUG) qDebug() << "Setting motor " + QString::number(motorNum) + " to " + QString::number(motorSpeed);
 	if(motorSpeed > 127) motorSpeed = 127;
 	else if(motorSpeed < -127) motorSpeed = -127;
 
