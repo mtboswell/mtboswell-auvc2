@@ -244,6 +244,8 @@ class AUV : public QThread {
 		QQueue<QString> mechQueue;
 		QQueue<QString> scriptQueue;
 		QQueue<QString> actionQueue;
+
+		QStringList states;
 };
 
 #endif /*AUV_H_*/

@@ -3,8 +3,8 @@
 
 #define IMUPORT "/dev/ttyS0"
 #define POWERPORT "/dev/ttyS1"
-#define POLOLUPORT "/dev/ttyUSB2"
-#define ARDUINOPORT "/dev/ttyUSB1"
+#define POLOLUPORT "/dev/ttyUSB1"
+#define ARDUINOPORT "/dev/ttyUSB2"
 #define CAMERAPORT "/dev/video0"
 #define LCDPORT "/dev/ttyUSB0"
 

@@ -4,6 +4,10 @@
 Arduino::Arduino(const QString & portName){
 	port = new QextSerialPort(portName, QextSerialPort::EventDriven);
 	port->setBaudRate(BAUD9600);
+	port->setStopBits(STOP_1);
+	port->setParity(PAR_NONE);
+	port->setDataBits(DATA_8);
+	port->setFlowControl(FLOW_OFF);
 
 	if (port->open(QIODevice::ReadWrite) == true) {
 		connect(port, SIGNAL(readyRead()), this, SLOT(onReadyRead()));

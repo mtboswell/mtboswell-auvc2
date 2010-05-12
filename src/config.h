@@ -1,5 +1,7 @@
 // Config stuff
 
+#define DEBUG false
+
 /**
  * MAGNETIC_DECLINATION = local magnetic declination.  
  * Use this webpage to calculate:

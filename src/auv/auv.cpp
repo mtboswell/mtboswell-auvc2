@@ -60,6 +60,15 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 	// Initialize mechanisms database
 	populateMechs(mechanisms);
 
+
+	states << "Autonomous";
+	states << "Startup";
+	states << "Validation Gate";
+	states << "Path to Buoy";
+	states << "Finding Buoy";
+	states << "Path to Hedge";
+	states << "Finished";
+
 	// these flags may eventually be useful again
 	data.droppedLeft = false;
 	data.droppedRight = false;
@@ -85,7 +94,7 @@ void AUV::run(){
 }
 
 void AUV::readSensors(){
-	//qDebug("Reading Sensor Data");
+	if(DEBUG) qDebug("Reading Sensor Data");
 	QTime t;
   	dataMutex->lock();
 	t.start();
@@ -102,7 +111,7 @@ void AUV::readSensors(){
 		stopThrusters();
 		emit hardwareOverride();
 	}else dataMutex->unlock();
-//	qDebug() << "Sensor Reading Time: " << QString::number(t.elapsed()) << "ms";
+	if(DEBUG) qDebug() << "Sensor Reading Time: " << QString::number(t.elapsed()) << "ms";
 	emit sensorUpdate(data);
 }
 
@@ -111,14 +120,6 @@ void AUV::inputFromBrain(ExternalOutputs_brain inputs){
 	look((cameraPosition) (char) inputs.CameraPosition);
 	// look(inputs.CameraX, inputs.CameraY);
 	setThrusters(inputs.Thrusters);
-	QStringList states;
-	states << "Autonomous";
-	states << "Startup";
-	states << "Validation Gate";
-	states << "Path to Buoy";
-	states << "Finding Buoy";
-	states << "Path to Hedge";
-	states << "Finished";
 	if(inputs.State >= 0) statusField("State",states[inputs.State]);
 	else if(inputs.State == -1) statusField("State","Remote Control");
 	else if(inputs.State == -2) statusField("State","Stopped");
@@ -194,7 +195,7 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 		thrusterSpeeds[1] = 0;
 	}
 */
-	//qDebug("Conversing with TReXs");
+	if(DEBUG) qDebug("Conversing with TReXs");
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
 		if(i != 3 && thrusterSpeeds[i] > 40) thrusterSpeeds[i] = 40;
 		if(i != 3 && thrusterSpeeds[i] < -40) thrusterSpeeds[i] = -40;
@@ -205,7 +206,7 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 		data.thrusterSpeeds[i] = thrusterSpeeds[i];
 	}
 
-	//qDebug("Conversation Over");
+	if(DEBUG) qDebug("Conversation Over");
 }
 
 // set all of the thruster speeds to 0
