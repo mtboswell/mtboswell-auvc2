@@ -27,7 +27,6 @@ HEADERS += server/server.h \
 	auv/arduino.h \
 	auv/auv.h \
 	auv/auvtypes.h \
-	auv/buffer.h \
 	auv/calibration.h \
 	auv/camread.h \
 	auv/imudata.h \
@@ -35,9 +34,10 @@ HEADERS += server/server.h \
 	auv/pololu.h \
 	auv/ports.h \
 	auv/power.h \
-	auv/uart.h \
 	auv/mechanisms.h \
 	auv/calibrateservos.h \
+	auv/serialdevice.h \
+	auv/lcd.h \
 	brain/AudioDefs.h \
 	brain/autobuild.h \
 	brain/bio_sig.h \
@@ -203,14 +203,14 @@ SOURCES += server/server.cpp \
 	   model/parameters.cpp \
 	   auv/arduino.cpp \
 	   auv/auv.cpp \
-	   auv/buffer.cpp \
 	   auv/camread.cpp \
 	   auv/microstrain.cpp \
 	   auv/pololu.cpp \
 	   auv/power.cpp \
-	   auv/uart.cpp \
 	   auv/mechanisms.cpp \
 	   auv/calibrateservos.cpp \
+	   auv/serialdevice.cpp \
+	   auv/lcd.cpp \
 	   brain/brain.cpp \
 	   brain/brain_data.cpp \
 	   brain/rt_nonfinite.cpp \

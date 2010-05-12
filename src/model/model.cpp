@@ -136,7 +136,6 @@ void Model::updateSensorsInput(AUVSensors values){
 void Model::setState(int state){
 	if(state < 0 || state > 5) return;	
 	brain_U.DesiredState = state;
-	emit status("Entering state " + QString::number(state));
 }
 
 
@@ -151,8 +150,25 @@ void Model::setInput(QString name, double value){
 	if(name == "RC_Heading") brain_U.RC_Heading = value;
 	else if(name == "RC_ForwardVelocity") brain_U.RC_ForwardVelocity = value;
 	else if(name == "RC_Strafe") brain_U.RC_Strafe = value;
-	else if(name == "RC_Depth") brain_U.RC_Depth = value;
-	else if(name == "Status") brain_U.Status = (int8_T) value;
-	else if(name == "DesiredState") brain_U.DesiredState = (int8_T) value;
-	else if(name == "RC") brain_U.RC = (boolean_T) value;
+	else if(name == "RC_Depth") {
+		brain_U.RC_Depth = value;
+	}else if(name == "Status"){
+		brain_U.Status = (int8_T) value;
+	}else if(name == "DesiredState") {
+		brain_U.DesiredState = (int8_T) value;
+		if(value == 0) emit status("Autonomous");
+		else emit status("Holding state");
+	}else if(name == "RC") {
+		brain_U.RC = (boolean_T) value;
+		if(brain_U.RC) emit status("Entering Remote Control Mode");
+		else emit status("Autonomous");
+	}
+
+	if(brain_U.RC) {
+		emit status(
+			"H" + QString::number(brain_U.RC_Heading)
+			+ " D" + QString::number(brain_U.RC_Depth)
+			+ " F" + QString::number(brain_U.RC_ForwardVelocity)
+			+ " S" + QString::number(brain_U.RC_Strafe));
+	}
 } 

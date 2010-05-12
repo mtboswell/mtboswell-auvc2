@@ -400,9 +400,11 @@ void Dashboard::keyPressEvent(QKeyEvent* event){
 			if(controlGroupBox->isChecked()) {
 				controlGroupBox->setChecked(false);
 				tabWidget->setCurrentWidget(videoPage);
+				this->setFocus(Qt::OtherFocusReason);
 			}else{
 				controlGroupBox->setChecked(true);
 				tabWidget->setCurrentWidget(controlsPage);
+				this->setFocus(Qt::OtherFocusReason);
 			}
 			break;
 		case Qt::Key_Left: desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepSub); break;

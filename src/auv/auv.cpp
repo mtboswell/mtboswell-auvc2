@@ -50,6 +50,9 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 	microstrain = new Microstrain(IMUPORT);
 	pControllers = new Pololu(POLOLUPORT);
 	thrusterPower = new Power(POWERPORT);
+	statusLcd = new LCD(LCDPORT);
+
+	//connect(this, SIGNAL(status(QString)), this, SLOT(statusMessage(QString)));
 
 	// dirty hack to disable off switch when we don't have one attached.
 	data.manualOverrideDisabled = hardwareOverrideDisabled;
@@ -63,6 +66,7 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 
 	// make sure the AUV hardware is ready to go
 	reset();
+	emit status("Startup Complete");
 }
 AUV::~AUV(){
 	qDebug("Shutting Down AUV Interface");
@@ -107,10 +111,21 @@ void AUV::inputFromBrain(ExternalOutputs_brain inputs){
 	look((cameraPosition) (char) inputs.CameraPosition);
 	// look(inputs.CameraX, inputs.CameraY);
 	setThrusters(inputs.Thrusters);
+	QStringList states;
+	states << "Autonomous";
+	states << "Startup";
+	states << "Validation Gate";
+	states << "Path to Buoy";
+	states << "Finding Buoy";
+	states << "Path to Hedge";
+	states << "Finished";
+	if(inputs.State >= 0) statusField("State",states[inputs.State]);
+	else if(inputs.State == -1) statusField("State","Remote Control");
+	else if(inputs.State == -2) statusField("State","Stopped");
 }
 
 void AUV::goAUV(){
-	emit status("AUV received signal to start");
+	emit status("Running!");
   	QMutexLocker locker(dataMutex);
 	data.status = RUNNING;
 }
@@ -215,13 +230,14 @@ double AUV::getDepth(){return ((double)((double)arduino->getValue("DEPTH")-depth
 void AUV::setActualDepth(double depth){
 	if(depth == 0) depthZero = arduino->getValue("DEPTH");
 	else depthScale = (arduino->getValue("DEPTH")-depthZero)/depth;
+	emit status("Calibrated Depth Sensor to " + QString::number(depth) + " ft");
 }
 
 bool AUV::getGo(){return (bool)arduino->getValue("GO");}
 
 void AUV::look(cameraPosition pos){
   	if(data.camera != pos) {
-		emit status("Moving Camera");
+		//emit status("Moving Camera");
 		switch(pos){
 			case FORWARD:
 				pControllers->setServoPosAbs(0, 2600);
@@ -399,7 +415,7 @@ void AUV::finishWhiteBalance(){
 	wbProc->execute("v4lctl setattr \"Auto White Balance\" off");
 	wait(500);
 	if(!camread_unpause()) qDebug() << "Failed to turn on camera:";
-	qDebug() << "Done white balancing";
+	emit status("Done white balancing");
 }
 
 
@@ -524,5 +540,13 @@ void AUV::releaseControllers(){
 	inputs.RC_Strafe = 0;
 	emit setControllers(inputs);
 }
+
+void AUV::statusMessage(QString message){
+	statusLcd->dispMessage(message);
+}
+void AUV::statusField(QString name, QString msg){
+	statusLcd->dispField(name, msg);
+}
+
 
 #endif /*AUV_CPP_*/

@@ -21,7 +21,7 @@ Microstrain::Microstrain(const QString & dev){
 	}
 	// put the AHRS in continuous mode (constantly sending results from command 0x31, which is "Send Gyro-Stabilized Euler Angles & Accel & Rate Vector")
 	char cmd[3] = {0x10, 0x00, 0x31};
-	qDebug() << "AHRS Continuous command:" << cmd;
+	//qDebug() << "AHRS Continuous command:" << cmd;
 	port->write(cmd, 3);
 
 	buf = new QByteArray();
