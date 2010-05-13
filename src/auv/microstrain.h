@@ -60,6 +60,8 @@ class Microstrain : public QThread
 		void initStatus();
 
 		imu_data status;
+
+		int packetCount, corruptedCount;
 		
 		QByteArray* buf;
 

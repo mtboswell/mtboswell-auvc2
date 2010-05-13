@@ -13,7 +13,13 @@
 Microstrain::Microstrain(const QString & dev){
 	initStatus();
 	port = new QextSerialPort(dev, QextSerialPort::EventDriven);
+
 	port->setBaudRate(BAUD38400);
+	port->setStopBits(STOP_1);
+	port->setParity(PAR_NONE);
+	port->setDataBits(DATA_8);
+	port->setFlowControl(FLOW_OFF);
+
 	if (port->open(QIODevice::ReadWrite) == true) {
 		connect(port, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
 	}else {
@@ -23,6 +29,8 @@ Microstrain::Microstrain(const QString & dev){
 	char cmd[3] = {0x10, 0x00, 0x31};
 	//qDebug() << "AHRS Continuous command:" << cmd;
 	port->write(cmd, 3);
+
+	packetCount = corruptedCount = 0;
 
 	buf = new QByteArray();
 }
@@ -55,8 +63,8 @@ void Microstrain::onReadyRead(){
 	int a = port->bytesAvailable();
 	bytes.resize(a);
 	port->read(bytes.data(), bytes.size());
-	qDebug() << "Microstrain bytes read:" << bytes.size();
-	qDebug() << "Microstrain data:" << bytes;
+	//qDebug() << "Microstrain bytes read:" << bytes.size();
+	//qDebug() << "Microstrain data:" << bytes;
 	buf->append(bytes);
 
 
@@ -84,19 +92,24 @@ const double scaleAcc = (7.0/32768.0)*9.81;
  */
 void Microstrain::process(QByteArray & data){
 
+	//packetCount++;
+
 	short command = (short)data[0];
-	if(command != 49) qDebug() << "Something weird happened";
-	short roll = (short)((data[1] << 8)|(data[2]));
-	short pitch = (short)((data[3] << 8)|(data[4]));
-	short yaw = (short)((data[5] << 8)|(data[6]));
-	short rollacc = (short)((data[7] << 8)|(data[8]));
-	short pitchacc = (short)((data[9] << 8)|(data[10]));
-	short yawacc = (short)((data[11] << 8)|(data[12]));
-	short rollrate = (short)((data[13] << 8)|(data[14]));
-	short pitchrate = (short)((data[15] << 8)|(data[16]));
-	short yawrate = (short)((data[17] << 8)|(data[18]));
-	short tmticks = (short)((data[19] << 8)|(data[20]));
-	short chksum = (short)((data[21] << 8)|(data[22]));
+	if(command != 49) {
+		qDebug() << "Something weird happened";
+		return;
+	}
+	short yaw = (((data[5]<< 8)&0xFF00) | (data[6]&0x00FF));
+	short roll = (((data[1] << 8)&0xFF00)|(data[2]&0x00FF));
+	short pitch = (((data[3] << 8)&0xFF00)|(data[4]&0x00FF));
+	short rollacc = (((data[7] << 8)&0xFF00)|(data[8]&0x00FF));
+	short pitchacc = (((data[9] << 8)&0xFF00)|(data[10]&0x00FF));
+	short yawacc = (((data[11] << 8)&0xFF00)|(data[12]&0x00FF));
+	short rollrate = (((data[13] << 8)&0xFF00)|(data[14]&0x00FF));
+	short pitchrate = (((data[15] << 8)&0xFF00)|(data[16]&0x00FF));
+	short yawrate = (((data[17] << 8)&0xFF00)|(data[18]&0x00FF));
+	short tmticks = (((data[19] << 8)&0xFF00)|(data[20]&0x00FF));
+	short chksum = (((data[21] << 8)&0xFF00)|(data[22]&0x00FF));
 
 	// compute checksum
 	short calchksum = (short)(command + yaw + roll + pitch + 
@@ -105,6 +118,10 @@ void Microstrain::process(QByteArray & data){
 
 	if(calchksum != chksum){
 		qDebug() << "Corrupted IMU packet!";
+		//corruptedCount++;
+		//qDebug() << "Corruption rate: " + QString::number(corruptedCount*100.0/packetCount) + "%";
+		//qDebug() << "Yaw: " << QString::number(data[5],16) << QString::number(data[6],16) << QString::number(yaw,16);
+		//qDebug() << "Sum should be: " + QString::number(chksum,16) + " but it is " + QString::number(calchksum,16);
 		return;
 	}
 	// copy vars to imu_status // angles
