@@ -163,6 +163,7 @@ void AUV::kill(){
 }
 
 // sets data.status based on the external switch
+// deprecated
 void AUV::externalControl(){
   	dataMutex->lock();
 	/* Wait for go */
@@ -208,6 +209,26 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 
 	if(DEBUG) qDebug("Conversation Over");
 }
+// set thruster speeds
+void AUV::setThrusters(double thrusterSpeeds[NUMBER_OF_THRUSTERS]){
+	if(!data.thrusterPower.state || data.status == PAUSED || data.status == READY) return;
+
+	signed char thrusterScale[NUMBER_OF_THRUSTERS];
+	thrusterScale[0] = 127;
+	thrusterScale[1] = 127;
+	thrusterScale[2] = 127;
+	thrusterScale[3] = 127;
+
+	if(DEBUG) qDebug("Conversing with TReXs");
+	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
+		pControllers->setMotorSpeed(i, thrusterSpeeds[i]*thrusterScale[i]);
+	}
+  	QMutexLocker locker(dataMutex);
+	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
+		data.thrusterSpeeds[i] = thrusterSpeeds[i];
+	}
+
+}
 
 // set all of the thruster speeds to 0
 void AUV::stopThrusters(){
@@ -236,6 +257,7 @@ void AUV::setActualDepth(double depth){
 
 bool AUV::getGo(){return (bool)arduino->getValue("GO");}
 
+// deprecated
 void AUV::look(cameraPosition pos){
   	if(data.camera != pos) {
 		//emit status("Moving Camera");
