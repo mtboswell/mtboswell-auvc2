@@ -1,10 +1,10 @@
 AUVC TODO list
 
-fix microstrain error checking
+DONE fix microstrain error checking
 fix serialdevice.cpp and test
 move drivers to serialdevice
 thruster scaling calibration
-fix camera output in brain
+fix camera output in brain - ???
 integrate controlboard
 separate auv.cpp into other classes
 - scripting
