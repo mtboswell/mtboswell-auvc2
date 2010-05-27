@@ -1,7 +1,7 @@
 /*
- * Copyright 1990-2004 The MathWorks, Inc.
+ * Copyright 1990-2009 The MathWorks, Inc.
  *
- * File: rtw_continuous.h     $Revision: 1.1.6.4 $
+ * File: rtw_continuous.h     $Revision: 1.1.6.3 $
  *
  * Abstract:
  *   Type definitions for continuous-time support.
@@ -45,6 +45,13 @@ typedef void (*rtMdlProjectionFcn)(void *rtModel);
 typedef void (*rtMdlMassMatrixFcn)(void *rtModel);
 typedef void (*rtMdlForcingFunctionFcn)(void *rtModel);
 typedef void (*rtMdlTerminateFcn)(void *rtModel);
+#ifdef RT_MALLOC
+typedef real_T (*rtMdlDiscreteEventsFcn)(void  *pModel,
+                                         int_T  rtmNumSampTimes, 
+                                         void  *rtmTimingData, 
+                                         int_T  *rtmSampleHitPtr, 
+                                         int_T  *rtmPerTaskSampleHits);
+#endif
 
 typedef struct _RTWRTModelMethodsInfo_tag {
     void                          *rtModelPtr;
@@ -58,6 +65,9 @@ typedef struct _RTWRTModelMethodsInfo_tag {
     rtMdlMassMatrixFcn            rtmMassMatrixFcn;
     rtMdlForcingFunctionFcn       rtmForcingFunctionFcn;
     rtMdlTerminateFcn             rtmTerminateFcn;
+#ifdef  RT_MALLOC
+    rtMdlDiscreteEventsFcn        rtmDiscreteEventsFcn;
+#endif
 } RTWRTModelMethodsInfo;
 
 #define rtmiSetRTModelPtr(M,rtmp) ((M).rtModelPtr = (rtmp))
@@ -83,26 +93,33 @@ typedef struct _RTWRTModelMethodsInfo_tag {
   ((M).rtmForcingFunctionFcn = ((rtMdlForcingFunctionFcn)(fp)))
 #define rtmiSetTerminateFcn(M,fp) \
   ((M).rtmTerminateFcn = ((rtMdlTerminateFcn)(fp)))
+#ifdef  RT_MALLOC
+#define rtmiSetDiscreteEventsFcn(M,fp) \
+  ((M).rtmDiscreteEventsFcn = ((rtMdlDiscreteEventsFcn)(fp)))
+#endif
 
-#define rtmiInitializeSizes(M) \
-         (*(M).rtmInitSizesFcn)((M).rtModelPtr)
-#define rtmiInitializeSampleTimes(M) \
-         (*(M).rtmInitSampTimesFcn)((M).rtModelPtr)
+#define rtmiInitializeSizes(M)                  \
+    ((*(M).rtmInitSizesFcn)((M).rtModelPtr))
+#define rtmiInitializeSampleTimes(M)                    \
+    ((*(M).rtmInitSampTimesFcn)((M).rtModelPtr))
 #define rtmiStart(M) \
-         (*(M).rtmStartFcn)((M).rtModelPtr)
+    ((*(M).rtmStartFcn)((M).rtModelPtr))
 #define rtmiOutputs(M, tid) \
-         (*(M).rtmOutputsFcn)((M).rtModelPtr,tid)
+    ((*(M).rtmOutputsFcn)((M).rtModelPtr,tid))
 #define rtmiUpdate(M, tid) \
-        (*(M).rtmUpdateFcn)((M).rtModelPtr,tid)
+    ((*(M).rtmUpdateFcn)((M).rtModelPtr,tid))
 #define rtmiDerivatives(M) \
-         (*(M).rtmDervisFcn)((M).rtModelPtr)
+    ((*(M).rtmDervisFcn)((M).rtModelPtr))
 #define rtmiProjection(M) \
-         (*(M).rtmProjectionFcn)((M).rtModelPtr)
+    ((*(M).rtmProjectionFcn)((M).rtModelPtr))
 #define rtmiMassMatrix(M) \
-         (*(M).rtmMassMatrixFcn)((M).rtModelPtr)
+    ((*(M).rtmMassMatrixFcn)((M).rtModelPtr))
 #define rtmiForcingFunction(M) \
-         (*(M).rtmForcingFunctionFcn)((M).rtModelPtr)
+    ((*(M).rtmForcingFunctionFcn)((M).rtModelPtr))
 #define rtmiTerminate(M) \
-         (*(M).rtmTerminateFcn)((M).rtModelPtr)
-
+    ((*(M).rtmTerminateFcn)((M).rtModelPtr))
+#ifdef  RT_MALLOC
+#define rtmiDiscreteEvents(M,x1,x2,x3,x4)                               \
+    ((*(M).rtmDiscreteEventsFcn)((M).rtModelPtr,(x1),(x2),(x3),(x4)))
+#endif
 #endif /* __RTW_CONTINUOUS_H__ */

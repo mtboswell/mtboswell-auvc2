@@ -5,7 +5,7 @@
  *  for IIR filters.
  *
  *  Copyright 1995-2005 The MathWorks, Inc.
- *  $Revision: 1.10.4.5 $ $Date: 2005/12/22 18:02:33 $
+ *  $Revision: 1.10.4.6 $ $Date: 2009/10/29 15:21:34 $
  */
 
 #ifndef dspiir_rt_h
@@ -973,73 +973,5 @@ DSPIIR_EXPORT void MWDSP_IIR_DF1_A0Scale_CC( const creal32_T      *u,
 }
 #endif
 
-#ifdef MWDSP_INLINE_DSPRTLIB
-# include "dspiir/iir_df1_a0scale_dd_rt.c"
-# include "dspiir/iir_df1_a0scale_rr_rt.c"
-# include "dspiir/iir_df1_dd_rt.c"
-# include "dspiir/iir_df1_rr_rt.c"
-# include "dspiir/iir_df1t_a0scale_dd_rt.c"
-# include "dspiir/iir_df1t_a0scale_rr_rt.c"
-# include "dspiir/iir_df1t_dd_rt.c"
-# include "dspiir/iir_df1t_rr_rt.c"
-# include "dspiir/iir_df2_a0scale_dd_rt.c"
-# include "dspiir/iir_df2_a0scale_rr_rt.c"
-# include "dspiir/iir_df2_dd_rt.c"
-# include "dspiir/iir_df2_rr_rt.c"
-# include "dspiir/iir_df2t_a0scale_dd_rt.c"
-# include "dspiir/iir_df2t_a0scale_rr_rt.c"
-# include "dspiir/iir_df2t_dd_rt.c"
-# include "dspiir/iir_df2t_rr_rt.c"
-# ifdef CREAL_T
-#  include "dspiir/iir_df1_a0scale_cc_rt.c"
-#  include "dspiir/iir_df1_a0scale_cr_rt.c"
-#  include "dspiir/iir_df1_a0scale_dz_rt.c"
-#  include "dspiir/iir_df1_a0scale_rc_rt.c"
-#  include "dspiir/iir_df1_a0scale_zd_rt.c"
-#  include "dspiir/iir_df1_a0scale_zz_rt.c"
-#  include "dspiir/iir_df1_cc_rt.c"
-#  include "dspiir/iir_df1_cr_rt.c"
-#  include "dspiir/iir_df1_dz_rt.c"
-#  include "dspiir/iir_df1_rc_rt.c"
-#  include "dspiir/iir_df1_zd_rt.c"
-#  include "dspiir/iir_df1_zz_rt.c"
-#  include "dspiir/iir_df1t_a0scale_cc_rt.c"
-#  include "dspiir/iir_df1t_a0scale_cr_rt.c"
-#  include "dspiir/iir_df1t_a0scale_dz_rt.c"
-#  include "dspiir/iir_df1t_a0scale_rc_rt.c"
-#  include "dspiir/iir_df1t_a0scale_zd_rt.c"
-#  include "dspiir/iir_df1t_a0scale_zz_rt.c"
-#  include "dspiir/iir_df1t_cc_rt.c"
-#  include "dspiir/iir_df1t_cr_rt.c"
-#  include "dspiir/iir_df1t_dz_rt.c"
-#  include "dspiir/iir_df1t_rc_rt.c"
-#  include "dspiir/iir_df1t_zd_rt.c"
-#  include "dspiir/iir_df1t_zz_rt.c"
-#  include "dspiir/iir_df2_a0scale_cc_rt.c"
-#  include "dspiir/iir_df2_a0scale_cr_rt.c"
-#  include "dspiir/iir_df2_a0scale_dz_rt.c"
-#  include "dspiir/iir_df2_a0scale_rc_rt.c"
-#  include "dspiir/iir_df2_a0scale_zd_rt.c"
-#  include "dspiir/iir_df2_a0scale_zz_rt.c"
-#  include "dspiir/iir_df2_cc_rt.c"
-#  include "dspiir/iir_df2_cr_rt.c"
-#  include "dspiir/iir_df2_dz_rt.c"
-#  include "dspiir/iir_df2_rc_rt.c"
-#  include "dspiir/iir_df2_zd_rt.c"
-#  include "dspiir/iir_df2_zz_rt.c"
-#  include "dspiir/iir_df2t_a0scale_cc_rt.c"
-#  include "dspiir/iir_df2t_a0scale_cr_rt.c"
-#  include "dspiir/iir_df2t_a0scale_dz_rt.c"
-#  include "dspiir/iir_df2t_a0scale_rc_rt.c"
-#  include "dspiir/iir_df2t_a0scale_zd_rt.c"
-#  include "dspiir/iir_df2t_a0scale_zz_rt.c"
-#  include "dspiir/iir_df2t_cc_rt.c"
-#  include "dspiir/iir_df2t_cr_rt.c"
-#  include "dspiir/iir_df2t_dz_rt.c"
-#  include "dspiir/iir_df2t_rc_rt.c"
-#  include "dspiir/iir_df2t_zd_rt.c"
-#  include "dspiir/iir_df2t_zz_rt.c"
-# endif /* CREAL_T */
-#endif /* MWDSP_INLINE_DSPRTLIB */
 
 #endif /* dspiir_rt_h */

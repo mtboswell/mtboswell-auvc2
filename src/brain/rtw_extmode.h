@@ -1,7 +1,7 @@
 /*
  * Copyright 1990-2008 The MathWorks, Inc.
  *
- * File: rtw_extmode.h     $Revision: 1.1.6.4 $
+ * File: rtw_extmode.h     $Revision: 1.1.6.1 $
  *
  * Abstract:
  *   Type definitions for Simulink External Mode support.

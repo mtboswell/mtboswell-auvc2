@@ -5,7 +5,7 @@
  *  for Auto Regressive (all pole) filters.
  *
  *  Copyright 1995-2005 The MathWorks, Inc.
- *  $Revision: 1.9.4.5 $ $Date: 2005/12/22 18:02:09 $
+ *  $Revision: 1.9.4.6 $ $Date: 2009/10/29 15:21:27 $
  */
 
 #ifndef dspallpole_rt_h
@@ -598,49 +598,5 @@ DSPALLPOLE_EXPORT void MWDSP_AllPole_DF_A0Scale_CC(
 }
 #endif
 
-#ifdef MWDSP_INLINE_DSPRTLIB
-# include "dspallpole/allpole_df_a0scale_dd_rt.c"
-# include "dspallpole/allpole_df_a0scale_rr_rt.c"
-# include "dspallpole/allpole_df_dd_rt.c"
-# include "dspallpole/allpole_df_rr_rt.c"
-# include "dspallpole/allpole_lat_dd_rt.c"
-# include "dspallpole/allpole_lat_rr_rt.c"
-# include "dspallpole/allpole_tdf_a0scale_dd_rt.c"
-# include "dspallpole/allpole_tdf_a0scale_rr_rt.c"
-# include "dspallpole/allpole_tdf_dd_rt.c"
-# include "dspallpole/allpole_tdf_rr_rt.c"
-# ifdef CREAL_T
-#  include "dspallpole/allpole_df_a0scale_cc_rt.c"
-#  include "dspallpole/allpole_df_a0scale_cr_rt.c"
-#  include "dspallpole/allpole_df_a0scale_dz_rt.c"
-#  include "dspallpole/allpole_df_a0scale_rc_rt.c"
-#  include "dspallpole/allpole_df_a0scale_zd_rt.c"
-#  include "dspallpole/allpole_df_a0scale_zz_rt.c"
-#  include "dspallpole/allpole_df_cc_rt.c"
-#  include "dspallpole/allpole_df_cr_rt.c"
-#  include "dspallpole/allpole_df_dz_rt.c"
-#  include "dspallpole/allpole_df_rc_rt.c"
-#  include "dspallpole/allpole_df_zd_rt.c"
-#  include "dspallpole/allpole_df_zz_rt.c"
-#  include "dspallpole/allpole_lat_cc_rt.c"
-#  include "dspallpole/allpole_lat_cr_rt.c"
-#  include "dspallpole/allpole_lat_dz_rt.c"
-#  include "dspallpole/allpole_lat_rc_rt.c"
-#  include "dspallpole/allpole_lat_zd_rt.c"
-#  include "dspallpole/allpole_lat_zz_rt.c"
-#  include "dspallpole/allpole_tdf_a0scale_cc_rt.c"
-#  include "dspallpole/allpole_tdf_a0scale_cr_rt.c"
-#  include "dspallpole/allpole_tdf_a0scale_dz_rt.c"
-#  include "dspallpole/allpole_tdf_a0scale_rc_rt.c"
-#  include "dspallpole/allpole_tdf_a0scale_zd_rt.c"
-#  include "dspallpole/allpole_tdf_a0scale_zz_rt.c"
-#  include "dspallpole/allpole_tdf_cc_rt.c"
-#  include "dspallpole/allpole_tdf_cr_rt.c"
-#  include "dspallpole/allpole_tdf_dz_rt.c"
-#  include "dspallpole/allpole_tdf_rc_rt.c"
-#  include "dspallpole/allpole_tdf_zd_rt.c"
-#  include "dspallpole/allpole_tdf_zz_rt.c"
-# endif /* CREAL_T */
-#endif /* MWDSP_INLINE_DSPRTLIB */
 
 #endif /* dspallpole_rt_h */

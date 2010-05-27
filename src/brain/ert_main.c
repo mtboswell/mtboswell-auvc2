@@ -1,4 +1,4 @@
-/* $Revision: 1.31.4.15 $
+/* $Revision: 1.31.4.16 $
  * Copyright 1994-2008 The MathWorks, Inc.
  *
  * File: ert_main.c
@@ -92,8 +92,14 @@ your application needs.
 #if !defined(INTEGER_CODE) || INTEGER_CODE == 0
 # include <stdio.h>    /* optional for printf */
 #else
+#ifdef __cplusplus
+extern "C" {
+#endif
   extern int printf(const char *, ...); 
   extern int fflush(void *);
+#ifdef __cplusplus
+}
+#endif
 #endif
 #include <string.h>    /* optional for strcmp */
 #include "autobuild.h" /* optional for automated builds */
@@ -423,7 +429,7 @@ int_T rt_TermModel(void)
     MODEL_TERMINATE();
     
     {
-        const char_T *errStatus = rtmGetErrorStatus(RT_MDL);
+        const char_T *errStatus = (const char_T *) (rtmGetErrorStatus(RT_MDL));
         int_T i;
         
         if (errStatus != NULL && strcmp(errStatus, "Simulation finished")) {

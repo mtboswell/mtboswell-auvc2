@@ -3,7 +3,7 @@
  *
  *
  *  Copyright 1995-2005 The MathWorks, Inc.
- *  $Revision: 1.1.6.5 $  $Date: 2005/12/22 18:02:13 $
+ *  $Revision: 1.1.6.6 $  $Date: 2009/10/29 15:21:29 $
  */
 #ifndef dspblms_rt_h
 #define dspblms_rt_h
@@ -292,26 +292,5 @@ DSPBLMS_EXPORT void MWDSP_blms_ay_wy_CC(const creal32_T *inSigU,
 }
 #endif
 
-#ifdef MWDSP_INLINE_DSPRTLIB
-/* BLOCK LMS ONLY */
-# include "dspblms/blms_an_wn_dd_rt.c"
-# include "dspblms/blms_an_wn_rr_rt.c"
-# include "dspblms/blms_an_wy_dd_rt.c"
-# include "dspblms/blms_an_wy_rr_rt.c"
-# include "dspblms/blms_ay_wn_dd_rt.c"
-# include "dspblms/blms_ay_wn_rr_rt.c"
-# include "dspblms/blms_ay_wy_dd_rt.c"
-# include "dspblms/blms_ay_wy_rr_rt.c"
-# ifdef CREAL_T
-#  include "dspblms/blms_an_wn_cc_rt.c"
-#  include "dspblms/blms_an_wn_zz_rt.c"
-#  include "dspblms/blms_an_wy_cc_rt.c"
-#  include "dspblms/blms_an_wy_zz_rt.c"
-#  include "dspblms/blms_ay_wn_cc_rt.c"
-#  include "dspblms/blms_ay_wn_zz_rt.c"
-#  include "dspblms/blms_ay_wy_cc_rt.c"
-#  include "dspblms/blms_ay_wy_zz_rt.c"
-# endif /* CREAL_T */
-#endif /* MWDSP_INLINE_DSPRTLIB */
 
 #endif /*  dspblms_rt_h */

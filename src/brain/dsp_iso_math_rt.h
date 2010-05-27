@@ -3,8 +3,8 @@
  *
  *  Provides (actual or emulated) support for ISO C math library functions.
  *
- *  Copyright 1995-2005 The MathWorks, Inc.
- *  $Revision: 1.6.4.1 $  $Date: 2005/12/22 18:02:01 $
+ *  Copyright 1995-2009 The MathWorks, Inc.
+ *  $Revision: 1.6.4.2 $  $Date: 2009/10/07 14:19:29 $
  */
 
 #ifndef dsp_iso_math_rt_h
@@ -196,7 +196,7 @@
 
 
   /* SPECIAL PLATFORM-DEPENDENT FUNCTION EXTENSIONS THAT WERE
-   * NOT PART OF THE ORITINAL ISO STDS (USE AT YOUR OWN RISK)
+   * NOT PART OF THE ORIGINAL ISO STDS (USE AT YOUR OWN RISK)
    */
   #ifndef lgammaf_r
   #define lgammaf_r(X) (float)( lgamma_r((double)(X)) )
@@ -211,7 +211,7 @@
   #define j1f(X)       (float)( j1(      (double)(X)) )
   #endif
   #ifndef jnf
-  #define jnf(N,X)     (float)( jn(   N, (double)(X)) )
+  #define jnf(N,X)     (float)( jn( (N), (double)(X)) )
   #endif
   #ifndef y0f
   #define y0f(X)       (float)( y0(      (double)(X)) )
@@ -220,7 +220,7 @@
   #define y1f(X)       (float)( y1(      (double)(X)) )
   #endif
   #ifndef ynf
-  #define ynf(N,X)     (float)( yn(   N, (double)(X)) )
+  #define ynf(N,X)     (float)( yn( (N), (double)(X)) )
   #endif
 
 

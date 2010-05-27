@@ -2,7 +2,7 @@
  *  viprotate_rt.h
  *
  *  Copyright 1995-2006 The MathWorks, Inc.
- *  $Revision: 1.1.8.9 $ $Date: 2008/04/11 16:23:18 $
+ *  $Revision: 1.1.8.10 $ $Date: 2009/11/16 22:38:45 $
  */
 
 #ifndef viprotate_rt_h
@@ -14,7 +14,7 @@
 #ifdef VIPROTATE_EXPORTS
 #define VIPROTATE_EXPORT EXPORT_FCN
 #else
-#define VIPROTATE_EXPORT MWDSP_IDECL
+#define VIPROTATE_EXPORT MWSP_IDECL
 #endif
 
 
@@ -103,15 +103,6 @@ VIPROTATE_EXPORT void MWVIP_Skew_BCI_D(const real_T *src,const int_T len, const 
 VIPROTATE_EXPORT void MWVIP_Skew_BCI_R(const real32_T *src,const int_T len, const int_T nlen, const real32_T strt,
 				 const int_T offsetSrc, const int_T offsetDst,real32_T *dst,
                                  const int_T colStartIdx, const real32_T *fillValPtr);
-
-#ifdef MWDSP_INLINE_DSPRTLIB
-#include "viprotate/skew_bci_d_rt.c"
-#include "viprotate/skew_bci_r_rt.c"
-#include "viprotate/skew_bli_d_rt.c"
-#include "viprotate/skew_bli_r_rt.c"
-#include "viprotate/skew_nni_d_rt.c"
-#include "viprotate/skew_nni_r_rt.c"
-#endif
 
 #ifdef __cplusplus
 } /*  close brace for extern C from above */

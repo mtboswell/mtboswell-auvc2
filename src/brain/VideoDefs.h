@@ -1,8 +1,8 @@
 /*
  * VideoDefs.h - Definitions for video I/O
  *
- *  Copyright 1995-2007 The MathWorks, Inc.
- *  $Revision: 1.1.6.7 $  $Date: 2008/11/18 01:38:48 $
+ *  Copyright 1995-2009 The MathWorks, Inc.
+ *  $Revision: 1.1.6.10 $  $Date: 2009/07/06 20:30:57 $
  */
 
 #ifndef VIDEODEFS_H
@@ -10,58 +10,75 @@
 
 typedef enum
 {
-	VideoFrame_RowMajor = 0,
-	VideoFrame_ColumnMajor
+    VideoFrame_RowMajor = 0,
+    VideoFrame_ColumnMajor
 } VideoFrameOrientation;
 
 typedef enum
 {
-	LineOrder_TopDown = 0,
-	LineOrder_BottomUp
+    LineOrder_TopDown = 0,
+    LineOrder_BottomUp
 } VideoFrameLineOrder;
+
+typedef enum {
+    FOURCC_INVALID,
+    FOURCC_RGB,
+    FOURCC_GREY,
+    FOURCC_YUY2
+} FourCCType;
+
+typedef enum {
+    FILETYPE_INVALID,
+    FILETYPE_AVI,
+    FILETYPE_WAV,
+    FILETYPE_WMV,
+    FILETYPE_WMA
+} MMFileType;
+
 
 /* these follow Simulink data types, in simstruc_types.h */
 typedef enum
 {
-	VideoDataType_Double = 0,	/* double */
-	VideoDataType_Single,		/* float */
-	VideoDataType_Int8,			/* char */
-	VideoDataType_Uint8,		/* unsigned char */
-	VideoDataType_Int16,		/* short */
-	VideoDataType_Uint16,		/* unsigned short */
-	VideoDataType_Int32,		/* long */
-	VideoDataType_Uint32,		/* unsigned long */
-	VideoDataType_Boolean		/* bool */
+    VideoDataType_Double = 0,   /* double */
+    VideoDataType_Single,       /* float */
+    VideoDataType_Int8,         /* char */
+    VideoDataType_Uint8,        /* unsigned char */
+    VideoDataType_Int16,        /* short */
+    VideoDataType_Uint16,       /* unsigned short */
+    VideoDataType_Int32,        /* long */
+    VideoDataType_Uint32,       /* unsigned long */
+    VideoDataType_Boolean       /* bool */
 } VideoDataType;
 
-/* VideoOutputType: used by the to video device component to specify where 
-the incoming video signal should go... */
-
-typedef enum
-{
-	VideoOutput_Window = 0,
-	VideoOutput_Device
-} VideoOutputType;
+static const int VideoDataTypeSize[] = {8,4,1,1,2,2,4,4,1};
 
 typedef struct
 {
     unsigned char isValid;    /* Zero if the file has no video */
-	double frameRate;		  /* video num frames per second */
-	double frameRateComputed; /* video num frames per second, as computed by the video framework.
+
+    /* The following fields refer to the format of the video data as encoded in the file/device */
+    double frameRate;         /* video num frames per second */
+    double frameRateComputed; /* video num frames per second, as computed by the video framework.
                                * The reason that this field is necessary is that on Windows, 
                                * this number is less accurate than the frameRate field, yet it is essential
                                * to use this value in methods that determine which frame to emit.
                                * The frameRate field determines the Sample Time on the 
                                * Simulink wire, to be consistent with the UNIX implementation.
                                */
-	int videoWidth;			  /* width of video image */
-	int videoHeight;		  /* height of video image */
-	VideoDataType dataType;	  /* data type of incoming video image pixels */
-	VideoFrameOrientation orientation;  /* row- or column-major */
-	const char* videoCompressor;        /* typically set to NULL for none */
-    int   isOut3D;            /* single output port with a 3-D signal or 3 seperate R,G and B ports. */
+    char fourcc[4];           /* set to the FOURCC code of the video encoding (e.g. RGB, YUV)*/
+    int numPorts;             /* The number of separate signals (ports) used for the image */
+    int numBands;             /* The number of bands (or color planes) in the image */
+    int bandWidth[3];         /* width of the video bands (RGB or intensity/chroma if YCbCr) */
+    int bandHeight[3];        /* height of the video bands (RGB or intensity/chroma if YCbCr) */
+    
+    /* The following fields refer to the format of the data in MATLAB/Simulink */
+    VideoDataType dataType;   /* data type of incoming video image pixels */
+    VideoFrameOrientation orientation;  /* row- or column-major */
+    
+    /* The name of the compression format, if we are writing a file */
+    const char* videoCompressor;        /* set to NULL for none */
 } MMVideoInfo;
 
 
-#endif	/* VIDEODEFS_H */
+#endif  /* VIDEODEFS_H */
 

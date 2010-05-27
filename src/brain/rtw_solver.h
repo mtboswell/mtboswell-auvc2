@@ -1,7 +1,7 @@
 /*
- * Copyright 1990-2006 The MathWorks, Inc.
+ * Copyright 1990-2009 The MathWorks, Inc.
  *
- * File: rtw_solver.h     $Revision: 1.1.6.16.4.1 $
+ * File: rtw_solver.h     $Revision: 1.1.6.5 $
  *
  * Abstract:
  *   Type definitions for continuous-time solver support.
@@ -32,7 +32,7 @@ typedef struct _ssSolverInfo_tag {
     time_T      minStepSize;
     time_T      maxStepSize;
     time_T      fixedStepSize;
-    
+      
     int_T       solverShapePreserveControl;
     int_T       solverMaxConsecutiveMinStep;
     int_T       maxNumMinSteps;
@@ -61,6 +61,7 @@ typedef struct _ssSolverInfo_tag {
 
     boolean_T   foundContZcEvents;
     boolean_T   isAtLeftPostOfContZcEvent;
+    boolean_T   isAtRightPostOfContZcEvent;
     boolean_T   needsContZcEventNotification;
     boolean_T   adaptiveZcDetection;
 
@@ -84,6 +85,8 @@ typedef struct _ssSolverInfo_tag {
     int_T       zeroCrossAlgorithm;
     int_T       consecutiveZCsError;
     boolean_T   blkStateChange;
+    boolean_T   isComputingJacobian;
+    int_T       solverJacobianMethodControl;
 } ssSolverInfo;
 
 /* Support old name RTWSolverInfo */
@@ -139,6 +142,9 @@ typedef ssSolverInfo RTWSolverInfo;
 
 #define rtsiSetSolverConsecutiveZCsError(S,smcm)   (ssGetSolverInfo(S)->solverConsecutiveZCsError = (smcm))
 #define rtsiGetSolverConsecutiveZCsError(S)        ssGetSolverInfo(S)->solverConsecutiveZCsError
+
+#define rtsiSetSolverJacobianMethodControl(S,smcm)   (ssGetSolverInfo(S)->solverJacobianMethodControl = (smcm))
+#define rtsiGetSolverJacobianMethodControl(S)        ssGetSolverInfo(S)->solverJacobianMethodControl
 
 #define rtsiSetSolverShapePreserveControl(S,smcm)   (ssGetSolverInfo(S)->solverShapePreserveControl = (smcm))
 #define rtsiGetSolverShapePreserveControl(S)        ssGetSolverInfo(S)->solverShapePreserveControl
@@ -202,6 +208,9 @@ typedef ssSolverInfo RTWSolverInfo;
 
 #define rtsiSetModelMethodsPtr(S,mmp) ((S)->modelMethodsPtr = (mmp))
 #define rtsiGetModelMethodsPtr(S)     (S)->modelMethodsPtr
+
+#define rtsiSetSolverComputingJacobian(S,val) ((S)->isComputingJacobian = (val))
+#define rtsiIsSolverComputingJacobian(S)    (S)->isComputingJacobian
 
 #endif /* !NO_FLOATS */
 

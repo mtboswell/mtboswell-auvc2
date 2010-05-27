@@ -2,7 +2,7 @@
  *  dspsrt_rt.h
  *
  *  Copyright 1995-2006 The MathWorks, Inc.
- *  $Revision: 1.8.4.9 $ $Date: 2006/06/27 22:48:02 $
+ *  $Revision: 1.8.4.10 $ $Date: 2009/10/29 15:21:38 $
  */
 
 #ifndef dspsrt_rt_h
@@ -17,11 +17,7 @@
 #endif
 
 /* do not inline recursive quick sort functions */
-#ifdef MWDSP_INLINE_DSPRTLIB
-#define DSPQSRTNOINLINE_EXPORT extern
-#else
 #define DSPQSRTNOINLINE_EXPORT DSPQSRT_EXPORT
-#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -274,27 +270,5 @@ DSPQSRT_EXPORT boolean_T MWDSP_SrtQidFindPivotR(
 }
 #endif
 
-/* dsp v3 files */
-
-#ifdef MWDSP_INLINE_DSPRTLIB
-# if !defined(INTEGER_CODE) || !INTEGER_CODE
-#  include "dspqsrt/sort_ins_idx_d_rt.c"
-#  include "dspqsrt/sort_ins_idx_r_rt.c"
-#  include "dspqsrt/sort_ins_val_d_rt.c"
-#  include "dspqsrt/sort_ins_val_r_rt.c"
-# endif /* !INTEGER_CODE */
-# include "dspqsrt/sort_ins_idx_s08_rt.c"
-# include "dspqsrt/sort_ins_idx_s16_rt.c"
-# include "dspqsrt/sort_ins_idx_s32_rt.c"
-# include "dspqsrt/sort_ins_idx_u08_rt.c"
-# include "dspqsrt/sort_ins_idx_u16_rt.c"
-# include "dspqsrt/sort_ins_idx_u32_rt.c"
-# include "dspqsrt/sort_ins_val_s08_rt.c"
-# include "dspqsrt/sort_ins_val_s16_rt.c"
-# include "dspqsrt/sort_ins_val_s32_rt.c"
-# include "dspqsrt/sort_ins_val_u08_rt.c"
-# include "dspqsrt/sort_ins_val_u16_rt.c"
-# include "dspqsrt/sort_ins_val_u32_rt.c"
-#endif /* MWDSP_INLINE_DSPRTLIB */
 
 #endif /* dspsrt_rt_h */

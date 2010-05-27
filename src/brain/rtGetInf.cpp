@@ -3,15 +3,21 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.349
- * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Tue Apr 13 17:34:15 2010
- * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Tue Apr 13 17:34:16 2010
+ * Model version                        : 1.364
+ * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
+ * Real-Time Workshop file generated on : Thu May 27 18:36:36 2010
+ * TLC version                          : 7.5 (Jan 19 2010)
+ * C/C++ source code generated on       : Thu May 27 18:36:36 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
- * Code generation objectives: Unspecified
+ * Code generation objectives:
+ *    1. Debugging
+ *    2. Safety precaution
+ *    3. Traceability
+ *    4. Execution efficiency
+ *    5. ROM efficiency
+ *    6. RAM efficiency
  * Validation result: Not run
  */
 
@@ -20,116 +26,81 @@
  *      Real-Time Workshop function to intialize non-finite, Inf
  */
 #include "rtGetInf.h"
-#define NumBitsPerChar                 8
+#define NumBitsPerChar                 8U
 
 extern "C" {
-  /* Function: rtGetInf ==================================================
-   * Abstract:
-   *	Initialize rtInf needed by the generated code.
-   *	Inf is initialized as non-signaling. Assumes IEEE.
+  /*
+   * Initialize rtInf needed by the generated code.
+   * Inf is initialized as non-signaling. Assumes IEEE.
    */
   real_T rtGetInf(void)
   {
     size_t bitsPerReal = sizeof(real_T) * (NumBitsPerChar);
     real_T inf = 0.0;
-    if (bitsPerReal == 32) {
+    if (bitsPerReal == 32U) {
       inf = rtGetInfF();
     } else {
-      typedef struct {
-        struct {
-          uint32_T wordL;
-          uint32_T wordH;
-        } words;
-      } LittleEndianIEEEDouble;
-
       union {
         LittleEndianIEEEDouble bitVal;
         real_T fltVal;
       } tmpVal;
 
-      tmpVal.bitVal.words.wordH = 0x7FF00000;
-      tmpVal.bitVal.words.wordL = 0x00000000;
+      tmpVal.bitVal.words.wordH = 0x7FF00000U;
+      tmpVal.bitVal.words.wordL = 0x00000000U;
       inf = tmpVal.fltVal;
     }
 
     return inf;
   }
 
-  /* Function: rtGetInfF ==================================================
-   * Abstract:
-   *	Initialize rtInfF needed by the generated code.
-   *	Inf is initialized as non-signaling. Assumes IEEE.
+  /*
+   * Initialize rtInfF needed by the generated code.
+   * Inf is initialized as non-signaling. Assumes IEEE.
    */
   real32_T rtGetInfF(void)
   {
-    typedef struct {
-      union {
-        real32_T wordLreal;
-        uint32_T wordLuint;
-      } wordL;
-    } IEEESingle;
-
     IEEESingle infF;
-    infF.wordL.wordLuint = 0x7F800000;
+    infF.wordL.wordLuint = 0x7F800000U;
     return infF.wordL.wordLreal;
   }
 
-  /* Function: rtGetMinusInf ==================================================
-   * Abstract:
-   *	Initialize rtMinusInf needed by the generated code.
-   *	Inf is initialized as non-signaling. Assumes IEEE.
+  /*
+   * Initialize rtMinusInf needed by the generated code.
+   * Inf is initialized as non-signaling. Assumes IEEE.
    */
   real_T rtGetMinusInf(void)
   {
     size_t bitsPerReal = sizeof(real_T) * (NumBitsPerChar);
     real_T minf = 0.0;
-    if (bitsPerReal == 32) {
+    if (bitsPerReal == 32U) {
       minf = rtGetMinusInfF();
     } else {
-      typedef struct {
-        struct {
-          uint32_T wordL;
-          uint32_T wordH;
-        } words;
-      } LittleEndianIEEEDouble;
-
       union {
         LittleEndianIEEEDouble bitVal;
         real_T fltVal;
       } tmpVal;
 
-      tmpVal.bitVal.words.wordH = 0xFFF00000;
-      tmpVal.bitVal.words.wordL = 0x00000000;
+      tmpVal.bitVal.words.wordH = 0xFFF00000U;
+      tmpVal.bitVal.words.wordL = 0x00000000U;
       minf = tmpVal.fltVal;
     }
 
     return minf;
   }
 
-  /* Function: rtGetMinusInfF ==================================================
-   * Abstract:
-   *	Initialize rtMinusInfF needed by the generated code.
-   *	Inf is initialized as non-signaling. Assumes IEEE.
+  /*
+   * Initialize rtMinusInfF needed by the generated code.
+   * Inf is initialized as non-signaling. Assumes IEEE.
    */
   real32_T rtGetMinusInfF(void)
   {
-    typedef struct {
-      union {
-        real32_T wordLreal;
-        uint32_T wordLuint;
-      } wordL;
-    } IEEESingle;
-
     IEEESingle minfF;
-    minfF.wordL.wordLuint = 0xFF800000;
+    minfF.wordL.wordLuint = 0xFF800000U;
     return minfF.wordL.wordLreal;
   }
 }
-#undef NumBitsPerChar
-
-/* end rtGetInf.c */
-
-/* File trailer for Real-Time Workshop generated code.
+/*
+ * File trailer for Real-Time Workshop generated code.
  *
  * [EOF]
  */

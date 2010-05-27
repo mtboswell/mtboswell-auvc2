@@ -1,5 +1,5 @@
 /*
- * File: autobuild.h
+ * File: brain_capi.h
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
@@ -21,11 +21,14 @@
  * Validation result: Not run
  */
 
-#ifndef RTW_HEADER_autobuild_h_
-#define RTW_HEADER_autobuild_h_
+#ifndef RTW_HEADER_brain_capi_h_
+#define RTW_HEADER_brain_capi_h_
 #include "brain.h"
-#define INCLUDE_FIRST_TIME_ARG         0
-#endif                                 /* RTW_HEADER_autobuild_h_ */
+
+extern void brain_InitializeDataMapInfo(RT_MODEL_brain *brain_M
+  );
+
+#endif                                 /* RTW_HEADER_brain_capi_h_ */
 
 /*
  * File trailer for Real-Time Workshop generated code.

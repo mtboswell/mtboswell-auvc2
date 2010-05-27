@@ -91,6 +91,8 @@
 #define mxCopyPtrToReal4 mxCopyPtrToReal4700
 #define mxCopyReal8ToPtr mxCopyReal8ToPtr700
 #define mxCopyPtrToReal8 mxCopyPtrToReal8700
+#define mxCopyCharacterToPtr mxCopyCharacterToPtr700
+#define mxCopyPtrToCharacter mxCopyPtrToCharacter700
 #define mxCopyInteger1ToPtr mxCopyInteger1ToPtr700
 #define mxCopyPtrToInteger1 mxCopyPtrToInteger1700
 #define mxCopyInteger2ToPtr mxCopyInteger2ToPtr700
@@ -149,6 +151,8 @@
 #define MXCOPYPTRTOREAL4 MXCOPYPTRTOREAL4700
 #define MXCOPYREAL8TOPTR MXCOPYREAL8TOPTR700
 #define MXCOPYPTRTOREAL8 MXCOPYPTRTOREAL8700
+#define MXCOPYCHARACTERTOPTR MXCOPYCHARACTERTOPTR700
+#define MXCOPYPTRTOCHARACTER MXCOPYPTRTOCHARACTER700
 #define MXCOPYINTEGER1TOPTR MXCOPYINTEGER1TOPTR700
 #define MXCOPYPTRTOINTEGER1 MXCOPYPTRTOINTEGER1700
 #define MXCOPYINTEGER2TOPTR MXCOPYINTEGER2TOPTR700
@@ -207,6 +211,8 @@
 #define mxcopyptrtoreal4 mxcopyptrtoreal4700
 #define mxcopyreal8toptr mxcopyreal8toptr700
 #define mxcopyptrtoreal8 mxcopyptrtoreal8700
+#define mxcopycharactertoptr mxcopycharactertoptr700
+#define mxcopyptrtocharacter mxcopyptrtocharacter700
 #define mxcopyinteger1toptr mxcopyinteger1toptr700
 #define mxcopyptrtointeger1 mxcopyptrtointeger1700
 #define mxcopyinteger2toptr mxcopyinteger2toptr700
@@ -269,6 +275,8 @@
 #define mxCopyPtrToReal4 mxCopyPtrToReal4730
 #define mxCopyReal8ToPtr mxCopyReal8ToPtr730
 #define mxCopyPtrToReal8 mxCopyPtrToReal8730
+#define mxCopyCharacterToPtr mxCopyCharacterToPtr730
+#define mxCopyPtrToCharacter mxCopyPtrToCharacter730
 #define mxCopyInteger1ToPtr mxCopyInteger1ToPtr730
 #define mxCopyPtrToInteger1 mxCopyPtrToInteger1730
 #define mxCopyInteger2ToPtr mxCopyInteger2ToPtr730
@@ -327,6 +335,8 @@
 #define MXCOPYPTRTOREAL4 MXCOPYPTRTOREAL4730
 #define MXCOPYREAL8TOPTR MXCOPYREAL8TOPTR730
 #define MXCOPYPTRTOREAL8 MXCOPYPTRTOREAL8730
+#define MXCOPYCHARACTERTOPTR MXCOPYCHARACTERTOPTR730
+#define MXCOPYPTRTOCHARACTER MXCOPYPTRTOCHARACTER730
 #define MXCOPYINTEGER1TOPTR MXCOPYINTEGER1TOPTR730
 #define MXCOPYPTRTOINTEGER1 MXCOPYPTRTOINTEGER1730
 #define MXCOPYINTEGER2TOPTR MXCOPYINTEGER2TOPTR730
@@ -385,6 +395,8 @@
 #define mxcopyptrtoreal4 mxcopyptrtoreal4730
 #define mxcopyreal8toptr mxcopyreal8toptr730
 #define mxcopyptrtoreal8 mxcopyptrtoreal8730
+#define mxcopycharactertoptr mxcopycharactertoptr730
+#define mxcopyptrtocharacter mxcopyptrtocharacter730
 #define mxcopyinteger1toptr mxcopyinteger1toptr730
 #define mxcopyptrtointeger1 mxcopyptrtointeger1730
 #define mxcopyinteger2toptr mxcopyinteger2toptr730

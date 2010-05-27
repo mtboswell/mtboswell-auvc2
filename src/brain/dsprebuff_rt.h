@@ -5,7 +5,7 @@
  *  for the Buffer / UnBuffer block.
  *
  *  Copyright 1995-2004 The MathWorks, Inc.
- *  $Revision: 1.4.4.4 $ $Date: 2005/06/16 07:48:57 $
+ *  $Revision: 1.4.4.5 $ $Date: 2009/10/29 15:21:37 $
  */
 
 #ifndef dsprebuff_rt_h
@@ -193,21 +193,6 @@ DSPREBUFF_EXPORT void MWDSP_Buf_CopyInputToOutput_1ch(
 
 #ifdef __cplusplus
 }
-#endif
-
-#ifdef MWDSP_INLINE_DSPRTLIB
-#include "dsprebuff/buf_copy_frame_to_mem_OL_1ch_rt.c"
-#include "dsprebuff/buf_copy_frame_to_mem_OL_rt.c"
-#include "dsprebuff/buf_copy_input_to_output_1ch_rt.c"
-#include "dsprebuff/buf_copy_input_to_output_rt.c"
-#include "dsprebuff/buf_copy_scalar_to_mem_OL_1ch_rt.c"
-#include "dsprebuff/buf_copy_scalar_to_mem_OL_rt.c"
-#include "dsprebuff/buf_copy_scalar_to_mem_UL_1ch_rt.c"
-#include "dsprebuff/buf_copy_scalar_to_mem_UL_rt.c"
-#include "dsprebuff/buf_output_frame_1ch_rt.c"
-#include "dsprebuff/buf_output_frame_rt.c"
-#include "dsprebuff/buf_output_scalar_1ch_rt.c"
-#include "dsprebuff/buf_output_scalar_rt.c"
 #endif
 
 #endif /* dsprebuff_rt_h */

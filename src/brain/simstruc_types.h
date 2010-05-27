@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 1990-2002 The MathWorks, Inc.
  *
- * File: simstruc_types.h     $Revision: 1.1.6.23 $
+ * File: simstruc_types.h     $Revision: 1.1.6.28 $
  *
  * Abstract:
  *   The embedded RTW code formats do not include simstruc.h, but
@@ -13,6 +13,7 @@
 #define __SIMSTRUC_TYPES_H__
 
 #include "tmwtypes.h"
+#include "sl_types_def.h"
 
 /* Additional types required for Simulink External Mode */
 #ifndef fcn_call_T
@@ -48,6 +49,12 @@ typedef enum {
   SS_SIMMODE_RTWGEN,            /* Generating code                            */
   SS_SIMMODE_EXTERNAL          /* External mode simulation                   */
 } SS_SimMode;
+
+typedef enum {
+    SS_SIMTYPE_UNKNOWN = -1,
+    SS_SIMTYPE_COMMAND_LINE,
+    SS_SIMTYPE_MENU
+} SS_SimType;
 
 /* Must be used when SS_SimMode is SS_SIMMODE_RTWGEN */
 typedef enum {
@@ -98,13 +105,6 @@ struct _rtTimingBridge_tag {
 };
 
 
-/* States of an enabled subsystem */
-typedef enum {
-    SUBSYS_DISABLED          = 0,
-    SUBSYS_ENABLED           = 2,
-    SUBSYS_TRIGGERED         = 16
-} CondStates;
-
 /* Trigger directions: falling, either, and rising */
 typedef enum {
     FALLING_ZERO_CROSSING = -1,
@@ -140,45 +140,7 @@ typedef enum {
     RISING_ZCEVENT  = 1
 } ZCEventType;
 
-/* Enumeration of built-in data types */
-typedef enum {
-    SS_DOUBLE  =  0,    /* real_T    */
-    SS_SINGLE  =  1,    /* real32_T  */
-    SS_INT8    =  2,    /* int8_T    */
-    SS_UINT8   =  3,    /* uint8_T   */
-    SS_INT16   =  4,    /* int16_T   */
-    SS_UINT16  =  5,    /* uint16_T  */
-    SS_INT32   =  6,    /* int32_T   */
-    SS_UINT32  =  7,    /* uint32_T  */
-    SS_BOOLEAN =  8     /* boolean_T */
-} BuiltInDTypeId;
-
-#define SS_NUM_BUILT_IN_DTYPE ((int_T)SS_BOOLEAN+1)
-
-#define SS_UNDERLYING_TYPE_FOR_ENUM_DATA SS_INT32
-
-typedef enum {
-    SS_FCN_CALL = 9, 
-    SS_INTEGER = 10,
-    SS_POINTER = 11,
-    SS_INTERNAL_DTYPE2 = 12, 
-    SS_TIMER_UINT32_PAIR = 13
-
-    /* if last in list changes also update define below */
-
-} PreDefinedDTypeId;
-
-#define SS_DOUBLE_UINT32  SS_TIMER_UINT32_PAIR
-
-#define SS_NUM_PREDEFINED_DTYPES  5
-
 #define SS_START_MTH_PORT_ACCESS_UNSET 2
-
-#ifndef _DTYPEID
-#  define _DTYPEID
-   /* Enumeration for MAT-file logging code */
-   typedef int_T DTypeId;
-#endif
 #include "rtw_matlogging.h"
 #include "rtw_extmode.h"
 #include "rtw_continuous.h"
@@ -321,16 +283,6 @@ typedef struct SparseHeader_Tag {
 # if NUMST == 1 || (NUMST == 2 && TID01EQ == 1)
 #  undef MULTITASKING
 # endif
-#endif
-
-#ifdef ERT_CORE
-#undef ERT_CORE
-#endif
-
-#ifdef USE_RTMODEL
-#ifndef RT_MALLOC
-# define ERT_CORE 1
-#endif
 #endif
 
 #endif /* __SIMSTRUC_TYPES_H__ */

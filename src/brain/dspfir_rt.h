@@ -5,7 +5,7 @@
  *  for FIR filters.
  *
  *  Copyright 1995-2005 The MathWorks, Inc.
- *  $Revision: 1.8.4.6 $ $Date: 2005/12/22 18:02:27 $
+ *  $Revision: 1.8.4.7 $ $Date: 2009/10/29 15:21:32 $
  */
 
 #ifndef dspfir_rt_h
@@ -393,34 +393,5 @@ DSPFIR_EXPORT void MWDSP_FIR_DF_CC(const creal32_T         *u,
 #ifdef __cplusplus
 }
 #endif
-
-#ifdef MWDSP_INLINE_DSPRTLIB
-# include "dspfir/fir_df_dd_rt.c"
-# include "dspfir/fir_df_rr_rt.c"
-# include "dspfir/fir_lat_dd_rt.c"
-# include "dspfir/fir_lat_rr_rt.c"
-# include "dspfir/fir_tdf_dd_rt.c"
-# include "dspfir/fir_tdf_rr_rt.c"
-# ifdef CREAL_T
-#  include "dspfir/fir_df_cc_rt.c"
-#  include "dspfir/fir_df_cr_rt.c"
-#  include "dspfir/fir_df_dz_rt.c"
-#  include "dspfir/fir_df_rc_rt.c"
-#  include "dspfir/fir_df_zd_rt.c"
-#  include "dspfir/fir_df_zz_rt.c"
-#  include "dspfir/fir_lat_cc_rt.c"
-#  include "dspfir/fir_lat_cr_rt.c"
-#  include "dspfir/fir_lat_dz_rt.c"
-#  include "dspfir/fir_lat_rc_rt.c"
-#  include "dspfir/fir_lat_zd_rt.c"
-#  include "dspfir/fir_lat_zz_rt.c"
-#  include "dspfir/fir_tdf_cc_rt.c"
-#  include "dspfir/fir_tdf_cr_rt.c"
-#  include "dspfir/fir_tdf_dz_rt.c"
-#  include "dspfir/fir_tdf_rc_rt.c"
-#  include "dspfir/fir_tdf_zd_rt.c"
-#  include "dspfir/fir_tdf_zz_rt.c"
-# endif /* CREAL_T */
-#endif /* MWDSP_INLINE_DSPRTLIB */
 
 #endif /* dspfir_rt_h */

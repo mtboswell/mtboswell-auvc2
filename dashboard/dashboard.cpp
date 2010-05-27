@@ -108,7 +108,7 @@ Dashboard::Dashboard(QMainWindow *parent)
 /* *** Actions ******************************* */
 
 void Dashboard::reconnectAction(){
-	emit sendParam("Connect.Data", "This");
+	emit sendParam("Connect.Data", "Broadcast");
 	emit sendParam("Connect.Video", "This");
 	emit sendParam("GetParams", "all");
 #ifndef _WIN32

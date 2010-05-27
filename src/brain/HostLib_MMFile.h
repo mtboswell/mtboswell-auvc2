@@ -1,8 +1,8 @@
 /**
- * @file HostLib_FromMMFile.h
- * @brief Helper for the FromMMFile block.
- * Copyright 2008 The MathWorks, Inc.
- * $Revision: 1.1.6.1 $ $Date: 2008/11/18 01:38:36 $
+ * @file HostLib_MMFile.h
+ * @brief Helper for the To/FromMMFile block.
+ * Copyright 2008-2009 The MathWorks, Inc.
+ * $Revision: 1.1.6.5 $ $Date: 2009/08/14 03:57:13 $
  */ 
 
 
@@ -12,6 +12,7 @@ extern "C" {
 #endif 
 
 extern const char *libName_FromMMFile;
+extern const char *libName_ToMMFile;
 
 #include "VideoDefs.h"
 #include "AudioDefs.h"
@@ -19,11 +20,19 @@ extern const char *libName_FromMMFile;
 /*******************************
  * Routines which are defined in the library in question
  *******************************/
-typedef void* (*pFnLibCreate_FromMMFile)(char *err, char *warn, const char *fileName,
+typedef void* (*pFnLibCreate_FromMMFile)(char *err, char *warn, const char *fileName, 
                                          MMAudioInfo* aInfo, MMVideoInfo* vInfo, 
                                          unsigned int numRepeats, unsigned char loopIndef, 
+                                         FourCCType fourcc,
                                          unsigned char scaledDoubleAudio, unsigned char scaledDoubleVideo);
 typedef void (*pFnLibOutputs_FromMMFile)(void *hostLib, char *err, unsigned char *bDone, void *audio, void *R, void *G, void *B);
+
+
+typedef void* (*pFnLibCreate_ToMMFile)(char *err, char *warn, const char *fileName, MMFileType fileType,
+                                       MMAudioInfo* aInfo, MMVideoInfo* vInfo,
+                                       unsigned char scaledDoubleAudio, unsigned char scaledDoubleVideo);
+typedef void (*pFnLibUpdate_ToMMFile)(void *hostLib, char *err, const void *audio, const void *R, const void *G, const void *B);
+
 
 /*******************************
  * Routines which we define to call the functions in the library 
@@ -31,21 +40,15 @@ typedef void (*pFnLibOutputs_FromMMFile)(void *hostLib, char *err, unsigned char
 void LibCreate_FromMMFile(void *hostLib, char *warn, const char *fileName,
                           void* aInfo, void* vInfo, 
                           unsigned int numRepeats, unsigned char loopIndef, 
+                          int fourcc,
                           unsigned char scaledDoubleAudio, unsigned char scaledDoubleVideo);
 void LibOutputs_FromMMFile(void *hostLib, void *bDone, void *audio, void *R, void *G, void *B);
 
-/*******************************
- * Routines used to initialize MMAudioInfo and MMVideoInfo structures.
- *******************************/
 
-void createAudioInfo(void *audioInfo, unsigned char isValid, double sampleRate, int numBits,
-                     int numChannels, int frameSize,
-                     AudioDataType dataType, char* audioCompressor);
-
-void createVideoInfo(void *videoInfo, unsigned char isValid, double frameRate, double frameRateComputed,
-                     int videoWidth, int videoHeight,
-                     VideoDataType dataType, VideoFrameOrientation orientation,
-                     char* videoCompressor, int isOut3D);
+void LibCreate_ToMMFile(void *hostLib, char *warn, const char *fileName, int fileType,
+                        void* aInfo, void* vInfo,
+                        unsigned char scaledDoubleAudio, unsigned char scaledDoubleVideo);
+void LibUpdate_ToMMFile(void *hostLib, const void *audio, const void *R, const void *G, const void *B);
 
 
 /* Include HostLib for declarations of LibStart, LibTerminate, CreateHostLibrary, and DestroyHostLibrary. */
@@ -55,3 +58,4 @@ void createVideoInfo(void *videoInfo, unsigned char isValid, double frameRate, d
 #ifdef __cplusplus
 } // extern "C"
 #endif 
+

@@ -3,7 +3,7 @@
  *
  * Types and define related to zero crossing signals and events
  *
- * $Revision: 1.1.6.1 $
+ * $Revision: 1.1.6.2 $
  */
 
 #ifndef _solver_zc_hpp_
@@ -32,13 +32,13 @@ typedef enum {
  *            
  */
 typedef uint8_T slZcEventType;
-#define SL_ZCS_EVENT_NUL  0x00
-#define SL_ZCS_EVENT_N2P  0x01
-#define SL_ZCS_EVENT_N2Z  0x02
-#define SL_ZCS_EVENT_Z2P  0x04
-#define SL_ZCS_EVENT_P2N  0x08
-#define SL_ZCS_EVENT_P2Z  0x10
-#define SL_ZCS_EVENT_Z2N  0x20
+#define SL_ZCS_EVENT_NUL  0x00U
+#define SL_ZCS_EVENT_N2P  0x01U
+#define SL_ZCS_EVENT_N2Z  0x02U
+#define SL_ZCS_EVENT_Z2P  0x04U
+#define SL_ZCS_EVENT_P2N  0x08U
+#define SL_ZCS_EVENT_P2Z  0x10U
+#define SL_ZCS_EVENT_Z2N  0x20U
 
 #define SL_ZCS_EVENT_ALL_UP  ( SL_ZCS_EVENT_N2P | \
                                SL_ZCS_EVENT_N2Z | \
@@ -89,10 +89,10 @@ typedef uint8_T slZcSignalAttribType;
  *
  */
 typedef uint8_T slZcSignalSignType;
-#define SL_ZCS_SIGN_ZERO      0x00
-#define SL_ZCS_SIGN_POS       0x01
-#define SL_ZCS_SIGN_NEG       0x02
-#define SL_ZCS_SIGN_UNKNOWN   0x03
+#define SL_ZCS_SIGN_ZERO      0x00U
+#define SL_ZCS_SIGN_POS       0x01U
+#define SL_ZCS_SIGN_NEG       0x02U
+#define SL_ZCS_SIGN_UNKNOWN   0x03U
 
 #endif /* _solver_zc_hpp_ */
 

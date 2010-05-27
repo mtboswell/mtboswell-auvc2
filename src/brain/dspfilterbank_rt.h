@@ -5,7 +5,7 @@
  *  for DWT/IDWT and other filter bank blocks.
  *
  *  Copyright 1995-2005 The MathWorks, Inc.
- *  $Revision: 1.4.4.5 $ $Date: 2005/12/22 18:02:26 $ */
+ *  $Revision: 1.4.4.6 $ $Date: 2009/10/29 15:21:31 $ */
 
 #ifndef dspfilterbank_rt_h
 #define dspfilterbank_rt_h
@@ -286,21 +286,5 @@ DSPFILTERBANK_EXPORT void MWDSP_2ChSBank_DF_CC(
 }
 #endif
 
-#ifdef MWDSP_INLINE_DSPRTLIB
-# include "dspfilterbank/2chabank_fr_df_dd_rt.c"
-# include "dspfilterbank/2chabank_fr_df_rr_rt.c"
-# include "dspfilterbank/2chsbank_df_dd_rt.c"
-# include "dspfilterbank/2chsbank_df_rr_rt.c"
-# ifdef CREAL_T
-#  include "dspfilterbank/2chabank_fr_df_cc_rt.c"
-#  include "dspfilterbank/2chabank_fr_df_cr_rt.c"
-#  include "dspfilterbank/2chabank_fr_df_zd_rt.c"
-#  include "dspfilterbank/2chabank_fr_df_zz_rt.c"
-#  include "dspfilterbank/2chsbank_df_cc_rt.c"
-#  include "dspfilterbank/2chsbank_df_cr_rt.c"
-#  include "dspfilterbank/2chsbank_df_zd_rt.c"
-#  include "dspfilterbank/2chsbank_df_zz_rt.c"
-# endif /* CREAL_T */
-#endif /* MWDSP_INLINE_DSPRTLIB */
 
 #endif  /* dspfilterbank_rt_h */

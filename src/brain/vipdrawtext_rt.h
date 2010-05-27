@@ -2,7 +2,7 @@
 *  vipdrawtext_rt.h
 *
 *  Copyright 1995-2005 The MathWorks, Inc.
-*  $Revision.3 $ $Date: 2008/11/18 02:16:26 $
+*  $Revision.3 $ $Date: 2009/11/16 22:38:39 $
 */
 
 #ifndef vipdrawtext_rt_h
@@ -13,7 +13,7 @@
 #ifdef VIPDRAWTEXT_EXPORTS
 #define VIPDRAWTEXT_EXPORT EXPORT_FCN
 #else
-#define VIPDRAWTEXT_EXPORT MWDSP_IDECL
+#define VIPDRAWTEXT_EXPORT MWSP_IDECL
 #endif
 
 #define MWVIP_DrawText_upscaleFactor            128
@@ -182,11 +182,6 @@ extern "C" {
 	VIPDRAWTEXT_EXPORT void MWVIP_DrawText_SatFltptIntensityVals(int32_T dType, const void* input, void* output, int_T nPlanes);
 	VIPDRAWTEXT_EXPORT void MWVIP_DrawText_noFltSaturationNeeded(int32_T dType, const void* input, void* output, int_T nPlanes);
 	VIPDRAWTEXT_EXPORT int32_T MWVIP_strlen(const void * str);
-
-#ifdef MWDSP_INLINE_DSPRTLIB
-#include "vipdrawtext/ssprintf_rt.c"
-#include "vipdrawtext/vipdrawtext_main_rt.c"
-#endif
 
 
 #ifdef __cplusplus

@@ -4,7 +4,7 @@
  * that set the data to default state (black for video, silence for audio)
  *
  * Copyright 2005-2006 The MathWorks, Inc.
- * $Revision: 1.1.6.2 $  $Date: 2006/10/18 02:55:43 $
+ * $Revision: 1.1.6.3 $  $Date: 2009/10/29 15:21:35 $
  */
 
 #ifndef DSPMMUTILS_RT_H
@@ -1086,10 +1086,5 @@ void Output16BitPCM_FromUint8(const void* inputSignal, void* output,
 }
 #endif
 
-#ifdef MWDSP_INLINE_DSPRTLIB
-#  include "dspmmutils/mmpcmaudio_rt.c"
-#  include "dspmmutils/mmrgb24convert2gray_rt.c"
-#  include "dspmmutils/mmrgb24convert_rt.c"
-#endif /* MWDSP_INLINE_DSPRTLIB */
 
 #endif /*  MMUTILS_H */
