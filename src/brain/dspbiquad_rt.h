@@ -2,7 +2,7 @@
  *  dspbiquad_rt.h
  *
  *  Copyright 1995-2005 The MathWorks, Inc.
- *  $Revision: 1.4.4.5 $ $Date: 2005/12/22 18:02:11 $
+ *  $Revision: 1.4.4.6 $ $Date: 2009/10/29 15:21:28 $
  */
 
 #ifndef DSPBIQUAD_RT_H
@@ -261,25 +261,5 @@ DSPBIQUAD_EXPORT void MWDSP_BQ5_DF2T_1fpf_Nsos_CC(const creal32_T *u,
 }
 #endif
 
-#ifdef MWDSP_INLINE_DSPRTLIB
-#  include "dspbiquad/bq5_df2t_1fpf_1sos_dd_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_1sos_rr_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_nsos_dd_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_nsos_rr_rt.c"
-# ifdef CREAL_T
-#  include "dspbiquad/bq5_df2t_1fpf_1sos_cc_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_1sos_cr_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_1sos_dz_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_1sos_rc_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_1sos_zd_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_1sos_zz_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_nsos_cc_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_nsos_cr_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_nsos_dz_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_nsos_rc_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_nsos_zd_rt.c"
-#  include "dspbiquad/bq5_df2t_1fpf_nsos_zz_rt.c"
-# endif /* CREAL_T */
-#endif /* MWDSP_INLINE_DSPRTLIB */
 
 #endif /* dspbiquad_rt_h */

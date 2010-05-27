@@ -1,5 +1,5 @@
 /* Copyright 2004-2005 The MathWorks, Inc. */
-/* $Revision: 1.1.6.5 $ */
+/* $Revision: 1.1.6.1 $ */
 
 /*
  * File: sysran_types.h

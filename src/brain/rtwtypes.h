@@ -1,12 +1,28 @@
 /*
  * File: rtwtypes.h
  *
- * Definitions required by Real-Time Workshop generated code.
+ * Real-Time Workshop code generated for Simulink model brain.
  *
- * Real-Time Workshop version: 7.3
- * Generated on: 2010-04-13 17:34:18
+ * Model version                        : 1.364
+ * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
+ * Real-Time Workshop file generated on : Thu May 27 18:36:36 2010
+ * TLC version                          : 7.5 (Jan 19 2010)
+ * C/C++ source code generated on       : Thu May 27 18:36:36 2010
+ *
+ * Target selection: ert.tlc
+ * Embedded hardware selection: AMD->K5/K6/Athlon
+ * Code generation objectives:
+ *    1. Debugging
+ *    2. Safety precaution
+ *    3. Traceability
+ *    4. Execution efficiency
+ *    5. ROM efficiency
+ *    6. RAM efficiency
+ * Validation result: Not run
  */
 
+#ifndef RTW_HEADER_rtwtypes_h_
+#define RTW_HEADER_rtwtypes_h_
 #ifndef __RTWTYPES_H__
 #define __RTWTYPES_H__
 #ifndef TRUE
@@ -57,6 +73,7 @@ typedef int int_T;
 typedef unsigned int uint_T;
 typedef unsigned long ulong_T;
 typedef char char_T;
+typedef unsigned char uchar_T;
 typedef char_T byte_T;
 
 /*===========================================================================*
@@ -128,7 +145,7 @@ typedef struct {
 #define MIN_uint32_T                   ((uint32_T)(0U))
 
 /* Logical type definitions */
-#if !defined(__cplusplus) && !defined(__true_false_are_keywords)
+#if (!defined(__cplusplus)) && (!defined(__true_false_are_keywords))
 #  ifndef false
 #   define false                       (0U)
 #  endif
@@ -146,13 +163,6 @@ typedef struct {
 #error "This code must be compiled using a 2's complement representation for signed integer values"
 #endif
 
-/*
- * Maximum length of a MATLAB identifier (function/variable/model)
- * including the null-termination character. Referenced by
- * rt_logging.c and rt_matrx.c.
- */
-#define TMW_NAME_LENGTH_MAX            64
-
 /* This ID is used to detect inclusion of an incompatible rtwtypes.h */
 #define RTWTYPES_ID_C08S16I32L32N32F1
 #else                                  /* __TMWTYPES__ */
@@ -162,42 +172,9 @@ typedef struct {
 /* Block D-Work pointer type */
 typedef void * pointer_T;
 
-/*
- * MultiWord supporting definitions
- */
-typedef long int long_T;
-
-/*
- * MultiWord types
- */
-typedef struct {
-  uint32_T chunks[2];
-} int64m_T;
-
-typedef struct {
-  int64m_T re;
-  int64m_T im;
-} cint64m_T;
-
-typedef struct {
-  uint32_T chunks[2];
-} uint64m_T;
-
-typedef struct {
-  uint64m_T re;
-  uint64m_T im;
-} cuint64m_T;
-
 /* Simulink specific types */
 #ifndef __SIMSTRUC_TYPES_H__
 #define __SIMSTRUC_TYPES_H__
-
-/* States of an enabled subsystem */
-typedef enum {
-  SUBSYS_DISABLED = 0,
-  SUBSYS_ENABLED = 2,
-  SUBSYS_TRIGGERED = 16
-} CondStates;
 
 /* Trigger directions: falling, either, and rising */
 typedef enum {
@@ -242,3 +219,10 @@ typedef int_T DTypeId;
 
 #endif                                 /* __SIMSTRUC_TYPES_H__ */
 #endif                                 /* __RTWTYPES_H__ */
+#endif                                 /* RTW_HEADER_rtwtypes_h_ */
+
+/*
+ * File trailer for Real-Time Workshop generated code.
+ *
+ * [EOF]
+ */

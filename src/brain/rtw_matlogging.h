@@ -1,7 +1,7 @@
 /*
  * Copyright 1990-2007 The MathWorks, Inc.
  *
- * File: rtw_matlogging.h     $Revision: 1.1.6.10 $
+ * File: rtw_matlogging.h     $Revision: 1.1.6.2 $
  *
  * Abstract:
  *   Type definitions for MAT-file logging support.
@@ -80,7 +80,7 @@ typedef struct _RTWLogInfo_tag {
 
   union {
       LogSignalPtrsType cptr; /* Pointers to the memory location    */
-      const int8_T**    ptr;  /* of the data to be logged into the  * 
+      int8_T**    ptr;        /* of the data to be logged into the  * 
                                * states structure. Not used if      * 
                                * logging data in matrix format.     */
       
@@ -88,15 +88,15 @@ typedef struct _RTWLogInfo_tag {
 
   union {
       LogSignalPtrsType cptr; /* Pointers to the memory location    */
-      const int8_T**    ptr;  /* of the data to be logged into the  *
+      int8_T**    ptr;        /* of the data to be logged into the  *
                                * outputs structure. Not used if     *
                                * logging data in matrix format.     */
   } logYSignalPtrs;
 
   union {
-      LogSignalPtrsType cptr; /* Pointers to the memory location  */
-      const int8_T**    ptr; /* of the data to be logged into    *
-                                           * the signal logging structure.    */
+      LogSignalPtrsType cptr; /* Pointers to the memory location    */
+      int8_T**    ptr;        /* of the data to be logged into      *
+                               * the signal logging structure.      */
   }sigLogSignalPtrs;
 
   int_T         logFormat;          /* matrix=0, struct=1, or strut_wo_time=2 */

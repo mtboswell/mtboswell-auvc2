@@ -2,7 +2,7 @@
  * dsp_ic_rt.h
  *
  *  Copyright 1995-2004 The MathWorks, Inc.
- *  $Revision: 1.12.4.4 $  $Date: 2005/06/16 07:48:48 $
+ *  $Revision: 1.12.4.5 $  $Date: 2009/10/29 15:21:25 $
  *
  * Abstract:
  *   Header file for initial condition copy functions
@@ -127,14 +127,6 @@ DSPIC_EXPORT void MWDSP_DelayCopy3DFrameMatrixICs(byte_T *buffer,
 
 #ifdef __cplusplus
 }
-#endif
-
-#ifdef MWDSP_INLINE_DSPRTLIB
-#include "dspic/ic_copy_channel_rt.c"
-#include "dspic/ic_copy_matrix_rt.c"
-#include "dspic/ic_copy_scalar_rt.c"
-#include "dspic/ic_copy_vector_rt.c"
-#include "dspic/ic_old_copy_fcns_rt.c"
 #endif
 
 #endif /* DSP_IC_RT_H */

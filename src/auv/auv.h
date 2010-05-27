@@ -129,6 +129,7 @@ class AUV : public QThread {
 		 * motor controller outputs.
 		 */
 		void setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]);
+		void setThrusters(double thrusterSpeeds[NUMBER_OF_THRUSTERS]);
 		
 		// Sets mode based on external switch. Not sure where this is called from.
 		void externalControl();

@@ -5,7 +5,7 @@
 #ifndef mwmathutil_h
 #define mwmathutil_h
 
-/* Copyright 2003-2008 The MathWorks, Inc. */
+/* Copyright 2003-2009 The MathWorks, Inc. */
 
 /* Only define EXTERN_C if it hasn't been defined already. This allows
  * individual modules to have more control over managing their exports.
@@ -21,38 +21,6 @@
 #endif
 
 #include "tmwtypes.h"
-
-#ifdef __WATCOMC__
-#pragma aux muDoubleScalarAbs value [8087];
-#pragma aux muDoubleScalarCeil value [8087];
-#pragma aux muDoubleScalarFloor value [8087];
-#pragma aux muDoubleScalarRound value [8087];
-#pragma aux muDoubleScalarAcos value [8087];
-#pragma aux muDoubleScalarAcosh value [8087];
-#pragma aux muDoubleScalarAsin value [8087];
-#pragma aux muDoubleScalarAsinh value [8087];
-#pragma aux muDoubleScalarAtan value [8087];
-#pragma aux muDoubleScalarAtanh value [8087];
-#pragma aux muDoubleScalarCos value [8087];
-#pragma aux muDoubleScalarCosh value [8087];
-#pragma aux muDoubleScalarExp value [8087];
-#pragma aux muDoubleScalarLog value [8087];
-#pragma aux muDoubleScalarLog10 value [8087];
-#pragma aux muDoubleScalarAtan2 value [8087]
-#pragma aux muDoubleScalarMax value [8087]
-#pragma aux muDoubleScalarMin value [8087]
-#pragma aux muDoubleScalarPower value [8087]
-#pragma aux muDoubleScalarSin value [8087];
-#pragma aux muDoubleScalarSinCos value [8087];
-#pragma aux muDoubleScalarSign value [8087];
-#pragma aux muDoubleScalarSinh value [8087];
-#pragma aux muDoubleScalarSqrt value [8087];
-#pragma aux muDoubleScalarTan value [8087];
-#pragma aux muDoubleScalarTanh value [8087];
-#pragma aux muDoubleScalarMod value [8087]
-#pragma aux muDoubleScalarRem value [8087]
-#pragma aux muDoubleScalarHypot value [8087];
-#endif
 
 
 /* abs(a) */
@@ -172,6 +140,37 @@ EXTERN_C double muDoubleScalarRem(double a, double b);
 /* hypot(a,b) */
 EXTERN_C double muDoubleScalarHypot(double a,double b);
 
+#ifdef __WATCOMC__
+#pragma aux muDoubleScalarAbs value [8087];
+#pragma aux muDoubleScalarCeil value [8087];
+#pragma aux muDoubleScalarFloor value [8087];
+#pragma aux muDoubleScalarRound value [8087];
+#pragma aux muDoubleScalarAcos value [8087];
+#pragma aux muDoubleScalarAcosh value [8087];
+#pragma aux muDoubleScalarAsin value [8087];
+#pragma aux muDoubleScalarAsinh value [8087];
+#pragma aux muDoubleScalarAtan value [8087];
+#pragma aux muDoubleScalarAtanh value [8087];
+#pragma aux muDoubleScalarCos value [8087];
+#pragma aux muDoubleScalarCosh value [8087];
+#pragma aux muDoubleScalarExp value [8087];
+#pragma aux muDoubleScalarLog value [8087];
+#pragma aux muDoubleScalarLog10 value [8087];
+#pragma aux muDoubleScalarAtan2 value [8087]
+#pragma aux muDoubleScalarMax value [8087]
+#pragma aux muDoubleScalarMin value [8087]
+#pragma aux muDoubleScalarPower value [8087]
+#pragma aux muDoubleScalarSin value [8087];
+#pragma aux muDoubleScalarSinCos value [8087];
+#pragma aux muDoubleScalarSign value [8087];
+#pragma aux muDoubleScalarSinh value [8087];
+#pragma aux muDoubleScalarSqrt value [8087];
+#pragma aux muDoubleScalarTan value [8087];
+#pragma aux muDoubleScalarTanh value [8087];
+#pragma aux muDoubleScalarMod value [8087]
+#pragma aux muDoubleScalarRem value [8087]
+#pragma aux muDoubleScalarHypot value [8087];
+#endif
 
 /* Integer Scalar functions. */
 /* Integer Abs Family. */
@@ -251,5 +250,14 @@ EXTERN_C int16_T muIntScalarSign_sint16(int16_T a);
 EXTERN_C uint32_T muIntScalarSign_uint32(uint32_T a);
 
 EXTERN_C int32_T muIntScalarSign_sint32(int32_T a);
+
+/* isFinite(a) */
+EXTERN_C boolean_T muDoubleScalarIsFinite(double a);
+
+/* isNaN(a) */
+EXTERN_C boolean_T muDoubleScalarIsNaN(double a);
+
+/* isInf(a) */
+EXTERN_C boolean_T muDoubleScalarIsInf(double a);
 
 #endif /* mwmathutil_h */

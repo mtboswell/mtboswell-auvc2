@@ -1,7 +1,7 @@
 /*
- * Copyright 1990-2008 The MathWorks, Inc.
+ * Copyright 1990-2009 The MathWorks, Inc.
  *
- * File: simstruc.h     $Revision: 1.269.4.78 $
+ * File: simstruc.h     $Revision: 1.1.6.16.2.3 $
  *
  * Abstract:
  *      Data structures and access methods for S-functions.
@@ -140,6 +140,7 @@
 #include <string.h>
 #include "tmwtypes.h"
 #include "simstruc_types.h"
+#include "solver_zc.h"
 
 #include "stdio.h"
 
@@ -645,12 +646,6 @@ typedef enum {
 
 #endif
 
-typedef enum {
-    BD_ERR_VALUE_NONE,
-    BD_ERR_VALUE_WARNING,
-    BD_ERR_VALUE_ERROR
-} BDErrorValue;
-
 /*==========================================================================*
  * PropagationPassType - used to distinguish for pass initialization
  * If you add or update PropagationPassType, update simulink/sl_types_compile.hpp too
@@ -758,6 +753,9 @@ typedef enum {
 # define SS_CALL_MDL_GET_SIM_STATE                    144
 # define SS_CALL_MDL_SET_SIM_STATE                    145
 # define SS_CALL_MDL_INIT_SYSTEM_MATRICES             146
+# define SS_CALL_MDL_FINALIZE_ALL_DIMS                147
+# define SS_CALL_MDL_SLVRJACOBIAN                     148
+
 #endif
 
 /*=================================================================*
@@ -825,14 +823,6 @@ typedef enum {
    typedef struct SimStruct_tag SimStruct;
 #endif
 
-#ifndef _DATA_TYPE_ACCESS
-#define _DATA_TYPE_ACCESS
-   /*
-    * Use incomplete type for function prototypes within DataTypeAccess itself
-    */
-   typedef struct _slDataTypeAccess_tag slDataTypeAccess;
-#endif
-
 
 typedef struct ssSparseMatrixInfo_tag {
     int_T   mRows;                  /* number of rows   */
@@ -842,13 +832,6 @@ typedef struct ssSparseMatrixInfo_tag {
     int_T   *Jc;                    /* column offsets   */
     real_T  *Pr;                    /* nonzero entries  */
 } ssSparseMatrixInfo;
-
-
-typedef enum {                  /* What happens when a zero crossings occurs */
-    DISCONTINUITY_AT_ZC,
-    CONTINUITY_AT_ZC,
-    TRIGGERED_DISCON_AT_ZC
-} ZCType;
 
 
 /* For Backward compatibility with R12Lcs */
@@ -1021,10 +1004,6 @@ typedef void *                 OutputVectType;
 #define GET_COMPLEX_SIGNAL(dt)       (((dt) & 0x10000) != 0)
 #define DTINFO(id, complexSignal)    ((complexSignal)?((id) | 0x10000):(id))
 
-#define INVALID_DTYPE_ID       (-10)
-#define INVALID_DTYPE_SIZE     (-1)
-#define INVALID_DTYPE_SIGNED   (-1)
-#define INVALID_NUM_DTYPES     (-1)
 #define INVALID_PORT_IDX       (-1)
 
 enum {
@@ -1079,7 +1058,9 @@ struct _ssDWorkAuxRecord {
                                   * 2U: Must not resolve */
         unsigned int rtwIdDoneResolve:       1; /* done resolving identifier */
         unsigned int ensureResetForSizeVary: 1; /* ensure reset for size change */
-        unsigned int reserved10:            10; /* remainder are reserved    */
+        unsigned int minMaxCheckpoint:       2; /* remainder are reserved    */
+        unsigned int optimizeInIR:           1; /* conver to local if correct */
+        unsigned int reserved7:              7; /* remainder are reserved    */
         unsigned int reserved16:            16; /* remainder are reserved  */
     } flags;
     int_T            icPrmIdxPlus1;             /* block IC parameter (if
@@ -1358,22 +1339,6 @@ struct _ssWork {
   void                      *reservedForFuture[1];
 };
 
-#define SS_SL_ZCS_TYPE_CONT   0
-#define SS_SL_ZCS_TYPE_DISC   1
-#define SS_SL_ZCS_TYPE_HYBRID 2
-
-
-/*
- * structure to hold info on zero-crossing signals
- */
-typedef struct {
-    unsigned char zcDir;
-    ZCType        zcType;
-    boolean_T     needsEvent;
-    void          *reservedPtrs[16];
-    int_T         zcSignalType;
-    int_T         reserved[15];
-} ssZeroCrossingInfo;
 
 /*
  * Input port variable dimensions information.
@@ -1406,11 +1371,11 @@ struct _ssPortInfo2 {
  * status about the model in which they reside.
  */
 struct _ssBlkInfo2 {
-  void  *rtwSfcnInfo;   /* Used only in RTW by the S-function     */
-  ssZeroCrossingInfo *zeroCrossingInfo;
-  struct _ssPortInfo2 *portInfo2;
-  void  *reservedPtrs[14];
-  int_T reserved[16];
+    void  *rtwSfcnInfo;   /* Used only in RTW by the S-function     */
+    void* unused;
+    struct _ssPortInfo2 *portInfo2;
+    void  *reservedPtrs[14];
+    int_T reserved[16];
 };
 
 struct _ssBlkInfo {
@@ -1536,7 +1501,7 @@ typedef enum {
     GEN_FCN_GET_DATA_STORE_ADDR,
     GEN_FCN_REGISTER_TYPE_FROM_EXPR,
     GEN_FCN_REGISTER_TYPE_FROM_EXPR_NO_ERROR,
-    GEN_FCN_SET_NUM_ZCSIGNALS,
+    GEN_FCN_GET_ZCSIGNAL_ZCEVENTS,
     GEN_FCN_REG_MODELREF_NONCONTSIGS,
     GEN_FCN_CHK_MODELREF_VSOLVER_OPTS,
     GEN_FCN_SET_INPUTS_NEED_ADDRESS,
@@ -1597,7 +1562,51 @@ typedef enum {
     GEN_FCN_REG_MODELREF_FINALIZE_DIMS_MTH,
     GEN_FCN_REGISTER_DATA_MIN_MAX_PRM_INDICES,
     GEN_FCN_CHECK_DWORK_RANGE,
-    GEN_FCN_ACCEL_CALL_SET_DIMS
+    GEN_FCN_ACCEL_CALL_SET_DIMS,
+    GEN_FCN_GET_STATEFLOW_SUBCHART_SIMSTRUCT,
+    GEN_FCN_GET_STATEFLOW_SUBCHART_SYS_INST_INDICES,
+    GEN_FCN_GET_DATATYPE_CHECKSUM,
+    GEN_FCN_REG_CODE_VARIANT_FCNCALL,
+    GEN_FCN_EVAL_CODE_VARIANT_FCNCALL,
+    GEN_FCN_CHECK_STRUCTPARAM_CHECKSUM,
+    GEN_FCN_GET_PARAM_DATATYPE,
+    GEN_FCN_GET_SIMULATIONTYPE,
+    GEN_FCN_GET_NET_SLOPE_VIA_DIVISION,
+    GEN_FCN_SET_MODELREF_ALLOW_IN_STATE_ENABLED_SS,
+    GEN_FCN_CHK_MODELREF_OPTIM_SETTINGS,
+    GEN_FCN_GET_IS_INPORT_ELEMENT_CONTINUOUS,
+    GEN_FCN_SET_IS_INPORT_USEDFOR_CONT_ZC,
+    GEN_FCN_CREATE_AND_ADD_ZCSIGNAL_INFO,
+    GEN_FCN_SET_ZCSIGNAL_NAME,
+    GEN_FCN_GET_ZCSIGNAL_NAME,
+    GEN_FCN_SET_ZCSIGNAL_WIDTH,
+    GEN_FCN_GET_ZCSIGNAL_WIDTH,
+    GEN_FCN_SET_ZCSIGNAL_ZCEVENT_TYPE,
+    GEN_FCN_GET_ZCSIGNAL_ZCEVENT_TYPE,
+    GEN_FCN_SET_ZCSIGNAL_TYPE,
+    GEN_FCN_GET_ZCSIGNAL_TYPE,
+    GEN_FCN_SET_ZCSIGNAL_ZCTOL,
+    GEN_FCN_GET_ZCSIGNAL_ZCTOL,
+    GEN_FCN_SET_ZCSIGNAL_NEEDS_EVENT_NOTIFICATION,
+    GEN_FCN_GET_ZCSIGNAL_NEEDS_EVENT_NOTIFICATION,
+    GEN_FCN_GET_NUM_ZCSIGNALS,
+    GEN_FCN_GET_ZCSIGNAL_VECTOR,
+    GEN_FCN_SET_ZCSIGNAL_ISZCELEMEMT_DISC,
+    GEN_FCN_GET_ZCSIGNAL_ISZCELEMEMT_DISC,
+    GEN_FCN_CLONE_AND_ADD_ZCSIGNAL_INFO,
+    GEN_FCN_DATA_STORE_LOG_UPDATE,
+    GEN_FCN_SET_STATES_MODIFIED_ONLY_IN_UPDATE,
+    GEN_FCN_SUP_MULTI_EXEC_INSTANCES,
+    GEN_FCN_REQUEST_IIS_NUM_ITER_DWORK,
+    GEN_FCN_GET_STATEFLOW_RTWCONTEXT,
+    GEN_FCN_GET_NUM_FCNCALL_DEST,
+    GEN_FCN_GET_NUM_VARIANT_CONDITIONS,
+    GEN_FCN_MODELREF_SET_TRIGGER_TYPE,
+    GEN_FCN_SET_REQUIRED_STACK_SIZE,
+    GEN_FCN_ACCEL_COPY_STATE_CACHE_FOR_IIS,
+    GEN_FCN_REG_AUTOSAR_CLIENT_BLOCK,
+    GEN_FCN_REG_MODELREF_GLOBAL_VARUSAGE,
+    GEN_FCN_SET_MODELREF_STATE_INSIDE_FOREACH
 } GenFcnType;
 
 #if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
@@ -1731,171 +1740,7 @@ typedef struct _SignalAccess_tag {
 } SignalAccess;
 #endif
 
-typedef enum {
-    GEN_DTA_INT_PROP_SIZE,
-    GEN_DTA_INT_PROP_STORAGE_ID,
-    GEN_DTA_INT_PROP_ID_ALIASED_THRU_TO,
-    GEN_DTA_INT_PROP_PROPERTIES_SIZE,
-    GEN_DTA_INT_PROP_ID_ALIASED_TO,
-    GEN_DTA_INT_PROP_NUM_ELEMENTS,
-    GEN_DTA_INT_PROP_IS_BUS,
-    GEN_DTA_INT_PROP_IS_ENUMTYPE,
-    GEN_DTA_INT_PROP_ENUMTYPE_NUMSTRINGS,
-    GEN_DTA_INT_PROP_ENUMTYPE_INDEX_OF_DEFAULT,
-    GEN_DTA_INT_PROP_ENUMTYPE_ADD_TYPENAME_AS_PREFIX,
-    GEN_DTA_INT_PROP_IS_BUS_WITH_VARDIMS_ELEMENT,
-    GEN_DTA_INT_PROP_VARDIMS_SIZE
-} GenDTAIntPropType;
-
-typedef enum {
-    GEN_DTA_INT_PROP_ELEMENT_DATA_TYPE,
-    GEN_DTA_INT_PROP_ELEMENT_SIGNAL_TYPE,
-    GEN_DTA_INT_PROP_ELEMENT_NUM_DIMENSIONS,
-    GEN_DTA_INT_PROP_ELEMENT_OFFSET,
-    GEN_DTA_INT_PROP_ENUMTYPE_INDEX_FROM_VALUE,
-    GEN_DTA_INT_PROP_ENUMTYPE_VALUE_FROM_INDEX,
-    GEN_DTA_INT_PROP_ELEMENT_DIMENSIONS_MODE,
-    GEN_DTA_INT_PROP_ELEMENT_VARDIMS_OFFSET
-} GenDTAIntElemPropType;
-
-typedef enum {
-    GEN_DTA_VOID_PROP_NAME,
-    GEN_DTA_VOID_PROP_ZERO,
-    GEN_DTA_VOID_PROP_PROPERTIES,
-    GEN_DTA_VOID_PROP_OBJECT,
-    GEN_DTA_VOID_PROP_CGTYPE
-} GenDTAVoidPropType;
-
-typedef enum {
-    GEN_DTA_VOID_PROP_ELEMENT_NAME,
-    GEN_DTA_VOID_PROP_ELEMENT_DIMENSIONS,
-    GEN_DTA_VOID_PROP_ENUMTYPE_STRING_FROM_VALUE,
-    GEN_DTA_VOID_PROP_ENUMTYPE_STRING_FROM_INDEX
-} GenDTAVoidElemPropType;
-
-typedef enum {
-    GEN_DTA_UNARY_FCN_IS_POSITIVE,
-    GEN_DTA_UNARY_FCN_IS_NEGATIVE
-} GenDTAUnaryFcnType;
-
-typedef enum {
-    GEN_DTA_BINARY_FCN_GREATER_THAN,
-    GEN_DTA_BINARY_FCN_GREATER_EQUAL
-} GenDTABinaryFcnType;
-
-typedef enum {
-    GEN_DTA_DATA_OVERFLOW,
-    GEN_DTA_INT32_TO_FLOAT,
-    GEN_DTA_PARAMETER_OVERFLOW,
-    GEN_DTA_PARAMETER_PRECISION_LOSS,
-    GEN_DTA_PARAMETER_DOWNCAST,
-    GEN_DTA_PARAMETER_UNDERFLOW
-} GenDTADiagnosticType;
-
-typedef void * (*RegisterDataTypeWithCheck) (void *, const char_T *, const char_T *, DTypeId *);
-
-typedef DTypeId (*RegisterDataType) (void *, const char_T *, const char_T *);
-
-typedef int_T (*GetNumDataTypes) (void *);
-
-typedef DTypeId (*GetDataTypeId) (void *, const char_T *);
-
-typedef int_T (*GetGenericDTAIntProp) (void *, const char_T *, DTypeId,
-                                       GenDTAIntPropType);
-typedef int_T (*SetGenericDTAIntProp) (void *, const char_T *, DTypeId, int_T,
-                                       GenDTAIntPropType);
-typedef int_T (*GetGenericDTAIntElemProp) (void *, const char_T *, DTypeId,
-                                           int_T, GenDTAIntElemPropType);
-typedef int_T (*SetGenericDTAIntElemProp) (void *, const char_T *, DTypeId,
-                                           int_T, int_T, GenDTAIntElemPropType);
-
-typedef const void* (*GetGenericDTAVoidProp) (void *, const char_T *, DTypeId,
-                                              GenDTAVoidPropType);
-typedef int_T (*SetGenericDTAVoidProp) (void *, const char_T *, DTypeId,
-                                        const void *, GenDTAVoidPropType);
-typedef const void* (*GetGenericDTAVoidElemProp) (void *, const char_T *,
-                                                  DTypeId, int_T,
-                                                  GenDTAVoidElemPropType);
-typedef int_T (*SetGenericDTAVoidElemProp) (void *, const char_T *, DTypeId,
-                                 int_T, const void *, GenDTAVoidElemPropType);
-
-typedef int_T (*ConvertBetweenFcn) (slDataTypeAccess *, const char_T *,
-                                    DTypeId, DTypeId, int_T, const void *,
-                                    const void *, void *);
-typedef ConvertBetweenFcn (*GetConvertBetweenFcn) (void *, const char_T *,
-                                                   DTypeId);
-typedef int_T (*SetConvertBetweenFcn) (void *, const char_T *, DTypeId,
-                                       ConvertBetweenFcn);
-
-typedef int_T (*GenericDTAUnaryFcn) (slDataTypeAccess *, const char_T *,
-                                     DTypeId, int_T, const void *,
-                                     const void *, void *);
-typedef GenericDTAUnaryFcn (*GetGenericDTAUnaryFcnGW) (void *, const char_T *,
-                                                       DTypeId,
-                                                       GenDTAUnaryFcnType);
-typedef int_T  (*SetGenericDTAUnaryFcnGW) (void *, const char_T *, DTypeId,
-                                           GenericDTAUnaryFcn,
-                                           GenDTAUnaryFcnType);
-typedef int_T (*GenericDTAUnaryFcnGW) (slDataTypeAccess *, DTypeId, int_T,
-                                       const void *, const void *, void *,
-                                       GenDTAUnaryFcnType);
-
-
-typedef int_T (*GenericDTABinaryFcn) (slDataTypeAccess *, const char_T *,
-                                      DTypeId, int_T, const void *,
-                                      const void *, const void *, void *);
-typedef GenericDTABinaryFcn (*GetGenericDTABinaryFcnGW) (void *, const char_T *,
-                                                         DTypeId,
-                                                         GenDTABinaryFcnType);
-typedef int_T (*SetGenericDTABinaryFcnGW) (void *, const char_T *,
-                                           DTypeId, GenericDTABinaryFcn,
-                                           GenDTABinaryFcnType);
-typedef int_T (*GenericDTABinaryFcnGW) (slDataTypeAccess *, DTypeId,
-                                        int_T, const void *,
-                                        const void *, const void *,
-                                        void *, GenDTABinaryFcnType);
-
-typedef int_T (*GetGenericDTADiagnostic) (void *, const char_T *,
-                                          GenDTADiagnosticType,
-                                          BDErrorValue *);
-
-struct _slDataTypeAccess_tag {
-    void                      *dataTypeTable;
-
-    const char_T              *errorString;
-
-    RegisterDataType          registerFcn;
-
-    GetNumDataTypes           getNumDataTypesFcn;
-
-    GetDataTypeId             getIdFcn;
-
-    GetGenericDTAIntProp      getGenericDTAIntProp;
-    SetGenericDTAIntProp      setGenericDTAIntProp;
-
-    GetGenericDTAVoidProp     getGenericDTAVoidProp;
-    SetGenericDTAVoidProp     setGenericDTAVoidProp;
-
-    GetGenericDTAUnaryFcnGW   getGenericDTAUnaryFcnGW;
-    SetGenericDTAUnaryFcnGW   setGenericDTAUnaryFcnGW;
-
-    GetGenericDTABinaryFcnGW  getGenericDTABinaryFcnGW;
-    SetGenericDTABinaryFcnGW  setGenericDTABinaryFcnGW;
-
-    GetConvertBetweenFcn      getConvertBetweenFcn;
-    SetConvertBetweenFcn      setConvertBetweenFcn;
-
-    GetGenericDTADiagnostic   getGenericDTADiagnostic;
-
-    RegisterDataTypeWithCheck registerFcnWithCheck;
-
-    GetGenericDTAIntElemProp  getGenericDTAIntElemProp;
-    SetGenericDTAIntElemProp  setGenericDTAIntElemProp;
-
-    GetGenericDTAVoidElemProp getGenericDTAVoidElemProp;
-    SetGenericDTAVoidElemProp setGenericDTAVoidElemProp;
-
-};
+#include "sl_datatype_access.h"
 
 /*
  * Call into the s-functions external mode fcn - if it exists.  Returns
@@ -1999,8 +1844,9 @@ struct _ssMdlInfo {
       unsigned int timeTweakWarn         :1; /* whether to warn when time is tweaked*/
       unsigned int solverRequestingReset :1; /* e.g, step ended at discontinuity */
       unsigned int firstInitCondCalled   :1; /* initCond Has been called at least once  */
-
-      unsigned int reserved16           :16; /* remainder are reserved      */
+      unsigned int sparseSlvrJacobian    :1; 
+      unsigned int frameUpgradeWarn      :1;
+      unsigned int reserved15           :14; /* remainder are reserved      */
   } mdlFlags;
   int_T       maxNumMinSteps;  /* Max number of steps taken at minimum       */
   int_T       solverRefineFactor;   /* state & output refinement factor      */
@@ -2362,6 +2208,7 @@ typedef void (*mdlDerivativesLevel1Fcn)(real_T *dx, const real_T *x,
                                         SimStruct *S, int_T tid);
 
 typedef void (*mdlJacobianFcn)(SimStruct *S);
+typedef void (*mdlSlvrJacobianFcn)(SimStruct *S);
 
 typedef void (*mdlProjectionFcn)(SimStruct *S);
 
@@ -2474,9 +2321,13 @@ struct _ssSFcnModelMethods3 {
     /* Embedding the structure -- massMatrix.type and *
      * massMatrix.info.nzMax must be always available */
     struct _ssMassMatrixInfo massMatrix;   
-
     mdlInitSystemMatricesFcn mdlInitSystemMatrices;
-
+    
+    int_T numSlvrJacobianNzmax;
+    SparseHeader*       slvrJacobianMatrix;
+    mdlSlvrJacobianFcn  mdlSlvrJacobian;
+    
+    void* reserved;
 };
 
 struct _ssSFcnModelMethods2 {
@@ -3077,39 +2928,6 @@ struct SimStruct_tag {
 #define ssSetNumNonsampledZCs(S,nNonsampledZCs) \
           (S)->sizes.numNonsampledZCs = (nNonsampledZCs)
 
-/*
- * These must be called after ssSetNumZeroCrossingSignals
- */
-#if defined(RTW_GENERATED_S_FUNCTION) || SS_SL_INTERNAL
-#define SS_NUL 0x00
-#define SS_N2P 0x01
-#define SS_N2Z 0x02
-#define SS_Z2P 0x04
-#define SS_P2N 0x08
-#define SS_P2Z 0x10
-#define SS_Z2N 0x20
-#define SS_ALL_UP  (SS_N2P | SS_N2Z | SS_Z2P)
-#define SS_ALL_DN  (SS_P2N | SS_P2Z | SS_Z2N)
-#define SS_ALL     (SS_ALL_UP | SS_ALL_DN)
-
-
-#define ssSetZeroCrossingType(S, zcIdx, val) \
-          (S)->blkInfo.blkInfo2->zeroCrossingInfo[(zcIdx)].zcType = (val)
-#define ssSetZeroCrossingDirection(S, zcIdx, val) \
-          (S)->blkInfo.blkInfo2->zeroCrossingInfo[(zcIdx)].zcDir = (val)
-#define ssSetZeroCrossingNeedsEvent(S, zcIdx, val) \
-          (S)->blkInfo.blkInfo2->zeroCrossingInfo[(zcIdx)].needsEvent = (val)
-#define ssSetZeroCrossingSignalType(S, zcIdx, val) \
-          (S)->blkInfo.blkInfo2->zeroCrossingInfo[(zcIdx)].zcSignalType = (val)
-#define ssGetZeroCrossingType(S, zcIdx) \
-          (S)->blkInfo.blkInfo2->zeroCrossingInfo[(zcIdx)].zcType
-#define ssGetZeroCrossingDirection(S, zcIdx) \
-          (S)->blkInfo.blkInfo2->zeroCrossingInfo[(zcIdx)].zcDir
-#define ssGetZeroCrossingNeedsEvent(S, zcIdx) \
-          (S)->blkInfo.blkInfo2->zeroCrossingInfo[(zcIdx)].needsEvent
-#define ssGetZeroCrossingSignalType(S, zcIdx) \
-          (S)->blkInfo.blkInfo2->zeroCrossingInfo[(zcIdx)].zcSignalType
-#endif
 
 /* NumZCEvents - This is the number of zero crossing events within your model.
  *   This field is not for use by S-functions (i.e. should be 0).
@@ -4585,6 +4403,25 @@ typedef enum {
 #define ssSetSFcnParam(S,index,mat) ssSetSFcnParam_cannot_be_used_in_SFunctions
 #endif
 
+#if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
+/*
+ * ssGetSFcnParamName(S, paramNumber, &busName)
+ * This can be used to get the name of any parameter specified on the dialog of the 
+ * s-function block.
+ */
+#define ssGetSFcnParamName(S, pIdx, result) \
+ _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_GET_PARAM_NAME, pIdx, (result))\
+ _ssSafelyCallGenericFcnEnd
+#else
+#define ssGetSFcnParamName(S, pIdx, result)
+#endif
+
+#define ssGetSFcnParamDataType(S,index,result) \
+{ _ssSafelyCallGenericFcnStart(S) \
+        (S, GEN_FCN_GET_PARAM_DATATYPE, (index), (result)) \
+      _ssSafelyCallGenericFcnEnd; \
+}
+
 /* ssSetSFcnParamTunable - This should be used by S-function blocks
  *   to specify when a parameter is tunable or not tunable.
  */
@@ -4890,6 +4727,15 @@ typedef struct _ssTimerInfo_tag {
 
 #endif
 
+#if SS_SIM
+# define ssSetRequiredStackSize(S, val)                                 \
+ _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_SET_REQUIRED_STACK_SIZE,(val),NULL)\
+ _ssSafelyCallGenericFcnEnd
+#else
+# define ssSetRequiredStackSize(S, val) \
+ ssSetRequiredStackSize_cannot_be_used_in_RTW
+#endif
+
 #if SS_SL_INTERNAL || SS_RTW_INTERNAL
 # define ssGetRunTimeParamsPtr(S) (S)->sfcnParams.rtp
 # define ssSetRunTimeParamsPtr(S, ptr) (S)->sfcnParams.rtp = (ptr)
@@ -5082,12 +4928,51 @@ GEN_FCN_SET_ASYNC_TASK_PRIORITIES_EL,el,              \
 # endif
 #endif
 
+/*
+ * Set/Get flag that specifies if an S-function supports 
+ * multiple execution instances
+ */
+# if (SS_SL_INTERNAL || SS_SFCN_FOR_SIM) && defined(ssGetOwnerBlock)
+# define ssSupportsMultipleExecInstances(S, value)     \
+{  if (ssGetOwnerBlock(S) != NULL) { \
+       boolean_T val = value;       \
+       _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_SUP_MULTI_EXEC_INSTANCES, 0, &val)\
+       _ssSafelyCallGenericFcnEnd; \
+   }\
+} 
+# else
+#   define ssSupportsMultipleExecInstances(S, value)
+# endif
+
+/*
+ * Set/Get flag that specifies if an S-function supports 
+ * multiple execution instances
+ */
+# if defined (RTW_GENERATED_S_FUNCTION) 
+#   if SS_SFCN_FOR_SIM && defined(ssGetOwnerBlock)
+#     define ssHasStateInsideForEachSS(S, value)     \
+{  if (ssGetOwnerBlock(S) != NULL) { \
+       boolean_T val = value;                                              \
+       _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_SET_MODELREF_STATE_INSIDE_FOREACH, 0, &val)\
+       _ssSafelyCallGenericFcnEnd; \
+   } \
+} 
+#  else
+#    define ssHasStateInsideForEachSS(S, value)  
+#  endif
+# endif
+
+# if (SS_SL_INTERNAL || SS_SFCN_FOR_SIM)
+# define ssSetWarnForFrameUpgrade(S) ((S)->mdlInfo->mdlFlags.frameUpgradeWarn = 1U)
+# define _ssGetWarnForFrameUpgrade(S) ((S)->mdlInfo->mdlFlags.frameUpgradeWarn == 1U)
+#endif
+
 /*======================================================================*
  * BUS support for S-Functions
  *======================================================================*/
 
 /*
- * APIS for bus support via propagation i.e bus expansion. In this case,
+ * APIS for bus support via bus expansion. In this case,
  * the s-function block is expanded under the hood into an individual
  * s-function for each signal in the bus and then the outputs re-bused
  * to output a bus.
@@ -5099,19 +4984,19 @@ GEN_FCN_SET_ASYNC_TASK_PRIORITIES_EL,el,              \
  *
  * 2) ssSetBusSourcePort(S, portNumber)
  *    This indicates that the bus coming into port number (0-based) of the
- * block will supply the structure of the outgoing bus. This bus is also
- * used for getting signal names, signal propagation etc. It is the
- * defining bus for this block.
- * Example: Say for the switch block, this would be set to 0.
+ *    block will supply the structure of the outgoing bus. This bus is also
+ *    used for getting signal names, signal propagation etc. It is the
+ *    defining bus for this block.
+ *    Example: Say for the switch block, this would be set to 0.
  *
  * 3) ssSetBusInputPorts(S, int number, int* numbers)
  *    This indicates the ports of the blocks that accept buses. The bus
- * expansion routine then checks to verify that the incoming buses at these
- * inports are identical in terms of signal names and compiled attributes
- * for successful expansion.
- * Example: For the switch block this is [0 2], so "number" is set to 2
- *          and "numbers" is an array of ints of length 2 with values
- *          numbers[0] = 0; numbers[1] = 2;
+ *    expansion routine then checks to verify that the incoming buses at these
+ *    inports are identical in terms of signal names and compiled attributes
+ *    for successful expansion.
+ *    Example: For the switch block this is [0 2], so "number" is set to 2
+ *             and "numbers" is an array of ints of length 2 with values
+ *             numbers[0] = 0; numbers[1] = 2;
  */
 #define ssSetBusPropagationSupported(S, value)\
 {    boolean_T tmp = value;\
@@ -5136,41 +5021,85 @@ GEN_FCN_SET_ASYNC_TASK_PRIORITIES_EL,el,              \
  *
  * Need to set_param(gcb, 'EnableBusSupport', 'on') for the S-Function block
  *
- * 1) ssGetSFcnParamName(S, paramNumber, &busName)
- *    This can be used to get the name of the bus object or any other parameter
- * specified on the dialog of the s-function block.
+ * 1)  ssSetBusOutputObjectName(S, int_T portNumber, char* busName)
+ *     This specifies the bus object that defines the bus coming out of the
+ *     s-function block at output number (0-based) of the block.
  *
- * 2) ssSetBusOutputObjectName(S, portNumber, busName)
- *    This specifies the bus object that defines the bus coming out of the
- * s-function block at output number (0-based) of the block.
+ * 2)  ssSetBusInputAsStruct(S, int_T portNumber, boolean_T val) 
+ *     This specifies if the input bus as specified by the bus object should
+ *     be converted to non-virtual if necessary. By setting it to true, an auto-
+ *     conversion block is inserted behind the scenes to convert a virtual 
+ *     bus input to a non-virtual bus
  *
- * 2a) ssSetBusObjectName is the obsolete name for
- *     ssSetBusOutputObjectName
+ * 3)  ssSetBusOutputAsStruct(S, int_T portNumber, boolean_T val)
+ *     This specifies if the output bus as specified by the bus object should
+ *     emerge as a structure (non-virtual) or a virtual bus. By setting it to false,
+ *     a Signal Conversion block is automatically inserted behind the scenes to
+ *     output a virtual bus.
  *
- * 3) ssSetBusOutputAsStruct(S, portNumber, boolean_T)
- *    This specifies if the output bus as specified by the bus object should
- * emerge as a structure (non-virtual) or a virtual bus. By setting it to false
- * an auto-conversion block is inserted behind the scenes to output a virtual
- * bus.
+ *     -------------------------------------------------------------------------- 
+ *     The next set of macros can be used to obtain information for a specific element
+ *     of a bus object given the data type index of the bus object and the appropriate 
+ *     bus element index within the bus object. The data type index of the bus object
+ *     is the index returned by Simulink when the bus object was registered in
+ *     mdlInitializeSizes() (using ssRegisterTypeFromParameter() for example)
+ *     --------------------------------------------------------------------------
+ *
+ * 4)  ssGetNumBusElements(S, int_T busTypeID)
+ *     Get the number of bus elements in the specified bus object. The bus data type
+ *     is passed in as the second argument. 
+ *
+ * 5)  ssGetBusElementOffset(S, int_T busTypeID, int_T elemIdx) 
+ *     Obtain the offset in bytes (int_T) from the start of the bus data type to 
+ *     the specified bus element. The bus data type is passed in as the second 
+ *     argument and the bus element index (zero based index) is passed in as the 
+ *     third argument.
+ *
+ * 6)  ssGetBusElementDataType(S, int_T busTypeID, int_T elemIdx) 
+ *     Obtain the data type index (int_T) for the specified bus element. The bus data 
+ *     type is passed in as the second argument and the bus element index (zero based 
+ *     index) is passed in as the third argument.
+ *
+ * 7)  ssGetBusElementComplexSignal(S, int_T busTypeID, int_T elemIdx) 
+ *     Obtain the complexity (CSignal_T) of the specified bus element. The bus 
+ *     data type is passed in as the second argument and the bus element index (zero 
+ *     based index) is passed in as the third argument. 
+ *
+ * 8)  ssGetBusElementNumDimensions(S, int_T busTypeID, int_T elemIdx) 
+ *     Obtain the number of signal dimensions (int_T) for the specified bus element. 
+ *     The bus data type is passed in as the second argument and the bus element index 
+ *     (zero based index) is passed in as the third argument.
+ *
+ * 9)  ssGetBusElementDimensions(S, int_T busTypeID, int_T elemIdx)
+ *     Obtain the dimensions (const int_T*) for the specified bus element. Use in combination
+ *     with ssGetBusElementNumDimensions() above to iterate over the integer array
+ *     returned by this macro. The bus data type is passed in as the second argument 
+ *     and the bus element index (zero based index) is passed in as the third argument.
+ *
+ * 10) ssGetBusElementDimensionsMode(S, int_T busTypeID, int_T elemIdx)
+ *     Obtain the dimensions mode (DimensionsMode_T) for the specified bus element. 
+ *     The bus data type is passed in as the second argument and the bus element index 
+ *     (zero based index) is passed in as the third argument.
+ *
+ * 11) ssGetBusElementName(S, int_T busTypeId, int_T elemIdx)
+ *     Get the name (const char*) of the specified bus element. The bus data type is passed 
+ *     in as the second argument and the bus element index (zero based index) is 
+ *     passed in as the third argument.
+ * 
+ * 12) ssIsDataTypeABus(S, int_T typeID)
+ *     Determine if the data type ID passed in is a bus signal. A Boolean_T value is 
+ *     returned. 
  */
 
 #if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
-#define ssGetSFcnParamName(S, pIdx, result) \
- _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_GET_PARAM_NAME, pIdx, (result))\
- _ssSafelyCallGenericFcnEnd
 
 #define ssSetBusOutputObjectName(S, pIdx, name) \
  _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_SET_BUS_OUTPUT_OBJECT_NAME, pIdx, name)\
  _ssSafelyCallGenericFcnEnd
 
+/* Use of ssSetBusObjectName is not recommended. Please use ssSetBusOutputObjectName instead. */
 #define ssSetBusObjectName(S, pIdx, name) \
  (ssSetBusOutputObjectName((S), (pIdx), (name)))
-
-#define ssSetBusOutputAsStruct(S, pIdx, value) \
-{    boolean_T tmp = value;\
- _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_SET_BUS_OUTPUT_AS_STRUCT, pIdx, &tmp)\
- _ssSafelyCallGenericFcnEnd;\
-}
 
 #define ssSetBusInputAsStruct(S, pIdx, value) \
 {    boolean_T tmp = value;\
@@ -5178,18 +5107,71 @@ GEN_FCN_SET_ASYNC_TASK_PRIORITIES_EL,el,              \
  _ssSafelyCallGenericFcnEnd;\
 }
 
-#define ssSetOutputPortDiscreteValuedOutput(S, pIdx, value) \
-{  boolean_T tmp = value;\
- _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_SET_OUTPUT_PORT_DISCRETE_VALUED_OUTPUT, pIdx, &tmp)   \
+#define ssSetBusOutputAsStruct(S, pIdx, value) \
+{    boolean_T tmp = value;\
+ _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_SET_BUS_OUTPUT_AS_STRUCT, pIdx, &tmp)\
  _ssSafelyCallGenericFcnEnd;\
 }
+
+#define ssGetNumBusElements(S, busTypeID) \
+ (dtaGetDataTypeNumElements(ssGetDataTypeAccess(S), ssGetPath(S), (busTypeID)))
+
+#define ssGetBusElementOffset(S, busTypeID, elemIdx) \
+ (dtaGetDataTypeElementOffset(ssGetDataTypeAccess(S), ssGetPath(S), (busTypeID), (elemIdx)))
+
+#define ssGetBusElementDataType(S, busTypeID, elemIdx) \
+ (dtaGetDataTypeElementDataType(ssGetDataTypeAccess(S), ssGetPath(S), (busTypeID), (elemIdx)))
+
+#define ssGetBusElementComplexSignal(S, busTypeID, elemIdx) \
+ (dtaGetDataTypeElementSignalType(ssGetDataTypeAccess(S), ssGetPath(S), (busTypeID), (elemIdx)))
+
+#define ssGetBusElementNumDimensions(S, busTypeID, elemIdx) \
+ (dtaGetDataTypeElementNumDimensions(ssGetDataTypeAccess(S), ssGetPath(S), (busTypeID), (elemIdx)))
+
+#define ssGetBusElementDimensions(S, busTypeID, elemIdx) \
+ (dtaGetDataTypeElementDimensions(ssGetDataTypeAccess(S), ssGetPath(S), (busTypeID), (elemIdx)))
+
+#define ssGetBusElementDimensionsMode(S, busTypeID, elemIdx) \
+ (dtaGetDataTypeElementDimensionsMode(ssGetDataTypeAccess(S), ssGetPath(S), (busTypeID), (elemIdx)))
+
+#define ssGetBusElementName(S, busTypeID, elemIdx) \
+ (dtaGetDataTypeElementName(ssGetDataTypeAccess(S), ssGetPath(S), (busTypeID), (elemIdx)))
+
+#define ssIsDataTypeABus(S, typeID) \
+ (dtaGetDataTypeIsBus(ssGetDataTypeAccess(S), ssGetPath(S), typeID))
+
 #else
-#define ssGetSFcnParamName(S, pIdx, result)
 #define ssSetBusOutputObjectName(S, pIdx, name)
 #define ssSetBusObjectName(S, pIdx, name)
-#define ssSetBusOutputAsStruct(S, pIdx, value)
 #define ssSetBusInputAsStruct(S, pIdx, value)
-#define ssSetOutputPortDiscreteValuedOutput(S, pIdx, value)
+#define ssSetBusOutputAsStruct(S, pIdx, value)
+
+#define ssGetNumBusElements(S, busTypeID) \
+ ssGetNumBusElements_cannot_be_used_in_RTW
+
+#define ssGetBusElementOffset(S, busTypeID, elemIdx) \
+ ssGetBusElementOffset_cannot_be_used_in_RTW
+
+#define ssGetBusElementDataType(S, busTypeID, elemIdx) \
+ ssGetBusElementDataType_cannot_be_used_in_RTW
+
+#define ssGetBusElementComplexSignal(S, busTypeID, elemIdx) \
+ ssGetBusElementComplexSignal_cannot_be_used_in_RTW
+
+#define ssGetBusElementNumDimensions(S, busTypeID, elemIdx) \
+ ssGetBusElementNumDimensions_cannot_be_used_in_RTW
+
+#define ssGetBusElementDimensions(S, busTypeID, elemIdx) \
+ ssGetBusElementDimensions_cannot_be_used_in_RTW
+
+#define ssGetBusElementDimensionsMode(S, busTypeID, elemIdx) \
+ ssGetBusElementDimensionsMode_cannot_be_used_in_RTW
+
+#define ssGetBusElementName(S, busTypeID, elemIdx) \
+ ssGetBusElementName_cannot_be_used_in_RTW
+
+#define ssIsDataTypeABus(S, typeID) \
+ ssIsDataTypeABus_cannot_be_used_in_RTW
 #endif
 
 /*
@@ -5243,6 +5225,22 @@ typedef void (*mdlSetInputPortBusModeFcn)(SimStruct *S,
 #endif
 
 /* ============================================================================
+ * API to specify that output port is discrete valued 
+ * ============================================================================*/
+#if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
+
+#define ssSetOutputPortDiscreteValuedOutput(S, pIdx, value) \
+{  boolean_T tmp = value;\
+ _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_SET_OUTPUT_PORT_DISCRETE_VALUED_OUTPUT, pIdx, &tmp)   \
+ _ssSafelyCallGenericFcnEnd;\
+}
+
+#else
+#define ssSetOutputPortDiscreteValuedOutput(S, pIdx, value)
+#endif
+
+
+/* ============================================================================
  * API to identify output ports that can serve as IC source.
  * ==========================================================================*/
 
@@ -5285,6 +5283,56 @@ typedef struct _ssICAttribs_tag {
     _ssSafelyCallGenericFcnEnd; \
  }
 #endif
+
+/* ============================================================================
+ * API to declare model reference block that can be placed inside state enabled
+ * subsystem.
+ * ==========================================================================*/
+
+#if defined(RTW_GENERATED_S_FUNCTION) || SS_SL_INTERNAL
+# define ssSetModelReferenceAllowInStateEnabledSubsystem(S, value) \
+ {  boolean_T val = value; \
+    _ssSafelyCallGenericFcnStart(S)( \
+        (S), GEN_FCN_SET_MODELREF_ALLOW_IN_STATE_ENABLED_SS, 0, &val)\
+    _ssSafelyCallGenericFcnEnd; \
+ }
+#endif
+
+/*
+ * Set flag that specifies if an S-function is strictly updating its states in
+ * mdlUpdate.
+ */
+# if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
+#   define ssSetStatesModifiedOnlyInUpdate(S, value)       \
+ {  boolean_T val = value; \
+    _ssSafelyCallGenericFcnStart(S)( \
+        (S), GEN_FCN_SET_STATES_MODIFIED_ONLY_IN_UPDATE, 0, &val)\
+    _ssSafelyCallGenericFcnEnd; \
+ }
+# else
+#   define ssSetStatesModifiedOnlyInUpdate(S, value)
+# endif
+
+struct _ssInputReqIISNumItersDWorks_tag {
+    int  numMapped;
+    int* numItersVals;
+    int* canDWIndices;
+};
+
+# if (SS_SL_INTERNAL || SS_SFCN_FOR_SIM) && defined(ssGetOwnerBlock)
+# define ssSetInputRequestIISNumIterationsDWorks(S, pIdx, _numDWs, _numItersVals, _canDWIndices) \
+{  if (ssGetOwnerBlock(S) != NULL) { \
+        struct _ssInputReqIISNumItersDWorks_tag val; \
+        val.numMapped = _numDWs; \
+        val.numItersVals = _numItersVals; \
+        val.canDWIndices = _canDWIndices; \
+       _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_REQUEST_IIS_NUM_ITER_DWORK, pIdx, &val)\
+       _ssSafelyCallGenericFcnEnd; \
+   }\
+} 
+# else
+#   define ssSetInputRequestIISNumIterationsDWorks(S, pIdx, numDWs, numItersVals)
+# endif
 
 /* ============================================================================
  * Variable dimensions APIs
@@ -5456,6 +5504,11 @@ typedef struct {
     int _ruleIdx;
 } VarDimsAccelSetDims_T;
 
+typedef struct {
+    const char *name;
+    const uint32_T **elements;
+} DataTypeChecksumInfo_T;
+
 #if SS_SFCN && SS_SIM
 
 #define ssRegMdlRefSetOutputDimsMethods(S, outIdx, ruleInfo) \
@@ -5486,6 +5539,58 @@ typedef struct {
       _ssSafelyCallGenericFcnStart(S)((S),                              \
                                       GEN_FCN_ACCEL_CALL_SET_DIMS,      \
                                       0, &accelSetDimsInfo)                  \
+      _ssSafelyCallGenericFcnEnd;        \
+    }
+
+#define ssCallAccelCopyCacheForIIS(S, sysIdx, fromCache) \
+    { _ssSafelyCallGenericFcnStart(S)((S),     \
+                                      GEN_FCN_ACCEL_COPY_STATE_CACHE_FOR_IIS,\
+                                      sysIdx, fromCache) \
+      _ssSafelyCallGenericFcnEnd;              \
+    }
+
+#define ssCallGetDataTypeChecksum(S, dtName, els) \
+    { DataTypeChecksumInfo_T chksumInfo; \
+      chksumInfo.name = dtName;          \
+      chksumInfo.elements = els;         \
+      _ssSafelyCallGenericFcnStart(S)((S),                             \
+                                      GEN_FCN_GET_DATATYPE_CHECKSUM,   \
+                                      0, &chksumInfo)                  \
+      _ssSafelyCallGenericFcnEnd;        \
+    }
+
+#define ssCheckStructParamChecksum(S, index, chksum) \
+    { _ssSafelyCallGenericFcnStart(S)((S),                                \
+                                      GEN_FCN_CHECK_STRUCTPARAM_CHECKSUM, \
+                                      (index), (chksum))                  \
+      _ssSafelyCallGenericFcnEnd;                                         \
+    }
+
+#define ssCallSetRegCodeVariantFcnCall(S, numParams, paramIdxs) \
+    { _ssSafelyCallGenericFcnStart(S)((S),                                \
+                                      GEN_FCN_REG_CODE_VARIANT_FCNCALL,   \
+                                      numParams, paramIdxs)               \
+      _ssSafelyCallGenericFcnEnd;        \
+    }
+
+#define ssCallSetRegAutosarClientBlock(S, isClientBlock) \
+    { _ssSafelyCallGenericFcnStart(S)((S),                                \
+                                      GEN_FCN_REG_AUTOSAR_CLIENT_BLOCK,   \
+                                      isClientBlock, NULL)                   \
+      _ssSafelyCallGenericFcnEnd;        \
+    }
+
+#define ssCallGetNumVariantConditions(S, conditionIndex, result)          \
+    { _ssSafelyCallGenericFcnStart(S)((S),                                \
+                                      GEN_FCN_GET_NUM_VARIANT_CONDITIONS, \
+                                      conditionIndex, result)             \
+      _ssSafelyCallGenericFcnEnd;        \
+    }
+
+#define ssCallGetEvalCodeVariantFcnCall(S, numParams, paramIdxs)     \
+    { _ssSafelyCallGenericFcnStart(S)((S),                                \
+                                      GEN_FCN_EVAL_CODE_VARIANT_FCNCALL,  \
+                                      numParams, paramIdxs)                \
       _ssSafelyCallGenericFcnEnd;        \
     }
 
@@ -5645,6 +5750,19 @@ typedef struct {
  ssWriteToDataStoreWithPath(S, dsmIdx, NULL, dataAddr)
 #endif
 
+
+#if SS_SFCN && SS_SIM
+
+/* Update Data Store Memory logs after writing data.
+ */
+# define ssUpdateDataStoreLog(S, dsmIdx) \
+{\
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_DATA_STORE_LOG_UPDATE, dsmIdx, NULL)\
+    _ssSafelyCallGenericFcnEnd; \
+}
+
+#endif
+
 /* Remember: storage is column major order if accessing element of a matrix */
 typedef struct {
     const char *bpath;
@@ -5695,6 +5813,7 @@ typedef struct {
 
 typedef struct {
     char      *name;
+    char      *dataTypeName;
     boolean_T expectGlobal;
     int       *idx;
     void      **addr;
@@ -5705,6 +5824,7 @@ typedef struct {
    {\
      SFcnDataStoreNameAddrIdx locPI; \
      locPI.name = dsmName; \
+     locPI.dataTypeName = NULL;\
      locPI.expectGlobal = false; \
      locPI.idx = dsmIdx;\
      locPI.addr = dsmAddr; \
@@ -5714,10 +5834,11 @@ typedef struct {
 #endif
 
 #if SS_SFCN && SS_SIM
-# define ssGetSFcnGlobalDataStoreNameAddrIdx(S, dsmName, dsmAddr, dsmIdx) \
+# define ssGetSFcnGlobalDataStoreNameAddrIdx(S, dsmName, dsmDTName, dsmAddr, dsmIdx) \
    {\
      SFcnDataStoreNameAddrIdx locPI; \
      locPI.name = dsmName; \
+     locPI.dataTypeName = dsmDTName;\
      locPI.expectGlobal = true; \
      locPI.idx = dsmIdx;\
      locPI.addr = dsmAddr; \
@@ -5740,15 +5861,56 @@ typedef struct {
      _ssSafelyCallGenericFcnEnd
 #endif
 
+/* ================== APIs for zero crossing =================================*/
 
-#if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
-#define ssSetNumZeroCrossingSignals(S, nZCSignals) \
-(S)->sizes.numNonsampledZCs = (nZCSignals); \
-_ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_SET_NUM_ZCSIGNALS, nZCSignals, NULL)\
- _ssSafelyCallGenericFcnEnd;
-#else /* RTW S-function block */
-#  define  ssSetNumZeroCrossingSignals(S,nZCSignals) (1)
+typedef struct {
+    int_T        _regionIdx;
+    int_T        _regionElIdx;
+    boolean_T    _result;
+}_ssRegionElementIdxInfo;
+
+/*
+ * Specify that the input port is being used to comptue the continuous zero
+ * crossing signal values
+ */
+#ifdef __cplusplus
+extern "C" {
 #endif
+extern void ssSetIsInputPortUsedForContZcSignal(SimStruct *S, int_T pIdx, boolean_T value); 
+extern void ssSetZcSignalIsZcElementDisc(SimStruct *S, int_T zcsIdx, int_T zcsElIdx, boolean_T value); 
+extern void ssSetZcSignalName(SimStruct *S, int_T zcsIdx, char* name); 
+extern void ssSetZcSignalWidth(SimStruct *S, int_T zcsIdx, int_T width); 
+extern void ssSetZcSignalZcEventType(SimStruct *S, int_T zcsIdx, slZcEventType zcEventType); 
+extern void ssSetZcSignalType(SimStruct *S, int_T zcsIdx, slZcSignalType zcSignalType);
+extern void ssSetZcSignalZcTol(SimStruct *S, int_T zcsIdx,  double zcTol);
+extern void ssSetZcSignalNeedsEventNotification(SimStruct *S, int_T zcsIdx, boolean_T needsEventNotification);
+
+extern         int_T  ssCreateAndAddZcSignalInfo(SimStruct *S);
+extern         int_T  ssCloneAndAddZcSignalInfo(SimStruct *S, int_T zcsIdx);
+extern         int_T  ssGetNumZcSignals(SimStruct *S);
+
+extern      double*   ssGetZcSignalVector(SimStruct *S, int_T zcsIdx);
+extern const char*    ssGetZcSignalName(SimStruct *S, int_T zcsIdx); 
+extern       int_T    ssGetZcSignalWidth(SimStruct *S, int_T zcsIdx); 
+extern slZcEventType  ssGetZcSignalZcEventType(SimStruct *S, int_T zcsIdx);
+extern slZcEventType* ssGetZcSignalZcEvents(SimStruct *S, int_T zcsIdx);
+extern slZcSignalType ssGetZcSignalType(SimStruct *S, int_T zcsIdx);
+extern double         ssGetZcSignalZcTol(SimStruct *S, int_T zcsIdx);
+extern boolean_T      ssGetZcSignalNeedsEventNotification(SimStruct *S, 
+ 
+                                                          int_T zcsIdx);
+extern boolean_T      ssGetZcSignalIsZcElementDisc(SimStruct *S,
+                                                   int_T zcsIdx, 
+                                                   int_T zcsElIdx);
+
+extern boolean_T      ssGetIsInputPortElementContinuous(SimStruct *S,
+                                                        int_T pIdx, 
+                                                        int_T eIdx);
+#ifdef __cplusplus
+}
+#endif
+
+/* ================================================================= */
 
 typedef enum {
     MDLREF_UNKNOWN = 0,
@@ -5804,6 +5966,7 @@ typedef enum {
     MDL_INFO_ID_MODEL_FCN_NAME,
     MDL_INFO_ID_AUTOSAR_RTE_FCN_NAME,
     MDL_INFO_ID_RESERVED,
+    MDL_INFO_ID_VARIANT,
     NumMdlInfoType
 } MdlInfoType;
 
@@ -5852,6 +6015,9 @@ typedef struct ModelRefIntfParamInfo_tag {
     int_T            *dims;
     boolean_T        isComplex;
     DTypeId          dTypeId;
+    uint32_T         *dtChecksum;
+    const char       *dtName;
+    boolean_T        dtIsAnonymous;
 } ModelRefIntfParamInfo;
 
 /* Only used in MODELREF S-functions */
@@ -5924,6 +6090,12 @@ GEN_FCN_MODELREF_SET_FUNDAMENTAL_SAMPLE_TIME_INFO,(int)fIdx,(void *)str)\
      _ssSafelyCallGenericFcnStart(S)(S,\
 GEN_FCN_MODELREF_SET_TRIGGER_TS_TYPE_INFO,0,(void *)str)\
      _ssSafelyCallGenericFcnEnd
+
+#define ssSetModelRefTriggerType(S, str) \
+     _ssSafelyCallGenericFcnStart(S)(S,\
+GEN_FCN_MODELREF_SET_TRIGGER_TYPE,0,(void *)str)\
+     _ssSafelyCallGenericFcnEnd
+
 #endif
 
 #if SS_SFCN && SS_SIM
@@ -6032,7 +6204,23 @@ _ssSafelyCallGenericFcnStart(S)(S,\
      locPI.nDims = numDims; \
      locPI.dims = dimsPtr; \
      locPI.isComplex = cplx; \
-     locPI.dTypeId = dtId;
+     locPI.dTypeId = dtId; \
+     locPI.dtChecksum = NULL; \
+     locPI.dtName = NULL; \
+     locPI.dtIsAnonymous = 0;
+
+# define _ssModelRefIntfStructParamInfoInit(id, used, numDims, dimsPtr, cplx, dtchksum, \
+                                            dtname, dtanonymous) \
+     ModelRefIntfParamInfo locPI; \
+     locPI.name = id; \
+     locPI.isUsed = used; \
+     locPI.nDims = numDims; \
+     locPI.dims = dimsPtr; \
+     locPI.isComplex = cplx; \
+     locPI.dTypeId = INVALID_DTYPE_ID; \
+     locPI.dtChecksum = dtchksum; \
+     locPI.dtName = dtname; \
+     locPI.dtIsAnonymous = dtanonymous;
 
 # define ssRegModelRefParamArg(S, pIdx, id, used, numDims, dimsPtr, cplx, dtId) \
    { \
@@ -6042,6 +6230,22 @@ _ssSafelyCallGenericFcnStart(S)(S,\
 GEN_FCN_REG_MODELREF_INTFPARAM_ARG, pIdx, &locPI) \
          _ssSafelyCallGenericFcnEnd) return; \
    }
+
+# define ssRegModelRefStructParamArg(S, pIdx, id, used, numDims, dimsPtr, cplx, dtChecksum, \
+                                     dtName, dtIsAnonymous) \
+   { \
+      _ssModelRefIntfStructParamInfoInit( \
+          id, used, numDims, dimsPtr, cplx, dtChecksum, dtName, dtIsAnonymous) \
+         if (!_ssSafelyCallGenericFcnStart(S)(S, \
+GEN_FCN_REG_MODELREF_INTFPARAM_ARG, pIdx, &locPI) \
+         _ssSafelyCallGenericFcnEnd) return; \
+   }
+
+# define ssRegModelRefGlobalVarUsage(S, numVars, varList)        \
+     _ssSafelyCallGenericFcnStart(S)(S, \
+       GEN_FCN_REG_MODELREF_GLOBAL_VARUSAGE, numVars, varList) \
+     _ssSafelyCallGenericFcnEnd
+
 
 # define ssRegModelRefScaledDoubleParamArg(S, pIdx, id, used, numDims, dimsPtr, cplx, \
                           isSigned, nBits, fracSlope, fixSlope, bias, override) \
@@ -6070,6 +6274,16 @@ GEN_FCN_GET_MODELREF_INTFPARAM_ARG_DATA, pIdx, (void *)dataPtr) \
    { \
       _ssModelRefIntfParamInfoInit( \
                id, 1 /* isUsed */, numDims, dimsPtr, cplx, dtId) \
+         if (!_ssSafelyCallGenericFcnStart(S)(S, \
+GEN_FCN_REG_MODELREF_INTFPARAM_GLOBAL, pIdx, &locPI) \
+         _ssSafelyCallGenericFcnEnd) return; \
+   }
+
+# define ssRegModelRefStructGlobalParam(S, pIdx, id, numDims, dimsPtr, cplx, dtChecksum, \
+                                        dtName, dtIsAnonymous ) \
+   { \
+      _ssModelRefIntfStructParamInfoInit( \
+          id, 1 /* isUsed */, numDims, dimsPtr, cplx, dtChecksum, dtName, dtIsAnonymous) \
          if (!_ssSafelyCallGenericFcnStart(S)(S, \
 GEN_FCN_REG_MODELREF_INTFPARAM_GLOBAL, pIdx, &locPI) \
          _ssSafelyCallGenericFcnEnd) return; \
@@ -6274,6 +6488,84 @@ DISALLOW_SAMPLE_TIME_INHERITANCE
 #define ssSetdX(S,dx) _ssSetdX(S,dx)
 #else
 #define ssSetdX(S,dx) ssSetdX_cannot_be_used_in_SFunctions
+#endif
+
+
+/* slvrJacobian */
+/* slvrJacobian - This struct contains the slvrJacobian matrix for your S-function
+ *   block.  The size of this matrix is (nxc + ny) x (nxc + nu).
+ *   All of the storage involved will be allocated automatically, provided
+ *   that nzmax is set to the correct value (or a number larger than the
+ *   correct value).  Setting nzmax == -1 will construct a full matrix.  It
+ *   is then your responsibility to fill in correct values for *pr, *ir, *jc.
+ */
+
+
+#define ssGetSlvrJacobianNzMax(S) \
+    ((S)->states.modelMethods2->modelMethods3->numSlvrJacobianNzmax)        
+#define ssSetSlvrJacobianNzMax(S,n) \
+    ((S)->states.modelMethods2->modelMethods3->numSlvrJacobianNzmax = (n)) 
+       
+#define ssGetSlvrJacobianHeader(S) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix)
+#define _ssSetSlvrJacobianHeader(S,p) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix  = (p)) 
+          
+#if !SS_SFCN
+#define ssSetSlvrJacobianHeader(S,p) _ssSetSlvrJacobianHeader(S,p)
+#else
+#define ssSetSlvrJacobianHeader(S,p) ssSetSlvrJacobianHeader_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetSlvrJacobianPr(S) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Pr )
+#define _ssSetSlvrJacobianPr(S,pr) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Pr = (pr)) 
+
+#if !SS_SFCN
+#define ssSetSlvrJacobianPr(S,pr) _ssSetSlvrJacobianPr(S,pr)
+#else
+#define ssSetSlvrJacobianPr(S,pr) ssSetSlvrJacobian_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetSlvrJacobianIr(S) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Ir)
+#define _ssSetSlvrJacobianIr(S,ir) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Ir = (ir))
+#if !SS_SFCN
+#define ssSetSlvrJacobianIr(S,ir) _ssSetSlvrJacobianIr(S,ir)
+#else
+#define ssSetSlvrJacobianIr(S,ir) ssSetSlvrJacobianIr_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetSlvrJacobianJc(S) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Jc)
+#define _ssSetSlvrJacobianJc(S,jc) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->Jc = (jc))
+#if !SS_SFCN
+#define ssSetSlvrJacobianJc(S,jc) _ssSetSlvrJacobianJc(S,jc)
+#else
+#define ssSetSlvrJacobianJc(S,jc) ssSetSlvrJacobianJc_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetSlvrJacobianM(S) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->mRows)
+#define _ssSetSlvrJacobianM(S,m) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->mRows )
+#if !SS_SFCN
+#define ssSetSlvrJacobianM(S,m) _ssSetSlvrJacobianM(S,m)
+#else
+#define ssSetSlvrJacobianM(S,m) ssSetSlvrJacobianM_cannot_be_used_in_SFunctions
+#endif
+
+#define ssGetSlvrJacobianN(S) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->nCols)
+#define _ssSetSlvrJacobianN(S,n) \
+    ((S)->states.modelMethods2->modelMethods3->slvrJacobianMatrix->nCols = (n))
+#if !SS_SFCN
+#define ssSetSlvrJacobianN(S,n) _ssSetSlvrJacobianN(S,n)
+#else
+#define ssSetSlvrJacobianN(S,n) ssSetSlvrJacobianN_cannot_be_used_in_SFunctions
 #endif
 
 
@@ -6686,6 +6978,21 @@ The default value for the flag is true.
     ssRegisterDataMinMaxPrmIndices((S),SS_DATA_DESC_DWORK,(dworkIdx),(prmMinIdx),(prmMaxIdx))
 
 /*
+ * Specify when the DWork minimum and maximum range checking should be
+ * performed.
+ */
+typedef enum {
+    DWORK_MIN_MAX_CHECKING_USER_INITIATED    = 0x0,
+    DWORK_MIN_MAX_CHECKING_OUTPUT_ONLY       = 0x1,
+    DWORK_MIN_MAX_CHECKING_UPDATE_ONLY       = 0x2,
+    DWORK_MIN_MAX_CHECKING_OUTPUT_AND_UPDATE = 0x3
+} DWorkMinMaxCheckpoint;
+#define ssGetDWorkMinMaxCheckpoint(S,dworkIdx) \
+    ((S)->work.dWorkAux[(dworkIdx)].flags.minMaxCheckpoint)
+#define ssSetDWorkMinMaxCheckpoint(S,dworkIdx,checkpoint) \
+    (S)->work.dWorkAux[(dworkIdx)].flags.minMaxCheckpoint = (checkpoint)
+
+/*
  * Perform explicit range checking of the DWork against the associated
  * design minimum and maximum
  */
@@ -6723,10 +7030,22 @@ The default value for the flag is true.
  * G(S)et the DWork "UsageType".
  */
 #define ssGetDWorkUsageType(S,index) \
-        (S)->work.dWork.sfcn[(index)].usedAs;
+        (S)->work.dWork.sfcn[(index)].usedAs
 #define ssSetDWorkUsageType(S,index,val) \
-          (S)->work.dWork.sfcn[(index)].usedAs = val;
+          (S)->work.dWork.sfcn[(index)].usedAs = val
 
+/* DWorkOptimizeInIR - This macro allows S-Functions that use the code 
+ * generation intermediate representation (CGIR) to generate code, to enable
+ * optimizations that would otherwise be disabled by default. For example,
+ * the macro should be used if a S-Function set its DWork conservatively as
+ * global, because it is accessed in both the
+ * output and the update function. It is possible for CGIR to safely optimize
+ * the DWork if output and update get combined.
+ */
+#define ssGetDWorkOptimizeInIR(S,index) \
+    ((S)->work.dWorkAux[(index)].flags.optimizeInIR)
+#define ssSetDWorkOptimizeInIR(S,index,val) \
+    (S)->work.dWorkAux[(index)].flags.optimizeInIR = val
 
 /*
  * G(S)et the DWork "disable bounds checking" attribute.
@@ -7362,11 +7681,25 @@ The default value for the flag is true.
 #define _ssSetComputingJacobian(S,boolVal) \
            (S)->mdlInfo->mdlFlags.computingJacobian = \
                  ((boolVal) ? 1U : 0U)
+#define ssIsSolverComputingJacobian(S) ssIsComputingJacobian(S)
+
 #if !SS_SFCN
 #define ssSetComputingJacobian(S,boolVal) _ssSetComputingJacobian(S,boolVal)
 #else
 #define ssSetComputingJacobian(S,boolVal) \
           ssSetComputingJacobian_cannot_be_used_in_SFunctions
+#endif
+
+#define ssIsSparseSlvrJacobian(S)                       \
+    ((S)->mdlInfo->mdlFlags.sparseSlvrJacobian == 1U)
+#define _ssSetSparseSlvrJacobian(S,boolVal)             \
+    (S)->mdlInfo->mdlFlags.sparseSlvrJacobian =         \
+        ((boolVal) ? 1U : 0U)
+#if !SS_SFCN
+#define ssSetSparseSlvrJacobian(S,boolVal) _ssSetSparseSlvrJacobian(S,boolVal)
+#else
+#define ssSetSparseSlvrJacobian(S,boolVal)                      \
+    ssSetSparseSlvrJacobian_cannot_be_used_in_SFunctions
 #endif
 
 
@@ -7650,7 +7983,13 @@ The default value for the flag is true.
 #define ssSetSolverIsAtLeftPostOfContZcEvent(S, val) \
         ssGetSolverInfo(S)->isAtLeftPostOfContZcEvent = (val)
 #define ssGetSolverIsAtLeftPostOfContZcEvent(S) \
-        (ssGetSolverInfo(S)->isAtLeftPostOfContZcEvent)
+        (ssGetSolverInfo(S)->isAtLeftPostOfContZcEvent == 1U)
+
+#define ssSetSolverIsAtRightPostOfContZcEvent(S, val) \
+        ssGetSolverInfo(S)->isAtRightPostOfContZcEvent = (val)
+#define ssGetSolverIsAtRightPostOfContZcEvent(S) \
+        (ssGetSolverInfo(S)->isAtRightPostOfContZcEvent == 1U)
+
 
 #define ssSetSolverNeedsContZcEventNotification(S, val) \
         ssGetSolverInfo(S)->needsContZcEventNotification = (val)
@@ -7751,6 +8090,11 @@ The default value for the flag is true.
         ssGetSolverInfo(S)->solverShapePreserveControl = (val)
 #define ssGetSolverShapePreserveControl(S) \
         ssGetSolverInfo(S)->solverShapePreserveControl
+
+#define ssSetSolverJacobianMethodControl(S, val) \
+        ssGetSolverInfo(S)->solverJacobianMethodControl = (val)
+#define ssGetSolverJacobianMethodControl(S) \
+        ssGetSolverInfo(S)->solverJacobianMethodControl
 
 #define ssGetSolverConsecutiveZCsError(S) \
         ssGetSolverInfo(S)->consecutiveZCsError
@@ -8113,6 +8457,7 @@ extern int_T ssIsRunTimeParamTunable(SimStruct *S, const int_T rtPIdx);
 extern double ssGetSFuncBlockHandle(SimStruct *S);
 extern int_T _ssGetCurrentInputPortWidth( SimStruct *S, int_T pIdx);
 extern int_T _ssGetCurrentOutputPortWidth(SimStruct *S, int_T pIdx);
+extern int_T _ssGetCallSystemNumFcnCallDestinations(SimStruct *S, int_T elemIdx);
 
 #ifdef __cplusplus
 }
@@ -9137,6 +9482,20 @@ typedef enum {
     FIXPT_PRODHWDEVICE_UNKNOWN
 } ProdHWDeviceType;
 
+/* Get whether net slope corrections can use division
+ */
+#define ssGetNetSlopeViaDivision(S, result) \
+          _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_GET_NET_SLOPE_VIA_DIVISION, 0, result)\
+          _ssSafelyCallGenericFcnEnd
+
+/*================================================*
+ * Running simulation type                        *
+ *================================================*/
+
+#define ssGetSimType(S, result) \
+          _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_GET_SIMULATIONTYPE, 0, result)\
+          _ssSafelyCallGenericFcnEnd
+
 /* get the double override settting of current system
  */
 #define ssGetDataTypeOverride(S, result) \
@@ -9232,6 +9591,23 @@ typedef enum {
 #define ssSetCallSystemOutput(S,element) \
           (S)->callSys.outputs[element]=((int_T)1)
 
+/*
+ * ssGetCallSystemNumFcnCallDestinations:
+ *   Return number of fcn-call destinations called by S-function's 
+ *   first output port and elemIdx-th element
+ */
+/* GenericFcn implementation */
+#define ssGetNumFcnCallDestinations(S, elemIdx, result)                     \
+{                                                                     \
+     _ssSafelyCallGenericFcnStart(S)(S,                               \
+                                     GEN_FCN_GET_NUM_FCNCALL_DEST, \
+                                     elemIdx,result)                  \
+     _ssSafelyCallGenericFcnEnd;                                      \
+ }
+
+/* APIs that bring back return values */
+#define ssGetCallSystemNumFcnCallDestinations(S, elemIdx)  \
+    _ssGetCallSystemNumFcnCallDestinations(S, elemIdx)
 
 /*
  * ssCallSystemWithTID -
@@ -10121,6 +10497,16 @@ extern "C" {
     (*(((S)->states.modelMethods2)->modelMethods3)->\
                       mdlInitSystemMatrices) (S)
 
+#define ssSetmdlSlvrJacobian(S,slvrJacobian) \
+         ((S)->states.modelMethods2->modelMethods3)->\
+                      mdlSlvrJacobian = (slvrJacobian)
+#define ssGetmdlSlvrJacobian(S) \
+         ((S)->states.modelMethods2->modelMethods3)->\
+                      mdlSlvrJacobian
+#define sfcnSlvrJacobian(S) \
+    (*(((S)->states.modelMethods2)->modelMethods3)->\
+                      mdlSlvrJacobian) (S)
+
 #if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
 # define ssGetmdlCheckParameters(S) \
          (S)->modelMethods.sFcn.mdlCheckParameters
@@ -10297,12 +10683,15 @@ typedef void (*voidFcnVoidStarType)(void*,void*);
 # define ssRunModelMassMatrix(S) \
          (*((voidFcnVoidType)((S)->states.modelMethods2->mdlMassMatrix)))()
 
-
 # define ssSetModelInitSystemMatrices(S, fcn) \
          ((S)->states.modelMethods2->modelMethods3)->mdlInitSystemMatrices = (mdlInitSystemMatricesFcn)(fcn)
 # define ssRunModelInitSystemMatrices(S) \
          (*((voidFcnVoidType)(((S)->states.modelMethods2)->mdlInitSystemMatrices)))()
 
+# define ssSetModelSlvrJacobian(S, fcn) \
+         ((S)->states.modelMethods2->modelMethods3)->mdlSlvrJacobian = (mdlSlvrJacobianFcn)(fcn)
+# define ssRunModelSlvrJacobian(S) \
+         (*((voidFcnVoidType)(((S)->states.modelMethods2)->mdlSlvrJacobian)))()
 
 # define ssSetModelRTWCG(S, fcn) \
          (S)->states.modelMethods2->mdlRTWCG = (mdlRTWCGFcn)(fcn)
@@ -10519,7 +10908,6 @@ typedef void (*voidFcnVoidStarType)(void*,void*);
 #define ssSetChecksum(S,val)                 ssSetChecksum0(S,val)
 
 #define ssGetParamChecksum(S)                ssGetChecksum3(S)
-#define ssSetParamChecksum(S,val)            ssGetChecksum3(S,val)
 
 
 /* Macros from Simulink 1.3, Simulink 2.0 */

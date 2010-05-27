@@ -2,7 +2,7 @@
  *  vipblob_rt.h
  *
  *  Copyright 1995-2004 The MathWorks, Inc.
- *  $Revision: 1.1.8.1 $ $Date: 2004/12/26 22:27:23 $
+ *  $Revision: 1.1.8.2 $ $Date: 2009/11/16 22:38:36 $
  */
 
 #ifndef vipblob_rt_h
@@ -13,7 +13,7 @@
 #ifdef VIPBLOB_EXPORTS
 #define VIPBLOB_EXPORT EXPORT_FCN
 #else
-#define VIPBLOB_EXPORT MWDSP_IDECL
+#define VIPBLOB_EXPORT MWSP_IDECL
 #endif
 
 
@@ -73,10 +73,6 @@ VIPBLOB_EXPORT void MWVIP_Blob_Ellipse_R(
     real32_T          *eccentricityptr,
     real32_T          *orientationptr  );
 
-#ifdef MWDSP_INLINE_DSPRTLIB
-#include "vipblob/blob_ellipse_d_rt.c"
-#include "vipblob/blob_ellipse_r_rt.c"
-#endif
 
 #ifdef __cplusplus
 } /*  close brace for extern C from above */

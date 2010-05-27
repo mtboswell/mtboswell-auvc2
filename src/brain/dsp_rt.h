@@ -8,7 +8,7 @@
  *   submitted to the src/rt directory!)
  *
  *  Copyright 1995-2005 The MathWorks, Inc.
- *  $Revision: 1.22.4.13 $ $Date: 2008/11/18 01:38:55 $
+ *  $Revision: 1.22.4.14 $ $Date: 2009/10/29 15:21:26 $
  */
 #ifndef dsp_rt_h
 #define dsp_rt_h
@@ -285,16 +285,8 @@
  * ----------------------------------------------------------
  */
 
-#ifndef MWDSP_INLINE_DSPRTLIB
-  /* DO NOT inline DSP RT library */
-  #define MWDSP_IDECL extern
-  #define MWSP_IDECL extern
-#else
-  /* Inline DSP RT library */
-  #define MWDSP_IDECL static inline
-  /* Inline DSP RT library from a separate compilation unit */
-  #define MWSP_IDECL extern inline
-#endif /* MWDSP_INLINE_DSPRTLIB */
+#define MWDSP_IDECL extern
+#define MWSP_IDECL extern
 
 /*
   DSPBLKS_SIM_SFCN is defined in dsp_bld_defs.gnu when compiling DSPBLKS S-Functions
@@ -307,14 +299,7 @@
   #endif
 #endif
 
-/* Certain functions are not inlined, so we need to ensure that when
- * we build the corresponding objects (which include this file),
- * we don't use any keywords on the function definitions.
- */
-#ifdef MWDSP_INLINE_DSPRTLIB
-  #define NONINLINED_EXPORT_FCN
-#else
-  #define NONINLINED_EXPORT_FCN EXPORT_FCN
-#endif
+#define NONINLINED_EXPORT_FCN EXPORT_FCN
+
 
 #endif  /* dsp_rt_h */

@@ -1,4 +1,4 @@
-/* $Revision: 1.1.6.4 $
+/* $Revision: 1.1.6.5 $
  * Copyright 1994-2008 The MathWorks, Inc.
  */
 #ifndef updown_h
@@ -7,6 +7,12 @@
 #include "upsup_public.h"
 
 #define NUM_UPINFOS   2 /* Number of UploadLogInfos in use */
+
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
 
 extern void      SetParam(RTWExtModeInfo  *ei,
                           const char      *pbuf);
@@ -52,5 +58,10 @@ extern void      UploadBufGetData(ExtBufMemList *extBufList,
                                   int_T         numSampTimes);
 
 extern boolean_T IsAnyDataReadyForUpload(int32_T upInfoIdx);
+
+#ifdef __cplusplus
+
+}
+#endif
 
 #endif /* updown_h */

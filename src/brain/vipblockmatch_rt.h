@@ -2,7 +2,7 @@
  *  vipblockmatch_rt.h
  *
  *  Copyright 1995-2005 The MathWorks, Inc.
- *  $Revision: 1.1.10.2 $ $Date: 2005/12/22 19:12:23 $
+ *  $Revision: 1.1.10.3 $ $Date: 2009/11/16 22:38:37 $
  */
 
 #ifndef vipblockmatch_rt_h
@@ -13,7 +13,7 @@
 #ifdef VIPBLOCKMATCH_EXPORTS
 #define VIPBLOCKMATCH_EXPORT EXPORT_FCN
 #else
-#define VIPBLOCKMATCH_EXPORT MWDSP_IDECL
+#define VIPBLOCKMATCH_EXPORT MWSP_IDECL
 #endif
 
 
@@ -362,36 +362,6 @@ VIPBLOCKMATCH_EXPORT void MWVIP_SearchMethod_3Step_MAD_R(const real32_T *blkCS, 
                                              int_T blkCSWidthX, int_T blkCSHeightY,  
                                              int_T blkPBWidthX, int_T blkPBHeightY,  
                                              int_T *xIdx,         int_T *yIdx);
-
-#ifdef MWDSP_INLINE_DSPRTLIB
-//
-#include "vipblockmatch/blockmatch_full_mse_d_rt.c" 
-#include "vipblockmatch/blockmatch_full_mad_d_rt.c"
-#include "vipblockmatch/blockmatch_3step_mse_d_rt.c" 
-#include "vipblockmatch/blockmatch_3step_mad_d_rt.c"
-#include "vipblockmatch/blockmatch_full_mse_r_rt.c" 
-#include "vipblockmatch/blockmatch_full_mad_r_rt.c"
-#include "vipblockmatch/blockmatch_3step_mse_r_rt.c" 
-#include "vipblockmatch/blockmatch_3step_mad_r_rt.c"
-#include "vipblockmatch/blockmatch_full_mse_z_rt.c" 
-#include "vipblockmatch/blockmatch_full_mad_z_rt.c"
-#include "vipblockmatch/blockmatch_3step_mse_z_rt.c" 
-#include "vipblockmatch/blockmatch_3step_mad_z_rt.c"
-#include "vipblockmatch/blockmatch_full_mse_c_rt.c" 
-#include "vipblockmatch/blockmatch_full_mad_c_rt.c"
-#include "vipblockmatch/blockmatch_3step_mse_c_rt.c" 
-#include "vipblockmatch/blockmatch_3step_mad_c_rt.c"
-//
-#include "vipblockmatch/searchmethod_full_mse_d_rt.c"
-#include "vipblockmatch/searchmethod_full_mad_d_rt.c"
-#include "vipblockmatch/searchmethod_3step_mse_d_rt.c"
-#include "vipblockmatch/searchmethod_3step_mad_d_rt.c"
-#include "vipblockmatch/searchmethod_full_mse_r_rt.c"
-#include "vipblockmatch/searchmethod_full_mad_r_rt.c"
-#include "vipblockmatch/searchmethod_3step_mse_r_rt.c"
-#include "vipblockmatch/searchmethod_3step_mad_r_rt.c"
-//
-#endif
 
 #ifdef __cplusplus
 } /*  close brace for extern C from above */

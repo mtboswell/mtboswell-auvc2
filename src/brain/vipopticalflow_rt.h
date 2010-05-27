@@ -2,7 +2,7 @@
 *  vipopticalflow_rt.h
 *
 *  Copyright 1995-2005 The MathWorks, Inc.
-*  $Revision: 1.1.8.5 $ $Date: 2007/05/23 19:17:27 $
+*  $Revision: 1.1.8.6 $ $Date: 2009/11/16 22:38:42 $
 */
 
 #ifndef vipopticalflow_rt_h
@@ -13,7 +13,7 @@
 #ifdef VIPOPTICALFLOW_EXPORTS
 #define VIPOPTICALFLOW_EXPORT EXPORT_FCN
 #else
-#define VIPOPTICALFLOW_EXPORT MWDSP_IDECL
+#define VIPOPTICALFLOW_EXPORT MWSP_IDECL
 #endif
 
 
@@ -392,28 +392,6 @@ WGradRR, WGradCC, WGradRC, WGradRT, WGradCT */
 
 #define THRESH_ABS_DELTA_GDER (0.00000001/255)  
 
-#ifdef MWDSP_INLINE_DSPRTLIB
-#include "vipopticalflow/opticalflow_hs_d_rt.c" 
-#include "vipopticalflow/opticalflow_hs_r_rt.c"    
-#include "vipopticalflow/opticalflow_hs_z_rt.c" 
-#include "vipopticalflow/opticalflow_hs_c_rt.c" 
-#include "vipopticalflow/opticalflow_lk_d_rt.c"  
-#include "vipopticalflow/opticalflow_lk_r_rt.c" 
-#include "vipopticalflow/opticalflow_lk_z_rt.c"  
-#include "vipopticalflow/opticalflow_lk_c_rt.c" 
-#include "vipopticalflow/opticalflow_lk_gder_d_rt.c" 
-#include "vipopticalflow/opticalflow_lk_gder_r_rt.c" 
-#include "vipopticalflow/opticalflow_lk_gder_z_rt.c" 
-#include "vipopticalflow/opticalflow_lk_gder_c_rt.c" 
-#include "vipopticalflow/oflk_convt_d_rt.c" 
-#include "vipopticalflow/oflk_convt_r_rt.c" 
-#include "vipopticalflow/oflk_convx_d_rt.c" 
-#include "vipopticalflow/oflk_convx_r_rt.c"
-#include "vipopticalflow/oflk_convy_d_rt.c" 
-#include "vipopticalflow/oflk_convy_r_rt.c" 
-#include "vipopticalflow/sobelderivative_hs_d_rt.c"
-#include "vipopticalflow/sobelderivative_hs_r_rt.c"
-#endif
 
 #ifdef __cplusplus
 } /*  close brace for extern C from above */

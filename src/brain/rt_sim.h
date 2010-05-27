@@ -1,7 +1,7 @@
 /*
- * Copyright 1994-2007 The MathWorks, Inc.
+ * Copyright 1994-2009 The MathWorks, Inc.
  *
- * File: rt_sim.h     $Revision: 1.15.4.3 $
+ * File: rt_sim.h     $Revision: 1.15.4.4 $
  *
  * Abstract:
  *	Function prototypes for routines which perform one time step of
@@ -48,7 +48,7 @@ extern void rt_SimDestroyTimingEngine(void *rtmTimingData);
                                           int_T rtmNumSampTimes);
 #  endif
 #else
-#  ifndef ERT_CORE
+#  ifndef USE_RTMODEL
      extern time_T rt_SimUpdateDiscreteEvents(int_T  rtmNumSampTimes,
                                               void   *rtmTimingData,
                                               int_T  *rtmSampleHitPtr,

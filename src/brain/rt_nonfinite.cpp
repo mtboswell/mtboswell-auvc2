@@ -3,15 +3,21 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.349
- * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Tue Apr 13 17:34:15 2010
- * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Tue Apr 13 17:34:16 2010
+ * Model version                        : 1.364
+ * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
+ * Real-Time Workshop file generated on : Thu May 27 18:36:36 2010
+ * TLC version                          : 7.5 (Jan 19 2010)
+ * C/C++ source code generated on       : Thu May 27 18:36:36 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
- * Code generation objectives: Unspecified
+ * Code generation objectives:
+ *    1. Debugging
+ *    2. Safety precaution
+ *    3. Traceability
+ *    4. Execution efficiency
+ *    5. ROM efficiency
+ *    6. RAM efficiency
  * Validation result: Not run
  */
 
@@ -23,7 +29,6 @@
 #include "rt_nonfinite.h"
 #include "rtGetNaN.h"
 #include "rtGetInf.h"
-#define NumBitsPerChar                 8
 
 extern "C" {
   real_T rtInf;
@@ -32,11 +37,12 @@ extern "C" {
   real32_T rtInfF;
   real32_T rtMinusInfF;
   real32_T rtNaNF;
-
-  /* Function: rt_InitInfAndNaN ==================================================
-   * Abstract:
-   *	Initialize the rtInf, rtMinusInf, and rtNaN needed by the
-   *	generated code. NaN is initialized as non-signaling. Assumes IEEE.
+}
+  extern "C"
+{
+  /*
+   * Initialize the rtInf, rtMinusInf, and rtNaN needed by the
+   * generated code. NaN is initialized as non-signaling. Assumes IEEE.
    */
   void rt_InitInfAndNaN(size_t realSize)
   {
@@ -49,47 +55,33 @@ extern "C" {
     rtMinusInfF = rtGetMinusInfF();
   }
 
-  /* Function: rtIsInf ==================================================
-   * Abstract:
-   *	Test if value is infinite
-   */
+  /* Test if value is infinite */
   boolean_T rtIsInf(real_T value)
   {
-    return ((value==rtInf || value==rtMinusInf) ? 1U : 0U);
+    return (boolean_T)((value==rtInf || value==rtMinusInf) ? 1U : 0U);
   }
 
-  /* Function: rtIsInfF =================================================
-   * Abstract:
-   *	Test if single-precision value is infinite
-   */
+  /* Test if single-precision value is infinite */
   boolean_T rtIsInfF(real32_T value)
   {
-    return(((value)==rtInfF || (value)==rtMinusInfF) ? 1U : 0U);
+    return (boolean_T)(((value)==rtInfF || (value)==rtMinusInfF) ? 1U : 0U);
   }
 
-  /* Function: rtIsNaN ==================================================
-   * Abstract:
-   *	Test if value is not a number
-   */
+  /* Test if value is not a number */
   boolean_T rtIsNaN(real_T value)
   {
-    return((value!=value) ? 1U : 0U);
+    return (boolean_T)((value!=value) ? 1U : 0U);
   }
 
-  /* Function: rtIsNaNF =================================================
-   * Abstract:
-   *	Test if single-precision value is not a number
-   */
+  /* Test if single-precision value is not a number */
   boolean_T rtIsNaNF(real32_T value)
   {
-    return((value!=value) ? 1U : 0U);
+    return (boolean_T)(((value!=value) ? 1U : 0U));
   }
 }
-#undef NumBitsPerChar
 
-/* end rt_nonfinite.c */
-
-/* File trailer for Real-Time Workshop generated code.
+/*
+ * File trailer for Real-Time Workshop generated code.
  *
  * [EOF]
  */

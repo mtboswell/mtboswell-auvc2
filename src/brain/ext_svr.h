@@ -1,7 +1,7 @@
 /*
  * Copyright 1994-2008 The MathWorks, Inc.
  *
- * File: ext_svr.h     $Revision: 1.1.6.4 $
+ * File: ext_svr.h     $Revision: 1.1.6.5 $
  *
  * Abstract:
  *	Function prototypes for The MathWorks provided TCP socket based
@@ -12,6 +12,12 @@
 #define __EXT_SVR__
 
 #include "ext_share.h"
+
+#ifdef __cplusplus
+
+extern "C" {
+
+#endif
 
 extern boolean_T SendPktToHost(const ExtModeAction action,
                                const int           size,
@@ -50,6 +56,11 @@ extern void      rt_SetPortInExtUD(const int_T port);
 extern const char_T *ExtParseArgsAndInitUD(const int_T  argc,
                                            const char_T *argv[]);
 extern boolean_T  ExtWaitForStartPkt(void);
+
+#ifdef __cplusplus
+
+}
+#endif
 
 #endif /* __EXT_SVR__ */
 

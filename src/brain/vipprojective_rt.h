@@ -2,19 +2,19 @@
  *  vipprojective_rt.h
  *
  *  Copyright 1995-2006 The MathWorks, Inc.
- *  $Revision: 1.1.8.6 $ $Date: 2008/02/02 13:17:55 $
+ *  $Revision: 1.1.8.7 $ $Date: 2009/11/16 22:38:44 $
  */
 
 #ifndef vipprojective_rt_h  
 #define vipprojective_rt_h
 
 #include "dsp_rt.h"
-#include "vipdrawshapes_rt.h"
+#include "vipprojective.h"
 
 #ifdef VIPPROJECTIVE_EXPORTS
 #define VIPPROJECTIVE_EXPORT EXPORT_FCN
 #else
-#define VIPPROJECTIVE_EXPORT MWDSP_IDECL
+#define VIPPROJECTIVE_EXPORT MWSP_IDECL
 #endif
 
 #define NUM_QUAD_VERTICES   8
@@ -232,27 +232,6 @@ VIPPROJECTIVE_EXPORT void MWVIP_XformOneSubdivision_R(
                     int_T nColsIn,INTERPMETHOD interpMethod,int_T inStartRowIdx,
                     int_T inStartColIdx, int_T nChans);
 
-#ifdef MWDSP_INLINE_DSPRTLIB
-#include "vipprojective/are3PtsCollinear_rt.c"
-#include "vipprojective/calculateQ2QXformMtrx_d_rt.c"
-#include "vipprojective/calculateQ2QXformMtrx_r_rt.c"
-#include "vipprojective/calculateXformMtrx_d_rt.c"
-#include "vipprojective/calculateXformMtrx_r_rt.c"
-#include "vipprojective/divideQuadXform_d_rt.c"
-#include "vipprojective/divideQuadXform_r_rt.c"
-#include "vipprojective/divideRectXform_d_rt.c"
-#include "vipprojective/divideRectXform_r_rt.c"
-#include "vipprojective/fillBackgroundValues_d_rt.c"
-#include "vipprojective/fillBackgroundValues_r_rt.c"
-#include "vipprojective/getInPtsFrmOutPts_d_rt.c"
-#include "vipprojective/getInPtsFrmOutPts_r_rt.c"
-#include "vipprojective/interpolation_d_rt.c"
-#include "vipprojective/interpolation_r_rt.c"
-#include "vipprojective/projComputeOutPixel_d_rt.c"
-#include "vipprojective/projComputeOutPixel_r_rt.c"
-#include "vipprojective/xformOneSubdivision_d_rt.c"
-#include "vipprojective/xformOneSubdivision_r_rt.c"
-#endif
 
 #ifdef __cplusplus
 } /*  close brace for extern C from above */

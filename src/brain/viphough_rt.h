@@ -2,7 +2,7 @@
  *  viphough_rt.h
  *
  *  Copyright 1995-2004 The MathWorks, Inc.
- *  $Revision: 1.1.12.2 $ $Date: 2004/07/28 04:40:48 $
+ *  $Revision: 1.1.12.3 $ $Date: 2009/11/16 22:38:41 $
  */
 
 #ifndef viphough_rt_h
@@ -13,7 +13,7 @@
 #ifdef VIPHOUGH_EXPORTS
 #define VIPHOUGH_EXPORT EXPORT_FCN
 #else
-#define VIPHOUGH_EXPORT MWDSP_IDECL
+#define VIPHOUGH_EXPORT MWSP_IDECL
 #endif
 
 
@@ -70,11 +70,6 @@ VIPHOUGH_EXPORT void MWVIP_Hough_R(
                                     int_T Ceil90ByThResPlus1
                                    );
 
-
-#ifdef MWDSP_INLINE_DSPRTLIB
-#include "viphough/hough_d_rt.c"
-#include "viphough/hough_r_rt.c"
-#endif
 
 #ifdef __cplusplus
 } /*  close brace for extern C from above */

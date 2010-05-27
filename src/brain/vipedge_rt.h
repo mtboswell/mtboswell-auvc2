@@ -2,7 +2,7 @@
  *  vipedge_rt.h
  *
  *  Copyright 1995-2005 The MathWorks, Inc.
- *  $Revision: 1.1.6.1 $ $Date: 2005/06/16 08:48:02 $
+ *  $Revision: 1.1.6.2 $ $Date: 2009/11/16 22:38:40 $
  */
 
 #ifndef vipedge_rt_h
@@ -13,7 +13,7 @@
 #ifdef VIPEDGE_EXPORTS
 #define VIPEDGE_EXPORT EXPORT_FCN
 #else
-#define VIPEDGE_EXPORT MWDSP_IDECL
+#define VIPEDGE_EXPORT MWSP_IDECL
 #endif
 
 
@@ -171,21 +171,6 @@ VIPEDGE_EXPORT void MWVIP_EdgeCanny_autoTh_R(
           int_T  inpCols,
           int_T  halfFiltLen
                                 );
-
-#ifdef MWDSP_INLINE_DSPRTLIB
-#include "vipedge/nonmaximum_suppression_d_rt.c" 
-#include "vipedge/c_derivative_image_d_rt.c"       
-#include "vipedge/nonmaximum_suppression_r_rt.c" 
-#include "vipedge/c_derivative_image_r_rt.c"      
-#include "vipedge/r_derivative_image_d_rt.c" 
-#include "vipedge/edgecanny_autoth_d_rt.c"         
-#include "vipedge/r_derivative_image_r_rt.c" 
-#include "vipedge/edgecanny_autoth_r_rt.c"         
-#include "vipedge/rc_gaussian_smoothing_d_rt.c" 
-#include "vipedge/edgecanny_userth_d_rt.c"         
-#include "vipedge/rc_gaussian_smoothing_r_rt.c" 
-#include "vipedge/edgecanny_userth_r_rt.c" 
-#endif
 
 #ifdef __cplusplus
 } /*  close brace for extern C from above */

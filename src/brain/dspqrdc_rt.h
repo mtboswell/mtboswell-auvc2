@@ -2,7 +2,7 @@
  *  dspqrdc_rt.h - DSP Blockset QR Factorization Run Time Functions
  *
  *  Copyright 1995-2005 The MathWorks, Inc.
- *  $Revision: 1.6.4.7 $ $Date: 2008/04/11 15:36:08 $
+ *  $Revision: 1.6.4.8 $ $Date: 2009/10/29 15:21:36 $
  */
 
 #ifndef dspqrdc_rt_h
@@ -17,11 +17,7 @@
 #endif
 
 /* Do not inline functions that call other runtime functions */
-#ifdef MWDSP_INLINE_DSPRTLIB
-#define DSPQRDCNOINLINE_EXPORT extern
-#else
 #define DSPQRDCNOINLINE_EXPORT DSPQRDC_EXPORT
-#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -134,17 +130,6 @@ DSPQRDCNOINLINE_EXPORT void MWDSP_qrdcZ(int_T m, int_T n, creal_T *x, creal_T *q
 
 #ifdef __cplusplus
 }
-#endif
-
-#ifdef MWDSP_INLINE_DSPRTLIB
-#   include "dspqrdc/qrcompqy_d_rt.c"
-#   include "dspqrdc/qrcompqy_r_rt.c"
-#ifdef CREAL_T
-#   include "dspqrdc/qrcompqy_c_rt.c"
-#   include "dspqrdc/qrcompqy_z_rt.c"
-#   include "dspqrdc/qrcompqy_mixd_z_rt.c"
-#   include "dspqrdc/qrcompqy_mixd_c_rt.c"
-#endif
 #endif
 
 

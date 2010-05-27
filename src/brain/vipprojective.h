@@ -2,7 +2,7 @@
  *  viprotate_rt.h
  *
  *  Copyright 1995-2006 The MathWorks, Inc.
- *  $Revision: 1.1.6.12 $ $Date: 2008/02/02 13:17:54 $
+ *  $Revision: 1.1.6.1 $ $Date: 2009/11/16 22:38:43 $
  */
 
 #ifndef vipdrawshapes_rt_h

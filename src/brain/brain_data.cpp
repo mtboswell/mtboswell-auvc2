@@ -3,15 +3,21 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.349
- * Real-Time Workshop file version      : 7.3  (R2009a)  15-Jan-2009
- * Real-Time Workshop file generated on : Tue Apr 13 17:34:15 2010
- * TLC version                          : 7.3 (Jan 16 2009)
- * C/C++ source code generated on       : Tue Apr 13 17:34:16 2010
+ * Model version                        : 1.364
+ * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
+ * Real-Time Workshop file generated on : Thu May 27 18:36:36 2010
+ * TLC version                          : 7.5 (Jan 19 2010)
+ * C/C++ source code generated on       : Thu May 27 18:36:36 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
- * Code generation objectives: Unspecified
+ * Code generation objectives:
+ *    1. Debugging
+ *    2. Safety precaution
+ *    3. Traceability
+ *    4. Execution efficiency
+ *    5. ROM efficiency
+ *    6. RAM efficiency
  * Validation result: Not run
  */
 
@@ -20,13 +26,13 @@
 
 /* Block parameters (auto storage) */
 Parameters_brain brain_P = {
-  0.8,
-  0.05,
+  0.9,
+  0.15,
   0.65,
   0.9,
   0.0,
   0.7,
-  0.5,
+  0.4,
   0.001,
   0.001,
   0.25,
@@ -35,50 +41,33 @@ Parameters_brain brain_P = {
   0.2,
   0.001,
   0.001,
-  0.5,
+  0.075,
   0.001,
   0.001,
   0.8,
+  0.0,
+  0.0,
+  75.0,
+  60.0,
+  0.01,
+  0.01,
+  0.3,
+  8.0,
   0.9,
   0.25,
+  0.9,
   0.4,
   15.0,
   19200U,
-  20U,
-
-  /* Start of '<Root>/Chart' */
-  {
-    20.0
-  }
-  /* End of '<Root>/Chart' */
-  ,
-
-  /* Start of '<Root>/Chart' */
-  {
-    0.0,
-    0.0,
-    75.0
-  }
-  /* End of '<Root>/Chart' */
-  ,
-
-  /* Start of '<Root>/Chart' */
-  {
-    0.01,
-    0.0,
-    0.3
-  }
-  /* End of '<Root>/Chart' */
+  15U
 };
 
 /* Constant parameters (auto storage) */
 const ConstParam_brain brain_ConstP = {
-  /* Computed Parameter: SINE_TABLE_RTP
-   * Referenced by blocks:
-   * '<S58>/Hough Transform'
-   * '<S59>/Hough Transform'
-   * '<S77>/Hough Transform'
-   * '<S78>/Hough Transform'
+  /* Pooled Parameter (Expression: )
+   * Referenced by:
+   *   '<S51>/Hough Transform'
+   *   '<S52>/Hough Transform'
    */
   { -1.0, -9.9984769515639127E-01, -9.9939082701909576E-01,
     -9.9862953475457383E-01, -9.9756405025982420E-01, -9.9619469809174555E-01,
@@ -112,20 +101,18 @@ const ConstParam_brain brain_ConstP = {
     -5.2335956242943835E-02, -3.4899496702500969E-02, -1.7452406437283512E-02,
     0.0 },
 
-  /* Computed Parameter: FIRSTRHO_RTP
-   * Referenced by blocks:
-   * '<S58>/Hough Transform'
-   * '<S59>/Hough Transform'
-   * '<S77>/Hough Transform'
-   * '<S78>/Hough Transform'
+  /* Pooled Parameter (Expression: )
+   * Referenced by:
+   *   '<S51>/Hough Transform'
+   *   '<S52>/Hough Transform'
    */
   -143.0,
 
-  /* Computed Parameter: Yweights
-   * Referenced by blocks:
-   * '<S6>/Resize'
-   * '<S6>/Resize1'
-   * '<S6>/Resize2'
+  /* Pooled Parameter (Expression: )
+   * Referenced by:
+   *   '<S5>/Resize'
+   *   '<S5>/Resize1'
+   *   '<S5>/Resize2'
    */
   { 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F,
     0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F,
@@ -266,11 +253,11 @@ const ConstParam_brain brain_ConstP = {
     0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F,
     0.03125F },
 
-  /* Computed Parameter: Xweights
-   * Referenced by blocks:
-   * '<S6>/Resize'
-   * '<S6>/Resize1'
-   * '<S6>/Resize2'
+  /* Pooled Parameter (Expression: )
+   * Referenced by:
+   *   '<S5>/Resize'
+   *   '<S5>/Resize1'
+   *   '<S5>/Resize2'
    */
   { 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F,
     0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F,
@@ -456,11 +443,20 @@ const ConstParam_brain brain_ConstP = {
     0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F,
     0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F, 0.03125F },
 
-  /* Computed Parameter: Yindex
-   * Referenced by blocks:
-   * '<S6>/Resize'
-   * '<S6>/Resize1'
-   * '<S6>/Resize2'
+  /* Pooled Parameter (Expression: )
+   * Referenced by:
+   *   '<S8>/Buoy Blob Analysis'
+   *   '<S12>/Buoy Blob Analysis'
+   *   '<S31>/Blob Analysis'
+   *   '<S61>/Blob Analysis'
+   */
+  { -1, 121, 122, 123, 1, -121, -122, -123 },
+
+  /* Pooled Parameter (Expression: )
+   * Referenced by:
+   *   '<S5>/Resize'
+   *   '<S5>/Resize1'
+   *   '<S5>/Resize2'
    */
   { 0, 2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74,
     78, 82, 86, 90, 94, 98, 102, 106, 110, 114, 118, 122, 126, 130, 134, 138,
@@ -524,11 +520,11 @@ const ConstParam_brain brain_ConstP = {
     381, 385, 389, 393, 397, 401, 405, 409, 413, 417, 421, 425, 429, 433, 437,
     441, 445, 449, 453, 457, 461, 465, 469, 473, 477, 479 },
 
-  /* Computed Parameter: Xindex
-   * Referenced by blocks:
-   * '<S6>/Resize'
-   * '<S6>/Resize1'
-   * '<S6>/Resize2'
+  /* Pooled Parameter (Expression: )
+   * Referenced by:
+   *   '<S5>/Resize'
+   *   '<S5>/Resize1'
+   *   '<S5>/Resize2'
    */
   { 0, 2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74,
     78, 82, 86, 90, 94, 98, 102, 106, 110, 114, 118, 122, 126, 130, 134, 138,
@@ -614,32 +610,23 @@ const ConstParam_brain brain_ConstP = {
     573, 577, 581, 585, 589, 593, 597, 601, 605, 609, 613, 617, 621, 625, 629,
     633, 637, 639 },
 
-  /* Computed Parameter: WALKER_RTP
-   * Referenced by blocks:
-   * '<S10>/Buoy Blob Analysis'
-   * '<S13>/Buoy Blob Analysis'
-   * '<S17>/Buoy Blob Analysis'
-   * '<S38>/Blob Analysis'
-   * '<S81>/Blob Analysis'
-   */
-  { -1, 121, 122, 123, 1, -121, -122, -123 },
-
-  /* Expression: nhood
-   * Referenced by blocks:
-   * '<S10>/Dilation'
-   * '<S38>/Dilation'
+  /* Pooled Parameter (Expression: nhood)
+   * Referenced by:
+   *   '<S8>/Dilation'
+   *   '<S31>/Dilation'
    */
   { 1, 1, 1, 1 },
 
-  /* Expression: nhood
-   * Referenced by blocks:
-   * '<S10>/Erosion'
-   * '<S38>/Erosion'
+  /* Pooled Parameter (Expression: nhood)
+   * Referenced by:
+   *   '<S8>/Erosion'
+   *   '<S31>/Erosion'
    */
   { 1, 1, 1, 1, 1, 1, 1, 1 }
 };
 
-/* File trailer for Real-Time Workshop generated code.
+/*
+ * File trailer for Real-Time Workshop generated code.
  *
  * [EOF]
  */
