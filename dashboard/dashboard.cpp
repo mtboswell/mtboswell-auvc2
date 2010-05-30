@@ -13,6 +13,8 @@ Dashboard::Dashboard(QMainWindow *parent)
 {
 	setupUi(this);
 
+	m_DS = new SIDSocket((quint16) config["Client.Port.Data"].toUInt(), (quint16) config["Server.Port.Data"].toUInt(), QHostAddress(config["Server.IP"]));
+
 	videoLabel->hide();
 	videoWidget = new VideoWidget(videoContainer);
 	videoContainerLayout->addWidget(videoWidget);
@@ -37,12 +39,12 @@ Dashboard::Dashboard(QMainWindow *parent)
 	connect(actionSave_Parameters, SIGNAL(triggered()), this, SLOT(saveParameters()));
 
 	// Connect to Network Sockets 	
- 	connect(&m_DS, SIGNAL(GotAUVUpdate(QString,QString,QString)), this, SLOT(HandleAUVParam(QString,QString,QString)));
- 	connect(&m_DS, SIGNAL(AUVNotResponding(int)), this, SLOT(disableDashboard(int)));
- 	connect(&m_DS, SIGNAL(connectionRestored()), this, SLOT(enableDashboard()));
+ 	connect(m_DS, SIGNAL(sidReceived(QString,QString)), this, SLOT(handleAUVParam(QString,QString)));
+ 	connect(m_DS, SIGNAL(remoteNotResponding(QString,QString)), this, SLOT(disableDashboard(QString,QString)));
+ 	connect(m_DS, SIGNAL(connectionRestored()), this, SLOT(enableDashboard()));
 
- 	connect(this, SIGNAL(sendParam(QString,QString)), &m_DS, SLOT(SendParam(QString,QString)));
-	connect(this, SIGNAL(setAddress(QString)), &m_DS, SLOT(setRemoteAddr(QString)));
+ 	connect(this, SIGNAL(sendSID(QString,QString)), m_DS, SLOT(sendSID(QString,QString)));
+	connect(this, SIGNAL(setAddress(QString)), m_DS, SLOT(setRemoteAddr(QString)));
 
 	videoSocket = new VideoSocket(AUV_IP, VIDEO_PORT, DASH_VIDEO_PORT, this);
 	bitmapSocket = new VideoSocket(AUV_IP, SECONDARY_VIDEO_PORT, DASH_SECONDARY_VIDEO_PORT, this);
@@ -95,9 +97,9 @@ Dashboard::Dashboard(QMainWindow *parent)
 	desiredHeadingDial->setTracking(false);
 
 	// Connect to AUV
-	//emit sendParam("Connect.Data", "This");
-	//emit sendParam("Connect.Video", "This");
-	//emit sendParam("GetParams", "all");
+	//emit sendSID("Connect.Data", "This");
+	//emit sendSID("Connect.Video", "This");
+	//emit sendSID("GetParams", "all");
 	reconnectAction();
 
 	videoSocket->start();
@@ -108,31 +110,31 @@ Dashboard::Dashboard(QMainWindow *parent)
 /* *** Actions ******************************* */
 
 void Dashboard::reconnectAction(){
-	emit sendParam("Connect.Data", "Broadcast");
-	emit sendParam("Connect.Video", "This");
-	emit sendParam("GetParams", "all");
+	emit sendSID("Connect.Data", "Broadcast");
+	emit sendSID("Connect.Video", "This");
+	emit sendSID("GetParams", "all");
 #ifndef _WIN32
-	emit sendParam("Dashboard.Version", getVersion());
+	emit sendSID("Dashboard.Version", getVersion());
 #endif
 }
 
 void Dashboard::startAction(){
 	statusBar()->showMessage(tr("Attempting to start AUV"), 2000);
-	emit sendParam("Mode", "Run");
+	emit sendSID("Mode", "Run");
 	controlGroupBox->setEnabled(true);
 }
 void Dashboard::stopAction(){
 	statusBar()->showMessage(tr("Attempting to stop AUV"), 2000);
-	emit sendParam("Mode", "Stop");
+	emit sendSID("Mode", "Stop");
 	controlGroupBox->setEnabled(false);
 }
 void Dashboard::resetAction(){
 	statusBar()->showMessage(tr("Attempting to reset AUV"), 2000);
-	emit sendParam("Mode", "Reset");
+	emit sendSID("Mode", "Reset");
 	controlGroupBox->setEnabled(true);
 }
 void Dashboard::killAction(){
-	emit sendParam("Mode", "Kill");
+	emit sendSID("Mode", "Kill");
 	statusBar()->showMessage(tr("Die, bad Robot! Die!"), 2000);
 }
 
@@ -143,15 +145,15 @@ void Dashboard::turnOffAUVAction() {
 void Dashboard::recordVideo(bool record){
 	if(record) statusBar()->showMessage(tr("Recording Video..."), 2000);
 	else statusBar()->showMessage(tr("Stopping Video Recording..."), 2000);
-	emit sendParam("Flag.Rec", record?"true":"false");
+	emit sendSID("Flag.Rec", record?"true":"false");
 }
 
 void Dashboard::logData(bool log){
-	emit sendParam("Flag.Log", log?"true":"false");
+	emit sendSID("Flag.Log", log?"true":"false");
 }
 
 void Dashboard::broadcastAction(){
-	emit sendParam("Connect.Data", "Broadcast");
+	emit sendSID("Connect.Data", "Broadcast");
 }
 
 void Dashboard::connectToAddress(){
@@ -171,16 +173,17 @@ void Dashboard::connectToLocalhost(){
 /* *** Networking ******************************************** */
 
 /**
- * HandleAuVParam
- * Description: This gargantuan function is responsible for decoding the 
+ * This gargantuan function is responsible for decoding the 
  * 	data received by the network port.  The data may be coming from
  * 	the AUV or other instances of the dashboard (via broadacst echo from the AUV).
  * 	If the data does not fit one of the many possibilities below, the event
  *	is logged with qDebug().
  */
 
-void Dashboard::HandleAUVParam(QString type, QString name, QString value) {
+void Dashboard::handleAUVParam(QString id, QString value) {
 	bool badCmd = false;
+	QString type = id.split('.')[0];
+	QString name = id.split('.')[1];
 	if (type == "AUV") {
 		if (name == "Mode") {
 			QString modes[4];
@@ -328,16 +331,12 @@ void Dashboard::HandleBitmapFrame(QImage* frame) {
 // disableDashboard gets called when the number of commands
 //  that have not been acknowledged reaches 15 or higher
 //  Severity is the number of commands that have not been acknowledged by the AUV.
-void Dashboard::disableDashboard(int severity){
+void Dashboard::disableDashboard(QString missedId, QString missedData){
 	qDebug() << "Flaky connection or you are hitting buttons too fast";
-	if(severity > 20){
-		// if enough packets go missing, disable the controls to prevent more pileup
-		// packets are re-sent every second until the AUV responds or we reconnect
-		qDebug() << QString::number(severity) + " missing packets, disabling controls";
-		//dashboardWidget->setEnabled(false);
-		controlGroupBox->setEnabled(false);
-		tabContainer->setEnabled(false);
-	}
+	// if enough packets go missing, disable the controls to prevent more pileup
+	//dashboardWidget->setEnabled(false);
+	controlGroupBox->setEnabled(false);
+	tabContainer->setEnabled(false);
 }
 void Dashboard::enableDashboard(){
 	dashboardWidget->setEnabled(true);
@@ -360,27 +359,27 @@ void Dashboard::keyPressEvent(QKeyEvent* event){
 		case Qt::Key_F35: qDebug() << "I want your keyboard!"; break;
 		case Qt::Key_0:
 			stateComboBox->setCurrentIndex(0);
-			emit sendParam("Input.DesiredState", "0");
+			emit sendSID("Input.DesiredState", "0");
 			break;
 		case Qt::Key_1:
 			stateComboBox->setCurrentIndex(1);
-			emit sendParam("Input.DesiredState", "1");
+			emit sendSID("Input.DesiredState", "1");
 			break;
 		case Qt::Key_2:
 			stateComboBox->setCurrentIndex(2);
-			emit sendParam("Input.DesiredState", "2");
+			emit sendSID("Input.DesiredState", "2");
 			break;
 		case Qt::Key_3:
 			stateComboBox->setCurrentIndex(3);
-			emit sendParam("Input.DesiredState", "3");
+			emit sendSID("Input.DesiredState", "3");
 			break;
 		case Qt::Key_4:
 			stateComboBox->setCurrentIndex(4);
-			emit sendParam("Input.DesiredState", "4");
+			emit sendSID("Input.DesiredState", "4");
 			break;
 		case Qt::Key_5:
 			stateComboBox->setCurrentIndex(5);
-			emit sendParam("Input.DesiredState", "5");
+			emit sendSID("Input.DesiredState", "5");
 			break;
 		case Qt::Key_6: // we only have 5 states as of this writing break;
 		case Qt::Key_7:
@@ -459,29 +458,29 @@ void Dashboard::on_stopButton_clicked(){
 
 // State Select
 void Dashboard::on_stateComboBox_activated(int index){
-	emit sendParam("Input.DesiredState", QString::number(index));
+	emit sendSID("Input.DesiredState", QString::number(index));
 }
 
 // White Balance Camera
 void Dashboard::on_whiteBalancePushButton_clicked(){
-	emit sendParam("Calibrate.WhiteBalance", "once");
+	emit sendSID("Calibrate.WhiteBalance", "once");
 }
 
 // Depth Calibration
 void Dashboard::on_zeroDepthPushButton_clicked(){
-	emit sendParam("Calibrate.Depth", "0");
+	emit sendSID("Calibrate.Depth", "0");
 }
 void Dashboard::on_setActualDepthPushButton_clicked(){
-	emit sendParam("Calibrate.Depth", QString::number(actualDepthDoubleSpinBox->value()));
+	emit sendSID("Calibrate.Depth", QString::number(actualDepthDoubleSpinBox->value()));
 }
 
 // RC Controls
 void Dashboard::on_controlGroupBox_toggled(bool rc){
-//	emit sendParam("Mode", "Stop");
+//	emit sendSID("Mode", "Stop");
 	if(rc && RC == 0)
-		emit sendParam("Input.RC", "1");
+		emit sendSID("Input.RC", "1");
 	else if(!rc && RC == 1)
-		emit sendParam("Input.RC", "0");
+		emit sendSID("Input.RC", "0");
 	RC = rc?1:0;
 	if(RC == 1) stateLabel->setText("Remote Control");
 	else stateLabel->setText("Confuzzled");
@@ -489,38 +488,38 @@ void Dashboard::on_controlGroupBox_toggled(bool rc){
 void Dashboard::on_desiredDepthSlider_valueChanged(int value){
 	if(value != desiredDepth){
 		desiredDepth = value;
-		emit sendParam("Input.RC_Depth", QString::number(value));
+		emit sendSID("Input.RC_Depth", QString::number(value));
 	}	
 }
 void Dashboard::on_desiredStrafeSlider_valueChanged(int value){
 	if(value != desiredStrafe){
 		desiredStrafe = value;
-		emit sendParam("Input.RC_Strafe", QString::number(value));
+		emit sendSID("Input.RC_Strafe", QString::number(value));
 	}
 }
 void Dashboard::on_desiredSpeedSlider_valueChanged(int value){
 	if(value != desiredSpeed){
 		desiredSpeed = value;
-		emit sendParam("Input.RC_ForwardVelocity", QString::number(value));
+		emit sendSID("Input.RC_ForwardVelocity", QString::number(value));
 	}
 }
 void Dashboard::on_desiredHeadingDial_valueChanged(int value){
 	if(value != desiredHeading){
 		desiredHeading = value;
-		emit sendParam("Input.RC_Heading", QString::number(value));
+		emit sendSID("Input.RC_Heading", QString::number(value));
 	}
 }
 void Dashboard::on_desiredHeadingSpinBox_editingFinished(){
-	emit sendParam("Input.RC_Heading", QString::number(desiredHeadingSpinBox->value()));
+	emit sendSID("Input.RC_Heading", QString::number(desiredHeadingSpinBox->value()));
 }
 void Dashboard::on_desiredDepthSpinBox_editingFinished(){
-	emit sendParam("Input.RC_Depth", QString::number(desiredDepthSpinBox->value()));
+	emit sendSID("Input.RC_Depth", QString::number(desiredDepthSpinBox->value()));
 }
 void Dashboard::on_desiredSpeedSpinBox_editingFinished(){
-	emit sendParam("Input.RC_ForwardVelocity", QString::number(desiredSpeedSpinBox->value()));
+	emit sendSID("Input.RC_ForwardVelocity", QString::number(desiredSpeedSpinBox->value()));
 }
 void Dashboard::on_desiredStrafeSpinBox_editingFinished(){
-	emit sendParam("Input.RC_Strafe", QString::number(desiredStrafeSpinBox->value()));
+	emit sendSID("Input.RC_Strafe", QString::number(desiredStrafeSpinBox->value()));
 }
 void Dashboard::on_setAllZeroButton_clicked(){
 	desiredDepthSlider->setValue(depthLcdNumber->value());
@@ -531,19 +530,19 @@ void Dashboard::on_setAllZeroButton_clicked(){
 
 // Other buttons
 void Dashboard::on_runScriptPushButton_clicked(){
-	emit sendParam("Activate.Script", scriptsComboBox->currentText());
+	emit sendSID("Activate.Script", scriptsComboBox->currentText());
 }
 void Dashboard::on_actuateMechPushButton_clicked(){
-	emit sendParam("Actuate.Mechanism", mechsComboBox->currentText());
+	emit sendSID("Actuate.Mechanism", mechsComboBox->currentText());
 }
 
 
 // Camera
 void Dashboard::on_camPosXSpinBox_valueChanged(double value){
-	emit sendParam("Move.Camera", QString::number(camPosXSpinBox->value()) + "," + QString::number(camPosYSpinBox->value())); 
+	emit sendSID("Move.Camera", QString::number(camPosXSpinBox->value()) + "," + QString::number(camPosYSpinBox->value())); 
 }
 void Dashboard::on_camPosYSpinBox_valueChanged(double value){
-	emit sendParam("Move.Camera", QString::number(camPosXSpinBox->value()) + "," + QString::number(camPosYSpinBox->value())); 
+	emit sendSID("Move.Camera", QString::number(camPosXSpinBox->value()) + "," + QString::number(camPosYSpinBox->value())); 
 }
 
 
@@ -596,7 +595,7 @@ void Dashboard::loadParameter(QString param){
 #define GEN_PARAM(guiParam,brainParam) \
 			else if(paramName == #brainParam){\
 				guiParam->setValue(paramVal); \
-				emit sendParam(QString("Parameter.") + QString(#brainParam), QString::number(paramVal)); \
+				emit sendSID(QString("Parameter.") + QString(#brainParam), QString::number(paramVal)); \
 			}
 #include "parameters.def"
 		}
@@ -610,7 +609,7 @@ void Dashboard::loadParameter(QString param){
 
 #define GEN_PARAM(guiParam,brainParam) \
 void Dashboard::on_##guiParam##_editingFinished(){ \
-	emit sendParam(QString("Parameter.") + QString(#brainParam), QString::number(guiParam->value())); \
+	emit sendSID(QString("Parameter.") + QString(#brainParam), QString::number(guiParam->value())); \
 }
 #include "parameters.def"
 

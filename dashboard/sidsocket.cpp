@@ -1,26 +1,23 @@
-#include "SIDSocket.h"
+#include "sidsocket.h"
 #include <QDebug>
 
-// COMMAND_TIMEOUT = time we wait for a response from the AUV before trying again
-#define COMMAND_TIMEOUT 1000
-
 SIDSocket::SIDSocket(quint16 bindPort, quint16 remotePort, 
-		QHostAddress remoteAddr = QHostAddress::Broadcast, 
-		QHostAddress bindAddr = QHostAddress::Any){
+		     QHostAddress remoteAddr, 
+		     QHostAddress bindAddr){
 	m_Sock.bind(bindPort);
 	m_remoteAddr = remoteAddr;
 	m_remotePort = remotePort;
 	QObject::connect(&m_Sock, SIGNAL(readyRead()),
-			this, SLOT(handleDatagram()));
-	QObject::connect(&safetyCheckTimer, SIGNAL(timeout()), this, SLOT(checkForLostDatagrams()));
-	safetyCheckTimer.start(COMMAND_TIMEOUT/2);
+			this, SLOT(handlePendingDatagrams()));
+	m_AckTimeout = 2000;
 }
 
 SIDSocket::~SIDSocket() {
 }
 
-void SIDSocket::setRemoteAddr(QString addr){
+void SIDSocket::setRemoteAddr(QString addr, quint16 port){
 	if(!QHostAddress(addr).isNull()) m_remoteAddr = addr;
+	if(port != 0) m_remotePort = port;
 }
 
 void SIDSocket::sendSID(QString ID, QString data) {
@@ -33,110 +30,90 @@ void SIDSocket::sendSID(QString ID, QString data) {
 }
 
 // sends data and checks for acks
-void SIDSocket::sendDatagram(QByteArray out, bool resend) {
-	bool send = true;
-	if(m_Acks.size() > 15 && !resend){
+void SIDSocket::sendDatagram(QByteArray out, bool force) {
+	if(force){
+		// skip error checking
+	}else if(m_outQueue.size() > 10){
+		emit remoteNotResponding(id(out), data(out));
+		return;
+	}else if(m_flaky){
+		m_outQueue.enqueue(out);
+		QTimer::singleShot(500,this,SLOT(sendDatagram())); 
+		return;
+	}else if(m_Acks.size() > 5){
 		//qDebug() << QString::number(m_Acks.size()) + " commands still unacknowledged";
-		flaky = true;
-		emit AUVNotResponding(m_Acks.size());
-	}else if(m_Acks.size() > 25){
-		send = false;
-	}
-	if(send){
-		m_Sock.writeDatagram(out, m_remoteAddr, m_remotePort);
-
-		if(out.contains("Connect")){ 
-			flaky = false;
-			m_Acks.clear(); // discard old commands on reconnect
-		}else{ 
-			m_Acks.insert(out, QTime::currentTime());
-		}
-	}	
-}
-void Server::readPendingDatagrams()
-{
-	while (socket->hasPendingDatagrams()) {
-		QByteArray datagram;
-		datagram.resize(socket->pendingDatagramSize());
-		QHostAddress sender;
-		quint16 senderPort;
-
-		socket->readDatagram(datagram.data(), datagram.size(),
-				 &sender, &senderPort);
-
-		processDatagram(datagram, sender, senderPort);
-	}
-}
-void Server::processDatagram(QByteArray datagram, QHostAddress fromAddr, quint16 fromPort){
-	//qDebug() << "Processing Datagram:" << datagram;
-	QList<QByteArray> data = datagram.split(';');	
-	QByteArray datum;
-	foreach(datum, data){
-		if(datum.isNull() || datum.isEmpty() || !datum.contains('=')) continue;
-		qDebug() << "Received command:" << datum;
-		QString key, type, name, value;
-		QList<QByteArray> field = datum.split('=');
-		if(field.size() > 0){
-			key = field.at(0);
-			if(field.size() > 1){
-				value = field.at(1);
-				QList<QString> cmd = key.split('.');
-				if(cmd.size() > 0) type = cmd.at(0);
-				if(cmd.size() > 1) name = cmd.at(1);
-			}
-		}
-		doAction(type, name, value, fromAddr, fromPort);	
-	}
-	//qDebug() << "Processed Datagram, echoing";
-	if(!remoteHost.isNull()) socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);
-}
-
-
-void SIDSocket::handleDatagrams() {
-	QList<QByteArray> pairs;
-	QStringList pair;
-	QString type, name, val;
-	while (m_Sock.hasPendingDatagrams()) {
-		m_Buf.resize(m_Sock.pendingDatagramSize());
-		m_Sock.readDatagram(m_Buf.data(),m_Buf.size());
-		// echo for ack
-		m_Sock.writeDatagram(out, m_remoteAddr, m_remotePort);
-		if(m_Acks.contains(m_Buf)){
-			m_Acks.remove(m_Buf);
-			//qDebug() << QString::number(m_Acks.size()) + " pending commands";
-			return;
-		}
-		pairs = m_Buf.split(';');
-		foreach (QString p, pairs) {
-			if (p.contains('=')) {
-				pair = p.split('=').at(0).split('.');
-				val = p.split('=').at(1);
-				type = pair.at(0);
-				if (pair.size() > 1)
-					name = pair.at(1);
-				else
-					name = "";
-				emit sidReceived(type, name, val);
-			}
-		}
-	}
-}
-
-// checks for old sent datagrams that have not ben acked and resends them
-void SIDSocket::checkForLostDatagrams(){
-	if(m_Acks.isEmpty()) {
-		if(flaky) emit connectionRestored();
-		flaky = false;
+		m_flaky=true;
+		// the first time we have unacked packets, send a connect datagram
+		sendDatagram("Connect", true);
+		emit reconnecting();
 		return;
 	}
-	QHashIterator<QByteArray, QTime> i(m_Acks);
-	while (i.hasNext()) {
-		i.next();
-		if(i.value().elapsed() > COMMAND_TIMEOUT) {
-			if(!i.key().contains("RC")){
-				qDebug() << "Re-sending:" << i.key();
-				SendParam(i.key(), true);		
-			}
+	m_Sock.writeDatagram(out, m_remoteAddr, m_remotePort);
+
+	m_Acks.insert(out, QTime::currentTime());
+	// remove acks more than AckTimeout old and let everyone know what went missing
+	foreach(QByteArray datagram, m_Acks.keys()){
+		if(m_Acks[datagram].msecsTo(QTime::currentTime()) > m_AckTimeout){
+			emit(noAck(id(datagram),data(datagram)));
+			m_Acks.remove(datagram);
 		}
 	}
 }
+
+void SIDSocket::setAckTimeout(int msecs){
+	m_AckTimeout = msecs;
+}
+
+void SIDSocket::sendDatagram(){
+	if(!m_outQueue.isEmpty()) sendDatagram(m_outQueue.dequeue());
+}
+
+QString SIDSocket::id(QByteArray datagram){
+	QString gram = QString(datagram);
+	return QStringList(gram.split(';')[0].split('='))[0];
+}
+QString SIDSocket::data(QByteArray datagram){
+	QString gram = QString(datagram);
+	return QStringList(gram.split(';')[0].split('='))[1];
+
+}
+
+void SIDSocket::handlePendingDatagrams() {
+	static QByteArray datagram;
+	static QHostAddress sender;
+	static quint16 senderPort;
+	while (m_Sock.hasPendingDatagrams()) {
+
+		datagram.resize(m_Sock.pendingDatagramSize()); // prep buffer
+
+		m_Sock.readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
+
+		if(m_Acks.contains(datagram)){ // check to see if incoming is an acknowledgement
+			m_Acks.remove(datagram); // and remove from unanswered list 
+			if(datagram == "Connect") {
+				m_flaky = false;
+				while(!m_outQueue.isEmpty()) sendDatagram();
+			}
+		}else{
+			// echo to acknowledge received
+			m_Sock.writeDatagram(datagram, sender, senderPort);
+			
+			// TODO - start in thread
+			processDatagram(datagram, sender, senderPort);
+		}
+
+	}
+}
+
+void SIDSocket::processDatagram(QByteArray datagram, QHostAddress fromAddr, quint16 fromPort){
+
+	static QList<QByteArray> SIDs;
+	static QStringList ID;
+
+	SIDs = datagram.split(';');
+	foreach (QString SID, SIDs) {
+		if (!(ID=SID.split('=')).size() == 2) continue;
+		emit sidReceived(ID[0], ID[1]);
+	}
+}
+

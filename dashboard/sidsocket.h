@@ -7,7 +7,11 @@
 
 #include <QUdpSocket>
 #include <QHostAddress>
-#include "config.h"
+#include <QQueue>
+#include <QTimer>
+#include <QTime>
+#include <QHash>
+#include <QStringList>
 
 class SIDSocket : public QObject {
 	Q_OBJECT
@@ -16,29 +20,68 @@ class SIDSocket : public QObject {
 		virtual ~SIDSocket();
 
 	signals:
-		void dataReceived(QString ID, QString data);
-		void remoteNotResponding(int NumberOfIgnoredPackets);
+		/**
+		 * Received a SID packet.
+		 * @param ID data identifier
+		 * @param data data identified by identifier
+		 */
+		void sidReceived(QString ID, QString data);
+		/**
+		 * Unused?
+		 */
 		void connectionRestored();
+		/**
+		 * May have lost some packets, sent data will be delayed by 500 ms until connection is confirmed.
+		 */
+		void reconnecting();
+		/**
+		 * Packet was not acked within AckTimeout msecs..
+		 * Use this to deal with re-sending critical data.
+		 * Params are last data to be not sent.
+		 */
+		void noAck(QString ID, QString data);
+		/**
+		 * Data is not getting through yet.
+		 * Params are last data to be not sent.
+		 */
+		void remoteNotResponding(QString ID, QString data);
 
 	public slots:
+		/** 
+		 * Send data to other host.
+		 * @param ID data identifier
+		 * @param data data
+		 */
 		void sendSID(QString ID, QString data);
-		void setRemoteAddr(QString addr);
+		/**
+		 * Send all data to the specified address and port.
+		 */
+		void setRemoteAddr(QString addr, quint16 port = 0);
+		/** 
+		 * Set time that we wait for data to be acknowledged on the other end.
+		 * If you need low-latency, set this low.
+		 * @param msec Duration of timeout, in milliseconds.
+		 */
+		void setAckTimeout(int msec);
 
 	private slots:
 		void sendDatagram(QByteArray out, bool resend = false);
-		void handleDatagram();
-		void checkForLostDatagrams();
+		void sendDatagram();
+		void handlePendingDatagrams();
+		void processDatagram(QByteArray, QHostAddress, quint16);
 
 	private:
+		QString id(QByteArray);
+		QString data(QByteArray);
 		QUdpSocket m_Sock;
 		QHostAddress m_remoteAddr;
 		QHostAddress m_localAddr;
 		quint16 m_remotePort;
 		quint16 m_localPort;
-		QByteArray m_Buf;
 		QHash<QByteArray,QTime> m_Acks;
-		QTimer m_safetyCheckTimer;
 		bool m_flaky;
+		int m_AckTimeout;
+		QQueue<QByteArray> m_outQueue;
 };
 
 #endif //#ifndef __SIDSOCKET_H

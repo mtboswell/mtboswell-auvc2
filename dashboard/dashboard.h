@@ -1,7 +1,7 @@
 #include "ui_dashboard.h"
-#include "../src/config.h"
+#include "../src/configloader.h"
 #include "../src/version.h"
-#include "DashSocket.h"
+#include "sidsocket.h"
 #include "VideoSocket.h"
 #include <QMutexLocker>
 #include <QGraphicsLineItem>
@@ -21,12 +21,12 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		Dashboard(QMainWindow *parent = 0);
 
 	signals:
-		void sendParam(QString key, QString value);
+		void sendSID(QString key, QString value);
 		void setAddress(QString);
 
 	public slots:
 		// Receieve UDP Data
-		void HandleAUVParam(QString type, QString name, QString value);
+		void handleAUVParam(QString id, QString value);
 		void HandleVideoFrame(QImage* frame);
 		void HandleBitmapFrame(QImage* frame);
 
@@ -48,7 +48,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void connectToAddress();
 		void connectToLocalhost();
 
-		void disableDashboard(int severity);
+		void disableDashboard(QString,QString);
 		void enableDashboard();
 
 		void saveParameters();
@@ -130,7 +130,7 @@ void on_##guiParam##_editingFinished();
 		void on_buoyMaxExtentSpinBox_editingFinished();
 
 	private:
-		DashSocket m_DS;
+		SIDSocket* m_DS;
 		VideoSocket* videoSocket;
 		VideoSocket* bitmapSocket;
 		QGraphicsScene* headingScene;

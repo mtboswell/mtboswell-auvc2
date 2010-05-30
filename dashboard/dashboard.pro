@@ -18,15 +18,16 @@ INCLUDEPATH += . \
 	       .. 
 # Input
 HEADERS += dashboard.h \
-	DashSocket.h \
+	sidsocket.h \
 	VideoSocket.h \
 	parameters.def \
 	videowidget.h \
 	../src/version.h \
+	../src/config.h \
 	../src/auv/mechanisms.h
 FORMS += dashboard.ui
 SOURCES += dashboard.cpp \
-	DashSocket.cpp \
+	sidsocket.cpp \
 	main.cpp \
 	VideoSocket.cpp \
 	../src/version.cpp \
