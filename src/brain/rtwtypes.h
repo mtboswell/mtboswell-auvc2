@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.364
+ * Model version                        : 1.366
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Thu May 27 18:36:36 2010
+ * Real-Time Workshop file generated on : Tue Jun  1 15:41:02 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Thu May 27 18:36:36 2010
+ * C/C++ source code generated on       : Tue Jun  1 15:41:02 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -198,24 +198,6 @@ typedef enum {
   NO_ZCEVENT = 0,
   RISING_ZCEVENT = 1
 } ZCEventType;
-
-/* Enumeration of built-in data types */
-typedef enum {
-  SS_DOUBLE = 0,                       /* real_T    */
-  SS_SINGLE = 1,                       /* real32_T  */
-  SS_INT8 = 2,                         /* int8_T    */
-  SS_UINT8 = 3,                        /* uint8_T   */
-  SS_INT16 = 4,                        /* int16_T   */
-  SS_UINT16 = 5,                       /* uint16_T  */
-  SS_INT32 = 6,                        /* int32_T   */
-  SS_UINT32 = 7,                       /* uint32_T  */
-  SS_BOOLEAN = 8                       /* boolean_T */
-} BuiltInDTypeId;
-
-#define SS_NUM_BUILT_IN_DTYPE          ((int_T)SS_BOOLEAN+1)
-
-/* Enumeration for MAT-file logging code */
-typedef int_T DTypeId;
 
 #endif                                 /* __SIMSTRUC_TYPES_H__ */
 #endif                                 /* __RTWTYPES_H__ */

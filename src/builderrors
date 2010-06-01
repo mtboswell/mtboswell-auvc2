@@ -1,20 +1,3 @@
-In file included from model/../brain/brain.h:26,
-                 from model/model.h:14,
-                 from model/model.cpp:1:
-model/../brain/rtw_modelmap.h:44: error: expected unqualified-id before ‘protected’
-model/../brain/rtw_modelmap.h:44: error: expected ‘;’ before ‘protected’
-make: *** [model.o] Error 1
+make: *** No rule to make target `brain/brain_capi.cpp', needed by `brain_capi.o'.  Stop.
 make: *** Waiting for unfinished jobs....
-In file included from server/../brain/brain.h:26,
-                 from server/server.h:5,
-                 from main.cpp:3:
-server/../brain/rtw_modelmap.h:44: error: expected unqualified-id before ‘protected’
-server/../brain/rtw_modelmap.h:44: error: expected ‘;’ before ‘protected’
-In file included from auv/../brain/brain.h:26,
-                 from auv/auv.h:19,
-                 from auv/auv.cpp:10:
-auv/../brain/rtw_modelmap.h:44: error: expected unqualified-id before ‘protected’
-auv/../brain/rtw_modelmap.h:44: error: expected ‘;’ before ‘protected’
-make: *** [auv.o] Error 1
 server/server.cpp:93: warning: unused parameter ‘fromPort’
-make: *** [main.o] Error 1

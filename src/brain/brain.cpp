@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.364
+ * Model version                        : 1.366
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Thu May 27 18:36:36 2010
+ * Real-Time Workshop file generated on : Tue Jun  1 15:41:02 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Thu May 27 18:36:36 2010
+ * C/C++ source code generated on       : Tue Jun  1 15:41:02 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -21,7 +21,6 @@
  * Validation result: Not run
  */
 
-#include "brain_capi.h"
 #include "brain.h"
 #include "brain_private.h"
 
@@ -109,6 +108,7 @@ static void brain_OnePath(void);
 static real_T brain_countimages_m(real_T sf_Image, real_T sf_OldImage, real_T
   sf_count1);
 static void brain_ValidationGate(void);
+static void brain_StateFlowFunctions(void);
 
 /*
  * Output and update for atomic system:
@@ -4053,6 +4053,284 @@ static void brain_ValidationGate(void)
   }
 }
 
+/* Function for Stateflow: '<Root>/StateFlow Functions' */
+static void brain_StateFlowFunctions(void)
+{
+  real_T sf_Desired_HeadingAlong;
+  real_T sf_Desired_HeadingTo;
+  int32_T i;
+
+  /* During 'StateFlowFunctions': '<S7>:726' */
+  switch (brain_DWork.is_StateFlowFunctions) {
+   case brain_IN_Buoy:
+    brain_Buoy();
+    break;
+
+   case brain_IN_ControlledRC:
+    /* During 'ControlledRC': '<S7>:1260' */
+    /* Transition: '<S7>:1268' */
+    /* Exit 'ControlledRC': '<S7>:1260' */
+    brain_B.Vertical = 0;
+    brain_B.Strafe = 0;
+    brain_B.Left = 0;
+    brain_B.Right = 0;
+
+    /* Entry 'GetInCorrectState': '<S7>:1263' */
+    brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
+    break;
+
+   case brain_IN_Finish:
+    /* During 'Finish': '<S7>:1259' */
+    if (brain_DWork.OperationalState != 7) {
+      /* Transition: '<S7>:1282' */
+      /* Exit 'Finish': '<S7>:1259' */
+      /* Entry 'GetInCorrectState': '<S7>:1263' */
+      brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
+    }
+    break;
+
+   case brain_IN_FollowOnePath:
+    /* During 'FollowOnePath': '<S7>:1164' */
+    if (brain_DWork.OperationalState != 5) {
+      /* Transition: '<S7>:1276' */
+      if (brain_DWork.is_FollowOnePath == brain_IN_OnePath) {
+        switch (brain_DWork.is_OnePath) {
+         case brain_IN_CenterOver:
+          /* Exit 'CenterOver': '<S7>:1172' */
+          brain_DWork.is_OnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
+          break;
+
+         case brain_IN_GetDirections:
+          /* Exit 'GetDirections': '<S7>:1185' */
+          brain_ChoosePath(&brain_DWork.AvgDesiredHeadingToPath[0],
+                           &brain_DWork.AvgDesiredHeadingAlongPath[0],
+                           &sf_Desired_HeadingTo, &sf_Desired_HeadingAlong);
+          brain_B.DesiredHeading = sf_Desired_HeadingAlong;
+          brain_DWork.is_OnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
+          break;
+
+         default:
+          brain_DWork.is_OnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
+
+          /* Exit 'Done': '<S7>:1171' */
+          break;
+        }
+
+        /* Exit 'OnePath': '<S7>:1167' */
+        brain_DWork.is_FollowOnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
+      } else {
+        brain_DWork.is_FollowOnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
+
+        /* Exit 'Initialize': '<S7>:1214' */
+      }
+
+      /* Exit 'FollowOnePath': '<S7>:1164' */
+      /* Entry 'GetInCorrectState': '<S7>:1263' */
+      brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
+    } else {
+      switch (brain_DWork.is_FollowOnePath) {
+       case brain_IN_Initialize:
+        /* During 'Initialize': '<S7>:1214' */
+        /* Transition: '<S7>:1166' */
+        /* Exit 'Initialize': '<S7>:1214' */
+        /* Entry 'OnePath': '<S7>:1167' */
+        brain_DWork.is_FollowOnePath = brain_IN_OnePath;
+
+        /* Transition: '<S7>:1170' */
+        /* Entry 'GetDirections': '<S7>:1185' */
+        brain_DWork.is_OnePath = brain_IN_GetDirections;
+        brain_DWork.countTo = 0.0;
+        brain_DWork.countAlong = 0.0;
+        brain_DWork.outliersTo = 0.0;
+        brain_DWork.outliersAlong = 0.0;
+        brain_B.Left = 0;
+        brain_B.Right = 0;
+        break;
+
+       case brain_IN_OnePath:
+        brain_OnePath();
+        break;
+
+       default:
+        /* Transition: '<S7>:1165' */
+        /* Entry 'Initialize': '<S7>:1214' */
+        brain_DWork.is_FollowOnePath = brain_IN_Initialize;
+
+        /* Simulink Function 'GetDesiredDepth': '<S7>:1286' */
+
+        /* Constant: '<S15>/Constant' */
+        brain_B.Constant = brain_P.Track_Desired_Depth;
+        brain_B.DesiredDepth = brain_B.Constant;
+        brain_B.DesiredHeading = 0.0;
+        brain_DWork.Done = 0.0;
+        brain_B.State = 3;
+        brain_B.CameraPosition = 2;
+
+        /* Simulink Function 'MakeHSVImage': '<S7>:1215' */
+        for (i = 0; i < 19200; i++) {
+          brain_B.H1[i] = brain_B.Resize[i];
+          brain_B.S1[i] = brain_B.Resize1[i];
+          brain_B.V1[i] = brain_B.Resize2[i];
+        }
+
+        StateFlowFunctionsFollowOnePath(brain_B.H1, brain_B.S1, brain_B.V1,
+          &brain_B.StateFlowFunctionsFollowOnePa_g);
+        break;
+      }
+    }
+    break;
+
+   case brain_IN_GetInCorrectState:
+    /* During 'GetInCorrectState': '<S7>:1263' */
+    if (brain_DWork.OperationalState == 0) {
+      /* Transition: '<S7>:1266' */
+      /* Exit 'GetInCorrectState': '<S7>:1263' */
+      /* Entry 'NotRunning': '<S7>:727' */
+      brain_DWork.is_StateFlowFunctions = brain_IN_NotRunning;
+      brain_B.Left = 0;
+      brain_B.Right = 0;
+      brain_B.Vertical = 0;
+      brain_B.State = -2;
+    } else if (brain_DWork.OperationalState == 1) {
+      /* Transition: '<S7>:1267' */
+      /* Exit 'GetInCorrectState': '<S7>:1263' */
+      /* Entry 'ControlledRC': '<S7>:1260' */
+      brain_DWork.is_StateFlowFunctions = brain_IN_ControlledRC;
+      brain_B.State = -1;
+    } else if (brain_DWork.OperationalState == 3) {
+      /* Transition: '<S7>:1271' */
+      /* Exit 'GetInCorrectState': '<S7>:1263' */
+      /* Entry 'Start': '<S7>:1145' */
+      brain_DWork.is_StateFlowFunctions = brain_IN_Start;
+      brain_DWork.OldHeading = 0.0;
+      brain_DWork.DesiredHeadingCount = 0.0;
+      brain_B.BuoyCentroidX = 0.0;
+      brain_B.BuoyCentroidY = 0.0;
+      brain_B.CameraPosition = 2;
+      brain_B.State = 1;
+    } else if (brain_DWork.OperationalState == 4) {
+      /* Transition: '<S7>:1274' */
+      /* Exit 'GetInCorrectState': '<S7>:1263' */
+      /* Entry 'ValidationGate': '<S7>:1151' */
+      brain_DWork.is_StateFlowFunctions = brain_IN_ValidationGate;
+      brain_DWork.OldObstacle = FALSE;
+      brain_DWork.count = 0.0;
+      brain_DWork.TrackCount = 0.0;
+      brain_B.State = 2;
+      brain_B.CameraPosition = 2;
+    } else if (brain_DWork.OperationalState == 5) {
+      /* Transition: '<S7>:1277' */
+      /* Exit 'GetInCorrectState': '<S7>:1263' */
+      /* Entry 'FollowOnePath': '<S7>:1164' */
+      brain_DWork.is_StateFlowFunctions = brain_IN_FollowOnePath;
+
+      /* Transition: '<S7>:1165' */
+      /* Entry 'Initialize': '<S7>:1214' */
+      brain_DWork.is_FollowOnePath = brain_IN_Initialize;
+
+      /* Simulink Function 'GetDesiredDepth': '<S7>:1286' */
+
+      /* Constant: '<S15>/Constant' */
+      brain_B.Constant = brain_P.Track_Desired_Depth;
+      brain_B.DesiredDepth = brain_B.Constant;
+      brain_B.DesiredHeading = 0.0;
+      brain_DWork.Done = 0.0;
+      brain_B.State = 3;
+      brain_B.CameraPosition = 2;
+
+      /* Simulink Function 'MakeHSVImage': '<S7>:1215' */
+      for (i = 0; i < 19200; i++) {
+        brain_B.H1[i] = brain_B.Resize[i];
+        brain_B.S1[i] = brain_B.Resize1[i];
+        brain_B.V1[i] = brain_B.Resize2[i];
+      }
+
+      StateFlowFunctionsFollowOnePath(brain_B.H1, brain_B.S1, brain_B.V1,
+        &brain_B.StateFlowFunctionsFollowOnePa_g);
+    } else if (brain_DWork.OperationalState == 6) {
+      /* Transition: '<S7>:1280' */
+      /* Exit 'GetInCorrectState': '<S7>:1263' */
+      /* Entry 'Buoy': '<S7>:1220' */
+      brain_DWork.is_StateFlowFunctions = brain_IN_Buoy;
+
+      /* Transition: '<S7>:1221' */
+      /* Entry 'FindBuoy': '<S7>:1224' */
+      brain_DWork.is_Buoy = brain_IN_FindBuoy;
+      brain_DWork.OldObstacle = FALSE;
+      brain_B.CameraPosition = 0;
+      brain_B.State = 4;
+      brain_DWork.BuoyCount = 0.0;
+      brain_DWork.BuoyDone = 0.0;
+      brain_B.DesiredDepth = 5.0;
+    } else {
+      if (brain_DWork.OperationalState == 7) {
+        /* Transition: '<S7>:1281' */
+        /* Exit 'GetInCorrectState': '<S7>:1263' */
+        /* Entry 'Finish': '<S7>:1259' */
+        brain_DWork.is_StateFlowFunctions = brain_IN_Finish;
+        brain_B.State = 6;
+        brain_B.Left = 0;
+        brain_B.Right = 0;
+        brain_B.Vertical = 0;
+      }
+    }
+    break;
+
+   case brain_IN_NotRunning:
+    /* During 'NotRunning': '<S7>:727' */
+    if (brain_DWork.OperationalState != 0) {
+      /* Transition: '<S7>:1265' */
+      /* Exit 'NotRunning': '<S7>:727' */
+      /* Entry 'GetInCorrectState': '<S7>:1263' */
+      brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
+    }
+    break;
+
+   case brain_IN_Start:
+    /* During 'Start': '<S7>:1145' */
+    if (brain_DWork.OperationalState != 3) {
+      /* Transition: '<S7>:1270' */
+      /* Exit 'Start': '<S7>:1145' */
+      brain_B.DesiredHeading = brain_U.CurrentHeading;
+
+      /* Entry 'GetInCorrectState': '<S7>:1263' */
+      brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
+    } else {
+      /* Embedded MATLAB Function 'InitialHeadingCount': '<S7>:1146' */
+      /* '<S7>:1146:3' */
+      if ((brain_U.CurrentHeading > brain_DWork.OldHeading - 2.0) &&
+          (brain_U.CurrentHeading < brain_DWork.OldHeading + 2.0)) {
+        /* '<S7>:1146:5' */
+        /* '<S7>:1146:6' */
+        brain_DWork.DesiredHeadingCount = brain_DWork.DesiredHeadingCount + 1.0;
+      } else {
+        /* '<S7>:1146:8' */
+        brain_DWork.DesiredHeadingCount = 0.0;
+      }
+
+      /* '<S7>:1146:10' */
+      brain_DWork.OldHeading = brain_U.CurrentHeading;
+
+      /* Simulink Function 'GetDesiredDepth': '<S7>:1286' */
+
+      /* Constant: '<S15>/Constant' */
+      brain_B.Constant = brain_P.Track_Desired_Depth;
+      brain_B.DesiredDepth = brain_B.Constant;
+    }
+    break;
+
+   case brain_IN_ValidationGate:
+    brain_ValidationGate();
+    break;
+
+   default:
+    /* Transition: '<S7>:1264' */
+    /* Entry 'GetInCorrectState': '<S7>:1263' */
+    brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
+    break;
+  }
+}
+
 /* Model step function */
 void brain_step(void)
 {
@@ -4065,8 +4343,6 @@ void brain_step(void)
   real32_T max;
   real32_T sum;
   int32_T indx;
-  real_T sf_Desired_HeadingAlong;
-  real_T sf_Desired_HeadingTo;
   int32_T outStep;
   int32_T inStep;
   int32_T n;
@@ -4380,7 +4656,6 @@ void brain_step(void)
   }
 
   /* Stateflow: '<Root>/StateFlow Functions' incorporates:
-   *  Inport: '<Root>/CurrentHeading'
    *  Inport: '<Root>/DesiredState'
    *  Inport: '<Root>/RC'
    *  Inport: '<Root>/Status'
@@ -4451,18 +4726,18 @@ void brain_step(void)
       if (brain_U.Status != 1) {
         /* Transition: '<S7>:1137' */
         /* Exit 'Buoy': '<S7>:1025' */
-        brain_DWork.is_Autonomous = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
-
         /* Exit 'ChooseState': '<S7>:1134' */
         /* Exit 'Finish': '<S7>:1064' */
         /* Exit 'FollowOnePath': '<S7>:1065' */
         /* Exit 'FollowOnePath1': '<S7>:1142' */
         /* Exit 'Start': '<S7>:1019' */
         /* Exit 'ValidationGate': '<S7>:1121' */
+        brain_DWork.is_Autonomous = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
+
         /* Exit 'Autonomous': '<S7>:945' */
+        /* Exit 'ControlledRC': '<S7>:944' */
         brain_DWork.is_Running = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
-        /* Exit 'ControlledRC': '<S7>:944' */
         /* Exit 'Running': '<S7>:940' */
         /* Entry 'NotRunning': '<S7>:1135' */
         brain_DWork.is_StateManagement = brain_IN_NotRunning_m;
@@ -4667,271 +4942,7 @@ void brain_step(void)
       break;
     }
 
-    /* During 'StateFlowFunctions': '<S7>:726' */
-    switch (brain_DWork.is_StateFlowFunctions) {
-     case brain_IN_Buoy:
-      brain_Buoy();
-      break;
-
-     case brain_IN_ControlledRC:
-      /* During 'ControlledRC': '<S7>:1260' */
-      /* Transition: '<S7>:1268' */
-      /* Exit 'ControlledRC': '<S7>:1260' */
-      /* Entry 'GetInCorrectState': '<S7>:1263' */
-      brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
-      break;
-
-     case brain_IN_Finish:
-      /* During 'Finish': '<S7>:1259' */
-      if (brain_DWork.OperationalState != 7) {
-        /* Transition: '<S7>:1282' */
-        /* Exit 'Finish': '<S7>:1259' */
-        /* Entry 'GetInCorrectState': '<S7>:1263' */
-        brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
-      }
-      break;
-
-     case brain_IN_FollowOnePath:
-      /* During 'FollowOnePath': '<S7>:1164' */
-      if (brain_DWork.OperationalState != 5) {
-        /* Transition: '<S7>:1276' */
-        if (brain_DWork.is_FollowOnePath == brain_IN_OnePath) {
-          switch (brain_DWork.is_OnePath) {
-           case brain_IN_CenterOver:
-            /* Exit 'CenterOver': '<S7>:1172' */
-            brain_DWork.is_OnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
-            break;
-
-           case brain_IN_GetDirections:
-            /* Exit 'GetDirections': '<S7>:1185' */
-            brain_ChoosePath(&brain_DWork.AvgDesiredHeadingToPath[0],
-                             &brain_DWork.AvgDesiredHeadingAlongPath[0],
-                             &sf_Desired_HeadingTo, &sf_Desired_HeadingAlong);
-            brain_B.DesiredHeading = sf_Desired_HeadingAlong;
-            brain_DWork.is_OnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
-            break;
-
-           default:
-            brain_DWork.is_OnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
-
-            /* Exit 'Done': '<S7>:1171' */
-            break;
-          }
-
-          /* Exit 'OnePath': '<S7>:1167' */
-          brain_DWork.is_FollowOnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
-        } else {
-          brain_DWork.is_FollowOnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
-
-          /* Exit 'Initialize': '<S7>:1214' */
-        }
-
-        /* Exit 'FollowOnePath': '<S7>:1164' */
-        /* Entry 'GetInCorrectState': '<S7>:1263' */
-        brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
-      } else {
-        switch (brain_DWork.is_FollowOnePath) {
-         case brain_IN_Initialize:
-          /* During 'Initialize': '<S7>:1214' */
-          /* Transition: '<S7>:1166' */
-          /* Exit 'Initialize': '<S7>:1214' */
-          /* Entry 'OnePath': '<S7>:1167' */
-          brain_DWork.is_FollowOnePath = brain_IN_OnePath;
-
-          /* Transition: '<S7>:1170' */
-          /* Entry 'GetDirections': '<S7>:1185' */
-          brain_DWork.is_OnePath = brain_IN_GetDirections;
-          brain_DWork.countTo = 0.0;
-          brain_DWork.countAlong = 0.0;
-          brain_DWork.outliersTo = 0.0;
-          brain_DWork.outliersAlong = 0.0;
-          brain_B.Left = 0;
-          brain_B.Right = 0;
-          break;
-
-         case brain_IN_OnePath:
-          brain_OnePath();
-          break;
-
-         default:
-          /* Transition: '<S7>:1165' */
-          /* Entry 'Initialize': '<S7>:1214' */
-          brain_DWork.is_FollowOnePath = brain_IN_Initialize;
-
-          /* Simulink Function 'GetDesiredDepth': '<S7>:1286' */
-
-          /* Constant: '<S15>/Constant' */
-          brain_B.Constant = brain_P.Track_Desired_Depth;
-          brain_B.DesiredDepth = brain_B.Constant;
-          brain_B.DesiredHeading = 0.0;
-          brain_DWork.Done = 0.0;
-          brain_B.State = 3;
-          brain_B.CameraPosition = 2;
-
-          /* Simulink Function 'MakeHSVImage': '<S7>:1215' */
-          for (outStep = 0; outStep < 19200; outStep++) {
-            brain_B.H1[outStep] = brain_B.Resize[outStep];
-            brain_B.S1[outStep] = brain_B.Resize1[outStep];
-            brain_B.V1[outStep] = brain_B.Resize2[outStep];
-          }
-
-          StateFlowFunctionsFollowOnePath(brain_B.H1, brain_B.S1, brain_B.V1,
-            &brain_B.StateFlowFunctionsFollowOnePa_g);
-          break;
-        }
-      }
-      break;
-
-     case brain_IN_GetInCorrectState:
-      /* During 'GetInCorrectState': '<S7>:1263' */
-      if (brain_DWork.OperationalState == 0) {
-        /* Transition: '<S7>:1266' */
-        /* Exit 'GetInCorrectState': '<S7>:1263' */
-        /* Entry 'NotRunning': '<S7>:727' */
-        brain_DWork.is_StateFlowFunctions = brain_IN_NotRunning;
-        brain_B.Left = 0;
-        brain_B.Right = 0;
-        brain_B.Vertical = 0;
-        brain_B.State = -2;
-      } else if (brain_DWork.OperationalState == 1) {
-        /* Transition: '<S7>:1267' */
-        /* Exit 'GetInCorrectState': '<S7>:1263' */
-        /* Entry 'ControlledRC': '<S7>:1260' */
-        brain_DWork.is_StateFlowFunctions = brain_IN_ControlledRC;
-        brain_B.State = -1;
-      } else if (brain_DWork.OperationalState == 3) {
-        /* Transition: '<S7>:1271' */
-        /* Exit 'GetInCorrectState': '<S7>:1263' */
-        /* Entry 'Start': '<S7>:1145' */
-        brain_DWork.is_StateFlowFunctions = brain_IN_Start;
-        brain_DWork.OldHeading = 0.0;
-        brain_DWork.DesiredHeadingCount = 0.0;
-        brain_B.BuoyCentroidX = 0.0;
-        brain_B.BuoyCentroidY = 0.0;
-        brain_B.CameraPosition = 2;
-        brain_B.State = 1;
-      } else if (brain_DWork.OperationalState == 4) {
-        /* Transition: '<S7>:1274' */
-        /* Exit 'GetInCorrectState': '<S7>:1263' */
-        /* Entry 'ValidationGate': '<S7>:1151' */
-        brain_DWork.is_StateFlowFunctions = brain_IN_ValidationGate;
-        brain_DWork.OldObstacle = FALSE;
-        brain_DWork.count = 0.0;
-        brain_DWork.TrackCount = 0.0;
-        brain_B.State = 2;
-        brain_B.CameraPosition = 2;
-      } else if (brain_DWork.OperationalState == 5) {
-        /* Transition: '<S7>:1277' */
-        /* Exit 'GetInCorrectState': '<S7>:1263' */
-        /* Entry 'FollowOnePath': '<S7>:1164' */
-        brain_DWork.is_StateFlowFunctions = brain_IN_FollowOnePath;
-
-        /* Transition: '<S7>:1165' */
-        /* Entry 'Initialize': '<S7>:1214' */
-        brain_DWork.is_FollowOnePath = brain_IN_Initialize;
-
-        /* Simulink Function 'GetDesiredDepth': '<S7>:1286' */
-
-        /* Constant: '<S15>/Constant' */
-        brain_B.Constant = brain_P.Track_Desired_Depth;
-        brain_B.DesiredDepth = brain_B.Constant;
-        brain_B.DesiredHeading = 0.0;
-        brain_DWork.Done = 0.0;
-        brain_B.State = 3;
-        brain_B.CameraPosition = 2;
-
-        /* Simulink Function 'MakeHSVImage': '<S7>:1215' */
-        for (outStep = 0; outStep < 19200; outStep++) {
-          brain_B.H1[outStep] = brain_B.Resize[outStep];
-          brain_B.S1[outStep] = brain_B.Resize1[outStep];
-          brain_B.V1[outStep] = brain_B.Resize2[outStep];
-        }
-
-        StateFlowFunctionsFollowOnePath(brain_B.H1, brain_B.S1, brain_B.V1,
-          &brain_B.StateFlowFunctionsFollowOnePa_g);
-      } else if (brain_DWork.OperationalState == 6) {
-        /* Transition: '<S7>:1280' */
-        /* Exit 'GetInCorrectState': '<S7>:1263' */
-        /* Entry 'Buoy': '<S7>:1220' */
-        brain_DWork.is_StateFlowFunctions = brain_IN_Buoy;
-
-        /* Transition: '<S7>:1221' */
-        /* Entry 'FindBuoy': '<S7>:1224' */
-        brain_DWork.is_Buoy = brain_IN_FindBuoy;
-        brain_DWork.OldObstacle = FALSE;
-        brain_B.CameraPosition = 0;
-        brain_B.State = 4;
-        brain_DWork.BuoyCount = 0.0;
-        brain_DWork.BuoyDone = 0.0;
-        brain_B.DesiredDepth = 5.0;
-      } else {
-        if (brain_DWork.OperationalState == 7) {
-          /* Transition: '<S7>:1281' */
-          /* Exit 'GetInCorrectState': '<S7>:1263' */
-          /* Entry 'Finish': '<S7>:1259' */
-          brain_DWork.is_StateFlowFunctions = brain_IN_Finish;
-          brain_B.State = 6;
-          brain_B.Left = 0;
-          brain_B.Right = 0;
-          brain_B.Vertical = 0;
-        }
-      }
-      break;
-
-     case brain_IN_NotRunning:
-      /* During 'NotRunning': '<S7>:727' */
-      if (brain_DWork.OperationalState != 0) {
-        /* Transition: '<S7>:1265' */
-        /* Exit 'NotRunning': '<S7>:727' */
-        /* Entry 'GetInCorrectState': '<S7>:1263' */
-        brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
-      }
-      break;
-
-     case brain_IN_Start:
-      /* During 'Start': '<S7>:1145' */
-      if (brain_DWork.OperationalState != 3) {
-        /* Transition: '<S7>:1270' */
-        /* Exit 'Start': '<S7>:1145' */
-        brain_B.DesiredHeading = brain_U.CurrentHeading;
-
-        /* Entry 'GetInCorrectState': '<S7>:1263' */
-        brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
-      } else {
-        /* Embedded MATLAB Function 'InitialHeadingCount': '<S7>:1146' */
-        /* '<S7>:1146:3' */
-        if ((brain_U.CurrentHeading > brain_DWork.OldHeading - 2.0) &&
-            (brain_U.CurrentHeading < brain_DWork.OldHeading + 2.0)) {
-          /* '<S7>:1146:5' */
-          /* '<S7>:1146:6' */
-          brain_DWork.DesiredHeadingCount = brain_DWork.DesiredHeadingCount +
-            1.0;
-        } else {
-          /* '<S7>:1146:8' */
-          brain_DWork.DesiredHeadingCount = 0.0;
-        }
-
-        /* '<S7>:1146:10' */
-        brain_DWork.OldHeading = brain_U.CurrentHeading;
-
-        /* Simulink Function 'GetDesiredDepth': '<S7>:1286' */
-
-        /* Constant: '<S15>/Constant' */
-        brain_B.Constant = brain_P.Track_Desired_Depth;
-        brain_B.DesiredDepth = brain_B.Constant;
-      }
-      break;
-
-     case brain_IN_ValidationGate:
-      brain_ValidationGate();
-      break;
-
-     default:
-      /* Transition: '<S7>:1264' */
-      /* Entry 'GetInCorrectState': '<S7>:1263' */
-      brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
-      break;
-    }
+    brain_StateFlowFunctions();
   }
 
   /* Outport: '<Root>/CameraPosition' */
@@ -6301,9 +6312,6 @@ void brain_initialize(void)
   /* external outputs */
   (void) memset((void *)&brain_Y, 0,
                 sizeof(ExternalOutputs_brain));
-
-  /* Initialize DataMapInfo substructure containing ModelMap for C API */
-  brain_InitializeDataMapInfo(brain_M);
 
   {
     int32_T idxNHood;
