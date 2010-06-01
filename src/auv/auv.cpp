@@ -17,9 +17,10 @@
 #include <QStringList>
 
 AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
+	if(config.isEmpty()) loadConfigFile(config);
 	// 160ms = 6.25Hz rate
 	//stepTime = 160;
-	stepTime = AUV_STEP_TIME;
+	stepTime = config["StepTime.AUV"].toInt();
 
 	// Initialize data
 	data.status = READY;
@@ -46,11 +47,11 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
   	dataMutex = sensorMutex;
 	
 	/* Initialize hardware interfaces */
-	arduino = new Arduino(ARDUINOPORT);
-	microstrain = new Microstrain(IMUPORT);
-	pControllers = new Pololu(POLOLUPORT);
-	thrusterPower = new Power(POWERPORT);
-	statusLcd = new LCD(LCDPORT);
+	arduino = new Arduino(config["SerialPort.ARDUINO"]);
+	microstrain = new Microstrain(config["SerialPort.IMU"]);
+	pControllers = new Pololu(config["SerialPort.POLOLU"]);
+	thrusterPower = new Power(config["SerialPort.POWER"]);
+	statusLcd = new LCD(config["SerialPort.LCD"]);
 
 	//connect(this, SIGNAL(status(QString)), this, SLOT(statusMessage(QString)));
 
@@ -89,12 +90,12 @@ AUV::~AUV(){
 
 void AUV::run(){
 	// start the periodic sensor updates
-  	sensorTimer->start(AUV_STEP_TIME);
+  	sensorTimer->start(stepTime);
 	exec();
 }
 
 void AUV::readSensors(){
-	if(DEBUG) qDebug("Reading Sensor Data");
+	if(config["Debug"]=="true") qDebug("Reading Sensor Data");
 	QTime t;
   	dataMutex->lock();
 	t.start();
@@ -111,7 +112,7 @@ void AUV::readSensors(){
 		stopThrusters();
 		emit hardwareOverride();
 	}else dataMutex->unlock();
-	if(DEBUG) qDebug() << "Sensor Reading Time: " << QString::number(t.elapsed()) << "ms";
+	if(config["Debug"]=="true") qDebug() << "Sensor Reading Time: " << QString::number(t.elapsed()) << "ms";
 	emit sensorUpdate(data);
 }
 
@@ -196,7 +197,7 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 		thrusterSpeeds[1] = 0;
 	}
 */
-	if(DEBUG) qDebug("Conversing with TReXs");
+	if(config["Debug"]=="true") qDebug("Conversing with TReXs");
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
 		if(i != 3 && thrusterSpeeds[i] > 40) thrusterSpeeds[i] = 40;
 		if(i != 3 && thrusterSpeeds[i] < -40) thrusterSpeeds[i] = -40;
@@ -207,7 +208,7 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 		data.thrusterSpeeds[i] = thrusterSpeeds[i];
 	}
 
-	if(DEBUG) qDebug("Conversation Over");
+	if(config["Debug"]=="true") qDebug("Conversation Over");
 }
 // set thruster speeds
 void AUV::setThrusters(double thrusterSpeeds[NUMBER_OF_THRUSTERS]){
@@ -219,7 +220,7 @@ void AUV::setThrusters(double thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 	thrusterScale[2] = 127;
 	thrusterScale[3] = 127;
 
-	if(DEBUG) qDebug("Conversing with TReXs");
+	if(config["Debug"]=="true") qDebug("Conversing with TReXs");
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
 		pControllers->setMotorSpeed(i, thrusterSpeeds[i]*thrusterScale[i]);
 	}

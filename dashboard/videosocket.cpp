@@ -1,4 +1,4 @@
-#include "VideoSocket.h"
+#include "videosocket.h"
 #include <QDebug>
 
 #define MAX_FRAME_SIZE 100000

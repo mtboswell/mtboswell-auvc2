@@ -2561,7 +2561,7 @@
      <x>0</x>
      <y>0</y>
      <width>1047</width>
-     <height>27</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -2570,6 +2570,7 @@
     </property>
     <addaction name="actionSave_Parameters"/>
     <addaction name="actionLoad_Parameters"/>
+    <addaction name="actionLoad_Script"/>
     <addaction name="separator"/>
     <addaction name="actionTurn_Off_AUV"/>
     <addaction name="actionQuit"/>
@@ -2704,6 +2705,11 @@
    </property>
    <property name="toolTip">
     <string>Save parameters to a file</string>
+   </property>
+  </action>
+  <action name="actionLoad_Script">
+   <property name="text">
+    <string>Load Script</string>
    </property>
   </action>
  </widget>

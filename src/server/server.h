@@ -1,11 +1,12 @@
 #ifndef SERVER_H
 #define SERVER_H
 
-#include "../config.h"
+#include "../configloader.h"
 #include "../brain/brain.h"
 #include "../auv/auvtypes.h"
 #include "../model/parameters.h"
 #include "../version.h"
+#include "sidsocket.h"
 #include "datalogger.h"
 #include <QUdpSocket>
 #include <QThread>
@@ -79,6 +80,7 @@ class Server: public QThread
 		void moveCamera(double x, double y);
 
 		void runScript(QString);
+		void newScript(QString);
 
 
 
@@ -129,18 +131,14 @@ class Server: public QThread
 		void sendStatus(QString status);
 		
 	private slots:
-		// readPendingDatagrams gets triggered every time the socket receives a datagram
-		void readPendingDatagrams();
 		// once a field is parsed, it get sent to this slot for actually doing stuff
-		void doAction(QString type, QString name, QString value, QHostAddress fromAddr, quint16 fromPort);
+		void handleCmd(QString id, QString data, QHostAddress fromAddr);
 
 	private:
-		// parse incoming data
-		void processDatagram(QByteArray, QHostAddress fromAddr, quint16 fromPort);
 		// append a field to a datagram
 		void addDatum(QByteArray& datagram, QString type, QString name, QString value, bool log = false);
 
-		QUdpSocket* socket;
+		SIDSocket* sidsocket;
 		QUdpSocket* videoSocket;
 		QFile* videoFile;
 		QUdpSocket* bitmapSocket;

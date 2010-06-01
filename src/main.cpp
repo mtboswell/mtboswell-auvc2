@@ -1,5 +1,9 @@
 #include <QCoreApplication>
 #include <QMutex>
+
+#include "configloader.h"
+QMap<QString, QString> config;
+
 #include "server/server.h"
 #include "auv/auv.h"
 #include "auv/calibrateservos.h"
@@ -30,6 +34,8 @@ int main(int argc, char *argv[]){
 			return 0;
 		}
 	}
+
+	loadConfigFile(config);
 
 	QMutex modelMutex;
 	QMutex sensorMutex;

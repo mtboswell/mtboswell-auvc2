@@ -2,13 +2,15 @@
 #include "../auv/auvtypes.h"
 #include "../auv/calibration.h"
 #include "../auv/camread.h"
-#include "../config.h"
+#include "../configloader.h"
 #include <iostream>
 #include <cstdlib>
 #include <QDebug>
 #include <QTime>
 
 Model::Model(QMutex* mutex){
+
+	if(config.isEmpty()) loadConfigFile(config);
 
 	OverrunFlag = 0;
 	
@@ -66,7 +68,7 @@ void Model::run(){
  */
 void Model::rt_OneStep(void)
 {
-	if(DEBUG) qDebug("Stepping Model");
+	if(config["Debug"]=="true") qDebug("Stepping Model");
 
 	/* Check for overrun */
 	if (OverrunFlag++) {
@@ -96,14 +98,14 @@ void Model::rt_OneStep(void)
 	/* Restore FPU context here (if necessary) */
 	/* Enable interrupts here */
 	modelMutex->unlock();
-	if(DEBUG) qDebug("Model Unlocked, sending output");
+	if(config["Debug"]=="true") qDebug("Model Unlocked, sending output");
 	emit outputReady(brain_Y, stepTimer.restart());
-	//if(DEBUG) qDebug("Output Sent");
+	//if(config["Debug"]=="true") qDebug("Output Sent");
 }
 		
 		
 void Model::updateSensorsInput(AUVSensors values){
-	if(DEBUG) qDebug() << "Brain getting input from hardware";
+	if(config["Debug"]=="true") qDebug() << "Brain getting input from hardware";
   	QMutexLocker locker(modelMutex);
 	
 	brain_U.CurrentDepth = values.depth;                 /* '<Root>/CurrentDepth' */
@@ -112,7 +114,7 @@ void Model::updateSensorsInput(AUVSensors values){
 	
 	// Transfer video frame into MATLAB, swapping buffers 
 	if(!video_paused){
-		if(DEBUG) qDebug() << "Getting video frame";
+		if(config["Debug"]=="true") qDebug() << "Getting video frame";
 		camread_getframe(myframe, record_video);
 		//qDebug() << "SwappyCopy!";
 		SwappyCopy(brain_U.Y, (unsigned char*)myframe.y, 640, 480);

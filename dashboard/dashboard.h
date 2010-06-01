@@ -1,8 +1,8 @@
 #include "ui_dashboard.h"
 #include "../src/configloader.h"
 #include "../src/version.h"
-#include "sidsocket.h"
-#include "VideoSocket.h"
+#include "../src/server/sidsocket.h"
+#include "videosocket.h"
 #include <QMutexLocker>
 #include <QGraphicsLineItem>
 #include <QGraphicsView>
@@ -54,6 +54,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void saveParameters();
 		void loadParameters();
 		void loadParameter(QString param);
+		void sendScript();
 
 		// Keyboard Event Handler
 		void keyPressEvent(QKeyEvent* event);
