@@ -13,7 +13,9 @@ Dashboard::Dashboard(QMainWindow *parent)
 {
 	setupUi(this);
 
-	m_DS = new SIDSocket((quint16) config["Client.Port.Data"].toUInt(), (quint16) config["Server.Port.Data"].toUInt(), QHostAddress(config["Server.IP"]));
+	loadConfigFile(config);
+
+	m_DS = new SIDSocket((quint16) config["Client.Port.Data"].toUInt(), (quint16) config["Server.Port.Data"].toUInt());
 
 	videoLabel->hide();
 	videoWidget = new VideoWidget(videoContainer);
@@ -37,9 +39,10 @@ Dashboard::Dashboard(QMainWindow *parent)
 	connect(actionConnect_to_LocalHost, SIGNAL(triggered()), this, SLOT(connectToLocalhost()));
 	connect(actionLoad_Parameters, SIGNAL(triggered()), this, SLOT(loadParameters()));
 	connect(actionSave_Parameters, SIGNAL(triggered()), this, SLOT(saveParameters()));
+	connect(actionLoad_Script, SIGNAL(triggered()), this, SLOT(sendScript()));
 
 	// Connect to Network Sockets 	
- 	connect(m_DS, SIGNAL(sidReceived(QString,QString)), this, SLOT(handleAUVParam(QString,QString)));
+ 	connect(m_DS, SIGNAL(sidReceived(QString,QString,QHostAddress)), this, SLOT(handleAUVParam(QString,QString)));
  	connect(m_DS, SIGNAL(remoteNotResponding(QString,QString)), this, SLOT(disableDashboard(QString,QString)));
  	connect(m_DS, SIGNAL(connectionRestored()), this, SLOT(enableDashboard()));
 
@@ -169,6 +172,22 @@ void Dashboard::connectToLocalhost(){
 	reconnectAction();
 }
 
+void Dashboard::sendScript(){
+	bool ok;
+	QString scriptFilename = QFileDialog::getOpenFileName(this, tr("Open an AUVScript File"), QDir::homePath(), "*.avs");
+	if (!scriptFilename.isEmpty()){
+		QFile scriptFile(scriptFilename);
+		if(!scriptFile.open(QIODevice::ReadOnly | QIODevice::Text)) return;
+		QStringList script;
+		while (!scriptFile.atEnd()) {
+			QByteArray line = scriptFile.readLine();
+			if(!line.startsWith("#") && !line.contains(";")) script.append(line.simplified());
+		}
+
+		emit sendSID("Script.New", scriptFilename+",,"+script.join(","));
+	}
+}
+
 
 /* *** Networking ******************************************** */
 
@@ -182,8 +201,10 @@ void Dashboard::connectToLocalhost(){
 
 void Dashboard::handleAUVParam(QString id, QString value) {
 	bool badCmd = false;
-	QString type = id.split('.')[0];
-	QString name = id.split('.')[1];
+	QString type, name;
+	QStringList ids = id.split('.');
+	if(ids.size() > 0) type = ids[0];
+	if(ids.size() > 1) name = ids[1];
 	if (type == "AUV") {
 		if (name == "Mode") {
 			QString modes[4];
@@ -570,6 +591,7 @@ void Dashboard::loadParameters(){
 	if (!loadFile.open(QIODevice::ReadOnly | QIODevice::Text))
 		return;
 
+	m_DS->buffer();
 	QTextStream in(&loadFile);
 	while (!in.atEnd()) {
 		QString line = in.readLine();
@@ -577,6 +599,7 @@ void Dashboard::loadParameters(){
 	}
 
 	loadFile.close();
+	m_DS->flush();
 
 }
 

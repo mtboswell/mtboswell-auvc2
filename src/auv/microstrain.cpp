@@ -1,5 +1,4 @@
 #include "microstrain.h"
-#include "config.h"
 
 #ifndef MAGNETIC_DECLINATION
 #define MAGNETIC_DECLINATION -7.85

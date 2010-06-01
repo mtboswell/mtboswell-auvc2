@@ -1,49 +1,58 @@
 #include "configloader.h"
+#include <QDebug>
+#include <QDir>
 
-void loadConfigFile(){
+void loadConfigFile(QMap<QString, QString> &config){
 	// look in the following places for the config file:
 	QStringList confFileLocations;
 	confFileLocations << "auvrc";
-	confFileLocations << "~/.auvrc";
+	confFileLocations << QDir::homePath()+"/.auvrc";
 	confFileLocations << "/etc/auvrc";
 	confFileLocations << ".auvrc";
 
+	qDebug() << "Searching for config file";
 	int fileIndex = 0;
 	do{
-		confFile = QFile(confFileLocations[fileIndex++]);
-	} while(!confFile.open(QIODevice::ReadWrite | QIODevice::Text) && fileIndex < confFileLocations.size());
+		delete confFile;
+		//qDebug() << "Looking in: " + confFileLocations[fileIndex];
+		confFile = new QFile(confFileLocations[fileIndex++]);
+	} while((!confFile->exists() || !confFile->open(QIODevice::ReadWrite | QIODevice::Text)) && fileIndex < confFileLocations.size());
 
-	if (fileIndex == confFileLocations.size())
+	if (fileIndex == confFileLocations.size()){
+		qDebug() << "Config file not found, everything will not work right.";
 		return;
-
-	while (!confFile.atEnd()) {
-		QByteArray line = confFile.readLine();
-		confFileContents.append(line);
-		if(!line.startsWith('#') && line.contains('='))
-			config[SIDLine.split(';')[0].split('=')[0]] = SIDLine.split(';')[0].split('=')[1];
 	}
+
+	qDebug() << "Loading File: " << confFile->fileName();
+	while (!confFile->atEnd()) {
+		QByteArray line = confFile->readLine();
+		confFileContents.append(line);
+		if(!line.startsWith('#') && line.contains('=')){
+			//qDebug() << "Loading Line: " << line;
+			config[line.split(';')[0].split('=')[0]] = line.split(';')[0].split('=')[1];
+		}
+	}
+	if(config["Debug"]=="true") qDebug() << "Loaded Configuration:" << config;
 }
 
 
 void saveConfig(QString id){
-	if(!confFile.isOpen() || confFileContents.isEmpty()) return;
-	confFileContents.replaceInStrings(QRegExp(id+"=.*;"),id+"="+config[id]+";")
-	confFile.resize(0);
-	QTextStream out(&confFile);
-	out << confFileContents.join('\n');
+	if(!confFile->isOpen() || confFileContents.isEmpty()) return;
+	confFileContents.replaceInStrings(QRegExp(id+"=.*;"),id+"="+config[id]+";");
+	confFile->resize(0);
+	QTextStream out(confFile);
+	out << confFileContents.join("\n");
 	out.flush();
-	confFile.flush();
+	confFile->flush();
 }
 void saveAllConfigs(){
-	if(!confFile.isOpen() || confFileContents.isEmpty()) return;
+	if(!confFile->isOpen() || confFileContents.isEmpty()) return;
 	foreach(QString id, config.keys()){
-		confFileContents.replaceInStrings(QRegExp(id+"=.*;"),id+"="+config[id]+";")
+		confFileContents.replaceInStrings(QRegExp(id+"=.*;"),id+"="+config[id]+";");
 	}
-	confFile.resize(0);
-	QTextStream out(&confFile);
-	out << confFileContents.join('\n');
+	confFile->resize(0);
+	QTextStream out(confFile);
+	out << confFileContents.join("\n");
 	out.flush();
-	confFile.flush();
+	confFile->flush();
 }
-
-loadConfigFile();

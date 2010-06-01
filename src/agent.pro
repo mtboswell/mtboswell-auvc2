@@ -16,8 +16,9 @@ INCLUDEPATH += . \
 	     server
 # Input
 HEADERS += server/server.h \
-	server/datalogger.h \
+	server/sidsocket.h \
 	version.h \
+	configloader.h \
 	model/parameters.h \
 	model/model.h \
 	auv/arduino.h \
@@ -38,8 +39,10 @@ HEADERS += server/server.h \
 	auv/qextserialport/qextserialport_global.h \
 	auv/qextserialport/qextserialport.h
 SOURCES += server/server.cpp \
+	   server/sidsocket.cpp \
 	   main.cpp \
 	   version.cpp \
+	   configloader.cpp \
 	   model/model.cpp \
 	   model/parameters.cpp \
 	   auv/arduino.cpp \

@@ -7,7 +7,7 @@
 
 // sensor datatypes defined in auvtypes.h
 #include "auvtypes.h"
-#include "../config.h"
+#include "../configloader.h"
 #include "ports.h"
 #include "calibration.h"
 #include "microstrain.h"

@@ -10,14 +10,15 @@ Server::Server(){
 //	timer = new QTimer(this);
 //	connect(timer, SIGNAL(timeout()), this, SLOT(sendData()));
 
-	socket = new QUdpSocket(this);
-	socket->bind(QHostAddress::Any, SERVER_DATA_PORT);
+	if(config.isEmpty()) loadConfigFile(config);
+
+	sidsocket = new SIDSocket(config["Server.Port.Data"].toInt(), config["Client.Port.Data"].toInt(), true);
 	videoSocket = new QUdpSocket(this);
-	videoSocket->bind(VIDEO_PORT);
+	videoSocket->bind(config["Server.Port.Video1"].toInt());
 	bitmapSocket = new QUdpSocket(this);
-	bitmapSocket->bind(SECONDARY_VIDEO_PORT);
-	connect(socket, SIGNAL(readyRead()),
-	     this, SLOT(readPendingDatagrams()));
+	bitmapSocket->bind(config["Server.Port.Video2"].toInt());
+	connect(sidsocket, SIGNAL(sidReceived(QString, QString, QHostAddress)),
+	     this, SLOT(handleCmd(QString, QString, QHostAddress)));
 
 	videoFile = new QFile("recorded_video.mjpg");
 	if (!videoFile->open(QIODevice::WriteOnly | QIODevice::Append))
@@ -38,8 +39,8 @@ Server::Server(){
 
 	//qDebug() << "We have " << parameters.size() << " parameters";
 
-	logger = new DataLogger(this, "logs/data-" + QDateTime::currentDateTime().toString("yyyy-MM-dd+hh:mm") + ".csv", 1000, DATA_LOG_STEP_TIME, ",");
-	connect(this, SIGNAL(setLog(bool)), logger, SLOT(enable(bool)));
+	//logger = new DataLogger(this, "logs/data-" + QDateTime::currentDateTime().toString("yyyy-MM-dd+hh:mm") + ".csv", 1000, DATA_LOG_STEP_TIME, ",");
+	//connect(this, SIGNAL(setLog(bool)), logger, SLOT(enable(bool)));
 }
 
 /* The default should work unless we need to do something weird
@@ -49,49 +50,13 @@ void Server::run(){
 }
 */
 
-void Server::readPendingDatagrams()
-{
-	while (socket->hasPendingDatagrams()) {
-		QByteArray datagram;
-		datagram.resize(socket->pendingDatagramSize());
-		QHostAddress sender;
-		quint16 senderPort;
 
-		socket->readDatagram(datagram.data(), datagram.size(),
-				 &sender, &senderPort);
-
-		processDatagram(datagram, sender, senderPort);
-	}
-}
-
-
-// called for every new incoming udp datagram
-void Server::processDatagram(QByteArray datagram, QHostAddress fromAddr, quint16 fromPort){
-	//qDebug() << "Processing Datagram:" << datagram;
-	QList<QByteArray> data = datagram.split(';');	
-	QByteArray datum;
-	foreach(datum, data){
-		if(datum.isNull() || datum.isEmpty() || !datum.contains('=')) continue;
-		qDebug() << "Received command:" << datum;
-		QString key, type, name, value;
-		QList<QByteArray> field = datum.split('=');
-		if(field.size() > 0){
-			key = field.at(0);
-			if(field.size() > 1){
-				value = field.at(1);
-				QList<QString> cmd = key.split('.');
-				if(cmd.size() > 0) type = cmd.at(0);
-				if(cmd.size() > 1) name = cmd.at(1);
-			}
-		}
-		doAction(type, name, value, fromAddr, fromPort);	
-	}
-	//qDebug() << "Processed Datagram, echoing";
-	if(!remoteHost.isNull()) socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);
-}
-
-void Server::doAction(QString type, QString name, QString value, QHostAddress fromAddr, quint16 fromPort){
+void Server::handleCmd(QString id, QString value, QHostAddress fromAddr){
 	bool completedCommand = true;
+	QString type, name;
+	QStringList ids = id.split('.');
+	if(ids.size() > 0) type = ids[0];
+	if(ids.size() > 1) name = ids[1];
 	if(type == "Connect"){
 		if(!value.contains('.')) {
 			if(value.contains("This")) value = fromAddr.toString();
@@ -118,9 +83,9 @@ void Server::doAction(QString type, QString name, QString value, QHostAddress fr
 			else qDebug() << "Failed to set client address:" << value;
 		}else if(name == "Video"){
 			videoSocket->disconnectFromHost();
-			videoSocket->connectToHost(value, DASH_VIDEO_PORT, QIODevice::WriteOnly);
+			videoSocket->connectToHost(value, config["Client.Port.Video1"].toInt(), QIODevice::WriteOnly);
 			bitmapSocket->disconnectFromHost();
-			bitmapSocket->connectToHost(value, DASH_SECONDARY_VIDEO_PORT, QIODevice::WriteOnly);
+			bitmapSocket->connectToHost(value, config["Client.Port.Video2"].toInt(), QIODevice::WriteOnly);
 		}else completedCommand = false;
 		sendStatus("Connected");
 	}else if(type == "Dashboard"){
@@ -147,8 +112,11 @@ void Server::doAction(QString type, QString name, QString value, QHostAddress fr
 				emit moveCamera(x,y);
 			}
 		}else completedCommand = false;
-	}else if(type == "RunScript"){
-		emit runScript(value);
+	}else if(type == "Script"){
+		if(name == "Run")
+			emit runScript(value);
+		else if(name == "New")
+			emit newScript(value);
 	}else if(type == "Calibrate"){
 		if(name == "Depth") emit calibrateDepth(value.toDouble());
 		else if(name == "WhiteBalance") emit whiteBalance();
@@ -178,88 +146,70 @@ void Server::doAction(QString type, QString name, QString value, QHostAddress fr
 }
 
 void Server::sendSensorData(AUVSensors sens){
-	if(DEBUG) qDebug() << "Sending Sensor Data";
+	if(config["Debug"]=="true") qDebug() << "Sending Sensor Data";
 
 	static int sendCount = 0;
 
-	QByteArray sensordata;
-	sensordata.reserve(300);
+	if(remoteHost.isNull()) return;
+
+	// logging is now done in the dashboard
+	//logger->logData(type + '.' + name, value);
+
+	sidsocket->buffer();
+
 	//sens.stuff;
-	addDatum(sensordata, "AUV", "Mode", QString::number(sens.status), true);
-	addDatum(sensordata, "AUV", "Heading", QString::number(sens.orientation.yaw), true);
-	addDatum(sensordata, "AUV", "Depth", QString::number(sens.depth), true);
-	addDatum(sensordata, "AUV", "LeftThruster", QString::number((int) sens.thrusterSpeeds[0]), true);
-	addDatum(sensordata, "AUV", "RightThruster", QString::number((int) sens.thrusterSpeeds[1]), true);
-	addDatum(sensordata, "AUV", "LateralThruster", QString::number((int) sens.thrusterSpeeds[2]), true);
-	addDatum(sensordata, "AUV", "VerticalThruster", QString::number((int) sens.thrusterSpeeds[3]), true);
-	addDatum(sensordata, "AUV", "CameraX", QString::number(sens.cameraX), true);
-	addDatum(sensordata, "AUV", "CameraY", QString::number(sens.cameraY), true);
+	sidsocket->sendSID("AUV.Mode", QString::number(sens.status));
+	sidsocket->sendSID("AUV.Heading", QString::number(sens.orientation.yaw));
+	sidsocket->sendSID("AUV.Depth", QString::number(sens.depth));
+	sidsocket->sendSID("AUV.LeftThruster", QString::number((int) sens.thrusterSpeeds[0]));
+	sidsocket->sendSID("AUV.RightThruster", QString::number((int) sens.thrusterSpeeds[1]));
+	sidsocket->sendSID("AUV.LateralThruster", QString::number((int) sens.thrusterSpeeds[2]));
+	sidsocket->sendSID("AUV.VerticalThruster", QString::number((int) sens.thrusterSpeeds[3]));
+	sidsocket->sendSID("AUV.CameraX", QString::number(sens.cameraX));
+	sidsocket->sendSID("AUV.CameraY", QString::number(sens.cameraY));
 	// some data gets updated less often
 	if(sendCount%10 == 0){
-		addDatum(sensordata, "AUV", "ThrusterVoltage", QString::number(sens.thrusterPower.voltage), true);
-		addDatum(sensordata, "AUV", "ThrusterCurrent", QString::number(sens.thrusterPower.current), true);
-		addDatum(sensordata, "AUV", "ManualOverrideDisabled", sens.manualOverrideDisabled?"true":"false");
+		sidsocket->sendSID("AUV.ThrusterVoltage", QString::number(sens.thrusterPower.voltage));
+		sidsocket->sendSID("AUV.ThrusterCurrent", QString::number(sens.thrusterPower.current));
+		sidsocket->sendSID("AUV.ManualOverrideDisabled", sens.manualOverrideDisabled?"true":"false");
 		sendCount = 0;
 	}
-	sensordata.squeeze();
 
-	if(remoteHost.isNull()) return;
 	// write to port
-	//qDebug() << "Sending Datagram:" << sensordata;
-	socket->writeDatagram(sensordata, remoteHost, CLIENT_DATA_PORT);
+	sidsocket->flush();
 	sendCount++;
 }
 
 void Server::sendBrainData(ExternalOutputs_brain outs, int brainTime){
-	if(DEBUG) qDebug() << "Sending Brain Data";
-	QByteArray datagram;
+	if(config["Debug"]=="true") qDebug() << "Sending Brain Data";
 	// Model Outputs
-	
-	//outs.stuff;
-	addDatum(datagram, "Brain", "State", QString::number(outs.State), true);
-	addDatum(datagram, "Brain", "Time", QString::number(brainTime), true);
-
 	if(remoteHost.isNull()) return;
+	
+	sidsocket->buffer();
+	//outs.stuff;
+	sidsocket->sendSID("Brain.State", QString::number(outs.State));
+	sidsocket->sendSID("Brain.Time", QString::number(brainTime));
+
 	// write to port
-	//qDebug() << "Sending Datagram:" << datagram;
-	socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);
+	sidsocket->flush();
 }
 
 void Server::sendParams(){
 	if(remoteHost.isNull()) return;
 	qDebug() << "Sending Params";
-	QByteArray datagram;
+	sidsocket->buffer();
 	// parameters data
 	// params.stuff
-/*
-	QList<QString> params = parameters.keys();
 
-	foreach(QString param, params){
-		qDebug() << "Getting Parameter:" << param;
-		addDatum(datagram, "Parameter", param, QString::number(*(parameters[param])));
-	}
-*/
 	 QHashIterator<QString, double*> i(parameters);
 	 while (i.hasNext()) {
 	     i.next();
 	//	qDebug() << "Getting Parameter:" << i.key();
-		addDatum(datagram, "Parameter", i.key(), QString::number(*(i.value())));
+		sidsocket->sendSID("Parameter."+i.key(), QString::number(*(i.value())));
 	 }
 
 	// write to port
-	//qDebug() << "Sending Params Datagram:" << datagram;
-	socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);
-}
-
-
-void Server::addDatum(QByteArray& datagram, QString type, QString name, QString value, bool log){
-	datagram += type;
-	datagram += '.';
-	datagram += name;
-	datagram += '=';
-	datagram += value;
-	datagram += ';';
-	if(log) logger->logData(type + '.' + name, value);
+	sidsocket->flush();
 }
 
 void Server::sendError(QString err){
@@ -268,12 +218,9 @@ void Server::sendError(QString err){
 
 void Server::sendStatus(QString stat){
 	if(remoteHost.isNull()) return;
-	QByteArray datagram;
 	qDebug() << stat;
-	addDatum(datagram, "Status", "", stat);
-
+	sidsocket->sendSID("Status", stat);
 	// write to port
-	socket->writeDatagram(datagram, remoteHost, CLIENT_DATA_PORT);
 	emit status(stat);
 }
 
@@ -319,5 +266,5 @@ void Server::sendVideo(){
         videoOut->write(*videoFrame);
 	bitmapOut->write(*bwFrame);
         if(recordVideo) recVideoOut->write(*videoFrame);
-	if(DEBUG) qDebug() << "Sending Video Frame";
+	if(config["Debug"]=="true") qDebug() << "Sending Video Frame";
 }
