@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.364
+ * Model version                        : 1.366
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Thu May 27 18:36:36 2010
+ * Real-Time Workshop file generated on : Tue Jun  1 15:41:02 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Thu May 27 18:36:36 2010
+ * C/C++ source code generated on       : Tue Jun  1 15:41:02 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -23,10 +23,8 @@
 
 #ifndef RTW_HEADER_brain_h_
 #define RTW_HEADER_brain_h_
-#include "rtw_modelmap.h"
 #ifndef brain_COMMON_INCLUDES_
 # define brain_COMMON_INCLUDES_
-#include <stddef.h>
 #include <math.h>
 #include <string.h>
 #include "rtwtypes.h"
@@ -40,14 +38,6 @@
 #include "brain_types.h"
 
 /* Macros for accessing real-time model data structure */
-#ifndef rtmGetDataMapInfo
-# define rtmGetDataMapInfo(rtm)        ((rtm)->DataMapInfo)
-#endif
-
-#ifndef rtmSetDataMapInfo
-# define rtmSetDataMapInfo(rtm, val)   ((rtm)->DataMapInfo = (val))
-#endif
-
 #ifndef rtmGetErrorStatus
 # define rtmGetErrorStatus(rtm)        ((rtm)->errorStatus)
 #endif
@@ -516,15 +506,6 @@ struct Parameters_brain_ {
 /* Real-time Model Data Structure */
 struct RT_MODEL_brain {
   const char_T *errorStatus;
-
-  /*
-   * DataMapInfo:
-   * The following substructure contains information regarding
-   * structures generated in the model's C API.
-   */
-  struct {
-    rtwCAPI_ModelMappingInfo mmi;
-  } DataMapInfo;
 
   /*
    * Timing:
