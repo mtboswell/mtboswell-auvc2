@@ -23,6 +23,8 @@ VideoSocket::VideoSocket(QString remoteAddr, unsigned short remotePort, unsigned
 }
 
 VideoSocket::~VideoSocket() {
+	quit();
+	wait();
 }
 
 void VideoSocket::run(){

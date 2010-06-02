@@ -7,7 +7,6 @@
 #include "../model/parameters.h"
 #include "../version.h"
 #include "sidsocket.h"
-#include "datalogger.h"
 #include <QUdpSocket>
 #include <QThread>
 #include <QTimer>
@@ -154,7 +153,7 @@ class Server: public QThread
         	QImageWriter* recVideoOut;
         	QImageWriter* bitmapOut;
 
-		DataLogger* logger;
+		//DataLogger* logger;
 		
 		bool recordVideo;
 };

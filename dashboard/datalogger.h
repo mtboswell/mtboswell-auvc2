@@ -61,6 +61,9 @@ class DataLogger: public QObject
 			QTimer::singleShot(delay, logTimer, SLOT(start()));
 			
 		}
+		~DataLogger(){
+			if(file->size() == 0) file->remove();
+		}
 
 	public slots:
 		/**
@@ -78,6 +81,10 @@ class DataLogger: public QObject
 		 */
 		void logData(QString key, QString value){
 			if(!data.contains(key)) headerModified = true;
+			key = key.replace("\"", "\"\"");
+			if(key.contains(",") || key.contains("\"")) key = "\"" + key + "\"";
+			value = value.replace("\"", "\"\"");
+			if(value.contains(",") || value.contains("\"")) value = "\"" + value + "\"";
 			data[key] = value;
 		}
 
@@ -98,7 +105,7 @@ class DataLogger: public QObject
 
 	private:
 		bool enabled;
-		QMap<QString, QString> data;
+		QHash<QString, QString> data;
 		QTimer* logTimer;
 		QFile* file;
 		QString delim;

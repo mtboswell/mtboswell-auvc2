@@ -1,17 +1,21 @@
 #include "ui_dashboard.h"
 #include "../src/configloader.h"
 #include "../src/version.h"
-#include "../src/server/sidsocket.h"
-#include "videosocket.h"
+
 #include <QMutexLocker>
 #include <QGraphicsLineItem>
 #include <QGraphicsView>
 #include <QProcess>
 #include <QVBoxLayout>
 #include <QtGui>
+
+#include "../src/server/sidsocket.h"
+#include "videosocket.h"
+#include "datalogger.h"
 #include "videowidget.h"
 
 static QHash<QString,QString> AUVState;
+
 
 class Dashboard : public QMainWindow, private Ui::DashboardWindow
 {
@@ -19,6 +23,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 
 	public:
 		Dashboard(QMainWindow *parent = 0);
+		~Dashboard();
 
 	signals:
 		void sendSID(QString key, QString value);
@@ -38,6 +43,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void killAction();
 
 		void logData(bool log);
+		void logCmd(QString, QString);
 		void recordVideo(bool record);
 
 		//! \todo Implement turn off feature
@@ -150,5 +156,7 @@ void on_##guiParam##_editingFinished();
 		double desiredCameraX, desiredCameraY;
 		
 		VideoWidget* videoWidget;
+
+		DataLogger* logger;
 
 };

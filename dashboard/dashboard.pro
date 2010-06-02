@@ -22,6 +22,7 @@ HEADERS += dashboard.h \
 	videosocket.h \
 	parameters.def \
 	videowidget.h \
+	datalogger.h \
 	../src/version.h \
 	../src/configloader.h \
 	../src/auv/mechanisms.h
