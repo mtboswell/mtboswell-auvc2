@@ -24,5 +24,8 @@ int main(int argc, char *argv[]){
 	gui->show();
 
 	// Start main event loop
-	return app.exec();
+	app.exec();
+
+	delete gui;
+	return 0;
 }

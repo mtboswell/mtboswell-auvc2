@@ -1,7 +1,10 @@
 AUVC TODO list
 
+Finish script sending
+Add logging to dashboard
+
 DONE fix microstrain error checking
-fix serialdevice.cpp and test
+Partially tested - fix serialdevice.cpp and test
 move drivers to serialdevice
 thruster scaling calibration
 fix camera output in brain - ???

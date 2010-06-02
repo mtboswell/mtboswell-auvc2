@@ -5,6 +5,8 @@
 void loadConfigFile(QMap<QString, QString> &config){
 	// look in the following places for the config file:
 	QStringList confFileLocations;
+	confFileLocations << "../src/.auvrc";
+	confFileLocations << QDir::homePath() + "/auvc/src/.auvrc";
 	confFileLocations << "auvrc";
 	confFileLocations << QDir::homePath()+"/.auvrc";
 	confFileLocations << "/etc/auvrc";
@@ -20,7 +22,8 @@ void loadConfigFile(QMap<QString, QString> &config){
 
 	if (fileIndex == confFileLocations.size()){
 		qDebug() << "Config file not found, everything will not work right.";
-		return;
+		qDebug() << "Exiting.";
+		exit(1);
 	}
 
 	qDebug() << "Loading File: " << confFile->fileName();

@@ -8,6 +8,8 @@
 #include <QDir>
 #include "../src/auv/mechanisms.h"
 
+QMap<QString, QString> config;
+
 Dashboard::Dashboard(QMainWindow *parent)
      : QMainWindow(parent)
 {
@@ -31,7 +33,6 @@ Dashboard::Dashboard(QMainWindow *parent)
  	connect(actionQuit, SIGNAL(triggered()), this, SLOT(stopAction()));
  	connect(actionQuit, SIGNAL(triggered()), this, SLOT(close()));
  	connect(actionRecord_Video, SIGNAL(triggered(bool)), this, SLOT(recordVideo(bool)));
- 	connect(actionLogData, SIGNAL(triggered(bool)), this, SLOT(logData(bool)));
 	connect(actionReconnect, SIGNAL(triggered()), this, SLOT(reconnectAction()));
 	connect(actionTurn_Off_AUV, SIGNAL(triggered()), this, SLOT(turnOffAUVAction()));
 	connect(actionBroadcast_Data, SIGNAL(triggered()), this, SLOT(broadcastAction()));
@@ -49,8 +50,8 @@ Dashboard::Dashboard(QMainWindow *parent)
  	connect(this, SIGNAL(sendSID(QString,QString)), m_DS, SLOT(sendSID(QString,QString)));
 	connect(this, SIGNAL(setAddress(QString)), m_DS, SLOT(setRemoteAddr(QString)));
 
-	videoSocket = new VideoSocket(AUV_IP, VIDEO_PORT, DASH_VIDEO_PORT, this);
-	bitmapSocket = new VideoSocket(AUV_IP, SECONDARY_VIDEO_PORT, DASH_SECONDARY_VIDEO_PORT, this);
+	videoSocket = new VideoSocket(config["Server.IP"], config["Server.Port.Video1"].toUInt(), config["Client.Port.Video1"].toUInt(), this);
+	bitmapSocket = new VideoSocket(config["Server.IP"], config["Server.Port.Video2"].toUInt(), config["Client.Port.Video2"].toUInt(), this);
 	connect(videoSocket, SIGNAL(frameReady(QImage*)), this, SLOT(HandleVideoFrame(QImage*)));
 	connect(bitmapSocket, SIGNAL(frameReady(QImage*)), this, SLOT(HandleBitmapFrame(QImage*)));
  	
@@ -108,6 +109,17 @@ Dashboard::Dashboard(QMainWindow *parent)
 	videoSocket->start();
 	bitmapSocket->start();
 
+	logger = new DataLogger(this, "logs/data-" + QDateTime::currentDateTime().toString("yyyy-MM-dd+hh:mm") + ".csv", 1000, config["StepTime.DataLog"].toInt(), ",");
+ 	connect(actionLogData, SIGNAL(triggered(bool)), logger, SLOT(enable(bool)));
+	connect(this, SIGNAL(sendSID(QString,QString)), this, SLOT(logCmd(QString, QString)));
+
+}
+
+Dashboard::~Dashboard(){
+	delete logger;
+	delete videoSocket;
+	delete bitmapSocket;
+	delete m_DS;
 }
 
 /* *** Actions ******************************* */
@@ -152,7 +164,11 @@ void Dashboard::recordVideo(bool record){
 }
 
 void Dashboard::logData(bool log){
-	emit sendSID("Flag.Log", log?"true":"false");
+	logger->enable(log);
+	//emit sendSID("Flag.Log", log?"true":"false");
+}
+void Dashboard::logCmd(QString id, QString data){
+	logger->logData("LastCommand", id + "=" + data+";");
 }
 
 void Dashboard::broadcastAction(){
@@ -336,6 +352,8 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 	}else badCmd = true;
 	// catch and log unparsed commands or data
 	if(badCmd) qDebug() << "Unrecognized data: " + type + "." + name + "=" + value;
+	else if(type=="AUV" || type=="Brain" || type=="Parameter" || type=="Status") logger->logData(id, value);
+	else logCmd(id, value);
 
 } // end HandleAUVParam()
 
@@ -427,9 +445,15 @@ void Dashboard::keyPressEvent(QKeyEvent* event){
 				this->setFocus(Qt::OtherFocusReason);
 			}
 			break;
-		case Qt::Key_Left: desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
+		case Qt::Key_Left: 
+			desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepSub); 
+			if(desiredHeadingDial->value() == 0) desiredHeadingDial->setValue(360);
+			break;
 		case Qt::Key_Up: desiredSpeedSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
-		case Qt::Key_Right: desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
+		case Qt::Key_Right: 
+			desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepAdd); 
+			if(desiredHeadingDial->value() == 360) desiredHeadingDial->setValue(0);
+			break;
 		case Qt::Key_Down: desiredSpeedSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
 		case Qt::Key_PageUp: desiredDepthSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
 		case Qt::Key_PageDown: desiredDepthSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
