@@ -29,13 +29,13 @@ Cam_Down_YPos_Kp = 0.20;
 Cam_Down_YPos_Kd = 0.001;
 Cam_Down_YPos_Ki = 0.001;
 
-Buoy_HueLower = 0.15;
-Buoy_HueHigher = 0.9;
-Buoy_Saturation = 0.4;
-
 Buoy1_Hue = 0.05;
 Buoy1_Saturation = 0.7;
 Buoy1_Value = 0.5;
+
+Buoy2_Hue = 0.05;
+Buoy2_Saturation = 0.7;
+Buoy2_Value = 0.5;
 
 Buoy_Min_Eccentricity = 0;
 Buoy_Max_Eccentricity = 0.65;
@@ -55,3 +55,4 @@ Cam_Forward_YPosition_Ki = 0.001;
 Heading_Forward_Velocity = 60;
 Vision_Forward_Velocity = 15;
 
+Buoy_Strafe = 40;
