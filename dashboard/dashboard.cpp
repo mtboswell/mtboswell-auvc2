@@ -109,7 +109,7 @@ Dashboard::Dashboard(QMainWindow *parent)
 	videoSocket->start();
 	bitmapSocket->start();
 
-	logger = new DataLogger(this, "logs/data-" + QDateTime::currentDateTime().toString("yyyy-MM-dd+hh:mm") + ".csv", 1000, config["StepTime.DataLog"].toInt(), ",");
+        logger = new DataLogger(this, "logs/data-" + QDateTime::currentDateTime().toString("yyyy-MM-dd+hh-mm") + ".csv", 1000, config["StepTime.DataLog"].toInt(), ",");
  	connect(actionLogData, SIGNAL(triggered(bool)), logger, SLOT(enable(bool)));
 	connect(this, SIGNAL(sendSID(QString,QString)), this, SLOT(logCmd(QString, QString)));
 
