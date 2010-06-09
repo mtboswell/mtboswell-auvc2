@@ -128,13 +128,16 @@ void on_##guiParam##_editingFinished();
 		void on_pathHueHighSpinBox_editingFinished();
 		void on_pathHueLowSpinBox_editingFinished();
 		void on_pathSaturationSpinBox_editingFinished();
-		void on_buoyHueHighSpinBox_editingFinished();
-		void on_buoyHueLowSpinBox_editingFinished();
-		void on_buoySaturationSpinBox_editingFinished();
 		void on_buoyMinEccentSpinBox_editingFinished();
 		void on_buoyMaxEccentSpinBox_editingFinished();
 		void on_buoyMinExtentSpinBox_editingFinished();
 		void on_buoyMaxExtentSpinBox_editingFinished();
+		void on_buoy1HueSpinBox_editingFinished();
+		void on_buoy1SaturationSpinBox_editingFinished();
+		void on_buoy1ValueSpinBox_editingFinished();
+		void on_buoy2HueSpinBox_editingFinished();
+		void on_buoy2SaturationSpinBox_editingFinished();
+		void on_buoy2ValueSpinBox_editingFinished();
 
 	private:
 		SIDSocket* m_DS;

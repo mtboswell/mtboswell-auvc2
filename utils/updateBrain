@@ -1,6 +1,6 @@
 #! /bin/bash
 cd simulink
-if matlab -nodisplay -r buildModel 2> /dev/null
+if matlab -nodisplay -r buildModel #2> /dev/null
 then
 echo "Brain Built Successfully"
 else

@@ -3,21 +3,15 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.366
+ * Model version                        : 1.372
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Tue Jun  1 15:41:02 2010
+ * Real-Time Workshop file generated on : Tue Jun  8 17:31:07 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Tue Jun  1 15:41:02 2010
+ * C/C++ source code generated on       : Tue Jun  8 17:31:07 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
- * Code generation objectives:
- *    1. Debugging
- *    2. Safety precaution
- *    3. Traceability
- *    4. Execution efficiency
- *    5. ROM efficiency
- *    6. RAM efficiency
+ * Code generation objectives: Unspecified
  * Validation result: Not run
  */
 
@@ -57,8 +51,42 @@
 # endif
 #endif
 
+extern void StateFlowFunctionsBuoysApproach(const real_T rtu_L_B[3], const
+  real_T rtu_M_B[3], const real_T rtu_R_B[3], rtB_StateFlowFunctionsBuoysAppr
+  *localB);
 extern void brain_EmbeddedMATLABFunction1(rtB_EmbeddedMATLABFunction1_bra
   *localB);
+extern void StateFlowFunctionsBuoysA_k_Init(RT_MODEL_brain *const brain_M,
+  rtDW_StateFlowFunctionsBuoysA_a *localDW);
+extern void StateFlowFunctionsBuoysApproa_l(real_T rtu_B_Hue, real_T rtu_B_Sat,
+  real_T rtu_B_Value, const real_T rtu_LabMatrix[19200], const real_T
+  rtu_Ref_Colors[150], real_T rtu_Num_Colors, RT_MODEL_brain *const brain_M,
+  rtB_StateFlowFunctionsBuoysAp_p *localB, rtDW_StateFlowFunctionsBuoysA_a
+  *localDW);
+extern void StateFlowFunctionsBuoysShowSegm(const real_T rtu_LabMatrix[19200],
+  const real_T rtu_Ref_Colors[150], rtB_StateFlowFunctionsBuoysShow *localB);
+extern void brain_LowPassFilter(const real_T rtu_I[19200],
+  rtB_LowPassFilter_brain *localB);
+extern void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const
+  real_T rtu_S[19200], const real_T rtu_V[19200],
+  rtB_StateFlowFunctionsBuoysIter *localB, rtDW_StateFlowFunctionsBuoysIte
+  *localDW);
+extern void StateFlowFunctionsBuoysMai_Init(RT_MODEL_brain *const brain_M,
+  rtDW_StateFlowFunctionsBuoysMai *localDW);
+extern void StateFlowFunctionsBuoysMaintain(real32_T rtu_DesiredDepth1, real32_T
+  rtu_CurrentDepth1, RT_MODEL_brain *const brain_M,
+  rtB_StateFlowFunctionsBuoysMain *localB, rtDW_StateFlowFunctionsBuoysMai
+  *localDW);
+extern void StateFlowFunctionsBuoysM_i_Init(RT_MODEL_brain *const brain_M,
+  rtDW_StateFlowFunctionsBuoysM_k *localDW);
+extern void StateFlowFunctionsBuoys_b_Start(RT_MODEL_brain *const brain_M,
+  rtDW_StateFlowFunctionsBuoysM_k *localDW);
+extern void StateFlowFunctionsBuoys_Disable(rtB_StateFlowFunctionsBuoysMa_a
+  *localB, rtDW_StateFlowFunctionsBuoysM_k *localDW);
+extern void StateFlowFunctionsBuoysMainta_h(real_T rtu_DesiredHeading1, real_T
+  rtu_CurrentHeading1, real_T rtu_ForwardVelocity1, RT_MODEL_brain *const
+  brain_M, rtB_StateFlowFunctionsBuoysMa_a *localB,
+  rtDW_StateFlowFunctionsBuoysM_k *localDW);
 extern void StateFlowFunctionsFollowOnePath(const real_T rtu_H1[19200], const
   real_T rtu_S1[19200], const real_T rtu_V1[19200],
   rtB_StateFlowFunctionsFollowOne *localB);
@@ -68,9 +96,10 @@ extern void brain_IsLinePresent(const real_T rtu_HoughTable[51660], const real_T
 extern void StateFlowFunctionsFollowOnePa_h(const boolean_T rtu_BWleft1[9600],
   const boolean_T rtu_BWright1[9600], real_T rtu_CurrentHeading1,
   rtB_StateFlowFunctionsFollowO_o *localB);
-extern void StateFlowFunctionsValidationGat(const real_T rtu_H[19200], const
-  real_T rtu_S[19200], rtB_StateFlowFunctionsValidatio *localB,
-  rtDW_StateFlowFunctionsValidati *localDW);
+extern void StateFlowFunctionsBuoysApproa_m(real_T rtu_B_Hue, real_T rtu_B_Sat,
+  real_T rtu_B_Value, const real_T rtu_LabMatrix[19200], const real_T
+  rtu_Ref_Colors[150], real_T rtu_Num_Colors, rtB_StateFlowFunctionsBuoysAp_m
+  *localB, rtDW_StateFlowFunctionsBuoysA_e *localDW);
 
 #endif                                 /* RTW_HEADER_brain_private_h_ */
 

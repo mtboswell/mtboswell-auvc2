@@ -5,9 +5,6 @@ void init_params(QHash<QString, double*>& parameters){
 	// Parameter lookup table
 	//parameters.insert("Stuff", &brain_P.stuff;
 	//qDebug() << "Populating parameters";
-	parameters.insert("Buoy_HueHigher", &brain_P.Buoy_HueHigher);
-	parameters.insert("Buoy_HueLower", &brain_P.Buoy_HueLower);
-	parameters.insert("Buoy_Saturation", &brain_P.Buoy_Saturation);
 	parameters.insert("Cam_Forward_XPosition_Kd", &brain_P.Cam_Forward_XPosition_Kd);
 	parameters.insert("Cam_Forward_XPosition_Ki", &brain_P.Cam_Forward_XPosition_Ki);
 	parameters.insert("Cam_Forward_XPosition_Kp", &brain_P.Cam_Forward_XPosition_Kp);
@@ -35,4 +32,10 @@ void init_params(QHash<QString, double*>& parameters){
 	parameters.insert("Buoy_Max_Eccentricity", &brain_P.Buoy_Max_Eccentricity);
 	parameters.insert("Buoy_Min_Extent", &brain_P.Buoy_Min_Extent);
 	parameters.insert("Buoy_Max_Extent", &brain_P.Buoy_Max_Extent);
+	parameters.insert("Buoy1_Hue", &brain_P.Buoy1_Hue);
+	parameters.insert("Buoy1_Saturation", &brain_P.Buoy1_Saturation);
+	parameters.insert("Buoy1_Value", &brain_P.Buoy1_Value);
+	parameters.insert("Buoy2_Hue", &brain_P.Buoy2_Hue);
+	parameters.insert("Buoy2_Saturation", &brain_P.Buoy2_Saturation);
+	parameters.insert("Buoy2_Value", &brain_P.Buoy2_Value);
 }
