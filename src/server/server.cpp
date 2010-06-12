@@ -35,6 +35,9 @@ Server::Server(){
         bwFrame->setColor(1, 0xFFFF0000); 
         bitmapOut = new QImageWriter(bitmapSocket, "jpeg");
 
+        rgbFrame = new QImage(160,120,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
+	streamRGBSecondary = false;
+
 	if(parameters.isEmpty()) init_params(parameters);
 
 	//qDebug() << "We have " << parameters.size() << " parameters";
@@ -130,6 +133,9 @@ void Server::handleCmd(QString id, QString value, QHostAddress fromAddr){
 		else if(name == "noRec") recordVideo = false; //emit setRec(false);
 		else if(name == "Log") emit setLog(value == "true");
 		else if(name == "noLog") emit setLog(false);
+		else completedCommand = false;
+	}else if(type == "Video"){
+		if(name == "Stream") selectVideoStream(value.toInt());
 		else completedCommand = false;
 	}else if(type == "GetParams"){
 		sendParams();
@@ -250,21 +256,55 @@ void Server::sendVideo(){
                 }
         }
 
-/* Get bitmap out of correct brain signal */
-        // Get processed video
-        // copy frame from signal to pixmap
-        x = 159;
-        y = 120;
-        for(int i = 19199; i >= 0; --i){
-                y--;
-		bwFrame->setPixel(x, y, brain_Y.BWout[i]);
-                if(y <= 0){
-                        x--;
-                        y = 120;
-                }
-        }
+	if(streamRGBSecondary){
+		// Get processed video
+		// copy frame from signal to pixmap
+		x = 159;
+		y = 120*3;
+		for(int i = (19200*3)-1; i >= 0; i = i-3){
+			y--;
+			videoPixel = (0xFF000000) | ((((int)brain_Y.RGBout[i]) << 16)&0x00FF0000) | ((((int)brain_Y.RGBout[i-1]) << 8)&0x0000FF00) | (((int)brain_Y.RGBout[i-2])&0x000000FF);
+			rgbFrame->setPixel(x, y/3, videoPixel);
+			if(y <= 0){
+				x--;
+				y = 120*3;
+			}
+		}
+
+	}else{
+		/* Get bitmap out of correct brain signal */
+		// Get processed video
+		// copy frame from signal to pixmap
+		x = 159;
+		y = 120;
+		for(int i = 19199; i >= 0; --i){
+			y--;
+			bwFrame->setPixel(x, y, brain_Y.BWout[i]);
+			if(y <= 0){
+				x--;
+				y = 120;
+			}
+		}
+	}
+
+
+
         videoOut->write(*videoFrame);
-	bitmapOut->write(*bwFrame);
+	if(streamRGBSecondary){
+		bitmapOut->write(*rgbFrame);
+	}else{
+		bitmapOut->write(*bwFrame);
+	}
         if(recordVideo) recVideoOut->write(*videoFrame);
 	if(config["Debug"]=="true") qDebug() << "Sending Video Frame";
+}
+
+void Server::selectVideoStream(int streamNumber){
+	switch(streamNumber){
+		case 0: streamRGBSecondary = false;
+			break;
+		case 1: streamRGBSecondary = true;
+			break;
+
+	}
 }

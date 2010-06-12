@@ -96,6 +96,9 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void on_camPosXSpinBox_valueChanged(double value);
 		void on_camPosYSpinBox_valueChanged(double value);
 
+		// Video Streams
+		void on_videoStreamComboBox_activated(int index);
+
 /*
 #define GEN_PARAM(guiParam,brainParam) \
 void on_##guiParam##_editingFinished();

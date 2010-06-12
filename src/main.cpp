@@ -15,6 +15,7 @@ QMap<QString, QString> config;
 using namespace std;
 
 static bool noCamera = false;
+static bool stdCamera = false;
 static bool noHardSwitch = false;
 
 int main(int argc, char *argv[]){
@@ -32,6 +33,8 @@ int main(int argc, char *argv[]){
 			qDebug() << "\t-s or --simulate : disable hardware on/off switch";
 			qDebug() << "\t-c or --calibrate-servos : enter servo calibration mode instead of running normally";
 			return 0;
+		}else if(arg == "-Y"){
+			stdCamera = true;
 		}
 	}
 
@@ -43,7 +46,7 @@ int main(int argc, char *argv[]){
 	/* Initialize camread  ************************************************************/
 	qDebug("Initializing Camera");
 
-	if(camread_open("/dev/video0", 640, 480)) {
+	if(camread_open("/dev/video0", 640, 480, stdCamera)) {
 		// We may or may not want to white balance when we start up
 		//if(!white_balance()) qDebug("White Balance failed.");
 		qDebug("Camera Online");

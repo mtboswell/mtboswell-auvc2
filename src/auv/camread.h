@@ -21,7 +21,7 @@ struct camframe {
 };
 
 //* Example: camread_open("/dev/video0", 640, 480); */
-int camread_open(char const* campath, int w, int h);
+int camread_open(char const* campath, int w, int h, bool stdformat = false);
 
 /* Copies most recent frame grabbed from the camera into your buffers, if it's
    new. If there hasn't been a frame grabbed since the last call, this returns
@@ -55,6 +55,8 @@ int camread_unpause();
 int camread_switchcam(char const* campath);
 
 extern int video_paused;
+
+int camread_decode_YUYV_frame(char* input, rgbframe* matlabOut, QImage* out){
 
 #endif /* #ifndef __CAMREAD_H */
 
