@@ -118,6 +118,7 @@ class Server: public QThread
 		// sendParams() gets called when we get a GetParams command
 		void sendParams();
 		void sendVideo();
+		void selectVideoStream(int streamNumber);
 		/**
 		 * Send an error message to the network client.
 		 * @param err Error message string.
@@ -149,6 +150,7 @@ class Server: public QThread
 		QMutex* sensorDataMutex;
         	QImage* videoFrame;
         	QImage* bwFrame;
+        	QImage* rgbFrame;
         	QImageWriter* videoOut;
         	QImageWriter* recVideoOut;
         	QImageWriter* bitmapOut;
@@ -156,6 +158,7 @@ class Server: public QThread
 		//DataLogger* logger;
 		
 		bool recordVideo;
+		bool streamRGBSecondary;
 };
 
 #endif

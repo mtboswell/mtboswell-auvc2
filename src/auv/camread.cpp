@@ -146,7 +146,7 @@ int camread_waitframe() {
     return 0;
 }
 
-int camread_open(char const* campath, int w, int h) {
+int camread_open(char const* campath, int w, int h, bool stdformat) {
     assert(sizeof(unsigned char) == 1); /* TODO: Work anyway. */
     if(video_already_open)
 	return 0; /* TODO: Concurrent captures */
@@ -169,7 +169,10 @@ int camread_open(char const* campath, int w, int h) {
     fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE; /* Always capture */
     fmt.fmt.pix.width = width;
     fmt.fmt.pix.height = height;
-    fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUV420; /* Always YCbCr 4:2:0 */
+    if(!stdformat) fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUV420; /* Always YCbCr 4:2:0 */
+    else fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUV422P; /* Except when it's YUYV/YUV-4:2:2 */
+    //else fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUYV; /* Except when it's YUYV/YUV-4:2:2 */
+    
     fmt.fmt.pix.field = V4L2_FIELD_NONE; /* Not interlaced */
     
     pthread_mutex_init(&framelock, NULL);
@@ -185,14 +188,14 @@ int camread_open(char const* campath, int w, int h) {
     pthread_attr_init(&at); /* Defaults? Sure. */
     
     /* Open the camera */
-    //fprintf(stderr, "Opening video device...");
+    fprintf(stderr, "Opening video device...");
     camfd = open(campath, O_RDONLY);
     if(!(camfd > 0)) return 0;
-    //fprintf(stderr, "done\n");
+    fprintf(stderr, "done\n");
     /* Set the image format */
-    //fprintf(stderr, "Setting image format...");
+    fprintf(stderr, "Setting image format...");
     if(!(ioctl(camfd, VIDIOC_S_FMT, &fmt) >= 0)) return 0;
-    //fprintf(stderr, "done\n");
+    fprintf(stderr, "done\n");
     
     /* We're running */
     video_already_open = 1;
@@ -306,4 +309,46 @@ int camread_switchcam(char const* campath){
 	camread_pause();
 	strcpy(camerapath, campath);
 	return camread_unpause();
+}
+
+// decodes a YUYV frame into matlab and QImage formats
+int camread_decode_YUYV_frame(char* input, rgbframe* matlabOut, QImage* out){
+
+	// format is YUYV or YUV4:2:2 or YCbYCr
+
+	w = width*2;
+	h = height;
+
+	int i, j;
+	int rgbPixel1, rgbPixel2;
+	for (i = 0; i < h; ++i){
+		for (j = 0; j < w; j+=4){
+			x = j/2;
+			y = i;
+			char Y1 = input[i*w+j];
+			char U = input[i*w+j+1];
+			char Y2 = input[i*w+j+2];
+			char V = input[i*w+j+3];
+			
+			char B1 = 1.164(Y1 - 16) + 2.018(U - 128)
+			char G1 = 1.164(Y1 - 16) - 0.813(V - 128) - 0.391(U - 128)
+			char R1 = 1.164(Y1 - 16) + 1.596(V - 128)
+			char B2 = 1.164(Y2 - 16) + 2.018(U - 128)
+			char G2 = 1.164(Y2 - 16) - 0.813(V - 128) - 0.391(U - 128)
+			char R2 = 1.164(Y2 - 16) + 1.596(V - 128)
+
+			matlabOut.R[x*h+y] = R1;
+			matlabOut.R[x*(h+1)+y] = R2;
+			matlabOut.G[x*h+y] = G1;
+			matlabOut.G[x*(h+1)+y] = G2;
+			matlabOut.B[x*h+y] = B1;
+			matlabOut.B[x*(h+1)+y] = B2;
+
+			rgbPixel1 = (0xFF000000) | ((((int)R1) << 16)&0x00FF0000) | ((((int)G1) << 8)&0x0000FF00) | (((int)B1)&0x000000FF);
+			rgbPixel2 = (0xFF000000) | ((((int)R2) << 16)&0x00FF0000) | ((((int)G2) << 8)&0x0000FF00) | (((int)B2)&0x000000FF);
+			out->setPixel(x, y, rgbPixel1);
+			out->setPixel(x+1, y, rgbPixel2);
+		}
+	}
+	return 1;
 }

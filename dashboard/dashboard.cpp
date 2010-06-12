@@ -510,6 +510,10 @@ void Dashboard::on_whiteBalancePushButton_clicked(){
 	emit sendSID("Calibrate.WhiteBalance", "once");
 }
 
+void Dashboard::on_videoStreamComboBox_activated(int index){
+	emit sendSID("Video.Stream", QString::number(index));
+}
+
 // Depth Calibration
 void Dashboard::on_zeroDepthPushButton_clicked(){
 	emit sendSID("Calibrate.Depth", "0");
