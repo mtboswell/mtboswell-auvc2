@@ -11,6 +11,7 @@
 #include "ports.h"
 #include "calibration.h"
 #include "microstrain.h"
+#include "os5000.h"
 #include "arduino.h"
 #include "pololu.h"
 #include "power.h"
@@ -232,6 +233,7 @@ class AUV : public QThread {
 		// Hardware interfaces
 		Arduino* arduino;
 		Microstrain* microstrain;
+		OS5000* os5000;
 		Pololu* pControllers;
 		Power* thrusterPower;
 		LCD* statusLcd;

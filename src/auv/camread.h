@@ -4,6 +4,10 @@
 
 #ifndef __CAMREAD_H
 #define __CAMREAD_H
+#include <QImage>
+
+#define FRAME_WIDTH 640
+#define FRAME_HEIGHT 480
 
 /* Basic flow: 
    1) call camread_open() with the path to the video device and desired
@@ -17,9 +21,10 @@
 */
 
 struct camframe {
-    void *y, *cb, *cr;
+    unsigned char y[FRAME_WIDTH*FRAME_HEIGHT], cb[FRAME_WIDTH*FRAME_HEIGHT/4], cr[FRAME_WIDTH*FRAME_HEIGHT/4];
 };
 
+enum videoFormats {YUY2, YU12}; 
 //* Example: camread_open("/dev/video0", 640, 480); */
 int camread_open(char const* campath, int w, int h, bool stdformat = false);
 
@@ -56,7 +61,7 @@ int camread_switchcam(char const* campath);
 
 extern int video_paused;
 
-int camread_decode_YUYV_frame(char* input, rgbframe* matlabOut, QImage* out){
+int camread_decode_YUYV_frame(unsigned char* input, camframe* matlabOut, QImage* out = 0);
 
 #endif /* #ifndef __CAMREAD_H */
 
