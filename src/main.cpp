@@ -38,7 +38,8 @@ int main(int argc, char *argv[]){
 		}
 	}
 
-	loadConfigFile(config);
+	if(config.isEmpty())
+		loadConfigFile(config);
 
 	QMutex modelMutex;
 	QMutex sensorMutex;
@@ -52,7 +53,7 @@ int main(int argc, char *argv[]){
 		qDebug("Camera Online");
 	} else {
 		noCamera = true;
-		qDebug("Error: Camera Not Found");
+		qDebug("Error: Camera Not Found or Initialization Error");
 	}
 
 	/* Create and initialize objects ******************************************************/
