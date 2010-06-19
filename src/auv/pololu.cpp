@@ -46,10 +46,20 @@ void Pololu::setServoPosAbs(char servoNum, short int absPos){
 	else if (val > 5500) val = 5500;
 	sendServoCmd(4, servoNum, val / 128, val % 128); 
 }
+void Pololu::setMaestroServoPos(char servoNum, short int absPos){
+	sendServoCmd(0x84, // Command byte: Set Target.
+			servoNum, // First data byte holds channel number.
+			absPos & 0x7F, // Second byte holds the lower 7 bits of target.
+			(absPos >> 7) & 0x7F,   // Third data byte holds the bits 7-13 of target.
+			true);
+}
 
-void Pololu::sendServoCmd(char command, char servoNum, char data1, char data2){
+void Pololu::sendServoCmd(char command, char servoNum, char data1, char data2, bool maestro){
 	QByteArray cmd;
-	cmd.append(0x80);
+	if(maestro)
+		cmd.append(0xAA);
+	else
+		cmd.append(0x80);
 	cmd.append(0x01);
 	cmd.append(command);
 	cmd.append(servoNum);

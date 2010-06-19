@@ -45,6 +45,8 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 
 	// Get mutex from main
   	dataMutex = sensorMutex;
+
+	compass = MICROSTRAIN;
 	
 	/* Initialize hardware interfaces */
 	arduino = new Arduino(config["SerialPort.ARDUINO"]);
@@ -191,8 +193,9 @@ imu_data AUV::getOrientation(){return microstrain->getData();}
 double AUV::getHeading(){
 	if(compass == MICROSTRAIN)
 		return microstrain->getData().yaw;
-	else if(compass == OS5000)
+	else if(compass == OCEANSERVER5000)
 		return os5000->heading();
+	else return -1;
 }
 
 // set thruster speeds

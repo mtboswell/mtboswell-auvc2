@@ -28,6 +28,7 @@ HEADERS += server/server.h \
 	auv/camread.h \
 	auv/imudata.h \
 	auv/microstrain.h \
+	auv/os5000.h \
 	auv/pololu.h \
 	auv/ports.h \
 	auv/power.h \
@@ -49,6 +50,7 @@ SOURCES += server/server.cpp \
 	   auv/auv.cpp \
 	   auv/camread.cpp \
 	   auv/microstrain.cpp \
+	   auv/os5000.cpp \
 	   auv/pololu.cpp \
 	   auv/power.cpp \
 	   auv/mechanisms.cpp \
