@@ -47,7 +47,7 @@ int main(int argc, char *argv[]){
 	/* Initialize camread  ************************************************************/
 	qDebug("Initializing Camera");
 
-	if(camread_open("/dev/video0", 640, 480, stdCamera)) {
+	if(camread_open("/dev/video0", 640, 480)) {
 		// We may or may not want to white balance when we start up
 		//if(!white_balance()) qDebug("White Balance failed.");
 		qDebug("Camera Online");
