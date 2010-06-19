@@ -33,11 +33,9 @@ Model::Model(QMutex* mutex){
   
 	//qDebug("Allocating Framebuffer");
 	// Initialize framebuffer and start video capture 
-	/*
-	myframe.y = (unsigned char*)malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT);
-	myframe.cb = (unsigned char*)malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
-	myframe.cr = (unsigned char*)malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
-	*/
+	myframe.y = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT);
+	myframe.cb = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
+	myframe.cr = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
 	//qDebug("Done");
 
 	if(parameters.isEmpty()) init_params(parameters);
