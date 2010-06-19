@@ -230,6 +230,8 @@ class AUV : public QThread {
 		// mutex, duh
 		QMutex *dataMutex;
 
+		enum compassTypes {MICROSTRAIN, OCEANSERVER5000} compass;
+
 		// Hardware interfaces
 		Arduino* arduino;
 		Microstrain* microstrain;

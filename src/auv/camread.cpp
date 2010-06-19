@@ -67,7 +67,10 @@ void * camread_thread(void* in) {
 				tenacious_read(camfd, nextframe.cr, width * height / 4);
 			}else if(format == YUY2){
 				unsigned char tmpframe[width * 2 * height];
-				if(tenacious_read(camfd, tmpframe, width * 2 * height) < 0) qDebug() << "Camera read() failure";
+				if(tenacious_read(camfd, tmpframe, width * 2 * height) < 0) {
+					qDebug() << "read() method not supported by camera.";
+					video_paused = 1;
+				}
 				camread_decode_YUYV_frame(tmpframe, &nextframe);
 			}
 			pthread_mutex_unlock(&camlock);
@@ -181,7 +184,6 @@ int camread_open(char const* campath, int w, int h, bool stdformat) {
 		fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUV420; /* Always YCbCr 4:2:0 */
 	}else{
 		format = YUY2;
-		//fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUV422P; /* Except when it's YUYV/YUV-4:2:2 */
 		fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUYV; /* Except when it's YUYV/YUV-4:2:2 */
 	}
 
@@ -220,11 +222,18 @@ int camread_open(char const* campath, int w, int h, bool stdformat) {
 
 	/* Dump the first two frames so my buffer fills */
 	fprintf(stderr, "Dump garbage...");
-	while (frameready<2) ;
+	unsigned int t;
+	while (frameready<2 && t < 400000000) t++;
+	if(frameready < 2) {
+		qDebug() << "Not receiving data from camera.";
+	}
 	pthread_mutex_lock(&framelock);
 	frameready = 0;
 	pthread_mutex_unlock(&framelock);
-	while(!frameready) ;
+	t = 0;
+	while(!frameready && t < 400000000) t++;
+	if(!frameready)
+		qDebug() << "Not receiving data from camera.";
 
 	/* TODO: This is uninformative. */
 	return 1;
@@ -290,7 +299,7 @@ void SwappyCopy(unsigned char* target, unsigned char* src, int w, int h) {
  */
 
 int camread_pause() {
-	int err = 0;
+	//int err = 0;
 	if(!video_already_open) return 0; /* Can't close an already closed capture */
 	video_paused = 1;
 	pthread_mutex_lock(&camlock);
@@ -379,8 +388,8 @@ int camread_decode_YUYV_frame(unsigned char* input, camframe* matlabOut, QImage*
 			}
 		}
 	}
-	if(frameSum == 0) qDebug() << "Warning: Empty Video Frame!"; 
-	else qDebug() << "Frame Checksum: " << frameSum;
+	//if(frameSum == 0) qDebug() << "Warning: Empty Video Frame!"; 
+	//else qDebug() << "Frame Checksum: " << frameSum;
 	return 1;
 }
 

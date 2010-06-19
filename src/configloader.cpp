@@ -15,7 +15,7 @@ void loadConfigFile(QMap<QString, QString> &config){
 	qDebug() << "Searching for config file";
 	int fileIndex = 0;
 	do{
-		delete confFile;
+		if(confFile) delete confFile;
 		//qDebug() << "Looking in: " + confFileLocations[fileIndex];
 		confFile = new QFile(confFileLocations[fileIndex++]);
 	} while((!confFile->exists() || !confFile->open(QIODevice::ReadWrite | QIODevice::Text)) && fileIndex < confFileLocations.size());
@@ -40,7 +40,7 @@ void loadConfigFile(QMap<QString, QString> &config){
 
 
 void saveConfig(QString id){
-	if(!confFile->isOpen() || confFileContents.isEmpty()) return;
+	if(!confFile || !confFile->isOpen() || confFileContents.isEmpty()) return;
 	confFileContents.replaceInStrings(QRegExp(id+"=.*;"),id+"="+config[id]+";");
 	confFile->resize(0);
 	QTextStream out(confFile);
@@ -49,7 +49,7 @@ void saveConfig(QString id){
 	confFile->flush();
 }
 void saveAllConfigs(){
-	if(!confFile->isOpen() || confFileContents.isEmpty()) return;
+	if(!confFile || !confFile->isOpen() || confFileContents.isEmpty()) return;
 	foreach(QString id, config.keys()){
 		confFileContents.replaceInStrings(QRegExp(id+"=.*;"),id+"="+config[id]+";");
 	}

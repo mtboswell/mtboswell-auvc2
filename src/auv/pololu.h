@@ -47,6 +47,10 @@ class Pololu : public QThread
 
 		void setSaneTrexParams(char device);
 
+
+		//int getAnalogInput(char inputNum);
+		//int getDigitalInput(char inputNum);
+
 	signals:
 		//void trexError(char device, TrexError err);
 		void trexInput(char device, int channel, char value);
@@ -61,6 +65,8 @@ class Pololu : public QThread
 		 * @param position is the position to set it to
 		 */
 		void setServoPosition(char servoNum, unsigned char position);
+
+		void setMaestroServoPos(char servoNum, short int absPos);
 
 		/**
 		 * Sets the absolute position of the servo (500-5500).
@@ -78,12 +84,14 @@ class Pololu : public QThread
 		 */
 		void setMotorSpeed(int motorNum, int motorSpeed);
 
+		//void setOutput(char outputNum, int output);
+
 	private:
 		QextSerialPort* port;
 		/**
 		 * sendCmd takes data and enqueues it to be sent
 		 */
-		void sendServoCmd(char command, char servoNum, char data1, char data2=0);
+		void sendServoCmd(char command, char servoNum, char data1, char data2=0, bool maestro = false);
 		void sendTrexCmd(char command, char motorNum, QByteArray data);
 		QByteArray sendTrexQuery(char command, char motorNum, int responseLength, QByteArray data);
 
