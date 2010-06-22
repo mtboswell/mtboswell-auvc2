@@ -4,8 +4,8 @@
 using namespace std;
 
 int calibrateServos() {
-	int servoNum;
-	int servoPos;
+	int servoNum = 0;
+	int servoPos = 3000;
 	Pololu* pol = new Pololu(POLOLUPORT);
 	do{
 		cout << "Welcome to the Servo Calibration Tool." << endl
