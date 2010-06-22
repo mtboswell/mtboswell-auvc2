@@ -244,13 +244,13 @@ void SwappyCopy(unsigned char* target, unsigned char* src, int w, int h) {
 }
 
 /* Returns 1 if white-balace successful, 0 otherwise */
-/*
 int white_balance(){
+	// should set V4L2_CID_AUTO_WHITE_BALANCE to true
 	struct v4l2_queryctrl queryctrl;
 	struct v4l2_control control;
 
 	memset (&queryctrl, 0, sizeof (queryctrl));
-	queryctrl.id = V4L2_CID_DO_WHITE_BALANCE;
+	queryctrl.id = V4L2_CID_AUTO_WHITE_BALANCE;
 
 	if (-1 == ioctl (camfd, VIDIOC_QUERYCTRL, &queryctrl)) {
 		printf ("V4L2_CID_DO_WHITE_BALANCE is not supported\n");
@@ -269,7 +269,7 @@ int white_balance(){
 	}
 	return 1;
 }
-*/
+
 
 int camread_pause() {
     int err = 0;
