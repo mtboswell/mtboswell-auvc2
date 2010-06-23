@@ -201,6 +201,7 @@ double AUV::getHeading(){
 // set thruster speeds
 void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 	if(!data.thrusterPower.state || data.status == PAUSED || data.status == READY) return;
+//	qDebug() << "Setting thrusters to" << thrusterSpeeds[0] << thrusterSpeeds[1] << thrusterSpeeds[2] << thrusterSpeeds[3];
 /*
 	if(thrusterSpeeds[2] > 0){
 		thrusterSpeeds[0] = 0;
@@ -223,6 +224,7 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 // set thruster speeds
 void AUV::setThrusters(double thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 	if(!data.thrusterPower.state || data.status == PAUSED || data.status == READY) return;
+//	qDebug() << "Setting thrusters to" << thrusterSpeeds[0] << thrusterSpeeds[1] << thrusterSpeeds[2] << thrusterSpeeds[3];
 
 	signed char thrusterScale[NUMBER_OF_THRUSTERS];
 	thrusterScale[0] = 127;
@@ -236,7 +238,7 @@ void AUV::setThrusters(double thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 	}
   	QMutexLocker locker(dataMutex);
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
-		data.thrusterSpeeds[i] = thrusterSpeeds[i];
+		data.thrusterSpeeds[i] = thrusterSpeeds[i]*thrusterScale[i];
 	}
 
 }
