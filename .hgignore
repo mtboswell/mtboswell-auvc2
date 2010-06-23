@@ -16,3 +16,6 @@ dashboard
 Makefile
 doc/*
 Doxytags
+simulink/slprj/*
+simulink/brain_ert_rtw/*
+*.autosave

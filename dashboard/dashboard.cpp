@@ -240,16 +240,18 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 			thVoltageLcdNumber->display(value.toDouble());
 		else if (name == "ThrusterCurrent")
 			thCurrentLcdNumber->display(value.toDouble());
+		else if (name == "MainVoltage")
+			mainVoltageLcdNumber->display(value.toDouble());
+		else if (name == "MainCurrent")
+			mainCurrentLcdNumber->display(value.toDouble());
 		else if (name == "LeftThruster")
-			leftThrusterProgressBar->setValue(value.toInt());
+			leftThrusterProgressBar->setValue(value.toDouble());
 		else if (name == "RightThruster")
-			rightThrusterProgressBar->setValue(value.toInt());
-		else if (name == "LeftThruster")
-			leftThrusterProgressBar->setValue(value.toInt());
+			rightThrusterProgressBar->setValue(value.toDouble());
 		else if (name == "VerticalThruster")
-			vertThrusterProgressBar->setValue(value.toInt());
+			vertThrusterProgressBar->setValue(value.toDouble());
 		else if (name == "LateralThruster")
-			strafeThrusterProgressBar->setValue(value.toInt());
+			strafeThrusterProgressBar->setValue(value.toDouble());
 		else if (name == "CameraX") cameraPosXLabel->setText("X: " + value);
 		else if (name == "CameraY") cameraPosYLabel->setText("Y: " + value);
 		else if (name == "ManualOverrideDisabled") if(value == "true") warningLabel->setText("Warning: Off switch disabled!");
@@ -525,10 +527,12 @@ void Dashboard::on_setActualDepthPushButton_clicked(){
 // RC Controls
 void Dashboard::on_controlGroupBox_toggled(bool rc){
 //	emit sendSID("Mode", "Stop");
-	if(rc && RC == 0)
+	if(rc && RC == 0){
 		emit sendSID("Input.RC", "1");
-	else if(!rc && RC == 1)
+		on_setAllZeroButton_clicked();
+	}else if(!rc && RC == 1){
 		emit sendSID("Input.RC", "0");
+	}
 	RC = rc?1:0;
 	if(RC == 1) stateLabel->setText("Remote Control");
 	else stateLabel->setText("Confuzzled");

@@ -32,6 +32,9 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 	data.thrusterSpeeds[3] = 0;
 	data.thrusterPower.voltage = 0;
 	data.thrusterPower.current = 0;
+	data.mainPower.state = 1;
+	data.mainPower.voltage = 0;
+	data.mainPower.current = 0;
 	data.cameraX = 0;
 	data.cameraY = 0;
 	data.manualOverrideDisabled = false;
@@ -49,11 +52,12 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 	compass = MICROSTRAIN;
 	
 	/* Initialize hardware interfaces */
-	arduino = new Arduino(config["SerialPort.ARDUINO"]);
-	microstrain = new Microstrain(config["SerialPort.IMU"]);
-	os5000 = new OS5000(config["SerialPort.COMPASS"]);
-	pControllers = new Pololu(config["SerialPort.POLOLU"]);
-	thrusterPower = new Power(config["SerialPort.POWER"]);
+	arduino = new Arduino(config["SerialPort.Arduino"]);
+	microstrain = new Microstrain(config["SerialPort.Compass"]);
+	os5000 = new OS5000(config["SerialPort.Compass"]);
+	pControllers = new Pololu(config["SerialPort.Pololu"]);
+	thrusterPower = new Power(config["SerialPort.ThrusterPower"]);
+	mainPower = new Power(config["SerialPort.MainPower"]);
 	statusLcd = new LCD(config["SerialPort.LCD"]);
 
 	//connect(this, SIGNAL(status(QString)), this, SLOT(statusMessage(QString)));
@@ -89,6 +93,7 @@ AUV::~AUV(){
 	delete os5000;
 	delete pControllers;
 	delete thrusterPower;
+	delete mainPower;
 	wait();
 }
 
@@ -108,6 +113,9 @@ void AUV::readSensors(){
 	data.thrusterPower.voltage = getThrusterVoltage();
 	data.thrusterPower.current = getThrusterCurrent();
 	data.thrusterPower.power = getThrusterPower();
+	data.mainPower.voltage = getMainVoltage();
+	data.mainPower.current = getMainCurrent();
+	data.mainPower.power = getMainPower();
 	// uncomment for manual switch override
 	if(data.status == RUNNING && !data.manualOverrideDisabled && !getGo()) {
 		emit status("Waiting on Manual Switch");
@@ -227,9 +235,9 @@ void AUV::setThrusters(double thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 //	qDebug() << "Setting thrusters to" << thrusterSpeeds[0] << thrusterSpeeds[1] << thrusterSpeeds[2] << thrusterSpeeds[3];
 
 	signed char thrusterScale[NUMBER_OF_THRUSTERS];
-	thrusterScale[0] = 127;
-	thrusterScale[1] = 127;
-	thrusterScale[2] = 127;
+	thrusterScale[0] = 40;
+	thrusterScale[1] = 40;
+	thrusterScale[2] = 100;
 	thrusterScale[3] = 127;
 
 	if(config["Debug"]=="true") qDebug("Conversing with TReXs");
@@ -251,6 +259,13 @@ void AUV::stopThrusters(){
 		data.thrusterSpeeds[i] = 0;
 	}
 }
+
+// Returns Voltage of Main Battery pack in Volts
+double AUV::getMainVoltage() {return mainPower->getVoltage();}
+// Returns Current Draw on Main power supply in Amps
+double AUV::getMainCurrent() {return mainPower->getCurrent();}
+// Returns power being used by mains in Watts
+double AUV::getMainPower() {return mainPower->getVoltage()*mainPower->getCurrent();}
 
 // Returns Voltage of Thruster Battery pack in Volts
 double AUV::getThrusterVoltage() {return thrusterPower->getVoltage();}

@@ -75,6 +75,20 @@ class AUV : public QThread {
 		double getHeading();
 		
 		/**
+		 * Returns Voltage of Main Battery pack in Volts
+		 */
+		double getMainVoltage();
+		/**
+		 * Returns Current Draw on Main power supply in Amps
+		 */
+		double getMainCurrent();
+		/**
+		 * Returns power being used by main supply in Watts
+		 */
+		double getMainPower();
+
+
+		/**
 		 * Returns Voltage of Thruster Battery pack in Volts
 		 */
 		double getThrusterVoltage();
@@ -238,6 +252,7 @@ class AUV : public QThread {
 		OS5000* os5000;
 		Pololu* pControllers;
 		Power* thrusterPower;
+		Power* mainPower;
 		LCD* statusLcd;
 		
 		AUVSensors data;

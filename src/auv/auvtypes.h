@@ -51,7 +51,8 @@ typedef struct {
 	 * Current commanded speeds of the thrusters.
 	 * Values range from -127 to 127.
 	 */
-	signed char thrusterSpeeds[NUMBER_OF_THRUSTERS];
+	double thrusterSpeeds[NUMBER_OF_THRUSTERS];
+	powerData mainPower;
 	powerData thrusterPower;
 	cameraPosition camera;
 	double cameraX;
