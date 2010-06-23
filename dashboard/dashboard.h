@@ -131,6 +131,7 @@ void on_##guiParam##_editingFinished();
 		void on_pathHueHighSpinBox_editingFinished();
 		void on_pathHueLowSpinBox_editingFinished();
 		void on_pathSaturationSpinBox_editingFinished();
+		void on_pathDepthSpinBox_editingFinished();
 		void on_buoyMinEccentSpinBox_editingFinished();
 		void on_buoyMaxEccentSpinBox_editingFinished();
 		void on_buoyMinExtentSpinBox_editingFinished();

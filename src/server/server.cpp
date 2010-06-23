@@ -167,10 +167,10 @@ void Server::sendSensorData(AUVSensors sens){
 	sidsocket->sendSID("AUV.Mode", QString::number(sens.status));
 	sidsocket->sendSID("AUV.Heading", QString::number(sens.orientation.yaw));
 	sidsocket->sendSID("AUV.Depth", QString::number(sens.depth));
-	sidsocket->sendSID("AUV.LeftThruster", QString::number((int) sens.thrusterSpeeds[0]));
-	sidsocket->sendSID("AUV.RightThruster", QString::number((int) sens.thrusterSpeeds[1]));
-	sidsocket->sendSID("AUV.LateralThruster", QString::number((int) sens.thrusterSpeeds[2]));
-	sidsocket->sendSID("AUV.VerticalThruster", QString::number((int) sens.thrusterSpeeds[3]));
+	sidsocket->sendSID("AUV.LeftThruster", QString::number(sens.thrusterSpeeds[0]));
+	sidsocket->sendSID("AUV.RightThruster", QString::number(sens.thrusterSpeeds[1]));
+	sidsocket->sendSID("AUV.LateralThruster", QString::number(sens.thrusterSpeeds[2]));
+	sidsocket->sendSID("AUV.VerticalThruster", QString::number(sens.thrusterSpeeds[3]));
 	sidsocket->sendSID("AUV.CameraX", QString::number(sens.cameraX));
 	sidsocket->sendSID("AUV.CameraY", QString::number(sens.cameraY));
 	// some data gets updated less often

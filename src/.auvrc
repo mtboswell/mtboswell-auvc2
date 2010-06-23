@@ -33,12 +33,14 @@ Server.Port.Video2=5239;
 Client.Port.Video2=5339;
 
 # Serial ports
-SerialPort.IMU=/dev/ttyS0;
-SerialPort.POWER=/dev/ttyS1;
-SerialPort.POLOLU=/dev/ttyUSB1;
-SerialPort.ARDUINO=/dev/ttyUSB2;
-SerialPort.CAMERA=/dev/video0;
-SerialPort.LCD=/dev/ttyUSB0;
+SerialPort.Compass=/dev/ttyS0;
+SerialPort.MainPower=/dev/ttyUSB3;
+SerialPort.ThrusterPower=/dev/ttyS1;
+SerialPort.Pololu=/dev/ttyUSB0;
+SerialPort.Arduino=/dev/ttyUSB1;
+SerialPort.LCD=/dev/ttyUSB2;
+
+Camera=/dev/video0;
 
 # Mechanisms
 Mechanism.DropLeft.Servo=7;

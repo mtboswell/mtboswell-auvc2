@@ -27,6 +27,7 @@ void init_params(QHash<QString, double*>& parameters){
 	parameters.insert("Track_HueHigher", &brain_P.Track_HueHigher);
 	parameters.insert("Track_HueLower", &brain_P.Track_HueLower);
 	parameters.insert("Track_Saturation", &brain_P.Track_Saturation);
+	parameters.insert("Track_Desired_Depth", &brain_P.Track_Desired_Depth);
 	parameters.insert("Vision_Forward_Velocity", &brain_P.Vision_Forward_Velocity);
 	parameters.insert("Buoy_Min_Eccentricity", &brain_P.Buoy_Min_Eccentricity);
 	parameters.insert("Buoy_Max_Eccentricity", &brain_P.Buoy_Max_Eccentricity);
