@@ -3,14 +3,14 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.372
+ * Model version                        : 1.384
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Tue Jun  8 17:31:07 2010
+ * Real-Time Workshop file generated on : Wed Jun 23 16:07:43 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Tue Jun  8 17:31:07 2010
+ * C/C++ source code generated on       : Wed Jun 23 16:07:47 2010
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: AMD->K5/K6/Athlon
+ * Embedded hardware selection: Generic->32-bit x86 compatible
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
@@ -197,26 +197,26 @@ typedef struct {
   real_T HSVImage1[57600];             /* '<S21>/PutHSVImageTogether' */
 } rtB_StateFlowFunctionsFollowOne;
 
-/* Block signals for system '<S84>/IsLinePresent' */
+/* Block signals for system '<S82>/IsLinePresent' */
 typedef struct {
   real_T eml_HoughTable[51660];
-  real_T Theta[2];                     /* '<S84>/IsLinePresent' */
-  real_T Rho[2];                       /* '<S84>/IsLinePresent' */
-  real_T maxVotes[2];                  /* '<S84>/IsLinePresent' */
+  real_T Theta[2];                     /* '<S82>/IsLinePresent' */
+  real_T Rho[2];                       /* '<S82>/IsLinePresent' */
+  real_T maxVotes[2];                  /* '<S82>/IsLinePresent' */
 } rtB_IsLinePresent_brain;
 
 /* Block signals for system '<S7>/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetHeadings' */
 typedef struct {
-  real_T HoughTransform_o1[51660];     /* '<S84>/Hough Transform' */
-  real_T HoughTransform_o2[180];       /* '<S84>/Hough Transform' */
-  real_T HoughTransform_o3[287];       /* '<S84>/Hough Transform' */
-  real_T HoughTransform_o1_p[51660];   /* '<S85>/Hough Transform' */
-  real_T HoughTransform_o2_h[180];     /* '<S85>/Hough Transform' */
-  real_T HoughTransform_o3_p[287];     /* '<S85>/Hough Transform' */
-  real_T ToPathHeading[2];             /* '<S24>/GetHeadingToPath' */
-  real_T AlongPathHeading[2];          /* '<S24>/GetHeadingToPath' */
-  rtB_IsLinePresent_brain sf_IsLinePresent_m;/* '<S85>/IsLinePresent' */
-  rtB_IsLinePresent_brain sf_IsLinePresent;/* '<S84>/IsLinePresent' */
+  real_T HoughTransform_o1[51660];     /* '<S82>/Hough Transform' */
+  real_T HoughTransform_o2[180];       /* '<S82>/Hough Transform' */
+  real_T HoughTransform_o3[287];       /* '<S82>/Hough Transform' */
+  real_T HoughTransform_o1_p[51660];   /* '<S83>/Hough Transform' */
+  real_T HoughTransform_o2_h[180];     /* '<S83>/Hough Transform' */
+  real_T HoughTransform_o3_p[287];     /* '<S83>/Hough Transform' */
+  real_T ToPathHeading[2];             /* '<S23>/GetHeadingToPath' */
+  real_T AlongPathHeading[2];          /* '<S23>/GetHeadingToPath' */
+  rtB_IsLinePresent_brain sf_IsLinePresent_m;/* '<S83>/IsLinePresent' */
+  rtB_IsLinePresent_brain sf_IsLinePresent;/* '<S82>/IsLinePresent' */
 } rtB_StateFlowFunctionsFollowO_o;
 
 /* Block signals for system '<S7>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.SecondBuoy' */
@@ -316,8 +316,8 @@ typedef struct {
   real_T Constant_p;                   /* '<S12>/Constant' */
   real_T Subtract;                     /* '<S22>/Subtract' */
   real_T Subtract1;                    /* '<S22>/Subtract1' */
-  real_T BWleft[9600];                 /* '<S81>/Get Brightest Pixel Per Column and Row' */
-  real_T BWright[9600];                /* '<S81>/Get Brightest Pixel Per Column and Row' */
+  real_T BWleft[9600];                 /* '<S86>/HSV Threshold Segmentation' */
+  real_T BWright[9600];                /* '<S86>/HSV Threshold Segmentation' */
   real_T Constant_k;                   /* '<S8>/Constant' */
   real_T Constant2_i;                  /* '<S8>/Constant2' */
   real_T Constant1_o;                  /* '<S8>/Constant1' */
@@ -350,8 +350,8 @@ typedef struct {
   boolean_T BWright1[9600];            /* '<Root>/StateFlow Functions' */
   boolean_T BW[19200];                 /* '<S94>/Logical Operator1' */
   boolean_T BW_k[19200];               /* '<S22>/Logical Operator1' */
-  boolean_T BWleft_k[9600];            /* '<S81>/Data Type Conversion' */
-  boolean_T BWright_e[9600];           /* '<S81>/Data Type Conversion1' */
+  boolean_T BWleft_d[9600];            /* '<S86>/Data Type Conversion' */
+  boolean_T BWright_c[9600];           /* '<S86>/Data Type Conversion1' */
   rtB_StateFlowFunctionsBuoysAp_m StateFlowFunctionsBuoysAppro_mn;/* '<S7>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.SecondBuoy' */
   rtB_StateFlowFunctionsBuoysMain StateFlowFunctionsMaintainDepth;/* '<S7>/StateFlowFunctions.MaintainDepth' */
   rtB_EmbeddedMATLABFunction1_bra sf_EmbeddedMATLABFunction1;/* '<S22>/Embedded MATLAB Function1' */
@@ -391,6 +391,7 @@ typedef struct {
   real_T BuoyCount;                    /* '<Root>/StateFlow Functions' */
   real_T AvgDesiredHeadingAlongPath[2];/* '<Root>/StateFlow Functions' */
   real_T AvgDesiredHeadingToPath[2];   /* '<Root>/StateFlow Functions' */
+  real_T HeadingAlongPath;             /* '<Root>/StateFlow Functions' */
   real_T countAlong;                   /* '<Root>/StateFlow Functions' */
   real_T countTo;                      /* '<Root>/StateFlow Functions' */
   real_T outliersAlong;                /* '<Root>/StateFlow Functions' */
@@ -465,15 +466,15 @@ typedef struct {
 typedef struct {
   /* Pooled Parameter (Expression: )
    * Referenced by:
-   *   '<S84>/Hough Transform'
-   *   '<S85>/Hough Transform'
+   *   '<S82>/Hough Transform'
+   *   '<S83>/Hough Transform'
    */
   real_T pooled14[91];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
-   *   '<S84>/Hough Transform'
-   *   '<S85>/Hough Transform'
+   *   '<S82>/Hough Transform'
+   *   '<S83>/Hough Transform'
    */
   real_T pooled15;
 
@@ -730,7 +731,7 @@ struct Parameters_brain_ {
   real_T Track_Saturation;             /* Variable: Track_Saturation
                                         * Referenced by:
                                         *   '<S72>/Constant'
-                                        *   '<S81>/Track Saturation'
+                                        *   '<S86>/Track Saturation'
                                         *   '<S98>/Constant'
                                         */
   real_T Vision_Forward_Velocity;      /* Variable: Vision_Forward_Velocity
@@ -852,8 +853,8 @@ extern "C" {
  * '<S20>'  : brain/StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage
  * '<S21>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.MakeHSVImage
  * '<S22>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.CenterOver.CenterOver
- * '<S23>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit
- * '<S24>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetHeadings
+ * '<S23>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetHeadings
+ * '<S24>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.HSVSegmentation_VerticalSplit
  * '<S25>'  : brain/StateFlow Functions/StateFlowFunctions.GetDesiredDepth
  * '<S26>'  : brain/StateFlow Functions/StateFlowFunctions.MaintainDepth
  * '<S27>'  : brain/StateFlow Functions/StateFlowFunctions.MaintainHeading
@@ -910,13 +911,13 @@ extern "C" {
  * '<S78>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.CenterOver.CenterOver/X-Axis Control/PID Controller X Position/X-Buoy Discrete Derivative
  * '<S79>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.CenterOver.CenterOver/Y-Axis Control/PID Controller Y Axis
  * '<S80>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.CenterOver.CenterOver/Y-Axis Control/PID Controller Y Axis/Y-Buoy Discrete Derivative
- * '<S81>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit/Finding Brightest Pixel
- * '<S82>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetBrightestPixel_VerticalSplit/Finding Brightest Pixel/Get Brightest Pixel Per Column and Row
- * '<S83>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetHeadings/GetHeadingToPath
- * '<S84>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left
- * '<S85>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right
- * '<S86>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left/IsLinePresent
- * '<S87>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right/IsLinePresent
+ * '<S81>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetHeadings/GetHeadingToPath
+ * '<S82>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left
+ * '<S83>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right
+ * '<S84>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Left/IsLinePresent
+ * '<S85>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.GetHeadings/Hough Transform Stuff Right/IsLinePresent
+ * '<S86>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.HSVSegmentation_VerticalSplit/Finding Brightest Pixel
+ * '<S87>'  : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.GetDirections.HSVSegmentation_VerticalSplit/Finding Brightest Pixel/HSV Threshold Segmentation
  * '<S88>'  : brain/StateFlow Functions/StateFlowFunctions.MaintainDepth/PID Controller Depth S3
  * '<S89>'  : brain/StateFlow Functions/StateFlowFunctions.MaintainDepth/PID Controller Depth S3/Depth Discrete Derivative
  * '<S90>'  : brain/StateFlow Functions/StateFlowFunctions.MaintainHeading/BigError S1
