@@ -8,6 +8,8 @@
 #include <QProcess>
 #include <QVBoxLayout>
 #include <QtGui>
+#include <QTimer>
+#include <QTime>
 
 #include "../src/server/sidsocket.h"
 #include "videosocket.h"
@@ -56,6 +58,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 
 		void disableDashboard(QString,QString);
 		void enableDashboard();
+		void checkForDataTimeout();
 
 		void saveParameters();
 		void loadParameters();
@@ -150,6 +153,8 @@ void on_##guiParam##_editingFinished();
 		QGraphicsScene* headingScene;
 		QGraphicsLineItem* headingLine;
 		QLabel* rateLabel;
+		QTime* timeSinceLastDataReceived;
+		QTimer* dataTimeoutTimer;
 
 		QPixmap videoPixmap; 
 		QPixmap bwPixmap; 
