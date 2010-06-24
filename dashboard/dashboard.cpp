@@ -115,6 +115,12 @@ Dashboard::Dashboard(QMainWindow *parent)
  	connect(actionLogData, SIGNAL(triggered(bool)), logger, SLOT(enable(bool)));
 	connect(this, SIGNAL(sendSID(QString,QString)), this, SLOT(logCmd(QString, QString)));
 
+	timeSinceLastDataReceived = new QTime();
+	timeSinceLastDataReceived->start();
+	dataTimeoutTimer = new QTimer();
+	connect(dataTimeoutTimer, SIGNAL(timeout()), this, SLOT(checkForDataTimeout()));
+	dataTimeoutTimer->start(100);
+
 }
 
 Dashboard::~Dashboard(){
@@ -219,6 +225,7 @@ void Dashboard::sendScript(){
 
 void Dashboard::handleAUVParam(QString id, QString value) {
 	bool badCmd = false;
+	timeSinceLastDataReceived->restart();
 	QString type, name;
 	QStringList ids = id.split('.');
 	if(ids.size() > 0) type = ids[0];
@@ -383,11 +390,21 @@ void Dashboard::disableDashboard(QString missedId, QString missedData){
 	//dashboardWidget->setEnabled(false);
 	controlGroupBox->setEnabled(false);
 	tabContainer->setEnabled(false);
+	if(missedId == "timeout")
+		dashboardWidget->setEnabled(false);
 }
 void Dashboard::enableDashboard(){
 	dashboardWidget->setEnabled(true);
 	controlGroupBox->setEnabled(true);
 	tabContainer->setEnabled(true);
+}
+
+void Dashboard::checkForDataTimeout(){
+	if(dashboardWidget->isEnabled() && timeSinceLastDataReceived->elapsed() >= 1000) {
+		disableDashboard("timeout", "");
+	}else if(!dashboardWidget->isEnabled() && timeSinceLastDataReceived->elapsed() < 1000){
+		enableDashboard();
+	}
 }
 
 
