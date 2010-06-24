@@ -116,15 +116,23 @@ void AUV::readSensors(){
 	data.mainPower.voltage = getMainVoltage();
 	data.mainPower.current = getMainCurrent();
 	data.mainPower.power = getMainPower();
-	// uncomment for manual switch override
-	if(data.status == RUNNING && !data.manualOverrideDisabled && !getGo()) {
-		emit status("Waiting on Manual Switch");
-		data.status = PAUSED;
-	  	dataMutex->unlock();
-		stopThrusters();
-		emit hardwareOverride();
-	}else dataMutex->unlock();
+	if(!data.manualOverrideDisabled){
+		if(data.status == RUNNING && !getGo()) {
+			emit status("Manual Switch Stop");
+			data.status = PAUSED;
+			dataMutex->unlock();
+			stopThrusters();
+			emit hardwareOverride();
+		}else if (data.status == PAUSED && getGo()){
+			emit status("Running!");
+			data.status = RUNNING;
+		}else if (data.status == READY && !getGo()){
+			emit status("Diver has control.");
+			data.status = PAUSED;
+		}
+	}
 	if(config["Debug"]=="true") qDebug() << "Sensor Reading Time: " << QString::number(t.elapsed()) << "ms";
+	dataMutex->unlock();
 	emit sensorUpdate(data);
 }
 
@@ -139,15 +147,21 @@ void AUV::inputFromBrain(ExternalOutputs_brain inputs){
 }
 
 void AUV::goAUV(){
-	emit status("Running!");
   	QMutexLocker locker(dataMutex);
-	data.status = RUNNING;
+	if(data.manualOverrideDisabled){
+		emit status("Running!");
+		data.status = RUNNING;
+	}else{
+		if(data.status == PAUSED) emit status("Waiting on Diver.");
+		else emit status("Switching to diver control.");
+		data.status = PAUSED;
+	}
 }
 
 void AUV::stop(){
 	stopThrusters();
   	QMutexLocker locker(dataMutex);
-	data.status = PAUSED;
+	data.status = READY;
 	emit status("Stopped");
 }
 
@@ -208,7 +222,7 @@ double AUV::getHeading(){
 
 // set thruster speeds
 void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
-	if(!data.thrusterPower.state || data.status == PAUSED || data.status == READY) return;
+	if(!data.thrusterPower.state || data.status != RUNNING) return;
 //	qDebug() << "Setting thrusters to" << thrusterSpeeds[0] << thrusterSpeeds[1] << thrusterSpeeds[2] << thrusterSpeeds[3];
 /*
 	if(thrusterSpeeds[2] > 0){
@@ -231,7 +245,7 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 }
 // set thruster speeds
 void AUV::setThrusters(double thrusterSpeeds[NUMBER_OF_THRUSTERS]){
-	if(!data.thrusterPower.state || data.status == PAUSED || data.status == READY) return;
+	if(!data.thrusterPower.state || data.status != RUNNING) return;
 //	qDebug() << "Setting thrusters to" << thrusterSpeeds[0] << thrusterSpeeds[1] << thrusterSpeeds[2] << thrusterSpeeds[3];
 
 	signed char thrusterScale[NUMBER_OF_THRUSTERS];
@@ -253,9 +267,11 @@ void AUV::setThrusters(double thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 
 // set all of the thruster speeds to 0
 void AUV::stopThrusters(){
-  	QMutexLocker locker(dataMutex);
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
 		pControllers->setMotorSpeed(i, 0);
+	}
+  	QMutexLocker locker(dataMutex);
+	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
 		data.thrusterSpeeds[i] = 0;
 	}
 }
