@@ -5,7 +5,7 @@ LCD::LCD(const QString & serialPort): SerialDevice(serialPort, BAUD9600) {
 	updateTimer = new QTimer(this);
 	connect(updateTimer, SIGNAL(timeout()), this, SLOT(update()));
 	updateTimer->start(300);
-	int messageTimeout = 5;
+	//int messageTimeout = 5;
 }
 
 void LCD::addField(QString name, int length){

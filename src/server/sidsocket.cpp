@@ -4,7 +4,7 @@
 SIDSocket::SIDSocket(quint16 bindPort, quint16 remotePort, bool server,
 		     QHostAddress remoteAddr, 
 		     QHostAddress bindAddr){
-	if(!m_Sock.bind(bindPort)) qDebug() << "Failed to bind to port" << bindPort;
+	if(!m_Sock.bind(bindAddr, bindPort)) qDebug() << "Failed to bind to port" << bindPort;
 	m_remoteAddr = remoteAddr;
 	m_remotePort = remotePort;
 	m_Server = server;
@@ -100,11 +100,11 @@ void SIDSocket::handlePendingDatagrams() {
 		m_Sock.readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
 
 		if(!m_Server && m_Acks.contains(datagram)){ // check to see if incoming is an acknowledgement
-			m_Acks.remove(datagram); // and remove from unanswered list 
 			if(datagram == "Connect") {
 				m_flaky = false;
 				while(!m_outQueue.isEmpty()) sendDatagram();
 			}
+			m_Acks.remove(datagram); // and remove from unanswered list 
 		}else{
 			// server echos to acknowledge received
 			if(m_Server) m_Sock.writeDatagram(datagram, sender, senderPort);
@@ -120,6 +120,8 @@ void SIDSocket::processDatagram(QByteArray datagram, QHostAddress fromAddr, quin
 
 	static QList<QByteArray> SIDs;
 	static QStringList ID;
+
+	if(fromPort){}
 
 	SIDs = datagram.split(';');
 	foreach (QString SID, SIDs) {
