@@ -106,9 +106,9 @@ int camread_getframe(struct camframe frame, bool record_video) {
 //	write(vidfd, lastframe.cb, width*height/4);
 //	write(vidfd, lastframe.cr, width*height/4);
     	if(record_video) {
-			write(logfd, lastframe.y, width*height);
-			write(logfd, lastframe.cb, width*height/4);
-			write(logfd, lastframe.cr, width*height/4);
+			if(write(logfd, lastframe.y, width*height) < 0) qDebug() << "Failed to write video to disk.";
+			if(write(logfd, lastframe.cb, width*height/4) < 0) qDebug() << "Failed to write video to disk.";
+			if(write(logfd, lastframe.cr, width*height/4) < 0) qDebug() << "Failed to write video to disk.";
     	}
 /*  Code to get jpeg from QImage from brain:
         QImage videoFrame = QImage(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
@@ -272,7 +272,7 @@ int white_balance(){
 
 
 int camread_pause() {
-    int err = 0;
+    //int err = 0;
     if(!video_already_open) return 0; /* Can't close an already closed capture */
     video_paused = 1;
 	pthread_mutex_lock(&camlock);

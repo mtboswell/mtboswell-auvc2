@@ -2,6 +2,8 @@
 #include <QDebug>
 #include <QDir>
 
+QFile * confFile;
+
 void loadConfigFile(QMap<QString, QString> &config){
 	// look in the following places for the config file:
 	QStringList confFileLocations;

@@ -14,7 +14,8 @@ SerialDevice::~SerialDevice(){
 
 void SerialDevice::open(QString portName, BaudRateType baud,  bool listen){
 	port = new QextSerialPort(portName, QextSerialPort::EventDriven);
-	port->setBaudRate(BAUD9600);
+	//port->setBaudRate(BAUD9600);
+	port->setBaudRate(baud);
 	port->setStopBits(STOP_1);
 	port->setParity(PAR_NONE);
 	port->setDataBits(DATA_8);

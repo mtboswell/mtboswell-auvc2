@@ -61,8 +61,11 @@ Dashboard::Dashboard(QMainWindow *parent)
 	states << "Startup";
 	states << "Validation Gate";
 	states << "Follow Path";
-	states << "Buoy";
+	states << "Buoys";
+	states << "Hedge";
 	states << "Finished";
+	states << "Weapons";
+	states << "Pinger";
 	stateComboBox->insertItems(0, states);
 
 	// populate Script combo box
@@ -219,7 +222,9 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 	QString type, name;
 	QStringList ids = id.split('.');
 	if(ids.size() > 0) type = ids[0];
+	else type = "";
 	if(ids.size() > 1) name = ids[1];
+	else name = "";
 	if (type == "AUV") {
 		if (name == "Mode") {
 			QString modes[4];
@@ -283,7 +288,8 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 					controlGroupBox->setChecked(false);
 					tabWidget->setCurrentWidget(videoPage);
 				}
-				stateLabel->setText(states.at(value.toInt()));
+				if(value.toInt() >= states.size() || value.toInt() < 0) badCmd = true;
+				else stateLabel->setText(states.at(value.toInt()));
 				missionProgressBar->setValue(value.toInt() * (100 / 6));
 			}
 		} else if (name == "Time") {
@@ -640,6 +646,7 @@ void Dashboard::loadParameter(QString param){
 	foreach(QString codeLine, codeLines){
 		if(!codeLine.contains("=")) continue;
 		QStringList paramLine = codeLine.split("=");
+		if(paramLine.size() < 2) continue;
 		QString paramName = paramLine.at(0).trimmed();
 		bool ok;
 		double paramVal = paramLine.at(1).trimmed().toDouble(&ok);

@@ -7,7 +7,7 @@
 #include <QTextStream>
 
 extern QMap<QString, QString> config;
-static QFile * confFile;
+extern QFile * confFile;
 static QStringList confFileContents;
 
 void loadConfigFile(QMap<QString, QString> & config);
