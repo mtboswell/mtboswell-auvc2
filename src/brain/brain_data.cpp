@@ -3,14 +3,14 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.384
+ * Model version                        : 1.501
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Thu Jun 24 11:51:28 2010
+ * Real-Time Workshop file generated on : Thu Jun 24 20:43:22 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Thu Jun 24 11:51:28 2010
+ * C/C++ source code generated on       : Thu Jun 24 20:43:23 2010
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: Generic->32-bit x86 compatible
+ * Embedded hardware selection: AMD->K5/K6/Athlon
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
@@ -62,10 +62,8 @@ Parameters_brain brain_P = {
 
 /* Constant parameters (auto storage) */
 const ConstParam_brain brain_ConstP = {
-  /* Pooled Parameter (Expression: )
-   * Referenced by:
-   *   '<S82>/Hough Transform'
-   *   '<S83>/Hough Transform'
+  /* Computed Parameter: HoughTransform_SINE_
+   * Referenced by: '<S75>/Hough Transform'
    */
   { -1.0, -9.9984769515639127E-01, -9.9939082701909576E-01,
     -9.9862953475457383E-01, -9.9756405025982420E-01, -9.9619469809174555E-01,
@@ -99,18 +97,16 @@ const ConstParam_brain brain_ConstP = {
     -5.2335956242943835E-02, -3.4899496702500969E-02, -1.7452406437283512E-02,
     0.0 },
 
-  /* Pooled Parameter (Expression: )
-   * Referenced by:
-   *   '<S82>/Hough Transform'
-   *   '<S83>/Hough Transform'
+  /* Computed Parameter: HoughTransform_FIRSTRHO_RT
+   * Referenced by: '<S75>/Hough Transform'
    */
-  -143.0,
+  -199.0,
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
-   *   '<S60>/Resize'
-   *   '<S60>/Resize1'
-   *   '<S60>/Resize2'
+   *   '<S61>/Resize'
+   *   '<S61>/Resize1'
+   *   '<S61>/Resize2'
    */
   { 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F,
     0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F,
@@ -142,9 +138,9 @@ const ConstParam_brain brain_ConstP = {
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
-   *   '<S60>/Resize'
-   *   '<S60>/Resize1'
-   *   '<S60>/Resize2'
+   *   '<S61>/Resize'
+   *   '<S61>/Resize1'
+   *   '<S61>/Resize2'
    */
   { 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F,
     0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F,
@@ -522,16 +518,16 @@ const ConstParam_brain brain_ConstP = {
    * Referenced by:
    *   '<S10>/Buoy Blob Analysis'
    *   '<S13>/Buoy Blob Analysis'
-   *   '<S22>/Buoy Blob Analysis'
-   *   '<S94>/Blob Analysis'
+   *   '<S24>/Buoy Blob Analysis'
+   *   '<S93>/Blob Analysis'
    */
   { -1, 121, 122, 123, 1, -121, -122, -123 },
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
-   *   '<S60>/Resize'
-   *   '<S60>/Resize1'
-   *   '<S60>/Resize2'
+   *   '<S61>/Resize'
+   *   '<S61>/Resize1'
+   *   '<S61>/Resize2'
    */
   { 0, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39,
     41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77,
@@ -549,9 +545,9 @@ const ConstParam_brain brain_ConstP = {
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
-   *   '<S60>/Resize'
-   *   '<S60>/Resize1'
-   *   '<S60>/Resize2'
+   *   '<S61>/Resize'
+   *   '<S61>/Resize1'
+   *   '<S61>/Resize2'
    */
   { 0, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39,
     41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77,
@@ -729,7 +725,12 @@ const ConstParam_brain brain_ConstP = {
     453, 457, 461, 465, 469, 473, 477, 481, 485, 489, 493, 497, 501, 505, 509,
     513, 517, 521, 525, 529, 533, 537, 541, 545, 549, 553, 557, 561, 565, 569,
     573, 577, 581, 585, 589, 593, 597, 601, 605, 609, 613, 617, 621, 625, 629,
-    633, 637, 639 }
+    633, 637, 639 },
+
+  /* Expression: nhood
+   * Referenced by: '<S85>/Erosion'
+   */
+  { 1, 1, 1, 1, 1, 1, 1, 1 }
 };
 
 /*
