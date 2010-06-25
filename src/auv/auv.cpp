@@ -54,7 +54,7 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 	/* Initialize hardware interfaces */
 	arduino = new Arduino(config["SerialPort.Arduino"]);
 	microstrain = new Microstrain(config["SerialPort.Compass"]);
-	os5000 = new OS5000(config["SerialPort.Compass"]);
+	os5000 = new OS5000(config["SerialPort.OtherCompass"]);
 	pControllers = new Pololu(config["SerialPort.Pololu"]);
 	thrusterPower = new Power(config["SerialPort.ThrusterPower"]);
 	mainPower = new Power(config["SerialPort.MainPower"]);
