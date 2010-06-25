@@ -87,7 +87,7 @@ Model {
       Name		      "RGBout"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.497"
+    ComputedModelVersion    "1.499"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -106,9 +106,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jun 24 17:47:26 2010"
-  RTWModifiedTimeStamp	  199302308
-  ModelVersionFormat	  "1.%<AutoIncrement:497>"
+  LastModifiedDate	  "Thu Jun 24 20:05:48 2010"
+  RTWModifiedTimeStamp	  199310742
+  ModelVersionFormat	  "1.%<AutoIncrement:499>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -961,7 +961,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    66
+    SIDHighWatermark	    67
     Block {
       BlockType		      Inport
       Name		      "CurrentDepth"
@@ -1199,37 +1199,6 @@ Model {
       RTWMemSecDataParameters "Inherit from model"
     }
     Block {
-      BlockType		      Reference
-      Name		      "From Video Device"
-      SID		      51
-      Ports		      [0, 3]
-      Position		      [30, 34, 140, 86]
-      LibraryVersion	      "1.58"
-      UserDataPersistent      on
-      UserData		      "DataTag2"
-      DialogController	      "imaqcreatedialog"
-      DialogControllerArgs    "DataTag3"
-      SourceBlock	      "imaqlib/From Video Device"
-      SourceType	      "From Video Device"
-      DeviceMenu	      "winvideo 1 (Integrated Webcam)"
-      Device		      "winvideo 1 (Integrated Webcam)"
-      ObjConstructor	      "videoinput('winvideo', 1)"
-      VideoFormatMenu	      "YUY2_640x480"
-      VideoFormat	      "YUY2_640x480"
-      VideoSource	      "input1"
-      ROIPosition	      "[0 0 480 640]"
-      EnableHWTrigger	      off
-      TriggerConfiguration    "none/none"
-      SampleTime	      "1/5"
-      OutputPortsMode	      "Separate color signals"
-      DataType		      "uint8"
-      CanDoHWTrigger	      "no"
-      ReturnedColorSpace      "YCbCr"
-      BlockHandle	      "22.0011"
-      ROIWidth		      "640"
-      ROIHeight		      "480"
-    }
-    Block {
       BlockType		      SubSystem
       Name		      "GetVideo1"
       SID		      19
@@ -1299,7 +1268,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -1317,7 +1286,7 @@ Model {
 	  antialiasing		  "Default"
 	  hcoeff		  "[0.2 0.6 0.2]"
 	  vcoeff		  "[0.5 0.5]"
-	  isInputTransposed	  off
+	  isInputTransposed	  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1329,7 +1298,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -1359,7 +1328,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -1371,7 +1340,7 @@ Model {
 	  Position		  [830, 25, 895, 65]
 	  LibraryVersion	  "1.236"
 	  DialogController	  "vipDDGCreate"
-	  DialogControllerArgs	  "DataTag4"
+	  DialogControllerArgs	  "DataTag2"
 	  SourceBlock		  "vipgeotforms/Resize"
 	  SourceType		  "Resize"
 	  specify		  "Number of output rows and columns"
@@ -1380,9 +1349,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -1396,8 +1365,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1407,7 +1376,7 @@ Model {
 	  Position		  [830, 120, 895, 160]
 	  LibraryVersion	  "1.236"
 	  DialogController	  "vipDDGCreate"
-	  DialogControllerArgs	  "DataTag5"
+	  DialogControllerArgs	  "DataTag3"
 	  SourceBlock		  "vipgeotforms/Resize"
 	  SourceType		  "Resize"
 	  specify		  "Number of output rows and columns"
@@ -1416,9 +1385,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -1432,8 +1401,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1443,7 +1412,7 @@ Model {
 	  Position		  [830, 205, 895, 245]
 	  LibraryVersion	  "1.236"
 	  DialogController	  "vipDDGCreate"
-	  DialogControllerArgs	  "DataTag6"
+	  DialogControllerArgs	  "DataTag4"
 	  SourceBlock		  "vipgeotforms/Resize"
 	  SourceType		  "Resize"
 	  specify		  "Number of output rows and columns"
@@ -1452,9 +1421,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -1468,8 +1437,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1479,8 +1448,8 @@ Model {
 	  Position		  [590, 335, 705, 405]
 	  LibraryVersion	  "1.250"
 	  UserDataPersistent	  on
-	  UserData		  "DataTag7"
-	  DialogControllerArgs	  "DataTag8"
+	  UserData		  "DataTag5"
+	  DialogControllerArgs	  "DataTag6"
 	  SourceBlock		  "vipsnks/Video Viewer"
 	  SourceType		  "Video Viewer"
 	  inputType		  "Obsolete7b"
@@ -1717,11 +1686,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1835,8 +1799,8 @@ Model {
       Position		      [1370, 520, 1485, 590]
       LibraryVersion	      "1.250"
       UserDataPersistent      on
-      UserData		      "DataTag9"
-      DialogControllerArgs    "DataTag10"
+      UserData		      "DataTag7"
+      DialogControllerArgs    "DataTag8"
       SourceBlock	      "vipsnks/Video Viewer"
       SourceType	      "Video Viewer"
       inputType		      "Obsolete7b"
@@ -1852,6 +1816,50 @@ Model {
       OpenAtMdlStart	      on
     }
     Block {
+      BlockType		      Reference
+      Name		      "Read Binary File"
+      SID		      67
+      Ports		      [0, 3]
+      Position		      [130, 34, 270, 96]
+      LibraryVersion	      "1.308"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag9"
+      SourceBlock	      "vipsrcs/Read Binary File"
+      SourceType	      "Read Binary File"
+      FileName		      "vipmen.bin"
+      loopOrNot		      on
+      numLoops		      "1"
+      VideoFormat	      "Four character codes"
+      FOURCC		      "I420"
+      BitStreamFormat	      "Planar"
+      NumOutputs	      "3"
+      ComponentOrder	      "[1 2 3]"
+      Interlaced	      off
+      LineOrdering	      "Top line first"
+      Ts		      "1/30"
+      Component1	      "Y'"
+      Component2	      "Cb"
+      Component3	      "Cr"
+      Component4	      "Alpha"
+      Bits1		      "8"
+      Bits2		      "8"
+      Bits3		      "8"
+      Bits4		      "8"
+      Rows1		      "120"
+      Rows2		      "60"
+      Rows3		      "60"
+      Rows4		      "288"
+      Cols1		      "160"
+      Cols2		      "80"
+      Cols3		      "80"
+      Cols4		      "352"
+      YRows		      "120"
+      YCols		      "160"
+      SignedOutput	      off
+      FileEndian	      "Little endian"
+      OutputEOF		      off
+    }
+    Block {
       BlockType		      SubSystem
       Name		      "StateFlow Functions"
       SID		      46
@@ -1864,11 +1872,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -2452,11 +2455,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -3062,7 +3060,7 @@ Model {
 	      Position		      [410, 120, 540, 190]
 	      LibraryVersion	      "1.580"
 	      DialogController	      "vipDDGCreate"
-	      DialogControllerArgs    "DataTag11"
+	      DialogControllerArgs    "DataTag10"
 	      SourceBlock	      "vipstatistics/Blob Analysis"
 	      SourceType	      "Blob Analysis"
 	      area		      on
@@ -3134,11 +3132,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -3357,11 +3350,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -3577,11 +3565,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -4195,7 +4178,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -4209,9 +4192,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -4604,7 +4587,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -4618,9 +4601,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -5323,7 +5306,7 @@ Model {
 	      Position		      [415, 124, 545, 196]
 	      LibraryVersion	      "1.580"
 	      DialogController	      "vipDDGCreate"
-	      DialogControllerArgs    "DataTag12"
+	      DialogControllerArgs    "DataTag11"
 	      SourceBlock	      "vipstatistics/Blob Analysis"
 	      SourceType	      "Blob Analysis"
 	      area		      off
@@ -5425,11 +5408,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -5707,11 +5685,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -6348,11 +6321,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -6590,11 +6558,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -6811,11 +6774,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -7205,11 +7163,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -7425,11 +7378,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -7925,11 +7873,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -8047,11 +7990,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -8169,11 +8107,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -8403,11 +8336,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -8581,11 +8509,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -8799,7 +8722,7 @@ Model {
 		    Position		    [110, 55, 175, 95]
 		    LibraryVersion	    "1.236"
 		    DialogController	    "vipDDGCreate"
-		    DialogControllerArgs    "DataTag13"
+		    DialogControllerArgs    "DataTag12"
 		    SourceBlock		    "vipgeotforms/Resize"
 		    SourceType		    "Resize"
 		    specify		    "Number of output rows and columns"
@@ -8808,9 +8731,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -8824,8 +8747,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -8833,6 +8756,42 @@ Model {
 		    SID			    518
 		    Ports		    [1, 1]
 		    Position		    [115, 120, 170, 160]
+		    LibraryVersion	    "1.236"
+		    DialogController	    "vipDDGCreate"
+		    DialogControllerArgs    "DataTag13"
+		    SourceBlock		    "vipgeotforms/Resize"
+		    SourceType		    "Resize"
+		    specify		    "Number of output rows and columns"
+		    rfactor		    "[200 150]"
+		    outCols		    "25"
+		    outRows		    "25"
+		    outRowsCols		    "[60 80]"
+		    interp_method	    "Bilinear"
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
+		    firstCoeffMode	    "Same word length as input"
+		    firstCoeffWordLength    "32"
+		    firstCoeffFracLength    "31"
+		    outputMode		    "Same as input"
+		    outputWordLength	    "32"
+		    outputFracLength	    "10"
+		    accumMode		    "Same as product output"
+		    accumWordLength	    "32"
+		    accumFracLength	    "10"
+		    prodOutputMode	    "Binary point scaling"
+		    prodOutputWordLength    "32"
+		    prodOutputFracLength    "10"
+		    roundingMode	    "Nearest"
+		    overflowMode	    "on"
+		    LockScale		    "off"
+		    }
+		    Block {
+		    BlockType		    Reference
+		    Name		    "Resize2"
+		    SID			    519
+		    Ports		    [1, 1]
+		    Position		    [120, 200, 170, 240]
 		    LibraryVersion	    "1.236"
 		    DialogController	    "vipDDGCreate"
 		    DialogControllerArgs    "DataTag14"
@@ -8844,9 +8803,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -8860,44 +8819,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
-		    }
-		    Block {
-		    BlockType		    Reference
-		    Name		    "Resize2"
-		    SID			    519
-		    Ports		    [1, 1]
-		    Position		    [120, 200, 170, 240]
-		    LibraryVersion	    "1.236"
-		    DialogController	    "vipDDGCreate"
-		    DialogControllerArgs    "DataTag15"
-		    SourceBlock		    "vipgeotforms/Resize"
-		    SourceType		    "Resize"
-		    specify		    "Number of output rows and columns"
-		    rfactor		    "[200 150]"
-		    outCols		    "25"
-		    outRows		    "25"
-		    outRowsCols		    "[60 80]"
-		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
-		    firstCoeffMode	    "Same word length as input"
-		    firstCoeffWordLength    "32"
-		    firstCoeffFracLength    "31"
-		    outputMode		    "Same as input"
-		    outputWordLength	    "32"
-		    outputFracLength	    "10"
-		    accumMode		    "Same as product output"
-		    accumWordLength	    "32"
-		    accumFracLength	    "10"
-		    prodOutputMode	    "Binary point scaling"
-		    prodOutputWordLength    "32"
-		    prodOutputFracLength    "10"
-		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -9357,7 +9280,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -9371,9 +9294,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -10077,7 +10000,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -10091,9 +10014,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  off
+		  DoSatur		  "off"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -10502,11 +10425,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -10683,11 +10601,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -10970,11 +10883,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -11235,11 +11143,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -11458,7 +11361,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -11472,9 +11375,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -11749,11 +11652,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -11927,12 +11825,12 @@ Model {
 		  Position		  [135, 26, 240, 104]
 		  LibraryVersion	  "1.271"
 		  DialogController	  "vipDDGCreate"
-		  DialogControllerArgs	  "DataTag16"
+		  DialogControllerArgs	  "DataTag15"
 		  SourceBlock		  "viptransforms/Hough Transform"
 		  SourceType		  "Hough Transform"
 		  theta_res		  "pi/180"
 		  rho_res		  "1"
-		  out_theta_rho		  on
+		  out_theta_rho		  "on"
 		  outdtmode		  "double"
 		  firstCoeffMode	  "Binary point scaling"
 		  firstCoeffWordLength	  "16"
@@ -11953,8 +11851,8 @@ Model {
 		  memoryWordLength	  "32"
 		  memoryFracLength	  "16"
 		  roundingMode		  "Nearest"
-		  overflowMode		  on
-		  LockScale		  off
+		  overflowMode		  "on"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -11969,11 +11867,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -12332,7 +12225,7 @@ Model {
 	      Position		      [335, 79, 465, 166]
 	      LibraryVersion	      "1.580"
 	      DialogController	      "vipDDGCreate"
-	      DialogControllerArgs    "DataTag17"
+	      DialogControllerArgs    "DataTag16"
 	      SourceBlock	      "vipstatistics/Blob Analysis"
 	      SourceType	      "Blob Analysis"
 	      area		      on
@@ -12394,11 +12287,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -12564,11 +12452,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -12870,7 +12753,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -12884,9 +12767,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -13203,7 +13086,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -13217,9 +13100,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -13707,11 +13590,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -14149,7 +14027,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14163,9 +14041,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -14869,7 +14747,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14883,9 +14761,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  off
+		  DoSatur		  "off"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -15388,33 +15266,33 @@ Model {
 		  Position		  [450, 109, 625, 181]
 		  LibraryVersion	  "1.580"
 		  DialogController	  "vipDDGCreate"
-		  DialogControllerArgs	  "DataTag18"
+		  DialogControllerArgs	  "DataTag17"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  off
-		  centroid		  off
-		  bBox			  off
-		  majorAxis		  off
-		  minorAxis		  off
-		  angle			  off
-		  eccentricity		  on
-		  equivDiameterSq	  off
-		  extent		  off
-		  perimeter		  off
+		  area			  "off"
+		  centroid		  "off"
+		  bBox			  "off"
+		  majorAxis		  "off"
+		  minorAxis		  "off"
+		  angle			  "off"
+		  eccentricity		  "on"
+		  equivDiameterSq	  "off"
+		  extent		  "off"
+		  perimeter		  "off"
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  on
-		  isCount		  off
-		  useMinArea		  on
+		  warnIfNumBlobsExceeded  "on"
+		  isCount		  "off"
+		  useMinArea		  "on"
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  on
+		  useMaxArea		  "on"
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  off
+		  excludeBorderBlob	  "off"
 		  outDT			  "single"
-		  isOutVarDim		  off
-		  isFill		  on
+		  isOutVarDim		  "off"
+		  isFill		  "on"
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  off
+		  isLabel		  "off"
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -15434,8 +15312,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  off
-		  LockScale		  off
+		  overflowMode		  "off"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -15450,11 +15328,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -15594,7 +15467,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -15603,7 +15476,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -15616,7 +15489,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -15625,7 +15498,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Logic
@@ -15667,7 +15540,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -15676,7 +15549,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Outport
@@ -16795,260 +16668,6 @@ Model {
       }
     }
     Block {
-      BlockType		      SubSystem
-      Name		      "Subsystem"
-      SID		      54
-      Ports		      [3, 3]
-      Position		      [230, 34, 270, 96]
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
-      RequestExecContextInheritance off
-      MaskHideContents	      off
-      System {
-	Name			"Subsystem"
-	Location		[241, 104, 1103, 506]
-	Open			off
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	Block {
-	  BlockType		  Inport
-	  Name			  "R"
-	  SID			  55
-	  Position		  [25, 28, 55, 42]
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "G"
-	  SID			  57
-	  Position		  [25, 103, 55, 117]
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "B"
-	  SID			  59
-	  Position		  [25, 143, 55, 157]
-	  Port			  "3"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Color Space\n Conversion"
-	  SID			  52
-	  Ports			  [3, 3]
-	  Position		  [390, 61, 490, 119]
-	  LibraryVersion	  "1.328"
-	  SourceBlock		  "vipconversions/Color Space\n Conversion"
-	  SourceType		  "Color Space Conversion"
-	  conversion		  "Obsolete"
-	  conversionActive	  "R'G'B' to Y'CbCr"
-	  wp_str		  "D65"
-	  rec			  "Rec. 601 (SDTV)"
-	  sys			  "1125/60/2:1"
-	  imagePorts		  "Separate color signals"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Color Space\n Conversion1"
-	  SID			  64
-	  Ports			  [3, 3]
-	  Position		  [190, 41, 290, 99]
-	  LibraryVersion	  "1.328"
-	  SourceBlock		  "vipconversions/Color Space\n Conversion"
-	  SourceType		  "Color Space Conversion"
-	  conversion		  "Obsolete"
-	  conversionActive	  "Y'CbCr to R'G'B'"
-	  wp_str		  "D65"
-	  rec			  "Rec. 601 (SDTV)"
-	  sys			  "1125/60/2:1"
-	  imagePorts		  "Separate color signals"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Resize"
-	  SID			  53
-	  Ports			  [1, 1]
-	  Position		  [540, 120, 605, 160]
-	  LibraryVersion	  "1.236"
-	  DialogController	  "vipDDGCreate"
-	  DialogControllerArgs	  "DataTag19"
-	  SourceBlock		  "vipgeotforms/Resize"
-	  SourceType		  "Resize"
-	  specify		  "Number of output rows and columns"
-	  rfactor		  "[200 150]"
-	  outCols		  "25"
-	  outRows		  "25"
-	  outRowsCols		  "[240 320]"
-	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
-	  firstCoeffMode	  "Same word length as input"
-	  firstCoeffWordLength	  "32"
-	  firstCoeffFracLength	  "31"
-	  outputMode		  "Same as input"
-	  outputWordLength	  "32"
-	  outputFracLength	  "10"
-	  accumMode		  "Same as product output"
-	  accumWordLength	  "32"
-	  accumFracLength	  "10"
-	  prodOutputMode	  "Binary point scaling"
-	  prodOutputWordLength	  "32"
-	  prodOutputFracLength	  "10"
-	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "Resize1"
-	  SID			  63
-	  Ports			  [1, 1]
-	  Position		  [540, 165, 605, 205]
-	  LibraryVersion	  "1.236"
-	  DialogController	  "vipDDGCreate"
-	  DialogControllerArgs	  "DataTag20"
-	  SourceBlock		  "vipgeotforms/Resize"
-	  SourceType		  "Resize"
-	  specify		  "Number of output rows and columns"
-	  rfactor		  "[200 150]"
-	  outCols		  "25"
-	  outRows		  "25"
-	  outRowsCols		  "[240 320]"
-	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
-	  firstCoeffMode	  "Same word length as input"
-	  firstCoeffWordLength	  "32"
-	  firstCoeffFracLength	  "31"
-	  outputMode		  "Same as input"
-	  outputWordLength	  "32"
-	  outputFracLength	  "10"
-	  accumMode		  "Same as product output"
-	  accumWordLength	  "32"
-	  accumFracLength	  "10"
-	  prodOutputMode	  "Binary point scaling"
-	  prodOutputWordLength	  "32"
-	  prodOutputFracLength	  "10"
-	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Y"
-	  SID			  56
-	  Position		  [635, 63, 665, 77]
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Cb"
-	  SID			  58
-	  Position		  [635, 133, 665, 147]
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Cr"
-	  SID			  60
-	  Position		  [635, 178, 665, 192]
-	  Port			  "3"
-	  IconDisplay		  "Port number"
-	}
-	Line {
-	  SrcBlock		  "Color Space\n Conversion"
-	  SrcPort		  1
-	  DstBlock		  "Y"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Color Space\n Conversion"
-	  SrcPort		  2
-	  Points		  [30, 0]
-	  DstBlock		  "Resize"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Color Space\n Conversion"
-	  SrcPort		  3
-	  Points		  [0, 75]
-	  DstBlock		  "Resize1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Resize"
-	  SrcPort		  1
-	  DstBlock		  "Cb"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Resize1"
-	  SrcPort		  1
-	  DstBlock		  "Cr"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "R"
-	  SrcPort		  1
-	  Points		  [115, 0]
-	  DstBlock		  "Color Space\n Conversion1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "G"
-	  SrcPort		  1
-	  Points		  [45, 0; 0, -40]
-	  DstBlock		  "Color Space\n Conversion1"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "B"
-	  SrcPort		  1
-	  Points		  [115, 0]
-	  DstBlock		  "Color Space\n Conversion1"
-	  DstPort		  3
-	}
-	Line {
-	  SrcBlock		  "Color Space\n Conversion1"
-	  SrcPort		  1
-	  Points		  [55, 0; 0, 20]
-	  DstBlock		  "Color Space\n Conversion"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Color Space\n Conversion1"
-	  SrcPort		  2
-	  Points		  [35, 0; 0, 20]
-	  DstBlock		  "Color Space\n Conversion"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Color Space\n Conversion1"
-	  SrcPort		  3
-	  Points		  [15, 0; 0, 20]
-	  DstBlock		  "Color Space\n Conversion"
-	  DstPort		  3
-	}
-      }
-    }
-    Block {
       BlockType		      Outport
       Name		      "CameraPosition"
       SID		      38
@@ -17302,21 +16921,21 @@ Model {
       DstPort		      3
     }
     Line {
-      SrcBlock		      "Subsystem"
+      SrcBlock		      "Read Binary File"
       SrcPort		      1
       Points		      [105, 0; 0, 40]
       DstBlock		      "Environment\nController"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Subsystem"
+      SrcBlock		      "Read Binary File"
       SrcPort		      2
       Points		      [150, 0; 0, 95]
       DstBlock		      "Environment\nController1"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Subsystem"
+      SrcBlock		      "Read Binary File"
       SrcPort		      3
       Points		      [125, 0; 0, 150]
       DstBlock		      "Environment\nController2"
@@ -17395,45 +17014,10 @@ Model {
 	DstPort			1
       }
     }
-    Line {
-      SrcBlock		      "From Video Device"
-      SrcPort		      1
-      DstBlock		      "Subsystem"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "From Video Device"
-      SrcPort		      2
-      Points		      [70, 0]
-      DstBlock		      "Subsystem"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "From Video Device"
-      SrcPort		      3
-      Points		      [70, 0]
-      DstBlock		      "Subsystem"
-      DstPort		      3
-    }
   }
 }
 MatData {
-  NumRecords		  21
-  DataRecord {
-    Tag			    DataTag20
-    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
-    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
-  }
-  DataRecord {
-    Tag			    DataTag19
-    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
-    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
-  }
-  DataRecord {
-    Tag			    DataTag18
-    Data		    "  %)30     .    8     8    (     0         %    \"     $    !     0         .    ,     8    (    !     "
-    "     %    \"     $    $     0         0  0 0FQO8@"
-  }
+  NumRecords		  18
   DataRecord {
     Tag			    DataTag17
     Data		    "  %)30     .    8     8    (     0         %    \"     $    !     0         .    ,     8    (    !     "
@@ -17441,13 +17025,13 @@ MatData {
   }
   DataRecord {
     Tag			    DataTag16
-    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
-    "     %    \"     $    %     0         0    !0   $A/54=(    "
+    Data		    "  %)30     .    8     8    (     0         %    \"     $    !     0         .    ,     8    (    !     "
+    "     %    \"     $    $     0         0  0 0FQO8@"
   }
   DataRecord {
     Tag			    DataTag15
     Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
-    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
+    "     %    \"     $    %     0         0    !0   $A/54=(    "
   }
   DataRecord {
     Tag			    DataTag14
@@ -17461,8 +17045,8 @@ MatData {
   }
   DataRecord {
     Tag			    DataTag12
-    Data		    "  %)30     .    8     8    (     0         %    \"     $    !     0         .    ,     8    (    !     "
-    "     %    \"     $    $     0         0  0 0FQO8@"
+    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
+    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
   }
   DataRecord {
     Tag			    DataTag11
@@ -17471,10 +17055,21 @@ MatData {
   }
   DataRecord {
     Tag			    DataTag10
-    Data		    "  %)30     .    ,     8    (    !          %    \"                0         0          "
+    Data		    "  %)30     .    8     8    (     0         %    \"     $    !     0         .    ,     8    (    !     "
+    "     %    \"     $    $     0         0  0 0FQO8@"
   }
   DataRecord {
     Tag			    DataTag9
+    Data		    "  %)30     .    N     8    (     0         %    \"     $    \"     0         .    0     8    (    !    "
+    "      %    \"     $    .     0         0    #@   %)E861\":6YA<GE&:6QE   .    0     8    (    !          %    \"   "
+    "  $    )     0         0    \"0   '9I<&1I86QO9P         "
+  }
+  DataRecord {
+    Tag			    DataTag8
+    Data		    "  %)30     .    ,     8    (    !          %    \"                0         0          "
+  }
+  DataRecord {
+    Tag			    DataTag7
     Data		    "  %)30     .    4 $   8    (     @         %    \"     $    !     0         %  0 #0    $    :    4V-O<&"
     "5#9F=.86UE %-C;W!E                   .    4     8    (    !          %    \"     $    =     0         0    '0   '9"
     "I<'-C;W!E<RY6:61E;U9I97=E<E-C;W!E0V9G    #@   )@    &    \"    !$          0         !  0 34-/4P$    :    <V-O<&5E"
@@ -17727,7 +17322,7 @@ MatData {
     "  (         !0    @    !     0    $         !0 $  H    !    *    %-C;W!E0V9G  !\";&]C:TYA;64 5FES:6)L90   %9E<G-I;"
     "VX    .    2     8    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    \"     @  "
     "  X   !     !@    @    $          4    (     0    X    !         !     .    +U)'0F]U=\"!6:65W97(   X    P    !@   "
-    " @    $          4    (     0    (    !         !   @!O;@  #@   #@    &    \"     8         !0    @    !     0    "
+    " @    $          4    (     0    ,    !         !   P!O9F8 #@   #@    &    \"     8         !0    @    !     0    "
     "$         \"0    @           #P/PX   !(!0  !@    @    !          4    (    !     $    !          X    X    !@    @"
     "    \"          4    (     0         !          4 !  !     0         .    , $   8    (     @         %    \"     $"
     "    !     0         %  0 \"P    $    L    3F%M90        !!<F=S         %!A<G-E9$%R9W, 07)G3F%M97,         #@   #  "
@@ -17749,11 +17344,11 @@ MatData {
     "H86YD;&4    .          X         "
   }
   DataRecord {
-    Tag			    DataTag8
+    Tag			    DataTag6
     Data		    "  %)30     .    ,     8    (    !          %    \"                0         0          "
   }
   DataRecord {
-    Tag			    DataTag7
+    Tag			    DataTag5
     Data		    "  %)30     .    4 $   8    (     @         %    \"     $    !     0         %  0 #0    $    :    4V-O<&"
     "5#9F=.86UE %-C;W!E                   .    4     8    (    !          %    \"     $    =     0         0    '0   '9"
     "I<'-C;W!E<RY6:61E;U9I97=E<E-C;W!E0V9G    #@   )@    &    \"    !$          0         !  0 34-/4P$    :    <V-O<&5E"
@@ -18028,45 +17623,19 @@ MatData {
     "-/4P   &AA;F1L90    X         #@         "
   }
   DataRecord {
-    Tag			    DataTag6
-    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
-    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
-  }
-  DataRecord {
-    Tag			    DataTag5
-    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
-    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
-  }
-  DataRecord {
     Tag			    DataTag4
     Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
     "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
   }
   DataRecord {
     Tag			    DataTag3
-    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
-    "     %    \"     $    /     0         0    #P   &9R;VUV:61E;V1E=FEC90 "
+    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
+    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
   }
   DataRecord {
     Tag			    DataTag2
-    Data		    "  %)30     .    R 4   8    (     @         %    \"     $    !     0         %  0 %@    $   !V 0  0F%C:V"
-    "QI9VAT0V]M<&5N<V%T:6]N $)R:6=H=&YE<W,               !#;VYT<F%S=                   1G)A;652871E                 $=A"
-    ":6X                       !'86UM80                      2&]R:7IO;G1A;$9L:7           $AU90                        "
-    "!086X                         4V%T=7)A=&EO;@               %-H87)P;F5S<P                !486<                     "
-    "    5&EL=                        %9E<G1I8V%L1FQI<             !7:&ET94)A;&%N8V4             5VAI=&5\"86QA;F-E36]D9"
-    "0       %IO;VT                           X    P    !@    @    $          4    (     0    (    !         !   @!O;@ "
-    " #@   #@    &    \"     8         !0    @    !     0    $         \"0    @               X    X    !@    @    &   "
-    "       4    (     0    $    !          D    (               .    .     8    (    !          %    \"     $    '    "
-    " 0         0    !P   #,P+C P,#  #@   #@    &    \"     8         !0    @    !     0    $         \"0    @         "
-    "      X    X    !@    @    &          4    (     0    $    !          D    (            64 .    ,     8    (    ! "
-    "         %    \"     $    #     0         0  , ;V9F  X    X    !@    @    &          4    (     0    $    !       "
-    "   D    (               .    .     8    (    !@         %    \"     $    !     0         )    \"               #@ "
-    "  #@    &    \"     8         !0    @    !     0    $         \"0    @           !00 X    X    !@    @    &       "
-    "   4    (     0    $    !          D    (             $ .    ,     8    (    !          %    \"                0  "
-    "       0          X    X    !@    @    &          4    (     0    $    !          D    (               .    ,     "
-    "8    (    !          %    \"     $    #     0         0  , ;V9F  X    X    !@    @    &          4    (     0    $"
-    "    !          D    (          #XL4 .    ,     8    (    !          %    \"     $    $     0         0  0 875T;PX "
-    "   X    !@    @    &          4    (     0    $    !          D    (               "
+    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
+    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
   }
   DataRecord {
     Tag			    DataTag1
@@ -18362,15 +17931,13 @@ Stateflow {
     created		    "23-Aug-2009 14:16:32"
     isLibrary		    0
     firstTarget		    577
-    debug {
-    }
     sfVersion		    75014000
   }
   chart {
     id			    2
     name		    "StateFlow Functions"
-    windowPosition	    [0 30 1024.5 489]
-    viewLimits		    [-18.75 1207.5 -17.11 549.14]
+    windowPosition	    [18.75 30 1021.5 489]
+    viewLimits		    [-18.75 1203.75 -17.11 549.14]
     zoomFactor		    1.25
     screen		    [1 1 1366 768 1.333333333333333]
     treeNode		    [0 4 0 0]
@@ -19695,12 +19262,10 @@ Stateflow {
     midPoint		    [238.6564 98.3488]
     chart		    2
     linkNode		    [55 69 116]
-    dataLimits		    [192.547 289.09 95.951 100.751]
+    dataLimits		    [192.547 289.09 95.955 100.755]
     stampAngle		    NaN
     subviewer		    55
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1292
   }
@@ -19745,8 +19310,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    61
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1314
   }
@@ -19771,15 +19334,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    61
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1315
   }
   transition {
     id			    74
     labelString		    "[DesiredState ~= 3 && DesiredState ~= 0]"
-    labelPosition	    [343.732 411.006 214.546 17.139]
+    labelPosition	    [343.732 411.006 232.388 16.842]
     fontSize		    12
     src {
       id		      43
@@ -19803,7 +19364,7 @@ Stateflow {
   transition {
     id			    75
     labelString		    "[DesiredState == 3]"
-    labelPosition	    [464.211 395.557 100.837 17.139]
+    labelPosition	    [464.211 395.557 108.697 16.842]
     fontSize		    12
     src {
       id		      44
@@ -19827,7 +19388,7 @@ Stateflow {
   transition {
     id			    76
     labelString		    "[DesiredState ~= 2 && DesiredState ~= 0]"
-    labelPosition	    [302.219 274.363 214.546 17.139]
+    labelPosition	    [302.219 274.363 232.388 16.842]
     fontSize		    12
     src {
       id		      41
@@ -19851,7 +19412,7 @@ Stateflow {
   transition {
     id			    77
     labelString		    "[DesiredState == 2]"
-    labelPosition	    [232.046 244.07 100.837 17.139]
+    labelPosition	    [232.046 244.07 108.697 16.842]
     fontSize		    12
     src {
       id		      44
@@ -19875,7 +19436,7 @@ Stateflow {
   transition {
     id			    78
     labelString		    "[DesiredState ~= 5 && DesiredState ~= 0]"
-    labelPosition	    [611.353 411.519 214.546 17.139]
+    labelPosition	    [611.353 411.519 232.388 16.842]
     fontSize		    12
     src {
       id		      48
@@ -19899,7 +19460,7 @@ Stateflow {
   transition {
     id			    79
     labelString		    "[DesiredState == 5]"
-    labelPosition	    [750.585 369.794 100.837 17.139]
+    labelPosition	    [750.585 369.794 108.697 16.842]
     fontSize		    12
     src {
       id		      44
@@ -19923,7 +19484,7 @@ Stateflow {
   transition {
     id			    80
     labelString		    "[Done ~= 0 && DesiredState == 0]"
-    labelPosition	    [453.159 81.668 174.855 17.139]
+    labelPosition	    [453.159 81.668 190.22 16.842]
     fontSize		    12
     src {
       id		      43
@@ -19947,7 +19508,7 @@ Stateflow {
   transition {
     id			    81
     labelString		    "[Done ~= 0 && DesiredState == 0]"
-    labelPosition	    [574.542 102.26 174.855 17.139]
+    labelPosition	    [574.542 102.26 190.22 16.842]
     fontSize		    12
     src {
       id		      40
@@ -19971,7 +19532,7 @@ Stateflow {
   transition {
     id			    82
     labelString		    "[Done ~= 0 && DesiredState == 0]"
-    labelPosition	    [850.296 82.676 174.855 17.139]
+    labelPosition	    [850.296 82.676 190.22 16.842]
     fontSize		    12
     src {
       id		      48
@@ -19995,7 +19556,7 @@ Stateflow {
   transition {
     id			    83
     labelString		    "[DesiredHeadingCount >= 3 && DesiredState == 0]"
-    labelPosition	    [105.873 84.296 259.601 17.139]
+    labelPosition	    [105.873 84.296 279.24 16.842]
     fontSize		    12
     src {
       id		      52
@@ -20019,7 +19580,7 @@ Stateflow {
   transition {
     id			    84
     labelString		    "[Done ~=0 && DesiredState == 0]"
-    labelPosition	    [299.341 100.976 171.637 17.139]
+    labelPosition	    [299.341 100.976 186.472 16.842]
     fontSize		    12
     src {
       id		      41
@@ -20042,7 +19603,7 @@ Stateflow {
   }
   transition {
     id			    85
-    labelPosition	    [83.145 92.978 8.582 17.139]
+    labelPosition	    [83.145 92.978 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 95.0138 94.4227 0 0]
@@ -20082,8 +19643,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    4
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    943
   }
@@ -20108,8 +19667,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    4
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    942
   }
@@ -20272,7 +19829,7 @@ Stateflow {
   transition {
     id			    95
     labelString		    "[DesiredState == 4]"
-    labelPosition	    [634.155 328.328 100.837 17.139]
+    labelPosition	    [634.155 328.328 108.697 16.842]
     fontSize		    12
     src {
       id		      44
@@ -20316,7 +19873,7 @@ Stateflow {
   transition {
     id			    97
     labelString		    "[DesiredState ~= 6 && DesiredState ~= 0]"
-    labelPosition	    [932.934 421.021 214.546 17.139]
+    labelPosition	    [932.934 421.021 232.388 16.842]
     fontSize		    12
     src {
       id		      42
@@ -20344,7 +19901,7 @@ Stateflow {
   transition {
     id			    98
     labelString		    "[DesiredState ~= 1 && DesiredState ~= 0]"
-    labelPosition	    [123.041 315.277 214.546 17.139]
+    labelPosition	    [123.041 315.277 232.388 16.842]
     fontSize		    12
     src {
       id		      52
@@ -20368,7 +19925,7 @@ Stateflow {
   transition {
     id			    99
     labelString		    "[DesiredState == 1 || DesiredState == 0]"
-    labelPosition	    [62.751 332.609 203.819 17.139]
+    labelPosition	    [62.751 332.609 221.143 16.842]
     fontSize		    12
     src {
       id		      44
@@ -20392,7 +19949,7 @@ Stateflow {
   transition {
     id			    100
     labelString		    "[DesiredState ~= 4 && DesiredState ~= 0]"
-    labelPosition	    [489.918 291.345 214.546 17.139]
+    labelPosition	    [489.918 291.345 232.388 16.842]
     fontSize		    12
     src {
       id		      40
@@ -20631,8 +20188,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    4
     ssIdNumber		    1274
   }
@@ -20657,8 +20212,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1275
   }
@@ -20731,8 +20284,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1279
   }
@@ -20757,8 +20308,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    7
     ssIdNumber		    1280
   }
@@ -20806,19 +20355,17 @@ Stateflow {
     midPoint		    [522.3621 109.4525]
     chart		    2
     linkNode		    [55 70 0]
-    dataLimits		    [425.098 619.688 107.052 111.853]
+    dataLimits		    [425.098 619.688 107.056 111.856]
     stampAngle		    NaN
     subviewer		    55
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1455
   }
   transition {
     id			    117
     labelString		    "[TrackCount > 2]"
-    labelPosition	    [502.375 142.125 86.958 14.971]
+    labelPosition	    [502.375 142.125 92.768 16.842]
     fontSize		    12
     src {
       id		      66
@@ -20841,7 +20388,7 @@ Stateflow {
   }
   transition {
     id			    118
-    labelPosition	    [232.9 17.766 8.246 14.971]
+    labelPosition	    [232.9 17.766 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 228.5 9.375 0 0]
