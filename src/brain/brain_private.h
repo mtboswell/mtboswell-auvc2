@@ -3,14 +3,14 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.384
+ * Model version                        : 1.501
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Thu Jun 24 11:51:28 2010
+ * Real-Time Workshop file generated on : Thu Jun 24 20:43:22 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Thu Jun 24 11:51:28 2010
+ * C/C++ source code generated on       : Thu Jun 24 20:43:23 2010
  *
  * Target selection: ert.tlc
- * Embedded hardware selection: Generic->32-bit x86 compatible
+ * Embedded hardware selection: AMD->K5/K6/Athlon
  * Code generation objectives: Unspecified
  * Validation result: Not run
  */
@@ -90,16 +90,18 @@ extern void StateFlowFunctionsBuoysMainta_h(real_T rtu_DesiredHeading1, real_T
 extern void StateFlowFunctionsFollowOnePath(const real_T rtu_H1[19200], const
   real_T rtu_S1[19200], const real_T rtu_V1[19200],
   rtB_StateFlowFunctionsFollowOne *localB);
-extern void brain_IsLinePresent(const real_T rtu_HoughTable[51660], const real_T
-  rtu_ThetaValues[180], const real_T rtu_RhoValues[287], rtB_IsLinePresent_brain
-  *localB);
-extern void StateFlowFunctionsFollowOnePa_h(const boolean_T rtu_BWleft1[9600],
-  const boolean_T rtu_BWright1[9600], real_T rtu_CurrentHeading1,
-  rtB_StateFlowFunctionsFollowO_o *localB);
-extern void StateFlowFunctionsBuoysApproa_m(real_T rtu_B_Hue, real_T rtu_B_Sat,
-  real_T rtu_B_Value, const real_T rtu_LabMatrix[19200], const real_T
-  rtu_Ref_Colors[150], real_T rtu_Num_Colors, rtB_StateFlowFunctionsBuoysAp_m
-  *localB, rtDW_StateFlowFunctionsBuoysA_e *localDW);
+extern void StateFlowFunctionsFollowOnePa_j(const boolean_T rtu_BW[19200],
+  rtB_StateFlowFunctionsFollowO_c *localB);
+extern void StateFlowFunctionsFollow_h_Init(RT_MODEL_brain *const brain_M,
+  rtDW_StateFlowFunctionsFollow_g *localDW);
+extern void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200],
+  RT_MODEL_brain *const brain_M, rtB_StateFlowFunctionsFollowO_k *localB,
+  rtDW_StateFlowFunctionsFollow_g *localDW);
+extern void StateFlowFunctionsFollow_j_Init(RT_MODEL_brain *const brain_M,
+  rtDW_StateFlowFunctionsFollow_b *localDW);
+extern void StateFlowFunctionsFollowOnePa_k(real_T rtu_HeadingAlong, real_T
+  rtu_Forward1, RT_MODEL_brain *const brain_M, rtB_StateFlowFunctionsFollowO_p
+  *localB, rtDW_StateFlowFunctionsFollow_b *localDW);
 
 #endif                                 /* RTW_HEADER_brain_private_h_ */
 

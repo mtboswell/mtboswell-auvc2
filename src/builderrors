@@ -1,54 +1,8 @@
-[?1h=
-                                       < M A T L A B (R) >
-                             Copyright 1984-2010 The MathWorks, Inc.
-                           Version 7.10.0.499 (R2010a) 32-bit (glnx86)
-                                         February 5, 2010
-
- 
-  To get started, type one of these: helpwin, helpdesk, or demo.
-  For product information, visit www.mathworks.com.
- 
->> {Warning: This feature is not supported because Java is not currently available.} 
-
-### Starting Real-Time Workshop build procedure for model: brain
-{Warning: Reducing expression 'Max_Num_Blobs_Buoy' in parameter field 'maxBlobs' of 'brain/StateFlow
-Functions/StateFlowFunctions.Buoys.ApproachBuoys.Buoy/Buoy Blob Analysis' to its numerical equivalent
-because this field is marked not tunable. This expression resolves to tunable variables
-(Max_Num_Blobs_Buoy (base workspace)). You will be unable to tune this expression during model
-execution} 
-{Warning: Reducing expression 'Max_Num_Blobs_Buoy' in parameter field 'maxBlobs' of 'brain/StateFlow
-Functions/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.SecondBuoy/Buoy Blob Analysis' to its
-numerical equivalent because this field is marked not tunable. This expression resolves to tunable
-variables (Max_Num_Blobs_Buoy (base workspace)). You will be unable to tune this expression during
-model execution} 
-{Warning: Reducing expression 'Max_Num_Blobs_Buoy' in parameter field 'maxBlobs' of 'brain/StateFlow
-Functions/StateFlowFunctions.FollowOnePath.OnePath.CenterOver.CenterOver/Buoy Blob Analysis' to its
-numerical equivalent because this field is marked not tunable. This expression resolves to tunable
-variables (Max_Num_Blobs_Buoy (base workspace)). You will be unable to tune this expression during
-model execution} 
-[?1h=[?1h=Making simulation target "brain_sfun", ... 
-
-
-/home/micah/matlab/bin/mex -c -O  -DMATLAB_MEX_FILE -I/home/micah/matlab/toolbox/stateflow/stateflow/../../../simulink/include -I/home/micah/matlab/toolbox/stateflow/stateflow/../../../extern/include -I/home/micah/matlab/stateflow/c/mex/include -I/home/micah/matlab/stateflow/c/debugger/include   brain_sfun.cpp
-
-Warning: You are using gcc version "4.5.0".  The version
-         currently supported with MEX is "4.2.3".
-         For a list of currently supported compilers see: 
-         http://www.mathworks.com/support/compilers/current_release/
-
-/usr/lib/gcc/i686-pc-linux-gnu/4.5.0/cc1plus: /home/micah/matlab/sys/os/glnx86/libstdc++.so.6: version `GLIBCXX_3.4.11' not found (required by /usr/lib/libppl_c.so.2)
-/usr/lib/gcc/i686-pc-linux-gnu/4.5.0/cc1plus: /home/micah/matlab/sys/os/glnx86/libstdc++.so.6: version `GLIBCXX_3.4.11' not found (required by /usr/lib/libppl.so.7)
-/usr/lib/gcc/i686-pc-linux-gnu/4.5.0/cc1plus: /home/micah/matlab/sys/os/glnx86/libstdc++.so.6: version `GLIBCXX_3.4.11' not found (required by /usr/lib/libgmpxx.so.4)
-
-    mex: compile of ' "brain_sfun.cpp"' failed.
-
-gmake: *** [brain_sfun.o] Error 1
-
-
-
-### Real-Time Workshop build procedure for model: 'brain' aborted due to an error.
-
->> 
->> 
->> 
->> 
+auv/camread.cpp:53: warning: unused parameter ‘in’
+brain/brain.cpp:2088: warning: unused parameter ‘brain_M’
+brain/brain.cpp: In function ‘void brain_c5_brain()’:
+brain/brain.cpp:4606: warning: array subscript is above array bounds
+brain/brain.cpp:4616: warning: array subscript is above array bounds
+brain/brain.cpp:4626: warning: array subscript is above array bounds
+brain/brain.cpp: In function ‘void brain_StateFlowFunctions()’:
+brain/brain.cpp:4282: warning: array subscript is above array bounds
