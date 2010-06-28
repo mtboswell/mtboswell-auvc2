@@ -134,7 +134,7 @@ Dashboard::~Dashboard(){
 
 void Dashboard::reconnectAction(){
 	emit sendSID("Connect.Data", "Broadcast");
-	emit sendSID("Connect.Video", "This");
+	emit sendSID("Connect.Video", "Broadcast");
 	emit sendSID("GetParams", "all");
 #ifndef _WIN32
 	emit sendSID("Dashboard.Version", getVersion());
