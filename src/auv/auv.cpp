@@ -129,7 +129,10 @@ void AUV::readSensors(){
 		}else if (data.status == READY && !getGo()){
 			emit status("Diver has control.");
 			data.status = PAUSED;
-		}
+		}/*else if (data.status == READY && getGo()){
+			emit status("Diver has lost control.");
+			data.status = READY;
+		}*/
 	}
 	if(config["Debug"]=="true") qDebug() << "Sensor Reading Time: " << QString::number(t.elapsed()) << "ms";
 	dataMutex->unlock();
