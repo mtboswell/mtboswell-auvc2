@@ -261,19 +261,17 @@ void Server::sendVideo(){
 	if(streamRGBSecondary){
 		// Get processed video
 		// copy frame from signal to pixmap
-/*
 		x = 159;
 		y = 120;
 		for(int i = (19200)-1; i >= 0; --i){
 			y--;
-			videoPixel = (0xFF000000) | ((((int)(brain_Y.RGBout[i]*255)) << 16)&0x00FF0000) | ((((int)(brain_Y.RGBout[(x*y)+i]*255)) << 8)&0x0000FF00) | (((int)(brain_Y.RGBout[(x*y*2)+i]*255))&0x000000FF);
+			videoPixel = (0xFF000000) | ((((int)(brain_Y.RGBout[i]*255)) << 16)&0x00FF0000) | ((((int)(brain_Y.RGBout[(120*160)+i]*255)) << 8)&0x0000FF00) | (((int)(brain_Y.RGBout[(120*160*2)+i]*255))&0x000000FF);
 			rgbFrame->setPixel(x, y, videoPixel);
 			if(y <= 0){
 				x--;
 				y = 120;
 			}
 		}
-*/
 
 	}else{
 		/* Get bitmap out of correct brain signal */
