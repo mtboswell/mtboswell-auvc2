@@ -27,8 +27,8 @@ Server::Server(){
         videoFrame = new QImage(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
         videoOut = new QImageWriter(videoSocket, "jpeg");
 	videoOut->setQuality(70);
-        recVideoOut = new QImageWriter(videoFile, "jpeg");
-	recVideoOut->setQuality(70);
+        //recVideoOut = new QImageWriter(videoFile, "jpeg");
+	//recVideoOut->setQuality(70);
 
         bwFrame = new QImage(160,120,QImage::Format_Mono);
         bwFrame->setColor(0, 0xFF000000); 
@@ -76,14 +76,16 @@ void Server::handleCmd(QString id, QString value, QHostAddress fromAddr){
 					}
 				}
 				// fallback to default address (this doesn't really help, we should output an error, but if we aren't connected, where will the error go?)
-				if(value == "") value = "192.168.3.255";
+				if(value == "" || value == "255.255.255.255") value = "192.168.3.255";
 			}else qDebug() << "Invalid IP address alias.";
 		}
 		if(name == "Data") {
 			// set remoteHost
 			//qDebug() << "Attempting to connect to:" << value;
-			if(remoteHost.setAddress(value)) qDebug() << "Sending all data to:" << value;
-			else qDebug() << "Failed to set client address:" << value;
+			if(remoteHost.setAddress(value)){
+				sidsocket->setRemoteAddr(value);
+				qDebug() << "Sending all data to:" << value;
+			}else qDebug() << "Failed to set client address:" << value;
 		}else if(name == "Video"){
 			videoSocket->disconnectFromHost();
 			videoSocket->connectToHost(value, config["Client.Port.Video1"].toInt(), QIODevice::WriteOnly);
@@ -297,7 +299,7 @@ void Server::sendVideo(){
 	}else{
 		bitmapOut->write(*bwFrame);
 	}
-        if(recordVideo) recVideoOut->write(*videoFrame);
+        //if(recordVideo) recVideoOut->write(*videoFrame);
 	if(config["Debug"]=="true") qDebug() << "Sending Video Frame";
 }
 
