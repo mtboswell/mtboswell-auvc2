@@ -13,6 +13,8 @@ SIDSocket::SIDSocket(quint16 bindPort, quint16 remotePort, bool server,
 	QObject::connect(&m_Sock, SIGNAL(readyRead()),
 			this, SLOT(handlePendingDatagrams()));
 	m_AckTimeout = 2000;
+
+	if(config.isEmpty()) loadConfigFile(config);
 }
 
 SIDSocket::~SIDSocket() {
@@ -57,7 +59,7 @@ void SIDSocket::sendDatagram(QByteArray out, bool force) {
 		return;
 	}
 	m_Sock.writeDatagram(out, m_remoteAddr, m_remotePort);
-	//if(config["Debug"] == "true") qDebug() << "Sent" << out << "to " + m_remoteAddr.toString() + ":" + QString::number(m_remotePort);
+	if(config["Debug"] == "true") qDebug() << "Sent" << out << "to " + m_remoteAddr.toString() + ":" + QString::number(m_remotePort);
 
 	if(!m_Server){
 		m_Acks.insert(out, QTime::currentTime());
