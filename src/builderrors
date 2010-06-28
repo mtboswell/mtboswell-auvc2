@@ -1,0 +1,8 @@
+auv/camread.cpp:53: warning: unused parameter ‘in’
+brain/brain.cpp:2088: warning: unused parameter ‘brain_M’
+brain/brain.cpp: In function ‘void brain_c5_brain()’:
+brain/brain.cpp:4606: warning: array subscript is above array bounds
+brain/brain.cpp:4616: warning: array subscript is above array bounds
+brain/brain.cpp:4626: warning: array subscript is above array bounds
+brain/brain.cpp: In function ‘void brain_StateFlowFunctions()’:
+brain/brain.cpp:4282: warning: array subscript is above array bounds
