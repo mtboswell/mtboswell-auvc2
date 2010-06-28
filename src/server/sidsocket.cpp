@@ -4,7 +4,7 @@
 SIDSocket::SIDSocket(quint16 bindPort, quint16 remotePort, bool server,
 		     QHostAddress remoteAddr, 
 		     QHostAddress bindAddr){
-	if(!m_Sock.bind(bindAddr, bindPort)) qDebug() << "Failed to bind to port" << bindPort;
+	if(!m_Sock.bind(bindAddr, bindPort, QUdpSocket::ShareAddress)) qDebug() << "Failed to bind to port" << bindPort;
 	m_remoteAddr = remoteAddr;
 	m_remotePort = remotePort;
 	m_Server = server;
@@ -109,7 +109,8 @@ void SIDSocket::handlePendingDatagrams() {
 			m_Acks.remove(datagram); // and remove from unanswered list 
 		}else{
 			// server echos to acknowledge received
-			if(m_Server) m_Sock.writeDatagram(datagram, sender, senderPort);
+			//if(m_Server) m_Sock.writeDatagram(datagram, sender, senderPort);
+			if(m_Server) m_Sock.writeDatagram(datagram, m_remoteAddr, senderPort);
 
 			// TODO - start in thread
 			processDatagram(datagram, sender, senderPort);
