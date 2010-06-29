@@ -95,7 +95,7 @@ Dashboard::Dashboard(QMainWindow *parent)
 	//bitVideoLabel->setScaledContents(true);
 
 	// init controls
-	RC = desiredSpeed = desiredHeading = desiredDepth = desiredStrafe = 0;
+	RC = desiredSpeed = desiredHeading = desiredDepth = desiredStrafe = desiredVideoStream = 0;
 	desiredCameraX = desiredCameraY = 0;
 	desiredSpeedSlider->setTracking(false);
 	desiredDepthSlider->setTracking(false);
@@ -339,6 +339,12 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 		}else if(name == "DesiredState") {
 			stateComboBox->setCurrentIndex(value.toInt());
 		}else badCmd = true;
+	} else if (type == "Video" && name == "Stream"){
+		int intValue = value.toInt();
+		if(intValue != desiredVideoStream){
+			desiredVideoStream = intValue;
+			videoStreamComboBox->setCurrentIndex(intValue);
+		}
 	} else if (type == "Parameter") { // parameter values from Brain
 		// these get set once at startup and if changed by another dashboard
 		double paramVal = value.toDouble();
@@ -539,7 +545,10 @@ void Dashboard::on_whiteBalancePushButton_clicked(){
 }
 
 void Dashboard::on_videoStreamComboBox_activated(int index){
-	emit sendSID("Video.Stream", QString::number(index));
+	if(index != desiredVideoStream){
+		desiredVideoStream = index;
+		emit sendSID("Video.Stream", QString::number(index));
+	}
 }
 
 // Depth Calibration
