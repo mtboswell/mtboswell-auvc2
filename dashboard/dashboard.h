@@ -145,6 +145,7 @@ void on_##guiParam##_editingFinished();
 		void on_buoy2HueSpinBox_editingFinished();
 		void on_buoy2SaturationSpinBox_editingFinished();
 		void on_buoy2ValueSpinBox_editingFinished();
+		void on_iterSegmentThreshSpinBox_editingFinished();
 
 	private:
 		SIDSocket* m_DS;

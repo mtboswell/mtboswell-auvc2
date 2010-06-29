@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.501
+ * Model version                        : 1.512
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Thu Jun 24 20:43:22 2010
+ * Real-Time Workshop file generated on : Tue Jun 29 16:38:43 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Thu Jun 24 20:43:23 2010
+ * C/C++ source code generated on       : Tue Jun 29 16:38:44 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -51,42 +51,36 @@
 # endif
 #endif
 
-extern void StateFlowFunctionsBuoysApproach(const real_T rtu_L_B[3], const
-  real_T rtu_M_B[3], const real_T rtu_R_B[3], rtB_StateFlowFunctionsBuoysAppr
-  *localB);
 extern void brain_EmbeddedMATLABFunction1(rtB_EmbeddedMATLABFunction1_bra
   *localB);
-extern void StateFlowFunctionsBuoysA_k_Init(RT_MODEL_brain *const brain_M,
-  rtDW_StateFlowFunctionsBuoysA_a *localDW);
-extern void StateFlowFunctionsBuoysApproa_l(real_T rtu_B_Hue, real_T rtu_B_Sat,
+extern void StateFlowFunctionsBuoysApp_Init(RT_MODEL_brain *const brain_M,
+  rtDW_StateFlowFunctionsBuoysApp *localDW);
+extern void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat,
   real_T rtu_B_Value, const real_T rtu_LabMatrix[19200], const real_T
   rtu_Ref_Colors[150], real_T rtu_Num_Colors, RT_MODEL_brain *const brain_M,
-  rtB_StateFlowFunctionsBuoysAp_p *localB, rtDW_StateFlowFunctionsBuoysA_a
+  rtB_StateFlowFunctionsBuoysAppr *localB, rtDW_StateFlowFunctionsBuoysApp
   *localDW);
-extern void StateFlowFunctionsBuoysShowSegm(const real_T rtu_LabMatrix[19200],
-  const real_T rtu_Ref_Colors[150], rtB_StateFlowFunctionsBuoysShow *localB);
+extern void StateFlowFunctionsBuoysFin_Init(rtDW_StateFlowFunctionsBuoysFin
+  *localDW);
+extern void StateFlowFunctionsBuoysFindBuoy(const real_T rtu_LabMatrix[19200],
+  real_T rtu_num_colors, rtB_StateFlowFunctionsBuoysFind *localB,
+  rtDW_StateFlowFunctionsBuoysFin *localDW);
 extern void brain_LowPassFilter(const real_T rtu_I[19200],
   rtB_LowPassFilter_brain *localB);
 extern void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const
   real_T rtu_S[19200], const real_T rtu_V[19200],
   rtB_StateFlowFunctionsBuoysIter *localB, rtDW_StateFlowFunctionsBuoysIte
   *localDW);
-extern void StateFlowFunctionsBuoysMai_Init(RT_MODEL_brain *const brain_M,
-  rtDW_StateFlowFunctionsBuoysMai *localDW);
-extern void StateFlowFunctionsBuoysMaintain(real32_T rtu_DesiredDepth1, real32_T
-  rtu_CurrentDepth1, RT_MODEL_brain *const brain_M,
-  rtB_StateFlowFunctionsBuoysMain *localB, rtDW_StateFlowFunctionsBuoysMai
-  *localDW);
-extern void StateFlowFunctionsBuoysM_i_Init(RT_MODEL_brain *const brain_M,
-  rtDW_StateFlowFunctionsBuoysM_k *localDW);
-extern void StateFlowFunctionsBuoys_b_Start(RT_MODEL_brain *const brain_M,
-  rtDW_StateFlowFunctionsBuoysM_k *localDW);
-extern void StateFlowFunctionsBuoys_Disable(rtB_StateFlowFunctionsBuoysMa_a
-  *localB, rtDW_StateFlowFunctionsBuoysM_k *localDW);
-extern void StateFlowFunctionsBuoysMainta_h(real_T rtu_DesiredHeading1, real_T
+extern void StateFlowFunctionsMaintain_Init(RT_MODEL_brain *const brain_M,
+  rtDW_StateFlowFunctionsMaintain *localDW);
+extern void StateFlowFunctionsMaintai_Start(RT_MODEL_brain *const brain_M,
+  rtDW_StateFlowFunctionsMaintain *localDW);
+extern void StateFlowFunctionsMaint_Disable(rtB_StateFlowFunctionsMaintainH
+  *localB, rtDW_StateFlowFunctionsMaintain *localDW);
+extern void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
   rtu_CurrentHeading1, real_T rtu_ForwardVelocity1, RT_MODEL_brain *const
-  brain_M, rtB_StateFlowFunctionsBuoysMa_a *localB,
-  rtDW_StateFlowFunctionsBuoysM_k *localDW);
+  brain_M, rtB_StateFlowFunctionsMaintainH *localB,
+  rtDW_StateFlowFunctionsMaintain *localDW);
 extern void StateFlowFunctionsFollowOnePath(const real_T rtu_H1[19200], const
   real_T rtu_S1[19200], const real_T rtu_V1[19200],
   rtB_StateFlowFunctionsFollowOne *localB);

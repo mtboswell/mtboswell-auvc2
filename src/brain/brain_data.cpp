@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.501
+ * Model version                        : 1.512
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Thu Jun 24 20:43:22 2010
+ * Real-Time Workshop file generated on : Tue Jun 29 16:38:43 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Thu Jun 24 20:43:23 2010
+ * C/C++ source code generated on       : Tue Jun 29 16:38:44 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -20,13 +20,13 @@
 
 /* Block parameters (auto storage) */
 Parameters_brain brain_P = {
-  0.05,
+  0.2,
+  1.0,
+  0.75,
+  0.0,
+  1.0,
+  0.75,
   0.7,
-  0.5,
-  0.05,
-  0.7,
-  0.5,
-  0.65,
   0.9,
   0.0,
   0.7,
@@ -50,6 +50,7 @@ Parameters_brain brain_P = {
   0.01,
   0.01,
   0.3,
+  50.0,
   8.0,
   0.9,
   0.25,
@@ -63,7 +64,7 @@ Parameters_brain brain_P = {
 /* Constant parameters (auto storage) */
 const ConstParam_brain brain_ConstP = {
   /* Computed Parameter: HoughTransform_SINE_
-   * Referenced by: '<S75>/Hough Transform'
+   * Referenced by: '<S67>/Hough Transform'
    */
   { -1.0, -9.9984769515639127E-01, -9.9939082701909576E-01,
     -9.9862953475457383E-01, -9.9756405025982420E-01, -9.9619469809174555E-01,
@@ -98,15 +99,15 @@ const ConstParam_brain brain_ConstP = {
     0.0 },
 
   /* Computed Parameter: HoughTransform_FIRSTRHO_RT
-   * Referenced by: '<S75>/Hough Transform'
+   * Referenced by: '<S67>/Hough Transform'
    */
   -199.0,
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
-   *   '<S61>/Resize'
-   *   '<S61>/Resize1'
-   *   '<S61>/Resize2'
+   *   '<S59>/Resize'
+   *   '<S59>/Resize1'
+   *   '<S59>/Resize2'
    */
   { 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F,
     0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F,
@@ -138,9 +139,9 @@ const ConstParam_brain brain_ConstP = {
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
-   *   '<S61>/Resize'
-   *   '<S61>/Resize1'
-   *   '<S61>/Resize2'
+   *   '<S59>/Resize'
+   *   '<S59>/Resize1'
+   *   '<S59>/Resize2'
    */
   { 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F,
     0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F,
@@ -518,16 +519,16 @@ const ConstParam_brain brain_ConstP = {
    * Referenced by:
    *   '<S10>/Buoy Blob Analysis'
    *   '<S13>/Buoy Blob Analysis'
-   *   '<S24>/Buoy Blob Analysis'
-   *   '<S93>/Blob Analysis'
+   *   '<S22>/Buoy Blob Analysis'
+   *   '<S85>/Blob Analysis'
    */
   { -1, 121, 122, 123, 1, -121, -122, -123 },
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
-   *   '<S61>/Resize'
-   *   '<S61>/Resize1'
-   *   '<S61>/Resize2'
+   *   '<S59>/Resize'
+   *   '<S59>/Resize1'
+   *   '<S59>/Resize2'
    */
   { 0, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39,
     41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77,
@@ -545,9 +546,9 @@ const ConstParam_brain brain_ConstP = {
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
-   *   '<S61>/Resize'
-   *   '<S61>/Resize1'
-   *   '<S61>/Resize2'
+   *   '<S59>/Resize'
+   *   '<S59>/Resize1'
+   *   '<S59>/Resize2'
    */
   { 0, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39,
     41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77,
@@ -728,7 +729,7 @@ const ConstParam_brain brain_ConstP = {
     633, 637, 639 },
 
   /* Expression: nhood
-   * Referenced by: '<S85>/Erosion'
+   * Referenced by: '<S77>/Erosion'
    */
   { 1, 1, 1, 1, 1, 1, 1, 1 }
 };

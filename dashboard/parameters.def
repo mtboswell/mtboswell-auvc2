@@ -34,4 +34,5 @@ GEN_PARAM(buoy1ValueSpinBox,Buoy1_Value)
 GEN_PARAM(buoy2HueSpinBox,Buoy2_Hue)
 GEN_PARAM(buoy2SaturationSpinBox,Buoy2_Saturation)
 GEN_PARAM(buoy2ValueSpinBox,Buoy2_Value)
+GEN_PARAM(iterSegmentThreshSpinBox,Iter_Segment_Thresh)
 #undef GEN_PARAM
