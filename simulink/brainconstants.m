@@ -29,16 +29,16 @@ Cam_Down_YPos_Kp = 0.20;
 Cam_Down_YPos_Kd = 0.001;
 Cam_Down_YPos_Ki = 0.001;
 
-Buoy1_Hue = 0.05;
-Buoy1_Saturation = 0.7;
-Buoy1_Value = 0.5;
+Buoy1_Hue = 0.2;
+Buoy1_Saturation = 1.0;
+Buoy1_Value = 0.75;
 
-Buoy2_Hue = 0.05;
-Buoy2_Saturation = 0.7;
-Buoy2_Value = 0.5;
+Buoy2_Hue = 0.0;
+Buoy2_Saturation = 1.0;
+Buoy2_Value = 0.75;
 
 Buoy_Min_Eccentricity = 0;
-Buoy_Max_Eccentricity = 0.65;
+Buoy_Max_Eccentricity = 0.7;
 Buoy_Min_Extent = 0.7;
 Buoy_Max_Extent = 0.9;
 
