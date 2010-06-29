@@ -181,6 +181,7 @@ void Dashboard::logCmd(QString id, QString data){
 
 void Dashboard::broadcastAction(){
 	emit sendSID("Connect.Data", "Broadcast");
+	emit sendSID("Connect.Video", "Broadcast");
 }
 
 void Dashboard::connectToAddress(){
@@ -193,7 +194,9 @@ void Dashboard::connectToAddress(){
 }
 void Dashboard::connectToLocalhost(){
 	emit setAddress("127.0.0.1");
-	reconnectAction();
+	emit sendSID("Connect.Data", "127.0.0.1");
+	emit sendSID("Connect.Video", "127.0.0.1");
+	emit sendSID("GetParams", "all");
 }
 
 void Dashboard::sendScript(){

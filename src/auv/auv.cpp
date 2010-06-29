@@ -249,21 +249,27 @@ void AUV::setThrusters(signed char thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 // set thruster speeds
 void AUV::setThrusters(double thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 	if(!data.thrusterPower.state || data.status != RUNNING) return;
-//	qDebug() << "Setting thrusters to" << thrusterSpeeds[0] << thrusterSpeeds[1] << thrusterSpeeds[2] << thrusterSpeeds[3];
+	if(config["Debug"] == "true") qDebug() << "Setting thrusters to" << thrusterSpeeds[0] << thrusterSpeeds[1] << thrusterSpeeds[2] << thrusterSpeeds[3];
 
-	signed char thrusterScale[NUMBER_OF_THRUSTERS];
-	thrusterScale[0] = 40;
-	thrusterScale[1] = 40;
-	thrusterScale[2] = 100;
-	thrusterScale[3] = 127;
+	// [i][0] = upper limit for thruster i
+	// [i][1] = lower limit for thruster i
+	signed char thrusterLimit[NUMBER_OF_THRUSTERS][2];
+	thrusterLimit[0][0] = 40;
+	thrusterLimit[0][1] = -40;
+	thrusterLimit[1][0] = 40;
+	thrusterLimit[1][1] = -40;
+	thrusterLimit[2][0] = 100;
+	thrusterLimit[2][1] = -100;
+	thrusterLimit[3][0] = 127;
+	thrusterLimit[3][1] = -10;
 
 	if(config["Debug"]=="true") qDebug("Conversing with TReXs");
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
-		pControllers->setMotorSpeed(i, thrusterSpeeds[i]*thrusterScale[i]);
+		pControllers->setMotorSpeed(i, qBound(thrusterLimit[i][1], (signed char) (thrusterSpeeds[i]*127), thrusterLimit[i][0]));
 	}
   	QMutexLocker locker(dataMutex);
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
-		data.thrusterSpeeds[i] = thrusterSpeeds[i]*thrusterScale[i];
+		data.thrusterSpeeds[i] = qBound(thrusterLimit[i][1], (signed char) (thrusterSpeeds[i]*127), thrusterLimit[i][0]);
 	}
 
 }
