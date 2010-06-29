@@ -166,6 +166,7 @@ void on_##guiParam##_editingFinished();
 
 		QProcess* process;
 		int RC, desiredHeading, desiredDepth, desiredSpeed, desiredStrafe;
+		int desiredVideoStream;
 		double desiredCameraX, desiredCameraY;
 		
 		VideoWidget* videoWidget;
