@@ -1908,7 +1908,7 @@
        <enum>QTabWidget::West</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -2455,6 +2455,9 @@
        <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
          <widget class="QGroupBox" name="groupBox_18">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <property name="title">
            <string>Color Presets</string>
           </property>
@@ -2542,6 +2545,9 @@
            </item>
            <item row="0" column="1">
             <widget class="QDoubleSpinBox" name="pathHueHighSpinBox">
+             <property name="wrapping">
+              <bool>true</bool>
+             </property>
              <property name="maximum">
               <double>1.000000000000000</double>
              </property>
@@ -2559,6 +2565,9 @@
            </item>
            <item row="1" column="1">
             <widget class="QDoubleSpinBox" name="pathHueLowSpinBox">
+             <property name="wrapping">
+              <bool>true</bool>
+             </property>
              <property name="maximum">
               <double>1.000000000000000</double>
              </property>
@@ -2644,6 +2653,9 @@
                <verstretch>0</verstretch>
               </sizepolicy>
              </property>
+             <property name="wrapping">
+              <bool>true</bool>
+             </property>
              <property name="maximum">
               <double>1.000000000000000</double>
              </property>
@@ -2691,6 +2703,23 @@
              </property>
             </widget>
            </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="label_45">
+             <property name="text">
+              <string>IterSegThr</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QDoubleSpinBox" name="iterSegmentThreshSpinBox">
+             <property name="minimum">
+              <double>10.000000000000000</double>
+             </property>
+             <property name="maximum">
+              <double>500.000000000000000</double>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -2709,6 +2738,9 @@
            </item>
            <item row="0" column="1">
             <widget class="QDoubleSpinBox" name="buoy2HueSpinBox">
+             <property name="wrapping">
+              <bool>true</bool>
+             </property>
              <property name="maximum">
               <double>1.000000000000000</double>
              </property>

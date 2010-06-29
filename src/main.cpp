@@ -116,7 +116,7 @@ int main(int argc, char *argv[]){
 	auv->start();
 
 	qDebug("Starting Model");
-	brain->start();
+	brain->start(QThread::HighPriority);
 
 	qDebug("Starting Server");
 	server->start();

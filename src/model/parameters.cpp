@@ -39,4 +39,5 @@ void init_params(QHash<QString, double*>& parameters){
 	parameters.insert("Buoy2_Hue", &brain_P.Buoy2_Hue);
 	parameters.insert("Buoy2_Saturation", &brain_P.Buoy2_Saturation);
 	parameters.insert("Buoy2_Value", &brain_P.Buoy2_Value);
+	parameters.insert("Iter_Segment_Thresh", &brain_P.Iter_Segment_Thresh);
 }
