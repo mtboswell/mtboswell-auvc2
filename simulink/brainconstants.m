@@ -37,6 +37,8 @@ Buoy2_Hue = 0.0;
 Buoy2_Saturation = 1.0;
 Buoy2_Value = 0.75;
 
+Iter_Segment_Thresh = 50;
+
 Buoy_Min_Eccentricity = 0;
 Buoy_Max_Eccentricity = 0.7;
 Buoy_Min_Extent = 0.7;
