@@ -3006,7 +3006,7 @@
   </action>
   <action name="actionBroadcast_Data">
    <property name="text">
-    <string>Broadcast Data</string>
+    <string>Un-Broadcast Data</string>
    </property>
    <property name="toolTip">
     <string>If other computers need to see AUV data, click this.</string>
