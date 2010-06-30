@@ -52,8 +52,9 @@ void Arduino::onDsrChanged(bool status){
 }
 
 
-unsigned int Arduino::getValue(const QString & desc){
-	unsigned int result = values[desc];
+int Arduino::getValue(const QString & desc){
+	int result = -1;
+	if(values.contains(desc)) result = (int) values[desc];
 	return result;
 }
 

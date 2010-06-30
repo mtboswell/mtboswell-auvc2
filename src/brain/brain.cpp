@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.512
+ * Model version                        : 1.525
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Tue Jun 29 16:38:43 2010
+ * Real-Time Workshop file generated on : Wed Jun 30 14:11:20 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Tue Jun 29 16:38:44 2010
+ * C/C++ source code generated on       : Wed Jun 30 14:11:21 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -36,16 +36,17 @@
 #define brain_IN_FollowOnePath         (4U)
 #define brain_IN_FollowOnePath1        (5U)
 #define brain_IN_GateDone              (1U)
+#define brain_IN_GetHeadings           (1U)
 #define brain_IN_GetInCorrectState     (5U)
 #define brain_IN_GoThoughGate          (2U)
-#define brain_IN_Initialize            (1U)
 #define brain_IN_NO_ACTIVE_CHILD       (0U)
 #define brain_IN_NotRunning            (6U)
 #define brain_IN_NotRunning_m          (1U)
-#define brain_IN_OnePath               (2U)
+#define brain_IN_OnePath               (1U)
 #define brain_IN_PositionOver          (3U)
 #define brain_IN_Running               (2U)
 #define brain_IN_Start                 (7U)
+#define brain_IN_StartFinished         (2U)
 #define brain_IN_Start_m               (6U)
 #define brain_IN_ValidationGate        (8U)
 #define brain_IN_ValidationGate_m      (7U)
@@ -104,7 +105,6 @@ static real_T brain_countareas(real_T sf_Size, real_T sf_count1);
 static real_T brain_GetDirectionToLook(real_T sf_FirstD, real_T sf_SecondD);
 static real_T brain_Turn45Degrees(real_T sf_CHeading, real_T sf_TurnD);
 static void brain_FindSecondBuoy(void);
-static void bra_exit_internal_ApproachBuoys(void);
 static void brain_ApproachBuoys(void);
 static real_T brain_countimages_m(real_T sf_Image1, real_T sf_OldImage, real_T
   sf_count1);
@@ -2997,7 +2997,12 @@ static void brain_enter_internal_Buoys(void)
   brain_B.CameraPosition = 0;
   brain_B.State = 4;
   brain_DWork.BuoyCount = 0.0;
-  brain_B.DesiredDepth = 5.0;
+
+  /* Simulink Function 'GetDesiredDepth': '<S7>:1286' */
+
+  /* Constant: '<S24>/Constant' */
+  brain_B.Constant_f = brain_P.Track_Desired_Depth;
+  brain_B.DesiredDepth = brain_B.Constant_f;
 }
 
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
@@ -3102,7 +3107,6 @@ static void brain_FindSecondBuoy(void)
     /* Exit 'FindSecondBuoy': '<S7>:1317' */
     /* Entry 'ApproachSecondBuoy': '<S7>:1316' */
     brain_DWork.is_ApproachBuoys = brain_IN_ApproachSecondBuoy;
-    brain_DWork.count2ndarea = 0.0;
     brain_B.Strafe = 0;
   } else {
     /* Simulink Function 'MaintainHeading': '<S7>:918' */
@@ -3800,28 +3804,6 @@ static void brain_FindSecondBuoy(void)
 }
 
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
-static void bra_exit_internal_ApproachBuoys(void)
-{
-  switch (brain_DWork.is_ApproachBuoys) {
-   case brain_IN_ApproachFirstBuoy:
-    /* Exit 'ApproachFirstBuoy': '<S7>:1341' */
-    brain_DWork.is_ApproachBuoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
-    break;
-
-   case brain_IN_FindSecondBuoy:
-    /* Exit 'FindSecondBuoy': '<S7>:1317' */
-    brain_DWork.is_ApproachBuoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
-    break;
-
-   default:
-    brain_DWork.is_ApproachBuoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
-
-    /* Exit 'ApproachSecondBuoy': '<S7>:1316' */
-    break;
-  }
-}
-
-/* Function for Stateflow: '<Root>/StateFlow Functions' */
 static void brain_ApproachBuoys(void)
 {
   real_T cc;
@@ -3840,7 +3822,23 @@ static void brain_ApproachBuoys(void)
   if ((brain_DWork.count2ndarea > 2.0) || (brain_DWork.TurnDirection <= -999.0))
   {
     /* Transition: '<S7>:1455' */
-    bra_exit_internal_ApproachBuoys();
+    switch (brain_DWork.is_ApproachBuoys) {
+     case brain_IN_ApproachFirstBuoy:
+      /* Exit 'ApproachFirstBuoy': '<S7>:1341' */
+      brain_DWork.is_ApproachBuoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
+      break;
+
+     case brain_IN_FindSecondBuoy:
+      /* Exit 'FindSecondBuoy': '<S7>:1317' */
+      brain_DWork.is_ApproachBuoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
+      break;
+
+     default:
+      brain_DWork.is_ApproachBuoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
+
+      /* Exit 'ApproachSecondBuoy': '<S7>:1316' */
+      break;
+    }
 
     /* Exit 'ApproachBuoys': '<S7>:1312' */
     /* Entry 'BuoyDone': '<S7>:1453' */
@@ -4330,7 +4328,6 @@ static void brain_ApproachBuoys(void)
       /* Transition: '<S7>:1313' */
       /* Entry 'ApproachFirstBuoy': '<S7>:1341' */
       brain_DWork.is_ApproachBuoys = brain_IN_ApproachFirstBuoy;
-      brain_DWork.countarea = 0.0;
 
       /* Simulink Function 'GetFirstBuoyStats': '<S7>:1342' */
 
@@ -5569,1235 +5566,1151 @@ static void brain_FollowOnePath(void)
   /* During 'FollowOnePath': '<S7>:1164' */
   if (brain_DWork.OperationalState != 3) {
     /* Transition: '<S7>:1276' */
-    if (brain_DWork.is_FollowOnePath == brain_IN_OnePath) {
-      if (brain_DWork.is_OnePath == brain_IN_AlignWithPath) {
-        /* Exit 'AlignWithPath': '<S7>:1185' */
-        brain_DWork.is_OnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
-      } else {
-        brain_DWork.is_OnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
-
-        /* Exit 'Done': '<S7>:1171' */
-        /* Exit 'PositionOver': '<S7>:1172' */
-      }
-
-      /* Exit 'OnePath': '<S7>:1167' */
-      brain_DWork.is_FollowOnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
+    if (brain_DWork.is_OnePath == brain_IN_AlignWithPath) {
+      /* Exit 'AlignWithPath': '<S7>:1185' */
+      brain_DWork.is_OnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
     } else {
-      brain_DWork.is_FollowOnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
+      brain_DWork.is_OnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
-      /* Exit 'Initialize': '<S7>:1214' */
+      /* Exit 'Done': '<S7>:1171' */
+      /* Exit 'PositionOver': '<S7>:1172' */
     }
+
+    /* Exit 'OnePath': '<S7>:1167' */
+    brain_DWork.is_FollowOnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
     /* Exit 'FollowOnePath': '<S7>:1164' */
     /* Entry 'GetInCorrectState': '<S7>:1263' */
     brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
   } else {
-    switch (brain_DWork.is_FollowOnePath) {
-     case brain_IN_Initialize:
-      /* During 'Initialize': '<S7>:1214' */
-      /* Transition: '<S7>:1166' */
-      /* Exit 'Initialize': '<S7>:1214' */
-      /* Entry 'OnePath': '<S7>:1167' */
-      brain_DWork.is_FollowOnePath = brain_IN_OnePath;
+    /* During 'OnePath': '<S7>:1167' */
+    switch (brain_DWork.is_OnePath) {
+     case brain_IN_AlignWithPath:
+      /* During 'AlignWithPath': '<S7>:1185' */
+      if (fabs(brain_DWork.HeadingAlongPath) <= 4.0) {
+        /* Transition: '<S7>:1168' */
+        /* Exit 'AlignWithPath': '<S7>:1185' */
+        /* Entry 'Done': '<S7>:1171' */
+        brain_DWork.is_OnePath = brain_IN_Done;
+        brain_B.Left = 0;
+        brain_B.Right = 0;
+        brain_B.Strafe = 0;
+        brain_B.DesiredHeading = brain_U.CurrentHeading +
+          brain_DWork.HeadingAlongPath;
+        brain_DWork.Done = 1.0;
+      } else {
+        /* Simulink Function 'MakeHSVImage': '<S7>:1215' */
+        for (i_0 = 0; i_0 < 19200; i_0++) {
+          brain_B.H1[i_0] = brain_B.Resize[i_0];
+          brain_B.S1[i_0] = brain_B.Resize1[i_0];
+          brain_B.V1[i_0] = brain_B.Resize2[i_0];
+        }
 
-      /* Transition: '<S7>:1170' */
-      /* Entry 'PositionOver': '<S7>:1172' */
-      brain_DWork.is_OnePath = brain_IN_PositionOver;
-      brain_DWork.Error = 500.0;
+        StateFlowFunctionsFollowOnePath(brain_B.H1, brain_B.S1, brain_B.V1,
+          &brain_B.StateFlowFunctionsFollowOnePa_g);
+
+        /* Simulink Function 'HSVSegmentation': '<S7>:1431' */
+        memcpy((void *)&brain_B.HSV1[0], (void *)
+               &brain_B.StateFlowFunctionsFollowOnePa_g.HSVImage1[0], 57600U *
+               sizeof(real_T));
+        brain_B.DesiredH1 = 0.05;
+
+        /* Embedded MATLAB: '<S77>/HSV Threshold Segmentation' */
+        brain_c13_brain();
+
+        /* S-Function (svipmorphop): '<S77>/Erosion' */
+        ky = 0;
+        ku = 0;
+        for (col = 0; col < 127; col++) {
+          brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
+          ky++;
+        }
+
+        for (i = 0; i < 160; i++) {
+          brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
+          ky++;
+          memcpy((void *)&brain_DWork.Erosion_ONE_PAD_IMG_DW[ky], (void *)
+                 &brain_B.BW_i[ku], 120U * sizeof(real_T));
+          ky += 120;
+          ku += 120;
+          for (col = 121; col < 127; col++) {
+            brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
+            ky++;
+          }
+        }
+
+        for (i = 161; i < 167; i++) {
+          for (col = 0; col < 127; col++) {
+            brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
+            ky++;
+          }
+        }
+
+        for (ky = 0; ky < 21209; ky++) {
+          brain_DWork.Erosion_TWO_PAD_IMG_DW[ky] = (rtInf);
+        }
+
+        inIdx = 0;
+        outIdx = 1;
+        if (brain_DWork.Erosion_STREL_DW[0] == 0) {
+          for (col = 0; col < 167; col++) {
+            for (i = 0; i < 124; i++) {
+              rtb_Add = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx +
+                brain_DWork.Erosion_ERODE_OFF_DW[0]];
+              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+                rtb_TSamp = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx +
+                  brain_DWork.Erosion_ERODE_OFF_DW[i_0]];
+                if (rtb_TSamp < rtb_Add) {
+                  rtb_Add = rtb_TSamp;
+                }
+              }
+
+              brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = rtb_Add;
+              inIdx++;
+              outIdx++;
+            }
+
+            inIdx += 3;
+            outIdx += 3;
+          }
+        } else if (brain_DWork.Erosion_STREL_DW[0] == 1) {
+          numIter = (brain_DWork.Erosion_NUMNONZ_DW[0] + 123) /
+            brain_DWork.Erosion_NUMNONZ_DW[0];
+          ky = brain_DWork.Erosion_ERODE_OFF_DW[0] / 127 * 127;
+          ku = brain_DWork.Erosion_ERODE_OFF_DW[0] - ky;
+          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[0] - 2) + ku;
+          hOffset = ku - 1;
+          inIdx = 1 + ky;
+          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_GBUF_DW[i_0] = (rtInf);
+          }
+
+          ky = (numIter + 1) * brain_DWork.Erosion_NUMNONZ_DW[0];
+          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_GBUF_DW[i_0] = (rtInf);
+          }
+
+          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_HBUF_DW[i_0] = (rtInf);
+          }
+
+          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_HBUF_DW[i_0] = (rtInf);
+          }
+
+          for (col = 0; col < 167; col++) {
+            ky = brain_DWork.Erosion_NUMNONZ_DW[0];
+            for (ku = 0; ku < numIter; ku++) {
+              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+              ky++;
+              inIdx++;
+              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+                if (Erosion_GBUF_DW[ky - 1] <
+                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
+                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
+                } else {
+                  Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+                }
+
+                ky++;
+                inIdx++;
+              }
+            }
+
+            ky--;
+            inIdx--;
+            for (ku = 0; ku < numIter; ku++) {
+              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+              ky--;
+              inIdx--;
+              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+                if (Erosion_HBUF_DW[ky + 1] <
+                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
+                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
+                } else {
+                  Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+                }
+
+                ky--;
+                inIdx--;
+              }
+            }
+
+            ky++;
+            inIdx++;
+            for (i = 0; i < 124; i++) {
+              if (Erosion_GBUF_DW[ky + gOffset] < Erosion_HBUF_DW[ky + hOffset])
+              {
+                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_GBUF_DW[ky
+                  + gOffset];
+              } else {
+                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_HBUF_DW[ky
+                  + hOffset];
+              }
+
+              ky++;
+              outIdx++;
+            }
+
+            inIdx += 127;
+            outIdx += 3;
+          }
+        } else {
+          numIter = (brain_DWork.Erosion_NUMNONZ_DW[0] + 166) /
+            brain_DWork.Erosion_NUMNONZ_DW[0];
+          ku = brain_DWork.Erosion_ERODE_OFF_DW[0] / 127;
+          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[0] - 1) + ku;
+          hOffset = ku;
+          inIdx = brain_DWork.Erosion_ERODE_OFF_DW[0] - ku * 127;
+          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_GBUF_DW[i_0] = (rtInf);
+          }
+
+          ky = (numIter + 1) * brain_DWork.Erosion_NUMNONZ_DW[0];
+          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_GBUF_DW[i_0] = (rtInf);
+          }
+
+          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_HBUF_DW[i_0] = (rtInf);
+          }
+
+          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_HBUF_DW[i_0] = (rtInf);
+          }
+
+          for (i = 0; i < 124; i++) {
+            ky = brain_DWork.Erosion_NUMNONZ_DW[0];
+            for (ku = 0; ku < numIter; ku++) {
+              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+              ky++;
+              inIdx += 127;
+              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+                if (Erosion_GBUF_DW[ky - 1] <
+                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
+                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
+                } else {
+                  Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+                }
+
+                ky++;
+                inIdx += 127;
+              }
+            }
+
+            ky--;
+            inIdx -= 127;
+            for (ku = 0; ku < numIter; ku++) {
+              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+              ky--;
+              inIdx -= 127;
+              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+                if (Erosion_HBUF_DW[ky + 1] <
+                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
+                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
+                } else {
+                  Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+                }
+
+                ky--;
+                inIdx -= 127;
+              }
+            }
+
+            ky++;
+            inIdx += 127;
+            for (col = 0; col < 167; col++) {
+              if (Erosion_GBUF_DW[ky + gOffset] < Erosion_HBUF_DW[ky + hOffset])
+              {
+                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_GBUF_DW[ky
+                  + gOffset];
+              } else {
+                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_HBUF_DW[ky
+                  + hOffset];
+              }
+
+              ky++;
+              outIdx += 127;
+            }
+
+            inIdx++;
+            outIdx += -21208;
+          }
+        }
+
+        numIter = 1;
+        i_0 = 0;
+        if (brain_DWork.Erosion_STREL_DW[1] == 0) {
+          for (col = 0; col < 160; col++) {
+            for (i = 1; i < 121; i++) {
+              rtb_Add = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter +
+                brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW
+                [0]]];
+              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
+              {
+                rtb_TSamp =
+                  brain_DWork.Erosion_TWO_PAD_IMG_DW[brain_DWork.Erosion_ERODE_OFF_DW
+                  [inIdx + brain_DWork.Erosion_NUMNONZ_DW[0]] + numIter];
+                if (rtb_TSamp < rtb_Add) {
+                  rtb_Add = rtb_TSamp;
+                }
+              }
+
+              brain_B.Erosion[i_0] = rtb_Add;
+              numIter++;
+              i_0++;
+            }
+
+            numIter += 7;
+          }
+        } else if (brain_DWork.Erosion_STREL_DW[1] == 1) {
+          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] + 119) /
+            brain_DWork.Erosion_NUMNONZ_DW[1];
+          ky = brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
+            / 127 * 127;
+          ku = brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
+            - ky;
+          hOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] - 1) + ku;
+          outIdx = ku;
+          numIter = 1 + ky;
+          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
+            Erosion_GBUF_DW[inIdx] = (rtInf);
+          }
+
+          ky = (gOffset + 1) * brain_DWork.Erosion_NUMNONZ_DW[1];
+          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
+               ++) {
+            Erosion_GBUF_DW[inIdx] = (rtInf);
+          }
+
+          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
+            Erosion_HBUF_DW[inIdx] = (rtInf);
+          }
+
+          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
+               ++) {
+            Erosion_HBUF_DW[inIdx] = (rtInf);
+          }
+
+          for (col = 0; col < 160; col++) {
+            ky = brain_DWork.Erosion_NUMNONZ_DW[1];
+            for (ku = 0; ku < gOffset; ku++) {
+              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+              ky++;
+              numIter++;
+              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
+              {
+                if (Erosion_GBUF_DW[ky - 1] <
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
+                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
+                } else {
+                  Erosion_GBUF_DW[ky] =
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+                }
+
+                ky++;
+                numIter++;
+              }
+            }
+
+            ky--;
+            numIter--;
+            for (ku = 0; ku < gOffset; ku++) {
+              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+              ky--;
+              numIter--;
+              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
+              {
+                if (Erosion_HBUF_DW[ky + 1] <
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
+                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
+                } else {
+                  Erosion_HBUF_DW[ky] =
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+                }
+
+                ky--;
+                numIter--;
+              }
+            }
+
+            ky++;
+            numIter++;
+            for (i = 1; i < 121; i++) {
+              if (Erosion_GBUF_DW[ky + hOffset] < Erosion_HBUF_DW[ky + outIdx])
+              {
+                brain_B.Erosion[i_0] = Erosion_GBUF_DW[ky + hOffset];
+              } else {
+                brain_B.Erosion[i_0] = Erosion_HBUF_DW[ky + outIdx];
+              }
+
+              ky++;
+              i_0++;
+            }
+
+            numIter += 127;
+          }
+        } else {
+          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] + 159) /
+            brain_DWork.Erosion_NUMNONZ_DW[1];
+          ku = brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
+            / 127;
+          hOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] - 2) + ku;
+          outIdx = ku - 1;
+          numIter =
+            (brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
+             - ku * 127) + 128;
+          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
+            Erosion_GBUF_DW[inIdx] = (rtInf);
+          }
+
+          ky = (gOffset + 1) * brain_DWork.Erosion_NUMNONZ_DW[1];
+          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
+               ++) {
+            Erosion_GBUF_DW[inIdx] = (rtInf);
+          }
+
+          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
+            Erosion_HBUF_DW[inIdx] = (rtInf);
+          }
+
+          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
+               ++) {
+            Erosion_HBUF_DW[inIdx] = (rtInf);
+          }
+
+          for (i = 1; i < 121; i++) {
+            ky = brain_DWork.Erosion_NUMNONZ_DW[1];
+            for (ku = 0; ku < gOffset; ku++) {
+              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+              ky++;
+              numIter += 127;
+              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
+              {
+                if (Erosion_GBUF_DW[ky - 1] <
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
+                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
+                } else {
+                  Erosion_GBUF_DW[ky] =
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+                }
+
+                ky++;
+                numIter += 127;
+              }
+            }
+
+            ky--;
+            numIter -= 127;
+            for (ku = 0; ku < gOffset; ku++) {
+              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+              ky--;
+              numIter -= 127;
+              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
+              {
+                if (Erosion_HBUF_DW[ky + 1] <
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
+                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
+                } else {
+                  Erosion_HBUF_DW[ky] =
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+                }
+
+                ky--;
+                numIter -= 127;
+              }
+            }
+
+            ky++;
+            numIter += 127;
+            for (col = 0; col < 160; col++) {
+              if (Erosion_GBUF_DW[ky + hOffset] < Erosion_HBUF_DW[ky + outIdx])
+              {
+                brain_B.Erosion[i_0] = Erosion_GBUF_DW[ky + hOffset];
+              } else {
+                brain_B.Erosion[i_0] = Erosion_HBUF_DW[ky + outIdx];
+              }
+
+              ky++;
+              i_0 += 120;
+            }
+
+            numIter++;
+            i_0 += -19199;
+          }
+        }
+
+        /* Simulink Function 'GetHeadings': '<S7>:1208' */
+        for (i_0 = 0; i_0 < 19200; i_0++) {
+          /* DataTypeConversion: '<S77>/Data Type Conversion' */
+          brain_B.DataTypeConversion[i_0] = (brain_B.Erosion[i_0] != 0.0);
+          brain_B.BWout[i_0] = (real_T)brain_B.DataTypeConversion[i_0];
+          brain_B.BW_g[i_0] = (brain_B.BWout[i_0] != 0.0);
+        }
+
+        StateFlowFunctionsFollowOnePa_j(brain_B.BW_g,
+          &brain_B.StateFlowFunctionsFollowOneP_jq);
+        brain_DWork.HeadingAlongPath =
+          brain_B.StateFlowFunctionsFollowOneP_jq.AlongPathHeading;
+
+        /* Simulink Function 'CenterOver_Strafe': '<S7>:1423' */
+        memcpy((void *)&brain_B.BW[0], (void *)&brain_B.BWout[0], 19200U *
+               sizeof(real_T));
+        StateFlowFunctionsFollowOnePa_i(brain_B.BW, brain_M,
+          &brain_B.StateFlowFunctionsFollowOneP_iq,
+          &brain_DWork.StateFlowFunctionsFollowOneP_iq);
+        brain_B.Strafe =
+          brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion;
+        ky = brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion_f;
+
+        /* Simulink Function 'MaintainDepth': '<S7>:926' */
+        brain_B.CurrentDepth1 = (real32_T)brain_U.CurrentDepth;
+        brain_B.DesiredDepth1 = (real32_T)brain_B.DesiredDepth;
+        brain_DWork.StateFlowFunctionsMaintainDepth = brain_M->Timing.clockTick0
+          - brain_DWork.StateFlowFunctionsMaintainDep_k;
+        brain_DWork.StateFlowFunctionsMaintainDep_k = brain_M->Timing.clockTick0;
+
+        /* Sum: '<S25>/Add' */
+        rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
+
+        /* SampleTimeMath: '<S80>/TSamp' incorporates:
+         *  Gain: '<S79>/Depth Derivative Gain'
+         *
+         * About '<S80>/TSamp':
+         *  y = u * K where K = 1 / ( w * Ts )
+         */
+        rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
+          brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
+
+        /* DataTypeConversion: '<S25>/Double To Int8' incorporates:
+         *  DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator'
+         *  Gain: '<S79>/Depth Proportional Gain'
+         *  Sum: '<S79>/Sum'
+         *  Sum: '<S80>/Diff'
+         *  UnitDelay: '<S80>/UD'
+         *
+         * Block description for '<S80>/Diff':
+         *
+         *  Add in CPU
+         *
+         * Block description for '<S80>/UD':
+         *
+         *  Store in Global RAM
+         */
+        tmp = (brain_P.Depth_Kp * rtb_Add + (rtb_TSamp - brain_DWork.UD_DSTATE))
+          + brain_DWork.DepthDiscreteTimeIntegrator_DST;
+        tmp = floor(tmp);
+        if (tmp < 128.0) {
+          if (tmp >= -128.0) {
+            brain_B.DoubleToInt8 = (int8_T)tmp;
+          } else {
+            brain_B.DoubleToInt8 = MIN_int8_T;
+          }
+        } else {
+          brain_B.DoubleToInt8 = MAX_int8_T;
+        }
+
+        /* Update for UnitDelay: '<S80>/UD'
+         * Block description for '<S80>/UD':
+         *
+         *  Store in Global RAM
+         */
+        brain_DWork.UD_DSTATE = rtb_TSamp;
+
+        /* Update for DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S79>/Depth Integral Gain'
+         */
+        brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
+          brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
+          rtb_Add) + brain_DWork.DepthDiscreteTimeIntegrator_DST;
+        if (brain_DWork.DepthDiscreteTimeIntegrator_DST >= 10.0) {
+          brain_DWork.DepthDiscreteTimeIntegrator_DST = 10.0;
+        } else {
+          if (brain_DWork.DepthDiscreteTimeIntegrator_DST <= -10.0) {
+            brain_DWork.DepthDiscreteTimeIntegrator_DST = -10.0;
+          }
+        }
+
+        brain_B.Vertical = brain_B.DoubleToInt8;
+
+        /* Simulink Function 'Align': '<S7>:1437' */
+        brain_B.HeadingAlong = brain_DWork.HeadingAlongPath;
+        brain_B.Forward1 = (real_T)ky;
+        StateFlowFunctionsFollowOnePa_k(brain_B.HeadingAlong, brain_B.Forward1,
+          brain_M, &brain_B.StateFlowFunctionsFollowOneP_kn,
+          &brain_DWork.StateFlowFunctionsFollowOneP_kn);
+        brain_B.Left = brain_B.StateFlowFunctionsFollowOneP_kn.DoubleToInt1;
+        brain_B.Right = brain_B.StateFlowFunctionsFollowOneP_kn.DoubleToInt8;
+      }
       break;
 
-     case brain_IN_OnePath:
-      /* During 'OnePath': '<S7>:1167' */
-      switch (brain_DWork.is_OnePath) {
-       case brain_IN_AlignWithPath:
-        /* During 'AlignWithPath': '<S7>:1185' */
-        if (fabs(brain_DWork.HeadingAlongPath) <= 4.0) {
-          /* Transition: '<S7>:1168' */
-          /* Exit 'AlignWithPath': '<S7>:1185' */
-          /* Entry 'Done': '<S7>:1171' */
-          brain_DWork.is_OnePath = brain_IN_Done;
-          brain_B.Left = 0;
-          brain_B.Right = 0;
-          brain_B.Strafe = 0;
-          brain_B.DesiredHeading = brain_U.CurrentHeading +
-            brain_DWork.HeadingAlongPath;
-          brain_DWork.Done = 1.0;
-        } else {
-          /* Simulink Function 'MakeHSVImage': '<S7>:1215' */
-          for (i_0 = 0; i_0 < 19200; i_0++) {
-            brain_B.H1[i_0] = brain_B.Resize[i_0];
-            brain_B.S1[i_0] = brain_B.Resize1[i_0];
-            brain_B.V1[i_0] = brain_B.Resize2[i_0];
+     case brain_IN_Done:
+      break;
+
+     case brain_IN_PositionOver:
+      /* During 'PositionOver': '<S7>:1172' */
+      if (brain_DWork.Error < 10.0) {
+        /* Transition: '<S7>:1169' */
+        /* Exit 'PositionOver': '<S7>:1172' */
+        /* Entry 'AlignWithPath': '<S7>:1185' */
+        brain_DWork.is_OnePath = brain_IN_AlignWithPath;
+        brain_DWork.HeadingAlongPath = 200.0;
+        brain_B.Left = 0;
+        brain_B.Right = 0;
+        brain_B.Strafe = 0;
+      } else {
+        /* Simulink Function 'MakeHSVImage': '<S7>:1215' */
+        for (i_0 = 0; i_0 < 19200; i_0++) {
+          brain_B.H1[i_0] = brain_B.Resize[i_0];
+          brain_B.S1[i_0] = brain_B.Resize1[i_0];
+          brain_B.V1[i_0] = brain_B.Resize2[i_0];
+        }
+
+        StateFlowFunctionsFollowOnePath(brain_B.H1, brain_B.S1, brain_B.V1,
+          &brain_B.StateFlowFunctionsFollowOnePa_g);
+
+        /* Simulink Function 'HSVSegmentation': '<S7>:1431' */
+        memcpy((void *)&brain_B.HSV1[0], (void *)
+               &brain_B.StateFlowFunctionsFollowOnePa_g.HSVImage1[0], 57600U *
+               sizeof(real_T));
+        brain_B.DesiredH1 = 0.05;
+
+        /* Embedded MATLAB: '<S77>/HSV Threshold Segmentation' */
+        brain_c13_brain();
+
+        /* S-Function (svipmorphop): '<S77>/Erosion' */
+        ky = 0;
+        ku = 0;
+        for (col = 0; col < 127; col++) {
+          brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
+          ky++;
+        }
+
+        for (i = 0; i < 160; i++) {
+          brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
+          ky++;
+          memcpy((void *)&brain_DWork.Erosion_ONE_PAD_IMG_DW[ky], (void *)
+                 &brain_B.BW_i[ku], 120U * sizeof(real_T));
+          ky += 120;
+          ku += 120;
+          for (col = 121; col < 127; col++) {
+            brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
+            ky++;
           }
+        }
 
-          StateFlowFunctionsFollowOnePath(brain_B.H1, brain_B.S1, brain_B.V1,
-            &brain_B.StateFlowFunctionsFollowOnePa_g);
-
-          /* Simulink Function 'HSVSegmentation': '<S7>:1431' */
-          memcpy((void *)&brain_B.HSV1[0], (void *)
-                 &brain_B.StateFlowFunctionsFollowOnePa_g.HSVImage1[0], 57600U *
-                 sizeof(real_T));
-          brain_B.DesiredH1 = 0.05;
-
-          /* Embedded MATLAB: '<S77>/HSV Threshold Segmentation' */
-          brain_c13_brain();
-
-          /* S-Function (svipmorphop): '<S77>/Erosion' */
-          ky = 0;
-          ku = 0;
+        for (i = 161; i < 167; i++) {
           for (col = 0; col < 127; col++) {
             brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
             ky++;
           }
+        }
 
-          for (i = 0; i < 160; i++) {
-            brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-            ky++;
-            memcpy((void *)&brain_DWork.Erosion_ONE_PAD_IMG_DW[ky], (void *)
-                   &brain_B.BW_i[ku], 120U * sizeof(real_T));
-            ky += 120;
-            ku += 120;
-            for (col = 121; col < 127; col++) {
-              brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-              ky++;
-            }
-          }
+        for (ky = 0; ky < 21209; ky++) {
+          brain_DWork.Erosion_TWO_PAD_IMG_DW[ky] = (rtInf);
+        }
 
-          for (i = 161; i < 167; i++) {
-            for (col = 0; col < 127; col++) {
-              brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-              ky++;
-            }
-          }
-
-          for (ky = 0; ky < 21209; ky++) {
-            brain_DWork.Erosion_TWO_PAD_IMG_DW[ky] = (rtInf);
-          }
-
-          inIdx = 0;
-          outIdx = 1;
-          if (brain_DWork.Erosion_STREL_DW[0] == 0) {
-            for (col = 0; col < 167; col++) {
-              for (i = 0; i < 124; i++) {
-                rtb_Add = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx +
-                  brain_DWork.Erosion_ERODE_OFF_DW[0]];
-                for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                  rtb_TSamp = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx +
-                    brain_DWork.Erosion_ERODE_OFF_DW[i_0]];
-                  if (rtb_TSamp < rtb_Add) {
-                    rtb_Add = rtb_TSamp;
-                  }
+        inIdx = 0;
+        outIdx = 1;
+        if (brain_DWork.Erosion_STREL_DW[0] == 0) {
+          for (col = 0; col < 167; col++) {
+            for (i = 0; i < 124; i++) {
+              rtb_Add = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx +
+                brain_DWork.Erosion_ERODE_OFF_DW[0]];
+              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+                rtb_TSamp = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx +
+                  brain_DWork.Erosion_ERODE_OFF_DW[i_0]];
+                if (rtb_TSamp < rtb_Add) {
+                  rtb_Add = rtb_TSamp;
                 }
-
-                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = rtb_Add;
-                inIdx++;
-                outIdx++;
               }
 
-              inIdx += 3;
-              outIdx += 3;
-            }
-          } else if (brain_DWork.Erosion_STREL_DW[0] == 1) {
-            numIter = (brain_DWork.Erosion_NUMNONZ_DW[0] + 123) /
-              brain_DWork.Erosion_NUMNONZ_DW[0];
-            ky = brain_DWork.Erosion_ERODE_OFF_DW[0] / 127 * 127;
-            ku = brain_DWork.Erosion_ERODE_OFF_DW[0] - ky;
-            gOffset = (brain_DWork.Erosion_NUMNONZ_DW[0] - 2) + ku;
-            hOffset = ku - 1;
-            inIdx = 1 + ky;
-            for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-              Erosion_GBUF_DW[i_0] = (rtInf);
+              brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = rtb_Add;
+              inIdx++;
+              outIdx++;
             }
 
-            ky = (numIter + 1) * brain_DWork.Erosion_NUMNONZ_DW[0];
-            for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++)
-            {
-              Erosion_GBUF_DW[i_0] = (rtInf);
-            }
+            inIdx += 3;
+            outIdx += 3;
+          }
+        } else if (brain_DWork.Erosion_STREL_DW[0] == 1) {
+          numIter = (brain_DWork.Erosion_NUMNONZ_DW[0] + 123) /
+            brain_DWork.Erosion_NUMNONZ_DW[0];
+          ky = brain_DWork.Erosion_ERODE_OFF_DW[0] / 127 * 127;
+          ku = brain_DWork.Erosion_ERODE_OFF_DW[0] - ky;
+          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[0] - 2) + ku;
+          hOffset = ku - 1;
+          inIdx = 1 + ky;
+          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_GBUF_DW[i_0] = (rtInf);
+          }
 
-            for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-              Erosion_HBUF_DW[i_0] = (rtInf);
-            }
+          ky = (numIter + 1) * brain_DWork.Erosion_NUMNONZ_DW[0];
+          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_GBUF_DW[i_0] = (rtInf);
+          }
 
-            for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++)
-            {
-              Erosion_HBUF_DW[i_0] = (rtInf);
-            }
+          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_HBUF_DW[i_0] = (rtInf);
+          }
 
-            for (col = 0; col < 167; col++) {
-              ky = brain_DWork.Erosion_NUMNONZ_DW[0];
-              for (ku = 0; ku < numIter; ku++) {
-                Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_HBUF_DW[i_0] = (rtInf);
+          }
+
+          for (col = 0; col < 167; col++) {
+            ky = brain_DWork.Erosion_NUMNONZ_DW[0];
+            for (ku = 0; ku < numIter; ku++) {
+              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+              ky++;
+              inIdx++;
+              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+                if (Erosion_GBUF_DW[ky - 1] <
+                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
+                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
+                } else {
+                  Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+                }
+
                 ky++;
                 inIdx++;
-                for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                  if (Erosion_GBUF_DW[ky - 1] <
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                    Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                  } else {
-                    Erosion_GBUF_DW[ky] =
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                  }
-
-                  ky++;
-                  inIdx++;
-                }
               }
+            }
 
+            ky--;
+            inIdx--;
+            for (ku = 0; ku < numIter; ku++) {
+              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
               ky--;
               inIdx--;
-              for (ku = 0; ku < numIter; ku++) {
-                Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+                if (Erosion_HBUF_DW[ky + 1] <
+                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
+                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
+                } else {
+                  Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+                }
+
                 ky--;
                 inIdx--;
-                for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                  if (Erosion_HBUF_DW[ky + 1] <
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                    Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                  } else {
-                    Erosion_HBUF_DW[ky] =
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                  }
-
-                  ky--;
-                  inIdx--;
-                }
               }
-
-              ky++;
-              inIdx++;
-              for (i = 0; i < 124; i++) {
-                if (Erosion_GBUF_DW[ky + gOffset] < Erosion_HBUF_DW[ky + hOffset])
-                {
-                  brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] =
-                    Erosion_GBUF_DW[ky + gOffset];
-                } else {
-                  brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] =
-                    Erosion_HBUF_DW[ky + hOffset];
-                }
-
-                ky++;
-                outIdx++;
-              }
-
-              inIdx += 127;
-              outIdx += 3;
-            }
-          } else {
-            numIter = (brain_DWork.Erosion_NUMNONZ_DW[0] + 166) /
-              brain_DWork.Erosion_NUMNONZ_DW[0];
-            ku = brain_DWork.Erosion_ERODE_OFF_DW[0] / 127;
-            gOffset = (brain_DWork.Erosion_NUMNONZ_DW[0] - 1) + ku;
-            hOffset = ku;
-            inIdx = brain_DWork.Erosion_ERODE_OFF_DW[0] - ku * 127;
-            for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-              Erosion_GBUF_DW[i_0] = (rtInf);
             }
 
-            ky = (numIter + 1) * brain_DWork.Erosion_NUMNONZ_DW[0];
-            for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++)
-            {
-              Erosion_GBUF_DW[i_0] = (rtInf);
-            }
-
-            for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-              Erosion_HBUF_DW[i_0] = (rtInf);
-            }
-
-            for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++)
-            {
-              Erosion_HBUF_DW[i_0] = (rtInf);
-            }
-
+            ky++;
+            inIdx++;
             for (i = 0; i < 124; i++) {
-              ky = brain_DWork.Erosion_NUMNONZ_DW[0];
-              for (ku = 0; ku < numIter; ku++) {
-                Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                ky++;
-                inIdx += 127;
-                for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                  if (Erosion_GBUF_DW[ky - 1] <
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                    Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                  } else {
-                    Erosion_GBUF_DW[ky] =
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                  }
-
-                  ky++;
-                  inIdx += 127;
-                }
-              }
-
-              ky--;
-              inIdx -= 127;
-              for (ku = 0; ku < numIter; ku++) {
-                Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                ky--;
-                inIdx -= 127;
-                for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                  if (Erosion_HBUF_DW[ky + 1] <
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                    Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                  } else {
-                    Erosion_HBUF_DW[ky] =
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                  }
-
-                  ky--;
-                  inIdx -= 127;
-                }
+              if (Erosion_GBUF_DW[ky + gOffset] < Erosion_HBUF_DW[ky + hOffset])
+              {
+                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_GBUF_DW[ky
+                  + gOffset];
+              } else {
+                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_HBUF_DW[ky
+                  + hOffset];
               }
 
               ky++;
-              inIdx += 127;
-              for (col = 0; col < 167; col++) {
-                if (Erosion_GBUF_DW[ky + gOffset] < Erosion_HBUF_DW[ky + hOffset])
-                {
-                  brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] =
-                    Erosion_GBUF_DW[ky + gOffset];
-                } else {
-                  brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] =
-                    Erosion_HBUF_DW[ky + hOffset];
-                }
-
-                ky++;
-                outIdx += 127;
-              }
-
-              inIdx++;
-              outIdx += -21208;
+              outIdx++;
             }
+
+            inIdx += 127;
+            outIdx += 3;
           }
-
-          numIter = 1;
-          i_0 = 0;
-          if (brain_DWork.Erosion_STREL_DW[1] == 0) {
-            for (col = 0; col < 160; col++) {
-              for (i = 1; i < 121; i++) {
-                rtb_Add = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter +
-                  brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW
-                  [0]]];
-                for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-                     ++) {
-                  rtb_TSamp =
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[brain_DWork.Erosion_ERODE_OFF_DW
-                    [inIdx + brain_DWork.Erosion_NUMNONZ_DW[0]] + numIter];
-                  if (rtb_TSamp < rtb_Add) {
-                    rtb_Add = rtb_TSamp;
-                  }
-                }
-
-                brain_B.Erosion[i_0] = rtb_Add;
-                numIter++;
-                i_0++;
-              }
-
-              numIter += 7;
-            }
-          } else if (brain_DWork.Erosion_STREL_DW[1] == 1) {
-            gOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] + 119) /
-              brain_DWork.Erosion_NUMNONZ_DW[1];
-            ky =
-              brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-              / 127 * 127;
-            ku =
-              brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-              - ky;
-            hOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] - 1) + ku;
-            outIdx = ku;
-            numIter = 1 + ky;
-            for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-            {
-              Erosion_GBUF_DW[inIdx] = (rtInf);
-            }
-
-            ky = (gOffset + 1) * brain_DWork.Erosion_NUMNONZ_DW[1];
-            for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1];
-                 inIdx++) {
-              Erosion_GBUF_DW[inIdx] = (rtInf);
-            }
-
-            for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-            {
-              Erosion_HBUF_DW[inIdx] = (rtInf);
-            }
-
-            for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1];
-                 inIdx++) {
-              Erosion_HBUF_DW[inIdx] = (rtInf);
-            }
-
-            for (col = 0; col < 160; col++) {
-              ky = brain_DWork.Erosion_NUMNONZ_DW[1];
-              for (ku = 0; ku < gOffset; ku++) {
-                Erosion_GBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                ky++;
-                numIter++;
-                for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-                     ++) {
-                  if (Erosion_GBUF_DW[ky - 1] <
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                    Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                  } else {
-                    Erosion_GBUF_DW[ky] =
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                  }
-
-                  ky++;
-                  numIter++;
-                }
-              }
-
-              ky--;
-              numIter--;
-              for (ku = 0; ku < gOffset; ku++) {
-                Erosion_HBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                ky--;
-                numIter--;
-                for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-                     ++) {
-                  if (Erosion_HBUF_DW[ky + 1] <
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                    Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                  } else {
-                    Erosion_HBUF_DW[ky] =
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                  }
-
-                  ky--;
-                  numIter--;
-                }
-              }
-
-              ky++;
-              numIter++;
-              for (i = 1; i < 121; i++) {
-                if (Erosion_GBUF_DW[ky + hOffset] < Erosion_HBUF_DW[ky + outIdx])
-                {
-                  brain_B.Erosion[i_0] = Erosion_GBUF_DW[ky + hOffset];
-                } else {
-                  brain_B.Erosion[i_0] = Erosion_HBUF_DW[ky + outIdx];
-                }
-
-                ky++;
-                i_0++;
-              }
-
-              numIter += 127;
-            }
-          } else {
-            gOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] + 159) /
-              brain_DWork.Erosion_NUMNONZ_DW[1];
-            ku =
-              brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-              / 127;
-            hOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] - 2) + ku;
-            outIdx = ku - 1;
-            numIter =
-              (brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-               - ku * 127) + 128;
-            for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-            {
-              Erosion_GBUF_DW[inIdx] = (rtInf);
-            }
-
-            ky = (gOffset + 1) * brain_DWork.Erosion_NUMNONZ_DW[1];
-            for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1];
-                 inIdx++) {
-              Erosion_GBUF_DW[inIdx] = (rtInf);
-            }
-
-            for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-            {
-              Erosion_HBUF_DW[inIdx] = (rtInf);
-            }
-
-            for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1];
-                 inIdx++) {
-              Erosion_HBUF_DW[inIdx] = (rtInf);
-            }
-
-            for (i = 1; i < 121; i++) {
-              ky = brain_DWork.Erosion_NUMNONZ_DW[1];
-              for (ku = 0; ku < gOffset; ku++) {
-                Erosion_GBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                ky++;
-                numIter += 127;
-                for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-                     ++) {
-                  if (Erosion_GBUF_DW[ky - 1] <
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                    Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                  } else {
-                    Erosion_GBUF_DW[ky] =
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                  }
-
-                  ky++;
-                  numIter += 127;
-                }
-              }
-
-              ky--;
-              numIter -= 127;
-              for (ku = 0; ku < gOffset; ku++) {
-                Erosion_HBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                ky--;
-                numIter -= 127;
-                for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-                     ++) {
-                  if (Erosion_HBUF_DW[ky + 1] <
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                    Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                  } else {
-                    Erosion_HBUF_DW[ky] =
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                  }
-
-                  ky--;
-                  numIter -= 127;
-                }
-              }
-
-              ky++;
-              numIter += 127;
-              for (col = 0; col < 160; col++) {
-                if (Erosion_GBUF_DW[ky + hOffset] < Erosion_HBUF_DW[ky + outIdx])
-                {
-                  brain_B.Erosion[i_0] = Erosion_GBUF_DW[ky + hOffset];
-                } else {
-                  brain_B.Erosion[i_0] = Erosion_HBUF_DW[ky + outIdx];
-                }
-
-                ky++;
-                i_0 += 120;
-              }
-
-              numIter++;
-              i_0 += -19199;
-            }
-          }
-
-          /* Simulink Function 'GetHeadings': '<S7>:1208' */
-          for (i_0 = 0; i_0 < 19200; i_0++) {
-            /* DataTypeConversion: '<S77>/Data Type Conversion' */
-            brain_B.DataTypeConversion[i_0] = (brain_B.Erosion[i_0] != 0.0);
-            brain_B.BWout[i_0] = (real_T)brain_B.DataTypeConversion[i_0];
-            brain_B.BW_g[i_0] = (brain_B.BWout[i_0] != 0.0);
-          }
-
-          StateFlowFunctionsFollowOnePa_j(brain_B.BW_g,
-            &brain_B.StateFlowFunctionsFollowOneP_jq);
-          brain_DWork.HeadingAlongPath =
-            brain_B.StateFlowFunctionsFollowOneP_jq.AlongPathHeading;
-
-          /* Simulink Function 'CenterOver_Strafe': '<S7>:1423' */
-          memcpy((void *)&brain_B.BW[0], (void *)&brain_B.BWout[0], 19200U *
-                 sizeof(real_T));
-          StateFlowFunctionsFollowOnePa_i(brain_B.BW, brain_M,
-            &brain_B.StateFlowFunctionsFollowOneP_iq,
-            &brain_DWork.StateFlowFunctionsFollowOneP_iq);
-          brain_B.Strafe =
-            brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion;
-          ky = brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion_f;
-
-          /* Simulink Function 'MaintainDepth': '<S7>:926' */
-          brain_B.CurrentDepth1 = (real32_T)brain_U.CurrentDepth;
-          brain_B.DesiredDepth1 = (real32_T)brain_B.DesiredDepth;
-          brain_DWork.StateFlowFunctionsMaintainDepth =
-            brain_M->Timing.clockTick0 -
-            brain_DWork.StateFlowFunctionsMaintainDep_k;
-          brain_DWork.StateFlowFunctionsMaintainDep_k =
-            brain_M->Timing.clockTick0;
-
-          /* Sum: '<S25>/Add' */
-          rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)
-            brain_B.CurrentDepth1;
-
-          /* SampleTimeMath: '<S80>/TSamp' incorporates:
-           *  Gain: '<S79>/Depth Derivative Gain'
-           *
-           * About '<S80>/TSamp':
-           *  y = u * K where K = 1 / ( w * Ts )
-           */
-          rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
-            brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
-
-          /* DataTypeConversion: '<S25>/Double To Int8' incorporates:
-           *  DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator'
-           *  Gain: '<S79>/Depth Proportional Gain'
-           *  Sum: '<S79>/Sum'
-           *  Sum: '<S80>/Diff'
-           *  UnitDelay: '<S80>/UD'
-           *
-           * Block description for '<S80>/Diff':
-           *
-           *  Add in CPU
-           *
-           * Block description for '<S80>/UD':
-           *
-           *  Store in Global RAM
-           */
-          tmp = (brain_P.Depth_Kp * rtb_Add + (rtb_TSamp - brain_DWork.UD_DSTATE))
-            + brain_DWork.DepthDiscreteTimeIntegrator_DST;
-          tmp = floor(tmp);
-          if (tmp < 128.0) {
-            if (tmp >= -128.0) {
-              brain_B.DoubleToInt8 = (int8_T)tmp;
-            } else {
-              brain_B.DoubleToInt8 = MIN_int8_T;
-            }
-          } else {
-            brain_B.DoubleToInt8 = MAX_int8_T;
-          }
-
-          /* Update for UnitDelay: '<S80>/UD'
-           * Block description for '<S80>/UD':
-           *
-           *  Store in Global RAM
-           */
-          brain_DWork.UD_DSTATE = rtb_TSamp;
-
-          /* Update for DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator' incorporates:
-           *  Gain: '<S79>/Depth Integral Gain'
-           */
-          brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
-            brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
-            rtb_Add) + brain_DWork.DepthDiscreteTimeIntegrator_DST;
-          if (brain_DWork.DepthDiscreteTimeIntegrator_DST >= 10.0) {
-            brain_DWork.DepthDiscreteTimeIntegrator_DST = 10.0;
-          } else {
-            if (brain_DWork.DepthDiscreteTimeIntegrator_DST <= -10.0) {
-              brain_DWork.DepthDiscreteTimeIntegrator_DST = -10.0;
-            }
-          }
-
-          brain_B.Vertical = brain_B.DoubleToInt8;
-
-          /* Simulink Function 'Align': '<S7>:1437' */
-          brain_B.HeadingAlong = brain_DWork.HeadingAlongPath;
-          brain_B.Forward1 = (real_T)ky;
-          StateFlowFunctionsFollowOnePa_k(brain_B.HeadingAlong, brain_B.Forward1,
-            brain_M, &brain_B.StateFlowFunctionsFollowOneP_kn,
-            &brain_DWork.StateFlowFunctionsFollowOneP_kn);
-          brain_B.Left = brain_B.StateFlowFunctionsFollowOneP_kn.DoubleToInt1;
-          brain_B.Right = brain_B.StateFlowFunctionsFollowOneP_kn.DoubleToInt8;
-        }
-        break;
-
-       case brain_IN_Done:
-        break;
-
-       case brain_IN_PositionOver:
-        /* During 'PositionOver': '<S7>:1172' */
-        if (brain_DWork.Error < 10.0) {
-          /* Transition: '<S7>:1169' */
-          /* Exit 'PositionOver': '<S7>:1172' */
-          /* Entry 'AlignWithPath': '<S7>:1185' */
-          brain_DWork.is_OnePath = brain_IN_AlignWithPath;
-          brain_DWork.HeadingAlongPath = 200.0;
-          brain_B.Left = 0;
-          brain_B.Right = 0;
-          brain_B.Strafe = 0;
         } else {
-          /* Simulink Function 'MakeHSVImage': '<S7>:1215' */
-          for (i_0 = 0; i_0 < 19200; i_0++) {
-            brain_B.H1[i_0] = brain_B.Resize[i_0];
-            brain_B.S1[i_0] = brain_B.Resize1[i_0];
-            brain_B.V1[i_0] = brain_B.Resize2[i_0];
+          numIter = (brain_DWork.Erosion_NUMNONZ_DW[0] + 166) /
+            brain_DWork.Erosion_NUMNONZ_DW[0];
+          ku = brain_DWork.Erosion_ERODE_OFF_DW[0] / 127;
+          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[0] - 1) + ku;
+          hOffset = ku;
+          inIdx = brain_DWork.Erosion_ERODE_OFF_DW[0] - ku * 127;
+          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_GBUF_DW[i_0] = (rtInf);
           }
 
-          StateFlowFunctionsFollowOnePath(brain_B.H1, brain_B.S1, brain_B.V1,
-            &brain_B.StateFlowFunctionsFollowOnePa_g);
-
-          /* Simulink Function 'HSVSegmentation': '<S7>:1431' */
-          memcpy((void *)&brain_B.HSV1[0], (void *)
-                 &brain_B.StateFlowFunctionsFollowOnePa_g.HSVImage1[0], 57600U *
-                 sizeof(real_T));
-          brain_B.DesiredH1 = 0.05;
-
-          /* Embedded MATLAB: '<S77>/HSV Threshold Segmentation' */
-          brain_c13_brain();
-
-          /* S-Function (svipmorphop): '<S77>/Erosion' */
-          ky = 0;
-          ku = 0;
-          for (col = 0; col < 127; col++) {
-            brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-            ky++;
+          ky = (numIter + 1) * brain_DWork.Erosion_NUMNONZ_DW[0];
+          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_GBUF_DW[i_0] = (rtInf);
           }
 
-          for (i = 0; i < 160; i++) {
-            brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-            ky++;
-            memcpy((void *)&brain_DWork.Erosion_ONE_PAD_IMG_DW[ky], (void *)
-                   &brain_B.BW_i[ku], 120U * sizeof(real_T));
-            ky += 120;
-            ku += 120;
-            for (col = 121; col < 127; col++) {
-              brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
+          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_HBUF_DW[i_0] = (rtInf);
+          }
+
+          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+            Erosion_HBUF_DW[i_0] = (rtInf);
+          }
+
+          for (i = 0; i < 124; i++) {
+            ky = brain_DWork.Erosion_NUMNONZ_DW[0];
+            for (ku = 0; ku < numIter; ku++) {
+              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
               ky++;
-            }
-          }
-
-          for (i = 161; i < 167; i++) {
-            for (col = 0; col < 127; col++) {
-              brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-              ky++;
-            }
-          }
-
-          for (ky = 0; ky < 21209; ky++) {
-            brain_DWork.Erosion_TWO_PAD_IMG_DW[ky] = (rtInf);
-          }
-
-          inIdx = 0;
-          outIdx = 1;
-          if (brain_DWork.Erosion_STREL_DW[0] == 0) {
-            for (col = 0; col < 167; col++) {
-              for (i = 0; i < 124; i++) {
-                rtb_Add = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx +
-                  brain_DWork.Erosion_ERODE_OFF_DW[0]];
-                for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                  rtb_TSamp = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx +
-                    brain_DWork.Erosion_ERODE_OFF_DW[i_0]];
-                  if (rtb_TSamp < rtb_Add) {
-                    rtb_Add = rtb_TSamp;
-                  }
-                }
-
-                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = rtb_Add;
-                inIdx++;
-                outIdx++;
-              }
-
-              inIdx += 3;
-              outIdx += 3;
-            }
-          } else if (brain_DWork.Erosion_STREL_DW[0] == 1) {
-            numIter = (brain_DWork.Erosion_NUMNONZ_DW[0] + 123) /
-              brain_DWork.Erosion_NUMNONZ_DW[0];
-            ky = brain_DWork.Erosion_ERODE_OFF_DW[0] / 127 * 127;
-            ku = brain_DWork.Erosion_ERODE_OFF_DW[0] - ky;
-            gOffset = (brain_DWork.Erosion_NUMNONZ_DW[0] - 2) + ku;
-            hOffset = ku - 1;
-            inIdx = 1 + ky;
-            for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-              Erosion_GBUF_DW[i_0] = (rtInf);
-            }
-
-            ky = (numIter + 1) * brain_DWork.Erosion_NUMNONZ_DW[0];
-            for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++)
-            {
-              Erosion_GBUF_DW[i_0] = (rtInf);
-            }
-
-            for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-              Erosion_HBUF_DW[i_0] = (rtInf);
-            }
-
-            for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++)
-            {
-              Erosion_HBUF_DW[i_0] = (rtInf);
-            }
-
-            for (col = 0; col < 167; col++) {
-              ky = brain_DWork.Erosion_NUMNONZ_DW[0];
-              for (ku = 0; ku < numIter; ku++) {
-                Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                ky++;
-                inIdx++;
-                for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                  if (Erosion_GBUF_DW[ky - 1] <
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                    Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                  } else {
-                    Erosion_GBUF_DW[ky] =
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                  }
-
-                  ky++;
-                  inIdx++;
-                }
-              }
-
-              ky--;
-              inIdx--;
-              for (ku = 0; ku < numIter; ku++) {
-                Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                ky--;
-                inIdx--;
-                for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                  if (Erosion_HBUF_DW[ky + 1] <
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                    Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                  } else {
-                    Erosion_HBUF_DW[ky] =
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                  }
-
-                  ky--;
-                  inIdx--;
-                }
-              }
-
-              ky++;
-              inIdx++;
-              for (i = 0; i < 124; i++) {
-                if (Erosion_GBUF_DW[ky + gOffset] < Erosion_HBUF_DW[ky + hOffset])
-                {
-                  brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] =
-                    Erosion_GBUF_DW[ky + gOffset];
-                } else {
-                  brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] =
-                    Erosion_HBUF_DW[ky + hOffset];
-                }
-
-                ky++;
-                outIdx++;
-              }
-
               inIdx += 127;
-              outIdx += 3;
-            }
-          } else {
-            numIter = (brain_DWork.Erosion_NUMNONZ_DW[0] + 166) /
-              brain_DWork.Erosion_NUMNONZ_DW[0];
-            ku = brain_DWork.Erosion_ERODE_OFF_DW[0] / 127;
-            gOffset = (brain_DWork.Erosion_NUMNONZ_DW[0] - 1) + ku;
-            hOffset = ku;
-            inIdx = brain_DWork.Erosion_ERODE_OFF_DW[0] - ku * 127;
-            for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-              Erosion_GBUF_DW[i_0] = (rtInf);
-            }
+              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+                if (Erosion_GBUF_DW[ky - 1] <
+                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
+                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
+                } else {
+                  Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+                }
 
-            ky = (numIter + 1) * brain_DWork.Erosion_NUMNONZ_DW[0];
-            for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++)
-            {
-              Erosion_GBUF_DW[i_0] = (rtInf);
-            }
-
-            for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-              Erosion_HBUF_DW[i_0] = (rtInf);
-            }
-
-            for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++)
-            {
-              Erosion_HBUF_DW[i_0] = (rtInf);
-            }
-
-            for (i = 0; i < 124; i++) {
-              ky = brain_DWork.Erosion_NUMNONZ_DW[0];
-              for (ku = 0; ku < numIter; ku++) {
-                Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
                 ky++;
                 inIdx += 127;
-                for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                  if (Erosion_GBUF_DW[ky - 1] <
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                    Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                  } else {
-                    Erosion_GBUF_DW[ky] =
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                  }
-
-                  ky++;
-                  inIdx += 127;
-                }
               }
+            }
 
+            ky--;
+            inIdx -= 127;
+            for (ku = 0; ku < numIter; ku++) {
+              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
               ky--;
               inIdx -= 127;
-              for (ku = 0; ku < numIter; ku++) {
-                Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
+                if (Erosion_HBUF_DW[ky + 1] <
+                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
+                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
+                } else {
+                  Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
+                }
+
                 ky--;
                 inIdx -= 127;
-                for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                  if (Erosion_HBUF_DW[ky + 1] <
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                    Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                  } else {
-                    Erosion_HBUF_DW[ky] =
-                      brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                  }
+              }
+            }
 
-                  ky--;
-                  inIdx -= 127;
-                }
+            ky++;
+            inIdx += 127;
+            for (col = 0; col < 167; col++) {
+              if (Erosion_GBUF_DW[ky + gOffset] < Erosion_HBUF_DW[ky + hOffset])
+              {
+                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_GBUF_DW[ky
+                  + gOffset];
+              } else {
+                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_HBUF_DW[ky
+                  + hOffset];
               }
 
               ky++;
-              inIdx += 127;
-              for (col = 0; col < 167; col++) {
-                if (Erosion_GBUF_DW[ky + gOffset] < Erosion_HBUF_DW[ky + hOffset])
-                {
-                  brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] =
-                    Erosion_GBUF_DW[ky + gOffset];
-                } else {
-                  brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] =
-                    Erosion_HBUF_DW[ky + hOffset];
-                }
+              outIdx += 127;
+            }
 
-                ky++;
-                outIdx += 127;
+            inIdx++;
+            outIdx += -21208;
+          }
+        }
+
+        numIter = 1;
+        i_0 = 0;
+        if (brain_DWork.Erosion_STREL_DW[1] == 0) {
+          for (col = 0; col < 160; col++) {
+            for (i = 1; i < 121; i++) {
+              rtb_Add = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter +
+                brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW
+                [0]]];
+              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
+              {
+                rtb_TSamp =
+                  brain_DWork.Erosion_TWO_PAD_IMG_DW[brain_DWork.Erosion_ERODE_OFF_DW
+                  [inIdx + brain_DWork.Erosion_NUMNONZ_DW[0]] + numIter];
+                if (rtb_TSamp < rtb_Add) {
+                  rtb_Add = rtb_TSamp;
+                }
               }
 
-              inIdx++;
-              outIdx += -21208;
+              brain_B.Erosion[i_0] = rtb_Add;
+              numIter++;
+              i_0++;
             }
+
+            numIter += 7;
+          }
+        } else if (brain_DWork.Erosion_STREL_DW[1] == 1) {
+          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] + 119) /
+            brain_DWork.Erosion_NUMNONZ_DW[1];
+          ky = brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
+            / 127 * 127;
+          ku = brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
+            - ky;
+          hOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] - 1) + ku;
+          outIdx = ku;
+          numIter = 1 + ky;
+          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
+            Erosion_GBUF_DW[inIdx] = (rtInf);
           }
 
-          numIter = 1;
-          i_0 = 0;
-          if (brain_DWork.Erosion_STREL_DW[1] == 0) {
-            for (col = 0; col < 160; col++) {
-              for (i = 1; i < 121; i++) {
-                rtb_Add = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter +
-                  brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW
-                  [0]]];
-                for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-                     ++) {
-                  rtb_TSamp =
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[brain_DWork.Erosion_ERODE_OFF_DW
-                    [inIdx + brain_DWork.Erosion_NUMNONZ_DW[0]] + numIter];
-                  if (rtb_TSamp < rtb_Add) {
-                    rtb_Add = rtb_TSamp;
-                  }
+          ky = (gOffset + 1) * brain_DWork.Erosion_NUMNONZ_DW[1];
+          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
+               ++) {
+            Erosion_GBUF_DW[inIdx] = (rtInf);
+          }
+
+          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
+            Erosion_HBUF_DW[inIdx] = (rtInf);
+          }
+
+          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
+               ++) {
+            Erosion_HBUF_DW[inIdx] = (rtInf);
+          }
+
+          for (col = 0; col < 160; col++) {
+            ky = brain_DWork.Erosion_NUMNONZ_DW[1];
+            for (ku = 0; ku < gOffset; ku++) {
+              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+              ky++;
+              numIter++;
+              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
+              {
+                if (Erosion_GBUF_DW[ky - 1] <
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
+                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
+                } else {
+                  Erosion_GBUF_DW[ky] =
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
                 }
 
-                brain_B.Erosion[i_0] = rtb_Add;
-                numIter++;
-                i_0++;
-              }
-
-              numIter += 7;
-            }
-          } else if (brain_DWork.Erosion_STREL_DW[1] == 1) {
-            gOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] + 119) /
-              brain_DWork.Erosion_NUMNONZ_DW[1];
-            ky =
-              brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-              / 127 * 127;
-            ku =
-              brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-              - ky;
-            hOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] - 1) + ku;
-            outIdx = ku;
-            numIter = 1 + ky;
-            for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-            {
-              Erosion_GBUF_DW[inIdx] = (rtInf);
-            }
-
-            ky = (gOffset + 1) * brain_DWork.Erosion_NUMNONZ_DW[1];
-            for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1];
-                 inIdx++) {
-              Erosion_GBUF_DW[inIdx] = (rtInf);
-            }
-
-            for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-            {
-              Erosion_HBUF_DW[inIdx] = (rtInf);
-            }
-
-            for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1];
-                 inIdx++) {
-              Erosion_HBUF_DW[inIdx] = (rtInf);
-            }
-
-            for (col = 0; col < 160; col++) {
-              ky = brain_DWork.Erosion_NUMNONZ_DW[1];
-              for (ku = 0; ku < gOffset; ku++) {
-                Erosion_GBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
                 ky++;
                 numIter++;
-                for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-                     ++) {
-                  if (Erosion_GBUF_DW[ky - 1] <
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                    Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                  } else {
-                    Erosion_GBUF_DW[ky] =
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                  }
-
-                  ky++;
-                  numIter++;
-                }
               }
+            }
 
+            ky--;
+            numIter--;
+            for (ku = 0; ku < gOffset; ku++) {
+              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
               ky--;
               numIter--;
-              for (ku = 0; ku < gOffset; ku++) {
-                Erosion_HBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
+              {
+                if (Erosion_HBUF_DW[ky + 1] <
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
+                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
+                } else {
+                  Erosion_HBUF_DW[ky] =
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+                }
+
                 ky--;
                 numIter--;
-                for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-                     ++) {
-                  if (Erosion_HBUF_DW[ky + 1] <
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                    Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                  } else {
-                    Erosion_HBUF_DW[ky] =
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                  }
+              }
+            }
 
-                  ky--;
-                  numIter--;
-                }
+            ky++;
+            numIter++;
+            for (i = 1; i < 121; i++) {
+              if (Erosion_GBUF_DW[ky + hOffset] < Erosion_HBUF_DW[ky + outIdx])
+              {
+                brain_B.Erosion[i_0] = Erosion_GBUF_DW[ky + hOffset];
+              } else {
+                brain_B.Erosion[i_0] = Erosion_HBUF_DW[ky + outIdx];
               }
 
               ky++;
-              numIter++;
-              for (i = 1; i < 121; i++) {
-                if (Erosion_GBUF_DW[ky + hOffset] < Erosion_HBUF_DW[ky + outIdx])
-                {
-                  brain_B.Erosion[i_0] = Erosion_GBUF_DW[ky + hOffset];
+              i_0++;
+            }
+
+            numIter += 127;
+          }
+        } else {
+          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] + 159) /
+            brain_DWork.Erosion_NUMNONZ_DW[1];
+          ku = brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
+            / 127;
+          hOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] - 2) + ku;
+          outIdx = ku - 1;
+          numIter =
+            (brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
+             - ku * 127) + 128;
+          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
+            Erosion_GBUF_DW[inIdx] = (rtInf);
+          }
+
+          ky = (gOffset + 1) * brain_DWork.Erosion_NUMNONZ_DW[1];
+          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
+               ++) {
+            Erosion_GBUF_DW[inIdx] = (rtInf);
+          }
+
+          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
+            Erosion_HBUF_DW[inIdx] = (rtInf);
+          }
+
+          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
+               ++) {
+            Erosion_HBUF_DW[inIdx] = (rtInf);
+          }
+
+          for (i = 1; i < 121; i++) {
+            ky = brain_DWork.Erosion_NUMNONZ_DW[1];
+            for (ku = 0; ku < gOffset; ku++) {
+              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+              ky++;
+              numIter += 127;
+              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
+              {
+                if (Erosion_GBUF_DW[ky - 1] <
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
+                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
                 } else {
-                  brain_B.Erosion[i_0] = Erosion_HBUF_DW[ky + outIdx];
+                  Erosion_GBUF_DW[ky] =
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
                 }
 
-                ky++;
-                i_0++;
-              }
-
-              numIter += 127;
-            }
-          } else {
-            gOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] + 159) /
-              brain_DWork.Erosion_NUMNONZ_DW[1];
-            ku =
-              brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-              / 127;
-            hOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] - 2) + ku;
-            outIdx = ku - 1;
-            numIter =
-              (brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-               - ku * 127) + 128;
-            for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-            {
-              Erosion_GBUF_DW[inIdx] = (rtInf);
-            }
-
-            ky = (gOffset + 1) * brain_DWork.Erosion_NUMNONZ_DW[1];
-            for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1];
-                 inIdx++) {
-              Erosion_GBUF_DW[inIdx] = (rtInf);
-            }
-
-            for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-            {
-              Erosion_HBUF_DW[inIdx] = (rtInf);
-            }
-
-            for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1];
-                 inIdx++) {
-              Erosion_HBUF_DW[inIdx] = (rtInf);
-            }
-
-            for (i = 1; i < 121; i++) {
-              ky = brain_DWork.Erosion_NUMNONZ_DW[1];
-              for (ku = 0; ku < gOffset; ku++) {
-                Erosion_GBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
                 ky++;
                 numIter += 127;
-                for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-                     ++) {
-                  if (Erosion_GBUF_DW[ky - 1] <
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                    Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                  } else {
-                    Erosion_GBUF_DW[ky] =
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                  }
-
-                  ky++;
-                  numIter += 127;
-                }
               }
+            }
 
+            ky--;
+            numIter -= 127;
+            for (ku = 0; ku < gOffset; ku++) {
+              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
               ky--;
               numIter -= 127;
-              for (ku = 0; ku < gOffset; ku++) {
-                Erosion_HBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
+              {
+                if (Erosion_HBUF_DW[ky + 1] <
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
+                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
+                } else {
+                  Erosion_HBUF_DW[ky] =
+                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
+                }
+
                 ky--;
                 numIter -= 127;
-                for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-                     ++) {
-                  if (Erosion_HBUF_DW[ky + 1] <
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                    Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                  } else {
-                    Erosion_HBUF_DW[ky] =
-                      brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                  }
+              }
+            }
 
-                  ky--;
-                  numIter -= 127;
-                }
+            ky++;
+            numIter += 127;
+            for (col = 0; col < 160; col++) {
+              if (Erosion_GBUF_DW[ky + hOffset] < Erosion_HBUF_DW[ky + outIdx])
+              {
+                brain_B.Erosion[i_0] = Erosion_GBUF_DW[ky + hOffset];
+              } else {
+                brain_B.Erosion[i_0] = Erosion_HBUF_DW[ky + outIdx];
               }
 
               ky++;
-              numIter += 127;
-              for (col = 0; col < 160; col++) {
-                if (Erosion_GBUF_DW[ky + hOffset] < Erosion_HBUF_DW[ky + outIdx])
-                {
-                  brain_B.Erosion[i_0] = Erosion_GBUF_DW[ky + hOffset];
-                } else {
-                  brain_B.Erosion[i_0] = Erosion_HBUF_DW[ky + outIdx];
-                }
-
-                ky++;
-                i_0 += 120;
-              }
-
-              numIter++;
-              i_0 += -19199;
+              i_0 += 120;
             }
+
+            numIter++;
+            i_0 += -19199;
           }
-
-          /* Simulink Function 'CenterOver_Strafe': '<S7>:1423' */
-          for (i_0 = 0; i_0 < 19200; i_0++) {
-            /* DataTypeConversion: '<S77>/Data Type Conversion' */
-            brain_B.DataTypeConversion[i_0] = (brain_B.Erosion[i_0] != 0.0);
-            brain_B.BWout[i_0] = (real_T)brain_B.DataTypeConversion[i_0];
-            brain_B.BW[i_0] = brain_B.BWout[i_0];
-          }
-
-          StateFlowFunctionsFollowOnePa_i(brain_B.BW, brain_M,
-            &brain_B.StateFlowFunctionsFollowOneP_iq,
-            &brain_DWork.StateFlowFunctionsFollowOneP_iq);
-          brain_B.Strafe =
-            brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion;
-          ky = brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion_f;
-          sf_ErrorX = brain_B.StateFlowFunctionsFollowOneP_iq.Subtract;
-          sf_ErrorY = brain_B.StateFlowFunctionsFollowOneP_iq.Subtract1;
-
-          /* Simulink Function 'MaintainDepth': '<S7>:926' */
-          brain_B.CurrentDepth1 = (real32_T)brain_U.CurrentDepth;
-          brain_B.DesiredDepth1 = (real32_T)brain_B.DesiredDepth;
-          brain_DWork.StateFlowFunctionsMaintainDepth =
-            brain_M->Timing.clockTick0 -
-            brain_DWork.StateFlowFunctionsMaintainDep_k;
-          brain_DWork.StateFlowFunctionsMaintainDep_k =
-            brain_M->Timing.clockTick0;
-
-          /* Sum: '<S25>/Add' */
-          rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)
-            brain_B.CurrentDepth1;
-
-          /* SampleTimeMath: '<S80>/TSamp' incorporates:
-           *  Gain: '<S79>/Depth Derivative Gain'
-           *
-           * About '<S80>/TSamp':
-           *  y = u * K where K = 1 / ( w * Ts )
-           */
-          rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
-            brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
-
-          /* DataTypeConversion: '<S25>/Double To Int8' incorporates:
-           *  DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator'
-           *  Gain: '<S79>/Depth Proportional Gain'
-           *  Sum: '<S79>/Sum'
-           *  Sum: '<S80>/Diff'
-           *  UnitDelay: '<S80>/UD'
-           *
-           * Block description for '<S80>/Diff':
-           *
-           *  Add in CPU
-           *
-           * Block description for '<S80>/UD':
-           *
-           *  Store in Global RAM
-           */
-          tmp = (brain_P.Depth_Kp * rtb_Add + (rtb_TSamp - brain_DWork.UD_DSTATE))
-            + brain_DWork.DepthDiscreteTimeIntegrator_DST;
-          tmp = floor(tmp);
-          if (tmp < 128.0) {
-            if (tmp >= -128.0) {
-              brain_B.DoubleToInt8 = (int8_T)tmp;
-            } else {
-              brain_B.DoubleToInt8 = MIN_int8_T;
-            }
-          } else {
-            brain_B.DoubleToInt8 = MAX_int8_T;
-          }
-
-          /* Update for UnitDelay: '<S80>/UD'
-           * Block description for '<S80>/UD':
-           *
-           *  Store in Global RAM
-           */
-          brain_DWork.UD_DSTATE = rtb_TSamp;
-
-          /* Update for DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator' incorporates:
-           *  Gain: '<S79>/Depth Integral Gain'
-           */
-          brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
-            brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
-            rtb_Add) + brain_DWork.DepthDiscreteTimeIntegrator_DST;
-          if (brain_DWork.DepthDiscreteTimeIntegrator_DST >= 10.0) {
-            brain_DWork.DepthDiscreteTimeIntegrator_DST = 10.0;
-          } else {
-            if (brain_DWork.DepthDiscreteTimeIntegrator_DST <= -10.0) {
-              brain_DWork.DepthDiscreteTimeIntegrator_DST = -10.0;
-            }
-          }
-
-          brain_B.Vertical = brain_B.DoubleToInt8;
-
-          /* Simulink Function 'MaintainHeading': '<S7>:918' */
-          brain_B.DesiredHeading1 = brain_B.DesiredHeading;
-          brain_B.CurrentHeading1 = brain_U.CurrentHeading;
-          brain_B.ForwardVelocity1 = (real_T)ky;
-          StateFlowFunctionsMaintainHeadi(brain_B.DesiredHeading1,
-            brain_B.CurrentHeading1, brain_B.ForwardVelocity1, brain_M,
-            &brain_B.StateFlowFunctionsMaintainHea_d,
-            &brain_DWork.StateFlowFunctionsMaintainHea_d);
-          brain_B.Left = brain_B.StateFlowFunctionsMaintainHea_d.DoubleToint8;
-          brain_B.Right = brain_B.StateFlowFunctionsMaintainHea_d.DoubleToint1;
-
-          /* Embedded MATLAB Function 'CalcError': '<S7>:1173' */
-          /*  This function calculates the error between the center of the screen and  */
-          /*  the centroid of the orange/red blob */
-          /* '<S7>:1173:5' */
-          brain_DWork.Error = fabs(sf_ErrorX) + fabs(sf_ErrorY);
         }
-        break;
 
-       default:
-        /* Transition: '<S7>:1170' */
-        /* Entry 'PositionOver': '<S7>:1172' */
-        brain_DWork.is_OnePath = brain_IN_PositionOver;
-        brain_DWork.Error = 500.0;
-        break;
+        /* Simulink Function 'CenterOver_Strafe': '<S7>:1423' */
+        for (i_0 = 0; i_0 < 19200; i_0++) {
+          /* DataTypeConversion: '<S77>/Data Type Conversion' */
+          brain_B.DataTypeConversion[i_0] = (brain_B.Erosion[i_0] != 0.0);
+          brain_B.BWout[i_0] = (real_T)brain_B.DataTypeConversion[i_0];
+          brain_B.BW[i_0] = brain_B.BWout[i_0];
+        }
+
+        StateFlowFunctionsFollowOnePa_i(brain_B.BW, brain_M,
+          &brain_B.StateFlowFunctionsFollowOneP_iq,
+          &brain_DWork.StateFlowFunctionsFollowOneP_iq);
+        brain_B.Strafe =
+          brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion;
+        ky = brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion_f;
+        sf_ErrorX = brain_B.StateFlowFunctionsFollowOneP_iq.Subtract;
+        sf_ErrorY = brain_B.StateFlowFunctionsFollowOneP_iq.Subtract1;
+
+        /* Simulink Function 'MaintainDepth': '<S7>:926' */
+        brain_B.CurrentDepth1 = (real32_T)brain_U.CurrentDepth;
+        brain_B.DesiredDepth1 = (real32_T)brain_B.DesiredDepth;
+        brain_DWork.StateFlowFunctionsMaintainDepth = brain_M->Timing.clockTick0
+          - brain_DWork.StateFlowFunctionsMaintainDep_k;
+        brain_DWork.StateFlowFunctionsMaintainDep_k = brain_M->Timing.clockTick0;
+
+        /* Sum: '<S25>/Add' */
+        rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
+
+        /* SampleTimeMath: '<S80>/TSamp' incorporates:
+         *  Gain: '<S79>/Depth Derivative Gain'
+         *
+         * About '<S80>/TSamp':
+         *  y = u * K where K = 1 / ( w * Ts )
+         */
+        rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
+          brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
+
+        /* DataTypeConversion: '<S25>/Double To Int8' incorporates:
+         *  DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator'
+         *  Gain: '<S79>/Depth Proportional Gain'
+         *  Sum: '<S79>/Sum'
+         *  Sum: '<S80>/Diff'
+         *  UnitDelay: '<S80>/UD'
+         *
+         * Block description for '<S80>/Diff':
+         *
+         *  Add in CPU
+         *
+         * Block description for '<S80>/UD':
+         *
+         *  Store in Global RAM
+         */
+        tmp = (brain_P.Depth_Kp * rtb_Add + (rtb_TSamp - brain_DWork.UD_DSTATE))
+          + brain_DWork.DepthDiscreteTimeIntegrator_DST;
+        tmp = floor(tmp);
+        if (tmp < 128.0) {
+          if (tmp >= -128.0) {
+            brain_B.DoubleToInt8 = (int8_T)tmp;
+          } else {
+            brain_B.DoubleToInt8 = MIN_int8_T;
+          }
+        } else {
+          brain_B.DoubleToInt8 = MAX_int8_T;
+        }
+
+        /* Update for UnitDelay: '<S80>/UD'
+         * Block description for '<S80>/UD':
+         *
+         *  Store in Global RAM
+         */
+        brain_DWork.UD_DSTATE = rtb_TSamp;
+
+        /* Update for DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S79>/Depth Integral Gain'
+         */
+        brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
+          brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
+          rtb_Add) + brain_DWork.DepthDiscreteTimeIntegrator_DST;
+        if (brain_DWork.DepthDiscreteTimeIntegrator_DST >= 10.0) {
+          brain_DWork.DepthDiscreteTimeIntegrator_DST = 10.0;
+        } else {
+          if (brain_DWork.DepthDiscreteTimeIntegrator_DST <= -10.0) {
+            brain_DWork.DepthDiscreteTimeIntegrator_DST = -10.0;
+          }
+        }
+
+        brain_B.Vertical = brain_B.DoubleToInt8;
+
+        /* Simulink Function 'MaintainHeading': '<S7>:918' */
+        brain_B.DesiredHeading1 = brain_B.DesiredHeading;
+        brain_B.CurrentHeading1 = brain_U.CurrentHeading;
+        brain_B.ForwardVelocity1 = (real_T)ky;
+        StateFlowFunctionsMaintainHeadi(brain_B.DesiredHeading1,
+          brain_B.CurrentHeading1, brain_B.ForwardVelocity1, brain_M,
+          &brain_B.StateFlowFunctionsMaintainHea_d,
+          &brain_DWork.StateFlowFunctionsMaintainHea_d);
+        brain_B.Left = brain_B.StateFlowFunctionsMaintainHea_d.DoubleToint8;
+        brain_B.Right = brain_B.StateFlowFunctionsMaintainHea_d.DoubleToint1;
+
+        /* Embedded MATLAB Function 'CalcError': '<S7>:1173' */
+        /*  This function calculates the error between the center of the screen and  */
+        /*  the centroid of the orange/red blob */
+        /* '<S7>:1173:5' */
+        brain_DWork.Error = fabs(sf_ErrorX) + fabs(sf_ErrorY);
       }
       break;
 
      default:
-      /* Transition: '<S7>:1165' */
-      /* Entry 'Initialize': '<S7>:1214' */
-      brain_DWork.is_FollowOnePath = brain_IN_Initialize;
-
-      /* Simulink Function 'GetDesiredDepth': '<S7>:1286' */
-
-      /* Constant: '<S24>/Constant' */
-      brain_B.Constant_f = brain_P.Track_Desired_Depth;
-      brain_B.DesiredDepth = brain_B.Constant_f;
-      brain_B.DesiredHeading = brain_U.CurrentHeading;
-      brain_B.State = 3;
-      brain_B.CameraPosition = 2;
-
-      /* Simulink Function 'MakeHSVImage': '<S7>:1215' */
-      for (i_0 = 0; i_0 < 19200; i_0++) {
-        brain_B.H1[i_0] = brain_B.Resize[i_0];
-        brain_B.S1[i_0] = brain_B.Resize1[i_0];
-        brain_B.V1[i_0] = brain_B.Resize2[i_0];
-      }
-
-      StateFlowFunctionsFollowOnePath(brain_B.H1, brain_B.S1, brain_B.V1,
-        &brain_B.StateFlowFunctionsFollowOnePa_g);
+      /* Transition: '<S7>:1170' */
+      /* Entry 'PositionOver': '<S7>:1172' */
+      brain_DWork.is_OnePath = brain_IN_PositionOver;
+      brain_DWork.Error = 500.0;
       break;
     }
   }
@@ -6836,29 +6749,29 @@ static void brain_GetInCorrectState(void)
     brain_B.BuoyCentroidY = 0.0;
     brain_B.CameraPosition = 2;
     brain_B.State = 1;
+
+    /* Transition: '<S7>:1529' */
+    /* Entry 'GetHeadings': '<S7>:1528' */
+    brain_DWork.is_Start = brain_IN_GetHeadings;
   } else if (brain_DWork.OperationalState == 2) {
     /* Transition: '<S7>:1274' */
     /* Exit 'GetInCorrectState': '<S7>:1263' */
     /* Entry 'ValidationGate': '<S7>:1151' */
     brain_DWork.is_StateFlowFunctions = brain_IN_ValidationGate;
-
-    /* Transition: '<S7>:1476' */
-    /* Entry 'GoThoughGate': '<S7>:1462' */
-    brain_DWork.is_ValidationGate = brain_IN_GoThoughGate;
     brain_DWork.OldObstacle = FALSE;
     brain_DWork.count = 0.0;
     brain_DWork.TrackCount = 0.0;
     brain_B.State = 2;
     brain_B.CameraPosition = 2;
+
+    /* Transition: '<S7>:1476' */
+    /* Entry 'GoThoughGate': '<S7>:1462' */
+    brain_DWork.is_ValidationGate = brain_IN_GoThoughGate;
   } else if (brain_DWork.OperationalState == 3) {
     /* Transition: '<S7>:1277' */
     /* Exit 'GetInCorrectState': '<S7>:1263' */
     /* Entry 'FollowOnePath': '<S7>:1164' */
     brain_DWork.is_StateFlowFunctions = brain_IN_FollowOnePath;
-
-    /* Transition: '<S7>:1165' */
-    /* Entry 'Initialize': '<S7>:1214' */
-    brain_DWork.is_FollowOnePath = brain_IN_Initialize;
 
     /* Simulink Function 'GetDesiredDepth': '<S7>:1286' */
 
@@ -6878,6 +6791,15 @@ static void brain_GetInCorrectState(void)
 
     StateFlowFunctionsFollowOnePath(brain_B.H1, brain_B.S1, brain_B.V1,
       &brain_B.StateFlowFunctionsFollowOnePa_g);
+
+    /* Transition: '<S7>:1165' */
+    /* Entry 'OnePath': '<S7>:1167' */
+    brain_DWork.is_FollowOnePath = brain_IN_OnePath;
+
+    /* Transition: '<S7>:1170' */
+    /* Entry 'PositionOver': '<S7>:1172' */
+    brain_DWork.is_OnePath = brain_IN_PositionOver;
+    brain_DWork.Error = 500.0;
   } else if (brain_DWork.OperationalState == 6) {
     /* Transition: '<S7>:1281' */
     /* Exit 'GetInCorrectState': '<S7>:1263' */
@@ -6902,7 +6824,12 @@ static void brain_GetInCorrectState(void)
       brain_B.CameraPosition = 0;
       brain_B.State = 4;
       brain_DWork.BuoyCount = 0.0;
-      brain_B.DesiredDepth = 5.0;
+
+      /* Simulink Function 'GetDesiredDepth': '<S7>:1286' */
+
+      /* Constant: '<S24>/Constant' */
+      brain_B.Constant_f = brain_P.Track_Desired_Depth;
+      brain_B.DesiredDepth = brain_B.Constant_f;
     }
   }
 }
@@ -6913,32 +6840,65 @@ static void brain_Start(void)
   /* During 'Start': '<S7>:1145' */
   if (brain_DWork.OperationalState != 1) {
     /* Transition: '<S7>:1270' */
-    /* Exit 'Start': '<S7>:1145' */
-    brain_B.DesiredHeading = brain_U.CurrentHeading;
+    if (brain_DWork.is_Start == brain_IN_GetHeadings) {
+      /* Exit 'GetHeadings': '<S7>:1528' */
+      brain_B.DesiredHeading = brain_U.CurrentHeading;
+      brain_DWork.is_Start = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
+    } else {
+      brain_DWork.is_Start = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
+      /* Exit 'StartFinished': '<S7>:1530' */
+    }
+
+    /* Exit 'Start': '<S7>:1145' */
     /* Entry 'GetInCorrectState': '<S7>:1263' */
     brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
   } else {
-    /* Embedded MATLAB Function 'InitialHeadingCount': '<S7>:1146' */
-    /* '<S7>:1146:3' */
-    if ((brain_U.CurrentHeading > brain_DWork.OldHeading - 2.0) &&
-        (brain_U.CurrentHeading < brain_DWork.OldHeading + 2.0)) {
-      /* '<S7>:1146:5' */
-      /* '<S7>:1146:6' */
-      brain_DWork.DesiredHeadingCount = brain_DWork.DesiredHeadingCount + 1.0;
-    } else {
-      /* '<S7>:1146:8' */
-      brain_DWork.DesiredHeadingCount = 0.0;
+    switch (brain_DWork.is_Start) {
+     case brain_IN_GetHeadings:
+      /* During 'GetHeadings': '<S7>:1528' */
+      if (brain_DWork.DesiredHeadingCount >= 3.0) {
+        /* Transition: '<S7>:1531' */
+        /* Exit 'GetHeadings': '<S7>:1528' */
+        brain_B.DesiredHeading = brain_U.CurrentHeading;
+
+        /* Entry 'StartFinished': '<S7>:1530' */
+        brain_DWork.is_Start = brain_IN_StartFinished;
+        brain_DWork.Done = 1.0;
+      } else {
+        /* Embedded MATLAB Function 'InitialHeadingCount': '<S7>:1146' */
+        /* '<S7>:1146:3' */
+        if ((brain_U.CurrentHeading > brain_DWork.OldHeading - 2.0) &&
+            (brain_U.CurrentHeading < brain_DWork.OldHeading + 2.0)) {
+          /* '<S7>:1146:5' */
+          /* '<S7>:1146:6' */
+          brain_DWork.DesiredHeadingCount = brain_DWork.DesiredHeadingCount +
+            1.0;
+        } else {
+          /* '<S7>:1146:8' */
+          brain_DWork.DesiredHeadingCount = 0.0;
+        }
+
+        /* '<S7>:1146:10' */
+        brain_DWork.OldHeading = brain_U.CurrentHeading;
+
+        /* Simulink Function 'GetDesiredDepth': '<S7>:1286' */
+
+        /* Constant: '<S24>/Constant' */
+        brain_B.Constant_f = brain_P.Track_Desired_Depth;
+        brain_B.DesiredDepth = brain_B.Constant_f;
+      }
+      break;
+
+     case brain_IN_StartFinished:
+      break;
+
+     default:
+      /* Transition: '<S7>:1529' */
+      /* Entry 'GetHeadings': '<S7>:1528' */
+      brain_DWork.is_Start = brain_IN_GetHeadings;
+      break;
     }
-
-    /* '<S7>:1146:10' */
-    brain_DWork.OldHeading = brain_U.CurrentHeading;
-
-    /* Simulink Function 'GetDesiredDepth': '<S7>:1286' */
-
-    /* Constant: '<S24>/Constant' */
-    brain_B.Constant_f = brain_P.Track_Desired_Depth;
-    brain_B.DesiredDepth = brain_B.Constant_f;
   }
 }
 
@@ -7276,11 +7236,6 @@ static void brain_ValidationGate(void)
       /* Transition: '<S7>:1476' */
       /* Entry 'GoThoughGate': '<S7>:1462' */
       brain_DWork.is_ValidationGate = brain_IN_GoThoughGate;
-      brain_DWork.OldObstacle = FALSE;
-      brain_DWork.count = 0.0;
-      brain_DWork.TrackCount = 0.0;
-      brain_B.State = 2;
-      brain_B.CameraPosition = 2;
       break;
     }
   }
@@ -7494,11 +7449,13 @@ static void brain_StateFlowFunctions(void)
 
           /* Entry 'ApproachBuoys': '<S7>:1312' */
           brain_DWork.is_Buoys = brain_IN_ApproachBuoys;
+          brain_DWork.countarea = 0.0;
+          brain_DWork.count2ndarea = 0.0;
+          brain_DWork.TurnDirection = 0.0;
 
           /* Transition: '<S7>:1313' */
           /* Entry 'ApproachFirstBuoy': '<S7>:1341' */
           brain_DWork.is_ApproachBuoys = brain_IN_ApproachFirstBuoy;
-          brain_DWork.countarea = 0.0;
 
           /* Simulink Function 'GetFirstBuoyStats': '<S7>:1342' */
 
@@ -8681,6 +8638,7 @@ void brain_step(void)
     /* Transition: '<S7>:1138' */
     /* Entry 'NotRunning': '<S7>:1135' */
     brain_DWork.is_StateManagement = brain_IN_NotRunning_m;
+    brain_DWork.Done = 0.0;
 
     /* Entry 'StateFlowFunctions': '<S7>:726' */
     brain_DWork.is_active_StateFlowFunctions = 1U;
@@ -8728,6 +8686,7 @@ void brain_step(void)
         /* Exit 'Running': '<S7>:940' */
         /* Entry 'NotRunning': '<S7>:1135' */
         brain_DWork.is_StateManagement = brain_IN_NotRunning_m;
+        brain_DWork.Done = 0.0;
       } else {
         switch (brain_DWork.is_Running) {
          case brain_IN_Autonomous:
@@ -8872,8 +8831,7 @@ void brain_step(void)
 
              case brain_IN_Start_m:
               /* During 'Start': '<S7>:1019' */
-              if ((brain_DWork.DesiredHeadingCount >= 3.0) &&
-                  (brain_U.DesiredState == 0)) {
+              if ((brain_DWork.Done != 0.0) && (brain_U.DesiredState == 0)) {
                 /* Transition: '<S7>:948' */
                 /* Exit 'Start': '<S7>:1019' */
                 /* Entry 'ValidationGate': '<S7>:1121' */
@@ -8949,6 +8907,7 @@ void brain_step(void)
       /* Transition: '<S7>:1138' */
       /* Entry 'NotRunning': '<S7>:1135' */
       brain_DWork.is_StateManagement = brain_IN_NotRunning_m;
+      brain_DWork.Done = 0.0;
       break;
     }
 
@@ -10011,6 +9970,7 @@ void brain_initialize(void)
     brain_DWork.is_ApproachBuoys = 0U;
     brain_DWork.is_FollowOnePath = 0U;
     brain_DWork.is_OnePath = 0U;
+    brain_DWork.is_Start = 0U;
     brain_DWork.is_ValidationGate = 0U;
     brain_DWork.is_active_StateManagement = 0U;
     brain_DWork.is_StateManagement = 0U;

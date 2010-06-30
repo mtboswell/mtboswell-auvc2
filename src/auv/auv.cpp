@@ -308,7 +308,8 @@ void AUV::setActualDepth(double depth){
 	emit status("Calibrated Depth Sensor to " + QString::number(depth) + " ft");
 }
 
-bool AUV::getGo(){return (bool)arduino->getValue("GO");}
+// values of -1 and 1 should mean on
+bool AUV::getGo(){return (arduino->getValue("GO")==0)?false:true;}
 
 // deprecated
 void AUV::look(cameraPosition pos){
