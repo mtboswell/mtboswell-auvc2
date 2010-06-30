@@ -288,10 +288,12 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 				// stopped state
 				stateLabel->setText("Stopped");
 				// enter RC state as soon as we leave the stopped state
+				/*
 				if(!controlGroupBox->isChecked()) {
 					controlGroupBox->setChecked(true); 
 					tabWidget->setCurrentWidget(controlsPage);
 				}
+				*/
 			}else{
 				RC = 0;
 				if(controlGroupBox->isChecked()){
