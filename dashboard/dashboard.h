@@ -52,7 +52,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void turnOffAUVAction();
 
 		void reconnectAction();
-		void broadcastAction();
+		void unbroadcastAction();
 		void connectToAddress();
 		void connectToLocalhost();
 

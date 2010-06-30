@@ -35,7 +35,7 @@ Dashboard::Dashboard(QMainWindow *parent)
  	connect(actionRecord_Video, SIGNAL(triggered(bool)), this, SLOT(recordVideo(bool)));
 	connect(actionReconnect, SIGNAL(triggered()), this, SLOT(reconnectAction()));
 	connect(actionTurn_Off_AUV, SIGNAL(triggered()), this, SLOT(turnOffAUVAction()));
-	connect(actionBroadcast_Data, SIGNAL(triggered()), this, SLOT(broadcastAction()));
+	connect(actionBroadcast_Data, SIGNAL(triggered()), this, SLOT(unbroadcastAction()));
 	connect(actionConnect_To, SIGNAL(triggered()), this, SLOT(connectToAddress()));
 	connect(actionConnect_to_LocalHost, SIGNAL(triggered()), this, SLOT(connectToLocalhost()));
 	connect(actionLoad_Parameters, SIGNAL(triggered()), this, SLOT(loadParameters()));
@@ -179,9 +179,10 @@ void Dashboard::logCmd(QString id, QString data){
 	logger->logData("LastCommand", id + "=" + data+";");
 }
 
-void Dashboard::broadcastAction(){
-	emit sendSID("Connect.Data", "Broadcast");
+void Dashboard::unbroadcastAction(){
+	emit sendSID("Connect.Data", "This");
         emit sendSID("Connect.Video", "This");
+	emit sendSID("GetParams", "all");
 }
 
 void Dashboard::connectToAddress(){
