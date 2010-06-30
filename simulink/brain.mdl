@@ -10163,7 +10163,7 @@ Model {
 		  Name			  "Depth\nDerivative\nGain"
 		  SID			  873
 		  Position		  [180, 130, 210, 160]
-		  Gain			  "Cam_Down_XPosition_Kd"
+		  Gain			  "Cam_Down_XPos_Kd"
 		  ParameterDataTypeMode	  "Inherit via internal rule"
 		  ParameterDataType	  "fixdt(1, 16)"
 		  ParameterScaling	  "2^0"
@@ -10227,7 +10227,7 @@ Model {
 		  Name			  "Depth\nIntegral\nGain"
 		  SID			  876
 		  Position		  [180, 220, 210, 250]
-		  Gain			  "Cam_Down_XPosition_Ki"
+		  Gain			  "Cam_Down_XPos_Ki"
 		  ParameterDataTypeMode	  "Inherit via internal rule"
 		  ParameterDataType	  "fixdt(1, 16)"
 		  ParameterScaling	  "2^0"
@@ -10243,7 +10243,7 @@ Model {
 		  Name			  "Depth\nProportional\nGain"
 		  SID			  877
 		  Position		  [180, 55, 230, 85]
-		  Gain			  "Cam_Down_XPosition_Kp"
+		  Gain			  "Cam_Down_XPos_Kp"
 		  ParameterDataTypeMode	  "Inherit via internal rule"
 		  ParameterDataType	  "fixdt(1, 16)"
 		  ParameterScaling	  "2^0"

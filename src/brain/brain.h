@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.525
+ * Model version                        : 1.532
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Wed Jun 30 14:11:20 2010
+ * Real-Time Workshop file generated on : Wed Jun 30 18:53:37 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Wed Jun 30 14:11:21 2010
+ * C/C++ source code generated on       : Wed Jun 30 18:53:38 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -623,13 +623,19 @@ struct Parameters_brain_ {
                                         * Referenced by: '<S12>/Constant'
                                         */
   real_T Cam_Down_XPos_Kd;             /* Variable: Cam_Down_XPos_Kd
-                                        * Referenced by: '<S73>/X-Buoy Derivative Gain'
+                                        * Referenced by:
+                                        *   '<S64>/Depth Derivative Gain'
+                                        *   '<S73>/X-Buoy Derivative Gain'
                                         */
   real_T Cam_Down_XPos_Ki;             /* Variable: Cam_Down_XPos_Ki
-                                        * Referenced by: '<S73>/X-Buoy Integral Gain'
+                                        * Referenced by:
+                                        *   '<S64>/Depth Integral Gain'
+                                        *   '<S73>/X-Buoy Integral Gain'
                                         */
   real_T Cam_Down_XPos_Kp;             /* Variable: Cam_Down_XPos_Kp
-                                        * Referenced by: '<S73>/X-Buoy Proportional Gain'
+                                        * Referenced by:
+                                        *   '<S64>/Depth Proportional Gain'
+                                        *   '<S73>/X-Buoy Proportional Gain'
                                         */
   real_T Cam_Down_YPos_Kd;             /* Variable: Cam_Down_YPos_Kd
                                         * Referenced by: '<S75>/Y-Buoy Derivative Gain'
@@ -641,19 +647,13 @@ struct Parameters_brain_ {
                                         * Referenced by: '<S75>/Y-Buoy Proportional Gain'
                                         */
   real_T Cam_Forward_XPosition_Kd;     /* Variable: Cam_Forward_XPosition_Kd
-                                        * Referenced by:
-                                        *   '<S64>/Depth Derivative Gain'
-                                        *   '<S39>/X-Buoy Derivative Gain'
+                                        * Referenced by: '<S39>/X-Buoy Derivative Gain'
                                         */
   real_T Cam_Forward_XPosition_Ki;     /* Variable: Cam_Forward_XPosition_Ki
-                                        * Referenced by:
-                                        *   '<S64>/Depth Integral Gain'
-                                        *   '<S39>/X-Buoy Integral Gain'
+                                        * Referenced by: '<S39>/X-Buoy Integral Gain'
                                         */
   real_T Cam_Forward_XPosition_Kp;     /* Variable: Cam_Forward_XPosition_Kp
-                                        * Referenced by:
-                                        *   '<S64>/Depth Proportional Gain'
-                                        *   '<S39>/X-Buoy Proportional Gain'
+                                        * Referenced by: '<S39>/X-Buoy Proportional Gain'
                                         */
   real_T Cam_Forward_YPosition_Kd;     /* Variable: Cam_Forward_YPosition_Kd
                                         * Referenced by: '<S41>/Y-Buoy Derivative Gain'
