@@ -35,7 +35,7 @@ class Arduino : public QThread
 		 * @param desc Name of the data field you want to retrieve.
 		 * @return Value of the data field specified.  Zero if field doesn't exist.
 		 */
-		unsigned int getValue(const QString & desc);
+		int getValue(const QString & desc);
 
 		/**
 		 * Send a one-byte command to the Arduino.
