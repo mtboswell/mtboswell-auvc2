@@ -134,7 +134,7 @@ Dashboard::~Dashboard(){
 
 void Dashboard::reconnectAction(){
 	emit sendSID("Connect.Data", "Broadcast");
-	emit sendSID("Connect.Video", "Broadcast");
+        emit sendSID("Connect.Video", "This");
 	emit sendSID("GetParams", "all");
 #ifndef _WIN32
 	emit sendSID("Dashboard.Version", getVersion());
@@ -181,7 +181,7 @@ void Dashboard::logCmd(QString id, QString data){
 
 void Dashboard::broadcastAction(){
 	emit sendSID("Connect.Data", "Broadcast");
-	emit sendSID("Connect.Video", "Broadcast");
+        emit sendSID("Connect.Video", "This");
 }
 
 void Dashboard::connectToAddress(){
