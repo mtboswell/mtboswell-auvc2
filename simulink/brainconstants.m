@@ -46,7 +46,7 @@ Buoy_Max_Extent = 0.9;
 
 Max_Num_Blobs_Buoy = 10;
 
-Cam_Forward_XPosition_Kp =0.075;
+Cam_Forward_XPosition_Kp = 0.075;
 Cam_Forward_XPosition_Kd = 0.001;
 Cam_Forward_XPosition_Ki = 0.001;
 

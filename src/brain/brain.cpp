@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.525
+ * Model version                        : 1.532
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Wed Jun 30 14:11:20 2010
+ * Real-Time Workshop file generated on : Wed Jun 30 18:53:37 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Wed Jun 30 14:11:21 2010
+ * C/C++ source code generated on       : Wed Jun 30 18:53:38 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -2690,7 +2690,7 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
     localB->sf_EmbeddedMATLABFunction1.YCenter;
 
   /* Sum: '<S71>/Subtract' */
-  rtb_Sum_c = eml_BlobCentroidX - localB->sf_EmbeddedMATLABFunction1.XCenter;
+  rtb_Sum_c = localB->sf_EmbeddedMATLABFunction1.XCenter - eml_BlobCentroidX;
 
   /* SampleTimeMath: '<S74>/TSamp' incorporates:
    *  Gain: '<S73>/X-Buoy Derivative Gain'
@@ -2838,7 +2838,7 @@ void StateFlowFunctionsFollowOnePa_k(real_T rtu_HeadingAlong, real_T
    * About '<S65>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
-  rtb_TSamp_p = brain_P.Cam_Forward_XPosition_Kd * rtu_HeadingAlong / ((real_T)
+  rtb_TSamp_p = brain_P.Cam_Down_XPos_Kd * rtu_HeadingAlong / ((real_T)
     localDW->StateFlowFunctionsFollowOneP_je * 0.2);
 
   /* Sum: '<S64>/Sum' incorporates:
@@ -2855,9 +2855,8 @@ void StateFlowFunctionsFollowOnePa_k(real_T rtu_HeadingAlong, real_T
    *
    *  Store in Global RAM
    */
-  rtb_Sum_d = (brain_P.Cam_Forward_XPosition_Kp * rtu_HeadingAlong
-               + (rtb_TSamp_p - localDW->UD_DSTATE)) +
-    localDW->DepthDiscreteTimeIntegrator_DST;
+  rtb_Sum_d = (brain_P.Cam_Down_XPos_Kp * rtu_HeadingAlong + (rtb_TSamp_p -
+    localDW->UD_DSTATE)) + localDW->DepthDiscreteTimeIntegrator_DST;
 
   /* Embedded MATLAB: '<S20>/Embedded MATLAB Function' */
   /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.Align/Embedded MATLAB Function': '<S63>:1' */
@@ -2913,8 +2912,8 @@ void StateFlowFunctionsFollowOnePa_k(real_T rtu_HeadingAlong, real_T
    *  Gain: '<S64>/Depth Integral Gain'
    */
   localDW->DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
-    localDW->StateFlowFunctionsFollowOneP_je * (brain_P.Cam_Forward_XPosition_Ki
-    * rtu_HeadingAlong) + localDW->DepthDiscreteTimeIntegrator_DST;
+    localDW->StateFlowFunctionsFollowOneP_je * (brain_P.Cam_Down_XPos_Ki *
+    rtu_HeadingAlong) + localDW->DepthDiscreteTimeIntegrator_DST;
   if (localDW->DepthDiscreteTimeIntegrator_DST >= 10.0) {
     localDW->DepthDiscreteTimeIntegrator_DST = 10.0;
   } else {
