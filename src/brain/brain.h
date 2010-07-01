@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.536
+ * Model version                        : 1.539
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Wed Jun 30 20:04:41 2010
+ * Real-Time Workshop file generated on : Wed Jun 30 20:33:11 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Wed Jun 30 20:04:42 2010
+ * C/C++ source code generated on       : Wed Jun 30 20:33:11 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -623,12 +623,11 @@ struct Parameters_brain_ {
   real_T Cam_Down_XPos_Ki;             /* Variable: Cam_Down_XPos_Ki
                                         * Referenced by:
                                         *   '<S64>/CamDown-X Integral Gain'
+                                        *   '<S64>/CamDown-X Proportional Gain'
                                         *   '<S73>/X-Buoy Integral Gain'
                                         */
   real_T Cam_Down_XPos_Kp;             /* Variable: Cam_Down_XPos_Kp
-                                        * Referenced by:
-                                        *   '<S64>/CamDown-X Proportional Gain'
-                                        *   '<S73>/X-Buoy Proportional Gain'
+                                        * Referenced by: '<S73>/X-Buoy Proportional Gain'
                                         */
   real_T Cam_Down_YPos_Kd;             /* Variable: Cam_Down_YPos_Kd
                                         * Referenced by: '<S75>/Y-Buoy Derivative Gain'

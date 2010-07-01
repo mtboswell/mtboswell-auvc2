@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.536
+ * Model version                        : 1.539
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Wed Jun 30 20:04:41 2010
+ * Real-Time Workshop file generated on : Wed Jun 30 20:33:11 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Wed Jun 30 20:04:42 2010
+ * C/C++ source code generated on       : Wed Jun 30 20:33:11 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -2488,7 +2488,7 @@ void StateFlowFunctionsFollowOnePa_k(real_T rtu_HeadingAlong, real_T
    *
    *  Store in Global RAM
    */
-  rtb_Sum_d = (brain_P.Cam_Down_XPos_Kp * rtu_HeadingAlong + (rtb_TSamp_p -
+  rtb_Sum_d = (brain_P.Cam_Down_XPos_Ki * rtu_HeadingAlong + (rtb_TSamp_p -
     localDW->UD_DSTATE)) + localDW->DepthDiscreteTimeIntegrator_DST;
 
   /* Embedded MATLAB: '<S20>/Embedded MATLAB Function' */
@@ -5705,7 +5705,7 @@ static void brain_FollowOnePath(void)
         brain_B.Vertical = brain_B.DoubleToInt8;
 
         /* Simulink Function 'Align': '<S7>:1437' */
-        brain_B.HeadingAlong = brain_DWork.HeadingAlongPath;
+        brain_B.HeadingAlong = brain_DWork.HeadingAlongPath + 90.0;
         brain_B.Forward1 = (real_T)i_0;
         StateFlowFunctionsFollowOnePa_k(brain_B.HeadingAlong, brain_B.Forward1,
           brain_M, &brain_B.StateFlowFunctionsFollowOneP_kn,
