@@ -87,7 +87,7 @@ Model {
       Name		      "RGBout"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.536"
+    ComputedModelVersion    "1.539"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -106,9 +106,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 30 20:03:16 2010"
-  RTWModifiedTimeStamp	  199828761
-  ModelVersionFormat	  "1.%<AutoIncrement:536>"
+  LastModifiedDate	  "Wed Jun 30 20:32:26 2010"
+  RTWModifiedTimeStamp	  199830745
+  ModelVersionFormat	  "1.%<AutoIncrement:539>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -622,7 +622,7 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Optimization"
+      CurrentDlgPage	      "Real-Time Workshop"
       ConfigPrmDlgPosition    " [ 235, 78, 1132, 628 ] "
     }
     PropName		    "ConfigurationSets"
@@ -1869,7 +1869,7 @@ Model {
       Name		      "StateFlow Functions"
       SID		      46
       Ports		      [12, 12]
-      Position		      [775, 66, 1260, 469]
+      Position		      [775, 81, 1260, 484]
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -10305,7 +10305,7 @@ Model {
 		  Name			  "CamDown-X\nProportional\nGain"
 		  SID			  877
 		  Position		  [180, 55, 230, 85]
-		  Gain			  "Cam_Down_XPos_Kp"
+		  Gain			  "Cam_Down_XPos_Ki"
 		  ParameterDataTypeMode	  "Inherit via internal rule"
 		  ParameterDataType	  "fixdt(1, 16)"
 		  ParameterScaling	  "2^0"
@@ -15625,33 +15625,34 @@ Model {
     Line {
       SrcBlock		      "StateFlow Functions"
       SrcPort		      7
-      Points		      [0, 5]
+      Points		      [0, -10]
       DstBlock		      "CameraPosition"
       DstPort		      1
     }
     Line {
       SrcBlock		      "GetVideo1"
       SrcPort		      1
+      Points		      [100, 0]
       DstBlock		      "StateFlow Functions"
       DstPort		      3
     }
     Line {
       SrcBlock		      "GetVideo1"
       SrcPort		      2
+      Points		      [100, 0]
       DstBlock		      "StateFlow Functions"
       DstPort		      4
     }
     Line {
       SrcBlock		      "StateFlow Functions"
       SrcPort		      8
-      Points		      [0, 10]
+      Points		      [0, -5]
       DstBlock		      "BuoyCentroidX"
       DstPort		      1
     }
     Line {
       SrcBlock		      "StateFlow Functions"
       SrcPort		      9
-      Points		      [35, 0; 0, 15]
       DstBlock		      "BuoyCentroidY"
       DstPort		      1
     }
@@ -15659,88 +15660,97 @@ Model {
       Labels		      [1, 0]
       SrcBlock		      "GetVideo1"
       SrcPort		      3
+      Points		      [100, 0]
       DstBlock		      "StateFlow Functions"
       DstPort		      5
     }
     Line {
       SrcBlock		      "CurrentDepth"
       SrcPort		      1
+      Points		      [35, 0]
       DstBlock		      "StateFlow Functions"
       DstPort		      1
     }
     Line {
       SrcBlock		      "CurrentHeading"
       SrcPort		      1
+      Points		      [35, 0]
       DstBlock		      "StateFlow Functions"
       DstPort		      2
     }
     Line {
       SrcBlock		      "StateFlow Functions"
       SrcPort		      10
-      Points		      [0, 20]
+      Points		      [0, 5]
       DstBlock		      "State"
       DstPort		      1
     }
     Line {
       SrcBlock		      "StateFlow Functions"
       SrcPort		      5
-      Points		      [0, -5]
+      Points		      [0, -20]
       DstBlock		      "DesiredDepth"
       DstPort		      1
     }
     Line {
       SrcBlock		      "StateFlow Functions"
       SrcPort		      6
+      Points		      [0, -15]
       DstBlock		      "DesiredHeading"
       DstPort		      1
     }
     Line {
       SrcBlock		      "DesiredState"
       SrcPort		      1
+      Points		      [35, 0]
       DstBlock		      "StateFlow Functions"
       DstPort		      7
     }
     Line {
       SrcBlock		      "RC_Heading"
       SrcPort		      1
+      Points		      [35, 0]
       DstBlock		      "StateFlow Functions"
       DstPort		      8
     }
     Line {
       SrcBlock		      "RC_ForwardVelocity"
       SrcPort		      1
+      Points		      [35, 0]
       DstBlock		      "StateFlow Functions"
       DstPort		      9
     }
     Line {
       SrcBlock		      "RC_Strafe"
       SrcPort		      1
+      Points		      [35, 0]
       DstBlock		      "StateFlow Functions"
       DstPort		      10
     }
     Line {
       SrcBlock		      "RC_Depth"
       SrcPort		      1
+      Points		      [35, 0]
       DstBlock		      "StateFlow Functions"
       DstPort		      11
     }
     Line {
       SrcBlock		      "RC"
       SrcPort		      1
+      Points		      [35, 0]
       DstBlock		      "StateFlow Functions"
       DstPort		      12
     }
     Line {
       SrcBlock		      "StateFlow Functions"
       SrcPort		      2
-      Points		      [0, 10]
+      Points		      [0, -5]
       DstBlock		      "Mux"
       DstPort		      2
     }
     Line {
       SrcBlock		      "StateFlow Functions"
       SrcPort		      1
-      Points		      [0, 15]
       DstBlock		      "Mux"
       DstPort		      1
     }
@@ -15809,13 +15819,14 @@ Model {
     Line {
       SrcBlock		      "StateFlow Functions"
       SrcPort		      3
-      Points		      [60, 0; 0, 5]
+      Points		      [60, 0; 0, -10]
       DstBlock		      "Mux"
       DstPort		      3
     }
     Line {
       SrcBlock		      "StateFlow Functions"
       SrcPort		      4
+      Points		      [0, -15]
       DstBlock		      "Mux"
       DstPort		      4
     }
@@ -15828,7 +15839,7 @@ Model {
     Line {
       SrcBlock		      "Environment\nController3"
       SrcPort		      1
-      Points		      [40, 0; 0, -50]
+      Points		      [40, 0; 0, -35]
       DstBlock		      "StateFlow Functions"
       DstPort		      6
     }
@@ -15842,7 +15853,7 @@ Model {
     Line {
       SrcBlock		      "StateFlow Functions"
       SrcPort		      11
-      Points		      [0, 20; 135, 0]
+      Points		      [0, 5; 135, 0]
       Branch {
 	DstBlock		"BWout"
 	DstPort			1
@@ -15868,7 +15879,7 @@ Model {
     Line {
       SrcBlock		      "StateFlow Functions"
       SrcPort		      12
-      Points		      [70, 0; 0, 25]
+      Points		      [70, 0; 0, 10]
       Branch {
 	DstBlock		"RGBout"
 	DstPort			1
@@ -16804,17 +16815,17 @@ Stateflow {
     id			    2
     name		    "StateFlow Functions"
     windowPosition	    [0 30 1024.5 489]
-    viewLimits		    [-18.75 1207.5 33.606 599.856]
+    viewLimits		    [-18.75 1207.5 -18.75 547.5]
     zoomFactor		    1.25
     screen		    [1 1 1366 768 1.333333333333333]
     treeNode		    [0 4 0 0]
-    viewObj		    3
+    viewObj		    30
     visible		    1
     machine		    1
     subviewS {
       zoomFactor	      1.25
     }
-    ssIdHighWaterMark	    1539
+    ssIdHighWaterMark	    1540
     decomposition	    SET_CHART
     firstData		    225
     updateMethod	    DISCRETE
@@ -16833,6 +16844,7 @@ Stateflow {
     treeNode		    [2 51 4 0]
     firstTransition	    107
     superState		    SUBCHART
+    visible		    0
     subviewer		    2
     subviewS {
       x1		      -18.75
@@ -16875,6 +16887,7 @@ Stateflow {
     chart		    2
     treeNode		    [3 0 51 55]
     superState		    GROUPED
+    visible		    0
     subviewer		    3
     ssIdNumber		    727
     type		    OR_STATE
@@ -16890,6 +16903,7 @@ Stateflow {
     chart		    2
     treeNode		    [3 0 53 54]
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -15
@@ -17151,6 +17165,7 @@ Stateflow {
     treeNode		    [3 18 55 39]
     firstTransition	    93
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -18.75
@@ -17170,6 +17185,7 @@ Stateflow {
     chart		    2
     treeNode		    [3 0 54 49]
     superState		    GROUPED
+    visible		    0
     subviewer		    3
     ssIdNumber		    1259
     type		    OR_STATE
@@ -17197,6 +17213,7 @@ Stateflow {
     chart		    2
     treeNode		    [3 0 49 0]
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     ssIdNumber		    918
     type		    FUNC_STATE
@@ -17247,7 +17264,6 @@ Stateflow {
     chart		    2
     treeNode		    [30 0 63 0]
     superState		    SUBCHART
-    visible		    0
     subviewer		    30
     ssIdNumber		    1208
     type		    FUNC_STATE
@@ -17340,14 +17356,13 @@ Stateflow {
     id			    30
     labelString		    "AlignWithPath\n\nentry:\nHeadingAlongPath = 200;\nLeft = 0;\nRight = 0;\nStrafe = 0;\n\ndu:\n[BW"
     "out] = HSVSegmentation(H,S);\n[HeadingAlongPath] = GetHeadings(BWout);\n\n[Strafe,Forward,ErrorX,ErrorY] = CenterO"
-    "ver_Strafe(BWout);\nVertical = MaintainDepth(CurrentDepth,DesiredDepth);\n[Left, Right] = Align(HeadingAlongPath,F"
-    "orward);"
+    "ver_Strafe(BWout);\nVertical = MaintainDepth(CurrentDepth,DesiredDepth);\n[Left, Right] = Align(HeadingAlongPath+9"
+    "0,Forward);"
     position		    [299.1406 74.7656 129.8438 99.8438]
     fontSize		    12
     chart		    2
     treeNode		    [18 63 33 28]
     superState		    SUBCHART
-    visible		    0
     subviewer		    18
     subviewS {
       x1		      -18.75
@@ -17536,6 +17551,7 @@ Stateflow {
     treeNode		    [3 15 19 53]
     firstTransition	    117
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -15
@@ -17706,6 +17722,7 @@ Stateflow {
     chart		    2
     treeNode		    [3 0 20 22]
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     ssIdNumber		    926
     type		    FUNC_STATE
@@ -17751,6 +17768,7 @@ Stateflow {
     treeNode		    [3 65 0 5]
     firstTransition	    118
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -14.717
@@ -17787,6 +17805,7 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [3 0 39 6]
+    visible		    0
     subviewer		    3
     ssIdNumber		    1263
     type		    OR_STATE
@@ -17800,6 +17819,7 @@ Stateflow {
     chart		    2
     treeNode		    [3 0 6 20]
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     ssIdNumber		    1286
     type		    FUNC_STATE
@@ -17819,6 +17839,7 @@ Stateflow {
     treeNode		    [3 57 5 19]
     firstTransition	    68
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -18.75
@@ -17982,7 +18003,6 @@ Stateflow {
     chart		    2
     treeNode		    [30 0 0 25]
     superState		    SUBCHART
-    visible		    0
     subviewer		    30
     ssIdNumber		    1437
     type		    FUNC_STATE
@@ -18054,6 +18074,7 @@ Stateflow {
     midPoint		    [325.9675 488.5098]
     chart		    2
     linkNode		    [3 105 114]
+    visible		    0
     dataLimits		    [129.437 429.587 390.631 505.286]
     stampAngle		    NaN
     subviewer		    3
@@ -18854,6 +18875,7 @@ Stateflow {
     midPoint		    [454.375 410.305]
     chart		    2
     linkNode		    [3 114 0]
+    visible		    0
     dataLimits		    [451.975 456.775 390.631 420.631]
     subviewer		    3
     drawStyle		    SMART
@@ -18876,6 +18898,7 @@ Stateflow {
     midPoint		    [308.5491 171.597]
     chart		    2
     linkNode		    [3 103 104]
+    visible		    0
     dataLimits		    [176.537 377.087 151.381 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -18903,6 +18926,7 @@ Stateflow {
     midPoint		    [334.9896 145.8141]
     chart		    2
     linkNode		    [3 112 102]
+    visible		    0
     dataLimits		    [176.537 427.188 114.481 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -18930,6 +18954,7 @@ Stateflow {
     midPoint		    [220.3311 314.6938]
     chart		    2
     linkNode		    [3 102 105]
+    visible		    0
     dataLimits		    [129.539 310.469 312.291 317.091]
     stampAngle		    NaN
     subviewer		    3
@@ -18953,6 +18978,7 @@ Stateflow {
     midPoint		    [219.6762 327.8189]
     chart		    2
     linkNode		    [3 104 67]
+    visible		    0
     dataLimits		    [129.539 310.469 325.419 330.219]
     stampAngle		    NaN
     subviewer		    3
@@ -18976,6 +19002,7 @@ Stateflow {
     midPoint		    [476.875 170.1787]
     chart		    2
     linkNode		    [3 107 108]
+    visible		    0
     dataLimits		    [474.478 479.278 90.469 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -18999,6 +19026,7 @@ Stateflow {
     midPoint		    [440.3125 171.7026]
     chart		    2
     linkNode		    [3 0 106]
+    visible		    0
     dataLimits		    [437.914 442.714 90.469 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -19022,6 +19050,7 @@ Stateflow {
     midPoint		    [556.8768 176.8082]
     chart		    2
     linkNode		    [3 106 109]
+    visible		    0
     dataLimits		    [554.459 559.259 100.254 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -19047,6 +19076,7 @@ Stateflow {
     midPoint		    [613.1237 174.8589]
     chart		    2
     linkNode		    [3 108 111]
+    visible		    0
     dataLimits		    [610.741 615.541 100.255 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -19072,6 +19102,7 @@ Stateflow {
     midPoint		    [781.8737 175.9731]
     chart		    2
     linkNode		    [3 111 113]
+    visible		    0
     dataLimits		    [779.474 784.274 102.584 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -19097,6 +19128,7 @@ Stateflow {
     midPoint		    [723.75 178.0238]
     chart		    2
     linkNode		    [3 109 110]
+    visible		    0
     dataLimits		    [721.35 726.15 102.584 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -19122,6 +19154,7 @@ Stateflow {
     midPoint		    [880.9075 176.1973]
     chart		    2
     linkNode		    [3 113 103]
+    visible		    0
     dataLimits		    [878.509 883.309 103.053 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -19145,6 +19178,7 @@ Stateflow {
     midPoint		    [861.22 178.2682]
     chart		    2
     linkNode		    [3 110 112]
+    visible		    0
     dataLimits		    [858.819 863.619 103.053 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -19168,6 +19202,7 @@ Stateflow {
     midPoint		    [282.9741 463.5255]
     chart		    2
     linkNode		    [3 67 101]
+    visible		    0
     dataLimits		    [129.438 376.563 390.631 471.979]
     stampAngle		    NaN
     subviewer		    3
