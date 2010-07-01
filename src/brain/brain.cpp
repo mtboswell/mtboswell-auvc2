@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.532
+ * Model version                        : 1.536
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Wed Jun 30 18:53:37 2010
+ * Real-Time Workshop file generated on : Wed Jun 30 20:04:41 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Wed Jun 30 18:53:38 2010
+ * C/C++ source code generated on       : Wed Jun 30 20:04:42 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -89,16 +89,6 @@ static void brain_c14_brain(const real_T rtu_I[19200], rtB_LowPassFilter_brain
 static void brain_c28_brain(rtB_StateFlowFunctionsBuoysIter *localB);
 
 /* Forward declaration for local functions */
-static void brain_max_f(const real_T eml_varargin_1[71820], real_T eml_maxval
-  [180], real_T eml_indx[180]);
-static void brain_max_fa(const real_T eml_varargin_1[180], real_T *eml_maxval,
-  real_T *eml_indx);
-static void brain_refp1_round(real_T *eml_x);
-static void brain_c22_brain(rtB_StateFlowFunctionsFollowO_c *localB);
-static void brain_max(const real_T eml_varargin_1[2], real_T *eml_maxval, real_T
-                      *eml_indx);
-
-/* Forward declaration for local functions */
 static void brain_enter_internal_Autonomous(void);
 static void brain_enter_internal_Buoys(void);
 static real_T brain_countareas(real_T sf_Size, real_T sf_count1);
@@ -113,8 +103,14 @@ static void brain_Outputs_f(const boolean_T eml_U0[19200], int32_T eml_Y0[50],
 static void brain_c5_brain(void);
 static void brain_exit_internal_Buoys(void);
 static void brain_ControlledRC(void);
-static void brain_refp1_cos(real_T eml_x[19200]);
-static void brain_c13_brain(void);
+static void brain_max_f(const real_T eml_varargin_1[71820], real_T eml_maxval
+  [180], real_T eml_indx[180]);
+static void brain_max_fa(const real_T eml_varargin_1[180], real_T *eml_maxval,
+  real_T *eml_indx);
+static void brain_refp1_round(real_T *eml_x);
+static void brain_c22_brain(void);
+static void brain_max(const real_T eml_varargin_1[2], real_T *eml_maxval, real_T
+                      *eml_indx);
 static void brain_FollowOnePath(void);
 static void brain_GetInCorrectState(void);
 static void brain_Start(void);
@@ -241,7 +237,7 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   cc_0 = 0.0;
   cc_1 = 0.0;
   eml_min_dist = 6.0 * rtu_B_Hue;
-  eml_index = (real_T)(uint32_T)(eml_min_dist - 1.3322676295501878E-15);
+  eml_index = (real_T)(uint32_T)(eml_min_dist - 1.3322676295501878E-015);
   eml_min_dist -= eml_index;
   eml_i = 1.0 - rtu_B_Sat;
   eml_MinDist = 1.0 - rtu_B_Sat * eml_min_dist;
@@ -299,36 +295,37 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   /* equivalent to running the gamma correction block with break */
   /* point of 0.00304 and gamma of 2.4; it's built into this */
   /* conversion for convenience */
-  if (localB->ColorSpaceConversion_o1 <= 3.9286085583733095E-02) {
-    eml_min_dist = localB->ColorSpaceConversion_o1 / 1.2923054468333255E+01;
+  if (localB->ColorSpaceConversion_o1 <= 3.9286085583733095E-002) {
+    eml_min_dist = localB->ColorSpaceConversion_o1 / 1.2923054468333254E+001;
   } else {
     eml_min_dist = rt_pow_snf((localB->ColorSpaceConversion_o1 +
-      5.5000519817226347E-02) / 1.0550005198172263E+00, 2.4);
+      5.5000519817226361E-002) / 1.0550005198172263E+000, 2.4);
   }
 
-  if (localB->ColorSpaceConversion_o2 <= 3.9286085583733095E-02) {
-    eml_i = localB->ColorSpaceConversion_o2 / 1.2923054468333255E+01;
+  if (localB->ColorSpaceConversion_o2 <= 3.9286085583733095E-002) {
+    eml_i = localB->ColorSpaceConversion_o2 / 1.2923054468333254E+001;
   } else {
-    eml_i = rt_pow_snf((localB->ColorSpaceConversion_o2 + 5.5000519817226347E-02)
-                       / 1.0550005198172263E+00, 2.4);
+    eml_i = rt_pow_snf((localB->ColorSpaceConversion_o2 +
+                        5.5000519817226361E-002) / 1.0550005198172263E+000, 2.4);
   }
 
-  if (localB->ColorSpaceConversion_o3 <= 3.9286085583733095E-02) {
-    eml_MinDist = localB->ColorSpaceConversion_o3 / 1.2923054468333255E+01;
+  if (localB->ColorSpaceConversion_o3 <= 3.9286085583733095E-002) {
+    eml_MinDist = localB->ColorSpaceConversion_o3 / 1.2923054468333254E+001;
   } else {
     eml_MinDist = rt_pow_snf((localB->ColorSpaceConversion_o3 +
-      5.5000519817226347E-02) / 1.0550005198172263E+00, 2.4);
+      5.5000519817226361E-002) / 1.0550005198172263E+000, 2.4);
   }
 
   /* The coefficients for this conversion were derived from ITU-R */
   /* BT.709 reference primaries for sRGB and CIE standard illuminant */
   /* D65, 2 degree observer */
-  eml_index = (4.1239079926596001E-01 * eml_min_dist + 3.5758433938388001E-01 *
-               eml_i) + 1.8048078840182999E-01 * eml_MinDist;
-  cc = (2.1263900587151000E-01 * eml_min_dist + 7.1516867876776002E-01 * eml_i)
-    + 7.2192315360729994E-02 * eml_MinDist;
-  eml_min_dist = (1.9330818715590000E-02 * eml_min_dist + 1.1919477979463000E-01
-                  * eml_i) + 9.5053215224966003E-01 * eml_MinDist;
+  eml_index = (4.1239079926596001E-001 * eml_min_dist + 3.5758433938388001E-001 *
+               eml_i) + 1.8048078840182999E-001 * eml_MinDist;
+  cc = (2.1263900587151000E-001 * eml_min_dist + 7.1516867876776002E-001 * eml_i)
+    + 7.2192315360729994E-002 * eml_MinDist;
+  eml_min_dist = (1.9330818715590000E-002 * eml_min_dist +
+                  1.1919477979463000E-001 * eml_i) + 9.5053215224966003E-001 *
+    eml_MinDist;
 
   /* Make sure that the output is in [0..1] range; clip if necessary */
   if (eml_index > 1.0) {
@@ -361,27 +358,28 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   localB->ColorSpaceConversion1_o3 = eml_min_dist;
 
   /* Convert from XYZ to L*a*b* */
-  eml_min_dist = localB->ColorSpaceConversion1_o1 / 9.6419865576090003E-01;
-  eml_MinDist = localB->ColorSpaceConversion1_o3 / 8.2511648322104003E-01;
+  eml_min_dist = localB->ColorSpaceConversion1_o1 / 9.6419865576090003E-001;
+  eml_MinDist = localB->ColorSpaceConversion1_o3 / 8.2511648322104003E-001;
 
   /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-  if (eml_min_dist > 8.8564516790356311E-03) {
-    eml_index = rt_pow_snf(eml_min_dist, 3.3333333333333331E-01);
+  if (eml_min_dist > 8.8564516790356311E-003) {
+    eml_index = rt_pow_snf(eml_min_dist, 3.3333333333333331E-001);
   } else {
-    eml_index = 7.7870370370370372E+00 * eml_min_dist + 1.3793103448275862E-01;
+    eml_index = 7.7870370370370372E+000 * eml_min_dist + 1.3793103448275862E-001;
   }
 
-  if (localB->ColorSpaceConversion1_o2 > 8.8564516790356311E-03) {
-    eml_i = rt_pow_snf(localB->ColorSpaceConversion1_o2, 3.3333333333333331E-01);
+  if (localB->ColorSpaceConversion1_o2 > 8.8564516790356311E-003) {
+    eml_i = rt_pow_snf(localB->ColorSpaceConversion1_o2, 3.3333333333333331E-001);
   } else {
-    eml_i = 7.7870370370370372E+00 * localB->ColorSpaceConversion1_o2 +
-      1.3793103448275862E-01;
+    eml_i = 7.7870370370370372E+000 * localB->ColorSpaceConversion1_o2 +
+      1.3793103448275862E-001;
   }
 
-  if (eml_MinDist > 8.8564516790356311E-03) {
-    eml_min_dist = rt_pow_snf(eml_MinDist, 3.3333333333333331E-01);
+  if (eml_MinDist > 8.8564516790356311E-003) {
+    eml_min_dist = rt_pow_snf(eml_MinDist, 3.3333333333333331E-001);
   } else {
-    eml_min_dist = 7.7870370370370372E+00 * eml_MinDist + 1.3793103448275862E-01;
+    eml_min_dist = 7.7870370370370372E+000 * eml_MinDist +
+      1.3793103448275862E-001;
   }
 
   /* assign the results */
@@ -543,9 +541,9 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     }
 
     cc_0 = eml_min_dist / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0] +
-      8.3333333333333329E-02;
+      8.3333333333333329E-002;
     eml_MinDist = eml_index / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0] +
-      8.3333333333333329E-02;
+      8.3333333333333329E-002;
     eml_min_dist = cc / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0];
     eml_min_dist = sqrt((cc_0 - eml_MinDist) * (cc_0 - eml_MinDist) +
                         eml_min_dist * eml_min_dist * 4.0);
@@ -944,9 +942,9 @@ static void brain_Outputs(const boolean_T eml_U0[19200], real_T eml_Y0[100],
     }
 
     eml_centroid_idx = eml_xs / (real_T)localDW->NUM_PIX_DW[eml_c_i] +
-      8.3333333333333329E-02;
+      8.3333333333333329E-002;
     eml_uyy = eml_ys / (real_T)localDW->NUM_PIX_DW[eml_c_i] +
-      8.3333333333333329E-02;
+      8.3333333333333329E-002;
     eml_xs = eml_xys / (real_T)localDW->NUM_PIX_DW[eml_c_i];
     eml_xs = sqrt((eml_centroid_idx - eml_uyy) * (eml_centroid_idx - eml_uyy) +
                   eml_xs * eml_xs * 4.0);
@@ -1213,14 +1211,14 @@ static void brain_c14_brain(const real_T rtu_I[19200], rtB_LowPassFilter_brain
     /* '<S54>:1:25' */
     /* '<S54>:1:26' */
     eml_G[eml_i + 1] = exp((-((real_T)(eml_i * eml_i) + 1.0)) /
-      4.0000000000000009E+00);
+      4.0000000000000009E+000);
 
     /* '<S54>:1:27' */
     eml_Gsum += eml_G[eml_i + 1];
 
     /* '<S54>:1:25' */
     /* '<S54>:1:26' */
-    eml_G[eml_i + 4] = exp((real_T)(-(eml_i * eml_i)) / 4.0000000000000009E+00);
+    eml_G[eml_i + 4] = exp((real_T)(-(eml_i * eml_i)) / 4.0000000000000009E+000);
 
     /* '<S54>:1:27' */
     eml_Gsum += eml_G[eml_i + 4];
@@ -1228,7 +1226,7 @@ static void brain_c14_brain(const real_T rtu_I[19200], rtB_LowPassFilter_brain
     /* '<S54>:1:25' */
     /* '<S54>:1:26' */
     eml_G[eml_i + 7] = exp((-((real_T)(eml_i * eml_i) + 1.0)) /
-      4.0000000000000009E+00);
+      4.0000000000000009E+000);
 
     /* '<S54>:1:27' */
     eml_Gsum += eml_G[eml_i + 7];
@@ -1541,7 +1539,7 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
   cc_1 = 0.0;
   for (i = 0; i < 19200; i++) {
     eml_min_dist = 6.0 * rtu_H[i];
-    k = (uint32_T)(eml_min_dist - 1.3322676295501878E-15);
+    k = (uint32_T)(eml_min_dist - 1.3322676295501878E-015);
     eml_min_dist -= (real_T)k;
     eml_index = 1.0 - rtu_S[i];
     eml_k = 1.0 - rtu_S[i] * eml_min_dist;
@@ -1612,36 +1610,36 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
     /* equivalent to running the gamma correction block with break */
     /* point of 0.00304 and gamma of 2.4; it's built into this */
     /* conversion for convenience */
-    if (localB->sf_LowPassFilter.Iout[i] <= 3.928608447E-02F) {
-      Zr = localB->sf_LowPassFilter.Iout[i] / 1.292305470E+01F;
+    if (localB->sf_LowPassFilter.Iout[i] <= 3.928608447E-002F) {
+      Zr = localB->sf_LowPassFilter.Iout[i] / 1.292305470E+001F;
     } else {
-      Zr = rt_pow32_snf((localB->sf_LowPassFilter.Iout[i] + 5.500052124E-02F) /
-                        1.055000544E+00F, 2.400000095E+00F);
+      Zr = rt_pow32_snf((localB->sf_LowPassFilter.Iout[i] + 5.500052124E-002F) /
+                        1.055000544E+000F, 2.400000095E+000F);
     }
 
-    if (localB->sf_LowPassFilter1.Iout[i] <= 3.928608447E-02F) {
-      eml_dist = localB->sf_LowPassFilter1.Iout[i] / 1.292305470E+01F;
+    if (localB->sf_LowPassFilter1.Iout[i] <= 3.928608447E-002F) {
+      eml_dist = localB->sf_LowPassFilter1.Iout[i] / 1.292305470E+001F;
     } else {
       eml_dist = rt_pow32_snf((localB->sf_LowPassFilter1.Iout[i] +
-        5.500052124E-02F) / 1.055000544E+00F, 2.400000095E+00F);
+        5.500052124E-002F) / 1.055000544E+000F, 2.400000095E+000F);
     }
 
-    if (localB->sf_LowPassFilter2.Iout[i] <= 3.928608447E-02F) {
-      Yr = localB->sf_LowPassFilter2.Iout[i] / 1.292305470E+01F;
+    if (localB->sf_LowPassFilter2.Iout[i] <= 3.928608447E-002F) {
+      Yr = localB->sf_LowPassFilter2.Iout[i] / 1.292305470E+001F;
     } else {
-      Yr = rt_pow32_snf((localB->sf_LowPassFilter2.Iout[i] + 5.500052124E-02F) /
-                        1.055000544E+00F, 2.400000095E+00F);
+      Yr = rt_pow32_snf((localB->sf_LowPassFilter2.Iout[i] + 5.500052124E-002F) /
+                        1.055000544E+000F, 2.400000095E+000F);
     }
 
     /* The coefficients for this conversion were derived from ITU-R */
     /* BT.709 reference primaries for sRGB and CIE standard illuminant */
     /* D65, 2 degree observer */
-    Xf = (4.123907983E-01F * Zr + 3.575843275E-01F * eml_dist) +
-      1.804807931E-01F * Yr;
-    cc_2 = (2.126390040E-01F * Zr + 7.151686549E-01F * eml_dist) +
-      7.219231874E-02F * Yr;
-    eml_dist = (1.933081821E-02F * Zr + 1.191947833E-01F * eml_dist) +
-      9.505321383E-01F * Yr;
+    Xf = (4.123907983E-001F * Zr + 3.575843275E-001F * eml_dist) +
+      1.804807931E-001F * Yr;
+    cc_2 = (2.126390040E-001F * Zr + 7.151686549E-001F * eml_dist) +
+      7.219231874E-002F * Yr;
+    eml_dist = (1.933081821E-002F * Zr + 1.191947833E-001F * eml_dist) +
+      9.505321383E-001F * Yr;
 
     /* Make sure that the output is in [0..1] range; clip if necessary */
     if (Xf > 1.0F) {
@@ -1676,27 +1674,27 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
 
   /* Convert from XYZ to L*a*b* */
   for (i = 0; i < 19200; i++) {
-    eml_dist = localB->ColorSpaceConversion1_o1[i] / 9.641986489E-01F;
-    Zr = localB->ColorSpaceConversion1_o3[i] / 8.251164556E-01F;
+    eml_dist = localB->ColorSpaceConversion1_o1[i] / 9.641986489E-001F;
+    Zr = localB->ColorSpaceConversion1_o3[i] / 8.251164556E-001F;
 
     /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-    if (eml_dist > 8.856452070E-03F) {
-      Xf = rt_pow32_snf(eml_dist, 3.333333433E-01F);
+    if (eml_dist > 8.856452070E-003F) {
+      Xf = rt_pow32_snf(eml_dist, 3.333333433E-001F);
     } else {
-      Xf = 7.787036896E+00F * eml_dist + 1.379310340E-01F;
+      Xf = 7.787036896E+000F * eml_dist + 1.379310340E-001F;
     }
 
-    if (localB->ColorSpaceConversion1_o2[i] > 8.856452070E-03F) {
-      Yr = rt_pow32_snf(localB->ColorSpaceConversion1_o2[i], 3.333333433E-01F);
+    if (localB->ColorSpaceConversion1_o2[i] > 8.856452070E-003F) {
+      Yr = rt_pow32_snf(localB->ColorSpaceConversion1_o2[i], 3.333333433E-001F);
     } else {
-      Yr = 7.787036896E+00F * localB->ColorSpaceConversion1_o2[i] +
-        1.379310340E-01F;
+      Yr = 7.787036896E+000F * localB->ColorSpaceConversion1_o2[i] +
+        1.379310340E-001F;
     }
 
-    if (Zr > 8.856452070E-03F) {
-      eml_dist = rt_pow32_snf(Zr, 3.333333433E-01F);
+    if (Zr > 8.856452070E-003F) {
+      eml_dist = rt_pow32_snf(Zr, 3.333333433E-001F);
     } else {
-      eml_dist = 7.787036896E+00F * Zr + 1.379310340E-01F;
+      eml_dist = 7.787036896E+000F * Zr + 1.379310340E-001F;
     }
 
     /* assign the results */
@@ -1893,14 +1891,14 @@ void StateFlowFunctionsMaint_Disable(rtB_StateFlowFunctionsMaintainH *localB,
 
   /* Disable for ifaction SubSystem: '<S26>/BigError S1' */
 
-  /* Disable for Outport: '<S81>/Out2' */
+  /* Disable for Outport: '<S83>/Out2' */
   localB->Constant1_e = 0.0;
 
   /* end of Disable for SubSystem: '<S26>/BigError S1' */
 
   /* Disable for ifaction SubSystem: '<S26>/BigNegativeError S2' */
 
-  /* Disable for Outport: '<S82>/Out2' */
+  /* Disable for Outport: '<S84>/Out2' */
   localB->Constant1 = 0.0;
 
   /* end of Disable for SubSystem: '<S26>/BigNegativeError S2' */
@@ -1934,8 +1932,8 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
   rtb_Add1 = rtu_DesiredHeading1 - rtu_CurrentHeading1;
 
   /* If: '<S26>/If' incorporates:
-   *  ActionPort: '<S81>/Action Port'
-   *  ActionPort: '<S82>/Action Port'
+   *  ActionPort: '<S83>/Action Port'
+   *  ActionPort: '<S84>/Action Port'
    *  SubSystem: '<S26>/BigError S1'
    *  SubSystem: '<S26>/BigNegativeError S2'
    */
@@ -1953,12 +1951,12 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
   if (rtPrevAction != rtAction) {
     switch (rtPrevAction) {
      case 0:
-      /* Disable for Outport: '<S81>/Out2' */
+      /* Disable for Outport: '<S83>/Out2' */
       localB->Constant1_e = 0.0;
       break;
 
      case 1:
-      /* Disable for Outport: '<S82>/Out2' */
+      /* Disable for Outport: '<S84>/Out2' */
       localB->Constant1 = 0.0;
       break;
     }
@@ -1966,22 +1964,22 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
 
   switch (rtAction) {
    case 0:
-    /* Sum: '<S81>/Add' incorporates:
-     *  Constant: '<S81>/Constant'
+    /* Sum: '<S83>/Add' incorporates:
+     *  Constant: '<S83>/Constant'
      */
     localB->Add_o = rtb_Add1 - 360.0;
 
-    /* Constant: '<S81>/Constant1' */
+    /* Constant: '<S83>/Constant1' */
     localB->Constant1_e = 1.0;
     break;
 
    case 1:
-    /* Sum: '<S82>/Add' incorporates:
-     *  Constant: '<S82>/Constant'
+    /* Sum: '<S84>/Add' incorporates:
+     *  Constant: '<S84>/Constant'
      */
     localB->Add = rtb_Add1 + 360.0;
 
-    /* Constant: '<S82>/Constant1' */
+    /* Constant: '<S84>/Constant1' */
     localB->Constant1 = 2.0;
     break;
   }
@@ -2003,26 +2001,26 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
     break;
   }
 
-  /* SampleTimeMath: '<S84>/TSamp' incorporates:
-   *  Gain: '<S83>/Heading Derivative Gain'
+  /* SampleTimeMath: '<S86>/TSamp' incorporates:
+   *  Gain: '<S85>/Heading Derivative Gain'
    *
-   * About '<S84>/TSamp':
+   * About '<S86>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   rtb_TSamp_j = brain_P.Heading_Kd * rtb_Add1 / ((real_T)
     localDW->StateFlowFunctionsMaintainHea_e * 0.2);
 
-  /* Sum: '<S83>/Sum' incorporates:
-   *  DiscreteIntegrator: '<S83>/Heading Discrete-Time Integrator'
-   *  Gain: '<S83>/Heading Proportional Gain'
-   *  Sum: '<S84>/Diff'
-   *  UnitDelay: '<S84>/UD'
+  /* Sum: '<S85>/Sum' incorporates:
+   *  DiscreteIntegrator: '<S85>/Heading Discrete-Time Integrator'
+   *  Gain: '<S85>/Heading Proportional Gain'
+   *  Sum: '<S86>/Diff'
+   *  UnitDelay: '<S86>/UD'
    *
-   * Block description for '<S84>/Diff':
+   * Block description for '<S86>/Diff':
    *
    *  Add in CPU
    *
-   * Block description for '<S84>/UD':
+   * Block description for '<S86>/UD':
    *
    *  Store in Global RAM
    */
@@ -2070,15 +2068,15 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
     localB->DoubleToint8 = MAX_int8_T;
   }
 
-  /* Update for UnitDelay: '<S84>/UD'
-   * Block description for '<S84>/UD':
+  /* Update for UnitDelay: '<S86>/UD'
+   * Block description for '<S86>/UD':
    *
    *  Store in Global RAM
    */
   localDW->UD_DSTATE = rtb_TSamp_j;
 
-  /* Update for DiscreteIntegrator: '<S83>/Heading Discrete-Time Integrator' incorporates:
-   *  Gain: '<S83>/Heading Integral Gain'
+  /* Update for DiscreteIntegrator: '<S85>/Heading Discrete-Time Integrator' incorporates:
+   *  Gain: '<S85>/Heading Integral Gain'
    */
   localDW->HeadingDiscreteTimeIntegrator_D = 0.2 * (real_T)
     localDW->StateFlowFunctionsMaintainHea_e * (brain_P.Heading_Ki * rtb_Add1) +
@@ -2122,371 +2120,6 @@ void StateFlowFunctionsFollowOnePath(const real_T rtu_H1[19200], const real_T
   for (i = 0; i < 160; i++) {
     memcpy((void *)(&localB->HSVImage1[38400 + 120 * i]), (void *)(&rtu_V1[120 *
             i]), 120U * sizeof(real_T));
-  }
-}
-
-/* Function for Embedded MATLAB: '<S67>/IsLinePresent' */
-static void brain_max_f(const real_T eml_varargin_1[71820], real_T eml_maxval
-  [180], real_T eml_indx[180])
-{
-  int16_T eml_b_indx[180];
-  int32_T eml_ix;
-  int32_T eml_iy;
-  real_T eml_mtmp;
-  int32_T eml_itmp;
-  int32_T eml_i;
-  int32_T eml_b_ix;
-  boolean_T eml_searchingForNonNaN;
-  int32_T eml_k;
-  boolean_T eml_guard;
-  boolean_T eml_exitg;
-  for (eml_ix = 0; eml_ix < 180; eml_ix++) {
-    eml_b_indx[eml_ix] = 1;
-  }
-
-  eml_ix = 0;
-  eml_iy = 0;
-  for (eml_i = 0; eml_i < 180; eml_i++) {
-    eml_ix++;
-    eml_mtmp = eml_varargin_1[eml_ix - 1];
-    eml_itmp = 1;
-    eml_b_ix = eml_ix;
-    eml_guard = FALSE;
-    if (rtIsNaN(eml_mtmp)) {
-      eml_searchingForNonNaN = TRUE;
-      eml_k = 2;
-      eml_exitg = FALSE;
-      while (((uint32_T)eml_exitg == 0U) && (eml_k < 400)) {
-        eml_b_ix++;
-        if (!rtIsNaN(eml_varargin_1[eml_b_ix - 1])) {
-          eml_mtmp = eml_varargin_1[eml_b_ix - 1];
-          eml_itmp = eml_k;
-          eml_searchingForNonNaN = FALSE;
-          eml_exitg = TRUE;
-        } else {
-          eml_k++;
-        }
-      }
-
-      if (!eml_searchingForNonNaN) {
-        eml_guard = TRUE;
-      }
-    } else {
-      eml_guard = TRUE;
-    }
-
-    if (eml_guard) {
-      for (eml_k = eml_itmp + 1; eml_k < 400; eml_k++) {
-        eml_b_ix++;
-        if (eml_varargin_1[eml_b_ix - 1] > eml_mtmp) {
-          eml_mtmp = eml_varargin_1[eml_b_ix - 1];
-          eml_itmp = eml_k;
-        }
-      }
-    }
-
-    eml_iy++;
-    eml_maxval[eml_iy - 1] = eml_mtmp;
-    eml_b_indx[eml_iy - 1] = (int16_T)eml_itmp;
-    eml_ix += 398;
-  }
-
-  for (eml_ix = 0; eml_ix < 180; eml_ix++) {
-    eml_indx[eml_ix] = (real_T)eml_b_indx[eml_ix];
-  }
-}
-
-/* Function for Embedded MATLAB: '<S67>/IsLinePresent' */
-static void brain_max_fa(const real_T eml_varargin_1[180], real_T *eml_maxval,
-  real_T *eml_indx)
-{
-  real_T eml_mtmp;
-  int32_T eml_itmp;
-  int32_T eml_ix;
-  boolean_T eml_searchingForNonNaN;
-  int32_T eml_k;
-  boolean_T eml_guard;
-  boolean_T eml_exitg;
-  eml_mtmp = eml_varargin_1[0];
-  eml_itmp = 1;
-  eml_ix = 1;
-  eml_guard = FALSE;
-  if (rtIsNaN(eml_varargin_1[0])) {
-    eml_searchingForNonNaN = TRUE;
-    eml_k = 2;
-    eml_exitg = FALSE;
-    while (((uint32_T)eml_exitg == 0U) && (eml_k < 181)) {
-      eml_ix++;
-      if (!rtIsNaN(eml_varargin_1[eml_ix - 1])) {
-        eml_mtmp = eml_varargin_1[eml_ix - 1];
-        eml_itmp = eml_k;
-        eml_searchingForNonNaN = FALSE;
-        eml_exitg = TRUE;
-      } else {
-        eml_k++;
-      }
-    }
-
-    if (!eml_searchingForNonNaN) {
-      eml_guard = TRUE;
-    }
-  } else {
-    eml_guard = TRUE;
-  }
-
-  if (eml_guard) {
-    for (eml_k = eml_itmp + 1; eml_k < 181; eml_k++) {
-      eml_ix++;
-      if (eml_varargin_1[eml_ix - 1] > eml_mtmp) {
-        eml_mtmp = eml_varargin_1[eml_ix - 1];
-        eml_itmp = eml_k;
-      }
-    }
-  }
-
-  *eml_maxval = eml_mtmp;
-  *eml_indx = (real_T)eml_itmp;
-}
-
-/* Function for Embedded MATLAB: '<S67>/IsLinePresent' */
-static void brain_refp1_round(real_T *eml_x)
-{
-  if (*eml_x < 0.0) {
-    *eml_x = ceil(*eml_x - 0.5);
-  } else {
-    *eml_x = floor(*eml_x + 0.5);
-  }
-}
-
-/* Function for Embedded MATLAB: '<S67>/IsLinePresent' */
-static void brain_c22_brain(rtB_StateFlowFunctionsFollowO_c *localB)
-{
-  int32_T eml_count;
-  real_T eml_maxValues[180];
-  real_T eml_RhoIndices[180];
-  real_T eml_b;
-  real_T eml_c;
-  int32_T eml_i;
-  real_T eml_ThetaIndex_idx;
-  real_T eml_RhoIndex_idx;
-  real_T eml_ThetaIndex_idx_0;
-  real_T eml_RhoIndex_idx_0;
-  memcpy((void *)&localB->eml_HoughTable[0], (void *)&localB->HoughTransform_o1
-         [0], 71820U * sizeof(real_T));
-
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings/Hough Transform Stuff/IsLinePresent': '<S68>:1' */
-  /*  This function takes a Hough/hash table as input and  determines if a line */
-  /*  is present and if so what its Rho and Theta are. */
-  /* '<S68>:1:5' */
-  /* '<S68>:1:7' */
-  /* '<S68>:1:9' */
-  /* '<S68>:1:10' */
-  /* '<S68>:1:11' */
-  /* '<S68>:1:12' */
-  /* '<S68>:1:13' */
-  localB->Rho[0] = -999.0;
-  localB->Theta[0] = -999.0;
-  localB->maxVotes[0] = -999.0;
-  localB->Rho[1] = -999.0;
-  localB->Theta[1] = -999.0;
-  localB->maxVotes[1] = -999.0;
-  eml_ThetaIndex_idx_0 = -999.0;
-  eml_RhoIndex_idx_0 = -999.0;
-
-  /* '<S68>:1:17' */
-  brain_max_f(&localB->HoughTransform_o1[0], eml_maxValues, eml_RhoIndices);
-  brain_max_fa(eml_maxValues, &eml_b, &eml_c);
-
-  /* '<S68>:1:20' */
-  localB->maxVotes[0] = eml_b;
-
-  /* '<S68>:1:20' */
-  /* '<S68>:1:21' */
-  eml_b = 0.0;
-
-  /* '<S68>:1:22' */
-  eml_c = 0.0;
-
-  /* '<S68>:1:23' */
-  for (eml_i = 0; eml_i < 180; eml_i++) {
-    /* '<S68>:1:23' */
-    if (localB->maxVotes[0] - eml_maxValues[eml_i] < 0.15 * localB->maxVotes[0])
-    {
-      /* '<S68>:1:24' */
-      /* '<S68>:1:25' */
-      eml_b += ((real_T)eml_i + 1.0) * eml_maxValues[eml_i];
-
-      /* '<S68>:1:26' */
-      eml_c += eml_maxValues[eml_i];
-    }
-  }
-
-  if (eml_c > 0.0) {
-    /* '<S68>:1:29' */
-    /* '<S68>:1:30' */
-    eml_b /= eml_c;
-    brain_refp1_round(&eml_b);
-  } else {
-    /* '<S68>:1:32' */
-    eml_b = 1.0;
-  }
-
-  /* '<S68>:1:35' */
-  eml_ThetaIndex_idx = eml_b;
-
-  /* '<S68>:1:36' */
-  localB->maxVotes[0] = eml_maxValues[(int32_T)eml_b - 1];
-
-  /* '<S68>:1:38' */
-  eml_RhoIndex_idx = eml_RhoIndices[(int32_T)eml_b - 1];
-  if (localB->maxVotes[0] >= 15.0) {
-    /* '<S68>:1:40' */
-    /* '<S68>:1:41' */
-    localB->eml_HoughTable[((int32_T)eml_RhoIndex_idx - 1) + 399 * ((int32_T)
-      eml_b - 1)] = 0.0;
-
-    /* '<S68>:1:43' */
-    eml_i = 2;
-
-    /* '<S68>:1:44' */
-    eml_count = 0;
-    while ((eml_i <= 2) && (eml_count < 12)) {
-      /* '<S68>:1:45' */
-      /* '<S68>:1:46' */
-      eml_count++;
-      brain_max_f(&localB->eml_HoughTable[0], eml_maxValues, eml_RhoIndices);
-      brain_max_fa(eml_maxValues, &eml_b, &eml_c);
-
-      /* '<S68>:1:48' */
-      localB->maxVotes[1] = eml_b;
-
-      /* '<S68>:1:48' */
-      eml_ThetaIndex_idx_0 = eml_c;
-
-      /* '<S68>:1:49' */
-      eml_RhoIndex_idx_0 = eml_RhoIndices[(int32_T)eml_c - 1];
-
-      /* '<S68>:1:51' */
-      localB->eml_HoughTable[((int32_T)eml_RhoIndex_idx_0 - 1) + 399 * ((int32_T)
-        eml_c - 1)] = 0.0;
-      if ((fabs(eml_RhoIndex_idx_0 - eml_RhoIndex_idx) > 20.0) || (fabs(eml_c -
-            eml_ThetaIndex_idx) > 30.0)) {
-        /* '<S68>:1:53' */
-        /* '<S68>:1:54' */
-        eml_i = 3;
-      }
-    }
-
-    /* '<S68>:1:59' */
-    if (localB->maxVotes[0] > 15.0) {
-      /* '<S68>:1:60' */
-      /* '<S68>:1:61' */
-      localB->Theta[0] = localB->HoughTransform_o2[(int32_T)eml_ThetaIndex_idx -
-        1];
-
-      /* '<S68>:1:62' */
-      localB->Rho[0] = localB->HoughTransform_o3[(int32_T)eml_RhoIndex_idx - 1];
-      if ((localB->Theta[0] > 0.0) && (localB->Rho[0] < 0.0)) {
-        /* '<S68>:1:63' */
-        /* '<S68>:1:64' */
-        localB->Rho[0] = localB->Rho[0] * -1.0;
-      }
-    }
-
-    /* '<S68>:1:59' */
-    if (localB->maxVotes[1] > 15.0) {
-      /* '<S68>:1:60' */
-      /* '<S68>:1:61' */
-      localB->Theta[1] = localB->HoughTransform_o2[(int32_T)eml_ThetaIndex_idx_0
-        - 1];
-
-      /* '<S68>:1:62' */
-      localB->Rho[1] = localB->HoughTransform_o3[(int32_T)eml_RhoIndex_idx_0 - 1];
-      if ((localB->Theta[1] > 0.0) && (localB->Rho[1] < 0.0)) {
-        /* '<S68>:1:63' */
-        /* '<S68>:1:64' */
-        localB->Rho[1] = localB->Rho[1] * -1.0;
-      }
-    }
-  }
-}
-
-/* Function for Embedded MATLAB: '<S21>/GetHeadingToPath' */
-static void brain_max(const real_T eml_varargin_1[2], real_T *eml_maxval, real_T
-                      *eml_indx)
-{
-  real_T eml_mtmp;
-  int32_T eml_itmp;
-  int32_T eml_ix;
-  boolean_T eml_searchingForNonNaN;
-  int32_T eml_k;
-  boolean_T eml_guard;
-  eml_mtmp = eml_varargin_1[0];
-  eml_itmp = 1;
-  eml_ix = 1;
-  eml_guard = FALSE;
-  if (rtIsNaN(eml_varargin_1[0])) {
-    eml_searchingForNonNaN = TRUE;
-    eml_ix = 2;
-    if (!rtIsNaN(eml_varargin_1[1])) {
-      eml_mtmp = eml_varargin_1[1];
-      eml_itmp = 2;
-      eml_searchingForNonNaN = FALSE;
-    }
-
-    if (!eml_searchingForNonNaN) {
-      eml_guard = TRUE;
-    }
-  } else {
-    eml_guard = TRUE;
-  }
-
-  if (eml_guard) {
-    for (eml_k = eml_itmp + 1; eml_k < 3; eml_k = 3) {
-      eml_ix++;
-      if (eml_varargin_1[eml_ix - 1] > eml_mtmp) {
-        eml_mtmp = eml_varargin_1[eml_ix - 1];
-        eml_itmp = 2;
-      }
-    }
-  }
-
-  *eml_maxval = eml_mtmp;
-  *eml_indx = (real_T)eml_itmp;
-}
-
-/* Output and update for function-call system: '<Root>/StateFlow Functions' */
-void StateFlowFunctionsFollowOnePa_j(const boolean_T rtu_BW[19200],
-  rtB_StateFlowFunctionsFollowO_c *localB)
-{
-  real_T eml_b;
-  real_T eml_c;
-
-  /* S-Function (sviphough): '<S67>/Hough Transform' */
-  MWVIP_Hough_D(&rtu_BW[0], &localB->HoughTransform_o1[0],
-                &brain_ConstP.HoughTransform_SINE_[0],
-                &brain_ConstP.HoughTransform_FIRSTRHO_RT, 120, 160, 399, 91);
-
-  /* Embedded MATLAB: '<S67>/IsLinePresent' */
-  brain_c22_brain(localB);
-
-  /* Embedded MATLAB: '<S21>/GetHeadingToPath' */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings/GetHeadingToPath': '<S66>:1' */
-  /*  This function calculates the heading to the path from Theta and Rho */
-  /* '<S66>:1:4' */
-  /* '<S66>:1:6' */
-  localB->AlongPathHeading = -999.0;
-  brain_max(&localB->maxVotes[0], &eml_b, &eml_c);
-
-  /* '<S66>:1:10' */
-  /* '<S66>:1:11' */
-  /* '<S66>:1:12' */
-  if ((localB->Theta[(int32_T)eml_c - 1] > -1.5707963267948966E+00) &&
-      (localB->Theta[(int32_T)eml_c - 1] < 1.5707963267948966E+00)) {
-    /* '<S66>:1:21' */
-    /* '<S66>:1:22' */
-    localB->AlongPathHeading = localB->Theta[(int32_T)eml_c - 1] * 180.0 /
-      3.1415926535897931E+00;
   }
 }
 
@@ -2828,22 +2461,22 @@ void StateFlowFunctionsFollowOnePa_k(real_T rtu_HeadingAlong, real_T
   real_T rtb_TSamp_p;
   real_T rtb_Left;
   real_T rtb_Sum_d;
-  localDW->StateFlowFunctionsFollowOneP_je = brain_M->Timing.clockTick0 -
+  localDW->StateFlowFunctionsFollowOnePa_j = brain_M->Timing.clockTick0 -
     localDW->StateFlowFunctionsFollowOneP_iz;
   localDW->StateFlowFunctionsFollowOneP_iz = brain_M->Timing.clockTick0;
 
   /* SampleTimeMath: '<S65>/TSamp' incorporates:
-   *  Gain: '<S64>/Depth Derivative Gain'
+   *  Gain: '<S64>/CamDown-X Derivative Gain'
    *
    * About '<S65>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   rtb_TSamp_p = brain_P.Cam_Down_XPos_Kd * rtu_HeadingAlong / ((real_T)
-    localDW->StateFlowFunctionsFollowOneP_je * 0.2);
+    localDW->StateFlowFunctionsFollowOnePa_j * 0.2);
 
   /* Sum: '<S64>/Sum' incorporates:
    *  DiscreteIntegrator: '<S64>/Depth Discrete-Time Integrator'
-   *  Gain: '<S64>/Depth Proportional Gain'
+   *  Gain: '<S64>/CamDown-X Proportional Gain'
    *  Sum: '<S65>/Diff'
    *  UnitDelay: '<S65>/UD'
    *
@@ -2909,10 +2542,10 @@ void StateFlowFunctionsFollowOnePa_k(real_T rtu_HeadingAlong, real_T
   localDW->UD_DSTATE = rtb_TSamp_p;
 
   /* Update for DiscreteIntegrator: '<S64>/Depth Discrete-Time Integrator' incorporates:
-   *  Gain: '<S64>/Depth Integral Gain'
+   *  Gain: '<S64>/CamDown-X Integral Gain'
    */
   localDW->DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
-    localDW->StateFlowFunctionsFollowOneP_je * (brain_P.Cam_Down_XPos_Ki *
+    localDW->StateFlowFunctionsFollowOnePa_j * (brain_P.Cam_Down_XPos_Ki *
     rtu_HeadingAlong) + localDW->DepthDiscreteTimeIntegrator_DST;
   if (localDW->DepthDiscreteTimeIntegrator_DST >= 10.0) {
     localDW->DepthDiscreteTimeIntegrator_DST = 10.0;
@@ -3010,7 +2643,7 @@ static real_T brain_countareas(real_T sf_Size, real_T sf_count1)
   /* Embedded MATLAB Function 'countareas': '<S7>:1366' */
   /*  This function acts to count the number of consecutive times a particular */
   /*  area is recognized by the recognition software */
-  if (sf_Size > 1.6E+04) {
+  if (sf_Size > 16000.0) {
     /* '<S7>:1366:6' */
     /* '<S7>:1366:7' */
     return sf_count1 + 1.0;
@@ -3129,27 +2762,27 @@ static void brain_FindSecondBuoy(void)
     /* Sum: '<S25>/Add' */
     rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-    /* SampleTimeMath: '<S80>/TSamp' incorporates:
-     *  Gain: '<S79>/Depth Derivative Gain'
+    /* SampleTimeMath: '<S82>/TSamp' incorporates:
+     *  Gain: '<S81>/Depth Derivative Gain'
      *
-     * About '<S80>/TSamp':
+     * About '<S82>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
       brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
     /* DataTypeConversion: '<S25>/Double To Int8' incorporates:
-     *  DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator'
-     *  Gain: '<S79>/Depth Proportional Gain'
-     *  Sum: '<S79>/Sum'
-     *  Sum: '<S80>/Diff'
-     *  UnitDelay: '<S80>/UD'
+     *  DiscreteIntegrator: '<S81>/Depth Discrete-Time Integrator'
+     *  Gain: '<S81>/Depth Proportional Gain'
+     *  Sum: '<S81>/Sum'
+     *  Sum: '<S82>/Diff'
+     *  UnitDelay: '<S82>/UD'
      *
-     * Block description for '<S80>/Diff':
+     * Block description for '<S82>/Diff':
      *
      *  Add in CPU
      *
-     * Block description for '<S80>/UD':
+     * Block description for '<S82>/UD':
      *
      *  Store in Global RAM
      */
@@ -3166,15 +2799,15 @@ static void brain_FindSecondBuoy(void)
       brain_B.DoubleToInt8 = MAX_int8_T;
     }
 
-    /* Update for UnitDelay: '<S80>/UD'
-     * Block description for '<S80>/UD':
+    /* Update for UnitDelay: '<S82>/UD'
+     * Block description for '<S82>/UD':
      *
      *  Store in Global RAM
      */
     brain_DWork.UD_DSTATE = rtb_TSamp;
 
-    /* Update for DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator' incorporates:
-     *  Gain: '<S79>/Depth Integral Gain'
+    /* Update for DiscreteIntegrator: '<S81>/Depth Discrete-Time Integrator' incorporates:
+     *  Gain: '<S81>/Depth Integral Gain'
      */
     brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
       brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki * rtb_Add)
@@ -3230,7 +2863,7 @@ static void brain_FindSecondBuoy(void)
     cc_0 = 0.0;
     cc_1 = 0.0;
     rtb_Add = 6.0 * brain_B.B_Hue_c;
-    ys = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-15);
+    ys = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-015);
     rtb_Add -= ys;
     rtb_TSamp = 1.0 - brain_B.B_Sat_k;
     cc_2 = 1.0 - brain_B.B_Sat_k * rtb_Add;
@@ -3288,39 +2921,39 @@ static void brain_FindSecondBuoy(void)
     /* equivalent to running the gamma correction block with break */
     /* point of 0.00304 and gamma of 2.4; it's built into this */
     /* conversion for convenience */
-    if (brain_B.ColorSpaceConversion_o1_h <= 3.9286085583733095E-02) {
-      rtb_Add = brain_B.ColorSpaceConversion_o1_h / 1.2923054468333255E+01;
+    if (brain_B.ColorSpaceConversion_o1_h <= 3.9286085583733095E-002) {
+      rtb_Add = brain_B.ColorSpaceConversion_o1_h / 1.2923054468333254E+001;
     } else {
-      rtb_Add = (brain_B.ColorSpaceConversion_o1_h + 5.5000519817226347E-02) /
-        1.0550005198172263E+00;
+      rtb_Add = (brain_B.ColorSpaceConversion_o1_h + 5.5000519817226361E-002) /
+        1.0550005198172263E+000;
       rtb_Add = rt_pow_snf(rtb_Add, 2.4);
     }
 
-    if (brain_B.ColorSpaceConversion_o2_i <= 3.9286085583733095E-02) {
-      rtb_TSamp = brain_B.ColorSpaceConversion_o2_i / 1.2923054468333255E+01;
+    if (brain_B.ColorSpaceConversion_o2_i <= 3.9286085583733095E-002) {
+      rtb_TSamp = brain_B.ColorSpaceConversion_o2_i / 1.2923054468333254E+001;
     } else {
-      rtb_TSamp = (brain_B.ColorSpaceConversion_o2_i + 5.5000519817226347E-02) /
-        1.0550005198172263E+00;
+      rtb_TSamp = (brain_B.ColorSpaceConversion_o2_i + 5.5000519817226361E-002) /
+        1.0550005198172263E+000;
       rtb_TSamp = rt_pow_snf(rtb_TSamp, 2.4);
     }
 
-    if (brain_B.ColorSpaceConversion_o3_d <= 3.9286085583733095E-02) {
-      cc_2 = brain_B.ColorSpaceConversion_o3_d / 1.2923054468333255E+01;
+    if (brain_B.ColorSpaceConversion_o3_d <= 3.9286085583733095E-002) {
+      cc_2 = brain_B.ColorSpaceConversion_o3_d / 1.2923054468333254E+001;
     } else {
-      cc_2 = (brain_B.ColorSpaceConversion_o3_d + 5.5000519817226347E-02) /
-        1.0550005198172263E+00;
+      cc_2 = (brain_B.ColorSpaceConversion_o3_d + 5.5000519817226361E-002) /
+        1.0550005198172263E+000;
       cc_2 = rt_pow_snf(cc_2, 2.4);
     }
 
     /* The coefficients for this conversion were derived from ITU-R */
     /* BT.709 reference primaries for sRGB and CIE standard illuminant */
     /* D65, 2 degree observer */
-    ys = (4.1239079926596001E-01 * rtb_Add + 3.5758433938388001E-01 * rtb_TSamp)
-      + 1.8048078840182999E-01 * cc_2;
-    cc = (2.1263900587151000E-01 * rtb_Add + 7.1516867876776002E-01 * rtb_TSamp)
-      + 7.2192315360729994E-02 * cc_2;
-    rtb_Add = (1.9330818715590000E-02 * rtb_Add + 1.1919477979463000E-01 *
-               rtb_TSamp) + 9.5053215224966003E-01 * cc_2;
+    ys = (4.1239079926596001E-001 * rtb_Add + 3.5758433938388001E-001 *
+          rtb_TSamp) + 1.8048078840182999E-001 * cc_2;
+    cc = (2.1263900587151000E-001 * rtb_Add + 7.1516867876776002E-001 *
+          rtb_TSamp) + 7.2192315360729994E-002 * cc_2;
+    rtb_Add = (1.9330818715590000E-002 * rtb_Add + 1.1919477979463000E-001 *
+               rtb_TSamp) + 9.5053215224966003E-001 * cc_2;
 
     /* Make sure that the output is in [0..1] range; clip if necessary */
     if (ys > 1.0) {
@@ -3353,28 +2986,28 @@ static void brain_FindSecondBuoy(void)
     brain_B.ColorSpaceConversion1_o3_e = rtb_Add;
 
     /* Convert from XYZ to L*a*b* */
-    rtb_Add = brain_B.ColorSpaceConversion1_o1_d / 9.6419865576090003E-01;
-    cc_2 = brain_B.ColorSpaceConversion1_o3_e / 8.2511648322104003E-01;
+    rtb_Add = brain_B.ColorSpaceConversion1_o1_d / 9.6419865576090003E-001;
+    cc_2 = brain_B.ColorSpaceConversion1_o3_e / 8.2511648322104003E-001;
 
     /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-    if (rtb_Add > 8.8564516790356311E-03) {
-      ys = rt_pow_snf(rtb_Add, 3.3333333333333331E-01);
+    if (rtb_Add > 8.8564516790356311E-003) {
+      ys = rt_pow_snf(rtb_Add, 3.3333333333333331E-001);
     } else {
-      ys = 7.7870370370370372E+00 * rtb_Add + 1.3793103448275862E-01;
+      ys = 7.7870370370370372E+000 * rtb_Add + 1.3793103448275862E-001;
     }
 
-    if (brain_B.ColorSpaceConversion1_o2_k > 8.8564516790356311E-03) {
+    if (brain_B.ColorSpaceConversion1_o2_k > 8.8564516790356311E-003) {
       rtb_TSamp = rt_pow_snf(brain_B.ColorSpaceConversion1_o2_k,
-        3.3333333333333331E-01);
+        3.3333333333333331E-001);
     } else {
-      rtb_TSamp = 7.7870370370370372E+00 * brain_B.ColorSpaceConversion1_o2_k +
-        1.3793103448275862E-01;
+      rtb_TSamp = 7.7870370370370372E+000 * brain_B.ColorSpaceConversion1_o2_k +
+        1.3793103448275862E-001;
     }
 
-    if (cc_2 > 8.8564516790356311E-03) {
-      rtb_Add = rt_pow_snf(cc_2, 3.3333333333333331E-01);
+    if (cc_2 > 8.8564516790356311E-003) {
+      rtb_Add = rt_pow_snf(cc_2, 3.3333333333333331E-001);
     } else {
-      rtb_Add = 7.7870370370370372E+00 * cc_2 + 1.3793103448275862E-01;
+      rtb_Add = 7.7870370370370372E+000 * cc_2 + 1.3793103448275862E-001;
     }
 
     /* assign the results */
@@ -3580,9 +3213,9 @@ static void brain_FindSecondBuoy(void)
       }
 
       cc_0 = rtb_Add / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[padRows] +
-        8.3333333333333329E-02;
+        8.3333333333333329E-002;
       cc_2 = ys / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[padRows] +
-        8.3333333333333329E-02;
+        8.3333333333333329E-002;
       rtb_Add = cc / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[padRows];
       rtb_Add = sqrt((cc_0 - cc_2) * (cc_0 - cc_2) + rtb_Add * rtb_Add * 4.0);
       rtb_TSamp = ((cc_0 + cc_2) + rtb_Add) * 8.0;
@@ -3653,15 +3286,15 @@ static void brain_FindSecondBuoy(void)
       for (n = 0; n < 160; n++) {
         /* '<S60>:1:10' */
         /* '<S60>:1:11' */
-        brain_B.L_m[i + 120 * n] = brain_B.Ref_Colors_j[(int32_T)
+        brain_B.L[i + 120 * n] = brain_B.Ref_Colors_j[(int32_T)
           brain_B.LabMatrix_i[120 * n + i] - 1];
 
         /* '<S60>:1:12' */
-        brain_B.a_c[i + 120 * n] = brain_B.Ref_Colors_j[(int32_T)
+        brain_B.a[i + 120 * n] = brain_B.Ref_Colors_j[(int32_T)
           brain_B.LabMatrix_i[120 * n + i] + 49];
 
         /* '<S60>:1:13' */
-        brain_B.b_k[i + 120 * n] = brain_B.Ref_Colors_j[(int32_T)
+        brain_B.b[i + 120 * n] = brain_B.Ref_Colors_j[(int32_T)
           brain_B.LabMatrix_i[120 * n + i] + 99];
       }
     }
@@ -3670,32 +3303,32 @@ static void brain_FindSecondBuoy(void)
     /* temporary variables for in-place operation */
     /* First convert to XYZ */
     for (i = 0; i < 19200; i++) {
-      rtb_Add = (brain_B.L_m[i] + 16.0) / 116.0;
-      rtb_TSamp = brain_B.a_c[i] / 500.0 + rtb_Add;
-      cc_2 = brain_B.b_k[i] / -200.0 + rtb_Add;
-      if (rtb_TSamp <= 2.0689655172413793E-01) {
-        rtb_TSamp -= 1.3793103448275862E-01;
-        rtb_TSamp /= 7.7870370370370372E+00;
+      rtb_Add = (brain_B.L[i] + 16.0) / 116.0;
+      rtb_TSamp = brain_B.a[i] / 500.0 + rtb_Add;
+      cc_2 = brain_B.b[i] / -200.0 + rtb_Add;
+      if (rtb_TSamp <= 2.0689655172413793E-001) {
+        rtb_TSamp -= 1.3793103448275862E-001;
+        rtb_TSamp /= 7.7870370370370372E+000;
       } else {
         rtb_TSamp = rt_pow_snf(rtb_TSamp, 3.0);
       }
 
-      if (rtb_Add <= 2.0689655172413793E-01) {
-        rtb_Add -= 1.3793103448275862E-01;
-        rtb_Add /= 7.7870370370370372E+00;
+      if (rtb_Add <= 2.0689655172413793E-001) {
+        rtb_Add -= 1.3793103448275862E-001;
+        rtb_Add /= 7.7870370370370372E+000;
       } else {
         rtb_Add = rt_pow_snf(rtb_Add, 3.0);
       }
 
-      if (cc_2 <= 2.0689655172413793E-01) {
-        cc_2 -= 1.3793103448275862E-01;
-        cc_2 /= 7.7870370370370372E+00;
+      if (cc_2 <= 2.0689655172413793E-001) {
+        cc_2 -= 1.3793103448275862E-001;
+        cc_2 /= 7.7870370370370372E+000;
       } else {
         cc_2 = rt_pow_snf(cc_2, 3.0);
       }
 
-      rtb_TSamp *= 9.6419865576090003E-01;
-      cc_2 *= 8.2511648322104003E-01;
+      rtb_TSamp *= 9.6419865576090003E-001;
+      cc_2 *= 8.2511648322104003E-001;
 
       /* assign the results */
       brain_B.ColorSpaceConversion_o1[i] = rtb_TSamp;
@@ -3709,36 +3342,36 @@ static void brain_FindSecondBuoy(void)
       /* The coefficients for this conversion were derived from ITU-R */
       /* BT.709 reference primaries for sRGB and CIE standard illuminant */
       /* D65, 2 degree observer */
-      rtb_Add = (3.2409699419045102E+00 * brain_B.ColorSpaceConversion_o1[i] +
-                 -1.5373831775700899E+00 * brain_B.ColorSpaceConversion_o2[i]) +
-        -4.9861076029299001E-01 * brain_B.ColorSpaceConversion_o3[i];
-      rtb_TSamp = (-9.6924363628086996E-01 * brain_B.ColorSpaceConversion_o1[i]
-                   + 1.8759675015077100E+00 * brain_B.ColorSpaceConversion_o2[i])
-        + 4.1555057407179997E-02 * brain_B.ColorSpaceConversion_o3[i];
-      cc_2 = (5.5630079696999998E-02 * brain_B.ColorSpaceConversion_o1[i] +
-              -2.0397695888899001E-01 * brain_B.ColorSpaceConversion_o2[i]) +
-        1.0569715142428799E+00 * brain_B.ColorSpaceConversion_o3[i];
+      rtb_Add = (3.2409699419045102E+000 * brain_B.ColorSpaceConversion_o1[i] +
+                 -1.5373831775700899E+000 * brain_B.ColorSpaceConversion_o2[i])
+        + -4.9861076029299001E-001 * brain_B.ColorSpaceConversion_o3[i];
+      rtb_TSamp = (-9.6924363628086996E-001 * brain_B.ColorSpaceConversion_o1[i]
+                   + 1.8759675015077100E+000 * brain_B.ColorSpaceConversion_o2[i])
+        + 4.1555057407179997E-002 * brain_B.ColorSpaceConversion_o3[i];
+      cc_2 = (5.5630079696999998E-002 * brain_B.ColorSpaceConversion_o1[i] +
+              -2.0397695888899001E-001 * brain_B.ColorSpaceConversion_o2[i]) +
+        1.0569715142428799E+000 * brain_B.ColorSpaceConversion_o3[i];
 
       /* Apply gamma correction to get R'G'B' */
       if (rtb_Add <= 0.00304) {
-        rtb_Add *= 1.2923054468333255E+01;
+        rtb_Add *= 1.2923054468333254E+001;
       } else {
-        rtb_Add = 1.0550005198172263E+00 * rt_pow_snf(rtb_Add,
-          4.1666666666666669E-01) - 5.5000519817226347E-02;
+        rtb_Add = 1.0550005198172263E+000 * rt_pow_snf(rtb_Add,
+          4.1666666666666669E-001) - 5.5000519817226361E-002;
       }
 
       if (rtb_TSamp <= 0.00304) {
-        rtb_TSamp *= 1.2923054468333255E+01;
+        rtb_TSamp *= 1.2923054468333254E+001;
       } else {
-        rtb_TSamp = 1.0550005198172263E+00 * rt_pow_snf(rtb_TSamp,
-          4.1666666666666669E-01) - 5.5000519817226347E-02;
+        rtb_TSamp = 1.0550005198172263E+000 * rt_pow_snf(rtb_TSamp,
+          4.1666666666666669E-001) - 5.5000519817226361E-002;
       }
 
       if (cc_2 <= 0.00304) {
-        cc_2 *= 1.2923054468333255E+01;
+        cc_2 *= 1.2923054468333254E+001;
       } else {
-        cc_2 = 1.0550005198172263E+00 * rt_pow_snf(cc_2, 4.1666666666666669E-01)
-          - 5.5000519817226347E-02;
+        cc_2 = 1.0550005198172263E+000 * rt_pow_snf(cc_2,
+          4.1666666666666669E-001) - 5.5000519817226361E-002;
       }
 
       /* Make sure that the output is in [0..1] range; clip if necessary */
@@ -3943,15 +3576,15 @@ static void brain_ApproachBuoys(void)
           for (eml_j = 0; eml_j < 160; eml_j++) {
             /* '<S60>:1:10' */
             /* '<S60>:1:11' */
-            brain_B.L_c[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+            brain_B.L_m[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
               brain_B.LabMatrix_i[120 * eml_j + i] - 1];
 
             /* '<S60>:1:12' */
-            brain_B.a_b[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+            brain_B.a_c[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
               brain_B.LabMatrix_i[120 * eml_j + i] + 49];
 
             /* '<S60>:1:13' */
-            brain_B.b_p[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+            brain_B.b_k[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
               brain_B.LabMatrix_i[120 * eml_j + i] + 99];
           }
         }
@@ -3960,32 +3593,32 @@ static void brain_ApproachBuoys(void)
         /* temporary variables for in-place operation */
         /* First convert to XYZ */
         for (i = 0; i < 19200; i++) {
-          eml_b_i = (brain_B.L_c[i] + 16.0) / 116.0;
-          eml_min_dist = brain_B.a_b[i] / 500.0 + eml_b_i;
-          eml_min_dist_0 = brain_B.b_p[i] / -200.0 + eml_b_i;
-          if (eml_min_dist <= 2.0689655172413793E-01) {
-            eml_min_dist -= 1.3793103448275862E-01;
-            eml_min_dist /= 7.7870370370370372E+00;
+          eml_b_i = (brain_B.L_m[i] + 16.0) / 116.0;
+          eml_min_dist = brain_B.a_c[i] / 500.0 + eml_b_i;
+          eml_min_dist_0 = brain_B.b_k[i] / -200.0 + eml_b_i;
+          if (eml_min_dist <= 2.0689655172413793E-001) {
+            eml_min_dist -= 1.3793103448275862E-001;
+            eml_min_dist /= 7.7870370370370372E+000;
           } else {
             eml_min_dist = rt_pow_snf(eml_min_dist, 3.0);
           }
 
-          if (eml_b_i <= 2.0689655172413793E-01) {
-            eml_b_i -= 1.3793103448275862E-01;
-            eml_b_i /= 7.7870370370370372E+00;
+          if (eml_b_i <= 2.0689655172413793E-001) {
+            eml_b_i -= 1.3793103448275862E-001;
+            eml_b_i /= 7.7870370370370372E+000;
           } else {
             eml_b_i = rt_pow_snf(eml_b_i, 3.0);
           }
 
-          if (eml_min_dist_0 <= 2.0689655172413793E-01) {
-            eml_min_dist_0 -= 1.3793103448275862E-01;
-            eml_min_dist_0 /= 7.7870370370370372E+00;
+          if (eml_min_dist_0 <= 2.0689655172413793E-001) {
+            eml_min_dist_0 -= 1.3793103448275862E-001;
+            eml_min_dist_0 /= 7.7870370370370372E+000;
           } else {
             eml_min_dist_0 = rt_pow_snf(eml_min_dist_0, 3.0);
           }
 
-          eml_min_dist *= 9.6419865576090003E-01;
-          eml_min_dist_0 *= 8.2511648322104003E-01;
+          eml_min_dist *= 9.6419865576090003E-001;
+          eml_min_dist_0 *= 8.2511648322104003E-001;
 
           /* assign the results */
           brain_B.ColorSpaceConversion_o1[i] = eml_min_dist;
@@ -3999,41 +3632,41 @@ static void brain_ApproachBuoys(void)
           /* The coefficients for this conversion were derived from ITU-R */
           /* BT.709 reference primaries for sRGB and CIE standard illuminant */
           /* D65, 2 degree observer */
-          eml_b_i = (3.2409699419045102E+00 * brain_B.ColorSpaceConversion_o1[i]
-                     + -1.5373831775700899E+00 *
+          eml_b_i = (3.2409699419045102E+000 * brain_B.ColorSpaceConversion_o1[i]
+                     + -1.5373831775700899E+000 *
                      brain_B.ColorSpaceConversion_o2[i]) +
-            -4.9861076029299001E-01 * brain_B.ColorSpaceConversion_o3[i];
-          eml_min_dist = (-9.6924363628086996E-01 *
+            -4.9861076029299001E-001 * brain_B.ColorSpaceConversion_o3[i];
+          eml_min_dist = (-9.6924363628086996E-001 *
                           brain_B.ColorSpaceConversion_o1[i] +
-                          1.8759675015077100E+00 *
+                          1.8759675015077100E+000 *
                           brain_B.ColorSpaceConversion_o2[i]) +
-            4.1555057407179997E-02 * brain_B.ColorSpaceConversion_o3[i];
-          eml_min_dist_0 = (5.5630079696999998E-02 *
+            4.1555057407179997E-002 * brain_B.ColorSpaceConversion_o3[i];
+          eml_min_dist_0 = (5.5630079696999998E-002 *
                             brain_B.ColorSpaceConversion_o1[i] +
-                            -2.0397695888899001E-01 *
+                            -2.0397695888899001E-001 *
                             brain_B.ColorSpaceConversion_o2[i]) +
-            1.0569715142428799E+00 * brain_B.ColorSpaceConversion_o3[i];
+            1.0569715142428799E+000 * brain_B.ColorSpaceConversion_o3[i];
 
           /* Apply gamma correction to get R'G'B' */
           if (eml_b_i <= 0.00304) {
-            eml_b_i *= 1.2923054468333255E+01;
+            eml_b_i *= 1.2923054468333254E+001;
           } else {
-            eml_b_i = 1.0550005198172263E+00 * rt_pow_snf(eml_b_i,
-              4.1666666666666669E-01) - 5.5000519817226347E-02;
+            eml_b_i = 1.0550005198172263E+000 * rt_pow_snf(eml_b_i,
+              4.1666666666666669E-001) - 5.5000519817226361E-002;
           }
 
           if (eml_min_dist <= 0.00304) {
-            eml_min_dist *= 1.2923054468333255E+01;
+            eml_min_dist *= 1.2923054468333254E+001;
           } else {
-            eml_min_dist = 1.0550005198172263E+00 * rt_pow_snf(eml_min_dist,
-              4.1666666666666669E-01) - 5.5000519817226347E-02;
+            eml_min_dist = 1.0550005198172263E+000 * rt_pow_snf(eml_min_dist,
+              4.1666666666666669E-001) - 5.5000519817226361E-002;
           }
 
           if (eml_min_dist_0 <= 0.00304) {
-            eml_min_dist_0 *= 1.2923054468333255E+01;
+            eml_min_dist_0 *= 1.2923054468333254E+001;
           } else {
-            eml_min_dist_0 = 1.0550005198172263E+00 * rt_pow_snf(eml_min_dist_0,
-              4.1666666666666669E-01) - 5.5000519817226347E-02;
+            eml_min_dist_0 = 1.0550005198172263E+000 * rt_pow_snf(eml_min_dist_0,
+              4.1666666666666669E-001) - 5.5000519817226361E-002;
           }
 
           /* Make sure that the output is in [0..1] range; clip if necessary */
@@ -4166,15 +3799,15 @@ static void brain_ApproachBuoys(void)
         for (eml_j = 0; eml_j < 160; eml_j++) {
           /* '<S60>:1:10' */
           /* '<S60>:1:11' */
-          brain_B.L_c[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+          brain_B.L_m[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
             brain_B.LabMatrix_i[120 * eml_j + i] - 1];
 
           /* '<S60>:1:12' */
-          brain_B.a_b[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+          brain_B.a_c[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
             brain_B.LabMatrix_i[120 * eml_j + i] + 49];
 
           /* '<S60>:1:13' */
-          brain_B.b_p[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+          brain_B.b_k[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
             brain_B.LabMatrix_i[120 * eml_j + i] + 99];
         }
       }
@@ -4183,32 +3816,32 @@ static void brain_ApproachBuoys(void)
       /* temporary variables for in-place operation */
       /* First convert to XYZ */
       for (i = 0; i < 19200; i++) {
-        eml_b_i = (brain_B.L_c[i] + 16.0) / 116.0;
-        eml_min_dist = brain_B.a_b[i] / 500.0 + eml_b_i;
-        eml_min_dist_0 = brain_B.b_p[i] / -200.0 + eml_b_i;
-        if (eml_min_dist <= 2.0689655172413793E-01) {
-          eml_min_dist -= 1.3793103448275862E-01;
-          eml_min_dist /= 7.7870370370370372E+00;
+        eml_b_i = (brain_B.L_m[i] + 16.0) / 116.0;
+        eml_min_dist = brain_B.a_c[i] / 500.0 + eml_b_i;
+        eml_min_dist_0 = brain_B.b_k[i] / -200.0 + eml_b_i;
+        if (eml_min_dist <= 2.0689655172413793E-001) {
+          eml_min_dist -= 1.3793103448275862E-001;
+          eml_min_dist /= 7.7870370370370372E+000;
         } else {
           eml_min_dist = rt_pow_snf(eml_min_dist, 3.0);
         }
 
-        if (eml_b_i <= 2.0689655172413793E-01) {
-          eml_b_i -= 1.3793103448275862E-01;
-          eml_b_i /= 7.7870370370370372E+00;
+        if (eml_b_i <= 2.0689655172413793E-001) {
+          eml_b_i -= 1.3793103448275862E-001;
+          eml_b_i /= 7.7870370370370372E+000;
         } else {
           eml_b_i = rt_pow_snf(eml_b_i, 3.0);
         }
 
-        if (eml_min_dist_0 <= 2.0689655172413793E-01) {
-          eml_min_dist_0 -= 1.3793103448275862E-01;
-          eml_min_dist_0 /= 7.7870370370370372E+00;
+        if (eml_min_dist_0 <= 2.0689655172413793E-001) {
+          eml_min_dist_0 -= 1.3793103448275862E-001;
+          eml_min_dist_0 /= 7.7870370370370372E+000;
         } else {
           eml_min_dist_0 = rt_pow_snf(eml_min_dist_0, 3.0);
         }
 
-        eml_min_dist *= 9.6419865576090003E-01;
-        eml_min_dist_0 *= 8.2511648322104003E-01;
+        eml_min_dist *= 9.6419865576090003E-001;
+        eml_min_dist_0 *= 8.2511648322104003E-001;
 
         /* assign the results */
         brain_B.ColorSpaceConversion_o1[i] = eml_min_dist;
@@ -4222,40 +3855,41 @@ static void brain_ApproachBuoys(void)
         /* The coefficients for this conversion were derived from ITU-R */
         /* BT.709 reference primaries for sRGB and CIE standard illuminant */
         /* D65, 2 degree observer */
-        eml_b_i = (3.2409699419045102E+00 * brain_B.ColorSpaceConversion_o1[i] +
-                   -1.5373831775700899E+00 * brain_B.ColorSpaceConversion_o2[i])
-          + -4.9861076029299001E-01 * brain_B.ColorSpaceConversion_o3[i];
-        eml_min_dist = (-9.6924363628086996E-01 *
+        eml_b_i = (3.2409699419045102E+000 * brain_B.ColorSpaceConversion_o1[i]
+                   + -1.5373831775700899E+000 *
+                   brain_B.ColorSpaceConversion_o2[i]) +
+          -4.9861076029299001E-001 * brain_B.ColorSpaceConversion_o3[i];
+        eml_min_dist = (-9.6924363628086996E-001 *
                         brain_B.ColorSpaceConversion_o1[i] +
-                        1.8759675015077100E+00 *
+                        1.8759675015077100E+000 *
                         brain_B.ColorSpaceConversion_o2[i]) +
-          4.1555057407179997E-02 * brain_B.ColorSpaceConversion_o3[i];
-        eml_min_dist_0 = (5.5630079696999998E-02 *
+          4.1555057407179997E-002 * brain_B.ColorSpaceConversion_o3[i];
+        eml_min_dist_0 = (5.5630079696999998E-002 *
                           brain_B.ColorSpaceConversion_o1[i] +
-                          -2.0397695888899001E-01 *
+                          -2.0397695888899001E-001 *
                           brain_B.ColorSpaceConversion_o2[i]) +
-          1.0569715142428799E+00 * brain_B.ColorSpaceConversion_o3[i];
+          1.0569715142428799E+000 * brain_B.ColorSpaceConversion_o3[i];
 
         /* Apply gamma correction to get R'G'B' */
         if (eml_b_i <= 0.00304) {
-          eml_b_i *= 1.2923054468333255E+01;
+          eml_b_i *= 1.2923054468333254E+001;
         } else {
-          eml_b_i = 1.0550005198172263E+00 * rt_pow_snf(eml_b_i,
-            4.1666666666666669E-01) - 5.5000519817226347E-02;
+          eml_b_i = 1.0550005198172263E+000 * rt_pow_snf(eml_b_i,
+            4.1666666666666669E-001) - 5.5000519817226361E-002;
         }
 
         if (eml_min_dist <= 0.00304) {
-          eml_min_dist *= 1.2923054468333255E+01;
+          eml_min_dist *= 1.2923054468333254E+001;
         } else {
-          eml_min_dist = 1.0550005198172263E+00 * rt_pow_snf(eml_min_dist,
-            4.1666666666666669E-01) - 5.5000519817226347E-02;
+          eml_min_dist = 1.0550005198172263E+000 * rt_pow_snf(eml_min_dist,
+            4.1666666666666669E-001) - 5.5000519817226361E-002;
         }
 
         if (eml_min_dist_0 <= 0.00304) {
-          eml_min_dist_0 *= 1.2923054468333255E+01;
+          eml_min_dist_0 *= 1.2923054468333254E+001;
         } else {
-          eml_min_dist_0 = 1.0550005198172263E+00 * rt_pow_snf(eml_min_dist_0,
-            4.1666666666666669E-01) - 5.5000519817226347E-02;
+          eml_min_dist_0 = 1.0550005198172263E+000 * rt_pow_snf(eml_min_dist_0,
+            4.1666666666666669E-001) - 5.5000519817226361E-002;
         }
 
         /* Make sure that the output is in [0..1] range; clip if necessary */
@@ -4357,7 +3991,7 @@ static void brain_ApproachBuoys(void)
       cc_0 = 0.0;
       cc_1 = 0.0;
       eml_b_i = 6.0 * brain_P.Buoy1_Hue;
-      eml_min_dist_0 = (real_T)(uint32_T)(eml_b_i - 1.3322676295501878E-15);
+      eml_min_dist_0 = (real_T)(uint32_T)(eml_b_i - 1.3322676295501878E-015);
       eml_b_i -= eml_min_dist_0;
       eml_count = 1.0 - brain_P.Buoy1_Saturation;
       eml_min_dist = 1.0 - brain_P.Buoy1_Saturation * eml_b_i;
@@ -4415,41 +4049,41 @@ static void brain_ApproachBuoys(void)
       /* equivalent to running the gamma correction block with break */
       /* point of 0.00304 and gamma of 2.4; it's built into this */
       /* conversion for convenience */
-      if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-02) {
-        eml_b_i = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333255E+01;
+      if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-002) {
+        eml_b_i = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333254E+001;
       } else {
-        eml_b_i = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226347E-02) /
-          1.0550005198172263E+00;
+        eml_b_i = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226361E-002) /
+          1.0550005198172263E+000;
         eml_b_i = rt_pow_snf(eml_b_i, 2.4);
       }
 
-      if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-02) {
+      if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-002) {
         eml_min_dist = brain_B.ColorSpaceConversion_o2_o /
-          1.2923054468333255E+01;
+          1.2923054468333254E+001;
       } else {
         eml_min_dist = (brain_B.ColorSpaceConversion_o2_o +
-                        5.5000519817226347E-02) / 1.0550005198172263E+00;
+                        5.5000519817226361E-002) / 1.0550005198172263E+000;
         eml_min_dist = rt_pow_snf(eml_min_dist, 2.4);
       }
 
-      if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-02) {
+      if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-002) {
         eml_min_dist_0 = brain_B.ColorSpaceConversion_o1_g /
-          1.2923054468333255E+01;
+          1.2923054468333254E+001;
       } else {
         eml_min_dist_0 = (brain_B.ColorSpaceConversion_o1_g +
-                          5.5000519817226347E-02) / 1.0550005198172263E+00;
+                          5.5000519817226361E-002) / 1.0550005198172263E+000;
         eml_min_dist_0 = rt_pow_snf(eml_min_dist_0, 2.4);
       }
 
       /* The coefficients for this conversion were derived from ITU-R */
       /* BT.709 reference primaries for sRGB and CIE standard illuminant */
       /* D65, 2 degree observer */
-      cc = (4.1239079926596001E-01 * eml_b_i + 3.5758433938388001E-01 *
-            eml_min_dist) + 1.8048078840182999E-01 * eml_min_dist_0;
-      eml_count = (2.1263900587151000E-01 * eml_b_i + 7.1516867876776002E-01 *
-                   eml_min_dist) + 7.2192315360729994E-02 * eml_min_dist_0;
-      eml_b_i = (1.9330818715590000E-02 * eml_b_i + 1.1919477979463000E-01 *
-                 eml_min_dist) + 9.5053215224966003E-01 * eml_min_dist_0;
+      cc = (4.1239079926596001E-001 * eml_b_i + 3.5758433938388001E-001 *
+            eml_min_dist) + 1.8048078840182999E-001 * eml_min_dist_0;
+      eml_count = (2.1263900587151000E-001 * eml_b_i + 7.1516867876776002E-001 *
+                   eml_min_dist) + 7.2192315360729994E-002 * eml_min_dist_0;
+      eml_b_i = (1.9330818715590000E-002 * eml_b_i + 1.1919477979463000E-001 *
+                 eml_min_dist) + 9.5053215224966003E-001 * eml_min_dist_0;
 
       /* Make sure that the output is in [0..1] range; clip if necessary */
       if (cc > 1.0) {
@@ -4482,29 +4116,30 @@ static void brain_ApproachBuoys(void)
       brain_B.ColorSpaceConversion1_o3 = eml_b_i;
 
       /* Convert from XYZ to L*a*b* */
-      eml_b_i = brain_B.ColorSpaceConversion1_o1 / 9.6419865576090003E-01;
-      eml_min_dist_0 = brain_B.ColorSpaceConversion1_o3 / 8.2511648322104003E-01;
+      eml_b_i = brain_B.ColorSpaceConversion1_o1 / 9.6419865576090003E-001;
+      eml_min_dist_0 = brain_B.ColorSpaceConversion1_o3 /
+        8.2511648322104003E-001;
 
       /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-      if (eml_b_i > 8.8564516790356311E-03) {
-        cc = rt_pow_snf(eml_b_i, 3.3333333333333331E-01);
+      if (eml_b_i > 8.8564516790356311E-003) {
+        cc = rt_pow_snf(eml_b_i, 3.3333333333333331E-001);
       } else {
-        cc = 7.7870370370370372E+00 * eml_b_i + 1.3793103448275862E-01;
+        cc = 7.7870370370370372E+000 * eml_b_i + 1.3793103448275862E-001;
       }
 
-      if (brain_B.ColorSpaceConversion1_o2 > 8.8564516790356311E-03) {
+      if (brain_B.ColorSpaceConversion1_o2 > 8.8564516790356311E-003) {
         eml_min_dist = rt_pow_snf(brain_B.ColorSpaceConversion1_o2,
-          3.3333333333333331E-01);
+          3.3333333333333331E-001);
       } else {
-        eml_min_dist = 7.7870370370370372E+00 * brain_B.ColorSpaceConversion1_o2
-          + 1.3793103448275862E-01;
+        eml_min_dist = 7.7870370370370372E+000 *
+          brain_B.ColorSpaceConversion1_o2 + 1.3793103448275862E-001;
       }
 
-      if (eml_min_dist_0 > 8.8564516790356311E-03) {
-        eml_b_i = rt_pow_snf(eml_min_dist_0, 3.3333333333333331E-01);
+      if (eml_min_dist_0 > 8.8564516790356311E-003) {
+        eml_b_i = rt_pow_snf(eml_min_dist_0, 3.3333333333333331E-001);
       } else {
-        eml_b_i = 7.7870370370370372E+00 * eml_min_dist_0 +
-          1.3793103448275862E-01;
+        eml_b_i = 7.7870370370370372E+000 * eml_min_dist_0 +
+          1.3793103448275862E-001;
       }
 
       /* assign the results */
@@ -4522,7 +4157,7 @@ static void brain_ApproachBuoys(void)
       cc_0 = 0.0;
       cc_1 = 0.0;
       eml_b_i = 6.0 * brain_P.Buoy2_Hue;
-      eml_min_dist_0 = (real_T)(uint32_T)(eml_b_i - 1.3322676295501878E-15);
+      eml_min_dist_0 = (real_T)(uint32_T)(eml_b_i - 1.3322676295501878E-015);
       eml_b_i -= eml_min_dist_0;
       eml_count = 1.0 - brain_P.Buoy2_Saturation;
       eml_min_dist = 1.0 - brain_P.Buoy2_Saturation * eml_b_i;
@@ -4580,41 +4215,41 @@ static void brain_ApproachBuoys(void)
       /* equivalent to running the gamma correction block with break */
       /* point of 0.00304 and gamma of 2.4; it's built into this */
       /* conversion for convenience */
-      if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-02) {
-        eml_b_i = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333255E+01;
+      if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-002) {
+        eml_b_i = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333254E+001;
       } else {
-        eml_b_i = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226347E-02) /
-          1.0550005198172263E+00;
+        eml_b_i = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226361E-002) /
+          1.0550005198172263E+000;
         eml_b_i = rt_pow_snf(eml_b_i, 2.4);
       }
 
-      if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-02) {
+      if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-002) {
         eml_min_dist = brain_B.ColorSpaceConversion_o2_o /
-          1.2923054468333255E+01;
+          1.2923054468333254E+001;
       } else {
         eml_min_dist = (brain_B.ColorSpaceConversion_o2_o +
-                        5.5000519817226347E-02) / 1.0550005198172263E+00;
+                        5.5000519817226361E-002) / 1.0550005198172263E+000;
         eml_min_dist = rt_pow_snf(eml_min_dist, 2.4);
       }
 
-      if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-02) {
+      if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-002) {
         eml_min_dist_0 = brain_B.ColorSpaceConversion_o3_c /
-          1.2923054468333255E+01;
+          1.2923054468333254E+001;
       } else {
         eml_min_dist_0 = (brain_B.ColorSpaceConversion_o3_c +
-                          5.5000519817226347E-02) / 1.0550005198172263E+00;
+                          5.5000519817226361E-002) / 1.0550005198172263E+000;
         eml_min_dist_0 = rt_pow_snf(eml_min_dist_0, 2.4);
       }
 
       /* The coefficients for this conversion were derived from ITU-R */
       /* BT.709 reference primaries for sRGB and CIE standard illuminant */
       /* D65, 2 degree observer */
-      cc = (4.1239079926596001E-01 * eml_b_i + 3.5758433938388001E-01 *
-            eml_min_dist) + 1.8048078840182999E-01 * eml_min_dist_0;
-      eml_count = (2.1263900587151000E-01 * eml_b_i + 7.1516867876776002E-01 *
-                   eml_min_dist) + 7.2192315360729994E-02 * eml_min_dist_0;
-      eml_b_i = (1.9330818715590000E-02 * eml_b_i + 1.1919477979463000E-01 *
-                 eml_min_dist) + 9.5053215224966003E-01 * eml_min_dist_0;
+      cc = (4.1239079926596001E-001 * eml_b_i + 3.5758433938388001E-001 *
+            eml_min_dist) + 1.8048078840182999E-001 * eml_min_dist_0;
+      eml_count = (2.1263900587151000E-001 * eml_b_i + 7.1516867876776002E-001 *
+                   eml_min_dist) + 7.2192315360729994E-002 * eml_min_dist_0;
+      eml_b_i = (1.9330818715590000E-002 * eml_b_i + 1.1919477979463000E-001 *
+                 eml_min_dist) + 9.5053215224966003E-001 * eml_min_dist_0;
 
       /* Make sure that the output is in [0..1] range; clip if necessary */
       if (cc > 1.0) {
@@ -4647,30 +4282,30 @@ static void brain_ApproachBuoys(void)
       brain_B.ColorSpaceConversion1_o3_m = eml_b_i;
 
       /* Convert from XYZ to L*a*b* */
-      eml_b_i = brain_B.ColorSpaceConversion1_o1_n / 9.6419865576090003E-01;
+      eml_b_i = brain_B.ColorSpaceConversion1_o1_n / 9.6419865576090003E-001;
       eml_min_dist_0 = brain_B.ColorSpaceConversion1_o3_m /
-        8.2511648322104003E-01;
+        8.2511648322104003E-001;
 
       /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-      if (eml_b_i > 8.8564516790356311E-03) {
-        cc = rt_pow_snf(eml_b_i, 3.3333333333333331E-01);
+      if (eml_b_i > 8.8564516790356311E-003) {
+        cc = rt_pow_snf(eml_b_i, 3.3333333333333331E-001);
       } else {
-        cc = 7.7870370370370372E+00 * eml_b_i + 1.3793103448275862E-01;
+        cc = 7.7870370370370372E+000 * eml_b_i + 1.3793103448275862E-001;
       }
 
-      if (brain_B.ColorSpaceConversion1_o2_i > 8.8564516790356311E-03) {
+      if (brain_B.ColorSpaceConversion1_o2_i > 8.8564516790356311E-003) {
         eml_min_dist = rt_pow_snf(brain_B.ColorSpaceConversion1_o2_i,
-          3.3333333333333331E-01);
+          3.3333333333333331E-001);
       } else {
-        eml_min_dist = 7.7870370370370372E+00 *
-          brain_B.ColorSpaceConversion1_o2_i + 1.3793103448275862E-01;
+        eml_min_dist = 7.7870370370370372E+000 *
+          brain_B.ColorSpaceConversion1_o2_i + 1.3793103448275862E-001;
       }
 
-      if (eml_min_dist_0 > 8.8564516790356311E-03) {
-        eml_b_i = rt_pow_snf(eml_min_dist_0, 3.3333333333333331E-01);
+      if (eml_min_dist_0 > 8.8564516790356311E-003) {
+        eml_b_i = rt_pow_snf(eml_min_dist_0, 3.3333333333333331E-001);
       } else {
-        eml_b_i = 7.7870370370370372E+00 * eml_min_dist_0 +
-          1.3793103448275862E-01;
+        eml_b_i = 7.7870370370370372E+000 * eml_min_dist_0 +
+          1.3793103448275862E-001;
       }
 
       /* assign the results */
@@ -4991,9 +4626,9 @@ static void brain_Outputs_f(const boolean_T eml_U0[19200], int32_T eml_Y0[50],
     }
 
     eml_centroid_idx = eml_xs / (real_T)brain_DWork.NUM_PIX_DW[eml_c_i] +
-      8.3333333333333329E-02;
+      8.3333333333333329E-002;
     eml_uyy = eml_ys / (real_T)brain_DWork.NUM_PIX_DW[eml_c_i] +
-      8.3333333333333329E-02;
+      8.3333333333333329E-002;
     eml_xs = eml_xys / (real_T)brain_DWork.NUM_PIX_DW[eml_c_i];
     eml_xs = sqrt((eml_centroid_idx - eml_uyy) * (eml_centroid_idx - eml_uyy) +
                   eml_xs * eml_xs * 4.0);
@@ -5404,27 +5039,27 @@ static void brain_ControlledRC(void)
     /* Sum: '<S25>/Add' */
     rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-    /* SampleTimeMath: '<S80>/TSamp' incorporates:
-     *  Gain: '<S79>/Depth Derivative Gain'
+    /* SampleTimeMath: '<S82>/TSamp' incorporates:
+     *  Gain: '<S81>/Depth Derivative Gain'
      *
-     * About '<S80>/TSamp':
+     * About '<S82>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
       brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
     /* DataTypeConversion: '<S25>/Double To Int8' incorporates:
-     *  DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator'
-     *  Gain: '<S79>/Depth Proportional Gain'
-     *  Sum: '<S79>/Sum'
-     *  Sum: '<S80>/Diff'
-     *  UnitDelay: '<S80>/UD'
+     *  DiscreteIntegrator: '<S81>/Depth Discrete-Time Integrator'
+     *  Gain: '<S81>/Depth Proportional Gain'
+     *  Sum: '<S81>/Sum'
+     *  Sum: '<S82>/Diff'
+     *  UnitDelay: '<S82>/UD'
      *
-     * Block description for '<S80>/Diff':
+     * Block description for '<S82>/Diff':
      *
      *  Add in CPU
      *
-     * Block description for '<S80>/UD':
+     * Block description for '<S82>/UD':
      *
      *  Store in Global RAM
      */
@@ -5441,15 +5076,15 @@ static void brain_ControlledRC(void)
       brain_B.DoubleToInt8 = MAX_int8_T;
     }
 
-    /* Update for UnitDelay: '<S80>/UD'
-     * Block description for '<S80>/UD':
+    /* Update for UnitDelay: '<S82>/UD'
+     * Block description for '<S82>/UD':
      *
      *  Store in Global RAM
      */
     brain_DWork.UD_DSTATE = rtb_TSamp;
 
-    /* Update for DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator' incorporates:
-     *  Gain: '<S79>/Depth Integral Gain'
+    /* Update for DiscreteIntegrator: '<S81>/Depth Discrete-Time Integrator' incorporates:
+     *  Gain: '<S81>/Depth Integral Gain'
      */
     brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
       brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki * rtb_Add)
@@ -5478,67 +5113,334 @@ static void brain_ControlledRC(void)
   }
 }
 
-/* Function for Embedded MATLAB: '<S77>/HSV Threshold Segmentation' */
-static void brain_refp1_cos(real_T eml_x[19200])
+/* Function for Embedded MATLAB: '<S67>/IsLinePresent' */
+static void brain_max_f(const real_T eml_varargin_1[71820], real_T eml_maxval
+  [180], real_T eml_indx[180])
 {
+  int16_T eml_b_indx[180];
+  int32_T eml_ix;
+  int32_T eml_iy;
+  real_T eml_mtmp;
+  int32_T eml_itmp;
+  int32_T eml_i;
+  int32_T eml_b_ix;
+  boolean_T eml_searchingForNonNaN;
   int32_T eml_k;
-  for (eml_k = 0; eml_k < 19200; eml_k++) {
-    eml_x[eml_k] = cos(eml_x[eml_k]);
+  boolean_T eml_guard;
+  boolean_T eml_exitg;
+  for (eml_ix = 0; eml_ix < 180; eml_ix++) {
+    eml_b_indx[eml_ix] = 1;
+  }
+
+  eml_ix = 0;
+  eml_iy = 0;
+  for (eml_i = 0; eml_i < 180; eml_i++) {
+    eml_ix++;
+    eml_mtmp = eml_varargin_1[eml_ix - 1];
+    eml_itmp = 1;
+    eml_b_ix = eml_ix;
+    eml_guard = FALSE;
+    if (rtIsNaN(eml_mtmp)) {
+      eml_searchingForNonNaN = TRUE;
+      eml_k = 2;
+      eml_exitg = FALSE;
+      while (((uint32_T)eml_exitg == 0U) && (eml_k < 400)) {
+        eml_b_ix++;
+        if (!rtIsNaN(eml_varargin_1[eml_b_ix - 1])) {
+          eml_mtmp = eml_varargin_1[eml_b_ix - 1];
+          eml_itmp = eml_k;
+          eml_searchingForNonNaN = FALSE;
+          eml_exitg = TRUE;
+        } else {
+          eml_k++;
+        }
+      }
+
+      if (!eml_searchingForNonNaN) {
+        eml_guard = TRUE;
+      }
+    } else {
+      eml_guard = TRUE;
+    }
+
+    if (eml_guard) {
+      for (eml_k = eml_itmp + 1; eml_k < 400; eml_k++) {
+        eml_b_ix++;
+        if (eml_varargin_1[eml_b_ix - 1] > eml_mtmp) {
+          eml_mtmp = eml_varargin_1[eml_b_ix - 1];
+          eml_itmp = eml_k;
+        }
+      }
+    }
+
+    eml_iy++;
+    eml_maxval[eml_iy - 1] = eml_mtmp;
+    eml_b_indx[eml_iy - 1] = (int16_T)eml_itmp;
+    eml_ix += 398;
+  }
+
+  for (eml_ix = 0; eml_ix < 180; eml_ix++) {
+    eml_indx[eml_ix] = (real_T)eml_b_indx[eml_ix];
   }
 }
 
-/* Function for Embedded MATLAB: '<S77>/HSV Threshold Segmentation' */
-static void brain_c13_brain(void)
+/* Function for Embedded MATLAB: '<S67>/IsLinePresent' */
+static void brain_max_fa(const real_T eml_varargin_1[180], real_T *eml_maxval,
+  real_T *eml_indx)
 {
-  real_T eml_SaturationThreshold;
-  int32_T eml_x;
-  int32_T eml_y;
-  real_T eml_b_y;
-  eml_SaturationThreshold = brain_P.Track_Saturation;
-
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.HSVSegmentation/Segmentation/HSV Threshold Segmentation': '<S78>:1' */
-  /*  This function takes a HSV image as input and determines whether or not */
-  /*  each pixel meets the criteria defined by the end user according to */
-  /*  saturation and hue requirements. If the pixel does, then the location is */
-  /*  given a value of 1, otherwise, a value of 0. */
-  /* '<S78>:1:11' */
-  memset((void *)&brain_B.eml_BW[0], (int32_T)0, 19200U * sizeof(int8_T));
-
-  /* '<S78>:1:13' */
-  eml_b_y = 6.2831853071795862E+00 * brain_B.DesiredH1;
-  for (eml_x = 0; eml_x < 160; eml_x++) {
-    for (eml_y = 0; eml_y < 120; eml_y++) {
-      brain_B.eml_hoistedExpr[eml_y + 120 * eml_x] = brain_B.HSV1[120 * eml_x +
-        eml_y] * 6.2831853071795862E+00 - eml_b_y;
+  real_T eml_mtmp;
+  int32_T eml_itmp;
+  int32_T eml_ix;
+  boolean_T eml_searchingForNonNaN;
+  int32_T eml_k;
+  boolean_T eml_guard;
+  boolean_T eml_exitg;
+  eml_mtmp = eml_varargin_1[0];
+  eml_itmp = 1;
+  eml_ix = 1;
+  eml_guard = FALSE;
+  if (rtIsNaN(eml_varargin_1[0])) {
+    eml_searchingForNonNaN = TRUE;
+    eml_k = 2;
+    eml_exitg = FALSE;
+    while (((uint32_T)eml_exitg == 0U) && (eml_k < 181)) {
+      eml_ix++;
+      if (!rtIsNaN(eml_varargin_1[eml_ix - 1])) {
+        eml_mtmp = eml_varargin_1[eml_ix - 1];
+        eml_itmp = eml_k;
+        eml_searchingForNonNaN = FALSE;
+        eml_exitg = TRUE;
+      } else {
+        eml_k++;
+      }
     }
+
+    if (!eml_searchingForNonNaN) {
+      eml_guard = TRUE;
+    }
+  } else {
+    eml_guard = TRUE;
   }
 
-  brain_refp1_cos(&brain_B.eml_hoistedExpr[0]);
-  for (eml_x = 0; eml_x < 19200; eml_x++) {
-    brain_B.eml_hoistedExpr[eml_x] = (brain_B.eml_hoistedExpr[eml_x] + 1.0) /
-      2.0;
-  }
-
-  /*  Segmentation */
-  /* '<S78>:1:16' */
-  for (eml_x = 0; eml_x < 160; eml_x++) {
-    /* '<S78>:1:16' */
-    /* '<S78>:1:17' */
-    for (eml_y = 0; eml_y < 120; eml_y++) {
-      /* '<S78>:1:17' */
-      if ((brain_B.eml_hoistedExpr[120 * eml_x + eml_y] > 0.85) &&
-          (brain_B.HSV1[(120 * eml_x + eml_y) + 19200] > eml_SaturationThreshold))
-      {
-        /* '<S78>:1:18' */
-        /* '<S78>:1:19' */
-        brain_B.eml_BW[eml_y + 120 * eml_x] = 1;
+  if (eml_guard) {
+    for (eml_k = eml_itmp + 1; eml_k < 181; eml_k++) {
+      eml_ix++;
+      if (eml_varargin_1[eml_ix - 1] > eml_mtmp) {
+        eml_mtmp = eml_varargin_1[eml_ix - 1];
+        eml_itmp = eml_k;
       }
     }
   }
 
-  for (eml_x = 0; eml_x < 19200; eml_x++) {
-    brain_B.BW_i[eml_x] = (real_T)brain_B.eml_BW[eml_x];
+  *eml_maxval = eml_mtmp;
+  *eml_indx = (real_T)eml_itmp;
+}
+
+/* Function for Embedded MATLAB: '<S67>/IsLinePresent' */
+static void brain_refp1_round(real_T *eml_x)
+{
+  if (*eml_x < 0.0) {
+    *eml_x = ceil(*eml_x - 0.5);
+  } else {
+    *eml_x = floor(*eml_x + 0.5);
   }
+}
+
+/* Function for Embedded MATLAB: '<S67>/IsLinePresent' */
+static void brain_c22_brain(void)
+{
+  int32_T eml_count;
+  real_T eml_maxValues[180];
+  real_T eml_RhoIndices[180];
+  real_T eml_b;
+  real_T eml_c;
+  int32_T eml_i;
+  real_T eml_ThetaIndex_idx;
+  real_T eml_RhoIndex_idx;
+  real_T eml_ThetaIndex_idx_0;
+  real_T eml_RhoIndex_idx_0;
+  memcpy((void *)&brain_B.eml_HoughTable[0], (void *)&brain_B.HoughTransform_o1
+         [0], 71820U * sizeof(real_T));
+
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings/Hough Transform Stuff/IsLinePresent': '<S68>:1' */
+  /*  This function takes a Hough/hash table as input and  determines if a line */
+  /*  is present and if so what its Rho and Theta are. */
+  /* '<S68>:1:5' */
+  /* '<S68>:1:7' */
+  /* '<S68>:1:9' */
+  /* '<S68>:1:10' */
+  /* '<S68>:1:11' */
+  /* '<S68>:1:12' */
+  /* '<S68>:1:13' */
+  brain_B.Rho[0] = -999.0;
+  brain_B.Theta[0] = -999.0;
+  brain_B.maxVotes[0] = -999.0;
+  brain_B.Rho[1] = -999.0;
+  brain_B.Theta[1] = -999.0;
+  brain_B.maxVotes[1] = -999.0;
+  eml_ThetaIndex_idx_0 = -999.0;
+  eml_RhoIndex_idx_0 = -999.0;
+
+  /* '<S68>:1:17' */
+  brain_max_f(&brain_B.HoughTransform_o1[0], eml_maxValues, eml_RhoIndices);
+  brain_max_fa(eml_maxValues, &eml_b, &eml_c);
+
+  /* '<S68>:1:20' */
+  brain_B.maxVotes[0] = eml_b;
+
+  /* '<S68>:1:20' */
+  /* '<S68>:1:21' */
+  eml_b = 0.0;
+
+  /* '<S68>:1:22' */
+  eml_c = 0.0;
+
+  /* '<S68>:1:23' */
+  for (eml_i = 0; eml_i < 180; eml_i++) {
+    /* '<S68>:1:23' */
+    if (brain_B.maxVotes[0] - eml_maxValues[eml_i] < 0.15 * brain_B.maxVotes[0])
+    {
+      /* '<S68>:1:24' */
+      /* '<S68>:1:25' */
+      eml_b += ((real_T)eml_i + 1.0) * eml_maxValues[eml_i];
+
+      /* '<S68>:1:26' */
+      eml_c += eml_maxValues[eml_i];
+    }
+  }
+
+  if (eml_c > 0.0) {
+    /* '<S68>:1:29' */
+    /* '<S68>:1:30' */
+    eml_b /= eml_c;
+    brain_refp1_round(&eml_b);
+  } else {
+    /* '<S68>:1:32' */
+    eml_b = 1.0;
+  }
+
+  /* '<S68>:1:35' */
+  eml_ThetaIndex_idx = eml_b;
+
+  /* '<S68>:1:36' */
+  brain_B.maxVotes[0] = eml_maxValues[(int32_T)eml_b - 1];
+
+  /* '<S68>:1:38' */
+  eml_RhoIndex_idx = eml_RhoIndices[(int32_T)eml_b - 1];
+  if (brain_B.maxVotes[0] >= 15.0) {
+    /* '<S68>:1:40' */
+    /* '<S68>:1:41' */
+    brain_B.eml_HoughTable[((int32_T)eml_RhoIndex_idx - 1) + 399 * ((int32_T)
+      eml_b - 1)] = 0.0;
+
+    /* '<S68>:1:43' */
+    eml_i = 2;
+
+    /* '<S68>:1:44' */
+    eml_count = 0;
+    while ((eml_i <= 2) && (eml_count < 12)) {
+      /* '<S68>:1:45' */
+      /* '<S68>:1:46' */
+      eml_count++;
+      brain_max_f(&brain_B.eml_HoughTable[0], eml_maxValues, eml_RhoIndices);
+      brain_max_fa(eml_maxValues, &eml_b, &eml_c);
+
+      /* '<S68>:1:48' */
+      brain_B.maxVotes[1] = eml_b;
+
+      /* '<S68>:1:48' */
+      eml_ThetaIndex_idx_0 = eml_c;
+
+      /* '<S68>:1:49' */
+      eml_RhoIndex_idx_0 = eml_RhoIndices[(int32_T)eml_c - 1];
+
+      /* '<S68>:1:51' */
+      brain_B.eml_HoughTable[((int32_T)eml_RhoIndex_idx_0 - 1) + 399 * ((int32_T)
+        eml_c - 1)] = 0.0;
+      if ((fabs(eml_RhoIndex_idx_0 - eml_RhoIndex_idx) > 20.0) || (fabs(eml_c -
+            eml_ThetaIndex_idx) > 30.0)) {
+        /* '<S68>:1:53' */
+        /* '<S68>:1:54' */
+        eml_i = 3;
+      }
+    }
+
+    /* '<S68>:1:59' */
+    if (brain_B.maxVotes[0] > 15.0) {
+      /* '<S68>:1:60' */
+      /* '<S68>:1:61' */
+      brain_B.Theta[0] = brain_B.HoughTransform_o2[(int32_T)eml_ThetaIndex_idx -
+        1];
+
+      /* '<S68>:1:62' */
+      brain_B.Rho[0] = brain_B.HoughTransform_o3[(int32_T)eml_RhoIndex_idx - 1];
+      if ((brain_B.Theta[0] > 0.0) && (brain_B.Rho[0] < 0.0)) {
+        /* '<S68>:1:63' */
+        /* '<S68>:1:64' */
+        brain_B.Rho[0] = brain_B.Rho[0] * -1.0;
+      }
+    }
+
+    /* '<S68>:1:59' */
+    if (brain_B.maxVotes[1] > 15.0) {
+      /* '<S68>:1:60' */
+      /* '<S68>:1:61' */
+      brain_B.Theta[1] = brain_B.HoughTransform_o2[(int32_T)eml_ThetaIndex_idx_0
+        - 1];
+
+      /* '<S68>:1:62' */
+      brain_B.Rho[1] = brain_B.HoughTransform_o3[(int32_T)eml_RhoIndex_idx_0 - 1];
+      if ((brain_B.Theta[1] > 0.0) && (brain_B.Rho[1] < 0.0)) {
+        /* '<S68>:1:63' */
+        /* '<S68>:1:64' */
+        brain_B.Rho[1] = brain_B.Rho[1] * -1.0;
+      }
+    }
+  }
+}
+
+/* Function for Embedded MATLAB: '<S21>/GetHeadingToPath' */
+static void brain_max(const real_T eml_varargin_1[2], real_T *eml_maxval, real_T
+                      *eml_indx)
+{
+  real_T eml_mtmp;
+  int32_T eml_itmp;
+  int32_T eml_ix;
+  boolean_T eml_searchingForNonNaN;
+  int32_T eml_k;
+  boolean_T eml_guard;
+  eml_mtmp = eml_varargin_1[0];
+  eml_itmp = 1;
+  eml_ix = 1;
+  eml_guard = FALSE;
+  if (rtIsNaN(eml_varargin_1[0])) {
+    eml_searchingForNonNaN = TRUE;
+    eml_ix = 2;
+    if (!rtIsNaN(eml_varargin_1[1])) {
+      eml_mtmp = eml_varargin_1[1];
+      eml_itmp = 2;
+      eml_searchingForNonNaN = FALSE;
+    }
+
+    if (!eml_searchingForNonNaN) {
+      eml_guard = TRUE;
+    }
+  } else {
+    eml_guard = TRUE;
+  }
+
+  if (eml_guard) {
+    for (eml_k = eml_itmp + 1; eml_k < 3; eml_k = 3) {
+      eml_ix++;
+      if (eml_varargin_1[eml_ix - 1] > eml_mtmp) {
+        eml_mtmp = eml_varargin_1[eml_ix - 1];
+        eml_itmp = 2;
+      }
+    }
+  }
+
+  *eml_maxval = eml_mtmp;
+  *eml_indx = (real_T)eml_itmp;
 }
 
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
@@ -5546,19 +5448,13 @@ static void brain_FollowOnePath(void)
 {
   real_T sf_ErrorX;
   real_T sf_ErrorY;
-  int32_T ky;
+  real_T eml_b;
+  real_T eml_c;
   int32_T ku;
   int32_T i;
+  int32_T n;
+  int32_T m;
   int32_T inIdx;
-  int32_T outIdx;
-  int32_T col;
-  int32_T numIter;
-  int32_T gOffset;
-  int32_T hOffset;
-  real_T Erosion_GBUF_DW[175];
-  real_T Erosion_HBUF_DW[175];
-  real_T rtb_Add;
-  real_T rtb_TSamp;
   int32_T i_0;
   real_T tmp;
 
@@ -5598,459 +5494,135 @@ static void brain_FollowOnePath(void)
           brain_DWork.HeadingAlongPath;
         brain_DWork.Done = 1.0;
       } else {
-        /* Simulink Function 'MakeHSVImage': '<S7>:1215' */
+        /* Simulink Function 'HSVSegmentation': '<S7>:1431' */
         for (i_0 = 0; i_0 < 19200; i_0++) {
-          brain_B.H1[i_0] = brain_B.Resize[i_0];
-          brain_B.S1[i_0] = brain_B.Resize1[i_0];
-          brain_B.V1[i_0] = brain_B.Resize2[i_0];
+          brain_B.H_f[i_0] = brain_B.Resize[i_0];
+          brain_B.S_a[i_0] = brain_B.Resize1[i_0];
+
+          /* Logic: '<S77>/Logical Operator1' incorporates:
+           *  Constant: '<S78>/Constant'
+           *  Constant: '<S79>/Constant'
+           *  Constant: '<S80>/Constant'
+           *  Logic: '<S77>/Logical Operator'
+           *  RelationalOperator: '<S78>/Compare'
+           *  RelationalOperator: '<S79>/Compare'
+           *  RelationalOperator: '<S80>/Compare'
+           */
+          brain_B.BW_c[i_0] = (((brain_B.H_f[i_0] < brain_P.Track_HueLower) ||
+                                (brain_B.H_f[i_0] > brain_P.Track_HueHigher)) &&
+                               (brain_B.S_a[i_0] > brain_P.Track_Saturation));
         }
 
-        StateFlowFunctionsFollowOnePath(brain_B.H1, brain_B.S1, brain_B.V1,
-          &brain_B.StateFlowFunctionsFollowOnePa_g);
-
-        /* Simulink Function 'HSVSegmentation': '<S7>:1431' */
-        memcpy((void *)&brain_B.HSV1[0], (void *)
-               &brain_B.StateFlowFunctionsFollowOnePa_g.HSVImage1[0], 57600U *
-               sizeof(real_T));
-        brain_B.DesiredH1 = 0.05;
-
-        /* Embedded MATLAB: '<S77>/HSV Threshold Segmentation' */
-        brain_c13_brain();
-
         /* S-Function (svipmorphop): '<S77>/Erosion' */
-        ky = 0;
+        i_0 = 0;
         ku = 0;
-        for (col = 0; col < 127; col++) {
-          brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-          ky++;
+        for (inIdx = 0; inIdx < 127; inIdx++) {
+          brain_DWork.Erosion_ONE_PAD_IMG_DW[i_0] = TRUE;
+          i_0++;
         }
 
         for (i = 0; i < 160; i++) {
-          brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-          ky++;
-          memcpy((void *)&brain_DWork.Erosion_ONE_PAD_IMG_DW[ky], (void *)
-                 &brain_B.BW_i[ku], 120U * sizeof(real_T));
-          ky += 120;
+          brain_DWork.Erosion_ONE_PAD_IMG_DW[i_0] = TRUE;
+          i_0++;
+          memcpy((void *)&brain_DWork.Erosion_ONE_PAD_IMG_DW[i_0], (void *)
+                 &brain_B.BW_c[ku], 120U * sizeof(boolean_T));
+          i_0 += 120;
           ku += 120;
-          for (col = 121; col < 127; col++) {
-            brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-            ky++;
+          for (inIdx = 121; inIdx < 127; inIdx++) {
+            brain_DWork.Erosion_ONE_PAD_IMG_DW[i_0] = TRUE;
+            i_0++;
           }
         }
 
         for (i = 161; i < 167; i++) {
-          for (col = 0; col < 127; col++) {
-            brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-            ky++;
+          for (inIdx = 0; inIdx < 127; inIdx++) {
+            brain_DWork.Erosion_ONE_PAD_IMG_DW[i_0] = TRUE;
+            i_0++;
           }
         }
 
-        for (ky = 0; ky < 21209; ky++) {
-          brain_DWork.Erosion_TWO_PAD_IMG_DW[ky] = (rtInf);
+        for (i = 0; i < 21209; i++) {
+          brain_DWork.Erosion_TWO_PAD_IMG_DW[i] = TRUE;
         }
 
-        inIdx = 0;
-        outIdx = 1;
-        if (brain_DWork.Erosion_STREL_DW[0] == 0) {
-          for (col = 0; col < 167; col++) {
-            for (i = 0; i < 124; i++) {
-              rtb_Add = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx +
-                brain_DWork.Erosion_ERODE_OFF_DW[0]];
-              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                rtb_TSamp = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx +
-                  brain_DWork.Erosion_ERODE_OFF_DW[i_0]];
-                if (rtb_TSamp < rtb_Add) {
-                  rtb_Add = rtb_TSamp;
-                }
-              }
-
-              brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = rtb_Add;
-              inIdx++;
-              outIdx++;
-            }
-
-            inIdx += 3;
-            outIdx += 3;
-          }
-        } else if (brain_DWork.Erosion_STREL_DW[0] == 1) {
-          numIter = (brain_DWork.Erosion_NUMNONZ_DW[0] + 123) /
-            brain_DWork.Erosion_NUMNONZ_DW[0];
-          ky = brain_DWork.Erosion_ERODE_OFF_DW[0] / 127 * 127;
-          ku = brain_DWork.Erosion_ERODE_OFF_DW[0] - ky;
-          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[0] - 2) + ku;
-          hOffset = ku - 1;
-          inIdx = 1 + ky;
-          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_GBUF_DW[i_0] = (rtInf);
-          }
-
-          ky = (numIter + 1) * brain_DWork.Erosion_NUMNONZ_DW[0];
-          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_GBUF_DW[i_0] = (rtInf);
-          }
-
-          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_HBUF_DW[i_0] = (rtInf);
-          }
-
-          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_HBUF_DW[i_0] = (rtInf);
-          }
-
-          for (col = 0; col < 167; col++) {
-            ky = brain_DWork.Erosion_NUMNONZ_DW[0];
-            for (ku = 0; ku < numIter; ku++) {
-              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-              ky++;
-              inIdx++;
-              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                if (Erosion_GBUF_DW[ky - 1] <
-                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                } else {
-                  Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                }
-
-                ky++;
-                inIdx++;
+        ku = 0;
+        for (n = 0; n < 167; n++) {
+          for (m = 0; m < 124; m++) {
+            brain_DWork.Erosion_TWO_PAD_IMG_DW[1 + ku] = TRUE;
+            for (i = 0; i < brain_DWork.Erosion_NUMNONZ_DW[0]; i++) {
+              if (!brain_DWork.Erosion_ONE_PAD_IMG_DW[ku +
+                  brain_DWork.Erosion_ERODE_OFF_DW[i]]) {
+                brain_DWork.Erosion_TWO_PAD_IMG_DW[1 + ku] = FALSE;
+                i = brain_DWork.Erosion_NUMNONZ_DW[0];
               }
             }
 
-            ky--;
-            inIdx--;
-            for (ku = 0; ku < numIter; ku++) {
-              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-              ky--;
-              inIdx--;
-              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                if (Erosion_HBUF_DW[ky + 1] <
-                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                } else {
-                  Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                }
-
-                ky--;
-                inIdx--;
-              }
-            }
-
-            ky++;
-            inIdx++;
-            for (i = 0; i < 124; i++) {
-              if (Erosion_GBUF_DW[ky + gOffset] < Erosion_HBUF_DW[ky + hOffset])
-              {
-                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_GBUF_DW[ky
-                  + gOffset];
-              } else {
-                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_HBUF_DW[ky
-                  + hOffset];
-              }
-
-              ky++;
-              outIdx++;
-            }
-
-            inIdx += 127;
-            outIdx += 3;
-          }
-        } else {
-          numIter = (brain_DWork.Erosion_NUMNONZ_DW[0] + 166) /
-            brain_DWork.Erosion_NUMNONZ_DW[0];
-          ku = brain_DWork.Erosion_ERODE_OFF_DW[0] / 127;
-          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[0] - 1) + ku;
-          hOffset = ku;
-          inIdx = brain_DWork.Erosion_ERODE_OFF_DW[0] - ku * 127;
-          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_GBUF_DW[i_0] = (rtInf);
+            ku++;
           }
 
-          ky = (numIter + 1) * brain_DWork.Erosion_NUMNONZ_DW[0];
-          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_GBUF_DW[i_0] = (rtInf);
-          }
-
-          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_HBUF_DW[i_0] = (rtInf);
-          }
-
-          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_HBUF_DW[i_0] = (rtInf);
-          }
-
-          for (i = 0; i < 124; i++) {
-            ky = brain_DWork.Erosion_NUMNONZ_DW[0];
-            for (ku = 0; ku < numIter; ku++) {
-              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-              ky++;
-              inIdx += 127;
-              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                if (Erosion_GBUF_DW[ky - 1] <
-                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                } else {
-                  Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                }
-
-                ky++;
-                inIdx += 127;
-              }
-            }
-
-            ky--;
-            inIdx -= 127;
-            for (ku = 0; ku < numIter; ku++) {
-              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-              ky--;
-              inIdx -= 127;
-              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                if (Erosion_HBUF_DW[ky + 1] <
-                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                } else {
-                  Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                }
-
-                ky--;
-                inIdx -= 127;
-              }
-            }
-
-            ky++;
-            inIdx += 127;
-            for (col = 0; col < 167; col++) {
-              if (Erosion_GBUF_DW[ky + gOffset] < Erosion_HBUF_DW[ky + hOffset])
-              {
-                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_GBUF_DW[ky
-                  + gOffset];
-              } else {
-                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_HBUF_DW[ky
-                  + hOffset];
-              }
-
-              ky++;
-              outIdx += 127;
-            }
-
-            inIdx++;
-            outIdx += -21208;
-          }
+          ku += 3;
         }
 
-        numIter = 1;
+        inIdx = 1;
         i_0 = 0;
-        if (brain_DWork.Erosion_STREL_DW[1] == 0) {
-          for (col = 0; col < 160; col++) {
-            for (i = 1; i < 121; i++) {
-              rtb_Add = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter +
-                brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW
-                [0]]];
-              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-              {
-                rtb_TSamp =
-                  brain_DWork.Erosion_TWO_PAD_IMG_DW[brain_DWork.Erosion_ERODE_OFF_DW
-                  [inIdx + brain_DWork.Erosion_NUMNONZ_DW[0]] + numIter];
-                if (rtb_TSamp < rtb_Add) {
-                  rtb_Add = rtb_TSamp;
-                }
-              }
-
-              brain_B.Erosion[i_0] = rtb_Add;
-              numIter++;
-              i_0++;
-            }
-
-            numIter += 7;
-          }
-        } else if (brain_DWork.Erosion_STREL_DW[1] == 1) {
-          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] + 119) /
-            brain_DWork.Erosion_NUMNONZ_DW[1];
-          ky = brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-            / 127 * 127;
-          ku = brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-            - ky;
-          hOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] - 1) + ku;
-          outIdx = ku;
-          numIter = 1 + ky;
-          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
-            Erosion_GBUF_DW[inIdx] = (rtInf);
-          }
-
-          ky = (gOffset + 1) * brain_DWork.Erosion_NUMNONZ_DW[1];
-          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-               ++) {
-            Erosion_GBUF_DW[inIdx] = (rtInf);
-          }
-
-          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
-            Erosion_HBUF_DW[inIdx] = (rtInf);
-          }
-
-          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-               ++) {
-            Erosion_HBUF_DW[inIdx] = (rtInf);
-          }
-
-          for (col = 0; col < 160; col++) {
-            ky = brain_DWork.Erosion_NUMNONZ_DW[1];
-            for (ku = 0; ku < gOffset; ku++) {
-              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-              ky++;
-              numIter++;
-              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-              {
-                if (Erosion_GBUF_DW[ky - 1] <
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                } else {
-                  Erosion_GBUF_DW[ky] =
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                }
-
-                ky++;
-                numIter++;
+        for (n = 0; n < 160; n++) {
+          for (m = 1; m < 121; m++) {
+            brain_B.Erosion[i_0] = TRUE;
+            for (i = 0; i < brain_DWork.Erosion_NUMNONZ_DW[1]; i++) {
+              if (!brain_DWork.Erosion_TWO_PAD_IMG_DW[brain_DWork.Erosion_ERODE_OFF_DW
+                  [i + brain_DWork.Erosion_NUMNONZ_DW[0]] + inIdx]) {
+                brain_B.Erosion[i_0] = FALSE;
+                i = brain_DWork.Erosion_NUMNONZ_DW[1];
               }
             }
 
-            ky--;
-            numIter--;
-            for (ku = 0; ku < gOffset; ku++) {
-              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-              ky--;
-              numIter--;
-              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-              {
-                if (Erosion_HBUF_DW[ky + 1] <
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                } else {
-                  Erosion_HBUF_DW[ky] =
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                }
-
-                ky--;
-                numIter--;
-              }
-            }
-
-            ky++;
-            numIter++;
-            for (i = 1; i < 121; i++) {
-              if (Erosion_GBUF_DW[ky + hOffset] < Erosion_HBUF_DW[ky + outIdx])
-              {
-                brain_B.Erosion[i_0] = Erosion_GBUF_DW[ky + hOffset];
-              } else {
-                brain_B.Erosion[i_0] = Erosion_HBUF_DW[ky + outIdx];
-              }
-
-              ky++;
-              i_0++;
-            }
-
-            numIter += 127;
-          }
-        } else {
-          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] + 159) /
-            brain_DWork.Erosion_NUMNONZ_DW[1];
-          ku = brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-            / 127;
-          hOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] - 2) + ku;
-          outIdx = ku - 1;
-          numIter =
-            (brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-             - ku * 127) + 128;
-          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
-            Erosion_GBUF_DW[inIdx] = (rtInf);
+            inIdx++;
+            i_0++;
           }
 
-          ky = (gOffset + 1) * brain_DWork.Erosion_NUMNONZ_DW[1];
-          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-               ++) {
-            Erosion_GBUF_DW[inIdx] = (rtInf);
-          }
+          inIdx += 7;
+        }
 
-          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
-            Erosion_HBUF_DW[inIdx] = (rtInf);
-          }
-
-          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-               ++) {
-            Erosion_HBUF_DW[inIdx] = (rtInf);
-          }
-
-          for (i = 1; i < 121; i++) {
-            ky = brain_DWork.Erosion_NUMNONZ_DW[1];
-            for (ku = 0; ku < gOffset; ku++) {
-              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-              ky++;
-              numIter += 127;
-              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-              {
-                if (Erosion_GBUF_DW[ky - 1] <
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                } else {
-                  Erosion_GBUF_DW[ky] =
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                }
-
-                ky++;
-                numIter += 127;
-              }
-            }
-
-            ky--;
-            numIter -= 127;
-            for (ku = 0; ku < gOffset; ku++) {
-              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-              ky--;
-              numIter -= 127;
-              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-              {
-                if (Erosion_HBUF_DW[ky + 1] <
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                } else {
-                  Erosion_HBUF_DW[ky] =
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                }
-
-                ky--;
-                numIter -= 127;
-              }
-            }
-
-            ky++;
-            numIter += 127;
-            for (col = 0; col < 160; col++) {
-              if (Erosion_GBUF_DW[ky + hOffset] < Erosion_HBUF_DW[ky + outIdx])
-              {
-                brain_B.Erosion[i_0] = Erosion_GBUF_DW[ky + hOffset];
-              } else {
-                brain_B.Erosion[i_0] = Erosion_HBUF_DW[ky + outIdx];
-              }
-
-              ky++;
-              i_0 += 120;
-            }
-
-            numIter++;
-            i_0 += -19199;
-          }
+        for (i_0 = 0; i_0 < 19200; i_0++) {
+          /* DataTypeConversion: '<S77>/Data Type Conversion' */
+          brain_B.DataTypeConversion[i_0] = brain_B.Erosion[i_0];
+          brain_B.BWout[i_0] = (real_T)brain_B.DataTypeConversion[i_0];
         }
 
         /* Simulink Function 'GetHeadings': '<S7>:1208' */
         for (i_0 = 0; i_0 < 19200; i_0++) {
-          /* DataTypeConversion: '<S77>/Data Type Conversion' */
-          brain_B.DataTypeConversion[i_0] = (brain_B.Erosion[i_0] != 0.0);
-          brain_B.BWout[i_0] = (real_T)brain_B.DataTypeConversion[i_0];
           brain_B.BW_g[i_0] = (brain_B.BWout[i_0] != 0.0);
         }
 
-        StateFlowFunctionsFollowOnePa_j(brain_B.BW_g,
-          &brain_B.StateFlowFunctionsFollowOneP_jq);
-        brain_DWork.HeadingAlongPath =
-          brain_B.StateFlowFunctionsFollowOneP_jq.AlongPathHeading;
+        /* S-Function (sviphough): '<S67>/Hough Transform' */
+        MWVIP_Hough_D(&brain_B.BW_g[0], &brain_B.HoughTransform_o1[0],
+                      &brain_ConstP.HoughTransform_SINE_[0],
+                      &brain_ConstP.HoughTransform_FIRSTRHO_RT, 120, 160, 399,
+                      91);
+
+        /* Embedded MATLAB: '<S67>/IsLinePresent' */
+        brain_c22_brain();
+
+        /* Embedded MATLAB: '<S21>/GetHeadingToPath' */
+        /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings/GetHeadingToPath': '<S66>:1' */
+        /*  This function calculates the heading to the path from Theta and Rho */
+        /* '<S66>:1:4' */
+        /* '<S66>:1:6' */
+        brain_B.AlongPathHeading = -999.0;
+        brain_max(&brain_B.maxVotes[0], &eml_b, &eml_c);
+
+        /* '<S66>:1:10' */
+        /* '<S66>:1:11' */
+        /* '<S66>:1:12' */
+        if ((brain_B.Theta[(int32_T)eml_c - 1] > -1.5707963267948966E+000) &&
+            (brain_B.Theta[(int32_T)eml_c - 1] < 1.5707963267948966E+000)) {
+          /* '<S66>:1:21' */
+          /* '<S66>:1:22' */
+          brain_B.AlongPathHeading = brain_B.Theta[(int32_T)eml_c - 1] * 180.0 /
+            3.1415926535897931E+000;
+        }
+
+        brain_DWork.HeadingAlongPath = brain_B.AlongPathHeading;
 
         /* Simulink Function 'CenterOver_Strafe': '<S7>:1423' */
         memcpy((void *)&brain_B.BW[0], (void *)&brain_B.BWout[0], 19200U *
@@ -6060,7 +5632,7 @@ static void brain_FollowOnePath(void)
           &brain_DWork.StateFlowFunctionsFollowOneP_iq);
         brain_B.Strafe =
           brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion;
-        ky = brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion_f;
+        i_0 = brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion_f;
 
         /* Simulink Function 'MaintainDepth': '<S7>:926' */
         brain_B.CurrentDepth1 = (real32_T)brain_U.CurrentDepth;
@@ -6070,34 +5642,34 @@ static void brain_FollowOnePath(void)
         brain_DWork.StateFlowFunctionsMaintainDep_k = brain_M->Timing.clockTick0;
 
         /* Sum: '<S25>/Add' */
-        rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
+        eml_b = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S80>/TSamp' incorporates:
-         *  Gain: '<S79>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S82>/TSamp' incorporates:
+         *  Gain: '<S81>/Depth Derivative Gain'
          *
-         * About '<S80>/TSamp':
+         * About '<S82>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
-        rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
+        eml_c = brain_P.Depth_Kd * eml_b / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
         /* DataTypeConversion: '<S25>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator'
-         *  Gain: '<S79>/Depth Proportional Gain'
-         *  Sum: '<S79>/Sum'
-         *  Sum: '<S80>/Diff'
-         *  UnitDelay: '<S80>/UD'
+         *  DiscreteIntegrator: '<S81>/Depth Discrete-Time Integrator'
+         *  Gain: '<S81>/Depth Proportional Gain'
+         *  Sum: '<S81>/Sum'
+         *  Sum: '<S82>/Diff'
+         *  UnitDelay: '<S82>/UD'
          *
-         * Block description for '<S80>/Diff':
+         * Block description for '<S82>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S80>/UD':
+         * Block description for '<S82>/UD':
          *
          *  Store in Global RAM
          */
-        tmp = (brain_P.Depth_Kp * rtb_Add + (rtb_TSamp - brain_DWork.UD_DSTATE))
-          + brain_DWork.DepthDiscreteTimeIntegrator_DST;
+        tmp = (brain_P.Depth_Kp * eml_b + (eml_c - brain_DWork.UD_DSTATE)) +
+          brain_DWork.DepthDiscreteTimeIntegrator_DST;
         tmp = floor(tmp);
         if (tmp < 128.0) {
           if (tmp >= -128.0) {
@@ -6109,19 +5681,19 @@ static void brain_FollowOnePath(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S80>/UD'
-         * Block description for '<S80>/UD':
+        /* Update for UnitDelay: '<S82>/UD'
+         * Block description for '<S82>/UD':
          *
          *  Store in Global RAM
          */
-        brain_DWork.UD_DSTATE = rtb_TSamp;
+        brain_DWork.UD_DSTATE = eml_c;
 
-        /* Update for DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S79>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S81>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S81>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
-          rtb_Add) + brain_DWork.DepthDiscreteTimeIntegrator_DST;
+          eml_b) + brain_DWork.DepthDiscreteTimeIntegrator_DST;
         if (brain_DWork.DepthDiscreteTimeIntegrator_DST >= 10.0) {
           brain_DWork.DepthDiscreteTimeIntegrator_DST = 10.0;
         } else {
@@ -6134,7 +5706,7 @@ static void brain_FollowOnePath(void)
 
         /* Simulink Function 'Align': '<S7>:1437' */
         brain_B.HeadingAlong = brain_DWork.HeadingAlongPath;
-        brain_B.Forward1 = (real_T)ky;
+        brain_B.Forward1 = (real_T)i_0;
         StateFlowFunctionsFollowOnePa_k(brain_B.HeadingAlong, brain_B.Forward1,
           brain_M, &brain_B.StateFlowFunctionsFollowOneP_kn,
           &brain_DWork.StateFlowFunctionsFollowOneP_kn);
@@ -6158,451 +5730,99 @@ static void brain_FollowOnePath(void)
         brain_B.Right = 0;
         brain_B.Strafe = 0;
       } else {
-        /* Simulink Function 'MakeHSVImage': '<S7>:1215' */
+        /* Simulink Function 'HSVSegmentation': '<S7>:1431' */
         for (i_0 = 0; i_0 < 19200; i_0++) {
-          brain_B.H1[i_0] = brain_B.Resize[i_0];
-          brain_B.S1[i_0] = brain_B.Resize1[i_0];
-          brain_B.V1[i_0] = brain_B.Resize2[i_0];
+          brain_B.H_f[i_0] = brain_B.Resize[i_0];
+          brain_B.S_a[i_0] = brain_B.Resize1[i_0];
+
+          /* Logic: '<S77>/Logical Operator1' incorporates:
+           *  Constant: '<S78>/Constant'
+           *  Constant: '<S79>/Constant'
+           *  Constant: '<S80>/Constant'
+           *  Logic: '<S77>/Logical Operator'
+           *  RelationalOperator: '<S78>/Compare'
+           *  RelationalOperator: '<S79>/Compare'
+           *  RelationalOperator: '<S80>/Compare'
+           */
+          brain_B.BW_c[i_0] = (((brain_B.H_f[i_0] < brain_P.Track_HueLower) ||
+                                (brain_B.H_f[i_0] > brain_P.Track_HueHigher)) &&
+                               (brain_B.S_a[i_0] > brain_P.Track_Saturation));
         }
 
-        StateFlowFunctionsFollowOnePath(brain_B.H1, brain_B.S1, brain_B.V1,
-          &brain_B.StateFlowFunctionsFollowOnePa_g);
-
-        /* Simulink Function 'HSVSegmentation': '<S7>:1431' */
-        memcpy((void *)&brain_B.HSV1[0], (void *)
-               &brain_B.StateFlowFunctionsFollowOnePa_g.HSVImage1[0], 57600U *
-               sizeof(real_T));
-        brain_B.DesiredH1 = 0.05;
-
-        /* Embedded MATLAB: '<S77>/HSV Threshold Segmentation' */
-        brain_c13_brain();
-
         /* S-Function (svipmorphop): '<S77>/Erosion' */
-        ky = 0;
+        i_0 = 0;
         ku = 0;
-        for (col = 0; col < 127; col++) {
-          brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-          ky++;
+        for (inIdx = 0; inIdx < 127; inIdx++) {
+          brain_DWork.Erosion_ONE_PAD_IMG_DW[i_0] = TRUE;
+          i_0++;
         }
 
         for (i = 0; i < 160; i++) {
-          brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-          ky++;
-          memcpy((void *)&brain_DWork.Erosion_ONE_PAD_IMG_DW[ky], (void *)
-                 &brain_B.BW_i[ku], 120U * sizeof(real_T));
-          ky += 120;
+          brain_DWork.Erosion_ONE_PAD_IMG_DW[i_0] = TRUE;
+          i_0++;
+          memcpy((void *)&brain_DWork.Erosion_ONE_PAD_IMG_DW[i_0], (void *)
+                 &brain_B.BW_c[ku], 120U * sizeof(boolean_T));
+          i_0 += 120;
           ku += 120;
-          for (col = 121; col < 127; col++) {
-            brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-            ky++;
+          for (inIdx = 121; inIdx < 127; inIdx++) {
+            brain_DWork.Erosion_ONE_PAD_IMG_DW[i_0] = TRUE;
+            i_0++;
           }
         }
 
         for (i = 161; i < 167; i++) {
-          for (col = 0; col < 127; col++) {
-            brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = (rtInf);
-            ky++;
+          for (inIdx = 0; inIdx < 127; inIdx++) {
+            brain_DWork.Erosion_ONE_PAD_IMG_DW[i_0] = TRUE;
+            i_0++;
           }
         }
 
-        for (ky = 0; ky < 21209; ky++) {
-          brain_DWork.Erosion_TWO_PAD_IMG_DW[ky] = (rtInf);
+        for (i = 0; i < 21209; i++) {
+          brain_DWork.Erosion_TWO_PAD_IMG_DW[i] = TRUE;
         }
 
-        inIdx = 0;
-        outIdx = 1;
-        if (brain_DWork.Erosion_STREL_DW[0] == 0) {
-          for (col = 0; col < 167; col++) {
-            for (i = 0; i < 124; i++) {
-              rtb_Add = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx +
-                brain_DWork.Erosion_ERODE_OFF_DW[0]];
-              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                rtb_TSamp = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx +
-                  brain_DWork.Erosion_ERODE_OFF_DW[i_0]];
-                if (rtb_TSamp < rtb_Add) {
-                  rtb_Add = rtb_TSamp;
-                }
-              }
-
-              brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = rtb_Add;
-              inIdx++;
-              outIdx++;
-            }
-
-            inIdx += 3;
-            outIdx += 3;
-          }
-        } else if (brain_DWork.Erosion_STREL_DW[0] == 1) {
-          numIter = (brain_DWork.Erosion_NUMNONZ_DW[0] + 123) /
-            brain_DWork.Erosion_NUMNONZ_DW[0];
-          ky = brain_DWork.Erosion_ERODE_OFF_DW[0] / 127 * 127;
-          ku = brain_DWork.Erosion_ERODE_OFF_DW[0] - ky;
-          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[0] - 2) + ku;
-          hOffset = ku - 1;
-          inIdx = 1 + ky;
-          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_GBUF_DW[i_0] = (rtInf);
-          }
-
-          ky = (numIter + 1) * brain_DWork.Erosion_NUMNONZ_DW[0];
-          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_GBUF_DW[i_0] = (rtInf);
-          }
-
-          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_HBUF_DW[i_0] = (rtInf);
-          }
-
-          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_HBUF_DW[i_0] = (rtInf);
-          }
-
-          for (col = 0; col < 167; col++) {
-            ky = brain_DWork.Erosion_NUMNONZ_DW[0];
-            for (ku = 0; ku < numIter; ku++) {
-              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-              ky++;
-              inIdx++;
-              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                if (Erosion_GBUF_DW[ky - 1] <
-                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                } else {
-                  Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                }
-
-                ky++;
-                inIdx++;
+        ku = 0;
+        for (n = 0; n < 167; n++) {
+          for (m = 0; m < 124; m++) {
+            brain_DWork.Erosion_TWO_PAD_IMG_DW[1 + ku] = TRUE;
+            for (i = 0; i < brain_DWork.Erosion_NUMNONZ_DW[0]; i++) {
+              if (!brain_DWork.Erosion_ONE_PAD_IMG_DW[ku +
+                  brain_DWork.Erosion_ERODE_OFF_DW[i]]) {
+                brain_DWork.Erosion_TWO_PAD_IMG_DW[1 + ku] = FALSE;
+                i = brain_DWork.Erosion_NUMNONZ_DW[0];
               }
             }
 
-            ky--;
-            inIdx--;
-            for (ku = 0; ku < numIter; ku++) {
-              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-              ky--;
-              inIdx--;
-              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                if (Erosion_HBUF_DW[ky + 1] <
-                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                } else {
-                  Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                }
-
-                ky--;
-                inIdx--;
-              }
-            }
-
-            ky++;
-            inIdx++;
-            for (i = 0; i < 124; i++) {
-              if (Erosion_GBUF_DW[ky + gOffset] < Erosion_HBUF_DW[ky + hOffset])
-              {
-                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_GBUF_DW[ky
-                  + gOffset];
-              } else {
-                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_HBUF_DW[ky
-                  + hOffset];
-              }
-
-              ky++;
-              outIdx++;
-            }
-
-            inIdx += 127;
-            outIdx += 3;
-          }
-        } else {
-          numIter = (brain_DWork.Erosion_NUMNONZ_DW[0] + 166) /
-            brain_DWork.Erosion_NUMNONZ_DW[0];
-          ku = brain_DWork.Erosion_ERODE_OFF_DW[0] / 127;
-          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[0] - 1) + ku;
-          hOffset = ku;
-          inIdx = brain_DWork.Erosion_ERODE_OFF_DW[0] - ku * 127;
-          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_GBUF_DW[i_0] = (rtInf);
+            ku++;
           }
 
-          ky = (numIter + 1) * brain_DWork.Erosion_NUMNONZ_DW[0];
-          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_GBUF_DW[i_0] = (rtInf);
-          }
-
-          for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_HBUF_DW[i_0] = (rtInf);
-          }
-
-          for (i_0 = ky; i_0 < ky + brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-            Erosion_HBUF_DW[i_0] = (rtInf);
-          }
-
-          for (i = 0; i < 124; i++) {
-            ky = brain_DWork.Erosion_NUMNONZ_DW[0];
-            for (ku = 0; ku < numIter; ku++) {
-              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-              ky++;
-              inIdx += 127;
-              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                if (Erosion_GBUF_DW[ky - 1] <
-                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                } else {
-                  Erosion_GBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                }
-
-                ky++;
-                inIdx += 127;
-              }
-            }
-
-            ky--;
-            inIdx -= 127;
-            for (ku = 0; ku < numIter; ku++) {
-              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-              ky--;
-              inIdx -= 127;
-              for (i_0 = 1; i_0 < brain_DWork.Erosion_NUMNONZ_DW[0]; i_0++) {
-                if (Erosion_HBUF_DW[ky + 1] <
-                    brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx]) {
-                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                } else {
-                  Erosion_HBUF_DW[ky] = brain_DWork.Erosion_ONE_PAD_IMG_DW[inIdx];
-                }
-
-                ky--;
-                inIdx -= 127;
-              }
-            }
-
-            ky++;
-            inIdx += 127;
-            for (col = 0; col < 167; col++) {
-              if (Erosion_GBUF_DW[ky + gOffset] < Erosion_HBUF_DW[ky + hOffset])
-              {
-                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_GBUF_DW[ky
-                  + gOffset];
-              } else {
-                brain_DWork.Erosion_TWO_PAD_IMG_DW[outIdx] = Erosion_HBUF_DW[ky
-                  + hOffset];
-              }
-
-              ky++;
-              outIdx += 127;
-            }
-
-            inIdx++;
-            outIdx += -21208;
-          }
+          ku += 3;
         }
 
-        numIter = 1;
+        inIdx = 1;
         i_0 = 0;
-        if (brain_DWork.Erosion_STREL_DW[1] == 0) {
-          for (col = 0; col < 160; col++) {
-            for (i = 1; i < 121; i++) {
-              rtb_Add = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter +
-                brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW
-                [0]]];
-              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-              {
-                rtb_TSamp =
-                  brain_DWork.Erosion_TWO_PAD_IMG_DW[brain_DWork.Erosion_ERODE_OFF_DW
-                  [inIdx + brain_DWork.Erosion_NUMNONZ_DW[0]] + numIter];
-                if (rtb_TSamp < rtb_Add) {
-                  rtb_Add = rtb_TSamp;
-                }
-              }
-
-              brain_B.Erosion[i_0] = rtb_Add;
-              numIter++;
-              i_0++;
-            }
-
-            numIter += 7;
-          }
-        } else if (brain_DWork.Erosion_STREL_DW[1] == 1) {
-          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] + 119) /
-            brain_DWork.Erosion_NUMNONZ_DW[1];
-          ky = brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-            / 127 * 127;
-          ku = brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-            - ky;
-          hOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] - 1) + ku;
-          outIdx = ku;
-          numIter = 1 + ky;
-          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
-            Erosion_GBUF_DW[inIdx] = (rtInf);
-          }
-
-          ky = (gOffset + 1) * brain_DWork.Erosion_NUMNONZ_DW[1];
-          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-               ++) {
-            Erosion_GBUF_DW[inIdx] = (rtInf);
-          }
-
-          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
-            Erosion_HBUF_DW[inIdx] = (rtInf);
-          }
-
-          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-               ++) {
-            Erosion_HBUF_DW[inIdx] = (rtInf);
-          }
-
-          for (col = 0; col < 160; col++) {
-            ky = brain_DWork.Erosion_NUMNONZ_DW[1];
-            for (ku = 0; ku < gOffset; ku++) {
-              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-              ky++;
-              numIter++;
-              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-              {
-                if (Erosion_GBUF_DW[ky - 1] <
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                } else {
-                  Erosion_GBUF_DW[ky] =
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                }
-
-                ky++;
-                numIter++;
+        for (n = 0; n < 160; n++) {
+          for (m = 1; m < 121; m++) {
+            brain_B.Erosion[i_0] = TRUE;
+            for (i = 0; i < brain_DWork.Erosion_NUMNONZ_DW[1]; i++) {
+              if (!brain_DWork.Erosion_TWO_PAD_IMG_DW[brain_DWork.Erosion_ERODE_OFF_DW
+                  [i + brain_DWork.Erosion_NUMNONZ_DW[0]] + inIdx]) {
+                brain_B.Erosion[i_0] = FALSE;
+                i = brain_DWork.Erosion_NUMNONZ_DW[1];
               }
             }
 
-            ky--;
-            numIter--;
-            for (ku = 0; ku < gOffset; ku++) {
-              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-              ky--;
-              numIter--;
-              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-              {
-                if (Erosion_HBUF_DW[ky + 1] <
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                } else {
-                  Erosion_HBUF_DW[ky] =
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                }
-
-                ky--;
-                numIter--;
-              }
-            }
-
-            ky++;
-            numIter++;
-            for (i = 1; i < 121; i++) {
-              if (Erosion_GBUF_DW[ky + hOffset] < Erosion_HBUF_DW[ky + outIdx])
-              {
-                brain_B.Erosion[i_0] = Erosion_GBUF_DW[ky + hOffset];
-              } else {
-                brain_B.Erosion[i_0] = Erosion_HBUF_DW[ky + outIdx];
-              }
-
-              ky++;
-              i_0++;
-            }
-
-            numIter += 127;
-          }
-        } else {
-          gOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] + 159) /
-            brain_DWork.Erosion_NUMNONZ_DW[1];
-          ku = brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-            / 127;
-          hOffset = (brain_DWork.Erosion_NUMNONZ_DW[1] - 2) + ku;
-          outIdx = ku - 1;
-          numIter =
-            (brain_DWork.Erosion_ERODE_OFF_DW[brain_DWork.Erosion_NUMNONZ_DW[0]]
-             - ku * 127) + 128;
-          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
-            Erosion_GBUF_DW[inIdx] = (rtInf);
+            inIdx++;
+            i_0++;
           }
 
-          ky = (gOffset + 1) * brain_DWork.Erosion_NUMNONZ_DW[1];
-          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-               ++) {
-            Erosion_GBUF_DW[inIdx] = (rtInf);
-          }
-
-          for (inIdx = 0; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++) {
-            Erosion_HBUF_DW[inIdx] = (rtInf);
-          }
-
-          for (inIdx = ky; inIdx < ky + brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx
-               ++) {
-            Erosion_HBUF_DW[inIdx] = (rtInf);
-          }
-
-          for (i = 1; i < 121; i++) {
-            ky = brain_DWork.Erosion_NUMNONZ_DW[1];
-            for (ku = 0; ku < gOffset; ku++) {
-              Erosion_GBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-              ky++;
-              numIter += 127;
-              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-              {
-                if (Erosion_GBUF_DW[ky - 1] <
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                  Erosion_GBUF_DW[ky] = Erosion_GBUF_DW[ky - 1];
-                } else {
-                  Erosion_GBUF_DW[ky] =
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                }
-
-                ky++;
-                numIter += 127;
-              }
-            }
-
-            ky--;
-            numIter -= 127;
-            for (ku = 0; ku < gOffset; ku++) {
-              Erosion_HBUF_DW[ky] = brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-              ky--;
-              numIter -= 127;
-              for (inIdx = 1; inIdx < brain_DWork.Erosion_NUMNONZ_DW[1]; inIdx++)
-              {
-                if (Erosion_HBUF_DW[ky + 1] <
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter]) {
-                  Erosion_HBUF_DW[ky] = Erosion_HBUF_DW[ky + 1];
-                } else {
-                  Erosion_HBUF_DW[ky] =
-                    brain_DWork.Erosion_TWO_PAD_IMG_DW[numIter];
-                }
-
-                ky--;
-                numIter -= 127;
-              }
-            }
-
-            ky++;
-            numIter += 127;
-            for (col = 0; col < 160; col++) {
-              if (Erosion_GBUF_DW[ky + hOffset] < Erosion_HBUF_DW[ky + outIdx])
-              {
-                brain_B.Erosion[i_0] = Erosion_GBUF_DW[ky + hOffset];
-              } else {
-                brain_B.Erosion[i_0] = Erosion_HBUF_DW[ky + outIdx];
-              }
-
-              ky++;
-              i_0 += 120;
-            }
-
-            numIter++;
-            i_0 += -19199;
-          }
+          inIdx += 7;
         }
 
         /* Simulink Function 'CenterOver_Strafe': '<S7>:1423' */
         for (i_0 = 0; i_0 < 19200; i_0++) {
           /* DataTypeConversion: '<S77>/Data Type Conversion' */
-          brain_B.DataTypeConversion[i_0] = (brain_B.Erosion[i_0] != 0.0);
+          brain_B.DataTypeConversion[i_0] = brain_B.Erosion[i_0];
           brain_B.BWout[i_0] = (real_T)brain_B.DataTypeConversion[i_0];
           brain_B.BW[i_0] = brain_B.BWout[i_0];
         }
@@ -6612,7 +5832,7 @@ static void brain_FollowOnePath(void)
           &brain_DWork.StateFlowFunctionsFollowOneP_iq);
         brain_B.Strafe =
           brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion;
-        ky = brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion_f;
+        i_0 = brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion_f;
         sf_ErrorX = brain_B.StateFlowFunctionsFollowOneP_iq.Subtract;
         sf_ErrorY = brain_B.StateFlowFunctionsFollowOneP_iq.Subtract1;
 
@@ -6624,34 +5844,34 @@ static void brain_FollowOnePath(void)
         brain_DWork.StateFlowFunctionsMaintainDep_k = brain_M->Timing.clockTick0;
 
         /* Sum: '<S25>/Add' */
-        rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
+        eml_b = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S80>/TSamp' incorporates:
-         *  Gain: '<S79>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S82>/TSamp' incorporates:
+         *  Gain: '<S81>/Depth Derivative Gain'
          *
-         * About '<S80>/TSamp':
+         * About '<S82>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
-        rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
+        eml_c = brain_P.Depth_Kd * eml_b / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
         /* DataTypeConversion: '<S25>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator'
-         *  Gain: '<S79>/Depth Proportional Gain'
-         *  Sum: '<S79>/Sum'
-         *  Sum: '<S80>/Diff'
-         *  UnitDelay: '<S80>/UD'
+         *  DiscreteIntegrator: '<S81>/Depth Discrete-Time Integrator'
+         *  Gain: '<S81>/Depth Proportional Gain'
+         *  Sum: '<S81>/Sum'
+         *  Sum: '<S82>/Diff'
+         *  UnitDelay: '<S82>/UD'
          *
-         * Block description for '<S80>/Diff':
+         * Block description for '<S82>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S80>/UD':
+         * Block description for '<S82>/UD':
          *
          *  Store in Global RAM
          */
-        tmp = (brain_P.Depth_Kp * rtb_Add + (rtb_TSamp - brain_DWork.UD_DSTATE))
-          + brain_DWork.DepthDiscreteTimeIntegrator_DST;
+        tmp = (brain_P.Depth_Kp * eml_b + (eml_c - brain_DWork.UD_DSTATE)) +
+          brain_DWork.DepthDiscreteTimeIntegrator_DST;
         tmp = floor(tmp);
         if (tmp < 128.0) {
           if (tmp >= -128.0) {
@@ -6663,19 +5883,19 @@ static void brain_FollowOnePath(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S80>/UD'
-         * Block description for '<S80>/UD':
+        /* Update for UnitDelay: '<S82>/UD'
+         * Block description for '<S82>/UD':
          *
          *  Store in Global RAM
          */
-        brain_DWork.UD_DSTATE = rtb_TSamp;
+        brain_DWork.UD_DSTATE = eml_c;
 
-        /* Update for DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S79>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S81>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S81>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
-          rtb_Add) + brain_DWork.DepthDiscreteTimeIntegrator_DST;
+          eml_b) + brain_DWork.DepthDiscreteTimeIntegrator_DST;
         if (brain_DWork.DepthDiscreteTimeIntegrator_DST >= 10.0) {
           brain_DWork.DepthDiscreteTimeIntegrator_DST = 10.0;
         } else {
@@ -6689,7 +5909,7 @@ static void brain_FollowOnePath(void)
         /* Simulink Function 'MaintainHeading': '<S7>:918' */
         brain_B.DesiredHeading1 = brain_B.DesiredHeading;
         brain_B.CurrentHeading1 = brain_U.CurrentHeading;
-        brain_B.ForwardVelocity1 = (real_T)ky;
+        brain_B.ForwardVelocity1 = (real_T)i_0;
         StateFlowFunctionsMaintainHeadi(brain_B.DesiredHeading1,
           brain_B.CurrentHeading1, brain_B.ForwardVelocity1, brain_M,
           &brain_B.StateFlowFunctionsMaintainHea_d,
@@ -6975,21 +6195,21 @@ static void brain_ValidationGate(void)
           brain_B.H_k[i] = brain_B.Resize[i];
           brain_B.S_n[i] = brain_B.Resize1[i];
 
-          /* Logic: '<S85>/Logical Operator1' incorporates:
-           *  Constant: '<S87>/Constant'
-           *  Constant: '<S88>/Constant'
+          /* Logic: '<S87>/Logical Operator1' incorporates:
            *  Constant: '<S89>/Constant'
-           *  Logic: '<S85>/Logical Operator'
-           *  RelationalOperator: '<S87>/Compare'
-           *  RelationalOperator: '<S88>/Compare'
+           *  Constant: '<S90>/Constant'
+           *  Constant: '<S91>/Constant'
+           *  Logic: '<S87>/Logical Operator'
            *  RelationalOperator: '<S89>/Compare'
+           *  RelationalOperator: '<S90>/Compare'
+           *  RelationalOperator: '<S91>/Compare'
            */
           brain_B.BW_d[i] = (((brain_B.H_k[i] < brain_P.Track_HueLower) ||
                               (brain_B.H_k[i] > brain_P.Track_HueHigher)) &&
                              (brain_B.S_n[i] > brain_P.Track_Saturation));
         }
 
-        /* S-Function (svipblob): '<S85>/Blob Analysis' */
+        /* S-Function (svipblob): '<S87>/Blob Analysis' */
         maxNumBlobsReached = FALSE;
         for (i = 0; i < 123; i++) {
           brain_DWork.BlobAnalysis_PAD_DW[i] = 0U;
@@ -7103,8 +6323,8 @@ static void brain_ValidationGate(void)
           }
 
           centroid_idx = rtb_BlobAnalysis / (real32_T)BlobAnalysis_NUM_PIX_DW +
-            8.333333582E-02F;
-          uyy = ys / (real32_T)BlobAnalysis_NUM_PIX_DW + 8.333333582E-02F;
+            8.333333582E-002F;
+          uyy = ys / (real32_T)BlobAnalysis_NUM_PIX_DW + 8.333333582E-002F;
           rtb_BlobAnalysis = xys / (real32_T)BlobAnalysis_NUM_PIX_DW;
           rtb_BlobAnalysis = (real32_T)sqrt((centroid_idx - uyy) * (centroid_idx
             - uyy) + rtb_BlobAnalysis * rtb_BlobAnalysis * 4.0F);
@@ -7119,17 +6339,17 @@ static void brain_ValidationGate(void)
           rtb_BlobAnalysis = -1.0F;
         }
 
-        /* Embedded MATLAB: '<S85>/CheckConditions' incorporates:
-         *  Constant: '<S85>/Constant'
+        /* Embedded MATLAB: '<S87>/CheckConditions' incorporates:
+         *  Constant: '<S87>/Constant'
          */
-        /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/CheckConditions': '<S86>:1' */
+        /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/CheckConditions': '<S88>:1' */
         /*  This function checks the conditions to decide if a track is present */
         if ((real_T)rtb_BlobAnalysis > brain_P.Track_Min_Eccentricity) {
-          /* '<S86>:1:4' */
-          /* '<S86>:1:5' */
+          /* '<S88>:1:4' */
+          /* '<S88>:1:5' */
           brain_B.Image = 1.0;
         } else {
-          /* '<S86>:1:7' */
+          /* '<S88>:1:7' */
           brain_B.Image = 0.0;
         }
 
@@ -7167,27 +6387,27 @@ static void brain_ValidationGate(void)
         /* Sum: '<S25>/Add' */
         rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S80>/TSamp' incorporates:
-         *  Gain: '<S79>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S82>/TSamp' incorporates:
+         *  Gain: '<S81>/Depth Derivative Gain'
          *
-         * About '<S80>/TSamp':
+         * About '<S82>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
         rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
         /* DataTypeConversion: '<S25>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator'
-         *  Gain: '<S79>/Depth Proportional Gain'
-         *  Sum: '<S79>/Sum'
-         *  Sum: '<S80>/Diff'
-         *  UnitDelay: '<S80>/UD'
+         *  DiscreteIntegrator: '<S81>/Depth Discrete-Time Integrator'
+         *  Gain: '<S81>/Depth Proportional Gain'
+         *  Sum: '<S81>/Sum'
+         *  Sum: '<S82>/Diff'
+         *  UnitDelay: '<S82>/UD'
          *
-         * Block description for '<S80>/Diff':
+         * Block description for '<S82>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S80>/UD':
+         * Block description for '<S82>/UD':
          *
          *  Store in Global RAM
          */
@@ -7204,15 +6424,15 @@ static void brain_ValidationGate(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S80>/UD'
-         * Block description for '<S80>/UD':
+        /* Update for UnitDelay: '<S82>/UD'
+         * Block description for '<S82>/UD':
          *
          *  Store in Global RAM
          */
         brain_DWork.UD_DSTATE = rtb_TSamp;
 
-        /* Update for DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S79>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S81>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S81>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -7488,7 +6708,7 @@ static void brain_StateFlowFunctions(void)
           cc_1 = 0.0;
           cc_2 = 0.0;
           rtb_Add = 6.0 * brain_P.Buoy1_Hue;
-          eml_i_0 = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-15);
+          eml_i_0 = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-015);
           rtb_Add -= eml_i_0;
           rtb_TSamp = 1.0 - brain_P.Buoy1_Saturation;
           cc = 1.0 - brain_P.Buoy1_Saturation * rtb_Add;
@@ -7546,40 +6766,41 @@ static void brain_StateFlowFunctions(void)
           /* equivalent to running the gamma correction block with break */
           /* point of 0.00304 and gamma of 2.4; it's built into this */
           /* conversion for convenience */
-          if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-02) {
-            rtb_Add = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333255E+01;
+          if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-002) {
+            rtb_Add = brain_B.ColorSpaceConversion_o3_c /
+              1.2923054468333254E+001;
           } else {
             rtb_Add = (brain_B.ColorSpaceConversion_o3_c +
-                       5.5000519817226347E-02) / 1.0550005198172263E+00;
+                       5.5000519817226361E-002) / 1.0550005198172263E+000;
             rtb_Add = rt_pow_snf(rtb_Add, 2.4);
           }
 
-          if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-02) {
+          if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-002) {
             rtb_TSamp = brain_B.ColorSpaceConversion_o2_o /
-              1.2923054468333255E+01;
+              1.2923054468333254E+001;
           } else {
             rtb_TSamp = (brain_B.ColorSpaceConversion_o2_o +
-                         5.5000519817226347E-02) / 1.0550005198172263E+00;
+                         5.5000519817226361E-002) / 1.0550005198172263E+000;
             rtb_TSamp = rt_pow_snf(rtb_TSamp, 2.4);
           }
 
-          if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-02) {
-            cc = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333255E+01;
+          if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-002) {
+            cc = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333254E+001;
           } else {
-            cc = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226347E-02) /
-              1.0550005198172263E+00;
+            cc = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226361E-002) /
+              1.0550005198172263E+000;
             cc = rt_pow_snf(cc, 2.4);
           }
 
           /* The coefficients for this conversion were derived from ITU-R */
           /* BT.709 reference primaries for sRGB and CIE standard illuminant */
           /* D65, 2 degree observer */
-          eml_i_0 = (4.1239079926596001E-01 * rtb_Add + 3.5758433938388001E-01 *
-                     rtb_TSamp) + 1.8048078840182999E-01 * cc;
-          cc_0 = (2.1263900587151000E-01 * rtb_Add + 7.1516867876776002E-01 *
-                  rtb_TSamp) + 7.2192315360729994E-02 * cc;
-          rtb_Add = (1.9330818715590000E-02 * rtb_Add + 1.1919477979463000E-01 *
-                     rtb_TSamp) + 9.5053215224966003E-01 * cc;
+          eml_i_0 = (4.1239079926596001E-001 * rtb_Add + 3.5758433938388001E-001
+                     * rtb_TSamp) + 1.8048078840182999E-001 * cc;
+          cc_0 = (2.1263900587151000E-001 * rtb_Add + 7.1516867876776002E-001 *
+                  rtb_TSamp) + 7.2192315360729994E-002 * cc;
+          rtb_Add = (1.9330818715590000E-002 * rtb_Add + 1.1919477979463000E-001
+                     * rtb_TSamp) + 9.5053215224966003E-001 * cc;
 
           /* Make sure that the output is in [0..1] range; clip if necessary */
           if (eml_i_0 > 1.0) {
@@ -7612,28 +6833,29 @@ static void brain_StateFlowFunctions(void)
           brain_B.ColorSpaceConversion1_o3 = rtb_Add;
 
           /* Convert from XYZ to L*a*b* */
-          rtb_Add = brain_B.ColorSpaceConversion1_o1 / 9.6419865576090003E-01;
-          cc = brain_B.ColorSpaceConversion1_o3 / 8.2511648322104003E-01;
+          rtb_Add = brain_B.ColorSpaceConversion1_o1 / 9.6419865576090003E-001;
+          cc = brain_B.ColorSpaceConversion1_o3 / 8.2511648322104003E-001;
 
           /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-          if (rtb_Add > 8.8564516790356311E-03) {
-            eml_i_0 = rt_pow_snf(rtb_Add, 3.3333333333333331E-01);
+          if (rtb_Add > 8.8564516790356311E-003) {
+            eml_i_0 = rt_pow_snf(rtb_Add, 3.3333333333333331E-001);
           } else {
-            eml_i_0 = 7.7870370370370372E+00 * rtb_Add + 1.3793103448275862E-01;
+            eml_i_0 = 7.7870370370370372E+000 * rtb_Add +
+              1.3793103448275862E-001;
           }
 
-          if (brain_B.ColorSpaceConversion1_o2 > 8.8564516790356311E-03) {
+          if (brain_B.ColorSpaceConversion1_o2 > 8.8564516790356311E-003) {
             rtb_TSamp = rt_pow_snf(brain_B.ColorSpaceConversion1_o2,
-              3.3333333333333331E-01);
+              3.3333333333333331E-001);
           } else {
-            rtb_TSamp = 7.7870370370370372E+00 *
-              brain_B.ColorSpaceConversion1_o2 + 1.3793103448275862E-01;
+            rtb_TSamp = 7.7870370370370372E+000 *
+              brain_B.ColorSpaceConversion1_o2 + 1.3793103448275862E-001;
           }
 
-          if (cc > 8.8564516790356311E-03) {
-            rtb_Add = rt_pow_snf(cc, 3.3333333333333331E-01);
+          if (cc > 8.8564516790356311E-003) {
+            rtb_Add = rt_pow_snf(cc, 3.3333333333333331E-001);
           } else {
-            rtb_Add = 7.7870370370370372E+00 * cc + 1.3793103448275862E-01;
+            rtb_Add = 7.7870370370370372E+000 * cc + 1.3793103448275862E-001;
           }
 
           /* assign the results */
@@ -7651,7 +6873,7 @@ static void brain_StateFlowFunctions(void)
           cc_1 = 0.0;
           cc_2 = 0.0;
           rtb_Add = 6.0 * brain_P.Buoy2_Hue;
-          eml_i_0 = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-15);
+          eml_i_0 = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-015);
           rtb_Add -= eml_i_0;
           rtb_TSamp = 1.0 - brain_P.Buoy2_Saturation;
           cc = 1.0 - brain_P.Buoy2_Saturation * rtb_Add;
@@ -7709,40 +6931,41 @@ static void brain_StateFlowFunctions(void)
           /* equivalent to running the gamma correction block with break */
           /* point of 0.00304 and gamma of 2.4; it's built into this */
           /* conversion for convenience */
-          if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-02) {
-            rtb_Add = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333255E+01;
+          if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-002) {
+            rtb_Add = brain_B.ColorSpaceConversion_o1_g /
+              1.2923054468333254E+001;
           } else {
             rtb_Add = (brain_B.ColorSpaceConversion_o1_g +
-                       5.5000519817226347E-02) / 1.0550005198172263E+00;
+                       5.5000519817226361E-002) / 1.0550005198172263E+000;
             rtb_Add = rt_pow_snf(rtb_Add, 2.4);
           }
 
-          if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-02) {
+          if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-002) {
             rtb_TSamp = brain_B.ColorSpaceConversion_o2_o /
-              1.2923054468333255E+01;
+              1.2923054468333254E+001;
           } else {
             rtb_TSamp = (brain_B.ColorSpaceConversion_o2_o +
-                         5.5000519817226347E-02) / 1.0550005198172263E+00;
+                         5.5000519817226361E-002) / 1.0550005198172263E+000;
             rtb_TSamp = rt_pow_snf(rtb_TSamp, 2.4);
           }
 
-          if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-02) {
-            cc = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333255E+01;
+          if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-002) {
+            cc = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333254E+001;
           } else {
-            cc = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226347E-02) /
-              1.0550005198172263E+00;
+            cc = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226361E-002) /
+              1.0550005198172263E+000;
             cc = rt_pow_snf(cc, 2.4);
           }
 
           /* The coefficients for this conversion were derived from ITU-R */
           /* BT.709 reference primaries for sRGB and CIE standard illuminant */
           /* D65, 2 degree observer */
-          eml_i_0 = (4.1239079926596001E-01 * rtb_Add + 3.5758433938388001E-01 *
-                     rtb_TSamp) + 1.8048078840182999E-01 * cc;
-          cc_0 = (2.1263900587151000E-01 * rtb_Add + 7.1516867876776002E-01 *
-                  rtb_TSamp) + 7.2192315360729994E-02 * cc;
-          rtb_Add = (1.9330818715590000E-02 * rtb_Add + 1.1919477979463000E-01 *
-                     rtb_TSamp) + 9.5053215224966003E-01 * cc;
+          eml_i_0 = (4.1239079926596001E-001 * rtb_Add + 3.5758433938388001E-001
+                     * rtb_TSamp) + 1.8048078840182999E-001 * cc;
+          cc_0 = (2.1263900587151000E-001 * rtb_Add + 7.1516867876776002E-001 *
+                  rtb_TSamp) + 7.2192315360729994E-002 * cc;
+          rtb_Add = (1.9330818715590000E-002 * rtb_Add + 1.1919477979463000E-001
+                     * rtb_TSamp) + 9.5053215224966003E-001 * cc;
 
           /* Make sure that the output is in [0..1] range; clip if necessary */
           if (eml_i_0 > 1.0) {
@@ -7775,28 +6998,29 @@ static void brain_StateFlowFunctions(void)
           brain_B.ColorSpaceConversion1_o3_m = rtb_Add;
 
           /* Convert from XYZ to L*a*b* */
-          rtb_Add = brain_B.ColorSpaceConversion1_o1_n / 9.6419865576090003E-01;
-          cc = brain_B.ColorSpaceConversion1_o3_m / 8.2511648322104003E-01;
+          rtb_Add = brain_B.ColorSpaceConversion1_o1_n / 9.6419865576090003E-001;
+          cc = brain_B.ColorSpaceConversion1_o3_m / 8.2511648322104003E-001;
 
           /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-          if (rtb_Add > 8.8564516790356311E-03) {
-            eml_i_0 = rt_pow_snf(rtb_Add, 3.3333333333333331E-01);
+          if (rtb_Add > 8.8564516790356311E-003) {
+            eml_i_0 = rt_pow_snf(rtb_Add, 3.3333333333333331E-001);
           } else {
-            eml_i_0 = 7.7870370370370372E+00 * rtb_Add + 1.3793103448275862E-01;
+            eml_i_0 = 7.7870370370370372E+000 * rtb_Add +
+              1.3793103448275862E-001;
           }
 
-          if (brain_B.ColorSpaceConversion1_o2_i > 8.8564516790356311E-03) {
+          if (brain_B.ColorSpaceConversion1_o2_i > 8.8564516790356311E-003) {
             rtb_TSamp = rt_pow_snf(brain_B.ColorSpaceConversion1_o2_i,
-              3.3333333333333331E-01);
+              3.3333333333333331E-001);
           } else {
-            rtb_TSamp = 7.7870370370370372E+00 *
-              brain_B.ColorSpaceConversion1_o2_i + 1.3793103448275862E-01;
+            rtb_TSamp = 7.7870370370370372E+000 *
+              brain_B.ColorSpaceConversion1_o2_i + 1.3793103448275862E-001;
           }
 
-          if (cc > 8.8564516790356311E-03) {
-            rtb_Add = rt_pow_snf(cc, 3.3333333333333331E-01);
+          if (cc > 8.8564516790356311E-003) {
+            rtb_Add = rt_pow_snf(cc, 3.3333333333333331E-001);
           } else {
-            rtb_Add = 7.7870370370370372E+00 * cc + 1.3793103448275862E-01;
+            rtb_Add = 7.7870370370370372E+000 * cc + 1.3793103448275862E-001;
           }
 
           /* assign the results */
@@ -7986,27 +7210,27 @@ static void brain_StateFlowFunctions(void)
           rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)
             brain_B.CurrentDepth1;
 
-          /* SampleTimeMath: '<S80>/TSamp' incorporates:
-           *  Gain: '<S79>/Depth Derivative Gain'
+          /* SampleTimeMath: '<S82>/TSamp' incorporates:
+           *  Gain: '<S81>/Depth Derivative Gain'
            *
-           * About '<S80>/TSamp':
+           * About '<S82>/TSamp':
            *  y = u * K where K = 1 / ( w * Ts )
            */
           rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
             brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
           /* DataTypeConversion: '<S25>/Double To Int8' incorporates:
-           *  DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator'
-           *  Gain: '<S79>/Depth Proportional Gain'
-           *  Sum: '<S79>/Sum'
-           *  Sum: '<S80>/Diff'
-           *  UnitDelay: '<S80>/UD'
+           *  DiscreteIntegrator: '<S81>/Depth Discrete-Time Integrator'
+           *  Gain: '<S81>/Depth Proportional Gain'
+           *  Sum: '<S81>/Sum'
+           *  Sum: '<S82>/Diff'
+           *  UnitDelay: '<S82>/UD'
            *
-           * Block description for '<S80>/Diff':
+           * Block description for '<S82>/Diff':
            *
            *  Add in CPU
            *
-           * Block description for '<S80>/UD':
+           * Block description for '<S82>/UD':
            *
            *  Store in Global RAM
            */
@@ -8023,15 +7247,15 @@ static void brain_StateFlowFunctions(void)
             brain_B.DoubleToInt8 = MAX_int8_T;
           }
 
-          /* Update for UnitDelay: '<S80>/UD'
-           * Block description for '<S80>/UD':
+          /* Update for UnitDelay: '<S82>/UD'
+           * Block description for '<S82>/UD':
            *
            *  Store in Global RAM
            */
           brain_DWork.UD_DSTATE = rtb_TSamp;
 
-          /* Update for DiscreteIntegrator: '<S79>/Depth Discrete-Time Integrator' incorporates:
-           *  Gain: '<S79>/Depth Integral Gain'
+          /* Update for DiscreteIntegrator: '<S81>/Depth Discrete-Time Integrator' incorporates:
+           *  Gain: '<S81>/Depth Integral Gain'
            */
           brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
             brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -8066,15 +7290,15 @@ static void brain_StateFlowFunctions(void)
             for (eml_j = 0; eml_j < 160; eml_j++) {
               /* '<S60>:1:10' */
               /* '<S60>:1:11' */
-              brain_B.L[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+              brain_B.L_c[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
                 brain_B.LabMatrix_i[120 * eml_j + i] - 1];
 
               /* '<S60>:1:12' */
-              brain_B.a[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+              brain_B.a_b[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
                 brain_B.LabMatrix_i[120 * eml_j + i] + 49];
 
               /* '<S60>:1:13' */
-              brain_B.b[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+              brain_B.b_p[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
                 brain_B.LabMatrix_i[120 * eml_j + i] + 99];
             }
           }
@@ -8083,32 +7307,32 @@ static void brain_StateFlowFunctions(void)
           /* temporary variables for in-place operation */
           /* First convert to XYZ */
           for (i = 0; i < 19200; i++) {
-            rtb_Add = (brain_B.L[i] + 16.0) / 116.0;
-            rtb_TSamp = brain_B.a[i] / 500.0 + rtb_Add;
-            cc = brain_B.b[i] / -200.0 + rtb_Add;
-            if (rtb_TSamp <= 2.0689655172413793E-01) {
-              rtb_TSamp -= 1.3793103448275862E-01;
-              rtb_TSamp /= 7.7870370370370372E+00;
+            rtb_Add = (brain_B.L_c[i] + 16.0) / 116.0;
+            rtb_TSamp = brain_B.a_b[i] / 500.0 + rtb_Add;
+            cc = brain_B.b_p[i] / -200.0 + rtb_Add;
+            if (rtb_TSamp <= 2.0689655172413793E-001) {
+              rtb_TSamp -= 1.3793103448275862E-001;
+              rtb_TSamp /= 7.7870370370370372E+000;
             } else {
               rtb_TSamp = rt_pow_snf(rtb_TSamp, 3.0);
             }
 
-            if (rtb_Add <= 2.0689655172413793E-01) {
-              rtb_Add -= 1.3793103448275862E-01;
-              rtb_Add /= 7.7870370370370372E+00;
+            if (rtb_Add <= 2.0689655172413793E-001) {
+              rtb_Add -= 1.3793103448275862E-001;
+              rtb_Add /= 7.7870370370370372E+000;
             } else {
               rtb_Add = rt_pow_snf(rtb_Add, 3.0);
             }
 
-            if (cc <= 2.0689655172413793E-01) {
-              cc -= 1.3793103448275862E-01;
-              cc /= 7.7870370370370372E+00;
+            if (cc <= 2.0689655172413793E-001) {
+              cc -= 1.3793103448275862E-001;
+              cc /= 7.7870370370370372E+000;
             } else {
               cc = rt_pow_snf(cc, 3.0);
             }
 
-            rtb_TSamp *= 9.6419865576090003E-01;
-            cc *= 8.2511648322104003E-01;
+            rtb_TSamp *= 9.6419865576090003E-001;
+            cc *= 8.2511648322104003E-001;
 
             /* assign the results */
             brain_B.ColorSpaceConversion_o1[i] = rtb_TSamp;
@@ -8122,40 +7346,40 @@ static void brain_StateFlowFunctions(void)
             /* The coefficients for this conversion were derived from ITU-R */
             /* BT.709 reference primaries for sRGB and CIE standard illuminant */
             /* D65, 2 degree observer */
-            rtb_Add = (3.2409699419045102E+00 *
+            rtb_Add = (3.2409699419045102E+000 *
                        brain_B.ColorSpaceConversion_o1[i] +
-                       -1.5373831775700899E+00 *
+                       -1.5373831775700899E+000 *
                        brain_B.ColorSpaceConversion_o2[i]) +
-              -4.9861076029299001E-01 * brain_B.ColorSpaceConversion_o3[i];
-            rtb_TSamp = (-9.6924363628086996E-01 *
+              -4.9861076029299001E-001 * brain_B.ColorSpaceConversion_o3[i];
+            rtb_TSamp = (-9.6924363628086996E-001 *
                          brain_B.ColorSpaceConversion_o1[i] +
-                         1.8759675015077100E+00 *
+                         1.8759675015077100E+000 *
                          brain_B.ColorSpaceConversion_o2[i]) +
-              4.1555057407179997E-02 * brain_B.ColorSpaceConversion_o3[i];
-            cc = (5.5630079696999998E-02 * brain_B.ColorSpaceConversion_o1[i] +
-                  -2.0397695888899001E-01 * brain_B.ColorSpaceConversion_o2[i])
-              + 1.0569715142428799E+00 * brain_B.ColorSpaceConversion_o3[i];
+              4.1555057407179997E-002 * brain_B.ColorSpaceConversion_o3[i];
+            cc = (5.5630079696999998E-002 * brain_B.ColorSpaceConversion_o1[i] +
+                  -2.0397695888899001E-001 * brain_B.ColorSpaceConversion_o2[i])
+              + 1.0569715142428799E+000 * brain_B.ColorSpaceConversion_o3[i];
 
             /* Apply gamma correction to get R'G'B' */
             if (rtb_Add <= 0.00304) {
-              rtb_Add *= 1.2923054468333255E+01;
+              rtb_Add *= 1.2923054468333254E+001;
             } else {
-              rtb_Add = 1.0550005198172263E+00 * rt_pow_snf(rtb_Add,
-                4.1666666666666669E-01) - 5.5000519817226347E-02;
+              rtb_Add = 1.0550005198172263E+000 * rt_pow_snf(rtb_Add,
+                4.1666666666666669E-001) - 5.5000519817226361E-002;
             }
 
             if (rtb_TSamp <= 0.00304) {
-              rtb_TSamp *= 1.2923054468333255E+01;
+              rtb_TSamp *= 1.2923054468333254E+001;
             } else {
-              rtb_TSamp = 1.0550005198172263E+00 * rt_pow_snf(rtb_TSamp,
-                4.1666666666666669E-01) - 5.5000519817226347E-02;
+              rtb_TSamp = 1.0550005198172263E+000 * rt_pow_snf(rtb_TSamp,
+                4.1666666666666669E-001) - 5.5000519817226361E-002;
             }
 
             if (cc <= 0.00304) {
-              cc *= 1.2923054468333255E+01;
+              cc *= 1.2923054468333254E+001;
             } else {
-              cc = 1.0550005198172263E+00 * rt_pow_snf(cc,
-                4.1666666666666669E-01) - 5.5000519817226347E-02;
+              cc = 1.0550005198172263E+000 * rt_pow_snf(cc,
+                4.1666666666666669E-001) - 5.5000519817226361E-002;
             }
 
             /* Make sure that the output is in [0..1] range; clip if necessary */
@@ -8979,764 +8203,585 @@ void brain_initialize(void)
                 sizeof(BlockIO_brain));
 
   {
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[0] =
-      -1.5707963267948966E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[1] =
-      -1.5533430342749532E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[2] =
-      -1.5358897417550099E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[3] =
-      -1.5184364492350666E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[4] =
-      -1.5009831567151235E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[5] =
-      -1.4835298641951802E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[6] =
-      -1.4660765716752369E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[7] =
-      -1.4486232791552935E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[8] =
-      -1.4311699866353502E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[9] =
-      -1.4137166941154069E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[10] =
-      -1.3962634015954636E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[11] =
-      -1.3788101090755203E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[12] =
-      -1.3613568165555769E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[13] =
-      -1.3439035240356338E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[14] =
-      -1.3264502315156905E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[15] =
-      -1.3089969389957472E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[16] =
-      -1.2915436464758039E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[17] =
-      -1.2740903539558606E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[18] =
-      -1.2566370614359172E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[19] =
-      -1.2391837689159739E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[20] =
-      -1.2217304763960306E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[21] =
-      -1.2042771838760873E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[22] =
-      -1.1868238913561442E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[23] =
-      -1.1693705988362009E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[24] =
-      -1.1519173063162575E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[25] =
-      -1.1344640137963142E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[26] =
-      -1.1170107212763709E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[27] =
-      -1.0995574287564276E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[28] =
-      -1.0821041362364843E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[29] =
-      -1.0646508437165410E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[30] =
-      -1.0471975511965976E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[31] =
-      -1.0297442586766545E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[32] =
-      -1.0122909661567112E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[33] =
-      -9.9483767363676789E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[34] =
-      -9.7738438111682457E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[35] =
-      -9.5993108859688125E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[36] =
-      -9.4247779607693793E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[37] =
-      -9.2502450355699462E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[38] =
-      -9.0757121103705141E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[39] =
-      -8.9011791851710809E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[40] =
-      -8.7266462599716477E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[41] =
-      -8.5521133347722145E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[42] =
-      -8.3775804095727824E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[43] =
-      -8.2030474843733492E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[44] =
-      -8.0285145591739160E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[45] =
-      -7.8539816339744828E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[46] =
-      -7.6794487087750496E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[47] =
-      -7.5049157835756175E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[48] =
-      -7.3303828583761843E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[49] =
-      -7.1558499331767511E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[50] =
-      -6.9813170079773179E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[51] =
-      -6.8067840827778847E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[52] =
-      -6.6322511575784526E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[53] =
-      -6.4577182323790194E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[54] =
-      -6.2831853071795862E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[55] =
-      -6.1086523819801530E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[56] =
-      -5.9341194567807209E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[57] =
-      -5.7595865315812877E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[58] =
-      -5.5850536063818546E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[59] =
-      -5.4105206811824214E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[60] =
-      -5.2359877559829882E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[61] =
-      -5.0614548307835561E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[62] =
-      -4.8869219055841229E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[63] =
-      -4.7123889803846897E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[64] =
-      -4.5378560551852570E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[65] =
-      -4.3633231299858238E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[66] =
-      -4.1887902047863912E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[67] =
-      -4.0142572795869580E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[68] =
-      -3.8397243543875248E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[69] =
-      -3.6651914291880922E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[70] =
-      -3.4906585039886590E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[71] =
-      -3.3161255787892263E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[72] =
-      -3.1415926535897931E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[73] =
-      -2.9670597283903605E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[74] =
-      -2.7925268031909273E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[75] =
-      -2.6179938779914941E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[76] =
-      -2.4434609527920614E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[77] =
-      -2.2689280275926285E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[78] =
-      -2.0943951023931956E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[79] =
-      -1.9198621771937624E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[80] =
-      -1.7453292519943295E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[81] =
-      -1.5707963267948966E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[82] =
-      -1.3962634015954636E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[83] =
-      -1.2217304763960307E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[84] =
-      -1.0471975511965978E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[85] =
-      -8.7266462599716474E-02;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[86] =
-      -6.9813170079773182E-02;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[87] =
-      -5.2359877559829890E-02;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[88] =
-      -3.4906585039886591E-02;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[89] =
-      -1.7453292519943295E-02;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[90] = 0.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[91] =
-      1.7453292519943295E-02;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[92] =
-      3.4906585039886591E-02;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[93] =
-      5.2359877559829890E-02;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[94] =
-      6.9813170079773182E-02;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[95] =
-      8.7266462599716474E-02;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[96] =
-      1.0471975511965978E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[97] =
-      1.2217304763960307E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[98] =
-      1.3962634015954636E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[99] =
-      1.5707963267948966E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[100] =
-      1.7453292519943295E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[101] =
-      1.9198621771937624E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[102] =
-      2.0943951023931956E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[103] =
-      2.2689280275926285E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[104] =
-      2.4434609527920614E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[105] =
-      2.6179938779914941E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[106] =
-      2.7925268031909273E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[107] =
-      2.9670597283903605E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[108] =
-      3.1415926535897931E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[109] =
-      3.3161255787892263E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[110] =
-      3.4906585039886590E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[111] =
-      3.6651914291880922E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[112] =
-      3.8397243543875248E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[113] =
-      4.0142572795869580E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[114] =
-      4.1887902047863912E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[115] =
-      4.3633231299858238E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[116] =
-      4.5378560551852570E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[117] =
-      4.7123889803846897E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[118] =
-      4.8869219055841229E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[119] =
-      5.0614548307835561E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[120] =
-      5.2359877559829882E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[121] =
-      5.4105206811824214E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[122] =
-      5.5850536063818546E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[123] =
-      5.7595865315812877E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[124] =
-      5.9341194567807209E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[125] =
-      6.1086523819801530E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[126] =
-      6.2831853071795862E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[127] =
-      6.4577182323790194E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[128] =
-      6.6322511575784526E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[129] =
-      6.8067840827778847E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[130] =
-      6.9813170079773179E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[131] =
-      7.1558499331767511E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[132] =
-      7.3303828583761843E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[133] =
-      7.5049157835756175E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[134] =
-      7.6794487087750496E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[135] =
-      7.8539816339744828E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[136] =
-      8.0285145591739160E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[137] =
-      8.2030474843733492E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[138] =
-      8.3775804095727824E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[139] =
-      8.5521133347722145E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[140] =
-      8.7266462599716477E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[141] =
-      8.9011791851710809E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[142] =
-      9.0757121103705141E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[143] =
-      9.2502450355699462E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[144] =
-      9.4247779607693793E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[145] =
-      9.5993108859688125E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[146] =
-      9.7738438111682457E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[147] =
-      9.9483767363676789E-01;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[148] =
-      1.0122909661567112E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[149] =
-      1.0297442586766545E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[150] =
-      1.0471975511965976E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[151] =
-      1.0646508437165410E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[152] =
-      1.0821041362364843E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[153] =
-      1.0995574287564276E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[154] =
-      1.1170107212763709E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[155] =
-      1.1344640137963142E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[156] =
-      1.1519173063162575E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[157] =
-      1.1693705988362009E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[158] =
-      1.1868238913561442E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[159] =
-      1.2042771838760873E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[160] =
-      1.2217304763960306E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[161] =
-      1.2391837689159739E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[162] =
-      1.2566370614359172E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[163] =
-      1.2740903539558606E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[164] =
-      1.2915436464758039E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[165] =
-      1.3089969389957472E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[166] =
-      1.3264502315156905E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[167] =
-      1.3439035240356338E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[168] =
-      1.3613568165555769E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[169] =
-      1.3788101090755203E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[170] =
-      1.3962634015954636E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[171] =
-      1.4137166941154069E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[172] =
-      1.4311699866353502E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[173] =
-      1.4486232791552935E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[174] =
-      1.4660765716752369E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[175] =
-      1.4835298641951802E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[176] =
-      1.5009831567151235E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[177] =
-      1.5184364492350666E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[178] =
-      1.5358897417550099E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o2[179] =
-      1.5533430342749532E+00;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[0] = -199.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[1] = -198.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[2] = -197.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[3] = -196.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[4] = -195.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[5] = -194.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[6] = -193.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[7] = -192.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[8] = -191.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[9] = -190.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[10] = -189.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[11] = -188.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[12] = -187.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[13] = -186.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[14] = -185.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[15] = -184.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[16] = -183.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[17] = -182.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[18] = -181.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[19] = -180.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[20] = -179.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[21] = -178.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[22] = -177.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[23] = -176.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[24] = -175.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[25] = -174.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[26] = -173.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[27] = -172.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[28] = -171.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[29] = -170.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[30] = -169.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[31] = -168.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[32] = -167.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[33] = -166.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[34] = -165.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[35] = -164.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[36] = -163.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[37] = -162.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[38] = -161.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[39] = -160.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[40] = -159.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[41] = -158.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[42] = -157.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[43] = -156.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[44] = -155.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[45] = -154.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[46] = -153.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[47] = -152.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[48] = -151.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[49] = -150.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[50] = -149.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[51] = -148.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[52] = -147.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[53] = -146.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[54] = -145.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[55] = -144.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[56] = -143.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[57] = -142.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[58] = -141.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[59] = -140.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[60] = -139.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[61] = -138.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[62] = -137.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[63] = -136.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[64] = -135.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[65] = -134.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[66] = -133.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[67] = -132.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[68] = -131.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[69] = -130.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[70] = -129.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[71] = -128.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[72] = -127.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[73] = -126.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[74] = -125.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[75] = -124.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[76] = -123.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[77] = -122.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[78] = -121.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[79] = -120.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[80] = -119.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[81] = -118.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[82] = -117.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[83] = -116.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[84] = -115.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[85] = -114.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[86] = -113.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[87] = -112.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[88] = -111.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[89] = -110.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[90] = -109.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[91] = -108.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[92] = -107.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[93] = -106.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[94] = -105.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[95] = -104.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[96] = -103.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[97] = -102.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[98] = -101.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[99] = -100.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[100] = -99.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[101] = -98.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[102] = -97.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[103] = -96.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[104] = -95.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[105] = -94.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[106] = -93.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[107] = -92.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[108] = -91.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[109] = -90.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[110] = -89.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[111] = -88.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[112] = -87.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[113] = -86.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[114] = -85.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[115] = -84.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[116] = -83.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[117] = -82.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[118] = -81.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[119] = -80.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[120] = -79.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[121] = -78.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[122] = -77.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[123] = -76.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[124] = -75.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[125] = -74.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[126] = -73.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[127] = -72.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[128] = -71.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[129] = -70.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[130] = -69.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[131] = -68.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[132] = -67.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[133] = -66.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[134] = -65.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[135] = -64.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[136] = -63.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[137] = -62.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[138] = -61.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[139] = -60.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[140] = -59.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[141] = -58.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[142] = -57.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[143] = -56.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[144] = -55.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[145] = -54.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[146] = -53.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[147] = -52.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[148] = -51.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[149] = -50.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[150] = -49.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[151] = -48.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[152] = -47.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[153] = -46.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[154] = -45.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[155] = -44.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[156] = -43.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[157] = -42.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[158] = -41.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[159] = -40.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[160] = -39.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[161] = -38.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[162] = -37.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[163] = -36.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[164] = -35.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[165] = -34.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[166] = -33.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[167] = -32.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[168] = -31.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[169] = -30.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[170] = -29.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[171] = -28.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[172] = -27.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[173] = -26.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[174] = -25.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[175] = -24.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[176] = -23.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[177] = -22.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[178] = -21.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[179] = -20.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[180] = -19.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[181] = -18.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[182] = -17.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[183] = -16.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[184] = -15.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[185] = -14.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[186] = -13.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[187] = -12.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[188] = -11.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[189] = -10.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[190] = -9.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[191] = -8.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[192] = -7.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[193] = -6.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[194] = -5.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[195] = -4.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[196] = -3.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[197] = -2.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[198] = -1.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[199] = 0.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[200] = 1.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[201] = 2.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[202] = 3.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[203] = 4.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[204] = 5.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[205] = 6.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[206] = 7.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[207] = 8.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[208] = 9.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[209] = 10.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[210] = 11.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[211] = 12.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[212] = 13.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[213] = 14.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[214] = 15.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[215] = 16.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[216] = 17.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[217] = 18.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[218] = 19.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[219] = 20.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[220] = 21.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[221] = 22.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[222] = 23.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[223] = 24.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[224] = 25.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[225] = 26.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[226] = 27.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[227] = 28.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[228] = 29.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[229] = 30.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[230] = 31.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[231] = 32.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[232] = 33.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[233] = 34.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[234] = 35.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[235] = 36.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[236] = 37.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[237] = 38.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[238] = 39.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[239] = 40.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[240] = 41.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[241] = 42.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[242] = 43.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[243] = 44.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[244] = 45.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[245] = 46.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[246] = 47.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[247] = 48.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[248] = 49.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[249] = 50.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[250] = 51.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[251] = 52.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[252] = 53.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[253] = 54.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[254] = 55.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[255] = 56.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[256] = 57.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[257] = 58.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[258] = 59.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[259] = 60.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[260] = 61.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[261] = 62.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[262] = 63.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[263] = 64.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[264] = 65.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[265] = 66.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[266] = 67.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[267] = 68.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[268] = 69.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[269] = 70.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[270] = 71.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[271] = 72.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[272] = 73.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[273] = 74.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[274] = 75.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[275] = 76.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[276] = 77.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[277] = 78.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[278] = 79.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[279] = 80.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[280] = 81.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[281] = 82.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[282] = 83.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[283] = 84.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[284] = 85.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[285] = 86.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[286] = 87.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[287] = 88.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[288] = 89.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[289] = 90.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[290] = 91.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[291] = 92.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[292] = 93.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[293] = 94.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[294] = 95.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[295] = 96.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[296] = 97.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[297] = 98.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[298] = 99.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[299] = 100.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[300] = 101.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[301] = 102.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[302] = 103.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[303] = 104.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[304] = 105.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[305] = 106.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[306] = 107.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[307] = 108.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[308] = 109.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[309] = 110.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[310] = 111.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[311] = 112.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[312] = 113.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[313] = 114.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[314] = 115.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[315] = 116.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[316] = 117.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[317] = 118.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[318] = 119.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[319] = 120.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[320] = 121.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[321] = 122.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[322] = 123.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[323] = 124.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[324] = 125.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[325] = 126.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[326] = 127.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[327] = 128.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[328] = 129.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[329] = 130.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[330] = 131.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[331] = 132.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[332] = 133.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[333] = 134.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[334] = 135.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[335] = 136.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[336] = 137.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[337] = 138.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[338] = 139.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[339] = 140.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[340] = 141.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[341] = 142.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[342] = 143.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[343] = 144.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[344] = 145.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[345] = 146.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[346] = 147.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[347] = 148.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[348] = 149.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[349] = 150.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[350] = 151.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[351] = 152.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[352] = 153.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[353] = 154.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[354] = 155.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[355] = 156.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[356] = 157.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[357] = 158.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[358] = 159.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[359] = 160.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[360] = 161.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[361] = 162.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[362] = 163.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[363] = 164.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[364] = 165.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[365] = 166.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[366] = 167.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[367] = 168.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[368] = 169.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[369] = 170.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[370] = 171.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[371] = 172.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[372] = 173.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[373] = 174.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[374] = 175.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[375] = 176.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[376] = 177.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[377] = 178.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[378] = 179.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[379] = 180.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[380] = 181.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[381] = 182.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[382] = 183.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[383] = 184.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[384] = 185.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[385] = 186.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[386] = 187.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[387] = 188.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[388] = 189.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[389] = 190.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[390] = 191.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[391] = 192.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[392] = 193.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[393] = 194.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[394] = 195.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[395] = 196.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[396] = 197.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[397] = 198.0;
-    brain_B.StateFlowFunctionsFollowOneP_jq.HoughTransform_o3[398] = 199.0;
+    brain_B.HoughTransform_o2[0] = -1.5707963267948966E+000;
+    brain_B.HoughTransform_o2[1] = -1.5533430342749532E+000;
+    brain_B.HoughTransform_o2[2] = -1.5358897417550099E+000;
+    brain_B.HoughTransform_o2[3] = -1.5184364492350666E+000;
+    brain_B.HoughTransform_o2[4] = -1.5009831567151235E+000;
+    brain_B.HoughTransform_o2[5] = -1.4835298641951802E+000;
+    brain_B.HoughTransform_o2[6] = -1.4660765716752369E+000;
+    brain_B.HoughTransform_o2[7] = -1.4486232791552935E+000;
+    brain_B.HoughTransform_o2[8] = -1.4311699866353502E+000;
+    brain_B.HoughTransform_o2[9] = -1.4137166941154069E+000;
+    brain_B.HoughTransform_o2[10] = -1.3962634015954636E+000;
+    brain_B.HoughTransform_o2[11] = -1.3788101090755203E+000;
+    brain_B.HoughTransform_o2[12] = -1.3613568165555769E+000;
+    brain_B.HoughTransform_o2[13] = -1.3439035240356338E+000;
+    brain_B.HoughTransform_o2[14] = -1.3264502315156905E+000;
+    brain_B.HoughTransform_o2[15] = -1.3089969389957472E+000;
+    brain_B.HoughTransform_o2[16] = -1.2915436464758039E+000;
+    brain_B.HoughTransform_o2[17] = -1.2740903539558606E+000;
+    brain_B.HoughTransform_o2[18] = -1.2566370614359172E+000;
+    brain_B.HoughTransform_o2[19] = -1.2391837689159739E+000;
+    brain_B.HoughTransform_o2[20] = -1.2217304763960306E+000;
+    brain_B.HoughTransform_o2[21] = -1.2042771838760873E+000;
+    brain_B.HoughTransform_o2[22] = -1.1868238913561442E+000;
+    brain_B.HoughTransform_o2[23] = -1.1693705988362009E+000;
+    brain_B.HoughTransform_o2[24] = -1.1519173063162575E+000;
+    brain_B.HoughTransform_o2[25] = -1.1344640137963142E+000;
+    brain_B.HoughTransform_o2[26] = -1.1170107212763709E+000;
+    brain_B.HoughTransform_o2[27] = -1.0995574287564276E+000;
+    brain_B.HoughTransform_o2[28] = -1.0821041362364843E+000;
+    brain_B.HoughTransform_o2[29] = -1.0646508437165410E+000;
+    brain_B.HoughTransform_o2[30] = -1.0471975511965976E+000;
+    brain_B.HoughTransform_o2[31] = -1.0297442586766545E+000;
+    brain_B.HoughTransform_o2[32] = -1.0122909661567112E+000;
+    brain_B.HoughTransform_o2[33] = -9.9483767363676789E-001;
+    brain_B.HoughTransform_o2[34] = -9.7738438111682457E-001;
+    brain_B.HoughTransform_o2[35] = -9.5993108859688125E-001;
+    brain_B.HoughTransform_o2[36] = -9.4247779607693793E-001;
+    brain_B.HoughTransform_o2[37] = -9.2502450355699462E-001;
+    brain_B.HoughTransform_o2[38] = -9.0757121103705141E-001;
+    brain_B.HoughTransform_o2[39] = -8.9011791851710809E-001;
+    brain_B.HoughTransform_o2[40] = -8.7266462599716477E-001;
+    brain_B.HoughTransform_o2[41] = -8.5521133347722145E-001;
+    brain_B.HoughTransform_o2[42] = -8.3775804095727824E-001;
+    brain_B.HoughTransform_o2[43] = -8.2030474843733492E-001;
+    brain_B.HoughTransform_o2[44] = -8.0285145591739160E-001;
+    brain_B.HoughTransform_o2[45] = -7.8539816339744828E-001;
+    brain_B.HoughTransform_o2[46] = -7.6794487087750496E-001;
+    brain_B.HoughTransform_o2[47] = -7.5049157835756175E-001;
+    brain_B.HoughTransform_o2[48] = -7.3303828583761843E-001;
+    brain_B.HoughTransform_o2[49] = -7.1558499331767511E-001;
+    brain_B.HoughTransform_o2[50] = -6.9813170079773179E-001;
+    brain_B.HoughTransform_o2[51] = -6.8067840827778847E-001;
+    brain_B.HoughTransform_o2[52] = -6.6322511575784526E-001;
+    brain_B.HoughTransform_o2[53] = -6.4577182323790194E-001;
+    brain_B.HoughTransform_o2[54] = -6.2831853071795862E-001;
+    brain_B.HoughTransform_o2[55] = -6.1086523819801530E-001;
+    brain_B.HoughTransform_o2[56] = -5.9341194567807209E-001;
+    brain_B.HoughTransform_o2[57] = -5.7595865315812877E-001;
+    brain_B.HoughTransform_o2[58] = -5.5850536063818546E-001;
+    brain_B.HoughTransform_o2[59] = -5.4105206811824214E-001;
+    brain_B.HoughTransform_o2[60] = -5.2359877559829882E-001;
+    brain_B.HoughTransform_o2[61] = -5.0614548307835561E-001;
+    brain_B.HoughTransform_o2[62] = -4.8869219055841229E-001;
+    brain_B.HoughTransform_o2[63] = -4.7123889803846897E-001;
+    brain_B.HoughTransform_o2[64] = -4.5378560551852570E-001;
+    brain_B.HoughTransform_o2[65] = -4.3633231299858238E-001;
+    brain_B.HoughTransform_o2[66] = -4.1887902047863912E-001;
+    brain_B.HoughTransform_o2[67] = -4.0142572795869580E-001;
+    brain_B.HoughTransform_o2[68] = -3.8397243543875248E-001;
+    brain_B.HoughTransform_o2[69] = -3.6651914291880922E-001;
+    brain_B.HoughTransform_o2[70] = -3.4906585039886590E-001;
+    brain_B.HoughTransform_o2[71] = -3.3161255787892263E-001;
+    brain_B.HoughTransform_o2[72] = -3.1415926535897931E-001;
+    brain_B.HoughTransform_o2[73] = -2.9670597283903605E-001;
+    brain_B.HoughTransform_o2[74] = -2.7925268031909273E-001;
+    brain_B.HoughTransform_o2[75] = -2.6179938779914941E-001;
+    brain_B.HoughTransform_o2[76] = -2.4434609527920614E-001;
+    brain_B.HoughTransform_o2[77] = -2.2689280275926285E-001;
+    brain_B.HoughTransform_o2[78] = -2.0943951023931956E-001;
+    brain_B.HoughTransform_o2[79] = -1.9198621771937624E-001;
+    brain_B.HoughTransform_o2[80] = -1.7453292519943295E-001;
+    brain_B.HoughTransform_o2[81] = -1.5707963267948966E-001;
+    brain_B.HoughTransform_o2[82] = -1.3962634015954636E-001;
+    brain_B.HoughTransform_o2[83] = -1.2217304763960307E-001;
+    brain_B.HoughTransform_o2[84] = -1.0471975511965978E-001;
+    brain_B.HoughTransform_o2[85] = -8.7266462599716474E-002;
+    brain_B.HoughTransform_o2[86] = -6.9813170079773182E-002;
+    brain_B.HoughTransform_o2[87] = -5.2359877559829890E-002;
+    brain_B.HoughTransform_o2[88] = -3.4906585039886591E-002;
+    brain_B.HoughTransform_o2[89] = -1.7453292519943295E-002;
+    brain_B.HoughTransform_o2[90] = 0.0;
+    brain_B.HoughTransform_o2[91] = 1.7453292519943295E-002;
+    brain_B.HoughTransform_o2[92] = 3.4906585039886591E-002;
+    brain_B.HoughTransform_o2[93] = 5.2359877559829890E-002;
+    brain_B.HoughTransform_o2[94] = 6.9813170079773182E-002;
+    brain_B.HoughTransform_o2[95] = 8.7266462599716474E-002;
+    brain_B.HoughTransform_o2[96] = 1.0471975511965978E-001;
+    brain_B.HoughTransform_o2[97] = 1.2217304763960307E-001;
+    brain_B.HoughTransform_o2[98] = 1.3962634015954636E-001;
+    brain_B.HoughTransform_o2[99] = 1.5707963267948966E-001;
+    brain_B.HoughTransform_o2[100] = 1.7453292519943295E-001;
+    brain_B.HoughTransform_o2[101] = 1.9198621771937624E-001;
+    brain_B.HoughTransform_o2[102] = 2.0943951023931956E-001;
+    brain_B.HoughTransform_o2[103] = 2.2689280275926285E-001;
+    brain_B.HoughTransform_o2[104] = 2.4434609527920614E-001;
+    brain_B.HoughTransform_o2[105] = 2.6179938779914941E-001;
+    brain_B.HoughTransform_o2[106] = 2.7925268031909273E-001;
+    brain_B.HoughTransform_o2[107] = 2.9670597283903605E-001;
+    brain_B.HoughTransform_o2[108] = 3.1415926535897931E-001;
+    brain_B.HoughTransform_o2[109] = 3.3161255787892263E-001;
+    brain_B.HoughTransform_o2[110] = 3.4906585039886590E-001;
+    brain_B.HoughTransform_o2[111] = 3.6651914291880922E-001;
+    brain_B.HoughTransform_o2[112] = 3.8397243543875248E-001;
+    brain_B.HoughTransform_o2[113] = 4.0142572795869580E-001;
+    brain_B.HoughTransform_o2[114] = 4.1887902047863912E-001;
+    brain_B.HoughTransform_o2[115] = 4.3633231299858238E-001;
+    brain_B.HoughTransform_o2[116] = 4.5378560551852570E-001;
+    brain_B.HoughTransform_o2[117] = 4.7123889803846897E-001;
+    brain_B.HoughTransform_o2[118] = 4.8869219055841229E-001;
+    brain_B.HoughTransform_o2[119] = 5.0614548307835561E-001;
+    brain_B.HoughTransform_o2[120] = 5.2359877559829882E-001;
+    brain_B.HoughTransform_o2[121] = 5.4105206811824214E-001;
+    brain_B.HoughTransform_o2[122] = 5.5850536063818546E-001;
+    brain_B.HoughTransform_o2[123] = 5.7595865315812877E-001;
+    brain_B.HoughTransform_o2[124] = 5.9341194567807209E-001;
+    brain_B.HoughTransform_o2[125] = 6.1086523819801530E-001;
+    brain_B.HoughTransform_o2[126] = 6.2831853071795862E-001;
+    brain_B.HoughTransform_o2[127] = 6.4577182323790194E-001;
+    brain_B.HoughTransform_o2[128] = 6.6322511575784526E-001;
+    brain_B.HoughTransform_o2[129] = 6.8067840827778847E-001;
+    brain_B.HoughTransform_o2[130] = 6.9813170079773179E-001;
+    brain_B.HoughTransform_o2[131] = 7.1558499331767511E-001;
+    brain_B.HoughTransform_o2[132] = 7.3303828583761843E-001;
+    brain_B.HoughTransform_o2[133] = 7.5049157835756175E-001;
+    brain_B.HoughTransform_o2[134] = 7.6794487087750496E-001;
+    brain_B.HoughTransform_o2[135] = 7.8539816339744828E-001;
+    brain_B.HoughTransform_o2[136] = 8.0285145591739160E-001;
+    brain_B.HoughTransform_o2[137] = 8.2030474843733492E-001;
+    brain_B.HoughTransform_o2[138] = 8.3775804095727824E-001;
+    brain_B.HoughTransform_o2[139] = 8.5521133347722145E-001;
+    brain_B.HoughTransform_o2[140] = 8.7266462599716477E-001;
+    brain_B.HoughTransform_o2[141] = 8.9011791851710809E-001;
+    brain_B.HoughTransform_o2[142] = 9.0757121103705141E-001;
+    brain_B.HoughTransform_o2[143] = 9.2502450355699462E-001;
+    brain_B.HoughTransform_o2[144] = 9.4247779607693793E-001;
+    brain_B.HoughTransform_o2[145] = 9.5993108859688125E-001;
+    brain_B.HoughTransform_o2[146] = 9.7738438111682457E-001;
+    brain_B.HoughTransform_o2[147] = 9.9483767363676789E-001;
+    brain_B.HoughTransform_o2[148] = 1.0122909661567112E+000;
+    brain_B.HoughTransform_o2[149] = 1.0297442586766545E+000;
+    brain_B.HoughTransform_o2[150] = 1.0471975511965976E+000;
+    brain_B.HoughTransform_o2[151] = 1.0646508437165410E+000;
+    brain_B.HoughTransform_o2[152] = 1.0821041362364843E+000;
+    brain_B.HoughTransform_o2[153] = 1.0995574287564276E+000;
+    brain_B.HoughTransform_o2[154] = 1.1170107212763709E+000;
+    brain_B.HoughTransform_o2[155] = 1.1344640137963142E+000;
+    brain_B.HoughTransform_o2[156] = 1.1519173063162575E+000;
+    brain_B.HoughTransform_o2[157] = 1.1693705988362009E+000;
+    brain_B.HoughTransform_o2[158] = 1.1868238913561442E+000;
+    brain_B.HoughTransform_o2[159] = 1.2042771838760873E+000;
+    brain_B.HoughTransform_o2[160] = 1.2217304763960306E+000;
+    brain_B.HoughTransform_o2[161] = 1.2391837689159739E+000;
+    brain_B.HoughTransform_o2[162] = 1.2566370614359172E+000;
+    brain_B.HoughTransform_o2[163] = 1.2740903539558606E+000;
+    brain_B.HoughTransform_o2[164] = 1.2915436464758039E+000;
+    brain_B.HoughTransform_o2[165] = 1.3089969389957472E+000;
+    brain_B.HoughTransform_o2[166] = 1.3264502315156905E+000;
+    brain_B.HoughTransform_o2[167] = 1.3439035240356338E+000;
+    brain_B.HoughTransform_o2[168] = 1.3613568165555769E+000;
+    brain_B.HoughTransform_o2[169] = 1.3788101090755203E+000;
+    brain_B.HoughTransform_o2[170] = 1.3962634015954636E+000;
+    brain_B.HoughTransform_o2[171] = 1.4137166941154069E+000;
+    brain_B.HoughTransform_o2[172] = 1.4311699866353502E+000;
+    brain_B.HoughTransform_o2[173] = 1.4486232791552935E+000;
+    brain_B.HoughTransform_o2[174] = 1.4660765716752369E+000;
+    brain_B.HoughTransform_o2[175] = 1.4835298641951802E+000;
+    brain_B.HoughTransform_o2[176] = 1.5009831567151235E+000;
+    brain_B.HoughTransform_o2[177] = 1.5184364492350666E+000;
+    brain_B.HoughTransform_o2[178] = 1.5358897417550099E+000;
+    brain_B.HoughTransform_o2[179] = 1.5533430342749532E+000;
+    brain_B.HoughTransform_o3[0] = -199.0;
+    brain_B.HoughTransform_o3[1] = -198.0;
+    brain_B.HoughTransform_o3[2] = -197.0;
+    brain_B.HoughTransform_o3[3] = -196.0;
+    brain_B.HoughTransform_o3[4] = -195.0;
+    brain_B.HoughTransform_o3[5] = -194.0;
+    brain_B.HoughTransform_o3[6] = -193.0;
+    brain_B.HoughTransform_o3[7] = -192.0;
+    brain_B.HoughTransform_o3[8] = -191.0;
+    brain_B.HoughTransform_o3[9] = -190.0;
+    brain_B.HoughTransform_o3[10] = -189.0;
+    brain_B.HoughTransform_o3[11] = -188.0;
+    brain_B.HoughTransform_o3[12] = -187.0;
+    brain_B.HoughTransform_o3[13] = -186.0;
+    brain_B.HoughTransform_o3[14] = -185.0;
+    brain_B.HoughTransform_o3[15] = -184.0;
+    brain_B.HoughTransform_o3[16] = -183.0;
+    brain_B.HoughTransform_o3[17] = -182.0;
+    brain_B.HoughTransform_o3[18] = -181.0;
+    brain_B.HoughTransform_o3[19] = -180.0;
+    brain_B.HoughTransform_o3[20] = -179.0;
+    brain_B.HoughTransform_o3[21] = -178.0;
+    brain_B.HoughTransform_o3[22] = -177.0;
+    brain_B.HoughTransform_o3[23] = -176.0;
+    brain_B.HoughTransform_o3[24] = -175.0;
+    brain_B.HoughTransform_o3[25] = -174.0;
+    brain_B.HoughTransform_o3[26] = -173.0;
+    brain_B.HoughTransform_o3[27] = -172.0;
+    brain_B.HoughTransform_o3[28] = -171.0;
+    brain_B.HoughTransform_o3[29] = -170.0;
+    brain_B.HoughTransform_o3[30] = -169.0;
+    brain_B.HoughTransform_o3[31] = -168.0;
+    brain_B.HoughTransform_o3[32] = -167.0;
+    brain_B.HoughTransform_o3[33] = -166.0;
+    brain_B.HoughTransform_o3[34] = -165.0;
+    brain_B.HoughTransform_o3[35] = -164.0;
+    brain_B.HoughTransform_o3[36] = -163.0;
+    brain_B.HoughTransform_o3[37] = -162.0;
+    brain_B.HoughTransform_o3[38] = -161.0;
+    brain_B.HoughTransform_o3[39] = -160.0;
+    brain_B.HoughTransform_o3[40] = -159.0;
+    brain_B.HoughTransform_o3[41] = -158.0;
+    brain_B.HoughTransform_o3[42] = -157.0;
+    brain_B.HoughTransform_o3[43] = -156.0;
+    brain_B.HoughTransform_o3[44] = -155.0;
+    brain_B.HoughTransform_o3[45] = -154.0;
+    brain_B.HoughTransform_o3[46] = -153.0;
+    brain_B.HoughTransform_o3[47] = -152.0;
+    brain_B.HoughTransform_o3[48] = -151.0;
+    brain_B.HoughTransform_o3[49] = -150.0;
+    brain_B.HoughTransform_o3[50] = -149.0;
+    brain_B.HoughTransform_o3[51] = -148.0;
+    brain_B.HoughTransform_o3[52] = -147.0;
+    brain_B.HoughTransform_o3[53] = -146.0;
+    brain_B.HoughTransform_o3[54] = -145.0;
+    brain_B.HoughTransform_o3[55] = -144.0;
+    brain_B.HoughTransform_o3[56] = -143.0;
+    brain_B.HoughTransform_o3[57] = -142.0;
+    brain_B.HoughTransform_o3[58] = -141.0;
+    brain_B.HoughTransform_o3[59] = -140.0;
+    brain_B.HoughTransform_o3[60] = -139.0;
+    brain_B.HoughTransform_o3[61] = -138.0;
+    brain_B.HoughTransform_o3[62] = -137.0;
+    brain_B.HoughTransform_o3[63] = -136.0;
+    brain_B.HoughTransform_o3[64] = -135.0;
+    brain_B.HoughTransform_o3[65] = -134.0;
+    brain_B.HoughTransform_o3[66] = -133.0;
+    brain_B.HoughTransform_o3[67] = -132.0;
+    brain_B.HoughTransform_o3[68] = -131.0;
+    brain_B.HoughTransform_o3[69] = -130.0;
+    brain_B.HoughTransform_o3[70] = -129.0;
+    brain_B.HoughTransform_o3[71] = -128.0;
+    brain_B.HoughTransform_o3[72] = -127.0;
+    brain_B.HoughTransform_o3[73] = -126.0;
+    brain_B.HoughTransform_o3[74] = -125.0;
+    brain_B.HoughTransform_o3[75] = -124.0;
+    brain_B.HoughTransform_o3[76] = -123.0;
+    brain_B.HoughTransform_o3[77] = -122.0;
+    brain_B.HoughTransform_o3[78] = -121.0;
+    brain_B.HoughTransform_o3[79] = -120.0;
+    brain_B.HoughTransform_o3[80] = -119.0;
+    brain_B.HoughTransform_o3[81] = -118.0;
+    brain_B.HoughTransform_o3[82] = -117.0;
+    brain_B.HoughTransform_o3[83] = -116.0;
+    brain_B.HoughTransform_o3[84] = -115.0;
+    brain_B.HoughTransform_o3[85] = -114.0;
+    brain_B.HoughTransform_o3[86] = -113.0;
+    brain_B.HoughTransform_o3[87] = -112.0;
+    brain_B.HoughTransform_o3[88] = -111.0;
+    brain_B.HoughTransform_o3[89] = -110.0;
+    brain_B.HoughTransform_o3[90] = -109.0;
+    brain_B.HoughTransform_o3[91] = -108.0;
+    brain_B.HoughTransform_o3[92] = -107.0;
+    brain_B.HoughTransform_o3[93] = -106.0;
+    brain_B.HoughTransform_o3[94] = -105.0;
+    brain_B.HoughTransform_o3[95] = -104.0;
+    brain_B.HoughTransform_o3[96] = -103.0;
+    brain_B.HoughTransform_o3[97] = -102.0;
+    brain_B.HoughTransform_o3[98] = -101.0;
+    brain_B.HoughTransform_o3[99] = -100.0;
+    brain_B.HoughTransform_o3[100] = -99.0;
+    brain_B.HoughTransform_o3[101] = -98.0;
+    brain_B.HoughTransform_o3[102] = -97.0;
+    brain_B.HoughTransform_o3[103] = -96.0;
+    brain_B.HoughTransform_o3[104] = -95.0;
+    brain_B.HoughTransform_o3[105] = -94.0;
+    brain_B.HoughTransform_o3[106] = -93.0;
+    brain_B.HoughTransform_o3[107] = -92.0;
+    brain_B.HoughTransform_o3[108] = -91.0;
+    brain_B.HoughTransform_o3[109] = -90.0;
+    brain_B.HoughTransform_o3[110] = -89.0;
+    brain_B.HoughTransform_o3[111] = -88.0;
+    brain_B.HoughTransform_o3[112] = -87.0;
+    brain_B.HoughTransform_o3[113] = -86.0;
+    brain_B.HoughTransform_o3[114] = -85.0;
+    brain_B.HoughTransform_o3[115] = -84.0;
+    brain_B.HoughTransform_o3[116] = -83.0;
+    brain_B.HoughTransform_o3[117] = -82.0;
+    brain_B.HoughTransform_o3[118] = -81.0;
+    brain_B.HoughTransform_o3[119] = -80.0;
+    brain_B.HoughTransform_o3[120] = -79.0;
+    brain_B.HoughTransform_o3[121] = -78.0;
+    brain_B.HoughTransform_o3[122] = -77.0;
+    brain_B.HoughTransform_o3[123] = -76.0;
+    brain_B.HoughTransform_o3[124] = -75.0;
+    brain_B.HoughTransform_o3[125] = -74.0;
+    brain_B.HoughTransform_o3[126] = -73.0;
+    brain_B.HoughTransform_o3[127] = -72.0;
+    brain_B.HoughTransform_o3[128] = -71.0;
+    brain_B.HoughTransform_o3[129] = -70.0;
+    brain_B.HoughTransform_o3[130] = -69.0;
+    brain_B.HoughTransform_o3[131] = -68.0;
+    brain_B.HoughTransform_o3[132] = -67.0;
+    brain_B.HoughTransform_o3[133] = -66.0;
+    brain_B.HoughTransform_o3[134] = -65.0;
+    brain_B.HoughTransform_o3[135] = -64.0;
+    brain_B.HoughTransform_o3[136] = -63.0;
+    brain_B.HoughTransform_o3[137] = -62.0;
+    brain_B.HoughTransform_o3[138] = -61.0;
+    brain_B.HoughTransform_o3[139] = -60.0;
+    brain_B.HoughTransform_o3[140] = -59.0;
+    brain_B.HoughTransform_o3[141] = -58.0;
+    brain_B.HoughTransform_o3[142] = -57.0;
+    brain_B.HoughTransform_o3[143] = -56.0;
+    brain_B.HoughTransform_o3[144] = -55.0;
+    brain_B.HoughTransform_o3[145] = -54.0;
+    brain_B.HoughTransform_o3[146] = -53.0;
+    brain_B.HoughTransform_o3[147] = -52.0;
+    brain_B.HoughTransform_o3[148] = -51.0;
+    brain_B.HoughTransform_o3[149] = -50.0;
+    brain_B.HoughTransform_o3[150] = -49.0;
+    brain_B.HoughTransform_o3[151] = -48.0;
+    brain_B.HoughTransform_o3[152] = -47.0;
+    brain_B.HoughTransform_o3[153] = -46.0;
+    brain_B.HoughTransform_o3[154] = -45.0;
+    brain_B.HoughTransform_o3[155] = -44.0;
+    brain_B.HoughTransform_o3[156] = -43.0;
+    brain_B.HoughTransform_o3[157] = -42.0;
+    brain_B.HoughTransform_o3[158] = -41.0;
+    brain_B.HoughTransform_o3[159] = -40.0;
+    brain_B.HoughTransform_o3[160] = -39.0;
+    brain_B.HoughTransform_o3[161] = -38.0;
+    brain_B.HoughTransform_o3[162] = -37.0;
+    brain_B.HoughTransform_o3[163] = -36.0;
+    brain_B.HoughTransform_o3[164] = -35.0;
+    brain_B.HoughTransform_o3[165] = -34.0;
+    brain_B.HoughTransform_o3[166] = -33.0;
+    brain_B.HoughTransform_o3[167] = -32.0;
+    brain_B.HoughTransform_o3[168] = -31.0;
+    brain_B.HoughTransform_o3[169] = -30.0;
+    brain_B.HoughTransform_o3[170] = -29.0;
+    brain_B.HoughTransform_o3[171] = -28.0;
+    brain_B.HoughTransform_o3[172] = -27.0;
+    brain_B.HoughTransform_o3[173] = -26.0;
+    brain_B.HoughTransform_o3[174] = -25.0;
+    brain_B.HoughTransform_o3[175] = -24.0;
+    brain_B.HoughTransform_o3[176] = -23.0;
+    brain_B.HoughTransform_o3[177] = -22.0;
+    brain_B.HoughTransform_o3[178] = -21.0;
+    brain_B.HoughTransform_o3[179] = -20.0;
+    brain_B.HoughTransform_o3[180] = -19.0;
+    brain_B.HoughTransform_o3[181] = -18.0;
+    brain_B.HoughTransform_o3[182] = -17.0;
+    brain_B.HoughTransform_o3[183] = -16.0;
+    brain_B.HoughTransform_o3[184] = -15.0;
+    brain_B.HoughTransform_o3[185] = -14.0;
+    brain_B.HoughTransform_o3[186] = -13.0;
+    brain_B.HoughTransform_o3[187] = -12.0;
+    brain_B.HoughTransform_o3[188] = -11.0;
+    brain_B.HoughTransform_o3[189] = -10.0;
+    brain_B.HoughTransform_o3[190] = -9.0;
+    brain_B.HoughTransform_o3[191] = -8.0;
+    brain_B.HoughTransform_o3[192] = -7.0;
+    brain_B.HoughTransform_o3[193] = -6.0;
+    brain_B.HoughTransform_o3[194] = -5.0;
+    brain_B.HoughTransform_o3[195] = -4.0;
+    brain_B.HoughTransform_o3[196] = -3.0;
+    brain_B.HoughTransform_o3[197] = -2.0;
+    brain_B.HoughTransform_o3[198] = -1.0;
+    brain_B.HoughTransform_o3[199] = 0.0;
+    brain_B.HoughTransform_o3[200] = 1.0;
+    brain_B.HoughTransform_o3[201] = 2.0;
+    brain_B.HoughTransform_o3[202] = 3.0;
+    brain_B.HoughTransform_o3[203] = 4.0;
+    brain_B.HoughTransform_o3[204] = 5.0;
+    brain_B.HoughTransform_o3[205] = 6.0;
+    brain_B.HoughTransform_o3[206] = 7.0;
+    brain_B.HoughTransform_o3[207] = 8.0;
+    brain_B.HoughTransform_o3[208] = 9.0;
+    brain_B.HoughTransform_o3[209] = 10.0;
+    brain_B.HoughTransform_o3[210] = 11.0;
+    brain_B.HoughTransform_o3[211] = 12.0;
+    brain_B.HoughTransform_o3[212] = 13.0;
+    brain_B.HoughTransform_o3[213] = 14.0;
+    brain_B.HoughTransform_o3[214] = 15.0;
+    brain_B.HoughTransform_o3[215] = 16.0;
+    brain_B.HoughTransform_o3[216] = 17.0;
+    brain_B.HoughTransform_o3[217] = 18.0;
+    brain_B.HoughTransform_o3[218] = 19.0;
+    brain_B.HoughTransform_o3[219] = 20.0;
+    brain_B.HoughTransform_o3[220] = 21.0;
+    brain_B.HoughTransform_o3[221] = 22.0;
+    brain_B.HoughTransform_o3[222] = 23.0;
+    brain_B.HoughTransform_o3[223] = 24.0;
+    brain_B.HoughTransform_o3[224] = 25.0;
+    brain_B.HoughTransform_o3[225] = 26.0;
+    brain_B.HoughTransform_o3[226] = 27.0;
+    brain_B.HoughTransform_o3[227] = 28.0;
+    brain_B.HoughTransform_o3[228] = 29.0;
+    brain_B.HoughTransform_o3[229] = 30.0;
+    brain_B.HoughTransform_o3[230] = 31.0;
+    brain_B.HoughTransform_o3[231] = 32.0;
+    brain_B.HoughTransform_o3[232] = 33.0;
+    brain_B.HoughTransform_o3[233] = 34.0;
+    brain_B.HoughTransform_o3[234] = 35.0;
+    brain_B.HoughTransform_o3[235] = 36.0;
+    brain_B.HoughTransform_o3[236] = 37.0;
+    brain_B.HoughTransform_o3[237] = 38.0;
+    brain_B.HoughTransform_o3[238] = 39.0;
+    brain_B.HoughTransform_o3[239] = 40.0;
+    brain_B.HoughTransform_o3[240] = 41.0;
+    brain_B.HoughTransform_o3[241] = 42.0;
+    brain_B.HoughTransform_o3[242] = 43.0;
+    brain_B.HoughTransform_o3[243] = 44.0;
+    brain_B.HoughTransform_o3[244] = 45.0;
+    brain_B.HoughTransform_o3[245] = 46.0;
+    brain_B.HoughTransform_o3[246] = 47.0;
+    brain_B.HoughTransform_o3[247] = 48.0;
+    brain_B.HoughTransform_o3[248] = 49.0;
+    brain_B.HoughTransform_o3[249] = 50.0;
+    brain_B.HoughTransform_o3[250] = 51.0;
+    brain_B.HoughTransform_o3[251] = 52.0;
+    brain_B.HoughTransform_o3[252] = 53.0;
+    brain_B.HoughTransform_o3[253] = 54.0;
+    brain_B.HoughTransform_o3[254] = 55.0;
+    brain_B.HoughTransform_o3[255] = 56.0;
+    brain_B.HoughTransform_o3[256] = 57.0;
+    brain_B.HoughTransform_o3[257] = 58.0;
+    brain_B.HoughTransform_o3[258] = 59.0;
+    brain_B.HoughTransform_o3[259] = 60.0;
+    brain_B.HoughTransform_o3[260] = 61.0;
+    brain_B.HoughTransform_o3[261] = 62.0;
+    brain_B.HoughTransform_o3[262] = 63.0;
+    brain_B.HoughTransform_o3[263] = 64.0;
+    brain_B.HoughTransform_o3[264] = 65.0;
+    brain_B.HoughTransform_o3[265] = 66.0;
+    brain_B.HoughTransform_o3[266] = 67.0;
+    brain_B.HoughTransform_o3[267] = 68.0;
+    brain_B.HoughTransform_o3[268] = 69.0;
+    brain_B.HoughTransform_o3[269] = 70.0;
+    brain_B.HoughTransform_o3[270] = 71.0;
+    brain_B.HoughTransform_o3[271] = 72.0;
+    brain_B.HoughTransform_o3[272] = 73.0;
+    brain_B.HoughTransform_o3[273] = 74.0;
+    brain_B.HoughTransform_o3[274] = 75.0;
+    brain_B.HoughTransform_o3[275] = 76.0;
+    brain_B.HoughTransform_o3[276] = 77.0;
+    brain_B.HoughTransform_o3[277] = 78.0;
+    brain_B.HoughTransform_o3[278] = 79.0;
+    brain_B.HoughTransform_o3[279] = 80.0;
+    brain_B.HoughTransform_o3[280] = 81.0;
+    brain_B.HoughTransform_o3[281] = 82.0;
+    brain_B.HoughTransform_o3[282] = 83.0;
+    brain_B.HoughTransform_o3[283] = 84.0;
+    brain_B.HoughTransform_o3[284] = 85.0;
+    brain_B.HoughTransform_o3[285] = 86.0;
+    brain_B.HoughTransform_o3[286] = 87.0;
+    brain_B.HoughTransform_o3[287] = 88.0;
+    brain_B.HoughTransform_o3[288] = 89.0;
+    brain_B.HoughTransform_o3[289] = 90.0;
+    brain_B.HoughTransform_o3[290] = 91.0;
+    brain_B.HoughTransform_o3[291] = 92.0;
+    brain_B.HoughTransform_o3[292] = 93.0;
+    brain_B.HoughTransform_o3[293] = 94.0;
+    brain_B.HoughTransform_o3[294] = 95.0;
+    brain_B.HoughTransform_o3[295] = 96.0;
+    brain_B.HoughTransform_o3[296] = 97.0;
+    brain_B.HoughTransform_o3[297] = 98.0;
+    brain_B.HoughTransform_o3[298] = 99.0;
+    brain_B.HoughTransform_o3[299] = 100.0;
+    brain_B.HoughTransform_o3[300] = 101.0;
+    brain_B.HoughTransform_o3[301] = 102.0;
+    brain_B.HoughTransform_o3[302] = 103.0;
+    brain_B.HoughTransform_o3[303] = 104.0;
+    brain_B.HoughTransform_o3[304] = 105.0;
+    brain_B.HoughTransform_o3[305] = 106.0;
+    brain_B.HoughTransform_o3[306] = 107.0;
+    brain_B.HoughTransform_o3[307] = 108.0;
+    brain_B.HoughTransform_o3[308] = 109.0;
+    brain_B.HoughTransform_o3[309] = 110.0;
+    brain_B.HoughTransform_o3[310] = 111.0;
+    brain_B.HoughTransform_o3[311] = 112.0;
+    brain_B.HoughTransform_o3[312] = 113.0;
+    brain_B.HoughTransform_o3[313] = 114.0;
+    brain_B.HoughTransform_o3[314] = 115.0;
+    brain_B.HoughTransform_o3[315] = 116.0;
+    brain_B.HoughTransform_o3[316] = 117.0;
+    brain_B.HoughTransform_o3[317] = 118.0;
+    brain_B.HoughTransform_o3[318] = 119.0;
+    brain_B.HoughTransform_o3[319] = 120.0;
+    brain_B.HoughTransform_o3[320] = 121.0;
+    brain_B.HoughTransform_o3[321] = 122.0;
+    brain_B.HoughTransform_o3[322] = 123.0;
+    brain_B.HoughTransform_o3[323] = 124.0;
+    brain_B.HoughTransform_o3[324] = 125.0;
+    brain_B.HoughTransform_o3[325] = 126.0;
+    brain_B.HoughTransform_o3[326] = 127.0;
+    brain_B.HoughTransform_o3[327] = 128.0;
+    brain_B.HoughTransform_o3[328] = 129.0;
+    brain_B.HoughTransform_o3[329] = 130.0;
+    brain_B.HoughTransform_o3[330] = 131.0;
+    brain_B.HoughTransform_o3[331] = 132.0;
+    brain_B.HoughTransform_o3[332] = 133.0;
+    brain_B.HoughTransform_o3[333] = 134.0;
+    brain_B.HoughTransform_o3[334] = 135.0;
+    brain_B.HoughTransform_o3[335] = 136.0;
+    brain_B.HoughTransform_o3[336] = 137.0;
+    brain_B.HoughTransform_o3[337] = 138.0;
+    brain_B.HoughTransform_o3[338] = 139.0;
+    brain_B.HoughTransform_o3[339] = 140.0;
+    brain_B.HoughTransform_o3[340] = 141.0;
+    brain_B.HoughTransform_o3[341] = 142.0;
+    brain_B.HoughTransform_o3[342] = 143.0;
+    brain_B.HoughTransform_o3[343] = 144.0;
+    brain_B.HoughTransform_o3[344] = 145.0;
+    brain_B.HoughTransform_o3[345] = 146.0;
+    brain_B.HoughTransform_o3[346] = 147.0;
+    brain_B.HoughTransform_o3[347] = 148.0;
+    brain_B.HoughTransform_o3[348] = 149.0;
+    brain_B.HoughTransform_o3[349] = 150.0;
+    brain_B.HoughTransform_o3[350] = 151.0;
+    brain_B.HoughTransform_o3[351] = 152.0;
+    brain_B.HoughTransform_o3[352] = 153.0;
+    brain_B.HoughTransform_o3[353] = 154.0;
+    brain_B.HoughTransform_o3[354] = 155.0;
+    brain_B.HoughTransform_o3[355] = 156.0;
+    brain_B.HoughTransform_o3[356] = 157.0;
+    brain_B.HoughTransform_o3[357] = 158.0;
+    brain_B.HoughTransform_o3[358] = 159.0;
+    brain_B.HoughTransform_o3[359] = 160.0;
+    brain_B.HoughTransform_o3[360] = 161.0;
+    brain_B.HoughTransform_o3[361] = 162.0;
+    brain_B.HoughTransform_o3[362] = 163.0;
+    brain_B.HoughTransform_o3[363] = 164.0;
+    brain_B.HoughTransform_o3[364] = 165.0;
+    brain_B.HoughTransform_o3[365] = 166.0;
+    brain_B.HoughTransform_o3[366] = 167.0;
+    brain_B.HoughTransform_o3[367] = 168.0;
+    brain_B.HoughTransform_o3[368] = 169.0;
+    brain_B.HoughTransform_o3[369] = 170.0;
+    brain_B.HoughTransform_o3[370] = 171.0;
+    brain_B.HoughTransform_o3[371] = 172.0;
+    brain_B.HoughTransform_o3[372] = 173.0;
+    brain_B.HoughTransform_o3[373] = 174.0;
+    brain_B.HoughTransform_o3[374] = 175.0;
+    brain_B.HoughTransform_o3[375] = 176.0;
+    brain_B.HoughTransform_o3[376] = 177.0;
+    brain_B.HoughTransform_o3[377] = 178.0;
+    brain_B.HoughTransform_o3[378] = 179.0;
+    brain_B.HoughTransform_o3[379] = 180.0;
+    brain_B.HoughTransform_o3[380] = 181.0;
+    brain_B.HoughTransform_o3[381] = 182.0;
+    brain_B.HoughTransform_o3[382] = 183.0;
+    brain_B.HoughTransform_o3[383] = 184.0;
+    brain_B.HoughTransform_o3[384] = 185.0;
+    brain_B.HoughTransform_o3[385] = 186.0;
+    brain_B.HoughTransform_o3[386] = 187.0;
+    brain_B.HoughTransform_o3[387] = 188.0;
+    brain_B.HoughTransform_o3[388] = 189.0;
+    brain_B.HoughTransform_o3[389] = 190.0;
+    brain_B.HoughTransform_o3[390] = 191.0;
+    brain_B.HoughTransform_o3[391] = 192.0;
+    brain_B.HoughTransform_o3[392] = 193.0;
+    brain_B.HoughTransform_o3[393] = 194.0;
+    brain_B.HoughTransform_o3[394] = 195.0;
+    brain_B.HoughTransform_o3[395] = 196.0;
+    brain_B.HoughTransform_o3[396] = 197.0;
+    brain_B.HoughTransform_o3[397] = 198.0;
+    brain_B.HoughTransform_o3[398] = 199.0;
   }
 
   /* states (dwork) */
@@ -9752,14 +8797,11 @@ void brain_initialize(void)
                 sizeof(ExternalOutputs_brain));
 
   {
-    int32_T previous;
-    int32_T step;
-    boolean_T isValid;
-    int32_T idxOut;
+    int32_T idxNHood;
+    int32_T idxOffsets;
+    int32_T curNumNonZ;
     int32_T n;
     int32_T m;
-    int32_T n_0;
-    int32_T m_0;
 
     /* Start for Stateflow: '<Root>/StateFlow Functions' incorporates:
      *  Start for SubSystem: '<S7>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.GetFirstBuoyStats'
@@ -9806,122 +8848,36 @@ void brain_initialize(void)
     brain_B.Constant1 = brain_P.Buoy2_Value;
 
     /* Start for S-Function (svipmorphop): '<S77>/Erosion' */
-    previous = 0;
-    step = 0;
-    n_0 = 0;
-    isValid = TRUE;
-    m_0 = 0;
-    idxOut = 0;
-    for (n = 0; n < 1; n++) {
+    idxNHood = 0;
+    idxOffsets = 0;
+    curNumNonZ = 0;
+    for (n = 0; n < 1; n = 1) {
       for (m = 0; m < 4; m++) {
-        if (brain_ConstP.Erosion_NHOOD_RTP[m_0]) {
-          if (n_0 == 0) {
-            n_0 = 1;
-          } else if (n_0 == 1) {
-            step = idxOut - previous;
-            n_0 = 2;
-          } else if (idxOut - previous == step) {
-            n_0++;
-          } else {
-            isValid = FALSE;
-            m = 4;
-            n = 1;
-          }
-
-          previous = idxOut;
+        if (brain_ConstP.Erosion_NHOOD_RTP[idxNHood]) {
+          brain_DWork.Erosion_ERODE_OFF_DW[idxOffsets] = m;
+          curNumNonZ++;
+          idxOffsets++;
         }
 
-        m_0++;
-        idxOut++;
+        idxNHood++;
       }
-
-      idxOut += 123;
     }
 
-    if (isValid && (n_0 >= 4)) {
-      if (step == 127) {
-        brain_DWork.Erosion_STREL_DW[0] = 2;
-      } else if (step == 1) {
-        brain_DWork.Erosion_STREL_DW[0] = 1;
-      } else {
-        brain_DWork.Erosion_STREL_DW[0] = 0;
-      }
-    } else {
-      brain_DWork.Erosion_STREL_DW[0] = 0;
-    }
-
-    n_0 = 0;
-    isValid = TRUE;
-    m_0 = 0;
-    idxOut = 0;
+    brain_DWork.Erosion_NUMNONZ_DW[0] = curNumNonZ;
+    curNumNonZ = 0;
     for (n = 0; n < 4; n++) {
-      for (m = 0; m < 1; m++) {
-        if (brain_ConstP.Erosion_NHOOD_RTP[m_0 + 4]) {
-          if (n_0 == 0) {
-            n_0 = 1;
-          } else if (n_0 == 1) {
-            step = idxOut - previous;
-            n_0 = 2;
-          } else if (idxOut - previous == step) {
-            n_0++;
-          } else {
-            isValid = FALSE;
-            m = 1;
-            n = 4;
-          }
-
-          previous = idxOut;
+      for (m = 0; m < 1; m = 1) {
+        if (brain_ConstP.Erosion_NHOOD_RTP[idxNHood]) {
+          brain_DWork.Erosion_ERODE_OFF_DW[idxOffsets] = n * 127;
+          curNumNonZ++;
+          idxOffsets++;
         }
 
-        m_0++;
-        idxOut++;
-      }
-
-      idxOut += 126;
-    }
-
-    if (isValid && (n_0 >= 4)) {
-      if (step == 127) {
-        brain_DWork.Erosion_STREL_DW[1] = 2;
-      } else if (step == 1) {
-        brain_DWork.Erosion_STREL_DW[1] = 1;
-      } else {
-        brain_DWork.Erosion_STREL_DW[1] = 0;
-      }
-    } else {
-      brain_DWork.Erosion_STREL_DW[1] = 0;
-    }
-
-    step = 0;
-    previous = 0;
-    idxOut = 0;
-    for (n_0 = 0; n_0 < 1; n_0 = 1) {
-      for (m_0 = 0; m_0 < 4; m_0++) {
-        if (brain_ConstP.Erosion_NHOOD_RTP[step]) {
-          brain_DWork.Erosion_ERODE_OFF_DW[previous] = m_0;
-          idxOut++;
-          previous++;
-        }
-
-        step++;
+        idxNHood++;
       }
     }
 
-    brain_DWork.Erosion_NUMNONZ_DW[0] = idxOut;
-    idxOut = 0;
-    for (n_0 = 0; n_0 < 4; n_0++) {
-      for (m_0 = 0; m_0 < 1; m_0 = 1) {
-        if (brain_ConstP.Erosion_NHOOD_RTP[step]) {
-          brain_DWork.Erosion_ERODE_OFF_DW[previous] = n_0 * 127;
-          idxOut++;
-          previous++;
-        }
-
-        step++;
-      }
-    }
-
-    brain_DWork.Erosion_NUMNONZ_DW[1] = idxOut;
+    brain_DWork.Erosion_NUMNONZ_DW[1] = curNumNonZ;
 
     /* Start for Constant: '<S12>/Constant' */
     brain_B.Constant_p = brain_P.Buoy_Strafe;

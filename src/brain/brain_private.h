@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.532
+ * Model version                        : 1.536
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Wed Jun 30 18:53:37 2010
+ * Real-Time Workshop file generated on : Wed Jun 30 20:04:41 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Wed Jun 30 18:53:38 2010
+ * C/C++ source code generated on       : Wed Jun 30 20:04:42 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -84,8 +84,6 @@ extern void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
 extern void StateFlowFunctionsFollowOnePath(const real_T rtu_H1[19200], const
   real_T rtu_S1[19200], const real_T rtu_V1[19200],
   rtB_StateFlowFunctionsFollowOne *localB);
-extern void StateFlowFunctionsFollowOnePa_j(const boolean_T rtu_BW[19200],
-  rtB_StateFlowFunctionsFollowO_c *localB);
 extern void StateFlowFunctionsFollow_h_Init(RT_MODEL_brain *const brain_M,
   rtDW_StateFlowFunctionsFollow_g *localDW);
 extern void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200],
