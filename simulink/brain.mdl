@@ -87,7 +87,7 @@ Model {
       Name		      "RGBout"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.539"
+    ComputedModelVersion    "1.540"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -106,9 +106,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 30 20:32:26 2010"
-  RTWModifiedTimeStamp	  199830745
-  ModelVersionFormat	  "1.%<AutoIncrement:539>"
+  LastModifiedDate	  "Wed Jun 30 20:54:05 2010"
+  RTWModifiedTimeStamp	  199831666
+  ModelVersionFormat	  "1.%<AutoIncrement:540>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -623,7 +623,7 @@ Model {
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
       CurrentDlgPage	      "Real-Time Workshop"
-      ConfigPrmDlgPosition    " [ 235, 78, 1132, 628 ] "
+      ConfigPrmDlgPosition    " [ 235, 78, 1204, 628 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -9998,8 +9998,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.Align"
-	    Location		    [152, 177, 1001, 611]
-	    Open		    off
+	    Location		    [150, 145, 1003, 632]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -11123,8 +11123,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "StateFlowFunctions.FollowOnePath.OnePath.CenterOver_Strafe"
-	    Location		    [36, 132, 1304, 789]
-	    Open		    off
+	    Location		    [34, 100, 1306, 810]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -16198,7 +16198,7 @@ MatData {
     "  (         !0    @    !     0    $         !0 $  H    !    *    %-C;W!E0V9G  !\";&]C:TYA;64 5FES:6)L90   %9E<G-I;"
     "VX    .    2     8    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    \"     @  "
     "  X   !     !@    @    $          4    (     0    X    !         !     .    +U)'0F]U=\"!6:65W97(   X    P    !@   "
-    " @    $          4    (     0    ,    !         !   P!O9F8 #@   #@    &    \"     8         !0    @    !     0    "
+    " @    $          4    (     0    (    !         !   @!O;@  #@   #@    &    \"     8         !0    @    !     0    "
     "$         \"0    @           #P/PX   !(!0  !@    @    !          4    (    !     $    !          X    X    !@    @"
     "    \"          4    (     0         !          4 !  !     0         .    , $   8    (     @         %    \"     $"
     "    !     0         %  0 \"P    $    L    3F%M90        !!<F=S         %!A<G-E9$%R9W, 07)G3F%M97,         #@   #  "
@@ -16477,26 +16477,26 @@ MatData {
     " (         !0    @    !     0    $         !0 $  H    !    *    %-C;W!E0V9G  !\";&]C:TYA;64 5FES:6)L90   %9E<G-I;V"
     "X    .    2     8    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    \"     @   "
     " X   !(    !@    @    $          4    (     0   !<    !         !     7    +T=E=%9I9&5O,2]6:61E;R!6:65W97( #@   # "
-    "    &    \"     0         !0    @    !     P    $         $  # &]F9@ .    .     8    (    !@         %    \"     $"
-    "    !     0         )    \"            / _#@   $@%   &    \"     $         !0    @    $     0    $         #@   #@"
-    "    &    \"     (         !0    @    !          $         !0 $  $    !          X    P 0  !@    @    \"          4"
-    "    (     0    $    !          4 !  +     0   \"P   !.86UE         $%R9W,         4&%R<V5D07)G<P!!<F=.86UE<P      "
-    "   .    ,     8    (    !          %    \"                0         0          X    H    !@    @    !          4  "
-    "  (               !          X    H    !@    @    !          4    (               !          X    H    !@    @    "
-    "!          4    (               !          X    P @  !@    @    \"          4    (     0    $    !          4 !  5"
-    "     0   'X   !\";&]C:P                    !38V]P90                    !#=7)R96YT0V]N9FEG=7)A=&EO;@!38V]P94-,20   "
-    "             !0;W-I=&EO;@                !7:6YD;W=3='EL90                X    P    !@    @    &          4    (   "
-    "            !          D         #@   #     &    \"     8         !0    @               $         \"0         .   "
-    " ,     8    (    !@         %    \"                0         )          X    P    !@    @    &          4    (    "
-    "           !          D         #@   %     &    \"     8         !0    @    !    !     $         \"0   \"         "
-    "  .!]0       0&U       \"@>4       ,!R0 X    X    !@    @    $          4    (     0    @    !         !     (    "
-    "=6YD;V-K960.    : $   8    (     @         %    \"     $    !     0         %  0 *@    $   !^    06QL;W=38V]P94-H8"
-    "6YG97,                                 06QL;W=\";&]C:T-H86YG97,                                 <VEG=71I;',N07!P;&"
-    "EC871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\    .    ,     8    (    \"0(        %    \"     $    !     0         \"  $ "
-    " 0    X    P    !@    @    ) @        4    (     0    $    !          (  0 !    #@   #@    &    \"     (         !"
-    "0    @    !     0    $         !0 $  $    !          X   \"8    !@    @    )          4    (     0   &@    !      "
-    "    (   !H      %)30     .    6     8    (     @         %    \"     $    !     0         %  0 !P    $    .    34-"
-    "/4P   &AA;F1L90    X         #@         "
+    "    &    \"     0         !0    @    !     @    $         $  \" &]N   .    .     8    (    !@         %    \"     "
+    "$    !     0         )    \"            / _#@   $@%   &    \"     $         !0    @    $     0    $         #@   #"
+    "@    &    \"     (         !0    @    !          $         !0 $  $    !          X    P 0  !@    @    \"          "
+    "4    (     0    $    !          4 !  +     0   \"P   !.86UE         $%R9W,         4&%R<V5D07)G<P!!<F=.86UE<P     "
+    "    .    ,     8    (    !          %    \"                0         0          X    H    !@    @    !          4 "
+    "   (               !          X    H    !@    @    !          4    (               !          X    H    !@    @   "
+    " !          4    (               !          X    P @  !@    @    \"          4    (     0    $    !          4 !  "
+    "5     0   'X   !\";&]C:P                    !38V]P90                    !#=7)R96YT0V]N9FEG=7)A=&EO;@!38V]P94-,20  "
+    "              !0;W-I=&EO;@                !7:6YD;W=3='EL90                X    P    !@    @    &          4    (  "
+    "             !          D         #@   #     &    \"     8         !0    @               $         \"0         .  "
+    "  ,     8    (    !@         %    \"                0         )          X    P    !@    @    &          4    (   "
+    "            !          D         #@   %     &    \"     8         !0    @    !    !     $         \"0   \"        "
+    "   .!]0       0&U       \"@>4       ,!R0 X    X    !@    @    $          4    (     0    @    !         !     (   "
+    " =6YD;V-K960.    : $   8    (     @         %    \"     $    !     0         %  0 *@    $   !^    06QL;W=38V]P94-H"
+    "86YG97,                                 06QL;W=\";&]C:T-H86YG97,                                 <VEG=71I;',N07!P;"
+    "&EC871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\    .    ,     8    (    \"0(        %    \"     $    !     0         \"  $"
+    "  0    X    P    !@    @    ) @        4    (     0    $    !          (  0 !    #@   #@    &    \"     (         "
+    "!0    @    !     0    $         !0 $  $    !          X   \"8    !@    @    )          4    (     0   &@    !     "
+    "     (   !H      %)30     .    6     8    (     @         %    \"     $    !     0         %  0 !P    $    .    34"
+    "-/4P   &AA;F1L90    X         #@         "
   }
   DataRecord {
     Tag			    DataTag4
@@ -16771,7 +16771,7 @@ MatData {
     "  (         !0    @    !     0    $         !0 $  H    !    *    %-C;W!E0V9G  !\";&]C:TYA;64 5FES:6)L90   %9E<G-I;"
     "VX    .    2     8    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    \"     @  "
     "  X   !     !@    @    $          4    (     0    T    !         !     -    +T)7;W5T(%9I97=E<@    X    P    !@    "
-    "@    $          4    (     0    ,    !         !   P!O9F8 #@   #@    &    \"     8         !0    @    !     0    $"
+    "@    $          4    (     0    (    !         !   @!O;@  #@   #@    &    \"     8         !0    @    !     0    $"
     "         \"0    @           #P/PX   !(!0  !@    @    !          4    (    !     $    !          X    X    !@    @ "
     "   \"          4    (     0         !          4 !  !     0         .    , $   8    (     @         %    \"     $ "
     "   !     0         %  0 \"P    $    L    3F%M90        !!<F=S         %!A<G-E9$%R9W, 07)G3F%M97,         #@   #   "
@@ -16819,13 +16819,13 @@ Stateflow {
     zoomFactor		    1.25
     screen		    [1 1 1366 768 1.333333333333333]
     treeNode		    [0 4 0 0]
-    viewObj		    30
+    viewObj		    18
     visible		    1
     machine		    1
     subviewS {
       zoomFactor	      1.25
     }
-    ssIdHighWaterMark	    1540
+    ssIdHighWaterMark	    1541
     decomposition	    SET_CHART
     firstData		    225
     updateMethod	    DISCRETE
@@ -17143,7 +17143,6 @@ Stateflow {
     treeNode		    [19 34 0 23]
     firstTransition	    90
     superState		    SUBCHART
-    visible		    0
     subviewer		    19
     subviewS {
       x1		      -18.75
@@ -17264,6 +17263,7 @@ Stateflow {
     chart		    2
     treeNode		    [30 0 63 0]
     superState		    SUBCHART
+    visible		    0
     subviewer		    30
     ssIdNumber		    1208
     type		    FUNC_STATE
@@ -17321,7 +17321,6 @@ Stateflow {
     chart		    2
     treeNode		    [18 0 30 29]
     superState		    SUBCHART
-    visible		    0
     subviewer		    18
     ssIdNumber		    1431
     type		    FUNC_STATE
@@ -17341,7 +17340,6 @@ Stateflow {
     chart		    2
     treeNode		    [18 0 28 0]
     superState		    SUBCHART
-    visible		    0
     subviewer		    18
     ssIdNumber		    1423
     type		    FUNC_STATE
@@ -17434,7 +17432,6 @@ Stateflow {
     chart		    2
     treeNode		    [18 32 34 30]
     superState		    SUBCHART
-    visible		    0
     subviewer		    18
     subviewS {
       x1		      -15
@@ -17453,7 +17450,6 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [18 0 0 33]
-    visible		    0
     subviewer		    18
     ssIdNumber		    1171
     type		    OR_STATE
@@ -18003,6 +17999,7 @@ Stateflow {
     chart		    2
     treeNode		    [30 0 0 25]
     superState		    SUBCHART
+    visible		    0
     subviewer		    30
     ssIdNumber		    1437
     type		    FUNC_STATE
@@ -18589,7 +18586,6 @@ Stateflow {
     midPoint		    [100.9375 185.8401]
     chart		    2
     linkNode		    [18 91 0]
-    visible		    0
     dataLimits		    [98.537 103.338 167.344 197.109]
     subviewer		    18
     drawStyle		    SMART
@@ -18612,7 +18608,6 @@ Stateflow {
     midPoint		    [235.1346 124.6875]
     chart		    2
     linkNode		    [18 0 91]
-    visible		    0
     dataLimits		    [174.219 299.141 122.287 127.088]
     stampAngle		    NaN
     subviewer		    18
@@ -18638,7 +18633,6 @@ Stateflow {
     midPoint		    [527.071 124.6875]
     chart		    2
     linkNode		    [18 90 89]
-    visible		    0
     dataLimits		    [428.984 625.15 122.287 127.088]
     stampAngle		    NaN
     subviewer		    18
