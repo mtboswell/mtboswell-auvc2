@@ -9,8 +9,9 @@
 #include <QMutexLocker>
 #include <QTime>
 #include <QHash>
+#include <QImage>
 #include "../auv/auvtypes.h"
-#include "../auv/camread.h"
+//#include "../auv/camread.h"
 #include "../brain/brain.h"      /* Model's header file */
 #include "parameters.h"
 #include "../brain/rtwtypes.h"                  /* MathWorks types */
@@ -51,6 +52,8 @@ class Model : public QThread
 	public slots:
 		// Reads sensor data emitted from AUV
 		void updateSensorsInput(AUVSensors values);
+
+		void updateVideoFrame(QImage frame);
 
 		// Deprecated, use setInput("State", ) instead
 		void setState(int state);
@@ -94,7 +97,7 @@ class Model : public QThread
 		QMutex *modelMutex;
 		// stepTime is deprecated, use BRAIN_STEP_TIME
 		int stepTime;
-		struct camframe myframe;
+		//struct camframe myframe;
 		bool record_video;
 		QTime stepTimer;
 		// signals overrun, currently everything crashes when an overrun happens

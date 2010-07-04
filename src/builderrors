@@ -1,9 +1,5 @@
-auv/camread.cpp:53: warning: unused parameter ‘in’
-brain/brain.cpp:1910: warning: unused parameter ‘brain_M’
-brain/brain.cpp: In function ‘void brain_c3_brain(const real_T*, real_T, rtB_StateFlowFunctionsBuoysFind*, rtDW_StateFlowFunctionsBuoysFin*)’:
-brain/brain.cpp:1057: warning: array subscript is above array bounds
-brain/brain.cpp: In function ‘void brain_c5_brain()’:
-brain/brain.cpp:5113: warning: array subscript is above array bounds
-brain/brain.cpp:5123: warning: array subscript is above array bounds
-brain/brain.cpp:5133: warning: array subscript is above array bounds
-brain/brain.cpp:5143: warning: array subscript is above array bounds
+make: *** [server.o] Interrupt
+make: *** [sidsocket.o] Interrupt
+make: *** [main.o] Interrupt
+make: *** [configloader.o] Interrupt
+make: *** [model.o] Interrupt

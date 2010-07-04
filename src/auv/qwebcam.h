@@ -33,7 +33,7 @@ class QWebCam : public QObject
 {
 		Q_OBJECT
 	public:	
-		QWebCam(QWidget * parent=0);	
+		QWebCam(QObject * parent=0);	
 		~QWebCam();		
 		static QImage Ipl2QImage(const IplImage *newImage);	
 	signals:
