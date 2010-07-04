@@ -1,7 +1,6 @@
 #include "model.h"
 #include "../auv/auvtypes.h"
 #include "../auv/calibration.h"
-//#include "../auv/camread.h"
 #include "../configloader.h"
 #include <iostream>
 #include <cstdlib>
@@ -30,16 +29,6 @@ Model::Model(QMutex* mutex){
 	  
 	connect(modelTimer, SIGNAL(timeout()), this, SLOT(rt_OneStep()));
 	  
-  
-/*
-	//qDebug("Allocating Framebuffer");
-	// Initialize framebuffer and start video capture 
-	myframe.y = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT);
-	myframe.cb = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
-	myframe.cr = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
-	//qDebug("Done");
-*/
-
 	if(parameters.isEmpty()) init_params(parameters);
 
 	record_video = false;
@@ -49,7 +38,6 @@ Model::Model(QMutex* mutex){
 Model::~Model(){
 //	delete modelTimer;
 	qDebug("Shutting Down Brain");
-	//camread_close();
 	wait();
 }
 
@@ -127,22 +115,21 @@ void Model::updateSensorsInput(AUVSensors values){
 }
 
 void Model::updateVideoFrame(QImage frame){
+  	QMutexLocker locker(modelMutex);
 
-	// TODO - get QImage into Matlab
-	qDebug() << "Processing QImage";
+	//qDebug() << "Processing QImage" << frame.size() << frame.format();
 
-	// Transfer video frame into MATLAB, swapping buffers 
-/*
-	if(!video_paused){
-		if(config["Debug"]=="true") qDebug() << "Getting video frame";
-		camread_getframe(myframe, record_video);
-		//qDebug() << "SwappyCopy!";
-		SwappyCopy(brain_U.Y, (unsigned char*)myframe.y, 640, 480);
-		SwappyCopy(brain_U.Cb, (unsigned char*)myframe.cb, 320, 240);
-		SwappyCopy(brain_U.Cr, (unsigned char*)myframe.cr, 320, 240);
-		//qDebug() << "We survived the Swappy";
-	}//else qDebug() << "Brain skipping video copy";
-*/
+	QRgb pixel;
+	int height = frame.height();
+
+	for(int x = frame.width()-1; x >= 0; --x){
+		for(int y = frame.height()-1; y >= 0; --y){
+			pixel = frame.pixel(x,y);
+			brain_U.R[(height*x)+y] = qRed(pixel);
+			brain_U.G[(height*x)+y] = qGreen(pixel);
+			brain_U.B[(height*x)+y] = qBlue(pixel);
+		}
+	}
 	
 }
 

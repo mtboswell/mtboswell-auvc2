@@ -8,7 +8,6 @@
 #define AUV_CPP_
 
 #include "auv.h"
-#include "camread.h"
 #include <iostream>
 #include <string>
 #include <QDebug>
@@ -16,7 +15,7 @@
 #include <QFile>
 #include <QStringList>
 
-AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
+AUV::AUV(QMutex* sensorMutex, bool previewVideo){
 	if(config.isEmpty()) loadConfigFile(config);
 	// 160ms = 6.25Hz rate
 	//stepTime = 160;
@@ -61,14 +60,22 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 	statusLcd = new LCD(config["SerialPort.LCD"]);
 
 	camera = new QWebCam();
-	camThread = new QThread(this);
+	//camThread = new QThread(this);
 	//camera->moveToThread(camThread);
 	connect(camera, SIGNAL(newFrame(QImage)),this, SIGNAL(cameraFrame(QImage)));
+	connect(camera, SIGNAL(newFrame(QPixmap)),this, SIGNAL(cameraFrame(QPixmap)));
+
+	if(previewVideo){
+		camView = new QLabel();
+		camView->setFixedSize(640,480);
+		connect(camera, SIGNAL(newFrame(QPixmap)),camView, SLOT(setPixmap(QPixmap)));
+		camView->show();
+	}
 
 	//connect(this, SIGNAL(status(QString)), this, SLOT(statusMessage(QString)));
 
-	// dirty hack to disable off switch when we don't have one attached.
-	data.manualOverrideDisabled = hardwareOverrideDisabled;
+	// deprecated dirty hack to disable off switch when we don't have one attached.
+	data.manualOverrideDisabled = false;
 
 	// Initialize mechanisms database
 	populateMechs(mechanisms);
@@ -477,12 +484,12 @@ void AUV::setMotion(AUVMotion* velocity){
 void AUV::autoWhiteBalance(){
 	emit status("White-balancing camera");
 	//qDebug() << "Turning off camera...";
-	if(!camread_pause()) emit error("Failed to stop camera");
+	if(!camera->pause()) emit error("Failed to stop camera");
 	wait(500);
 	//qDebug() << "Sending White Balance command...";
 	wbProc->execute("v4lctl setattr \"Auto White Balance\" on");
 	//wait(500);
-	if(!camread_unpause()) emit error("Failed to turn on camera");
+	if(!camera->unpause()) emit error("Failed to turn on camera");
 	qDebug() << "White balancing (3s)...";
 	QTimer::singleShot(3000, this, SLOT(finishWhiteBalance()));
 //	qDebug() << "counting down...";
@@ -491,12 +498,12 @@ void AUV::autoWhiteBalance(){
 }
 void AUV::finishWhiteBalance(){
 //	qDebug() << "Turning off camera...";
-	if(!camread_pause()) qDebug() << "Failed to stop camera";
+	if(!camera->pause()) qDebug() << "Failed to stop camera";
 	wait(500);
 	qDebug() << "Stopping white ballancing";
 	wbProc->execute("v4lctl setattr \"Auto White Balance\" off");
 	wait(500);
-	if(!camread_unpause()) qDebug() << "Failed to turn on camera:";
+	if(!camera->unpause()) qDebug() << "Failed to turn on camera:";
 	emit status("Done white balancing");
 }
 

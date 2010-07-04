@@ -1,5 +1,4 @@
 #include "server.h"
-#include "camread.h"
 #include <QDebug>
 #include <QHashIterator>
 #include <QDateTime>
@@ -37,6 +36,8 @@ Server::Server(){
 
         rgbFrame = new QImage(160,120,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
 	streamRGBSecondary = false;
+
+	video_paused = false;
 
 	if(parameters.isEmpty()) init_params(parameters);
 
@@ -91,6 +92,7 @@ void Server::handleCmd(QString id, QString value, QHostAddress fromAddr){
 			videoSocket->connectToHost(value, config["Client.Port.Video1"].toInt(), QIODevice::WriteOnly);
 			bitmapSocket->disconnectFromHost();
 			bitmapSocket->connectToHost(value, config["Client.Port.Video2"].toInt(), QIODevice::WriteOnly);
+			video_paused = false;
 		}else completedCommand = false;
 		sendStatus("Connected");
 	}else if(type == "Dashboard"){
@@ -232,40 +234,34 @@ void Server::sendStatus(QString stat){
 	emit status(stat);
 }
 
+void Server::sendVideo(QImage frame){
+	
+	if(video_paused) return;
+	// This can be confusing:  Being in the connected state does not mean that there is a computer on the other end receiving the data.  It just means we have an address to send data to.
+	if(videoSocket->state() != QAbstractSocket::ConnectedState) return;
+	// The next line returns if we do not have an address to send to, but it doesn't know whether there is an actual receiver or not.
+
+        if(!videoOut->write(frame)) video_paused = true;
+	if(config["Debug"]=="true") qDebug() << "Sending Video Frame";
+}
+
 // Sends a JPEG from the Brain over the VIDEO_PORT udp port.
 void Server::sendVideo(){
 	if(video_paused) return;
 	// This can be confusing:  Being in the connected state does not mean that there is a computer on the other end receiving the data.  It just means we have an address to send data to.
 	// The next line returns if we do not have an address to send to, but it doesn't know whether there is an actual receiver or not.
-	if(videoSocket->state() != QAbstractSocket::ConnectedState) return;
-	if(bitmapSocket->state() != QAbstractSocket::ConnectedState) qDebug() << "Bitmap socket not connected!";
+	if(bitmapSocket->state() != QAbstractSocket::ConnectedState) return;
 
-	
-	// Get jpeg from QImage from brain:
-        // Get full color video (as opposed to the bitmaps)
-        // copy frame from signal to pixmap
-        int x = 639;
-        int y = 480;
-        unsigned int videoPixel;
-        for(int i = 307199; i >= 0; --i){
-                y--;
-                videoPixel = (0xFF000000) | ((((int)brain_B.RGBVid_R[i]) << 16)&0x00FF0000) | ((((int)brain_B.RGBVid_G[i]) << 8)&0x0000FF00) | (((int)brain_B.RGBVid_B[i])&0x000000FF);
-		// TODO - add filtered video overlay
-                videoFrame->setPixel(x, y, videoPixel);
-                if(y <= 0){
-                        x--;
-                        y = 480;
-                }
-        }
-
+	int x = 0, y = 0;
 	if(streamRGBSecondary){
 		// Get processed video
 		// copy frame from signal to pixmap
 		x = 159;
 		y = 120;
+		QRgb videoPixel;
 		for(int i = (19200)-1; i >= 0; --i){
 			y--;
-			videoPixel = (0xFF000000) | ((((int)(brain_Y.RGBout[i]*255)) << 16)&0x00FF0000) | ((((int)(brain_Y.RGBout[(120*160)+i]*255)) << 8)&0x0000FF00) | (((int)(brain_Y.RGBout[(120*160*2)+i]*255))&0x000000FF);
+			videoPixel = qRgb(brain_Y.RGBout[i]*255, brain_Y.RGBout[(120*160)+i]*255, brain_Y.RGBout[(120*160*2)+i]*255);
 			rgbFrame->setPixel(x, y, videoPixel);
 			if(y <= 0){
 				x--;
@@ -291,14 +287,12 @@ void Server::sendVideo(){
 
 
 
-        videoOut->write(*videoFrame);
 	if(streamRGBSecondary){
 		bitmapOut->write(*rgbFrame);
 	}else{
 		bitmapOut->write(*bwFrame);
 	}
-        //if(recordVideo) recVideoOut->write(*videoFrame);
-	if(config["Debug"]=="true") qDebug() << "Sending Video Frame";
+	if(config["Debug"]=="true") qDebug() << "Sending Secondary Video Frame";
 }
 
 void Server::selectVideoStream(int streamNumber){

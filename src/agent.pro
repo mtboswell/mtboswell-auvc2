@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = ../agent
-CONFIG += qt
+CONFIG += qt gui
 QT += network  # phonon 
 
 unix {
@@ -35,7 +35,6 @@ HEADERS += server/server.h \
 	auv/auv.h \
 	auv/auvtypes.h \
 	auv/calibration.h \
-	auv/camread.h \
 	auv/imudata.h \
 	auv/microstrain.h \
 	auv/os5000.h \
@@ -59,7 +58,6 @@ SOURCES += server/server.cpp \
 	   model/parameters.cpp \
 	   auv/arduino.cpp \
 	   auv/auv.cpp \
-	   auv/camread.cpp \
 	   auv/microstrain.cpp \
 	   auv/os5000.cpp \
 	   auv/pololu.cpp \
