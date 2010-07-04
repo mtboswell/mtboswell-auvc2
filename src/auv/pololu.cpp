@@ -44,7 +44,8 @@ void Pololu::setServoPosAbs(char servoNum, short int absPos){
 	int val = absPos;
 	if (val < 500) val = 500;
 	else if (val > 5500) val = 5500;
-	sendServoCmd(4, servoNum, val / 128, val % 128); 
+	if(servoNum < 12) setMaestroServoPos(servoNum, val);
+	else sendServoCmd(4, servoNum, val / 128, val % 128); 
 }
 void Pololu::setMaestroServoPos(char servoNum, short int absPos){
 	sendServoCmd(0x84, // Command byte: Set Target.
@@ -114,4 +115,22 @@ void Pololu::setMotorSpeed(int motorNum, int motorSpeed){
 	data.append(((motorSpeed > 0)?motorSpeed:-motorSpeed) & 0x7F);
 
 	sendTrexCmd(device, command, data);
+}
+
+
+int Pololu::getAnalogInput(char inputNum){
+	sendServoCmd(0x10, inputNum, NULL, NULL, true); 
+	char response[2];
+	int reads = 0;
+	do{
+		reads += port->read(response, 2);
+		if(reads < 0) return -1;
+	}while(reads < 2);
+	int input = ((response[0] << 8)&& 0xFF00) | (response[1] && 0x00FF);
+	return input;
+}
+
+
+int Pololu::getDigitalInput(char inputNum){
+	return (getAnalogInput(inputNum) == 1023) ?1:0;
 }

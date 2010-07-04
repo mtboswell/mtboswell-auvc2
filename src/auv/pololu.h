@@ -48,8 +48,8 @@ class Pololu : public QThread
 		void setSaneTrexParams(char device);
 
 
-		//int getAnalogInput(char inputNum);
-		//int getDigitalInput(char inputNum);
+		int getAnalogInput(char inputNum);
+		int getDigitalInput(char inputNum);
 
 	signals:
 		//void trexError(char device, TrexError err);
