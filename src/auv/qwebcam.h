@@ -23,6 +23,7 @@
 
 #include <QObject>
 #include <QImage>
+#include <QPixmap>
 #include <QTimer>
 #include <QDebug>
 
@@ -35,12 +36,15 @@ class QWebCam : public QObject
 	public:	
 		QWebCam(QObject * parent=0);	
 		~QWebCam();		
-		static QImage Ipl2QImage(const IplImage *newImage);	
+		bool pause();
+		bool unpause();
 	signals:
 		void newFrame(QImage);
+		void newFrame(QPixmap);
 	private slots:
 		void captureLoop();			
 	private:
+		static QImage Ipl2QImage(const IplImage *newImage);	
 		QImage  qImage_;
 		QTimer timer_;
 		IplImage* image_;

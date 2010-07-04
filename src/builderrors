@@ -1,5 +1,7 @@
-make: *** [server.o] Interrupt
-make: *** [sidsocket.o] Interrupt
-make: *** [main.o] Interrupt
-make: *** [configloader.o] Interrupt
-make: *** [model.o] Interrupt
+server/server.cpp: In member function ‘void Server::sendVideo()’:
+server/server.cpp:252:61: error: ‘struct BlockIO_brain’ has no member named ‘RGBVid_R’
+server/server.cpp:252:111: error: ‘struct BlockIO_brain’ has no member named ‘RGBVid_G’
+server/server.cpp:252:159: error: ‘struct BlockIO_brain’ has no member named ‘RGBVid_B’
+make: *** [server.o] Error 1
+make: *** Waiting for unfinished jobs....
+main.cpp:17:13: warning: ‘noCamera’ defined but not used

@@ -24,7 +24,7 @@ QWebCam::QWebCam(QObject * parent):QObject(parent),
 	timer_(this),
 	counter_(0)
 {
-	capture_ = cvCaptureFromCAM(0);
+	capture_ = cvCaptureFromCAM(-1);
 	if (!capture_) {
 		qDebug()<<"cannot get webcam...";
 		return;
@@ -34,7 +34,7 @@ QWebCam::QWebCam(QObject * parent):QObject(parent),
 	image_ = cvRetrieveFrame(capture_);
 	qDebug() << "Image size : " << image_->width << "x" << image_->height;
 
-	timer_.start(100);
+	timer_.start(10);
 	connect(&timer_,SIGNAL(timeout()), this,SLOT(captureLoop()));
 }
 
@@ -65,19 +65,30 @@ QImage QWebCam::Ipl2QImage(const IplImage *newImage)
 	return qtemp;	
 }
 
-void QWebCam::captureLoop() // appeler par le timer, recupere l'image courante de la webcam et convertit
-{
-	if ( !capture_ )
-	{
-		return;
-	}
+void QWebCam::captureLoop(){
+	if ( !capture_ ) return;
 	cvGrabFrame(capture_);
 	image_ = cvRetrieveFrame(capture_);
-	if (image_) 
-	{
-		counter_ ++;
+	if (image_) {
 		qImage_ = Ipl2QImage(image_);
 		emit newFrame(qImage_);
+		emit newFrame(QPixmap::fromImage(qImage_));
 	}
 }
 
+bool QWebCam::pause(){
+	cvReleaseCapture( &capture_ );
+	return true;
+}
+bool QWebCam::unpause(){
+	capture_ = cvCaptureFromCAM(-1);
+	if (!capture_) {
+		qDebug()<<"cannot get webcam...";
+		return false;
+	}	
+	cvGrabFrame(capture_);                    
+	//recupere une image, pour voir les dimensions et redimensionner
+	image_ = cvRetrieveFrame(capture_);
+	qDebug() << "Image size : " << image_->width << "x" << image_->height;
+	return true;
+}

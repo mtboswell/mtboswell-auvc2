@@ -1,13 +1,11 @@
 AUVC TODO list
 
 Finish script sending
-Add logging to dashboard
+Add video logging to dashboard
 
-DONE fix microstrain error checking
 Partially tested - fix serialdevice.cpp and test
 move drivers to serialdevice
 thruster scaling calibration
-fix camera output in brain - ???
 integrate controlboard
 separate auv.cpp into other classes
 - scripting
@@ -31,5 +29,3 @@ Simulink model base class
 -- model hierarchy with all (e.g. path.input.centroid, path.param.hue, path.out.lookforthis, all.out.yaw, all.input.heading)
 - Integrated or separate vision processing?
 -- different steps (i.e. segmentation and blob analysis) in different models/threads?
-Dashboard - set hold pos when entering and leaving rc mode
-- better (actual) rc mode handling

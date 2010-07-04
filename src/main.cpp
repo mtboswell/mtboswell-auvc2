@@ -1,4 +1,4 @@
-#include <QCoreApplication>
+#include <QApplication>
 #include <QMutex>
 
 #include "configloader.h"
@@ -7,34 +7,32 @@ QMap<QString, QString> config;
 #include "server/server.h"
 #include "auv/auv.h"
 #include "auv/calibrateservos.h"
-//#include "brain/brain.h"
-#include "auv/camread.h"
 #include "model/model.h"
 #include <iostream>
 #include <QDebug>
 using namespace std;
 
-static bool noCamera = false;
-static bool stdCamera = false;
-static bool noHardSwitch = false;
+static bool simulate = false;
+static bool previewVideo = false;
 
 int main(int argc, char *argv[]){
 
-	QCoreApplication app(argc, argv);
+	QApplication app(argc, argv);
 	QStringList args = app.arguments();
 	QString arg;
 	foreach(arg, args){
-		// -s means the hardware switch is missing and is not needed.  This is necessary for debugging, since we won't start anything if the switch is off or missing.
-		if(arg == "-s" || arg == "--simulate") noHardSwitch = true;
+		// -s means use the internal simulator instead of the real auv 
+		if(arg == "-s" || arg == "--simulate") simulate = true;
 		// -c triggers servo calibration mode.  See docs in auv/calibrateservos.h.
 		else if(arg == "-c" || arg == "--calibrate-servos") return calibrateServos();
 		else if(arg == "-h"){
 			qDebug() << "Available Arguments:";
-			qDebug() << "\t-s or --simulate : disable hardware on/off switch";
+			qDebug() << "\t-s or --simulate : simulate instead of using real hardware";
 			qDebug() << "\t-c or --calibrate-servos : enter servo calibration mode instead of running normally";
+			qDebug() << "\t-p or --preview : display video from camera";
 			return 0;
-		}else if(arg == "-Y"){
-			stdCamera = true;
+		}else if(arg == "-p" || arg == "--preview"){
+			previewVideo = true;
 		}
 	}
 
@@ -44,24 +42,13 @@ int main(int argc, char *argv[]){
 	QMutex modelMutex;
 	QMutex sensorMutex;
 	
-	/* Initialize camread  ************************************************************/
-	qDebug("Initializing Camera");
-
-/*
-	if(camread_open("/dev/video0", 640, 480)) {
-		// We may or may not want to white balance when we start up
-		//if(!white_balance()) qDebug("White Balance failed.");
-		qDebug("Camera Online");
-	} else {
-		noCamera = true;
-		qDebug("Error: Camera Not Found or Initialization Error");
-	}
-*/
-
 	/* Create and initialize objects ******************************************************/
 	qDebug("Initializing Hardware Interfaces");
 
-	AUV* auv = new AUV(&sensorMutex, noHardSwitch);
+//	if(simulate)
+//		AUV* auv = new Simulator(&sensorMutex);
+//	else
+		AUV* auv = new AUV(&sensorMutex, previewVideo);
 
 	/* Initialize Server */
 	qDebug("Initializing Server");
@@ -88,6 +75,7 @@ int main(int argc, char *argv[]){
 	QObject::connect(auv, SIGNAL(sensorUpdate(AUVSensors)), server, SLOT(sendSensorData(AUVSensors)));
 	QObject::connect(auv, SIGNAL(status(QString)), server, SLOT(sendStatus(QString)));
 	QObject::connect(auv, SIGNAL(error(QString)), server, SLOT(sendError(QString)));
+	QObject::connect(auv, SIGNAL(cameraFrame(QImage)), server, SLOT(sendVideo(QImage)));
 
 	// From server to AUV
 	QObject::connect(server, SIGNAL(go()), auv, SLOT(goAUV()));

@@ -29,6 +29,7 @@
 #include <QMapIterator>
 #include <iostream>
 #include <string>
+#include <QLabel>
 
 // possibly not needed
 using namespace std;
@@ -48,9 +49,9 @@ class AUV : public QThread {
 		/**
 		 * Constructor.
 		 * @param sensorMutex Mutex to protect sensor data?
-		 * @param hardwareOverrideDisabled If set to true, the hardware on/off switch will have no effect.
+		 * @param previewVideo If set to true, the video stream will be displayed by agent.
 		 */
-		AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled = false);
+		AUV(QMutex* sensorMutex, bool previewVideo = false);
 		~AUV();
 		
 		// the setMotion api was a cool idea at one point, but we don't use it
@@ -217,6 +218,7 @@ class AUV : public QThread {
 		 * @param frame latest frame/image available
 		 */
 		void cameraFrame(QImage);
+		void cameraFrame(QPixmap);
 
 		void hardwareOverride();
 		/**
@@ -276,7 +278,8 @@ class AUV : public QThread {
 
 		QStringList states;
 
-		QThread* camThread;
+		//QThread* camThread;
+		QLabel* camView;
 };
 
 #endif /*AUV_H_*/
