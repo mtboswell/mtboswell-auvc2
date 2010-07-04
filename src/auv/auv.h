@@ -15,6 +15,7 @@
 #include "arduino.h"
 #include "pololu.h"
 #include "power.h"
+#include "qwebcam.h"
 #include "lcd.h"
 #include "mechanisms.h"
 #include "../brain/brain.h"
@@ -210,6 +211,13 @@ class AUV : public QThread {
 		 * @param value Brain input value
 		 */
 		void setBrainInput(QString, double);
+
+		/**
+		 * A new image from the camera is ready for processing.
+		 * @param frame latest frame/image available
+		 */
+		void cameraFrame(QImage);
+
 		void hardwareOverride();
 		/**
 		 * Send a status message.
@@ -254,6 +262,7 @@ class AUV : public QThread {
 		Power* thrusterPower;
 		Power* mainPower;
 		LCD* statusLcd;
+		QWebCam* camera;
 		
 		AUVSensors data;
 		
@@ -266,6 +275,8 @@ class AUV : public QThread {
 		QQueue<QString> actionQueue;
 
 		QStringList states;
+
+		QThread* camThread;
 };
 
 #endif /*AUV_H_*/

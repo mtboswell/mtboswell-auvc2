@@ -2,6 +2,16 @@ TEMPLATE = app
 TARGET = ../agent
 CONFIG += qt
 QT += network  # phonon 
+
+unix {
+        CONFIG += link_pkgconfig
+        PKGCONFIG += opencv
+}
+
+win32 {
+        LIBS += cv.lib highgui.lib cvaux.lib cxcore.lib
+}
+
 DEPENDPATH += . \
 	      auv \
 	      brain \
@@ -32,6 +42,7 @@ HEADERS += server/server.h \
 	auv/pololu.h \
 	auv/ports.h \
 	auv/power.h \
+	auv/qwebcam.h \
 	auv/mechanisms.h \
 	auv/calibrateservos.h \
 	auv/serialdevice.h \
@@ -53,6 +64,7 @@ SOURCES += server/server.cpp \
 	   auv/os5000.cpp \
 	   auv/pololu.cpp \
 	   auv/power.cpp \
+	   auv/qwebcam.cpp \
 	   auv/mechanisms.cpp \
 	   auv/calibrateservos.cpp \
 	   auv/serialdevice.cpp \

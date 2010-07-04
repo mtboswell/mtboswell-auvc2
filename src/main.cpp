@@ -47,6 +47,7 @@ int main(int argc, char *argv[]){
 	/* Initialize camread  ************************************************************/
 	qDebug("Initializing Camera");
 
+/*
 	if(camread_open("/dev/video0", 640, 480)) {
 		// We may or may not want to white balance when we start up
 		//if(!white_balance()) qDebug("White Balance failed.");
@@ -55,6 +56,7 @@ int main(int argc, char *argv[]){
 		noCamera = true;
 		qDebug("Error: Camera Not Found or Initialization Error");
 	}
+*/
 
 	/* Create and initialize objects ******************************************************/
 	qDebug("Initializing Hardware Interfaces");
@@ -76,6 +78,7 @@ int main(int argc, char *argv[]){
 	// From AUV to Brain
 	QObject::connect(auv, SIGNAL(sensorUpdate(AUVSensors)), brain, SLOT(updateSensorsInput(AUVSensors)));
 	QObject::connect(auv, SIGNAL(setBrainInput(QString, double)), brain, SLOT(setInput(QString, double)));
+	QObject::connect(auv, SIGNAL(cameraFrame(QImage)), brain, SLOT(updateVideoFrame(QImage)));
 	
 	// From Brain to AUV
 	QObject::connect(brain, SIGNAL(outputReady(ExternalOutputs_brain, int)), auv, SLOT(inputFromBrain(ExternalOutputs_brain)));
