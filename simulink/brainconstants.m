@@ -37,6 +37,10 @@ Buoy2_Hue = 0.0;
 Buoy2_Saturation = 1.0;
 Buoy2_Value = 0.75;
 
+Hedge_Hue = 0.35;
+Hedge_Saturation = 1.0;
+Hedge_Value = 0.75;
+
 Iter_Segment_Thresh = 50;
 
 Buoy_Min_Eccentricity = 0;
@@ -46,7 +50,7 @@ Buoy_Max_Extent = 0.9;
 
 Max_Num_Blobs_Buoy = 10;
 
-Cam_Forward_XPosition_Kp = 0.075;
+Cam_Forward_XPosition_Kp =0.075;
 Cam_Forward_XPosition_Kd = 0.001;
 Cam_Forward_XPosition_Ki = 0.001;
 
