@@ -1,7 +1,8 @@
-server/server.cpp: In member function ‘void Server::sendVideo()’:
-server/server.cpp:252:61: error: ‘struct BlockIO_brain’ has no member named ‘RGBVid_R’
-server/server.cpp:252:111: error: ‘struct BlockIO_brain’ has no member named ‘RGBVid_G’
-server/server.cpp:252:159: error: ‘struct BlockIO_brain’ has no member named ‘RGBVid_B’
-make: *** [server.o] Error 1
-make: *** Waiting for unfinished jobs....
-main.cpp:17:13: warning: ‘noCamera’ defined but not used
+brain/brain.cpp:1906:6: warning: unused parameter ‘brain_M’
+brain/brain.cpp: In function ‘void brain_c3_brain(const real_T*, real_T, rtB_StateFlowFunctionsBuoysFind*, rtDW_StateFlowFunctionsBuoysFin*)’:
+brain/brain.cpp:1053:31: warning: array subscript is above array bounds
+brain/brain.cpp: In function ‘void brain_c5_brain()’:
+brain/brain.cpp:4744:29: warning: array subscript is above array bounds
+brain/brain.cpp:4754:33: warning: array subscript is above array bounds
+brain/brain.cpp:4764:34: warning: array subscript is above array bounds
+brain/brain.cpp:4774:31: warning: array subscript is above array bounds

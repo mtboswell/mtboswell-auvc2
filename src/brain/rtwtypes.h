@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.544
+ * Model version                        : 1.548
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sun Jul  4 13:35:43 2010
+ * Real-Time Workshop file generated on : Wed Jul  7 12:14:45 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sun Jul  4 13:35:46 2010
+ * C/C++ source code generated on       : Wed Jul  7 12:14:48 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon

@@ -198,6 +198,9 @@ void Server::sendBrainData(ExternalOutputs_brain outs, int brainTime){
 	sidsocket->buffer();
 	//outs.stuff;
 	sidsocket->sendSID("Brain.State", QString::number(outs.State));
+	sidsocket->sendSID("Brain.DesiredHeading", QString::number(outs.DesiredHeading));
+	sidsocket->sendSID("Brain.DesiredDepth", QString::number(outs.DesiredDepth));
+	sidsocket->sendSID("Brain.BuoyCentroid", QString::number(outs.BuoyCentroidX) + "," + QString::number(outs.BuoyCentroidY));
 	sidsocket->sendSID("Brain.Time", QString::number(brainTime));
 
 	// write to port

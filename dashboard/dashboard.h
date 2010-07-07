@@ -173,4 +173,6 @@ void on_##guiParam##_editingFinished();
 
 		DataLogger* logger;
 
+		int buoyX, buoyY;
+
 };

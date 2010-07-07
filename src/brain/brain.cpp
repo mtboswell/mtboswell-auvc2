@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.544
+ * Model version                        : 1.548
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sun Jul  4 13:35:43 2010
+ * Real-Time Workshop file generated on : Wed Jul  7 12:14:45 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sun Jul  4 13:35:46 2010
+ * C/C++ source code generated on       : Wed Jul  7 12:14:48 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -98,14 +98,14 @@ static void brain_FindSecondBuoy(void);
 static void brain_ApproachBuoys(void);
 static real_T brain_countimages_m(real_T sf_Image1, real_T sf_OldImage, real_T
   sf_count1);
-static void brain_Outputs_g(const boolean_T eml_U0[19200], int32_T eml_Y0[50],
+static void brain_Outputs_n(const boolean_T eml_U0[19200], int32_T eml_Y0[50],
   real_T eml_Y1[100], real_T eml_Y2[50], real_T eml_Y3[50], uint8_T *eml_Y4);
 static void brain_c5_brain(void);
 static void brain_exit_internal_Buoys(void);
 static void brain_ControlledRC(void);
-static void brain_max_p(const real_T eml_varargin_1[71820], real_T eml_maxval
+static void brain_max_f(const real_T eml_varargin_1[71820], real_T eml_maxval
   [180], real_T eml_indx[180]);
-static void brain_max_ps(const real_T eml_varargin_1[180], real_T *eml_maxval,
+static void brain_max_fe(const real_T eml_varargin_1[180], real_T *eml_maxval,
   real_T *eml_indx);
 static void brain_refp1_round(real_T *eml_x);
 static void brain_c22_brain(void);
@@ -121,21 +121,21 @@ static void brain_StateFlowFunctions(void);
 
 /*
  * Output and update for atomic system:
- *    '<S7>/Embedded MATLAB Function1'
- *    '<S19>/Embedded MATLAB Function1'
+ *    '<S6>/Embedded MATLAB Function1'
+ *    '<S18>/Embedded MATLAB Function1'
  */
 void brain_EmbeddedMATLABFunction1(rtB_EmbeddedMATLABFunction1_bra *localB)
 {
-  /* Embedded MATLAB: '<S7>/Embedded MATLAB Function1' */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.Buoy/Embedded MATLAB Function1': '<S30>:1' */
+  /* Embedded MATLAB: '<S6>/Embedded MATLAB Function1' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.Buoy/Embedded MATLAB Function1': '<S29>:1' */
   /*  This function finds the center of an image */
-  /* '<S30>:1:6' */
-  /* '<S30>:1:7' */
+  /* '<S29>:1:6' */
+  /* '<S29>:1:7' */
   localB->XCenter = 80.0;
   localB->YCenter = 60.0;
 }
 
-/* Function for Embedded MATLAB: '<S7>/Embedded MATLAB Function' */
+/* Function for Embedded MATLAB: '<S6>/Embedded MATLAB Function' */
 static void brain_min(const real_T eml_varargin_1[10], real_T *eml_minval,
                       real_T *eml_indx)
 {
@@ -231,7 +231,7 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     localDW->StateFlowFunctionsBuoysApproa_m;
   localDW->StateFlowFunctionsBuoysApproa_m = brain_M->Timing.clockTick0;
 
-  /* S-Function (svipcolorconv): '<S35>/Color Space  Conversion' */
+  /* S-Function (svipcolorconv): '<S34>/Color Space  Conversion' */
   /* temporary variables for in-place operation */
   cc = 0.0;
   cc_0 = 0.0;
@@ -287,7 +287,7 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   localB->ColorSpaceConversion_o2 = eml_min_dist * cc_0;
   localB->ColorSpaceConversion_o3 = eml_min_dist * cc_1;
 
-  /* S-Function (svipcolorconv): '<S35>/Color Space  Conversion1' */
+  /* S-Function (svipcolorconv): '<S34>/Color Space  Conversion1' */
   /* temporary variables for in-place operation */
   /* Convert to XYZ */
   /* temporary variables for in-place operation */
@@ -385,20 +385,20 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   localB->ColorSpaceConversion1_o2 = (eml_index - eml_i) * 500.0;
   localB->ColorSpaceConversion1_o3 = (eml_i - eml_min_dist) * 200.0;
 
-  /* Embedded MATLAB: '<S31>/Choose Closest Color' */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.Buoy/Threshold The Image/Choose Closest Color': '<S34>:1' */
+  /* Embedded MATLAB: '<S30>/Choose Closest Color' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.Buoy/Threshold The Image/Choose Closest Color': '<S33>:1' */
   /*  This function chooses the appropriate color option from the reference colors */
   /*  and set of desired L,a,b values */
-  /* '<S34>:1:5' */
+  /* '<S33>:1:5' */
   eml_min_dist = 1000.0;
 
-  /* '<S34>:1:11' */
+  /* '<S33>:1:11' */
   rtb_index_h = 1;
 
-  /* '<S34>:1:12' */
+  /* '<S33>:1:12' */
   for (eml_i = 1.0; eml_i <= rtu_Num_Colors; eml_i++) {
-    /* '<S34>:1:12' */
-    /* '<S34>:1:13' */
+    /* '<S33>:1:12' */
+    /* '<S33>:1:13' */
     eml_MinDist = sqrt((rt_pow_snf(localB->ColorSpaceConversion1_o2 -
       rtu_Ref_Colors[(int32_T)eml_i + 49], 2.0) * 1.5 + rt_pow_snf
                         (localB->ColorSpaceConversion1_o1 - rtu_Ref_Colors
@@ -406,11 +406,11 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
                        (localB->ColorSpaceConversion1_o3 - rtu_Ref_Colors
                         [(int32_T)eml_i + 99], 2.0) * 1.5);
     if (eml_MinDist < eml_min_dist) {
-      /* '<S34>:1:14' */
-      /* '<S34>:1:15' */
+      /* '<S33>:1:14' */
+      /* '<S33>:1:15' */
       eml_min_dist = eml_MinDist;
 
-      /* '<S34>:1:16' */
+      /* '<S33>:1:16' */
       cc_0 = floor(eml_i + 0.5);
       if (cc_0 < 128.0) {
         rtb_index_h = (int8_T)cc_0;
@@ -420,12 +420,12 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     }
   }
 
-  /* RelationalOperator: '<S31>/Relational Operator' */
+  /* RelationalOperator: '<S30>/Relational Operator' */
   for (i = 0; i < 19200; i++) {
     localB->BW[i] = (rtu_LabMatrix[i] == (real_T)rtb_index_h);
   }
 
-  /* S-Function (svipblob): '<S7>/Buoy Blob Analysis' */
+  /* S-Function (svipblob): '<S6>/Buoy Blob Analysis' */
   maxNumBlobsReached = FALSE;
   for (i = 0; i < 123; i++) {
     localDW->BuoyBlobAnalysis_PAD_DW[i] = 0U;
@@ -472,7 +472,7 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
           stackIdx--;
           numBlobs = localDW->BuoyBlobAnalysis_STACK_DW[stackIdx];
           for (i = 0; i < 8; i++) {
-            k = numBlobs + (uint32_T)brain_ConstP.pooled17[i];
+            k = numBlobs + (uint32_T)brain_ConstP.pooled15[i];
             if (localDW->BuoyBlobAnalysis_PAD_DW[k] == 255) {
               localDW->BuoyBlobAnalysis_PAD_DW[k] = currentLabel;
               localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)
@@ -564,14 +564,14 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     rtb_BuoyBlobAnalysis_o3_l[i] = -1.0;
   }
 
-  /* Embedded MATLAB: '<S7>/Embedded MATLAB Function' incorporates:
-   *  Constant: '<S7>/Constant'
+  /* Embedded MATLAB: '<S6>/Embedded MATLAB Function' incorporates:
+   *  Constant: '<S6>/Constant'
    */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.Buoy/Embedded MATLAB Function': '<S29>:1' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.Buoy/Embedded MATLAB Function': '<S28>:1' */
   /*  This function will choose and return data about the blob most similar to */
   /*  the desired set of characteristics given a set of blobs */
   /*  Determine closest blob to desired Eccentricity */
-  /* '<S29>:1:8' */
+  /* '<S28>:1:8' */
   for (i = 0; i < 10; i++) {
     eml_Dist[i] = fabs(rtb_BuoyBlobAnalysis_o3_l[i] -
                        brain_P.Buoy_Min_Eccentricity);
@@ -579,91 +579,91 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
 
   if ((rtb_BuoyBlobAnalysis_o2_a[0] == -1.0) && (rtb_BuoyBlobAnalysis_o2_a[1] ==
        -1.0)) {
-    /* '<S29>:1:10' */
-    /* '<S29>:1:12' */
+    /* '<S28>:1:10' */
+    /* '<S28>:1:12' */
     localB->BlobCentroidX = 80.0;
 
-    /* '<S29>:1:13' */
+    /* '<S28>:1:13' */
     localB->BlobCentroidY = 60.0;
 
-    /* '<S29>:1:14' */
+    /* '<S28>:1:14' */
     localB->BlobArea = -1.0;
   } else {
     brain_min(eml_Dist, &eml_min_dist, &eml_i);
 
-    /* '<S29>:1:17' */
+    /* '<S28>:1:17' */
     eml_Dist[(int32_T)eml_i - 1] = 2.0;
     brain_min(eml_Dist, &eml_MinDist, &eml_index);
     if (eml_MinDist < eml_min_dist * 1.5) {
-      /* '<S29>:1:20' */
+      /* '<S28>:1:20' */
       if (rtb_BuoyBlobAnalysis_o1_m[(int32_T)eml_i - 1] >=
           rtb_BuoyBlobAnalysis_o1_m[(int32_T)eml_index - 1]) {
-        /* '<S29>:1:21' */
-        /* '<S29>:1:22' */
+        /* '<S28>:1:21' */
+        /* '<S28>:1:22' */
         localB->BlobCentroidX = rtb_BuoyBlobAnalysis_o2_a[(((int32_T)eml_i - 1) <<
           1U) + 1];
 
-        /* '<S29>:1:23' */
+        /* '<S28>:1:23' */
         localB->BlobCentroidY = rtb_BuoyBlobAnalysis_o2_a[((int32_T)eml_i - 1) <<
           1U];
 
-        /* '<S29>:1:24' */
+        /* '<S28>:1:24' */
         localB->BlobArea = (real_T)rtb_BuoyBlobAnalysis_o1_m[(int32_T)eml_i - 1];
       } else {
-        /* '<S29>:1:26' */
+        /* '<S28>:1:26' */
         localB->BlobCentroidX = rtb_BuoyBlobAnalysis_o2_a[(((int32_T)eml_index -
           1) << 1U) + 1];
 
-        /* '<S29>:1:27' */
+        /* '<S28>:1:27' */
         localB->BlobCentroidY = rtb_BuoyBlobAnalysis_o2_a[((int32_T)eml_index -
           1) << 1U];
 
-        /* '<S29>:1:28' */
+        /* '<S28>:1:28' */
         localB->BlobArea = (real_T)rtb_BuoyBlobAnalysis_o1_m[(int32_T)eml_index
           - 1];
       }
     } else {
-      /* '<S29>:1:31' */
+      /* '<S28>:1:31' */
       localB->BlobCentroidX = rtb_BuoyBlobAnalysis_o2_a[(((int32_T)eml_i - 1) <<
         1U) + 1];
 
-      /* '<S29>:1:32' */
+      /* '<S28>:1:32' */
       localB->BlobCentroidY = rtb_BuoyBlobAnalysis_o2_a[((int32_T)eml_i - 1) <<
         1U];
 
-      /* '<S29>:1:33' */
+      /* '<S28>:1:33' */
       localB->BlobArea = (real_T)rtb_BuoyBlobAnalysis_o1_m[(int32_T)eml_i - 1];
     }
   }
 
-  /* Embedded MATLAB: '<S7>/Embedded MATLAB Function1' */
+  /* Embedded MATLAB: '<S6>/Embedded MATLAB Function1' */
   brain_EmbeddedMATLABFunction1(&localB->sf_EmbeddedMATLABFunction1);
 
-  /* Sum: '<S32>/Subtract' */
+  /* Sum: '<S31>/Subtract' */
   eml_min_dist = localB->sf_EmbeddedMATLABFunction1.XCenter -
     localB->BlobCentroidX;
 
-  /* SampleTimeMath: '<S37>/TSamp' incorporates:
-   *  Gain: '<S36>/X-Buoy Derivative Gain'
+  /* SampleTimeMath: '<S36>/TSamp' incorporates:
+   *  Gain: '<S35>/X-Buoy Derivative Gain'
    *
-   * About '<S37>/TSamp':
+   * About '<S36>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   eml_i = brain_P.Cam_Forward_XPosition_Kd * eml_min_dist / ((real_T)
     localDW->StateFlowFunctionsBuoysApproa_a * 0.2);
 
-  /* DataTypeConversion: '<S32>/Data Type Conversion' incorporates:
-   *  DiscreteIntegrator: '<S36>/X-Buoy Discrete-Time Integrator'
-   *  Gain: '<S36>/X-Buoy Proportional Gain'
-   *  Sum: '<S36>/Sum'
-   *  Sum: '<S37>/Diff'
-   *  UnitDelay: '<S37>/UD'
+  /* DataTypeConversion: '<S31>/Data Type Conversion' incorporates:
+   *  DiscreteIntegrator: '<S35>/X-Buoy Discrete-Time Integrator'
+   *  Gain: '<S35>/X-Buoy Proportional Gain'
+   *  Sum: '<S35>/Sum'
+   *  Sum: '<S36>/Diff'
+   *  UnitDelay: '<S36>/UD'
    *
-   * Block description for '<S37>/Diff':
+   * Block description for '<S36>/Diff':
    *
    *  Add in CPU
    *
-   * Block description for '<S37>/UD':
+   * Block description for '<S36>/UD':
    *
    *  Store in Global RAM
    */
@@ -679,43 +679,43 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     rtb_index_h = MAX_int8_T;
   }
 
-  /* Sum: '<S32>/Add' incorporates:
-   *  Constant: '<S32>/Vision_Forward_Velocity'
+  /* Sum: '<S31>/Add' incorporates:
+   *  Constant: '<S31>/Vision_Forward_Velocity'
    */
   localB->Add = brain_P.Vision_Forward_Velocity + (real_T)rtb_index_h;
 
-  /* Sum: '<S32>/Add1' incorporates:
-   *  Constant: '<S32>/Constant'
-   *  Constant: '<S32>/Vision_Forward_Velocity2'
-   *  Product: '<S32>/Multiply'
+  /* Sum: '<S31>/Add1' incorporates:
+   *  Constant: '<S31>/Constant'
+   *  Constant: '<S31>/Vision_Forward_Velocity2'
+   *  Product: '<S31>/Multiply'
    */
   localB->Add1 = (real_T)rtb_index_h * -1.0 + brain_P.Vision_Forward_Velocity;
 
-  /* Sum: '<S33>/Subtract' */
+  /* Sum: '<S32>/Subtract' */
   eml_MinDist = localB->BlobCentroidY -
     localB->sf_EmbeddedMATLABFunction1.YCenter;
 
-  /* SampleTimeMath: '<S39>/TSamp' incorporates:
-   *  Gain: '<S38>/Y-Buoy Derivative Gain'
+  /* SampleTimeMath: '<S38>/TSamp' incorporates:
+   *  Gain: '<S37>/Y-Buoy Derivative Gain'
    *
-   * About '<S39>/TSamp':
+   * About '<S38>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   eml_index = brain_P.Cam_Forward_YPosition_Kd * eml_MinDist / ((real_T)
     localDW->StateFlowFunctionsBuoysApproa_a * 0.2);
 
-  /* DataTypeConversion: '<S33>/Data Type Conversion' incorporates:
-   *  DiscreteIntegrator: '<S38>/Y-Buoy Discrete-Time Integrator'
-   *  Gain: '<S38>/Y-Buoy Proportional Gain'
-   *  Sum: '<S38>/Sum'
-   *  Sum: '<S39>/Diff'
-   *  UnitDelay: '<S39>/UD'
+  /* DataTypeConversion: '<S32>/Data Type Conversion' incorporates:
+   *  DiscreteIntegrator: '<S37>/Y-Buoy Discrete-Time Integrator'
+   *  Gain: '<S37>/Y-Buoy Proportional Gain'
+   *  Sum: '<S37>/Sum'
+   *  Sum: '<S38>/Diff'
+   *  UnitDelay: '<S38>/UD'
    *
-   * Block description for '<S39>/Diff':
+   * Block description for '<S38>/Diff':
    *
    *  Add in CPU
    *
-   * Block description for '<S39>/UD':
+   * Block description for '<S38>/UD':
    *
    *  Store in Global RAM
    */
@@ -731,15 +731,15 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     localB->DataTypeConversion = MAX_int8_T;
   }
 
-  /* Update for UnitDelay: '<S37>/UD'
-   * Block description for '<S37>/UD':
+  /* Update for UnitDelay: '<S36>/UD'
+   * Block description for '<S36>/UD':
    *
    *  Store in Global RAM
    */
   localDW->UD_DSTATE = eml_i;
 
-  /* Update for DiscreteIntegrator: '<S36>/X-Buoy Discrete-Time Integrator' incorporates:
-   *  Gain: '<S36>/X-Buoy Integral Gain'
+  /* Update for DiscreteIntegrator: '<S35>/X-Buoy Discrete-Time Integrator' incorporates:
+   *  Gain: '<S35>/X-Buoy Integral Gain'
    */
   localDW->XBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
     localDW->StateFlowFunctionsBuoysApproa_a * (brain_P.Cam_Forward_XPosition_Ki
@@ -752,15 +752,15 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     }
   }
 
-  /* Update for UnitDelay: '<S39>/UD'
-   * Block description for '<S39>/UD':
+  /* Update for UnitDelay: '<S38>/UD'
+   * Block description for '<S38>/UD':
    *
    *  Store in Global RAM
    */
   localDW->UD_DSTATE_n = eml_index;
 
-  /* Update for DiscreteIntegrator: '<S38>/Y-Buoy Discrete-Time Integrator' incorporates:
-   *  Gain: '<S38>/Y-Buoy Integral Gain'
+  /* Update for DiscreteIntegrator: '<S37>/Y-Buoy Discrete-Time Integrator' incorporates:
+   *  Gain: '<S37>/Y-Buoy Integral Gain'
    */
   localDW->YBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
     localDW->StateFlowFunctionsBuoysApproa_a * (brain_P.Cam_Forward_YPosition_Ki
@@ -774,7 +774,7 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   }
 }
 
-/* Function for Embedded MATLAB: '<S12>/Blob Extraction' */
+/* Function for Embedded MATLAB: '<S11>/Blob Extraction' */
 static void brain_Outputs(const boolean_T eml_U0[19200], real_T eml_Y0[100],
   real_T eml_Y1[50], real_T eml_Y2[50], uint8_T *eml_Y3,
   rtDW_StateFlowFunctionsBuoysFin *localDW)
@@ -969,7 +969,7 @@ static void brain_Outputs(const boolean_T eml_U0[19200], real_T eml_Y0[100],
   }
 }
 
-/* Function for Embedded MATLAB: '<S12>/Blob Extraction' */
+/* Function for Embedded MATLAB: '<S11>/Blob Extraction' */
 static void brain_c3_brain(const real_T rtu_LabMatrix[19200], real_T
   rtu_num_colors, rtB_StateFlowFunctionsBuoysFind *localB,
   rtDW_StateFlowFunctionsBuoysFin *localDW)
@@ -987,41 +987,41 @@ static void brain_c3_brain(const real_T rtu_LabMatrix[19200], real_T
   uint8_T tmp;
   eml_num_colors = rtu_num_colors;
 
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.LookforBuoys/Blob Extraction': '<S47>:1' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.LookforBuoys/Blob Extraction': '<S46>:1' */
   /*  This function will determine the characteristics of the blobs in an image */
   /*  given a label matrix defining the different binary images contained in a */
   /*  that label matrix */
-  /* '<S47>:1:7' */
+  /* '<S46>:1:7' */
   for (i = 0; i < 19200; i++) {
     localB->eml_LogicMatrix[i] = FALSE;
   }
 
-  /* '<S47>:1:9' */
-  /* '<S47>:1:13' */
-  /* '<S47>:1:14' */
+  /* '<S46>:1:9' */
+  /* '<S46>:1:13' */
+  /* '<S46>:1:14' */
   for (i = 0; i < 50; i++) {
     localB->Eccent[i] = 0.0;
     localB->Extent[i] = 0.0;
   }
 
-  /* '<S47>:1:16' */
+  /* '<S46>:1:16' */
   eml_TotalNum = 0U;
 
-  /* '<S47>:1:26' */
+  /* '<S46>:1:26' */
   for (eml_k = 1.0; eml_k <= eml_num_colors; eml_k++) {
-    /* '<S47>:1:26' */
-    /* '<S47>:1:27' */
+    /* '<S46>:1:26' */
+    /* '<S46>:1:27' */
     for (i = 0; i < 120; i++) {
-      /* '<S47>:1:27' */
-      /* '<S47>:1:28' */
+      /* '<S46>:1:27' */
+      /* '<S46>:1:28' */
       for (eml_j = 0; eml_j < 160; eml_j++) {
-        /* '<S47>:1:28' */
+        /* '<S46>:1:28' */
         if (rtu_LabMatrix[120 * eml_j + i] != eml_k) {
-          /* '<S47>:1:29' */
-          /* '<S47>:1:30' */
+          /* '<S46>:1:29' */
+          /* '<S46>:1:30' */
           localB->eml_LogicMatrix[i + 120 * eml_j] = FALSE;
         } else {
-          /* '<S47>:1:32' */
+          /* '<S46>:1:32' */
           localB->eml_LogicMatrix[i + 120 * eml_j] = TRUE;
         }
       }
@@ -1037,12 +1037,12 @@ static void brain_c3_brain(const real_T rtu_LabMatrix[19200], real_T
     }
 
     if (tmp < 50) {
-      /* '<S47>:1:38' */
-      /* '<S47>:1:39' */
+      /* '<S46>:1:38' */
+      /* '<S46>:1:39' */
       for (eml_b_i = 1U; eml_b_i <= eml_TNumBlobs; eml_b_i = (uint8_T)(uint32_T)
            (eml_b_i + 1)) {
-        /* '<S47>:1:39' */
-        /* '<S47>:1:42' */
+        /* '<S46>:1:39' */
+        /* '<S46>:1:42' */
         i = eml_TotalNum + eml_b_i;
         if ((uint32_T)i > 255U) {
           tmp = MAX_uint8_T;
@@ -1052,7 +1052,7 @@ static void brain_c3_brain(const real_T rtu_LabMatrix[19200], real_T
 
         localB->Eccent[tmp - 1] = eml_TEccent[eml_b_i - 1];
 
-        /* '<S47>:1:43' */
+        /* '<S46>:1:43' */
         i = eml_TotalNum + eml_b_i;
         if ((uint32_T)i > 255U) {
           tmp = MAX_uint8_T;
@@ -1063,7 +1063,7 @@ static void brain_c3_brain(const real_T rtu_LabMatrix[19200], real_T
         localB->Extent[tmp - 1] = eml_TExtent[eml_b_i - 1];
       }
 
-      /* '<S47>:1:45' */
+      /* '<S46>:1:45' */
       i = eml_TotalNum + eml_TNumBlobs;
       if ((uint32_T)i > 255U) {
         eml_TotalNum = MAX_uint8_T;
@@ -1082,7 +1082,7 @@ void StateFlowFunctionsBuoysFin_Init(rtDW_StateFlowFunctionsBuoysFin *localDW)
   int32_T i;
   static int8_T tmp[8] = { -1, 121, 122, 123, 1, -121, -122, -123 };
 
-  /* InitializeConditions for Embedded MATLAB: '<S12>/Blob Extraction' */
+  /* InitializeConditions for Embedded MATLAB: '<S11>/Blob Extraction' */
   for (i = 0; i < 8; i++) {
     localDW->WALKER_RTP[i] = tmp[i];
   }
@@ -1102,46 +1102,46 @@ void StateFlowFunctionsBuoysFindBuoy(const real_T rtu_LabMatrix[19200], real_T
   real_T eml_count;
   uint8_T eml_i;
 
-  /* Embedded MATLAB: '<S12>/Blob Extraction' */
+  /* Embedded MATLAB: '<S11>/Blob Extraction' */
   brain_c3_brain(rtu_LabMatrix, rtu_num_colors, localB, localDW);
 
-  /* Embedded MATLAB: '<S12>/IF Buoy Conditions' incorporates:
-   *  Constant: '<S12>/Constant'
-   *  Constant: '<S12>/Constant1'
-   *  Constant: '<S12>/Constant2'
-   *  Constant: '<S12>/Constant3'
+  /* Embedded MATLAB: '<S11>/IF Buoy Conditions' incorporates:
+   *  Constant: '<S11>/Constant'
+   *  Constant: '<S11>/Constant1'
+   *  Constant: '<S11>/Constant2'
+   *  Constant: '<S11>/Constant3'
    */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.LookforBuoys/IF Buoy Conditions': '<S48>:1' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.LookforBuoys/IF Buoy Conditions': '<S47>:1' */
   /*  This function will take in 2 1x10 vectors, eccent and extent to determine */
   /*  if there is a buoy present in the current image */
-  /* '<S48>:1:5' */
+  /* '<S47>:1:5' */
   localB->Image = 0.0;
 
-  /* '<S48>:1:6' */
+  /* '<S47>:1:6' */
   eml_count = 0.0;
 
-  /* '<S48>:1:8' */
+  /* '<S47>:1:8' */
   for (eml_i = 1U; eml_i <= localB->TotalNum; eml_i = (uint8_T)(uint32_T)(eml_i
         + 1)) {
-    /* '<S48>:1:8' */
+    /* '<S47>:1:8' */
     if ((localB->Eccent[eml_i - 1] > brain_P.Buoy_Min_Eccentricity) &&
         (localB->Eccent[eml_i - 1] < brain_P.Buoy_Max_Eccentricity) &&
         (localB->Extent[eml_i - 1] > brain_P.Buoy_Min_Extent) && (localB->
          Extent[eml_i - 1] < brain_P.Buoy_Max_Extent)) {
-      /* '<S48>:1:9' */
-      /* '<S48>:1:10' */
+      /* '<S47>:1:9' */
+      /* '<S47>:1:10' */
       eml_count++;
     }
   }
 
   if (eml_count >= 3.0) {
-    /* '<S48>:1:14' */
-    /* '<S48>:1:15' */
+    /* '<S47>:1:14' */
+    /* '<S47>:1:15' */
     localB->Image = 1.0;
   }
 }
 
-/* Function for Embedded MATLAB: '<S49>/Low Pass Filter' */
+/* Function for Embedded MATLAB: '<S48>/Low Pass Filter' */
 static void brain_conv2(const real32_T eml_arg1[19200], const real32_T eml_arg2
   [9], real32_T eml_c[18644])
 {
@@ -1179,7 +1179,7 @@ static void brain_conv2(const real32_T eml_arg1[19200], const real32_T eml_arg2
   }
 }
 
-/* Function for Embedded MATLAB: '<S49>/Low Pass Filter' */
+/* Function for Embedded MATLAB: '<S48>/Low Pass Filter' */
 static void brain_c14_brain(const real_T rtu_I[19200], rtB_LowPassFilter_brain
   *localB)
 {
@@ -1188,54 +1188,54 @@ static void brain_c14_brain(const real_T rtu_I[19200], rtB_LowPassFilter_brain
   int32_T eml_i;
   real32_T eml_G_0[9];
 
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.IterativeSegmentation/Low Pass Filter/Low Pass Filter': '<S51>:1' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.IterativeSegmentation/Low Pass Filter/Low Pass Filter': '<S50>:1' */
   /*  This function calculates the gaussian blur of an intensity image */
   /*  Gaussian matrix rows */
   /*  Gaussian matrix columns */
-  /* '<S51>:1:11' */
+  /* '<S50>:1:11' */
   memset((void *)&localB->Iout[0], (int32_T)0.0F, 19200U * sizeof(real32_T));
 
-  /* '<S51>:1:17' */
+  /* '<S50>:1:17' */
   memset((void *)&eml_G[0], (int32_T)0.0, 9U * sizeof(real_T));
 
-  /* '<S51>:1:19' */
-  /* '<S51>:1:21' */
-  /* '<S51>:1:23' */
+  /* '<S50>:1:19' */
+  /* '<S50>:1:21' */
+  /* '<S50>:1:23' */
   eml_Gsum = 0.0;
 
-  /* '<S51>:1:24' */
+  /* '<S50>:1:24' */
   for (eml_i = -1; eml_i < 2; eml_i++) {
-    /* '<S51>:1:24' */
-    /* '<S51>:1:25' */
-    /* '<S51>:1:26' */
+    /* '<S50>:1:24' */
+    /* '<S50>:1:25' */
+    /* '<S50>:1:26' */
     eml_G[eml_i + 1] = exp((-((real_T)(eml_i * eml_i) + 1.0)) /
       4.0000000000000009E+00);
 
-    /* '<S51>:1:27' */
+    /* '<S50>:1:27' */
     eml_Gsum += eml_G[eml_i + 1];
 
-    /* '<S51>:1:25' */
-    /* '<S51>:1:26' */
+    /* '<S50>:1:25' */
+    /* '<S50>:1:26' */
     eml_G[eml_i + 4] = exp((real_T)(-(eml_i * eml_i)) / 4.0000000000000009E+00);
 
-    /* '<S51>:1:27' */
+    /* '<S50>:1:27' */
     eml_Gsum += eml_G[eml_i + 4];
 
-    /* '<S51>:1:25' */
-    /* '<S51>:1:26' */
+    /* '<S50>:1:25' */
+    /* '<S50>:1:26' */
     eml_G[eml_i + 7] = exp((-((real_T)(eml_i * eml_i) + 1.0)) /
       4.0000000000000009E+00);
 
-    /* '<S51>:1:27' */
+    /* '<S50>:1:27' */
     eml_Gsum += eml_G[eml_i + 7];
   }
 
-  /* '<S51>:1:31' */
+  /* '<S50>:1:31' */
   for (eml_i = 0; eml_i < 9; eml_i++) {
     eml_G[eml_i] /= eml_Gsum;
   }
 
-  /* '<S51>:1:33' */
+  /* '<S50>:1:33' */
   for (eml_i = 0; eml_i < 19200; eml_i++) {
     localB->fv0[eml_i] = (real32_T)rtu_I[eml_i];
   }
@@ -1248,50 +1248,50 @@ static void brain_c14_brain(const real_T rtu_I[19200], rtB_LowPassFilter_brain
 
   /*  reflect boundaries to keep image the same size */
   /*  top */
-  /* '<S51>:1:37' */
+  /* '<S50>:1:37' */
   for (eml_i = 0; eml_i < 158; eml_i++) {
     localB->Iout[120 * (1 + eml_i)] = localB->eml_Itemp[118 * eml_i];
   }
 
   /*  bottom */
-  /* '<S51>:1:39' */
+  /* '<S50>:1:39' */
   for (eml_i = 0; eml_i < 158; eml_i++) {
     localB->Iout[119 + 120 * (1 + eml_i)] = localB->eml_Itemp[118 * eml_i + 117];
   }
 
   /*  left */
-  /* '<S51>:1:41' */
+  /* '<S50>:1:41' */
   memcpy((void *)&localB->Iout[1], (void *)&localB->eml_Itemp[0], 118U * sizeof
          (real32_T));
 
   /*  right */
-  /* '<S51>:1:43' */
+  /* '<S50>:1:43' */
   memcpy((void *)&localB->Iout[19081], (void *)&localB->eml_Itemp[18526], 118U *
          sizeof(real32_T));
 
   /*  center */
-  /* '<S51>:1:45' */
+  /* '<S50>:1:45' */
   for (eml_i = 0; eml_i < 158; eml_i++) {
     memcpy((void *)&localB->Iout[1 + 120 * (1 + eml_i)], (void *)
            &localB->eml_Itemp[118 * eml_i], 118U * sizeof(real32_T));
   }
 
   /*  top left corner */
-  /* '<S51>:1:47' */
+  /* '<S50>:1:47' */
   localB->Iout[0] = localB->eml_Itemp[0];
 
   /*  top right corner */
-  /* '<S51>:1:49' */
+  /* '<S50>:1:49' */
   localB->Iout[18960] = localB->eml_Itemp[18408];
   localB->Iout[19080] = localB->eml_Itemp[18526];
 
   /*  bottom left corner */
-  /* '<S51>:1:51' */
+  /* '<S50>:1:51' */
   localB->Iout[118] = localB->eml_Itemp[116];
   localB->Iout[119] = localB->eml_Itemp[117];
 
   /*  bottom right corner */
-  /* '<S51>:1:53' */
+  /* '<S50>:1:53' */
   localB->Iout[19078] = localB->eml_Itemp[18524];
   localB->Iout[19079] = localB->eml_Itemp[18525];
   localB->Iout[19198] = localB->eml_Itemp[18642];
@@ -1300,18 +1300,18 @@ static void brain_c14_brain(const real_T rtu_I[19200], rtB_LowPassFilter_brain
 
 /*
  * Output and update for atomic system:
- *    '<S49>/Low Pass Filter'
- *    '<S49>/Low Pass Filter1'
- *    '<S49>/Low Pass Filter2'
+ *    '<S48>/Low Pass Filter'
+ *    '<S48>/Low Pass Filter1'
+ *    '<S48>/Low Pass Filter2'
  */
 void brain_LowPassFilter(const real_T rtu_I[19200], rtB_LowPassFilter_brain
   *localB)
 {
-  /* Embedded MATLAB: '<S49>/Low Pass Filter' */
+  /* Embedded MATLAB: '<S48>/Low Pass Filter' */
   brain_c14_brain(rtu_I, localB);
 }
 
-/* Function for Embedded MATLAB: '<S50>/Reference Color Selection' */
+/* Function for Embedded MATLAB: '<S49>/Reference Color Selection' */
 static void brain_c28_brain(rtB_StateFlowFunctionsBuoysIter *localB)
 {
   int32_T eml_num_colors;
@@ -1327,57 +1327,57 @@ static void brain_c28_brain(rtB_StateFlowFunctionsBuoysIter *localB)
   uint32_T eml_c_i;
   int32_T i;
 
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.IterativeSegmentation/Segmentation/Reference Color Selection': '<S55>:1' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.IterativeSegmentation/Segmentation/Reference Color Selection': '<S54>:1' */
   /*  This function tries segmentation by adding new reference colors everytime */
   /*  a pixel is found with a distance greater than a certain amount from */
   /*  every other reference color */
-  /* '<S55>:1:6' */
+  /* '<S54>:1:6' */
   /*  L = 0 to 100, a = -100 to 100, b = -100 to 100 */
   /*  max dist = 300 -> 60/300 is 20% */
   /*  coefficients determining distance calculation */
-  /* '<S55>:1:14' */
-  /* '<S55>:1:15' */
+  /* '<S54>:1:14' */
+  /* '<S54>:1:15' */
   memset((void *)&localB->ref_colors[0], (int32_T)0.0, 150U * sizeof(real_T));
 
   /*  At most 50 different reference colors */
-  /* '<S55>:1:16' */
+  /* '<S54>:1:16' */
   memset((void *)&localB->eml_LabelMatrix[0], (int32_T)0U, 4800U * sizeof
          (uint32_T));
 
-  /* '<S55>:1:17' */
+  /* '<S54>:1:17' */
   eml_num_colors = 1;
 
-  /* '<S55>:1:22' */
+  /* '<S54>:1:22' */
   localB->ref_colors[0] = localB->Resize[2369];
   localB->ref_colors[50] = localB->Resize1[2369];
   localB->ref_colors[100] = localB->Resize2[2369];
 
-  /* '<S55>:1:24' */
+  /* '<S54>:1:24' */
   i = 0;
 
-  /* '<S55>:1:25' */
+  /* '<S54>:1:25' */
   eml_i = 1;
 
-  /* '<S55>:1:26' */
+  /* '<S54>:1:26' */
   eml_j = 1;
   while (eml_i <= 60) {
-    /* '<S55>:1:27' */
+    /* '<S54>:1:27' */
     /*  perform initial segmentation */
     while ((eml_i <= 60) && (i == 0)) {
-      /* '<S55>:1:28' */
+      /* '<S54>:1:28' */
       while ((eml_j <= 80) && (i == 0)) {
-        /* '<S55>:1:29' */
-        /* '<S55>:1:30' */
+        /* '<S54>:1:29' */
+        /* '<S54>:1:30' */
         eml_c_i = 1U;
 
-        /* '<S55>:1:31' */
+        /* '<S54>:1:31' */
         eml_min_dist = 1000.0;
 
-        /* '<S55>:1:32' */
+        /* '<S54>:1:32' */
         eml_index = 1;
         while (eml_c_i <= (uint32_T)eml_num_colors) {
-          /* '<S55>:1:33' */
-          /* '<S55>:1:34' */
+          /* '<S54>:1:33' */
+          /* '<S54>:1:34' */
           eml_dist = (real32_T)sqrt((rt_pow32_snf((real32_T)localB->
             ref_colors[eml_c_i + 49] - localB->Resize1[(eml_j - 1) * 60 + (eml_i
             - 1)], 2.0F) * 1.5F + rt_pow32_snf((real32_T)localB->
@@ -1385,22 +1385,22 @@ static void brain_c28_brain(rtB_StateFlowFunctionsBuoysIter *localB)
             1)], 2.0F)) + rt_pow32_snf((real32_T)localB->ref_colors[eml_c_i + 99]
             - localB->Resize2[(eml_j - 1) * 60 + (eml_i - 1)], 2.0F) * 1.5F);
           if (eml_min_dist > (real_T)eml_dist) {
-            /* '<S55>:1:35' */
-            /* '<S55>:1:36' */
+            /* '<S54>:1:35' */
+            /* '<S54>:1:36' */
             eml_min_dist = eml_dist;
 
-            /* '<S55>:1:37' */
+            /* '<S54>:1:37' */
             eml_index = (int32_T)eml_c_i;
           }
 
-          /* '<S55>:1:39' */
+          /* '<S54>:1:39' */
           eml_c_i++;
         }
 
         if ((eml_min_dist > brain_P.Iter_Segment_Thresh) && (eml_num_colors < 50))
         {
-          /* '<S55>:1:44' */
-          /* '<S55>:1:45' */
+          /* '<S54>:1:44' */
+          /* '<S54>:1:45' */
           localB->ref_colors[eml_num_colors] = localB->Resize[(eml_j - 1) * 60 +
             (eml_i - 1)];
           localB->ref_colors[eml_num_colors + 50] = localB->Resize1[(eml_j - 1) *
@@ -1408,43 +1408,43 @@ static void brain_c28_brain(rtB_StateFlowFunctionsBuoysIter *localB)
           localB->ref_colors[eml_num_colors + 100] = localB->Resize2[(eml_j - 1)
             * 60 + (eml_i - 1)];
 
-          /* '<S55>:1:46' */
+          /* '<S54>:1:46' */
           eml_num_colors++;
 
-          /* '<S55>:1:47' */
+          /* '<S54>:1:47' */
           i = 1;
 
-          /* '<S55>:1:48' */
+          /* '<S54>:1:48' */
           eml_i = 0;
 
-          /* '<S55>:1:49' */
+          /* '<S54>:1:49' */
           eml_j = 0;
         } else {
-          /* '<S55>:1:51' */
+          /* '<S54>:1:51' */
           localB->eml_LabelMatrix[(eml_i - 1) + 60 * (eml_j - 1)] = (uint32_T)
             eml_index;
         }
 
-        /* '<S55>:1:53' */
+        /* '<S54>:1:53' */
         eml_j++;
       }
 
-      /* '<S55>:1:55' */
+      /* '<S54>:1:55' */
       eml_j = 1;
 
-      /* '<S55>:1:56' */
+      /* '<S54>:1:56' */
       eml_i++;
     }
 
-    /* '<S55>:1:58' */
+    /* '<S54>:1:58' */
     i = 0;
   }
 
   /*  Go through image once more to get more accurate values for the different regions */
-  /* '<S55>:1:62' */
-  /* '<S55>:1:63' */
-  /* '<S55>:1:64' */
-  /* '<S55>:1:65' */
+  /* '<S54>:1:62' */
+  /* '<S54>:1:63' */
+  /* '<S54>:1:64' */
+  /* '<S54>:1:65' */
   for (i = 0; i < 50; i++) {
     eml_ref_color_L_avg[i] = 0.0;
     eml_ref_color_a_avg[i] = 0.0;
@@ -1452,54 +1452,54 @@ static void brain_c28_brain(rtB_StateFlowFunctionsBuoysIter *localB)
     eml_color_count[i] = 0.0;
   }
 
-  /* '<S55>:1:66' */
+  /* '<S54>:1:66' */
   for (i = 0; i < 60; i++) {
-    /* '<S55>:1:66' */
-    /* '<S55>:1:67' */
+    /* '<S54>:1:66' */
+    /* '<S54>:1:67' */
     for (eml_i = 0; eml_i < 80; eml_i++) {
-      /* '<S55>:1:67' */
-      /* '<S55>:1:68' */
-      /* '<S55>:1:69' */
+      /* '<S54>:1:67' */
+      /* '<S54>:1:68' */
+      /* '<S54>:1:69' */
       eml_ref_color_L_avg[(int32_T)localB->eml_LabelMatrix[i + 60 * eml_i] - 1] =
         (real32_T)eml_ref_color_L_avg[(int32_T)localB->eml_LabelMatrix[60 *
         eml_i + i] - 1] + localB->Resize[60 * eml_i + i];
 
-      /* '<S55>:1:70' */
+      /* '<S54>:1:70' */
       eml_ref_color_a_avg[(int32_T)localB->eml_LabelMatrix[i + 60 * eml_i] - 1] =
         (real32_T)eml_ref_color_a_avg[(int32_T)localB->eml_LabelMatrix[60 *
         eml_i + i] - 1] + localB->Resize1[60 * eml_i + i];
 
-      /* '<S55>:1:71' */
+      /* '<S54>:1:71' */
       eml_ref_color_b_avg[(int32_T)localB->eml_LabelMatrix[i + 60 * eml_i] - 1] =
         (real32_T)eml_ref_color_b_avg[(int32_T)localB->eml_LabelMatrix[60 *
         eml_i + i] - 1] + localB->Resize2[60 * eml_i + i];
 
-      /* '<S55>:1:72' */
+      /* '<S54>:1:72' */
       eml_color_count[(int32_T)localB->eml_LabelMatrix[i + 60 * eml_i] - 1] =
         eml_color_count[(int32_T)localB->eml_LabelMatrix[60 * eml_i + i] - 1] +
         1.0;
     }
   }
 
-  /* '<S55>:1:75' */
-  /* '<S55>:1:76' */
-  /* '<S55>:1:77' */
+  /* '<S54>:1:75' */
+  /* '<S54>:1:76' */
+  /* '<S54>:1:77' */
   for (i = 0; i < 50; i++) {
     eml_ref_color_L_avg[i] /= eml_color_count[i];
     eml_ref_color_a_avg[i] /= eml_color_count[i];
     eml_ref_color_b_avg[i] /= eml_color_count[i];
   }
 
-  /* '<S55>:1:79' */
+  /* '<S54>:1:79' */
   for (eml_c_i = 1U; eml_c_i <= (uint32_T)eml_num_colors; eml_c_i++) {
-    /* '<S55>:1:79' */
-    /* '<S55>:1:80' */
+    /* '<S54>:1:79' */
+    /* '<S54>:1:80' */
     localB->ref_colors[eml_c_i - 1] = eml_ref_color_L_avg[(int32_T)eml_c_i - 1];
 
-    /* '<S55>:1:81' */
+    /* '<S54>:1:81' */
     localB->ref_colors[eml_c_i + 49] = eml_ref_color_a_avg[(int32_T)eml_c_i - 1];
 
-    /* '<S55>:1:82' */
+    /* '<S54>:1:82' */
     localB->ref_colors[eml_c_i + 99] = eml_ref_color_b_avg[(int32_T)eml_c_i - 1];
   }
 
@@ -1530,7 +1530,7 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
   real_T eml_k;
   real32_T Resize2_LineBuffer[120];
 
-  /* S-Function (svipcolorconv): '<S14>/Color Space  Conversion' */
+  /* S-Function (svipcolorconv): '<S13>/Color Space  Conversion' */
   /* temporary variables for in-place operation */
   cc = 0.0;
   cc_0 = 0.0;
@@ -1588,18 +1588,18 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
     localB->ColorSpaceConversion_o3[i] = eml_min_dist * cc_1;
   }
 
-  /* Embedded MATLAB: '<S49>/Low Pass Filter' */
+  /* Embedded MATLAB: '<S48>/Low Pass Filter' */
   brain_LowPassFilter(localB->ColorSpaceConversion_o1, &localB->sf_LowPassFilter);
 
-  /* Embedded MATLAB: '<S49>/Low Pass Filter1' */
+  /* Embedded MATLAB: '<S48>/Low Pass Filter1' */
   brain_LowPassFilter(localB->ColorSpaceConversion_o2,
                       &localB->sf_LowPassFilter1);
 
-  /* Embedded MATLAB: '<S49>/Low Pass Filter2' */
+  /* Embedded MATLAB: '<S48>/Low Pass Filter2' */
   brain_LowPassFilter(localB->ColorSpaceConversion_o3,
                       &localB->sf_LowPassFilter2);
 
-  /* S-Function (svipcolorconv): '<S14>/Color Space  Conversion1' */
+  /* S-Function (svipcolorconv): '<S13>/Color Space  Conversion1' */
   /* temporary variables for in-place operation */
   /* Convert to XYZ */
   /* temporary variables for in-place operation */
@@ -1701,22 +1701,22 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
     localB->ColorSpaceConversion1_o3[i] = (Yr - eml_dist) * 200.0F;
   }
 
-  /* S-Function (svipresize): '<S56>/Resize' */
+  /* S-Function (svipresize): '<S55>/Resize' */
   /* use pre-computed weights and index table to perform interpolation */
   eml_j = 0;
   for (i = 0; i < 120; i++) {
     indx = i;
     for (n = 0; n < 80; n++) {
       ictr = n + 80;
-      eml_dist = localB->ColorSpaceConversion1_o1[brain_ConstP.pooled20[n] * 120
+      eml_dist = localB->ColorSpaceConversion1_o1[brain_ConstP.pooled18[n] * 120
         + i] * brain_ConstP.pooled14[n] + localB->
-        ColorSpaceConversion1_o1[brain_ConstP.pooled20[ictr] * 120 + i] *
+        ColorSpaceConversion1_o1[brain_ConstP.pooled18[ictr] * 120 + i] *
         brain_ConstP.pooled14[ictr];
       ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o1[brain_ConstP.pooled20[ictr] *
+      eml_dist += localB->ColorSpaceConversion1_o1[brain_ConstP.pooled18[ictr] *
         120 + i] * brain_ConstP.pooled14[ictr];
       ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o1[brain_ConstP.pooled20[ictr] *
+      eml_dist += localB->ColorSpaceConversion1_o1[brain_ConstP.pooled18[ictr] *
         120 + i] * brain_ConstP.pooled14[ictr];
       localDW->Resize_IntBuffer[indx] = eml_dist;
       indx += 120;
@@ -1728,36 +1728,36 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
             * 120]), 120U * sizeof(real32_T));
     for (i = 0; i < 60; i++) {
       ictr = i + 60;
-      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled19[i]] *
-        brain_ConstP.pooled13[i] + Resize2_LineBuffer[brain_ConstP.pooled19[ictr]]
+      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled17[i]] *
+        brain_ConstP.pooled13[i] + Resize2_LineBuffer[brain_ConstP.pooled17[ictr]]
         * brain_ConstP.pooled13[ictr];
       ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled19[ictr]] *
+      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled17[ictr]] *
         brain_ConstP.pooled13[ictr];
       ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled19[ictr]] *
+      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled17[ictr]] *
         brain_ConstP.pooled13[ictr];
       localB->Resize[eml_j] = eml_dist;
       eml_j++;
     }
   }
 
-  /* S-Function (svipresize): '<S56>/Resize1' */
+  /* S-Function (svipresize): '<S55>/Resize1' */
   /* use pre-computed weights and index table to perform interpolation */
   eml_j = 0;
   for (i = 0; i < 120; i++) {
     indx = i;
     for (n = 0; n < 80; n++) {
       ictr = n + 80;
-      eml_dist = localB->ColorSpaceConversion1_o2[brain_ConstP.pooled20[n] * 120
+      eml_dist = localB->ColorSpaceConversion1_o2[brain_ConstP.pooled18[n] * 120
         + i] * brain_ConstP.pooled14[n] + localB->
-        ColorSpaceConversion1_o2[brain_ConstP.pooled20[ictr] * 120 + i] *
+        ColorSpaceConversion1_o2[brain_ConstP.pooled18[ictr] * 120 + i] *
         brain_ConstP.pooled14[ictr];
       ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o2[brain_ConstP.pooled20[ictr] *
+      eml_dist += localB->ColorSpaceConversion1_o2[brain_ConstP.pooled18[ictr] *
         120 + i] * brain_ConstP.pooled14[ictr];
       ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o2[brain_ConstP.pooled20[ictr] *
+      eml_dist += localB->ColorSpaceConversion1_o2[brain_ConstP.pooled18[ictr] *
         120 + i] * brain_ConstP.pooled14[ictr];
       localDW->Resize1_IntBuffer[indx] = eml_dist;
       indx += 120;
@@ -1769,36 +1769,36 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
             Resize1_IntBuffer[n * 120]), 120U * sizeof(real32_T));
     for (i = 0; i < 60; i++) {
       ictr = i + 60;
-      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled19[i]] *
-        brain_ConstP.pooled13[i] + Resize2_LineBuffer[brain_ConstP.pooled19[ictr]]
+      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled17[i]] *
+        brain_ConstP.pooled13[i] + Resize2_LineBuffer[brain_ConstP.pooled17[ictr]]
         * brain_ConstP.pooled13[ictr];
       ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled19[ictr]] *
+      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled17[ictr]] *
         brain_ConstP.pooled13[ictr];
       ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled19[ictr]] *
+      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled17[ictr]] *
         brain_ConstP.pooled13[ictr];
       localB->Resize1[eml_j] = eml_dist;
       eml_j++;
     }
   }
 
-  /* S-Function (svipresize): '<S56>/Resize2' */
+  /* S-Function (svipresize): '<S55>/Resize2' */
   /* use pre-computed weights and index table to perform interpolation */
   eml_j = 0;
   for (i = 0; i < 120; i++) {
     indx = i;
     for (n = 0; n < 80; n++) {
       ictr = n + 80;
-      eml_dist = localB->ColorSpaceConversion1_o3[brain_ConstP.pooled20[n] * 120
+      eml_dist = localB->ColorSpaceConversion1_o3[brain_ConstP.pooled18[n] * 120
         + i] * brain_ConstP.pooled14[n] + localB->
-        ColorSpaceConversion1_o3[brain_ConstP.pooled20[ictr] * 120 + i] *
+        ColorSpaceConversion1_o3[brain_ConstP.pooled18[ictr] * 120 + i] *
         brain_ConstP.pooled14[ictr];
       ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o3[brain_ConstP.pooled20[ictr] *
+      eml_dist += localB->ColorSpaceConversion1_o3[brain_ConstP.pooled18[ictr] *
         120 + i] * brain_ConstP.pooled14[ictr];
       ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o3[brain_ConstP.pooled20[ictr] *
+      eml_dist += localB->ColorSpaceConversion1_o3[brain_ConstP.pooled18[ictr] *
         120 + i] * brain_ConstP.pooled14[ictr];
       localDW->Resize2_IntBuffer[indx] = eml_dist;
       indx += 120;
@@ -1810,45 +1810,45 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
             Resize2_IntBuffer[n * 120]), 120U * sizeof(real32_T));
     for (i = 0; i < 60; i++) {
       ictr = i + 60;
-      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled19[i]] *
-        brain_ConstP.pooled13[i] + Resize2_LineBuffer[brain_ConstP.pooled19[ictr]]
+      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled17[i]] *
+        brain_ConstP.pooled13[i] + Resize2_LineBuffer[brain_ConstP.pooled17[ictr]]
         * brain_ConstP.pooled13[ictr];
       ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled19[ictr]] *
+      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled17[ictr]] *
         brain_ConstP.pooled13[ictr];
       ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled19[ictr]] *
+      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled17[ictr]] *
         brain_ConstP.pooled13[ictr];
       localB->Resize2[eml_j] = eml_dist;
       eml_j++;
     }
   }
 
-  /* Embedded MATLAB: '<S50>/Reference Color Selection' */
+  /* Embedded MATLAB: '<S49>/Reference Color Selection' */
   brain_c28_brain(localB);
 
-  /* Embedded MATLAB: '<S50>/LabSegmentation' */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.IterativeSegmentation/Segmentation/LabSegmentation': '<S54>:1' */
+  /* Embedded MATLAB: '<S49>/LabSegmentation' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.IterativeSegmentation/Segmentation/LabSegmentation': '<S53>:1' */
   /*  This function generates the label matrix */
-  /* '<S54>:1:10' */
+  /* '<S53>:1:10' */
   memset((void *)(&localB->LabelMatrix[0]), (int32_T)0.0, 19200U * sizeof(real_T));
 
-  /* '<S54>:1:12' */
+  /* '<S53>:1:12' */
   for (i = 0; i < 120; i++) {
-    /* '<S54>:1:12' */
-    /* '<S54>:1:13' */
+    /* '<S53>:1:12' */
+    /* '<S53>:1:13' */
     for (eml_j = 0; eml_j < 160; eml_j++) {
-      /* '<S54>:1:13' */
-      /* '<S54>:1:14' */
+      /* '<S53>:1:13' */
+      /* '<S53>:1:14' */
       eml_min_dist = 1000.0;
 
-      /* '<S54>:1:15' */
+      /* '<S53>:1:15' */
       eml_index = 1.0;
 
-      /* '<S54>:1:16' */
+      /* '<S53>:1:16' */
       for (eml_k = 1.0; eml_k <= localB->num_colors; eml_k++) {
-        /* '<S54>:1:16' */
-        /* '<S54>:1:17' */
+        /* '<S53>:1:16' */
+        /* '<S53>:1:17' */
         eml_dist = (real32_T)sqrt((rt_pow32_snf((real32_T)localB->ref_colors
           [(int32_T)eml_k - 1] - localB->ColorSpaceConversion1_o1[120 * eml_j +
           i], 2.0F) + rt_pow32_snf((real32_T)localB->ref_colors[(int32_T)eml_k +
@@ -1856,21 +1856,21 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
           rt_pow32_snf((real32_T)localB->ref_colors[(int32_T)eml_k + 99] -
                        localB->ColorSpaceConversion1_o3[120 * eml_j + i], 2.0F));
         if ((real_T)eml_dist < eml_min_dist) {
-          /* '<S54>:1:18' */
-          /* '<S54>:1:19' */
+          /* '<S53>:1:18' */
+          /* '<S53>:1:19' */
           eml_min_dist = eml_dist;
 
-          /* '<S54>:1:20' */
+          /* '<S53>:1:20' */
           eml_index = eml_k;
         }
       }
 
-      /* '<S54>:1:23' */
+      /* '<S53>:1:23' */
       localB->LabelMatrix[i + 120 * eml_j] = eml_index;
     }
   }
 
-  /* '<S54>:1:27' */
+  /* '<S53>:1:27' */
 }
 
 /* Initial conditions for function-call system: '<Root>/StateFlow Functions' */
@@ -1884,29 +1884,29 @@ void StateFlowFunctionsMaintain_Init(RT_MODEL_brain *const brain_M,
 void StateFlowFunctionsMaint_Disable(rtB_StateFlowFunctionsMaintainH *localB,
   rtDW_StateFlowFunctionsMaintain *localDW)
 {
-  /* Disable for If: '<S23>/If' */
+  /* Disable for If: '<S22>/If' */
   localDW->If_ActiveSubsystem = -1;
 
-  /* Disable for ifaction SubSystem: '<S23>/BigError S1' */
+  /* Disable for ifaction SubSystem: '<S22>/BigError S1' */
 
-  /* Disable for Outport: '<S80>/Out2' */
+  /* Disable for Outport: '<S79>/Out2' */
   localB->Constant1_e = 0.0;
 
-  /* end of Disable for SubSystem: '<S23>/BigError S1' */
+  /* end of Disable for SubSystem: '<S22>/BigError S1' */
 
-  /* Disable for ifaction SubSystem: '<S23>/BigNegativeError S2' */
+  /* Disable for ifaction SubSystem: '<S22>/BigNegativeError S2' */
 
-  /* Disable for Outport: '<S81>/Out2' */
+  /* Disable for Outport: '<S80>/Out2' */
   localB->Constant1 = 0.0;
 
-  /* end of Disable for SubSystem: '<S23>/BigNegativeError S2' */
+  /* end of Disable for SubSystem: '<S22>/BigNegativeError S2' */
 }
 
 /* Start for function-call system: '<Root>/StateFlow Functions' */
 void StateFlowFunctionsMaintai_Start(RT_MODEL_brain *const brain_M,
   rtDW_StateFlowFunctionsMaintain *localDW)
 {
-  /* Start for If: '<S23>/If' */
+  /* Start for If: '<S22>/If' */
   localDW->If_ActiveSubsystem = -1;
 }
 
@@ -1926,14 +1926,14 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
     localDW->StateFlowFunctionsMaintainHea_m;
   localDW->StateFlowFunctionsMaintainHea_m = brain_M->Timing.clockTick0;
 
-  /* Sum: '<S23>/Add1' */
+  /* Sum: '<S22>/Add1' */
   rtb_Add1 = rtu_DesiredHeading1 - rtu_CurrentHeading1;
 
-  /* If: '<S23>/If' incorporates:
+  /* If: '<S22>/If' incorporates:
+   *  ActionPort: '<S79>/Action Port'
    *  ActionPort: '<S80>/Action Port'
-   *  ActionPort: '<S81>/Action Port'
-   *  SubSystem: '<S23>/BigError S1'
-   *  SubSystem: '<S23>/BigNegativeError S2'
+   *  SubSystem: '<S22>/BigError S1'
+   *  SubSystem: '<S22>/BigNegativeError S2'
    */
   rtPrevAction = localDW->If_ActiveSubsystem;
   rtAction = -1;
@@ -1949,12 +1949,12 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
   if (rtPrevAction != rtAction) {
     switch (rtPrevAction) {
      case 0:
-      /* Disable for Outport: '<S80>/Out2' */
+      /* Disable for Outport: '<S79>/Out2' */
       localB->Constant1_e = 0.0;
       break;
 
      case 1:
-      /* Disable for Outport: '<S81>/Out2' */
+      /* Disable for Outport: '<S80>/Out2' */
       localB->Constant1 = 0.0;
       break;
     }
@@ -1962,29 +1962,29 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
 
   switch (rtAction) {
    case 0:
-    /* Sum: '<S80>/Add' incorporates:
-     *  Constant: '<S80>/Constant'
+    /* Sum: '<S79>/Add' incorporates:
+     *  Constant: '<S79>/Constant'
      */
     localB->Add_o = rtb_Add1 - 360.0;
 
-    /* Constant: '<S80>/Constant1' */
+    /* Constant: '<S79>/Constant1' */
     localB->Constant1_e = 1.0;
     break;
 
    case 1:
-    /* Sum: '<S81>/Add' incorporates:
-     *  Constant: '<S81>/Constant'
+    /* Sum: '<S80>/Add' incorporates:
+     *  Constant: '<S80>/Constant'
      */
     localB->Add = rtb_Add1 + 360.0;
 
-    /* Constant: '<S81>/Constant1' */
+    /* Constant: '<S80>/Constant1' */
     localB->Constant1 = 2.0;
     break;
   }
 
-  /* MultiPortSwitch: '<S23>/Multiport Switch' incorporates:
-   *  Constant: '<S23>/Constant1'
-   *  Sum: '<S23>/Add2'
+  /* MultiPortSwitch: '<S22>/Multiport Switch' incorporates:
+   *  Constant: '<S22>/Constant1'
+   *  Sum: '<S22>/Add2'
    */
   switch ((int32_T)((1.0 + localB->Constant1_e) + localB->Constant1)) {
    case 1:
@@ -1999,34 +1999,34 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
     break;
   }
 
-  /* SampleTimeMath: '<S83>/TSamp' incorporates:
-   *  Gain: '<S82>/Heading Derivative Gain'
+  /* SampleTimeMath: '<S82>/TSamp' incorporates:
+   *  Gain: '<S81>/Heading Derivative Gain'
    *
-   * About '<S83>/TSamp':
+   * About '<S82>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   rtb_TSamp_j = brain_P.Heading_Kd * rtb_Add1 / ((real_T)
     localDW->StateFlowFunctionsMaintainHea_e * 0.2);
 
-  /* Sum: '<S82>/Sum' incorporates:
-   *  DiscreteIntegrator: '<S82>/Heading Discrete-Time Integrator'
-   *  Gain: '<S82>/Heading Proportional Gain'
-   *  Sum: '<S83>/Diff'
-   *  UnitDelay: '<S83>/UD'
+  /* Sum: '<S81>/Sum' incorporates:
+   *  DiscreteIntegrator: '<S81>/Heading Discrete-Time Integrator'
+   *  Gain: '<S81>/Heading Proportional Gain'
+   *  Sum: '<S82>/Diff'
+   *  UnitDelay: '<S82>/UD'
    *
-   * Block description for '<S83>/Diff':
+   * Block description for '<S82>/Diff':
    *
    *  Add in CPU
    *
-   * Block description for '<S83>/UD':
+   * Block description for '<S82>/UD':
    *
    *  Store in Global RAM
    */
   rtb_Add4 = (brain_P.Heading_Kp * rtb_Add1 + (rtb_TSamp_j - localDW->UD_DSTATE))
     + localDW->HeadingDiscreteTimeIntegrator_D;
 
-  /* Product: '<S23>/Multiply' incorporates:
-   *  Constant: '<S23>/Constant'
+  /* Product: '<S22>/Multiply' incorporates:
+   *  Constant: '<S22>/Constant'
    */
   tmp = -rtb_Add4;
   if (rtIsNaN(tmp) || rtIsInf(tmp)) {
@@ -2035,11 +2035,11 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
     tmp = fmod(floor(tmp), 256.0);
   }
 
-  /* Sum: '<S23>/Add4' */
+  /* Sum: '<S22>/Add4' */
   rtb_Add4 += rtu_ForwardVelocity1;
 
-  /* DataTypeConversion: '<S23>/DoubleToint1' incorporates:
-   *  Sum: '<S23>/Add3'
+  /* DataTypeConversion: '<S22>/DoubleToint1' incorporates:
+   *  Sum: '<S22>/Add3'
    */
   tmp = (real_T)(int8_T)(tmp < 0.0 ? (int32_T)(int8_T)(-((int8_T)(uint8_T)(-tmp)))
     : (int32_T)(int8_T)(uint8_T)tmp) + rtu_ForwardVelocity1;
@@ -2054,7 +2054,7 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
     localB->DoubleToint1 = MAX_int8_T;
   }
 
-  /* DataTypeConversion: '<S23>/DoubleToint8' */
+  /* DataTypeConversion: '<S22>/DoubleToint8' */
   tmp = floor(rtb_Add4);
   if (tmp < 128.0) {
     if (tmp >= -128.0) {
@@ -2066,15 +2066,15 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
     localB->DoubleToint8 = MAX_int8_T;
   }
 
-  /* Update for UnitDelay: '<S83>/UD'
-   * Block description for '<S83>/UD':
+  /* Update for UnitDelay: '<S82>/UD'
+   * Block description for '<S82>/UD':
    *
    *  Store in Global RAM
    */
   localDW->UD_DSTATE = rtb_TSamp_j;
 
-  /* Update for DiscreteIntegrator: '<S82>/Heading Discrete-Time Integrator' incorporates:
-   *  Gain: '<S82>/Heading Integral Gain'
+  /* Update for DiscreteIntegrator: '<S81>/Heading Discrete-Time Integrator' incorporates:
+   *  Gain: '<S81>/Heading Integral Gain'
    */
   localDW->HeadingDiscreteTimeIntegrator_D = 0.2 * (real_T)
     localDW->StateFlowFunctionsMaintainHea_e * (brain_P.Heading_Ki * rtb_Add1) +
@@ -2095,26 +2095,26 @@ void StateFlowFunctionsFollowOnePath(const real_T rtu_H1[19200], const real_T
 {
   int32_T i;
 
-  /* Embedded MATLAB: '<S16>/PutHSVImageTogether' */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.MakeHSVImage/PutHSVImageTogether': '<S59>:1' */
+  /* Embedded MATLAB: '<S15>/PutHSVImageTogether' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.MakeHSVImage/PutHSVImageTogether': '<S58>:1' */
   /*  This function simply makes an HSV image a single multidimensional */
   /*  signal */
-  /* '<S59>:1:7' */
+  /* '<S58>:1:7' */
   memset((void *)(&localB->HSVImage1[0]), (int32_T)0.0, 57600U * sizeof(real_T));
 
-  /* '<S59>:1:9' */
+  /* '<S58>:1:9' */
   for (i = 0; i < 160; i++) {
     memcpy((void *)(&localB->HSVImage1[120 * i]), (void *)(&rtu_H1[120 * i]),
            120U * sizeof(real_T));
   }
 
-  /* '<S59>:1:10' */
+  /* '<S58>:1:10' */
   for (i = 0; i < 160; i++) {
     memcpy((void *)(&localB->HSVImage1[19200 + 120 * i]), (void *)(&rtu_S1[120 *
             i]), 120U * sizeof(real_T));
   }
 
-  /* '<S59>:1:11' */
+  /* '<S58>:1:11' */
   for (i = 0; i < 160; i++) {
     memcpy((void *)(&localB->HSVImage1[38400 + 120 * i]), (void *)(&rtu_V1[120 *
             i]), 120U * sizeof(real_T));
@@ -2158,12 +2158,12 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
     localDW->StateFlowFunctionsFollowOnePa_l;
   localDW->StateFlowFunctionsFollowOnePa_l = brain_M->Timing.clockTick0;
 
-  /* S-Function (svipscalenconvert): '<S19>/Image Data Type Conversion' */
+  /* S-Function (svipscalenconvert): '<S18>/Image Data Type Conversion' */
   for (i = 0; i < 19200; i++) {
     localB->ImageDataTypeConversion[i] = ((rtu_BW[i] == 0.0 ? 0 : 1) != 0);
   }
 
-  /* S-Function (svipblob): '<S19>/Buoy Blob Analysis' */
+  /* S-Function (svipblob): '<S18>/Buoy Blob Analysis' */
   maxNumBlobsReached = FALSE;
   for (i = 0; i < 123; i++) {
     localDW->BuoyBlobAnalysis_PAD_DW[i] = 0U;
@@ -2211,7 +2211,7 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
           stackIdx--;
           numBlobs = localDW->BuoyBlobAnalysis_STACK_DW[stackIdx];
           for (i = 0; i < 8; i++) {
-            walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled17[i];
+            walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled15[i];
             if (localDW->BuoyBlobAnalysis_PAD_DW[walkerIdx] == 255) {
               localDW->BuoyBlobAnalysis_PAD_DW[walkerIdx] = currentLabel;
               localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)
@@ -2278,17 +2278,17 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
     rtb_BuoyBlobAnalysis_o2_h[i] = -1.0;
   }
 
-  /* Embedded MATLAB: '<S19>/Embedded MATLAB Function' */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.CenterOver_Strafe/Embedded MATLAB Function': '<S66>:1' */
+  /* Embedded MATLAB: '<S18>/Embedded MATLAB Function' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.CenterOver_Strafe/Embedded MATLAB Function': '<S65>:1' */
   /*  This function will choose and return data about the largest blob given a  */
   /*  set of blobs */
   if ((rtb_BuoyBlobAnalysis_o2_h[0] == -1.0) && (rtb_BuoyBlobAnalysis_o2_h[1] ==
        -1.0)) {
-    /* '<S66>:1:5' */
-    /* '<S66>:1:7' */
+    /* '<S65>:1:5' */
+    /* '<S65>:1:7' */
     eml_BlobCentroidX = 80.0;
 
-    /* '<S66>:1:8' */
+    /* '<S65>:1:8' */
     eml_BlobCentroidY = 60.0;
   } else {
     i = rtb_BuoyBlobAnalysis_o1_l[0];
@@ -2302,48 +2302,48 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
       }
     }
 
-    /* '<S66>:1:12' */
+    /* '<S65>:1:12' */
     eml_BlobCentroidX = rtb_BuoyBlobAnalysis_o2_h[((n - 1) << 1) + 1];
 
-    /* '<S66>:1:13' */
+    /* '<S65>:1:13' */
     eml_BlobCentroidY = rtb_BuoyBlobAnalysis_o2_h[(n - 1) << 1];
   }
 
-  /* Embedded MATLAB: '<S19>/Embedded MATLAB Function1' */
+  /* Embedded MATLAB: '<S18>/Embedded MATLAB Function1' */
   brain_EmbeddedMATLABFunction1(&localB->sf_EmbeddedMATLABFunction1);
 
-  /* Sum: '<S19>/Subtract' */
+  /* Sum: '<S18>/Subtract' */
   localB->Subtract = eml_BlobCentroidX -
     localB->sf_EmbeddedMATLABFunction1.XCenter;
 
-  /* Sum: '<S19>/Subtract1' */
+  /* Sum: '<S18>/Subtract1' */
   localB->Subtract1 = eml_BlobCentroidY -
     localB->sf_EmbeddedMATLABFunction1.YCenter;
 
-  /* Sum: '<S68>/Subtract' */
+  /* Sum: '<S67>/Subtract' */
   rtb_Sum_c = localB->sf_EmbeddedMATLABFunction1.XCenter - eml_BlobCentroidX;
 
-  /* SampleTimeMath: '<S71>/TSamp' incorporates:
-   *  Gain: '<S70>/X-Buoy Derivative Gain'
+  /* SampleTimeMath: '<S70>/TSamp' incorporates:
+   *  Gain: '<S69>/X-Buoy Derivative Gain'
    *
-   * About '<S71>/TSamp':
+   * About '<S70>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   rtb_TSamp_ct = brain_P.Cam_Down_XPos_Kd * rtb_Sum_c / ((real_T)
     localDW->StateFlowFunctionsFollowOnePa_g * 0.2);
 
-  /* DataTypeConversion: '<S68>/Data Type Conversion' incorporates:
-   *  DiscreteIntegrator: '<S70>/X-Buoy Discrete-Time Integrator'
-   *  Gain: '<S70>/X-Buoy Proportional Gain'
-   *  Sum: '<S70>/Sum'
-   *  Sum: '<S71>/Diff'
-   *  UnitDelay: '<S71>/UD'
+  /* DataTypeConversion: '<S67>/Data Type Conversion' incorporates:
+   *  DiscreteIntegrator: '<S69>/X-Buoy Discrete-Time Integrator'
+   *  Gain: '<S69>/X-Buoy Proportional Gain'
+   *  Sum: '<S69>/Sum'
+   *  Sum: '<S70>/Diff'
+   *  UnitDelay: '<S70>/UD'
    *
-   * Block description for '<S71>/Diff':
+   * Block description for '<S70>/Diff':
    *
    *  Add in CPU
    *
-   * Block description for '<S71>/UD':
+   * Block description for '<S70>/UD':
    *
    *  Store in Global RAM
    */
@@ -2360,31 +2360,31 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
     localB->DataTypeConversion = MAX_int8_T;
   }
 
-  /* Sum: '<S69>/Subtract' */
+  /* Sum: '<S68>/Subtract' */
   eml_BlobCentroidX = localB->sf_EmbeddedMATLABFunction1.YCenter -
     eml_BlobCentroidY;
 
-  /* SampleTimeMath: '<S73>/TSamp' incorporates:
-   *  Gain: '<S72>/Y-Buoy Derivative Gain'
+  /* SampleTimeMath: '<S72>/TSamp' incorporates:
+   *  Gain: '<S71>/Y-Buoy Derivative Gain'
    *
-   * About '<S73>/TSamp':
+   * About '<S72>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   eml_BlobCentroidY = brain_P.Cam_Down_YPos_Kd * eml_BlobCentroidX / ((real_T)
     localDW->StateFlowFunctionsFollowOnePa_g * 0.2);
 
-  /* DataTypeConversion: '<S69>/Data Type Conversion' incorporates:
-   *  DiscreteIntegrator: '<S72>/Y-Buoy Discrete-Time Integrator'
-   *  Gain: '<S72>/Y-Buoy Proportional Gain'
-   *  Sum: '<S72>/Sum'
-   *  Sum: '<S73>/Diff'
-   *  UnitDelay: '<S73>/UD'
+  /* DataTypeConversion: '<S68>/Data Type Conversion' incorporates:
+   *  DiscreteIntegrator: '<S71>/Y-Buoy Discrete-Time Integrator'
+   *  Gain: '<S71>/Y-Buoy Proportional Gain'
+   *  Sum: '<S71>/Sum'
+   *  Sum: '<S72>/Diff'
+   *  UnitDelay: '<S72>/UD'
    *
-   * Block description for '<S73>/Diff':
+   * Block description for '<S72>/Diff':
    *
    *  Add in CPU
    *
-   * Block description for '<S73>/UD':
+   * Block description for '<S72>/UD':
    *
    *  Store in Global RAM
    */
@@ -2401,15 +2401,15 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
     localB->DataTypeConversion_f = MAX_int8_T;
   }
 
-  /* Update for UnitDelay: '<S71>/UD'
-   * Block description for '<S71>/UD':
+  /* Update for UnitDelay: '<S70>/UD'
+   * Block description for '<S70>/UD':
    *
    *  Store in Global RAM
    */
   localDW->UD_DSTATE = rtb_TSamp_ct;
 
-  /* Update for DiscreteIntegrator: '<S70>/X-Buoy Discrete-Time Integrator' incorporates:
-   *  Gain: '<S70>/X-Buoy Integral Gain'
+  /* Update for DiscreteIntegrator: '<S69>/X-Buoy Discrete-Time Integrator' incorporates:
+   *  Gain: '<S69>/X-Buoy Integral Gain'
    */
   localDW->XBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
     localDW->StateFlowFunctionsFollowOnePa_g * (brain_P.Cam_Down_XPos_Ki *
@@ -2422,15 +2422,15 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
     }
   }
 
-  /* Update for UnitDelay: '<S73>/UD'
-   * Block description for '<S73>/UD':
+  /* Update for UnitDelay: '<S72>/UD'
+   * Block description for '<S72>/UD':
    *
    *  Store in Global RAM
    */
   localDW->UD_DSTATE_n = eml_BlobCentroidY;
 
-  /* Update for DiscreteIntegrator: '<S72>/Y-Buoy Discrete-Time Integrator' incorporates:
-   *  Gain: '<S72>/Y-Buoy Integral Gain'
+  /* Update for DiscreteIntegrator: '<S71>/Y-Buoy Discrete-Time Integrator' incorporates:
+   *  Gain: '<S71>/Y-Buoy Integral Gain'
    */
   localDW->YBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
     localDW->StateFlowFunctionsFollowOnePa_g * (brain_P.Cam_Down_YPos_Ki *
@@ -2463,52 +2463,52 @@ void StateFlowFunctionsFollowOnePa_k(real_T rtu_HeadingAlong, real_T
     localDW->StateFlowFunctionsFollowOneP_iz;
   localDW->StateFlowFunctionsFollowOneP_iz = brain_M->Timing.clockTick0;
 
-  /* SampleTimeMath: '<S62>/TSamp' incorporates:
-   *  Gain: '<S61>/CamDown-X Derivative Gain'
+  /* SampleTimeMath: '<S61>/TSamp' incorporates:
+   *  Gain: '<S60>/CamDown-X Derivative Gain'
    *
-   * About '<S62>/TSamp':
+   * About '<S61>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   rtb_TSamp_p = brain_P.Cam_Down_XPos_Kd * rtu_HeadingAlong / ((real_T)
     localDW->StateFlowFunctionsFollowOnePa_j * 0.2);
 
-  /* Sum: '<S61>/Sum' incorporates:
-   *  DiscreteIntegrator: '<S61>/Depth Discrete-Time Integrator'
-   *  Gain: '<S61>/CamDown-X Proportional Gain'
-   *  Sum: '<S62>/Diff'
-   *  UnitDelay: '<S62>/UD'
+  /* Sum: '<S60>/Sum' incorporates:
+   *  DiscreteIntegrator: '<S60>/Depth Discrete-Time Integrator'
+   *  Gain: '<S60>/CamDown-X Proportional Gain'
+   *  Sum: '<S61>/Diff'
+   *  UnitDelay: '<S61>/UD'
    *
-   * Block description for '<S62>/Diff':
+   * Block description for '<S61>/Diff':
    *
    *  Add in CPU
    *
-   * Block description for '<S62>/UD':
+   * Block description for '<S61>/UD':
    *
    *  Store in Global RAM
    */
   rtb_Sum_d = (brain_P.Cam_Down_XPos_Ki * rtu_HeadingAlong + (rtb_TSamp_p -
     localDW->UD_DSTATE)) + localDW->DepthDiscreteTimeIntegrator_DST;
 
-  /* Embedded MATLAB: '<S17>/Embedded MATLAB Function' */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.Align/Embedded MATLAB Function': '<S60>:1' */
+  /* Embedded MATLAB: '<S16>/Embedded MATLAB Function' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.Align/Embedded MATLAB Function': '<S59>:1' */
   /*  This function makes sure the path was seen and if not, the only sends the */
   /*  forward command to the thrusters */
   if (rtu_HeadingAlong == -999.0) {
-    /* '<S60>:1:5' */
-    /* '<S60>:1:6' */
+    /* '<S59>:1:5' */
+    /* '<S59>:1:6' */
     rtb_Left = rtu_Forward1;
 
-    /* '<S60>:1:7' */
+    /* '<S59>:1:7' */
     rtb_Sum_d = rtu_Forward1;
   } else {
-    /* '<S60>:1:9' */
+    /* '<S59>:1:9' */
     rtb_Left = rtu_Forward1 + rtb_Sum_d;
 
-    /* '<S60>:1:10' */
+    /* '<S59>:1:10' */
     rtb_Sum_d = rtu_Forward1 - rtb_Sum_d;
   }
 
-  /* DataTypeConversion: '<S17>/Double To Int1' */
+  /* DataTypeConversion: '<S16>/Double To Int1' */
   rtb_Left = floor(rtb_Left);
   if (rtb_Left < 128.0) {
     if (rtb_Left >= -128.0) {
@@ -2520,7 +2520,7 @@ void StateFlowFunctionsFollowOnePa_k(real_T rtu_HeadingAlong, real_T
     localB->DoubleToInt1 = MAX_int8_T;
   }
 
-  /* DataTypeConversion: '<S17>/Double To Int8' */
+  /* DataTypeConversion: '<S16>/Double To Int8' */
   rtb_Left = floor(rtb_Sum_d);
   if (rtb_Left < 128.0) {
     if (rtb_Left >= -128.0) {
@@ -2532,15 +2532,15 @@ void StateFlowFunctionsFollowOnePa_k(real_T rtu_HeadingAlong, real_T
     localB->DoubleToInt8 = MAX_int8_T;
   }
 
-  /* Update for UnitDelay: '<S62>/UD'
-   * Block description for '<S62>/UD':
+  /* Update for UnitDelay: '<S61>/UD'
+   * Block description for '<S61>/UD':
    *
    *  Store in Global RAM
    */
   localDW->UD_DSTATE = rtb_TSamp_p;
 
-  /* Update for DiscreteIntegrator: '<S61>/Depth Discrete-Time Integrator' incorporates:
-   *  Gain: '<S61>/CamDown-X Integral Gain'
+  /* Update for DiscreteIntegrator: '<S60>/Depth Discrete-Time Integrator' incorporates:
+   *  Gain: '<S60>/CamDown-X Integral Gain'
    */
   localDW->DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
     localDW->StateFlowFunctionsFollowOnePa_j * (brain_P.Cam_Down_XPos_Ki *
@@ -2559,57 +2559,57 @@ static void brain_enter_internal_Autonomous(void)
 {
   switch (brain_DWork.was_Autonomous) {
    case brain_IN_Buoy:
-    /* Entry 'Buoy': '<S4>:1025' */
+    /* Entry 'Buoy': '<S3>:1025' */
     brain_DWork.is_Autonomous = brain_IN_Buoy;
     brain_DWork.was_Autonomous = brain_IN_Buoy;
     brain_DWork.Done = 0.0;
     break;
 
    case brain_IN_ChooseState:
-    /* Entry 'ChooseState': '<S4>:1134' */
+    /* Entry 'ChooseState': '<S3>:1134' */
     brain_DWork.is_Autonomous = brain_IN_ChooseState;
     brain_DWork.was_Autonomous = brain_IN_ChooseState;
     brain_DWork.Done = 0.0;
     break;
 
    case brain_IN_Finish:
-    /* Entry 'Finish': '<S4>:1064' */
+    /* Entry 'Finish': '<S3>:1064' */
     brain_DWork.is_Autonomous = brain_IN_Finish;
     brain_DWork.was_Autonomous = brain_IN_Finish;
     brain_DWork.Done = 0.0;
     break;
 
    case brain_IN_FollowOnePath:
-    /* Entry 'FollowOnePath': '<S4>:1065' */
+    /* Entry 'FollowOnePath': '<S3>:1065' */
     brain_DWork.is_Autonomous = brain_IN_FollowOnePath;
     brain_DWork.was_Autonomous = brain_IN_FollowOnePath;
     brain_DWork.Done = 0.0;
     break;
 
    case brain_IN_FollowOnePath1:
-    /* Entry 'FollowOnePath1': '<S4>:1142' */
+    /* Entry 'FollowOnePath1': '<S3>:1142' */
     brain_DWork.is_Autonomous = brain_IN_FollowOnePath1;
     brain_DWork.was_Autonomous = brain_IN_FollowOnePath1;
     brain_DWork.Done = 0.0;
     break;
 
    case brain_IN_Start_m:
-    /* Entry 'Start': '<S4>:1019' */
+    /* Entry 'Start': '<S3>:1019' */
     brain_DWork.is_Autonomous = brain_IN_Start_m;
     brain_DWork.was_Autonomous = brain_IN_Start_m;
     brain_DWork.Done = 0.0;
     break;
 
    case brain_IN_ValidationGate_m:
-    /* Entry 'ValidationGate': '<S4>:1121' */
+    /* Entry 'ValidationGate': '<S3>:1121' */
     brain_DWork.is_Autonomous = brain_IN_ValidationGate_m;
     brain_DWork.was_Autonomous = brain_IN_ValidationGate_m;
     brain_DWork.Done = 0.0;
     break;
 
    default:
-    /* Transition: '<S4>:946' */
-    /* Entry 'Start': '<S4>:1019' */
+    /* Transition: '<S3>:946' */
+    /* Entry 'Start': '<S3>:1019' */
     brain_DWork.is_Autonomous = brain_IN_Start_m;
     brain_DWork.was_Autonomous = brain_IN_Start_m;
     brain_DWork.Done = 0.0;
@@ -2620,17 +2620,17 @@ static void brain_enter_internal_Autonomous(void)
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
 static void brain_enter_internal_Buoys(void)
 {
-  /* Transition: '<S4>:1291' */
-  /* Entry 'FindBuoys': '<S4>:1295' */
+  /* Transition: '<S3>:1291' */
+  /* Entry 'FindBuoys': '<S3>:1295' */
   brain_DWork.is_Buoys = brain_IN_FindBuoys;
   brain_DWork.OldObstacle = FALSE;
   brain_B.CameraPosition = 0;
   brain_B.State = 4;
   brain_DWork.BuoyCount = 0.0;
 
-  /* Simulink Function 'GetDesiredDepth': '<S4>:1286' */
+  /* Simulink Function 'GetDesiredDepth': '<S3>:1286' */
 
-  /* Constant: '<S21>/Constant' */
+  /* Constant: '<S20>/Constant' */
   brain_B.Constant_f = brain_P.Track_Desired_Depth;
   brain_B.DesiredDepth = brain_B.Constant_f;
 }
@@ -2638,15 +2638,15 @@ static void brain_enter_internal_Buoys(void)
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
 static real_T brain_countareas(real_T sf_Size, real_T sf_count1)
 {
-  /* Embedded MATLAB Function 'countareas': '<S4>:1366' */
+  /* Embedded MATLAB Function 'countareas': '<S3>:1366' */
   /*  This function acts to count the number of consecutive times a particular */
   /*  area is recognized by the recognition software */
   if (sf_Size > 1.6E+04) {
-    /* '<S4>:1366:6' */
-    /* '<S4>:1366:7' */
+    /* '<S3>:1366:6' */
+    /* '<S3>:1366:7' */
     return sf_count1 + 1.0;
   } else {
-    /* '<S4>:1366:9' */
+    /* '<S3>:1366:9' */
     return 0.0;
   }
 }
@@ -2656,18 +2656,18 @@ static real_T brain_GetDirectionToLook(real_T sf_FirstD, real_T sf_SecondD)
 {
   real_T sf_TurnD;
 
-  /* Embedded MATLAB Function 'GetDirectionToLook': '<S4>:1337' */
+  /* Embedded MATLAB Function 'GetDirectionToLook': '<S3>:1337' */
   /*  Determine which direction the AUV needs to turn to see the next buoy */
   /*  -1 is left, 1 is right, -999 is for a single buoy attempt */
   /*  FirstD, SecondD are 1,2,3 - left,middle,right */
-  /* '<S4>:1337:6' */
+  /* '<S3>:1337:6' */
   sf_TurnD = sf_SecondD - sf_FirstD;
   if (sf_TurnD != 0.0) {
-    /* '<S4>:1337:8' */
-    /* '<S4>:1337:9' */
+    /* '<S3>:1337:8' */
+    /* '<S3>:1337:9' */
     sf_TurnD /= fabs(sf_TurnD);
   } else {
-    /* '<S4>:1337:11' */
+    /* '<S3>:1337:11' */
     return -999.0;
   }
 
@@ -2679,19 +2679,19 @@ static real_T brain_Turn45Degrees(real_T sf_CHeading, real_T sf_TurnD)
 {
   real_T sf_DHeading;
 
-  /* Embedded MATLAB Function 'Turn45Degrees': '<S4>:1333' */
+  /* Embedded MATLAB Function 'Turn45Degrees': '<S3>:1333' */
   /*  This function changes the current heading by 45 degrees in the correct */
   /*  direction to see the next buoy */
-  /* '<S4>:1333:5' */
+  /* '<S3>:1333:5' */
   sf_DHeading = sf_TurnD * 45.0 + sf_CHeading;
   if (sf_DHeading > 360.0) {
-    /* '<S4>:1333:7' */
-    /* '<S4>:1333:8' */
+    /* '<S3>:1333:7' */
+    /* '<S3>:1333:8' */
     sf_DHeading -= 360.0;
   } else {
     if (sf_DHeading < 0.0) {
-      /* '<S4>:1333:9' */
-      /* '<S4>:1333:10' */
+      /* '<S3>:1333:9' */
+      /* '<S3>:1333:10' */
       sf_DHeading += 360.0;
     }
   }
@@ -2731,15 +2731,15 @@ static void brain_FindSecondBuoy(void)
   real_T rtb_BuoyBlobAnalysis_o2[10];
   int32_T i;
 
-  /* During 'FindSecondBuoy': '<S4>:1317' */
+  /* During 'FindSecondBuoy': '<S3>:1317' */
   if (brain_DWork.Image == 1.0) {
-    /* Transition: '<S4>:1315' */
-    /* Exit 'FindSecondBuoy': '<S4>:1317' */
-    /* Entry 'ApproachSecondBuoy': '<S4>:1316' */
+    /* Transition: '<S3>:1315' */
+    /* Exit 'FindSecondBuoy': '<S3>:1317' */
+    /* Entry 'ApproachSecondBuoy': '<S3>:1316' */
     brain_DWork.is_ApproachBuoys = brain_IN_ApproachSecondBuoy;
     brain_B.Strafe = 0;
   } else {
-    /* Simulink Function 'MaintainHeading': '<S4>:918' */
+    /* Simulink Function 'MaintainHeading': '<S3>:918' */
     brain_B.DesiredHeading1 = brain_B.DesiredHeading;
     brain_B.CurrentHeading1 = brain_U.CurrentHeading;
     brain_B.ForwardVelocity1 = 0.0;
@@ -2750,37 +2750,37 @@ static void brain_FindSecondBuoy(void)
     brain_B.Left = brain_B.StateFlowFunctionsMaintainHea_d.DoubleToint8;
     brain_B.Right = brain_B.StateFlowFunctionsMaintainHea_d.DoubleToint1;
 
-    /* Simulink Function 'MaintainDepth': '<S4>:926' */
+    /* Simulink Function 'MaintainDepth': '<S3>:926' */
     brain_B.CurrentDepth1 = (real32_T)brain_U.CurrentDepth;
     brain_B.DesiredDepth1 = (real32_T)brain_B.DesiredDepth;
     brain_DWork.StateFlowFunctionsMaintainDepth = brain_M->Timing.clockTick0 -
       brain_DWork.StateFlowFunctionsMaintainDep_k;
     brain_DWork.StateFlowFunctionsMaintainDep_k = brain_M->Timing.clockTick0;
 
-    /* Sum: '<S22>/Add' */
+    /* Sum: '<S21>/Add' */
     rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-    /* SampleTimeMath: '<S79>/TSamp' incorporates:
-     *  Gain: '<S78>/Depth Derivative Gain'
+    /* SampleTimeMath: '<S78>/TSamp' incorporates:
+     *  Gain: '<S77>/Depth Derivative Gain'
      *
-     * About '<S79>/TSamp':
+     * About '<S78>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
       brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
-    /* DataTypeConversion: '<S22>/Double To Int8' incorporates:
-     *  DiscreteIntegrator: '<S78>/Depth Discrete-Time Integrator'
-     *  Gain: '<S78>/Depth Proportional Gain'
-     *  Sum: '<S78>/Sum'
-     *  Sum: '<S79>/Diff'
-     *  UnitDelay: '<S79>/UD'
+    /* DataTypeConversion: '<S21>/Double To Int8' incorporates:
+     *  DiscreteIntegrator: '<S77>/Depth Discrete-Time Integrator'
+     *  Gain: '<S77>/Depth Proportional Gain'
+     *  Sum: '<S77>/Sum'
+     *  Sum: '<S78>/Diff'
+     *  UnitDelay: '<S78>/UD'
      *
-     * Block description for '<S79>/Diff':
+     * Block description for '<S78>/Diff':
      *
      *  Add in CPU
      *
-     * Block description for '<S79>/UD':
+     * Block description for '<S78>/UD':
      *
      *  Store in Global RAM
      */
@@ -2797,15 +2797,15 @@ static void brain_FindSecondBuoy(void)
       brain_B.DoubleToInt8 = MAX_int8_T;
     }
 
-    /* Update for UnitDelay: '<S79>/UD'
-     * Block description for '<S79>/UD':
+    /* Update for UnitDelay: '<S78>/UD'
+     * Block description for '<S78>/UD':
      *
      *  Store in Global RAM
      */
     brain_DWork.UD_DSTATE = rtb_TSamp;
 
-    /* Update for DiscreteIntegrator: '<S78>/Depth Discrete-Time Integrator' incorporates:
-     *  Gain: '<S78>/Depth Integral Gain'
+    /* Update for DiscreteIntegrator: '<S77>/Depth Discrete-Time Integrator' incorporates:
+     *  Gain: '<S77>/Depth Integral Gain'
      */
     brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
       brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki * rtb_Add)
@@ -2820,18 +2820,18 @@ static void brain_FindSecondBuoy(void)
 
     brain_B.Vertical = brain_B.DoubleToInt8;
 
-    /* Simulink Function 'GetStrafe': '<S4>:1331' */
+    /* Simulink Function 'GetStrafe': '<S3>:1331' */
 
-    /* Constant: '<S9>/Constant' */
+    /* Constant: '<S8>/Constant' */
     brain_B.Constant_p = brain_P.Buoy_Strafe;
     brain_B.Strafe = (int8_T)brain_B.Constant_p;
     brain_B.Strafe = (int8_T)(brain_DWork.TurnDirection * (real_T)brain_B.Strafe);
 
-    /* Simulink Function 'IterativeSegmentation': '<S4>:1483' */
+    /* Simulink Function 'IterativeSegmentation': '<S3>:1483' */
     for (i = 0; i < 19200; i++) {
-      brain_B.H[i] = brain_B.Resize[i];
-      brain_B.S[i] = brain_B.Resize1[i];
-      brain_B.V[i] = brain_B.Resize2[i];
+      brain_B.H[i] = brain_B.DataTypeConversion[i];
+      brain_B.S[i] = brain_B.DataTypeConversion1[i];
+      brain_B.V[i] = brain_B.DataTypeConversion2[i];
     }
 
     StateFlowFunctionsBuoysIterativ(brain_B.H, brain_B.S, brain_B.V,
@@ -2845,7 +2845,7 @@ static void brain_FindSecondBuoy(void)
            &brain_B.StateFlowFunctionsBuoysIterat_g.ref_colors[0], 150U * sizeof
            (real_T));
 
-    /* Simulink Function 'SecondBuoy': '<S4>:1318' */
+    /* Simulink Function 'SecondBuoy': '<S3>:1318' */
     memcpy((void *)&brain_B.LabMatrix_b3[0], (void *)&brain_DWork.LabelMatrix[0],
            19200U * sizeof(real_T));
     memcpy((void *)&brain_B.Ref_Colors_a[0], (void *)&brain_DWork.ref_colors[0],
@@ -2855,7 +2855,7 @@ static void brain_FindSecondBuoy(void)
     brain_B.B_Sat_k = brain_DWork.BuoySaturation;
     brain_B.B_Value_c = brain_DWork.BuoyValue;
 
-    /* S-Function (svipcolorconv): '<S43>/Color Space  Conversion' */
+    /* S-Function (svipcolorconv): '<S42>/Color Space  Conversion' */
     /* temporary variables for in-place operation */
     cc = 0.0;
     cc_0 = 0.0;
@@ -2911,7 +2911,7 @@ static void brain_FindSecondBuoy(void)
     brain_B.ColorSpaceConversion_o2_i = rtb_Add * cc_0;
     brain_B.ColorSpaceConversion_o3_d = rtb_Add * cc_1;
 
-    /* S-Function (svipcolorconv): '<S43>/Color Space  Conversion1' */
+    /* S-Function (svipcolorconv): '<S42>/Color Space  Conversion1' */
     /* temporary variables for in-place operation */
     /* Convert to XYZ */
     /* temporary variables for in-place operation */
@@ -3013,15 +3013,15 @@ static void brain_FindSecondBuoy(void)
     brain_B.ColorSpaceConversion1_o2_k = (ys - rtb_TSamp) * 500.0;
     brain_B.ColorSpaceConversion1_o3_e = (rtb_TSamp - rtb_Add) * 200.0;
 
-    /* Embedded MATLAB: '<S41>/Choose Closest Color' */
-    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.SecondBuoy/Threshold The Image/Choose Closest Color': '<S42>:1' */
+    /* Embedded MATLAB: '<S40>/Choose Closest Color' */
+    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.SecondBuoy/Threshold The Image/Choose Closest Color': '<S41>:1' */
     /*  This function chooses the appropriate color option from the reference colors */
     /*  and set of desired L,a,b values */
-    /* '<S42>:1:5' */
-    /* '<S42>:1:7' */
+    /* '<S41>:1:5' */
+    /* '<S41>:1:7' */
     rtb_Add = 1000.0;
 
-    /* '<S42>:1:8' */
+    /* '<S41>:1:8' */
     cc_0 = brain_B.Num_Colors_b + 1.0;
     cc_0 = cc_0 < 0.0 ? ceil(cc_0 - 0.5) : floor(cc_0 + 0.5);
     if (cc_0 < 128.0) {
@@ -3034,10 +3034,10 @@ static void brain_FindSecondBuoy(void)
       rtb_index = MAX_int8_T;
     }
 
-    /* '<S42>:1:11' */
+    /* '<S41>:1:11' */
     for (rtb_TSamp = 1.0; rtb_TSamp <= brain_B.Num_Colors_b; rtb_TSamp++) {
-      /* '<S42>:1:11' */
-      /* '<S42>:1:12' */
+      /* '<S41>:1:11' */
+      /* '<S41>:1:12' */
       cc_2 = sqrt((rt_pow_snf(brain_B.ColorSpaceConversion1_o1_d -
         brain_B.Ref_Colors_a[(int32_T)rtb_TSamp - 1], 2.0) * 2.0 + rt_pow_snf
                    (brain_B.ColorSpaceConversion1_o2_k - brain_B.Ref_Colors_a
@@ -3045,13 +3045,13 @@ static void brain_FindSecondBuoy(void)
                   (brain_B.ColorSpaceConversion1_o3_e - brain_B.Ref_Colors_a
                    [(int32_T)rtb_TSamp + 99], 2.0));
       if ((cc_2 < rtb_Add) && (cc_2 < 70.0)) {
-        /* '<S42>:1:13' */
+        /* '<S41>:1:13' */
         /*  L: 0 - 100,a: -100 - 100 , b: -100 - 100 */
-        /* '<S42>:1:14' */
+        /* '<S41>:1:14' */
         rtb_Add = cc_2;
 
         /*  max min_dist = 346 if L dist is doubled */
-        /* '<S42>:1:15' */
+        /* '<S41>:1:15' */
         cc_0 = floor(rtb_TSamp + 0.5);
         if (cc_0 < 128.0) {
           rtb_index = (int8_T)cc_0;
@@ -3063,12 +3063,12 @@ static void brain_FindSecondBuoy(void)
       }
     }
 
-    /* RelationalOperator: '<S41>/Relational Operator' */
+    /* RelationalOperator: '<S40>/Relational Operator' */
     for (i = 0; i < 19200; i++) {
       brain_B.BW_f[i] = (brain_B.LabMatrix_b3[i] == (real_T)rtb_index);
     }
 
-    /* S-Function (svipblob): '<S10>/Buoy Blob Analysis' */
+    /* S-Function (svipblob): '<S9>/Buoy Blob Analysis' */
     maxNumBlobsReached = FALSE;
     for (i = 0; i < 123; i++) {
       brain_DWork.BuoyBlobAnalysis_PAD_DW[i] = 0U;
@@ -3116,7 +3116,7 @@ static void brain_FindSecondBuoy(void)
             stackIdx--;
             numBlobs = brain_DWork.BuoyBlobAnalysis_STACK_DW[stackIdx];
             for (pixListNinc = 0; pixListNinc < 8; pixListNinc++) {
-              k = numBlobs + (uint32_T)brain_ConstP.pooled17[pixListNinc];
+              k = numBlobs + (uint32_T)brain_ConstP.pooled15[pixListNinc];
               if (brain_DWork.BuoyBlobAnalysis_PAD_DW[k] == 255) {
                 brain_DWork.BuoyBlobAnalysis_PAD_DW[k] = currentLabel;
                 brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)
@@ -3234,35 +3234,35 @@ static void brain_FindSecondBuoy(void)
       rtb_BuoyBlobAnalysis_o2[i] = -1.0;
     }
 
-    /* Embedded MATLAB: '<S10>/IF Buoy Conditions' incorporates:
-     *  Constant: '<S10>/Constant1'
-     *  Constant: '<S10>/Constant2'
-     *  Constant: '<S10>/Constant3'
-     *  Constant: '<S10>/Constant4'
+    /* Embedded MATLAB: '<S9>/IF Buoy Conditions' incorporates:
+     *  Constant: '<S9>/Constant1'
+     *  Constant: '<S9>/Constant2'
+     *  Constant: '<S9>/Constant3'
+     *  Constant: '<S9>/Constant4'
      */
-    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.SecondBuoy/IF Buoy Conditions': '<S40>:1' */
+    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.SecondBuoy/IF Buoy Conditions': '<S39>:1' */
     /*  This function will take in 2 1x10 vectors, eccent and extent to determine */
     /*  if there is a buoy present in the current image */
-    /* '<S40>:1:5' */
+    /* '<S39>:1:5' */
     brain_B.Image_g = 0.0;
 
-    /* '<S40>:1:8' */
+    /* '<S39>:1:8' */
     for (eml_i = 1U; eml_i <= currentLabel; eml_i = (uint8_T)(uint32_T)(eml_i +
           1)) {
-      /* '<S40>:1:8' */
+      /* '<S39>:1:8' */
       if ((rtb_BuoyBlobAnalysis_o1[eml_i - 1] > brain_P.Buoy_Min_Eccentricity) &&
           (rtb_BuoyBlobAnalysis_o1[eml_i - 1] < brain_P.Buoy_Max_Eccentricity) &&
           (rtb_BuoyBlobAnalysis_o2[eml_i - 1] > brain_P.Buoy_Min_Extent) &&
           (rtb_BuoyBlobAnalysis_o2[eml_i - 1] < brain_P.Buoy_Max_Extent)) {
-        /* '<S40>:1:9' */
-        /* '<S40>:1:10' */
+        /* '<S39>:1:9' */
+        /* '<S39>:1:10' */
         brain_B.Image_g = 1.0;
       }
     }
 
     brain_DWork.Image = brain_B.Image_g;
 
-    /* Simulink Function 'ShowSegmentedImage': '<S4>:1370' */
+    /* Simulink Function 'ShowSegmentedImage': '<S3>:1370' */
     for (i = 0; i < 19200; i++) {
       brain_B.BWout[i] = (real_T)brain_B.BW_f[i];
       brain_B.LabMatrix_i[i] = brain_DWork.LabelMatrix[i];
@@ -3271,39 +3271,39 @@ static void brain_FindSecondBuoy(void)
     memcpy((void *)&brain_B.Ref_Colors_j[0], (void *)&brain_DWork.ref_colors[0],
            150U * sizeof(real_T));
 
-    /* Embedded MATLAB: '<S15>/Embedded MATLAB Function' */
-    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function': '<S57>:1' */
+    /* Embedded MATLAB: '<S14>/Embedded MATLAB Function' */
+    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function': '<S56>:1' */
     /*  This function puts together the segmented imaged such that it can be shown */
-    /* '<S57>:1:5' */
-    /* '<S57>:1:6' */
-    /* '<S57>:1:7' */
-    /* '<S57>:1:9' */
+    /* '<S56>:1:5' */
+    /* '<S56>:1:6' */
+    /* '<S56>:1:7' */
+    /* '<S56>:1:9' */
     for (i = 0; i < 120; i++) {
-      /* '<S57>:1:9' */
-      /* '<S57>:1:10' */
+      /* '<S56>:1:9' */
+      /* '<S56>:1:10' */
       for (n = 0; n < 160; n++) {
-        /* '<S57>:1:10' */
-        /* '<S57>:1:11' */
-        brain_B.L_c[i + 120 * n] = brain_B.Ref_Colors_j[(int32_T)
+        /* '<S56>:1:10' */
+        /* '<S56>:1:11' */
+        brain_B.L_m[i + 120 * n] = brain_B.Ref_Colors_j[(int32_T)
           brain_B.LabMatrix_i[120 * n + i] - 1];
 
-        /* '<S57>:1:12' */
-        brain_B.a_k[i + 120 * n] = brain_B.Ref_Colors_j[(int32_T)
+        /* '<S56>:1:12' */
+        brain_B.a_c[i + 120 * n] = brain_B.Ref_Colors_j[(int32_T)
           brain_B.LabMatrix_i[120 * n + i] + 49];
 
-        /* '<S57>:1:13' */
-        brain_B.b_c[i + 120 * n] = brain_B.Ref_Colors_j[(int32_T)
+        /* '<S56>:1:13' */
+        brain_B.b_k[i + 120 * n] = brain_B.Ref_Colors_j[(int32_T)
           brain_B.LabMatrix_i[120 * n + i] + 99];
       }
     }
 
-    /* S-Function (svipcolorconv): '<S15>/Color Space  Conversion' */
+    /* S-Function (svipcolorconv): '<S14>/Color Space  Conversion' */
     /* temporary variables for in-place operation */
     /* First convert to XYZ */
     for (i = 0; i < 19200; i++) {
-      rtb_Add = (brain_B.L_c[i] + 16.0) / 116.0;
-      rtb_TSamp = brain_B.a_k[i] / 500.0 + rtb_Add;
-      cc_2 = brain_B.b_c[i] / -200.0 + rtb_Add;
+      rtb_Add = (brain_B.L_m[i] + 16.0) / 116.0;
+      rtb_TSamp = brain_B.a_c[i] / 500.0 + rtb_Add;
+      cc_2 = brain_B.b_k[i] / -200.0 + rtb_Add;
       if (rtb_TSamp <= 2.0689655172413793E-01) {
         rtb_TSamp -= 1.3793103448275862E-01;
         rtb_TSamp /= 7.7870370370370372E+00;
@@ -3403,26 +3403,26 @@ static void brain_FindSecondBuoy(void)
       brain_B.ColorSpaceConversion_o3[i] = cc_2;
     }
 
-    /* Embedded MATLAB: '<S15>/Embedded MATLAB Function1' */
-    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function1': '<S58>:1' */
+    /* Embedded MATLAB: '<S14>/Embedded MATLAB Function1' */
+    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function1': '<S57>:1' */
     /*  This function combines the separate color signals into a single 3-D signal */
-    /* '<S58>:1:6' */
+    /* '<S57>:1:6' */
     memset((void *)&brain_B.RGB[0], (int32_T)0.0, 57600U * sizeof(real_T));
 
-    /* '<S58>:1:8' */
+    /* '<S57>:1:8' */
     for (i = 0; i < 120; i++) {
-      /* '<S58>:1:8' */
-      /* '<S58>:1:9' */
+      /* '<S57>:1:8' */
+      /* '<S57>:1:9' */
       for (n = 0; n < 160; n++) {
-        /* '<S58>:1:9' */
-        /* '<S58>:1:10' */
+        /* '<S57>:1:9' */
+        /* '<S57>:1:10' */
         brain_B.RGB[i + 120 * n] = brain_B.ColorSpaceConversion_o1[120 * n + i];
 
-        /* '<S58>:1:11' */
+        /* '<S57>:1:11' */
         brain_B.RGB[19200 + (i + 120 * n)] = brain_B.ColorSpaceConversion_o2[120
           * n + i];
 
-        /* '<S58>:1:12' */
+        /* '<S57>:1:12' */
         brain_B.RGB[38400 + (i + 120 * n)] = brain_B.ColorSpaceConversion_o3[120
           * n + i];
       }
@@ -3448,30 +3448,30 @@ static void brain_ApproachBuoys(void)
   int32_T eml_j;
   int32_T i;
 
-  /* During 'ApproachBuoys': '<S4>:1312' */
+  /* During 'ApproachBuoys': '<S3>:1312' */
   if ((brain_DWork.count2ndarea > 2.0) || (brain_DWork.TurnDirection <= -999.0))
   {
-    /* Transition: '<S4>:1455' */
+    /* Transition: '<S3>:1455' */
     switch (brain_DWork.is_ApproachBuoys) {
      case brain_IN_ApproachFirstBuoy:
-      /* Exit 'ApproachFirstBuoy': '<S4>:1341' */
+      /* Exit 'ApproachFirstBuoy': '<S3>:1341' */
       brain_DWork.is_ApproachBuoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
       break;
 
      case brain_IN_FindSecondBuoy:
-      /* Exit 'FindSecondBuoy': '<S4>:1317' */
+      /* Exit 'FindSecondBuoy': '<S3>:1317' */
       brain_DWork.is_ApproachBuoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
       break;
 
      default:
       brain_DWork.is_ApproachBuoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
-      /* Exit 'ApproachSecondBuoy': '<S4>:1316' */
+      /* Exit 'ApproachSecondBuoy': '<S3>:1316' */
       break;
     }
 
-    /* Exit 'ApproachBuoys': '<S4>:1312' */
-    /* Entry 'BuoyDone': '<S4>:1453' */
+    /* Exit 'ApproachBuoys': '<S3>:1312' */
+    /* Entry 'BuoyDone': '<S3>:1453' */
     brain_DWork.is_Buoys = brain_IN_BuoyDone;
     brain_DWork.Done = 1.0;
     brain_B.Left = 0;
@@ -3480,11 +3480,11 @@ static void brain_ApproachBuoys(void)
   } else {
     switch (brain_DWork.is_ApproachBuoys) {
      case brain_IN_ApproachFirstBuoy:
-      /* During 'ApproachFirstBuoy': '<S4>:1341' */
+      /* During 'ApproachFirstBuoy': '<S3>:1341' */
       if (brain_DWork.countarea > 2.0) {
-        /* Transition: '<S4>:1314' */
-        /* Exit 'ApproachFirstBuoy': '<S4>:1341' */
-        /* Entry 'FindSecondBuoy': '<S4>:1317' */
+        /* Transition: '<S3>:1314' */
+        /* Exit 'ApproachFirstBuoy': '<S3>:1341' */
+        /* Entry 'FindSecondBuoy': '<S3>:1317' */
         brain_DWork.is_ApproachBuoys = brain_IN_FindSecondBuoy;
         brain_DWork.TurnDirection = brain_GetDirectionToLook
           (brain_DWork.FirstDir, brain_DWork.SecondDir);
@@ -3492,26 +3492,26 @@ static void brain_ApproachBuoys(void)
           brain_DWork.TurnDirection);
         brain_B.DesiredDepth = brain_U.CurrentDepth;
 
-        /* Simulink Function 'GetSecondBuoyStats': '<S4>:1327' */
+        /* Simulink Function 'GetSecondBuoyStats': '<S3>:1327' */
 
-        /* Constant: '<S8>/Constant' */
+        /* Constant: '<S7>/Constant' */
         brain_B.Constant_g = brain_P.Buoy2_Hue;
 
-        /* Constant: '<S8>/Constant2' */
+        /* Constant: '<S7>/Constant2' */
         brain_B.Constant2 = brain_P.Buoy2_Saturation;
 
-        /* Constant: '<S8>/Constant1' */
+        /* Constant: '<S7>/Constant1' */
         brain_B.Constant1 = brain_P.Buoy2_Value;
         brain_DWork.BuoyHue = brain_B.Constant_g;
         brain_DWork.BuoySaturation = brain_B.Constant2;
         brain_DWork.BuoyValue = brain_B.Constant1;
         brain_DWork.Image = 0.0;
       } else {
-        /* Simulink Function 'IterativeSegmentation': '<S4>:1483' */
+        /* Simulink Function 'IterativeSegmentation': '<S3>:1483' */
         for (i = 0; i < 19200; i++) {
-          brain_B.H[i] = brain_B.Resize[i];
-          brain_B.S[i] = brain_B.Resize1[i];
-          brain_B.V[i] = brain_B.Resize2[i];
+          brain_B.H[i] = brain_B.DataTypeConversion[i];
+          brain_B.S[i] = brain_B.DataTypeConversion1[i];
+          brain_B.V[i] = brain_B.DataTypeConversion2[i];
         }
 
         StateFlowFunctionsBuoysIterativ(brain_B.H, brain_B.S, brain_B.V,
@@ -3526,7 +3526,7 @@ static void brain_ApproachBuoys(void)
                &brain_B.StateFlowFunctionsBuoysIterat_g.ref_colors[0], 150U *
                sizeof(real_T));
 
-        /* Simulink Function 'Buoy': '<S4>:1495' */
+        /* Simulink Function 'Buoy': '<S3>:1495' */
         memcpy((void *)&brain_B.LabMatrix[0], (void *)&brain_DWork.LabelMatrix[0],
                19200U * sizeof(real_T));
         memcpy((void *)&brain_B.Ref_Colors[0], (void *)&brain_DWork.ref_colors[0],
@@ -3551,7 +3551,7 @@ static void brain_ApproachBuoys(void)
           brain_B.StateFlowFunctionsBuoysApproa_l.BlobArea,
           brain_DWork.countarea);
 
-        /* Simulink Function 'ShowSegmentedImage': '<S4>:1370' */
+        /* Simulink Function 'ShowSegmentedImage': '<S3>:1370' */
         for (i = 0; i < 19200; i++) {
           brain_B.BWout[i] = (real_T)
             brain_B.StateFlowFunctionsBuoysApproa_l.BW[i];
@@ -3561,39 +3561,39 @@ static void brain_ApproachBuoys(void)
         memcpy((void *)&brain_B.Ref_Colors_j[0], (void *)
                &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
 
-        /* Embedded MATLAB: '<S15>/Embedded MATLAB Function' */
-        /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function': '<S57>:1' */
+        /* Embedded MATLAB: '<S14>/Embedded MATLAB Function' */
+        /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function': '<S56>:1' */
         /*  This function puts together the segmented imaged such that it can be shown */
-        /* '<S57>:1:5' */
-        /* '<S57>:1:6' */
-        /* '<S57>:1:7' */
-        /* '<S57>:1:9' */
+        /* '<S56>:1:5' */
+        /* '<S56>:1:6' */
+        /* '<S56>:1:7' */
+        /* '<S56>:1:9' */
         for (i = 0; i < 120; i++) {
-          /* '<S57>:1:9' */
-          /* '<S57>:1:10' */
+          /* '<S56>:1:9' */
+          /* '<S56>:1:10' */
           for (eml_j = 0; eml_j < 160; eml_j++) {
-            /* '<S57>:1:10' */
-            /* '<S57>:1:11' */
-            brain_B.L_b[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+            /* '<S56>:1:10' */
+            /* '<S56>:1:11' */
+            brain_B.L_c[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
               brain_B.LabMatrix_i[120 * eml_j + i] - 1];
 
-            /* '<S57>:1:12' */
-            brain_B.a_p[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+            /* '<S56>:1:12' */
+            brain_B.a_b[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
               brain_B.LabMatrix_i[120 * eml_j + i] + 49];
 
-            /* '<S57>:1:13' */
-            brain_B.b[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+            /* '<S56>:1:13' */
+            brain_B.b_p[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
               brain_B.LabMatrix_i[120 * eml_j + i] + 99];
           }
         }
 
-        /* S-Function (svipcolorconv): '<S15>/Color Space  Conversion' */
+        /* S-Function (svipcolorconv): '<S14>/Color Space  Conversion' */
         /* temporary variables for in-place operation */
         /* First convert to XYZ */
         for (i = 0; i < 19200; i++) {
-          eml_b_i = (brain_B.L_b[i] + 16.0) / 116.0;
-          eml_min_dist = brain_B.a_p[i] / 500.0 + eml_b_i;
-          eml_min_dist_0 = brain_B.b[i] / -200.0 + eml_b_i;
+          eml_b_i = (brain_B.L_c[i] + 16.0) / 116.0;
+          eml_min_dist = brain_B.a_b[i] / 500.0 + eml_b_i;
+          eml_min_dist_0 = brain_B.b_p[i] / -200.0 + eml_b_i;
           if (eml_min_dist <= 2.0689655172413793E-01) {
             eml_min_dist -= 1.3793103448275862E-01;
             eml_min_dist /= 7.7870370370370372E+00;
@@ -3698,27 +3698,27 @@ static void brain_ApproachBuoys(void)
           brain_B.ColorSpaceConversion_o3[i] = eml_min_dist_0;
         }
 
-        /* Embedded MATLAB: '<S15>/Embedded MATLAB Function1' */
-        /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function1': '<S58>:1' */
+        /* Embedded MATLAB: '<S14>/Embedded MATLAB Function1' */
+        /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function1': '<S57>:1' */
         /*  This function combines the separate color signals into a single 3-D signal */
-        /* '<S58>:1:6' */
+        /* '<S57>:1:6' */
         memset((void *)&brain_B.RGB[0], (int32_T)0.0, 57600U * sizeof(real_T));
 
-        /* '<S58>:1:8' */
+        /* '<S57>:1:8' */
         for (i = 0; i < 120; i++) {
-          /* '<S58>:1:8' */
-          /* '<S58>:1:9' */
+          /* '<S57>:1:8' */
+          /* '<S57>:1:9' */
           for (eml_j = 0; eml_j < 160; eml_j++) {
-            /* '<S58>:1:9' */
-            /* '<S58>:1:10' */
+            /* '<S57>:1:9' */
+            /* '<S57>:1:10' */
             brain_B.RGB[i + 120 * eml_j] = brain_B.ColorSpaceConversion_o1[120 *
               eml_j + i];
 
-            /* '<S58>:1:11' */
+            /* '<S57>:1:11' */
             brain_B.RGB[19200 + (i + 120 * eml_j)] =
               brain_B.ColorSpaceConversion_o2[120 * eml_j + i];
 
-            /* '<S58>:1:12' */
+            /* '<S57>:1:12' */
             brain_B.RGB[38400 + (i + 120 * eml_j)] =
               brain_B.ColorSpaceConversion_o3[120 * eml_j + i];
           }
@@ -3730,12 +3730,12 @@ static void brain_ApproachBuoys(void)
       break;
 
      case brain_IN_ApproachSecondBuoy:
-      /* During 'ApproachSecondBuoy': '<S4>:1316' */
-      /* Simulink Function 'IterativeSegmentation': '<S4>:1483' */
+      /* During 'ApproachSecondBuoy': '<S3>:1316' */
+      /* Simulink Function 'IterativeSegmentation': '<S3>:1483' */
       for (i = 0; i < 19200; i++) {
-        brain_B.H[i] = brain_B.Resize[i];
-        brain_B.S[i] = brain_B.Resize1[i];
-        brain_B.V[i] = brain_B.Resize2[i];
+        brain_B.H[i] = brain_B.DataTypeConversion[i];
+        brain_B.S[i] = brain_B.DataTypeConversion1[i];
+        brain_B.V[i] = brain_B.DataTypeConversion2[i];
       }
 
       StateFlowFunctionsBuoysIterativ(brain_B.H, brain_B.S, brain_B.V,
@@ -3750,7 +3750,7 @@ static void brain_ApproachBuoys(void)
              &brain_B.StateFlowFunctionsBuoysIterat_g.ref_colors[0], 150U *
              sizeof(real_T));
 
-      /* Simulink Function 'Buoy': '<S4>:1495' */
+      /* Simulink Function 'Buoy': '<S3>:1495' */
       memcpy((void *)&brain_B.LabMatrix[0], (void *)&brain_DWork.LabelMatrix[0],
              19200U * sizeof(real_T));
       memcpy((void *)&brain_B.Ref_Colors[0], (void *)&brain_DWork.ref_colors[0],
@@ -3775,7 +3775,7 @@ static void brain_ApproachBuoys(void)
         brain_B.StateFlowFunctionsBuoysApproa_l.BlobArea,
         brain_DWork.count2ndarea);
 
-      /* Simulink Function 'ShowSegmentedImage': '<S4>:1370' */
+      /* Simulink Function 'ShowSegmentedImage': '<S3>:1370' */
       for (i = 0; i < 19200; i++) {
         brain_B.BWout[i] = (real_T)brain_B.StateFlowFunctionsBuoysApproa_l.BW[i];
         brain_B.LabMatrix_i[i] = brain_DWork.LabelMatrix[i];
@@ -3784,39 +3784,39 @@ static void brain_ApproachBuoys(void)
       memcpy((void *)&brain_B.Ref_Colors_j[0], (void *)&brain_DWork.ref_colors[0],
              150U * sizeof(real_T));
 
-      /* Embedded MATLAB: '<S15>/Embedded MATLAB Function' */
-      /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function': '<S57>:1' */
+      /* Embedded MATLAB: '<S14>/Embedded MATLAB Function' */
+      /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function': '<S56>:1' */
       /*  This function puts together the segmented imaged such that it can be shown */
-      /* '<S57>:1:5' */
-      /* '<S57>:1:6' */
-      /* '<S57>:1:7' */
-      /* '<S57>:1:9' */
+      /* '<S56>:1:5' */
+      /* '<S56>:1:6' */
+      /* '<S56>:1:7' */
+      /* '<S56>:1:9' */
       for (i = 0; i < 120; i++) {
-        /* '<S57>:1:9' */
-        /* '<S57>:1:10' */
+        /* '<S56>:1:9' */
+        /* '<S56>:1:10' */
         for (eml_j = 0; eml_j < 160; eml_j++) {
-          /* '<S57>:1:10' */
-          /* '<S57>:1:11' */
-          brain_B.L_b[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+          /* '<S56>:1:10' */
+          /* '<S56>:1:11' */
+          brain_B.L_c[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
             brain_B.LabMatrix_i[120 * eml_j + i] - 1];
 
-          /* '<S57>:1:12' */
-          brain_B.a_p[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+          /* '<S56>:1:12' */
+          brain_B.a_b[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
             brain_B.LabMatrix_i[120 * eml_j + i] + 49];
 
-          /* '<S57>:1:13' */
-          brain_B.b[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+          /* '<S56>:1:13' */
+          brain_B.b_p[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
             brain_B.LabMatrix_i[120 * eml_j + i] + 99];
         }
       }
 
-      /* S-Function (svipcolorconv): '<S15>/Color Space  Conversion' */
+      /* S-Function (svipcolorconv): '<S14>/Color Space  Conversion' */
       /* temporary variables for in-place operation */
       /* First convert to XYZ */
       for (i = 0; i < 19200; i++) {
-        eml_b_i = (brain_B.L_b[i] + 16.0) / 116.0;
-        eml_min_dist = brain_B.a_p[i] / 500.0 + eml_b_i;
-        eml_min_dist_0 = brain_B.b[i] / -200.0 + eml_b_i;
+        eml_b_i = (brain_B.L_c[i] + 16.0) / 116.0;
+        eml_min_dist = brain_B.a_b[i] / 500.0 + eml_b_i;
+        eml_min_dist_0 = brain_B.b_p[i] / -200.0 + eml_b_i;
         if (eml_min_dist <= 2.0689655172413793E-01) {
           eml_min_dist -= 1.3793103448275862E-01;
           eml_min_dist /= 7.7870370370370372E+00;
@@ -3920,27 +3920,27 @@ static void brain_ApproachBuoys(void)
         brain_B.ColorSpaceConversion_o3[i] = eml_min_dist_0;
       }
 
-      /* Embedded MATLAB: '<S15>/Embedded MATLAB Function1' */
-      /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function1': '<S58>:1' */
+      /* Embedded MATLAB: '<S14>/Embedded MATLAB Function1' */
+      /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function1': '<S57>:1' */
       /*  This function combines the separate color signals into a single 3-D signal */
-      /* '<S58>:1:6' */
+      /* '<S57>:1:6' */
       memset((void *)&brain_B.RGB[0], (int32_T)0.0, 57600U * sizeof(real_T));
 
-      /* '<S58>:1:8' */
+      /* '<S57>:1:8' */
       for (i = 0; i < 120; i++) {
-        /* '<S58>:1:8' */
-        /* '<S58>:1:9' */
+        /* '<S57>:1:8' */
+        /* '<S57>:1:9' */
         for (eml_j = 0; eml_j < 160; eml_j++) {
-          /* '<S58>:1:9' */
-          /* '<S58>:1:10' */
+          /* '<S57>:1:9' */
+          /* '<S57>:1:10' */
           brain_B.RGB[i + 120 * eml_j] = brain_B.ColorSpaceConversion_o1[120 *
             eml_j + i];
 
-          /* '<S58>:1:11' */
+          /* '<S57>:1:11' */
           brain_B.RGB[19200 + (i + 120 * eml_j)] =
             brain_B.ColorSpaceConversion_o2[120 * eml_j + i];
 
-          /* '<S58>:1:12' */
+          /* '<S57>:1:12' */
           brain_B.RGB[38400 + (i + 120 * eml_j)] =
             brain_B.ColorSpaceConversion_o3[120 * eml_j + i];
         }
@@ -3955,33 +3955,33 @@ static void brain_ApproachBuoys(void)
       break;
 
      default:
-      /* Transition: '<S4>:1313' */
-      /* Entry 'ApproachFirstBuoy': '<S4>:1341' */
+      /* Transition: '<S3>:1313' */
+      /* Entry 'ApproachFirstBuoy': '<S3>:1341' */
       brain_DWork.is_ApproachBuoys = brain_IN_ApproachFirstBuoy;
 
-      /* Simulink Function 'GetFirstBuoyStats': '<S4>:1342' */
+      /* Simulink Function 'GetFirstBuoyStats': '<S3>:1342' */
 
-      /* Constant: '<S5>/Constant' */
+      /* Constant: '<S4>/Constant' */
       brain_B.Constant_k = brain_P.Buoy1_Hue;
 
-      /* Constant: '<S5>/Constant2' */
+      /* Constant: '<S4>/Constant2' */
       brain_B.Constant2_i = brain_P.Buoy1_Saturation;
 
-      /* Constant: '<S5>/Constant1' */
+      /* Constant: '<S4>/Constant1' */
       brain_B.Constant1_o = brain_P.Buoy1_Value;
       brain_DWork.BuoyHue = brain_B.Constant_k;
       brain_DWork.BuoySaturation = brain_B.Constant2_i;
       brain_DWork.BuoyValue = brain_B.Constant1_o;
 
-      /* Simulink Function 'WhichBuoysToApproach': '<S4>:1514' */
+      /* Simulink Function 'WhichBuoysToApproach': '<S3>:1514' */
       memcpy((void *)&brain_B.buoys[0], (void *)&brain_DWork.BuoyBlobs[0], 200U *
              sizeof(real_T));
       brain_B.num_blobs = brain_DWork.num_blobs;
 
-      /* S-Function (svipcolorconv): '<S26>/Color Space  Conversion' incorporates:
-       *  Constant: '<S26>/Constant'
-       *  Constant: '<S26>/Constant1'
-       *  Constant: '<S26>/Constant2'
+      /* S-Function (svipcolorconv): '<S25>/Color Space  Conversion' incorporates:
+       *  Constant: '<S25>/Constant'
+       *  Constant: '<S25>/Constant1'
+       *  Constant: '<S25>/Constant2'
        */
       /* temporary variables for in-place operation */
       cc = 0.0;
@@ -4038,7 +4038,7 @@ static void brain_ApproachBuoys(void)
       brain_B.ColorSpaceConversion_o2_o = eml_b_i * cc_0;
       brain_B.ColorSpaceConversion_o1_g = eml_b_i * cc_1;
 
-      /* S-Function (svipcolorconv): '<S26>/Color Space  Conversion1' */
+      /* S-Function (svipcolorconv): '<S25>/Color Space  Conversion1' */
       /* temporary variables for in-place operation */
       /* Convert to XYZ */
       /* temporary variables for in-place operation */
@@ -4143,10 +4143,10 @@ static void brain_ApproachBuoys(void)
       brain_B.ColorSpaceConversion1_o2 = (cc - eml_min_dist) * 500.0;
       brain_B.ColorSpaceConversion1_o3 = (eml_min_dist - eml_b_i) * 200.0;
 
-      /* S-Function (svipcolorconv): '<S28>/Color Space  Conversion' incorporates:
-       *  Constant: '<S28>/Constant'
-       *  Constant: '<S28>/Constant1'
-       *  Constant: '<S28>/Constant2'
+      /* S-Function (svipcolorconv): '<S27>/Color Space  Conversion' incorporates:
+       *  Constant: '<S27>/Constant'
+       *  Constant: '<S27>/Constant1'
+       *  Constant: '<S27>/Constant2'
        */
       /* temporary variables for in-place operation */
       cc = 0.0;
@@ -4203,7 +4203,7 @@ static void brain_ApproachBuoys(void)
       brain_B.ColorSpaceConversion_o2_o = eml_b_i * cc_0;
       brain_B.ColorSpaceConversion_o3_c = eml_b_i * cc_1;
 
-      /* S-Function (svipcolorconv): '<S28>/Color Space  Conversion1' */
+      /* S-Function (svipcolorconv): '<S27>/Color Space  Conversion1' */
       /* temporary variables for in-place operation */
       /* Convert to XYZ */
       /* temporary variables for in-place operation */
@@ -4309,121 +4309,121 @@ static void brain_ApproachBuoys(void)
       brain_B.ColorSpaceConversion1_o2_i = (cc - eml_min_dist) * 500.0;
       brain_B.ColorSpaceConversion1_o3_m = (eml_min_dist - eml_b_i) * 200.0;
 
-      /* Embedded MATLAB: '<S6>/GetBestColorMatch' */
-      /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.WhichBuoysToApproach/GetBestColorMatch': '<S27>:1' */
+      /* Embedded MATLAB: '<S5>/GetBestColorMatch' */
+      /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.WhichBuoysToApproach/GetBestColorMatch': '<S26>:1' */
       /*  This function determines which buoys are the best match for the desired colors */
       /*  Buoys = zeros(3,3); */
       /*  Buoys = [L;M;R]; */
-      /* '<S27>:1:6' */
+      /* '<S26>:1:6' */
       eml_min_dist = 1000.0;
 
-      /* '<S27>:1:7' */
+      /* '<S26>:1:7' */
       eml_min_dist_0 = 1000.0;
 
-      /* '<S27>:1:8' */
-      /* '<S27>:1:9' */
+      /* '<S26>:1:8' */
+      /* '<S26>:1:9' */
       for (i = 0; i < 50; i++) {
         eml_FirstD[i] = 2.0;
         eml_SecondD[i] = 2.0;
       }
 
-      /* '<S27>:1:11' */
+      /* '<S26>:1:11' */
       eml_count = 0.0;
 
-      /* '<S27>:1:12' */
+      /* '<S26>:1:12' */
       cc_0 = 0.0;
 
-      /* '<S27>:1:14' */
+      /* '<S26>:1:14' */
       for (cc = 1.0; cc <= brain_B.num_blobs; cc++) {
-        /* '<S27>:1:14' */
-        /* '<S27>:1:15' */
+        /* '<S26>:1:14' */
+        /* '<S26>:1:15' */
         eml_b_i = sqrt((rt_pow_snf(brain_B.buoys[(int32_T)cc - 1] -
           brain_B.ColorSpaceConversion1_o1, 2.0) + rt_pow_snf(brain_B.buoys
           [(int32_T)cc + 49] - brain_B.ColorSpaceConversion1_o2, 2.0)) +
                        rt_pow_snf(brain_B.buoys[(int32_T)cc + 99] -
           brain_B.ColorSpaceConversion1_o3, 2.0));
         if (eml_b_i <= eml_min_dist) {
-          /* '<S27>:1:16' */
-          /* '<S27>:1:17' */
+          /* '<S26>:1:16' */
+          /* '<S26>:1:17' */
           eml_count++;
 
-          /* '<S27>:1:18' */
+          /* '<S26>:1:18' */
           eml_min_dist = eml_b_i;
 
-          /* '<S27>:1:19' */
+          /* '<S26>:1:19' */
           eml_FirstD[(int32_T)eml_count - 1] = cc;
         }
 
-        /* '<S27>:1:21' */
+        /* '<S26>:1:21' */
         eml_b_i = sqrt((rt_pow_snf(brain_B.buoys[(int32_T)cc - 1] -
           brain_B.ColorSpaceConversion1_o1_n, 2.0) + rt_pow_snf(brain_B.buoys
           [(int32_T)cc + 49] - brain_B.ColorSpaceConversion1_o2_i, 2.0)) +
                        rt_pow_snf(brain_B.buoys[(int32_T)cc + 99] -
           brain_B.ColorSpaceConversion1_o3_m, 2.0));
         if (eml_b_i < eml_min_dist_0) {
-          /* '<S27>:1:22' */
-          /* '<S27>:1:23' */
+          /* '<S26>:1:22' */
+          /* '<S26>:1:23' */
           cc_0++;
 
-          /* '<S27>:1:24' */
+          /* '<S26>:1:24' */
           eml_min_dist_0 = eml_b_i;
 
-          /* '<S27>:1:25' */
+          /* '<S26>:1:25' */
           eml_SecondD[(int32_T)cc_0 - 1] = cc;
         }
       }
 
-      /* '<S27>:1:29' */
+      /* '<S26>:1:29' */
       cc = 2.0;
 
-      /* '<S27>:1:30' */
-      /* '<S27>:1:31' */
+      /* '<S26>:1:30' */
+      /* '<S26>:1:31' */
       for (eml_b_i = 1.0; eml_b_i <= eml_count; eml_b_i++) {
-        /* '<S27>:1:31' */
-        /* '<S27>:1:32' */
+        /* '<S26>:1:31' */
+        /* '<S26>:1:32' */
         if (brain_B.buoys[(int32_T)eml_FirstD[(int32_T)eml_b_i - 1] + 149] > 0.0)
         {
-          /* '<S27>:1:33' */
-          /* '<S27>:1:34' */
+          /* '<S26>:1:33' */
+          /* '<S26>:1:34' */
           cc = eml_FirstD[(int32_T)eml_b_i - 1];
         }
       }
 
-      /* '<S27>:1:39' */
+      /* '<S26>:1:39' */
       eml_min_dist = 2.0;
 
-      /* '<S27>:1:40' */
-      /* '<S27>:1:41' */
+      /* '<S26>:1:40' */
+      /* '<S26>:1:41' */
       for (eml_min_dist_0 = 1.0; eml_min_dist_0 <= cc_0; eml_min_dist_0++) {
-        /* '<S27>:1:41' */
-        /* '<S27>:1:42' */
+        /* '<S26>:1:41' */
+        /* '<S26>:1:42' */
         if (brain_B.buoys[(int32_T)eml_SecondD[(int32_T)eml_min_dist_0 - 1] +
             149] > 0.0) {
-          /* '<S27>:1:43' */
-          /* '<S27>:1:44' */
+          /* '<S26>:1:43' */
+          /* '<S26>:1:44' */
           eml_min_dist = eml_SecondD[(int32_T)eml_min_dist_0 - 1];
         }
       }
 
       if (cc > eml_min_dist) {
-        /* '<S27>:1:49' */
-        /* '<S27>:1:50' */
+        /* '<S26>:1:49' */
+        /* '<S26>:1:50' */
         brain_B.Direction1 = 1.0;
 
-        /* '<S27>:1:51' */
+        /* '<S26>:1:51' */
         brain_B.Direction2 = 3.0;
       } else if (cc == eml_min_dist) {
-        /* '<S27>:1:52' */
-        /* '<S27>:1:53' */
+        /* '<S26>:1:52' */
+        /* '<S26>:1:53' */
         brain_B.Direction1 = 2.0;
 
-        /* '<S27>:1:54' */
+        /* '<S26>:1:54' */
         brain_B.Direction2 = 2.0;
       } else {
-        /* '<S27>:1:56' */
+        /* '<S26>:1:56' */
         brain_B.Direction1 = 3.0;
 
-        /* '<S27>:1:57' */
+        /* '<S26>:1:57' */
         brain_B.Direction2 = 1.0;
       }
 
@@ -4440,21 +4440,21 @@ static real_T brain_countimages_m(real_T sf_Image1, real_T sf_OldImage, real_T
 {
   UNUSED_PARAMETER(sf_OldImage);
 
-  /* Embedded MATLAB Function 'countimages': '<S4>:1300' */
+  /* Embedded MATLAB Function 'countimages': '<S3>:1300' */
   /*  This function acts to count the number of consecutive times a particular */
   /*  image is recognized by the recognition software */
   if (sf_Image1 == 1.0) {
-    /* '<S4>:1300:6' */
-    /* '<S4>:1300:7' */
+    /* '<S3>:1300:6' */
+    /* '<S3>:1300:7' */
     return sf_count1 + 1.0;
   } else {
-    /* '<S4>:1300:9' */
+    /* '<S3>:1300:9' */
     return 0.0;
   }
 }
 
-/* Function for Embedded MATLAB: '<S11>/Blob Extraction' */
-static void brain_Outputs_g(const boolean_T eml_U0[19200], int32_T eml_Y0[50],
+/* Function for Embedded MATLAB: '<S10>/Blob Extraction' */
+static void brain_Outputs_n(const boolean_T eml_U0[19200], int32_T eml_Y0[50],
   real_T eml_Y1[100], real_T eml_Y2[50], real_T eml_Y3[50], uint8_T *eml_Y4)
 {
   boolean_T eml_maxNumBlobsReached;
@@ -4655,7 +4655,7 @@ static void brain_Outputs_g(const boolean_T eml_U0[19200], int32_T eml_Y0[50],
   }
 }
 
-/* Function for Embedded MATLAB: '<S11>/Blob Extraction' */
+/* Function for Embedded MATLAB: '<S10>/Blob Extraction' */
 static void brain_c5_brain(void)
 {
   real_T eml_num_colors;
@@ -4672,53 +4672,53 @@ static void brain_c5_brain(void)
   uint8_T tmp;
   eml_num_colors = brain_B.num_colors_m;
 
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors/Blob Extraction': '<S44>:1' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors/Blob Extraction': '<S43>:1' */
   /*  This function will determine the characteristics of the blobs in an image */
   /*  given a label matrix defining the different binary images contained in a */
   /*  that label matrix */
-  /* '<S44>:1:7' */
+  /* '<S43>:1:7' */
   for (i = 0; i < 19200; i++) {
     brain_B.eml_LogicMatrix[i] = FALSE;
   }
 
-  /* '<S44>:1:9' */
-  /* '<S44>:1:12' */
+  /* '<S43>:1:9' */
+  /* '<S43>:1:12' */
   memset((void *)&brain_B.Area[0], (int32_T)0.0, 50U * sizeof(real_T));
 
-  /* '<S44>:1:13' */
+  /* '<S43>:1:13' */
   memset((void *)&brain_B.Centroid[0], (int32_T)0.0, 100U * sizeof(real_T));
 
-  /* '<S44>:1:14' */
-  /* '<S44>:1:15' */
+  /* '<S43>:1:14' */
+  /* '<S43>:1:15' */
   for (i = 0; i < 50; i++) {
     brain_B.Eccent[i] = 0.0;
     brain_B.Extent[i] = 0.0;
   }
 
-  /* '<S44>:1:17' */
+  /* '<S43>:1:17' */
   eml_TotalNum = 0U;
 
-  /* '<S44>:1:27' */
+  /* '<S43>:1:27' */
   for (eml_k = 1.0; eml_k <= eml_num_colors; eml_k++) {
-    /* '<S44>:1:27' */
-    /* '<S44>:1:28' */
+    /* '<S43>:1:27' */
+    /* '<S43>:1:28' */
     for (i = 0; i < 120; i++) {
-      /* '<S44>:1:28' */
-      /* '<S44>:1:29' */
+      /* '<S43>:1:28' */
+      /* '<S43>:1:29' */
       for (eml_j = 0; eml_j < 160; eml_j++) {
-        /* '<S44>:1:29' */
+        /* '<S43>:1:29' */
         if (brain_B.LabelMatrix[120 * eml_j + i] != eml_k) {
-          /* '<S44>:1:30' */
-          /* '<S44>:1:31' */
+          /* '<S43>:1:30' */
+          /* '<S43>:1:31' */
           brain_B.eml_LogicMatrix[i + 120 * eml_j] = FALSE;
         } else {
-          /* '<S44>:1:33' */
+          /* '<S43>:1:33' */
           brain_B.eml_LogicMatrix[i + 120 * eml_j] = TRUE;
         }
       }
     }
 
-    brain_Outputs_g(&brain_B.eml_LogicMatrix[0], eml_TArea, eml_TCentroid,
+    brain_Outputs_n(&brain_B.eml_LogicMatrix[0], eml_TArea, eml_TCentroid,
                     eml_TEccent, eml_TExtent, &eml_TNumBlobs);
     i = eml_TNumBlobs + eml_TotalNum;
     if ((uint32_T)i > 255U) {
@@ -4728,12 +4728,12 @@ static void brain_c5_brain(void)
     }
 
     if (tmp < 50) {
-      /* '<S44>:1:39' */
-      /* '<S44>:1:40' */
+      /* '<S43>:1:39' */
+      /* '<S43>:1:40' */
       for (eml_b_i = 1U; eml_b_i <= eml_TNumBlobs; eml_b_i = (uint8_T)(uint32_T)
            (eml_b_i + 1)) {
-        /* '<S44>:1:40' */
-        /* '<S44>:1:41' */
+        /* '<S43>:1:40' */
+        /* '<S43>:1:41' */
         i = eml_TotalNum + eml_b_i;
         if ((uint32_T)i > 255U) {
           tmp = MAX_uint8_T;
@@ -4743,7 +4743,7 @@ static void brain_c5_brain(void)
 
         brain_B.Area[tmp - 1] = (real_T)eml_TArea[eml_b_i - 1];
 
-        /* '<S44>:1:42' */
+        /* '<S43>:1:42' */
         i = eml_TotalNum + eml_b_i;
         if ((uint32_T)i > 255U) {
           tmp = MAX_uint8_T;
@@ -4753,7 +4753,7 @@ static void brain_c5_brain(void)
 
         brain_B.Centroid[tmp - 1] = eml_TCentroid[(eml_b_i - 1) << 1];
 
-        /* '<S44>:1:43' */
+        /* '<S43>:1:43' */
         i = eml_TotalNum + eml_b_i;
         if ((uint32_T)i > 255U) {
           tmp = MAX_uint8_T;
@@ -4763,7 +4763,7 @@ static void brain_c5_brain(void)
 
         brain_B.Centroid[tmp + 49] = eml_TCentroid[((eml_b_i - 1) << 1) + 1];
 
-        /* '<S44>:1:44' */
+        /* '<S43>:1:44' */
         i = eml_TotalNum + eml_b_i;
         if ((uint32_T)i > 255U) {
           tmp = MAX_uint8_T;
@@ -4773,7 +4773,7 @@ static void brain_c5_brain(void)
 
         brain_B.Eccent[tmp - 1] = eml_TEccent[eml_b_i - 1];
 
-        /* '<S44>:1:45' */
+        /* '<S43>:1:45' */
         i = eml_TotalNum + eml_b_i;
         if ((uint32_T)i > 255U) {
           tmp = MAX_uint8_T;
@@ -4784,7 +4784,7 @@ static void brain_c5_brain(void)
         brain_B.Extent[tmp - 1] = eml_TExtent[eml_b_i - 1];
       }
 
-      /* '<S44>:1:47' */
+      /* '<S43>:1:47' */
       i = eml_TotalNum + eml_TNumBlobs;
       if ((uint32_T)i > 255U) {
         eml_TotalNum = MAX_uint8_T;
@@ -4817,119 +4817,119 @@ static void brain_exit_internal_Buoys(void)
    case brain_IN_ApproachBuoys:
     switch (brain_DWork.is_ApproachBuoys) {
      case brain_IN_ApproachFirstBuoy:
-      /* Exit 'ApproachFirstBuoy': '<S4>:1341' */
+      /* Exit 'ApproachFirstBuoy': '<S3>:1341' */
       brain_DWork.is_ApproachBuoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
       break;
 
      case brain_IN_FindSecondBuoy:
-      /* Exit 'FindSecondBuoy': '<S4>:1317' */
+      /* Exit 'FindSecondBuoy': '<S3>:1317' */
       brain_DWork.is_ApproachBuoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
       break;
 
      default:
       brain_DWork.is_ApproachBuoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
-      /* Exit 'ApproachSecondBuoy': '<S4>:1316' */
+      /* Exit 'ApproachSecondBuoy': '<S3>:1316' */
       break;
     }
 
-    /* Exit 'ApproachBuoys': '<S4>:1312' */
+    /* Exit 'ApproachBuoys': '<S3>:1312' */
     brain_DWork.is_Buoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
     break;
 
    case brain_IN_FindBuoys:
-    /* Exit 'FindBuoys': '<S4>:1295' */
-    /* Simulink Function 'GetBuoyColors': '<S4>:1521' */
+    /* Exit 'FindBuoys': '<S3>:1295' */
+    /* Simulink Function 'GetBuoyColors': '<S3>:1521' */
     memcpy((void *)&brain_B.LabelMatrix[0], (void *)&brain_DWork.LabelMatrix[0],
            19200U * sizeof(real_T));
     memcpy((void *)&brain_B.ref_colors[0], (void *)&brain_DWork.ref_colors[0],
            150U * sizeof(real_T));
     brain_B.num_colors_m = brain_DWork.num_colors;
 
-    /* Embedded MATLAB: '<S11>/Blob Extraction' */
+    /* Embedded MATLAB: '<S10>/Blob Extraction' */
     brain_c5_brain();
 
-    /* Embedded MATLAB: '<S11>/IF Buoy Conditions' incorporates:
-     *  Constant: '<S11>/Constant'
-     *  Constant: '<S11>/Constant1'
-     *  Constant: '<S11>/Constant2'
-     *  Constant: '<S11>/Constant3'
+    /* Embedded MATLAB: '<S10>/IF Buoy Conditions' incorporates:
+     *  Constant: '<S10>/Constant'
+     *  Constant: '<S10>/Constant1'
+     *  Constant: '<S10>/Constant2'
+     *  Constant: '<S10>/Constant3'
      */
-    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors/IF Buoy Conditions': '<S45>:1' */
+    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors/IF Buoy Conditions': '<S44>:1' */
     /*  This function will take in 2 1x10 vectors, eccent and extent to determine */
     /*  the cenroids of the most circular objects in the image */
-    /* '<S45>:1:5' */
+    /* '<S44>:1:5' */
     eml_count = 0.0;
 
-    /* '<S45>:1:6' */
+    /* '<S44>:1:6' */
     memset((void *)&rtb_Centroid_Out[0], (int32_T)0.0, 100U * sizeof(real_T));
 
-    /* '<S45>:1:9' */
+    /* '<S44>:1:9' */
     for (eml_i = 1U; eml_i <= brain_B.TotalNum; eml_i = (uint8_T)(uint32_T)
          (eml_i + 1)) {
-      /* '<S45>:1:9' */
+      /* '<S44>:1:9' */
       if ((brain_B.Eccent[eml_i - 1] > brain_P.Buoy_Min_Eccentricity) &&
           (brain_B.Eccent[eml_i - 1] < brain_P.Buoy_Max_Eccentricity) &&
           (brain_B.Extent[eml_i - 1] > brain_P.Buoy_Min_Extent) &&
           (brain_B.Extent[eml_i - 1] < brain_P.Buoy_Max_Extent)) {
-        /* '<S45>:1:10' */
-        /* '<S45>:1:11' */
+        /* '<S44>:1:10' */
+        /* '<S44>:1:11' */
         eml_count++;
 
-        /* '<S45>:1:12' */
+        /* '<S44>:1:12' */
         rtb_Centroid_Out[(int32_T)eml_count - 1] = brain_B.Centroid[eml_i - 1];
 
-        /* '<S45>:1:13' */
+        /* '<S44>:1:13' */
         rtb_Centroid_Out[(int32_T)eml_count + 49] = brain_B.Centroid[eml_i + 49];
       }
     }
 
     brain_B.count = eml_count;
 
-    /* Embedded MATLAB: '<S11>/Say Which Buoy Is Which' */
-    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors/Say Which Buoy Is Which': '<S46>:1' */
+    /* Embedded MATLAB: '<S10>/Say Which Buoy Is Which' */
+    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors/Say Which Buoy Is Which': '<S45>:1' */
     /*  This function determines which buoy is in which location, left, middle, */
     /*  or right. */
-    /* '<S46>:1:6' */
+    /* '<S45>:1:6' */
     memset((void *)&eml_colors[0], (int32_T)0.0, 150U * sizeof(real_T));
 
-    /* '<S46>:1:7' */
-    /* '<S46>:1:8' */
+    /* '<S45>:1:7' */
+    /* '<S45>:1:8' */
     for (i = 0; i < 50; i++) {
       eml_centX[i] = 0.0;
       eml_centY[i] = 0.0;
     }
 
-    /* '<S46>:1:10' */
+    /* '<S45>:1:10' */
     memset((void *)&brain_B.blobs[0], (int32_T)0.0, 200U * sizeof(real_T));
 
-    /* '<S46>:1:12' */
+    /* '<S45>:1:12' */
     for (eml_count = 1.0; eml_count <= brain_B.count; eml_count++) {
-      /* '<S46>:1:12' */
-      /* '<S46>:1:13' */
+      /* '<S45>:1:12' */
+      /* '<S45>:1:13' */
       eml_centX[(int32_T)eml_count - 1] = floor(rtb_Centroid_Out[(int32_T)
         eml_count + 49]);
 
-      /* '<S46>:1:14' */
+      /* '<S45>:1:14' */
       eml_centY[(int32_T)eml_count - 1] = floor(rtb_Centroid_Out[(int32_T)
         eml_count - 1]);
       if (eml_centX[(int32_T)eml_count - 1] < 1.0) {
-        /* '<S46>:1:15' */
-        /* '<S46>:1:16' */
+        /* '<S45>:1:15' */
+        /* '<S45>:1:16' */
         eml_centX[(int32_T)eml_count - 1] = 1.0;
       }
 
       if (eml_centY[(int32_T)eml_count - 1] < 1.0) {
-        /* '<S46>:1:18' */
-        /* '<S46>:1:19' */
+        /* '<S45>:1:18' */
+        /* '<S45>:1:19' */
         eml_centY[(int32_T)eml_count - 1] = 1.0;
       }
 
-      /* '<S46>:1:22' */
+      /* '<S45>:1:22' */
       eml_mtmp = brain_B.LabelMatrix[((int32_T)eml_centX[(int32_T)eml_count - 1]
         - 1) * 120 + ((int32_T)eml_centY[(int32_T)eml_count - 1] - 1)];
 
-      /* '<S46>:1:24' */
+      /* '<S45>:1:24' */
       i = (int32_T)eml_count - 1;
       eml_colors[i] = brain_B.ref_colors[(int32_T)eml_mtmp - 1];
       eml_colors[i + 50] = brain_B.ref_colors[(int32_T)eml_mtmp + 49];
@@ -4937,9 +4937,9 @@ static void brain_exit_internal_Buoys(void)
     }
 
     /*  Putting blobs in order from left to right */
-    /* '<S46>:1:28' */
+    /* '<S45>:1:28' */
     for (eml_count = 1.0; eml_count <= brain_B.count; eml_count++) {
-      /* '<S46>:1:28' */
+      /* '<S45>:1:28' */
       eml_mtmp = eml_centX[0];
       i = 1;
       eml_ix = 1;
@@ -4977,19 +4977,19 @@ static void brain_exit_internal_Buoys(void)
         }
       }
 
-      /* '<S46>:1:30' */
+      /* '<S45>:1:30' */
       brain_B.blobs[(int32_T)eml_count - 1] = eml_colors[i - 1];
 
-      /* '<S46>:1:31' */
+      /* '<S45>:1:31' */
       brain_B.blobs[(int32_T)eml_count + 49] = eml_colors[i + 49];
 
-      /* '<S46>:1:32' */
+      /* '<S45>:1:32' */
       brain_B.blobs[(int32_T)eml_count + 99] = eml_colors[i + 99];
 
-      /* '<S46>:1:33' */
+      /* '<S45>:1:33' */
       brain_B.blobs[(int32_T)eml_count + 149] = brain_B.Area[i - 1];
 
-      /* '<S46>:1:34' */
+      /* '<S45>:1:34' */
       eml_centX[i - 1] = 1000.0;
     }
 
@@ -5002,7 +5002,7 @@ static void brain_exit_internal_Buoys(void)
    default:
     brain_DWork.is_Buoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
-    /* Exit 'BuoyDone': '<S4>:1453' */
+    /* Exit 'BuoyDone': '<S3>:1453' */
     break;
   }
 }
@@ -5014,48 +5014,48 @@ static void brain_ControlledRC(void)
   real_T rtb_TSamp;
   real_T tmp;
 
-  /* During 'ControlledRC': '<S4>:1260' */
+  /* During 'ControlledRC': '<S3>:1260' */
   if (brain_DWork.OperationalState != -1) {
-    /* Transition: '<S4>:1268' */
-    /* Exit 'ControlledRC': '<S4>:1260' */
+    /* Transition: '<S3>:1268' */
+    /* Exit 'ControlledRC': '<S3>:1260' */
     brain_B.Left = 0;
     brain_B.Right = 0;
     brain_B.Strafe = 0;
 
-    /* Entry 'GetInCorrectState': '<S4>:1263' */
+    /* Entry 'GetInCorrectState': '<S3>:1263' */
     brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
   } else {
-    /* Simulink Function 'MaintainDepth': '<S4>:926' */
+    /* Simulink Function 'MaintainDepth': '<S3>:926' */
     brain_B.CurrentDepth1 = (real32_T)brain_U.CurrentDepth;
     brain_B.DesiredDepth1 = (real32_T)brain_U.RC_Depth;
     brain_DWork.StateFlowFunctionsMaintainDepth = brain_M->Timing.clockTick0 -
       brain_DWork.StateFlowFunctionsMaintainDep_k;
     brain_DWork.StateFlowFunctionsMaintainDep_k = brain_M->Timing.clockTick0;
 
-    /* Sum: '<S22>/Add' */
+    /* Sum: '<S21>/Add' */
     rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-    /* SampleTimeMath: '<S79>/TSamp' incorporates:
-     *  Gain: '<S78>/Depth Derivative Gain'
+    /* SampleTimeMath: '<S78>/TSamp' incorporates:
+     *  Gain: '<S77>/Depth Derivative Gain'
      *
-     * About '<S79>/TSamp':
+     * About '<S78>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
       brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
-    /* DataTypeConversion: '<S22>/Double To Int8' incorporates:
-     *  DiscreteIntegrator: '<S78>/Depth Discrete-Time Integrator'
-     *  Gain: '<S78>/Depth Proportional Gain'
-     *  Sum: '<S78>/Sum'
-     *  Sum: '<S79>/Diff'
-     *  UnitDelay: '<S79>/UD'
+    /* DataTypeConversion: '<S21>/Double To Int8' incorporates:
+     *  DiscreteIntegrator: '<S77>/Depth Discrete-Time Integrator'
+     *  Gain: '<S77>/Depth Proportional Gain'
+     *  Sum: '<S77>/Sum'
+     *  Sum: '<S78>/Diff'
+     *  UnitDelay: '<S78>/UD'
      *
-     * Block description for '<S79>/Diff':
+     * Block description for '<S78>/Diff':
      *
      *  Add in CPU
      *
-     * Block description for '<S79>/UD':
+     * Block description for '<S78>/UD':
      *
      *  Store in Global RAM
      */
@@ -5072,15 +5072,15 @@ static void brain_ControlledRC(void)
       brain_B.DoubleToInt8 = MAX_int8_T;
     }
 
-    /* Update for UnitDelay: '<S79>/UD'
-     * Block description for '<S79>/UD':
+    /* Update for UnitDelay: '<S78>/UD'
+     * Block description for '<S78>/UD':
      *
      *  Store in Global RAM
      */
     brain_DWork.UD_DSTATE = rtb_TSamp;
 
-    /* Update for DiscreteIntegrator: '<S78>/Depth Discrete-Time Integrator' incorporates:
-     *  Gain: '<S78>/Depth Integral Gain'
+    /* Update for DiscreteIntegrator: '<S77>/Depth Discrete-Time Integrator' incorporates:
+     *  Gain: '<S77>/Depth Integral Gain'
      */
     brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
       brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki * rtb_Add)
@@ -5095,7 +5095,7 @@ static void brain_ControlledRC(void)
 
     brain_B.Vertical = brain_B.DoubleToInt8;
 
-    /* Simulink Function 'MaintainHeading': '<S4>:918' */
+    /* Simulink Function 'MaintainHeading': '<S3>:918' */
     brain_B.DesiredHeading1 = brain_U.RC_Heading;
     brain_B.CurrentHeading1 = brain_U.CurrentHeading;
     brain_B.ForwardVelocity1 = brain_U.RC_ForwardVelocity;
@@ -5109,8 +5109,8 @@ static void brain_ControlledRC(void)
   }
 }
 
-/* Function for Embedded MATLAB: '<S64>/IsLinePresent' */
-static void brain_max_p(const real_T eml_varargin_1[71820], real_T eml_maxval
+/* Function for Embedded MATLAB: '<S63>/IsLinePresent' */
+static void brain_max_f(const real_T eml_varargin_1[71820], real_T eml_maxval
   [180], real_T eml_indx[180])
 {
   int16_T eml_b_indx[180];
@@ -5180,8 +5180,8 @@ static void brain_max_p(const real_T eml_varargin_1[71820], real_T eml_maxval
   }
 }
 
-/* Function for Embedded MATLAB: '<S64>/IsLinePresent' */
-static void brain_max_ps(const real_T eml_varargin_1[180], real_T *eml_maxval,
+/* Function for Embedded MATLAB: '<S63>/IsLinePresent' */
+static void brain_max_fe(const real_T eml_varargin_1[180], real_T *eml_maxval,
   real_T *eml_indx)
 {
   real_T eml_mtmp;
@@ -5232,7 +5232,7 @@ static void brain_max_ps(const real_T eml_varargin_1[180], real_T *eml_maxval,
   *eml_indx = (real_T)eml_itmp;
 }
 
-/* Function for Embedded MATLAB: '<S64>/IsLinePresent' */
+/* Function for Embedded MATLAB: '<S63>/IsLinePresent' */
 static void brain_refp1_round(real_T *eml_x)
 {
   if (*eml_x < 0.0) {
@@ -5242,7 +5242,7 @@ static void brain_refp1_round(real_T *eml_x)
   }
 }
 
-/* Function for Embedded MATLAB: '<S64>/IsLinePresent' */
+/* Function for Embedded MATLAB: '<S63>/IsLinePresent' */
 static void brain_c22_brain(void)
 {
   int32_T eml_count;
@@ -5258,16 +5258,16 @@ static void brain_c22_brain(void)
   memcpy((void *)&brain_B.eml_HoughTable[0], (void *)&brain_B.HoughTransform_o1
          [0], 71820U * sizeof(real_T));
 
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings/Hough Transform Stuff/IsLinePresent': '<S65>:1' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings/Hough Transform Stuff/IsLinePresent': '<S64>:1' */
   /*  This function takes a Hough/hash table as input and  determines if a line */
   /*  is present and if so what its Rho and Theta are. */
-  /* '<S65>:1:5' */
-  /* '<S65>:1:7' */
-  /* '<S65>:1:9' */
-  /* '<S65>:1:10' */
-  /* '<S65>:1:11' */
-  /* '<S65>:1:12' */
-  /* '<S65>:1:13' */
+  /* '<S64>:1:5' */
+  /* '<S64>:1:7' */
+  /* '<S64>:1:9' */
+  /* '<S64>:1:10' */
+  /* '<S64>:1:11' */
+  /* '<S64>:1:12' */
+  /* '<S64>:1:13' */
   brain_B.Rho[0] = -999.0;
   brain_B.Theta[0] = -999.0;
   brain_B.maxVotes[0] = -999.0;
@@ -5277,125 +5277,125 @@ static void brain_c22_brain(void)
   eml_ThetaIndex_idx_0 = -999.0;
   eml_RhoIndex_idx_0 = -999.0;
 
-  /* '<S65>:1:17' */
-  brain_max_p(&brain_B.HoughTransform_o1[0], eml_maxValues, eml_RhoIndices);
-  brain_max_ps(eml_maxValues, &eml_b, &eml_c);
+  /* '<S64>:1:17' */
+  brain_max_f(&brain_B.HoughTransform_o1[0], eml_maxValues, eml_RhoIndices);
+  brain_max_fe(eml_maxValues, &eml_b, &eml_c);
 
-  /* '<S65>:1:20' */
+  /* '<S64>:1:20' */
   brain_B.maxVotes[0] = eml_b;
 
-  /* '<S65>:1:20' */
-  /* '<S65>:1:21' */
+  /* '<S64>:1:20' */
+  /* '<S64>:1:21' */
   eml_b = 0.0;
 
-  /* '<S65>:1:22' */
+  /* '<S64>:1:22' */
   eml_c = 0.0;
 
-  /* '<S65>:1:23' */
+  /* '<S64>:1:23' */
   for (eml_i = 0; eml_i < 180; eml_i++) {
-    /* '<S65>:1:23' */
+    /* '<S64>:1:23' */
     if (brain_B.maxVotes[0] - eml_maxValues[eml_i] < 0.15 * brain_B.maxVotes[0])
     {
-      /* '<S65>:1:24' */
-      /* '<S65>:1:25' */
+      /* '<S64>:1:24' */
+      /* '<S64>:1:25' */
       eml_b += ((real_T)eml_i + 1.0) * eml_maxValues[eml_i];
 
-      /* '<S65>:1:26' */
+      /* '<S64>:1:26' */
       eml_c += eml_maxValues[eml_i];
     }
   }
 
   if (eml_c > 0.0) {
-    /* '<S65>:1:29' */
-    /* '<S65>:1:30' */
+    /* '<S64>:1:29' */
+    /* '<S64>:1:30' */
     eml_b /= eml_c;
     brain_refp1_round(&eml_b);
   } else {
-    /* '<S65>:1:32' */
+    /* '<S64>:1:32' */
     eml_b = 1.0;
   }
 
-  /* '<S65>:1:35' */
+  /* '<S64>:1:35' */
   eml_ThetaIndex_idx = eml_b;
 
-  /* '<S65>:1:36' */
+  /* '<S64>:1:36' */
   brain_B.maxVotes[0] = eml_maxValues[(int32_T)eml_b - 1];
 
-  /* '<S65>:1:38' */
+  /* '<S64>:1:38' */
   eml_RhoIndex_idx = eml_RhoIndices[(int32_T)eml_b - 1];
   if (brain_B.maxVotes[0] >= 15.0) {
-    /* '<S65>:1:40' */
-    /* '<S65>:1:41' */
+    /* '<S64>:1:40' */
+    /* '<S64>:1:41' */
     brain_B.eml_HoughTable[((int32_T)eml_RhoIndex_idx - 1) + 399 * ((int32_T)
       eml_b - 1)] = 0.0;
 
-    /* '<S65>:1:43' */
+    /* '<S64>:1:43' */
     eml_i = 2;
 
-    /* '<S65>:1:44' */
+    /* '<S64>:1:44' */
     eml_count = 0;
     while ((eml_i <= 2) && (eml_count < 12)) {
-      /* '<S65>:1:45' */
-      /* '<S65>:1:46' */
+      /* '<S64>:1:45' */
+      /* '<S64>:1:46' */
       eml_count++;
-      brain_max_p(&brain_B.eml_HoughTable[0], eml_maxValues, eml_RhoIndices);
-      brain_max_ps(eml_maxValues, &eml_b, &eml_c);
+      brain_max_f(&brain_B.eml_HoughTable[0], eml_maxValues, eml_RhoIndices);
+      brain_max_fe(eml_maxValues, &eml_b, &eml_c);
 
-      /* '<S65>:1:48' */
+      /* '<S64>:1:48' */
       brain_B.maxVotes[1] = eml_b;
 
-      /* '<S65>:1:48' */
+      /* '<S64>:1:48' */
       eml_ThetaIndex_idx_0 = eml_c;
 
-      /* '<S65>:1:49' */
+      /* '<S64>:1:49' */
       eml_RhoIndex_idx_0 = eml_RhoIndices[(int32_T)eml_c - 1];
 
-      /* '<S65>:1:51' */
+      /* '<S64>:1:51' */
       brain_B.eml_HoughTable[((int32_T)eml_RhoIndex_idx_0 - 1) + 399 * ((int32_T)
         eml_c - 1)] = 0.0;
       if ((fabs(eml_RhoIndex_idx_0 - eml_RhoIndex_idx) > 20.0) || (fabs(eml_c -
             eml_ThetaIndex_idx) > 30.0)) {
-        /* '<S65>:1:53' */
-        /* '<S65>:1:54' */
+        /* '<S64>:1:53' */
+        /* '<S64>:1:54' */
         eml_i = 3;
       }
     }
 
-    /* '<S65>:1:59' */
+    /* '<S64>:1:59' */
     if (brain_B.maxVotes[0] > 15.0) {
-      /* '<S65>:1:60' */
-      /* '<S65>:1:61' */
+      /* '<S64>:1:60' */
+      /* '<S64>:1:61' */
       brain_B.Theta[0] = brain_B.HoughTransform_o2[(int32_T)eml_ThetaIndex_idx -
         1];
 
-      /* '<S65>:1:62' */
+      /* '<S64>:1:62' */
       brain_B.Rho[0] = brain_B.HoughTransform_o3[(int32_T)eml_RhoIndex_idx - 1];
       if ((brain_B.Theta[0] > 0.0) && (brain_B.Rho[0] < 0.0)) {
-        /* '<S65>:1:63' */
-        /* '<S65>:1:64' */
+        /* '<S64>:1:63' */
+        /* '<S64>:1:64' */
         brain_B.Rho[0] = brain_B.Rho[0] * -1.0;
       }
     }
 
-    /* '<S65>:1:59' */
+    /* '<S64>:1:59' */
     if (brain_B.maxVotes[1] > 15.0) {
-      /* '<S65>:1:60' */
-      /* '<S65>:1:61' */
+      /* '<S64>:1:60' */
+      /* '<S64>:1:61' */
       brain_B.Theta[1] = brain_B.HoughTransform_o2[(int32_T)eml_ThetaIndex_idx_0
         - 1];
 
-      /* '<S65>:1:62' */
+      /* '<S64>:1:62' */
       brain_B.Rho[1] = brain_B.HoughTransform_o3[(int32_T)eml_RhoIndex_idx_0 - 1];
       if ((brain_B.Theta[1] > 0.0) && (brain_B.Rho[1] < 0.0)) {
-        /* '<S65>:1:63' */
-        /* '<S65>:1:64' */
+        /* '<S64>:1:63' */
+        /* '<S64>:1:64' */
         brain_B.Rho[1] = brain_B.Rho[1] * -1.0;
       }
     }
   }
 }
 
-/* Function for Embedded MATLAB: '<S18>/GetHeadingToPath' */
+/* Function for Embedded MATLAB: '<S17>/GetHeadingToPath' */
 static void brain_max(const real_T eml_varargin_1[2], real_T *eml_maxval, real_T
                       *eml_indx)
 {
@@ -5454,34 +5454,34 @@ static void brain_FollowOnePath(void)
   int32_T i_0;
   real_T tmp;
 
-  /* During 'FollowOnePath': '<S4>:1164' */
+  /* During 'FollowOnePath': '<S3>:1164' */
   if (brain_DWork.OperationalState != 3) {
-    /* Transition: '<S4>:1276' */
+    /* Transition: '<S3>:1276' */
     if (brain_DWork.is_OnePath == brain_IN_AlignWithPath) {
-      /* Exit 'AlignWithPath': '<S4>:1185' */
+      /* Exit 'AlignWithPath': '<S3>:1185' */
       brain_DWork.is_OnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
     } else {
       brain_DWork.is_OnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
-      /* Exit 'Done': '<S4>:1171' */
-      /* Exit 'PositionOver': '<S4>:1172' */
+      /* Exit 'Done': '<S3>:1171' */
+      /* Exit 'PositionOver': '<S3>:1172' */
     }
 
-    /* Exit 'OnePath': '<S4>:1167' */
+    /* Exit 'OnePath': '<S3>:1167' */
     brain_DWork.is_FollowOnePath = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
-    /* Exit 'FollowOnePath': '<S4>:1164' */
-    /* Entry 'GetInCorrectState': '<S4>:1263' */
+    /* Exit 'FollowOnePath': '<S3>:1164' */
+    /* Entry 'GetInCorrectState': '<S3>:1263' */
     brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
   } else {
-    /* During 'OnePath': '<S4>:1167' */
+    /* During 'OnePath': '<S3>:1167' */
     switch (brain_DWork.is_OnePath) {
      case brain_IN_AlignWithPath:
-      /* During 'AlignWithPath': '<S4>:1185' */
+      /* During 'AlignWithPath': '<S3>:1185' */
       if (fabs(brain_DWork.HeadingAlongPath) <= 4.0) {
-        /* Transition: '<S4>:1168' */
-        /* Exit 'AlignWithPath': '<S4>:1185' */
-        /* Entry 'Done': '<S4>:1171' */
+        /* Transition: '<S3>:1168' */
+        /* Exit 'AlignWithPath': '<S3>:1185' */
+        /* Entry 'Done': '<S3>:1171' */
         brain_DWork.is_OnePath = brain_IN_Done;
         brain_B.Left = 0;
         brain_B.Right = 0;
@@ -5490,26 +5490,26 @@ static void brain_FollowOnePath(void)
           brain_DWork.HeadingAlongPath;
         brain_DWork.Done = 1.0;
       } else {
-        /* Simulink Function 'HSVSegmentation': '<S4>:1431' */
+        /* Simulink Function 'HSVSegmentation': '<S3>:1431' */
         for (i_0 = 0; i_0 < 19200; i_0++) {
-          brain_B.H_f[i_0] = brain_B.Resize[i_0];
-          brain_B.S_a[i_0] = brain_B.Resize1[i_0];
+          brain_B.H_f[i_0] = brain_B.DataTypeConversion[i_0];
+          brain_B.S_a[i_0] = brain_B.DataTypeConversion1[i_0];
 
-          /* Logic: '<S74>/Logical Operator1' incorporates:
+          /* Logic: '<S73>/Logical Operator1' incorporates:
+           *  Constant: '<S74>/Constant'
            *  Constant: '<S75>/Constant'
            *  Constant: '<S76>/Constant'
-           *  Constant: '<S77>/Constant'
-           *  Logic: '<S74>/Logical Operator'
+           *  Logic: '<S73>/Logical Operator'
+           *  RelationalOperator: '<S74>/Compare'
            *  RelationalOperator: '<S75>/Compare'
            *  RelationalOperator: '<S76>/Compare'
-           *  RelationalOperator: '<S77>/Compare'
            */
           brain_B.BW_c[i_0] = (((brain_B.H_f[i_0] < brain_P.Track_HueLower) ||
                                 (brain_B.H_f[i_0] > brain_P.Track_HueHigher)) &&
                                (brain_B.S_a[i_0] > brain_P.Track_Saturation));
         }
 
-        /* S-Function (svipmorphop): '<S74>/Erosion' */
+        /* S-Function (svipmorphop): '<S73>/Erosion' */
         i_0 = 0;
         ku = 0;
         for (inIdx = 0; inIdx < 127; inIdx++) {
@@ -5580,47 +5580,47 @@ static void brain_FollowOnePath(void)
         }
 
         for (i_0 = 0; i_0 < 19200; i_0++) {
-          /* DataTypeConversion: '<S74>/Data Type Conversion' */
-          brain_B.DataTypeConversion[i_0] = brain_B.Erosion[i_0];
-          brain_B.BWout[i_0] = (real_T)brain_B.DataTypeConversion[i_0];
+          /* DataTypeConversion: '<S73>/Data Type Conversion' */
+          brain_B.DataTypeConversion_l[i_0] = brain_B.Erosion[i_0];
+          brain_B.BWout[i_0] = (real_T)brain_B.DataTypeConversion_l[i_0];
         }
 
-        /* Simulink Function 'GetHeadings': '<S4>:1208' */
+        /* Simulink Function 'GetHeadings': '<S3>:1208' */
         for (i_0 = 0; i_0 < 19200; i_0++) {
           brain_B.BW_g[i_0] = (brain_B.BWout[i_0] != 0.0);
         }
 
-        /* S-Function (sviphough): '<S64>/Hough Transform' */
+        /* S-Function (sviphough): '<S63>/Hough Transform' */
         MWVIP_Hough_D(&brain_B.BW_g[0], &brain_B.HoughTransform_o1[0],
                       &brain_ConstP.HoughTransform_SINE_[0],
                       &brain_ConstP.HoughTransform_FIRSTRHO_RT, 120, 160, 399,
                       91);
 
-        /* Embedded MATLAB: '<S64>/IsLinePresent' */
+        /* Embedded MATLAB: '<S63>/IsLinePresent' */
         brain_c22_brain();
 
-        /* Embedded MATLAB: '<S18>/GetHeadingToPath' */
-        /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings/GetHeadingToPath': '<S63>:1' */
+        /* Embedded MATLAB: '<S17>/GetHeadingToPath' */
+        /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings/GetHeadingToPath': '<S62>:1' */
         /*  This function calculates the heading to the path from Theta and Rho */
-        /* '<S63>:1:4' */
-        /* '<S63>:1:6' */
+        /* '<S62>:1:4' */
+        /* '<S62>:1:6' */
         brain_B.AlongPathHeading = -999.0;
         brain_max(&brain_B.maxVotes[0], &eml_b, &eml_c);
 
-        /* '<S63>:1:10' */
-        /* '<S63>:1:11' */
-        /* '<S63>:1:12' */
+        /* '<S62>:1:10' */
+        /* '<S62>:1:11' */
+        /* '<S62>:1:12' */
         if ((brain_B.Theta[(int32_T)eml_c - 1] > -1.5707963267948966E+00) &&
             (brain_B.Theta[(int32_T)eml_c - 1] < 1.5707963267948966E+00)) {
-          /* '<S63>:1:21' */
-          /* '<S63>:1:22' */
+          /* '<S62>:1:21' */
+          /* '<S62>:1:22' */
           brain_B.AlongPathHeading = brain_B.Theta[(int32_T)eml_c - 1] * 180.0 /
             3.1415926535897931E+00;
         }
 
         brain_DWork.HeadingAlongPath = brain_B.AlongPathHeading;
 
-        /* Simulink Function 'CenterOver_Strafe': '<S4>:1423' */
+        /* Simulink Function 'CenterOver_Strafe': '<S3>:1423' */
         memcpy((void *)&brain_B.BW[0], (void *)&brain_B.BWout[0], 19200U *
                sizeof(real_T));
         StateFlowFunctionsFollowOnePa_i(brain_B.BW, brain_M,
@@ -5630,37 +5630,37 @@ static void brain_FollowOnePath(void)
           brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion;
         i_0 = brain_B.StateFlowFunctionsFollowOneP_iq.DataTypeConversion_f;
 
-        /* Simulink Function 'MaintainDepth': '<S4>:926' */
+        /* Simulink Function 'MaintainDepth': '<S3>:926' */
         brain_B.CurrentDepth1 = (real32_T)brain_U.CurrentDepth;
         brain_B.DesiredDepth1 = (real32_T)brain_B.DesiredDepth;
         brain_DWork.StateFlowFunctionsMaintainDepth = brain_M->Timing.clockTick0
           - brain_DWork.StateFlowFunctionsMaintainDep_k;
         brain_DWork.StateFlowFunctionsMaintainDep_k = brain_M->Timing.clockTick0;
 
-        /* Sum: '<S22>/Add' */
+        /* Sum: '<S21>/Add' */
         eml_b = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S79>/TSamp' incorporates:
-         *  Gain: '<S78>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S78>/TSamp' incorporates:
+         *  Gain: '<S77>/Depth Derivative Gain'
          *
-         * About '<S79>/TSamp':
+         * About '<S78>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
         eml_c = brain_P.Depth_Kd * eml_b / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
-        /* DataTypeConversion: '<S22>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S78>/Depth Discrete-Time Integrator'
-         *  Gain: '<S78>/Depth Proportional Gain'
-         *  Sum: '<S78>/Sum'
-         *  Sum: '<S79>/Diff'
-         *  UnitDelay: '<S79>/UD'
+        /* DataTypeConversion: '<S21>/Double To Int8' incorporates:
+         *  DiscreteIntegrator: '<S77>/Depth Discrete-Time Integrator'
+         *  Gain: '<S77>/Depth Proportional Gain'
+         *  Sum: '<S77>/Sum'
+         *  Sum: '<S78>/Diff'
+         *  UnitDelay: '<S78>/UD'
          *
-         * Block description for '<S79>/Diff':
+         * Block description for '<S78>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S79>/UD':
+         * Block description for '<S78>/UD':
          *
          *  Store in Global RAM
          */
@@ -5677,15 +5677,15 @@ static void brain_FollowOnePath(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S79>/UD'
-         * Block description for '<S79>/UD':
+        /* Update for UnitDelay: '<S78>/UD'
+         * Block description for '<S78>/UD':
          *
          *  Store in Global RAM
          */
         brain_DWork.UD_DSTATE = eml_c;
 
-        /* Update for DiscreteIntegrator: '<S78>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S78>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S77>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S77>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -5700,7 +5700,7 @@ static void brain_FollowOnePath(void)
 
         brain_B.Vertical = brain_B.DoubleToInt8;
 
-        /* Simulink Function 'Align': '<S4>:1437' */
+        /* Simulink Function 'Align': '<S3>:1437' */
         brain_B.HeadingAlong = brain_DWork.HeadingAlongPath + 90.0;
         brain_B.Forward1 = (real_T)i_0;
         StateFlowFunctionsFollowOnePa_k(brain_B.HeadingAlong, brain_B.Forward1,
@@ -5715,37 +5715,37 @@ static void brain_FollowOnePath(void)
       break;
 
      case brain_IN_PositionOver:
-      /* During 'PositionOver': '<S4>:1172' */
+      /* During 'PositionOver': '<S3>:1172' */
       if (brain_DWork.Error < 10.0) {
-        /* Transition: '<S4>:1169' */
-        /* Exit 'PositionOver': '<S4>:1172' */
-        /* Entry 'AlignWithPath': '<S4>:1185' */
+        /* Transition: '<S3>:1169' */
+        /* Exit 'PositionOver': '<S3>:1172' */
+        /* Entry 'AlignWithPath': '<S3>:1185' */
         brain_DWork.is_OnePath = brain_IN_AlignWithPath;
         brain_DWork.HeadingAlongPath = 200.0;
         brain_B.Left = 0;
         brain_B.Right = 0;
         brain_B.Strafe = 0;
       } else {
-        /* Simulink Function 'HSVSegmentation': '<S4>:1431' */
+        /* Simulink Function 'HSVSegmentation': '<S3>:1431' */
         for (i_0 = 0; i_0 < 19200; i_0++) {
-          brain_B.H_f[i_0] = brain_B.Resize[i_0];
-          brain_B.S_a[i_0] = brain_B.Resize1[i_0];
+          brain_B.H_f[i_0] = brain_B.DataTypeConversion[i_0];
+          brain_B.S_a[i_0] = brain_B.DataTypeConversion1[i_0];
 
-          /* Logic: '<S74>/Logical Operator1' incorporates:
+          /* Logic: '<S73>/Logical Operator1' incorporates:
+           *  Constant: '<S74>/Constant'
            *  Constant: '<S75>/Constant'
            *  Constant: '<S76>/Constant'
-           *  Constant: '<S77>/Constant'
-           *  Logic: '<S74>/Logical Operator'
+           *  Logic: '<S73>/Logical Operator'
+           *  RelationalOperator: '<S74>/Compare'
            *  RelationalOperator: '<S75>/Compare'
            *  RelationalOperator: '<S76>/Compare'
-           *  RelationalOperator: '<S77>/Compare'
            */
           brain_B.BW_c[i_0] = (((brain_B.H_f[i_0] < brain_P.Track_HueLower) ||
                                 (brain_B.H_f[i_0] > brain_P.Track_HueHigher)) &&
                                (brain_B.S_a[i_0] > brain_P.Track_Saturation));
         }
 
-        /* S-Function (svipmorphop): '<S74>/Erosion' */
+        /* S-Function (svipmorphop): '<S73>/Erosion' */
         i_0 = 0;
         ku = 0;
         for (inIdx = 0; inIdx < 127; inIdx++) {
@@ -5815,11 +5815,11 @@ static void brain_FollowOnePath(void)
           inIdx += 7;
         }
 
-        /* Simulink Function 'CenterOver_Strafe': '<S4>:1423' */
+        /* Simulink Function 'CenterOver_Strafe': '<S3>:1423' */
         for (i_0 = 0; i_0 < 19200; i_0++) {
-          /* DataTypeConversion: '<S74>/Data Type Conversion' */
-          brain_B.DataTypeConversion[i_0] = brain_B.Erosion[i_0];
-          brain_B.BWout[i_0] = (real_T)brain_B.DataTypeConversion[i_0];
+          /* DataTypeConversion: '<S73>/Data Type Conversion' */
+          brain_B.DataTypeConversion_l[i_0] = brain_B.Erosion[i_0];
+          brain_B.BWout[i_0] = (real_T)brain_B.DataTypeConversion_l[i_0];
           brain_B.BW[i_0] = brain_B.BWout[i_0];
         }
 
@@ -5832,37 +5832,37 @@ static void brain_FollowOnePath(void)
         sf_ErrorX = brain_B.StateFlowFunctionsFollowOneP_iq.Subtract;
         sf_ErrorY = brain_B.StateFlowFunctionsFollowOneP_iq.Subtract1;
 
-        /* Simulink Function 'MaintainDepth': '<S4>:926' */
+        /* Simulink Function 'MaintainDepth': '<S3>:926' */
         brain_B.CurrentDepth1 = (real32_T)brain_U.CurrentDepth;
         brain_B.DesiredDepth1 = (real32_T)brain_B.DesiredDepth;
         brain_DWork.StateFlowFunctionsMaintainDepth = brain_M->Timing.clockTick0
           - brain_DWork.StateFlowFunctionsMaintainDep_k;
         brain_DWork.StateFlowFunctionsMaintainDep_k = brain_M->Timing.clockTick0;
 
-        /* Sum: '<S22>/Add' */
+        /* Sum: '<S21>/Add' */
         eml_b = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S79>/TSamp' incorporates:
-         *  Gain: '<S78>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S78>/TSamp' incorporates:
+         *  Gain: '<S77>/Depth Derivative Gain'
          *
-         * About '<S79>/TSamp':
+         * About '<S78>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
         eml_c = brain_P.Depth_Kd * eml_b / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
-        /* DataTypeConversion: '<S22>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S78>/Depth Discrete-Time Integrator'
-         *  Gain: '<S78>/Depth Proportional Gain'
-         *  Sum: '<S78>/Sum'
-         *  Sum: '<S79>/Diff'
-         *  UnitDelay: '<S79>/UD'
+        /* DataTypeConversion: '<S21>/Double To Int8' incorporates:
+         *  DiscreteIntegrator: '<S77>/Depth Discrete-Time Integrator'
+         *  Gain: '<S77>/Depth Proportional Gain'
+         *  Sum: '<S77>/Sum'
+         *  Sum: '<S78>/Diff'
+         *  UnitDelay: '<S78>/UD'
          *
-         * Block description for '<S79>/Diff':
+         * Block description for '<S78>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S79>/UD':
+         * Block description for '<S78>/UD':
          *
          *  Store in Global RAM
          */
@@ -5879,15 +5879,15 @@ static void brain_FollowOnePath(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S79>/UD'
-         * Block description for '<S79>/UD':
+        /* Update for UnitDelay: '<S78>/UD'
+         * Block description for '<S78>/UD':
          *
          *  Store in Global RAM
          */
         brain_DWork.UD_DSTATE = eml_c;
 
-        /* Update for DiscreteIntegrator: '<S78>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S78>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S77>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S77>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -5902,7 +5902,7 @@ static void brain_FollowOnePath(void)
 
         brain_B.Vertical = brain_B.DoubleToInt8;
 
-        /* Simulink Function 'MaintainHeading': '<S4>:918' */
+        /* Simulink Function 'MaintainHeading': '<S3>:918' */
         brain_B.DesiredHeading1 = brain_B.DesiredHeading;
         brain_B.CurrentHeading1 = brain_U.CurrentHeading;
         brain_B.ForwardVelocity1 = (real_T)i_0;
@@ -5913,17 +5913,17 @@ static void brain_FollowOnePath(void)
         brain_B.Left = brain_B.StateFlowFunctionsMaintainHea_d.DoubleToint8;
         brain_B.Right = brain_B.StateFlowFunctionsMaintainHea_d.DoubleToint1;
 
-        /* Embedded MATLAB Function 'CalcError': '<S4>:1173' */
+        /* Embedded MATLAB Function 'CalcError': '<S3>:1173' */
         /*  This function calculates the error between the center of the screen and  */
         /*  the centroid of the orange/red blob */
-        /* '<S4>:1173:5' */
+        /* '<S3>:1173:5' */
         brain_DWork.Error = fabs(sf_ErrorX) + fabs(sf_ErrorY);
       }
       break;
 
      default:
-      /* Transition: '<S4>:1170' */
-      /* Entry 'PositionOver': '<S4>:1172' */
+      /* Transition: '<S3>:1170' */
+      /* Entry 'PositionOver': '<S3>:1172' */
       brain_DWork.is_OnePath = brain_IN_PositionOver;
       brain_DWork.Error = 500.0;
       break;
@@ -5936,11 +5936,11 @@ static void brain_GetInCorrectState(void)
 {
   int32_T i;
 
-  /* During 'GetInCorrectState': '<S4>:1263' */
+  /* During 'GetInCorrectState': '<S3>:1263' */
   if (brain_DWork.OperationalState == -2) {
-    /* Transition: '<S4>:1266' */
-    /* Exit 'GetInCorrectState': '<S4>:1263' */
-    /* Entry 'NotRunning': '<S4>:727' */
+    /* Transition: '<S3>:1266' */
+    /* Exit 'GetInCorrectState': '<S3>:1263' */
+    /* Entry 'NotRunning': '<S3>:727' */
     brain_DWork.is_StateFlowFunctions = brain_IN_NotRunning;
     brain_B.Left = 0;
     brain_B.Right = 0;
@@ -5948,15 +5948,15 @@ static void brain_GetInCorrectState(void)
     brain_B.Strafe = 0;
     brain_B.State = -2;
   } else if (brain_DWork.OperationalState == -1) {
-    /* Transition: '<S4>:1267' */
-    /* Exit 'GetInCorrectState': '<S4>:1263' */
-    /* Entry 'ControlledRC': '<S4>:1260' */
+    /* Transition: '<S3>:1267' */
+    /* Exit 'GetInCorrectState': '<S3>:1263' */
+    /* Entry 'ControlledRC': '<S3>:1260' */
     brain_DWork.is_StateFlowFunctions = brain_IN_ControlledRC;
     brain_B.State = -1;
   } else if (brain_DWork.OperationalState == 1) {
-    /* Transition: '<S4>:1271' */
-    /* Exit 'GetInCorrectState': '<S4>:1263' */
-    /* Entry 'Start': '<S4>:1145' */
+    /* Transition: '<S3>:1271' */
+    /* Exit 'GetInCorrectState': '<S3>:1263' */
+    /* Entry 'Start': '<S3>:1145' */
     brain_DWork.is_StateFlowFunctions = brain_IN_Start;
     brain_DWork.OldHeading = 0.0;
     brain_DWork.DesiredHeadingCount = 0.0;
@@ -5965,13 +5965,13 @@ static void brain_GetInCorrectState(void)
     brain_B.CameraPosition = 2;
     brain_B.State = 1;
 
-    /* Transition: '<S4>:1529' */
-    /* Entry 'GetHeadings': '<S4>:1528' */
+    /* Transition: '<S3>:1529' */
+    /* Entry 'GetHeadings': '<S3>:1528' */
     brain_DWork.is_Start = brain_IN_GetHeadings;
   } else if (brain_DWork.OperationalState == 2) {
-    /* Transition: '<S4>:1274' */
-    /* Exit 'GetInCorrectState': '<S4>:1263' */
-    /* Entry 'ValidationGate': '<S4>:1151' */
+    /* Transition: '<S3>:1274' */
+    /* Exit 'GetInCorrectState': '<S3>:1263' */
+    /* Entry 'ValidationGate': '<S3>:1151' */
     brain_DWork.is_StateFlowFunctions = brain_IN_ValidationGate;
     brain_DWork.OldObstacle = FALSE;
     brain_DWork.count = 0.0;
@@ -5979,46 +5979,46 @@ static void brain_GetInCorrectState(void)
     brain_B.State = 2;
     brain_B.CameraPosition = 2;
 
-    /* Transition: '<S4>:1476' */
-    /* Entry 'GoThoughGate': '<S4>:1462' */
+    /* Transition: '<S3>:1476' */
+    /* Entry 'GoThoughGate': '<S3>:1462' */
     brain_DWork.is_ValidationGate = brain_IN_GoThoughGate;
   } else if (brain_DWork.OperationalState == 3) {
-    /* Transition: '<S4>:1277' */
-    /* Exit 'GetInCorrectState': '<S4>:1263' */
-    /* Entry 'FollowOnePath': '<S4>:1164' */
+    /* Transition: '<S3>:1277' */
+    /* Exit 'GetInCorrectState': '<S3>:1263' */
+    /* Entry 'FollowOnePath': '<S3>:1164' */
     brain_DWork.is_StateFlowFunctions = brain_IN_FollowOnePath;
 
-    /* Simulink Function 'GetDesiredDepth': '<S4>:1286' */
+    /* Simulink Function 'GetDesiredDepth': '<S3>:1286' */
 
-    /* Constant: '<S21>/Constant' */
+    /* Constant: '<S20>/Constant' */
     brain_B.Constant_f = brain_P.Track_Desired_Depth;
     brain_B.DesiredDepth = brain_B.Constant_f;
     brain_B.DesiredHeading = brain_U.CurrentHeading;
     brain_B.State = 3;
     brain_B.CameraPosition = 2;
 
-    /* Simulink Function 'MakeHSVImage': '<S4>:1215' */
+    /* Simulink Function 'MakeHSVImage': '<S3>:1215' */
     for (i = 0; i < 19200; i++) {
-      brain_B.H1[i] = brain_B.Resize[i];
-      brain_B.S1[i] = brain_B.Resize1[i];
-      brain_B.V1[i] = brain_B.Resize2[i];
+      brain_B.H1[i] = brain_B.DataTypeConversion[i];
+      brain_B.S1[i] = brain_B.DataTypeConversion1[i];
+      brain_B.V1[i] = brain_B.DataTypeConversion2[i];
     }
 
     StateFlowFunctionsFollowOnePath(brain_B.H1, brain_B.S1, brain_B.V1,
       &brain_B.StateFlowFunctionsFollowOnePa_g);
 
-    /* Transition: '<S4>:1165' */
-    /* Entry 'OnePath': '<S4>:1167' */
+    /* Transition: '<S3>:1165' */
+    /* Entry 'OnePath': '<S3>:1167' */
     brain_DWork.is_FollowOnePath = brain_IN_OnePath;
 
-    /* Transition: '<S4>:1170' */
-    /* Entry 'PositionOver': '<S4>:1172' */
+    /* Transition: '<S3>:1170' */
+    /* Entry 'PositionOver': '<S3>:1172' */
     brain_DWork.is_OnePath = brain_IN_PositionOver;
     brain_DWork.Error = 500.0;
   } else if (brain_DWork.OperationalState == 6) {
-    /* Transition: '<S4>:1281' */
-    /* Exit 'GetInCorrectState': '<S4>:1263' */
-    /* Entry 'Finish': '<S4>:1259' */
+    /* Transition: '<S3>:1281' */
+    /* Exit 'GetInCorrectState': '<S3>:1263' */
+    /* Entry 'Finish': '<S3>:1259' */
     brain_DWork.is_StateFlowFunctions = brain_IN_Finish;
     brain_B.State = 6;
     brain_B.Left = 0;
@@ -6027,22 +6027,22 @@ static void brain_GetInCorrectState(void)
     brain_B.Strafe = 0;
   } else {
     if (brain_DWork.OperationalState == 4) {
-      /* Transition: '<S4>:1280' */
-      /* Exit 'GetInCorrectState': '<S4>:1263' */
-      /* Entry 'Buoys': '<S4>:1290' */
+      /* Transition: '<S3>:1280' */
+      /* Exit 'GetInCorrectState': '<S3>:1263' */
+      /* Entry 'Buoys': '<S3>:1290' */
       brain_DWork.is_StateFlowFunctions = brain_IN_Buoys;
 
-      /* Transition: '<S4>:1291' */
-      /* Entry 'FindBuoys': '<S4>:1295' */
+      /* Transition: '<S3>:1291' */
+      /* Entry 'FindBuoys': '<S3>:1295' */
       brain_DWork.is_Buoys = brain_IN_FindBuoys;
       brain_DWork.OldObstacle = FALSE;
       brain_B.CameraPosition = 0;
       brain_B.State = 4;
       brain_DWork.BuoyCount = 0.0;
 
-      /* Simulink Function 'GetDesiredDepth': '<S4>:1286' */
+      /* Simulink Function 'GetDesiredDepth': '<S3>:1286' */
 
-      /* Constant: '<S21>/Constant' */
+      /* Constant: '<S20>/Constant' */
       brain_B.Constant_f = brain_P.Track_Desired_Depth;
       brain_B.DesiredDepth = brain_B.Constant_f;
     }
@@ -6052,54 +6052,54 @@ static void brain_GetInCorrectState(void)
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
 static void brain_Start(void)
 {
-  /* During 'Start': '<S4>:1145' */
+  /* During 'Start': '<S3>:1145' */
   if (brain_DWork.OperationalState != 1) {
-    /* Transition: '<S4>:1270' */
+    /* Transition: '<S3>:1270' */
     if (brain_DWork.is_Start == brain_IN_GetHeadings) {
-      /* Exit 'GetHeadings': '<S4>:1528' */
+      /* Exit 'GetHeadings': '<S3>:1528' */
       brain_B.DesiredHeading = brain_U.CurrentHeading;
       brain_DWork.is_Start = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
     } else {
       brain_DWork.is_Start = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
-      /* Exit 'StartFinished': '<S4>:1530' */
+      /* Exit 'StartFinished': '<S3>:1530' */
     }
 
-    /* Exit 'Start': '<S4>:1145' */
-    /* Entry 'GetInCorrectState': '<S4>:1263' */
+    /* Exit 'Start': '<S3>:1145' */
+    /* Entry 'GetInCorrectState': '<S3>:1263' */
     brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
   } else {
     switch (brain_DWork.is_Start) {
      case brain_IN_GetHeadings:
-      /* During 'GetHeadings': '<S4>:1528' */
+      /* During 'GetHeadings': '<S3>:1528' */
       if (brain_DWork.DesiredHeadingCount >= 3.0) {
-        /* Transition: '<S4>:1531' */
-        /* Exit 'GetHeadings': '<S4>:1528' */
+        /* Transition: '<S3>:1531' */
+        /* Exit 'GetHeadings': '<S3>:1528' */
         brain_B.DesiredHeading = brain_U.CurrentHeading;
 
-        /* Entry 'StartFinished': '<S4>:1530' */
+        /* Entry 'StartFinished': '<S3>:1530' */
         brain_DWork.is_Start = brain_IN_StartFinished;
         brain_DWork.Done = 1.0;
       } else {
-        /* Embedded MATLAB Function 'InitialHeadingCount': '<S4>:1146' */
-        /* '<S4>:1146:3' */
+        /* Embedded MATLAB Function 'InitialHeadingCount': '<S3>:1146' */
+        /* '<S3>:1146:3' */
         if ((brain_U.CurrentHeading > brain_DWork.OldHeading - 2.0) &&
             (brain_U.CurrentHeading < brain_DWork.OldHeading + 2.0)) {
-          /* '<S4>:1146:5' */
-          /* '<S4>:1146:6' */
+          /* '<S3>:1146:5' */
+          /* '<S3>:1146:6' */
           brain_DWork.DesiredHeadingCount = brain_DWork.DesiredHeadingCount +
             1.0;
         } else {
-          /* '<S4>:1146:8' */
+          /* '<S3>:1146:8' */
           brain_DWork.DesiredHeadingCount = 0.0;
         }
 
-        /* '<S4>:1146:10' */
+        /* '<S3>:1146:10' */
         brain_DWork.OldHeading = brain_U.CurrentHeading;
 
-        /* Simulink Function 'GetDesiredDepth': '<S4>:1286' */
+        /* Simulink Function 'GetDesiredDepth': '<S3>:1286' */
 
-        /* Constant: '<S21>/Constant' */
+        /* Constant: '<S20>/Constant' */
         brain_B.Constant_f = brain_P.Track_Desired_Depth;
         brain_B.DesiredDepth = brain_B.Constant_f;
       }
@@ -6109,8 +6109,8 @@ static void brain_Start(void)
       break;
 
      default:
-      /* Transition: '<S4>:1529' */
-      /* Entry 'GetHeadings': '<S4>:1528' */
+      /* Transition: '<S3>:1529' */
+      /* Entry 'GetHeadings': '<S3>:1528' */
       brain_DWork.is_Start = brain_IN_GetHeadings;
       break;
     }
@@ -6121,15 +6121,15 @@ static void brain_Start(void)
 static real_T brain_countimages(real_T sf_Image, real_T sf_OldImage, real_T
   sf_count1)
 {
-  /* Embedded MATLAB Function 'countimages': '<S4>:1159' */
+  /* Embedded MATLAB Function 'countimages': '<S3>:1159' */
   /*  This function acts to count the number of consecutive times a particular */
   /*  image is recognized by the recognition software */
   if ((sf_Image != 0.0) && (sf_Image == sf_OldImage)) {
-    /* '<S4>:1159:6' */
-    /* '<S4>:1159:7' */
+    /* '<S3>:1159:6' */
+    /* '<S3>:1159:7' */
     return sf_count1 + 1.0;
   } else {
-    /* '<S4>:1159:9' */
+    /* '<S3>:1159:9' */
     return 0.0;
   }
 }
@@ -6162,15 +6162,15 @@ static void brain_ValidationGate(void)
   real32_T centroid_idx_0;
   real_T tmp;
 
-  /* During 'ValidationGate': '<S4>:1151' */
+  /* During 'ValidationGate': '<S3>:1151' */
   if (brain_DWork.OperationalState != 2) {
-    /* Transition: '<S4>:1275' */
-    /* Exit 'GateDone': '<S4>:1459' */
+    /* Transition: '<S3>:1275' */
+    /* Exit 'GateDone': '<S3>:1459' */
     brain_DWork.is_ValidationGate = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
-    /* Exit 'GoThoughGate': '<S4>:1462' */
-    /* Exit 'ValidationGate': '<S4>:1151' */
-    /* Entry 'GetInCorrectState': '<S4>:1263' */
+    /* Exit 'GoThoughGate': '<S3>:1462' */
+    /* Exit 'ValidationGate': '<S3>:1151' */
+    /* Entry 'GetInCorrectState': '<S3>:1263' */
     brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
   } else {
     switch (brain_DWork.is_ValidationGate) {
@@ -6178,34 +6178,34 @@ static void brain_ValidationGate(void)
       break;
 
      case brain_IN_GoThoughGate:
-      /* During 'GoThoughGate': '<S4>:1462' */
+      /* During 'GoThoughGate': '<S3>:1462' */
       if (brain_DWork.TrackCount > 2.0) {
-        /* Transition: '<S4>:1463' */
-        /* Exit 'GoThoughGate': '<S4>:1462' */
-        /* Entry 'GateDone': '<S4>:1459' */
+        /* Transition: '<S3>:1463' */
+        /* Exit 'GoThoughGate': '<S3>:1462' */
+        /* Entry 'GateDone': '<S3>:1459' */
         brain_DWork.is_ValidationGate = brain_IN_GateDone;
         brain_DWork.Done = 1.0;
       } else {
-        /* Simulink Function 'LookforTrack': '<S4>:1154' */
+        /* Simulink Function 'LookforTrack': '<S3>:1154' */
         for (i = 0; i < 19200; i++) {
-          brain_B.H_k[i] = brain_B.Resize[i];
-          brain_B.S_n[i] = brain_B.Resize1[i];
+          brain_B.H_k[i] = brain_B.DataTypeConversion[i];
+          brain_B.S_n[i] = brain_B.DataTypeConversion1[i];
 
-          /* Logic: '<S84>/Logical Operator1' incorporates:
+          /* Logic: '<S83>/Logical Operator1' incorporates:
+           *  Constant: '<S85>/Constant'
            *  Constant: '<S86>/Constant'
            *  Constant: '<S87>/Constant'
-           *  Constant: '<S88>/Constant'
-           *  Logic: '<S84>/Logical Operator'
+           *  Logic: '<S83>/Logical Operator'
+           *  RelationalOperator: '<S85>/Compare'
            *  RelationalOperator: '<S86>/Compare'
            *  RelationalOperator: '<S87>/Compare'
-           *  RelationalOperator: '<S88>/Compare'
            */
           brain_B.BW_d[i] = (((brain_B.H_k[i] < brain_P.Track_HueLower) ||
                               (brain_B.H_k[i] > brain_P.Track_HueHigher)) &&
                              (brain_B.S_n[i] > brain_P.Track_Saturation));
         }
 
-        /* S-Function (svipblob): '<S84>/Blob Analysis' */
+        /* S-Function (svipblob): '<S83>/Blob Analysis' */
         maxNumBlobsReached = FALSE;
         for (i = 0; i < 123; i++) {
           brain_DWork.BlobAnalysis_PAD_DW[i] = 0U;
@@ -6253,7 +6253,7 @@ static void brain_ValidationGate(void)
                 stackIdx--;
                 numBlobs = brain_DWork.BlobAnalysis_STACK_DW[stackIdx];
                 for (i = 0; i < 8; i++) {
-                  k = numBlobs + (uint32_T)brain_ConstP.pooled17[i];
+                  k = numBlobs + (uint32_T)brain_ConstP.pooled15[i];
                   if (brain_DWork.BlobAnalysis_PAD_DW[k] == 255) {
                     brain_DWork.BlobAnalysis_PAD_DW[k] = currentLabel;
                     brain_DWork.BlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)
@@ -6335,17 +6335,17 @@ static void brain_ValidationGate(void)
           rtb_BlobAnalysis = -1.0F;
         }
 
-        /* Embedded MATLAB: '<S84>/CheckConditions' incorporates:
-         *  Constant: '<S84>/Constant'
+        /* Embedded MATLAB: '<S83>/CheckConditions' incorporates:
+         *  Constant: '<S83>/Constant'
          */
-        /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/CheckConditions': '<S85>:1' */
+        /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/CheckConditions': '<S84>:1' */
         /*  This function checks the conditions to decide if a track is present */
         if ((real_T)rtb_BlobAnalysis > brain_P.Track_Min_Eccentricity) {
-          /* '<S85>:1:4' */
-          /* '<S85>:1:5' */
+          /* '<S84>:1:4' */
+          /* '<S84>:1:5' */
           brain_B.Image = 1.0;
         } else {
-          /* '<S85>:1:7' */
+          /* '<S84>:1:7' */
           brain_B.Image = 0.0;
         }
 
@@ -6357,12 +6357,12 @@ static void brain_ValidationGate(void)
         brain_DWork.TrackCount = brain_countimages((real_T)maxNumBlobsReached,
           (real_T)brain_DWork.OldObstacle, brain_DWork.count);
 
-        /* Simulink Function 'GetValidationGateForwardVelocity': '<S4>:1152' */
+        /* Simulink Function 'GetValidationGateForwardVelocity': '<S3>:1152' */
 
-        /* Constant: '<S24>/Heading Forward Velocity' */
+        /* Constant: '<S23>/Heading Forward Velocity' */
         brain_B.HeadingForwardVelocity = brain_P.Heading_Forward_Velocity;
 
-        /* Simulink Function 'MaintainHeading': '<S4>:918' */
+        /* Simulink Function 'MaintainHeading': '<S3>:918' */
         brain_B.DesiredHeading1 = brain_B.DesiredHeading;
         brain_B.CurrentHeading1 = brain_U.CurrentHeading;
         brain_B.ForwardVelocity1 = brain_B.HeadingForwardVelocity;
@@ -6373,37 +6373,37 @@ static void brain_ValidationGate(void)
         brain_B.Left = brain_B.StateFlowFunctionsMaintainHea_d.DoubleToint8;
         brain_B.Right = brain_B.StateFlowFunctionsMaintainHea_d.DoubleToint1;
 
-        /* Simulink Function 'MaintainDepth': '<S4>:926' */
+        /* Simulink Function 'MaintainDepth': '<S3>:926' */
         brain_B.CurrentDepth1 = (real32_T)brain_U.CurrentDepth;
         brain_B.DesiredDepth1 = (real32_T)brain_B.DesiredDepth;
         brain_DWork.StateFlowFunctionsMaintainDepth = brain_M->Timing.clockTick0
           - brain_DWork.StateFlowFunctionsMaintainDep_k;
         brain_DWork.StateFlowFunctionsMaintainDep_k = brain_M->Timing.clockTick0;
 
-        /* Sum: '<S22>/Add' */
+        /* Sum: '<S21>/Add' */
         rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S79>/TSamp' incorporates:
-         *  Gain: '<S78>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S78>/TSamp' incorporates:
+         *  Gain: '<S77>/Depth Derivative Gain'
          *
-         * About '<S79>/TSamp':
+         * About '<S78>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
         rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
-        /* DataTypeConversion: '<S22>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S78>/Depth Discrete-Time Integrator'
-         *  Gain: '<S78>/Depth Proportional Gain'
-         *  Sum: '<S78>/Sum'
-         *  Sum: '<S79>/Diff'
-         *  UnitDelay: '<S79>/UD'
+        /* DataTypeConversion: '<S21>/Double To Int8' incorporates:
+         *  DiscreteIntegrator: '<S77>/Depth Discrete-Time Integrator'
+         *  Gain: '<S77>/Depth Proportional Gain'
+         *  Sum: '<S77>/Sum'
+         *  Sum: '<S78>/Diff'
+         *  UnitDelay: '<S78>/UD'
          *
-         * Block description for '<S79>/Diff':
+         * Block description for '<S78>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S79>/UD':
+         * Block description for '<S78>/UD':
          *
          *  Store in Global RAM
          */
@@ -6420,15 +6420,15 @@ static void brain_ValidationGate(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S79>/UD'
-         * Block description for '<S79>/UD':
+        /* Update for UnitDelay: '<S78>/UD'
+         * Block description for '<S78>/UD':
          *
          *  Store in Global RAM
          */
         brain_DWork.UD_DSTATE = rtb_TSamp;
 
-        /* Update for DiscreteIntegrator: '<S78>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S78>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S77>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S77>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -6448,8 +6448,8 @@ static void brain_ValidationGate(void)
       break;
 
      default:
-      /* Transition: '<S4>:1476' */
-      /* Entry 'GoThoughGate': '<S4>:1462' */
+      /* Transition: '<S3>:1476' */
+      /* Entry 'GoThoughGate': '<S3>:1462' */
       brain_DWork.is_ValidationGate = brain_IN_GoThoughGate;
       break;
     }
@@ -6478,16 +6478,16 @@ static void brain_StateFlowFunctions(void)
   real_T rtb_Centroid_Out[100];
   int32_T i;
 
-  /* During 'StateFlowFunctions': '<S4>:726' */
+  /* During 'StateFlowFunctions': '<S3>:726' */
   switch (brain_DWork.is_StateFlowFunctions) {
    case brain_IN_Buoys:
-    /* During 'Buoys': '<S4>:1290' */
+    /* During 'Buoys': '<S3>:1290' */
     if (brain_DWork.OperationalState != 4) {
-      /* Transition: '<S4>:1279' */
+      /* Transition: '<S3>:1279' */
       brain_exit_internal_Buoys();
 
-      /* Exit 'Buoys': '<S4>:1290' */
-      /* Entry 'GetInCorrectState': '<S4>:1263' */
+      /* Exit 'Buoys': '<S3>:1290' */
+      /* Entry 'GetInCorrectState': '<S3>:1263' */
       brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
     } else {
       switch (brain_DWork.is_Buoys) {
@@ -6499,53 +6499,53 @@ static void brain_StateFlowFunctions(void)
         break;
 
        case brain_IN_FindBuoys:
-        /* During 'FindBuoys': '<S4>:1295' */
+        /* During 'FindBuoys': '<S3>:1295' */
         if (brain_DWork.BuoyCount > 2.0) {
-          /* Transition: '<S4>:1292' */
-          /* Exit 'FindBuoys': '<S4>:1295' */
-          /* Simulink Function 'GetBuoyColors': '<S4>:1521' */
+          /* Transition: '<S3>:1292' */
+          /* Exit 'FindBuoys': '<S3>:1295' */
+          /* Simulink Function 'GetBuoyColors': '<S3>:1521' */
           memcpy((void *)&brain_B.LabelMatrix[0], (void *)
                  &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
           memcpy((void *)&brain_B.ref_colors[0], (void *)
                  &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
           brain_B.num_colors_m = brain_DWork.num_colors;
 
-          /* Embedded MATLAB: '<S11>/Blob Extraction' */
+          /* Embedded MATLAB: '<S10>/Blob Extraction' */
           brain_c5_brain();
 
-          /* Embedded MATLAB: '<S11>/IF Buoy Conditions' incorporates:
-           *  Constant: '<S11>/Constant'
-           *  Constant: '<S11>/Constant1'
-           *  Constant: '<S11>/Constant2'
-           *  Constant: '<S11>/Constant3'
+          /* Embedded MATLAB: '<S10>/IF Buoy Conditions' incorporates:
+           *  Constant: '<S10>/Constant'
+           *  Constant: '<S10>/Constant1'
+           *  Constant: '<S10>/Constant2'
+           *  Constant: '<S10>/Constant3'
            */
-          /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors/IF Buoy Conditions': '<S45>:1' */
+          /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors/IF Buoy Conditions': '<S44>:1' */
           /*  This function will take in 2 1x10 vectors, eccent and extent to determine */
           /*  the cenroids of the most circular objects in the image */
-          /* '<S45>:1:5' */
+          /* '<S44>:1:5' */
           rtb_Add = 0.0;
 
-          /* '<S45>:1:6' */
+          /* '<S44>:1:6' */
           memset((void *)&rtb_Centroid_Out[0], (int32_T)0.0, 100U * sizeof
                  (real_T));
 
-          /* '<S45>:1:9' */
+          /* '<S44>:1:9' */
           for (eml_i = 1U; eml_i <= brain_B.TotalNum; eml_i = (uint8_T)(uint32_T)
                (eml_i + 1)) {
-            /* '<S45>:1:9' */
+            /* '<S44>:1:9' */
             if ((brain_B.Eccent[eml_i - 1] > brain_P.Buoy_Min_Eccentricity) &&
                 (brain_B.Eccent[eml_i - 1] < brain_P.Buoy_Max_Eccentricity) &&
                 (brain_B.Extent[eml_i - 1] > brain_P.Buoy_Min_Extent) &&
                 (brain_B.Extent[eml_i - 1] < brain_P.Buoy_Max_Extent)) {
-              /* '<S45>:1:10' */
-              /* '<S45>:1:11' */
+              /* '<S44>:1:10' */
+              /* '<S44>:1:11' */
               rtb_Add++;
 
-              /* '<S45>:1:12' */
+              /* '<S44>:1:12' */
               rtb_Centroid_Out[(int32_T)rtb_Add - 1] = brain_B.Centroid[eml_i -
                 1];
 
-              /* '<S45>:1:13' */
+              /* '<S44>:1:13' */
               rtb_Centroid_Out[(int32_T)rtb_Add + 49] = brain_B.Centroid[eml_i +
                 49];
             }
@@ -6553,50 +6553,50 @@ static void brain_StateFlowFunctions(void)
 
           brain_B.count = rtb_Add;
 
-          /* Embedded MATLAB: '<S11>/Say Which Buoy Is Which' */
-          /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors/Say Which Buoy Is Which': '<S46>:1' */
+          /* Embedded MATLAB: '<S10>/Say Which Buoy Is Which' */
+          /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors/Say Which Buoy Is Which': '<S45>:1' */
           /*  This function determines which buoy is in which location, left, middle, */
           /*  or right. */
-          /* '<S46>:1:6' */
+          /* '<S45>:1:6' */
           memset((void *)&eml_colors[0], (int32_T)0.0, 150U * sizeof(real_T));
 
-          /* '<S46>:1:7' */
-          /* '<S46>:1:8' */
+          /* '<S45>:1:7' */
+          /* '<S45>:1:8' */
           for (i = 0; i < 50; i++) {
             eml_centX[i] = 0.0;
             eml_centY[i] = 0.0;
           }
 
-          /* '<S46>:1:10' */
+          /* '<S45>:1:10' */
           memset((void *)&brain_B.blobs[0], (int32_T)0.0, 200U * sizeof(real_T));
 
-          /* '<S46>:1:12' */
+          /* '<S45>:1:12' */
           for (rtb_Add = 1.0; rtb_Add <= brain_B.count; rtb_Add++) {
-            /* '<S46>:1:12' */
-            /* '<S46>:1:13' */
+            /* '<S45>:1:12' */
+            /* '<S45>:1:13' */
             eml_centX[(int32_T)rtb_Add - 1] = floor(rtb_Centroid_Out[(int32_T)
               rtb_Add + 49]);
 
-            /* '<S46>:1:14' */
+            /* '<S45>:1:14' */
             eml_centY[(int32_T)rtb_Add - 1] = floor(rtb_Centroid_Out[(int32_T)
               rtb_Add - 1]);
             if (eml_centX[(int32_T)rtb_Add - 1] < 1.0) {
-              /* '<S46>:1:15' */
-              /* '<S46>:1:16' */
+              /* '<S45>:1:15' */
+              /* '<S45>:1:16' */
               eml_centX[(int32_T)rtb_Add - 1] = 1.0;
             }
 
             if (eml_centY[(int32_T)rtb_Add - 1] < 1.0) {
-              /* '<S46>:1:18' */
-              /* '<S46>:1:19' */
+              /* '<S45>:1:18' */
+              /* '<S45>:1:19' */
               eml_centY[(int32_T)rtb_Add - 1] = 1.0;
             }
 
-            /* '<S46>:1:22' */
+            /* '<S45>:1:22' */
             rtb_TSamp = brain_B.LabelMatrix[((int32_T)eml_centX[(int32_T)rtb_Add
               - 1] - 1) * 120 + ((int32_T)eml_centY[(int32_T)rtb_Add - 1] - 1)];
 
-            /* '<S46>:1:24' */
+            /* '<S45>:1:24' */
             i = (int32_T)rtb_Add - 1;
             eml_colors[i] = brain_B.ref_colors[(int32_T)rtb_TSamp - 1];
             eml_colors[i + 50] = brain_B.ref_colors[(int32_T)rtb_TSamp + 49];
@@ -6604,9 +6604,9 @@ static void brain_StateFlowFunctions(void)
           }
 
           /*  Putting blobs in order from left to right */
-          /* '<S46>:1:28' */
+          /* '<S45>:1:28' */
           for (rtb_Add = 1.0; rtb_Add <= brain_B.count; rtb_Add++) {
-            /* '<S46>:1:28' */
+            /* '<S45>:1:28' */
             rtb_TSamp = eml_centX[0];
             eml_j = 1;
             eml_ix = 1;
@@ -6644,49 +6644,49 @@ static void brain_StateFlowFunctions(void)
               }
             }
 
-            /* '<S46>:1:30' */
+            /* '<S45>:1:30' */
             brain_B.blobs[(int32_T)rtb_Add - 1] = eml_colors[eml_j - 1];
 
-            /* '<S46>:1:31' */
+            /* '<S45>:1:31' */
             brain_B.blobs[(int32_T)rtb_Add + 49] = eml_colors[eml_j + 49];
 
-            /* '<S46>:1:32' */
+            /* '<S45>:1:32' */
             brain_B.blobs[(int32_T)rtb_Add + 99] = eml_colors[eml_j + 99];
 
-            /* '<S46>:1:33' */
+            /* '<S45>:1:33' */
             brain_B.blobs[(int32_T)rtb_Add + 149] = brain_B.Area[eml_j - 1];
 
-            /* '<S46>:1:34' */
+            /* '<S45>:1:34' */
             eml_centX[eml_j - 1] = 1000.0;
           }
 
           brain_DWork.num_blobs = brain_B.count;
 
-          /* Entry 'ApproachBuoys': '<S4>:1312' */
+          /* Entry 'ApproachBuoys': '<S3>:1312' */
           brain_DWork.is_Buoys = brain_IN_ApproachBuoys;
           brain_DWork.countarea = 0.0;
           brain_DWork.count2ndarea = 0.0;
           brain_DWork.TurnDirection = 0.0;
 
-          /* Transition: '<S4>:1313' */
-          /* Entry 'ApproachFirstBuoy': '<S4>:1341' */
+          /* Transition: '<S3>:1313' */
+          /* Entry 'ApproachFirstBuoy': '<S3>:1341' */
           brain_DWork.is_ApproachBuoys = brain_IN_ApproachFirstBuoy;
 
-          /* Simulink Function 'GetFirstBuoyStats': '<S4>:1342' */
+          /* Simulink Function 'GetFirstBuoyStats': '<S3>:1342' */
 
-          /* Constant: '<S5>/Constant' */
+          /* Constant: '<S4>/Constant' */
           brain_B.Constant_k = brain_P.Buoy1_Hue;
 
-          /* Constant: '<S5>/Constant2' */
+          /* Constant: '<S4>/Constant2' */
           brain_B.Constant2_i = brain_P.Buoy1_Saturation;
 
-          /* Constant: '<S5>/Constant1' */
+          /* Constant: '<S4>/Constant1' */
           brain_B.Constant1_o = brain_P.Buoy1_Value;
           brain_DWork.BuoyHue = brain_B.Constant_k;
           brain_DWork.BuoySaturation = brain_B.Constant2_i;
           brain_DWork.BuoyValue = brain_B.Constant1_o;
 
-          /* Simulink Function 'WhichBuoysToApproach': '<S4>:1514' */
+          /* Simulink Function 'WhichBuoysToApproach': '<S3>:1514' */
           for (i = 0; i < 200; i++) {
             brain_DWork.BuoyBlobs[i] = brain_B.blobs[i];
             brain_B.buoys[i] = brain_DWork.BuoyBlobs[i];
@@ -6694,10 +6694,10 @@ static void brain_StateFlowFunctions(void)
 
           brain_B.num_blobs = brain_DWork.num_blobs;
 
-          /* S-Function (svipcolorconv): '<S26>/Color Space  Conversion' incorporates:
-           *  Constant: '<S26>/Constant'
-           *  Constant: '<S26>/Constant1'
-           *  Constant: '<S26>/Constant2'
+          /* S-Function (svipcolorconv): '<S25>/Color Space  Conversion' incorporates:
+           *  Constant: '<S25>/Constant'
+           *  Constant: '<S25>/Constant1'
+           *  Constant: '<S25>/Constant2'
            */
           /* temporary variables for in-place operation */
           cc_0 = 0.0;
@@ -6754,7 +6754,7 @@ static void brain_StateFlowFunctions(void)
           brain_B.ColorSpaceConversion_o2_o = rtb_Add * cc_1;
           brain_B.ColorSpaceConversion_o1_g = rtb_Add * cc_2;
 
-          /* S-Function (svipcolorconv): '<S26>/Color Space  Conversion1' */
+          /* S-Function (svipcolorconv): '<S25>/Color Space  Conversion1' */
           /* temporary variables for in-place operation */
           /* Convert to XYZ */
           /* temporary variables for in-place operation */
@@ -6857,10 +6857,10 @@ static void brain_StateFlowFunctions(void)
           brain_B.ColorSpaceConversion1_o2 = (eml_i_0 - rtb_TSamp) * 500.0;
           brain_B.ColorSpaceConversion1_o3 = (rtb_TSamp - rtb_Add) * 200.0;
 
-          /* S-Function (svipcolorconv): '<S28>/Color Space  Conversion' incorporates:
-           *  Constant: '<S28>/Constant'
-           *  Constant: '<S28>/Constant1'
-           *  Constant: '<S28>/Constant2'
+          /* S-Function (svipcolorconv): '<S27>/Color Space  Conversion' incorporates:
+           *  Constant: '<S27>/Constant'
+           *  Constant: '<S27>/Constant1'
+           *  Constant: '<S27>/Constant2'
            */
           /* temporary variables for in-place operation */
           cc_0 = 0.0;
@@ -6917,7 +6917,7 @@ static void brain_StateFlowFunctions(void)
           brain_B.ColorSpaceConversion_o2_o = rtb_Add * cc_1;
           brain_B.ColorSpaceConversion_o3_c = rtb_Add * cc_2;
 
-          /* S-Function (svipcolorconv): '<S28>/Color Space  Conversion1' */
+          /* S-Function (svipcolorconv): '<S27>/Color Space  Conversion1' */
           /* temporary variables for in-place operation */
           /* Convert to XYZ */
           /* temporary variables for in-place operation */
@@ -7020,34 +7020,34 @@ static void brain_StateFlowFunctions(void)
           brain_B.ColorSpaceConversion1_o2_i = (eml_i_0 - rtb_TSamp) * 500.0;
           brain_B.ColorSpaceConversion1_o3_m = (rtb_TSamp - rtb_Add) * 200.0;
 
-          /* Embedded MATLAB: '<S6>/GetBestColorMatch' */
-          /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.WhichBuoysToApproach/GetBestColorMatch': '<S27>:1' */
+          /* Embedded MATLAB: '<S5>/GetBestColorMatch' */
+          /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.WhichBuoysToApproach/GetBestColorMatch': '<S26>:1' */
           /*  This function determines which buoys are the best match for the desired colors */
           /*  Buoys = zeros(3,3); */
           /*  Buoys = [L;M;R]; */
-          /* '<S27>:1:6' */
+          /* '<S26>:1:6' */
           rtb_TSamp = 1000.0;
 
-          /* '<S27>:1:7' */
+          /* '<S26>:1:7' */
           cc = 1000.0;
 
-          /* '<S27>:1:8' */
-          /* '<S27>:1:9' */
+          /* '<S26>:1:8' */
+          /* '<S26>:1:9' */
           for (i = 0; i < 50; i++) {
             eml_centX[i] = 2.0;
             eml_centY[i] = 2.0;
           }
 
-          /* '<S27>:1:11' */
+          /* '<S26>:1:11' */
           cc_0 = 0.0;
 
-          /* '<S27>:1:12' */
+          /* '<S26>:1:12' */
           cc_1 = 0.0;
 
-          /* '<S27>:1:14' */
+          /* '<S26>:1:14' */
           for (eml_i_0 = 1.0; eml_i_0 <= brain_B.num_blobs; eml_i_0++) {
-            /* '<S27>:1:14' */
-            /* '<S27>:1:15' */
+            /* '<S26>:1:14' */
+            /* '<S26>:1:15' */
             rtb_Add = sqrt((rt_pow_snf(brain_B.buoys[(int32_T)eml_i_0 - 1] -
               brain_B.ColorSpaceConversion1_o1, 2.0) + rt_pow_snf(brain_B.buoys
                              [(int32_T)eml_i_0 + 49] -
@@ -7055,18 +7055,18 @@ static void brain_StateFlowFunctions(void)
                            (brain_B.buoys[(int32_T)eml_i_0 + 99] -
                             brain_B.ColorSpaceConversion1_o3, 2.0));
             if (rtb_Add <= rtb_TSamp) {
-              /* '<S27>:1:16' */
-              /* '<S27>:1:17' */
+              /* '<S26>:1:16' */
+              /* '<S26>:1:17' */
               cc_0++;
 
-              /* '<S27>:1:18' */
+              /* '<S26>:1:18' */
               rtb_TSamp = rtb_Add;
 
-              /* '<S27>:1:19' */
+              /* '<S26>:1:19' */
               eml_centX[(int32_T)cc_0 - 1] = eml_i_0;
             }
 
-            /* '<S27>:1:21' */
+            /* '<S26>:1:21' */
             rtb_Add = sqrt((rt_pow_snf(brain_B.buoys[(int32_T)eml_i_0 - 1] -
               brain_B.ColorSpaceConversion1_o1_n, 2.0) + rt_pow_snf
                             (brain_B.buoys[(int32_T)eml_i_0 + 49] -
@@ -7074,80 +7074,80 @@ static void brain_StateFlowFunctions(void)
                            rt_pow_snf(brain_B.buoys[(int32_T)eml_i_0 + 99] -
               brain_B.ColorSpaceConversion1_o3_m, 2.0));
             if (rtb_Add < cc) {
-              /* '<S27>:1:22' */
-              /* '<S27>:1:23' */
+              /* '<S26>:1:22' */
+              /* '<S26>:1:23' */
               cc_1++;
 
-              /* '<S27>:1:24' */
+              /* '<S26>:1:24' */
               cc = rtb_Add;
 
-              /* '<S27>:1:25' */
+              /* '<S26>:1:25' */
               eml_centY[(int32_T)cc_1 - 1] = eml_i_0;
             }
           }
 
-          /* '<S27>:1:29' */
+          /* '<S26>:1:29' */
           cc = 2.0;
 
-          /* '<S27>:1:30' */
-          /* '<S27>:1:31' */
+          /* '<S26>:1:30' */
+          /* '<S26>:1:31' */
           for (rtb_Add = 1.0; rtb_Add <= cc_0; rtb_Add++) {
-            /* '<S27>:1:31' */
-            /* '<S27>:1:32' */
+            /* '<S26>:1:31' */
+            /* '<S26>:1:32' */
             if (brain_B.buoys[(int32_T)eml_centX[(int32_T)rtb_Add - 1] + 149] >
                 0.0) {
-              /* '<S27>:1:33' */
-              /* '<S27>:1:34' */
+              /* '<S26>:1:33' */
+              /* '<S26>:1:34' */
               cc = eml_centX[(int32_T)rtb_Add - 1];
             }
           }
 
-          /* '<S27>:1:39' */
+          /* '<S26>:1:39' */
           rtb_Add = 2.0;
 
-          /* '<S27>:1:40' */
-          /* '<S27>:1:41' */
+          /* '<S26>:1:40' */
+          /* '<S26>:1:41' */
           for (rtb_TSamp = 1.0; rtb_TSamp <= cc_1; rtb_TSamp++) {
-            /* '<S27>:1:41' */
-            /* '<S27>:1:42' */
+            /* '<S26>:1:41' */
+            /* '<S26>:1:42' */
             if (brain_B.buoys[(int32_T)eml_centY[(int32_T)rtb_TSamp - 1] + 149] >
                 0.0) {
-              /* '<S27>:1:43' */
-              /* '<S27>:1:44' */
+              /* '<S26>:1:43' */
+              /* '<S26>:1:44' */
               rtb_Add = eml_centY[(int32_T)rtb_TSamp - 1];
             }
           }
 
           if (cc > rtb_Add) {
-            /* '<S27>:1:49' */
-            /* '<S27>:1:50' */
+            /* '<S26>:1:49' */
+            /* '<S26>:1:50' */
             brain_B.Direction1 = 1.0;
 
-            /* '<S27>:1:51' */
+            /* '<S26>:1:51' */
             brain_B.Direction2 = 3.0;
           } else if (cc == rtb_Add) {
-            /* '<S27>:1:52' */
-            /* '<S27>:1:53' */
+            /* '<S26>:1:52' */
+            /* '<S26>:1:53' */
             brain_B.Direction1 = 2.0;
 
-            /* '<S27>:1:54' */
+            /* '<S26>:1:54' */
             brain_B.Direction2 = 2.0;
           } else {
-            /* '<S27>:1:56' */
+            /* '<S26>:1:56' */
             brain_B.Direction1 = 3.0;
 
-            /* '<S27>:1:57' */
+            /* '<S26>:1:57' */
             brain_B.Direction2 = 1.0;
           }
 
           brain_DWork.FirstDir = brain_B.Direction1;
           brain_DWork.SecondDir = brain_B.Direction2;
         } else {
-          /* Simulink Function 'IterativeSegmentation': '<S4>:1483' */
+          /* Simulink Function 'IterativeSegmentation': '<S3>:1483' */
           for (i = 0; i < 19200; i++) {
-            brain_B.H[i] = brain_B.Resize[i];
-            brain_B.S[i] = brain_B.Resize1[i];
-            brain_B.V[i] = brain_B.Resize2[i];
+            brain_B.H[i] = brain_B.DataTypeConversion[i];
+            brain_B.S[i] = brain_B.DataTypeConversion1[i];
+            brain_B.V[i] = brain_B.DataTypeConversion2[i];
           }
 
           StateFlowFunctionsBuoysIterativ(brain_B.H, brain_B.S, brain_B.V,
@@ -7162,7 +7162,7 @@ static void brain_StateFlowFunctions(void)
                  &brain_B.StateFlowFunctionsBuoysIterat_g.ref_colors[0], 150U *
                  sizeof(real_T));
 
-          /* Simulink Function 'LookforBuoys': '<S4>:1491' */
+          /* Simulink Function 'LookforBuoys': '<S3>:1491' */
           memcpy((void *)&brain_B.LabMatrix_b[0], (void *)
                  &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
           brain_B.num_colors = brain_DWork.num_colors;
@@ -7173,12 +7173,12 @@ static void brain_StateFlowFunctions(void)
           brain_DWork.BuoyCount = brain_countimages_m((real_T)sf_Obstacle,
             (real_T)brain_DWork.OldObstacle, brain_DWork.BuoyCount);
 
-          /* Simulink Function 'GetBuoyForwardVelocity': '<S4>:1293' */
+          /* Simulink Function 'GetBuoyForwardVelocity': '<S3>:1293' */
 
-          /* Constant: '<S13>/Constant' */
+          /* Constant: '<S12>/Constant' */
           brain_B.Constant = brain_P.Heading_Forward_Velocity;
 
-          /* Simulink Function 'MaintainHeading': '<S4>:918' */
+          /* Simulink Function 'MaintainHeading': '<S3>:918' */
           brain_B.DesiredHeading1 = brain_B.DesiredHeading;
           brain_B.CurrentHeading1 = brain_U.CurrentHeading;
           brain_B.ForwardVelocity1 = brain_B.Constant;
@@ -7189,7 +7189,7 @@ static void brain_StateFlowFunctions(void)
           brain_B.Left = brain_B.StateFlowFunctionsMaintainHea_d.DoubleToint8;
           brain_B.Right = brain_B.StateFlowFunctionsMaintainHea_d.DoubleToint1;
 
-          /* Simulink Function 'MaintainDepth': '<S4>:926' */
+          /* Simulink Function 'MaintainDepth': '<S3>:926' */
           brain_B.CurrentDepth1 = (real32_T)brain_U.CurrentDepth;
           brain_B.DesiredDepth1 = (real32_T)brain_B.DesiredDepth;
           brain_DWork.StateFlowFunctionsMaintainDepth =
@@ -7198,31 +7198,31 @@ static void brain_StateFlowFunctions(void)
           brain_DWork.StateFlowFunctionsMaintainDep_k =
             brain_M->Timing.clockTick0;
 
-          /* Sum: '<S22>/Add' */
+          /* Sum: '<S21>/Add' */
           rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)
             brain_B.CurrentDepth1;
 
-          /* SampleTimeMath: '<S79>/TSamp' incorporates:
-           *  Gain: '<S78>/Depth Derivative Gain'
+          /* SampleTimeMath: '<S78>/TSamp' incorporates:
+           *  Gain: '<S77>/Depth Derivative Gain'
            *
-           * About '<S79>/TSamp':
+           * About '<S78>/TSamp':
            *  y = u * K where K = 1 / ( w * Ts )
            */
           rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
             brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
-          /* DataTypeConversion: '<S22>/Double To Int8' incorporates:
-           *  DiscreteIntegrator: '<S78>/Depth Discrete-Time Integrator'
-           *  Gain: '<S78>/Depth Proportional Gain'
-           *  Sum: '<S78>/Sum'
-           *  Sum: '<S79>/Diff'
-           *  UnitDelay: '<S79>/UD'
+          /* DataTypeConversion: '<S21>/Double To Int8' incorporates:
+           *  DiscreteIntegrator: '<S77>/Depth Discrete-Time Integrator'
+           *  Gain: '<S77>/Depth Proportional Gain'
+           *  Sum: '<S77>/Sum'
+           *  Sum: '<S78>/Diff'
+           *  UnitDelay: '<S78>/UD'
            *
-           * Block description for '<S79>/Diff':
+           * Block description for '<S78>/Diff':
            *
            *  Add in CPU
            *
-           * Block description for '<S79>/UD':
+           * Block description for '<S78>/UD':
            *
            *  Store in Global RAM
            */
@@ -7239,15 +7239,15 @@ static void brain_StateFlowFunctions(void)
             brain_B.DoubleToInt8 = MAX_int8_T;
           }
 
-          /* Update for UnitDelay: '<S79>/UD'
-           * Block description for '<S79>/UD':
+          /* Update for UnitDelay: '<S78>/UD'
+           * Block description for '<S78>/UD':
            *
            *  Store in Global RAM
            */
           brain_DWork.UD_DSTATE = rtb_TSamp;
 
-          /* Update for DiscreteIntegrator: '<S78>/Depth Discrete-Time Integrator' incorporates:
-           *  Gain: '<S78>/Depth Integral Gain'
+          /* Update for DiscreteIntegrator: '<S77>/Depth Discrete-Time Integrator' incorporates:
+           *  Gain: '<S77>/Depth Integral Gain'
            */
           brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
             brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -7263,45 +7263,45 @@ static void brain_StateFlowFunctions(void)
           brain_B.Vertical = brain_B.DoubleToInt8;
           brain_DWork.OldObstacle = sf_Obstacle;
 
-          /* Simulink Function 'ShowSegmentedImage': '<S4>:1370' */
+          /* Simulink Function 'ShowSegmentedImage': '<S3>:1370' */
           memcpy((void *)&brain_B.LabMatrix_i[0], (void *)
                  &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
           memcpy((void *)&brain_B.Ref_Colors_j[0], (void *)
                  &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
 
-          /* Embedded MATLAB: '<S15>/Embedded MATLAB Function' */
-          /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function': '<S57>:1' */
+          /* Embedded MATLAB: '<S14>/Embedded MATLAB Function' */
+          /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function': '<S56>:1' */
           /*  This function puts together the segmented imaged such that it can be shown */
-          /* '<S57>:1:5' */
-          /* '<S57>:1:6' */
-          /* '<S57>:1:7' */
-          /* '<S57>:1:9' */
+          /* '<S56>:1:5' */
+          /* '<S56>:1:6' */
+          /* '<S56>:1:7' */
+          /* '<S56>:1:9' */
           for (i = 0; i < 120; i++) {
-            /* '<S57>:1:9' */
-            /* '<S57>:1:10' */
+            /* '<S56>:1:9' */
+            /* '<S56>:1:10' */
             for (eml_j = 0; eml_j < 160; eml_j++) {
-              /* '<S57>:1:10' */
-              /* '<S57>:1:11' */
+              /* '<S56>:1:10' */
+              /* '<S56>:1:11' */
               brain_B.L[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
                 brain_B.LabMatrix_i[120 * eml_j + i] - 1];
 
-              /* '<S57>:1:12' */
+              /* '<S56>:1:12' */
               brain_B.a[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
                 brain_B.LabMatrix_i[120 * eml_j + i] + 49];
 
-              /* '<S57>:1:13' */
-              brain_B.b_m[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
+              /* '<S56>:1:13' */
+              brain_B.b[i + 120 * eml_j] = brain_B.Ref_Colors_j[(int32_T)
                 brain_B.LabMatrix_i[120 * eml_j + i] + 99];
             }
           }
 
-          /* S-Function (svipcolorconv): '<S15>/Color Space  Conversion' */
+          /* S-Function (svipcolorconv): '<S14>/Color Space  Conversion' */
           /* temporary variables for in-place operation */
           /* First convert to XYZ */
           for (i = 0; i < 19200; i++) {
             rtb_Add = (brain_B.L[i] + 16.0) / 116.0;
             rtb_TSamp = brain_B.a[i] / 500.0 + rtb_Add;
-            cc = brain_B.b_m[i] / -200.0 + rtb_Add;
+            cc = brain_B.b[i] / -200.0 + rtb_Add;
             if (rtb_TSamp <= 2.0689655172413793E-01) {
               rtb_TSamp -= 1.3793103448275862E-01;
               rtb_TSamp /= 7.7870370370370372E+00;
@@ -7405,27 +7405,27 @@ static void brain_StateFlowFunctions(void)
             brain_B.ColorSpaceConversion_o3[i] = cc;
           }
 
-          /* Embedded MATLAB: '<S15>/Embedded MATLAB Function1' */
-          /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function1': '<S58>:1' */
+          /* Embedded MATLAB: '<S14>/Embedded MATLAB Function1' */
+          /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function1': '<S57>:1' */
           /*  This function combines the separate color signals into a single 3-D signal */
-          /* '<S58>:1:6' */
+          /* '<S57>:1:6' */
           memset((void *)&brain_B.RGB[0], (int32_T)0.0, 57600U * sizeof(real_T));
 
-          /* '<S58>:1:8' */
+          /* '<S57>:1:8' */
           for (i = 0; i < 120; i++) {
-            /* '<S58>:1:8' */
-            /* '<S58>:1:9' */
+            /* '<S57>:1:8' */
+            /* '<S57>:1:9' */
             for (eml_j = 0; eml_j < 160; eml_j++) {
-              /* '<S58>:1:9' */
-              /* '<S58>:1:10' */
+              /* '<S57>:1:9' */
+              /* '<S57>:1:10' */
               brain_B.RGB[i + 120 * eml_j] = brain_B.ColorSpaceConversion_o1[120
                 * eml_j + i];
 
-              /* '<S58>:1:11' */
+              /* '<S57>:1:11' */
               brain_B.RGB[19200 + (i + 120 * eml_j)] =
                 brain_B.ColorSpaceConversion_o2[120 * eml_j + i];
 
-              /* '<S58>:1:12' */
+              /* '<S57>:1:12' */
               brain_B.RGB[38400 + (i + 120 * eml_j)] =
                 brain_B.ColorSpaceConversion_o3[120 * eml_j + i];
             }
@@ -7448,11 +7448,11 @@ static void brain_StateFlowFunctions(void)
     break;
 
    case brain_IN_Finish:
-    /* During 'Finish': '<S4>:1259' */
+    /* During 'Finish': '<S3>:1259' */
     if (brain_DWork.OperationalState != 6) {
-      /* Transition: '<S4>:1282' */
-      /* Exit 'Finish': '<S4>:1259' */
-      /* Entry 'GetInCorrectState': '<S4>:1263' */
+      /* Transition: '<S3>:1282' */
+      /* Exit 'Finish': '<S3>:1259' */
+      /* Entry 'GetInCorrectState': '<S3>:1263' */
       brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
     }
     break;
@@ -7466,11 +7466,11 @@ static void brain_StateFlowFunctions(void)
     break;
 
    case brain_IN_NotRunning:
-    /* During 'NotRunning': '<S4>:727' */
+    /* During 'NotRunning': '<S3>:727' */
     if (brain_DWork.OperationalState != -2) {
-      /* Transition: '<S4>:1265' */
-      /* Exit 'NotRunning': '<S4>:727' */
-      /* Entry 'GetInCorrectState': '<S4>:1263' */
+      /* Transition: '<S3>:1265' */
+      /* Exit 'NotRunning': '<S3>:727' */
+      /* Entry 'GetInCorrectState': '<S3>:1263' */
       brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
     }
     break;
@@ -7484,8 +7484,8 @@ static void brain_StateFlowFunctions(void)
     break;
 
    default:
-    /* Transition: '<S4>:1264' */
-    /* Entry 'GetInCorrectState': '<S4>:1263' */
+    /* Transition: '<S3>:1264' */
+    /* Entry 'GetInCorrectState': '<S3>:1263' */
     brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
     break;
   }
@@ -7494,237 +7494,49 @@ static void brain_StateFlowFunctions(void)
 /* Model step function */
 void brain_step(void)
 {
-  real32_T cc;
-  real32_T max;
-  int32_T m;
-  int32_T n;
-  real32_T sum;
-  int32_T k;
-  int32_T ictr;
-  int32_T indx;
   int32_T i;
-  real32_T Resize2_LineBuffer[480];
-  for (i = 0; i < 307200; i++) {
-    /* S-Function (svipscalenconvert): '<S2>/Red Data Type Conversion' incorporates:
-     *  Inport: '<Root>/R'
+  for (i = 0; i < 19200; i++) {
+    /* DataTypeConversion: '<Root>/Data Type Conversion' incorporates:
+     *  Inport: '<Root>/H'
      */
-    brain_B.RGBtoHSVColorSpaceConversion_o1[i] = (real32_T)brain_U.R[i] / 255.0F;
+    brain_B.DataTypeConversion[i] = (real32_T)brain_U.H[i];
 
-    /* S-Function (svipscalenconvert): '<S2>/Green Data Type Conversion1' incorporates:
-     *  Inport: '<Root>/G'
+    /* DataTypeConversion: '<Root>/Data Type Conversion1' incorporates:
+     *  Inport: '<Root>/S'
      */
-    brain_B.RGBtoHSVColorSpaceConversion_o2[i] = (real32_T)brain_U.G[i] / 255.0F;
+    brain_B.DataTypeConversion1[i] = (real32_T)brain_U.S[i];
 
-    /* S-Function (svipscalenconvert): '<S2>/Blue Data Type Conversion2' incorporates:
-     *  Inport: '<Root>/B'
+    /* DataTypeConversion: '<Root>/Data Type Conversion2' incorporates:
+     *  Inport: '<Root>/V'
      */
-    brain_B.RGBtoHSVColorSpaceConversion_o3[i] = (real32_T)brain_U.B[i] / 255.0F;
-  }
-
-  /* S-Function (svipcolorconv): '<S2>/RGB to HSV Color Space  Conversion' */
-  /* temporary variables for in-place operation */
-  for (i = 0; i < 307200; i++) {
-    /* First get the min and max of the RGB triplet */
-    if (brain_B.RGBtoHSVColorSpaceConversion_o1[i] >
-        brain_B.RGBtoHSVColorSpaceConversion_o2[i]) {
-      if (brain_B.RGBtoHSVColorSpaceConversion_o2[i] <
-          brain_B.RGBtoHSVColorSpaceConversion_o3[i]) {
-        sum = brain_B.RGBtoHSVColorSpaceConversion_o2[i];
-      } else {
-        sum = brain_B.RGBtoHSVColorSpaceConversion_o3[i];
-      }
-
-      if (brain_B.RGBtoHSVColorSpaceConversion_o1[i] >
-          brain_B.RGBtoHSVColorSpaceConversion_o3[i]) {
-        max = brain_B.RGBtoHSVColorSpaceConversion_o1[i];
-      } else {
-        max = brain_B.RGBtoHSVColorSpaceConversion_o3[i];
-      }
-    } else {
-      if (brain_B.RGBtoHSVColorSpaceConversion_o1[i] <
-          brain_B.RGBtoHSVColorSpaceConversion_o3[i]) {
-        sum = brain_B.RGBtoHSVColorSpaceConversion_o1[i];
-      } else {
-        sum = brain_B.RGBtoHSVColorSpaceConversion_o3[i];
-      }
-
-      if (brain_B.RGBtoHSVColorSpaceConversion_o2[i] >
-          brain_B.RGBtoHSVColorSpaceConversion_o3[i]) {
-        max = brain_B.RGBtoHSVColorSpaceConversion_o2[i];
-      } else {
-        max = brain_B.RGBtoHSVColorSpaceConversion_o3[i];
-      }
-    }
-
-    sum = max - sum;
-    if (max != 0.0F) {
-      cc = sum / max;
-    } else {
-      cc = 0.0F;
-    }
-
-    if (sum != 0.0F) {
-      if (brain_B.RGBtoHSVColorSpaceConversion_o1[i] == max) {
-        sum = (brain_B.RGBtoHSVColorSpaceConversion_o2[i] -
-               brain_B.RGBtoHSVColorSpaceConversion_o3[i]) / sum;
-      } else if (brain_B.RGBtoHSVColorSpaceConversion_o2[i] == max) {
-        sum = (brain_B.RGBtoHSVColorSpaceConversion_o3[i] -
-               brain_B.RGBtoHSVColorSpaceConversion_o1[i]) / sum + 2.0F;
-      } else {
-        sum = (brain_B.RGBtoHSVColorSpaceConversion_o1[i] -
-               brain_B.RGBtoHSVColorSpaceConversion_o2[i]) / sum + 4.0F;
-      }
-
-      sum /= 6.0F;
-      if (sum < 0.0F) {
-        sum++;
-      }
-    } else {
-      sum = 0.0F;
-    }
-
-    /* assign the results */
-    brain_B.RGBtoHSVColorSpaceConversion_o1[i] = sum;
-    brain_B.RGBtoHSVColorSpaceConversion_o2[i] = cc;
-    brain_B.RGBtoHSVColorSpaceConversion_o3[i] = max;
-  }
-
-  /* S-Function (svipresize): '<S2>/Resize' */
-  /* use pre-computed weights and index table to perform interpolation */
-  i = 0;
-  for (m = 0; m < 480; m++) {
-    indx = m;
-    for (n = 0; n < 160; n++) {
-      ictr = n;
-      sum = 0.0F;
-      for (k = 0; k < 8; k++) {
-        sum +=
-          brain_B.RGBtoHSVColorSpaceConversion_o1[brain_ConstP.pooled22[ictr] *
-          480 + m] * brain_ConstP.pooled16[ictr];
-        ictr += 160;
-      }
-
-      brain_DWork.Resize_IntBuffer[indx] = sum;
-      indx += 480;
-    }
-  }
-
-  for (n = 0; n < 160; n++) {
-    memcpy((void *)&Resize2_LineBuffer[0], (void *)
-           (&brain_DWork.Resize_IntBuffer[n * 480]), 480U * sizeof(real32_T));
-    for (m = 0; m < 120; m++) {
-      ictr = m;
-      sum = 0.0F;
-      for (k = 0; k < 8; k++) {
-        sum += Resize2_LineBuffer[brain_ConstP.pooled21[ictr]] *
-          brain_ConstP.pooled15[ictr];
-        ictr += 120;
-      }
-
-      brain_B.Resize[i] = sum;
-      i++;
-    }
-  }
-
-  /* S-Function (svipresize): '<S2>/Resize1' */
-  /* use pre-computed weights and index table to perform interpolation */
-  i = 0;
-  for (m = 0; m < 480; m++) {
-    indx = m;
-    for (n = 0; n < 160; n++) {
-      ictr = n;
-      sum = 0.0F;
-      for (k = 0; k < 8; k++) {
-        sum +=
-          brain_B.RGBtoHSVColorSpaceConversion_o2[brain_ConstP.pooled22[ictr] *
-          480 + m] * brain_ConstP.pooled16[ictr];
-        ictr += 160;
-      }
-
-      brain_DWork.Resize1_IntBuffer[indx] = sum;
-      indx += 480;
-    }
-  }
-
-  for (n = 0; n < 160; n++) {
-    memcpy((void *)&Resize2_LineBuffer[0], (void *)
-           (&brain_DWork.Resize1_IntBuffer[n * 480]), 480U * sizeof(real32_T));
-    for (m = 0; m < 120; m++) {
-      ictr = m;
-      sum = 0.0F;
-      for (k = 0; k < 8; k++) {
-        sum += Resize2_LineBuffer[brain_ConstP.pooled21[ictr]] *
-          brain_ConstP.pooled15[ictr];
-        ictr += 120;
-      }
-
-      brain_B.Resize1[i] = sum;
-      i++;
-    }
-  }
-
-  /* S-Function (svipresize): '<S2>/Resize2' */
-  /* use pre-computed weights and index table to perform interpolation */
-  i = 0;
-  for (m = 0; m < 480; m++) {
-    indx = m;
-    for (n = 0; n < 160; n++) {
-      ictr = n;
-      sum = 0.0F;
-      for (k = 0; k < 8; k++) {
-        sum +=
-          brain_B.RGBtoHSVColorSpaceConversion_o3[brain_ConstP.pooled22[ictr] *
-          480 + m] * brain_ConstP.pooled16[ictr];
-        ictr += 160;
-      }
-
-      brain_DWork.Resize2_IntBuffer[indx] = sum;
-      indx += 480;
-    }
-  }
-
-  for (n = 0; n < 160; n++) {
-    memcpy((void *)&Resize2_LineBuffer[0], (void *)
-           (&brain_DWork.Resize2_IntBuffer[n * 480]), 480U * sizeof(real32_T));
-    for (m = 0; m < 120; m++) {
-      ictr = m;
-      sum = 0.0F;
-      for (k = 0; k < 8; k++) {
-        sum += Resize2_LineBuffer[brain_ConstP.pooled21[ictr]] *
-          brain_ConstP.pooled15[ictr];
-        ictr += 120;
-      }
-
-      brain_B.Resize2[i] = sum;
-      i++;
-    }
+    brain_B.DataTypeConversion2[i] = (real32_T)brain_U.V[i];
   }
 
   /* Stateflow: '<Root>/StateFlow Functions' incorporates:
    *  Inport: '<Root>/DesiredState'
    *  Inport: '<Root>/RC'
    *  Inport: '<Root>/Status'
-   *  SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.GetFirstBuoyStats'
-   *  SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.WhichBuoysToApproach'
-   *  SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.Buoy'
-   *  SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.GetSecondBuoyStats'
-   *  SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.GetStrafe'
-   *  SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.SecondBuoy'
-   *  SubSystem: '<S4>/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors'
-   *  SubSystem: '<S4>/StateFlowFunctions.Buoys.FindBuoys.LookforBuoys'
-   *  SubSystem: '<S4>/StateFlowFunctions.Buoys.GetBuoyForwardVelocity'
-   *  SubSystem: '<S4>/StateFlowFunctions.Buoys.IterativeSegmentation'
-   *  SubSystem: '<S4>/StateFlowFunctions.Buoys.ShowSegmentedImage'
-   *  SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.MakeHSVImage'
-   *  SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.Align'
-   *  SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings'
-   *  SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.OnePath.CenterOver_Strafe'
-   *  SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.OnePath.HSVSegmentation'
-   *  SubSystem: '<S4>/StateFlowFunctions.GetDesiredDepth'
-   *  SubSystem: '<S4>/StateFlowFunctions.MaintainDepth'
-   *  SubSystem: '<S4>/StateFlowFunctions.MaintainHeading'
-   *  SubSystem: '<S4>/StateFlowFunctions.ValidationGate.GetValidationGateForwardVelocity'
-   *  SubSystem: '<S4>/StateFlowFunctions.ValidationGate.LookforTrack'
+   *  SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.GetFirstBuoyStats'
+   *  SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.WhichBuoysToApproach'
+   *  SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.Buoy'
+   *  SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.GetSecondBuoyStats'
+   *  SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.GetStrafe'
+   *  SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.SecondBuoy'
+   *  SubSystem: '<S3>/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors'
+   *  SubSystem: '<S3>/StateFlowFunctions.Buoys.FindBuoys.LookforBuoys'
+   *  SubSystem: '<S3>/StateFlowFunctions.Buoys.GetBuoyForwardVelocity'
+   *  SubSystem: '<S3>/StateFlowFunctions.Buoys.IterativeSegmentation'
+   *  SubSystem: '<S3>/StateFlowFunctions.Buoys.ShowSegmentedImage'
+   *  SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.MakeHSVImage'
+   *  SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.Align'
+   *  SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings'
+   *  SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.OnePath.CenterOver_Strafe'
+   *  SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.OnePath.HSVSegmentation'
+   *  SubSystem: '<S3>/StateFlowFunctions.GetDesiredDepth'
+   *  SubSystem: '<S3>/StateFlowFunctions.MaintainDepth'
+   *  SubSystem: '<S3>/StateFlowFunctions.MaintainHeading'
+   *  SubSystem: '<S3>/StateFlowFunctions.ValidationGate.GetValidationGateForwardVelocity'
+   *  SubSystem: '<S3>/StateFlowFunctions.ValidationGate.LookforTrack'
    */
   /* Gateway: StateFlow Functions */
   /* During: StateFlow Functions */
@@ -7732,33 +7544,33 @@ void brain_step(void)
     /* Entry: StateFlow Functions */
     brain_DWork.is_active_c1_brain = 1U;
 
-    /* Entry 'StateManagement': '<S4>:725' */
+    /* Entry 'StateManagement': '<S3>:725' */
     brain_DWork.is_active_StateManagement = 1U;
 
-    /* Transition: '<S4>:1138' */
-    /* Entry 'NotRunning': '<S4>:1135' */
+    /* Transition: '<S3>:1138' */
+    /* Entry 'NotRunning': '<S3>:1135' */
     brain_DWork.is_StateManagement = brain_IN_NotRunning_m;
     brain_DWork.Done = 0.0;
 
-    /* Entry 'StateFlowFunctions': '<S4>:726' */
+    /* Entry 'StateFlowFunctions': '<S3>:726' */
     brain_DWork.is_active_StateFlowFunctions = 1U;
 
-    /* Transition: '<S4>:1264' */
-    /* Entry 'GetInCorrectState': '<S4>:1263' */
+    /* Transition: '<S3>:1264' */
+    /* Entry 'GetInCorrectState': '<S3>:1263' */
     brain_DWork.is_StateFlowFunctions = brain_IN_GetInCorrectState;
   } else {
-    /* During 'StateManagement': '<S4>:725' */
+    /* During 'StateManagement': '<S3>:725' */
     switch (brain_DWork.is_StateManagement) {
      case brain_IN_NotRunning_m:
-      /* During 'NotRunning': '<S4>:1135' */
+      /* During 'NotRunning': '<S3>:1135' */
       if (brain_U.Status == 1) {
-        /* Transition: '<S4>:1136' */
-        /* Exit 'NotRunning': '<S4>:1135' */
-        /* Entry 'Running': '<S4>:940' */
+        /* Transition: '<S3>:1136' */
+        /* Exit 'NotRunning': '<S3>:1135' */
+        /* Entry 'Running': '<S3>:940' */
         brain_DWork.is_StateManagement = brain_IN_Running;
 
-        /* Transition: '<S4>:941' */
-        /* Entry 'Autonomous': '<S4>:945' */
+        /* Transition: '<S3>:941' */
+        /* Entry 'Autonomous': '<S3>:945' */
         brain_DWork.is_Running = brain_IN_Autonomous;
         brain_enter_internal_Autonomous();
       } else {
@@ -7767,60 +7579,60 @@ void brain_step(void)
       break;
 
      case brain_IN_Running:
-      /* During 'Running': '<S4>:940' */
+      /* During 'Running': '<S3>:940' */
       if (brain_U.Status != 1) {
-        /* Transition: '<S4>:1137' */
-        /* Exit 'Buoy': '<S4>:1025' */
-        /* Exit 'ChooseState': '<S4>:1134' */
-        /* Exit 'Finish': '<S4>:1064' */
-        /* Exit 'FollowOnePath': '<S4>:1065' */
-        /* Exit 'FollowOnePath1': '<S4>:1142' */
-        /* Exit 'Start': '<S4>:1019' */
-        /* Exit 'ValidationGate': '<S4>:1121' */
+        /* Transition: '<S3>:1137' */
+        /* Exit 'Buoy': '<S3>:1025' */
+        /* Exit 'ChooseState': '<S3>:1134' */
+        /* Exit 'Finish': '<S3>:1064' */
+        /* Exit 'FollowOnePath': '<S3>:1065' */
+        /* Exit 'FollowOnePath1': '<S3>:1142' */
+        /* Exit 'Start': '<S3>:1019' */
+        /* Exit 'ValidationGate': '<S3>:1121' */
         brain_DWork.is_Autonomous = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
-        /* Exit 'Autonomous': '<S4>:945' */
-        /* Exit 'ControlledRC': '<S4>:944' */
+        /* Exit 'Autonomous': '<S3>:945' */
+        /* Exit 'ControlledRC': '<S3>:944' */
         brain_DWork.is_Running = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
-        /* Exit 'Running': '<S4>:940' */
-        /* Entry 'NotRunning': '<S4>:1135' */
+        /* Exit 'Running': '<S3>:940' */
+        /* Entry 'NotRunning': '<S3>:1135' */
         brain_DWork.is_StateManagement = brain_IN_NotRunning_m;
         brain_DWork.Done = 0.0;
       } else {
         switch (brain_DWork.is_Running) {
          case brain_IN_Autonomous:
-          /* During 'Autonomous': '<S4>:945' */
+          /* During 'Autonomous': '<S3>:945' */
           if ((int32_T)brain_U.RC == 1) {
-            /* Transition: '<S4>:942' */
-            /* Exit 'Buoy': '<S4>:1025' */
+            /* Transition: '<S3>:942' */
+            /* Exit 'Buoy': '<S3>:1025' */
             brain_DWork.is_Autonomous = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
 
-            /* Exit 'ChooseState': '<S4>:1134' */
-            /* Exit 'Finish': '<S4>:1064' */
-            /* Exit 'FollowOnePath': '<S4>:1065' */
-            /* Exit 'FollowOnePath1': '<S4>:1142' */
-            /* Exit 'Start': '<S4>:1019' */
-            /* Exit 'ValidationGate': '<S4>:1121' */
-            /* Exit 'Autonomous': '<S4>:945' */
-            /* Entry 'ControlledRC': '<S4>:944' */
+            /* Exit 'ChooseState': '<S3>:1134' */
+            /* Exit 'Finish': '<S3>:1064' */
+            /* Exit 'FollowOnePath': '<S3>:1065' */
+            /* Exit 'FollowOnePath1': '<S3>:1142' */
+            /* Exit 'Start': '<S3>:1019' */
+            /* Exit 'ValidationGate': '<S3>:1121' */
+            /* Exit 'Autonomous': '<S3>:945' */
+            /* Entry 'ControlledRC': '<S3>:944' */
             brain_DWork.is_Running = brain_IN_ControlledRC;
           } else {
             switch (brain_DWork.is_Autonomous) {
              case brain_IN_Buoy:
-              /* During 'Buoy': '<S4>:1025' */
+              /* During 'Buoy': '<S3>:1025' */
               if ((brain_DWork.Done != 0.0) && (brain_U.DesiredState == 0)) {
-                /* Transition: '<S4>:950' */
-                /* Exit 'Buoy': '<S4>:1025' */
-                /* Entry 'FollowOnePath1': '<S4>:1142' */
+                /* Transition: '<S3>:950' */
+                /* Exit 'Buoy': '<S3>:1025' */
+                /* Entry 'FollowOnePath1': '<S3>:1142' */
                 brain_DWork.is_Autonomous = brain_IN_FollowOnePath1;
                 brain_DWork.was_Autonomous = brain_IN_FollowOnePath1;
                 brain_DWork.Done = 0.0;
               } else if ((brain_U.DesiredState != 4) && (brain_U.DesiredState !=
                           0)) {
-                /* Transition: '<S4>:959' */
-                /* Exit 'Buoy': '<S4>:1025' */
-                /* Entry 'ChooseState': '<S4>:1134' */
+                /* Transition: '<S3>:959' */
+                /* Exit 'Buoy': '<S3>:1025' */
+                /* Entry 'ChooseState': '<S3>:1134' */
                 brain_DWork.is_Autonomous = brain_IN_ChooseState;
                 brain_DWork.was_Autonomous = brain_IN_ChooseState;
                 brain_DWork.Done = 0.0;
@@ -7830,40 +7642,40 @@ void brain_step(void)
               break;
 
              case brain_IN_ChooseState:
-              /* During 'ChooseState': '<S4>:1134' */
+              /* During 'ChooseState': '<S3>:1134' */
               if ((brain_U.DesiredState == 1) || (brain_U.DesiredState == 0)) {
-                /* Transition: '<S4>:960' */
-                /* Exit 'ChooseState': '<S4>:1134' */
-                /* Entry 'Start': '<S4>:1019' */
+                /* Transition: '<S3>:960' */
+                /* Exit 'ChooseState': '<S3>:1134' */
+                /* Entry 'Start': '<S3>:1019' */
                 brain_DWork.is_Autonomous = brain_IN_Start_m;
                 brain_DWork.was_Autonomous = brain_IN_Start_m;
                 brain_DWork.Done = 0.0;
               } else if (brain_U.DesiredState == 2) {
-                /* Transition: '<S4>:954' */
-                /* Exit 'ChooseState': '<S4>:1134' */
-                /* Entry 'ValidationGate': '<S4>:1121' */
+                /* Transition: '<S3>:954' */
+                /* Exit 'ChooseState': '<S3>:1134' */
+                /* Entry 'ValidationGate': '<S3>:1121' */
                 brain_DWork.is_Autonomous = brain_IN_ValidationGate_m;
                 brain_DWork.was_Autonomous = brain_IN_ValidationGate_m;
                 brain_DWork.Done = 0.0;
               } else if (brain_U.DesiredState == 4) {
-                /* Transition: '<S4>:958' */
-                /* Exit 'ChooseState': '<S4>:1134' */
-                /* Entry 'Buoy': '<S4>:1025' */
+                /* Transition: '<S3>:958' */
+                /* Exit 'ChooseState': '<S3>:1134' */
+                /* Entry 'Buoy': '<S3>:1025' */
                 brain_DWork.is_Autonomous = brain_IN_Buoy;
                 brain_DWork.was_Autonomous = brain_IN_Buoy;
                 brain_DWork.Done = 0.0;
               } else if (brain_U.DesiredState == 3) {
-                /* Transition: '<S4>:956' */
-                /* Exit 'ChooseState': '<S4>:1134' */
-                /* Entry 'FollowOnePath': '<S4>:1065' */
+                /* Transition: '<S3>:956' */
+                /* Exit 'ChooseState': '<S3>:1134' */
+                /* Entry 'FollowOnePath': '<S3>:1065' */
                 brain_DWork.is_Autonomous = brain_IN_FollowOnePath;
                 brain_DWork.was_Autonomous = brain_IN_FollowOnePath;
                 brain_DWork.Done = 0.0;
               } else {
                 if (brain_U.DesiredState == 5) {
-                  /* Transition: '<S4>:952' */
-                  /* Exit 'ChooseState': '<S4>:1134' */
-                  /* Entry 'FollowOnePath1': '<S4>:1142' */
+                  /* Transition: '<S3>:952' */
+                  /* Exit 'ChooseState': '<S3>:1134' */
+                  /* Entry 'FollowOnePath1': '<S3>:1142' */
                   brain_DWork.is_Autonomous = brain_IN_FollowOnePath1;
                   brain_DWork.was_Autonomous = brain_IN_FollowOnePath1;
                   brain_DWork.Done = 0.0;
@@ -7872,11 +7684,11 @@ void brain_step(void)
               break;
 
              case brain_IN_Finish:
-              /* During 'Finish': '<S4>:1064' */
+              /* During 'Finish': '<S3>:1064' */
               if ((brain_U.DesiredState != 6) && (brain_U.DesiredState != 0)) {
-                /* Transition: '<S4>:962' */
-                /* Exit 'Finish': '<S4>:1064' */
-                /* Entry 'ChooseState': '<S4>:1134' */
+                /* Transition: '<S3>:962' */
+                /* Exit 'Finish': '<S3>:1064' */
+                /* Entry 'ChooseState': '<S3>:1134' */
                 brain_DWork.is_Autonomous = brain_IN_ChooseState;
                 brain_DWork.was_Autonomous = brain_IN_ChooseState;
                 brain_DWork.Done = 0.0;
@@ -7886,19 +7698,19 @@ void brain_step(void)
               break;
 
              case brain_IN_FollowOnePath:
-              /* During 'FollowOnePath': '<S4>:1065' */
+              /* During 'FollowOnePath': '<S3>:1065' */
               if ((brain_DWork.Done != 0.0) && (brain_U.DesiredState == 0)) {
-                /* Transition: '<S4>:951' */
-                /* Exit 'FollowOnePath': '<S4>:1065' */
-                /* Entry 'Buoy': '<S4>:1025' */
+                /* Transition: '<S3>:951' */
+                /* Exit 'FollowOnePath': '<S3>:1065' */
+                /* Entry 'Buoy': '<S3>:1025' */
                 brain_DWork.is_Autonomous = brain_IN_Buoy;
                 brain_DWork.was_Autonomous = brain_IN_Buoy;
                 brain_DWork.Done = 0.0;
               } else if ((brain_U.DesiredState != 3) && (brain_U.DesiredState !=
                           0)) {
-                /* Transition: '<S4>:957' */
-                /* Exit 'FollowOnePath': '<S4>:1065' */
-                /* Entry 'ChooseState': '<S4>:1134' */
+                /* Transition: '<S3>:957' */
+                /* Exit 'FollowOnePath': '<S3>:1065' */
+                /* Entry 'ChooseState': '<S3>:1134' */
                 brain_DWork.is_Autonomous = brain_IN_ChooseState;
                 brain_DWork.was_Autonomous = brain_IN_ChooseState;
                 brain_DWork.Done = 0.0;
@@ -7908,19 +7720,19 @@ void brain_step(void)
               break;
 
              case brain_IN_FollowOnePath1:
-              /* During 'FollowOnePath1': '<S4>:1142' */
+              /* During 'FollowOnePath1': '<S3>:1142' */
               if ((brain_U.DesiredState != 5) && (brain_U.DesiredState != 0)) {
-                /* Transition: '<S4>:953' */
-                /* Exit 'FollowOnePath1': '<S4>:1142' */
-                /* Entry 'ChooseState': '<S4>:1134' */
+                /* Transition: '<S3>:953' */
+                /* Exit 'FollowOnePath1': '<S3>:1142' */
+                /* Entry 'ChooseState': '<S3>:1134' */
                 brain_DWork.is_Autonomous = brain_IN_ChooseState;
                 brain_DWork.was_Autonomous = brain_IN_ChooseState;
                 brain_DWork.Done = 0.0;
               } else if ((brain_DWork.Done != 0.0) && (brain_U.DesiredState == 0))
               {
-                /* Transition: '<S4>:949' */
-                /* Exit 'FollowOnePath1': '<S4>:1142' */
-                /* Entry 'Finish': '<S4>:1064' */
+                /* Transition: '<S3>:949' */
+                /* Exit 'FollowOnePath1': '<S3>:1142' */
+                /* Entry 'Finish': '<S3>:1064' */
                 brain_DWork.is_Autonomous = brain_IN_Finish;
                 brain_DWork.was_Autonomous = brain_IN_Finish;
                 brain_DWork.Done = 0.0;
@@ -7930,19 +7742,19 @@ void brain_step(void)
               break;
 
              case brain_IN_Start_m:
-              /* During 'Start': '<S4>:1019' */
+              /* During 'Start': '<S3>:1019' */
               if ((brain_DWork.Done != 0.0) && (brain_U.DesiredState == 0)) {
-                /* Transition: '<S4>:948' */
-                /* Exit 'Start': '<S4>:1019' */
-                /* Entry 'ValidationGate': '<S4>:1121' */
+                /* Transition: '<S3>:948' */
+                /* Exit 'Start': '<S3>:1019' */
+                /* Entry 'ValidationGate': '<S3>:1121' */
                 brain_DWork.is_Autonomous = brain_IN_ValidationGate_m;
                 brain_DWork.was_Autonomous = brain_IN_ValidationGate_m;
                 brain_DWork.Done = 0.0;
               } else if ((brain_U.DesiredState != 1) && (brain_U.DesiredState !=
                           0)) {
-                /* Transition: '<S4>:961' */
-                /* Exit 'Start': '<S4>:1019' */
-                /* Entry 'ChooseState': '<S4>:1134' */
+                /* Transition: '<S3>:961' */
+                /* Exit 'Start': '<S3>:1019' */
+                /* Entry 'ChooseState': '<S3>:1134' */
                 brain_DWork.is_Autonomous = brain_IN_ChooseState;
                 brain_DWork.was_Autonomous = brain_IN_ChooseState;
                 brain_DWork.Done = 0.0;
@@ -7952,19 +7764,19 @@ void brain_step(void)
               break;
 
              case brain_IN_ValidationGate_m:
-              /* During 'ValidationGate': '<S4>:1121' */
+              /* During 'ValidationGate': '<S3>:1121' */
               if ((brain_U.DesiredState != 2) && (brain_U.DesiredState != 0)) {
-                /* Transition: '<S4>:955' */
-                /* Exit 'ValidationGate': '<S4>:1121' */
-                /* Entry 'ChooseState': '<S4>:1134' */
+                /* Transition: '<S3>:955' */
+                /* Exit 'ValidationGate': '<S3>:1121' */
+                /* Entry 'ChooseState': '<S3>:1134' */
                 brain_DWork.is_Autonomous = brain_IN_ChooseState;
                 brain_DWork.was_Autonomous = brain_IN_ChooseState;
                 brain_DWork.Done = 0.0;
               } else if ((brain_DWork.Done != 0.0) && (brain_U.DesiredState == 0))
               {
-                /* Transition: '<S4>:947' */
-                /* Exit 'ValidationGate': '<S4>:1121' */
-                /* Entry 'FollowOnePath': '<S4>:1065' */
+                /* Transition: '<S3>:947' */
+                /* Exit 'ValidationGate': '<S3>:1121' */
+                /* Entry 'FollowOnePath': '<S3>:1065' */
                 brain_DWork.is_Autonomous = brain_IN_FollowOnePath;
                 brain_DWork.was_Autonomous = brain_IN_FollowOnePath;
                 brain_DWork.Done = 0.0;
@@ -7981,11 +7793,11 @@ void brain_step(void)
           break;
 
          case brain_IN_ControlledRC:
-          /* During 'ControlledRC': '<S4>:944' */
+          /* During 'ControlledRC': '<S3>:944' */
           if ((int32_T)brain_U.RC == 0) {
-            /* Transition: '<S4>:943' */
-            /* Exit 'ControlledRC': '<S4>:944' */
-            /* Entry 'Autonomous': '<S4>:945' */
+            /* Transition: '<S3>:943' */
+            /* Exit 'ControlledRC': '<S3>:944' */
+            /* Entry 'Autonomous': '<S3>:945' */
             brain_DWork.is_Running = brain_IN_Autonomous;
             brain_enter_internal_Autonomous();
           } else {
@@ -7994,8 +7806,8 @@ void brain_step(void)
           break;
 
          default:
-          /* Transition: '<S4>:941' */
-          /* Entry 'Autonomous': '<S4>:945' */
+          /* Transition: '<S3>:941' */
+          /* Entry 'Autonomous': '<S3>:945' */
           brain_DWork.is_Running = brain_IN_Autonomous;
           brain_enter_internal_Autonomous();
           break;
@@ -8004,8 +7816,8 @@ void brain_step(void)
       break;
 
      default:
-      /* Transition: '<S4>:1138' */
-      /* Entry 'NotRunning': '<S4>:1135' */
+      /* Transition: '<S3>:1138' */
+      /* Entry 'NotRunning': '<S3>:1135' */
       brain_DWork.is_StateManagement = brain_IN_NotRunning_m;
       brain_DWork.Done = 0.0;
       break;
@@ -8024,13 +7836,13 @@ void brain_step(void)
   brain_Y.BuoyCentroidY = brain_B.BuoyCentroidY;
 
   /* Embedded MATLAB: '<Root>/Normalize Thrusters to 1' */
-  /* Embedded MATLAB Function 'Normalize Thrusters to 1': '<S3>:1' */
+  /* Embedded MATLAB Function 'Normalize Thrusters to 1': '<S2>:1' */
   /*  This function changes the thrusters from int8's to doubles and puts them */
   /*  on a scale from -1 to 1 */
-  /* '<S3>:1:5' */
+  /* '<S2>:1:5' */
 
   /* Outport: '<Root>/Thrusters' incorporates:
-   *  SignalConversion: '<S3>/TmpSignal ConversionAt SFunction Inport1'
+   *  SignalConversion: '<S2>/TmpSignal ConversionAt SFunction Inport1'
    */
   brain_Y.Thrusters[0] = (real_T)brain_B.Left / 128.0;
   brain_Y.Thrusters[1] = (real_T)brain_B.Right / 128.0;
@@ -8681,50 +8493,50 @@ void brain_initialize(void)
     int32_T m;
 
     /* Start for Stateflow: '<Root>/StateFlow Functions' incorporates:
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.GetFirstBuoyStats'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.WhichBuoysToApproach'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.Buoy'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.GetSecondBuoyStats'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.GetStrafe'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.SecondBuoy'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.Buoys.FindBuoys.LookforBuoys'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.Buoys.GetBuoyForwardVelocity'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.Buoys.IterativeSegmentation'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.Buoys.ShowSegmentedImage'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.MakeHSVImage'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.Align'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.OnePath.CenterOver_Strafe'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.OnePath.HSVSegmentation'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.GetDesiredDepth'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.MaintainDepth'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.MaintainHeading'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.ValidationGate.GetValidationGateForwardVelocity'
-     *  Start for SubSystem: '<S4>/StateFlowFunctions.ValidationGate.LookforTrack'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.GetFirstBuoyStats'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.WhichBuoysToApproach'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.Buoy'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.GetSecondBuoyStats'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.GetStrafe'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.SecondBuoy'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.Buoys.FindBuoys.LookforBuoys'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.Buoys.GetBuoyForwardVelocity'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.Buoys.IterativeSegmentation'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.Buoys.ShowSegmentedImage'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.MakeHSVImage'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.Align'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.OnePath.CenterOver_Strafe'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.OnePath.HSVSegmentation'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.GetDesiredDepth'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.MaintainDepth'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.MaintainHeading'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.ValidationGate.GetValidationGateForwardVelocity'
+     *  Start for SubSystem: '<S3>/StateFlowFunctions.ValidationGate.LookforTrack'
      */
 
-    /* Start for Constant: '<S5>/Constant' */
+    /* Start for Constant: '<S4>/Constant' */
     brain_B.Constant_k = brain_P.Buoy1_Hue;
 
-    /* Start for Constant: '<S5>/Constant2' */
+    /* Start for Constant: '<S4>/Constant2' */
     brain_B.Constant2_i = brain_P.Buoy1_Saturation;
 
-    /* Start for Constant: '<S5>/Constant1' */
+    /* Start for Constant: '<S4>/Constant1' */
     brain_B.Constant1_o = brain_P.Buoy1_Value;
     StateFlowFunctionsMaintai_Start(brain_M,
       &brain_DWork.StateFlowFunctionsMaintainHea_d);
 
-    /* Start for Constant: '<S8>/Constant' */
+    /* Start for Constant: '<S7>/Constant' */
     brain_B.Constant_g = brain_P.Buoy2_Hue;
 
-    /* Start for Constant: '<S8>/Constant2' */
+    /* Start for Constant: '<S7>/Constant2' */
     brain_B.Constant2 = brain_P.Buoy2_Saturation;
 
-    /* Start for Constant: '<S8>/Constant1' */
+    /* Start for Constant: '<S7>/Constant1' */
     brain_B.Constant1 = brain_P.Buoy2_Value;
 
-    /* Start for S-Function (svipmorphop): '<S74>/Erosion' */
+    /* Start for S-Function (svipmorphop): '<S73>/Erosion' */
     idxNHood = 0;
     idxOffsets = 0;
     curNumNonZ = 0;
@@ -8756,16 +8568,16 @@ void brain_initialize(void)
 
     brain_DWork.Erosion_NUMNONZ_DW[1] = curNumNonZ;
 
-    /* Start for Constant: '<S9>/Constant' */
+    /* Start for Constant: '<S8>/Constant' */
     brain_B.Constant_p = brain_P.Buoy_Strafe;
 
-    /* Start for Constant: '<S24>/Heading Forward Velocity' */
+    /* Start for Constant: '<S23>/Heading Forward Velocity' */
     brain_B.HeadingForwardVelocity = brain_P.Heading_Forward_Velocity;
 
-    /* Start for Constant: '<S21>/Constant' */
+    /* Start for Constant: '<S20>/Constant' */
     brain_B.Constant_f = brain_P.Track_Desired_Depth;
 
-    /* Start for Constant: '<S13>/Constant' */
+    /* Start for Constant: '<S12>/Constant' */
     brain_B.Constant = brain_P.Heading_Forward_Velocity;
   }
 
@@ -8774,27 +8586,27 @@ void brain_initialize(void)
     static int8_T tmp[8] = { -1, 121, 122, 123, 1, -121, -122, -123 };
 
     /* InitializeConditions for Stateflow: '<Root>/StateFlow Functions' incorporates:
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.GetFirstBuoyStats'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.WhichBuoysToApproach'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.Buoy'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.GetSecondBuoyStats'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.GetStrafe'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.SecondBuoy'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.Buoys.FindBuoys.LookforBuoys'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.Buoys.GetBuoyForwardVelocity'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.Buoys.IterativeSegmentation'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.Buoys.ShowSegmentedImage'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.MakeHSVImage'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.Align'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.OnePath.CenterOver_Strafe'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.FollowOnePath.OnePath.HSVSegmentation'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.GetDesiredDepth'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.MaintainDepth'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.MaintainHeading'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.ValidationGate.GetValidationGateForwardVelocity'
-     *  InitializeConditions for SubSystem: '<S4>/StateFlowFunctions.ValidationGate.LookforTrack'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.GetFirstBuoyStats'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.WhichBuoysToApproach'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.Buoy'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.GetSecondBuoyStats'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.GetStrafe'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.Buoys.ApproachBuoys.FindSecondBuoy.SecondBuoy'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.Buoys.FindBuoys.LookforBuoys'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.Buoys.GetBuoyForwardVelocity'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.Buoys.IterativeSegmentation'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.Buoys.ShowSegmentedImage'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.MakeHSVImage'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.Align'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.OnePath.CenterOver_Strafe'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.FollowOnePath.OnePath.HSVSegmentation'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.GetDesiredDepth'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.MaintainDepth'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.MaintainHeading'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.ValidationGate.GetValidationGateForwardVelocity'
+     *  InitializeConditions for SubSystem: '<S3>/StateFlowFunctions.ValidationGate.LookforTrack'
      */
     brain_DWork.is_active_StateFlowFunctions = 0U;
     brain_DWork.is_StateFlowFunctions = 0U;
@@ -8860,7 +8672,7 @@ void brain_initialize(void)
     StateFlowFunctionsFollow_j_Init(brain_M,
       &brain_DWork.StateFlowFunctionsFollowOneP_kn);
 
-    /* InitializeConditions for Embedded MATLAB: '<S11>/Blob Extraction' */
+    /* InitializeConditions for Embedded MATLAB: '<S10>/Blob Extraction' */
     for (i = 0; i < 8; i++) {
       brain_DWork.WALKER_RTP[i] = tmp[i];
     }
