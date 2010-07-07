@@ -313,6 +313,24 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 				+ QString::number(1.0/(value.toDouble()/1000.0)) + " Hz (" 
 				+ QString::number(round(100.0/(value.toDouble()/1000.0)/targetRate))
 				+ "%)" );
+		}else if (name == "DesiredHeading"){
+			int intValue = value.toInt();
+			if(intValue != desiredHeading){
+				desiredHeading = intValue;
+				desiredHeadingSpinBox->setValue(intValue);
+			}
+		}else if (name == "DesiredDepth"){
+			int intValue = value.toInt();
+			if(intValue != desiredDepth){
+				desiredDepth = intValue;
+				desiredDepthSlider->setValue(intValue);
+			}
+		}else if (name == "BuoyCentroid"){
+			QStringList buoyCoords =  value.split(",");	
+			if(buoyCoords.size() == 2){
+				buoyX = buoyCoords[0].toInt();
+				buoyY = buoyCoords[1].toInt();
+			}
 		}else badCmd = true;
 	}else if (type == "Input"){ // RC commands from other dashboards
 		int intValue = value.toInt();
@@ -389,6 +407,9 @@ void Dashboard::HandleVideoFrame(QImage* frame) {
 	videoWidget->setPixmap(videoPixmap.scaled(videoWidget->size(),Qt::KeepAspectRatio));
 }
 void Dashboard::HandleBitmapFrame(QImage* frame) {
+	QPainter pixPaint(frame);
+	pixPaint.setPen(QPen(QBrush(Qt::green), 3, Qt::SolidLine, Qt::RoundCap));
+	pixPaint.drawPoint(buoyX, buoyY);
 	bwPixmap = QPixmap::fromImage(*frame);
 	bitVideoLabel->setPixmap(bwPixmap.scaled(bitVideoLabel->size(),Qt::KeepAspectRatio));
 }

@@ -100,6 +100,8 @@ void Model::updateSensorsInput(AUVSensors values){
 	
 	brain_U.CurrentDepth = values.depth;                 /* '<Root>/CurrentDepth' */
 	brain_U.CurrentHeading = values.orientation.yaw;               /* '<Root>/CurrentHeading' */
+//	brain_U.CurrentPitch = values.orientation.pitch;
+//	brain_U.CurrentRoll = values.orientation.roll;
 	brain_U.Status = values.status;                       /* '<Root>/Status' */	
 	
 	/* Values:
@@ -119,15 +121,15 @@ void Model::updateVideoFrame(QImage frame){
 
 	//qDebug() << "Processing QImage" << frame.size() << frame.format();
 
-	QRgb pixel;
+	QColor pixel;
+	// potential for segfaults if the size isn't what matlab is expecting
+	frame = frame.scaled(160,120);
 	int height = frame.height();
 
 	for(int x = frame.width()-1; x >= 0; --x){
-		for(int y = frame.height()-1; y >= 0; --y){
-			pixel = frame.pixel(x,y);
-			brain_U.R[(height*x)+y] = qRed(pixel);
-			brain_U.G[(height*x)+y] = qGreen(pixel);
-			brain_U.B[(height*x)+y] = qBlue(pixel);
+		for(int y = height-1; y >= 0; --y){
+			pixel = (QColor) frame.pixel(x,y);
+			pixel.getHsvF(&(brain_U.H[(height*x)+y]), &(brain_U.S[(height*x)+y]), &(brain_U.V[(height*x)+y]));
 		}
 	}
 	

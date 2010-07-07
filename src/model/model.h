@@ -10,6 +10,7 @@
 #include <QTime>
 #include <QHash>
 #include <QImage>
+#include <QColor>
 #include "../auv/auvtypes.h"
 //#include "../auv/camread.h"
 #include "../brain/brain.h"      /* Model's header file */
