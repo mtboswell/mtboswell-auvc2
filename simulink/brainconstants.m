@@ -21,9 +21,13 @@ Max_Num_Blobs = 1;
 Track_Min_Eccentricity = 0.9;
 Track_Desired_Depth = 8;
 
-Cam_Down_XPos_Kp = 0.25;
-Cam_Down_XPos_Kd = 0.001;
-Cam_Down_XPos_Ki = 0.001;
+Cam_Down_Yaw_XPos_Kp = 0.25;
+Cam_Down_Yaw_XPos_Kd = 0.001;
+Cam_Down_Yaw_XPos_Ki = 0.001;
+
+Cam_Down_Strafe_XPos_Kp = 0.25;
+Cam_Down_Strafe_XPos_Kd = 0.001;
+Cam_Down_Strafe_XPos_Ki = 0.001;
 
 Cam_Down_YPos_Kp = 0.20;
 Cam_Down_YPos_Kd = 0.001;
