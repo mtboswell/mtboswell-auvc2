@@ -137,5 +137,5 @@ int Pololu::getAnalogInput(char inputNum){
 
 int Pololu::getDigitalInput(char inputNum){
 	int analog = getAnalogInput(inputNum);
-	return (analog == 1023) ?1:((analog == -1)?-1:0);
+	return qMin(1,analog); //(analog == 1023) ?1:((analog == -1)?-1:0);
 }

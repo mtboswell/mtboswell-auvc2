@@ -350,7 +350,7 @@ void AUV::setActualDepth(double depth){
 // values of -1 and 1 should mean on
 bool AUV::getGo(){
 	//return (arduino->getValue("GO")==0)?false:true;
-	return (bool) pControllers->getDigitalInput(3);
+	return pControllers->getDigitalInput(3) != 1;
 }
 
 // deprecated
