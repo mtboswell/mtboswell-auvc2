@@ -8,6 +8,8 @@
 #include <QStringList>
 #include <QRegExp>
 #include <QTimer>
+#include "../configloader.h"
+
 
 /**
  * This is an abstract base class for serial devices.

@@ -72,7 +72,7 @@ void QWebCam::captureLoop(){
 	if (image_) {
 		qImage_ = Ipl2QImage(image_);
 		emit newFrame(qImage_);
-		emit newFrame(QPixmap::fromImage(qImage_));
+		//emit newFrame(QPixmap::fromImage(qImage_));
 	}
 }
 

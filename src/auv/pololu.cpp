@@ -57,11 +57,13 @@ void Pololu::setMaestroServoPos(char servoNum, short int absPos){
 
 void Pololu::sendServoCmd(char command, char servoNum, char data1, char data2, bool maestro){
 	QByteArray cmd;
-	if(maestro)
+	if(maestro){
 		cmd.append(0xAA);
-	else
+		cmd.append(0x0C);
+	}else{
 		cmd.append(0x80);
-	cmd.append(0x01);
+		cmd.append(0x01);
+	}
 	cmd.append(command);
 	cmd.append(servoNum);
 	cmd.append(data1);
@@ -70,7 +72,7 @@ void Pololu::sendServoCmd(char command, char servoNum, char data1, char data2, b
 
 }
 void Pololu::sendTrexCmd(char device, char command, QByteArray data){
-	if(config["Debug"]=="true") qDebug() << "Sending command:" << QString::number(command) << "to device" << QString::number(device) << "with data" << data.toUInt();
+	if(config["Debug"]=="true") qDebug() << "Sending command:" << QString::number(command, 16) << "to device" << QString::number(device, 16) << "with data" << data.toHex();
 	QByteArray cmd;
 	cmd.append(0x80);
 	cmd.append(device & 0x7F);
@@ -119,6 +121,7 @@ void Pololu::setMotorSpeed(int motorNum, int motorSpeed){
 
 
 int Pololu::getAnalogInput(char inputNum){
+	if(config["Debug"] == "true") qDebug() << "Reading input " << QString::number(inputNum);
 	sendServoCmd(0x10, inputNum, NULL, NULL, true); 
 	char response[2];
 	int reads = 0;
@@ -126,7 +129,8 @@ int Pololu::getAnalogInput(char inputNum){
 		reads += port->read(response, 2);
 		if(reads < 0) return -1;
 	}while(reads < 2);
-	int input = ((response[0] << 8)&& 0xFF00) | (response[1] && 0x00FF);
+	int input = ((response[1] << 8)& 0xFF00) | (response[0] & 0x00FF);
+	if(config["Debug"] == "true") qDebug() << "Read input " << QString::number(inputNum) << " to be " << QString::number(input);
 	return input;
 }
 
