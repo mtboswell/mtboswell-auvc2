@@ -10,6 +10,8 @@
 #include <QtGui>
 #include <QTimer>
 #include <QTime>
+#include <QImageWriter>
+#include <QFile>
 
 #include "../src/server/sidsocket.h"
 #include "videosocket.h"
@@ -174,5 +176,10 @@ void on_##guiParam##_editingFinished();
 		DataLogger* logger;
 
 		int buoyX, buoyY;
+
+		bool record_video;
+
+		QImageWriter* videoOut;
+		QFile* videoFile;
 
 };
