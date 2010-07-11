@@ -94,6 +94,10 @@ Dashboard::Dashboard(QMainWindow *parent)
 	//videoWidget->setScaledContents(true);
 	//bitVideoLabel->setScaledContents(true);
 
+
+	videoFile = new QFile();
+	videoOut = new QImageWriter(videoFile, "jpeg");
+
 	// init controls
 	RC = desiredSpeed = desiredHeading = desiredDepth = desiredStrafe = desiredVideoStream = 0;
 	desiredCameraX = desiredCameraY = 0;
@@ -166,9 +170,25 @@ void Dashboard::turnOffAUVAction() {
 }
 
 void Dashboard::recordVideo(bool record){
-	if(record) statusBar()->showMessage(tr("Recording Video..."), 2000);
-	else statusBar()->showMessage(tr("Stopping Video Recording..."), 2000);
-	emit sendSID("Flag.Rec", record?"true":"false");
+	if(record) {
+		QString  videoFilename = QFileDialog::getSaveFileName (this, "Save video to file", "videos/", "Video files (*.mjpg)");
+		if(!videoFilename.endsWith(".mjpg")) videoFilename.append(".mjpg");
+
+		videoFile = new QFile(videoFilename);
+		if (!videoFile->open(QIODevice::WriteOnly | QIODevice::Append))
+			qDebug() << "Could not open video file";
+
+		videoOut = new QImageWriter(videoFile, "jpeg");
+		videoOut->setQuality(70);
+
+		record_video = true;
+
+		statusBar()->showMessage(tr("Recording Video..."), 2000);
+	}else{
+		record_video = false;
+		statusBar()->showMessage(tr("Stopping Video Recording..."), 2000);
+	}
+//	emit sendSID("Flag.Rec", record?"true":"false");
 }
 
 void Dashboard::logData(bool log){
@@ -405,6 +425,7 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 void Dashboard::HandleVideoFrame(QImage* frame) {
 	videoPixmap = QPixmap::fromImage(*frame);
 	videoWidget->setPixmap(videoPixmap.scaled(videoWidget->size(),Qt::KeepAspectRatio));
+	if(record_video) if(videoOut == 0 || !videoOut->write(*frame)) record_video = false;
 }
 void Dashboard::HandleBitmapFrame(QImage* frame) {
 	QPainter pixPaint(frame);
@@ -660,6 +681,7 @@ void Dashboard::on_camPosYSpinBox_valueChanged(double value){
 /* Save/Load parameters ****************************** */
 void Dashboard::saveParameters(){
 	QString  saveFilename = QFileDialog::getSaveFileName (this, "Save parameters to file", "params/", "Parameter Matlab files (*.m)");
+	if(!saveFilename.endsWith(".m")) saveFilename.append(".m");
 	QFile saveFile(saveFilename);
 
 	if (!saveFile.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
