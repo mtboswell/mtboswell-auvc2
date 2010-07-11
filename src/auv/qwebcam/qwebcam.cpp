@@ -24,7 +24,7 @@ QWebCam::QWebCam(QObject * parent):QObject(parent),
 	timer_(this),
 	counter_(0)
 {
-	capture_ = cvCaptureFromCAM(0);
+	capture_ = cvCaptureFromCAM(-1);
 	if (!capture_) {
 		qDebug()<<"cannot get webcam...";
 		return;

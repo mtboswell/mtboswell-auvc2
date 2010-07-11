@@ -44,12 +44,14 @@ void SerialDevice::setIncomingMaxLength(int maxLength){
 
 
 void SerialDevice::onReadyRead(){
+	//qDebug() << "Reading from serial port: " << port->portName();
 	QByteArray bytes;
 	int a = port->bytesAvailable();
 	bytes.resize(a);
 	port->read(bytes.data(), bytes.size());
 	buf->append(bytes);
 	if(buf->contains(incomingDelimiter) || buf->size() > incomingMaxLength){
+		//qDebug() << "Found something on serial port?:" << port->portName();
 		QByteArray tmp;
 		int ind = 0;
 		while((ind = buf->indexOf(incomingDelimiter)) != -1){
@@ -83,6 +85,7 @@ QByteArray SerialDevice::sendQuery(QByteArray data, int responseLength){
 	// get response
 	QDataStream in(port);
 	QByteArray inData;
+	//qDebug() << "Waiting for data on port: " << port->portName();
 	while (inData.size() < responseLength)
 		in >> inData;
 	return inData;
@@ -92,6 +95,7 @@ QByteArray SerialDevice::sendQuery(QByteArray data, QByteArray endOfResponseMark
 	// get response
 	QDataStream in(port);
 	QByteArray inData;
+	//qDebug() << "Waiting for data on port: " << port->portName();
 	while (!inData.endsWith(endOfResponseMarker))
 		in >> inData;
 	return inData;

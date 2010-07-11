@@ -2,6 +2,7 @@
 #define OS5000_H
 
 #include "serialdevice.h"
+#include "../configloader.h"
 #include <QRegExp>
 
 class OS5000 : public SerialDevice

@@ -48,17 +48,25 @@ AUV::AUV(QMutex* sensorMutex, bool previewVideo){
 	// Get mutex from main
   	dataMutex = sensorMutex;
 
-	compass = MICROSTRAIN;
+	compass = OCEANSERVER5000;
 	
 	/* Initialize hardware interfaces */
+	if(config["Debug"] == "true") qDebug() << "Initializing Arduino";
 	arduino = new Arduino(config["SerialPort.Arduino"]);
+	if(config["Debug"] == "true") qDebug() << "Initializing MicroStrain";
 	microstrain = new Microstrain(config["SerialPort.Compass"]);
+	if(config["Debug"] == "true") qDebug() << "Initializing OS5000";
 	os5000 = new OS5000(config["SerialPort.OtherCompass"]);
+	if(config["Debug"] == "true") qDebug() << "Initializing Pololu";
 	pControllers = new Pololu(config["SerialPort.Pololu"]);
+	if(config["Debug"] == "true") qDebug() << "Initializing Thruster Power";
 	thrusterPower = new Power(config["SerialPort.ThrusterPower"]);
+	if(config["Debug"] == "true") qDebug() << "Initializing Main Power";
 	mainPower = new Power(config["SerialPort.MainPower"]);
+	if(config["Debug"] == "true") qDebug() << "Initializing LCD";
 	statusLcd = new LCD(config["SerialPort.LCD"]);
 
+	if(config["Debug"] == "true") qDebug() << "Initializing webcam";
 	camera = new QWebCam();
 	//camThread = new QThread(this);
 	//camera->moveToThread(camThread);
@@ -94,8 +102,9 @@ AUV::AUV(QMutex* sensorMutex, bool previewVideo){
 	data.droppedRight = false;
 
 	// make sure the AUV hardware is ready to go
+	if(config["Debug"] == "true") qDebug() << "Resetting hardware";
 	reset();
-	emit status("Startup Complete");
+	qDebug() << "Hardware Initialization Complete";
 }
 AUV::~AUV(){
 	qDebug("Shutting Down AUV Interface");
@@ -120,15 +129,20 @@ void AUV::readSensors(){
 	QTime t;
   	dataMutex->lock();
 	t.start();
+	if(config["Debug"]=="true") qDebug("Reading Orientation");
 	data.orientation = getOrientation();
+	if(config["Debug"]=="true") qDebug("Reading Depth");
 	data.depth = getDepth();
+	if(config["Debug"]=="true") qDebug("Reading Thruster Voltage");
 	data.thrusterPower.voltage = getThrusterVoltage();
 	data.thrusterPower.current = getThrusterCurrent();
 	data.thrusterPower.power = getThrusterPower();
+	if(config["Debug"]=="true") qDebug("Reading Main Voltage");
 	data.mainPower.voltage = getMainVoltage();
 	data.mainPower.current = getMainCurrent();
 	data.mainPower.power = getMainPower();
 	if(!data.manualOverrideDisabled){
+		if(config["Debug"]=="true") qDebug("Reading Switch");
 		if(data.status == RUNNING && !getGo()) {
 			emit status("Manual Switch Stop");
 			data.status = PAUSED;
@@ -226,7 +240,16 @@ void AUV::externalControl(){
 
 // get data from compass and orientation sensor
 // orientation.yaw, roll, pitch
-imu_data AUV::getOrientation(){return microstrain->getData();}
+imu_data AUV::getOrientation(){
+	if(compass == MICROSTRAIN) return microstrain->getData();
+	else if(compass == OCEANSERVER5000){
+		imu_data orient;
+		orient.yaw = os5000->heading();
+		orient.pitch = os5000->pitch();
+		orient.roll = os5000->roll();
+		return orient;
+	}
+}
 double AUV::getHeading(){
 	if(compass == MICROSTRAIN)
 		return microstrain->getData().yaw;
@@ -314,7 +337,7 @@ double AUV::getThrusterPower() {return thrusterPower->getVoltage()*thrusterPower
 // reads the current depth from the depth sensor via the arduino
 double AUV::getDepth(){
 	//return ((double)((double)arduino->getValue("DEPTH")-depthZero))/(double)depthScale;
-	return ((double)((double)pControllers->getAnalogInput(3)-depthZero))/(double)depthScale;
+	return ((double)((double)pControllers->getAnalogInput(2)-depthZero))/(double)depthScale;
 	
 }
 
@@ -327,7 +350,7 @@ void AUV::setActualDepth(double depth){
 // values of -1 and 1 should mean on
 bool AUV::getGo(){
 	//return (arduino->getValue("GO")==0)?false:true;
-	return (bool) pControllers->getDigitalInput(4);
+	return (bool) pControllers->getDigitalInput(3);
 }
 
 // deprecated
