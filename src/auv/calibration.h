@@ -2,7 +2,7 @@
 #define CALIB_H_
 
 // depthZero = sensor reading at surface
-static volatile int depthZero = 89;
+static volatile int depthZero = 142;
 
 //#define DEPTHSCALE 6.125 
 // 116 = 4ft - taken in Kona Kai Pool in 2009

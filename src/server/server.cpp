@@ -12,16 +12,18 @@ Server::Server(){
 	if(config.isEmpty()) loadConfigFile(config);
 
 	sidsocket = new SIDSocket(config["Server.Port.Data"].toInt(), config["Client.Port.Data"].toInt(), true);
+	qDebug() << "	Listening on: " << config["Server.Port.Data"];
 	videoSocket = new QUdpSocket(this);
 	videoSocket->bind(config["Server.Port.Video1"].toInt());
 	bitmapSocket = new QUdpSocket(this);
 	bitmapSocket->bind(config["Server.Port.Video2"].toInt());
 	connect(sidsocket, SIGNAL(sidReceived(QString, QString, QHostAddress)),
 	     this, SLOT(handleCmd(QString, QString, QHostAddress)));
-
+/* 	Video recording is now done in the dashboard
 	videoFile = new QFile("recorded_video.mjpg");
 	if (!videoFile->open(QIODevice::WriteOnly | QIODevice::Append))
 		qDebug() << "Could not open video file";
+*/
 	
         videoFrame = new QImage(640,480,QImage::Format_RGB32); // 4 = QImage::Format_RGB32
         videoOut = new QImageWriter(videoSocket, "jpeg");
@@ -181,6 +183,8 @@ void Server::sendSensorData(AUVSensors sens){
 	if(sendCount%10 == 0){
 		sidsocket->sendSID("AUV.ThrusterVoltage", QString::number(sens.thrusterPower.voltage));
 		sidsocket->sendSID("AUV.ThrusterCurrent", QString::number(sens.thrusterPower.current));
+		sidsocket->sendSID("AUV.MainVoltage", QString::number(sens.mainPower.voltage));
+		sidsocket->sendSID("AUV.MainCurrent", QString::number(sens.mainPower.current));
 		sidsocket->sendSID("AUV.ManualOverrideDisabled", sens.manualOverrideDisabled?"true":"false");
 		sendCount = 0;
 	}

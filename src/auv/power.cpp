@@ -77,6 +77,8 @@ double Power::getCurrent(){
 void Power::process(QByteArray data){
 	// format: $ASVIS,[volts],[amps]*
 	// or: [millivolts],[milliamps]
+	data = data.trimmed();
+	//qDebug() << "Processing: " << data;
 	QRegExp rx;
 	int multiplier;
 	if(data.contains("$ASVIS")){
@@ -96,6 +98,7 @@ void Power::process(QByteArray data){
 	// add parsed value to values array
 	voltage = voltStr.toDouble()*multiplier;
 	current = curStr.toDouble()*multiplier;
+	//qDebug() << "Voltage:" << QString::number(voltage);
 
 }
 

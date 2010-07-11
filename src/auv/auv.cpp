@@ -51,22 +51,22 @@ AUV::AUV(QMutex* sensorMutex, bool previewVideo){
 	compass = OCEANSERVER5000;
 	
 	/* Initialize hardware interfaces */
-	if(config["Debug"] == "true") qDebug() << "Initializing Arduino";
+	qDebug() << "Initializing Arduino";
 	arduino = new Arduino(config["SerialPort.Arduino"]);
-	if(config["Debug"] == "true") qDebug() << "Initializing MicroStrain";
+	qDebug() << "Initializing MicroStrain";
 	microstrain = new Microstrain(config["SerialPort.Compass"]);
-	if(config["Debug"] == "true") qDebug() << "Initializing OS5000";
+	qDebug() << "Initializing OS5000";
 	os5000 = new OS5000(config["SerialPort.OtherCompass"]);
-	if(config["Debug"] == "true") qDebug() << "Initializing Pololu";
+	qDebug() << "Initializing Pololu";
 	pControllers = new Pololu(config["SerialPort.Pololu"]);
-	if(config["Debug"] == "true") qDebug() << "Initializing Thruster Power";
+	qDebug() << "Initializing Thruster Power";
 	thrusterPower = new Power(config["SerialPort.ThrusterPower"]);
-	if(config["Debug"] == "true") qDebug() << "Initializing Main Power";
+	qDebug() << "Initializing Main Power";
 	mainPower = new Power(config["SerialPort.MainPower"]);
-	if(config["Debug"] == "true") qDebug() << "Initializing LCD";
+	qDebug() << "Initializing LCD";
 	statusLcd = new LCD(config["SerialPort.LCD"]);
 
-	if(config["Debug"] == "true") qDebug() << "Initializing webcam";
+	qDebug() << "Initializing Camera";
 	camera = new QWebCam();
 	//camThread = new QThread(this);
 	//camera->moveToThread(camThread);
@@ -342,8 +342,8 @@ double AUV::getDepth(){
 }
 
 void AUV::setActualDepth(double depth){
-	if(depth == 0) depthZero = arduino->getValue("DEPTH");
-	else depthScale = (arduino->getValue("DEPTH")-depthZero)/depth;
+	if(depth == 0) depthZero = getDepth();
+	else depthScale = (getDepth()-depthZero)/depth;
 	emit status("Calibrated Depth Sensor to " + QString::number(depth) + " ft");
 }
 
