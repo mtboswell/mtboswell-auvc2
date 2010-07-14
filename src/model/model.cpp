@@ -126,17 +126,20 @@ void Model::updateVideoFrame(QImage frame){
 	frame = frame.scaled(160,120);
 	int height = frame.height();
 
+	int *imgptr;
 	for(int x = frame.width()-1; x >= 0; --x){
 		for(int y = height-1; y >= 0; --y){
-			pixel = (QColor) frame.pixel(x,y);
-			pixel.getHsvF(&(brain_U.H[(height*x)+y]), &(brain_U.S[(height*x)+y]), &(brain_U.V[(height*x)+y]));
+			imgptr = frame.data();
+			pixel = imgptr + height*x+y;
+			brain_U.R[(height*x)+y] = (pixel >> 24) & 0x000000ff / 255.0f;
+			brain_U.G[(height*x)+y] = (pixel >> 16) & 0x000000ff / 255.0f;
+			brain_U.P[(height*x)+y] = (pixel >> 8) & 0x000000ff / 255.0f;
 		}
 	}
-	
 }
 
 void Model::setState(int state){
-	if(state < 0 || state > 5) return;	
+	if(state < 0 || state > 5) return;
 	brain_U.DesiredState = state;
 }
 
@@ -145,7 +148,7 @@ void Model::setParam(QString name, double value){
 	if(parameters.contains(name)) {
 		*(parameters[name]) = value;
 		emit status("Set parameter " + name + " to " + QString::number(value));
-	}else emit error("Nonexistent parameter: " + name);	
+	}else emit error("Nonexistent parameter: " + name);
 }
 
 void Model::setInput(QString name, double value){
@@ -173,4 +176,4 @@ void Model::setInput(QString name, double value){
 			+ " F" + QString::number(brain_U.RC_ForwardVelocity)
 			+ " S" + QString::number(brain_U.RC_Strafe));
 	}
-} 
+}
