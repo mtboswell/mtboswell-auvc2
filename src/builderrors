@@ -1,0 +1,8 @@
+brain/brain.cpp:1906:6: warning: unused parameter ‘brain_M’
+brain/brain.cpp: In function ‘void brain_c3_brain(const real_T*, real_T, rtB_StateFlowFunctionsBuoysFind*, rtDW_StateFlowFunctionsBuoysFin*)’:
+brain/brain.cpp:1053:31: warning: array subscript is above array bounds
+brain/brain.cpp: In function ‘void brain_c5_brain()’:
+brain/brain.cpp:4744:29: warning: array subscript is above array bounds
+brain/brain.cpp:4754:33: warning: array subscript is above array bounds
+brain/brain.cpp:4764:34: warning: array subscript is above array bounds
+brain/brain.cpp:4774:31: warning: array subscript is above array bounds
