@@ -102,6 +102,7 @@ Dashboard::Dashboard(QMainWindow *parent)
 
 	videoFile = new QFile();
 	videoOut = new QImageWriter(videoFile, "jpeg");
+	record_video = false;
 
 	// init controls
 	RC = desiredSpeed = desiredHeading = desiredDepth = desiredStrafe = desiredVideoStream = 0;
