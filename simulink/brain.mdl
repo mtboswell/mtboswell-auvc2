@@ -90,7 +90,7 @@ Model {
       Name		      "RGBout"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.628"
+    ComputedModelVersion    "1.630"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -109,9 +109,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jul 13 23:29:18 2010"
-  RTWModifiedTimeStamp	  200964546
-  ModelVersionFormat	  "1.%<AutoIncrement:628>"
+  LastModifiedDate	  "Wed Jul 14 00:11:25 2010"
+  RTWModifiedTimeStamp	  200967078
+  ModelVersionFormat	  "1.%<AutoIncrement:630>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -179,14 +179,17 @@ Model {
   ExtModeLogAll		  on
   ExtModeAutoUpdateStatusClock on
   TunableVars		  "Buoy1_Hue,Buoy1_Saturation,Buoy1_Value,Buoy2_Hue,Buoy2_Saturation,Buoy2_Value,Buoy_Max_Eccentricity,"
-  "Buoy_Max_Extent,Buoy_Min_Eccentricity,Buoy_Min_Extent,Buoy_Strafe,Cam_Down_XPos_Kd,Cam_Down_XPos_Ki,Cam_Down_XPos_Kp"
-  ",Cam_Down_YPos_Kd,Cam_Down_YPos_Ki,Cam_Down_YPos_Kp,Cam_Forward_XPosition_Kd,Cam_Forward_XPosition_Ki,Cam_Forward_XP"
-  "osition_Kp,Cam_Forward_YPosition_Kd,Cam_Forward_YPosition_Ki,Cam_Forward_YPosition_Kp,Depth_Kd,Depth_Ki,Depth_Kp,Hea"
-  "ding_Forward_Velocity,Heading_Kd,Heading_Ki,Heading_Kp,Iter_Segment_Thresh,Max_Blob_Size,Min_Blob_Size,Track_Desired"
-  "_Depth,Track_HueHigher,Track_HueLower,Track_Min_Eccentricity,Track_Saturation,Vision_Forward_Velocity"
+  "Buoy_Max_Extent,Buoy_Min_Eccentricity,Buoy_Min_Extent,Buoy_Strafe,Cam_Down_Strafe_XPos_Kd,Cam_Down_Strafe_XPos_Ki,Ca"
+  "m_Down_Strafe_XPos_Kp,Cam_Down_XPos_Kd,Cam_Down_XPos_Ki,Cam_Down_XPos_Kp,Cam_Down_YPos_Kd,Cam_Down_YPos_Ki,Cam_Down_"
+  "YPos_Kp,Cam_Down_Yaw_XPos_Kd,Cam_Down_Yaw_XPos_Ki,Cam_Down_Yaw_XPos_Kp,Cam_Forward_XPosition_Kd,Cam_Forward_XPositio"
+  "n_Ki,Cam_Forward_XPosition_Kp,Cam_Forward_YPosition_Kd,Cam_Forward_YPosition_Ki,Cam_Forward_YPosition_Kp,Depth_Kd,De"
+  "pth_Ki,Depth_Kp,Heading_Forward_Velocity,Heading_Kd,Heading_Ki,Heading_Kp,Hedge_Hue,Hedge_Saturation,Hedge_Value,Ite"
+  "r_Segment_Thresh,Max_Blob_Size,Min_Blob_Size,Track_Desired_Depth,Track_HueHigher,Track_HueLower,Track_Min_Eccentrici"
+  "ty,Track_Saturation,Vision_Forward_Velocity"
   TunableVarsStorageClass "Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,A"
-  "uto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
-  TunableVarsTypeQualifier ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+  "uto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Au"
+  "to,Auto,Auto,Auto,Auto,Auto,Auto"
+  TunableVarsTypeQualifier ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
   BufferReuse		  on
   ShowModelReferenceBlockVersion off
   ShowModelReferenceBlockIO off
@@ -625,7 +628,7 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Real-Time Workshop"
+      CurrentDlgPage	      "Optimization"
       ConfigPrmDlgPosition    " [ 235, 78, 1204, 628 ] "
     }
     PropName		    "ConfigurationSets"
@@ -23054,17 +23057,17 @@ Stateflow {
     id			    2
     name		    "StateFlow Functions"
     windowPosition	    [0 30 1024.5 489]
-    viewLimits		    [-30 1932 -30 876]
-    zoomFactor		    2
+    viewLimits		    [-18.75 1207.5 -18.75 547.5]
+    zoomFactor		    1.25
     screen		    [1 1 1366 768 1.333333333333333]
     treeNode		    [0 4 0 0]
-    viewObj		    3
+    viewObj		    56
     visible		    1
     machine		    1
     subviewS {
       zoomFactor	      1.25
     }
-    ssIdHighWaterMark	    1826
+    ssIdHighWaterMark	    1828
     decomposition	    SET_CHART
     firstData		    400
     updateMethod	    DISCRETE
@@ -23083,6 +23086,7 @@ Stateflow {
     treeNode		    [2 96 4 0]
     firstTransition	    161
     superState		    SUBCHART
+    visible		    0
     subviewer		    2
     subviewS {
       x1		      -30
@@ -23125,6 +23129,7 @@ Stateflow {
     chart		    2
     treeNode		    [3 0 70 23]
     superState		    GROUPED
+    visible		    0
     subviewer		    3
     ssIdNumber		    727
     type		    OR_STATE
@@ -23140,6 +23145,7 @@ Stateflow {
     chart		    2
     treeNode		    [3 0 53 101]
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -15
@@ -23412,6 +23418,7 @@ Stateflow {
     chart		    2
     treeNode		    [3 0 101 102]
     superState		    GROUPED
+    visible		    0
     subviewer		    3
     ssIdNumber		    1259
     type		    OR_STATE
@@ -23439,6 +23446,7 @@ Stateflow {
     chart		    2
     treeNode		    [3 0 49 0]
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     ssIdNumber		    918
     type		    FUNC_STATE
@@ -23458,6 +23466,7 @@ Stateflow {
     treeNode		    [3 28 5 55]
     firstTransition	    122
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -18.75
@@ -23783,6 +23792,7 @@ Stateflow {
     treeNode		    [3 15 55 53]
     firstTransition	    144
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -15
@@ -23953,6 +23963,7 @@ Stateflow {
     chart		    2
     treeNode		    [3 0 54 22]
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     ssIdNumber		    926
     type		    FUNC_STATE
@@ -23998,6 +24009,7 @@ Stateflow {
     treeNode		    [3 19 96 70]
     firstTransition	    147
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -14.715
@@ -24034,6 +24046,7 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [3 0 39 6]
+    visible		    0
     subviewer		    3
     ssIdNumber		    1263
     type		    OR_STATE
@@ -24047,6 +24060,7 @@ Stateflow {
     chart		    2
     treeNode		    [3 0 102 49]
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     ssIdNumber		    1286
     type		    FUNC_STATE
@@ -24067,6 +24081,7 @@ Stateflow {
     treeNode		    [3 56 23 39]
     firstTransition	    169
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -18.75
@@ -24087,7 +24102,6 @@ Stateflow {
     treeNode		    [55 57 0 65]
     firstTransition	    171
     superState		    SUBCHART
-    visible		    0
     subviewer		    55
     subviewS {
       x1		      -18.75
@@ -24107,7 +24121,6 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [56 0 0 58]
-    visible		    0
     subviewer		    56
     ssIdNumber		    1553
     type		    OR_STATE
@@ -24123,7 +24136,6 @@ Stateflow {
     chart		    2
     treeNode		    [56 59 57 60]
     superState		    SUBCHART
-    visible		    0
     subviewer		    56
     subviewS {
       x1		      -15
@@ -24170,7 +24182,6 @@ Stateflow {
     chart		    2
     treeNode		    [56 61 58 63]
     superState		    SUBCHART
-    visible		    0
     subviewer		    56
     subviewS {
       x1		      -18.75
@@ -24228,7 +24239,6 @@ Stateflow {
     chart		    2
     treeNode		    [56 0 60 64]
     superState		    SUBCHART
-    visible		    0
     subviewer		    56
     ssIdNumber		    1568
     type		    FUNC_STATE
@@ -24248,7 +24258,6 @@ Stateflow {
     chart		    2
     treeNode		    [56 0 63 0]
     superState		    SUBCHART
-    visible		    0
     subviewer		    56
     ssIdNumber		    1572
     type		    FUNC_STATE
@@ -24366,6 +24375,7 @@ Stateflow {
     treeNode		    [3 71 51 5]
     firstTransition	    177
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -18.75
@@ -24877,6 +24887,7 @@ Stateflow {
     chart		    2
     treeNode		    [3 0 0 51]
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -15
@@ -24954,6 +24965,7 @@ Stateflow {
     treeNode		    [3 108 6 20]
     firstTransition	    230
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -15
@@ -24973,6 +24985,7 @@ Stateflow {
     treeNode		    [3 104 20 54]
     firstTransition	    219
     superState		    SUBCHART
+    visible		    0
     subviewer		    3
     subviewS {
       x1		      -15
@@ -25320,6 +25333,7 @@ Stateflow {
     midPoint		    [219.6279 490.5]
     chart		    2
     linkNode		    [3 168 155]
+    visible		    0
     dataLimits		    [129.438 310.469 488.1 492.9]
     stampAngle		    NaN
     subviewer		    3
@@ -26114,6 +26128,7 @@ Stateflow {
     midPoint		    [529.6873 579.0549]
     chart		    2
     linkNode		    [3 121 0]
+    visible		    0
     dataLimits		    [527.287 532.087 559.381 589.381]
     subviewer		    3
     drawStyle		    SMART
@@ -26136,6 +26151,7 @@ Stateflow {
     midPoint		    [308.5491 171.597]
     chart		    2
     linkNode		    [3 157 158]
+    visible		    0
     dataLimits		    [176.537 377.087 151.381 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -26163,6 +26179,7 @@ Stateflow {
     midPoint		    [334.9897 145.8141]
     chart		    2
     linkNode		    [3 191 156]
+    visible		    0
     dataLimits		    [176.537 427.188 114.481 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -26190,6 +26207,7 @@ Stateflow {
     midPoint		    [220.331 314.691]
     chart		    2
     linkNode		    [3 156 159]
+    visible		    0
     dataLimits		    [129.539 310.469 312.291 317.091]
     stampAngle		    NaN
     subviewer		    3
@@ -26213,6 +26231,7 @@ Stateflow {
     midPoint		    [219.6762 327.8189]
     chart		    2
     linkNode		    [3 158 215]
+    visible		    0
     dataLimits		    [129.539 310.469 325.419 330.219]
     stampAngle		    NaN
     subviewer		    3
@@ -26236,6 +26255,7 @@ Stateflow {
     midPoint		    [476.8777 170.1787]
     chart		    2
     linkNode		    [3 161 165]
+    visible		    0
     dataLimits		    [474.478 479.278 90.469 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -26259,6 +26279,7 @@ Stateflow {
     midPoint		    [440.3139 171.7025]
     chart		    2
     linkNode		    [3 0 160]
+    visible		    0
     dataLimits		    [437.914 442.714 90.469 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -26282,6 +26303,7 @@ Stateflow {
     midPoint		    [556.8594 176.8082]
     chart		    2
     linkNode		    [3 164 163]
+    visible		    0
     dataLimits		    [554.459 559.259 100.254 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -26305,6 +26327,7 @@ Stateflow {
     midPoint		    [613.1412 174.8588]
     chart		    2
     linkNode		    [3 162 202]
+    visible		    0
     dataLimits		    [610.741 615.541 100.255 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -26319,7 +26342,7 @@ Stateflow {
     fontSize		    12
     src {
       id		      55
-      intersection	      [3 0 1 0.171 782.4389 99.9341 0 -31.7188]
+      intersection	      [3 -0 1 0.171 782.4389 99.9341 0 -31.7188]
     }
     dst {
       id		      53
@@ -26328,10 +26351,13 @@ Stateflow {
     midPoint		    [782.4389 174.7056]
     chart		    2
     linkNode		    [3 165 162]
+    visible		    0
     dataLimits		    [780.039 784.839 99.934 251.412]
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1276
   }
@@ -26346,15 +26372,18 @@ Stateflow {
     }
     dst {
       id		      55
-      intersection	      [3 0 1 0.8031 721.5006 99.9341 0 29.2188]
+      intersection	      [3 -0 1 0.8031 721.5006 99.9341 0 29.2188]
     }
     midPoint		    [721.5006 176.641]
     chart		    2
     linkNode		    [3 160 164]
+    visible		    0
     dataLimits		    [719.101 723.901 99.934 251.412]
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    7
     ssIdNumber		    1277
   }
@@ -26374,6 +26403,7 @@ Stateflow {
     midPoint		    [880.9086 176.1973]
     chart		    2
     linkNode		    [3 167 190]
+    visible		    0
     dataLimits		    [878.509 883.309 103.053 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -26397,6 +26427,7 @@ Stateflow {
     midPoint		    [861.2189 178.2682]
     chart		    2
     linkNode		    [3 201 166]
+    visible		    0
     dataLimits		    [858.819 863.619 103.053 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -26420,6 +26451,7 @@ Stateflow {
     midPoint		    [220.2783 427.5]
     chart		    2
     linkNode		    [3 218 121]
+    visible		    0
     dataLimits		    [129.438 310.469 425.1 429.9]
     stampAngle		    NaN
     subviewer		    3
@@ -26468,6 +26500,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    55
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1548
   }
@@ -26478,20 +26512,21 @@ Stateflow {
     fontSize		    12
     src {
       id		      58
-      intersection	      [2 1 -0 0.5687 174.2187 124.6854 0 6.797]
+      intersection	      [2 1 0 0.5687 174.2187 124.6875 0 6.797]
     }
     dst {
       id		      60
-      intersection	      [4 -1 0 0.5 299.1406 124.6854 0 -6.797]
+      intersection	      [4 -1 -0 0.5 299.1406 124.6875 0 -6.797]
     }
     midPoint		    [235.1346 124.6875]
     chart		    2
     linkNode		    [56 0 172]
-    visible		    0
     dataLimits		    [174.219 299.141 122.285 127.085]
     stampAngle		    NaN
     subviewer		    56
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1550
   }
@@ -26511,11 +26546,12 @@ Stateflow {
     midPoint		    [527.071 124.6875]
     chart		    2
     linkNode		    [56 171 173]
-    visible		    0
     dataLimits		    [428.984 625.15 122.287 127.088]
     stampAngle		    NaN
     subviewer		    56
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1551
   }
@@ -26533,7 +26569,6 @@ Stateflow {
     midPoint		    [100.9375 185.8401]
     chart		    2
     linkNode		    [56 172 0]
-    visible		    0
     dataLimits		    [98.537 103.338 167.344 197.109]
     subviewer		    56
     executionOrder	    1
@@ -26926,6 +26961,7 @@ Stateflow {
     midPoint		    [1051.47 178.4852]
     chart		    2
     linkNode		    [3 166 191]
+    visible		    0
     dataLimits		    [1049.07 1053.87 103.469 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -26951,6 +26987,7 @@ Stateflow {
     midPoint		    [1001.7825 176.3961]
     chart		    2
     linkNode		    [3 190 157]
+    visible		    0
     dataLimits		    [999.383 1004.183 103.469 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -27192,6 +27229,7 @@ Stateflow {
     midPoint		    [1129 175.8132]
     chart		    2
     linkNode		    [3 202 167]
+    visible		    0
     dataLimits		    [1126.6 1131.4 102.25 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -27217,6 +27255,7 @@ Stateflow {
     midPoint		    [1175.632 177.8493]
     chart		    2
     linkNode		    [3 163 201]
+    visible		    0
     dataLimits		    [1173.232 1178.032 102.25 251.412]
     stampAngle		    NaN
     subviewer		    3
@@ -27546,6 +27585,7 @@ Stateflow {
     midPoint		    [1323.4431 330]
     chart		    2
     linkNode		    [3 159 216]
+    visible		    0
     dataLimits		    [1254.562 1394.75 327.6 332.4]
     stampAngle		    NaN
     subviewer		    3
@@ -27571,6 +27611,7 @@ Stateflow {
     midPoint		    [1325.8693 343.5]
     chart		    2
     linkNode		    [3 215 217]
+    visible		    0
     dataLimits		    [1254.562 1394.75 341.1 345.9]
     stampAngle		    NaN
     subviewer		    3
@@ -27596,6 +27637,7 @@ Stateflow {
     midPoint		    [1330.617 417]
     chart		    2
     linkNode		    [3 216 218]
+    visible		    0
     dataLimits		    [1254.562 1408.5 414.6 419.4]
     stampAngle		    NaN
     subviewer		    3
@@ -27621,6 +27663,7 @@ Stateflow {
     midPoint		    [1332.4454 426]
     chart		    2
     linkNode		    [3 217 168]
+    visible		    0
     dataLimits		    [1254.562 1408.5 423.6 428.4]
     stampAngle		    NaN
     subviewer		    3
