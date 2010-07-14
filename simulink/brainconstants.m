@@ -58,7 +58,11 @@ Cam_Forward_YPosition_Kp = 0.8;
 Cam_Forward_YPosition_Kd = 0.001;
 Cam_Forward_YPosition_Ki = 0.001;
 
-Heading_Forward_Velocity = 60;
+Heading_Forward_Velocity = 20;
 Vision_Forward_Velocity = 15;
 
 Buoy_Strafe = 40;
+
+Hedge_Hue = .4;
+Hedge_Saturation = 1;
+Hedge_Value = .75;
