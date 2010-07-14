@@ -60,12 +60,17 @@ Dashboard::Dashboard(QMainWindow *parent)
 	states << "Autonomous";
 	states << "Startup";
 	states << "Validation Gate";
-	states << "Follow Path";
+	states << "Path to Buoys";
 	states << "Buoys";
+	states << "Path to Hedge";
 	states << "Hedge";
-	states << "Finished";
+	states << "Path to Weapons";
 	states << "Weapons";
-	states << "Pinger";
+	states << "Path to Hedge";
+	states << "Hedge";
+	states << "Locating Pinger";
+	states << "Surfacing";
+	states << "Finished";
 	stateComboBox->insertItems(0, states);
 
 	// populate Script combo box
