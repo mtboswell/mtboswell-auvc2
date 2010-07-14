@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.635
+ * Model version                        : 1.637
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Wed Jul 14 02:44:44 2010
+ * Real-Time Workshop file generated on : Wed Jul 14 13:53:21 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Wed Jul 14 02:44:48 2010
+ * C/C++ source code generated on       : Wed Jul 14 13:53:25 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -452,9 +452,12 @@ typedef struct {
   real_T Constant_k;                   /* '<S4>/Constant' */
   real_T Constant2;                    /* '<S4>/Constant2' */
   real_T Constant1;                    /* '<S4>/Constant1' */
-  real_T ColorSpaceConversion_o1;      /* '<S54>/Color Space  Conversion' */
-  real_T ColorSpaceConversion_o2;      /* '<S54>/Color Space  Conversion' */
-  real_T ColorSpaceConversion_o3;      /* '<S54>/Color Space  Conversion' */
+  real_T ColorSpaceConversion_o1[19200];/* '<Root>/Color Space  Conversion' */
+  real_T ColorSpaceConversion_o2[19200];/* '<Root>/Color Space  Conversion' */
+  real_T ColorSpaceConversion_o3[19200];/* '<Root>/Color Space  Conversion' */
+  real_T ColorSpaceConversion_o1_h;    /* '<S54>/Color Space  Conversion' */
+  real_T ColorSpaceConversion_o2_i;    /* '<S54>/Color Space  Conversion' */
+  real_T ColorSpaceConversion_o3_d;    /* '<S54>/Color Space  Conversion' */
   real_T ImageDataTypeConversion[19200];/* '<S9>/Image Data Type Conversion' */
   real_T ColorSpaceConversion_o3_c;    /* '<S39>/Color Space  Conversion' */
   real_T ColorSpaceConversion_o2_o;    /* '<S39>/Color Space  Conversion' */
@@ -517,6 +520,7 @@ typedef struct {
   uint8_T BuoyBlobAnalysis_PAD_DW[19764];/* '<S22>/Buoy Blob Analysis' */
   real_T UD_DSTATE;                    /* '<S119>/UD' */
   real_T DepthDiscreteTimeIntegrator_DST;/* '<S118>/Depth Discrete-Time Integrator' */
+  real_T ColorSpaceConversion_DWORK1[19200];/* '<Root>/Color Space  Conversion' */
   real_T count;                        /* '<Root>/StateFlow Functions' */
   real_T countarea;                    /* '<Root>/StateFlow Functions' */
   real_T DesiredHeadingCount;          /* '<Root>/StateFlow Functions' */
@@ -552,7 +556,7 @@ typedef struct {
   real_T Heading3;                     /* '<Root>/StateFlow Functions' */
   real_T Heading4;                     /* '<Root>/StateFlow Functions' */
   real_T OldDesiredHeading;            /* '<Root>/StateFlow Functions' */
-  real_T ColorSpaceConversion_DWORK1;  /* '<S37>/Color Space  Conversion' */
+  real_T ColorSpaceConversion_DWORK1_k;/* '<S37>/Color Space  Conversion' */
   real_T ColorSpaceConversion1_DWORK1; /* '<S37>/Color Space  Conversion1' */
   real_T ColorSpaceConversion_DWORK1_g;/* '<S39>/Color Space  Conversion' */
   real_T ColorSpaceConversion1_DWORK1_e;/* '<S39>/Color Space  Conversion1' */
@@ -728,9 +732,9 @@ typedef struct {
   real_T RC_Strafe;                    /* '<Root>/RC_Strafe' */
   real_T RC_Depth;                     /* '<Root>/RC_Depth' */
   boolean_T RC;                        /* '<Root>/RC' */
-  real_T H[19200];                     /* '<Root>/H' */
-  real_T S[19200];                     /* '<Root>/S' */
-  real_T V[19200];                     /* '<Root>/V' */
+  real_T R[19200];                     /* '<Root>/H' */
+  real_T G[19200];                     /* '<Root>/S' */
+  real_T B[19200];                     /* '<Root>/V' */
 } ExternalInputs_brain;
 
 /* External outputs (root outports fed by signals with auto storage) */

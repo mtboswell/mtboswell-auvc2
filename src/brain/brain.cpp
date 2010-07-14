@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.635
+ * Model version                        : 1.637
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Wed Jul 14 02:44:44 2010
+ * Real-Time Workshop file generated on : Wed Jul 14 13:53:21 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Wed Jul 14 02:44:48 2010
+ * C/C++ source code generated on       : Wed Jul 14 13:53:25 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -7220,9 +7220,9 @@ static void brain_FindSecondBuoy(void)
     rtb_Add = brain_B.B_Value_c / rtb_Add;
 
     /* assign the results */
-    brain_B.ColorSpaceConversion_o1 = rtb_Add * cc;
-    brain_B.ColorSpaceConversion_o2 = rtb_Add * cc_0;
-    brain_B.ColorSpaceConversion_o3 = rtb_Add * cc_1;
+    brain_B.ColorSpaceConversion_o1_h = rtb_Add * cc;
+    brain_B.ColorSpaceConversion_o2_i = rtb_Add * cc_0;
+    brain_B.ColorSpaceConversion_o3_d = rtb_Add * cc_1;
 
     /* S-Function (svipcolorconv): '<S54>/Color Space  Conversion1' */
     /* temporary variables for in-place operation */
@@ -7232,26 +7232,26 @@ static void brain_FindSecondBuoy(void)
     /* equivalent to running the gamma correction block with break */
     /* point of 0.00304 and gamma of 2.4; it's built into this */
     /* conversion for convenience */
-    if (brain_B.ColorSpaceConversion_o1 <= 3.9286085583733095E-02) {
-      rtb_Add = brain_B.ColorSpaceConversion_o1 / 1.2923054468333255E+01;
+    if (brain_B.ColorSpaceConversion_o1_h <= 3.9286085583733095E-02) {
+      rtb_Add = brain_B.ColorSpaceConversion_o1_h / 1.2923054468333255E+01;
     } else {
-      rtb_Add = (brain_B.ColorSpaceConversion_o1 + 5.5000519817226347E-02) /
+      rtb_Add = (brain_B.ColorSpaceConversion_o1_h + 5.5000519817226347E-02) /
         1.0550005198172263E+00;
       rtb_Add = rt_pow_snf(rtb_Add, 2.4);
     }
 
-    if (brain_B.ColorSpaceConversion_o2 <= 3.9286085583733095E-02) {
-      rtb_TSamp = brain_B.ColorSpaceConversion_o2 / 1.2923054468333255E+01;
+    if (brain_B.ColorSpaceConversion_o2_i <= 3.9286085583733095E-02) {
+      rtb_TSamp = brain_B.ColorSpaceConversion_o2_i / 1.2923054468333255E+01;
     } else {
-      rtb_TSamp = (brain_B.ColorSpaceConversion_o2 + 5.5000519817226347E-02) /
+      rtb_TSamp = (brain_B.ColorSpaceConversion_o2_i + 5.5000519817226347E-02) /
         1.0550005198172263E+00;
       rtb_TSamp = rt_pow_snf(rtb_TSamp, 2.4);
     }
 
-    if (brain_B.ColorSpaceConversion_o3 <= 3.9286085583733095E-02) {
-      uyy = brain_B.ColorSpaceConversion_o3 / 1.2923054468333255E+01;
+    if (brain_B.ColorSpaceConversion_o3_d <= 3.9286085583733095E-02) {
+      uyy = brain_B.ColorSpaceConversion_o3_d / 1.2923054468333255E+01;
     } else {
-      uyy = (brain_B.ColorSpaceConversion_o3 + 5.5000519817226347E-02) /
+      uyy = (brain_B.ColorSpaceConversion_o3_d + 5.5000519817226347E-02) /
         1.0550005198172263E+00;
       uyy = rt_pow_snf(uyy, 2.4);
     }
@@ -13560,25 +13560,84 @@ static void brain_ValidationGate(void)
 /* Model step function */
 void brain_step(void)
 {
+  int32_T i;
+  real_T max;
   real_T rtb_Add;
   real_T rtb_TSamp;
-  int32_T i;
-  real_T tmp;
+
+  /* S-Function (svipcolorconv): '<Root>/Color Space  Conversion' incorporates:
+   *  Inport: '<Root>/H'
+   *  Inport: '<Root>/S'
+   *  Inport: '<Root>/V'
+   */
+  /* temporary variables for in-place operation */
   for (i = 0; i < 19200; i++) {
-    /* DataTypeConversion: '<Root>/Data Type Conversion' incorporates:
-     *  Inport: '<Root>/H'
-     */
-    brain_B.DataTypeConversion[i] = (real32_T)brain_U.H[i];
+    /* First get the min and max of the RGB triplet */
+    if (brain_U.R[i] > brain_U.G[i]) {
+      if (brain_U.G[i] < brain_U.B[i]) {
+        rtb_Add = brain_U.G[i];
+      } else {
+        rtb_Add = brain_U.B[i];
+      }
 
-    /* DataTypeConversion: '<Root>/Data Type Conversion1' incorporates:
-     *  Inport: '<Root>/S'
-     */
-    brain_B.DataTypeConversion1[i] = (real32_T)brain_U.S[i];
+      if (brain_U.R[i] > brain_U.B[i]) {
+        max = brain_U.R[i];
+      } else {
+        max = brain_U.B[i];
+      }
+    } else {
+      if (brain_U.R[i] < brain_U.B[i]) {
+        rtb_Add = brain_U.R[i];
+      } else {
+        rtb_Add = brain_U.B[i];
+      }
 
-    /* DataTypeConversion: '<Root>/Data Type Conversion2' incorporates:
-     *  Inport: '<Root>/V'
-     */
-    brain_B.DataTypeConversion2[i] = (real32_T)brain_U.V[i];
+      if (brain_U.G[i] > brain_U.B[i]) {
+        max = brain_U.G[i];
+      } else {
+        max = brain_U.B[i];
+      }
+    }
+
+    rtb_Add = max - rtb_Add;
+    if (max != 0.0) {
+      rtb_TSamp = rtb_Add / max;
+    } else {
+      rtb_TSamp = 0.0;
+    }
+
+    if (rtb_Add != 0.0) {
+      if (brain_U.R[i] == max) {
+        rtb_Add = (brain_U.G[i] - brain_U.B[i]) / rtb_Add;
+      } else if (brain_U.G[i] == max) {
+        rtb_Add = (brain_U.B[i] - brain_U.R[i]) / rtb_Add + 2.0;
+      } else {
+        rtb_Add = (brain_U.R[i] - brain_U.G[i]) / rtb_Add + 4.0;
+      }
+
+      rtb_Add /= 6.0;
+      if (rtb_Add < 0.0) {
+        rtb_Add++;
+      }
+    } else {
+      rtb_Add = 0.0;
+    }
+
+    /* assign the results */
+    brain_B.ColorSpaceConversion_o1[i] = rtb_Add;
+    brain_B.ColorSpaceConversion_o2[i] = rtb_TSamp;
+    brain_B.ColorSpaceConversion_o3[i] = max;
+  }
+
+  for (i = 0; i < 19200; i++) {
+    /* DataTypeConversion: '<Root>/Data Type Conversion' */
+    brain_B.DataTypeConversion[i] = (real32_T)brain_B.ColorSpaceConversion_o1[i];
+
+    /* DataTypeConversion: '<Root>/Data Type Conversion1' */
+    brain_B.DataTypeConversion1[i] = (real32_T)brain_B.ColorSpaceConversion_o2[i];
+
+    /* DataTypeConversion: '<Root>/Data Type Conversion2' */
+    brain_B.DataTypeConversion2[i] = (real32_T)brain_B.ColorSpaceConversion_o3[i];
   }
 
   /* Stateflow: '<Root>/StateFlow Functions' incorporates:
@@ -13847,12 +13906,12 @@ void brain_step(void)
          *
          *  Store in Global RAM
          */
-        tmp = (brain_P.Depth_Kp * rtb_Add + (rtb_TSamp - brain_DWork.UD_DSTATE))
+        max = (brain_P.Depth_Kp * rtb_Add + (rtb_TSamp - brain_DWork.UD_DSTATE))
           + brain_DWork.DepthDiscreteTimeIntegrator_DST;
-        tmp = floor(tmp);
-        if (tmp < 128.0) {
-          if (tmp >= -128.0) {
-            brain_B.DoubleToInt8 = (int8_T)tmp;
+        max = floor(max);
+        if (max < 128.0) {
+          if (max >= -128.0) {
+            brain_B.DoubleToInt8 = (int8_T)max;
           } else {
             brain_B.DoubleToInt8 = MIN_int8_T;
           }
