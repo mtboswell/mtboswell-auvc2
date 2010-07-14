@@ -8,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>1047</width>
-    <height>602</height>
+    <height>686</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1056,7 +1056,7 @@
          <enum>QTabWidget::South</enum>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>3</number>
         </property>
         <widget class="QWidget" name="controlsPage">
          <attribute name="title">
@@ -1974,6 +1974,22 @@
                 </widget>
                </item>
               </layout>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_20">
+            <property name="title">
+             <string>Compass</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_15">
+             <item>
+              <widget class="QPushButton" name="calibrateCompassPushButton">
+               <property name="text">
+                <string>Calibrate Compass</string>
+               </property>
+              </widget>
              </item>
             </layout>
            </widget>
