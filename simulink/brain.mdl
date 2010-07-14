@@ -32,16 +32,16 @@ Model {
       Name		      "RC"
     }
     Inport {
-      SignalName	      "H"
-      Name		      "H"
+      SignalName	      "R"
+      Name		      "R"
     }
     Inport {
-      SignalName	      "S"
-      Name		      "S"
+      SignalName	      "G"
+      Name		      "G"
     }
     Inport {
-      SignalName	      "V"
-      Name		      "V"
+      SignalName	      "B"
+      Name		      "B"
     }
     NumRootOutports	    9
     Outport {
@@ -90,7 +90,7 @@ Model {
       Name		      "RGBout"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.635"
+    ComputedModelVersion    "1.637"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -109,9 +109,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jul 14 01:11:50 2010"
-  RTWModifiedTimeStamp	  200970696
-  ModelVersionFormat	  "1.%<AutoIncrement:635>"
+  LastModifiedDate	  "Wed Jul 14 13:05:38 2010"
+  RTWModifiedTimeStamp	  201013516
+  ModelVersionFormat	  "1.%<AutoIncrement:637>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -953,7 +953,7 @@ Model {
   }
   System {
     Name		    "brain"
-    Location		    [2, 74, 1364, 707]
+    Location		    [2, 74, 1358, 707]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -967,7 +967,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    73
+    SIDHighWatermark	    74
     Block {
       BlockType		      Inport
       Name		      "CurrentDepth"
@@ -1063,7 +1063,7 @@ Model {
       BlockType		      Inport
       Name		      "H"
       SID		      68
-      Position		      [195, 118, 225, 132]
+      Position		      [55, 118, 85, 132]
       ShowName		      off
       Port		      "10"
       IconDisplay	      "Signal name"
@@ -1073,7 +1073,7 @@ Model {
       OutDataTypeStr	      "double"
       Port {
 	PortNumber		1
-	Name			"H"
+	Name			"R"
 	RTWStorageClass		"Auto"
 	DataLoggingNameMode	"SignalName"
       }
@@ -1082,7 +1082,7 @@ Model {
       BlockType		      Inport
       Name		      "S"
       SID		      69
-      Position		      [195, 153, 225, 167]
+      Position		      [55, 153, 85, 167]
       ShowName		      off
       Port		      "11"
       IconDisplay	      "Signal name"
@@ -1092,7 +1092,7 @@ Model {
       OutDataTypeStr	      "double"
       Port {
 	PortNumber		1
-	Name			"S"
+	Name			"G"
 	RTWStorageClass		"Auto"
 	DataLoggingNameMode	"SignalName"
       }
@@ -1101,7 +1101,7 @@ Model {
       BlockType		      Inport
       Name		      "V"
       SID		      70
-      Position		      [195, 188, 225, 202]
+      Position		      [55, 188, 85, 202]
       ShowName		      off
       Port		      "12"
       IconDisplay	      "Signal name"
@@ -1111,7 +1111,7 @@ Model {
       OutDataTypeStr	      "double"
       Port {
 	PortNumber		1
-	Name			"V"
+	Name			"B"
 	RTWStorageClass		"Auto"
 	DataLoggingNameMode	"SignalName"
       }
@@ -1139,6 +1139,22 @@ Model {
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Color Space\n Conversion"
+      SID		      74
+      Ports		      [3, 3]
+      Position		      [120, 131, 220, 189]
+      LibraryVersion	      "1.328"
+      SourceBlock	      "vipconversions/Color Space\n Conversion"
+      SourceType	      "Color Space Conversion"
+      conversion	      "Obsolete"
+      conversionActive	      "R'G'B' to HSV"
+      wp_str		      "D65"
+      rec		      "Rec. 601 (SDTV)"
+      sys		      "1125/60/2:1"
+      imagePorts	      "Separate color signals"
     }
     Block {
       BlockType		      Constant
@@ -3698,7 +3714,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -3712,9 +3728,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -4107,7 +4123,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -4121,9 +4137,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -8592,9 +8608,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -8608,8 +8624,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -8628,9 +8644,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -8644,8 +8660,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -8664,9 +8680,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -8680,8 +8696,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -10057,7 +10073,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -10071,9 +10087,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -10557,7 +10573,7 @@ Model {
 		  SourceType		  "Hough Transform"
 		  theta_res		  "pi/180"
 		  rho_res		  "1"
-		  out_theta_rho		  on
+		  out_theta_rho		  "on"
 		  outdtmode		  "double"
 		  firstCoeffMode	  "Binary point scaling"
 		  firstCoeffWordLength	  "16"
@@ -10578,8 +10594,8 @@ Model {
 		  memoryWordLength	  "32"
 		  memoryFracLength	  "16"
 		  roundingMode		  "Nearest"
-		  overflowMode		  on
-		  LockScale		  off
+		  overflowMode		  "on"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -11633,7 +11649,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -11647,9 +11663,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -11934,7 +11950,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -11948,9 +11964,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -12484,7 +12500,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -12493,7 +12509,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -12506,7 +12522,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -12515,7 +12531,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Logic
@@ -12557,7 +12573,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -12566,7 +12582,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Outport
@@ -12799,30 +12815,30 @@ Model {
 		  DialogControllerArgs	  "DataTag17"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  off
-		  centroid		  off
-		  bBox			  off
-		  majorAxis		  off
-		  minorAxis		  off
-		  angle			  off
-		  eccentricity		  on
-		  equivDiameterSq	  off
-		  extent		  off
-		  perimeter		  off
+		  area			  "off"
+		  centroid		  "off"
+		  bBox			  "off"
+		  majorAxis		  "off"
+		  minorAxis		  "off"
+		  angle			  "off"
+		  eccentricity		  "on"
+		  equivDiameterSq	  "off"
+		  extent		  "off"
+		  perimeter		  "off"
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  on
-		  isCount		  off
-		  useMinArea		  on
+		  warnIfNumBlobsExceeded  "on"
+		  isCount		  "off"
+		  useMinArea		  "on"
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  on
+		  useMaxArea		  "on"
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  off
+		  excludeBorderBlob	  "off"
 		  outDT			  "single"
-		  isOutVarDim		  off
-		  isFill		  on
+		  isOutVarDim		  "off"
+		  isFill		  "on"
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  off
+		  isLabel		  "off"
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -12842,8 +12858,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  off
-		  LockScale		  off
+		  overflowMode		  "off"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -12997,7 +13013,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -13006,7 +13022,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -13019,7 +13035,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -13028,7 +13044,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Logic
@@ -13070,7 +13086,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -13079,7 +13095,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Outport
@@ -14381,7 +14397,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -14395,9 +14411,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -14771,7 +14787,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -14785,9 +14801,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -17279,9 +17295,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -17295,8 +17311,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -17315,9 +17331,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -17331,8 +17347,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -17351,9 +17367,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -17367,8 +17383,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -18943,7 +18959,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -18957,9 +18973,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -19663,7 +19679,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -19677,9 +19693,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  off
+		  DoSatur		  "off"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -20185,30 +20201,30 @@ Model {
 		  DialogControllerArgs	  "DataTag28"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  off
-		  centroid		  off
-		  bBox			  off
-		  majorAxis		  off
-		  minorAxis		  off
-		  angle			  off
-		  eccentricity		  on
-		  equivDiameterSq	  off
-		  extent		  off
-		  perimeter		  off
+		  area			  "off"
+		  centroid		  "off"
+		  bBox			  "off"
+		  majorAxis		  "off"
+		  minorAxis		  "off"
+		  angle			  "off"
+		  eccentricity		  "on"
+		  equivDiameterSq	  "off"
+		  extent		  "off"
+		  perimeter		  "off"
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  on
-		  isCount		  off
-		  useMinArea		  on
+		  warnIfNumBlobsExceeded  "on"
+		  isCount		  "off"
+		  useMinArea		  "on"
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  on
+		  useMaxArea		  "on"
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  off
+		  excludeBorderBlob	  "off"
 		  outDT			  "single"
-		  isOutVarDim		  off
-		  isFill		  on
+		  isOutVarDim		  "off"
+		  isFill		  "on"
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  off
+		  isLabel		  "off"
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -20228,8 +20244,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  off
-		  LockScale		  off
+		  overflowMode		  "off"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -20383,7 +20399,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -20392,7 +20408,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -20405,7 +20421,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -20414,7 +20430,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Logic
@@ -20456,7 +20472,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -20465,7 +20481,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Outport
@@ -22190,6 +22206,7 @@ Model {
       DstPort		      1
     }
     Line {
+      Labels		      [0, 0]
       SrcBlock		      "CurrentHeading"
       SrcPort		      1
       Points		      [35, 0]
@@ -22340,26 +22357,10 @@ Model {
       }
     }
     Line {
-      Name		      "H"
-      Labels		      [0, 0]
-      SrcBlock		      "H"
-      SrcPort		      1
-      DstBlock		      "Data Type Conversion"
-      DstPort		      1
-    }
-    Line {
       SrcBlock		      "Data Type Conversion"
       SrcPort		      1
       DstBlock		      "StateFlow Functions"
       DstPort		      3
-    }
-    Line {
-      Name		      "S"
-      Labels		      [0, 0]
-      SrcBlock		      "S"
-      SrcPort		      1
-      DstBlock		      "Data Type Conversion1"
-      DstPort		      1
     }
     Line {
       SrcBlock		      "Data Type Conversion1"
@@ -22368,18 +22369,56 @@ Model {
       DstPort		      4
     }
     Line {
-      Name		      "V"
-      Labels		      [0, 0]
-      SrcBlock		      "V"
-      SrcPort		      1
-      DstBlock		      "Data Type Conversion2"
-      DstPort		      1
-    }
-    Line {
       SrcBlock		      "Data Type Conversion2"
       SrcPort		      1
       DstBlock		      "StateFlow Functions"
       DstPort		      5
+    }
+    Line {
+      Name		      "R"
+      Labels		      [0, 0]
+      SrcBlock		      "H"
+      SrcPort		      1
+      Points		      [5, 0; 0, 15]
+      DstBlock		      "Color Space\n Conversion"
+      DstPort		      1
+    }
+    Line {
+      Name		      "G"
+      Labels		      [0, 0]
+      SrcBlock		      "S"
+      SrcPort		      1
+      DstBlock		      "Color Space\n Conversion"
+      DstPort		      2
+    }
+    Line {
+      Name		      "B"
+      Labels		      [0, 0]
+      SrcBlock		      "V"
+      SrcPort		      1
+      Points		      [5, 0; 0, -15]
+      DstBlock		      "Color Space\n Conversion"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Color Space\n Conversion"
+      SrcPort		      1
+      Points		      [10, 0; 0, -15]
+      DstBlock		      "Data Type Conversion"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Color Space\n Conversion"
+      SrcPort		      2
+      DstBlock		      "Data Type Conversion1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Color Space\n Conversion"
+      SrcPort		      3
+      Points		      [10, 0; 0, 15]
+      DstBlock		      "Data Type Conversion2"
+      DstPort		      1
     }
   }
 }
@@ -22779,14 +22818,14 @@ MatData {
     "&]W4W1Y;&4                .    ,     8    (    !@         %    \"                0         )          X    P    !@"
     "    @    &          4    (               !          D         #@   #     &    \"     8         !0    @            "
     "   $         \"0         .    ,     8    (    !@         %    \"                0         )          X   !0    !@ "
-    "   @    &          4    (     0    0    !          D    @          #@?4       $!M0       H'E       # <D .    .    "
-    " 8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   &@!   &    \"     (         !0  "
-    "  @    !     0    $         !0 $ \"H    !    ?@   $%L;&]W4V-O<&5#:&%N9V5S                                 $%L;&]W0"
-    "FQO8VM#:&%N9V5S                                 '-I9W5T:6QS+D%P<&QI8V%T:6]N1&%T82Y!<'!L:6-A=&EO;D1A=&%?    #@   # "
-    "    &    \"     D\"        !0    @    !     0    $          @ !  $    .    ,     8    (    \"0(        %    \"    "
-    " $    !     0         \"  $  0    X    X    !@    @    \"          4    (     0    $    !          4 !  !     0   "
-    "      .    F     8    (    \"0         %    \"     $   !H     0         \"    :      !24T     #@   %@    &    \"  "
-    "   (         !0    @    !     0    $         !0 $  <    !    #@   $U#3U,   !H86YD;&4    .          X         "
+    "   @    &          4    (     0    0    !          D    @          \"P?4       $!M0       H'E       # <D .    .   "
+    "  8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   &@!   &    \"     (         !0 "
+    "   @    !     0    $         !0 $ \"H    !    ?@   $%L;&]W4V-O<&5#:&%N9V5S                                 $%L;&]W"
+    "0FQO8VM#:&%N9V5S                                 '-I9W5T:6QS+D%P<&QI8V%T:6]N1&%T82Y!<'!L:6-A=&EO;D1A=&%?    #@   #"
+    "     &    \"     D\"        !0    @    !     0    $          @ !  $    .    ,     8    (    \"0(        %    \"   "
+    "  $    !     0         \"  $  0    X    X    !@    @    \"          4    (     0    $    !          4 !  !     0  "
+    "       .    F     8    (    \"0         %    \"     $   !H     0         \"    :      !24T     #@   %@    &    \" "
+    "    (         !0    @    !     0    $         !0 $  <    !    #@   $U#3U,   !H86YD;&4    .          X         "
   }
   DataRecord {
     Tag			    DataTag1
@@ -23057,14 +23096,14 @@ MatData {
     "]W4W1Y;&4                .    ,     8    (    !@         %    \"                0         )          X    P    !@ "
     "   @    &          4    (               !          D         #@   #     &    \"     8         !0    @             "
     "  $         \"0         .    ,     8    (    !@         %    \"                0         )          X   !0    !@  "
-    "  @    &          4    (     0    0    !          D    @          #@?4       $!M0       H'E       # <D .    .     "
-    "8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   &@!   &    \"     (         !0   "
-    " @    !     0    $         !0 $ \"H    !    ?@   $%L;&]W4V-O<&5#:&%N9V5S                                 $%L;&]W0F"
-    "QO8VM#:&%N9V5S                                 '-I9W5T:6QS+D%P<&QI8V%T:6]N1&%T82Y!<'!L:6-A=&EO;D1A=&%?    #@   #  "
-    "   &    \"     D\"        !0    @    !     0    $          @ !  $    .    ,     8    (    \"0(        %    \"     "
-    "$    !     0         \"  $  0    X    X    !@    @    \"          4    (     0    $    !          4 !  !     0    "
-    "     .    F     8    (    \"0         %    \"     $   !H     0         \"    :      !24T     #@   %@    &    \"   "
-    "  (         !0    @    !     0    $         !0 $  <    !    #@   $U#3U,   !H86YD;&4    .          X         "
+    "  @    &          4    (     0    0    !          D    @          \"P?4       $!M0       H'E       # <D .    .    "
+    " 8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   &@!   &    \"     (         !0  "
+    "  @    !     0    $         !0 $ \"H    !    ?@   $%L;&]W4V-O<&5#:&%N9V5S                                 $%L;&]W0"
+    "FQO8VM#:&%N9V5S                                 '-I9W5T:6QS+D%P<&QI8V%T:6]N1&%T82Y!<'!L:6-A=&EO;D1A=&%?    #@   # "
+    "    &    \"     D\"        !0    @    !     0    $          @ !  $    .    ,     8    (    \"0(        %    \"    "
+    " $    !     0         \"  $  0    X    X    !@    @    \"          4    (     0    $    !          4 !  !     0   "
+    "      .    F     8    (    \"0         %    \"     $   !H     0         \"    :      !24T     #@   %@    &    \"  "
+    "   (         !0    @    !     0    $         !0 $  <    !    #@   $U#3U,   !H86YD;&4    .          X         "
   }
 }
 # Finite State Machines
@@ -23086,10 +23125,10 @@ Stateflow {
   chart {
     id			    2
     name		    "StateFlow Functions"
-    windowPosition	    [0 30 1024.5 489]
-    viewLimits		    [-30 1932 5.833 911.833]
+    windowPosition	    [18.75 30 982.5 489]
+    viewLimits		    [-30 1848 5.833 911.833]
     zoomFactor		    2
-    screen		    [1 1 1366 768 1.333333333333333]
+    screen		    [1 1 1360 768 1.333333333333333]
     treeNode		    [0 4 0 0]
     viewObj		    45
     visible		    1
@@ -23913,15 +23952,15 @@ Stateflow {
     position		    [53.995 86.7676 160.7423 115.0719]
     fontSize		    12
     chart		    2
-    treeNode		    [47 48 0 46]
+    treeNode		    [47 48 46 0]
     firstTransition	    139
     firstJunction	    121
     superState		    SUBCHART
     subviewer		    4
     subviewS {
-      x1		      741.383
-      y1		      330.945
-      zoomFactor	      1.25
+      x1		      -30
+      y1		      5.833
+      zoomFactor	      2
       pos		      [0 0 1852.383 908.083]
     }
     ssIdNumber		    945
@@ -23934,7 +23973,7 @@ Stateflow {
     position		    [323.2419 84.5288 136.4667 120.8757]
     fontSize		    12
     chart		    2
-    treeNode		    [47 0 45 0]
+    treeNode		    [47 0 0 45]
     visible		    0
     subviewer		    4
     subviewS {
@@ -23952,7 +23991,7 @@ Stateflow {
     position		    [28.7813 44.7187 500.1367 278.9483]
     fontSize		    12
     chart		    2
-    treeNode		    [4 45 0 21]
+    treeNode		    [4 46 0 21]
     firstTransition	    142
     visible		    0
     subviewer		    4
@@ -25357,7 +25396,7 @@ Stateflow {
   transition {
     id			    122
     labelString		    "[OperationalState ~= 9]"
-    labelPosition	    [160.026 472.381 119.942 17.965]
+    labelPosition	    [160.026 472.381 129.312 16.842]
     fontSize		    12
     src {
       id		      20
@@ -25419,8 +25458,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    23
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1292
   }
@@ -25507,13 +25544,11 @@ Stateflow {
     }
     midPoint		    [438.0301 353.2466]
     chart		    2
-    linkNode		    [45 130 129]
+    linkNode		    [45 129 153]
     dataLimits		    [435.63 440.43 224.77 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    957
   }
@@ -25532,13 +25567,11 @@ Stateflow {
     }
     midPoint		    [499.4771 350.7066]
     chart		    2
-    linkNode		    [45 128 153]
+    linkNode		    [45 130 128]
     dataLimits		    [497.077 501.877 224.77 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    6
     ssIdNumber		    956
   }
@@ -25557,13 +25590,11 @@ Stateflow {
     }
     midPoint		    [357.7909 353.0099]
     chart		    2
-    linkNode		    [45 131 128]
+    linkNode		    [45 131 129]
     dataLimits		    [355.391 360.191 224.275 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    955
   }
@@ -25582,13 +25613,11 @@ Stateflow {
     }
     midPoint		    [310.1024 350.4484]
     chart		    2
-    linkNode		    [45 133 130]
+    linkNode		    [45 132 130]
     dataLimits		    [307.702 312.502 224.275 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    3
     ssIdNumber		    954
   }
@@ -25607,13 +25636,11 @@ Stateflow {
     }
     midPoint		    [728.3751 351.3624]
     chart		    2
-    linkNode		    [45 149 133]
+    linkNode		    [45 133 131]
     dataLimits		    [725.975 730.775 220.83 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    953
   }
@@ -25632,13 +25659,11 @@ Stateflow {
     }
     midPoint		    [776.678 348.651]
     chart		    2
-    linkNode		    [45 132 131]
+    linkNode		    [45 154 132]
     dataLimits		    [774.278 779.078 220.83 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    7
     ssIdNumber		    952
   }
@@ -25662,8 +25687,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    951
   }
@@ -25683,12 +25706,10 @@ Stateflow {
     midPoint		    [693.9239 177.0893]
     chart		    2
     linkNode		    [45 138 134]
-    dataLimits		    [686.669 708.741 174.689 179.489]
+    dataLimits		    [686.668 708.741 174.689 179.489]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    950
   }
@@ -25708,7 +25729,7 @@ Stateflow {
     midPoint		    [1450.3773 788.3981]
     chart		    2
     linkNode		    [45 214 208]
-    dataLimits		    [936 1720.993 566.982 806.364]
+    dataLimits		    [936 1720.993 566.982 818.217]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
@@ -25739,8 +25760,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    948
   }
@@ -25764,8 +25783,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    947
   }
@@ -25792,7 +25809,7 @@ Stateflow {
   transition {
     id			    140
     labelString		    "[RC == 0]"
-    labelPosition	    [248.559 146.516 54.092 16.478]
+    labelPosition	    [248.559 146.516 55.286 16.842]
     fontSize		    12
     src {
       id		      46
@@ -25810,15 +25827,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    4
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    943
   }
   transition {
     id			    141
     labelString		    "[RC == 1]"
-    labelPosition	    [245.929 175.365 54.092 16.478]
+    labelPosition	    [245.929 175.365 55.286 16.842]
     fontSize		    12
     src {
       id		      45
@@ -25836,14 +25851,12 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    4
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    942
   }
   transition {
     id			    142
-    labelPosition	    [157.873 52.482 8.251 16.478]
+    labelPosition	    [157.873 52.482 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 156.9774 56.7676 0 0]
@@ -25864,7 +25877,7 @@ Stateflow {
   transition {
     id			    143
     labelString		    "[Status ~= 1]"
-    labelPosition	    [23.524 344.492 72.428 16.478]
+    labelPosition	    [23.524 344.492 74.027 16.842]
     fontSize		    12
     src {
       id		      47
@@ -25906,14 +25919,12 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    23
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1455
   }
   transition {
     id			    145
-    labelPosition	    [230.451 121.266 8.246 14.971]
+    labelPosition	    [230.451 121.266 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 226.0507 112.875 0 0]
@@ -25935,7 +25946,7 @@ Stateflow {
   transition {
     id			    146
     labelString		    "[TrackCount > 2]"
-    labelPosition	    [486.65 214.501 86.958 14.971]
+    labelPosition	    [486.65 214.501 92.768 16.842]
     fontSize		    12
     src {
       id		      15
@@ -25959,7 +25970,7 @@ Stateflow {
   transition {
     id			    147
     labelString		    "[DesiredHeadingCount >=3]"
-    labelPosition	    [568.711 170.604 144.873 14.686]
+    labelPosition	    [568.711 170.604 151.802 16.842]
     fontSize		    12
     src {
       id		      19
@@ -25982,7 +25993,7 @@ Stateflow {
   }
   transition {
     id			    148
-    labelPosition	    [382.9 133.641 8.089 14.686]
+    labelPosition	    [382.9 133.641 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 378.5 120 0 0]
@@ -26016,19 +26027,17 @@ Stateflow {
     }
     midPoint		    [663.7932 348.1651]
     chart		    2
-    linkNode		    [45 154 132]
+    linkNode		    [45 212 154]
     dataLimits		    [661.393 666.193 219.899 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    4
     ssIdNumber		    958
   }
   transition {
     id			    150
-    labelPosition	    [34.841 431.104 8.251 16.478]
+    labelPosition	    [34.841 431.104 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 1 0 0 21.2845 443.1382 0 0]
@@ -26061,13 +26070,11 @@ Stateflow {
     }
     midPoint		    [1594.7399 527.178]
     chart		    2
-    linkNode		    [45 201 204]
+    linkNode		    [45 200 204]
     dataLimits		    [1513.451 1674.51 524.778 529.578]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    962
   }
@@ -26086,13 +26093,11 @@ Stateflow {
     }
     midPoint		    [182.3259 353.5914]
     chart		    2
-    linkNode		    [45 153 197]
+    linkNode		    [45 153 198]
     dataLimits		    [179.926 184.726 225.491 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    961
   }
@@ -26111,13 +26116,11 @@ Stateflow {
     }
     midPoint		    [143.9378 351.0827]
     chart		    2
-    linkNode		    [45 129 152]
+    linkNode		    [45 128 152]
     dataLimits		    [141.538 146.338 225.491 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    960
   }
@@ -26136,20 +26139,18 @@ Stateflow {
     }
     midPoint		    [585.0665 350.917]
     chart		    2
-    linkNode		    [45 212 149]
-    dataLimits		    [582.666 587.466 219.899 479.183]
+    linkNode		    [45 149 133]
+    dataLimits		    [582.667 587.467 219.899 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    959
   }
   transition {
     id			    155
     labelString		    "[Status == 1]"
-    labelPosition	    [131.43 348.752 72.428 16.478]
+    labelPosition	    [131.43 348.752 74.027 16.842]
     fontSize		    12
     src {
       id		      21
@@ -26172,7 +26173,7 @@ Stateflow {
   }
   transition {
     id			    156
-    labelPosition	    [534.687 572.49 8.996 17.965]
+    labelPosition	    [534.687 572.49 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 0 -1 0 529.6873 589.3812 0 0]
@@ -26194,7 +26195,7 @@ Stateflow {
   transition {
     id			    157
     labelString		    "[OperationalState ~= -2]"
-    labelPosition	    [220.029 187.203 124.44 17.965]
+    labelPosition	    [220.029 187.203 133.061 16.842]
     fontSize		    12
     src {
       id		      5
@@ -26222,7 +26223,7 @@ Stateflow {
   transition {
     id			    158
     labelString		    "[OperationalState == -2]"
-    labelPosition	    [209.218 99.054 124.44 17.965]
+    labelPosition	    [209.218 99.054 133.061 16.842]
     fontSize		    12
     src {
       id		      53
@@ -26250,7 +26251,7 @@ Stateflow {
   transition {
     id			    159
     labelString		    "[OperationalState == -1]"
-    labelPosition	    [150.81 297.819 124.44 17.965]
+    labelPosition	    [150.81 297.819 133.061 16.842]
     fontSize		    12
     src {
       id		      53
@@ -26274,7 +26275,7 @@ Stateflow {
   transition {
     id			    160
     labelString		    "[OperationalState ~= -1]"
-    labelPosition	    [159.939 329.459 124.44 17.965]
+    labelPosition	    [159.939 329.459 133.061 16.842]
     fontSize		    12
     src {
       id		      6
@@ -26298,7 +26299,7 @@ Stateflow {
   transition {
     id			    161
     labelString		    "[OperationalState ~= 1]"
-    labelPosition	    [411.564 180.906 119.942 17.965]
+    labelPosition	    [411.564 180.906 129.312 16.842]
     fontSize		    12
     src {
       id		      51
@@ -26316,15 +26317,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1270
   }
   transition {
     id			    162
     labelString		    "[OperationalState == 1]"
-    labelPosition	    [375 105.631 119.942 17.965]
+    labelPosition	    [375 105.631 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -26342,15 +26341,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    4
     ssIdNumber		    1271
   }
   transition {
     id			    163
     labelString		    "[OperationalState == 2]"
-    labelPosition	    [481.393 141.334 119.942 17.965]
+    labelPosition	    [481.393 141.334 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -26368,15 +26365,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    5
     ssIdNumber		    1274
   }
   transition {
     id			    164
     labelString		    "[OperationalState ~= 2]"
-    labelPosition	    [546.732 199.62 119.942 17.965]
+    labelPosition	    [546.732 199.62 129.312 16.842]
     fontSize		    12
     src {
       id		      39
@@ -26394,15 +26389,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1275
   }
   transition {
     id			    165
     labelString		    "[OperationalState ~= 3]"
-    labelPosition	    [719.783 178.65 119.942 17.965]
+    labelPosition	    [719.783 178.65 129.312 16.842]
     fontSize		    12
     src {
       id		      55
@@ -26420,15 +26413,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1276
   }
   transition {
     id			    166
     labelString		    "[OperationalState == 3]"
-    labelPosition	    [655.096 126.844 119.942 17.965]
+    labelPosition	    [655.096 126.844 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -26446,15 +26437,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    7
     ssIdNumber		    1277
   }
   transition {
     id			    167
     labelString		    "[OperationalState ~= 4]"
-    labelPosition	    [835.879 149.208 119.942 17.965]
+    labelPosition	    [835.879 149.208 129.312 16.842]
     fontSize		    12
     src {
       id		      23
@@ -26472,15 +26461,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1279
   }
   transition {
     id			    168
     labelString		    "[OperationalState == 4]"
-    labelPosition	    [796.691 115.723 119.942 17.965]
+    labelPosition	    [796.691 115.723 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -26498,15 +26485,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    8
     ssIdNumber		    1280
   }
   transition {
     id			    169
     labelString		    "[OperationalState == 9]"
-    labelPosition	    [169.669 406.151 119.942 17.965]
+    labelPosition	    [169.669 406.151 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -27013,7 +26998,7 @@ Stateflow {
   transition {
     id			    191
     labelString		    "[OperationalState == 5]"
-    labelPosition	    [997.174 183.721 119.942 17.965]
+    labelPosition	    [997.174 183.721 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -27031,15 +27016,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    1687
   }
   transition {
     id			    192
     labelString		    "[OperationalState ~= 5]"
-    labelPosition	    [951.568 123.941 119.942 17.965]
+    labelPosition	    [951.568 123.941 129.312 16.842]
     fontSize		    12
     src {
       id		      70
@@ -27057,8 +27040,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1688
   }
@@ -27078,12 +27059,10 @@ Stateflow {
     midPoint		    [858.0288 169.5775]
     chart		    2
     linkNode		    [45 137 138]
-    dataLimits		    [841.922 880.959 167.178 171.978]
+    dataLimits		    [841.922 880.959 167.177 171.977]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    1702
   }
@@ -27102,13 +27081,11 @@ Stateflow {
     }
     midPoint		    [906.9938 356.106]
     chart		    2
-    linkNode		    [45 198 195]
+    linkNode		    [45 195 201]
     dataLimits		    [904.594 909.394 230.749 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1704
   }
@@ -27127,13 +27104,11 @@ Stateflow {
     }
     midPoint		    [953.5035 353.826]
     chart		    2
-    linkNode		    [45 194 200]
-    dataLimits		    [951.103 955.903 230.749 479.183]
+    linkNode		    [45 197 194]
+    dataLimits		    [951.104 955.904 230.749 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    1705
   }
@@ -27157,8 +27132,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    1719
   }
@@ -27177,13 +27150,11 @@ Stateflow {
     }
     midPoint		    [1121.4991 354.6312]
     chart		    2
-    linkNode		    [45 152 198]
+    linkNode		    [45 198 195]
     dataLimits		    [1119.099 1123.899 227.665 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1720
   }
@@ -27202,13 +27173,11 @@ Stateflow {
     }
     midPoint		    [1190.4947 352.2171]
     chart		    2
-    linkNode		    [45 197 194]
+    linkNode		    [45 152 197]
     dataLimits		    [1188.095 1192.895 227.665 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    8
     ssIdNumber		    1721
   }
@@ -27232,8 +27201,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    1723
   }
@@ -27252,13 +27219,11 @@ Stateflow {
     }
     midPoint		    [1314.998 356.2262]
     chart		    2
-    linkNode		    [45 195 201]
+    linkNode		    [45 201 151]
     dataLimits		    [1312.598 1317.398 231 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1724
   }
@@ -27277,20 +27242,18 @@ Stateflow {
     }
     midPoint		    [1369.0023 353.9571]
     chart		    2
-    linkNode		    [45 200 151]
+    linkNode		    [45 194 200]
     dataLimits		    [1366.602 1371.402 231 479.183]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    9
     ssIdNumber		    1725
   }
   transition {
     id			    202
     labelString		    "[OperationalState ~= 6]"
-    labelPosition	    [1064.547 149.531 119.942 17.965]
+    labelPosition	    [1064.547 149.531 129.312 16.842]
     fontSize		    12
     src {
       id		      96
@@ -27314,7 +27277,7 @@ Stateflow {
   transition {
     id			    203
     labelString		    "[OperationalState == 6]"
-    labelPosition	    [1113.297 205.781 119.942 17.965]
+    labelPosition	    [1113.297 205.781 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -27350,13 +27313,11 @@ Stateflow {
     }
     midPoint		    [131.4974 654.084]
     chart		    2
-    linkNode		    [45 151 205]
+    linkNode		    [45 151 206]
     dataLimits		    [129.097 133.897 561.469 746.21]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1733
   }
@@ -27375,13 +27336,11 @@ Stateflow {
     }
     midPoint		    [192.9979 653.5948]
     chart		    2
-    linkNode		    [45 204 206]
+    linkNode		    [45 213 207]
     dataLimits		    [190.598 195.398 561.469 746.21]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    10
     ssIdNumber		    1734
   }
@@ -27400,13 +27359,11 @@ Stateflow {
     }
     midPoint		    [367.0045 654.4595]
     chart		    2
-    linkNode		    [45 205 207]
+    linkNode		    [45 204 209]
     dataLimits		    [364.605 369.404 561.469 746.995]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1736
   }
@@ -27425,13 +27382,11 @@ Stateflow {
     }
     midPoint		    [425.4961 654.0044]
     chart		    2
-    linkNode		    [45 206 209]
+    linkNode		    [45 205 210]
     dataLimits		    [423.096 427.896 561.469 746.995]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    11
     ssIdNumber		    1737
   }
@@ -27455,8 +27410,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    1738
   }
@@ -27475,13 +27428,11 @@ Stateflow {
     }
     midPoint		    [611.5023 658.4075]
     chart		    2
-    linkNode		    [45 207 210]
+    linkNode		    [45 206 213]
     dataLimits		    [609.102 613.902 561.469 755.25]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1740
   }
@@ -27500,13 +27451,11 @@ Stateflow {
     }
     midPoint		    [668.4988 658.3113]
     chart		    2
-    linkNode		    [45 209 213]
+    linkNode		    [45 207 214]
     dataLimits		    [666.099 670.899 561.469 755.25]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    5
     ssIdNumber		    1741
   }
@@ -27530,8 +27479,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    1742
   }
@@ -27550,8 +27497,8 @@ Stateflow {
     }
     midPoint		    [702.3074 502.5841]
     chart		    2
-    linkNode		    [45 134 154]
-    dataLimits		    [29.737 1493.055 181.5 786.775]
+    linkNode		    [45 134 149]
+    dataLimits		    [34.994 1499.267 181.5 786.775]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
@@ -27577,13 +27524,11 @@ Stateflow {
     }
     midPoint		    [844.0016 660.5596]
     chart		    2
-    linkNode		    [45 210 214]
+    linkNode		    [45 209 205]
     dataLimits		    [841.602 846.402 561.469 759.75]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1745
   }
@@ -27602,13 +27547,11 @@ Stateflow {
     }
     midPoint		    [899.5011 660.6592]
     chart		    2
-    linkNode		    [45 213 136]
+    linkNode		    [45 210 136]
     dataLimits		    [897.101 901.901 561.469 759.75]
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    12
     ssIdNumber		    1746
   }
@@ -27632,15 +27575,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    45
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    1747
   }
   transition {
     id			    216
     labelString		    "[OperationalState == 7]"
-    labelPosition	    [1267.25 300.75 119.942 17.965]
+    labelPosition	    [1267.25 300.75 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -27664,7 +27605,7 @@ Stateflow {
   transition {
     id			    217
     labelString		    "[OperationalState ~= 7]"
-    labelPosition	    [1268.75 351.75 119.942 17.965]
+    labelPosition	    [1268.75 351.75 129.312 16.842]
     fontSize		    12
     src {
       id		      101
@@ -27688,7 +27629,7 @@ Stateflow {
   transition {
     id			    218
     labelString		    "[OperationalState == 8]"
-    labelPosition	    [1274.094 385.969 119.942 17.965]
+    labelPosition	    [1274.094 385.969 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -27712,7 +27653,7 @@ Stateflow {
   transition {
     id			    219
     labelString		    "[OperationalState ~=8]"
-    labelPosition	    [1280.75 432.75 116.943 17.965]
+    labelPosition	    [1280.75 432.75 125.564 16.842]
     fontSize		    12
     src {
       id		      102
@@ -27735,7 +27676,7 @@ Stateflow {
   }
   transition {
     id			    220
-    labelPosition	    [187.173 63.516 8.246 14.971]
+    labelPosition	    [187.173 63.516 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 182.773 55.125 0 0]
@@ -27757,7 +27698,7 @@ Stateflow {
   transition {
     id			    221
     labelString		    "[CurrentDepth < 0.5]"
-    labelPosition	    [259.826 66.375 106.448 14.971]
+    labelPosition	    [259.826 66.375 112.446 16.842]
     fontSize		    12
     src {
       id		      104
@@ -27781,7 +27722,7 @@ Stateflow {
   transition {
     id			    222
     labelString		    "after(3,sec)"
-    labelPosition	    [436.375 68.625 60.721 14.971]
+    labelPosition	    [436.375 68.625 62.782 16.842]
     fontSize		    12
     src {
       id		      105
@@ -27805,7 +27746,7 @@ Stateflow {
   transition {
     id			    223
     labelString		    "[MoveOn ~= 0]"
-    labelPosition	    [203.5 151.875 77.213 14.971]
+    labelPosition	    [203.5 151.875 82.46 16.842]
     fontSize		    12
     src {
       id		      110
@@ -27952,7 +27893,7 @@ Stateflow {
   transition {
     id			    229
     labelString		    "after(3,sec)"
-    labelPosition	    [308.714 255.155 60.721 14.971]
+    labelPosition	    [308.714 255.155 62.782 16.842]
     fontSize		    12
     src {
       id		      111
@@ -27980,7 +27921,7 @@ Stateflow {
   }
   transition {
     id			    230
-    labelPosition	    [422 189.75 8.246 14.971]
+    labelPosition	    [422 189.75 8.433 16.842]
     fontSize		    12
     src {
       id		      108
@@ -28003,7 +27944,7 @@ Stateflow {
   }
   transition {
     id			    231
-    labelPosition	    [174.4 149.391 8.246 14.971]
+    labelPosition	    [174.4 149.391 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 170 141 0 0]
@@ -40418,8 +40359,6 @@ Stateflow {
     viewObj		    871
     machine		    1
     toolbarMode		    LIBRARY_TOOLBAR
-    subviewS {
-    }
     ssIdHighWaterMark	    6
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
