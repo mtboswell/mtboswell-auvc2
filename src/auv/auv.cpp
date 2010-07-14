@@ -92,9 +92,16 @@ AUV::AUV(QMutex* sensorMutex, bool previewVideo){
 	states << "Autonomous";
 	states << "Startup";
 	states << "Validation Gate";
-	states << "Path to Buoy";
-	states << "Finding Buoy";
+	states << "Path to Buoys";
+	states << "Buoys";
 	states << "Path to Hedge";
+	states << "Hedge";
+	states << "Path to Weapons";
+	states << "Weapons";
+	states << "Path to Hedge";
+	states << "Hedge";
+	states << "Locating Pinger";
+	states << "Surfacing";
 	states << "Finished";
 
 	// these flags may eventually be useful again

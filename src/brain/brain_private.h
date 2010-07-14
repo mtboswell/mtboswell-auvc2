@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.630
+ * Model version                        : 1.635
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Wed Jul 14 00:14:38 2010
+ * Real-Time Workshop file generated on : Wed Jul 14 02:44:44 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Wed Jul 14 00:14:39 2010
+ * C/C++ source code generated on       : Wed Jul 14 02:44:48 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -123,6 +123,8 @@ extern void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
 extern void StateFlowFunctionsJumpHedgeGetA(const real_T rtu_BW[19200],
   rtB_StateFlowFunctionsJumpHed_m *localB, rtDW_StateFlowFunctionsJumpHe_j
   *localDW);
+extern void StateManagementRunningAutonomou(real_T rtu_State1,
+  rtB_StateManagementRunningAuton *localB);
 
 #endif                                 /* RTW_HEADER_brain_private_h_ */
 
