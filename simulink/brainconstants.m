@@ -66,3 +66,5 @@ Buoy_Strafe = 40;
 Hedge_Hue = .4;
 Hedge_Saturation = 1;
 Hedge_Value = .75;
+
+MissionPlan = [1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0];
