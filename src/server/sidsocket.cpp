@@ -20,6 +20,11 @@ SIDSocket::SIDSocket(quint16 bindPort, quint16 remotePort, bool server,
 SIDSocket::~SIDSocket() {
 }
 
+bool SIDSocket::isConnected(){
+	//return m_Sock.isOpen();
+	return true;
+}
+
 void SIDSocket::setRemoteAddr(QString addr, quint16 port){
 	if(!QHostAddress(addr).isNull()) m_remoteAddr = addr;
 	if(port != 0) m_remotePort = port;

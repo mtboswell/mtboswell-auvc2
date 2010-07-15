@@ -27,6 +27,8 @@ class SIDSocket : public QObject {
 		SIDSocket(quint16 bindPort, quint16 remotePort, bool server = false, QHostAddress remoteAddr = QHostAddress::Broadcast, QHostAddress bindAddr = QHostAddress::Any);
 		virtual ~SIDSocket();
 
+		bool isConnected();
+
 	signals:
 		/**
 		 * Received a SID packet.
