@@ -1,7 +1,22 @@
 AUVC TODO list
 
+Maestro stuff
+Test thrusters
+Camera sunglasses
+Switch vert and strafe thrusters
+Solder power to router in buoy
+JAUS
+Compass calibration
+State enables
+New parameters (Cam_Down_*)
+Attach hydrophones
+Replace drop servo
+Retrieve drop marker
+Paint drop markers
+Fix depth sensor
+
+
 Finish script sending
-Add video logging to dashboard
 
 Partially tested - fix serialdevice.cpp and test
 move drivers to serialdevice
