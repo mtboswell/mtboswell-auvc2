@@ -181,5 +181,7 @@ void on_##guiParam##_editingFinished();
 
 		QImageWriter* videoOut;
 		QFile* videoFile;
+		
+		QThread* sidThread;
 
 };

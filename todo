@@ -1,19 +1,18 @@
 AUVC TODO list
 
-Maestro stuff
-Test thrusters
+Fix thrusters
+	Switch vert and strafe thrusters
+Fix depth sensor
 Camera sunglasses
-Switch vert and strafe thrusters
-Solder power to router in buoy
-JAUS
-Compass calibration
 State enables
 New parameters (Cam_Down_*)
-Attach hydrophones
+JAUS
+Compass calibration
+Solder power to router in buoy
 Replace drop servo
 Retrieve drop marker
 Paint drop markers
-Fix depth sensor
+Attach hydrophones
 
 
 Finish script sending
