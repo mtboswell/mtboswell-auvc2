@@ -308,7 +308,7 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 				}
 				if(value.toInt() >= states.size() || value.toInt() < 0) badCmd = true;
 				else stateLabel->setText(states.at(value.toInt()));
-				missionProgressBar->setValue(value.toInt() * (100 / 6));
+				missionProgressBar->setValue(value.toInt() * (100 / states.size()));
 			}
 		} else if (name == "Time") {
 			// target brain step frequency
