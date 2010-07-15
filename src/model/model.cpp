@@ -100,7 +100,7 @@ void Model::rt_OneStep(void)
 	modelMutex->unlock();
 	if(config["Debug"]=="true") qDebug("Model Unlocked, sending output");
 	emit outputReady(brain_Y, stepTimer.restart());
-	//if(config["Debug"]=="true") qDebug("Output Sent");
+	if(config["Debug"]=="true") qDebug("Output Sent");
 }
 		
 		

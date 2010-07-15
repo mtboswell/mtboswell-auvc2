@@ -72,10 +72,24 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 	states << "Autonomous";
 	states << "Startup";
 	states << "Validation Gate";
-	states << "Path to Buoy";
-	states << "Finding Buoy";
+	states << "Path to Buoys";
+	states << "Buoys";
 	states << "Path to Hedge";
+	states << "Hedge";
+	states << "Path to Weapons";
+	states << "Weapons";
+	states << "Path to Hedge";
+	states << "Hedge";
+	states << "Locating Pinger";
+	states << "Surfacing";
 	states << "Finished";
+	states << "";
+	states << "";
+	states << "";
+	states << "";
+	states << "";
+	states << "";
+	states << "";
 
 	// these flags may eventually be useful again
 	data.droppedLeft = false;
