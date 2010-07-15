@@ -20,8 +20,6 @@ VideoSocket::VideoSocket(QString remoteAddr, unsigned short remotePort, unsigned
 	SOI = QByteArray::fromRawData(soi_data, sizeof(soi_data));
 	EOI = QByteArray::fromRawData(eoi_data, sizeof(eoi_data));
 
-	validFrame = false;
-
 }
 
 VideoSocket::~VideoSocket() {
@@ -58,28 +56,14 @@ void VideoSocket::readPendingDatagrams()
 
 // called for every new incoming udp datagram
 void VideoSocket::processDatagram(QByteArray datagram, QHostAddress fromAddr, quint16 fromPort){
-	//qDebug() << "Processing Datagram:" << datagram;
-	imageData.append(datagram);
-	if(!validFrame && (imageData.startsWith(SOI) || datagram.contains(SOI))) {
-		imageData = imageData.mid(imageData.indexOf(SOI));
-		validFrame = true;
-	}
-	if(validFrame && (imageData.endsWith(EOI) || datagram.contains(EOI))){
-		int soiPos = imageData.indexOf(SOI);
-		int eoiPos = imageData.indexOf(EOI);
-		if(soiPos > eoiPos) validFrame = false;
-		if(soiPos == -1) validFrame = false;
-		if(eoiPos == -1) validFrame = false;
-		if(validFrame) {
-			//qDebug() << "Found good frame";
-			static QByteArray frame = imageData.mid(soiPos, eoiPos - soiPos + 1);
-			image.loadFromData(frame, "jpeg");
-			imageData = imageData.mid(eoiPos+1);
-			validFrame = false;
-			emit frameReady(&image);
-		}else{
-			qDebug() << "Invalid Image data";
-		}
+        //qDebug() << "Processing Datagram:" << datagram;
+	if(datagram.contains(SOI)/* || image.loadFromData(datagram, "jpeg")*/) validFrame = true;
+	if(validFrame) imageData.append(datagram);
+	if(imageData.endsWith(EOI) /*|| imageData.size() >= MAX_FRAME_SIZE */){
+		image.loadFromData(imageData, "jpeg");
+		emit frameReady(&image);
+		imageData.clear();
+		validFrame = false;
 	} 
 }
 
