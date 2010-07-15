@@ -162,7 +162,7 @@ void Server::sendSensorData(AUVSensors sens){
 
 	static int sendCount = 0;
 
-	if(remoteHost.isNull()) return;
+	if(remoteHost.isNull() || !sidsocket->isConnected()) return;
 
 	// logging is now done in the dashboard
 	//logger->logData(type + '.' + name, value);
@@ -197,7 +197,7 @@ void Server::sendSensorData(AUVSensors sens){
 void Server::sendBrainData(ExternalOutputs_brain outs, int brainTime){
 	if(config["Debug"]=="true") qDebug() << "Sending Brain Data";
 	// Model Outputs
-	if(remoteHost.isNull()) return;
+	if(remoteHost.isNull() || !sidsocket->isConnected()) return;
 	
 	sidsocket->buffer();
 	//outs.stuff;
@@ -212,7 +212,7 @@ void Server::sendBrainData(ExternalOutputs_brain outs, int brainTime){
 }
 
 void Server::sendParams(){
-	if(remoteHost.isNull()) return;
+	if(remoteHost.isNull() || !sidsocket->isConnected()) return;
 	qDebug() << "Sending Params";
 	sidsocket->buffer();
 	// parameters data
@@ -234,7 +234,7 @@ void Server::sendError(QString err){
 }
 
 void Server::sendStatus(QString stat){
-	if(remoteHost.isNull()) return;
+	if(remoteHost.isNull() || !sidsocket->isConnected()) return;
 	qDebug() << stat;
 	sidsocket->sendSID("Status", stat);
 	// write to port
