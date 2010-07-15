@@ -11,9 +11,6 @@ void init_params(QHash<QString, double*>& parameters){
 	parameters.insert("Cam_Forward_YPosition_Kd", &brain_P.Cam_Forward_YPosition_Kd);
 	parameters.insert("Cam_Forward_YPosition_Ki", &brain_P.Cam_Forward_YPosition_Ki);
 	parameters.insert("Cam_Forward_YPosition_Kp", &brain_P.Cam_Forward_YPosition_Kp);
-	parameters.insert("Cam_Down_XPos_Kd", &brain_P.Cam_Down_XPos_Kd);
-	parameters.insert("Cam_Down_XPos_Ki", &brain_P.Cam_Down_XPos_Ki);
-	parameters.insert("Cam_Down_XPos_Kp", &brain_P.Cam_Down_XPos_Kp);
 	parameters.insert("Cam_Down_YPos_Kd", &brain_P.Cam_Down_YPos_Kd);
 	parameters.insert("Cam_Down_YPos_Ki", &brain_P.Cam_Down_YPos_Ki);
 	parameters.insert("Cam_Down_YPos_Kp", &brain_P.Cam_Down_YPos_Kp);
@@ -40,4 +37,10 @@ void init_params(QHash<QString, double*>& parameters){
 	parameters.insert("Buoy2_Saturation", &brain_P.Buoy2_Saturation);
 	parameters.insert("Buoy2_Value", &brain_P.Buoy2_Value);
 	parameters.insert("Iter_Segment_Thresh", &brain_P.Iter_Segment_Thresh);
+	parameters.insert("Cam_Down_Strafe_XPos_Kd", &brain_P.Cam_Down_Strafe_XPos_Kd);
+	parameters.insert("Cam_Down_Strafe_XPos_Ki", &brain_P.Cam_Down_Strafe_XPos_Ki);
+	parameters.insert("Cam_Down_Strafe_XPos_Kp", &brain_P.Cam_Down_Strafe_XPos_Kp);
+	parameters.insert("Cam_Down_Yaw_XPos_Kd", &brain_P.Cam_Down_Yaw_XPos_Kd);
+	parameters.insert("Cam_Down_Yaw_XPos_Ki", &brain_P.Cam_Down_Yaw_XPos_Ki);
+	parameters.insert("Cam_Down_Yaw_XPos_Kp", &brain_P.Cam_Down_Yaw_XPos_Kp);
 }

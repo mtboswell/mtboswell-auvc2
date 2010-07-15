@@ -126,9 +126,12 @@ void on_##guiParam##_editingFinished();
 		void on_downYGainD_editingFinished();
 		void on_downYGainI_editingFinished();
 		void on_downYGainP_editingFinished();
-		void on_downXGainD_editingFinished();
-		void on_downXGainI_editingFinished();
-		void on_downXGainP_editingFinished();
+		void on_downXYawGainD_editingFinished();
+		void on_downXYawGainI_editingFinished();
+		void on_downXYawGainP_editingFinished();
+		void on_downXStrafeGainD_editingFinished();
+		void on_downXStrafeGainI_editingFinished();
+		void on_downXStrafeGainP_editingFinished();
 
 		// Vision
 		void on_pathHueHighSpinBox_editingFinished();
