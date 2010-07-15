@@ -1,11 +1,16 @@
 brain/brain.cpp:3549:6: warning: unused parameter ‘brain_M’
 brain/brain.cpp:5099:6: warning: unused parameter ‘brain_M’
-auv/auv.cpp: In member function ‘imu_data AUV::getOrientation()’:
-auv/auv.cpp:259:1: warning: control reaches end of non-void function
+auv/pololu.cpp: In member function ‘int Pololu::getAnalogInput(char)’:
+auv/pololu.cpp:128:47: warning: passing NULL to non-pointer argument 3 of ‘void Pololu::sendServoCmd(char, char, char, char, bool)’
+auv/pololu.cpp:128:47: warning: passing NULL to non-pointer argument 4 of ‘void Pololu::sendServoCmd(char, char, char, char, bool)’
+auv/pololu.cpp: In member function ‘int Pololu::getDigitalInput(char)’:
+auv/pololu.cpp:147:1: warning: control reaches end of non-void function
 brain/brain.cpp: In function ‘void StateFlowFunctionsBuoysFindBuoy(const real_T*, const real_T*, real_T, rtB_StateFlowFunctionsBuoysFind*, rtDW_StateFlowFunctionsBuoysFin*)’:
 brain/brain.cpp:1547:33: warning: array subscript is above array bounds
 brain/brain.cpp:1557:34: warning: array subscript is above array bounds
 brain/brain.cpp:1567:31: warning: array subscript is above array bounds
+auv/auv.cpp: In member function ‘imu_data AUV::getOrientation()’:
+auv/auv.cpp:259:1: warning: control reaches end of non-void function
 brain/brain.cpp: In function ‘void StateFlowFunctionsBuoysFindBu_l(const real_T*, real_T, const real_T*, rtB_StateFlowFunctionsBuoysFi_d*, rtDW_StateFlowFunctionsBuoysF_e*)’:
 brain/brain.cpp:3276:29: warning: array subscript is above array bounds
 brain/brain.cpp:3286:33: warning: array subscript is above array bounds

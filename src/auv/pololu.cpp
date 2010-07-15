@@ -69,8 +69,8 @@ void Pololu::sendServoCmd(char command, char servoNum, char data1, char data2, b
 	cmd.append(servoNum);
 	cmd.append(data1);
 	if(data2) cmd.append(data2);
+	if(config["Debug"] == "true") qDebug() << "Sending Maestro:" << cmd.toHex();
 	port->write(cmd);
-
 }
 void Pololu::sendTrexCmd(char device, char command, QByteArray data){
 	if(config["Debug"]=="true") qDebug() << "Sending command:" << QString::number(command, 16) << "to device" << QString::number(device, 16) << "with data" << data.toHex();
