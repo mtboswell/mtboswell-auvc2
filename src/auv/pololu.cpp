@@ -1,6 +1,7 @@
 #include "pololu.h"
 #include "../configloader.h"
 #include <QDebug>
+#include <QTime>
 
 Pololu::Pololu(const QString & portName)
 {
@@ -104,6 +105,8 @@ bool Pololu::setTrexConfig(char device, char param, char value){
 
 
 void Pololu::setMotorSpeed(int motorNum, int motorSpeed){
+	static QTime time;
+	qDebug() << "Trex talk rate:" << time.restart();
 	if(config["Debug"]=="true") qDebug() << "Setting motor " + QString::number(motorNum) + " to " + QString::number(motorSpeed);
 	if(motorSpeed > 127) motorSpeed = 127;
 	else if(motorSpeed < -127) motorSpeed = -127;

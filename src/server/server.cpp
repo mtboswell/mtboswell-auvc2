@@ -243,13 +243,24 @@ void Server::sendStatus(QString stat){
 
 void Server::sendVideo(QImage frame){
 	
-	if(video_paused) return;
+	if(config["Debug"]=="true") qDebug() << "Sending Video Frame";
+	if(video_paused) {
+		if(config["Debug"]=="true") qDebug() << "Video paused, not sending";
+		return;
+	}
 	// This can be confusing:  Being in the connected state does not mean that there is a computer on the other end receiving the data.  It just means we have an address to send data to.
-	if(videoSocket->state() != QAbstractSocket::ConnectedState) return;
+	if(videoSocket->state() != QAbstractSocket::ConnectedState){
+		if(config["Debug"]=="true") qDebug() << "Socket not connected, not sending";
+		 return;
+	}
 	// The next line returns if we do not have an address to send to, but it doesn't know whether there is an actual receiver or not.
 
-        if(!videoOut->write(frame)) video_paused = true;
-	if(config["Debug"]=="true") qDebug() << "Sending Video Frame";
+        if(!videoOut->write(frame)) {
+		video_paused = true;
+		if(config["Debug"]=="true") qDebug() << "Failed to send Video Frame";
+	}else{
+		if(config["Debug"]=="true") qDebug() << "Sent Video Frame";
+	}
 }
 
 // Sends a JPEG from the Brain over the VIDEO_PORT udp port.
@@ -294,12 +305,12 @@ void Server::sendVideo(){
 
 
 
-	if(streamRGBSecondary){
-		bitmapOut->write(*rgbFrame);
-	}else{
-		bitmapOut->write(*bwFrame);
-	}
 	if(config["Debug"]=="true") qDebug() << "Sending Secondary Video Frame";
+	if(streamRGBSecondary){
+		if(!bitmapOut->write(*rgbFrame) && config["Debug"]=="true") qDebug() << "Failed to send Video Frame";
+	}else{
+		if(!bitmapOut->write(*bwFrame) && config["Debug"]=="true") qDebug() << "Failed to send Video Frame";
+	}
 }
 
 void Server::selectVideoStream(int streamNumber){
