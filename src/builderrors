@@ -1,9 +1,7 @@
-auv/camread.cpp:53: warning: unused parameter ‘in’
-brain/brain.cpp:1910: warning: unused parameter ‘brain_M’
-brain/brain.cpp: In function ‘void brain_c3_brain(const real_T*, real_T, rtB_StateFlowFunctionsBuoysFind*, rtDW_StateFlowFunctionsBuoysFin*)’:
-brain/brain.cpp:1057: warning: array subscript is above array bounds
-brain/brain.cpp: In function ‘void brain_c5_brain()’:
-brain/brain.cpp:5113: warning: array subscript is above array bounds
-brain/brain.cpp:5123: warning: array subscript is above array bounds
-brain/brain.cpp:5133: warning: array subscript is above array bounds
-brain/brain.cpp:5143: warning: array subscript is above array bounds
+model/parameters.cpp: In function ‘void init_params(QHash<QString, double*>&)’:
+model/parameters.cpp:14:49: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kd’
+model/parameters.cpp:15:49: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Ki’
+model/parameters.cpp:16:49: error: ‘struct Parameters_brain’ has no member named ‘Cam_Down_XPos_Kp’
+make: *** [parameters.o] Error 1
+make: *** Waiting for unfinished jobs....
+auv/camread.cpp:53:8: warning: unused parameter ‘in’

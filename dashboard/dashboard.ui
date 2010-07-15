@@ -1908,7 +1908,7 @@
        <enum>QTabWidget::West</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="elideMode">
        <enum>Qt::ElideNone</enum>
@@ -1933,7 +1933,7 @@
            <item row="0" column="0">
             <widget class="QLabel" name="label_21">
              <property name="text">
-              <string>Forward:</string>
+              <string>Fwd:</string>
              </property>
              <property name="buddy">
               <cstring>fwdVelocitySpinBox</cstring>
@@ -1950,7 +1950,7 @@
            <item row="1" column="0">
             <widget class="QLabel" name="label_22">
              <property name="text">
-              <string>Approach: </string>
+              <string>Appr:</string>
              </property>
              <property name="buddy">
               <cstring>approachVelocitySpinBox</cstring>
@@ -1967,7 +1967,7 @@
            <item row="2" column="0">
             <widget class="QLabel" name="label_39">
              <property name="text">
-              <string>Buoy Strafe:</string>
+              <string>Strafe:</string>
              </property>
             </widget>
            </item>
@@ -2181,6 +2181,12 @@
               <property name="fieldGrowthPolicy">
                <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
               </property>
+              <property name="leftMargin">
+               <number>3</number>
+              </property>
+              <property name="rightMargin">
+               <number>3</number>
+              </property>
               <item row="0" column="0">
                <widget class="QLabel" name="headingPGainLabel_2">
                 <property name="text">
@@ -2250,6 +2256,12 @@
               <string>Y-Axis</string>
              </property>
              <layout class="QFormLayout" name="formLayout_4">
+              <property name="leftMargin">
+               <number>3</number>
+              </property>
+              <property name="rightMargin">
+               <number>3</number>
+              </property>
               <item row="0" column="0">
                <widget class="QLabel" name="depthPGainLabel_2">
                 <property name="text">
@@ -2325,9 +2337,15 @@
            <item>
             <widget class="QGroupBox" name="downXGroup">
              <property name="title">
-              <string>X-Axis</string>
+              <string>X-Yaw</string>
              </property>
              <layout class="QFormLayout" name="formLayout_7">
+              <property name="leftMargin">
+               <number>3</number>
+              </property>
+              <property name="rightMargin">
+               <number>3</number>
+              </property>
               <item row="0" column="0">
                <widget class="QLabel" name="label_20">
                 <property name="text">
@@ -2350,7 +2368,7 @@
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QDoubleSpinBox" name="downXGainP">
+               <widget class="QDoubleSpinBox" name="downXYawGainP">
                 <property name="minimum">
                  <double>-99.989999999999995</double>
                 </property>
@@ -2360,16 +2378,55 @@
                </widget>
               </item>
               <item row="1" column="1">
-               <widget class="QDoubleSpinBox" name="downXGainI">
+               <widget class="QDoubleSpinBox" name="downXYawGainI">
                 <property name="singleStep">
                  <double>0.010000000000000</double>
                 </property>
                </widget>
               </item>
               <item row="2" column="1">
-               <widget class="QDoubleSpinBox" name="downXGainD">
+               <widget class="QDoubleSpinBox" name="downXYawGainD">
                 <property name="singleStep">
                  <double>0.010000000000000</double>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_19">
+             <property name="title">
+              <string>X-Strafe</string>
+             </property>
+             <layout class="QFormLayout" name="formLayout_12">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_46">
+                <property name="text">
+                 <string>P</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QDoubleSpinBox" name="downXStrafeGainP"/>
+              </item>
+              <item row="1" column="1">
+               <widget class="QDoubleSpinBox" name="downXStrafeGainI"/>
+              </item>
+              <item row="2" column="1">
+               <widget class="QDoubleSpinBox" name="downXStrafeGainD"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_47">
+                <property name="text">
+                 <string>I</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_48">
+                <property name="text">
+                 <string>D</string>
                 </property>
                </widget>
               </item>
@@ -2382,6 +2439,12 @@
               <string>Y-Axis</string>
              </property>
              <layout class="QFormLayout" name="formLayout_9">
+              <property name="leftMargin">
+               <number>3</number>
+              </property>
+              <property name="rightMargin">
+               <number>3</number>
+              </property>
               <item row="0" column="0">
                <widget class="QLabel" name="label_30">
                 <property name="text">
