@@ -121,17 +121,19 @@ void Model::updateVideoFrame(QImage frame){
 
 	//qDebug() << "Processing QImage" << frame.size() << frame.format();
 
-	unsigned int pixel;
 	// potential for segfaults if the size isn't what matlab is expecting
 	frame = frame.scaled(160,120);
 	int height = frame.height();
 	int width = frame.width();
+	if(height != 120 || width != 160) {
+		qDebug() << "Frame is wrong size";
+		return;
+	}
 
-	unsigned int *imgptr;
-	imgptr = (unsigned int*) frame.bits();
-	for(int x = frame.width()-1; x >= 0; --x){
+	unsigned int *imgptr = (unsigned int*) frame.bits();
+	unsigned int pixel;
+	for(int x = width-1; x >= 0; --x){
 		for(int y = height-1; y >= 0; --y){
-			imgptr++;
 			pixel = *(imgptr + width*y+x);
 			brain_U.R[(height*x)+y] = ((pixel >> 24) & 0x000000ff) / 255.0f;
 			brain_U.G[(height*x)+y] = ((pixel >> 16) & 0x000000ff) / 255.0f;

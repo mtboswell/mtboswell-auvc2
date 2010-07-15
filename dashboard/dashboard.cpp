@@ -118,6 +118,9 @@ Dashboard::Dashboard(QMainWindow *parent)
 	//emit sendSID("GetParams", "all");
 	reconnectAction();
 
+	sidThread = new QThread(this);
+	sidThread->start();
+	//m_DS->moveToThread(sidThread);
 	videoSocket->start();
 	bitmapSocket->start();
 
@@ -340,23 +343,29 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 				+ QString::number(round(100.0/(value.toDouble()/1000.0)/targetRate))
 				+ "%)" );
 		}else if (name == "DesiredHeading"){
+		/*
 			int intValue = value.toInt();
 			if(intValue != desiredHeading){
 				desiredHeading = intValue;
 				desiredHeadingSpinBox->setValue(intValue);
 			}
+			*/
 		}else if (name == "DesiredDepth"){
+		/*
 			int intValue = value.toInt();
 			if(intValue != desiredDepth){
 				desiredDepth = intValue;
 				desiredDepthSlider->setValue(intValue);
 			}
+			*/
 		}else if (name == "BuoyCentroid"){
+		/*
 			QStringList buoyCoords =  value.split(",");	
 			if(buoyCoords.size() == 2){
 				buoyX = buoyCoords[0].toInt();
 				buoyY = buoyCoords[1].toInt();
 			}
+			*/
 		}else badCmd = true;
 	}else if (type == "Input"){ // RC commands from other dashboards
 		int intValue = value.toInt();
@@ -429,14 +438,16 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 
 // copy video frames into video labels
 void Dashboard::HandleVideoFrame(QImage* frame) {
+	//qDebug() << "Showing video frame";
 	videoPixmap = QPixmap::fromImage(*frame);
+	//if(record_video && (videoOut == 0 || !videoOut->write(*frame))) record_video = false;
 	videoWidget->setPixmap(videoPixmap.scaled(videoWidget->size(),Qt::KeepAspectRatio));
-	if(record_video) if(videoOut == 0 || !videoOut->write(*frame)) record_video = false;
 }
 void Dashboard::HandleBitmapFrame(QImage* frame) {
-	QPainter pixPaint(frame);
+	/*QPainter pixPaint(frame);
 	pixPaint.setPen(QPen(QBrush(Qt::green), 3, Qt::SolidLine, Qt::RoundCap));
 	pixPaint.drawPoint(buoyX, buoyY);
+	*/
 	bwPixmap = QPixmap::fromImage(*frame);
 	bitVideoLabel->setPixmap(bwPixmap.scaled(bitVideoLabel->size(),Qt::KeepAspectRatio));
 }

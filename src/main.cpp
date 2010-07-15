@@ -1,4 +1,4 @@
-#include <QCoreApplication>
+#include <QApplication>
 #include <QMutex>
 
 #include "configloader.h"
@@ -17,7 +17,7 @@ static bool previewVideo = false;
 
 int main(int argc, char *argv[]){
 
-	QCoreApplication app(argc, argv);
+	QApplication app(argc, argv);
 	QStringList args = app.arguments();
 	QString arg;
 	foreach(arg, args){
