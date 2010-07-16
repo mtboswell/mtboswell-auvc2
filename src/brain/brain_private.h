@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.642
+ * Model version                        : 1.654
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Thu Jul 15 21:24:39 2010
+ * Real-Time Workshop file generated on : Thu Jul 15 21:35:39 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Thu Jul 15 21:24:43 2010
+ * C/C++ source code generated on       : Thu Jul 15 21:35:42 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -19,6 +19,26 @@
 #define RTW_HEADER_brain_private_h_
 #include "rtwtypes.h"
 #define CALL_EVENT                     (-1)
+#ifndef UCHAR_MAX
+#include <limits.h>
+#endif
+
+#if ( UCHAR_MAX != (0xFFU) ) || ( SCHAR_MAX != (0x7F) )
+#error "Code was generated for compiler with different sized uchar/char. Consider adjusting Emulation Hardware word size settings on the Hardware Implementation pane to match your compiler word sizes as defined in the compiler's limits.h header file. Alternatively, you can select 'None' for Emulation Hardware and select the 'Enable portable word sizes' option for ERT based targets, which will disable the preprocessor word size checks."
+#endif
+
+#if ( USHRT_MAX != (0xFFFFU) ) || ( SHRT_MAX != (0x7FFF) )
+#error "Code was generated for compiler with different sized ushort/short. Consider adjusting Emulation Hardware word size settings on the Hardware Implementation pane to match your compiler word sizes as defined in the compilers limits.h header file. Alternatively, you can select 'None' for Emulation Hardware and select the 'Enable portable word sizes' option for ERT based targets, this will disable the preprocessor word size checks."
+#endif
+
+#if ( UINT_MAX != (0xFFFFFFFFU) ) || ( INT_MAX != (0x7FFFFFFF) )
+#error "Code was generated for compiler with different sized uint/int. Consider adjusting Emulation Hardware word size settings on the Hardware Implementation pane to match your compiler word sizes as defined in the compilers limits.h header file. Alternatively, you can select 'None' for Emulation Hardware and select the 'Enable portable word sizes' option for ERT based targets, this will disable the preprocessor word size checks."
+#endif
+
+#if ( ULONG_MAX != (0xFFFFFFFFU) ) || ( LONG_MAX != (0x7FFFFFFF) )
+#error "Code was generated for compiler with different sized ulong/long. Consider adjusting Emulation Hardware word size settings on the Hardware Implementation pane to match your compiler word sizes as defined in the compilers limits.h header file. Alternatively, you can select 'None' for Emulation Hardware and select the 'Enable portable word sizes' option for ERT based targets, this will disable the preprocessor word size checks."
+#endif
+
 #ifndef __RTWTYPES_H__
 #error This file requires rtwtypes.h to be included
 #else
@@ -100,9 +120,9 @@ extern void StateFlowFunctionsValidationGat(const real_T rtu_H[19200], const
   rtDW_StateFlowFunctionsValidati *localDW);
 extern void StateFlowFunctionsFollowOn_Init(RT_MODEL_brain *const brain_M,
   rtDW_StateFlowFunctionsFollowOn *localDW);
-extern void StateFlowFunctionsFollowOnePath(real_T rtu_HeadingAlong, real_T
-  rtu_Forward1, RT_MODEL_brain *const brain_M, rtB_StateFlowFunctionsFollowOne
-  *localB, rtDW_StateFlowFunctionsFollowOn *localDW);
+extern void StateFlowFunctionsFollowOnePath(real_T rtu_HeadingAlong,
+  RT_MODEL_brain *const brain_M, rtB_StateFlowFunctionsFollowOne *localB,
+  rtDW_StateFlowFunctionsFollowOn *localDW);
 extern void StateFlowFunctionsFollow_h_Init(RT_MODEL_brain *const brain_M,
   rtDW_StateFlowFunctionsFollow_g *localDW);
 extern void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200],
@@ -125,6 +145,11 @@ extern void StateFlowFunctionsJumpHedgeGetA(const real_T rtu_BW[19200],
   *localDW);
 extern void StateManagementRunningAutonomou(real_T rtu_State1,
   rtB_StateManagementRunningAuton *localB);
+extern void StateFlowFunctionsFollow_i_Init(RT_MODEL_brain *const brain_M,
+  rtDW_StateFlowFunctionsFollo_gn *localDW);
+extern void StateFlowFunctionsFollowOnePa_e(const real_T rtu_BW[19200],
+  RT_MODEL_brain *const brain_M, rtB_StateFlowFunctionsFollowO_f *localB,
+  rtDW_StateFlowFunctionsFollo_gn *localDW);
 
 #endif                                 /* RTW_HEADER_brain_private_h_ */
 
