@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.657
+ * Model version                        : 1.658
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Fri Jul 16 12:20:00 2010
+ * Real-Time Workshop file generated on : Fri Jul 16 12:40:52 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Fri Jul 16 12:20:00 2010
+ * C/C++ source code generated on       : Fri Jul 16 12:40:53 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -10681,6 +10681,8 @@ static void brain_OnePath(void)
         &brain_DWork.StateFlowFunctionsFollowOnePa_k);
       brain_B.Strafe = (int8_T)(int16_T)
         (brain_B.StateFlowFunctionsFollowOnePa_k.Gain >> 7);
+      brain_B.Left = (int8_T)((real_T)brain_B.Left + brain_DWork.Forward);
+      brain_B.Right = (int8_T)((real_T)brain_B.Right + brain_DWork.Forward);
     }
     break;
 
