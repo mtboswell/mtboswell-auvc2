@@ -1,0 +1,8 @@
+cmd 127 127 0
+hold 3
+cmd 0 -127 127
+hold 2
+cmd -127 -127 
+mhold 9000
+cmd 127 0 0
+hold 4
