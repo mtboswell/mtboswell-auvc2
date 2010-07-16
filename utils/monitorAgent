@@ -1,0 +1,2 @@
+#! /bin/bash
+cd logs/ && ls -1 | grep ^run | sort | tail -n1 | xargs tail -f
