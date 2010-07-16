@@ -1,5 +1,5 @@
 Model {
-  Name			  "brain"
+  Name			  "brain_buoy_dead_turn"
   Version		  7.5
   MdlSubVersion		  0
   GraphicalInterface {
@@ -87,7 +87,7 @@ Model {
       Name		      "RGBout"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.654"
+    ComputedModelVersion    "1.656"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -106,9 +106,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jul 15 21:18:05 2010"
-  RTWModifiedTimeStamp	  201129480
-  ModelVersionFormat	  "1.%<AutoIncrement:654>"
+  LastModifiedDate	  "Fri Jul 16 11:30:22 2010"
+  RTWModifiedTimeStamp	  201179838
+  ModelVersionFormat	  "1.%<AutoIncrement:656>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -949,7 +949,7 @@ Model {
     }
   }
   System {
-    Name		    "brain"
+    Name		    "brain_buoy_dead_turn"
     Location		    [2, 82, 1342, 698]
     Open		    on
     ModelBrowserVisibility  off
@@ -1271,7 +1271,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -1289,7 +1289,7 @@ Model {
 	  antialiasing		  "Default"
 	  hcoeff		  "[0.2 0.6 0.2]"
 	  vcoeff		  "[0.5 0.5]"
-	  isInputTransposed	  off
+	  isInputTransposed	  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1301,7 +1301,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -1331,7 +1331,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -1352,9 +1352,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -1368,8 +1368,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1388,9 +1388,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -1404,8 +1404,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1424,9 +1424,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -1440,8 +1440,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1738,7 +1738,7 @@ Model {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
 	  SID			  14
-	  Tag			  "Stateflow S-Function brain 2"
+	  Tag			  "Stateflow S-Function brain_buoy_dead_turn 2"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
 	  FunctionName		  "sf_sfun"
@@ -2011,7 +2011,7 @@ Model {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
 	  SID			  588
-	  Tag			  "Stateflow S-Function brain 1"
+	  Tag			  "Stateflow S-Function brain_buoy_dead_turn 1"
 	  Ports			  [83, 73]
 	  Position		  [180, 130, 230, 1830]
 	  FunctionName		  "sf_sfun"
@@ -2552,7 +2552,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  14
-		  Tag			  "Stateflow S-Function brain 19"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 19"
 		  Ports			  [8, 3]
 		  Position		  [180, 111, 230, 314]
 		  FunctionName		  "sf_sfun"
@@ -3220,7 +3220,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  10
-		  Tag			  "Stateflow S-Function brain 20"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 20"
 		  Ports			  [5, 4]
 		  Position		  [180, 104, 230, 246]
 		  FunctionName		  "sf_sfun"
@@ -3406,7 +3406,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  7
-		  Tag			  "Stateflow S-Function brain 23"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 23"
 		  Ports			  [1, 3]
 		  Position		  [180, 100, 230, 180]
 		  FunctionName		  "sf_sfun"
@@ -3677,7 +3677,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    14
-		    Tag			    "Stateflow S-Function brain 24"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 24"
 		    Ports		    [5, 2]
 		    Position		    [180, 100, 230, 220]
 		    FunctionName	    "sf_sfun"
@@ -4210,7 +4210,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -4224,9 +4224,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -4619,7 +4619,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -4633,9 +4633,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -5613,7 +5613,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  11
-		  Tag			  "Stateflow S-Function brain 15"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 15"
 		  Ports			  [8, 3]
 		  Position		  [180, 105, 230, 285]
 		  FunctionName		  "sf_sfun"
@@ -5916,7 +5916,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    14
-		    Tag			    "Stateflow S-Function brain 16"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 16"
 		    Ports		    [5, 2]
 		    Position		    [180, 100, 230, 220]
 		    FunctionName	    "sf_sfun"
@@ -6556,7 +6556,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  14
-		  Tag			  "Stateflow S-Function brain 5"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 5"
 		  Ports			  [2, 6]
 		  Position		  [180, 102, 230, 243]
 		  FunctionName		  "sf_sfun"
@@ -6863,7 +6863,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  11
-		  Tag			  "Stateflow S-Function brain 7"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 7"
 		  Ports			  [8, 3]
 		  Position		  [180, 105, 230, 285]
 		  FunctionName		  "sf_sfun"
@@ -7077,7 +7077,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  14
-		  Tag			  "Stateflow S-Function brain 8"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 8"
 		  Ports			  [5, 2]
 		  Position		  [180, 100, 230, 220]
 		  FunctionName		  "sf_sfun"
@@ -7436,7 +7436,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  14
-		  Tag			  "Stateflow S-Function brain 3"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 3"
 		  Ports			  [2, 5]
 		  Position		  [180, 100, 230, 220]
 		  FunctionName		  "sf_sfun"
@@ -7757,7 +7757,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  11
-		  Tag			  "Stateflow S-Function brain 4"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 4"
 		  Ports			  [8, 3]
 		  Position		  [180, 105, 230, 285]
 		  FunctionName		  "sf_sfun"
@@ -8270,7 +8270,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    6
-		    Tag			    "Stateflow S-Function brain 14"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 14"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
 		    FunctionName	    "sf_sfun"
@@ -8387,7 +8387,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    6
-		    Tag			    "Stateflow S-Function brain 17"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 17"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
 		    FunctionName	    "sf_sfun"
@@ -8504,7 +8504,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    6
-		    Tag			    "Stateflow S-Function brain 21"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 21"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
 		    FunctionName	    "sf_sfun"
@@ -8775,7 +8775,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    12
-		    Tag			    "Stateflow S-Function brain 27"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 27"
 		    Ports		    [5, 2]
 		    Position		    [180, 100, 230, 220]
 		    FunctionName	    "sf_sfun"
@@ -8940,7 +8940,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    9
-		    Tag			    "Stateflow S-Function brain 28"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 28"
 		    Ports		    [4, 3]
 		    Position		    [180, 102, 230, 203]
 		    FunctionName	    "sf_sfun"
@@ -9104,9 +9104,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -9120,8 +9120,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -9140,9 +9140,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -9156,8 +9156,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -9176,9 +9176,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -9192,8 +9192,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -9658,7 +9658,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  14
-		  Tag			  "Stateflow S-Function brain 25"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 25"
 		  Ports			  [2, 4]
 		  Position		  [180, 102, 230, 203]
 		  FunctionName		  "sf_sfun"
@@ -9842,7 +9842,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  14
-		  Tag			  "Stateflow S-Function brain 26"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 26"
 		  Ports			  [3, 2]
 		  Position		  [180, 100, 230, 180]
 		  FunctionName		  "sf_sfun"
@@ -10124,7 +10124,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  8
-		  Tag			  "Stateflow S-Function brain 12"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 12"
 		  Ports			  [3, 2]
 		  Position		  [180, 100, 230, 180]
 		  FunctionName		  "sf_sfun"
@@ -10357,7 +10357,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  14
-		  Tag			  "Stateflow S-Function brain 29"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 29"
 		  Ports			  [2, 2]
 		  Position		  [180, 100, 230, 180]
 		  FunctionName		  "sf_sfun"
@@ -10528,7 +10528,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -10542,9 +10542,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -10890,7 +10890,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  10
-		  Tag			  "Stateflow S-Function brain 6"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 6"
 		  Ports			  [3, 2]
 		  Position		  [180, 104, 230, 206]
 		  FunctionName		  "sf_sfun"
@@ -11030,7 +11030,7 @@ Model {
 		  SourceType		  "Hough Transform"
 		  theta_res		  "pi/180"
 		  rho_res		  "1"
-		  out_theta_rho		  on
+		  out_theta_rho		  "on"
 		  outdtmode		  "double"
 		  firstCoeffMode	  "Binary point scaling"
 		  firstCoeffWordLength	  "16"
@@ -11051,8 +11051,8 @@ Model {
 		  memoryWordLength	  "32"
 		  memoryFracLength	  "16"
 		  roundingMode		  "Nearest"
-		  overflowMode		  on
-		  LockScale		  off
+		  overflowMode		  "on"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -11131,7 +11131,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    10
-		    Tag			    "Stateflow S-Function brain 30"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 30"
 		    Ports		    [3, 4]
 		    Position		    [180, 102, 230, 203]
 		    FunctionName	    "sf_sfun"
@@ -11626,7 +11626,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  9
-		  Tag			  "Stateflow S-Function brain 43"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 43"
 		  Ports			  [3, 3]
 		  Position		  [180, 100, 230, 180]
 		  FunctionName		  "sf_sfun"
@@ -11775,7 +11775,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  7
-		  Tag			  "Stateflow S-Function brain 44"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 44"
 		  Ports			  [1, 3]
 		  Position		  [180, 100, 230, 180]
 		  FunctionName		  "sf_sfun"
@@ -12055,7 +12055,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -12069,9 +12069,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -12450,7 +12450,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -12464,9 +12464,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -13026,7 +13026,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  9
-		  Tag			  "Stateflow S-Function brain 9"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 9"
 		  Ports			  [3, 3]
 		  Position		  [180, 100, 230, 180]
 		  FunctionName		  "sf_sfun"
@@ -13175,7 +13175,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  7
-		  Tag			  "Stateflow S-Function brain 10"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 10"
 		  Ports			  [1, 3]
 		  Position		  [180, 100, 230, 180]
 		  FunctionName		  "sf_sfun"
@@ -13470,7 +13470,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -13484,9 +13484,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -13771,7 +13771,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -13785,9 +13785,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -14321,7 +14321,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14330,7 +14330,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -14343,7 +14343,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14352,7 +14352,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Logic
@@ -14394,7 +14394,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14403,7 +14403,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Outport
@@ -14636,30 +14636,30 @@ Model {
 		  DialogControllerArgs	  "DataTag24"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  off
-		  centroid		  off
-		  bBox			  off
-		  majorAxis		  off
-		  minorAxis		  off
-		  angle			  off
-		  eccentricity		  on
-		  equivDiameterSq	  off
-		  extent		  off
-		  perimeter		  off
+		  area			  "off"
+		  centroid		  "off"
+		  bBox			  "off"
+		  majorAxis		  "off"
+		  minorAxis		  "off"
+		  angle			  "off"
+		  eccentricity		  "on"
+		  equivDiameterSq	  "off"
+		  extent		  "off"
+		  perimeter		  "off"
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  on
-		  isCount		  off
-		  useMinArea		  on
+		  warnIfNumBlobsExceeded  "on"
+		  isCount		  "off"
+		  useMinArea		  "on"
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  on
+		  useMaxArea		  "on"
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  off
+		  excludeBorderBlob	  "off"
 		  outDT			  "single"
-		  isOutVarDim		  off
-		  isFill		  on
+		  isOutVarDim		  "off"
+		  isFill		  "on"
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  off
+		  isLabel		  "off"
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -14679,8 +14679,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  off
-		  LockScale		  off
+		  overflowMode		  "off"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -14751,7 +14751,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    7
-		    Tag			    "Stateflow S-Function brain 11"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 11"
 		    Ports		    [2, 2]
 		    Position		    [180, 100, 230, 160]
 		    FunctionName	    "sf_sfun"
@@ -14834,7 +14834,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14843,7 +14843,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -14856,7 +14856,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14865,7 +14865,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Logic
@@ -14907,7 +14907,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14916,7 +14916,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Outport
@@ -15333,7 +15333,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  7
-		  Tag			  "Stateflow S-Function brain 13"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 13"
 		  Ports			  [2, 2]
 		  Position		  [180, 100, 230, 160]
 		  FunctionName		  "sf_sfun"
@@ -15725,7 +15725,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  10
-		  Tag			  "Stateflow S-Function brain 33"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 33"
 		  Ports			  [3, 4]
 		  Position		  [180, 102, 230, 203]
 		  FunctionName		  "sf_sfun"
@@ -15898,7 +15898,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  7
-		  Tag			  "Stateflow S-Function brain 34"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 34"
 		  Ports			  [1, 3]
 		  Position		  [180, 100, 230, 180]
 		  FunctionName		  "sf_sfun"
@@ -16218,7 +16218,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -16232,9 +16232,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -16608,7 +16608,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -16622,9 +16622,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -17184,7 +17184,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  9
-		  Tag			  "Stateflow S-Function brain 35"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 35"
 		  Ports			  [3, 3]
 		  Position		  [180, 100, 230, 180]
 		  FunctionName		  "sf_sfun"
@@ -17663,7 +17663,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    14
-		    Tag			    "Stateflow S-Function brain 36"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 36"
 		    Ports		    [5, 2]
 		    Position		    [180, 100, 230, 220]
 		    FunctionName	    "sf_sfun"
@@ -18282,7 +18282,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    6
-		    Tag			    "Stateflow S-Function brain 37"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 37"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
 		    FunctionName	    "sf_sfun"
@@ -18399,7 +18399,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    6
-		    Tag			    "Stateflow S-Function brain 38"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 38"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
 		    FunctionName	    "sf_sfun"
@@ -18516,7 +18516,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    6
-		    Tag			    "Stateflow S-Function brain 39"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 39"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
 		    FunctionName	    "sf_sfun"
@@ -18787,7 +18787,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    12
-		    Tag			    "Stateflow S-Function brain 40"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 40"
 		    Ports		    [5, 2]
 		    Position		    [180, 100, 230, 220]
 		    FunctionName	    "sf_sfun"
@@ -18952,7 +18952,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    9
-		    Tag			    "Stateflow S-Function brain 41"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 41"
 		    Ports		    [4, 3]
 		    Position		    [180, 102, 230, 203]
 		    FunctionName	    "sf_sfun"
@@ -19116,9 +19116,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -19132,8 +19132,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -19152,9 +19152,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -19168,8 +19168,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -19188,9 +19188,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -19204,8 +19204,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -19767,7 +19767,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  14
-		  Tag			  "Stateflow S-Function brain 22"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 22"
 		  Ports			  [3, 4]
 		  Position		  [180, 102, 230, 203]
 		  FunctionName		  "sf_sfun"
@@ -20248,7 +20248,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  14
-		  Tag			  "Stateflow S-Function brain 31"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 31"
 		  Ports			  [2, 4]
 		  Position		  [180, 102, 230, 203]
 		  FunctionName		  "sf_sfun"
@@ -20432,7 +20432,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  14
-		  Tag			  "Stateflow S-Function brain 32"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 32"
 		  Ports			  [3, 2]
 		  Position		  [180, 100, 230, 180]
 		  FunctionName		  "sf_sfun"
@@ -20780,7 +20780,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -20794,9 +20794,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -21500,7 +21500,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -21514,9 +21514,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  off
+		  DoSatur		  "off"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -22022,30 +22022,30 @@ Model {
 		  DialogControllerArgs	  "DataTag35"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  off
-		  centroid		  off
-		  bBox			  off
-		  majorAxis		  off
-		  minorAxis		  off
-		  angle			  off
-		  eccentricity		  on
-		  equivDiameterSq	  off
-		  extent		  off
-		  perimeter		  off
+		  area			  "off"
+		  centroid		  "off"
+		  bBox			  "off"
+		  majorAxis		  "off"
+		  minorAxis		  "off"
+		  angle			  "off"
+		  eccentricity		  "on"
+		  equivDiameterSq	  "off"
+		  extent		  "off"
+		  perimeter		  "off"
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  on
-		  isCount		  off
-		  useMinArea		  on
+		  warnIfNumBlobsExceeded  "on"
+		  isCount		  "off"
+		  useMinArea		  "on"
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  on
+		  useMaxArea		  "on"
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  off
+		  excludeBorderBlob	  "off"
 		  outDT			  "single"
-		  isOutVarDim		  off
-		  isFill		  on
+		  isOutVarDim		  "off"
+		  isFill		  "on"
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  off
+		  isLabel		  "off"
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -22065,8 +22065,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  off
-		  LockScale		  off
+		  overflowMode		  "off"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -22137,7 +22137,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    7
-		    Tag			    "Stateflow S-Function brain 18"
+		    Tag			    "Stateflow S-Function brain_buoy_dead_turn 18"
 		    Ports		    [2, 2]
 		    Position		    [180, 100, 230, 160]
 		    FunctionName	    "sf_sfun"
@@ -22220,7 +22220,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -22229,7 +22229,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -22242,7 +22242,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -22251,7 +22251,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Logic
@@ -22293,7 +22293,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -22302,7 +22302,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Outport
@@ -22578,7 +22578,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  14
-		  Tag			  "Stateflow S-Function brain 42"
+		  Tag			  "Stateflow S-Function brain_buoy_dead_turn 42"
 		  Ports			  [2, 2]
 		  Position		  [180, 100, 230, 160]
 		  FunctionName		  "sf_sfun"
@@ -25291,7 +25291,7 @@ MatData {
 Stateflow {
   machine {
     id			    1
-    name		    "brain"
+    name		    "brain_buoy_dead_turn"
     created		    "23-Aug-2009 14:16:32"
     isLibrary		    0
     firstTarget		    900
@@ -25305,13 +25305,13 @@ Stateflow {
     zoomFactor		    1.25
     screen		    [1 1 1360 768 1.333333333333333]
     treeNode		    [0 4 0 0]
-    viewObj		    56
+    viewObj		    31
     visible		    1
     machine		    1
     subviewS {
       zoomFactor	      1.25
     }
-    ssIdHighWaterMark	    1848
+    ssIdHighWaterMark	    1852
     decomposition	    SET_CHART
     firstData		    408
     updateMethod	    DISCRETE
@@ -25408,7 +25408,6 @@ Stateflow {
     chart		    2
     treeNode		    [31 0 35 8]
     superState		    SUBCHART
-    visible		    0
     subviewer		    31
     ssIdNumber		    1333
     type		    FUNC_STATE
@@ -25430,7 +25429,6 @@ Stateflow {
     chart		    2
     treeNode		    [31 0 7 0]
     superState		    SUBCHART
-    visible		    0
     subviewer		    31
     ssIdNumber		    1337
     type		    FUNC_STATE
@@ -25756,7 +25754,6 @@ Stateflow {
     chart		    2
     treeNode		    [31 0 27 35]
     superState		    SUBCHART
-    visible		    0
     subviewer		    31
     ssIdNumber		    1327
     type		    FUNC_STATE
@@ -25776,7 +25773,6 @@ Stateflow {
     chart		    2
     treeNode		    [31 0 0 26]
     superState		    SUBCHART
-    visible		    0
     subviewer		    31
     ssIdNumber		    1318
     type		    FUNC_STATE
@@ -25852,18 +25848,17 @@ Stateflow {
   }
   state {
     id			    31
-    labelString		    "FindSecondBuoy\n\nen:\nTurnDirection = GetDirectionToLook(FirstDir,SecondDir);\nDesiredHeading ="
-    " Turn45Degrees(CurrentHeading,TurnDirection);\nDesiredDepth = CurrentDepth;\n[BuoyHue,BuoySaturation,BuoyValue] = "
-    "GetSecondBuoyStats();\nImage = 0;\n\ndu:\n[Left,Right] = MaintainHeading(DesiredHeading,CurrentHeading,0);\nVertic"
-    "al = MaintainDepth(CurrentDepth,DesiredDepth);\nStrafe = GetStrafe();\nStrafe = TurnDirection * Strafe;\n[LabelMat"
-    "rix,num_colors,ref_colors] = IterativeSegmentation(H,S,V);\n[Image, BWout] = SecondBuoy(LabelMatrix,ref_colors,num"
-    "_colors,BuoyHue,BuoySaturation,BuoyValue);\n\nRGBout = ShowSegmentedImage(LabelMatrix,ref_colors);"
+    labelString		    "FindSecondBuoy\n\nen:\nTurnDirection = -1;\nDesiredHeading = Turn45Degrees(CurrentHeading,TurnDi"
+    "rection);\nDesiredDepth = CurrentDepth;\n[BuoyHue,BuoySaturation,BuoyValue] = GetSecondBuoyStats();\nImage = 0;\n\n"
+    "du:\n[Left,Right] = MaintainHeading(DesiredHeading,CurrentHeading,0);\nVertical = MaintainDepth(CurrentDepth,Desir"
+    "edDepth);\nStrafe = GetStrafe();\nStrafe = TurnDirection * Strafe;\n[LabelMatrix,num_colors,ref_colors] = Iterativ"
+    "eSegmentation(H,S,V);\n[Image, BWout] = SecondBuoy(LabelMatrix,ref_colors,num_colors,BuoyHue,BuoySaturation,BuoyVa"
+    "lue);\n\nRGBout = ShowSegmentedImage(LabelMatrix,ref_colors);"
     position		    [316.4688 152.5312 121.625 75.375]
     fontSize		    12
     chart		    2
     treeNode		    [32 27 33 9]
     superState		    SUBCHART
-    visible		    0
     subviewer		    32
     subviewS {
       x1		      -18.75
@@ -25951,7 +25946,6 @@ Stateflow {
     chart		    2
     treeNode		    [31 0 26 7]
     superState		    SUBCHART
-    visible		    0
     subviewer		    31
     ssIdNumber		    1331
     type		    FUNC_STATE
@@ -26345,6 +26339,7 @@ Stateflow {
     treeNode		    [55 57 0 65]
     firstTransition	    173
     superState		    SUBCHART
+    visible		    0
     subviewer		    55
     subviewS {
       x1		      -18.75
@@ -26364,6 +26359,7 @@ Stateflow {
     fontSize		    12
     chart		    2
     treeNode		    [56 0 0 58]
+    visible		    0
     subviewer		    56
     ssIdNumber		    1553
     type		    OR_STATE
@@ -26379,6 +26375,7 @@ Stateflow {
     chart		    2
     treeNode		    [56 59 57 60]
     superState		    SUBCHART
+    visible		    0
     subviewer		    56
     subviewS {
       x1		      -15
@@ -26425,6 +26422,7 @@ Stateflow {
     chart		    2
     treeNode		    [56 61 58 63]
     superState		    SUBCHART
+    visible		    0
     subviewer		    56
     subviewS {
       x1		      -18.75
@@ -26482,6 +26480,7 @@ Stateflow {
     chart		    2
     treeNode		    [56 0 60 64]
     superState		    SUBCHART
+    visible		    0
     subviewer		    56
     ssIdNumber		    1568
     type		    FUNC_STATE
@@ -26501,6 +26500,7 @@ Stateflow {
     chart		    2
     treeNode		    [56 0 63 121]
     superState		    SUBCHART
+    visible		    0
     subviewer		    56
     ssIdNumber		    1572
     type		    FUNC_STATE
@@ -27576,6 +27576,7 @@ Stateflow {
     chart		    2
     treeNode		    [56 0 64 0]
     superState		    SUBCHART
+    visible		    0
     subviewer		    56
     ssIdNumber		    1841
     type		    FUNC_STATE
@@ -27648,20 +27649,22 @@ Stateflow {
     fontSize		    12
     src {
       id		      28
-      intersection	      [2 1 0 0.2749 186.2969 106.7889 0 -23.4375]
+      intersection	      [2 1 0 0.2749 186.2969 106.7924 0 -23.4375]
     }
     dst {
       id		      32
-      intersection	      [4 -1 -0 0.7938 282.8398 106.7889 0 24.1875]
+      intersection	      [4 -1 -0 0.7938 282.8398 106.7924 0 24.1875]
     }
     midPoint		    [232.4064 106.7863]
     chart		    2
     linkNode		    [23 124 145]
     visible		    0
-    dataLimits		    [186.297 282.84 104.392 109.192]
+    dataLimits		    [186.297 282.84 104.389 109.189]
     stampAngle		    NaN
     subviewer		    23
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1292
   }
@@ -27692,11 +27695,11 @@ Stateflow {
     fontSize		    12
     src {
       id		      9
-      intersection	      [2 1 -0 0.4502 205.0328 187.0267 0 -4.3093]
+      intersection	      [2 1 0 0.4502 205.0328 187.0267 0 -4.3093]
     }
     dst {
       id		      31
-      intersection	      [4 -1 0 0.5423 316.4688 187.0267 0 4.3093]
+      intersection	      [4 -1 -0 0.5423 316.4688 187.0267 0 4.3093]
     }
     midPoint		    [258.9126 187.0321]
     chart		    2
@@ -27706,6 +27709,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    32
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1314
   }
@@ -27730,6 +27735,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    32
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1315
   }
@@ -28135,6 +28142,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    23
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1455
   }
@@ -28634,8 +28643,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1276
   }
@@ -28660,8 +28667,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    7
     ssIdNumber		    1277
   }
@@ -28686,6 +28691,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1279
   }
@@ -28710,6 +28717,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    8
     ssIdNumber		    1280
   }
@@ -28799,12 +28808,11 @@ Stateflow {
     midPoint		    [235.1346 124.6875]
     chart		    2
     linkNode		    [56 0 174]
-    dataLimits		    [174.219 299.141 122.287 127.088]
+    visible		    0
+    dataLimits		    [174.219 299.141 122.285 127.085]
     stampAngle		    NaN
     subviewer		    56
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1550
   }
@@ -28824,12 +28832,11 @@ Stateflow {
     midPoint		    [527.071 124.6875]
     chart		    2
     linkNode		    [56 173 175]
+    visible		    0
     dataLimits		    [428.984 625.15 122.287 127.088]
     stampAngle		    NaN
     subviewer		    56
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1551
   }
@@ -28847,6 +28854,7 @@ Stateflow {
     midPoint		    [100.9375 185.8401]
     chart		    2
     linkNode		    [56 174 0]
+    visible		    0
     dataLimits		    [98.537 103.338 167.344 197.109]
     subviewer		    56
     executionOrder	    1
@@ -28854,7 +28862,7 @@ Stateflow {
   }
   transition {
     id			    176
-    labelPosition	    [95.65 90.891 8.433 16.842]
+    labelPosition	    [95.65 90.891 8.246 14.971]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 91.25 82.5 0 0]
@@ -28874,16 +28882,16 @@ Stateflow {
   }
   transition {
     id			    177
-    labelString		    "after(2,sec)"
-    labelPosition	    [147.625 124.875 62.782 16.842]
+    labelString		    "after(1,sec)"
+    labelPosition	    [147.625 124.875 60.721 14.971]
     fontSize		    12
     src {
       id		      67
-      intersection	      [2 1 0 0.45 128 139.5 0 -2.25]
+      intersection	      [2 1 -0 0.45 128 139.5 0 -2.25]
     }
     dst {
       id		      66
-      intersection	      [4 -1 -0 0.5125 230 139.5 0 3]
+      intersection	      [4 -1 0 0.5125 230 139.5 0 3]
     }
     midPoint		    [176.9567 139.5]
     chart		    2
@@ -28893,21 +28901,23 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    65
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1580
   }
   transition {
     id			    178
     labelString		    "after(1,sec)"
-    labelPosition	    [152.125 154.125 62.782 16.842]
+    labelPosition	    [152.125 154.125 60.721 14.971]
     fontSize		    12
     src {
       id		      66
-      intersection	      [4 -1 -0 0.3 230 152.25 0 -12]
+      intersection	      [4 -1 0 0.3 230 152.25 0 -12]
     }
     dst {
       id		      67
-      intersection	      [2 1 0 0.6625 128 152.25 0 12]
+      intersection	      [2 1 -0 0.6625 128 152.25 0 12]
     }
     midPoint		    [181.0433 152.25]
     chart		    2
@@ -28917,6 +28927,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    65
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1581
   }
@@ -42796,8 +42808,6 @@ Stateflow {
     firstJunction	    884
     viewObj		    882
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    9
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -42990,8 +43000,6 @@ Stateflow {
     firstJunction	    894
     viewObj		    892
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    6
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
