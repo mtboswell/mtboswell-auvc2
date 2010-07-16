@@ -2373,7 +2373,7 @@
                  <double>-99.989999999999995</double>
                 </property>
                 <property name="singleStep">
-                 <double>0.500000000000000</double>
+                 <double>0.050000000000000</double>
                 </property>
                </widget>
               </item>
@@ -2408,13 +2408,37 @@
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QDoubleSpinBox" name="downXStrafeGainP"/>
+               <widget class="QDoubleSpinBox" name="downXStrafeGainP">
+                <property name="minimum">
+                 <double>-99.989999999999995</double>
+                </property>
+                <property name="maximum">
+                 <double>99.989999999999995</double>
+                </property>
+                <property name="singleStep">
+                 <double>0.050000000000000</double>
+                </property>
+               </widget>
               </item>
               <item row="1" column="1">
-               <widget class="QDoubleSpinBox" name="downXStrafeGainI"/>
+               <widget class="QDoubleSpinBox" name="downXStrafeGainI">
+                <property name="minimum">
+                 <double>-99.989999999999995</double>
+                </property>
+                <property name="singleStep">
+                 <double>0.010000000000000</double>
+                </property>
+               </widget>
               </item>
               <item row="2" column="1">
-               <widget class="QDoubleSpinBox" name="downXStrafeGainD"/>
+               <widget class="QDoubleSpinBox" name="downXStrafeGainD">
+                <property name="minimum">
+                 <double>-99.989999999999995</double>
+                </property>
+                <property name="singleStep">
+                 <double>0.010000000000000</double>
+                </property>
+               </widget>
               </item>
               <item row="1" column="0">
                <widget class="QLabel" name="label_47">
@@ -2472,7 +2496,7 @@
                  <double>-99.989999999999995</double>
                 </property>
                 <property name="singleStep">
-                 <double>0.500000000000000</double>
+                 <double>0.050000000000000</double>
                 </property>
                </widget>
               </item>
