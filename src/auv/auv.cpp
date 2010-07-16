@@ -268,14 +268,14 @@ void AUV::setThrusters(double thrusterSpeeds[NUMBER_OF_THRUSTERS]){
 	// [i][0] = upper limit for thruster i
 	// [i][1] = lower limit for thruster i
 	signed char thrusterLimit[NUMBER_OF_THRUSTERS][2];
-	thrusterLimit[0][0] = 40;
-	thrusterLimit[0][1] = -40;
-	thrusterLimit[1][0] = 40;
-	thrusterLimit[1][1] = -40;
-	thrusterLimit[2][0] = 100;
-	thrusterLimit[2][1] = -100;
+	thrusterLimit[0][0] = 80;
+	thrusterLimit[0][1] = -80;
+	thrusterLimit[1][0] = 80;
+	thrusterLimit[1][1] = -80;
+	thrusterLimit[2][0] = 90;
+	thrusterLimit[2][1] = -90;
 	thrusterLimit[3][0] = 127;
-	thrusterLimit[3][1] = -10;
+	thrusterLimit[3][1] = -50;
 
 	if(config["Debug"]=="true") qDebug("Conversing with TReXs");
 	for(int i = 0; i < NUMBER_OF_THRUSTERS; i++){
