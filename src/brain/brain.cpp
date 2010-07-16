@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.654
+ * Model version                        : 1.656
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Thu Jul 15 21:35:39 2010
+ * Real-Time Workshop file generated on : Fri Jul 16 11:33:27 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Thu Jul 15 21:35:42 2010
+ * C/C++ source code generated on       : Fri Jul 16 11:33:29 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -140,7 +140,6 @@ static void brain_enter_internal_Autonomous(void);
 static void brain_ValidationGate_m(void);
 static void brain_Autonomous(void);
 static real_T brain_countareas(real_T sf_Size, real_T sf_count1);
-static real_T brain_GetDirectionToLook(real_T sf_FirstD, real_T sf_SecondD);
 static real_T brain_Turn45Degrees(real_T sf_CHeading, real_T sf_TurnD);
 static void brain_FindSecondBuoy(void);
 static void brain_ApproachBuoys(void);
@@ -333,7 +332,7 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   cc_0 = 0.0;
   cc_1 = 0.0;
   eml_min_dist = 6.0 * rtu_B_Hue;
-  eml_index = (real_T)(uint32_T)(eml_min_dist - 1.3322676295501878E-15);
+  eml_index = (real_T)(uint32_T)(eml_min_dist - 1.3322676295501878E-015);
   eml_min_dist -= eml_index;
   eml_i = 1.0 - rtu_B_Sat;
   eml_MinDist = 1.0 - rtu_B_Sat * eml_min_dist;
@@ -391,36 +390,37 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   /* equivalent to running the gamma correction block with break */
   /* point of 0.00304 and gamma of 2.4; it's built into this */
   /* conversion for convenience */
-  if (localB->ColorSpaceConversion_o1 <= 3.9286085583733095E-02) {
-    eml_min_dist = localB->ColorSpaceConversion_o1 / 1.2923054468333255E+01;
+  if (localB->ColorSpaceConversion_o1 <= 3.9286085583733095E-002) {
+    eml_min_dist = localB->ColorSpaceConversion_o1 / 1.2923054468333254E+001;
   } else {
     eml_min_dist = rt_pow_snf((localB->ColorSpaceConversion_o1 +
-      5.5000519817226347E-02) / 1.0550005198172263E+00, 2.4);
+      5.5000519817226361E-002) / 1.0550005198172263E+000, 2.4);
   }
 
-  if (localB->ColorSpaceConversion_o2 <= 3.9286085583733095E-02) {
-    eml_i = localB->ColorSpaceConversion_o2 / 1.2923054468333255E+01;
+  if (localB->ColorSpaceConversion_o2 <= 3.9286085583733095E-002) {
+    eml_i = localB->ColorSpaceConversion_o2 / 1.2923054468333254E+001;
   } else {
-    eml_i = rt_pow_snf((localB->ColorSpaceConversion_o2 + 5.5000519817226347E-02)
-                       / 1.0550005198172263E+00, 2.4);
+    eml_i = rt_pow_snf((localB->ColorSpaceConversion_o2 +
+                        5.5000519817226361E-002) / 1.0550005198172263E+000, 2.4);
   }
 
-  if (localB->ColorSpaceConversion_o3 <= 3.9286085583733095E-02) {
-    eml_MinDist = localB->ColorSpaceConversion_o3 / 1.2923054468333255E+01;
+  if (localB->ColorSpaceConversion_o3 <= 3.9286085583733095E-002) {
+    eml_MinDist = localB->ColorSpaceConversion_o3 / 1.2923054468333254E+001;
   } else {
     eml_MinDist = rt_pow_snf((localB->ColorSpaceConversion_o3 +
-      5.5000519817226347E-02) / 1.0550005198172263E+00, 2.4);
+      5.5000519817226361E-002) / 1.0550005198172263E+000, 2.4);
   }
 
   /* The coefficients for this conversion were derived from ITU-R */
   /* BT.709 reference primaries for sRGB and CIE standard illuminant */
   /* D65, 2 degree observer */
-  eml_index = (4.1239079926596001E-01 * eml_min_dist + 3.5758433938388001E-01 *
-               eml_i) + 1.8048078840182999E-01 * eml_MinDist;
-  cc = (2.1263900587151000E-01 * eml_min_dist + 7.1516867876776002E-01 * eml_i)
-    + 7.2192315360729994E-02 * eml_MinDist;
-  eml_min_dist = (1.9330818715590000E-02 * eml_min_dist + 1.1919477979463000E-01
-                  * eml_i) + 9.5053215224966003E-01 * eml_MinDist;
+  eml_index = (4.1239079926596001E-001 * eml_min_dist + 3.5758433938388001E-001 *
+               eml_i) + 1.8048078840182999E-001 * eml_MinDist;
+  cc = (2.1263900587151000E-001 * eml_min_dist + 7.1516867876776002E-001 * eml_i)
+    + 7.2192315360729994E-002 * eml_MinDist;
+  eml_min_dist = (1.9330818715590000E-002 * eml_min_dist +
+                  1.1919477979463000E-001 * eml_i) + 9.5053215224966003E-001 *
+    eml_MinDist;
 
   /* Make sure that the output is in [0..1] range; clip if necessary */
   if (eml_index > 1.0) {
@@ -453,27 +453,28 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   localB->ColorSpaceConversion1_o3 = eml_min_dist;
 
   /* Convert from XYZ to L*a*b* */
-  eml_min_dist = localB->ColorSpaceConversion1_o1 / 9.6419865576090003E-01;
-  eml_MinDist = localB->ColorSpaceConversion1_o3 / 8.2511648322104003E-01;
+  eml_min_dist = localB->ColorSpaceConversion1_o1 / 9.6419865576090003E-001;
+  eml_MinDist = localB->ColorSpaceConversion1_o3 / 8.2511648322104003E-001;
 
   /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-  if (eml_min_dist > 8.8564516790356311E-03) {
-    eml_index = rt_pow_snf(eml_min_dist, 3.3333333333333331E-01);
+  if (eml_min_dist > 8.8564516790356311E-003) {
+    eml_index = rt_pow_snf(eml_min_dist, 3.3333333333333331E-001);
   } else {
-    eml_index = 7.7870370370370372E+00 * eml_min_dist + 1.3793103448275862E-01;
+    eml_index = 7.7870370370370372E+000 * eml_min_dist + 1.3793103448275862E-001;
   }
 
-  if (localB->ColorSpaceConversion1_o2 > 8.8564516790356311E-03) {
-    eml_i = rt_pow_snf(localB->ColorSpaceConversion1_o2, 3.3333333333333331E-01);
+  if (localB->ColorSpaceConversion1_o2 > 8.8564516790356311E-003) {
+    eml_i = rt_pow_snf(localB->ColorSpaceConversion1_o2, 3.3333333333333331E-001);
   } else {
-    eml_i = 7.7870370370370372E+00 * localB->ColorSpaceConversion1_o2 +
-      1.3793103448275862E-01;
+    eml_i = 7.7870370370370372E+000 * localB->ColorSpaceConversion1_o2 +
+      1.3793103448275862E-001;
   }
 
-  if (eml_MinDist > 8.8564516790356311E-03) {
-    eml_min_dist = rt_pow_snf(eml_MinDist, 3.3333333333333331E-01);
+  if (eml_MinDist > 8.8564516790356311E-003) {
+    eml_min_dist = rt_pow_snf(eml_MinDist, 3.3333333333333331E-001);
   } else {
-    eml_min_dist = 7.7870370370370372E+00 * eml_MinDist + 1.3793103448275862E-01;
+    eml_min_dist = 7.7870370370370372E+000 * eml_MinDist +
+      1.3793103448275862E-001;
   }
 
   /* assign the results */
@@ -644,9 +645,9 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     }
 
     cc_0 = eml_min_dist / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0] +
-      8.3333333333333329E-02;
+      8.3333333333333329E-002;
     eml_MinDist = eml_index / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0] +
-      8.3333333333333329E-02;
+      8.3333333333333329E-002;
     eml_min_dist = cc / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0];
     eml_min_dist = sqrt((cc_0 - eml_MinDist) * (cc_0 - eml_MinDist) +
                         eml_min_dist * eml_min_dist * 4.0);
@@ -758,14 +759,14 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   /* Draw all X marks. */
   for (idxROI = 0; idxROI < 2; idxROI += 2) {
     cc = rtb_TmpSignalConversionAtDrawMa[idxROI];
-    if ((rtb_TmpSignalConversionAtDrawMa[idxROI] < 4.5035996273704960E+15) &&
-        (rtb_TmpSignalConversionAtDrawMa[idxROI] > -4.5035996273704960E+15)) {
+    if ((rtb_TmpSignalConversionAtDrawMa[idxROI] < 4.5035996273704960E+015) &&
+        (rtb_TmpSignalConversionAtDrawMa[idxROI] > -4.5035996273704960E+015)) {
       cc = floor(rtb_TmpSignalConversionAtDrawMa[idxROI] + 0.5);
     }
 
     row = (int32_T)cc;
     cc = rtb_TmpSignalConversionAtDrawMa[idxROI + 1];
-    if ((cc < 4.5035996273704960E+15) && (cc > -4.5035996273704960E+15)) {
+    if ((cc < 4.5035996273704960E+015) && (cc > -4.5035996273704960E+015)) {
       cc = floor(cc + 0.5);
     }
 
@@ -1432,9 +1433,9 @@ static void brain_Outputs(const boolean_T eml_U0[19200], real_T eml_Y0[100],
     }
 
     eml_centroid_idx = eml_xs / (real_T)localDW->NUM_PIX_DW[eml_c_i] +
-      8.3333333333333329E-02;
+      8.3333333333333329E-002;
     eml_uyy = eml_ys / (real_T)localDW->NUM_PIX_DW[eml_c_i] +
-      8.3333333333333329E-02;
+      8.3333333333333329E-002;
     eml_xs = eml_xys / (real_T)localDW->NUM_PIX_DW[eml_c_i];
     eml_xs = sqrt((eml_centroid_idx - eml_uyy) * (eml_centroid_idx - eml_uyy) +
                   eml_xs * eml_xs * 4.0);
@@ -1695,15 +1696,15 @@ void StateFlowFunctionsBuoysFindBuoy(const real_T rtu_RGBin[57600], const real_T
   /* Draw all X marks. */
   for (idxROI = 0; idxROI < 100; idxROI += 2) {
     eml_count = rtb_BuoyCent[idxROI];
-    if ((rtb_BuoyCent[idxROI] < 4.5035996273704960E+15) && (rtb_BuoyCent[idxROI]
-         > -4.5035996273704960E+15)) {
+    if ((rtb_BuoyCent[idxROI] < 4.5035996273704960E+015) && (rtb_BuoyCent[idxROI]
+         > -4.5035996273704960E+015)) {
       eml_count = floor(rtb_BuoyCent[idxROI] + 0.5);
     }
 
     row = (int32_T)eml_count;
     eml_count = rtb_BuoyCent[idxROI + 1];
-    if ((eml_count < 4.5035996273704960E+15) && (eml_count >
-         -4.5035996273704960E+15)) {
+    if ((eml_count < 4.5035996273704960E+015) && (eml_count >
+         -4.5035996273704960E+015)) {
       eml_count = floor(eml_count + 0.5);
     }
 
@@ -2121,29 +2122,29 @@ void StateFlowFunctionsBuoysShowSegm(const real_T rtu_LabMatrix[19200], const
     cc = (localB->L[eml_i] + 16.0) / 116.0;
     cc_0 = localB->a[eml_i] / 500.0 + cc;
     cc_1 = localB->b[eml_i] / -200.0 + cc;
-    if (cc_0 <= 2.0689655172413793E-01) {
-      cc_0 -= 1.3793103448275862E-01;
-      cc_0 /= 7.7870370370370372E+00;
+    if (cc_0 <= 2.0689655172413793E-001) {
+      cc_0 -= 1.3793103448275862E-001;
+      cc_0 /= 7.7870370370370372E+000;
     } else {
       cc_0 = rt_pow_snf(cc_0, 3.0);
     }
 
-    if (cc <= 2.0689655172413793E-01) {
-      cc -= 1.3793103448275862E-01;
-      cc /= 7.7870370370370372E+00;
+    if (cc <= 2.0689655172413793E-001) {
+      cc -= 1.3793103448275862E-001;
+      cc /= 7.7870370370370372E+000;
     } else {
       cc = rt_pow_snf(cc, 3.0);
     }
 
-    if (cc_1 <= 2.0689655172413793E-01) {
-      cc_1 -= 1.3793103448275862E-01;
-      cc_1 /= 7.7870370370370372E+00;
+    if (cc_1 <= 2.0689655172413793E-001) {
+      cc_1 -= 1.3793103448275862E-001;
+      cc_1 /= 7.7870370370370372E+000;
     } else {
       cc_1 = rt_pow_snf(cc_1, 3.0);
     }
 
-    cc_0 *= 9.6419865576090003E-01;
-    cc_1 *= 8.2511648322104003E-01;
+    cc_0 *= 9.6419865576090003E-001;
+    cc_1 *= 8.2511648322104003E-001;
 
     /* assign the results */
     localB->ColorSpaceConversion_o1[eml_i] = cc_0;
@@ -2157,36 +2158,36 @@ void StateFlowFunctionsBuoysShowSegm(const real_T rtu_LabMatrix[19200], const
     /* The coefficients for this conversion were derived from ITU-R */
     /* BT.709 reference primaries for sRGB and CIE standard illuminant */
     /* D65, 2 degree observer */
-    cc = (3.2409699419045102E+00 * localB->ColorSpaceConversion_o1[eml_i] +
-          -1.5373831775700899E+00 * localB->ColorSpaceConversion_o2[eml_i]) +
-      -4.9861076029299001E-01 * localB->ColorSpaceConversion_o3[eml_i];
-    cc_0 = (-9.6924363628086996E-01 * localB->ColorSpaceConversion_o1[eml_i] +
-            1.8759675015077100E+00 * localB->ColorSpaceConversion_o2[eml_i]) +
-      4.1555057407179997E-02 * localB->ColorSpaceConversion_o3[eml_i];
-    cc_1 = (5.5630079696999998E-02 * localB->ColorSpaceConversion_o1[eml_i] +
-            -2.0397695888899001E-01 * localB->ColorSpaceConversion_o2[eml_i]) +
-      1.0569715142428799E+00 * localB->ColorSpaceConversion_o3[eml_i];
+    cc = (3.2409699419045102E+000 * localB->ColorSpaceConversion_o1[eml_i] +
+          -1.5373831775700899E+000 * localB->ColorSpaceConversion_o2[eml_i]) +
+      -4.9861076029299001E-001 * localB->ColorSpaceConversion_o3[eml_i];
+    cc_0 = (-9.6924363628086996E-001 * localB->ColorSpaceConversion_o1[eml_i] +
+            1.8759675015077100E+000 * localB->ColorSpaceConversion_o2[eml_i]) +
+      4.1555057407179997E-002 * localB->ColorSpaceConversion_o3[eml_i];
+    cc_1 = (5.5630079696999998E-002 * localB->ColorSpaceConversion_o1[eml_i] +
+            -2.0397695888899001E-001 * localB->ColorSpaceConversion_o2[eml_i]) +
+      1.0569715142428799E+000 * localB->ColorSpaceConversion_o3[eml_i];
 
     /* Apply gamma correction to get R'G'B' */
     if (cc <= 0.00304) {
-      cc *= 1.2923054468333255E+01;
+      cc *= 1.2923054468333254E+001;
     } else {
-      cc = 1.0550005198172263E+00 * rt_pow_snf(cc, 4.1666666666666669E-01) -
-        5.5000519817226347E-02;
+      cc = 1.0550005198172263E+000 * rt_pow_snf(cc, 4.1666666666666669E-001) -
+        5.5000519817226361E-002;
     }
 
     if (cc_0 <= 0.00304) {
-      cc_0 *= 1.2923054468333255E+01;
+      cc_0 *= 1.2923054468333254E+001;
     } else {
-      cc_0 = 1.0550005198172263E+00 * rt_pow_snf(cc_0, 4.1666666666666669E-01) -
-        5.5000519817226347E-02;
+      cc_0 = 1.0550005198172263E+000 * rt_pow_snf(cc_0, 4.1666666666666669E-001)
+        - 5.5000519817226361E-002;
     }
 
     if (cc_1 <= 0.00304) {
-      cc_1 *= 1.2923054468333255E+01;
+      cc_1 *= 1.2923054468333254E+001;
     } else {
-      cc_1 = 1.0550005198172263E+00 * rt_pow_snf(cc_1, 4.1666666666666669E-01) -
-        5.5000519817226347E-02;
+      cc_1 = 1.0550005198172263E+000 * rt_pow_snf(cc_1, 4.1666666666666669E-001)
+        - 5.5000519817226361E-002;
     }
 
     /* Make sure that the output is in [0..1] range; clip if necessary */
@@ -2315,14 +2316,14 @@ static void brain_c14_brain(const real_T rtu_I[19200], rtB_LowPassFilter_brain
     /* '<S67>:1:25' */
     /* '<S67>:1:26' */
     eml_G[eml_i + 1] = exp((-((real_T)(eml_i * eml_i) + 1.0)) /
-      4.0000000000000009E+00);
+      4.0000000000000009E+000);
 
     /* '<S67>:1:27' */
     eml_Gsum += eml_G[eml_i + 1];
 
     /* '<S67>:1:25' */
     /* '<S67>:1:26' */
-    eml_G[eml_i + 4] = exp((real_T)(-(eml_i * eml_i)) / 4.0000000000000009E+00);
+    eml_G[eml_i + 4] = exp((real_T)(-(eml_i * eml_i)) / 4.0000000000000009E+000);
 
     /* '<S67>:1:27' */
     eml_Gsum += eml_G[eml_i + 4];
@@ -2330,7 +2331,7 @@ static void brain_c14_brain(const real_T rtu_I[19200], rtB_LowPassFilter_brain
     /* '<S67>:1:25' */
     /* '<S67>:1:26' */
     eml_G[eml_i + 7] = exp((-((real_T)(eml_i * eml_i) + 1.0)) /
-      4.0000000000000009E+00);
+      4.0000000000000009E+000);
 
     /* '<S67>:1:27' */
     eml_Gsum += eml_G[eml_i + 7];
@@ -2650,7 +2651,7 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
   cc_1 = 0.0;
   for (i = 0; i < 19200; i++) {
     eml_min_dist = 6.0 * rtu_H[i];
-    k = (uint32_T)(eml_min_dist - 1.3322676295501878E-15);
+    k = (uint32_T)(eml_min_dist - 1.3322676295501878E-015);
     eml_min_dist -= (real_T)k;
     eml_index = 1.0 - rtu_S[i];
     eml_k = 1.0 - rtu_S[i] * eml_min_dist;
@@ -2721,36 +2722,36 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
     /* equivalent to running the gamma correction block with break */
     /* point of 0.00304 and gamma of 2.4; it's built into this */
     /* conversion for convenience */
-    if (localB->sf_LowPassFilter.Iout[i] <= 3.928608447E-02F) {
-      Zr = localB->sf_LowPassFilter.Iout[i] / 1.292305470E+01F;
+    if (localB->sf_LowPassFilter.Iout[i] <= 3.928608447E-002F) {
+      Zr = localB->sf_LowPassFilter.Iout[i] / 1.292305470E+001F;
     } else {
-      Zr = rt_pow32_snf((localB->sf_LowPassFilter.Iout[i] + 5.500052124E-02F) /
-                        1.055000544E+00F, 2.400000095E+00F);
+      Zr = rt_pow32_snf((localB->sf_LowPassFilter.Iout[i] + 5.500052124E-002F) /
+                        1.055000544E+000F, 2.400000095E+000F);
     }
 
-    if (localB->sf_LowPassFilter1.Iout[i] <= 3.928608447E-02F) {
-      eml_dist = localB->sf_LowPassFilter1.Iout[i] / 1.292305470E+01F;
+    if (localB->sf_LowPassFilter1.Iout[i] <= 3.928608447E-002F) {
+      eml_dist = localB->sf_LowPassFilter1.Iout[i] / 1.292305470E+001F;
     } else {
       eml_dist = rt_pow32_snf((localB->sf_LowPassFilter1.Iout[i] +
-        5.500052124E-02F) / 1.055000544E+00F, 2.400000095E+00F);
+        5.500052124E-002F) / 1.055000544E+000F, 2.400000095E+000F);
     }
 
-    if (localB->sf_LowPassFilter2.Iout[i] <= 3.928608447E-02F) {
-      Yr = localB->sf_LowPassFilter2.Iout[i] / 1.292305470E+01F;
+    if (localB->sf_LowPassFilter2.Iout[i] <= 3.928608447E-002F) {
+      Yr = localB->sf_LowPassFilter2.Iout[i] / 1.292305470E+001F;
     } else {
-      Yr = rt_pow32_snf((localB->sf_LowPassFilter2.Iout[i] + 5.500052124E-02F) /
-                        1.055000544E+00F, 2.400000095E+00F);
+      Yr = rt_pow32_snf((localB->sf_LowPassFilter2.Iout[i] + 5.500052124E-002F) /
+                        1.055000544E+000F, 2.400000095E+000F);
     }
 
     /* The coefficients for this conversion were derived from ITU-R */
     /* BT.709 reference primaries for sRGB and CIE standard illuminant */
     /* D65, 2 degree observer */
-    Xf = (4.123907983E-01F * Zr + 3.575843275E-01F * eml_dist) +
-      1.804807931E-01F * Yr;
-    cc_2 = (2.126390040E-01F * Zr + 7.151686549E-01F * eml_dist) +
-      7.219231874E-02F * Yr;
-    eml_dist = (1.933081821E-02F * Zr + 1.191947833E-01F * eml_dist) +
-      9.505321383E-01F * Yr;
+    Xf = (4.123907983E-001F * Zr + 3.575843275E-001F * eml_dist) +
+      1.804807931E-001F * Yr;
+    cc_2 = (2.126390040E-001F * Zr + 7.151686549E-001F * eml_dist) +
+      7.219231874E-002F * Yr;
+    eml_dist = (1.933081821E-002F * Zr + 1.191947833E-001F * eml_dist) +
+      9.505321383E-001F * Yr;
 
     /* Make sure that the output is in [0..1] range; clip if necessary */
     if (Xf > 1.0F) {
@@ -2785,27 +2786,27 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
 
   /* Convert from XYZ to L*a*b* */
   for (i = 0; i < 19200; i++) {
-    eml_dist = localB->ColorSpaceConversion1_o1[i] / 9.641986489E-01F;
-    Zr = localB->ColorSpaceConversion1_o3[i] / 8.251164556E-01F;
+    eml_dist = localB->ColorSpaceConversion1_o1[i] / 9.641986489E-001F;
+    Zr = localB->ColorSpaceConversion1_o3[i] / 8.251164556E-001F;
 
     /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-    if (eml_dist > 8.856452070E-03F) {
-      Xf = rt_pow32_snf(eml_dist, 3.333333433E-01F);
+    if (eml_dist > 8.856452070E-003F) {
+      Xf = rt_pow32_snf(eml_dist, 3.333333433E-001F);
     } else {
-      Xf = 7.787036896E+00F * eml_dist + 1.379310340E-01F;
+      Xf = 7.787036896E+000F * eml_dist + 1.379310340E-001F;
     }
 
-    if (localB->ColorSpaceConversion1_o2[i] > 8.856452070E-03F) {
-      Yr = rt_pow32_snf(localB->ColorSpaceConversion1_o2[i], 3.333333433E-01F);
+    if (localB->ColorSpaceConversion1_o2[i] > 8.856452070E-003F) {
+      Yr = rt_pow32_snf(localB->ColorSpaceConversion1_o2[i], 3.333333433E-001F);
     } else {
-      Yr = 7.787036896E+00F * localB->ColorSpaceConversion1_o2[i] +
-        1.379310340E-01F;
+      Yr = 7.787036896E+000F * localB->ColorSpaceConversion1_o2[i] +
+        1.379310340E-001F;
     }
 
-    if (Zr > 8.856452070E-03F) {
-      eml_dist = rt_pow32_snf(Zr, 3.333333433E-01F);
+    if (Zr > 8.856452070E-003F) {
+      eml_dist = rt_pow32_snf(Zr, 3.333333433E-001F);
     } else {
-      eml_dist = 7.787036896E+00F * Zr + 1.379310340E-01F;
+      eml_dist = 7.787036896E+000F * Zr + 1.379310340E-001F;
     }
 
     /* assign the results */
@@ -3153,9 +3154,9 @@ static void brain_Outputs_f(const boolean_T eml_U0[19200], int32_T eml_Y0[50],
     }
 
     eml_centroid_idx = eml_xs / (real_T)localDW->NUM_PIX_DW[eml_c_i] +
-      8.3333333333333329E-02;
+      8.3333333333333329E-002;
     eml_uyy = eml_ys / (real_T)localDW->NUM_PIX_DW[eml_c_i] +
-      8.3333333333333329E-02;
+      8.3333333333333329E-002;
     eml_xs = eml_xys / (real_T)localDW->NUM_PIX_DW[eml_c_i];
     eml_xs = sqrt((eml_centroid_idx - eml_uyy) * (eml_centroid_idx - eml_uyy) +
                   eml_xs * eml_xs * 4.0);
@@ -3914,8 +3915,8 @@ void StateFlowFunctionsValidationGat(const real_T rtu_H[19200], const real_T
     }
 
     centroid_idx = rtb_BlobAnalysis / (real32_T)BlobAnalysis_NUM_PIX_DW +
-      8.333333582E-02F;
-    uyy = ys / (real32_T)BlobAnalysis_NUM_PIX_DW + 8.333333582E-02F;
+      8.333333582E-002F;
+    uyy = ys / (real32_T)BlobAnalysis_NUM_PIX_DW + 8.333333582E-002F;
     rtb_BlobAnalysis = xys / (real32_T)BlobAnalysis_NUM_PIX_DW;
     rtb_BlobAnalysis = (real32_T)sqrt((centroid_idx - uyy) * (centroid_idx - uyy)
       + rtb_BlobAnalysis * rtb_BlobAnalysis * 4.0F);
@@ -4342,14 +4343,14 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
   /* Draw all X marks. */
   for (idxROI = 0; idxROI < 2; idxROI += 2) {
     tmp = rtb_TmpSignalConversionAtDraw_f[idxROI];
-    if ((rtb_TmpSignalConversionAtDraw_f[idxROI] < 4.5035996273704960E+15) &&
-        (rtb_TmpSignalConversionAtDraw_f[idxROI] > -4.5035996273704960E+15)) {
+    if ((rtb_TmpSignalConversionAtDraw_f[idxROI] < 4.5035996273704960E+015) &&
+        (rtb_TmpSignalConversionAtDraw_f[idxROI] > -4.5035996273704960E+015)) {
       tmp = floor(rtb_TmpSignalConversionAtDraw_f[idxROI] + 0.5);
     }
 
     row = (int32_T)tmp;
     tmp = rtb_TmpSignalConversionAtDraw_f[idxROI + 1];
-    if ((tmp < 4.5035996273704960E+15) && (tmp > -4.5035996273704960E+15)) {
+    if ((tmp < 4.5035996273704960E+015) && (tmp > -4.5035996273704960E+015)) {
       tmp = floor(tmp + 0.5);
     }
 
@@ -4866,7 +4867,7 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   cc_0 = 0.0;
   cc_1 = 0.0;
   eml_min_dist = 6.0 * rtu_B_Hue;
-  Xf = (real_T)(uint32_T)(eml_min_dist - 1.3322676295501878E-15);
+  Xf = (real_T)(uint32_T)(eml_min_dist - 1.3322676295501878E-015);
   eml_min_dist -= Xf;
   eml_i = 1.0 - rtu_B_Sat;
   eml_dist = 1.0 - rtu_B_Sat * eml_min_dist;
@@ -4924,39 +4925,40 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   /* equivalent to running the gamma correction block with break */
   /* point of 0.00304 and gamma of 2.4; it's built into this */
   /* conversion for convenience */
-  if (localB->ColorSpaceConversion_o1 <= 3.9286085583733095E-02) {
-    eml_min_dist = localB->ColorSpaceConversion_o1 / 1.2923054468333255E+01;
+  if (localB->ColorSpaceConversion_o1 <= 3.9286085583733095E-002) {
+    eml_min_dist = localB->ColorSpaceConversion_o1 / 1.2923054468333254E+001;
   } else {
-    eml_min_dist = (localB->ColorSpaceConversion_o1 + 5.5000519817226347E-02) /
-      1.0550005198172263E+00;
+    eml_min_dist = (localB->ColorSpaceConversion_o1 + 5.5000519817226361E-002) /
+      1.0550005198172263E+000;
     eml_min_dist = rt_pow_snf(eml_min_dist, 2.4);
   }
 
-  if (localB->ColorSpaceConversion_o2 <= 3.9286085583733095E-02) {
-    eml_i = localB->ColorSpaceConversion_o2 / 1.2923054468333255E+01;
+  if (localB->ColorSpaceConversion_o2 <= 3.9286085583733095E-002) {
+    eml_i = localB->ColorSpaceConversion_o2 / 1.2923054468333254E+001;
   } else {
-    eml_i = (localB->ColorSpaceConversion_o2 + 5.5000519817226347E-02) /
-      1.0550005198172263E+00;
+    eml_i = (localB->ColorSpaceConversion_o2 + 5.5000519817226361E-002) /
+      1.0550005198172263E+000;
     eml_i = rt_pow_snf(eml_i, 2.4);
   }
 
-  if (localB->ColorSpaceConversion_o3 <= 3.9286085583733095E-02) {
-    eml_dist = localB->ColorSpaceConversion_o3 / 1.2923054468333255E+01;
+  if (localB->ColorSpaceConversion_o3 <= 3.9286085583733095E-002) {
+    eml_dist = localB->ColorSpaceConversion_o3 / 1.2923054468333254E+001;
   } else {
-    eml_dist = (localB->ColorSpaceConversion_o3 + 5.5000519817226347E-02) /
-      1.0550005198172263E+00;
+    eml_dist = (localB->ColorSpaceConversion_o3 + 5.5000519817226361E-002) /
+      1.0550005198172263E+000;
     eml_dist = rt_pow_snf(eml_dist, 2.4);
   }
 
   /* The coefficients for this conversion were derived from ITU-R */
   /* BT.709 reference primaries for sRGB and CIE standard illuminant */
   /* D65, 2 degree observer */
-  Xf = (4.1239079926596001E-01 * eml_min_dist + 3.5758433938388001E-01 * eml_i)
-    + 1.8048078840182999E-01 * eml_dist;
-  cc = (2.1263900587151000E-01 * eml_min_dist + 7.1516867876776002E-01 * eml_i)
-    + 7.2192315360729994E-02 * eml_dist;
-  eml_min_dist = (1.9330818715590000E-02 * eml_min_dist + 1.1919477979463000E-01
-                  * eml_i) + 9.5053215224966003E-01 * eml_dist;
+  Xf = (4.1239079926596001E-001 * eml_min_dist + 3.5758433938388001E-001 * eml_i)
+    + 1.8048078840182999E-001 * eml_dist;
+  cc = (2.1263900587151000E-001 * eml_min_dist + 7.1516867876776002E-001 * eml_i)
+    + 7.2192315360729994E-002 * eml_dist;
+  eml_min_dist = (1.9330818715590000E-002 * eml_min_dist +
+                  1.1919477979463000E-001 * eml_i) + 9.5053215224966003E-001 *
+    eml_dist;
 
   /* Make sure that the output is in [0..1] range; clip if necessary */
   if (Xf > 1.0) {
@@ -4989,27 +4991,27 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   localB->ColorSpaceConversion1_o3 = eml_min_dist;
 
   /* Convert from XYZ to L*a*b* */
-  eml_min_dist = localB->ColorSpaceConversion1_o1 / 9.6419865576090003E-01;
-  eml_dist = localB->ColorSpaceConversion1_o3 / 8.2511648322104003E-01;
+  eml_min_dist = localB->ColorSpaceConversion1_o1 / 9.6419865576090003E-001;
+  eml_dist = localB->ColorSpaceConversion1_o3 / 8.2511648322104003E-001;
 
   /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-  if (eml_min_dist > 8.8564516790356311E-03) {
-    Xf = rt_pow_snf(eml_min_dist, 3.3333333333333331E-01);
+  if (eml_min_dist > 8.8564516790356311E-003) {
+    Xf = rt_pow_snf(eml_min_dist, 3.3333333333333331E-001);
   } else {
-    Xf = 7.7870370370370372E+00 * eml_min_dist + 1.3793103448275862E-01;
+    Xf = 7.7870370370370372E+000 * eml_min_dist + 1.3793103448275862E-001;
   }
 
-  if (localB->ColorSpaceConversion1_o2 > 8.8564516790356311E-03) {
-    eml_i = rt_pow_snf(localB->ColorSpaceConversion1_o2, 3.3333333333333331E-01);
+  if (localB->ColorSpaceConversion1_o2 > 8.8564516790356311E-003) {
+    eml_i = rt_pow_snf(localB->ColorSpaceConversion1_o2, 3.3333333333333331E-001);
   } else {
-    eml_i = 7.7870370370370372E+00 * localB->ColorSpaceConversion1_o2 +
-      1.3793103448275862E-01;
+    eml_i = 7.7870370370370372E+000 * localB->ColorSpaceConversion1_o2 +
+      1.3793103448275862E-001;
   }
 
-  if (eml_dist > 8.8564516790356311E-03) {
-    eml_min_dist = rt_pow_snf(eml_dist, 3.3333333333333331E-01);
+  if (eml_dist > 8.8564516790356311E-003) {
+    eml_min_dist = rt_pow_snf(eml_dist, 3.3333333333333331E-001);
   } else {
-    eml_min_dist = 7.7870370370370372E+00 * eml_dist + 1.3793103448275862E-01;
+    eml_min_dist = 7.7870370370370372E+000 * eml_dist + 1.3793103448275862E-001;
   }
 
   /* assign the results */
@@ -5479,14 +5481,14 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
   /* Draw all X marks. */
   for (idxROI = 0; idxROI < 2; idxROI += 2) {
     tmp = rtb_TmpSignalConversionAtDraw_p[idxROI];
-    if ((rtb_TmpSignalConversionAtDraw_p[idxROI] < 4.5035996273704960E+15) &&
-        (rtb_TmpSignalConversionAtDraw_p[idxROI] > -4.5035996273704960E+15)) {
+    if ((rtb_TmpSignalConversionAtDraw_p[idxROI] < 4.5035996273704960E+015) &&
+        (rtb_TmpSignalConversionAtDraw_p[idxROI] > -4.5035996273704960E+015)) {
       tmp = floor(rtb_TmpSignalConversionAtDraw_p[idxROI] + 0.5);
     }
 
     outIdx = (int32_T)tmp;
     tmp = rtb_TmpSignalConversionAtDraw_p[idxROI + 1];
-    if ((tmp < 4.5035996273704960E+15) && (tmp > -4.5035996273704960E+15)) {
+    if ((tmp < 4.5035996273704960E+015) && (tmp > -4.5035996273704960E+015)) {
       tmp = floor(tmp + 0.5);
     }
 
@@ -7264,7 +7266,7 @@ static real_T brain_countareas(real_T sf_Size, real_T sf_count1)
   /* Embedded MATLAB Function 'countareas': '<S7>:1366' */
   /*  This function acts to count the number of consecutive times a particular */
   /*  area is recognized by the recognition software */
-  if (sf_Size > 1.6E+04) {
+  if (sf_Size > 16000.0) {
     /* '<S7>:1366:6' */
     /* '<S7>:1366:7' */
     return sf_count1 + 1.0;
@@ -7272,29 +7274,6 @@ static real_T brain_countareas(real_T sf_Size, real_T sf_count1)
     /* '<S7>:1366:9' */
     return 0.0;
   }
-}
-
-/* Function for Stateflow: '<Root>/StateFlow Functions' */
-static real_T brain_GetDirectionToLook(real_T sf_FirstD, real_T sf_SecondD)
-{
-  real_T sf_TurnD;
-
-  /* Embedded MATLAB Function 'GetDirectionToLook': '<S7>:1337' */
-  /*  Determine which direction the AUV needs to turn to see the next buoy */
-  /*  -1 is left, 1 is right, -999 is for a single buoy attempt */
-  /*  FirstD, SecondD are 1,2,3 - left,middle,right */
-  /* '<S7>:1337:6' */
-  sf_TurnD = sf_SecondD - sf_FirstD;
-  if (sf_TurnD != 0.0) {
-    /* '<S7>:1337:8' */
-    /* '<S7>:1337:9' */
-    sf_TurnD /= fabs(sf_TurnD);
-  } else {
-    /* '<S7>:1337:11' */
-    return -999.0;
-  }
-
-  return sf_TurnD;
 }
 
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
@@ -7495,7 +7474,7 @@ static void brain_FindSecondBuoy(void)
     cc_0 = 0.0;
     cc_1 = 0.0;
     rtb_Add = 6.0 * brain_B.B_Hue_c;
-    uyy = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-15);
+    uyy = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-015);
     rtb_Add -= uyy;
     rtb_TSamp = 1.0 - brain_B.B_Sat_k;
     ys = 1.0 - brain_B.B_Sat_k * rtb_Add;
@@ -7553,39 +7532,39 @@ static void brain_FindSecondBuoy(void)
     /* equivalent to running the gamma correction block with break */
     /* point of 0.00304 and gamma of 2.4; it's built into this */
     /* conversion for convenience */
-    if (brain_B.ColorSpaceConversion_o1 <= 3.9286085583733095E-02) {
-      rtb_Add = brain_B.ColorSpaceConversion_o1 / 1.2923054468333255E+01;
+    if (brain_B.ColorSpaceConversion_o1 <= 3.9286085583733095E-002) {
+      rtb_Add = brain_B.ColorSpaceConversion_o1 / 1.2923054468333254E+001;
     } else {
-      rtb_Add = (brain_B.ColorSpaceConversion_o1 + 5.5000519817226347E-02) /
-        1.0550005198172263E+00;
+      rtb_Add = (brain_B.ColorSpaceConversion_o1 + 5.5000519817226361E-002) /
+        1.0550005198172263E+000;
       rtb_Add = rt_pow_snf(rtb_Add, 2.4);
     }
 
-    if (brain_B.ColorSpaceConversion_o2 <= 3.9286085583733095E-02) {
-      rtb_TSamp = brain_B.ColorSpaceConversion_o2 / 1.2923054468333255E+01;
+    if (brain_B.ColorSpaceConversion_o2 <= 3.9286085583733095E-002) {
+      rtb_TSamp = brain_B.ColorSpaceConversion_o2 / 1.2923054468333254E+001;
     } else {
-      rtb_TSamp = (brain_B.ColorSpaceConversion_o2 + 5.5000519817226347E-02) /
-        1.0550005198172263E+00;
+      rtb_TSamp = (brain_B.ColorSpaceConversion_o2 + 5.5000519817226361E-002) /
+        1.0550005198172263E+000;
       rtb_TSamp = rt_pow_snf(rtb_TSamp, 2.4);
     }
 
-    if (brain_B.ColorSpaceConversion_o3 <= 3.9286085583733095E-02) {
-      uyy = brain_B.ColorSpaceConversion_o3 / 1.2923054468333255E+01;
+    if (brain_B.ColorSpaceConversion_o3 <= 3.9286085583733095E-002) {
+      uyy = brain_B.ColorSpaceConversion_o3 / 1.2923054468333254E+001;
     } else {
-      uyy = (brain_B.ColorSpaceConversion_o3 + 5.5000519817226347E-02) /
-        1.0550005198172263E+00;
+      uyy = (brain_B.ColorSpaceConversion_o3 + 5.5000519817226361E-002) /
+        1.0550005198172263E+000;
       uyy = rt_pow_snf(uyy, 2.4);
     }
 
     /* The coefficients for this conversion were derived from ITU-R */
     /* BT.709 reference primaries for sRGB and CIE standard illuminant */
     /* D65, 2 degree observer */
-    ys = (4.1239079926596001E-01 * rtb_Add + 3.5758433938388001E-01 * rtb_TSamp)
-      + 1.8048078840182999E-01 * uyy;
-    cc = (2.1263900587151000E-01 * rtb_Add + 7.1516867876776002E-01 * rtb_TSamp)
-      + 7.2192315360729994E-02 * uyy;
-    rtb_Add = (1.9330818715590000E-02 * rtb_Add + 1.1919477979463000E-01 *
-               rtb_TSamp) + 9.5053215224966003E-01 * uyy;
+    ys = (4.1239079926596001E-001 * rtb_Add + 3.5758433938388001E-001 *
+          rtb_TSamp) + 1.8048078840182999E-001 * uyy;
+    cc = (2.1263900587151000E-001 * rtb_Add + 7.1516867876776002E-001 *
+          rtb_TSamp) + 7.2192315360729994E-002 * uyy;
+    rtb_Add = (1.9330818715590000E-002 * rtb_Add + 1.1919477979463000E-001 *
+               rtb_TSamp) + 9.5053215224966003E-001 * uyy;
 
     /* Make sure that the output is in [0..1] range; clip if necessary */
     if (ys > 1.0) {
@@ -7618,28 +7597,28 @@ static void brain_FindSecondBuoy(void)
     brain_B.ColorSpaceConversion1_o3_e = rtb_Add;
 
     /* Convert from XYZ to L*a*b* */
-    rtb_Add = brain_B.ColorSpaceConversion1_o1_d / 9.6419865576090003E-01;
-    uyy = brain_B.ColorSpaceConversion1_o3_e / 8.2511648322104003E-01;
+    rtb_Add = brain_B.ColorSpaceConversion1_o1_d / 9.6419865576090003E-001;
+    uyy = brain_B.ColorSpaceConversion1_o3_e / 8.2511648322104003E-001;
 
     /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-    if (rtb_Add > 8.8564516790356311E-03) {
-      ys = rt_pow_snf(rtb_Add, 3.3333333333333331E-01);
+    if (rtb_Add > 8.8564516790356311E-003) {
+      ys = rt_pow_snf(rtb_Add, 3.3333333333333331E-001);
     } else {
-      ys = 7.7870370370370372E+00 * rtb_Add + 1.3793103448275862E-01;
+      ys = 7.7870370370370372E+000 * rtb_Add + 1.3793103448275862E-001;
     }
 
-    if (brain_B.ColorSpaceConversion1_o2_k > 8.8564516790356311E-03) {
+    if (brain_B.ColorSpaceConversion1_o2_k > 8.8564516790356311E-003) {
       rtb_TSamp = rt_pow_snf(brain_B.ColorSpaceConversion1_o2_k,
-        3.3333333333333331E-01);
+        3.3333333333333331E-001);
     } else {
-      rtb_TSamp = 7.7870370370370372E+00 * brain_B.ColorSpaceConversion1_o2_k +
-        1.3793103448275862E-01;
+      rtb_TSamp = 7.7870370370370372E+000 * brain_B.ColorSpaceConversion1_o2_k +
+        1.3793103448275862E-001;
     }
 
-    if (uyy > 8.8564516790356311E-03) {
-      rtb_Add = rt_pow_snf(uyy, 3.3333333333333331E-01);
+    if (uyy > 8.8564516790356311E-003) {
+      rtb_Add = rt_pow_snf(uyy, 3.3333333333333331E-001);
     } else {
-      rtb_Add = 7.7870370370370372E+00 * uyy + 1.3793103448275862E-01;
+      rtb_Add = 7.7870370370370372E+000 * uyy + 1.3793103448275862E-001;
     }
 
     /* assign the results */
@@ -7850,9 +7829,9 @@ static void brain_FindSecondBuoy(void)
       }
 
       cc_0 = rtb_Add / (real_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0] +
-        8.3333333333333329E-02;
+        8.3333333333333329E-002;
       uyy = ys / (real_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0] +
-        8.3333333333333329E-02;
+        8.3333333333333329E-002;
       rtb_Add = cc / (real_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0];
       rtb_Add = sqrt((cc_0 - uyy) * (cc_0 - uyy) + rtb_Add * rtb_Add * 4.0);
       rtb_TSamp = ((cc_0 + uyy) + rtb_Add) * 8.0;
@@ -7925,14 +7904,14 @@ static void brain_FindSecondBuoy(void)
     /* Draw all X marks. */
     for (idxROI = 0; idxROI < 2; idxROI += 2) {
       cc = rtb_BlobPos[idxROI];
-      if ((rtb_BlobPos[idxROI] < 4.5035996273704960E+15) && (rtb_BlobPos[idxROI]
-           > -4.5035996273704960E+15)) {
+      if ((rtb_BlobPos[idxROI] < 4.5035996273704960E+015) && (rtb_BlobPos[idxROI]
+           > -4.5035996273704960E+015)) {
         cc = floor(rtb_BlobPos[idxROI] + 0.5);
       }
 
       pixListMinc = (int32_T)cc;
       cc = rtb_BlobPos[idxROI + 1];
-      if ((cc < 4.5035996273704960E+15) && (cc > -4.5035996273704960E+15)) {
+      if ((cc < 4.5035996273704960E+015) && (cc > -4.5035996273704960E+015)) {
         cc = floor(cc + 0.5);
       }
 
@@ -8364,8 +8343,7 @@ static void brain_ApproachBuoys(void)
         /* Exit 'ApproachFirstBuoy': '<S7>:1341' */
         /* Entry 'FindSecondBuoy': '<S7>:1317' */
         brain_DWork.is_ApproachBuoys = brain_IN_FindSecondBuoy;
-        brain_DWork.TurnDirection = brain_GetDirectionToLook
-          (brain_DWork.FirstDir, brain_DWork.SecondDir);
+        brain_DWork.TurnDirection = -1.0;
         brain_B.DesiredHeading = brain_Turn45Degrees(brain_U.CurrentHeading,
           brain_DWork.TurnDirection);
         brain_B.DesiredDepth = brain_U.CurrentDepth;
@@ -8541,7 +8519,7 @@ static void brain_ApproachBuoys(void)
       cc_0 = 0.0;
       cc_1 = 0.0;
       eml_b_i = 6.0 * brain_P.Buoy1_Hue;
-      eml_min_dist_0 = (real_T)(uint32_T)(eml_b_i - 1.3322676295501878E-15);
+      eml_min_dist_0 = (real_T)(uint32_T)(eml_b_i - 1.3322676295501878E-015);
       eml_b_i -= eml_min_dist_0;
       eml_count = 1.0 - brain_P.Buoy1_Saturation;
       eml_min_dist = 1.0 - brain_P.Buoy1_Saturation * eml_b_i;
@@ -8599,41 +8577,41 @@ static void brain_ApproachBuoys(void)
       /* equivalent to running the gamma correction block with break */
       /* point of 0.00304 and gamma of 2.4; it's built into this */
       /* conversion for convenience */
-      if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-02) {
-        eml_b_i = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333255E+01;
+      if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-002) {
+        eml_b_i = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333254E+001;
       } else {
-        eml_b_i = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226347E-02) /
-          1.0550005198172263E+00;
+        eml_b_i = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226361E-002) /
+          1.0550005198172263E+000;
         eml_b_i = rt_pow_snf(eml_b_i, 2.4);
       }
 
-      if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-02) {
+      if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-002) {
         eml_min_dist = brain_B.ColorSpaceConversion_o2_o /
-          1.2923054468333255E+01;
+          1.2923054468333254E+001;
       } else {
         eml_min_dist = (brain_B.ColorSpaceConversion_o2_o +
-                        5.5000519817226347E-02) / 1.0550005198172263E+00;
+                        5.5000519817226361E-002) / 1.0550005198172263E+000;
         eml_min_dist = rt_pow_snf(eml_min_dist, 2.4);
       }
 
-      if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-02) {
-        cc = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333255E+01;
+      if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-002) {
+        cc = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333254E+001;
       } else {
-        cc = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226347E-02) /
-          1.0550005198172263E+00;
+        cc = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226361E-002) /
+          1.0550005198172263E+000;
         cc = rt_pow_snf(cc, 2.4);
       }
 
       /* The coefficients for this conversion were derived from ITU-R */
       /* BT.709 reference primaries for sRGB and CIE standard illuminant */
       /* D65, 2 degree observer */
-      eml_min_dist_0 = (4.1239079926596001E-01 * eml_b_i +
-                        3.5758433938388001E-01 * eml_min_dist) +
-        1.8048078840182999E-01 * cc;
-      eml_count = (2.1263900587151000E-01 * eml_b_i + 7.1516867876776002E-01 *
-                   eml_min_dist) + 7.2192315360729994E-02 * cc;
-      eml_b_i = (1.9330818715590000E-02 * eml_b_i + 1.1919477979463000E-01 *
-                 eml_min_dist) + 9.5053215224966003E-01 * cc;
+      eml_min_dist_0 = (4.1239079926596001E-001 * eml_b_i +
+                        3.5758433938388001E-001 * eml_min_dist) +
+        1.8048078840182999E-001 * cc;
+      eml_count = (2.1263900587151000E-001 * eml_b_i + 7.1516867876776002E-001 *
+                   eml_min_dist) + 7.2192315360729994E-002 * cc;
+      eml_b_i = (1.9330818715590000E-002 * eml_b_i + 1.1919477979463000E-001 *
+                 eml_min_dist) + 9.5053215224966003E-001 * cc;
 
       /* Make sure that the output is in [0..1] range; clip if necessary */
       if (eml_min_dist_0 > 1.0) {
@@ -8666,29 +8644,29 @@ static void brain_ApproachBuoys(void)
       brain_B.ColorSpaceConversion1_o3 = eml_b_i;
 
       /* Convert from XYZ to L*a*b* */
-      eml_b_i = brain_B.ColorSpaceConversion1_o1 / 9.6419865576090003E-01;
-      cc = brain_B.ColorSpaceConversion1_o3 / 8.2511648322104003E-01;
+      eml_b_i = brain_B.ColorSpaceConversion1_o1 / 9.6419865576090003E-001;
+      cc = brain_B.ColorSpaceConversion1_o3 / 8.2511648322104003E-001;
 
       /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-      if (eml_b_i > 8.8564516790356311E-03) {
-        eml_min_dist_0 = rt_pow_snf(eml_b_i, 3.3333333333333331E-01);
+      if (eml_b_i > 8.8564516790356311E-003) {
+        eml_min_dist_0 = rt_pow_snf(eml_b_i, 3.3333333333333331E-001);
       } else {
-        eml_min_dist_0 = 7.7870370370370372E+00 * eml_b_i +
-          1.3793103448275862E-01;
+        eml_min_dist_0 = 7.7870370370370372E+000 * eml_b_i +
+          1.3793103448275862E-001;
       }
 
-      if (brain_B.ColorSpaceConversion1_o2 > 8.8564516790356311E-03) {
+      if (brain_B.ColorSpaceConversion1_o2 > 8.8564516790356311E-003) {
         eml_min_dist = rt_pow_snf(brain_B.ColorSpaceConversion1_o2,
-          3.3333333333333331E-01);
+          3.3333333333333331E-001);
       } else {
-        eml_min_dist = 7.7870370370370372E+00 * brain_B.ColorSpaceConversion1_o2
-          + 1.3793103448275862E-01;
+        eml_min_dist = 7.7870370370370372E+000 *
+          brain_B.ColorSpaceConversion1_o2 + 1.3793103448275862E-001;
       }
 
-      if (cc > 8.8564516790356311E-03) {
-        eml_b_i = rt_pow_snf(cc, 3.3333333333333331E-01);
+      if (cc > 8.8564516790356311E-003) {
+        eml_b_i = rt_pow_snf(cc, 3.3333333333333331E-001);
       } else {
-        eml_b_i = 7.7870370370370372E+00 * cc + 1.3793103448275862E-01;
+        eml_b_i = 7.7870370370370372E+000 * cc + 1.3793103448275862E-001;
       }
 
       /* assign the results */
@@ -8706,7 +8684,7 @@ static void brain_ApproachBuoys(void)
       cc_0 = 0.0;
       cc_1 = 0.0;
       eml_b_i = 6.0 * brain_P.Buoy2_Hue;
-      eml_min_dist_0 = (real_T)(uint32_T)(eml_b_i - 1.3322676295501878E-15);
+      eml_min_dist_0 = (real_T)(uint32_T)(eml_b_i - 1.3322676295501878E-015);
       eml_b_i -= eml_min_dist_0;
       eml_count = 1.0 - brain_P.Buoy2_Saturation;
       eml_min_dist = 1.0 - brain_P.Buoy2_Saturation * eml_b_i;
@@ -8764,41 +8742,41 @@ static void brain_ApproachBuoys(void)
       /* equivalent to running the gamma correction block with break */
       /* point of 0.00304 and gamma of 2.4; it's built into this */
       /* conversion for convenience */
-      if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-02) {
-        eml_b_i = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333255E+01;
+      if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-002) {
+        eml_b_i = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333254E+001;
       } else {
-        eml_b_i = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226347E-02) /
-          1.0550005198172263E+00;
+        eml_b_i = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226361E-002) /
+          1.0550005198172263E+000;
         eml_b_i = rt_pow_snf(eml_b_i, 2.4);
       }
 
-      if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-02) {
+      if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-002) {
         eml_min_dist = brain_B.ColorSpaceConversion_o2_o /
-          1.2923054468333255E+01;
+          1.2923054468333254E+001;
       } else {
         eml_min_dist = (brain_B.ColorSpaceConversion_o2_o +
-                        5.5000519817226347E-02) / 1.0550005198172263E+00;
+                        5.5000519817226361E-002) / 1.0550005198172263E+000;
         eml_min_dist = rt_pow_snf(eml_min_dist, 2.4);
       }
 
-      if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-02) {
-        cc = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333255E+01;
+      if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-002) {
+        cc = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333254E+001;
       } else {
-        cc = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226347E-02) /
-          1.0550005198172263E+00;
+        cc = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226361E-002) /
+          1.0550005198172263E+000;
         cc = rt_pow_snf(cc, 2.4);
       }
 
       /* The coefficients for this conversion were derived from ITU-R */
       /* BT.709 reference primaries for sRGB and CIE standard illuminant */
       /* D65, 2 degree observer */
-      eml_min_dist_0 = (4.1239079926596001E-01 * eml_b_i +
-                        3.5758433938388001E-01 * eml_min_dist) +
-        1.8048078840182999E-01 * cc;
-      eml_count = (2.1263900587151000E-01 * eml_b_i + 7.1516867876776002E-01 *
-                   eml_min_dist) + 7.2192315360729994E-02 * cc;
-      eml_b_i = (1.9330818715590000E-02 * eml_b_i + 1.1919477979463000E-01 *
-                 eml_min_dist) + 9.5053215224966003E-01 * cc;
+      eml_min_dist_0 = (4.1239079926596001E-001 * eml_b_i +
+                        3.5758433938388001E-001 * eml_min_dist) +
+        1.8048078840182999E-001 * cc;
+      eml_count = (2.1263900587151000E-001 * eml_b_i + 7.1516867876776002E-001 *
+                   eml_min_dist) + 7.2192315360729994E-002 * cc;
+      eml_b_i = (1.9330818715590000E-002 * eml_b_i + 1.1919477979463000E-001 *
+                 eml_min_dist) + 9.5053215224966003E-001 * cc;
 
       /* Make sure that the output is in [0..1] range; clip if necessary */
       if (eml_min_dist_0 > 1.0) {
@@ -8831,29 +8809,29 @@ static void brain_ApproachBuoys(void)
       brain_B.ColorSpaceConversion1_o3_m = eml_b_i;
 
       /* Convert from XYZ to L*a*b* */
-      eml_b_i = brain_B.ColorSpaceConversion1_o1_n / 9.6419865576090003E-01;
-      cc = brain_B.ColorSpaceConversion1_o3_m / 8.2511648322104003E-01;
+      eml_b_i = brain_B.ColorSpaceConversion1_o1_n / 9.6419865576090003E-001;
+      cc = brain_B.ColorSpaceConversion1_o3_m / 8.2511648322104003E-001;
 
       /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-      if (eml_b_i > 8.8564516790356311E-03) {
-        eml_min_dist_0 = rt_pow_snf(eml_b_i, 3.3333333333333331E-01);
+      if (eml_b_i > 8.8564516790356311E-003) {
+        eml_min_dist_0 = rt_pow_snf(eml_b_i, 3.3333333333333331E-001);
       } else {
-        eml_min_dist_0 = 7.7870370370370372E+00 * eml_b_i +
-          1.3793103448275862E-01;
+        eml_min_dist_0 = 7.7870370370370372E+000 * eml_b_i +
+          1.3793103448275862E-001;
       }
 
-      if (brain_B.ColorSpaceConversion1_o2_i > 8.8564516790356311E-03) {
+      if (brain_B.ColorSpaceConversion1_o2_i > 8.8564516790356311E-003) {
         eml_min_dist = rt_pow_snf(brain_B.ColorSpaceConversion1_o2_i,
-          3.3333333333333331E-01);
+          3.3333333333333331E-001);
       } else {
-        eml_min_dist = 7.7870370370370372E+00 *
-          brain_B.ColorSpaceConversion1_o2_i + 1.3793103448275862E-01;
+        eml_min_dist = 7.7870370370370372E+000 *
+          brain_B.ColorSpaceConversion1_o2_i + 1.3793103448275862E-001;
       }
 
-      if (cc > 8.8564516790356311E-03) {
-        eml_b_i = rt_pow_snf(cc, 3.3333333333333331E-01);
+      if (cc > 8.8564516790356311E-003) {
+        eml_b_i = rt_pow_snf(cc, 3.3333333333333331E-001);
       } else {
-        eml_b_i = 7.7870370370370372E+00 * cc + 1.3793103448275862E-01;
+        eml_b_i = 7.7870370370370372E+000 * cc + 1.3793103448275862E-001;
       }
 
       /* assign the results */
@@ -8979,9 +8957,6 @@ static void brain_ApproachBuoys(void)
         /* '<S43>:1:57' */
         brain_B.Direction2 = 1.0;
       }
-
-      brain_DWork.FirstDir = brain_B.Direction1;
-      brain_DWork.SecondDir = brain_B.Direction2;
       break;
     }
   }
@@ -9150,7 +9125,7 @@ static void brain_Buoys(void)
         cc_0 = 0.0;
         cc_1 = 0.0;
         rtb_Add = 6.0 * brain_P.Buoy1_Hue;
-        eml_min_dist = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-15);
+        eml_min_dist = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-015);
         rtb_Add -= eml_min_dist;
         rtb_TSamp = 1.0 - brain_P.Buoy1_Saturation;
         eml_count = 1.0 - brain_P.Buoy1_Saturation * rtb_Add;
@@ -9208,40 +9183,41 @@ static void brain_Buoys(void)
         /* equivalent to running the gamma correction block with break */
         /* point of 0.00304 and gamma of 2.4; it's built into this */
         /* conversion for convenience */
-        if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-02) {
-          rtb_Add = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333255E+01;
+        if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-002) {
+          rtb_Add = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333254E+001;
         } else {
-          rtb_Add = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226347E-02)
-            / 1.0550005198172263E+00;
+          rtb_Add = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226361E-002)
+            / 1.0550005198172263E+000;
           rtb_Add = rt_pow_snf(rtb_Add, 2.4);
         }
 
-        if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-02) {
-          rtb_TSamp = brain_B.ColorSpaceConversion_o2_o / 1.2923054468333255E+01;
+        if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-002) {
+          rtb_TSamp = brain_B.ColorSpaceConversion_o2_o /
+            1.2923054468333254E+001;
         } else {
           rtb_TSamp = (brain_B.ColorSpaceConversion_o2_o +
-                       5.5000519817226347E-02) / 1.0550005198172263E+00;
+                       5.5000519817226361E-002) / 1.0550005198172263E+000;
           rtb_TSamp = rt_pow_snf(rtb_TSamp, 2.4);
         }
 
-        if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-02) {
-          cc = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333255E+01;
+        if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-002) {
+          cc = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333254E+001;
         } else {
-          cc = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226347E-02) /
-            1.0550005198172263E+00;
+          cc = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226361E-002) /
+            1.0550005198172263E+000;
           cc = rt_pow_snf(cc, 2.4);
         }
 
         /* The coefficients for this conversion were derived from ITU-R */
         /* BT.709 reference primaries for sRGB and CIE standard illuminant */
         /* D65, 2 degree observer */
-        eml_min_dist = (4.1239079926596001E-01 * rtb_Add +
-                        3.5758433938388001E-01 * rtb_TSamp) +
-          1.8048078840182999E-01 * cc;
-        eml_count = (2.1263900587151000E-01 * rtb_Add + 7.1516867876776002E-01 *
-                     rtb_TSamp) + 7.2192315360729994E-02 * cc;
-        rtb_Add = (1.9330818715590000E-02 * rtb_Add + 1.1919477979463000E-01 *
-                   rtb_TSamp) + 9.5053215224966003E-01 * cc;
+        eml_min_dist = (4.1239079926596001E-001 * rtb_Add +
+                        3.5758433938388001E-001 * rtb_TSamp) +
+          1.8048078840182999E-001 * cc;
+        eml_count = (2.1263900587151000E-001 * rtb_Add + 7.1516867876776002E-001
+                     * rtb_TSamp) + 7.2192315360729994E-002 * cc;
+        rtb_Add = (1.9330818715590000E-002 * rtb_Add + 1.1919477979463000E-001 *
+                   rtb_TSamp) + 9.5053215224966003E-001 * cc;
 
         /* Make sure that the output is in [0..1] range; clip if necessary */
         if (eml_min_dist > 1.0) {
@@ -9274,29 +9250,29 @@ static void brain_Buoys(void)
         brain_B.ColorSpaceConversion1_o3 = rtb_Add;
 
         /* Convert from XYZ to L*a*b* */
-        rtb_Add = brain_B.ColorSpaceConversion1_o1 / 9.6419865576090003E-01;
-        cc = brain_B.ColorSpaceConversion1_o3 / 8.2511648322104003E-01;
+        rtb_Add = brain_B.ColorSpaceConversion1_o1 / 9.6419865576090003E-001;
+        cc = brain_B.ColorSpaceConversion1_o3 / 8.2511648322104003E-001;
 
         /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-        if (rtb_Add > 8.8564516790356311E-03) {
-          eml_min_dist = rt_pow_snf(rtb_Add, 3.3333333333333331E-01);
+        if (rtb_Add > 8.8564516790356311E-003) {
+          eml_min_dist = rt_pow_snf(rtb_Add, 3.3333333333333331E-001);
         } else {
-          eml_min_dist = 7.7870370370370372E+00 * rtb_Add +
-            1.3793103448275862E-01;
+          eml_min_dist = 7.7870370370370372E+000 * rtb_Add +
+            1.3793103448275862E-001;
         }
 
-        if (brain_B.ColorSpaceConversion1_o2 > 8.8564516790356311E-03) {
+        if (brain_B.ColorSpaceConversion1_o2 > 8.8564516790356311E-003) {
           rtb_TSamp = rt_pow_snf(brain_B.ColorSpaceConversion1_o2,
-            3.3333333333333331E-01);
+            3.3333333333333331E-001);
         } else {
-          rtb_TSamp = 7.7870370370370372E+00 * brain_B.ColorSpaceConversion1_o2
-            + 1.3793103448275862E-01;
+          rtb_TSamp = 7.7870370370370372E+000 * brain_B.ColorSpaceConversion1_o2
+            + 1.3793103448275862E-001;
         }
 
-        if (cc > 8.8564516790356311E-03) {
-          rtb_Add = rt_pow_snf(cc, 3.3333333333333331E-01);
+        if (cc > 8.8564516790356311E-003) {
+          rtb_Add = rt_pow_snf(cc, 3.3333333333333331E-001);
         } else {
-          rtb_Add = 7.7870370370370372E+00 * cc + 1.3793103448275862E-01;
+          rtb_Add = 7.7870370370370372E+000 * cc + 1.3793103448275862E-001;
         }
 
         /* assign the results */
@@ -9314,7 +9290,7 @@ static void brain_Buoys(void)
         cc_0 = 0.0;
         cc_1 = 0.0;
         rtb_Add = 6.0 * brain_P.Buoy2_Hue;
-        eml_min_dist = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-15);
+        eml_min_dist = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-015);
         rtb_Add -= eml_min_dist;
         rtb_TSamp = 1.0 - brain_P.Buoy2_Saturation;
         eml_count = 1.0 - brain_P.Buoy2_Saturation * rtb_Add;
@@ -9372,40 +9348,41 @@ static void brain_Buoys(void)
         /* equivalent to running the gamma correction block with break */
         /* point of 0.00304 and gamma of 2.4; it's built into this */
         /* conversion for convenience */
-        if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-02) {
-          rtb_Add = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333255E+01;
+        if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-002) {
+          rtb_Add = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333254E+001;
         } else {
-          rtb_Add = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226347E-02)
-            / 1.0550005198172263E+00;
+          rtb_Add = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226361E-002)
+            / 1.0550005198172263E+000;
           rtb_Add = rt_pow_snf(rtb_Add, 2.4);
         }
 
-        if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-02) {
-          rtb_TSamp = brain_B.ColorSpaceConversion_o2_o / 1.2923054468333255E+01;
+        if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-002) {
+          rtb_TSamp = brain_B.ColorSpaceConversion_o2_o /
+            1.2923054468333254E+001;
         } else {
           rtb_TSamp = (brain_B.ColorSpaceConversion_o2_o +
-                       5.5000519817226347E-02) / 1.0550005198172263E+00;
+                       5.5000519817226361E-002) / 1.0550005198172263E+000;
           rtb_TSamp = rt_pow_snf(rtb_TSamp, 2.4);
         }
 
-        if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-02) {
-          cc = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333255E+01;
+        if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-002) {
+          cc = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333254E+001;
         } else {
-          cc = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226347E-02) /
-            1.0550005198172263E+00;
+          cc = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226361E-002) /
+            1.0550005198172263E+000;
           cc = rt_pow_snf(cc, 2.4);
         }
 
         /* The coefficients for this conversion were derived from ITU-R */
         /* BT.709 reference primaries for sRGB and CIE standard illuminant */
         /* D65, 2 degree observer */
-        eml_min_dist = (4.1239079926596001E-01 * rtb_Add +
-                        3.5758433938388001E-01 * rtb_TSamp) +
-          1.8048078840182999E-01 * cc;
-        eml_count = (2.1263900587151000E-01 * rtb_Add + 7.1516867876776002E-01 *
-                     rtb_TSamp) + 7.2192315360729994E-02 * cc;
-        rtb_Add = (1.9330818715590000E-02 * rtb_Add + 1.1919477979463000E-01 *
-                   rtb_TSamp) + 9.5053215224966003E-01 * cc;
+        eml_min_dist = (4.1239079926596001E-001 * rtb_Add +
+                        3.5758433938388001E-001 * rtb_TSamp) +
+          1.8048078840182999E-001 * cc;
+        eml_count = (2.1263900587151000E-001 * rtb_Add + 7.1516867876776002E-001
+                     * rtb_TSamp) + 7.2192315360729994E-002 * cc;
+        rtb_Add = (1.9330818715590000E-002 * rtb_Add + 1.1919477979463000E-001 *
+                   rtb_TSamp) + 9.5053215224966003E-001 * cc;
 
         /* Make sure that the output is in [0..1] range; clip if necessary */
         if (eml_min_dist > 1.0) {
@@ -9438,29 +9415,29 @@ static void brain_Buoys(void)
         brain_B.ColorSpaceConversion1_o3_m = rtb_Add;
 
         /* Convert from XYZ to L*a*b* */
-        rtb_Add = brain_B.ColorSpaceConversion1_o1_n / 9.6419865576090003E-01;
-        cc = brain_B.ColorSpaceConversion1_o3_m / 8.2511648322104003E-01;
+        rtb_Add = brain_B.ColorSpaceConversion1_o1_n / 9.6419865576090003E-001;
+        cc = brain_B.ColorSpaceConversion1_o3_m / 8.2511648322104003E-001;
 
         /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-        if (rtb_Add > 8.8564516790356311E-03) {
-          eml_min_dist = rt_pow_snf(rtb_Add, 3.3333333333333331E-01);
+        if (rtb_Add > 8.8564516790356311E-003) {
+          eml_min_dist = rt_pow_snf(rtb_Add, 3.3333333333333331E-001);
         } else {
-          eml_min_dist = 7.7870370370370372E+00 * rtb_Add +
-            1.3793103448275862E-01;
+          eml_min_dist = 7.7870370370370372E+000 * rtb_Add +
+            1.3793103448275862E-001;
         }
 
-        if (brain_B.ColorSpaceConversion1_o2_i > 8.8564516790356311E-03) {
+        if (brain_B.ColorSpaceConversion1_o2_i > 8.8564516790356311E-003) {
           rtb_TSamp = rt_pow_snf(brain_B.ColorSpaceConversion1_o2_i,
-            3.3333333333333331E-01);
+            3.3333333333333331E-001);
         } else {
-          rtb_TSamp = 7.7870370370370372E+00 *
-            brain_B.ColorSpaceConversion1_o2_i + 1.3793103448275862E-01;
+          rtb_TSamp = 7.7870370370370372E+000 *
+            brain_B.ColorSpaceConversion1_o2_i + 1.3793103448275862E-001;
         }
 
-        if (cc > 8.8564516790356311E-03) {
-          rtb_Add = rt_pow_snf(cc, 3.3333333333333331E-01);
+        if (cc > 8.8564516790356311E-003) {
+          rtb_Add = rt_pow_snf(cc, 3.3333333333333331E-001);
         } else {
-          rtb_Add = 7.7870370370370372E+00 * cc + 1.3793103448275862E-01;
+          rtb_Add = 7.7870370370370372E+000 * cc + 1.3793103448275862E-001;
         }
 
         /* assign the results */
@@ -9586,9 +9563,6 @@ static void brain_Buoys(void)
           /* '<S43>:1:57' */
           brain_B.Direction2 = 1.0;
         }
-
-        brain_DWork.FirstDir = brain_B.Direction1;
-        brain_DWork.SecondDir = brain_B.Direction2;
       } else {
         /* Simulink Function 'IterativeSegmentation': '<S7>:1483' */
         for (i = 0; i < 19200; i++) {
@@ -10235,8 +10209,8 @@ static void brain_OnePath(void)
 
       /* S-Function (sviphoughlines): '<S21>/Hough Lines' */
       inIdx = 0;
-      eml_b = (brain_B.Rho[0] + 2.2204460492503131E-16) / (cos(brain_B.Theta[0])
-        + 2.2204460492503131E-16);
+      eml_b = (brain_B.Rho[0] + 2.2204460492503131E-016) / (cos(brain_B.Theta[0])
+        + 2.2204460492503131E-016);
 
       /* part-1: top horizontal axis */
       eml_c = floor(eml_b + 0.5);
@@ -10246,8 +10220,8 @@ static void brain_OnePath(void)
         inIdx = 1;
       }
 
-      y = (brain_B.Rho[0] + 2.2204460492503131E-16) / (sin(brain_B.Theta[0]) +
-        2.2204460492503131E-16);
+      y = (brain_B.Rho[0] + 2.2204460492503131E-016) / (sin(brain_B.Theta[0]) +
+        2.2204460492503131E-016);
 
       /* part-2: left vertical axis */
       eml_c = floor(y + 0.5);
@@ -10288,8 +10262,8 @@ static void brain_OnePath(void)
       }
 
       inIdx = 0;
-      eml_b = (brain_B.Rho[1] + 2.2204460492503131E-16) / (cos(brain_B.Theta[1])
-        + 2.2204460492503131E-16);
+      eml_b = (brain_B.Rho[1] + 2.2204460492503131E-016) / (cos(brain_B.Theta[1])
+        + 2.2204460492503131E-016);
 
       /* part-1: top horizontal axis */
       eml_c = floor(eml_b + 0.5);
@@ -10299,8 +10273,8 @@ static void brain_OnePath(void)
         inIdx = 1;
       }
 
-      y = (brain_B.Rho[1] + 2.2204460492503131E-16) / (sin(brain_B.Theta[1]) +
-        2.2204460492503131E-16);
+      y = (brain_B.Rho[1] + 2.2204460492503131E-016) / (sin(brain_B.Theta[1]) +
+        2.2204460492503131E-016);
 
       /* part-2: left vertical axis */
       eml_c = floor(y + 0.5);
@@ -10605,12 +10579,12 @@ static void brain_OnePath(void)
       /* '<S79>:1:10' */
       /* '<S79>:1:11' */
       /* '<S79>:1:12' */
-      if ((brain_B.Theta[(int32_T)eml_c - 1] > -1.5707963267948966E+00) &&
-          (brain_B.Theta[(int32_T)eml_c - 1] < 1.5707963267948966E+00)) {
+      if ((brain_B.Theta[(int32_T)eml_c - 1] > -1.5707963267948966E+000) &&
+          (brain_B.Theta[(int32_T)eml_c - 1] < 1.5707963267948966E+000)) {
         /* '<S79>:1:21' */
         /* '<S79>:1:22' */
         brain_B.AlongPathHeading = brain_B.Theta[(int32_T)eml_c - 1] * 180.0 /
-          3.1415926535897931E+00;
+          3.1415926535897931E+000;
       }
 
       brain_DWork.HeadingAlongPath = brain_B.AlongPathHeading;
@@ -10965,7 +10939,7 @@ static void brain_RecognizePath(void)
     switch (brain_DWork.is_RecognizePath) {
      case brain_IN_TurnLeft:
       /* During 'TurnLeft': '<S7>:1583' */
-      if ((uint32_T)brain_DWork.temporalCounter_i1 >= 10U) {
+      if ((uint32_T)brain_DWork.temporalCounter_i1 >= 5U) {
         /* Transition: '<S7>:1580' */
         /* Exit 'TurnLeft': '<S7>:1583' */
         /* Entry 'TurnRight': '<S7>:1582' */
@@ -12221,8 +12195,8 @@ static void brain_RecognizeHedge(void)
 
     /* S-Function (sviphoughlines): '<S34>/Hough Lines' */
     n = 0;
-    rtb_Add = (rtb_R_idx_1 + 2.2204460492503131E-16) / (cos(rtb_T_idx_1) +
-      2.2204460492503131E-16);
+    rtb_Add = (rtb_R_idx_1 + 2.2204460492503131E-016) / (cos(rtb_T_idx_1) +
+      2.2204460492503131E-016);
 
     /* part-1: top horizontal axis */
     rtb_TSamp = floor(rtb_Add + 0.5);
@@ -12232,8 +12206,8 @@ static void brain_RecognizeHedge(void)
       n = 1;
     }
 
-    eml_max_votes = (rtb_R_idx_1 + 2.2204460492503131E-16) / (sin(rtb_T_idx_1) +
-      2.2204460492503131E-16);
+    eml_max_votes = (rtb_R_idx_1 + 2.2204460492503131E-016) / (sin(rtb_T_idx_1)
+      + 2.2204460492503131E-016);
 
     /* part-2: left vertical axis */
     rtb_TSamp = floor(eml_max_votes + 0.5);
@@ -12274,8 +12248,8 @@ static void brain_RecognizeHedge(void)
     }
 
     n = 0;
-    rtb_Add = (rtb_R_idx_0 + 2.2204460492503131E-16) / (cos(rtb_T_idx_0) +
-      2.2204460492503131E-16);
+    rtb_Add = (rtb_R_idx_0 + 2.2204460492503131E-016) / (cos(rtb_T_idx_0) +
+      2.2204460492503131E-016);
 
     /* part-1: top horizontal axis */
     rtb_TSamp = floor(rtb_Add + 0.5);
@@ -12285,8 +12259,8 @@ static void brain_RecognizeHedge(void)
       n = 1;
     }
 
-    eml_max_votes = (rtb_R_idx_0 + 2.2204460492503131E-16) / (sin(rtb_T_idx_0) +
-      2.2204460492503131E-16);
+    eml_max_votes = (rtb_R_idx_0 + 2.2204460492503131E-016) / (sin(rtb_T_idx_0)
+      + 2.2204460492503131E-016);
 
     /* part-2: left vertical axis */
     rtb_TSamp = floor(eml_max_votes + 0.5);
@@ -12327,8 +12301,8 @@ static void brain_RecognizeHedge(void)
     }
 
     n = 0;
-    rtb_Add = (rtb_R_idx + 2.2204460492503131E-16) / (cos(rtb_T_idx) +
-      2.2204460492503131E-16);
+    rtb_Add = (rtb_R_idx + 2.2204460492503131E-016) / (cos(rtb_T_idx) +
+      2.2204460492503131E-016);
 
     /* part-1: top horizontal axis */
     rtb_TSamp = floor(rtb_Add + 0.5);
@@ -12338,8 +12312,8 @@ static void brain_RecognizeHedge(void)
       n = 1;
     }
 
-    eml_max_votes = (rtb_R_idx + 2.2204460492503131E-16) / (sin(rtb_T_idx) +
-      2.2204460492503131E-16);
+    eml_max_votes = (rtb_R_idx + 2.2204460492503131E-016) / (sin(rtb_T_idx) +
+      2.2204460492503131E-016);
 
     /* part-2: left vertical axis */
     rtb_TSamp = floor(eml_max_votes + 0.5);
@@ -14758,186 +14732,186 @@ void brain_initialize(void)
                 sizeof(BlockIO_brain));
 
   {
-    brain_B.HoughTransform_o2[0] = -1.5707963267948966E+00;
-    brain_B.HoughTransform_o2[1] = -1.5533430342749532E+00;
-    brain_B.HoughTransform_o2[2] = -1.5358897417550099E+00;
-    brain_B.HoughTransform_o2[3] = -1.5184364492350666E+00;
-    brain_B.HoughTransform_o2[4] = -1.5009831567151235E+00;
-    brain_B.HoughTransform_o2[5] = -1.4835298641951802E+00;
-    brain_B.HoughTransform_o2[6] = -1.4660765716752369E+00;
-    brain_B.HoughTransform_o2[7] = -1.4486232791552935E+00;
-    brain_B.HoughTransform_o2[8] = -1.4311699866353502E+00;
-    brain_B.HoughTransform_o2[9] = -1.4137166941154069E+00;
-    brain_B.HoughTransform_o2[10] = -1.3962634015954636E+00;
-    brain_B.HoughTransform_o2[11] = -1.3788101090755203E+00;
-    brain_B.HoughTransform_o2[12] = -1.3613568165555769E+00;
-    brain_B.HoughTransform_o2[13] = -1.3439035240356338E+00;
-    brain_B.HoughTransform_o2[14] = -1.3264502315156905E+00;
-    brain_B.HoughTransform_o2[15] = -1.3089969389957472E+00;
-    brain_B.HoughTransform_o2[16] = -1.2915436464758039E+00;
-    brain_B.HoughTransform_o2[17] = -1.2740903539558606E+00;
-    brain_B.HoughTransform_o2[18] = -1.2566370614359172E+00;
-    brain_B.HoughTransform_o2[19] = -1.2391837689159739E+00;
-    brain_B.HoughTransform_o2[20] = -1.2217304763960306E+00;
-    brain_B.HoughTransform_o2[21] = -1.2042771838760873E+00;
-    brain_B.HoughTransform_o2[22] = -1.1868238913561442E+00;
-    brain_B.HoughTransform_o2[23] = -1.1693705988362009E+00;
-    brain_B.HoughTransform_o2[24] = -1.1519173063162575E+00;
-    brain_B.HoughTransform_o2[25] = -1.1344640137963142E+00;
-    brain_B.HoughTransform_o2[26] = -1.1170107212763709E+00;
-    brain_B.HoughTransform_o2[27] = -1.0995574287564276E+00;
-    brain_B.HoughTransform_o2[28] = -1.0821041362364843E+00;
-    brain_B.HoughTransform_o2[29] = -1.0646508437165410E+00;
-    brain_B.HoughTransform_o2[30] = -1.0471975511965976E+00;
-    brain_B.HoughTransform_o2[31] = -1.0297442586766545E+00;
-    brain_B.HoughTransform_o2[32] = -1.0122909661567112E+00;
-    brain_B.HoughTransform_o2[33] = -9.9483767363676789E-01;
-    brain_B.HoughTransform_o2[34] = -9.7738438111682457E-01;
-    brain_B.HoughTransform_o2[35] = -9.5993108859688125E-01;
-    brain_B.HoughTransform_o2[36] = -9.4247779607693793E-01;
-    brain_B.HoughTransform_o2[37] = -9.2502450355699462E-01;
-    brain_B.HoughTransform_o2[38] = -9.0757121103705141E-01;
-    brain_B.HoughTransform_o2[39] = -8.9011791851710809E-01;
-    brain_B.HoughTransform_o2[40] = -8.7266462599716477E-01;
-    brain_B.HoughTransform_o2[41] = -8.5521133347722145E-01;
-    brain_B.HoughTransform_o2[42] = -8.3775804095727824E-01;
-    brain_B.HoughTransform_o2[43] = -8.2030474843733492E-01;
-    brain_B.HoughTransform_o2[44] = -8.0285145591739160E-01;
-    brain_B.HoughTransform_o2[45] = -7.8539816339744828E-01;
-    brain_B.HoughTransform_o2[46] = -7.6794487087750496E-01;
-    brain_B.HoughTransform_o2[47] = -7.5049157835756175E-01;
-    brain_B.HoughTransform_o2[48] = -7.3303828583761843E-01;
-    brain_B.HoughTransform_o2[49] = -7.1558499331767511E-01;
-    brain_B.HoughTransform_o2[50] = -6.9813170079773179E-01;
-    brain_B.HoughTransform_o2[51] = -6.8067840827778847E-01;
-    brain_B.HoughTransform_o2[52] = -6.6322511575784526E-01;
-    brain_B.HoughTransform_o2[53] = -6.4577182323790194E-01;
-    brain_B.HoughTransform_o2[54] = -6.2831853071795862E-01;
-    brain_B.HoughTransform_o2[55] = -6.1086523819801530E-01;
-    brain_B.HoughTransform_o2[56] = -5.9341194567807209E-01;
-    brain_B.HoughTransform_o2[57] = -5.7595865315812877E-01;
-    brain_B.HoughTransform_o2[58] = -5.5850536063818546E-01;
-    brain_B.HoughTransform_o2[59] = -5.4105206811824214E-01;
-    brain_B.HoughTransform_o2[60] = -5.2359877559829882E-01;
-    brain_B.HoughTransform_o2[61] = -5.0614548307835561E-01;
-    brain_B.HoughTransform_o2[62] = -4.8869219055841229E-01;
-    brain_B.HoughTransform_o2[63] = -4.7123889803846897E-01;
-    brain_B.HoughTransform_o2[64] = -4.5378560551852570E-01;
-    brain_B.HoughTransform_o2[65] = -4.3633231299858238E-01;
-    brain_B.HoughTransform_o2[66] = -4.1887902047863912E-01;
-    brain_B.HoughTransform_o2[67] = -4.0142572795869580E-01;
-    brain_B.HoughTransform_o2[68] = -3.8397243543875248E-01;
-    brain_B.HoughTransform_o2[69] = -3.6651914291880922E-01;
-    brain_B.HoughTransform_o2[70] = -3.4906585039886590E-01;
-    brain_B.HoughTransform_o2[71] = -3.3161255787892263E-01;
-    brain_B.HoughTransform_o2[72] = -3.1415926535897931E-01;
-    brain_B.HoughTransform_o2[73] = -2.9670597283903605E-01;
-    brain_B.HoughTransform_o2[74] = -2.7925268031909273E-01;
-    brain_B.HoughTransform_o2[75] = -2.6179938779914941E-01;
-    brain_B.HoughTransform_o2[76] = -2.4434609527920614E-01;
-    brain_B.HoughTransform_o2[77] = -2.2689280275926285E-01;
-    brain_B.HoughTransform_o2[78] = -2.0943951023931956E-01;
-    brain_B.HoughTransform_o2[79] = -1.9198621771937624E-01;
-    brain_B.HoughTransform_o2[80] = -1.7453292519943295E-01;
-    brain_B.HoughTransform_o2[81] = -1.5707963267948966E-01;
-    brain_B.HoughTransform_o2[82] = -1.3962634015954636E-01;
-    brain_B.HoughTransform_o2[83] = -1.2217304763960307E-01;
-    brain_B.HoughTransform_o2[84] = -1.0471975511965978E-01;
-    brain_B.HoughTransform_o2[85] = -8.7266462599716474E-02;
-    brain_B.HoughTransform_o2[86] = -6.9813170079773182E-02;
-    brain_B.HoughTransform_o2[87] = -5.2359877559829890E-02;
-    brain_B.HoughTransform_o2[88] = -3.4906585039886591E-02;
-    brain_B.HoughTransform_o2[89] = -1.7453292519943295E-02;
+    brain_B.HoughTransform_o2[0] = -1.5707963267948966E+000;
+    brain_B.HoughTransform_o2[1] = -1.5533430342749532E+000;
+    brain_B.HoughTransform_o2[2] = -1.5358897417550099E+000;
+    brain_B.HoughTransform_o2[3] = -1.5184364492350666E+000;
+    brain_B.HoughTransform_o2[4] = -1.5009831567151235E+000;
+    brain_B.HoughTransform_o2[5] = -1.4835298641951802E+000;
+    brain_B.HoughTransform_o2[6] = -1.4660765716752369E+000;
+    brain_B.HoughTransform_o2[7] = -1.4486232791552935E+000;
+    brain_B.HoughTransform_o2[8] = -1.4311699866353502E+000;
+    brain_B.HoughTransform_o2[9] = -1.4137166941154069E+000;
+    brain_B.HoughTransform_o2[10] = -1.3962634015954636E+000;
+    brain_B.HoughTransform_o2[11] = -1.3788101090755203E+000;
+    brain_B.HoughTransform_o2[12] = -1.3613568165555769E+000;
+    brain_B.HoughTransform_o2[13] = -1.3439035240356338E+000;
+    brain_B.HoughTransform_o2[14] = -1.3264502315156905E+000;
+    brain_B.HoughTransform_o2[15] = -1.3089969389957472E+000;
+    brain_B.HoughTransform_o2[16] = -1.2915436464758039E+000;
+    brain_B.HoughTransform_o2[17] = -1.2740903539558606E+000;
+    brain_B.HoughTransform_o2[18] = -1.2566370614359172E+000;
+    brain_B.HoughTransform_o2[19] = -1.2391837689159739E+000;
+    brain_B.HoughTransform_o2[20] = -1.2217304763960306E+000;
+    brain_B.HoughTransform_o2[21] = -1.2042771838760873E+000;
+    brain_B.HoughTransform_o2[22] = -1.1868238913561442E+000;
+    brain_B.HoughTransform_o2[23] = -1.1693705988362009E+000;
+    brain_B.HoughTransform_o2[24] = -1.1519173063162575E+000;
+    brain_B.HoughTransform_o2[25] = -1.1344640137963142E+000;
+    brain_B.HoughTransform_o2[26] = -1.1170107212763709E+000;
+    brain_B.HoughTransform_o2[27] = -1.0995574287564276E+000;
+    brain_B.HoughTransform_o2[28] = -1.0821041362364843E+000;
+    brain_B.HoughTransform_o2[29] = -1.0646508437165410E+000;
+    brain_B.HoughTransform_o2[30] = -1.0471975511965976E+000;
+    brain_B.HoughTransform_o2[31] = -1.0297442586766545E+000;
+    brain_B.HoughTransform_o2[32] = -1.0122909661567112E+000;
+    brain_B.HoughTransform_o2[33] = -9.9483767363676789E-001;
+    brain_B.HoughTransform_o2[34] = -9.7738438111682457E-001;
+    brain_B.HoughTransform_o2[35] = -9.5993108859688125E-001;
+    brain_B.HoughTransform_o2[36] = -9.4247779607693793E-001;
+    brain_B.HoughTransform_o2[37] = -9.2502450355699462E-001;
+    brain_B.HoughTransform_o2[38] = -9.0757121103705141E-001;
+    brain_B.HoughTransform_o2[39] = -8.9011791851710809E-001;
+    brain_B.HoughTransform_o2[40] = -8.7266462599716477E-001;
+    brain_B.HoughTransform_o2[41] = -8.5521133347722145E-001;
+    brain_B.HoughTransform_o2[42] = -8.3775804095727824E-001;
+    brain_B.HoughTransform_o2[43] = -8.2030474843733492E-001;
+    brain_B.HoughTransform_o2[44] = -8.0285145591739160E-001;
+    brain_B.HoughTransform_o2[45] = -7.8539816339744828E-001;
+    brain_B.HoughTransform_o2[46] = -7.6794487087750496E-001;
+    brain_B.HoughTransform_o2[47] = -7.5049157835756175E-001;
+    brain_B.HoughTransform_o2[48] = -7.3303828583761843E-001;
+    brain_B.HoughTransform_o2[49] = -7.1558499331767511E-001;
+    brain_B.HoughTransform_o2[50] = -6.9813170079773179E-001;
+    brain_B.HoughTransform_o2[51] = -6.8067840827778847E-001;
+    brain_B.HoughTransform_o2[52] = -6.6322511575784526E-001;
+    brain_B.HoughTransform_o2[53] = -6.4577182323790194E-001;
+    brain_B.HoughTransform_o2[54] = -6.2831853071795862E-001;
+    brain_B.HoughTransform_o2[55] = -6.1086523819801530E-001;
+    brain_B.HoughTransform_o2[56] = -5.9341194567807209E-001;
+    brain_B.HoughTransform_o2[57] = -5.7595865315812877E-001;
+    brain_B.HoughTransform_o2[58] = -5.5850536063818546E-001;
+    brain_B.HoughTransform_o2[59] = -5.4105206811824214E-001;
+    brain_B.HoughTransform_o2[60] = -5.2359877559829882E-001;
+    brain_B.HoughTransform_o2[61] = -5.0614548307835561E-001;
+    brain_B.HoughTransform_o2[62] = -4.8869219055841229E-001;
+    brain_B.HoughTransform_o2[63] = -4.7123889803846897E-001;
+    brain_B.HoughTransform_o2[64] = -4.5378560551852570E-001;
+    brain_B.HoughTransform_o2[65] = -4.3633231299858238E-001;
+    brain_B.HoughTransform_o2[66] = -4.1887902047863912E-001;
+    brain_B.HoughTransform_o2[67] = -4.0142572795869580E-001;
+    brain_B.HoughTransform_o2[68] = -3.8397243543875248E-001;
+    brain_B.HoughTransform_o2[69] = -3.6651914291880922E-001;
+    brain_B.HoughTransform_o2[70] = -3.4906585039886590E-001;
+    brain_B.HoughTransform_o2[71] = -3.3161255787892263E-001;
+    brain_B.HoughTransform_o2[72] = -3.1415926535897931E-001;
+    brain_B.HoughTransform_o2[73] = -2.9670597283903605E-001;
+    brain_B.HoughTransform_o2[74] = -2.7925268031909273E-001;
+    brain_B.HoughTransform_o2[75] = -2.6179938779914941E-001;
+    brain_B.HoughTransform_o2[76] = -2.4434609527920614E-001;
+    brain_B.HoughTransform_o2[77] = -2.2689280275926285E-001;
+    brain_B.HoughTransform_o2[78] = -2.0943951023931956E-001;
+    brain_B.HoughTransform_o2[79] = -1.9198621771937624E-001;
+    brain_B.HoughTransform_o2[80] = -1.7453292519943295E-001;
+    brain_B.HoughTransform_o2[81] = -1.5707963267948966E-001;
+    brain_B.HoughTransform_o2[82] = -1.3962634015954636E-001;
+    brain_B.HoughTransform_o2[83] = -1.2217304763960307E-001;
+    brain_B.HoughTransform_o2[84] = -1.0471975511965978E-001;
+    brain_B.HoughTransform_o2[85] = -8.7266462599716474E-002;
+    brain_B.HoughTransform_o2[86] = -6.9813170079773182E-002;
+    brain_B.HoughTransform_o2[87] = -5.2359877559829890E-002;
+    brain_B.HoughTransform_o2[88] = -3.4906585039886591E-002;
+    brain_B.HoughTransform_o2[89] = -1.7453292519943295E-002;
     brain_B.HoughTransform_o2[90] = 0.0;
-    brain_B.HoughTransform_o2[91] = 1.7453292519943295E-02;
-    brain_B.HoughTransform_o2[92] = 3.4906585039886591E-02;
-    brain_B.HoughTransform_o2[93] = 5.2359877559829890E-02;
-    brain_B.HoughTransform_o2[94] = 6.9813170079773182E-02;
-    brain_B.HoughTransform_o2[95] = 8.7266462599716474E-02;
-    brain_B.HoughTransform_o2[96] = 1.0471975511965978E-01;
-    brain_B.HoughTransform_o2[97] = 1.2217304763960307E-01;
-    brain_B.HoughTransform_o2[98] = 1.3962634015954636E-01;
-    brain_B.HoughTransform_o2[99] = 1.5707963267948966E-01;
-    brain_B.HoughTransform_o2[100] = 1.7453292519943295E-01;
-    brain_B.HoughTransform_o2[101] = 1.9198621771937624E-01;
-    brain_B.HoughTransform_o2[102] = 2.0943951023931956E-01;
-    brain_B.HoughTransform_o2[103] = 2.2689280275926285E-01;
-    brain_B.HoughTransform_o2[104] = 2.4434609527920614E-01;
-    brain_B.HoughTransform_o2[105] = 2.6179938779914941E-01;
-    brain_B.HoughTransform_o2[106] = 2.7925268031909273E-01;
-    brain_B.HoughTransform_o2[107] = 2.9670597283903605E-01;
-    brain_B.HoughTransform_o2[108] = 3.1415926535897931E-01;
-    brain_B.HoughTransform_o2[109] = 3.3161255787892263E-01;
-    brain_B.HoughTransform_o2[110] = 3.4906585039886590E-01;
-    brain_B.HoughTransform_o2[111] = 3.6651914291880922E-01;
-    brain_B.HoughTransform_o2[112] = 3.8397243543875248E-01;
-    brain_B.HoughTransform_o2[113] = 4.0142572795869580E-01;
-    brain_B.HoughTransform_o2[114] = 4.1887902047863912E-01;
-    brain_B.HoughTransform_o2[115] = 4.3633231299858238E-01;
-    brain_B.HoughTransform_o2[116] = 4.5378560551852570E-01;
-    brain_B.HoughTransform_o2[117] = 4.7123889803846897E-01;
-    brain_B.HoughTransform_o2[118] = 4.8869219055841229E-01;
-    brain_B.HoughTransform_o2[119] = 5.0614548307835561E-01;
-    brain_B.HoughTransform_o2[120] = 5.2359877559829882E-01;
-    brain_B.HoughTransform_o2[121] = 5.4105206811824214E-01;
-    brain_B.HoughTransform_o2[122] = 5.5850536063818546E-01;
-    brain_B.HoughTransform_o2[123] = 5.7595865315812877E-01;
-    brain_B.HoughTransform_o2[124] = 5.9341194567807209E-01;
-    brain_B.HoughTransform_o2[125] = 6.1086523819801530E-01;
-    brain_B.HoughTransform_o2[126] = 6.2831853071795862E-01;
-    brain_B.HoughTransform_o2[127] = 6.4577182323790194E-01;
-    brain_B.HoughTransform_o2[128] = 6.6322511575784526E-01;
-    brain_B.HoughTransform_o2[129] = 6.8067840827778847E-01;
-    brain_B.HoughTransform_o2[130] = 6.9813170079773179E-01;
-    brain_B.HoughTransform_o2[131] = 7.1558499331767511E-01;
-    brain_B.HoughTransform_o2[132] = 7.3303828583761843E-01;
-    brain_B.HoughTransform_o2[133] = 7.5049157835756175E-01;
-    brain_B.HoughTransform_o2[134] = 7.6794487087750496E-01;
-    brain_B.HoughTransform_o2[135] = 7.8539816339744828E-01;
-    brain_B.HoughTransform_o2[136] = 8.0285145591739160E-01;
-    brain_B.HoughTransform_o2[137] = 8.2030474843733492E-01;
-    brain_B.HoughTransform_o2[138] = 8.3775804095727824E-01;
-    brain_B.HoughTransform_o2[139] = 8.5521133347722145E-01;
-    brain_B.HoughTransform_o2[140] = 8.7266462599716477E-01;
-    brain_B.HoughTransform_o2[141] = 8.9011791851710809E-01;
-    brain_B.HoughTransform_o2[142] = 9.0757121103705141E-01;
-    brain_B.HoughTransform_o2[143] = 9.2502450355699462E-01;
-    brain_B.HoughTransform_o2[144] = 9.4247779607693793E-01;
-    brain_B.HoughTransform_o2[145] = 9.5993108859688125E-01;
-    brain_B.HoughTransform_o2[146] = 9.7738438111682457E-01;
-    brain_B.HoughTransform_o2[147] = 9.9483767363676789E-01;
-    brain_B.HoughTransform_o2[148] = 1.0122909661567112E+00;
-    brain_B.HoughTransform_o2[149] = 1.0297442586766545E+00;
-    brain_B.HoughTransform_o2[150] = 1.0471975511965976E+00;
-    brain_B.HoughTransform_o2[151] = 1.0646508437165410E+00;
-    brain_B.HoughTransform_o2[152] = 1.0821041362364843E+00;
-    brain_B.HoughTransform_o2[153] = 1.0995574287564276E+00;
-    brain_B.HoughTransform_o2[154] = 1.1170107212763709E+00;
-    brain_B.HoughTransform_o2[155] = 1.1344640137963142E+00;
-    brain_B.HoughTransform_o2[156] = 1.1519173063162575E+00;
-    brain_B.HoughTransform_o2[157] = 1.1693705988362009E+00;
-    brain_B.HoughTransform_o2[158] = 1.1868238913561442E+00;
-    brain_B.HoughTransform_o2[159] = 1.2042771838760873E+00;
-    brain_B.HoughTransform_o2[160] = 1.2217304763960306E+00;
-    brain_B.HoughTransform_o2[161] = 1.2391837689159739E+00;
-    brain_B.HoughTransform_o2[162] = 1.2566370614359172E+00;
-    brain_B.HoughTransform_o2[163] = 1.2740903539558606E+00;
-    brain_B.HoughTransform_o2[164] = 1.2915436464758039E+00;
-    brain_B.HoughTransform_o2[165] = 1.3089969389957472E+00;
-    brain_B.HoughTransform_o2[166] = 1.3264502315156905E+00;
-    brain_B.HoughTransform_o2[167] = 1.3439035240356338E+00;
-    brain_B.HoughTransform_o2[168] = 1.3613568165555769E+00;
-    brain_B.HoughTransform_o2[169] = 1.3788101090755203E+00;
-    brain_B.HoughTransform_o2[170] = 1.3962634015954636E+00;
-    brain_B.HoughTransform_o2[171] = 1.4137166941154069E+00;
-    brain_B.HoughTransform_o2[172] = 1.4311699866353502E+00;
-    brain_B.HoughTransform_o2[173] = 1.4486232791552935E+00;
-    brain_B.HoughTransform_o2[174] = 1.4660765716752369E+00;
-    brain_B.HoughTransform_o2[175] = 1.4835298641951802E+00;
-    brain_B.HoughTransform_o2[176] = 1.5009831567151235E+00;
-    brain_B.HoughTransform_o2[177] = 1.5184364492350666E+00;
-    brain_B.HoughTransform_o2[178] = 1.5358897417550099E+00;
-    brain_B.HoughTransform_o2[179] = 1.5533430342749532E+00;
+    brain_B.HoughTransform_o2[91] = 1.7453292519943295E-002;
+    brain_B.HoughTransform_o2[92] = 3.4906585039886591E-002;
+    brain_B.HoughTransform_o2[93] = 5.2359877559829890E-002;
+    brain_B.HoughTransform_o2[94] = 6.9813170079773182E-002;
+    brain_B.HoughTransform_o2[95] = 8.7266462599716474E-002;
+    brain_B.HoughTransform_o2[96] = 1.0471975511965978E-001;
+    brain_B.HoughTransform_o2[97] = 1.2217304763960307E-001;
+    brain_B.HoughTransform_o2[98] = 1.3962634015954636E-001;
+    brain_B.HoughTransform_o2[99] = 1.5707963267948966E-001;
+    brain_B.HoughTransform_o2[100] = 1.7453292519943295E-001;
+    brain_B.HoughTransform_o2[101] = 1.9198621771937624E-001;
+    brain_B.HoughTransform_o2[102] = 2.0943951023931956E-001;
+    brain_B.HoughTransform_o2[103] = 2.2689280275926285E-001;
+    brain_B.HoughTransform_o2[104] = 2.4434609527920614E-001;
+    brain_B.HoughTransform_o2[105] = 2.6179938779914941E-001;
+    brain_B.HoughTransform_o2[106] = 2.7925268031909273E-001;
+    brain_B.HoughTransform_o2[107] = 2.9670597283903605E-001;
+    brain_B.HoughTransform_o2[108] = 3.1415926535897931E-001;
+    brain_B.HoughTransform_o2[109] = 3.3161255787892263E-001;
+    brain_B.HoughTransform_o2[110] = 3.4906585039886590E-001;
+    brain_B.HoughTransform_o2[111] = 3.6651914291880922E-001;
+    brain_B.HoughTransform_o2[112] = 3.8397243543875248E-001;
+    brain_B.HoughTransform_o2[113] = 4.0142572795869580E-001;
+    brain_B.HoughTransform_o2[114] = 4.1887902047863912E-001;
+    brain_B.HoughTransform_o2[115] = 4.3633231299858238E-001;
+    brain_B.HoughTransform_o2[116] = 4.5378560551852570E-001;
+    brain_B.HoughTransform_o2[117] = 4.7123889803846897E-001;
+    brain_B.HoughTransform_o2[118] = 4.8869219055841229E-001;
+    brain_B.HoughTransform_o2[119] = 5.0614548307835561E-001;
+    brain_B.HoughTransform_o2[120] = 5.2359877559829882E-001;
+    brain_B.HoughTransform_o2[121] = 5.4105206811824214E-001;
+    brain_B.HoughTransform_o2[122] = 5.5850536063818546E-001;
+    brain_B.HoughTransform_o2[123] = 5.7595865315812877E-001;
+    brain_B.HoughTransform_o2[124] = 5.9341194567807209E-001;
+    brain_B.HoughTransform_o2[125] = 6.1086523819801530E-001;
+    brain_B.HoughTransform_o2[126] = 6.2831853071795862E-001;
+    brain_B.HoughTransform_o2[127] = 6.4577182323790194E-001;
+    brain_B.HoughTransform_o2[128] = 6.6322511575784526E-001;
+    brain_B.HoughTransform_o2[129] = 6.8067840827778847E-001;
+    brain_B.HoughTransform_o2[130] = 6.9813170079773179E-001;
+    brain_B.HoughTransform_o2[131] = 7.1558499331767511E-001;
+    brain_B.HoughTransform_o2[132] = 7.3303828583761843E-001;
+    brain_B.HoughTransform_o2[133] = 7.5049157835756175E-001;
+    brain_B.HoughTransform_o2[134] = 7.6794487087750496E-001;
+    brain_B.HoughTransform_o2[135] = 7.8539816339744828E-001;
+    brain_B.HoughTransform_o2[136] = 8.0285145591739160E-001;
+    brain_B.HoughTransform_o2[137] = 8.2030474843733492E-001;
+    brain_B.HoughTransform_o2[138] = 8.3775804095727824E-001;
+    brain_B.HoughTransform_o2[139] = 8.5521133347722145E-001;
+    brain_B.HoughTransform_o2[140] = 8.7266462599716477E-001;
+    brain_B.HoughTransform_o2[141] = 8.9011791851710809E-001;
+    brain_B.HoughTransform_o2[142] = 9.0757121103705141E-001;
+    brain_B.HoughTransform_o2[143] = 9.2502450355699462E-001;
+    brain_B.HoughTransform_o2[144] = 9.4247779607693793E-001;
+    brain_B.HoughTransform_o2[145] = 9.5993108859688125E-001;
+    brain_B.HoughTransform_o2[146] = 9.7738438111682457E-001;
+    brain_B.HoughTransform_o2[147] = 9.9483767363676789E-001;
+    brain_B.HoughTransform_o2[148] = 1.0122909661567112E+000;
+    brain_B.HoughTransform_o2[149] = 1.0297442586766545E+000;
+    brain_B.HoughTransform_o2[150] = 1.0471975511965976E+000;
+    brain_B.HoughTransform_o2[151] = 1.0646508437165410E+000;
+    brain_B.HoughTransform_o2[152] = 1.0821041362364843E+000;
+    brain_B.HoughTransform_o2[153] = 1.0995574287564276E+000;
+    brain_B.HoughTransform_o2[154] = 1.1170107212763709E+000;
+    brain_B.HoughTransform_o2[155] = 1.1344640137963142E+000;
+    brain_B.HoughTransform_o2[156] = 1.1519173063162575E+000;
+    brain_B.HoughTransform_o2[157] = 1.1693705988362009E+000;
+    brain_B.HoughTransform_o2[158] = 1.1868238913561442E+000;
+    brain_B.HoughTransform_o2[159] = 1.2042771838760873E+000;
+    brain_B.HoughTransform_o2[160] = 1.2217304763960306E+000;
+    brain_B.HoughTransform_o2[161] = 1.2391837689159739E+000;
+    brain_B.HoughTransform_o2[162] = 1.2566370614359172E+000;
+    brain_B.HoughTransform_o2[163] = 1.2740903539558606E+000;
+    brain_B.HoughTransform_o2[164] = 1.2915436464758039E+000;
+    brain_B.HoughTransform_o2[165] = 1.3089969389957472E+000;
+    brain_B.HoughTransform_o2[166] = 1.3264502315156905E+000;
+    brain_B.HoughTransform_o2[167] = 1.3439035240356338E+000;
+    brain_B.HoughTransform_o2[168] = 1.3613568165555769E+000;
+    brain_B.HoughTransform_o2[169] = 1.3788101090755203E+000;
+    brain_B.HoughTransform_o2[170] = 1.3962634015954636E+000;
+    brain_B.HoughTransform_o2[171] = 1.4137166941154069E+000;
+    brain_B.HoughTransform_o2[172] = 1.4311699866353502E+000;
+    brain_B.HoughTransform_o2[173] = 1.4486232791552935E+000;
+    brain_B.HoughTransform_o2[174] = 1.4660765716752369E+000;
+    brain_B.HoughTransform_o2[175] = 1.4835298641951802E+000;
+    brain_B.HoughTransform_o2[176] = 1.5009831567151235E+000;
+    brain_B.HoughTransform_o2[177] = 1.5184364492350666E+000;
+    brain_B.HoughTransform_o2[178] = 1.5358897417550099E+000;
+    brain_B.HoughTransform_o2[179] = 1.5533430342749532E+000;
     brain_B.HoughTransform_o3[0] = -199.0;
     brain_B.HoughTransform_o3[1] = -198.0;
     brain_B.HoughTransform_o3[2] = -197.0;
@@ -15337,186 +15311,186 @@ void brain_initialize(void)
     brain_B.HoughTransform_o3[396] = 197.0;
     brain_B.HoughTransform_o3[397] = 198.0;
     brain_B.HoughTransform_o3[398] = 199.0;
-    brain_B.HoughTransform_o2_e[0] = -1.5707963267948966E+00;
-    brain_B.HoughTransform_o2_e[1] = -1.5533430342749532E+00;
-    brain_B.HoughTransform_o2_e[2] = -1.5358897417550099E+00;
-    brain_B.HoughTransform_o2_e[3] = -1.5184364492350666E+00;
-    brain_B.HoughTransform_o2_e[4] = -1.5009831567151235E+00;
-    brain_B.HoughTransform_o2_e[5] = -1.4835298641951802E+00;
-    brain_B.HoughTransform_o2_e[6] = -1.4660765716752369E+00;
-    brain_B.HoughTransform_o2_e[7] = -1.4486232791552935E+00;
-    brain_B.HoughTransform_o2_e[8] = -1.4311699866353502E+00;
-    brain_B.HoughTransform_o2_e[9] = -1.4137166941154069E+00;
-    brain_B.HoughTransform_o2_e[10] = -1.3962634015954636E+00;
-    brain_B.HoughTransform_o2_e[11] = -1.3788101090755203E+00;
-    brain_B.HoughTransform_o2_e[12] = -1.3613568165555769E+00;
-    brain_B.HoughTransform_o2_e[13] = -1.3439035240356338E+00;
-    brain_B.HoughTransform_o2_e[14] = -1.3264502315156905E+00;
-    brain_B.HoughTransform_o2_e[15] = -1.3089969389957472E+00;
-    brain_B.HoughTransform_o2_e[16] = -1.2915436464758039E+00;
-    brain_B.HoughTransform_o2_e[17] = -1.2740903539558606E+00;
-    brain_B.HoughTransform_o2_e[18] = -1.2566370614359172E+00;
-    brain_B.HoughTransform_o2_e[19] = -1.2391837689159739E+00;
-    brain_B.HoughTransform_o2_e[20] = -1.2217304763960306E+00;
-    brain_B.HoughTransform_o2_e[21] = -1.2042771838760873E+00;
-    brain_B.HoughTransform_o2_e[22] = -1.1868238913561442E+00;
-    brain_B.HoughTransform_o2_e[23] = -1.1693705988362009E+00;
-    brain_B.HoughTransform_o2_e[24] = -1.1519173063162575E+00;
-    brain_B.HoughTransform_o2_e[25] = -1.1344640137963142E+00;
-    brain_B.HoughTransform_o2_e[26] = -1.1170107212763709E+00;
-    brain_B.HoughTransform_o2_e[27] = -1.0995574287564276E+00;
-    brain_B.HoughTransform_o2_e[28] = -1.0821041362364843E+00;
-    brain_B.HoughTransform_o2_e[29] = -1.0646508437165410E+00;
-    brain_B.HoughTransform_o2_e[30] = -1.0471975511965976E+00;
-    brain_B.HoughTransform_o2_e[31] = -1.0297442586766545E+00;
-    brain_B.HoughTransform_o2_e[32] = -1.0122909661567112E+00;
-    brain_B.HoughTransform_o2_e[33] = -9.9483767363676789E-01;
-    brain_B.HoughTransform_o2_e[34] = -9.7738438111682457E-01;
-    brain_B.HoughTransform_o2_e[35] = -9.5993108859688125E-01;
-    brain_B.HoughTransform_o2_e[36] = -9.4247779607693793E-01;
-    brain_B.HoughTransform_o2_e[37] = -9.2502450355699462E-01;
-    brain_B.HoughTransform_o2_e[38] = -9.0757121103705141E-01;
-    brain_B.HoughTransform_o2_e[39] = -8.9011791851710809E-01;
-    brain_B.HoughTransform_o2_e[40] = -8.7266462599716477E-01;
-    brain_B.HoughTransform_o2_e[41] = -8.5521133347722145E-01;
-    brain_B.HoughTransform_o2_e[42] = -8.3775804095727824E-01;
-    brain_B.HoughTransform_o2_e[43] = -8.2030474843733492E-01;
-    brain_B.HoughTransform_o2_e[44] = -8.0285145591739160E-01;
-    brain_B.HoughTransform_o2_e[45] = -7.8539816339744828E-01;
-    brain_B.HoughTransform_o2_e[46] = -7.6794487087750496E-01;
-    brain_B.HoughTransform_o2_e[47] = -7.5049157835756175E-01;
-    brain_B.HoughTransform_o2_e[48] = -7.3303828583761843E-01;
-    brain_B.HoughTransform_o2_e[49] = -7.1558499331767511E-01;
-    brain_B.HoughTransform_o2_e[50] = -6.9813170079773179E-01;
-    brain_B.HoughTransform_o2_e[51] = -6.8067840827778847E-01;
-    brain_B.HoughTransform_o2_e[52] = -6.6322511575784526E-01;
-    brain_B.HoughTransform_o2_e[53] = -6.4577182323790194E-01;
-    brain_B.HoughTransform_o2_e[54] = -6.2831853071795862E-01;
-    brain_B.HoughTransform_o2_e[55] = -6.1086523819801530E-01;
-    brain_B.HoughTransform_o2_e[56] = -5.9341194567807209E-01;
-    brain_B.HoughTransform_o2_e[57] = -5.7595865315812877E-01;
-    brain_B.HoughTransform_o2_e[58] = -5.5850536063818546E-01;
-    brain_B.HoughTransform_o2_e[59] = -5.4105206811824214E-01;
-    brain_B.HoughTransform_o2_e[60] = -5.2359877559829882E-01;
-    brain_B.HoughTransform_o2_e[61] = -5.0614548307835561E-01;
-    brain_B.HoughTransform_o2_e[62] = -4.8869219055841229E-01;
-    brain_B.HoughTransform_o2_e[63] = -4.7123889803846897E-01;
-    brain_B.HoughTransform_o2_e[64] = -4.5378560551852570E-01;
-    brain_B.HoughTransform_o2_e[65] = -4.3633231299858238E-01;
-    brain_B.HoughTransform_o2_e[66] = -4.1887902047863912E-01;
-    brain_B.HoughTransform_o2_e[67] = -4.0142572795869580E-01;
-    brain_B.HoughTransform_o2_e[68] = -3.8397243543875248E-01;
-    brain_B.HoughTransform_o2_e[69] = -3.6651914291880922E-01;
-    brain_B.HoughTransform_o2_e[70] = -3.4906585039886590E-01;
-    brain_B.HoughTransform_o2_e[71] = -3.3161255787892263E-01;
-    brain_B.HoughTransform_o2_e[72] = -3.1415926535897931E-01;
-    brain_B.HoughTransform_o2_e[73] = -2.9670597283903605E-01;
-    brain_B.HoughTransform_o2_e[74] = -2.7925268031909273E-01;
-    brain_B.HoughTransform_o2_e[75] = -2.6179938779914941E-01;
-    brain_B.HoughTransform_o2_e[76] = -2.4434609527920614E-01;
-    brain_B.HoughTransform_o2_e[77] = -2.2689280275926285E-01;
-    brain_B.HoughTransform_o2_e[78] = -2.0943951023931956E-01;
-    brain_B.HoughTransform_o2_e[79] = -1.9198621771937624E-01;
-    brain_B.HoughTransform_o2_e[80] = -1.7453292519943295E-01;
-    brain_B.HoughTransform_o2_e[81] = -1.5707963267948966E-01;
-    brain_B.HoughTransform_o2_e[82] = -1.3962634015954636E-01;
-    brain_B.HoughTransform_o2_e[83] = -1.2217304763960307E-01;
-    brain_B.HoughTransform_o2_e[84] = -1.0471975511965978E-01;
-    brain_B.HoughTransform_o2_e[85] = -8.7266462599716474E-02;
-    brain_B.HoughTransform_o2_e[86] = -6.9813170079773182E-02;
-    brain_B.HoughTransform_o2_e[87] = -5.2359877559829890E-02;
-    brain_B.HoughTransform_o2_e[88] = -3.4906585039886591E-02;
-    brain_B.HoughTransform_o2_e[89] = -1.7453292519943295E-02;
+    brain_B.HoughTransform_o2_e[0] = -1.5707963267948966E+000;
+    brain_B.HoughTransform_o2_e[1] = -1.5533430342749532E+000;
+    brain_B.HoughTransform_o2_e[2] = -1.5358897417550099E+000;
+    brain_B.HoughTransform_o2_e[3] = -1.5184364492350666E+000;
+    brain_B.HoughTransform_o2_e[4] = -1.5009831567151235E+000;
+    brain_B.HoughTransform_o2_e[5] = -1.4835298641951802E+000;
+    brain_B.HoughTransform_o2_e[6] = -1.4660765716752369E+000;
+    brain_B.HoughTransform_o2_e[7] = -1.4486232791552935E+000;
+    brain_B.HoughTransform_o2_e[8] = -1.4311699866353502E+000;
+    brain_B.HoughTransform_o2_e[9] = -1.4137166941154069E+000;
+    brain_B.HoughTransform_o2_e[10] = -1.3962634015954636E+000;
+    brain_B.HoughTransform_o2_e[11] = -1.3788101090755203E+000;
+    brain_B.HoughTransform_o2_e[12] = -1.3613568165555769E+000;
+    brain_B.HoughTransform_o2_e[13] = -1.3439035240356338E+000;
+    brain_B.HoughTransform_o2_e[14] = -1.3264502315156905E+000;
+    brain_B.HoughTransform_o2_e[15] = -1.3089969389957472E+000;
+    brain_B.HoughTransform_o2_e[16] = -1.2915436464758039E+000;
+    brain_B.HoughTransform_o2_e[17] = -1.2740903539558606E+000;
+    brain_B.HoughTransform_o2_e[18] = -1.2566370614359172E+000;
+    brain_B.HoughTransform_o2_e[19] = -1.2391837689159739E+000;
+    brain_B.HoughTransform_o2_e[20] = -1.2217304763960306E+000;
+    brain_B.HoughTransform_o2_e[21] = -1.2042771838760873E+000;
+    brain_B.HoughTransform_o2_e[22] = -1.1868238913561442E+000;
+    brain_B.HoughTransform_o2_e[23] = -1.1693705988362009E+000;
+    brain_B.HoughTransform_o2_e[24] = -1.1519173063162575E+000;
+    brain_B.HoughTransform_o2_e[25] = -1.1344640137963142E+000;
+    brain_B.HoughTransform_o2_e[26] = -1.1170107212763709E+000;
+    brain_B.HoughTransform_o2_e[27] = -1.0995574287564276E+000;
+    brain_B.HoughTransform_o2_e[28] = -1.0821041362364843E+000;
+    brain_B.HoughTransform_o2_e[29] = -1.0646508437165410E+000;
+    brain_B.HoughTransform_o2_e[30] = -1.0471975511965976E+000;
+    brain_B.HoughTransform_o2_e[31] = -1.0297442586766545E+000;
+    brain_B.HoughTransform_o2_e[32] = -1.0122909661567112E+000;
+    brain_B.HoughTransform_o2_e[33] = -9.9483767363676789E-001;
+    brain_B.HoughTransform_o2_e[34] = -9.7738438111682457E-001;
+    brain_B.HoughTransform_o2_e[35] = -9.5993108859688125E-001;
+    brain_B.HoughTransform_o2_e[36] = -9.4247779607693793E-001;
+    brain_B.HoughTransform_o2_e[37] = -9.2502450355699462E-001;
+    brain_B.HoughTransform_o2_e[38] = -9.0757121103705141E-001;
+    brain_B.HoughTransform_o2_e[39] = -8.9011791851710809E-001;
+    brain_B.HoughTransform_o2_e[40] = -8.7266462599716477E-001;
+    brain_B.HoughTransform_o2_e[41] = -8.5521133347722145E-001;
+    brain_B.HoughTransform_o2_e[42] = -8.3775804095727824E-001;
+    brain_B.HoughTransform_o2_e[43] = -8.2030474843733492E-001;
+    brain_B.HoughTransform_o2_e[44] = -8.0285145591739160E-001;
+    brain_B.HoughTransform_o2_e[45] = -7.8539816339744828E-001;
+    brain_B.HoughTransform_o2_e[46] = -7.6794487087750496E-001;
+    brain_B.HoughTransform_o2_e[47] = -7.5049157835756175E-001;
+    brain_B.HoughTransform_o2_e[48] = -7.3303828583761843E-001;
+    brain_B.HoughTransform_o2_e[49] = -7.1558499331767511E-001;
+    brain_B.HoughTransform_o2_e[50] = -6.9813170079773179E-001;
+    brain_B.HoughTransform_o2_e[51] = -6.8067840827778847E-001;
+    brain_B.HoughTransform_o2_e[52] = -6.6322511575784526E-001;
+    brain_B.HoughTransform_o2_e[53] = -6.4577182323790194E-001;
+    brain_B.HoughTransform_o2_e[54] = -6.2831853071795862E-001;
+    brain_B.HoughTransform_o2_e[55] = -6.1086523819801530E-001;
+    brain_B.HoughTransform_o2_e[56] = -5.9341194567807209E-001;
+    brain_B.HoughTransform_o2_e[57] = -5.7595865315812877E-001;
+    brain_B.HoughTransform_o2_e[58] = -5.5850536063818546E-001;
+    brain_B.HoughTransform_o2_e[59] = -5.4105206811824214E-001;
+    brain_B.HoughTransform_o2_e[60] = -5.2359877559829882E-001;
+    brain_B.HoughTransform_o2_e[61] = -5.0614548307835561E-001;
+    brain_B.HoughTransform_o2_e[62] = -4.8869219055841229E-001;
+    brain_B.HoughTransform_o2_e[63] = -4.7123889803846897E-001;
+    brain_B.HoughTransform_o2_e[64] = -4.5378560551852570E-001;
+    brain_B.HoughTransform_o2_e[65] = -4.3633231299858238E-001;
+    brain_B.HoughTransform_o2_e[66] = -4.1887902047863912E-001;
+    brain_B.HoughTransform_o2_e[67] = -4.0142572795869580E-001;
+    brain_B.HoughTransform_o2_e[68] = -3.8397243543875248E-001;
+    brain_B.HoughTransform_o2_e[69] = -3.6651914291880922E-001;
+    brain_B.HoughTransform_o2_e[70] = -3.4906585039886590E-001;
+    brain_B.HoughTransform_o2_e[71] = -3.3161255787892263E-001;
+    brain_B.HoughTransform_o2_e[72] = -3.1415926535897931E-001;
+    brain_B.HoughTransform_o2_e[73] = -2.9670597283903605E-001;
+    brain_B.HoughTransform_o2_e[74] = -2.7925268031909273E-001;
+    brain_B.HoughTransform_o2_e[75] = -2.6179938779914941E-001;
+    brain_B.HoughTransform_o2_e[76] = -2.4434609527920614E-001;
+    brain_B.HoughTransform_o2_e[77] = -2.2689280275926285E-001;
+    brain_B.HoughTransform_o2_e[78] = -2.0943951023931956E-001;
+    brain_B.HoughTransform_o2_e[79] = -1.9198621771937624E-001;
+    brain_B.HoughTransform_o2_e[80] = -1.7453292519943295E-001;
+    brain_B.HoughTransform_o2_e[81] = -1.5707963267948966E-001;
+    brain_B.HoughTransform_o2_e[82] = -1.3962634015954636E-001;
+    brain_B.HoughTransform_o2_e[83] = -1.2217304763960307E-001;
+    brain_B.HoughTransform_o2_e[84] = -1.0471975511965978E-001;
+    brain_B.HoughTransform_o2_e[85] = -8.7266462599716474E-002;
+    brain_B.HoughTransform_o2_e[86] = -6.9813170079773182E-002;
+    brain_B.HoughTransform_o2_e[87] = -5.2359877559829890E-002;
+    brain_B.HoughTransform_o2_e[88] = -3.4906585039886591E-002;
+    brain_B.HoughTransform_o2_e[89] = -1.7453292519943295E-002;
     brain_B.HoughTransform_o2_e[90] = 0.0;
-    brain_B.HoughTransform_o2_e[91] = 1.7453292519943295E-02;
-    brain_B.HoughTransform_o2_e[92] = 3.4906585039886591E-02;
-    brain_B.HoughTransform_o2_e[93] = 5.2359877559829890E-02;
-    brain_B.HoughTransform_o2_e[94] = 6.9813170079773182E-02;
-    brain_B.HoughTransform_o2_e[95] = 8.7266462599716474E-02;
-    brain_B.HoughTransform_o2_e[96] = 1.0471975511965978E-01;
-    brain_B.HoughTransform_o2_e[97] = 1.2217304763960307E-01;
-    brain_B.HoughTransform_o2_e[98] = 1.3962634015954636E-01;
-    brain_B.HoughTransform_o2_e[99] = 1.5707963267948966E-01;
-    brain_B.HoughTransform_o2_e[100] = 1.7453292519943295E-01;
-    brain_B.HoughTransform_o2_e[101] = 1.9198621771937624E-01;
-    brain_B.HoughTransform_o2_e[102] = 2.0943951023931956E-01;
-    brain_B.HoughTransform_o2_e[103] = 2.2689280275926285E-01;
-    brain_B.HoughTransform_o2_e[104] = 2.4434609527920614E-01;
-    brain_B.HoughTransform_o2_e[105] = 2.6179938779914941E-01;
-    brain_B.HoughTransform_o2_e[106] = 2.7925268031909273E-01;
-    brain_B.HoughTransform_o2_e[107] = 2.9670597283903605E-01;
-    brain_B.HoughTransform_o2_e[108] = 3.1415926535897931E-01;
-    brain_B.HoughTransform_o2_e[109] = 3.3161255787892263E-01;
-    brain_B.HoughTransform_o2_e[110] = 3.4906585039886590E-01;
-    brain_B.HoughTransform_o2_e[111] = 3.6651914291880922E-01;
-    brain_B.HoughTransform_o2_e[112] = 3.8397243543875248E-01;
-    brain_B.HoughTransform_o2_e[113] = 4.0142572795869580E-01;
-    brain_B.HoughTransform_o2_e[114] = 4.1887902047863912E-01;
-    brain_B.HoughTransform_o2_e[115] = 4.3633231299858238E-01;
-    brain_B.HoughTransform_o2_e[116] = 4.5378560551852570E-01;
-    brain_B.HoughTransform_o2_e[117] = 4.7123889803846897E-01;
-    brain_B.HoughTransform_o2_e[118] = 4.8869219055841229E-01;
-    brain_B.HoughTransform_o2_e[119] = 5.0614548307835561E-01;
-    brain_B.HoughTransform_o2_e[120] = 5.2359877559829882E-01;
-    brain_B.HoughTransform_o2_e[121] = 5.4105206811824214E-01;
-    brain_B.HoughTransform_o2_e[122] = 5.5850536063818546E-01;
-    brain_B.HoughTransform_o2_e[123] = 5.7595865315812877E-01;
-    brain_B.HoughTransform_o2_e[124] = 5.9341194567807209E-01;
-    brain_B.HoughTransform_o2_e[125] = 6.1086523819801530E-01;
-    brain_B.HoughTransform_o2_e[126] = 6.2831853071795862E-01;
-    brain_B.HoughTransform_o2_e[127] = 6.4577182323790194E-01;
-    brain_B.HoughTransform_o2_e[128] = 6.6322511575784526E-01;
-    brain_B.HoughTransform_o2_e[129] = 6.8067840827778847E-01;
-    brain_B.HoughTransform_o2_e[130] = 6.9813170079773179E-01;
-    brain_B.HoughTransform_o2_e[131] = 7.1558499331767511E-01;
-    brain_B.HoughTransform_o2_e[132] = 7.3303828583761843E-01;
-    brain_B.HoughTransform_o2_e[133] = 7.5049157835756175E-01;
-    brain_B.HoughTransform_o2_e[134] = 7.6794487087750496E-01;
-    brain_B.HoughTransform_o2_e[135] = 7.8539816339744828E-01;
-    brain_B.HoughTransform_o2_e[136] = 8.0285145591739160E-01;
-    brain_B.HoughTransform_o2_e[137] = 8.2030474843733492E-01;
-    brain_B.HoughTransform_o2_e[138] = 8.3775804095727824E-01;
-    brain_B.HoughTransform_o2_e[139] = 8.5521133347722145E-01;
-    brain_B.HoughTransform_o2_e[140] = 8.7266462599716477E-01;
-    brain_B.HoughTransform_o2_e[141] = 8.9011791851710809E-01;
-    brain_B.HoughTransform_o2_e[142] = 9.0757121103705141E-01;
-    brain_B.HoughTransform_o2_e[143] = 9.2502450355699462E-01;
-    brain_B.HoughTransform_o2_e[144] = 9.4247779607693793E-01;
-    brain_B.HoughTransform_o2_e[145] = 9.5993108859688125E-01;
-    brain_B.HoughTransform_o2_e[146] = 9.7738438111682457E-01;
-    brain_B.HoughTransform_o2_e[147] = 9.9483767363676789E-01;
-    brain_B.HoughTransform_o2_e[148] = 1.0122909661567112E+00;
-    brain_B.HoughTransform_o2_e[149] = 1.0297442586766545E+00;
-    brain_B.HoughTransform_o2_e[150] = 1.0471975511965976E+00;
-    brain_B.HoughTransform_o2_e[151] = 1.0646508437165410E+00;
-    brain_B.HoughTransform_o2_e[152] = 1.0821041362364843E+00;
-    brain_B.HoughTransform_o2_e[153] = 1.0995574287564276E+00;
-    brain_B.HoughTransform_o2_e[154] = 1.1170107212763709E+00;
-    brain_B.HoughTransform_o2_e[155] = 1.1344640137963142E+00;
-    brain_B.HoughTransform_o2_e[156] = 1.1519173063162575E+00;
-    brain_B.HoughTransform_o2_e[157] = 1.1693705988362009E+00;
-    brain_B.HoughTransform_o2_e[158] = 1.1868238913561442E+00;
-    brain_B.HoughTransform_o2_e[159] = 1.2042771838760873E+00;
-    brain_B.HoughTransform_o2_e[160] = 1.2217304763960306E+00;
-    brain_B.HoughTransform_o2_e[161] = 1.2391837689159739E+00;
-    brain_B.HoughTransform_o2_e[162] = 1.2566370614359172E+00;
-    brain_B.HoughTransform_o2_e[163] = 1.2740903539558606E+00;
-    brain_B.HoughTransform_o2_e[164] = 1.2915436464758039E+00;
-    brain_B.HoughTransform_o2_e[165] = 1.3089969389957472E+00;
-    brain_B.HoughTransform_o2_e[166] = 1.3264502315156905E+00;
-    brain_B.HoughTransform_o2_e[167] = 1.3439035240356338E+00;
-    brain_B.HoughTransform_o2_e[168] = 1.3613568165555769E+00;
-    brain_B.HoughTransform_o2_e[169] = 1.3788101090755203E+00;
-    brain_B.HoughTransform_o2_e[170] = 1.3962634015954636E+00;
-    brain_B.HoughTransform_o2_e[171] = 1.4137166941154069E+00;
-    brain_B.HoughTransform_o2_e[172] = 1.4311699866353502E+00;
-    brain_B.HoughTransform_o2_e[173] = 1.4486232791552935E+00;
-    brain_B.HoughTransform_o2_e[174] = 1.4660765716752369E+00;
-    brain_B.HoughTransform_o2_e[175] = 1.4835298641951802E+00;
-    brain_B.HoughTransform_o2_e[176] = 1.5009831567151235E+00;
-    brain_B.HoughTransform_o2_e[177] = 1.5184364492350666E+00;
-    brain_B.HoughTransform_o2_e[178] = 1.5358897417550099E+00;
-    brain_B.HoughTransform_o2_e[179] = 1.5533430342749532E+00;
+    brain_B.HoughTransform_o2_e[91] = 1.7453292519943295E-002;
+    brain_B.HoughTransform_o2_e[92] = 3.4906585039886591E-002;
+    brain_B.HoughTransform_o2_e[93] = 5.2359877559829890E-002;
+    brain_B.HoughTransform_o2_e[94] = 6.9813170079773182E-002;
+    brain_B.HoughTransform_o2_e[95] = 8.7266462599716474E-002;
+    brain_B.HoughTransform_o2_e[96] = 1.0471975511965978E-001;
+    brain_B.HoughTransform_o2_e[97] = 1.2217304763960307E-001;
+    brain_B.HoughTransform_o2_e[98] = 1.3962634015954636E-001;
+    brain_B.HoughTransform_o2_e[99] = 1.5707963267948966E-001;
+    brain_B.HoughTransform_o2_e[100] = 1.7453292519943295E-001;
+    brain_B.HoughTransform_o2_e[101] = 1.9198621771937624E-001;
+    brain_B.HoughTransform_o2_e[102] = 2.0943951023931956E-001;
+    brain_B.HoughTransform_o2_e[103] = 2.2689280275926285E-001;
+    brain_B.HoughTransform_o2_e[104] = 2.4434609527920614E-001;
+    brain_B.HoughTransform_o2_e[105] = 2.6179938779914941E-001;
+    brain_B.HoughTransform_o2_e[106] = 2.7925268031909273E-001;
+    brain_B.HoughTransform_o2_e[107] = 2.9670597283903605E-001;
+    brain_B.HoughTransform_o2_e[108] = 3.1415926535897931E-001;
+    brain_B.HoughTransform_o2_e[109] = 3.3161255787892263E-001;
+    brain_B.HoughTransform_o2_e[110] = 3.4906585039886590E-001;
+    brain_B.HoughTransform_o2_e[111] = 3.6651914291880922E-001;
+    brain_B.HoughTransform_o2_e[112] = 3.8397243543875248E-001;
+    brain_B.HoughTransform_o2_e[113] = 4.0142572795869580E-001;
+    brain_B.HoughTransform_o2_e[114] = 4.1887902047863912E-001;
+    brain_B.HoughTransform_o2_e[115] = 4.3633231299858238E-001;
+    brain_B.HoughTransform_o2_e[116] = 4.5378560551852570E-001;
+    brain_B.HoughTransform_o2_e[117] = 4.7123889803846897E-001;
+    brain_B.HoughTransform_o2_e[118] = 4.8869219055841229E-001;
+    brain_B.HoughTransform_o2_e[119] = 5.0614548307835561E-001;
+    brain_B.HoughTransform_o2_e[120] = 5.2359877559829882E-001;
+    brain_B.HoughTransform_o2_e[121] = 5.4105206811824214E-001;
+    brain_B.HoughTransform_o2_e[122] = 5.5850536063818546E-001;
+    brain_B.HoughTransform_o2_e[123] = 5.7595865315812877E-001;
+    brain_B.HoughTransform_o2_e[124] = 5.9341194567807209E-001;
+    brain_B.HoughTransform_o2_e[125] = 6.1086523819801530E-001;
+    brain_B.HoughTransform_o2_e[126] = 6.2831853071795862E-001;
+    brain_B.HoughTransform_o2_e[127] = 6.4577182323790194E-001;
+    brain_B.HoughTransform_o2_e[128] = 6.6322511575784526E-001;
+    brain_B.HoughTransform_o2_e[129] = 6.8067840827778847E-001;
+    brain_B.HoughTransform_o2_e[130] = 6.9813170079773179E-001;
+    brain_B.HoughTransform_o2_e[131] = 7.1558499331767511E-001;
+    brain_B.HoughTransform_o2_e[132] = 7.3303828583761843E-001;
+    brain_B.HoughTransform_o2_e[133] = 7.5049157835756175E-001;
+    brain_B.HoughTransform_o2_e[134] = 7.6794487087750496E-001;
+    brain_B.HoughTransform_o2_e[135] = 7.8539816339744828E-001;
+    brain_B.HoughTransform_o2_e[136] = 8.0285145591739160E-001;
+    brain_B.HoughTransform_o2_e[137] = 8.2030474843733492E-001;
+    brain_B.HoughTransform_o2_e[138] = 8.3775804095727824E-001;
+    brain_B.HoughTransform_o2_e[139] = 8.5521133347722145E-001;
+    brain_B.HoughTransform_o2_e[140] = 8.7266462599716477E-001;
+    brain_B.HoughTransform_o2_e[141] = 8.9011791851710809E-001;
+    brain_B.HoughTransform_o2_e[142] = 9.0757121103705141E-001;
+    brain_B.HoughTransform_o2_e[143] = 9.2502450355699462E-001;
+    brain_B.HoughTransform_o2_e[144] = 9.4247779607693793E-001;
+    brain_B.HoughTransform_o2_e[145] = 9.5993108859688125E-001;
+    brain_B.HoughTransform_o2_e[146] = 9.7738438111682457E-001;
+    brain_B.HoughTransform_o2_e[147] = 9.9483767363676789E-001;
+    brain_B.HoughTransform_o2_e[148] = 1.0122909661567112E+000;
+    brain_B.HoughTransform_o2_e[149] = 1.0297442586766545E+000;
+    brain_B.HoughTransform_o2_e[150] = 1.0471975511965976E+000;
+    brain_B.HoughTransform_o2_e[151] = 1.0646508437165410E+000;
+    brain_B.HoughTransform_o2_e[152] = 1.0821041362364843E+000;
+    brain_B.HoughTransform_o2_e[153] = 1.0995574287564276E+000;
+    brain_B.HoughTransform_o2_e[154] = 1.1170107212763709E+000;
+    brain_B.HoughTransform_o2_e[155] = 1.1344640137963142E+000;
+    brain_B.HoughTransform_o2_e[156] = 1.1519173063162575E+000;
+    brain_B.HoughTransform_o2_e[157] = 1.1693705988362009E+000;
+    brain_B.HoughTransform_o2_e[158] = 1.1868238913561442E+000;
+    brain_B.HoughTransform_o2_e[159] = 1.2042771838760873E+000;
+    brain_B.HoughTransform_o2_e[160] = 1.2217304763960306E+000;
+    brain_B.HoughTransform_o2_e[161] = 1.2391837689159739E+000;
+    brain_B.HoughTransform_o2_e[162] = 1.2566370614359172E+000;
+    brain_B.HoughTransform_o2_e[163] = 1.2740903539558606E+000;
+    brain_B.HoughTransform_o2_e[164] = 1.2915436464758039E+000;
+    brain_B.HoughTransform_o2_e[165] = 1.3089969389957472E+000;
+    brain_B.HoughTransform_o2_e[166] = 1.3264502315156905E+000;
+    brain_B.HoughTransform_o2_e[167] = 1.3439035240356338E+000;
+    brain_B.HoughTransform_o2_e[168] = 1.3613568165555769E+000;
+    brain_B.HoughTransform_o2_e[169] = 1.3788101090755203E+000;
+    brain_B.HoughTransform_o2_e[170] = 1.3962634015954636E+000;
+    brain_B.HoughTransform_o2_e[171] = 1.4137166941154069E+000;
+    brain_B.HoughTransform_o2_e[172] = 1.4311699866353502E+000;
+    brain_B.HoughTransform_o2_e[173] = 1.4486232791552935E+000;
+    brain_B.HoughTransform_o2_e[174] = 1.4660765716752369E+000;
+    brain_B.HoughTransform_o2_e[175] = 1.4835298641951802E+000;
+    brain_B.HoughTransform_o2_e[176] = 1.5009831567151235E+000;
+    brain_B.HoughTransform_o2_e[177] = 1.5184364492350666E+000;
+    brain_B.HoughTransform_o2_e[178] = 1.5358897417550099E+000;
+    brain_B.HoughTransform_o2_e[179] = 1.5533430342749532E+000;
     brain_B.HoughTransform_o3_n[0] = -199.0;
     brain_B.HoughTransform_o3_n[1] = -198.0;
     brain_B.HoughTransform_o3_n[2] = -197.0;
@@ -16186,11 +16160,9 @@ void brain_initialize(void)
   brain_DWork.BuoyHue = 0.0;
   brain_DWork.BuoySaturation = 0.0;
   brain_DWork.BuoyValue = 0.0;
-  brain_DWork.FirstDir = 0.0;
   brain_DWork.Image = 0.0;
   memset((void *)(&brain_DWork.LabelMatrix[0]), (int32_T)0.0, 19200U * sizeof
          (real_T));
-  brain_DWork.SecondDir = 0.0;
   brain_DWork.TurnDirection = 0.0;
   brain_DWork.count2ndarea = 0.0;
   brain_DWork.num_colors = 0.0;
