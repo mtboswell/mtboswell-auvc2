@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.658
+ * Model version                        : 1.657
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Fri Jul 16 12:40:52 2010
+ * Real-Time Workshop file generated on : Fri Jul 16 14:20:41 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Fri Jul 16 12:40:53 2010
+ * C/C++ source code generated on       : Fri Jul 16 14:20:42 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -20,9 +20,9 @@
 
 /* Block parameters (auto storage) */
 Parameters_brain brain_P = {
-  0.2,
+  0.4,
   1.0,
-  0.75,
+  0.45,
   0.0,
   1.0,
   0.75,
@@ -31,40 +31,40 @@ Parameters_brain brain_P = {
   0.0,
   0.7,
   40.0,
-  0.001,
-  0.001,
-  0.25,
-  0.001,
-  0.001,
-  0.2,
-  0.001,
-  0.001,
-  0.25,
-  0.001,
-  0.001,
-  0.075,
-  0.001,
-  0.001,
+  0.0,
+  0.0,
+  -1.0,
+  0.0,
+  0.0,
+  0.75,
+  0.0,
+  0.0,
+  0.6,
+  0.0,
+  0.0,
+  0.07,
+  0.0,
+  0.0,
   0.8,
   0.0,
   0.0,
   75.0,
-  20.0,
-  0.01,
-  0.01,
-  0.3,
+  30.0,
+  0.4,
+  0.0,
+  0.65,
   0.4,
   1.0,
   0.75,
-  50.0,
+  60.0,
 
   { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0,
     0.0, 0.0, 0.0, 0.0, 0.0 },
   8.0,
-  0.9,
-  0.25,
-  0.9,
+  0.75,
   0.4,
+  0.9,
+  0.05,
   15.0,
   19200U,
   15U

@@ -87,7 +87,7 @@ Model {
       Name		      "RGBout"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.658"
+    ComputedModelVersion    "1.657"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -106,9 +106,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jul 16 12:39:24 2010"
-  RTWModifiedTimeStamp	  201184761
-  ModelVersionFormat	  "1.%<AutoIncrement:658>"
+  LastModifiedDate	  "Fri Jul 16 14:18:49 2010"
+  RTWModifiedTimeStamp	  201190672
+  ModelVersionFormat	  "1.%<AutoIncrement:657>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -950,7 +950,7 @@ Model {
   }
   System {
     Name		    "brain"
-    Location		    [2, 82, 1342, 698]
+    Location		    [2, 74, 1358, 690]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -2950,7 +2950,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "StateFlowFunctions.Buoys.ApproachBuoys.Buoy"
-	    Location		    [2, 74, 1364, 707]
+	    Location		    [2, 82, 1342, 715]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -6438,7 +6438,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors"
-	    Location		    [2, 82, 1348, 715]
+	    Location		    [2, 82, 1342, 715]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -11455,7 +11455,7 @@ Model {
 	  System {
 	    Name		    "StateFlowFunctions.FollowOnePath.OnePath.CamDown_CenterOver_Yaw"
 	    Location		    [2, 82, 1342, 715]
-	    Open		    off
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -25301,17 +25301,17 @@ Stateflow {
     id			    2
     name		    "StateFlow Functions"
     windowPosition	    [18.75 30 982.5 489]
-    viewLimits		    [-18.75 1155 -18.75 547.5]
+    viewLimits		    [-18.75 1155 -9.965 556.285]
     zoomFactor		    1.25
     screen		    [1 1 1360 768 1.333333333333333]
     treeNode		    [0 4 0 0]
-    viewObj		    60
+    viewObj		    32
     visible		    1
     machine		    1
     subviewS {
       zoomFactor	      1.25
     }
-    ssIdHighWaterMark	    1853
+    ssIdHighWaterMark	    1852
     decomposition	    SET_CHART
     firstData		    408
     updateMethod	    DISCRETE
@@ -25457,7 +25457,6 @@ Stateflow {
     chart		    2
     treeNode		    [32 10 31 11]
     superState		    SUBCHART
-    visible		    0
     subviewer		    32
     subviewS {
       x1		      -15
@@ -25497,7 +25496,6 @@ Stateflow {
     chart		    2
     treeNode		    [32 0 9 13]
     superState		    SUBCHART
-    visible		    0
     subviewer		    32
     ssIdNumber		    1495
     type		    FUNC_STATE
@@ -25535,7 +25533,6 @@ Stateflow {
     chart		    2
     treeNode		    [32 0 11 0]
     superState		    SUBCHART
-    visible		    0
     subviewer		    32
     ssIdNumber		    1366
     type		    FUNC_STATE
@@ -25863,7 +25860,6 @@ Stateflow {
     chart		    2
     treeNode		    [32 27 33 9]
     superState		    SUBCHART
-    visible		    0
     subviewer		    32
     subviewS {
       x1		      -18.75
@@ -25884,7 +25880,6 @@ Stateflow {
     treeNode		    [23 33 25 14]
     firstTransition	    126
     superState		    SUBCHART
-    visible		    0
     subviewer		    23
     subviewS {
       x1		      -18.75
@@ -25907,7 +25902,6 @@ Stateflow {
     chart		    2
     treeNode		    [32 0 0 31]
     superState		    SUBCHART
-    visible		    0
     subviewer		    32
     subviewS {
       x1		      -15
@@ -26422,12 +26416,13 @@ Stateflow {
     labelString		    "AlignWithPath\n\nentry:\nHeadingAlongPath = 10;\nLeft = 0;\nRight = 0;\nStrafe = 0;\n\ndu:\n[BWo"
     "ut] = HSVSegmentation(H,S);\n[HeadingAlongPath,BWout] = GetHeadings(BWout);\n\n[Left,Right,Forward,ErrorY,ErrorX] "
     "= CamDown_CenterOver_Yaw(BWout);\nVertical = MaintainDepth(CurrentDepth,DesiredDepth);\nStrafe = Align(HeadingAlon"
-    "gPath);\n\nLeft = Left + Forward;\nRight = Right + Forward;"
+    "gPath);"
     position		    [299.1406 74.7656 129.8438 99.8438]
     fontSize		    12
     chart		    2
     treeNode		    [56 61 58 63]
     superState		    SUBCHART
+    visible		    0
     subviewer		    56
     subviewS {
       x1		      -18.75
@@ -26447,6 +26442,7 @@ Stateflow {
     chart		    2
     treeNode		    [60 0 0 62]
     superState		    SUBCHART
+    visible		    0
     subviewer		    60
     ssIdNumber		    1560
     type		    FUNC_STATE
@@ -26465,6 +26461,7 @@ Stateflow {
     chart		    2
     treeNode		    [60 0 61 0]
     superState		    SUBCHART
+    visible		    0
     subviewer		    60
     ssIdNumber		    1565
     type		    FUNC_STATE
@@ -26520,7 +26517,7 @@ Stateflow {
     position		    [68.4375 223.125 139.0625 89.0625]
     fontSize		    12
     chart		    2
-    treeNode		    [55 67 56 69]
+    treeNode		    [55 66 56 69]
     firstTransition	    176
     superState		    SUBCHART
     visible		    0
@@ -26536,12 +26533,12 @@ Stateflow {
   }
   state {
     id			    66
-    labelString		    "TurnRight\n\nen:\nDesiredHeading = CurrentHeading + 30;\n\ndu:\n[Left,Right] = MaintainHeading(D"
-    "esiredHeading,CurrentHeading,0);\n[Vertical] = MaintainDepth(CurrentDepth,DesiredDepth);"
-    position		    [377.875 118.125 90 60]
+    labelString		    "TurnRight\n\ndu:\nDesiredHeading = CurrentHeading + 15;\n[Left,Right] = MaintainHeading(DesiredH"
+    "eading,CurrentHeading,0);\n[Vertical] = MaintainDepth(CurrentDepth,DesiredDepth);"
+    position		    [230 110.25 90 60]
     fontSize		    12
     chart		    2
-    treeNode		    [65 0 67 68]
+    treeNode		    [65 0 0 67]
     superState		    SUBCHART
     visible		    0
     subviewer		    65
@@ -26556,12 +26553,12 @@ Stateflow {
   }
   state {
     id			    67
-    labelString		    "TurnLeft\n\nen:\nDesiredHeading = CurrentHeading - 15;\n\ndu:\n[Left,Right] = MaintainHeading(De"
-    "siredHeading,CurrentHeading,0);\n[Vertical] = MaintainDepth(CurrentDepth,DesiredDepth);"
+    labelString		    "TurnLeft\n\ndu:\nDesiredHeading = CurrentHeading - 15;\n[Left,Right] = MaintainHeading(DesiredHe"
+    "ading,CurrentHeading,0);\n[Vertical] = MaintainDepth(CurrentDepth,DesiredDepth);"
     position		    [38 112.5 90 60]
     fontSize		    12
     chart		    2
-    treeNode		    [65 0 0 66]
+    treeNode		    [65 0 66 68]
     superState		    SUBCHART
     visible		    0
     subviewer		    65
@@ -26580,7 +26577,7 @@ Stateflow {
     position		    [30.375 234.8906 283.0938 46.5937]
     fontSize		    12
     chart		    2
-    treeNode		    [65 0 66 0]
+    treeNode		    [65 0 67 0]
     superState		    SUBCHART
     visible		    0
     subviewer		    65
@@ -27604,7 +27601,7 @@ Stateflow {
   transition {
     id			    123
     labelString		    "[OperationalState ~= 9]"
-    labelPosition	    [160.026 472.381 129.312 16.842]
+    labelPosition	    [160.026 472.381 119.942 17.965]
     fontSize		    12
     src {
       id		      20
@@ -27652,11 +27649,11 @@ Stateflow {
     fontSize		    12
     src {
       id		      28
-      intersection	      [2 1 0 0.2749 186.2969 106.7924 0 -23.4375]
+      intersection	      [2 1 0 0.2749 186.2969 106.7889 0 -23.4375]
     }
     dst {
       id		      32
-      intersection	      [4 -1 -0 0.7938 282.8398 106.7924 0 24.1875]
+      intersection	      [4 -1 -0 0.7938 282.8398 106.7889 0 24.1875]
     }
     midPoint		    [232.4064 106.7863]
     chart		    2
@@ -27666,6 +27663,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    23
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1292
   }
@@ -27683,7 +27682,6 @@ Stateflow {
     midPoint		    [117.0313 134.7122]
     chart		    2
     linkNode		    [32 0 127]
-    visible		    0
     dataLimits		    [114.634 119.435 124.386 154.386]
     subviewer		    32
     executionOrder	    1
@@ -27696,20 +27694,21 @@ Stateflow {
     fontSize		    12
     src {
       id		      9
-      intersection	      [2 1 0 0.4502 205.0328 187.0267 0 -4.3093]
+      intersection	      [2 1 -0 0.4502 205.0328 187.0267 0 -4.3093]
     }
     dst {
       id		      31
-      intersection	      [4 -1 -0 0.5423 316.4688 187.0267 0 4.3093]
+      intersection	      [4 -1 0 0.5423 316.4688 187.0267 0 4.3093]
     }
     midPoint		    [258.9126 187.0321]
     chart		    2
     linkNode		    [32 126 128]
-    visible		    0
     dataLimits		    [205.033 316.469 184.627 189.427]
     stampAngle		    NaN
     subviewer		    32
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1314
   }
@@ -27729,7 +27728,6 @@ Stateflow {
     midPoint		    [498.1701 189.6443]
     chart		    2
     linkNode		    [32 127 0]
-    visible		    0
     dataLimits		    [438.094 561.406 187.246 192.046]
     stampAngle		    NaN
     subviewer		    32
@@ -28139,6 +28137,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    23
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1455
   }
@@ -28398,7 +28398,7 @@ Stateflow {
   }
   transition {
     id			    157
-    labelPosition	    [534.687 572.49 8.433 16.842]
+    labelPosition	    [534.687 572.49 8.996 17.965]
     fontSize		    12
     src {
       intersection	      [0 0 -1 0 529.6873 589.3812 0 0]
@@ -28420,7 +28420,7 @@ Stateflow {
   transition {
     id			    158
     labelString		    "[OperationalState ~= -2]"
-    labelPosition	    [220.029 187.203 133.061 16.842]
+    labelPosition	    [220.029 187.203 124.44 17.965]
     fontSize		    12
     src {
       id		      5
@@ -28448,7 +28448,7 @@ Stateflow {
   transition {
     id			    159
     labelString		    "[OperationalState == -2]"
-    labelPosition	    [209.218 99.054 133.061 16.842]
+    labelPosition	    [209.218 99.054 124.44 17.965]
     fontSize		    12
     src {
       id		      53
@@ -28476,7 +28476,7 @@ Stateflow {
   transition {
     id			    160
     labelString		    "[OperationalState == -1]"
-    labelPosition	    [150.81 297.819 133.061 16.842]
+    labelPosition	    [150.81 297.819 124.44 17.965]
     fontSize		    12
     src {
       id		      53
@@ -28500,7 +28500,7 @@ Stateflow {
   transition {
     id			    161
     labelString		    "[OperationalState ~= -1]"
-    labelPosition	    [159.939 329.459 133.061 16.842]
+    labelPosition	    [159.939 329.459 124.44 17.965]
     fontSize		    12
     src {
       id		      6
@@ -28524,7 +28524,7 @@ Stateflow {
   transition {
     id			    162
     labelString		    "[OperationalState ~= 1]"
-    labelPosition	    [411.564 180.906 129.312 16.842]
+    labelPosition	    [411.564 180.906 119.942 17.965]
     fontSize		    12
     src {
       id		      51
@@ -28548,7 +28548,7 @@ Stateflow {
   transition {
     id			    163
     labelString		    "[OperationalState == 1]"
-    labelPosition	    [375 105.631 129.312 16.842]
+    labelPosition	    [375 105.631 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -28572,7 +28572,7 @@ Stateflow {
   transition {
     id			    164
     labelString		    "[OperationalState == 2]"
-    labelPosition	    [481.393 141.334 129.312 16.842]
+    labelPosition	    [481.393 141.334 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -28596,7 +28596,7 @@ Stateflow {
   transition {
     id			    165
     labelString		    "[OperationalState ~= 2]"
-    labelPosition	    [546.732 199.62 129.312 16.842]
+    labelPosition	    [546.732 199.62 119.942 17.965]
     fontSize		    12
     src {
       id		      39
@@ -28620,7 +28620,7 @@ Stateflow {
   transition {
     id			    166
     labelString		    "[OperationalState ~= 3]"
-    labelPosition	    [719.783 178.65 129.312 16.842]
+    labelPosition	    [719.783 178.65 119.942 17.965]
     fontSize		    12
     src {
       id		      55
@@ -28644,7 +28644,7 @@ Stateflow {
   transition {
     id			    167
     labelString		    "[OperationalState == 3]"
-    labelPosition	    [655.096 126.844 129.312 16.842]
+    labelPosition	    [655.096 126.844 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -28668,7 +28668,7 @@ Stateflow {
   transition {
     id			    168
     labelString		    "[OperationalState ~= 4]"
-    labelPosition	    [835.879 149.208 129.312 16.842]
+    labelPosition	    [835.879 149.208 119.942 17.965]
     fontSize		    12
     src {
       id		      23
@@ -28686,13 +28686,15 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1279
   }
   transition {
     id			    169
     labelString		    "[OperationalState == 4]"
-    labelPosition	    [796.691 115.723 129.312 16.842]
+    labelPosition	    [796.691 115.723 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -28710,13 +28712,15 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    8
     ssIdNumber		    1280
   }
   transition {
     id			    170
     labelString		    "[OperationalState == 9]"
-    labelPosition	    [169.669 406.151 129.312 16.842]
+    labelPosition	    [169.669 406.151 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -28778,8 +28782,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    55
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1548
   }
@@ -28804,8 +28806,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    56
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1550
   }
@@ -28830,8 +28830,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    56
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1551
   }
@@ -28857,7 +28855,7 @@ Stateflow {
   }
   transition {
     id			    176
-    labelPosition	    [95.65 90.891 8.246 14.971]
+    labelPosition	    [95.65 90.891 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 91.25 82.5 0 0]
@@ -28877,22 +28875,22 @@ Stateflow {
   }
   transition {
     id			    177
-    labelString		    "[abs(CurrentHeading - DesiredHeading) < 5]"
-    labelPosition	    [138.625 128.625 232.388 14.971]
+    labelString		    "after(1,sec)"
+    labelPosition	    [147.625 124.875 62.782 16.842]
     fontSize		    12
     src {
       id		      67
-      intersection	      [2 1 0 0.5813 128 147.375 0 -2.25]
+      intersection	      [2 1 -0 0.45 128 139.5 0 -2.25]
     }
     dst {
       id		      66
-      intersection	      [4 -1 -0 0.5125 377.875 147.375 0 3]
+      intersection	      [4 -1 0 0.5125 230 139.5 0 3]
     }
-    midPoint		    [254.1089 147.375]
+    midPoint		    [176.9567 139.5]
     chart		    2
     linkNode		    [65 176 178]
     visible		    0
-    dataLimits		    [128 377.875 144.975 149.775]
+    dataLimits		    [128 230 137.1 141.9]
     stampAngle		    NaN
     subviewer		    65
     drawStyle		    SMART
@@ -28901,22 +28899,22 @@ Stateflow {
   }
   transition {
     id			    178
-    labelString		    "[abs(CurrentHeading - DesiredHeading) < 5]"
-    labelPosition	    [141.625 163.875 232.388 14.971]
+    labelString		    "after(1,sec)"
+    labelPosition	    [152.125 154.125 62.782 16.842]
     fontSize		    12
     src {
       id		      66
-      intersection	      [4 -1 -0 0.3 377.875 160.125 0 -12]
+      intersection	      [4 -1 0 0.3 230 152.25 0 -12]
     }
     dst {
       id		      67
-      intersection	      [2 1 0 0.7938 128 160.125 0 12]
+      intersection	      [2 1 -0 0.6625 128 152.25 0 12]
     }
-    midPoint		    [251.7661 160.125]
+    midPoint		    [181.0433 152.25]
     chart		    2
     linkNode		    [65 177 0]
     visible		    0
-    dataLimits		    [128 377.875 157.725 162.525]
+    dataLimits		    [128 230 149.85 154.65]
     stampAngle		    NaN
     subviewer		    65
     drawStyle		    SMART
@@ -29229,7 +29227,7 @@ Stateflow {
   transition {
     id			    192
     labelString		    "[OperationalState == 5]"
-    labelPosition	    [997.174 183.721 129.312 16.842]
+    labelPosition	    [997.174 183.721 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -29253,7 +29251,7 @@ Stateflow {
   transition {
     id			    193
     labelString		    "[OperationalState ~= 5]"
-    labelPosition	    [951.568 123.941 129.312 16.842]
+    labelPosition	    [951.568 123.941 119.942 17.965]
     fontSize		    12
     src {
       id		      70
@@ -29493,7 +29491,7 @@ Stateflow {
   transition {
     id			    203
     labelString		    "[OperationalState ~= 6]"
-    labelPosition	    [1064.547 149.531 129.312 16.842]
+    labelPosition	    [1064.547 149.531 119.942 17.965]
     fontSize		    12
     src {
       id		      96
@@ -29517,7 +29515,7 @@ Stateflow {
   transition {
     id			    204
     labelString		    "[OperationalState == 6]"
-    labelPosition	    [1113.297 205.781 129.312 16.842]
+    labelPosition	    [1113.297 205.781 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -29833,7 +29831,7 @@ Stateflow {
   transition {
     id			    217
     labelString		    "[OperationalState == 7]"
-    labelPosition	    [1267.25 300.75 129.312 16.842]
+    labelPosition	    [1267.25 300.75 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -29857,7 +29855,7 @@ Stateflow {
   transition {
     id			    218
     labelString		    "[OperationalState ~= 7]"
-    labelPosition	    [1268.75 351.75 129.312 16.842]
+    labelPosition	    [1268.75 351.75 119.942 17.965]
     fontSize		    12
     src {
       id		      101
@@ -29881,7 +29879,7 @@ Stateflow {
   transition {
     id			    219
     labelString		    "[OperationalState == 8]"
-    labelPosition	    [1274.094 385.969 129.312 16.842]
+    labelPosition	    [1274.094 385.969 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -29905,7 +29903,7 @@ Stateflow {
   transition {
     id			    220
     labelString		    "[OperationalState ~=8]"
-    labelPosition	    [1280.75 432.75 125.564 16.842]
+    labelPosition	    [1280.75 432.75 116.943 17.965]
     fontSize		    12
     src {
       id		      102
@@ -38623,12 +38621,13 @@ Stateflow {
       "Eccent1 - MinE);\n\nif(Centroid1(1,1) == -1 && Centroid1(2,1) == -1)\n    [ImageY ImageX] = size(Image);\n    Bl"
       "obCentroidX = floor(ImageX/2);\n    BlobCentroidY = floor(ImageY/2);\n    BlobArea = -1;\nelse\n    [MinDist, in"
       "dex] = min(double(Dist));\n    Dist(index) = 2;\n    [MinDist2,index2] = min(double(Dist));\n    \n    if(MinDis"
-      "t2 < MinDist * 1.5)\n        if(Area1(index) >= Area1(index2))\n            BlobCentroidX = Centroid1(2, index);"
-      "\n            BlobCentroidY = Centroid1(1, index);\n            BlobArea = double(Area1(index));\n        else\n"
-      "            BlobCentroidX = Centroid1(2, index2);\n            BlobCentroidY = Centroid1(1, index2);\n          "
-      "  BlobArea = double(Area1(index2));\n        end\n    else\n        BlobCentroidX = Centroid1(2, index);\n      "
-      "  BlobCentroidY = Centroid1(1, index);\n        BlobArea = double(Area1(index));\n    end\nend\n\nreturn\n"
-      editorLayout	      "100 M4x1[225 281 932 437]"
+      "t2 < MinDist * 1.5)\n        if(Centroid1(2,index) >= Centroid1(2,index2))\n            BlobCentroidX = Centroid"
+      "1(2, index);\n            BlobCentroidY = Centroid1(1, index);\n            BlobArea = double(Area1(index));\n  "
+      "      else\n            BlobCentroidX = Centroid1(2, index2);\n            BlobCentroidY = Centroid1(1, index2);"
+      "\n            BlobArea = double(Area1(index2));\n        end\n    else\n        BlobCentroidX = Centroid1(2, ind"
+      "ex);\n        BlobCentroidY = Centroid1(1, index);\n        BlobArea = double(Area1(index));\n    end\nend\n\nre"
+      "turn\n"
+      editorLayout	      "100 M4x1[153 94 932 437]"
       breakpoints	      "100 M[10]"
       fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
       "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"

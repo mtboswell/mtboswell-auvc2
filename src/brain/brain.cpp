@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.658
+ * Model version                        : 1.657
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Fri Jul 16 12:40:52 2010
+ * Real-Time Workshop file generated on : Fri Jul 16 14:20:41 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Fri Jul 16 12:40:53 2010
+ * C/C++ source code generated on       : Fri Jul 16 14:20:42 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -707,8 +707,8 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     brain_min(eml_Dist, &eml_MinDist, &eml_index);
     if (eml_MinDist < eml_min_dist * 1.5) {
       /* '<S45>:1:20' */
-      if (rtb_BuoyBlobAnalysis_o1_m[(int32_T)eml_i - 1] >=
-          rtb_BuoyBlobAnalysis_o1_m[(int32_T)eml_index - 1]) {
+      if (rtb_BuoyBlobAnalysis_o2_a[(((int32_T)eml_i - 1) << 1U) + 1] >=
+          rtb_BuoyBlobAnalysis_o2_a[(((int32_T)eml_index - 1) << 1U) + 1]) {
         /* '<S45>:1:21' */
         /* '<S45>:1:22' */
         localB->BlobCentroidX = rtb_BuoyBlobAnalysis_o2_a[(((int32_T)eml_i - 1) <<
@@ -10681,8 +10681,6 @@ static void brain_OnePath(void)
         &brain_DWork.StateFlowFunctionsFollowOnePa_k);
       brain_B.Strafe = (int8_T)(int16_T)
         (brain_B.StateFlowFunctionsFollowOnePa_k.Gain >> 7);
-      brain_B.Left = (int8_T)((real_T)brain_B.Left + brain_DWork.Forward);
-      brain_B.Right = (int8_T)((real_T)brain_B.Right + brain_DWork.Forward);
     }
     break;
 
@@ -10941,13 +10939,15 @@ static void brain_RecognizePath(void)
     switch (brain_DWork.is_RecognizePath) {
      case brain_IN_TurnLeft:
       /* During 'TurnLeft': '<S7>:1583' */
-      if (fabs(brain_U.CurrentHeading - brain_B.DesiredHeading) < 5.0) {
+      if ((uint32_T)brain_DWork.temporalCounter_i1 >= 5U) {
         /* Transition: '<S7>:1580' */
         /* Exit 'TurnLeft': '<S7>:1583' */
         /* Entry 'TurnRight': '<S7>:1582' */
         brain_DWork.is_RecognizePath = brain_IN_TurnRight;
-        brain_B.DesiredHeading = brain_U.CurrentHeading + 30.0;
+        brain_DWork.temporalCounter_i1 = 0U;
       } else {
+        brain_B.DesiredHeading = brain_U.CurrentHeading - 15.0;
+
         /* Simulink Function 'MaintainHeading': '<S7>:918' */
         brain_B.DesiredHeading1 = brain_B.DesiredHeading;
         brain_B.CurrentHeading1 = brain_U.CurrentHeading;
@@ -11033,13 +11033,15 @@ static void brain_RecognizePath(void)
 
      case brain_IN_TurnRight:
       /* During 'TurnRight': '<S7>:1582' */
-      if (fabs(brain_U.CurrentHeading - brain_B.DesiredHeading) < 5.0) {
+      if ((uint32_T)brain_DWork.temporalCounter_i1 >= 5U) {
         /* Transition: '<S7>:1581' */
         /* Exit 'TurnRight': '<S7>:1582' */
         /* Entry 'TurnLeft': '<S7>:1583' */
         brain_DWork.is_RecognizePath = brain_IN_TurnLeft;
-        brain_B.DesiredHeading = brain_U.CurrentHeading - 15.0;
+        brain_DWork.temporalCounter_i1 = 0U;
       } else {
+        brain_B.DesiredHeading = brain_U.CurrentHeading + 15.0;
+
         /* Simulink Function 'MaintainHeading': '<S7>:918' */
         brain_B.DesiredHeading1 = brain_B.DesiredHeading;
         brain_B.CurrentHeading1 = brain_U.CurrentHeading;
@@ -11127,7 +11129,7 @@ static void brain_RecognizePath(void)
       /* Transition: '<S7>:1579' */
       /* Entry 'TurnLeft': '<S7>:1583' */
       brain_DWork.is_RecognizePath = brain_IN_TurnLeft;
-      brain_B.DesiredHeading = brain_U.CurrentHeading - 15.0;
+      brain_DWork.temporalCounter_i1 = 0U;
       break;
     }
   }
@@ -11286,7 +11288,7 @@ static void brain_GetInCorrectState(void)
     /* Transition: '<S7>:1579' */
     /* Entry 'TurnLeft': '<S7>:1583' */
     brain_DWork.is_RecognizePath = brain_IN_TurnLeft;
-    brain_B.DesiredHeading = brain_U.CurrentHeading - 15.0;
+    brain_DWork.temporalCounter_i1 = 0U;
   } else if (brain_DWork.OperationalState == 4) {
     /* Transition: '<S7>:1280' */
     /* Exit 'GetInCorrectState': '<S7>:1263' */
@@ -14558,7 +14560,7 @@ void brain_step(void)
           /* Transition: '<S7>:1579' */
           /* Entry 'TurnLeft': '<S7>:1583' */
           brain_DWork.is_RecognizePath = brain_IN_TurnLeft;
-          brain_B.DesiredHeading = brain_U.CurrentHeading - 15.0;
+          brain_DWork.temporalCounter_i1 = 0U;
           break;
         }
       }
