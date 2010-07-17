@@ -83,6 +83,7 @@ void Model::rt_OneStep(void)
 	/* Save FPU context here (if necessary) */
 	/* Re-enable timer or interrupt here */
 	/* Set model inputs here */
+	brain_U.DeltaT = stepTimer.restart();
 
 	/* Step the model */
 	brain_step();
@@ -97,9 +98,10 @@ void Model::rt_OneStep(void)
 	/* Disable interrupts here */
 	/* Restore FPU context here (if necessary) */
 	/* Enable interrupts here */
+	if(brain_U.Tare) brain_U.Tare = 0;
 	modelMutex->unlock();
 	if(config["Debug"]=="true") qDebug("Model Unlocked, sending output");
-	emit outputReady(brain_Y, stepTimer.restart());
+	emit outputReady(brain_Y, stepTimer.elapsed());
 	if(config["Debug"]=="true") qDebug("Output Sent");
 }
 		
@@ -110,9 +112,20 @@ void Model::updateSensorsInput(AUVSensors values){
 	
 	brain_U.CurrentDepth = values.depth;                 /* '<Root>/CurrentDepth' */
 	brain_U.CurrentHeading = values.orientation.yaw;               /* '<Root>/CurrentHeading' */
+
 	brain_U.YawRate = values.orientation.yawrate;               /* '<Root>/CurrentHeading' */
-	brain_U.Y_Accelerometer = values.orientation.pitchacc;               /* '<Root>/CurrentHeading' */
-	qDebug() << values.orientation.pitchacc << values.orientation.yawacc << values.orientation. yawrate;
+	brain_U.YawAccelB = values.orientation.yawacc;               /* '<Root>/CurrentHeading' */
+
+	brain_U.PitchEuler = values.orientation.pitch;               /* '<Root>/CurrentHeading' */
+	brain_U.PitchRate = values.orientation.pitchrate;               /* '<Root>/CurrentHeading' */
+	brain_U.PitchAccelB = values.orientation.pitchacc;               /* '<Root>/CurrentHeading' */
+
+	brain_U.RollEuler = values.orientation.roll;               /* '<Root>/CurrentHeading' */
+	brain_U.RollRate = values.orientation.rollrate;               /* '<Root>/CurrentHeading' */
+	brain_U.RollAccelB = values.orientation.rollacc;               /* '<Root>/CurrentHeading' */
+
+
+	//qDebug() << values.orientation.pitchacc << values.orientation.yawacc << values.orientation. yawrate;
 	brain_U.Status = values.status;                       /* '<Root>/Status' */	
 	
 	// Transfer video frame into MATLAB, swapping buffers 
@@ -153,6 +166,7 @@ void Model::setParam(QString name, double value){
 }
 
 void Model::setInput(QString name, double value){
+	if(config["Debug"] == "true") qDebug() << "Setting input: " + name + " to " + QString::number(value);
 	if(name == "RC_Heading") brain_U.RC_Heading = value;
 	else if(name == "RC_ForwardVelocity") brain_U.RC_ForwardVelocity = value;
 	else if(name == "RC_Strafe") brain_U.RC_Strafe = value;
@@ -168,6 +182,8 @@ void Model::setInput(QString name, double value){
 		brain_U.RC = (boolean_T) value;
 		if(brain_U.RC) emit status("Entering Remote Control Mode");
 		else emit status("Autonomous");
+	}else if(name == "Tare"){
+		brain_U.Tare = (boolean_T) value;
 	}
 
 	if(brain_U.RC) {
