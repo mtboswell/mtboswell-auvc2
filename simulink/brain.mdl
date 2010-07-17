@@ -195,7 +195,7 @@ Model {
       Name		      "YawRate_Out"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.720"
+    ComputedModelVersion    "1.724"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -214,9 +214,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jul 17 15:13:52 2010"
-  RTWModifiedTimeStamp	  201280429
-  ModelVersionFormat	  "1.%<AutoIncrement:720>"
+  LastModifiedDate	  "Sat Jul 17 15:46:59 2010"
+  RTWModifiedTimeStamp	  201282295
+  ModelVersionFormat	  "1.%<AutoIncrement:724>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1058,7 +1058,7 @@ Model {
   }
   System {
     Name		    "brain"
-    Location		    [2, 82, 1341, 715]
+    Location		    [2, 74, 1341, 707]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1907,6 +1907,11 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
+      Array {
+	Type			"Handle"
+	Dimension		0
+	PropName		"AvailSigsLoadSave"
+      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -2093,6 +2098,11 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
+      Array {
+	Type			"Handle"
+	Dimension		0
+	PropName		"AvailSigsLoadSave"
+      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -2844,6 +2854,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -3536,6 +3551,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -3754,6 +3774,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -3993,6 +4018,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -5905,6 +5935,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -6232,6 +6267,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -6896,6 +6936,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -7155,6 +7200,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -7393,6 +7443,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -7776,6 +7831,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -8049,6 +8109,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -8618,6 +8683,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -8735,6 +8805,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -8852,6 +8927,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -9091,6 +9171,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -9264,6 +9349,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -9998,6 +10088,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -10174,6 +10269,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -10456,6 +10556,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -10697,6 +10802,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -11222,6 +11332,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -11463,6 +11578,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -11958,6 +12078,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -12123,6 +12248,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -13358,6 +13488,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -13523,6 +13658,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -15091,6 +15231,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -15693,7 +15838,7 @@ Model {
 	      System {
 		Name			"PID Controller\nRelative Heading"
 		Location		[463, 213, 1217, 620]
-		Open			off
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -15761,22 +15906,6 @@ Model {
 		  ICPrevScaledInput	  "DiscIntNeverNeededParam"
 		}
 		Block {
-		  BlockType		  Gain
-		  Name			  "Gain"
-		  SID			  1557
-		  Position		  [490, 130, 520, 160]
-		  Gain			  "-1"
-		  ParameterDataTypeMode	  "Inherit via internal rule"
-		  ParameterDataType	  "fixdt(1, 16)"
-		  ParameterScaling	  "2^0"
-		  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-		  OutDataTypeMode	  "Inherit via internal rule"
-		  OutDataType		  "fixdt(1, 16)"
-		  OutScaling		  "2^0"
-		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-		  SaturateOnIntegerOverflow off
-		}
-		Block {
 		  BlockType		  Sum
 		  Name			  "Sum"
 		  SID			  1558
@@ -15793,7 +15922,7 @@ Model {
 		  Name			  "Y-Accelerometer\nDerivative\nGain"
 		  SID			  1552
 		  Position		  [180, 130, 210, 160]
-		  Gain			  "Cam_Down_Strafe_XPos_Kd"
+		  Gain			  "IMU_YVel_Kd"
 		  ParameterDataTypeMode	  "Inherit via internal rule"
 		  ParameterDataType	  "fixdt(1, 16)"
 		  ParameterScaling	  "2^0"
@@ -15809,7 +15938,7 @@ Model {
 		  Name			  "Y-Accelerometer\nIntegral\nGain"
 		  SID			  1553
 		  Position		  [180, 220, 210, 250]
-		  Gain			  "Cam_Down_Strafe_XPos_Ki"
+		  Gain			  "IMU_YVel_Ki"
 		  ParameterDataTypeMode	  "Inherit via internal rule"
 		  ParameterDataType	  "fixdt(1, 16)"
 		  ParameterScaling	  "2^0"
@@ -15825,7 +15954,7 @@ Model {
 		  Name			  "Y-Accelerometer\nProportional\nGain"
 		  SID			  1554
 		  Position		  [180, 55, 230, 85]
-		  Gain			  "Cam_Down_Strafe_XPos_Kp"
+		  Gain			  "IMU_YVel_Kp"
 		  ParameterDataTypeMode	  "Inherit via internal rule"
 		  ParameterDataType	  "fixdt(1, 16)"
 		  ParameterScaling	  "2^0"
@@ -15864,7 +15993,7 @@ Model {
 		Line {
 		  SrcBlock		  "Sum"
 		  SrcPort		  1
-		  DstBlock		  "Gain"
+		  DstBlock		  "u"
 		  DstPort		  1
 		}
 		Line {
@@ -15899,12 +16028,6 @@ Model {
 		    DstBlock		    "Y-Accelerometer\nProportional\nGain"
 		    DstPort		    1
 		  }
-		}
-		Line {
-		  SrcBlock		  "Gain"
-		  SrcPort		  1
-		  DstBlock		  "u"
-		  DstPort		  1
 		}
 	      }
 	    }
@@ -16009,7 +16132,7 @@ Model {
 		  Name			  "YawRate\nDerivative\nGain"
 		  SID			  1538
 		  Position		  [125, 100, 155, 130]
-		  Gain			  "YawRate_Kd"
+		  Gain			  "IMU_YawRate_Kd"
 		  ParameterDataTypeMode	  "Inherit via internal rule"
 		  ParameterDataType	  "fixdt(1, 16)"
 		  ParameterScaling	  "2^0"
@@ -16025,7 +16148,7 @@ Model {
 		  Name			  "YawRate\nIntegral\nGain"
 		  SID			  1541
 		  Position		  [125, 190, 155, 220]
-		  Gain			  "YawRate_Ki"
+		  Gain			  "IMU_YawRate_Ki"
 		  ParameterDataTypeMode	  "Inherit via internal rule"
 		  ParameterDataType	  "fixdt(1, 16)"
 		  ParameterScaling	  "2^0"
@@ -16041,7 +16164,7 @@ Model {
 		  Name			  "YawRate\nProportional\nGain"
 		  SID			  1542
 		  Position		  [125, 25, 155, 55]
-		  Gain			  "YawRate_Kp"
+		  Gain			  "IMU_YawRate_Kp"
 		  ParameterDataTypeMode	  "Inherit via internal rule"
 		  ParameterDataType	  "fixdt(1, 16)"
 		  ParameterScaling	  "2^0"
@@ -16371,6 +16494,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -16755,6 +16883,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -16944,6 +17077,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -18214,6 +18352,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -18677,6 +18820,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -19328,6 +19476,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -19445,6 +19598,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -19562,6 +19720,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -19801,6 +19964,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -19974,6 +20142,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -20797,6 +20970,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -21286,6 +21464,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -21462,6 +21645,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -23175,6 +23363,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -23615,6 +23808,11 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
+	      Array {
+		Type			"Handle"
+		Dimension		0
+		PropName		"AvailSigsLoadSave"
+	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -27064,23 +27262,24 @@ Stateflow {
     created		    "23-Aug-2009 14:16:32"
     isLibrary		    0
     firstTarget		    1026
+    debug {
+    }
     sfVersion		    75014000
   }
   chart {
     id			    2
     name		    "StateFlow Functions"
     windowPosition	    [0 30 1020 489]
-    viewLimits		    [-18.75 1201.875 27.562 593.812]
-    zoomFactor		    1.25
+    viewLimits		    [-17.685 1133.609 -13.359 520.728]
+    zoomFactor		    1.179
     screen		    [1 1 1360 768 1.333333333333333]
     treeNode		    [0 4 0 0]
-    viewObj		    130
-    visible		    1
+    viewObj		    125
     machine		    1
     subviewS {
       zoomFactor	      1.25
     }
-    ssIdHighWaterMark	    2054
+    ssIdHighWaterMark	    2056
     decomposition	    SET_CHART
     firstData		    472
     updateMethod	    DISCRETE
@@ -29402,7 +29601,7 @@ Stateflow {
   state {
     id			    124
     labelString		    "IMU\n\ndu:\nVertical = MaintainDepth(CurrentDepth,RC_Depth);\n[Left, Right,Strafe] = GoStraight("
-    "YawRate,PitchAccelB,RC_ForwardVelocity);"
+    "YawRate_Out,YVel,RC_ForwardVelocity);"
     position		    [397 221.625 128.75 88.5]
     fontSize		    12
     chart		    2
@@ -29428,7 +29627,6 @@ Stateflow {
     treeNode		    [2 126 3 0]
     firstTransition	    251
     superState		    SUBCHART
-    visible		    0
     subviewer		    2
     subviewS {
       x1		      -17.685
@@ -29450,7 +29648,6 @@ Stateflow {
     treeNode		    [125 127 0 130]
     firstTransition	    254
     superState		    SUBCHART
-    visible		    0
     subviewer		    125
     subviewS {
       x1		      -18.75
@@ -29552,7 +29749,6 @@ Stateflow {
     chart		    2
     treeNode		    [125 0 130 132]
     superState		    SUBCHART
-    visible		    0
     subviewer		    125
     ssIdNumber		    2010
     type		    FUNC_STATE
@@ -29573,7 +29769,6 @@ Stateflow {
     chart		    2
     treeNode		    [125 0 131 133]
     superState		    SUBCHART
-    visible		    0
     subviewer		    125
     ssIdNumber		    2015
     type		    FUNC_STATE
@@ -29594,7 +29789,6 @@ Stateflow {
     chart		    2
     treeNode		    [125 0 132 134]
     superState		    SUBCHART
-    visible		    0
     subviewer		    125
     ssIdNumber		    2026
     type		    FUNC_STATE
@@ -29615,7 +29809,6 @@ Stateflow {
     chart		    2
     treeNode		    [125 0 133 135]
     superState		    SUBCHART
-    visible		    0
     subviewer		    125
     ssIdNumber		    2029
     type		    FUNC_STATE
@@ -29631,7 +29824,7 @@ Stateflow {
       "aw)*sin(pitch)*sin(roll)-sin(yaw)*cos(roll) sin(yaw)*sin(pitch)*sin(roll)+cos(yaw)*cos(roll) cos(pitch)*sin(roll"
       ");...\n    cos(yaw)*sin(pitch)*cos(roll)+sin(yaw)*sin(roll) sin(yaw)*sin(roll)*cos(pitch)-cos(yaw)*sin(roll) cos"
       "(pitch)*cos(roll)];\n\nAccel = M'*AccelB;\n\nR_Acc = Accel(1);\nP_Acc = Accel(2);\nY_Acc = Accel(3);\n\nreturn\n"
-      editorLayout	      "100 M4x1[398 148 750 500]"
+      editorLayout	      "100 M4x1[25 25 765 455]"
       breakpoints	      "100 M[21]"
     }
   }
@@ -29643,7 +29836,6 @@ Stateflow {
     chart		    2
     treeNode		    [125 0 134 136]
     superState		    SUBCHART
-    visible		    0
     subviewer		    125
     ssIdNumber		    2039
     type		    FUNC_STATE
@@ -29664,7 +29856,6 @@ Stateflow {
     chart		    2
     treeNode		    [125 0 135 0]
     superState		    SUBCHART
-    visible		    0
     subviewer		    125
     ssIdNumber		    2045
     type		    FUNC_STATE
@@ -29682,7 +29873,7 @@ Stateflow {
   transition {
     id			    137
     labelString		    "[OperationalState ~= 9]"
-    labelPosition	    [160.026 472.381 129.312 16.842]
+    labelPosition	    [160.026 472.381 119.942 17.965]
     fontSize		    12
     src {
       id		      20
@@ -30476,7 +30667,7 @@ Stateflow {
   }
   transition {
     id			    171
-    labelPosition	    [534.687 572.49 8.433 16.842]
+    labelPosition	    [534.687 572.49 8.996 17.965]
     fontSize		    12
     src {
       intersection	      [0 0 -1 0 529.6873 589.3812 0 0]
@@ -30498,7 +30689,7 @@ Stateflow {
   transition {
     id			    172
     labelString		    "[OperationalState ~= -2]"
-    labelPosition	    [220.029 187.203 133.061 16.842]
+    labelPosition	    [220.029 187.203 124.44 17.965]
     fontSize		    12
     src {
       id		      5
@@ -30526,7 +30717,7 @@ Stateflow {
   transition {
     id			    173
     labelString		    "[OperationalState == -2]"
-    labelPosition	    [209.218 99.054 133.061 16.842]
+    labelPosition	    [209.218 99.054 124.44 17.965]
     fontSize		    12
     src {
       id		      53
@@ -30554,7 +30745,7 @@ Stateflow {
   transition {
     id			    174
     labelString		    "[OperationalState == -1]"
-    labelPosition	    [150.81 297.819 133.061 16.842]
+    labelPosition	    [150.81 297.819 124.44 17.965]
     fontSize		    12
     src {
       id		      53
@@ -30572,13 +30763,15 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    3
     ssIdNumber		    1267
   }
   transition {
     id			    175
     labelString		    "[OperationalState ~= -1]"
-    labelPosition	    [159.939 329.459 133.061 16.842]
+    labelPosition	    [159.939 329.459 124.44 17.965]
     fontSize		    12
     src {
       id		      6
@@ -30596,13 +30789,15 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1268
   }
   transition {
     id			    176
     labelString		    "[OperationalState ~= 1]"
-    labelPosition	    [411.564 180.906 129.312 16.842]
+    labelPosition	    [411.564 180.906 119.942 17.965]
     fontSize		    12
     src {
       id		      51
@@ -30626,7 +30821,7 @@ Stateflow {
   transition {
     id			    177
     labelString		    "[OperationalState == 1]"
-    labelPosition	    [375 105.631 129.312 16.842]
+    labelPosition	    [375 105.631 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -30650,7 +30845,7 @@ Stateflow {
   transition {
     id			    178
     labelString		    "[OperationalState == 2]"
-    labelPosition	    [481.393 141.334 129.312 16.842]
+    labelPosition	    [481.393 141.334 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -30674,7 +30869,7 @@ Stateflow {
   transition {
     id			    179
     labelString		    "[OperationalState ~= 2]"
-    labelPosition	    [546.732 199.62 129.312 16.842]
+    labelPosition	    [546.732 199.62 119.942 17.965]
     fontSize		    12
     src {
       id		      39
@@ -30698,7 +30893,7 @@ Stateflow {
   transition {
     id			    180
     labelString		    "[OperationalState ~= 3]"
-    labelPosition	    [719.783 178.65 129.312 16.842]
+    labelPosition	    [719.783 178.65 119.942 17.965]
     fontSize		    12
     src {
       id		      55
@@ -30722,7 +30917,7 @@ Stateflow {
   transition {
     id			    181
     labelString		    "[OperationalState == 3]"
-    labelPosition	    [655.096 126.844 129.312 16.842]
+    labelPosition	    [655.096 126.844 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -30746,7 +30941,7 @@ Stateflow {
   transition {
     id			    182
     labelString		    "[OperationalState ~= 4]"
-    labelPosition	    [835.879 149.208 129.312 16.842]
+    labelPosition	    [835.879 149.208 119.942 17.965]
     fontSize		    12
     src {
       id		      23
@@ -30770,7 +30965,7 @@ Stateflow {
   transition {
     id			    183
     labelString		    "[OperationalState == 4]"
-    labelPosition	    [796.691 115.723 129.312 16.842]
+    labelPosition	    [796.691 115.723 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -30794,7 +30989,7 @@ Stateflow {
   transition {
     id			    184
     labelString		    "[OperationalState == 9]"
-    labelPosition	    [169.669 406.151 129.312 16.842]
+    labelPosition	    [169.669 406.151 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -31301,7 +31496,7 @@ Stateflow {
   transition {
     id			    206
     labelString		    "[OperationalState == 5]"
-    labelPosition	    [997.174 183.721 129.312 16.842]
+    labelPosition	    [997.174 183.721 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -31325,7 +31520,7 @@ Stateflow {
   transition {
     id			    207
     labelString		    "[OperationalState ~= 5]"
-    labelPosition	    [951.568 123.941 129.312 16.842]
+    labelPosition	    [951.568 123.941 119.942 17.965]
     fontSize		    12
     src {
       id		      70
@@ -31565,7 +31760,7 @@ Stateflow {
   transition {
     id			    217
     labelString		    "[OperationalState ~= 6]"
-    labelPosition	    [1064.547 149.531 129.312 16.842]
+    labelPosition	    [1064.547 149.531 119.942 17.965]
     fontSize		    12
     src {
       id		      96
@@ -31589,7 +31784,7 @@ Stateflow {
   transition {
     id			    218
     labelString		    "[OperationalState == 6]"
-    labelPosition	    [1113.297 205.781 129.312 16.842]
+    labelPosition	    [1113.297 205.781 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -31905,7 +32100,7 @@ Stateflow {
   transition {
     id			    231
     labelString		    "[OperationalState == 7]"
-    labelPosition	    [1267.25 300.75 129.312 16.842]
+    labelPosition	    [1267.25 300.75 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -31929,7 +32124,7 @@ Stateflow {
   transition {
     id			    232
     labelString		    "[OperationalState ~= 7]"
-    labelPosition	    [1268.75 351.75 129.312 16.842]
+    labelPosition	    [1268.75 351.75 119.942 17.965]
     fontSize		    12
     src {
       id		      101
@@ -31953,7 +32148,7 @@ Stateflow {
   transition {
     id			    233
     labelString		    "[OperationalState == 8]"
-    labelPosition	    [1274.094 385.969 129.312 16.842]
+    labelPosition	    [1274.094 385.969 119.942 17.965]
     fontSize		    12
     src {
       id		      53
@@ -31977,7 +32172,7 @@ Stateflow {
   transition {
     id			    234
     labelString		    "[OperationalState ~=8]"
-    labelPosition	    [1280.75 432.75 125.564 16.842]
+    labelPosition	    [1280.75 432.75 116.943 17.965]
     fontSize		    12
     src {
       id		      102
@@ -32310,7 +32505,7 @@ Stateflow {
   }
   transition {
     id			    248
-    labelPosition	    [150.4 201.891 8.433 16.842]
+    labelPosition	    [150.4 201.891 8.246 14.971]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 146 193.5 0 0]
@@ -32332,15 +32527,15 @@ Stateflow {
   transition {
     id			    249
     labelString		    "[RC_Source > 0.5]"
-    labelPosition	    [256.375 232.875 103.075 16.842]
+    labelPosition	    [256.375 232.875 98.202 14.971]
     fontSize		    12
     src {
       id		      123
-      intersection	      [2 1 0 0.2986 194.625 248.2465 0 -16.6875]
+      intersection	      [2 1 0 0.2986 194.625 248.2458 0 -16.6875]
     }
     dst {
       id		      124
-      intersection	      [4 -1 -0 0.6992 397 248.2465 0 16.6875]
+      intersection	      [4 -1 -0 0.6992 397 248.2458 0 16.6875]
     }
     midPoint		    [295.9513 248.25]
     chart		    2
@@ -32350,21 +32545,23 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    6
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1876
   }
   transition {
     id			    250
     labelString		    "[RC_Source < 0.5]"
-    labelPosition	    [254.875 261.375 103.075 16.842]
+    labelPosition	    [254.875 261.375 98.202 14.971]
     fontSize		    12
     src {
       id		      124
-      intersection	      [4 -1 -0 0.3686 397 277.5014 0 -12.5625]
+      intersection	      [4 -1 -0 0.3686 397 277.5039 0 -12.5625]
     }
     dst {
       id		      123
-      intersection	      [2 1 0 0.6516 194.625 277.5014 0 12.5625]
+      intersection	      [2 1 0 0.6516 194.625 277.5039 0 12.5625]
     }
     midPoint		    [295.6737 277.5]
     chart		    2
@@ -32374,12 +32571,14 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    6
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1877
   }
   transition {
     id			    251
-    labelPosition	    [249.869 51.858 8.433 16.842]
+    labelPosition	    [249.869 51.858 7.954 15.885]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 245.4688 44.5312 0 0]
@@ -32391,7 +32590,6 @@ Stateflow {
     midPoint		    [245.4688 55.9227]
     chart		    2
     linkNode		    [125 0 252]
-    visible		    0
     dataLimits		    [243.069 247.869 44.531 74.531]
     subviewer		    125
     executionOrder	    1
@@ -32400,7 +32598,7 @@ Stateflow {
   transition {
     id			    252
     labelString		    "[Tare1 > 0.5]"
-    labelPosition	    [393.857 102.656 71.216 16.842]
+    labelPosition	    [393.857 102.656 67.17 15.885]
     fontSize		    12
     src {
       id		      130
@@ -32413,7 +32611,6 @@ Stateflow {
     midPoint		    [412.3586 118.1275]
     chart		    2
     linkNode		    [125 251 253]
-    visible		    0
     dataLimits		    [345.625 476.25 115.727 120.528]
     stampAngle		    NaN
     subviewer		    125
@@ -32426,7 +32623,7 @@ Stateflow {
   transition {
     id			    253
     labelString		    "[TareDone > 0.5]"
-    labelPosition	    [372.031 137.344 92.768 16.842]
+    labelPosition	    [372.031 137.344 87.498 15.885]
     fontSize		    12
     src {
       id		      126
@@ -32439,7 +32636,6 @@ Stateflow {
     midPoint		    [409.5165 135.0025]
     chart		    2
     linkNode		    [125 252 0]
-    visible		    0
     dataLimits		    [345.625 476.25 132.602 137.403]
     stampAngle		    NaN
     subviewer		    125
