@@ -43,4 +43,10 @@ void init_params(QHash<QString, double*>& parameters){
 	parameters.insert("Cam_Down_Yaw_XPos_Kd", &brain_P.Cam_Down_Yaw_XPos_Kd);
 	parameters.insert("Cam_Down_Yaw_XPos_Ki", &brain_P.Cam_Down_Yaw_XPos_Ki);
 	parameters.insert("Cam_Down_Yaw_XPos_Kp", &brain_P.Cam_Down_Yaw_XPos_Kp);
+	parameters.insert("IMU_YVel_Kp", &brain_P.IMU_YVel_Kp);
+	parameters.insert("IMU_YVel_Ki", &brain_P.IMU_YVel_Ki);
+	parameters.insert("IMU_YVel_Kd", &brain_P.IMU_YVel_Kd);
+	parameters.insert("IMU_YawRate_Kp", &brain_P.IMU_YawRate_Kp);
+	parameters.insert("IMU_YawRate_Ki", &brain_P.IMU_YawRate_Ki);
+	parameters.insert("IMU_YawRate_Kd", &brain_P.IMU_YawRate_Kd);
 }
