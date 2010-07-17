@@ -58,13 +58,13 @@ Cam_Forward_YPosition_Kp = 0.8;
 Cam_Forward_YPosition_Kd = 0.0;
 Cam_Forward_YPosition_Ki = 0.0;
 
-Y_Accelerometer_Kp = 0.25;
-Y_Accelerometer_Kd = 0.0;
-Y_Accelerometer = 0.0;
+IMU_YVel_Kp = 0.25;
+IMU_YVel_Kd = 0.0;
+IMU_YVel_Ki = 0.0;
 
-YawRate_Kp = 0.25;
-YawRate_Kd = 0.0;
-YawRate_Ki = 0.0;
+IMU_YawRate_Kp = 0.25;
+IMU_YawRate_Kd = 0.0;
+IMU_YawRate_Ki = 0.0;
 
 Heading_Forward_Velocity = 30;
 Vision_Forward_Velocity = 15;

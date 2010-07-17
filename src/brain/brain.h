@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.720
+ * Model version                        : 1.724
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sat Jul 17 15:15:04 2010
+ * Real-Time Workshop file generated on : Sat Jul 17 15:47:44 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sat Jul 17 15:15:05 2010
+ * C/C++ source code generated on       : Sat Jul 17 15:47:45 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -740,7 +740,7 @@ typedef struct {
    *   '<S132>/Resize1'
    *   '<S132>/Resize2'
    */
-  real32_T pooled22[240];
+  real32_T pooled23[240];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -751,7 +751,7 @@ typedef struct {
    *   '<S132>/Resize1'
    *   '<S132>/Resize2'
    */
-  real32_T pooled23[320];
+  real32_T pooled24[320];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -759,7 +759,7 @@ typedef struct {
    *   '<S5>/Resize1'
    *   '<S5>/Resize2'
    */
-  real32_T pooled25[960];
+  real32_T pooled26[960];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -767,7 +767,7 @@ typedef struct {
    *   '<S5>/Resize1'
    *   '<S5>/Resize2'
    */
-  real32_T pooled26[1280];
+  real32_T pooled27[1280];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -781,7 +781,7 @@ typedef struct {
    *   '<S103>/Blob Analysis'
    *   '<S142>/Blob Analysis'
    */
-  int32_T pooled27[8];
+  int32_T pooled28[8];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -792,7 +792,7 @@ typedef struct {
    *   '<S132>/Resize1'
    *   '<S132>/Resize2'
    */
-  int32_T pooled29[240];
+  int32_T pooled30[240];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -803,7 +803,7 @@ typedef struct {
    *   '<S132>/Resize1'
    *   '<S132>/Resize2'
    */
-  int32_T pooled30[320];
+  int32_T pooled31[320];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -811,7 +811,7 @@ typedef struct {
    *   '<S5>/Resize1'
    *   '<S5>/Resize2'
    */
-  int32_T pooled33[960];
+  int32_T pooled34[960];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -819,7 +819,7 @@ typedef struct {
    *   '<S5>/Resize1'
    *   '<S5>/Resize2'
    */
-  int32_T pooled34[1280];
+  int32_T pooled35[1280];
 
   /* Pooled Parameter (Expression: nhood)
    * Referenced by:
@@ -827,14 +827,14 @@ typedef struct {
    *   '<S29>/Erosion'
    *   '<S99>/Erosion'
    */
-  boolean_T pooled35[8];
+  boolean_T pooled36[8];
 
   /* Pooled Parameter (Expression: nhood)
    * Referenced by:
    *   '<S28>/Dilation'
    *   '<S29>/Dilation'
    */
-  boolean_T pooled36[4];
+  boolean_T pooled37[4];
 
   /* Expression: nhood
    * Referenced by: '<S35>/Erosion'
@@ -960,19 +960,16 @@ struct Parameters_brain_ {
   real_T Cam_Down_Strafe_XPos_Kd;      /* Variable: Cam_Down_Strafe_XPos_Kd
                                         * Referenced by:
                                         *   '<S78>/CamDownStrafe-X Derivative Gain'
-                                        *   '<S108>/Y-Accelerometer Derivative Gain'
                                         *   '<S95>/CamDown Strafe XPos Derivative Gain'
                                         */
   real_T Cam_Down_Strafe_XPos_Ki;      /* Variable: Cam_Down_Strafe_XPos_Ki
                                         * Referenced by:
                                         *   '<S78>/CamDownStrafe-X Integral Gain'
-                                        *   '<S108>/Y-Accelerometer Integral Gain'
                                         *   '<S95>/CamDown Strafe XPos Integral Gain'
                                         */
   real_T Cam_Down_Strafe_XPos_Kp;      /* Variable: Cam_Down_Strafe_XPos_Kp
                                         * Referenced by:
                                         *   '<S78>/CamDownStrafe-X Proportional Gain'
-                                        *   '<S108>/Y-Accelerometer Proportional Gain'
                                         *   '<S95>/CamDown Strafe XPos Proportional Gain'
                                         */
   real_T Cam_Down_YPos_Kd;             /* Variable: Cam_Down_YPos_Kd
