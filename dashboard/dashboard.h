@@ -154,6 +154,15 @@ void on_##guiParam##_editingFinished();
 		void on_buoy2ValueSpinBox_editingFinished();
 		void on_iterSegmentThreshSpinBox_editingFinished();
 
+		// IMU
+		void on_yVelPSpinBox_editingFinished();
+		void on_yVelISpinBox_editingFinished();
+		void on_yVelDSpinBox_editingFinished();
+		void on_yawRatePSpinBox_editingFinished();
+		void on_yawRateISpinBox_editingFinished();
+		void on_yawRateDSpinBox_editingFinished();
+
+
 	private:
 		SIDSocket* m_DS;
 		VideoSocket* videoSocket;
