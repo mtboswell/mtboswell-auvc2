@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.687
+ * Model version                        : 1.691
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sat Jul 17 12:22:51 2010
+ * Real-Time Workshop file generated on : Sat Jul 17 12:30:39 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sat Jul 17 12:22:52 2010
+ * C/C++ source code generated on       : Sat Jul 17 12:30:40 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -6696,6 +6696,7 @@ static void brain_StateEstimator(void)
   int32_T sf_T;
   real_T sf_Accel[3];
   real_T sf_yaw;
+  real_T sf_DeltaT;
   real_T tmp[9];
 
   /* During 'StateEstimator': '<S7>:1880' */
@@ -6718,12 +6719,13 @@ static void brain_StateEstimator(void)
     } else {
       /* Embedded MATLAB Function 'CheckDeltaT': '<S7>:1980' */
       /*  Make sure deltaT isn't zero breaking everything */
-      if (brain_DWork.DeltaT < 0.001) {
+      if (0.0 < 0.001) {
         /* '<S7>:1980:4' */
         /* '<S7>:1980:5' */
-        brain_DWork.DeltaT = 0.01;
+        sf_DeltaT = 0.01;
       } else {
         /* '<S7>:1980:7' */
+        sf_DeltaT = 0.0;
       }
 
       /* Embedded MATLAB Function 'AUV_Yaw_Model': '<S7>:1922' */
@@ -6743,7 +6745,7 @@ static void brain_StateEstimator(void)
       brain_B.YawRate_Out = ((((0.0012 * rt_pow_snf((real_T)sf_T, 2.0) + 0.6913 *
                                 (real_T)sf_T) + 0.8157) - brain_DWork.OldYawRate)
         / ((0.0006 * rt_pow_snf((real_T)sf_T, 2.0) + 0.0865 * (real_T)sf_T)
-           + 5.6421) * 3.0 * brain_DWork.DeltaT + brain_DWork.OldYawRate) *
+           + 5.6421) * 3.0 * sf_DeltaT + brain_DWork.OldYawRate) *
         4.0677966101694918E-001 + 5.9322033898305082E-001 * brain_U.YawRate;
       brain_DWork.OldYawRate = brain_B.YawRate_Out;
       brain_B.PitchRate_Out = brain_U.PitchRate;
@@ -6752,10 +6754,10 @@ static void brain_StateEstimator(void)
       /* Embedded MATLAB Function 'Integrate3': '<S7>:1895' */
       /*  This function calculates the euler angles using an IMU approach */
       /* '<S7>:1895:4' */
-      sf_Y = brain_B.YawRate_Out * brain_DWork.DeltaT + brain_DWork.OldYaw;
+      sf_Y = brain_B.YawRate_Out * sf_DeltaT + brain_DWork.OldYaw;
 
       /* '<S7>:1895:5' */
-      sf_P = brain_U.PitchRate * brain_DWork.DeltaT + brain_DWork.OldPitch;
+      sf_P = brain_U.PitchRate * sf_DeltaT + brain_DWork.OldPitch;
 
       /* '<S7>:1895:6' */
       brain_B.Yaw = sf_Y;
@@ -6775,9 +6777,8 @@ static void brain_StateEstimator(void)
       /* '<S7>:1916:4' */
       /* '<S7>:1916:5' */
       /* '<S7>:1916:7' */
-      brain_B.Roll = (brain_U.RollRate * brain_DWork.DeltaT +
-                      brain_DWork.OldRoll) * 5.7142857142857140E-001 +
-        4.2857142857142860E-001 * brain_U.RollEuler;
+      brain_B.Roll = (brain_U.RollRate * sf_DeltaT + brain_DWork.OldRoll) *
+        5.7142857142857140E-001 + 4.2857142857142860E-001 * brain_U.RollEuler;
       brain_DWork.OldRoll = brain_B.Roll;
 
       /* Embedded MATLAB Function 'GoToEarthCFrame': '<S7>:1906' */
@@ -6827,12 +6828,9 @@ static void brain_StateEstimator(void)
       /* '<S7>:1895:4' */
       /* '<S7>:1895:5' */
       /* '<S7>:1895:6' */
-      brain_B.XVel = brain_B.Roll_Accel * brain_DWork.DeltaT +
-        brain_DWork.OldXVel;
-      brain_B.YVel = brain_B.Pitch_Accel * brain_DWork.DeltaT +
-        brain_DWork.OldYVel;
-      brain_B.ZVel = brain_B.Yaw_Accel * brain_DWork.DeltaT +
-        brain_DWork.OldZVel;
+      brain_B.XVel = brain_B.Roll_Accel * sf_DeltaT + brain_DWork.OldXVel;
+      brain_B.YVel = brain_B.Pitch_Accel * sf_DeltaT + brain_DWork.OldYVel;
+      brain_B.ZVel = brain_B.Yaw_Accel * sf_DeltaT + brain_DWork.OldZVel;
       brain_DWork.OldXVel = brain_B.XVel;
       brain_DWork.OldYVel = brain_B.YVel;
       brain_DWork.OldZVel = brain_B.ZVel;
@@ -6842,9 +6840,9 @@ static void brain_StateEstimator(void)
       /* '<S7>:1895:4' */
       /* '<S7>:1895:5' */
       /* '<S7>:1895:6' */
-      brain_B.X = brain_B.XVel * brain_DWork.DeltaT + brain_DWork.OldX;
-      brain_B.Y = brain_B.YVel * brain_DWork.DeltaT + brain_DWork.OldY;
-      brain_B.Z = brain_B.ZVel * brain_DWork.DeltaT + brain_DWork.OldZ;
+      brain_B.X = brain_B.XVel * sf_DeltaT + brain_DWork.OldX;
+      brain_B.Y = brain_B.YVel * sf_DeltaT + brain_DWork.OldY;
+      brain_B.Z = brain_B.ZVel * sf_DeltaT + brain_DWork.OldZ;
     }
     break;
 
@@ -15055,8 +15053,8 @@ void brain_step(void)
   /* Outport: '<Root>/RollRate_Out' */
   brain_Y.RollRate_Out = brain_B.RollRate_Out;
 
-  /* Outport: '<Root>/DesiredHeading1' */
-  brain_Y.DesiredHeading1 = brain_B.YawRate_Out;
+  /* Outport: '<Root>/YawRate_Out' */
+  brain_Y.YawRate_Out = brain_B.YawRate_Out;
 
   /* Update absolute time for base rate */
   /* The "clockTick0" counts the number of times the code of this task has
@@ -16539,7 +16537,6 @@ void brain_initialize(void)
   brain_DWork.Heading3 = 0.0;
   brain_DWork.Heading4 = 0.0;
   brain_DWork.OldDesiredHeading = 0.0;
-  brain_DWork.DeltaT = 0.0;
   brain_DWork.OldPitch = 0.0;
   brain_DWork.OldRoll = 0.0;
   brain_DWork.OldX = 0.0;
