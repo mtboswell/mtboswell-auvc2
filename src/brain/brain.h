@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.665
+ * Model version                        : 1.668
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Fri Jul 16 20:14:39 2010
+ * Real-Time Workshop file generated on : Fri Jul 16 21:24:38 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Fri Jul 16 20:14:40 2010
+ * C/C++ source code generated on       : Fri Jul 16 21:24:39 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -196,18 +196,18 @@ typedef struct {
 
 /* Block signals for system '<S7>/StateFlowFunctions.MaintainHeading' */
 typedef struct {
-  real_T Add;                          /* '<S137>/Add' */
-  real_T Constant1;                    /* '<S137>/Constant1' */
-  real_T Add_o;                        /* '<S136>/Add' */
-  real_T Constant1_e;                  /* '<S136>/Constant1' */
+  real_T Add;                          /* '<S139>/Add' */
+  real_T Constant1;                    /* '<S139>/Constant1' */
+  real_T Add_o;                        /* '<S138>/Add' */
+  real_T Constant1_e;                  /* '<S138>/Constant1' */
   int8_T DoubleToint1;                 /* '<S39>/DoubleToint1' */
   int8_T DoubleToint8;                 /* '<S39>/DoubleToint8' */
 } rtB_StateFlowFunctionsMaintainH;
 
 /* Block states (auto storage) for system '<S7>/StateFlowFunctions.MaintainHeading' */
 typedef struct {
-  real_T UD_DSTATE;                    /* '<S139>/UD' */
-  real_T HeadingDiscreteTimeIntegrator_D;/* '<S138>/Heading Discrete-Time Integrator' */
+  real_T UD_DSTATE;                    /* '<S141>/UD' */
+  real_T HeadingDiscreteTimeIntegrator_D;/* '<S140>/Heading Discrete-Time Integrator' */
   uint32_T StateFlowFunctionsMaintainHea_e;/* '<Root>/StateFlow Functions' */
   uint32_T StateFlowFunctionsMaintainHea_m;/* '<Root>/StateFlow Functions' */
   int8_T If_ActiveSubsystem;           /* '<S39>/If' */
@@ -222,16 +222,16 @@ typedef struct {
 
 /* Block signals for system '<S7>/StateFlowFunctions.ValidationGate.LookforTrack' */
 typedef struct {
-  real_T Image;                        /* '<S140>/CheckConditions' */
-  boolean_T BW[19200];                 /* '<S140>/Logical Operator1' */
+  real_T Image;                        /* '<S142>/CheckConditions' */
+  boolean_T BW[19200];                 /* '<S142>/Logical Operator1' */
 } rtB_StateFlowFunctionsValidatio;
 
 /* Block states (auto storage) for system '<S7>/StateFlowFunctions.ValidationGate.LookforTrack' */
 typedef struct {
-  uint32_T BlobAnalysis_STACK_DW[19200];/* '<S140>/Blob Analysis' */
-  int16_T BlobAnalysis_N_PIXLIST_DW[19200];/* '<S140>/Blob Analysis' */
-  int16_T BlobAnalysis_M_PIXLIST_DW[19200];/* '<S140>/Blob Analysis' */
-  uint8_T BlobAnalysis_PAD_DW[19764];  /* '<S140>/Blob Analysis' */
+  uint32_T BlobAnalysis_STACK_DW[19200];/* '<S142>/Blob Analysis' */
+  int16_T BlobAnalysis_N_PIXLIST_DW[19200];/* '<S142>/Blob Analysis' */
+  int16_T BlobAnalysis_M_PIXLIST_DW[19200];/* '<S142>/Blob Analysis' */
+  uint8_T BlobAnalysis_PAD_DW[19764];  /* '<S142>/Blob Analysis' */
 } rtDW_StateFlowFunctionsValidati;
 
 /* Block signals for system '<S7>/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.Align' */
@@ -274,28 +274,28 @@ typedef struct {
 
 /* Block signals for system '<S7>/StateFlowFunctions.JumpHedge.IndividualSegmentation' */
 typedef struct {
-  real_T ColorSpaceConversion1_o1;     /* '<S122>/Color Space  Conversion1' */
-  real_T ColorSpaceConversion1_o2;     /* '<S122>/Color Space  Conversion1' */
-  real_T ColorSpaceConversion1_o3;     /* '<S122>/Color Space  Conversion1' */
-  real_T ColorSpaceConversion_o1;      /* '<S122>/Color Space  Conversion' */
-  real_T ColorSpaceConversion_o2;      /* '<S122>/Color Space  Conversion' */
-  real_T ColorSpaceConversion_o3;      /* '<S122>/Color Space  Conversion' */
-  boolean_T BW[19200];                 /* '<S120>/Relational Operator' */
+  real_T ColorSpaceConversion1_o1;     /* '<S124>/Color Space  Conversion1' */
+  real_T ColorSpaceConversion1_o2;     /* '<S124>/Color Space  Conversion1' */
+  real_T ColorSpaceConversion1_o3;     /* '<S124>/Color Space  Conversion1' */
+  real_T ColorSpaceConversion_o1;      /* '<S124>/Color Space  Conversion' */
+  real_T ColorSpaceConversion_o2;      /* '<S124>/Color Space  Conversion' */
+  real_T ColorSpaceConversion_o3;      /* '<S124>/Color Space  Conversion' */
+  boolean_T BW[19200];                 /* '<S122>/Relational Operator' */
 } rtB_StateFlowFunctionsJumpHedge;
 
 /* Block states (auto storage) for system '<S7>/StateFlowFunctions.JumpHedge.IndividualSegmentation' */
 typedef struct {
-  real_T ColorSpaceConversion_DWORK1;  /* '<S122>/Color Space  Conversion' */
-  real_T ColorSpaceConversion1_DWORK1; /* '<S122>/Color Space  Conversion1' */
+  real_T ColorSpaceConversion_DWORK1;  /* '<S124>/Color Space  Conversion' */
+  real_T ColorSpaceConversion1_DWORK1; /* '<S124>/Color Space  Conversion1' */
 } rtDW_StateFlowFunctionsJumpHedg;
 
 /* Block signals for system '<S7>/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw' */
 typedef struct {
   real_T DrawMarkers[19200];           /* '<S29>/Draw Markers' */
-  real_T Add;                          /* '<S113>/Add' */
-  real_T Add1;                         /* '<S113>/Add1' */
+  real_T Add;                          /* '<S115>/Add' */
+  real_T Add1;                         /* '<S115>/Add1' */
   real_T ImageDataTypeConversion1[19200];/* '<S29>/Image Data Type Conversion1' */
-  int8_T DataTypeConversion;           /* '<S114>/Data Type Conversion' */
+  int8_T DataTypeConversion;           /* '<S116>/Data Type Conversion' */
   boolean_T Erosion[19200];            /* '<S29>/Erosion' */
   boolean_T ImageDataTypeConversion[19200];/* '<S29>/Image Data Type Conversion' */
   boolean_T Dilation[19200];           /* '<S29>/Dilation' */
@@ -311,10 +311,10 @@ typedef struct {
   boolean_T Erosion_TWO_PAD_IMG_DW[21209];/* '<S29>/Erosion' */
   boolean_T Dilation_ONE_PAD_IMG_DW[20049];/* '<S29>/Dilation' */
   uint8_T BuoyBlobAnalysis_PAD_DW[19764];/* '<S29>/Buoy Blob Analysis' */
-  real_T UD_DSTATE;                    /* '<S116>/UD' */
-  real_T XBuoyDiscreteTimeIntegrator_DST;/* '<S115>/X-Buoy Discrete-Time Integrator' */
-  real_T UD_DSTATE_a;                  /* '<S118>/UD' */
-  real_T YBuoyDiscreteTimeIntegrator_DST;/* '<S117>/Y-Buoy Discrete-Time Integrator' */
+  real_T UD_DSTATE;                    /* '<S118>/UD' */
+  real_T XBuoyDiscreteTimeIntegrator_DST;/* '<S117>/X-Buoy Discrete-Time Integrator' */
+  real_T UD_DSTATE_a;                  /* '<S120>/UD' */
+  real_T YBuoyDiscreteTimeIntegrator_DST;/* '<S119>/Y-Buoy Discrete-Time Integrator' */
   int32_T Dilation_NUMNONZ_DW;         /* '<S29>/Dilation' */
   int32_T Dilation_STREL_DW;           /* '<S29>/Dilation' */
   int32_T Dilation_DILATE_OFF_DW[4];   /* '<S29>/Dilation' */
@@ -373,12 +373,15 @@ typedef struct {
 typedef struct {
   int8_T DoubleToint1;                 /* '<S27>/DoubleToint1' */
   int8_T DoubleToint8;                 /* '<S27>/DoubleToint8' */
+  int8_T DoubleToint2;                 /* '<S27>/DoubleToint2' */
 } rtB_StateFlowFunctionsGoStraigh;
 
 /* Block states (auto storage) for system '<S7>/StateFlowFunctions.GoStraight' */
 typedef struct {
-  real_T UD_DSTATE;                    /* '<S109>/UD' */
+  real_T UD_DSTATE;                    /* '<S110>/UD' */
   real_T HeadingDiscreteTimeIntegrator_D;/* '<S108>/Heading Discrete-Time Integrator' */
+  real_T UD_DSTATE_l;                  /* '<S111>/UD' */
+  real_T DepthDiscreteTimeIntegrator_DST;/* '<S109>/Depth Discrete-Time Integrator' */
   uint32_T StateFlowFunctionsGoStraight_EL;/* '<Root>/StateFlow Functions' */
   uint32_T StateFlowFunctionsGoStraight_PR;/* '<Root>/StateFlow Functions' */
 } rtDW_StateFlowFunctionsGoStraig;
@@ -452,6 +455,7 @@ typedef struct {
   real_T BW_f[19200];                  /* '<Root>/StateFlow Functions' */
   real_T YawRate;                      /* '<Root>/StateFlow Functions' */
   real_T ForwardVelocity1_l;           /* '<Root>/StateFlow Functions' */
+  real_T Y_Accel;                      /* '<Root>/StateFlow Functions' */
   real_T HeadingForwardVelocity;       /* '<S31>/Heading Forward Velocity' */
   real_T HedgeHue;                     /* '<S34>/Hedge Hue' */
   real_T HedgeSaturation;              /* '<S34>/Hedge Saturation' */
@@ -567,8 +571,8 @@ typedef struct {
   boolean_T Dilation_ONE_PAD_IMG_DW[20049];/* '<S28>/Dilation' */
   uint8_T BuoyBlobAnalysis_PAD_DW_h[19764];/* '<S13>/Buoy Blob Analysis' */
   uint8_T BuoyBlobAnalysis_PAD_DW[19764];/* '<S28>/Buoy Blob Analysis' */
-  real_T UD_DSTATE;                    /* '<S135>/UD' */
-  real_T DepthDiscreteTimeIntegrator_DST;/* '<S134>/Depth Discrete-Time Integrator' */
+  real_T UD_DSTATE;                    /* '<S137>/UD' */
+  real_T DepthDiscreteTimeIntegrator_DST;/* '<S136>/Depth Discrete-Time Integrator' */
   real_T count;                        /* '<Root>/StateFlow Functions' */
   real_T countarea;                    /* '<Root>/StateFlow Functions' */
   real_T DesiredHeadingCount;          /* '<Root>/StateFlow Functions' */
@@ -692,9 +696,9 @@ typedef struct {
    *   '<S73>/Resize'
    *   '<S73>/Resize1'
    *   '<S73>/Resize2'
-   *   '<S130>/Resize'
-   *   '<S130>/Resize1'
-   *   '<S130>/Resize2'
+   *   '<S132>/Resize'
+   *   '<S132>/Resize1'
+   *   '<S132>/Resize2'
    */
   real32_T pooled22[240];
 
@@ -703,9 +707,9 @@ typedef struct {
    *   '<S73>/Resize'
    *   '<S73>/Resize1'
    *   '<S73>/Resize2'
-   *   '<S130>/Resize'
-   *   '<S130>/Resize1'
-   *   '<S130>/Resize2'
+   *   '<S132>/Resize'
+   *   '<S132>/Resize1'
+   *   '<S132>/Resize2'
    */
   real32_T pooled23[320];
 
@@ -735,7 +739,7 @@ typedef struct {
    *   '<S29>/Buoy Blob Analysis'
    *   '<S30>/Blob Analysis'
    *   '<S103>/Blob Analysis'
-   *   '<S140>/Blob Analysis'
+   *   '<S142>/Blob Analysis'
    */
   int32_T pooled27[8];
 
@@ -744,9 +748,9 @@ typedef struct {
    *   '<S73>/Resize'
    *   '<S73>/Resize1'
    *   '<S73>/Resize2'
-   *   '<S130>/Resize'
-   *   '<S130>/Resize1'
-   *   '<S130>/Resize2'
+   *   '<S132>/Resize'
+   *   '<S132>/Resize1'
+   *   '<S132>/Resize2'
    */
   int32_T pooled29[240];
 
@@ -755,9 +759,9 @@ typedef struct {
    *   '<S73>/Resize'
    *   '<S73>/Resize1'
    *   '<S73>/Resize2'
-   *   '<S130>/Resize'
-   *   '<S130>/Resize1'
-   *   '<S130>/Resize2'
+   *   '<S132>/Resize'
+   *   '<S132>/Resize1'
+   *   '<S132>/Resize2'
    */
   int32_T pooled30[320];
 
@@ -813,6 +817,7 @@ typedef struct {
   real_T RC_Depth;                     /* '<Root>/RC_Depth' */
   boolean_T RC;                        /* '<Root>/RC' */
   real_T YawRate;                      /* '<Root>/YawRate' */
+  real_T Y_Accelerometer;              /* '<Root>/Y_Accelerometer' */
 } ExternalInputs_brain;
 
 /* External outputs (root outports fed by signals with auto storage) */
@@ -891,16 +896,19 @@ struct Parameters_brain_ {
   real_T Cam_Down_Strafe_XPos_Kd;      /* Variable: Cam_Down_Strafe_XPos_Kd
                                         * Referenced by:
                                         *   '<S78>/CamDownStrafe-X Derivative Gain'
+                                        *   '<S109>/CamDownStrafe-X Derivative Gain'
                                         *   '<S95>/CamDown Strafe XPos Derivative Gain'
                                         */
   real_T Cam_Down_Strafe_XPos_Ki;      /* Variable: Cam_Down_Strafe_XPos_Ki
                                         * Referenced by:
                                         *   '<S78>/CamDownStrafe-X Integral Gain'
+                                        *   '<S109>/CamDownStrafe-X Integral Gain'
                                         *   '<S95>/CamDown Strafe XPos Integral Gain'
                                         */
   real_T Cam_Down_Strafe_XPos_Kp;      /* Variable: Cam_Down_Strafe_XPos_Kp
                                         * Referenced by:
                                         *   '<S78>/CamDownStrafe-X Proportional Gain'
+                                        *   '<S109>/CamDownStrafe-X Proportional Gain'
                                         *   '<S95>/CamDown Strafe XPos Proportional Gain'
                                         */
   real_T Cam_Down_YPos_Kd;             /* Variable: Cam_Down_YPos_Kd
@@ -930,41 +938,41 @@ struct Parameters_brain_ {
   real_T Cam_Forward_XPosition_Kd;     /* Variable: Cam_Forward_XPosition_Kd
                                         * Referenced by:
                                         *   '<S53>/X-Buoy Derivative Gain'
-                                        *   '<S115>/X-Buoy Derivative Gain'
+                                        *   '<S117>/X-Buoy Derivative Gain'
                                         */
   real_T Cam_Forward_XPosition_Ki;     /* Variable: Cam_Forward_XPosition_Ki
                                         * Referenced by:
                                         *   '<S53>/X-Buoy Integral Gain'
-                                        *   '<S115>/X-Buoy Integral Gain'
+                                        *   '<S117>/X-Buoy Integral Gain'
                                         */
   real_T Cam_Forward_XPosition_Kp;     /* Variable: Cam_Forward_XPosition_Kp
                                         * Referenced by:
                                         *   '<S53>/X-Buoy Proportional Gain'
-                                        *   '<S115>/X-Buoy Proportional Gain'
+                                        *   '<S117>/X-Buoy Proportional Gain'
                                         */
   real_T Cam_Forward_YPosition_Kd;     /* Variable: Cam_Forward_YPosition_Kd
                                         * Referenced by:
                                         *   '<S55>/Y-Buoy Derivative Gain'
-                                        *   '<S117>/Y-Buoy Derivative Gain'
+                                        *   '<S119>/Y-Buoy Derivative Gain'
                                         */
   real_T Cam_Forward_YPosition_Ki;     /* Variable: Cam_Forward_YPosition_Ki
                                         * Referenced by:
                                         *   '<S55>/Y-Buoy Integral Gain'
-                                        *   '<S117>/Y-Buoy Integral Gain'
+                                        *   '<S119>/Y-Buoy Integral Gain'
                                         */
   real_T Cam_Forward_YPosition_Kp;     /* Variable: Cam_Forward_YPosition_Kp
                                         * Referenced by:
                                         *   '<S55>/Y-Buoy Proportional Gain'
-                                        *   '<S117>/Y-Buoy Proportional Gain'
+                                        *   '<S119>/Y-Buoy Proportional Gain'
                                         */
   real_T Depth_Kd;                     /* Variable: Depth_Kd
-                                        * Referenced by: '<S134>/Depth Derivative Gain'
+                                        * Referenced by: '<S136>/Depth Derivative Gain'
                                         */
   real_T Depth_Ki;                     /* Variable: Depth_Ki
-                                        * Referenced by: '<S134>/Depth Integral Gain'
+                                        * Referenced by: '<S136>/Depth Integral Gain'
                                         */
   real_T Depth_Kp;                     /* Variable: Depth_Kp
-                                        * Referenced by: '<S134>/Depth Proportional Gain'
+                                        * Referenced by: '<S136>/Depth Proportional Gain'
                                         */
   real_T Heading_Forward_Velocity;     /* Variable: Heading_Forward_Velocity
                                         * Referenced by:
@@ -974,17 +982,17 @@ struct Parameters_brain_ {
   real_T Heading_Kd;                   /* Variable: Heading_Kd
                                         * Referenced by:
                                         *   '<S108>/Heading Derivative Gain'
-                                        *   '<S138>/Heading Derivative Gain'
+                                        *   '<S140>/Heading Derivative Gain'
                                         */
   real_T Heading_Ki;                   /* Variable: Heading_Ki
                                         * Referenced by:
                                         *   '<S108>/Heading Integral Gain'
-                                        *   '<S138>/Heading Integral Gain'
+                                        *   '<S140>/Heading Integral Gain'
                                         */
   real_T Heading_Kp;                   /* Variable: Heading_Kp
                                         * Referenced by:
                                         *   '<S108>/Heading Proportional Gain'
-                                        *   '<S138>/Heading Proportional Gain'
+                                        *   '<S140>/Heading Proportional Gain'
                                         */
   real_T Hedge_Hue;                    /* Variable: Hedge_Hue
                                         * Referenced by: '<S34>/Hedge Hue'
@@ -998,7 +1006,7 @@ struct Parameters_brain_ {
   real_T Iter_Segment_Thresh;          /* Variable: Iter_Segment_Thresh
                                         * Referenced by:
                                         *   '<S67>/Dist_Thresh'
-                                        *   '<S124>/Dist_Thresh'
+                                        *   '<S126>/Dist_Thresh'
                                         */
   real_T MissionPlan[20];              /* Variable: MissionPlan
                                         * Referenced by: '<S42>/Mission Plan'
@@ -1010,24 +1018,24 @@ struct Parameters_brain_ {
                                         * Referenced by:
                                         *   '<S100>/Constant'
                                         *   '<S105>/Constant'
-                                        *   '<S142>/Constant'
+                                        *   '<S144>/Constant'
                                         */
   real_T Track_HueLower;               /* Variable: Track_HueLower
                                         * Referenced by:
                                         *   '<S101>/Constant'
                                         *   '<S106>/Constant'
-                                        *   '<S143>/Constant'
+                                        *   '<S145>/Constant'
                                         */
   real_T Track_Min_Eccentricity;       /* Variable: Track_Min_Eccentricity
                                         * Referenced by:
                                         *   '<S103>/Constant'
-                                        *   '<S140>/Constant'
+                                        *   '<S142>/Constant'
                                         */
   real_T Track_Saturation;             /* Variable: Track_Saturation
                                         * Referenced by:
                                         *   '<S102>/Constant'
                                         *   '<S107>/Constant'
-                                        *   '<S144>/Constant'
+                                        *   '<S146>/Constant'
                                         */
   real_T Vision_Forward_Velocity;      /* Variable: Vision_Forward_Velocity
                                         * Referenced by:
@@ -1044,7 +1052,7 @@ struct Parameters_brain_ {
                                         *   '<S28>/Buoy Blob Analysis'
                                         *   '<S29>/Buoy Blob Analysis'
                                         *   '<S103>/Blob Analysis'
-                                        *   '<S140>/Blob Analysis'
+                                        *   '<S142>/Blob Analysis'
                                         */
   uint32_T Min_Blob_Size;              /* Variable: Min_Blob_Size
                                         * Referenced by:
@@ -1055,7 +1063,7 @@ struct Parameters_brain_ {
                                         *   '<S28>/Buoy Blob Analysis'
                                         *   '<S29>/Buoy Blob Analysis'
                                         *   '<S103>/Blob Analysis'
-                                        *   '<S140>/Blob Analysis'
+                                        *   '<S142>/Blob Analysis'
                                         */
 };
 
@@ -1243,43 +1251,45 @@ extern "C" {
  * '<S106>' : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.RecognizePath.LookforTrack/LookforTrack/Hue Lower Comparison
  * '<S107>' : brain/StateFlow Functions/StateFlowFunctions.FollowOnePath.RecognizePath.LookforTrack/LookforTrack/Saturation Comparison
  * '<S108>' : brain/StateFlow Functions/StateFlowFunctions.GoStraight/PID Controller Heading S4
- * '<S109>' : brain/StateFlow Functions/StateFlowFunctions.GoStraight/PID Controller Heading S4/Heading Discrete Derivative
- * '<S110>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.ApproachHedge.GetArea/Embedded MATLAB Function
- * '<S111>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/Embedded MATLAB Function
- * '<S112>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/Embedded MATLAB Function1
- * '<S113>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/X-HeadingControl
- * '<S114>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/Y-DepthControl
- * '<S115>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/X-HeadingControl/PID Controller X Position
- * '<S116>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/X-HeadingControl/PID Controller X Position/X-Buoy Discrete Derivative
- * '<S117>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/Y-DepthControl/PID Controller Y Position
- * '<S118>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/Y-DepthControl/PID Controller Y Position/Y-Buoy Discrete Derivative
- * '<S119>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.GetAxisRatio/Embedded MATLAB Function
- * '<S120>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IndividualSegmentation/Threshold The Image
- * '<S121>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IndividualSegmentation/Threshold The Image/Choose Closest Color
- * '<S122>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IndividualSegmentation/Threshold The Image/Get Desired Color
- * '<S123>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Low Pass Filter
- * '<S124>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Segmentation
- * '<S125>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Low Pass Filter/Low Pass Filter
- * '<S126>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Low Pass Filter/Low Pass Filter1
- * '<S127>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Low Pass Filter/Low Pass Filter2
- * '<S128>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Segmentation/LabSegmentation
- * '<S129>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Segmentation/Reference Color Selection
- * '<S130>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Segmentation/Resize
- * '<S131>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.RecognizeHedge.LookForHedge/Are 3 Lines Present
- * '<S132>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.ShowSegmentedImage/Embedded MATLAB Function
- * '<S133>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.ShowSegmentedImage/Embedded MATLAB Function1
- * '<S134>' : brain/StateFlow Functions/StateFlowFunctions.MaintainDepth/PID Controller Depth S3
- * '<S135>' : brain/StateFlow Functions/StateFlowFunctions.MaintainDepth/PID Controller Depth S3/Depth Discrete Derivative
- * '<S136>' : brain/StateFlow Functions/StateFlowFunctions.MaintainHeading/BigError S1
- * '<S137>' : brain/StateFlow Functions/StateFlowFunctions.MaintainHeading/BigNegativeError S2
- * '<S138>' : brain/StateFlow Functions/StateFlowFunctions.MaintainHeading/PID Controller Heading S4
- * '<S139>' : brain/StateFlow Functions/StateFlowFunctions.MaintainHeading/PID Controller Heading S4/Heading Discrete Derivative
- * '<S140>' : brain/StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack
- * '<S141>' : brain/StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/CheckConditions
- * '<S142>' : brain/StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/Hue Higher Comparison
- * '<S143>' : brain/StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/Hue Lower Comparison
- * '<S144>' : brain/StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/Saturation Comparison
- * '<S145>' : brain/StateFlow Functions/StateManagement.Running.Autonomous.Perform/Checking to see if state will be performed
+ * '<S109>' : brain/StateFlow Functions/StateFlowFunctions.GoStraight/PID Controller Relative Heading
+ * '<S110>' : brain/StateFlow Functions/StateFlowFunctions.GoStraight/PID Controller Heading S4/Heading Discrete Derivative
+ * '<S111>' : brain/StateFlow Functions/StateFlowFunctions.GoStraight/PID Controller Relative Heading/Depth Discrete Derivative
+ * '<S112>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.ApproachHedge.GetArea/Embedded MATLAB Function
+ * '<S113>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/Embedded MATLAB Function
+ * '<S114>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/Embedded MATLAB Function1
+ * '<S115>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/X-HeadingControl
+ * '<S116>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/Y-DepthControl
+ * '<S117>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/X-HeadingControl/PID Controller X Position
+ * '<S118>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/X-HeadingControl/PID Controller X Position/X-Buoy Discrete Derivative
+ * '<S119>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/Y-DepthControl/PID Controller Y Position
+ * '<S120>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/Y-DepthControl/PID Controller Y Position/Y-Buoy Discrete Derivative
+ * '<S121>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.GetAxisRatio/Embedded MATLAB Function
+ * '<S122>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IndividualSegmentation/Threshold The Image
+ * '<S123>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IndividualSegmentation/Threshold The Image/Choose Closest Color
+ * '<S124>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IndividualSegmentation/Threshold The Image/Get Desired Color
+ * '<S125>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Low Pass Filter
+ * '<S126>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Segmentation
+ * '<S127>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Low Pass Filter/Low Pass Filter
+ * '<S128>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Low Pass Filter/Low Pass Filter1
+ * '<S129>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Low Pass Filter/Low Pass Filter2
+ * '<S130>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Segmentation/LabSegmentation
+ * '<S131>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Segmentation/Reference Color Selection
+ * '<S132>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.IterativeSegmentation/Segmentation/Resize
+ * '<S133>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.RecognizeHedge.LookForHedge/Are 3 Lines Present
+ * '<S134>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.ShowSegmentedImage/Embedded MATLAB Function
+ * '<S135>' : brain/StateFlow Functions/StateFlowFunctions.JumpHedge.ShowSegmentedImage/Embedded MATLAB Function1
+ * '<S136>' : brain/StateFlow Functions/StateFlowFunctions.MaintainDepth/PID Controller Depth S3
+ * '<S137>' : brain/StateFlow Functions/StateFlowFunctions.MaintainDepth/PID Controller Depth S3/Depth Discrete Derivative
+ * '<S138>' : brain/StateFlow Functions/StateFlowFunctions.MaintainHeading/BigError S1
+ * '<S139>' : brain/StateFlow Functions/StateFlowFunctions.MaintainHeading/BigNegativeError S2
+ * '<S140>' : brain/StateFlow Functions/StateFlowFunctions.MaintainHeading/PID Controller Heading S4
+ * '<S141>' : brain/StateFlow Functions/StateFlowFunctions.MaintainHeading/PID Controller Heading S4/Heading Discrete Derivative
+ * '<S142>' : brain/StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack
+ * '<S143>' : brain/StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/CheckConditions
+ * '<S144>' : brain/StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/Hue Higher Comparison
+ * '<S145>' : brain/StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/Hue Lower Comparison
+ * '<S146>' : brain/StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/Saturation Comparison
+ * '<S147>' : brain/StateFlow Functions/StateManagement.Running.Autonomous.Perform/Checking to see if state will be performed
  */
 
 /*-
