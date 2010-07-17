@@ -15,7 +15,7 @@ INCLUDEPATH += . \
 	     auv/qextserialport \
 	     server \
 	     server-jaus
-LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
+LIBS += -ljauscore -ljausmobility -ltinyxml -lcxutils
 # Input
 HEADERS += server/server.h \
 	server/sidsocket.h \
