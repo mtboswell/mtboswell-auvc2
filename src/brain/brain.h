@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.687
+ * Model version                        : 1.691
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sat Jul 17 12:22:51 2010
+ * Real-Time Workshop file generated on : Sat Jul 17 12:30:39 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sat Jul 17 12:22:52 2010
+ * C/C++ source code generated on       : Sat Jul 17 12:30:40 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -621,7 +621,6 @@ typedef struct {
   real_T Heading3;                     /* '<Root>/StateFlow Functions' */
   real_T Heading4;                     /* '<Root>/StateFlow Functions' */
   real_T OldDesiredHeading;            /* '<Root>/StateFlow Functions' */
-  real_T DeltaT;                       /* '<Root>/StateFlow Functions' */
   real_T OldPitch;                     /* '<Root>/StateFlow Functions' */
   real_T OldRoll;                      /* '<Root>/StateFlow Functions' */
   real_T OldX;                         /* '<Root>/StateFlow Functions' */
@@ -886,7 +885,7 @@ typedef struct {
   real_T Yaw_Accel;                    /* '<Root>/Yaw_Accel' */
   real_T PitchRate_Out;                /* '<Root>/PitchRate_Out' */
   real_T RollRate_Out;                 /* '<Root>/RollRate_Out' */
-  real_T DesiredHeading1;              /* '<Root>/DesiredHeading1' */
+  real_T YawRate_Out;                  /* '<Root>/YawRate_Out' */
 } ExternalOutputs_brain;
 
 /* Parameters (auto storage) */
