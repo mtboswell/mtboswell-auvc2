@@ -93,7 +93,7 @@ Model {
       Name		      "RGBout"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.668"
+    ComputedModelVersion    "1.669"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -112,9 +112,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jul 16 21:21:53 2010"
-  RTWModifiedTimeStamp	  201216104
-  ModelVersionFormat	  "1.%<AutoIncrement:668>"
+  LastModifiedDate	  "Fri Jul 16 21:28:04 2010"
+  RTWModifiedTimeStamp	  201216482
+  ModelVersionFormat	  "1.%<AutoIncrement:669>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1297,7 +1297,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  "on"
+	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -1315,7 +1315,7 @@ Model {
 	  antialiasing		  "Default"
 	  hcoeff		  "[0.2 0.6 0.2]"
 	  vcoeff		  "[0.5 0.5]"
-	  isInputTransposed	  "off"
+	  isInputTransposed	  off
 	}
 	Block {
 	  BlockType		  Reference
@@ -1327,7 +1327,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  "on"
+	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -1357,7 +1357,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  "on"
+	  isSigned		  on
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -1378,9 +1378,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  "on"
-	  useROI		  "off"
-	  roiFlag		  "off"
+	  antialias		  on
+	  useROI		  off
+	  roiFlag		  off
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -1394,8 +1394,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  "on"
-	  LockScale		  "off"
+	  overflowMode		  on
+	  LockScale		  off
 	}
 	Block {
 	  BlockType		  Reference
@@ -1414,9 +1414,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  "on"
-	  useROI		  "off"
-	  roiFlag		  "off"
+	  antialias		  on
+	  useROI		  off
+	  roiFlag		  off
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -1430,8 +1430,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  "on"
-	  LockScale		  "off"
+	  overflowMode		  on
+	  LockScale		  off
 	}
 	Block {
 	  BlockType		  Reference
@@ -1450,9 +1450,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  "on"
-	  useROI		  "off"
-	  roiFlag		  "off"
+	  antialias		  on
+	  useROI		  off
+	  roiFlag		  off
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -1466,8 +1466,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  "on"
-	  LockScale		  "off"
+	  overflowMode		  on
+	  LockScale		  off
 	}
 	Block {
 	  BlockType		  Reference
@@ -4252,7 +4252,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -4266,9 +4266,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "off"
+		    DoSatur		    off
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -4661,7 +4661,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -4675,9 +4675,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "off"
+		    DoSatur		    off
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -9146,9 +9146,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    "on"
-		    useROI		    "off"
-		    roiFlag		    "off"
+		    antialias		    on
+		    useROI		    off
+		    roiFlag		    off
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -9162,8 +9162,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    "on"
-		    LockScale		    "off"
+		    overflowMode	    on
+		    LockScale		    off
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -9182,9 +9182,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    "on"
-		    useROI		    "off"
-		    roiFlag		    "off"
+		    antialias		    on
+		    useROI		    off
+		    roiFlag		    off
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -9198,8 +9198,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    "on"
-		    LockScale		    "off"
+		    overflowMode	    on
+		    LockScale		    off
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -9218,9 +9218,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    "on"
-		    useROI		    "off"
-		    roiFlag		    "off"
+		    antialias		    on
+		    useROI		    off
+		    roiFlag		    off
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -9234,8 +9234,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    "on"
-		    LockScale		    "off"
+		    overflowMode	    on
+		    LockScale		    off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -10570,7 +10570,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -10584,9 +10584,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "on"
+		  DoSatur		  on
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -11072,7 +11072,7 @@ Model {
 		  SourceType		  "Hough Transform"
 		  theta_res		  "pi/180"
 		  rho_res		  "1"
-		  out_theta_rho		  "on"
+		  out_theta_rho		  on
 		  outdtmode		  "double"
 		  firstCoeffMode	  "Binary point scaling"
 		  firstCoeffWordLength	  "16"
@@ -11093,8 +11093,8 @@ Model {
 		  memoryWordLength	  "32"
 		  memoryFracLength	  "16"
 		  roundingMode		  "Nearest"
-		  overflowMode		  "on"
-		  LockScale		  "off"
+		  overflowMode		  on
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -12097,7 +12097,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -12111,9 +12111,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "off"
+		    DoSatur		    off
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -12492,7 +12492,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -12506,9 +12506,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "off"
+		    DoSatur		    off
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -13512,7 +13512,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -13526,9 +13526,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "off"
+		    DoSatur		    off
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -13813,7 +13813,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -13827,9 +13827,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "off"
+		    DoSatur		    off
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -14363,7 +14363,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14372,7 +14372,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -14385,7 +14385,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14394,7 +14394,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  Logic
@@ -14436,7 +14436,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14445,7 +14445,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  Outport
@@ -14678,30 +14678,30 @@ Model {
 		  DialogControllerArgs	  "DataTag24"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  "off"
-		  centroid		  "off"
-		  bBox			  "off"
-		  majorAxis		  "off"
-		  minorAxis		  "off"
-		  angle			  "off"
-		  eccentricity		  "on"
-		  equivDiameterSq	  "off"
-		  extent		  "off"
-		  perimeter		  "off"
+		  area			  off
+		  centroid		  off
+		  bBox			  off
+		  majorAxis		  off
+		  minorAxis		  off
+		  angle			  off
+		  eccentricity		  on
+		  equivDiameterSq	  off
+		  extent		  off
+		  perimeter		  off
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  "on"
-		  isCount		  "off"
-		  useMinArea		  "on"
+		  warnIfNumBlobsExceeded  on
+		  isCount		  off
+		  useMinArea		  on
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  "on"
+		  useMaxArea		  on
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  "off"
+		  excludeBorderBlob	  off
 		  outDT			  "single"
-		  isOutVarDim		  "off"
-		  isFill		  "on"
+		  isOutVarDim		  off
+		  isFill		  on
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  "off"
+		  isLabel		  off
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -14721,8 +14721,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  "off"
-		  LockScale		  "off"
+		  overflowMode		  off
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -14876,7 +14876,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14885,7 +14885,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -14898,7 +14898,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14907,7 +14907,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  Logic
@@ -14949,7 +14949,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14958,7 +14958,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  Outport
@@ -15385,7 +15385,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -15399,9 +15399,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "off"
+		  DoSatur		  off
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -16958,7 +16958,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -16972,9 +16972,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "off"
+		    DoSatur		    off
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -17348,7 +17348,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData "off"
+		    FunctionWithSeparateData off
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -17362,9 +17362,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    "off"
+		    LockScale		    off
 		    RndMeth		    "Floor"
-		    DoSatur		    "off"
+		    DoSatur		    off
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -19856,9 +19856,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    "on"
-		    useROI		    "off"
-		    roiFlag		    "off"
+		    antialias		    on
+		    useROI		    off
+		    roiFlag		    off
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -19872,8 +19872,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    "on"
-		    LockScale		    "off"
+		    overflowMode	    on
+		    LockScale		    off
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -19892,9 +19892,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    "on"
-		    useROI		    "off"
-		    roiFlag		    "off"
+		    antialias		    on
+		    useROI		    off
+		    roiFlag		    off
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -19908,8 +19908,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    "on"
-		    LockScale		    "off"
+		    overflowMode	    on
+		    LockScale		    off
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -19928,9 +19928,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    "on"
-		    useROI		    "off"
-		    roiFlag		    "off"
+		    antialias		    on
+		    useROI		    off
+		    roiFlag		    off
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -19944,8 +19944,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    "on"
-		    LockScale		    "off"
+		    overflowMode	    on
+		    LockScale		    off
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -21520,7 +21520,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -21534,9 +21534,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "on"
+		  DoSatur		  on
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -22240,7 +22240,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -22254,9 +22254,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  "off"
+		  LockScale		  off
 		  RndMeth		  "Floor"
-		  DoSatur		  "off"
+		  DoSatur		  off
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -22762,30 +22762,30 @@ Model {
 		  DialogControllerArgs	  "DataTag35"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  "off"
-		  centroid		  "off"
-		  bBox			  "off"
-		  majorAxis		  "off"
-		  minorAxis		  "off"
-		  angle			  "off"
-		  eccentricity		  "on"
-		  equivDiameterSq	  "off"
-		  extent		  "off"
-		  perimeter		  "off"
+		  area			  off
+		  centroid		  off
+		  bBox			  off
+		  majorAxis		  off
+		  minorAxis		  off
+		  angle			  off
+		  eccentricity		  on
+		  equivDiameterSq	  off
+		  extent		  off
+		  perimeter		  off
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  "on"
-		  isCount		  "off"
-		  useMinArea		  "on"
+		  warnIfNumBlobsExceeded  on
+		  isCount		  off
+		  useMinArea		  on
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  "on"
+		  useMaxArea		  on
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  "off"
+		  excludeBorderBlob	  off
 		  outDT			  "single"
-		  isOutVarDim		  "off"
-		  isFill		  "on"
+		  isOutVarDim		  off
+		  isFill		  on
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  "off"
+		  isLabel		  off
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -22805,8 +22805,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  "off"
-		  LockScale		  "off"
+		  overflowMode		  off
+		  LockScale		  off
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -22960,7 +22960,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -22969,7 +22969,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  Reference
@@ -22982,7 +22982,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -22991,7 +22991,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  Logic
@@ -23033,7 +23033,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData "off"
+		  FunctionWithSeparateData off
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -23042,7 +23042,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  "off"
+		  ZeroCross		  off
 		}
 		Block {
 		  BlockType		  Outport
@@ -26122,11 +26122,11 @@ Stateflow {
     id			    2
     name		    "StateFlow Functions"
     windowPosition	    [18.75 30 1020 489]
-    viewLimits		    [0 1220.625 0 566.25]
-    zoomFactor		    1.25
+    viewLimits		    [-15 961.5 -15 438]
     screen		    [1 1 1360 768 1.333333333333333]
     treeNode		    [0 4 0 0]
-    viewObj		    2
+    viewObj		    6
+    visible		    1
     machine		    1
     subviewS {
       zoomFactor	      1.25
@@ -26150,6 +26150,7 @@ Stateflow {
     treeNode		    [2 96 4 0]
     firstTransition	    163
     superState		    SUBCHART
+    visible		    0
     subviewer		    2
     subviewS {
       x1		      -30
@@ -26171,6 +26172,7 @@ Stateflow {
     treeNode		    [2 47 0 3]
     firstTransition	    144
     superState		    SUBCHART
+    visible		    0
     subviewer		    2
     subviewS {
       x1		      -18.345
@@ -26200,14 +26202,13 @@ Stateflow {
   state {
     id			    6
     labelString		    "ControlledRC\n\nentry:\nState = -1;\n\ndu:\nVertical = MaintainDepth(CurrentDepth,RC_Depth);\n[L"
-    "eft, Right,Strafe] = GoStraight(YawRate,Y_Accelerometer,RC_ForwardVelocity);\nStrafe = RC_Strafe;\n\nexit:\nLeft ="
-    " 0;\nRight = 0;\nStrafe = 0;"
+    "eft, Right,Strafe] = GoStraight(YawRate,Y_Accelerometer,RC_ForwardVelocity);\n\nexit:\nLeft = 0;\nRight = 0;\nStra"
+    "fe = 0;"
     position		    [42.649 288.1445 86.8895 55.911]
     fontSize		    12
     chart		    2
     treeNode		    [3 0 53 101]
     superState		    SUBCHART
-    visible		    0
     subviewer		    3
     subviewS {
       x1		      -15

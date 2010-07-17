@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.668
+ * Model version                        : 1.669
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Fri Jul 16 21:24:38 2010
+ * Real-Time Workshop file generated on : Fri Jul 16 21:28:51 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Fri Jul 16 21:24:39 2010
+ * C/C++ source code generated on       : Fri Jul 16 21:28:52 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -14103,7 +14103,6 @@ void brain_step(void)
    *  Inport: '<Root>/RC'
    *  Inport: '<Root>/RC_Depth'
    *  Inport: '<Root>/RC_ForwardVelocity'
-   *  Inport: '<Root>/RC_Strafe'
    *  Inport: '<Root>/Status'
    *  Inport: '<Root>/Y_Accelerometer'
    *  Inport: '<Root>/YawRate'
@@ -14442,7 +14441,7 @@ void brain_step(void)
           &brain_DWork.StateFlowFunctionsGoStraight);
         brain_B.Left = brain_B.StateFlowFunctionsGoStraight.DoubleToint8;
         brain_B.Right = brain_B.StateFlowFunctionsGoStraight.DoubleToint1;
-        brain_B.Strafe = (int8_T)brain_U.RC_Strafe;
+        brain_B.Strafe = brain_B.StateFlowFunctionsGoStraight.DoubleToint2;
       }
       break;
 
