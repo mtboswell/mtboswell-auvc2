@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.665
+ * Model version                        : 1.668
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Fri Jul 16 20:14:39 2010
+ * Real-Time Workshop file generated on : Fri Jul 16 21:24:38 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Fri Jul 16 20:14:40 2010
+ * C/C++ source code generated on       : Fri Jul 16 21:24:39 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -2408,9 +2408,9 @@ static void brain_c14_brain(const real_T rtu_I[19200], rtB_LowPassFilter_brain
  *    '<S66>/Low Pass Filter'
  *    '<S66>/Low Pass Filter1'
  *    '<S66>/Low Pass Filter2'
- *    '<S123>/Low Pass Filter'
- *    '<S123>/Low Pass Filter1'
- *    '<S123>/Low Pass Filter2'
+ *    '<S125>/Low Pass Filter'
+ *    '<S125>/Low Pass Filter1'
+ *    '<S125>/Low Pass Filter2'
  */
 void brain_LowPassFilter(const real_T rtu_I[19200], rtB_LowPassFilter_brain
   *localB)
@@ -3532,14 +3532,14 @@ void StateFlowFunctionsMaint_Disable(rtB_StateFlowFunctionsMaintainH *localB,
 
   /* Disable for ifaction SubSystem: '<S39>/BigError S1' */
 
-  /* Disable for Outport: '<S136>/Out2' */
+  /* Disable for Outport: '<S138>/Out2' */
   localB->Constant1_e = 0.0;
 
   /* end of Disable for SubSystem: '<S39>/BigError S1' */
 
   /* Disable for ifaction SubSystem: '<S39>/BigNegativeError S2' */
 
-  /* Disable for Outport: '<S137>/Out2' */
+  /* Disable for Outport: '<S139>/Out2' */
   localB->Constant1 = 0.0;
 
   /* end of Disable for SubSystem: '<S39>/BigNegativeError S2' */
@@ -3573,8 +3573,8 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
   rtb_Add1 = rtu_DesiredHeading1 - rtu_CurrentHeading1;
 
   /* If: '<S39>/If' incorporates:
-   *  ActionPort: '<S136>/Action Port'
-   *  ActionPort: '<S137>/Action Port'
+   *  ActionPort: '<S138>/Action Port'
+   *  ActionPort: '<S139>/Action Port'
    *  SubSystem: '<S39>/BigError S1'
    *  SubSystem: '<S39>/BigNegativeError S2'
    */
@@ -3592,12 +3592,12 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
   if (rtPrevAction != rtAction) {
     switch (rtPrevAction) {
      case 0:
-      /* Disable for Outport: '<S136>/Out2' */
+      /* Disable for Outport: '<S138>/Out2' */
       localB->Constant1_e = 0.0;
       break;
 
      case 1:
-      /* Disable for Outport: '<S137>/Out2' */
+      /* Disable for Outport: '<S139>/Out2' */
       localB->Constant1 = 0.0;
       break;
     }
@@ -3605,22 +3605,22 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
 
   switch (rtAction) {
    case 0:
-    /* Sum: '<S136>/Add' incorporates:
-     *  Constant: '<S136>/Constant'
+    /* Sum: '<S138>/Add' incorporates:
+     *  Constant: '<S138>/Constant'
      */
     localB->Add_o = rtb_Add1 - 360.0;
 
-    /* Constant: '<S136>/Constant1' */
+    /* Constant: '<S138>/Constant1' */
     localB->Constant1_e = 1.0;
     break;
 
    case 1:
-    /* Sum: '<S137>/Add' incorporates:
-     *  Constant: '<S137>/Constant'
+    /* Sum: '<S139>/Add' incorporates:
+     *  Constant: '<S139>/Constant'
      */
     localB->Add = rtb_Add1 + 360.0;
 
-    /* Constant: '<S137>/Constant1' */
+    /* Constant: '<S139>/Constant1' */
     localB->Constant1 = 2.0;
     break;
   }
@@ -3642,26 +3642,26 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
     break;
   }
 
-  /* SampleTimeMath: '<S139>/TSamp' incorporates:
-   *  Gain: '<S138>/Heading Derivative Gain'
+  /* SampleTimeMath: '<S141>/TSamp' incorporates:
+   *  Gain: '<S140>/Heading Derivative Gain'
    *
-   * About '<S139>/TSamp':
+   * About '<S141>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   rtb_TSamp_j = brain_P.Heading_Kd * rtb_Add1 / ((real_T)
     localDW->StateFlowFunctionsMaintainHea_e * 0.2);
 
-  /* Sum: '<S138>/Sum' incorporates:
-   *  DiscreteIntegrator: '<S138>/Heading Discrete-Time Integrator'
-   *  Gain: '<S138>/Heading Proportional Gain'
-   *  Sum: '<S139>/Diff'
-   *  UnitDelay: '<S139>/UD'
+  /* Sum: '<S140>/Sum' incorporates:
+   *  DiscreteIntegrator: '<S140>/Heading Discrete-Time Integrator'
+   *  Gain: '<S140>/Heading Proportional Gain'
+   *  Sum: '<S141>/Diff'
+   *  UnitDelay: '<S141>/UD'
    *
-   * Block description for '<S139>/Diff':
+   * Block description for '<S141>/Diff':
    *
    *  Add in CPU
    *
-   * Block description for '<S139>/UD':
+   * Block description for '<S141>/UD':
    *
    *  Store in Global RAM
    */
@@ -3709,15 +3709,15 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
     localB->DoubleToint8 = MAX_int8_T;
   }
 
-  /* Update for UnitDelay: '<S139>/UD'
-   * Block description for '<S139>/UD':
+  /* Update for UnitDelay: '<S141>/UD'
+   * Block description for '<S141>/UD':
    *
    *  Store in Global RAM
    */
   localDW->UD_DSTATE = rtb_TSamp_j;
 
-  /* Update for DiscreteIntegrator: '<S138>/Heading Discrete-Time Integrator' incorporates:
-   *  Gain: '<S138>/Heading Integral Gain'
+  /* Update for DiscreteIntegrator: '<S140>/Heading Discrete-Time Integrator' incorporates:
+   *  Gain: '<S140>/Heading Integral Gain'
    */
   localDW->HeadingDiscreteTimeIntegrator_D = 0.2 * (real_T)
     localDW->StateFlowFunctionsMaintainHea_e * (brain_P.Heading_Ki * rtb_Add1) +
@@ -3788,21 +3788,21 @@ void StateFlowFunctionsValidationGat(const real_T rtu_H[19200], const real_T
   real32_T centroid_idx;
   real32_T centroid_idx_0;
 
-  /* Logic: '<S140>/Logical Operator1' incorporates:
-   *  Constant: '<S142>/Constant'
-   *  Constant: '<S143>/Constant'
+  /* Logic: '<S142>/Logical Operator1' incorporates:
    *  Constant: '<S144>/Constant'
-   *  Logic: '<S140>/Logical Operator'
-   *  RelationalOperator: '<S142>/Compare'
-   *  RelationalOperator: '<S143>/Compare'
+   *  Constant: '<S145>/Constant'
+   *  Constant: '<S146>/Constant'
+   *  Logic: '<S142>/Logical Operator'
    *  RelationalOperator: '<S144>/Compare'
+   *  RelationalOperator: '<S145>/Compare'
+   *  RelationalOperator: '<S146>/Compare'
    */
   for (i = 0; i < 19200; i++) {
     localB->BW[i] = (((rtu_H[i] < brain_P.Track_HueLower) || (rtu_H[i] >
       brain_P.Track_HueHigher)) && (rtu_S[i] > brain_P.Track_Saturation));
   }
 
-  /* S-Function (svipblob): '<S140>/Blob Analysis' */
+  /* S-Function (svipblob): '<S142>/Blob Analysis' */
   maxNumBlobsReached = FALSE;
   for (i = 0; i < 123; i++) {
     localDW->BlobAnalysis_PAD_DW[i] = 0U;
@@ -3929,17 +3929,17 @@ void StateFlowFunctionsValidationGat(const real_T rtu_H[19200], const real_T
     rtb_BlobAnalysis = -1.0F;
   }
 
-  /* Embedded MATLAB: '<S140>/CheckConditions' incorporates:
-   *  Constant: '<S140>/Constant'
+  /* Embedded MATLAB: '<S142>/CheckConditions' incorporates:
+   *  Constant: '<S142>/Constant'
    */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/CheckConditions': '<S141>:1' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.ValidationGate.LookforTrack/LookforTrack/CheckConditions': '<S143>:1' */
   /*  This function checks the conditions to decide if a track is present */
   if ((real_T)rtb_BlobAnalysis > brain_P.Track_Min_Eccentricity) {
-    /* '<S141>:1:4' */
-    /* '<S141>:1:5' */
+    /* '<S143>:1:4' */
+    /* '<S143>:1:5' */
     localB->Image = 1.0;
   } else {
-    /* '<S141>:1:7' */
+    /* '<S143>:1:7' */
     localB->Image = 0.0;
   }
 }
@@ -4859,7 +4859,7 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   int8_T rtb_index_j;
   int32_T i;
 
-  /* S-Function (svipcolorconv): '<S122>/Color Space  Conversion' */
+  /* S-Function (svipcolorconv): '<S124>/Color Space  Conversion' */
   /* temporary variables for in-place operation */
   cc = 0.0;
   cc_0 = 0.0;
@@ -4915,7 +4915,7 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   localB->ColorSpaceConversion_o2 = eml_min_dist * cc_0;
   localB->ColorSpaceConversion_o3 = eml_min_dist * cc_1;
 
-  /* S-Function (svipcolorconv): '<S122>/Color Space  Conversion1' */
+  /* S-Function (svipcolorconv): '<S124>/Color Space  Conversion1' */
   /* temporary variables for in-place operation */
   /* Convert to XYZ */
   /* temporary variables for in-place operation */
@@ -5017,21 +5017,21 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   localB->ColorSpaceConversion1_o2 = (Xf - eml_i) * 500.0;
   localB->ColorSpaceConversion1_o3 = (eml_i - eml_min_dist) * 200.0;
 
-  /* Embedded MATLAB: '<S120>/Choose Closest Color' */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.JumpHedge.IndividualSegmentation/Threshold The Image/Choose Closest Color': '<S121>:1' */
+  /* Embedded MATLAB: '<S122>/Choose Closest Color' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.JumpHedge.IndividualSegmentation/Threshold The Image/Choose Closest Color': '<S123>:1' */
   /*  This function chooses the appropriate color option from the reference colors */
   /*  and set of desired L,a,b values */
-  /* '<S121>:1:5' */
+  /* '<S123>:1:5' */
   eml_min_dist = 1000.0;
 
-  /* '<S121>:1:6' */
-  /* '<S121>:1:12' */
+  /* '<S123>:1:6' */
+  /* '<S123>:1:12' */
   rtb_index_j = 1;
 
-  /* '<S121>:1:13' */
+  /* '<S123>:1:13' */
   for (eml_i = 1.0; eml_i <= rtu_Num_Colors; eml_i++) {
-    /* '<S121>:1:13' */
-    /* '<S121>:1:14' */
+    /* '<S123>:1:13' */
+    /* '<S123>:1:14' */
     eml_dist = sqrt((rt_pow_snf(localB->ColorSpaceConversion1_o2 -
       rtu_Ref_Colors[(int32_T)eml_i + 49], 2.0) * 1.5 + rt_pow_snf
                      (localB->ColorSpaceConversion1_o1 - rtu_Ref_Colors[(int32_T)
@@ -5039,11 +5039,11 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
                     (localB->ColorSpaceConversion1_o3 - rtu_Ref_Colors[(int32_T)
                      eml_i + 99], 2.0) * 1.5);
     if (eml_dist < eml_min_dist) {
-      /* '<S121>:1:15' */
-      /* '<S121>:1:16' */
+      /* '<S123>:1:15' */
+      /* '<S123>:1:16' */
       eml_min_dist = eml_dist;
 
-      /* '<S121>:1:17' */
+      /* '<S123>:1:17' */
       cc = floor(eml_i + 0.5);
       if (cc < 128.0) {
         rtb_index_j = (int8_T)cc;
@@ -5054,8 +5054,8 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   }
 
   if (eml_min_dist > 100.0) {
-    /* '<S121>:1:21' */
-    /* '<S121>:1:22' */
+    /* '<S123>:1:21' */
+    /* '<S123>:1:22' */
     cc = rtu_Num_Colors + 1.0;
     cc = cc < 0.0 ? ceil(cc - 0.5) : floor(cc + 0.5);
     if (cc < 128.0) {
@@ -5069,7 +5069,7 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     }
   }
 
-  /* RelationalOperator: '<S120>/Relational Operator' */
+  /* RelationalOperator: '<S122>/Relational Operator' */
   for (i = 0; i < 19200; i++) {
     localB->BW[i] = (rtu_LabMatrix[i] == (real_T)rtb_index_j);
   }
@@ -5434,19 +5434,19 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
   }
 
   /* Embedded MATLAB: '<S29>/Embedded MATLAB Function' */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/Embedded MATLAB Function': '<S111>:1' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.JumpHedge.CameraForward_CenterOnBlobYaw/Embedded MATLAB Function': '<S113>:1' */
   /*  This function will choose and return data about the largest blob given a  */
   /*  set of blobs */
   if ((rtb_BuoyBlobAnalysis_o2_c[0] == -1.0) && (rtb_BuoyBlobAnalysis_o2_c[1] ==
        -1.0)) {
-    /* '<S111>:1:5' */
-    /* '<S111>:1:7' */
+    /* '<S113>:1:5' */
+    /* '<S113>:1:7' */
     eml_BlobCentroidX = 80.0;
 
-    /* '<S111>:1:8' */
+    /* '<S113>:1:8' */
     eml_BlobCentroidY = 60.0;
 
-    /* '<S111>:1:9' */
+    /* '<S113>:1:9' */
   } else {
     i = rtb_BuoyBlobAnalysis_o1_c[0];
     ku = 1;
@@ -5459,11 +5459,11 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
       }
     }
 
-    /* '<S111>:1:11' */
-    /* '<S111>:1:12' */
+    /* '<S113>:1:11' */
+    /* '<S113>:1:12' */
     eml_BlobCentroidX = rtb_BuoyBlobAnalysis_o2_c[((ku - 1) << 1) + 1];
 
-    /* '<S111>:1:13' */
+    /* '<S113>:1:13' */
     eml_BlobCentroidY = rtb_BuoyBlobAnalysis_o2_c[(ku - 1) << 1];
   }
 
@@ -5851,30 +5851,30 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
   /* Embedded MATLAB: '<S29>/Embedded MATLAB Function1' */
   brain_EmbeddedMATLABFunction1(&localB->sf_EmbeddedMATLABFunction1);
 
-  /* Sum: '<S113>/Subtract' */
+  /* Sum: '<S115>/Subtract' */
   rtb_Sum_cg = localB->sf_EmbeddedMATLABFunction1.XCenter - eml_BlobCentroidX;
 
-  /* SampleTimeMath: '<S116>/TSamp' incorporates:
-   *  Gain: '<S115>/X-Buoy Derivative Gain'
+  /* SampleTimeMath: '<S118>/TSamp' incorporates:
+   *  Gain: '<S117>/X-Buoy Derivative Gain'
    *
-   * About '<S116>/TSamp':
+   * About '<S118>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   rtb_TSamp_n = brain_P.Cam_Forward_XPosition_Kd * rtb_Sum_cg / ((real_T)
     localDW->StateFlowFunctionsJumpHedgeCa_c * 0.2);
 
-  /* DataTypeConversion: '<S113>/Data Type Conversion' incorporates:
-   *  DiscreteIntegrator: '<S115>/X-Buoy Discrete-Time Integrator'
-   *  Gain: '<S115>/X-Buoy Proportional Gain'
-   *  Sum: '<S115>/Sum'
-   *  Sum: '<S116>/Diff'
-   *  UnitDelay: '<S116>/UD'
+  /* DataTypeConversion: '<S115>/Data Type Conversion' incorporates:
+   *  DiscreteIntegrator: '<S117>/X-Buoy Discrete-Time Integrator'
+   *  Gain: '<S117>/X-Buoy Proportional Gain'
+   *  Sum: '<S117>/Sum'
+   *  Sum: '<S118>/Diff'
+   *  UnitDelay: '<S118>/UD'
    *
-   * Block description for '<S116>/Diff':
+   * Block description for '<S118>/Diff':
    *
    *  Add in CPU
    *
-   * Block description for '<S116>/UD':
+   * Block description for '<S118>/UD':
    *
    *  Store in Global RAM
    */
@@ -5891,40 +5891,40 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
     rtb_DataTypeConversion_m_0 = MAX_int8_T;
   }
 
-  /* Sum: '<S113>/Add' */
+  /* Sum: '<S115>/Add' */
   localB->Add = rtu_ForwardVelocity + (real_T)rtb_DataTypeConversion_m_0;
 
-  /* Sum: '<S113>/Add1' incorporates:
-   *  Constant: '<S113>/Constant'
-   *  Product: '<S113>/Multiply'
+  /* Sum: '<S115>/Add1' incorporates:
+   *  Constant: '<S115>/Constant'
+   *  Product: '<S115>/Multiply'
    */
   localB->Add1 = (real_T)rtb_DataTypeConversion_m_0 * -1.0 + rtu_ForwardVelocity;
 
-  /* Sum: '<S114>/Subtract' */
+  /* Sum: '<S116>/Subtract' */
   eml_BlobCentroidX = eml_BlobCentroidY -
     localB->sf_EmbeddedMATLABFunction1.YCenter;
 
-  /* SampleTimeMath: '<S118>/TSamp' incorporates:
-   *  Gain: '<S117>/Y-Buoy Derivative Gain'
+  /* SampleTimeMath: '<S120>/TSamp' incorporates:
+   *  Gain: '<S119>/Y-Buoy Derivative Gain'
    *
-   * About '<S118>/TSamp':
+   * About '<S120>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   eml_BlobCentroidY = brain_P.Cam_Forward_YPosition_Kd * eml_BlobCentroidX /
     ((real_T)localDW->StateFlowFunctionsJumpHedgeCa_c * 0.2);
 
-  /* DataTypeConversion: '<S114>/Data Type Conversion' incorporates:
-   *  DiscreteIntegrator: '<S117>/Y-Buoy Discrete-Time Integrator'
-   *  Gain: '<S117>/Y-Buoy Proportional Gain'
-   *  Sum: '<S117>/Sum'
-   *  Sum: '<S118>/Diff'
-   *  UnitDelay: '<S118>/UD'
+  /* DataTypeConversion: '<S116>/Data Type Conversion' incorporates:
+   *  DiscreteIntegrator: '<S119>/Y-Buoy Discrete-Time Integrator'
+   *  Gain: '<S119>/Y-Buoy Proportional Gain'
+   *  Sum: '<S119>/Sum'
+   *  Sum: '<S120>/Diff'
+   *  UnitDelay: '<S120>/UD'
    *
-   * Block description for '<S118>/Diff':
+   * Block description for '<S120>/Diff':
    *
    *  Add in CPU
    *
-   * Block description for '<S118>/UD':
+   * Block description for '<S120>/UD':
    *
    *  Store in Global RAM
    */
@@ -5942,15 +5942,15 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
     localB->DataTypeConversion = MAX_int8_T;
   }
 
-  /* Update for UnitDelay: '<S116>/UD'
-   * Block description for '<S116>/UD':
+  /* Update for UnitDelay: '<S118>/UD'
+   * Block description for '<S118>/UD':
    *
    *  Store in Global RAM
    */
   localDW->UD_DSTATE = rtb_TSamp_n;
 
-  /* Update for DiscreteIntegrator: '<S115>/X-Buoy Discrete-Time Integrator' incorporates:
-   *  Gain: '<S115>/X-Buoy Integral Gain'
+  /* Update for DiscreteIntegrator: '<S117>/X-Buoy Discrete-Time Integrator' incorporates:
+   *  Gain: '<S117>/X-Buoy Integral Gain'
    */
   localDW->XBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
     localDW->StateFlowFunctionsJumpHedgeCa_c * (brain_P.Cam_Forward_XPosition_Ki
@@ -5963,15 +5963,15 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
     }
   }
 
-  /* Update for UnitDelay: '<S118>/UD'
-   * Block description for '<S118>/UD':
+  /* Update for UnitDelay: '<S120>/UD'
+   * Block description for '<S120>/UD':
    *
    *  Store in Global RAM
    */
   localDW->UD_DSTATE_a = eml_BlobCentroidY;
 
-  /* Update for DiscreteIntegrator: '<S117>/Y-Buoy Discrete-Time Integrator' incorporates:
-   *  Gain: '<S117>/Y-Buoy Integral Gain'
+  /* Update for DiscreteIntegrator: '<S119>/Y-Buoy Discrete-Time Integrator' incorporates:
+   *  Gain: '<S119>/Y-Buoy Integral Gain'
    */
   localDW->YBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
     localDW->StateFlowFunctionsJumpHedgeCa_c * (brain_P.Cam_Forward_YPosition_Ki
@@ -6140,15 +6140,15 @@ void StateFlowFunctionsJumpHedgeGetA(const real_T rtu_BW[19200],
   }
 
   /* Embedded MATLAB: '<S30>/Embedded MATLAB Function' */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.JumpHedge.GetAxisRatio/Embedded MATLAB Function': '<S119>:1' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.JumpHedge.GetAxisRatio/Embedded MATLAB Function': '<S121>:1' */
   /*  This function will choose and return data about the largest blob given a  */
   /*  set of blobs */
   if (rtb_BlobAnalysis_o2[0] == -1) {
-    /* '<S119>:1:5' */
-    /* '<S119>:1:7' */
+    /* '<S121>:1:5' */
+    /* '<S121>:1:7' */
     localB->AxisRatio = 0.0;
 
-    /* '<S119>:1:8' */
+    /* '<S121>:1:8' */
   } else {
     i = rtb_BlobAnalysis_o1[0];
     n = 1;
@@ -6161,8 +6161,8 @@ void StateFlowFunctionsJumpHedgeGetA(const real_T rtu_BW[19200],
       }
     }
 
-    /* '<S119>:1:10' */
-    /* '<S119>:1:11' */
+    /* '<S121>:1:10' */
+    /* '<S121>:1:11' */
     localB->AxisRatio = (real_T)rtb_BlobAnalysis_o2[((n - 1) << 2) + 3] /
       (real_T)rtb_BlobAnalysis_o2[((n - 1) << 2) + 2];
   }
@@ -6175,14 +6175,14 @@ void StateManagementRunningAutonomou(real_T rtu_State1,
   /* Embedded MATLAB: '<S42>/Checking to see if state will be performed' incorporates:
    *  Constant: '<S42>/Mission Plan'
    */
-  /* Embedded MATLAB Function 'StateFlow Functions/StateManagement.Running.Autonomous.Perform/Checking to see if state will be performed': '<S145>:1' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateManagement.Running.Autonomous.Perform/Checking to see if state will be performed': '<S147>:1' */
   /*  This function checks to see if the current state should be executed */
   if (brain_P.MissionPlan[(int32_T)rtu_State1 - 1] != 0.0) {
-    /* '<S145>:1:4' */
-    /* '<S145>:1:5' */
+    /* '<S147>:1:4' */
+    /* '<S147>:1:5' */
     localB->Done1 = 0.0;
   } else {
-    /* '<S145>:1:7' */
+    /* '<S147>:1:7' */
     localB->Done1 = 1.0;
   }
 }
@@ -6530,7 +6530,7 @@ void StateFlowFunctionsGoStraig_Init(RT_MODEL_brain *const brain_M,
 
 /* Output and update for function-call system: '<Root>/StateFlow Functions' */
 void br_StateFlowFunctionsGoStraight(real_T rtu_YawRate, real_T
-  rtu_ForwardVelocity1, RT_MODEL_brain *const brain_M,
+  rtu_ForwardVelocity1, real_T rtu_Y_Accel, RT_MODEL_brain *const brain_M,
   rtB_StateFlowFunctionsGoStraigh *localB, rtDW_StateFlowFunctionsGoStraig
   *localDW)
 {
@@ -6541,10 +6541,10 @@ void br_StateFlowFunctionsGoStraight(real_T rtu_YawRate, real_T
     localDW->StateFlowFunctionsGoStraight_PR;
   localDW->StateFlowFunctionsGoStraight_PR = brain_M->Timing.clockTick0;
 
-  /* SampleTimeMath: '<S109>/TSamp' incorporates:
+  /* SampleTimeMath: '<S110>/TSamp' incorporates:
    *  Gain: '<S108>/Heading Derivative Gain'
    *
-   * About '<S109>/TSamp':
+   * About '<S110>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
   rtb_TSamp_er = brain_P.Heading_Kd * rtu_YawRate / ((real_T)
@@ -6553,14 +6553,14 @@ void br_StateFlowFunctionsGoStraight(real_T rtu_YawRate, real_T
   /* Sum: '<S108>/Sum' incorporates:
    *  DiscreteIntegrator: '<S108>/Heading Discrete-Time Integrator'
    *  Gain: '<S108>/Heading Proportional Gain'
-   *  Sum: '<S109>/Diff'
-   *  UnitDelay: '<S109>/UD'
+   *  Sum: '<S110>/Diff'
+   *  UnitDelay: '<S110>/UD'
    *
-   * Block description for '<S109>/Diff':
+   * Block description for '<S110>/Diff':
    *
    *  Add in CPU
    *
-   * Block description for '<S109>/UD':
+   * Block description for '<S110>/UD':
    *
    *  Store in Global RAM
    */
@@ -6600,8 +6600,46 @@ void br_StateFlowFunctionsGoStraight(real_T rtu_YawRate, real_T
     localB->DoubleToint8 = MAX_int8_T;
   }
 
-  /* Update for UnitDelay: '<S109>/UD'
-   * Block description for '<S109>/UD':
+  /* SampleTimeMath: '<S111>/TSamp' incorporates:
+   *  Gain: '<S109>/CamDownStrafe-X Derivative Gain'
+   *
+   * About '<S111>/TSamp':
+   *  y = u * K where K = 1 / ( w * Ts )
+   */
+  rtb_Add4_b = brain_P.Cam_Down_Strafe_XPos_Kd * rtu_Y_Accel / ((real_T)
+    localDW->StateFlowFunctionsGoStraight_EL * 0.2);
+
+  /* DataTypeConversion: '<S27>/DoubleToint2' incorporates:
+   *  DiscreteIntegrator: '<S109>/Depth Discrete-Time Integrator'
+   *  Gain: '<S109>/CamDownStrafe-X Proportional Gain'
+   *  Gain: '<S109>/Gain'
+   *  Sum: '<S109>/Sum'
+   *  Sum: '<S111>/Diff'
+   *  UnitDelay: '<S111>/UD'
+   *
+   * Block description for '<S111>/Diff':
+   *
+   *  Add in CPU
+   *
+   * Block description for '<S111>/UD':
+   *
+   *  Store in Global RAM
+   */
+  rtb_Gain_kd = ((brain_P.Cam_Down_Strafe_XPos_Kp * rtu_Y_Accel + (rtb_Add4_b -
+    localDW->UD_DSTATE_l)) + localDW->DepthDiscreteTimeIntegrator_DST) * -1.0;
+  rtb_Gain_kd = floor(rtb_Gain_kd);
+  if (rtb_Gain_kd < 128.0) {
+    if (rtb_Gain_kd >= -128.0) {
+      localB->DoubleToint2 = (int8_T)rtb_Gain_kd;
+    } else {
+      localB->DoubleToint2 = MIN_int8_T;
+    }
+  } else {
+    localB->DoubleToint2 = MAX_int8_T;
+  }
+
+  /* Update for UnitDelay: '<S110>/UD'
+   * Block description for '<S110>/UD':
    *
    *  Store in Global RAM
    */
@@ -6618,6 +6656,27 @@ void br_StateFlowFunctionsGoStraight(real_T rtu_YawRate, real_T
   } else {
     if (localDW->HeadingDiscreteTimeIntegrator_D <= -15.0) {
       localDW->HeadingDiscreteTimeIntegrator_D = -15.0;
+    }
+  }
+
+  /* Update for UnitDelay: '<S111>/UD'
+   * Block description for '<S111>/UD':
+   *
+   *  Store in Global RAM
+   */
+  localDW->UD_DSTATE_l = rtb_Add4_b;
+
+  /* Update for DiscreteIntegrator: '<S109>/Depth Discrete-Time Integrator' incorporates:
+   *  Gain: '<S109>/CamDownStrafe-X Integral Gain'
+   */
+  localDW->DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
+    localDW->StateFlowFunctionsGoStraight_EL * (brain_P.Cam_Down_Strafe_XPos_Ki *
+    rtu_Y_Accel) + localDW->DepthDiscreteTimeIntegrator_DST;
+  if (localDW->DepthDiscreteTimeIntegrator_DST >= 10.0) {
+    localDW->DepthDiscreteTimeIntegrator_DST = 10.0;
+  } else {
+    if (localDW->DepthDiscreteTimeIntegrator_DST <= -10.0) {
+      localDW->DepthDiscreteTimeIntegrator_DST = -10.0;
     }
   }
 }
@@ -7242,27 +7301,27 @@ static void brain_FindSecondBuoy(void)
     /* Sum: '<S38>/Add' */
     rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-    /* SampleTimeMath: '<S135>/TSamp' incorporates:
-     *  Gain: '<S134>/Depth Derivative Gain'
+    /* SampleTimeMath: '<S137>/TSamp' incorporates:
+     *  Gain: '<S136>/Depth Derivative Gain'
      *
-     * About '<S135>/TSamp':
+     * About '<S137>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
       brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
     /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
-     *  DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator'
-     *  Gain: '<S134>/Depth Proportional Gain'
-     *  Sum: '<S134>/Sum'
-     *  Sum: '<S135>/Diff'
-     *  UnitDelay: '<S135>/UD'
+     *  DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator'
+     *  Gain: '<S136>/Depth Proportional Gain'
+     *  Sum: '<S136>/Sum'
+     *  Sum: '<S137>/Diff'
+     *  UnitDelay: '<S137>/UD'
      *
-     * Block description for '<S135>/Diff':
+     * Block description for '<S137>/Diff':
      *
      *  Add in CPU
      *
-     * Block description for '<S135>/UD':
+     * Block description for '<S137>/UD':
      *
      *  Store in Global RAM
      */
@@ -7279,15 +7338,15 @@ static void brain_FindSecondBuoy(void)
       brain_B.DoubleToInt8 = MAX_int8_T;
     }
 
-    /* Update for UnitDelay: '<S135>/UD'
-     * Block description for '<S135>/UD':
+    /* Update for UnitDelay: '<S137>/UD'
+     * Block description for '<S137>/UD':
      *
      *  Store in Global RAM
      */
     brain_DWork.UD_DSTATE = rtb_TSamp;
 
-    /* Update for DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator' incorporates:
-     *  Gain: '<S134>/Depth Integral Gain'
+    /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
+     *  Gain: '<S136>/Depth Integral Gain'
      */
     brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
       brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki * rtb_Add)
@@ -9507,27 +9566,27 @@ static void brain_Buoys(void)
         /* Sum: '<S38>/Add' */
         rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S135>/TSamp' incorporates:
-         *  Gain: '<S134>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S137>/TSamp' incorporates:
+         *  Gain: '<S136>/Depth Derivative Gain'
          *
-         * About '<S135>/TSamp':
+         * About '<S137>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
         rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
         /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator'
-         *  Gain: '<S134>/Depth Proportional Gain'
-         *  Sum: '<S134>/Sum'
-         *  Sum: '<S135>/Diff'
-         *  UnitDelay: '<S135>/UD'
+         *  DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator'
+         *  Gain: '<S136>/Depth Proportional Gain'
+         *  Sum: '<S136>/Sum'
+         *  Sum: '<S137>/Diff'
+         *  UnitDelay: '<S137>/UD'
          *
-         * Block description for '<S135>/Diff':
+         * Block description for '<S137>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S135>/UD':
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
@@ -9544,15 +9603,15 @@ static void brain_Buoys(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S135>/UD'
-         * Block description for '<S135>/UD':
+        /* Update for UnitDelay: '<S137>/UD'
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
         brain_DWork.UD_DSTATE = rtb_TSamp;
 
-        /* Update for DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S134>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S136>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -10483,27 +10542,27 @@ static void brain_OnePath(void)
       /* Sum: '<S38>/Add' */
       eml_b = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-      /* SampleTimeMath: '<S135>/TSamp' incorporates:
-       *  Gain: '<S134>/Depth Derivative Gain'
+      /* SampleTimeMath: '<S137>/TSamp' incorporates:
+       *  Gain: '<S136>/Depth Derivative Gain'
        *
-       * About '<S135>/TSamp':
+       * About '<S137>/TSamp':
        *  y = u * K where K = 1 / ( w * Ts )
        */
       eml_c = brain_P.Depth_Kd * eml_b / ((real_T)
         brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
       /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
-       *  DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator'
-       *  Gain: '<S134>/Depth Proportional Gain'
-       *  Sum: '<S134>/Sum'
-       *  Sum: '<S135>/Diff'
-       *  UnitDelay: '<S135>/UD'
+       *  DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator'
+       *  Gain: '<S136>/Depth Proportional Gain'
+       *  Sum: '<S136>/Sum'
+       *  Sum: '<S137>/Diff'
+       *  UnitDelay: '<S137>/UD'
        *
-       * Block description for '<S135>/Diff':
+       * Block description for '<S137>/Diff':
        *
        *  Add in CPU
        *
-       * Block description for '<S135>/UD':
+       * Block description for '<S137>/UD':
        *
        *  Store in Global RAM
        */
@@ -10520,15 +10579,15 @@ static void brain_OnePath(void)
         brain_B.DoubleToInt8 = MAX_int8_T;
       }
 
-      /* Update for UnitDelay: '<S135>/UD'
-       * Block description for '<S135>/UD':
+      /* Update for UnitDelay: '<S137>/UD'
+       * Block description for '<S137>/UD':
        *
        *  Store in Global RAM
        */
       brain_DWork.UD_DSTATE = eml_c;
 
-      /* Update for DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator' incorporates:
-       *  Gain: '<S134>/Depth Integral Gain'
+      /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
+       *  Gain: '<S136>/Depth Integral Gain'
        */
       brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
         brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki * eml_b)
@@ -10688,27 +10747,27 @@ static void brain_OnePath(void)
       /* Sum: '<S38>/Add' */
       eml_b = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-      /* SampleTimeMath: '<S135>/TSamp' incorporates:
-       *  Gain: '<S134>/Depth Derivative Gain'
+      /* SampleTimeMath: '<S137>/TSamp' incorporates:
+       *  Gain: '<S136>/Depth Derivative Gain'
        *
-       * About '<S135>/TSamp':
+       * About '<S137>/TSamp':
        *  y = u * K where K = 1 / ( w * Ts )
        */
       eml_c = brain_P.Depth_Kd * eml_b / ((real_T)
         brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
       /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
-       *  DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator'
-       *  Gain: '<S134>/Depth Proportional Gain'
-       *  Sum: '<S134>/Sum'
-       *  Sum: '<S135>/Diff'
-       *  UnitDelay: '<S135>/UD'
+       *  DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator'
+       *  Gain: '<S136>/Depth Proportional Gain'
+       *  Sum: '<S136>/Sum'
+       *  Sum: '<S137>/Diff'
+       *  UnitDelay: '<S137>/UD'
        *
-       * Block description for '<S135>/Diff':
+       * Block description for '<S137>/Diff':
        *
        *  Add in CPU
        *
-       * Block description for '<S135>/UD':
+       * Block description for '<S137>/UD':
        *
        *  Store in Global RAM
        */
@@ -10725,15 +10784,15 @@ static void brain_OnePath(void)
         brain_B.DoubleToInt8 = MAX_int8_T;
       }
 
-      /* Update for UnitDelay: '<S135>/UD'
-       * Block description for '<S135>/UD':
+      /* Update for UnitDelay: '<S137>/UD'
+       * Block description for '<S137>/UD':
        *
        *  Store in Global RAM
        */
       brain_DWork.UD_DSTATE = eml_c;
 
-      /* Update for DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator' incorporates:
-       *  Gain: '<S134>/Depth Integral Gain'
+      /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
+       *  Gain: '<S136>/Depth Integral Gain'
        */
       brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
         brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki * eml_b)
@@ -10838,27 +10897,27 @@ static void brain_RecognizePath(void)
         /* Sum: '<S38>/Add' */
         rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S135>/TSamp' incorporates:
-         *  Gain: '<S134>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S137>/TSamp' incorporates:
+         *  Gain: '<S136>/Depth Derivative Gain'
          *
-         * About '<S135>/TSamp':
+         * About '<S137>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
         rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
         /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator'
-         *  Gain: '<S134>/Depth Proportional Gain'
-         *  Sum: '<S134>/Sum'
-         *  Sum: '<S135>/Diff'
-         *  UnitDelay: '<S135>/UD'
+         *  DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator'
+         *  Gain: '<S136>/Depth Proportional Gain'
+         *  Sum: '<S136>/Sum'
+         *  Sum: '<S137>/Diff'
+         *  UnitDelay: '<S137>/UD'
          *
-         * Block description for '<S135>/Diff':
+         * Block description for '<S137>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S135>/UD':
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
@@ -10875,15 +10934,15 @@ static void brain_RecognizePath(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S135>/UD'
-         * Block description for '<S135>/UD':
+        /* Update for UnitDelay: '<S137>/UD'
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
         brain_DWork.UD_DSTATE = rtb_TSamp;
 
-        /* Update for DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S134>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S136>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -10932,27 +10991,27 @@ static void brain_RecognizePath(void)
         /* Sum: '<S38>/Add' */
         rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S135>/TSamp' incorporates:
-         *  Gain: '<S134>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S137>/TSamp' incorporates:
+         *  Gain: '<S136>/Depth Derivative Gain'
          *
-         * About '<S135>/TSamp':
+         * About '<S137>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
         rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
         /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator'
-         *  Gain: '<S134>/Depth Proportional Gain'
-         *  Sum: '<S134>/Sum'
-         *  Sum: '<S135>/Diff'
-         *  UnitDelay: '<S135>/UD'
+         *  DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator'
+         *  Gain: '<S136>/Depth Proportional Gain'
+         *  Sum: '<S136>/Sum'
+         *  Sum: '<S137>/Diff'
+         *  UnitDelay: '<S137>/UD'
          *
-         * Block description for '<S135>/Diff':
+         * Block description for '<S137>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S135>/UD':
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
@@ -10969,15 +11028,15 @@ static void brain_RecognizePath(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S135>/UD'
-         * Block description for '<S135>/UD':
+        /* Update for UnitDelay: '<S137>/UD'
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
         brain_DWork.UD_DSTATE = rtb_TSamp;
 
-        /* Update for DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S134>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S136>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -11784,27 +11843,27 @@ static void brain_RecognizeHedge(void)
     /* Sum: '<S38>/Add' */
     rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-    /* SampleTimeMath: '<S135>/TSamp' incorporates:
-     *  Gain: '<S134>/Depth Derivative Gain'
+    /* SampleTimeMath: '<S137>/TSamp' incorporates:
+     *  Gain: '<S136>/Depth Derivative Gain'
      *
-     * About '<S135>/TSamp':
+     * About '<S137>/TSamp':
      *  y = u * K where K = 1 / ( w * Ts )
      */
     rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
       brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
     /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
-     *  DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator'
-     *  Gain: '<S134>/Depth Proportional Gain'
-     *  Sum: '<S134>/Sum'
-     *  Sum: '<S135>/Diff'
-     *  UnitDelay: '<S135>/UD'
+     *  DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator'
+     *  Gain: '<S136>/Depth Proportional Gain'
+     *  Sum: '<S136>/Sum'
+     *  Sum: '<S137>/Diff'
+     *  UnitDelay: '<S137>/UD'
      *
-     * Block description for '<S135>/Diff':
+     * Block description for '<S137>/Diff':
      *
      *  Add in CPU
      *
-     * Block description for '<S135>/UD':
+     * Block description for '<S137>/UD':
      *
      *  Store in Global RAM
      */
@@ -11821,15 +11880,15 @@ static void brain_RecognizeHedge(void)
       brain_B.DoubleToInt8 = MAX_int8_T;
     }
 
-    /* Update for UnitDelay: '<S135>/UD'
-     * Block description for '<S135>/UD':
+    /* Update for UnitDelay: '<S137>/UD'
+     * Block description for '<S137>/UD':
      *
      *  Store in Global RAM
      */
     brain_DWork.UD_DSTATE = rtb_TSamp;
 
-    /* Update for DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator' incorporates:
-     *  Gain: '<S134>/Depth Integral Gain'
+    /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
+     *  Gain: '<S136>/Depth Integral Gain'
      */
     brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
       brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki * rtb_Add)
@@ -11908,11 +11967,11 @@ static void brain_RecognizeHedge(void)
                   399, 91);
 
     /* Embedded MATLAB: '<S35>/Are 3 Lines Present' */
-    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.JumpHedge.RecognizeHedge.LookForHedge/Are 3 Lines Present': '<S131>:1' */
+    /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.JumpHedge.RecognizeHedge.LookForHedge/Are 3 Lines Present': '<S133>:1' */
     /*  This function is meant to see if there are 3 lines which approximate a */
     /*  'hedge' in the current frame */
-    /* '<S131>:1:5' */
-    /* '<S131>:1:6' */
+    /* '<S133>:1:5' */
+    /* '<S133>:1:6' */
     rtb_R_idx_1 = 0.0;
     rtb_T_idx_1 = 0.0;
     rtb_R_idx_0 = 0.0;
@@ -11921,74 +11980,74 @@ static void brain_RecognizeHedge(void)
     rtb_T_idx = 0.0;
 
     /*  Find the two vetical lines */
-    /* '<S131>:1:12' */
+    /* '<S133>:1:12' */
     rtb_Add = 0.0;
 
-    /* '<S131>:1:13' */
+    /* '<S133>:1:13' */
     rtb_TSamp = 0.0;
 
-    /* '<S131>:1:14' */
+    /* '<S133>:1:14' */
     i = 1;
 
-    /* '<S131>:1:16' */
+    /* '<S133>:1:16' */
     ku = 1;
 
-    /* '<S131>:1:17' */
+    /* '<S133>:1:17' */
     i_0 = 1;
 
-    /* '<S131>:1:19' */
+    /* '<S133>:1:19' */
     for (n = 0; n < 399; n++) {
-      /* '<S131>:1:19' */
-      /* '<S131>:1:20' */
+      /* '<S133>:1:19' */
+      /* '<S133>:1:20' */
       for (line_idx_3 = 85; line_idx_3 < 96; line_idx_3++) {
-        /* '<S131>:1:20' */
+        /* '<S133>:1:20' */
         if (brain_B.HoughTransform_o1[(line_idx_3 - 1) * 399 + n] > rtb_Add) {
-          /* '<S131>:1:21' */
+          /* '<S133>:1:21' */
           if (fabs(brain_B.HoughTransform_o3[i - 1] -
                    brain_B.HoughTransform_o3[n]) > 20.0) {
-            /* '<S131>:1:22' */
-            /* '<S131>:1:23' */
+            /* '<S133>:1:22' */
+            /* '<S133>:1:23' */
             rtb_TSamp = brain_B.HoughTransform_o1[(i_0 - 1) * 399 + (i - 1)];
 
-            /* '<S131>:1:25' */
+            /* '<S133>:1:25' */
             i_0 = ku;
 
-            /* '<S131>:1:26' */
+            /* '<S133>:1:26' */
             rtb_R_idx_0 = rtb_R_idx_1;
 
-            /* '<S131>:1:27' */
+            /* '<S133>:1:27' */
             rtb_T_idx_0 = rtb_T_idx_1;
           }
 
-          /* '<S131>:1:29' */
+          /* '<S133>:1:29' */
           rtb_Add = brain_B.HoughTransform_o1[(line_idx_3 - 1) * 399 + n];
 
-          /* '<S131>:1:30' */
+          /* '<S133>:1:30' */
           i = n + 1;
 
-          /* '<S131>:1:31' */
+          /* '<S133>:1:31' */
           ku = line_idx_3;
 
-          /* '<S131>:1:32' */
+          /* '<S133>:1:32' */
           rtb_R_idx_1 = brain_B.HoughTransform_o3[n];
 
-          /* '<S131>:1:33' */
+          /* '<S133>:1:33' */
           rtb_T_idx_1 = brain_B.HoughTransform_o2[line_idx_3 - 1];
         } else {
           if ((brain_B.HoughTransform_o1[(line_idx_3 - 1) * 399 + n] > rtb_TSamp)
               && (fabs(brain_B.HoughTransform_o3[i - 1] -
                        brain_B.HoughTransform_o3[n]) > 20.0)) {
-            /* '<S131>:1:34' */
-            /* '<S131>:1:35' */
+            /* '<S133>:1:34' */
+            /* '<S133>:1:35' */
             rtb_TSamp = brain_B.HoughTransform_o1[(line_idx_3 - 1) * 399 + n];
 
-            /* '<S131>:1:37' */
+            /* '<S133>:1:37' */
             i_0 = line_idx_3;
 
-            /* '<S131>:1:38' */
+            /* '<S133>:1:38' */
             rtb_R_idx_0 = brain_B.HoughTransform_o3[n];
 
-            /* '<S131>:1:39' */
+            /* '<S133>:1:39' */
             rtb_T_idx_0 = brain_B.HoughTransform_o2[line_idx_3 - 1];
           }
         }
@@ -11996,69 +12055,69 @@ static void brain_RecognizeHedge(void)
     }
 
     /*  Find the horizontal line */
-    /* '<S131>:1:45' */
+    /* '<S133>:1:45' */
     eml_max_votes = 0.0;
 
-    /* '<S131>:1:47' */
+    /* '<S133>:1:47' */
     for (ku = 0; ku < 399; ku++) {
-      /* '<S131>:1:47' */
-      /* '<S131>:1:48' */
+      /* '<S133>:1:47' */
+      /* '<S133>:1:48' */
       for (i = 0; i < 10; i++) {
-        /* '<S131>:1:48' */
+        /* '<S133>:1:48' */
         if (brain_B.HoughTransform_o1[399 * i + ku] > eml_max_votes) {
-          /* '<S131>:1:49' */
-          /* '<S131>:1:50' */
+          /* '<S133>:1:49' */
+          /* '<S133>:1:50' */
           eml_max_votes = brain_B.HoughTransform_o1[399 * i + ku];
 
-          /* '<S131>:1:52' */
+          /* '<S133>:1:52' */
           rtb_R_idx = brain_B.HoughTransform_o3[ku];
 
-          /* '<S131>:1:53' */
+          /* '<S133>:1:53' */
           rtb_T_idx = brain_B.HoughTransform_o2[i];
         }
       }
 
-      /* '<S131>:1:56' */
+      /* '<S133>:1:56' */
       for (i = 170; i < 181; i++) {
-        /* '<S131>:1:56' */
+        /* '<S133>:1:56' */
         if (brain_B.HoughTransform_o1[(i - 1) * 399 + ku] > eml_max_votes) {
-          /* '<S131>:1:57' */
-          /* '<S131>:1:58' */
+          /* '<S133>:1:57' */
+          /* '<S133>:1:58' */
           eml_max_votes = brain_B.HoughTransform_o1[(i - 1) * 399 + ku];
 
-          /* '<S131>:1:60' */
+          /* '<S133>:1:60' */
           rtb_R_idx = brain_B.HoughTransform_o3[ku];
 
-          /* '<S131>:1:61' */
+          /* '<S133>:1:61' */
           rtb_T_idx = brain_B.HoughTransform_o2[i - 1];
         }
       }
     }
 
     /*  Find the most prominent line */
-    /* '<S131>:1:67' */
+    /* '<S133>:1:67' */
     eml_top_vote = 0.0;
 
-    /* '<S131>:1:70' */
+    /* '<S133>:1:70' */
     for (i = 0; i < 399; i++) {
-      /* '<S131>:1:70' */
-      /* '<S131>:1:71' */
+      /* '<S133>:1:70' */
+      /* '<S133>:1:71' */
       for (ku = 0; ku < 180; ku++) {
-        /* '<S131>:1:71' */
+        /* '<S133>:1:71' */
         if (brain_B.HoughTransform_o1[399 * ku + i] > eml_top_vote) {
-          /* '<S131>:1:72' */
-          /* '<S131>:1:73' */
+          /* '<S133>:1:72' */
+          /* '<S133>:1:73' */
           eml_top_vote = brain_B.HoughTransform_o1[399 * ku + i];
         }
       }
     }
 
-    /* '<S131>:1:80' */
+    /* '<S133>:1:80' */
     brain_B.Image = 0.0;
     if ((eml_top_vote * 0.75 < eml_max_votes) && (eml_top_vote * 0.3 < rtb_Add) &&
         (eml_top_vote * 0.3 < rtb_TSamp)) {
-      /* '<S131>:1:81' */
-      /* '<S131>:1:82' */
+      /* '<S133>:1:81' */
+      /* '<S133>:1:82' */
       brain_B.Image = 1.0;
     }
 
@@ -12866,15 +12925,15 @@ static void brain_JumpHedge(void)
         }
 
         /* Embedded MATLAB: '<S28>/Embedded MATLAB Function' */
-        /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.JumpHedge.ApproachHedge.GetArea/Embedded MATLAB Function': '<S110>:1' */
+        /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.JumpHedge.ApproachHedge.GetArea/Embedded MATLAB Function': '<S112>:1' */
         /*  This function will choose and return data about the largest blob given a  */
         /*  set of blobs */
         if (rtb_BuoyBlobAnalysis == -1) {
-          /* '<S110>:1:5' */
-          /* '<S110>:1:7' */
+          /* '<S112>:1:5' */
+          /* '<S112>:1:7' */
           brain_B.BlobArea = -1.0;
         } else {
-          /* '<S110>:1:9' */
+          /* '<S112>:1:9' */
           brain_B.BlobArea = (real_T)rtb_BuoyBlobAnalysis;
         }
 
@@ -12969,27 +13028,27 @@ static void brain_JumpHedge(void)
         /* Sum: '<S38>/Add' */
         rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S135>/TSamp' incorporates:
-         *  Gain: '<S134>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S137>/TSamp' incorporates:
+         *  Gain: '<S136>/Depth Derivative Gain'
          *
-         * About '<S135>/TSamp':
+         * About '<S137>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
         rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
         /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator'
-         *  Gain: '<S134>/Depth Proportional Gain'
-         *  Sum: '<S134>/Sum'
-         *  Sum: '<S135>/Diff'
-         *  UnitDelay: '<S135>/UD'
+         *  DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator'
+         *  Gain: '<S136>/Depth Proportional Gain'
+         *  Sum: '<S136>/Sum'
+         *  Sum: '<S137>/Diff'
+         *  UnitDelay: '<S137>/UD'
          *
-         * Block description for '<S135>/Diff':
+         * Block description for '<S137>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S135>/UD':
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
@@ -13006,15 +13065,15 @@ static void brain_JumpHedge(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S135>/UD'
-         * Block description for '<S135>/UD':
+        /* Update for UnitDelay: '<S137>/UD'
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
         brain_DWork.UD_DSTATE = rtb_TSamp;
 
-        /* Update for DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S134>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S136>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -13166,27 +13225,27 @@ static void brain_LocatePinger(void)
         /* Sum: '<S38>/Add' */
         rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S135>/TSamp' incorporates:
-         *  Gain: '<S134>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S137>/TSamp' incorporates:
+         *  Gain: '<S136>/Depth Derivative Gain'
          *
-         * About '<S135>/TSamp':
+         * About '<S137>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
         rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
         /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator'
-         *  Gain: '<S134>/Depth Proportional Gain'
-         *  Sum: '<S134>/Sum'
-         *  Sum: '<S135>/Diff'
-         *  UnitDelay: '<S135>/UD'
+         *  DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator'
+         *  Gain: '<S136>/Depth Proportional Gain'
+         *  Sum: '<S136>/Sum'
+         *  Sum: '<S137>/Diff'
+         *  UnitDelay: '<S137>/UD'
          *
-         * Block description for '<S135>/Diff':
+         * Block description for '<S137>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S135>/UD':
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
@@ -13203,15 +13262,15 @@ static void brain_LocatePinger(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S135>/UD'
-         * Block description for '<S135>/UD':
+        /* Update for UnitDelay: '<S137>/UD'
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
         brain_DWork.UD_DSTATE = rtb_TSamp;
 
-        /* Update for DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S134>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S136>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -13460,27 +13519,27 @@ static void brain_LocatePinger(void)
         /* Sum: '<S38>/Add' */
         rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S135>/TSamp' incorporates:
-         *  Gain: '<S134>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S137>/TSamp' incorporates:
+         *  Gain: '<S136>/Depth Derivative Gain'
          *
-         * About '<S135>/TSamp':
+         * About '<S137>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
         rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
         /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator'
-         *  Gain: '<S134>/Depth Proportional Gain'
-         *  Sum: '<S134>/Sum'
-         *  Sum: '<S135>/Diff'
-         *  UnitDelay: '<S135>/UD'
+         *  DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator'
+         *  Gain: '<S136>/Depth Proportional Gain'
+         *  Sum: '<S136>/Sum'
+         *  Sum: '<S137>/Diff'
+         *  UnitDelay: '<S137>/UD'
          *
-         * Block description for '<S135>/Diff':
+         * Block description for '<S137>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S135>/UD':
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
@@ -13497,15 +13556,15 @@ static void brain_LocatePinger(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S135>/UD'
-         * Block description for '<S135>/UD':
+        /* Update for UnitDelay: '<S137>/UD'
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
         brain_DWork.UD_DSTATE = rtb_TSamp;
 
-        /* Update for DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S134>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S136>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -13638,27 +13697,27 @@ static void brain_ValidationGate(void)
         /* Sum: '<S38>/Add' */
         rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S135>/TSamp' incorporates:
-         *  Gain: '<S134>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S137>/TSamp' incorporates:
+         *  Gain: '<S136>/Depth Derivative Gain'
          *
-         * About '<S135>/TSamp':
+         * About '<S137>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
         rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
         /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator'
-         *  Gain: '<S134>/Depth Proportional Gain'
-         *  Sum: '<S134>/Sum'
-         *  Sum: '<S135>/Diff'
-         *  UnitDelay: '<S135>/UD'
+         *  DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator'
+         *  Gain: '<S136>/Depth Proportional Gain'
+         *  Sum: '<S136>/Sum'
+         *  Sum: '<S137>/Diff'
+         *  UnitDelay: '<S137>/UD'
          *
-         * Block description for '<S135>/Diff':
+         * Block description for '<S137>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S135>/UD':
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
@@ -13675,15 +13734,15 @@ static void brain_ValidationGate(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S135>/UD'
-         * Block description for '<S135>/UD':
+        /* Update for UnitDelay: '<S137>/UD'
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
         brain_DWork.UD_DSTATE = rtb_TSamp;
 
-        /* Update for DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S134>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S136>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -14046,6 +14105,7 @@ void brain_step(void)
    *  Inport: '<Root>/RC_ForwardVelocity'
    *  Inport: '<Root>/RC_Strafe'
    *  Inport: '<Root>/Status'
+   *  Inport: '<Root>/Y_Accelerometer'
    *  Inport: '<Root>/YawRate'
    *  SubSystem: '<S7>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.GetFirstBuoyStats'
    *  SubSystem: '<S7>/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.WhichBuoysToApproach'
@@ -14312,27 +14372,27 @@ void brain_step(void)
         /* Sum: '<S38>/Add' */
         rtb_Add = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
 
-        /* SampleTimeMath: '<S135>/TSamp' incorporates:
-         *  Gain: '<S134>/Depth Derivative Gain'
+        /* SampleTimeMath: '<S137>/TSamp' incorporates:
+         *  Gain: '<S136>/Depth Derivative Gain'
          *
-         * About '<S135>/TSamp':
+         * About '<S137>/TSamp':
          *  y = u * K where K = 1 / ( w * Ts )
          */
         rtb_TSamp = brain_P.Depth_Kd * rtb_Add / ((real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
         /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
-         *  DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator'
-         *  Gain: '<S134>/Depth Proportional Gain'
-         *  Sum: '<S134>/Sum'
-         *  Sum: '<S135>/Diff'
-         *  UnitDelay: '<S135>/UD'
+         *  DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator'
+         *  Gain: '<S136>/Depth Proportional Gain'
+         *  Sum: '<S136>/Sum'
+         *  Sum: '<S137>/Diff'
+         *  UnitDelay: '<S137>/UD'
          *
-         * Block description for '<S135>/Diff':
+         * Block description for '<S137>/Diff':
          *
          *  Add in CPU
          *
-         * Block description for '<S135>/UD':
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
@@ -14349,15 +14409,15 @@ void brain_step(void)
           brain_B.DoubleToInt8 = MAX_int8_T;
         }
 
-        /* Update for UnitDelay: '<S135>/UD'
-         * Block description for '<S135>/UD':
+        /* Update for UnitDelay: '<S137>/UD'
+         * Block description for '<S137>/UD':
          *
          *  Store in Global RAM
          */
         brain_DWork.UD_DSTATE = rtb_TSamp;
 
-        /* Update for DiscreteIntegrator: '<S134>/Depth Discrete-Time Integrator' incorporates:
-         *  Gain: '<S134>/Depth Integral Gain'
+        /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
+         *  Gain: '<S136>/Depth Integral Gain'
          */
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
           brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
@@ -14374,9 +14434,10 @@ void brain_step(void)
 
         /* Simulink Function 'GoStraight': '<S7>:1860' */
         brain_B.YawRate = brain_U.YawRate;
-        brain_B.ForwardVelocity1_l = brain_U.RC_ForwardVelocity;
+        brain_B.ForwardVelocity1_l = brain_U.Y_Accelerometer;
+        brain_B.Y_Accel = brain_U.RC_ForwardVelocity;
         br_StateFlowFunctionsGoStraight(brain_B.YawRate,
-          brain_B.ForwardVelocity1_l, brain_M,
+          brain_B.ForwardVelocity1_l, brain_B.Y_Accel, brain_M,
           &brain_B.StateFlowFunctionsGoStraight,
           &brain_DWork.StateFlowFunctionsGoStraight);
         brain_B.Left = brain_B.StateFlowFunctionsGoStraight.DoubleToint8;

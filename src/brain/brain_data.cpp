@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.665
+ * Model version                        : 1.668
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Fri Jul 16 20:14:39 2010
+ * Real-Time Workshop file generated on : Fri Jul 16 21:24:38 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Fri Jul 16 20:14:40 2010
+ * C/C++ source code generated on       : Fri Jul 16 21:24:39 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -55,7 +55,7 @@ Parameters_brain brain_P = {
   0.65,
   0.4,
   1.0,
-  1.0,
+  0.75,
   60.0,
 
   { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0,
@@ -121,9 +121,9 @@ const ConstParam_brain brain_ConstP = {
    *   '<S73>/Resize'
    *   '<S73>/Resize1'
    *   '<S73>/Resize2'
-   *   '<S130>/Resize'
-   *   '<S130>/Resize1'
-   *   '<S130>/Resize2'
+   *   '<S132>/Resize'
+   *   '<S132>/Resize1'
+   *   '<S132>/Resize2'
    */
   { 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F,
     0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F,
@@ -158,9 +158,9 @@ const ConstParam_brain brain_ConstP = {
    *   '<S73>/Resize'
    *   '<S73>/Resize1'
    *   '<S73>/Resize2'
-   *   '<S130>/Resize'
-   *   '<S130>/Resize1'
-   *   '<S130>/Resize2'
+   *   '<S132>/Resize'
+   *   '<S132>/Resize1'
+   *   '<S132>/Resize2'
    */
   { 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F,
     0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F, 0.125F,
@@ -544,7 +544,7 @@ const ConstParam_brain brain_ConstP = {
    *   '<S29>/Buoy Blob Analysis'
    *   '<S30>/Blob Analysis'
    *   '<S103>/Blob Analysis'
-   *   '<S140>/Blob Analysis'
+   *   '<S142>/Blob Analysis'
    */
   { -1, 121, 122, 123, 1, -121, -122, -123 },
 
@@ -553,9 +553,9 @@ const ConstParam_brain brain_ConstP = {
    *   '<S73>/Resize'
    *   '<S73>/Resize1'
    *   '<S73>/Resize2'
-   *   '<S130>/Resize'
-   *   '<S130>/Resize1'
-   *   '<S130>/Resize2'
+   *   '<S132>/Resize'
+   *   '<S132>/Resize1'
+   *   '<S132>/Resize2'
    */
   { 0, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39,
     41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77,
@@ -576,9 +576,9 @@ const ConstParam_brain brain_ConstP = {
    *   '<S73>/Resize'
    *   '<S73>/Resize1'
    *   '<S73>/Resize2'
-   *   '<S130>/Resize'
-   *   '<S130>/Resize1'
-   *   '<S130>/Resize2'
+   *   '<S132>/Resize'
+   *   '<S132>/Resize1'
+   *   '<S132>/Resize2'
    */
   { 0, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39,
     41, 43, 45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 65, 67, 69, 71, 73, 75, 77,
