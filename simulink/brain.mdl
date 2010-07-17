@@ -195,7 +195,7 @@ Model {
       Name		      "YawRate_Out"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.724"
+    ComputedModelVersion    "1.725"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -214,9 +214,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jul 17 15:46:59 2010"
-  RTWModifiedTimeStamp	  201282295
-  ModelVersionFormat	  "1.%<AutoIncrement:724>"
+  LastModifiedDate	  "Sat Jul 17 15:59:26 2010"
+  RTWModifiedTimeStamp	  201283144
+  ModelVersionFormat	  "1.%<AutoIncrement:725>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -288,13 +288,14 @@ Model {
   "m_Down_Strafe_XPos_Kp,Cam_Down_XPos_Kd,Cam_Down_XPos_Ki,Cam_Down_XPos_Kp,Cam_Down_YPos_Kd,Cam_Down_YPos_Ki,Cam_Down_"
   "YPos_Kp,Cam_Down_Yaw_XPos_Kd,Cam_Down_Yaw_XPos_Ki,Cam_Down_Yaw_XPos_Kp,Cam_Forward_XPosition_Kd,Cam_Forward_XPositio"
   "n_Ki,Cam_Forward_XPosition_Kp,Cam_Forward_YPosition_Kd,Cam_Forward_YPosition_Ki,Cam_Forward_YPosition_Kp,Depth_Kd,De"
-  "pth_Ki,Depth_Kp,Heading_Forward_Velocity,Heading_Kd,Heading_Ki,Heading_Kp,Hedge_Hue,Hedge_Saturation,Hedge_Value,Ite"
-  "r_Segment_Thresh,Max_Blob_Size,Min_Blob_Size,MissionPlan,Track_Desired_Depth,Track_HueHigher,Track_HueLower,Track_Mi"
-  "n_Eccentricity,Track_Saturation,Vision_Forward_Velocity"
+  "pth_Ki,Depth_Kp,Heading_Forward_Velocity,Heading_Kd,Heading_Ki,Heading_Kp,Hedge_Hue,Hedge_Saturation,Hedge_Value,IMU"
+  "_YVel_Kd,IMU_YVel_Ki,IMU_YVel_Kp,IMU_YawRate_Kd,IMU_YawRate_Ki,IMU_YawRate_Kp,Iter_Segment_Thresh,Max_Blob_Size,Min_"
+  "Blob_Size,MissionPlan,Track_Desired_Depth,Track_HueHigher,Track_HueLower,Track_Min_Eccentricity,Track_Saturation,Vis"
+  "ion_Forward_Velocity"
   TunableVarsStorageClass "Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,A"
   "uto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Au"
-  "to,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
-  TunableVarsTypeQualifier ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
+  "to,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+  TunableVarsTypeQualifier ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
   BufferReuse		  on
   ShowModelReferenceBlockVersion off
   ShowModelReferenceBlockIO off
@@ -733,7 +734,7 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Real-Time Workshop"
+      CurrentDlgPage	      "Optimization"
       ConfigPrmDlgPosition    " [ 235, 78, 1204, 628 ] "
     }
     PropName		    "ConfigurationSets"
@@ -3362,7 +3363,7 @@ Model {
 	  System {
 	    Name		    "StateFlowFunctions.Buoys.ApproachBuoys.Buoy"
 	    Location		    [2, 82, 1342, 715]
-	    Open		    off
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -27279,7 +27280,7 @@ Stateflow {
     subviewS {
       zoomFactor	      1.25
     }
-    ssIdHighWaterMark	    2056
+    ssIdHighWaterMark	    2057
     decomposition	    SET_CHART
     firstData		    472
     updateMethod	    DISCRETE
@@ -29921,20 +29922,22 @@ Stateflow {
     fontSize		    12
     src {
       id		      28
-      intersection	      [2 1 0 0.2749 186.2969 106.7889 0 -23.4375]
+      intersection	      [2 1 0 0.2749 186.2969 106.7924 0 -23.4375]
     }
     dst {
       id		      32
-      intersection	      [4 -1 -0 0.7938 282.8398 106.7889 0 24.1875]
+      intersection	      [4 -1 -0 0.7938 282.8398 106.7924 0 24.1875]
     }
     midPoint		    [232.4064 106.7863]
     chart		    2
     linkNode		    [23 138 159]
     visible		    0
-    dataLimits		    [186.297 282.84 104.392 109.192]
+    dataLimits		    [186.297 282.84 104.389 109.189]
     stampAngle		    NaN
     subviewer		    23
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1292
   }
@@ -29979,6 +29982,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    32
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1314
   }
@@ -30408,6 +30413,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    23
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1455
   }

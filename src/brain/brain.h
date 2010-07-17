@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.724
+ * Model version                        : 1.725
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sat Jul 17 15:47:44 2010
+ * Real-Time Workshop file generated on : Sat Jul 17 16:00:07 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sat Jul 17 15:47:45 2010
+ * C/C++ source code generated on       : Sat Jul 17 16:00:08 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -740,7 +740,7 @@ typedef struct {
    *   '<S132>/Resize1'
    *   '<S132>/Resize2'
    */
-  real32_T pooled23[240];
+  real32_T pooled22[240];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -751,7 +751,7 @@ typedef struct {
    *   '<S132>/Resize1'
    *   '<S132>/Resize2'
    */
-  real32_T pooled24[320];
+  real32_T pooled23[320];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -759,7 +759,7 @@ typedef struct {
    *   '<S5>/Resize1'
    *   '<S5>/Resize2'
    */
-  real32_T pooled26[960];
+  real32_T pooled25[960];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -767,7 +767,7 @@ typedef struct {
    *   '<S5>/Resize1'
    *   '<S5>/Resize2'
    */
-  real32_T pooled27[1280];
+  real32_T pooled26[1280];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -781,7 +781,7 @@ typedef struct {
    *   '<S103>/Blob Analysis'
    *   '<S142>/Blob Analysis'
    */
-  int32_T pooled28[8];
+  int32_T pooled27[8];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -792,7 +792,7 @@ typedef struct {
    *   '<S132>/Resize1'
    *   '<S132>/Resize2'
    */
-  int32_T pooled30[240];
+  int32_T pooled29[240];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -803,7 +803,7 @@ typedef struct {
    *   '<S132>/Resize1'
    *   '<S132>/Resize2'
    */
-  int32_T pooled31[320];
+  int32_T pooled30[320];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -811,7 +811,7 @@ typedef struct {
    *   '<S5>/Resize1'
    *   '<S5>/Resize2'
    */
-  int32_T pooled34[960];
+  int32_T pooled33[960];
 
   /* Pooled Parameter (Expression: )
    * Referenced by:
@@ -819,7 +819,7 @@ typedef struct {
    *   '<S5>/Resize1'
    *   '<S5>/Resize2'
    */
-  int32_T pooled35[1280];
+  int32_T pooled34[1280];
 
   /* Pooled Parameter (Expression: nhood)
    * Referenced by:
@@ -827,14 +827,14 @@ typedef struct {
    *   '<S29>/Erosion'
    *   '<S99>/Erosion'
    */
-  boolean_T pooled36[8];
+  boolean_T pooled35[8];
 
   /* Pooled Parameter (Expression: nhood)
    * Referenced by:
    *   '<S28>/Dilation'
    *   '<S29>/Dilation'
    */
-  boolean_T pooled37[4];
+  boolean_T pooled36[4];
 
   /* Expression: nhood
    * Referenced by: '<S35>/Erosion'
@@ -1057,6 +1057,24 @@ struct Parameters_brain_ {
                                         */
   real_T Hedge_Value;                  /* Variable: Hedge_Value
                                         * Referenced by: '<S34>/Hedge Value'
+                                        */
+  real_T IMU_YVel_Kd;                  /* Variable: IMU_YVel_Kd
+                                        * Referenced by: '<S108>/Y-Accelerometer Derivative Gain'
+                                        */
+  real_T IMU_YVel_Ki;                  /* Variable: IMU_YVel_Ki
+                                        * Referenced by: '<S108>/Y-Accelerometer Integral Gain'
+                                        */
+  real_T IMU_YVel_Kp;                  /* Variable: IMU_YVel_Kp
+                                        * Referenced by: '<S108>/Y-Accelerometer Proportional Gain'
+                                        */
+  real_T IMU_YawRate_Kd;               /* Variable: IMU_YawRate_Kd
+                                        * Referenced by: '<S109>/YawRate Derivative Gain'
+                                        */
+  real_T IMU_YawRate_Ki;               /* Variable: IMU_YawRate_Ki
+                                        * Referenced by: '<S109>/YawRate Integral Gain'
+                                        */
+  real_T IMU_YawRate_Kp;               /* Variable: IMU_YawRate_Kp
+                                        * Referenced by: '<S109>/YawRate Proportional Gain'
                                         */
   real_T Iter_Segment_Thresh;          /* Variable: Iter_Segment_Thresh
                                         * Referenced by:

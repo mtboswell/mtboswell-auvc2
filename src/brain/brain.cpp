@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.724
+ * Model version                        : 1.725
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sat Jul 17 15:47:44 2010
+ * Real-Time Workshop file generated on : Sat Jul 17 16:00:07 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sat Jul 17 15:47:45 2010
+ * C/C++ source code generated on       : Sat Jul 17 16:00:08 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -578,7 +578,7 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
           stackIdx--;
           numBlobs = localDW->BuoyBlobAnalysis_STACK_DW[stackIdx];
           for (row = 0; row < 8; row++) {
-            OutCode = numBlobs + (uint32_T)brain_ConstP.pooled28[row];
+            OutCode = numBlobs + (uint32_T)brain_ConstP.pooled27[row];
             if (localDW->BuoyBlobAnalysis_PAD_DW[OutCode] == 255) {
               localDW->BuoyBlobAnalysis_PAD_DW[OutCode] = currentLabel;
               localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)
@@ -2829,16 +2829,16 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
     indx = i;
     for (n = 0; n < 80; n++) {
       ictr = n + 80;
-      eml_dist = localB->ColorSpaceConversion1_o1[brain_ConstP.pooled31[n] * 120
-        + i] * brain_ConstP.pooled24[n] + localB->
-        ColorSpaceConversion1_o1[brain_ConstP.pooled31[ictr] * 120 + i] *
-        brain_ConstP.pooled24[ictr];
+      eml_dist = localB->ColorSpaceConversion1_o1[brain_ConstP.pooled30[n] * 120
+        + i] * brain_ConstP.pooled23[n] + localB->
+        ColorSpaceConversion1_o1[brain_ConstP.pooled30[ictr] * 120 + i] *
+        brain_ConstP.pooled23[ictr];
       ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o1[brain_ConstP.pooled31[ictr] *
-        120 + i] * brain_ConstP.pooled24[ictr];
+      eml_dist += localB->ColorSpaceConversion1_o1[brain_ConstP.pooled30[ictr] *
+        120 + i] * brain_ConstP.pooled23[ictr];
       ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o1[brain_ConstP.pooled31[ictr] *
-        120 + i] * brain_ConstP.pooled24[ictr];
+      eml_dist += localB->ColorSpaceConversion1_o1[brain_ConstP.pooled30[ictr] *
+        120 + i] * brain_ConstP.pooled23[ictr];
       localDW->Resize_IntBuffer[indx] = eml_dist;
       indx += 120;
     }
@@ -2849,15 +2849,15 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
             * 120]), 120U * sizeof(real32_T));
     for (i = 0; i < 60; i++) {
       ictr = i + 60;
-      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled30[i]] *
-        brain_ConstP.pooled23[i] + Resize2_LineBuffer[brain_ConstP.pooled30[ictr]]
-        * brain_ConstP.pooled23[ictr];
+      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
+        brain_ConstP.pooled22[i] + Resize2_LineBuffer[brain_ConstP.pooled29[ictr]]
+        * brain_ConstP.pooled22[ictr];
       ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled30[ictr]] *
-        brain_ConstP.pooled23[ictr];
+      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled29[ictr]] *
+        brain_ConstP.pooled22[ictr];
       ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled30[ictr]] *
-        brain_ConstP.pooled23[ictr];
+      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled29[ictr]] *
+        brain_ConstP.pooled22[ictr];
       localB->Resize[eml_j] = eml_dist;
       eml_j++;
     }
@@ -2870,16 +2870,16 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
     indx = i;
     for (n = 0; n < 80; n++) {
       ictr = n + 80;
-      eml_dist = localB->ColorSpaceConversion1_o2[brain_ConstP.pooled31[n] * 120
-        + i] * brain_ConstP.pooled24[n] + localB->
-        ColorSpaceConversion1_o2[brain_ConstP.pooled31[ictr] * 120 + i] *
-        brain_ConstP.pooled24[ictr];
+      eml_dist = localB->ColorSpaceConversion1_o2[brain_ConstP.pooled30[n] * 120
+        + i] * brain_ConstP.pooled23[n] + localB->
+        ColorSpaceConversion1_o2[brain_ConstP.pooled30[ictr] * 120 + i] *
+        brain_ConstP.pooled23[ictr];
       ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o2[brain_ConstP.pooled31[ictr] *
-        120 + i] * brain_ConstP.pooled24[ictr];
+      eml_dist += localB->ColorSpaceConversion1_o2[brain_ConstP.pooled30[ictr] *
+        120 + i] * brain_ConstP.pooled23[ictr];
       ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o2[brain_ConstP.pooled31[ictr] *
-        120 + i] * brain_ConstP.pooled24[ictr];
+      eml_dist += localB->ColorSpaceConversion1_o2[brain_ConstP.pooled30[ictr] *
+        120 + i] * brain_ConstP.pooled23[ictr];
       localDW->Resize1_IntBuffer[indx] = eml_dist;
       indx += 120;
     }
@@ -2890,15 +2890,15 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
             Resize1_IntBuffer[n * 120]), 120U * sizeof(real32_T));
     for (i = 0; i < 60; i++) {
       ictr = i + 60;
-      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled30[i]] *
-        brain_ConstP.pooled23[i] + Resize2_LineBuffer[brain_ConstP.pooled30[ictr]]
-        * brain_ConstP.pooled23[ictr];
+      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
+        brain_ConstP.pooled22[i] + Resize2_LineBuffer[brain_ConstP.pooled29[ictr]]
+        * brain_ConstP.pooled22[ictr];
       ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled30[ictr]] *
-        brain_ConstP.pooled23[ictr];
+      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled29[ictr]] *
+        brain_ConstP.pooled22[ictr];
       ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled30[ictr]] *
-        brain_ConstP.pooled23[ictr];
+      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled29[ictr]] *
+        brain_ConstP.pooled22[ictr];
       localB->Resize1[eml_j] = eml_dist;
       eml_j++;
     }
@@ -2911,16 +2911,16 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
     indx = i;
     for (n = 0; n < 80; n++) {
       ictr = n + 80;
-      eml_dist = localB->ColorSpaceConversion1_o3[brain_ConstP.pooled31[n] * 120
-        + i] * brain_ConstP.pooled24[n] + localB->
-        ColorSpaceConversion1_o3[brain_ConstP.pooled31[ictr] * 120 + i] *
-        brain_ConstP.pooled24[ictr];
+      eml_dist = localB->ColorSpaceConversion1_o3[brain_ConstP.pooled30[n] * 120
+        + i] * brain_ConstP.pooled23[n] + localB->
+        ColorSpaceConversion1_o3[brain_ConstP.pooled30[ictr] * 120 + i] *
+        brain_ConstP.pooled23[ictr];
       ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o3[brain_ConstP.pooled31[ictr] *
-        120 + i] * brain_ConstP.pooled24[ictr];
+      eml_dist += localB->ColorSpaceConversion1_o3[brain_ConstP.pooled30[ictr] *
+        120 + i] * brain_ConstP.pooled23[ictr];
       ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o3[brain_ConstP.pooled31[ictr] *
-        120 + i] * brain_ConstP.pooled24[ictr];
+      eml_dist += localB->ColorSpaceConversion1_o3[brain_ConstP.pooled30[ictr] *
+        120 + i] * brain_ConstP.pooled23[ictr];
       localDW->Resize2_IntBuffer[indx] = eml_dist;
       indx += 120;
     }
@@ -2931,15 +2931,15 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
             Resize2_IntBuffer[n * 120]), 120U * sizeof(real32_T));
     for (i = 0; i < 60; i++) {
       ictr = i + 60;
-      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled30[i]] *
-        brain_ConstP.pooled23[i] + Resize2_LineBuffer[brain_ConstP.pooled30[ictr]]
-        * brain_ConstP.pooled23[ictr];
+      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
+        brain_ConstP.pooled22[i] + Resize2_LineBuffer[brain_ConstP.pooled29[ictr]]
+        * brain_ConstP.pooled22[ictr];
       ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled30[ictr]] *
-        brain_ConstP.pooled23[ictr];
+      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled29[ictr]] *
+        brain_ConstP.pooled22[ictr];
       ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled30[ictr]] *
-        brain_ConstP.pooled23[ictr];
+      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled29[ictr]] *
+        brain_ConstP.pooled22[ictr];
       localB->Resize2[eml_j] = eml_dist;
       eml_j++;
     }
@@ -3858,7 +3858,7 @@ void StateFlowFunctionsValidationGat(const real_T rtu_H[19200], const real_T
           stackIdx--;
           numBlobs = localDW->BlobAnalysis_STACK_DW[stackIdx];
           for (i = 0; i < 8; i++) {
-            k = numBlobs + (uint32_T)brain_ConstP.pooled28[i];
+            k = numBlobs + (uint32_T)brain_ConstP.pooled27[i];
             if (localDW->BlobAnalysis_PAD_DW[k] == 255) {
               localDW->BlobAnalysis_PAD_DW[k] = currentLabel;
               localDW->BlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)((int16_T)(k
@@ -4206,7 +4206,7 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
           stackIdx--;
           numBlobs = localDW->BuoyBlobAnalysis_STACK_DW[stackIdx];
           for (row = 0; row < 8; row++) {
-            OutCode = numBlobs + (uint32_T)brain_ConstP.pooled28[row];
+            OutCode = numBlobs + (uint32_T)brain_ConstP.pooled27[row];
             if (localDW->BuoyBlobAnalysis_PAD_DW[OutCode] == 255) {
               localDW->BuoyBlobAnalysis_PAD_DW[OutCode] = currentLabel;
               localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)
@@ -5108,7 +5108,7 @@ void StateFlowFunctionsJumpH_a_Start(RT_MODEL_brain *const brain_M,
   for (m = 0; m < 2; m++) {
     for (n = 0; n < 2; n++) {
       idxNHood--;
-      if (brain_ConstP.pooled37[idxNHood]) {
+      if (brain_ConstP.pooled36[idxNHood]) {
         localDW->Dilation_DILATE_OFF_DW[idxOffsets] = m * 123 + n;
         curNumNonZ++;
         idxOffsets++;
@@ -5124,7 +5124,7 @@ void StateFlowFunctionsJumpH_a_Start(RT_MODEL_brain *const brain_M,
   curNumNonZ = 0;
   for (n = 0; n < 1; n = 1) {
     for (m = 0; m < 4; m++) {
-      if (brain_ConstP.pooled36[idxNHood]) {
+      if (brain_ConstP.pooled35[idxNHood]) {
         localDW->Erosion_ERODE_OFF_DW[idxOffsets] = m;
         curNumNonZ++;
         idxOffsets++;
@@ -5138,7 +5138,7 @@ void StateFlowFunctionsJumpH_a_Start(RT_MODEL_brain *const brain_M,
   curNumNonZ = 0;
   for (n = 0; n < 4; n++) {
     for (m = 0; m < 1; m = 1) {
-      if (brain_ConstP.pooled36[idxNHood]) {
+      if (brain_ConstP.pooled35[idxNHood]) {
         localDW->Erosion_ERODE_OFF_DW[idxOffsets] = n * 127;
         curNumNonZ++;
         idxOffsets++;
@@ -5366,7 +5366,7 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
           stackIdx--;
           numBlobs = localDW->BuoyBlobAnalysis_STACK_DW[stackIdx];
           for (idxAdj = 0; idxAdj < 8; idxAdj++) {
-            OutCode = numBlobs + (uint32_T)brain_ConstP.pooled28[idxAdj];
+            OutCode = numBlobs + (uint32_T)brain_ConstP.pooled27[idxAdj];
             if (localDW->BuoyBlobAnalysis_PAD_DW[OutCode] == 255) {
               localDW->BuoyBlobAnalysis_PAD_DW[OutCode] = currentLabel;
               localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)
@@ -6070,7 +6070,7 @@ void StateFlowFunctionsJumpHedgeGetA(const real_T rtu_BW[19200],
           stackIdx--;
           numBlobs = localDW->BlobAnalysis_STACK_DW[stackIdx];
           for (pixListMinc = 0; pixListMinc < 8; pixListMinc++) {
-            walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled28[pixListMinc];
+            walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled27[pixListMinc];
             if (localDW->BlobAnalysis_PAD_DW[walkerIdx] == 255) {
               localDW->BlobAnalysis_PAD_DW[walkerIdx] = currentLabel;
               localDW->BlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)((int16_T)
@@ -6287,7 +6287,7 @@ void StateFlowFunctionsFollowOnePa_e(const real_T rtu_BW[19200], RT_MODEL_brain 
           stackIdx--;
           numBlobs = localDW->BuoyBlobAnalysis_STACK_DW[stackIdx];
           for (i = 0; i < 8; i++) {
-            walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled28[i];
+            walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled27[i];
             if (localDW->BuoyBlobAnalysis_PAD_DW[walkerIdx] == 255) {
               localDW->BuoyBlobAnalysis_PAD_DW[walkerIdx] = currentLabel;
               localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)
@@ -6556,7 +6556,7 @@ void br_StateFlowFunctionsGoStraight(real_T rtu_YawRate, real_T
    * About '<S111>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
-  rtb_TSamp_h = 0.0 * rtu_YawRate / ((real_T)
+  rtb_TSamp_h = brain_P.IMU_YawRate_Kd * rtu_YawRate / ((real_T)
     localDW->StateFlowFunctionsGoStraight_EL * 0.2);
 
   /* Sum: '<S109>/Sum' incorporates:
@@ -6573,8 +6573,8 @@ void br_StateFlowFunctionsGoStraight(real_T rtu_YawRate, real_T
    *
    *  Store in Global RAM
    */
-  rtb_Add4_b = (0.25 * rtu_YawRate + (rtb_TSamp_h - localDW->UD_DSTATE)) +
-    localDW->HeadingDiscreteTimeIntegrator_D;
+  rtb_Add4_b = (brain_P.IMU_YawRate_Kp * rtu_YawRate + (rtb_TSamp_h -
+    localDW->UD_DSTATE)) + localDW->HeadingDiscreteTimeIntegrator_D;
 
   /* Gain: '<S27>/Gain' */
   rtb_Gain_kd = -rtb_Add4_b;
@@ -6615,7 +6615,7 @@ void br_StateFlowFunctionsGoStraight(real_T rtu_YawRate, real_T
    * About '<S110>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
-  rtb_Add4_b = 0.0 * rtu_Y_Accel / ((real_T)
+  rtb_Add4_b = brain_P.IMU_YVel_Kd * rtu_Y_Accel / ((real_T)
     localDW->StateFlowFunctionsGoStraight_EL * 0.2);
 
   /* DataTypeConversion: '<S27>/DoubleToint2' incorporates:
@@ -6633,8 +6633,8 @@ void br_StateFlowFunctionsGoStraight(real_T rtu_YawRate, real_T
    *
    *  Store in Global RAM
    */
-  rtb_Gain_kd = (0.25 * rtu_Y_Accel + (rtb_Add4_b - localDW->UD_DSTATE_l)) +
-    localDW->DepthDiscreteTimeIntegrator_DST;
+  rtb_Gain_kd = (brain_P.IMU_YVel_Kp * rtu_Y_Accel + (rtb_Add4_b -
+    localDW->UD_DSTATE_l)) + localDW->DepthDiscreteTimeIntegrator_DST;
   rtb_Gain_kd = floor(rtb_Gain_kd);
   if (rtb_Gain_kd < 128.0) {
     if (rtb_Gain_kd >= -128.0) {
@@ -6657,8 +6657,8 @@ void br_StateFlowFunctionsGoStraight(real_T rtu_YawRate, real_T
    *  Gain: '<S109>/YawRate Integral Gain'
    */
   localDW->HeadingDiscreteTimeIntegrator_D = 0.2 * (real_T)
-    localDW->StateFlowFunctionsGoStraight_EL * (0.0 * rtu_YawRate) +
-    localDW->HeadingDiscreteTimeIntegrator_D;
+    localDW->StateFlowFunctionsGoStraight_EL * (brain_P.IMU_YawRate_Ki *
+    rtu_YawRate) + localDW->HeadingDiscreteTimeIntegrator_D;
   if (localDW->HeadingDiscreteTimeIntegrator_D >= 15.0) {
     localDW->HeadingDiscreteTimeIntegrator_D = 15.0;
   } else {
@@ -6678,8 +6678,8 @@ void br_StateFlowFunctionsGoStraight(real_T rtu_YawRate, real_T
    *  Gain: '<S108>/Y-Accelerometer Integral Gain'
    */
   localDW->DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
-    localDW->StateFlowFunctionsGoStraight_EL * (0.0 * rtu_Y_Accel) +
-    localDW->DepthDiscreteTimeIntegrator_DST;
+    localDW->StateFlowFunctionsGoStraight_EL * (brain_P.IMU_YVel_Ki *
+    rtu_Y_Accel) + localDW->DepthDiscreteTimeIntegrator_DST;
   if (localDW->DepthDiscreteTimeIntegrator_DST >= 10.0) {
     localDW->DepthDiscreteTimeIntegrator_DST = 10.0;
   } else {
@@ -8018,7 +8018,7 @@ static void brain_FindSecondBuoy(void)
             stackIdx--;
             numBlobs = brain_DWork.BuoyBlobAnalysis_STACK_DW_g[stackIdx];
             for (pixListNinc = 0; pixListNinc < 8; pixListNinc++) {
-              OutCode = numBlobs + (uint32_T)brain_ConstP.pooled28[pixListNinc];
+              OutCode = numBlobs + (uint32_T)brain_ConstP.pooled27[pixListNinc];
               if (brain_DWork.BuoyBlobAnalysis_PAD_DW_h[OutCode] == 255) {
                 brain_DWork.BuoyBlobAnalysis_PAD_DW_h[OutCode] = currentLabel;
                 brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[pixIdx] = (int16_T)
@@ -13246,7 +13246,7 @@ static void brain_JumpHedge(void)
                 stackIdx--;
                 numBlobs = brain_DWork.BuoyBlobAnalysis_STACK_DW[stackIdx];
                 for (i_1 = 0; i_1 < 8; i_1++) {
-                  walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled28[i_1];
+                  walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled27[i_1];
                   if (brain_DWork.BuoyBlobAnalysis_PAD_DW[walkerIdx] == 255) {
                     brain_DWork.BuoyBlobAnalysis_PAD_DW[walkerIdx] =
                       currentLabel;
@@ -14360,8 +14360,8 @@ void brain_step(void)
       n_0 = outStep_0;
       sum = 0.0F;
       for (inStep_0 = 0; inStep_0 < 8; inStep_0++) {
-        sum += brain_B.RGBtoHSVColorSpaceConversion_o1[brain_ConstP.pooled35[n_0]
-          * 480 + n] * brain_ConstP.pooled27[n_0];
+        sum += brain_B.RGBtoHSVColorSpaceConversion_o1[brain_ConstP.pooled34[n_0]
+          * 480 + n] * brain_ConstP.pooled26[n_0];
         n_0 += 160;
       }
 
@@ -14378,8 +14378,8 @@ void brain_step(void)
       n_0 = n;
       sum = 0.0F;
       for (inStep_0 = 0; inStep_0 < 8; inStep_0++) {
-        sum += Resize2_LineBuffer[brain_ConstP.pooled34[n_0]] *
-          brain_ConstP.pooled26[n_0];
+        sum += Resize2_LineBuffer[brain_ConstP.pooled33[n_0]] *
+          brain_ConstP.pooled25[n_0];
         n_0 += 120;
       }
 
@@ -14397,8 +14397,8 @@ void brain_step(void)
       n_0 = outStep_0;
       sum = 0.0F;
       for (inStep_0 = 0; inStep_0 < 8; inStep_0++) {
-        sum += brain_B.RGBtoHSVColorSpaceConversion_o2[brain_ConstP.pooled35[n_0]
-          * 480 + n] * brain_ConstP.pooled27[n_0];
+        sum += brain_B.RGBtoHSVColorSpaceConversion_o2[brain_ConstP.pooled34[n_0]
+          * 480 + n] * brain_ConstP.pooled26[n_0];
         n_0 += 160;
       }
 
@@ -14415,8 +14415,8 @@ void brain_step(void)
       n_0 = n;
       sum = 0.0F;
       for (inStep_0 = 0; inStep_0 < 8; inStep_0++) {
-        sum += Resize2_LineBuffer[brain_ConstP.pooled34[n_0]] *
-          brain_ConstP.pooled26[n_0];
+        sum += Resize2_LineBuffer[brain_ConstP.pooled33[n_0]] *
+          brain_ConstP.pooled25[n_0];
         n_0 += 120;
       }
 
@@ -14434,8 +14434,8 @@ void brain_step(void)
       n_0 = outStep_0;
       sum = 0.0F;
       for (inStep_0 = 0; inStep_0 < 8; inStep_0++) {
-        sum += brain_B.RGBtoHSVColorSpaceConversion_o3[brain_ConstP.pooled35[n_0]
-          * 480 + n] * brain_ConstP.pooled27[n_0];
+        sum += brain_B.RGBtoHSVColorSpaceConversion_o3[brain_ConstP.pooled34[n_0]
+          * 480 + n] * brain_ConstP.pooled26[n_0];
         n_0 += 160;
       }
 
@@ -14452,8 +14452,8 @@ void brain_step(void)
       n_0 = n;
       sum = 0.0F;
       for (inStep_0 = 0; inStep_0 < 8; inStep_0++) {
-        sum += Resize2_LineBuffer[brain_ConstP.pooled34[n_0]] *
-          brain_ConstP.pooled26[n_0];
+        sum += Resize2_LineBuffer[brain_ConstP.pooled33[n_0]] *
+          brain_ConstP.pooled25[n_0];
         n_0 += 120;
       }
 
@@ -16483,7 +16483,7 @@ void brain_initialize(void)
     curNumNonZ = 0;
     for (n = 0; n < 1; n = 1) {
       for (m = 0; m < 4; m++) {
-        if (brain_ConstP.pooled36[idxNHood]) {
+        if (brain_ConstP.pooled35[idxNHood]) {
           brain_DWork.Erosion_ERODE_OFF_DW_l[idxOffsets] = m;
           curNumNonZ++;
           idxOffsets++;
@@ -16497,7 +16497,7 @@ void brain_initialize(void)
     curNumNonZ = 0;
     for (n = 0; n < 4; n++) {
       for (m = 0; m < 1; m = 1) {
-        if (brain_ConstP.pooled36[idxNHood]) {
+        if (brain_ConstP.pooled35[idxNHood]) {
           brain_DWork.Erosion_ERODE_OFF_DW_l[idxOffsets] = n * 127;
           curNumNonZ++;
           idxOffsets++;
@@ -16516,7 +16516,7 @@ void brain_initialize(void)
     for (m = 0; m < 2; m++) {
       for (n = 0; n < 2; n++) {
         idxNHood--;
-        if (brain_ConstP.pooled37[idxNHood]) {
+        if (brain_ConstP.pooled36[idxNHood]) {
           brain_DWork.Dilation_DILATE_OFF_DW[idxOffsets] = m * 123 + n;
           curNumNonZ++;
           idxOffsets++;
@@ -16532,7 +16532,7 @@ void brain_initialize(void)
     curNumNonZ = 0;
     for (n = 0; n < 1; n = 1) {
       for (m = 0; m < 4; m++) {
-        if (brain_ConstP.pooled36[idxNHood]) {
+        if (brain_ConstP.pooled35[idxNHood]) {
           brain_DWork.Erosion_ERODE_OFF_DW_i[idxOffsets] = m;
           curNumNonZ++;
           idxOffsets++;
@@ -16546,7 +16546,7 @@ void brain_initialize(void)
     curNumNonZ = 0;
     for (n = 0; n < 4; n++) {
       for (m = 0; m < 1; m = 1) {
-        if (brain_ConstP.pooled36[idxNHood]) {
+        if (brain_ConstP.pooled35[idxNHood]) {
           brain_DWork.Erosion_ERODE_OFF_DW_i[idxOffsets] = n * 127;
           curNumNonZ++;
           idxOffsets++;
