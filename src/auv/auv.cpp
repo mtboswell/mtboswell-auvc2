@@ -25,6 +25,14 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 	// Initialize data
 	data.status = READY;
 	data.orientation.yaw = 0;
+	data.orientation.pitch = 0;
+	data.orientation.roll = 0;
+	data.orientation.yawrate = 0;
+	data.orientation.pitchrate = 0;
+	data.orientation.rollrate = 0;
+	data.orientation.yawacc = 0;
+	data.orientation.pitchacc = 0;
+	data.orientation.rollacc = 0;
 	data.depth = 0;
 	data.thrusterSpeeds[0] = 0;
 	data.thrusterSpeeds[1] = 0;

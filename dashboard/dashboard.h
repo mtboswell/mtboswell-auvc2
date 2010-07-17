@@ -81,8 +81,12 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		// Brain state
 		void on_stateComboBox_activated(int index); 
 
+		// Tare state vectors
+		void on_tareAccelPushButton_clicked();
+
 		// RC
 		void on_controlGroupBox_toggled(bool rc);
+		void on_useInertialCheckBox_stateChanged(int state);
 		void on_desiredDepthSlider_valueChanged(int value);
 		void on_desiredStrafeSlider_valueChanged(int value);
 		void on_desiredSpeedSlider_valueChanged(int value);

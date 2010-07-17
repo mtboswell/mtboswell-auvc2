@@ -206,7 +206,7 @@ void Dashboard::connectToLocalhost(){
 }
 
 void Dashboard::sendScript(){
-	bool ok;
+	//bool ok;
 	QString scriptFilename = QFileDialog::getOpenFileName(this, tr("Open an AUVScript File"), QDir::homePath(), "*.avs");
 	if (!scriptFilename.isEmpty()){
 		QFile scriptFile(scriptFilename);
@@ -318,6 +318,36 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 				+ QString::number(1.0/(value.toDouble()/1000.0)) + " Hz (" 
 				+ QString::number(round(100.0/(value.toDouble()/1000.0)/targetRate))
 				+ "%)" );
+		}else if(name == "Pitch"){
+			pitchLabel->setText(value);
+		}else if(name == "Roll"){
+			rollLabel->setText(value);
+		}else if(name == "Yaw"){
+			yawLabel->setText(value);
+		}else if(name == "XPos"){
+			xLabel->setText(value);
+		}else if(name == "YPos"){
+			yLabel->setText(value);
+		}else if(name == "ZPos"){
+			zLabel->setText(value);
+		}else if(name == "XVel"){
+			xVelLabel->setText(value);
+		}else if(name == "YVel"){
+			yVelLabel->setText(value);
+		}else if(name == "ZVel"){
+			zVelLabel->setText(value);
+		}else if(name == "Pitch_Accel"){
+			pitchAccelLabel->setText(value);
+		}else if(name == "Roll_Accel"){
+			rollAccelLabel->setText(value);
+		}else if(name == "Yaw_Accel"){
+			yawAccelLabel->setText(value);
+		}else if(name == "YawRate_Out"){
+			yawRateLabel->setText(value);
+		}else if(name == "PitchRate_Out"){
+			pitchRateLabel->setText(value);
+		}else if(name == "RollRate_Out"){
+			rollRateLabel->setText(value);
 		}else badCmd = true;
 	}else if (type == "Input"){ // RC commands from other dashboards
 		int intValue = value.toInt();
@@ -567,6 +597,11 @@ void Dashboard::on_setActualDepthPushButton_clicked(){
 	emit sendSID("Calibrate.Depth", QString::number(actualDepthDoubleSpinBox->value()));
 }
 
+void Dashboard::on_tareAccelPushButton_clicked(){
+	emit sendSID("Input.Tare", "1");
+}
+
+
 // RC Controls
 void Dashboard::on_controlGroupBox_toggled(bool rc){
 //	emit sendSID("Mode", "Stop");
@@ -580,6 +615,12 @@ void Dashboard::on_controlGroupBox_toggled(bool rc){
 	if(RC == 1) stateLabel->setText("Remote Control");
 	else stateLabel->setText("Confuzzled");
 }
+
+void Dashboard::on_useInertialCheckBox_stateChanged(int state){
+	if(state == Qt::Checked) emit sendSID("Input.RC_Source", "1");
+	else emit sendSID("Input.RC_Source", "0");
+}
+
 void Dashboard::on_desiredDepthSlider_valueChanged(int value){
 	if(value != desiredDepth){
 		desiredDepth = value;

@@ -198,6 +198,26 @@ void Server::sendBrainData(ExternalOutputs_brain outs, int brainTime){
 	sidsocket->sendSID("Brain.State", QString::number(outs.State));
 	sidsocket->sendSID("Brain.Time", QString::number(brainTime));
 
+	sidsocket->sendSID("Brain.Pitch", QString::number(outs.Pitch));
+	sidsocket->sendSID("Brain.Roll", QString::number(outs.Roll));
+	sidsocket->sendSID("Brain.Yaw", QString::number(outs.Yaw));
+
+	sidsocket->sendSID("Brain.XPos", QString::number(outs.XPos));
+	sidsocket->sendSID("Brain.YPos", QString::number(outs.YPos));
+	sidsocket->sendSID("Brain.ZPos", QString::number(outs.ZPos));
+
+	sidsocket->sendSID("Brain.XVel", QString::number(outs.XVel));
+	sidsocket->sendSID("Brain.YVel", QString::number(outs.YVel));
+	sidsocket->sendSID("Brain.ZVel", QString::number(outs.ZVel));
+
+	sidsocket->sendSID("Brain.Pitch_Accel", QString::number(outs.Pitch_Accel));
+	sidsocket->sendSID("Brain.Roll_Accel", QString::number(outs.Roll_Accel));
+	sidsocket->sendSID("Brain.Yaw_Accel", QString::number(outs.Yaw_Accel));
+
+	sidsocket->sendSID("Brain.YawRate_Out", QString::number(outs.YawRate_Out));
+	sidsocket->sendSID("Brain.PitchRate_Out", QString::number(outs.PitchRate_Out));
+	sidsocket->sendSID("Brain.RollRate_Out", QString::number(outs.RollRate_Out));
+
 	// write to port
 	sidsocket->flush();
 }
