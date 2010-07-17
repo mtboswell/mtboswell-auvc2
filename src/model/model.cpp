@@ -111,6 +111,8 @@ void Model::updateSensorsInput(AUVSensors values){
 	brain_U.CurrentDepth = values.depth;                 /* '<Root>/CurrentDepth' */
 	brain_U.CurrentHeading = values.orientation.yaw;               /* '<Root>/CurrentHeading' */
 	brain_U.YawRate = values.orientation.yawrate;               /* '<Root>/CurrentHeading' */
+	brain_U.Y_Accelerometer = values.orientation.pitchacc;               /* '<Root>/CurrentHeading' */
+	qDebug() << values.orientation.pitchacc << values.orientation.yawacc << values.orientation. yawrate;
 	brain_U.Status = values.status;                       /* '<Root>/Status' */	
 	
 	// Transfer video frame into MATLAB, swapping buffers 
