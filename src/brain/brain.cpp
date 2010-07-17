@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.713
+ * Model version                        : 1.715
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sat Jul 17 13:53:37 2010
+ * Real-Time Workshop file generated on : Sat Jul 17 14:17:03 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sat Jul 17 13:53:38 2010
+ * C/C++ source code generated on       : Sat Jul 17 14:17:04 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -6841,7 +6841,7 @@ static void brain_StateEstimator(void)
         sin(sf_RollRate) * sin(sf_YawRate_Model);
       tmp[7] = sin(sf_RollRate) * sin(sf_YawRate_Model) * cos(sf_PitchRate) -
         cos(sf_RollRate) * sin(sf_YawRate_Model);
-      tmp[8] = cos(sf_PitchRate) * sin(sf_YawRate_Model);
+      tmp[8] = cos(sf_PitchRate) * cos(sf_YawRate_Model);
       for (sf_T = 0; sf_T < 3; sf_T++) {
         sf_Accel[sf_T] = tmp[sf_T + 6] * brain_U.YawAccelB + (tmp[sf_T + 3] *
           brain_U.PitchAccelB + tmp[sf_T] * brain_U.RollAccelB);
