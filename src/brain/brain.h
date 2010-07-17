@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.691
+ * Model version                        : 1.692
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sat Jul 17 12:30:39 2010
+ * Real-Time Workshop file generated on : Sat Jul 17 12:38:14 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sat Jul 17 12:30:40 2010
+ * C/C++ source code generated on       : Sat Jul 17 12:38:14 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -858,6 +858,7 @@ typedef struct {
   real_T YawAccelB;                    /* '<Root>/YawAccelB' */
   real_T Tare;                         /* '<Root>/Tare' */
   real_T RC_Source;                    /* '<Root>/RC_Source' */
+  real_T DeltaT;                       /* '<Root>/DeltaT' */
 } ExternalInputs_brain;
 
 /* External outputs (root outports fed by signals with auto storage) */
