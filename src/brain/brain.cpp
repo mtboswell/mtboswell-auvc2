@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.684
+ * Model version                        : 1.687
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sat Jul 17 12:14:16 2010
+ * Real-Time Workshop file generated on : Sat Jul 17 12:22:51 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sat Jul 17 12:14:17 2010
+ * C/C++ source code generated on       : Sat Jul 17 12:22:52 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -6716,6 +6716,16 @@ static void brain_StateEstimator(void)
       brain_B.Strafe = 0;
       brain_B.Vertical = 0;
     } else {
+      /* Embedded MATLAB Function 'CheckDeltaT': '<S7>:1980' */
+      /*  Make sure deltaT isn't zero breaking everything */
+      if (brain_DWork.DeltaT < 0.001) {
+        /* '<S7>:1980:4' */
+        /* '<S7>:1980:5' */
+        brain_DWork.DeltaT = 0.01;
+      } else {
+        /* '<S7>:1980:7' */
+      }
+
       /* Embedded MATLAB Function 'AUV_Yaw_Model': '<S7>:1922' */
       /*  This uses a math model of the auv to calculate the yaw rate and yaw of */
       /*  the AUV */
