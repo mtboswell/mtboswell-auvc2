@@ -38,4 +38,11 @@ GEN_PARAM(buoy2HueSpinBox,Buoy2_Hue)
 GEN_PARAM(buoy2SaturationSpinBox,Buoy2_Saturation)
 GEN_PARAM(buoy2ValueSpinBox,Buoy2_Value)
 GEN_PARAM(iterSegmentThreshSpinBox,Iter_Segment_Thresh)
+// imu
+GEN_PARAM(yVelPSpinBox,IMU_YVel_Kp)
+GEN_PARAM(yVelISpinBox,IMU_YVel_Ki)
+GEN_PARAM(yVelDSpinBox,IMU_YVel_Kd)
+GEN_PARAM(yawRatePSpinBox,IMU_YawRate_Kp)
+GEN_PARAM(yawRateISpinBox,IMU_YawRate_Ki)
+GEN_PARAM(yawRateDSpinBox,IMU_YawRate_Kd)
 #undef GEN_PARAM

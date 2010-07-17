@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.715
+ * Model version                        : 1.725
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sat Jul 17 14:17:03 2010
+ * Real-Time Workshop file generated on : Sat Jul 17 16:00:07 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sat Jul 17 14:17:04 2010
+ * C/C++ source code generated on       : Sat Jul 17 16:00:08 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -634,12 +634,14 @@ typedef struct {
   real_T TPA;                          /* '<Root>/StateFlow Functions' */
   real_T TRA;                          /* '<Root>/StateFlow Functions' */
   real_T TYA;                          /* '<Root>/StateFlow Functions' */
+  real_T stepcount;                    /* '<Root>/StateFlow Functions' */
   real_T TarPitch;                     /* '<Root>/StateFlow Functions' */
   real_T TarPitchRate;                 /* '<Root>/StateFlow Functions' */
   real_T TarRoll;                      /* '<Root>/StateFlow Functions' */
   real_T TarRollRate;                  /* '<Root>/StateFlow Functions' */
   real_T TarYaw;                       /* '<Root>/StateFlow Functions' */
   real_T TarYawRate;                   /* '<Root>/StateFlow Functions' */
+  real_T TareDone;                     /* '<Root>/StateFlow Functions' */
   real_T ColorSpaceConversion_DWORK1;  /* '<S43>/Color Space  Conversion' */
   real_T ColorSpaceConversion1_DWORK1; /* '<S43>/Color Space  Conversion1' */
   real_T ColorSpaceConversion_DWORK1_g;/* '<S45>/Color Space  Conversion' */
@@ -958,19 +960,16 @@ struct Parameters_brain_ {
   real_T Cam_Down_Strafe_XPos_Kd;      /* Variable: Cam_Down_Strafe_XPos_Kd
                                         * Referenced by:
                                         *   '<S78>/CamDownStrafe-X Derivative Gain'
-                                        *   '<S108>/Y-Accelerometer Derivative Gain'
                                         *   '<S95>/CamDown Strafe XPos Derivative Gain'
                                         */
   real_T Cam_Down_Strafe_XPos_Ki;      /* Variable: Cam_Down_Strafe_XPos_Ki
                                         * Referenced by:
                                         *   '<S78>/CamDownStrafe-X Integral Gain'
-                                        *   '<S108>/Y-Accelerometer Integral Gain'
                                         *   '<S95>/CamDown Strafe XPos Integral Gain'
                                         */
   real_T Cam_Down_Strafe_XPos_Kp;      /* Variable: Cam_Down_Strafe_XPos_Kp
                                         * Referenced by:
                                         *   '<S78>/CamDownStrafe-X Proportional Gain'
-                                        *   '<S108>/Y-Accelerometer Proportional Gain'
                                         *   '<S95>/CamDown Strafe XPos Proportional Gain'
                                         */
   real_T Cam_Down_YPos_Kd;             /* Variable: Cam_Down_YPos_Kd
@@ -1058,6 +1057,24 @@ struct Parameters_brain_ {
                                         */
   real_T Hedge_Value;                  /* Variable: Hedge_Value
                                         * Referenced by: '<S34>/Hedge Value'
+                                        */
+  real_T IMU_YVel_Kd;                  /* Variable: IMU_YVel_Kd
+                                        * Referenced by: '<S108>/Y-Accelerometer Derivative Gain'
+                                        */
+  real_T IMU_YVel_Ki;                  /* Variable: IMU_YVel_Ki
+                                        * Referenced by: '<S108>/Y-Accelerometer Integral Gain'
+                                        */
+  real_T IMU_YVel_Kp;                  /* Variable: IMU_YVel_Kp
+                                        * Referenced by: '<S108>/Y-Accelerometer Proportional Gain'
+                                        */
+  real_T IMU_YawRate_Kd;               /* Variable: IMU_YawRate_Kd
+                                        * Referenced by: '<S109>/YawRate Derivative Gain'
+                                        */
+  real_T IMU_YawRate_Ki;               /* Variable: IMU_YawRate_Ki
+                                        * Referenced by: '<S109>/YawRate Integral Gain'
+                                        */
+  real_T IMU_YawRate_Kp;               /* Variable: IMU_YawRate_Kp
+                                        * Referenced by: '<S109>/YawRate Proportional Gain'
                                         */
   real_T Iter_Segment_Thresh;          /* Variable: Iter_Segment_Thresh
                                         * Referenced by:
