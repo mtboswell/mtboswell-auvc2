@@ -13,10 +13,13 @@ INCLUDEPATH += . \
 	     auv \
 	     model \
 	     auv/qextserialport \
-	     server
+	     server \
+	     server-jaus
+LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
 # Input
 HEADERS += server/server.h \
 	server/sidsocket.h \
+	server-jaus/server-jaus.h \
 	version.h \
 	configloader.h \
 	model/parameters.h \
@@ -41,6 +44,7 @@ HEADERS += server/server.h \
 	auv/qextserialport/qextserialport.h
 SOURCES += server/server.cpp \
 	   server/sidsocket.cpp \
+	   server-jaus/server-jaus.cpp \
 	   main.cpp \
 	   version.cpp \
 	   configloader.cpp \

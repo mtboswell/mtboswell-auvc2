@@ -5,6 +5,7 @@
 QMap<QString, QString> config;
 
 #include "server/server.h"
+#include "server-jaus/server-jaus.h"
 #include "auv/auv.h"
 #include "auv/calibrateservos.h"
 //#include "brain/brain.h"
@@ -65,6 +66,9 @@ int main(int argc, char *argv[]){
 	qDebug("Initializing Server");
 	Server* server = new Server();
 
+	/* Initialize JAUS */
+	JAUSServer* jaus = new JAUSServer(116,1,1);
+
 	/* Initialize Brain */
 	qDebug("Initializing Model");
 	Model* brain = new Model(&modelMutex);
@@ -85,6 +89,9 @@ int main(int argc, char *argv[]){
 	QObject::connect(auv, SIGNAL(sensorUpdate(AUVSensors)), server, SLOT(sendSensorData(AUVSensors)));
 	QObject::connect(auv, SIGNAL(status(QString)), server, SLOT(sendStatus(QString)));
 	QObject::connect(auv, SIGNAL(error(QString)), server, SLOT(sendError(QString)));
+
+	// From AUV to JAUS
+	QObject::connect(auv, SIGNAL(sensorUpdate(AUVSensors)), jaus, SLOT(updateSensors(AUVSensors)));
 
 	// From server to AUV
 	QObject::connect(server, SIGNAL(go()), auv, SLOT(goAUV()));
@@ -120,6 +127,9 @@ int main(int argc, char *argv[]){
 
 	qDebug("Starting Server");
 	server->start();
+	
+	qDebug("Starting JAUS");
+	jaus->start();
 
 	qDebug() << "Initialization Complete, System Online";
 
