@@ -283,7 +283,8 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 		if (name == "State") {
 			if(value.toDouble() == -1) {
 				// RC state
-				stateLabel->setText("Remote Control");
+				currentState = "Remote Control";
+				stateLabel->setText(currentState + ":" + currentSubState);
 				// set RC to make sure we don't send a command
 				RC = 1;
 				if(!controlGroupBox->isChecked()) {
@@ -292,7 +293,8 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 				}
 			}else if(value.toDouble() == -2) {
 				// stopped state
-				stateLabel->setText("Stopped");
+				currentState = "Stopped";
+				stateLabel->setText(currentState + ":" + currentSubState);
 				// enter RC state as soon as we leave the stopped state
 				/*
 				if(!controlGroupBox->isChecked()) {
@@ -618,8 +620,13 @@ void Dashboard::on_controlGroupBox_toggled(bool rc){
 		emit sendSID("Input.RC", "0");
 	}
 	RC = rc?1:0;
-	if(RC == 1) stateLabel->setText("Remote Control");
-	else stateLabel->setText("Confuzzled");
+	if(RC == 1) {
+		currentState = "Remote Control";
+		stateLabel->setText(currentState + ":" + currentSubState);
+	}else{
+		currentState = "Confuzzled";
+		stateLabel->setText(currentState + ":" + currentSubState);
+	}
 }
 
 void Dashboard::on_useInertialCheckBox_stateChanged(int state){

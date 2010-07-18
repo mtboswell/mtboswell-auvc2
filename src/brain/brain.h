@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.731
+ * Model version                        : 1.733
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sun Jul 18 10:42:41 2010
+ * Real-Time Workshop file generated on : Sun Jul 18 10:54:51 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sun Jul 18 10:42:41 2010
+ * C/C++ source code generated on       : Sun Jul 18 10:54:52 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -896,6 +896,7 @@ typedef struct {
   real_T PitchRate_Out;                /* '<Root>/PitchRate_Out' */
   real_T RollRate_Out;                 /* '<Root>/RollRate_Out' */
   real_T YawRate_Out;                  /* '<Root>/YawRate_Out' */
+  real_T SubState;                     /* '<Root>/SubState' */
 } ExternalOutputs_brain;
 
 /* Parameters (auto storage) */
