@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.731
+ * Model version                        : 1.733
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sun Jul 18 10:42:41 2010
+ * Real-Time Workshop file generated on : Sun Jul 18 10:54:51 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sun Jul 18 10:42:41 2010
+ * C/C++ source code generated on       : Sun Jul 18 10:54:52 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -15272,6 +15272,9 @@ void brain_step(void)
 
   /* Outport: '<Root>/YawRate_Out' */
   brain_Y.YawRate_Out = brain_B.YawRate_Out;
+
+  /* Outport: '<Root>/SubState' */
+  brain_Y.SubState = brain_B.SubState;
 
   /* Update absolute time for base rate */
   /* The "clockTick0" counts the number of times the code of this task has
