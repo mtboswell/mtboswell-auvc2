@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.726
+ * Model version                        : 1.731
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sun Jul 18 10:20:19 2010
+ * Real-Time Workshop file generated on : Sun Jul 18 10:42:41 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sun Jul 18 10:20:21 2010
+ * C/C++ source code generated on       : Sun Jul 18 10:42:41 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -389,6 +389,7 @@ typedef struct {
 /* Block signals (auto storage) */
 typedef struct {
   real_T eml_HoughTable[71820];
+  boolean_T BW_m[19200];               /* '<S99>/Logical Operator1' */
   real_T DesiredDepth;                 /* '<Root>/StateFlow Functions' */
   real_T DesiredHeading;               /* '<Root>/StateFlow Functions' */
   real_T BuoyCentroidX;                /* '<Root>/StateFlow Functions' */
@@ -410,65 +411,66 @@ typedef struct {
   real_T PitchRate_Out;                /* '<Root>/StateFlow Functions' */
   real_T RollRate_Out;                 /* '<Root>/StateFlow Functions' */
   real_T YawRate_Out;                  /* '<Root>/StateFlow Functions' */
+  real_T SubState;                     /* '<Root>/StateFlow Functions' */
   real_T LabMatrix[19200];             /* '<Root>/StateFlow Functions' */
   real_T Ref_Colors[150];              /* '<Root>/StateFlow Functions' */
   real_T Num_Colors;                   /* '<Root>/StateFlow Functions' */
   real_T B_Hue;                        /* '<Root>/StateFlow Functions' */
   real_T B_Sat;                        /* '<Root>/StateFlow Functions' */
   real_T B_Value;                      /* '<Root>/StateFlow Functions' */
-  real_T LabMatrix_a[19200];           /* '<Root>/StateFlow Functions' */
+  real_T LabMatrix_k[19200];           /* '<Root>/StateFlow Functions' */
   real_T num_colors;                   /* '<Root>/StateFlow Functions' */
   real_T RGBin[57600];                 /* '<Root>/StateFlow Functions' */
-  real_T LabMatrix_i[19200];           /* '<Root>/StateFlow Functions' */
-  real_T Ref_Colors_i[150];            /* '<Root>/StateFlow Functions' */
+  real_T LabMatrix_o[19200];           /* '<Root>/StateFlow Functions' */
+  real_T Ref_Colors_j[150];            /* '<Root>/StateFlow Functions' */
   real_T H[19200];                     /* '<Root>/StateFlow Functions' */
   real_T S[19200];                     /* '<Root>/StateFlow Functions' */
   real_T V[19200];                     /* '<Root>/StateFlow Functions' */
   real_T LabelMatrix[19200];           /* '<Root>/StateFlow Functions' */
   real_T ref_colors[150];              /* '<Root>/StateFlow Functions' */
-  real_T num_colors_i;                 /* '<Root>/StateFlow Functions' */
+  real_T num_colors_k;                 /* '<Root>/StateFlow Functions' */
   real_T DesiredHeading1;              /* '<Root>/StateFlow Functions' */
   real_T CurrentHeading1;              /* '<Root>/StateFlow Functions' */
   real_T ForwardVelocity1;             /* '<Root>/StateFlow Functions' */
-  real_T LabMatrix_i5[19200];          /* '<Root>/StateFlow Functions' */
-  real_T Ref_Colors_p[150];            /* '<Root>/StateFlow Functions' */
-  real_T Num_Colors_a;                 /* '<Root>/StateFlow Functions' */
-  real_T B_Hue_b;                      /* '<Root>/StateFlow Functions' */
-  real_T B_Sat_a;                      /* '<Root>/StateFlow Functions' */
-  real_T B_Value_i;                    /* '<Root>/StateFlow Functions' */
+  real_T LabMatrix_b[19200];           /* '<Root>/StateFlow Functions' */
+  real_T Ref_Colors_d[150];            /* '<Root>/StateFlow Functions' */
+  real_T Num_Colors_p;                 /* '<Root>/StateFlow Functions' */
+  real_T B_Hue_c;                      /* '<Root>/StateFlow Functions' */
+  real_T B_Sat_g;                      /* '<Root>/StateFlow Functions' */
+  real_T B_Value_p;                    /* '<Root>/StateFlow Functions' */
   real_T buoys[200];                   /* '<Root>/StateFlow Functions' */
   real_T num_blobs;                    /* '<Root>/StateFlow Functions' */
-  real_T H_k[19200];                   /* '<Root>/StateFlow Functions' */
-  real_T S_g[19200];                   /* '<Root>/StateFlow Functions' */
+  real_T H_o[19200];                   /* '<Root>/StateFlow Functions' */
+  real_T S_a[19200];                   /* '<Root>/StateFlow Functions' */
   real_T HeadingAlong;                 /* '<Root>/StateFlow Functions' */
   real_T BW[19200];                    /* '<Root>/StateFlow Functions' */
-  real_T H_n[19200];                   /* '<Root>/StateFlow Functions' */
-  real_T S_e[19200];                   /* '<Root>/StateFlow Functions' */
-  real_T H_p[19200];                   /* '<Root>/StateFlow Functions' */
-  real_T S_o[19200];                   /* '<Root>/StateFlow Functions' */
+  real_T H_h[19200];                   /* '<Root>/StateFlow Functions' */
+  real_T S_c[19200];                   /* '<Root>/StateFlow Functions' */
+  real_T H_f[19200];                   /* '<Root>/StateFlow Functions' */
+  real_T S_ah[19200];                  /* '<Root>/StateFlow Functions' */
   real_T H1[19200];                    /* '<Root>/StateFlow Functions' */
   real_T S1[19200];                    /* '<Root>/StateFlow Functions' */
   real_T V1[19200];                    /* '<Root>/StateFlow Functions' */
   real_T BW_g[19200];                  /* '<Root>/StateFlow Functions' */
-  real_T BW_gf[19200];                 /* '<Root>/StateFlow Functions' */
-  real_T LabMatrix_j[19200];           /* '<Root>/StateFlow Functions' */
-  real_T Ref_Colors_b[150];            /* '<Root>/StateFlow Functions' */
-  real_T Num_Colors_l;                 /* '<Root>/StateFlow Functions' */
-  real_T B_Hue_p;                      /* '<Root>/StateFlow Functions' */
-  real_T B_Sat_j;                      /* '<Root>/StateFlow Functions' */
-  real_T B_Value_g;                    /* '<Root>/StateFlow Functions' */
-  real_T LabMatrix_i1[19200];          /* '<Root>/StateFlow Functions' */
-  real_T Ref_Colors_h[150];            /* '<Root>/StateFlow Functions' */
-  real_T H_d[19200];                   /* '<Root>/StateFlow Functions' */
+  real_T BW_fn[19200];                 /* '<Root>/StateFlow Functions' */
+  real_T LabMatrix_e[19200];           /* '<Root>/StateFlow Functions' */
+  real_T Ref_Colors_o[150];            /* '<Root>/StateFlow Functions' */
+  real_T Num_Colors_k;                 /* '<Root>/StateFlow Functions' */
+  real_T B_Hue_i;                      /* '<Root>/StateFlow Functions' */
+  real_T B_Sat_c;                      /* '<Root>/StateFlow Functions' */
+  real_T B_Value_n;                    /* '<Root>/StateFlow Functions' */
+  real_T LabMatrix_i[19200];           /* '<Root>/StateFlow Functions' */
+  real_T Ref_Colors_m[150];            /* '<Root>/StateFlow Functions' */
+  real_T H_p[19200];                   /* '<Root>/StateFlow Functions' */
   real_T S_j[19200];                   /* '<Root>/StateFlow Functions' */
-  real_T V_m[19200];                   /* '<Root>/StateFlow Functions' */
-  real_T BW_go[19200];                 /* '<Root>/StateFlow Functions' */
+  real_T V_j[19200];                   /* '<Root>/StateFlow Functions' */
+  real_T BW_l[19200];                  /* '<Root>/StateFlow Functions' */
   real_T ForwardVelocity;              /* '<Root>/StateFlow Functions' */
   real_T BW_p[19200];                  /* '<Root>/StateFlow Functions' */
   real_T State1;                       /* '<Root>/StateFlow Functions' */
-  real_T BW_pd[19200];                 /* '<Root>/StateFlow Functions' */
+  real_T BW_i[19200];                  /* '<Root>/StateFlow Functions' */
   real_T YawRate;                      /* '<Root>/StateFlow Functions' */
-  real_T ForwardVelocity1_p;           /* '<Root>/StateFlow Functions' */
+  real_T ForwardVelocity1_b;           /* '<Root>/StateFlow Functions' */
   real_T Y_Accel;                      /* '<Root>/StateFlow Functions' */
   real_T HeadingForwardVelocity;       /* '<S31>/Heading Forward Velocity' */
   real_T HedgeHue;                     /* '<S34>/Hedge Hue' */
@@ -519,7 +521,6 @@ typedef struct {
   real32_T Resize[19200];              /* '<S5>/Resize' */
   real32_T Resize1[19200];             /* '<S5>/Resize1' */
   real32_T Resize2[19200];             /* '<S5>/Resize2' */
-  boolean_T BW_m[19200];               /* '<S99>/Logical Operator1' */
   real32_T CurrentDepth1;              /* '<Root>/StateFlow Functions' */
   real32_T DesiredDepth1;              /* '<Root>/StateFlow Functions' */
   real32_T RGBtoHSVColorSpaceConversion_o1[307200];/* '<S5>/RGB to HSV Color Space  Conversion' */
@@ -547,7 +548,7 @@ typedef struct {
   boolean_T Dilation[19200];           /* '<S28>/Dilation' */
   boolean_T Erosion_m[19200];          /* '<S99>/Erosion' */
   boolean_T ImageDataTypeConversion_p[19200];/* '<S21>/Image Data Type Conversion' */
-  boolean_T BW_f[19200];               /* '<S58>/Relational Operator' */
+  boolean_T BW_fi[19200];              /* '<S58>/Relational Operator' */
   rtB_StateFlowFunctionsGoStraigh StateFlowFunctionsGoStraight;/* '<S7>/StateFlowFunctions.GoStraight' */
   rtB_StateFlowFunctionsFollowO_f StateFlowFunctionsFollowOneP_ey;/* '<S7>/StateFlowFunctions.FollowOnePath.OnePath.CamDown_CenterOver_Yaw' */
   rtB_StateManagementRunningAuton StateManagementRunningAutonom_j;/* '<S7>/StateManagement.Running.Autonomous.Perform' */
