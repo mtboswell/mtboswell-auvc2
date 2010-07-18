@@ -188,5 +188,6 @@ void on_##guiParam##_editingFinished();
 		VideoWidget* videoWidget;
 
 		DataLogger* logger;
+		QString currentState, currentSubState;
 
 };

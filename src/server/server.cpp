@@ -196,6 +196,7 @@ void Server::sendBrainData(ExternalOutputs_brain outs, int brainTime){
 	sidsocket->buffer();
 	//outs.stuff;
 	sidsocket->sendSID("Brain.State", QString::number(outs.State));
+	sidsocket->sendSID("Brain.SubState", QString::number(outs.SubState));
 	sidsocket->sendSID("Brain.Time", QString::number(brainTime));
 
 	sidsocket->sendSID("Brain.Pitch", QString::number(outs.Pitch));

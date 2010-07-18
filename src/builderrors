@@ -1,18 +1,17 @@
-auv/camread.cpp:53:8: warning: unused parameter ‘in’
-brain/brain.cpp:3550:6: warning: unused parameter ‘brain_M’
-brain/brain.cpp:5086:6: warning: unused parameter ‘brain_M’
+brain/brain.cpp:3556:6: warning: unused parameter ‘brain_M’
+brain/brain.cpp:5092:6: warning: unused parameter ‘brain_M’
 brain/brain.cpp: In function ‘void StateFlowFunctionsBuoysFindBuoy(const real_T*, const real_T*, real_T, rtB_StateFlowFunctionsBuoysFind*, rtDW_StateFlowFunctionsBuoysFin*)’:
-brain/brain.cpp:1548:33: warning: array subscript is above array bounds
-brain/brain.cpp:1558:34: warning: array subscript is above array bounds
-brain/brain.cpp:1568:31: warning: array subscript is above array bounds
+brain/brain.cpp:1554:33: warning: array subscript is above array bounds
+brain/brain.cpp:1564:34: warning: array subscript is above array bounds
+brain/brain.cpp:1574:31: warning: array subscript is above array bounds
 brain/brain.cpp: In function ‘void StateFlowFunctionsBuoysFindBu_l(const real_T*, real_T, const real_T*, rtB_StateFlowFunctionsBuoysFi_d*, rtDW_StateFlowFunctionsBuoysF_e*)’:
-brain/brain.cpp:3277:29: warning: array subscript is above array bounds
-brain/brain.cpp:3287:33: warning: array subscript is above array bounds
-brain/brain.cpp:3297:34: warning: array subscript is above array bounds
-brain/brain.cpp:3307:31: warning: array subscript is above array bounds
+brain/brain.cpp:3283:29: warning: array subscript is above array bounds
+brain/brain.cpp:3293:33: warning: array subscript is above array bounds
+brain/brain.cpp:3303:34: warning: array subscript is above array bounds
+brain/brain.cpp:3313:31: warning: array subscript is above array bounds
 brain/brain.cpp: In function ‘void StateFlowFunctionsValidationGat(const real_T*, const real_T*, rtB_StateFlowFunctionsValidatio*, rtDW_StateFlowFunctionsValidati*)’:
-brain/brain.cpp:3778:12: warning: ‘BlobAnalysis_NUM_PIX_DW’ may be used uninitialized in this function
-brain/brain.cpp:3787:12: warning: ‘rtb_BlobAnalysis’ may be used uninitialized in this function
+brain/brain.cpp:3784:12: warning: ‘BlobAnalysis_NUM_PIX_DW’ may be used uninitialized in this function
+brain/brain.cpp:3793:12: warning: ‘rtb_BlobAnalysis’ may be used uninitialized in this function
 brain/brain.cpp: In function ‘void brain_JumpHedge()’:
-brain/brain.cpp:12731:12: warning: ‘BuoyBlobAnalysis_NUM_PIX_DW’ may be used uninitialized in this function
-brain/brain.cpp:12734:11: warning: ‘rtb_BuoyBlobAnalysis’ may be used uninitialized in this function
+brain/brain.cpp:12992:12: warning: ‘BuoyBlobAnalysis_NUM_PIX_DW’ may be used uninitialized in this function
+brain/brain.cpp:12995:11: warning: ‘rtb_BuoyBlobAnalysis’ may be used uninitialized in this function
