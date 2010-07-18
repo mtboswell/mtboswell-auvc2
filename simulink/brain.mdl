@@ -200,7 +200,7 @@ Model {
       Name		      "SubState"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.733"
+    ComputedModelVersion    "1.734"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -219,9 +219,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jul 18 10:53:15 2010"
-  RTWModifiedTimeStamp	  201351174
-  ModelVersionFormat	  "1.%<AutoIncrement:733>"
+  LastModifiedDate	  "Sun Jul 18 12:04:49 2010"
+  RTWModifiedTimeStamp	  201355486
+  ModelVersionFormat	  "1.%<AutoIncrement:734>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1064,7 +1064,7 @@ Model {
   }
   System {
     Name		    "brain"
-    Location		    [2, 74, 1341, 707]
+    Location		    [2, 82, 1341, 715]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1495,7 +1495,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -1513,7 +1513,7 @@ Model {
 	  antialiasing		  "Default"
 	  hcoeff		  "[0.2 0.6 0.2]"
 	  vcoeff		  "[0.5 0.5]"
-	  isInputTransposed	  off
+	  isInputTransposed	  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1525,7 +1525,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -1555,7 +1555,7 @@ Model {
 	  SourceBlock		  "vipconversions/Image Data Type\nConversion"
 	  SourceType		  "Image Data Type Conversion"
 	  outDT			  "single"
-	  isSigned		  on
+	  isSigned		  "on"
 	  wordLen		  "16"
 	  numFracBits		  "0"
 	}
@@ -1576,9 +1576,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -1592,8 +1592,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1612,9 +1612,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -1628,8 +1628,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1648,9 +1648,9 @@ Model {
 	  outRows		  "25"
 	  outRowsCols		  "[120 160]"
 	  interp_method		  "Bilinear"
-	  antialias		  on
-	  useROI		  off
-	  roiFlag		  off
+	  antialias		  "on"
+	  useROI		  "off"
+	  roiFlag		  "off"
 	  firstCoeffMode	  "Same word length as input"
 	  firstCoeffWordLength	  "32"
 	  firstCoeffFracLength	  "31"
@@ -1664,8 +1664,8 @@ Model {
 	  prodOutputWordLength	  "32"
 	  prodOutputFracLength	  "10"
 	  roundingMode		  "Nearest"
-	  overflowMode		  on
-	  LockScale		  off
+	  overflowMode		  "on"
+	  LockScale		  "off"
 	}
 	Block {
 	  BlockType		  Reference
@@ -1913,11 +1913,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -2104,11 +2099,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -2866,11 +2856,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -3563,11 +3548,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -3786,11 +3766,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -4030,11 +4005,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -4648,7 +4618,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -4662,9 +4632,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -5057,7 +5027,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -5071,9 +5041,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -5947,11 +5917,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -6279,11 +6244,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -6948,11 +6908,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -7212,11 +7167,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -7455,11 +7405,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -7843,11 +7788,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -8121,11 +8061,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -8695,11 +8630,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -8817,11 +8747,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -8939,11 +8864,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -9183,11 +9103,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -9361,11 +9276,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -9602,9 +9512,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -9618,8 +9528,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -9638,9 +9548,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -9654,8 +9564,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -9674,9 +9584,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -9690,8 +9600,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -10100,11 +10010,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -10281,11 +10186,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -10568,11 +10468,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -10814,11 +10709,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -11046,7 +10936,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -11060,9 +10950,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -11344,11 +11234,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -11553,7 +11438,7 @@ Model {
 		  SourceType		  "Hough Transform"
 		  theta_res		  "pi/180"
 		  rho_res		  "1"
-		  out_theta_rho		  on
+		  out_theta_rho		  "on"
 		  outdtmode		  "double"
 		  firstCoeffMode	  "Binary point scaling"
 		  firstCoeffWordLength	  "16"
@@ -11574,8 +11459,8 @@ Model {
 		  memoryWordLength	  "32"
 		  memoryFracLength	  "16"
 		  roundingMode		  "Nearest"
-		  overflowMode		  on
-		  LockScale		  off
+		  overflowMode		  "on"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -11590,11 +11475,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -12090,11 +11970,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -12260,11 +12135,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -12593,7 +12463,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -12607,9 +12477,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -12988,7 +12858,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -13002,9 +12872,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -13500,11 +13370,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -13670,11 +13535,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -14018,7 +13878,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -14032,9 +13892,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -14319,7 +14179,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -14333,9 +14193,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -14869,7 +14729,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14878,7 +14738,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -14891,7 +14751,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14900,7 +14760,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Logic
@@ -14942,7 +14802,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -14951,7 +14811,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Outport
@@ -15184,30 +15044,30 @@ Model {
 		  DialogControllerArgs	  "DataTag24"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  off
-		  centroid		  off
-		  bBox			  off
-		  majorAxis		  off
-		  minorAxis		  off
-		  angle			  off
-		  eccentricity		  on
-		  equivDiameterSq	  off
-		  extent		  off
-		  perimeter		  off
+		  area			  "off"
+		  centroid		  "off"
+		  bBox			  "off"
+		  majorAxis		  "off"
+		  minorAxis		  "off"
+		  angle			  "off"
+		  eccentricity		  "on"
+		  equivDiameterSq	  "off"
+		  extent		  "off"
+		  perimeter		  "off"
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  on
-		  isCount		  off
-		  useMinArea		  on
+		  warnIfNumBlobsExceeded  "on"
+		  isCount		  "off"
+		  useMinArea		  "on"
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  on
+		  useMaxArea		  "on"
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  off
+		  excludeBorderBlob	  "off"
 		  outDT			  "single"
-		  isOutVarDim		  off
-		  isFill		  on
+		  isOutVarDim		  "off"
+		  isFill		  "on"
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  off
+		  isLabel		  "off"
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -15227,8 +15087,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  off
-		  LockScale		  off
+		  overflowMode		  "off"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -15243,11 +15103,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -15387,7 +15242,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -15396,7 +15251,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -15409,7 +15264,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -15418,7 +15273,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Logic
@@ -15460,7 +15315,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -15469,7 +15324,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Outport
@@ -15880,7 +15735,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -15894,9 +15749,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -16090,7 +15945,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -16104,9 +15959,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  off
+		  DoSatur		  "off"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -16506,11 +16361,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -16895,11 +16745,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -17089,11 +16934,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -17462,7 +17302,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -17476,9 +17316,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -17852,7 +17692,7 @@ Model {
 		    SourceType		    "Discrete Derivative"
 		    ShowPortLabels	    "FromPortIcon"
 		    SystemSampleTime	    "-1"
-		    FunctionWithSeparateData off
+		    FunctionWithSeparateData "off"
 		    RTWMemSecFuncInitTerm   "Inherit from model"
 		    RTWMemSecFuncExecute    "Inherit from model"
 		    RTWMemSecDataConstants  "Inherit from model"
@@ -17866,9 +17706,9 @@ Model {
 		    OutputDataTypeScalingMode "Inherit via internal rule"
 		    OutDataType		    "fixdt(1, 16)"
 		    OutScaling		    "2^-10"
-		    LockScale		    off
+		    LockScale		    "off"
 		    RndMeth		    "Floor"
-		    DoSatur		    off
+		    DoSatur		    "off"
 		    }
 		    Block {
 		    BlockType		    DiscreteIntegrator
@@ -18364,11 +18204,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -18832,11 +18667,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -19488,11 +19318,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -19610,11 +19435,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -19732,11 +19552,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -19976,11 +19791,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -20154,11 +19964,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -20395,9 +20200,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -20411,8 +20216,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -20431,9 +20236,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -20447,8 +20252,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Reference
@@ -20467,9 +20272,9 @@ Model {
 		    outRows		    "25"
 		    outRowsCols		    "[60 80]"
 		    interp_method	    "Bilinear"
-		    antialias		    on
-		    useROI		    off
-		    roiFlag		    off
+		    antialias		    "on"
+		    useROI		    "off"
+		    roiFlag		    "off"
 		    firstCoeffMode	    "Same word length as input"
 		    firstCoeffWordLength    "32"
 		    firstCoeffFracLength    "31"
@@ -20483,8 +20288,8 @@ Model {
 		    prodOutputWordLength    "32"
 		    prodOutputFracLength    "10"
 		    roundingMode	    "Nearest"
-		    overflowMode	    on
-		    LockScale		    off
+		    overflowMode	    "on"
+		    LockScale		    "off"
 		    }
 		    Block {
 		    BlockType		    Outport
@@ -20982,11 +20787,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -21476,11 +21276,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -21657,11 +21452,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -22074,7 +21864,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -22088,9 +21878,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  on
+		  DoSatur		  "on"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -22794,7 +22584,7 @@ Model {
 		  SourceType		  "Discrete Derivative"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -22808,9 +22598,9 @@ Model {
 		  OutputDataTypeScalingMode "Inherit via internal rule"
 		  OutDataType		  "fixdt(1, 16)"
 		  OutScaling		  "2^-10"
-		  LockScale		  off
+		  LockScale		  "off"
 		  RndMeth		  "Floor"
-		  DoSatur		  off
+		  DoSatur		  "off"
 		}
 		Block {
 		  BlockType		  DiscreteIntegrator
@@ -23316,30 +23106,30 @@ Model {
 		  DialogControllerArgs	  "DataTag35"
 		  SourceBlock		  "vipstatistics/Blob Analysis"
 		  SourceType		  "Blob Analysis"
-		  area			  off
-		  centroid		  off
-		  bBox			  off
-		  majorAxis		  off
-		  minorAxis		  off
-		  angle			  off
-		  eccentricity		  on
-		  equivDiameterSq	  off
-		  extent		  off
-		  perimeter		  off
+		  area			  "off"
+		  centroid		  "off"
+		  bBox			  "off"
+		  majorAxis		  "off"
+		  minorAxis		  "off"
+		  angle			  "off"
+		  eccentricity		  "on"
+		  equivDiameterSq	  "off"
+		  extent		  "off"
+		  perimeter		  "off"
 		  maxBlobs		  "Max_Num_Blobs"
-		  warnIfNumBlobsExceeded  on
-		  isCount		  off
-		  useMinArea		  on
+		  warnIfNumBlobsExceeded  "on"
+		  isCount		  "off"
+		  useMinArea		  "on"
 		  minArea		  "Min_Blob_Size"
-		  useMaxArea		  on
+		  useMaxArea		  "on"
 		  maxArea		  "Max_Blob_Size"
-		  excludeBorderBlob	  off
+		  excludeBorderBlob	  "off"
 		  outDT			  "single"
-		  isOutVarDim		  off
-		  isFill		  on
+		  isOutVarDim		  "off"
+		  isFill		  "on"
 		  fillValues		  "-1"
 		  conn			  "8"
-		  isLabel		  off
+		  isLabel		  "off"
 		  outputMode		  "Binary point scaling"
 		  outputWordLength	  "32"
 		  outputFracLength	  "16"
@@ -23359,8 +23149,8 @@ Model {
 		  prodOutputWordLength	  "32"
 		  prodOutputFracLength	  "16"
 		  roundingMode		  "Floor"
-		  overflowMode		  off
-		  LockScale		  off
+		  overflowMode		  "off"
+		  LockScale		  "off"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -23375,11 +23165,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -23519,7 +23304,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -23528,7 +23313,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_HueHigher"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Reference
@@ -23541,7 +23326,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -23550,7 +23335,7 @@ Model {
 		  relop			  "<"
 		  const			  "Track_HueLower"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Logic
@@ -23592,7 +23377,7 @@ Model {
 		  SourceType		  "Compare To Constant"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
-		  FunctionWithSeparateData off
+		  FunctionWithSeparateData "off"
 		  RTWMemSecFuncInitTerm	  "Inherit from model"
 		  RTWMemSecFuncExecute	  "Inherit from model"
 		  RTWMemSecDataConstants  "Inherit from model"
@@ -23601,7 +23386,7 @@ Model {
 		  relop			  ">"
 		  const			  "Track_Saturation"
 		  LogicOutDataTypeMode	  "boolean"
-		  ZeroCross		  off
+		  ZeroCross		  "off"
 		}
 		Block {
 		  BlockType		  Outport
@@ -23820,11 +23605,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -27324,19 +27104,16 @@ Stateflow {
     created		    "23-Aug-2009 14:16:32"
     isLibrary		    0
     firstTarget		    1027
-    debug {
-    }
     sfVersion		    75014000
   }
   chart {
     id			    2
     name		    "StateFlow Functions"
-    windowPosition	    [0 30 1020 489]
-    viewLimits		    [-17.685 1133.609 -13.359 520.728]
-    zoomFactor		    1.179
+    windowPosition	    [18.75 30 1020 489]
+    viewLimits		    [-15 961.5 -15 438]
     screen		    [1 1 1360 768 1.333333333333333]
     treeNode		    [0 4 0 0]
-    viewObj		    125
+    viewObj		    6
     visible		    1
     machine		    1
     subviewS {
@@ -27419,7 +27196,6 @@ Stateflow {
     treeNode		    [3 124 53 101]
     firstTransition	    248
     superState		    SUBCHART
-    visible		    0
     subviewer		    3
     subviewS {
       x1		      -15
@@ -29652,7 +29428,6 @@ Stateflow {
     chart		    2
     treeNode		    [6 0 124 0]
     superState		    SUBCHART
-    visible		    0
     subviewer		    6
     subviewS {
       x1		      -15
@@ -29672,7 +29447,6 @@ Stateflow {
     chart		    2
     treeNode		    [6 0 0 123]
     superState		    SUBCHART
-    visible		    0
     subviewer		    6
     subviewS {
       x1		      -15
@@ -29692,6 +29466,7 @@ Stateflow {
     treeNode		    [2 126 3 0]
     firstTransition	    251
     superState		    SUBCHART
+    visible		    0
     subviewer		    2
     subviewS {
       x1		      -17.685
@@ -29713,6 +29488,7 @@ Stateflow {
     treeNode		    [125 127 0 130]
     firstTransition	    254
     superState		    SUBCHART
+    visible		    0
     subviewer		    125
     subviewS {
       x1		      -18.75
@@ -29795,6 +29571,7 @@ Stateflow {
     chart		    2
     treeNode		    [125 0 126 131]
     superState		    SUBCHART
+    visible		    0
     subviewer		    125
     subviewS {
       x1		      -18.75
@@ -29814,6 +29591,7 @@ Stateflow {
     chart		    2
     treeNode		    [125 0 130 132]
     superState		    SUBCHART
+    visible		    0
     subviewer		    125
     ssIdNumber		    2010
     type		    FUNC_STATE
@@ -29834,6 +29612,7 @@ Stateflow {
     chart		    2
     treeNode		    [125 0 131 133]
     superState		    SUBCHART
+    visible		    0
     subviewer		    125
     ssIdNumber		    2015
     type		    FUNC_STATE
@@ -29854,6 +29633,7 @@ Stateflow {
     chart		    2
     treeNode		    [125 0 132 134]
     superState		    SUBCHART
+    visible		    0
     subviewer		    125
     ssIdNumber		    2026
     type		    FUNC_STATE
@@ -29874,6 +29654,7 @@ Stateflow {
     chart		    2
     treeNode		    [125 0 133 135]
     superState		    SUBCHART
+    visible		    0
     subviewer		    125
     ssIdNumber		    2029
     type		    FUNC_STATE
@@ -29901,6 +29682,7 @@ Stateflow {
     chart		    2
     treeNode		    [125 0 134 136]
     superState		    SUBCHART
+    visible		    0
     subviewer		    125
     ssIdNumber		    2039
     type		    FUNC_STATE
@@ -29921,6 +29703,7 @@ Stateflow {
     chart		    2
     treeNode		    [125 0 135 0]
     superState		    SUBCHART
+    visible		    0
     subviewer		    125
     ssIdNumber		    2045
     type		    FUNC_STATE
@@ -29952,12 +29735,10 @@ Stateflow {
     chart		    2
     linkNode		    [3 184 171]
     visible		    0
-    dataLimits		    [129.438 310.469 488.1 492.9]
+    dataLimits		    [129.438 310.469 488.106 492.906]
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1282
   }
@@ -30002,8 +29783,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    23
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1292
   }
@@ -30048,8 +29827,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    32
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1314
   }
@@ -30074,8 +29851,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    32
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1315
   }
@@ -30481,14 +30256,12 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    23
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1455
   }
   transition {
     id			    160
-    labelPosition	    [230.451 121.266 8.246 14.971]
+    labelPosition	    [230.451 121.266 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 226.0507 112.875 0 0]
@@ -30510,7 +30283,7 @@ Stateflow {
   transition {
     id			    161
     labelString		    "[TrackCount > 2]"
-    labelPosition	    [486.65 214.501 86.958 14.971]
+    labelPosition	    [486.65 214.501 92.768 16.842]
     fontSize		    12
     src {
       id		      15
@@ -30528,8 +30301,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    39
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1463
   }
@@ -30892,8 +30663,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1270
   }
@@ -30918,8 +30687,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    4
     ssIdNumber		    1271
   }
@@ -30944,8 +30711,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    5
     ssIdNumber		    1274
   }
@@ -30970,8 +30735,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1275
   }
@@ -30996,8 +30759,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1276
   }
@@ -31022,8 +30783,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    7
     ssIdNumber		    1277
   }
@@ -31048,8 +30807,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1279
   }
@@ -31074,8 +30831,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    8
     ssIdNumber		    1280
   }
@@ -31096,12 +30851,10 @@ Stateflow {
     chart		    2
     linkNode		    [3 234 137]
     visible		    0
-    dataLimits		    [129.438 310.469 425.1 429.9]
+    dataLimits		    [129.438 310.469 425.104 429.904]
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    6
     ssIdNumber		    1281
   }
@@ -31146,8 +30899,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    55
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1548
   }
@@ -31172,8 +30923,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    56
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1550
   }
@@ -31198,8 +30947,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    56
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1551
   }
@@ -31225,7 +30972,7 @@ Stateflow {
   }
   transition {
     id			    190
-    labelPosition	    [95.778 122.016 8.246 14.971]
+    labelPosition	    [95.778 122.016 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 91.375 113.625 0 0]
@@ -31246,7 +30993,7 @@ Stateflow {
   transition {
     id			    191
     labelString		    "after(1,sec)"
-    labelPosition	    [147.75 156 60.721 14.971]
+    labelPosition	    [147.75 156 62.782 16.842]
     fontSize		    12
     src {
       id		      67
@@ -31264,15 +31011,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    65
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1580
   }
   transition {
     id			    192
     labelString		    "after(1,sec)"
-    labelPosition	    [152.25 185.25 60.721 14.971]
+    labelPosition	    [152.25 185.25 62.782 16.842]
     fontSize		    12
     src {
       id		      66
@@ -31290,8 +31035,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    65
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1581
   }
@@ -31365,8 +31108,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    70
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1608
   }
@@ -31391,8 +31132,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    70
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1609
   }
@@ -31417,8 +31156,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    70
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    1610
   }
@@ -31443,8 +31180,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    70
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1611
   }
@@ -31469,8 +31204,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    70
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1612
   }
@@ -31515,8 +31248,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    73
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1619
   }
@@ -31540,8 +31271,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    73
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1620
   }
@@ -31633,8 +31362,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    2
     ssIdNumber		    1687
   }
@@ -31659,8 +31386,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1688
   }
@@ -31901,8 +31626,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1730
   }
@@ -31927,8 +31650,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    9
     ssIdNumber		    1731
   }
@@ -32241,12 +31962,10 @@ Stateflow {
     chart		    2
     linkNode		    [3 175 232]
     visible		    0
-    dataLimits		    [1254.562 1394.75 327.6 332.4]
+    dataLimits		    [1254.562 1394.75 327.602 332.402]
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    10
     ssIdNumber		    1750
   }
@@ -32267,12 +31986,10 @@ Stateflow {
     chart		    2
     linkNode		    [3 231 233]
     visible		    0
-    dataLimits		    [1254.562 1394.75 341.1 345.9]
+    dataLimits		    [1254.562 1394.75 341.098 345.898]
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1751
   }
@@ -32297,8 +32014,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    11
     ssIdNumber		    1755
   }
@@ -32323,8 +32038,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1756
   }
@@ -32652,7 +32365,6 @@ Stateflow {
     midPoint		    [130.375 137.0165]
     chart		    2
     linkNode		    [6 0 249]
-    visible		    0
     dataLimits		    [127.978 132.778 125.625 155.625]
     subviewer		    6
     drawStyle		    SMART
@@ -32661,7 +32373,7 @@ Stateflow {
   }
   transition {
     id			    249
-    labelString		    "[RC_Source == 1]"
+    labelString		    "[RC_Source ~= 0]"
     labelPosition	    [240.75 165 95.204 14.971]
     fontSize		    12
     src {
@@ -32675,19 +32387,16 @@ Stateflow {
     midPoint		    [280.3263 180.375]
     chart		    2
     linkNode		    [6 248 250]
-    visible		    0
     dataLimits		    [179 381.375 177.971 182.771]
     stampAngle		    NaN
     subviewer		    6
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1876
   }
   transition {
     id			    250
-    labelString		    "[RC_Source ~= 0]"
+    labelString		    "[RC_Source == 0]"
     labelPosition	    [239.25 193.5 95.204 14.971]
     fontSize		    12
     src {
@@ -32701,13 +32410,10 @@ Stateflow {
     midPoint		    [280.0487 209.625]
     chart		    2
     linkNode		    [6 249 0]
-    visible		    0
     dataLimits		    [179 381.375 207.229 212.029]
     stampAngle		    NaN
     subviewer		    6
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1877
   }
@@ -32725,6 +32431,7 @@ Stateflow {
     midPoint		    [245.4688 55.9227]
     chart		    2
     linkNode		    [125 0 252]
+    visible		    0
     dataLimits		    [243.069 247.869 44.531 74.531]
     subviewer		    125
     executionOrder	    1
@@ -32746,6 +32453,7 @@ Stateflow {
     midPoint		    [412.3586 118.1275]
     chart		    2
     linkNode		    [125 251 253]
+    visible		    0
     dataLimits		    [345.625 476.25 115.727 120.528]
     stampAngle		    NaN
     subviewer		    125
@@ -32771,6 +32479,7 @@ Stateflow {
     midPoint		    [409.5165 135.0025]
     chart		    2
     linkNode		    [125 252 0]
+    visible		    0
     dataLimits		    [345.625 476.25 132.602 137.403]
     stampAngle		    NaN
     subviewer		    125
