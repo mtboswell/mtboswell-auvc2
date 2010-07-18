@@ -200,7 +200,7 @@ Model {
       Name		      "SubState"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.734"
+    ComputedModelVersion    "1.736"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -219,9 +219,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Stephen"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jul 18 12:04:49 2010"
-  RTWModifiedTimeStamp	  201355486
-  ModelVersionFormat	  "1.%<AutoIncrement:734>"
+  LastModifiedDate	  "Sun Jul 18 11:26:02 2010"
+  RTWModifiedTimeStamp	  201353159
+  ModelVersionFormat	  "1.%<AutoIncrement:736>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -739,7 +739,7 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Optimization"
+      CurrentDlgPage	      "Real-Time Workshop"
       ConfigPrmDlgPosition    " [ 235, 78, 1204, 628 ] "
     }
     PropName		    "ConfigurationSets"
@@ -27119,7 +27119,7 @@ Stateflow {
     subviewS {
       zoomFactor	      1.25
     }
-    ssIdHighWaterMark	    2065
+    ssIdHighWaterMark	    2067
     decomposition	    SET_CHART
     firstData		    472
     updateMethod	    DISCRETE
@@ -29721,7 +29721,7 @@ Stateflow {
   transition {
     id			    137
     labelString		    "[OperationalState ~= 9]"
-    labelPosition	    [160.026 472.381 119.942 17.965]
+    labelPosition	    [160.026 472.381 129.312 16.842]
     fontSize		    12
     src {
       id		      20
@@ -29735,7 +29735,7 @@ Stateflow {
     chart		    2
     linkNode		    [3 184 171]
     visible		    0
-    dataLimits		    [129.438 310.469 488.106 492.906]
+    dataLimits		    [129.438 310.469 488.1 492.9]
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
@@ -30515,7 +30515,7 @@ Stateflow {
   }
   transition {
     id			    171
-    labelPosition	    [534.687 572.49 8.996 17.965]
+    labelPosition	    [534.687 572.49 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 0 -1 0 529.6873 589.3812 0 0]
@@ -30537,7 +30537,7 @@ Stateflow {
   transition {
     id			    172
     labelString		    "[OperationalState ~= -2]"
-    labelPosition	    [220.029 187.203 124.44 17.965]
+    labelPosition	    [220.029 187.203 133.061 16.842]
     fontSize		    12
     src {
       id		      5
@@ -30565,7 +30565,7 @@ Stateflow {
   transition {
     id			    173
     labelString		    "[OperationalState == -2]"
-    labelPosition	    [209.218 99.054 124.44 17.965]
+    labelPosition	    [209.218 99.054 133.061 16.842]
     fontSize		    12
     src {
       id		      53
@@ -30593,7 +30593,7 @@ Stateflow {
   transition {
     id			    174
     labelString		    "[OperationalState == -1]"
-    labelPosition	    [150.81 297.819 124.44 17.965]
+    labelPosition	    [150.81 297.819 133.061 16.842]
     fontSize		    12
     src {
       id		      53
@@ -30611,15 +30611,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    3
     ssIdNumber		    1267
   }
   transition {
     id			    175
     labelString		    "[OperationalState ~= -1]"
-    labelPosition	    [159.939 329.459 124.44 17.965]
+    labelPosition	    [159.939 329.459 133.061 16.842]
     fontSize		    12
     src {
       id		      6
@@ -30637,15 +30635,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    1268
   }
   transition {
     id			    176
     labelString		    "[OperationalState ~= 1]"
-    labelPosition	    [411.564 180.906 119.942 17.965]
+    labelPosition	    [411.564 180.906 129.312 16.842]
     fontSize		    12
     src {
       id		      51
@@ -30669,7 +30665,7 @@ Stateflow {
   transition {
     id			    177
     labelString		    "[OperationalState == 1]"
-    labelPosition	    [375 105.631 119.942 17.965]
+    labelPosition	    [375 105.631 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -30693,7 +30689,7 @@ Stateflow {
   transition {
     id			    178
     labelString		    "[OperationalState == 2]"
-    labelPosition	    [481.393 141.334 119.942 17.965]
+    labelPosition	    [481.393 141.334 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -30717,7 +30713,7 @@ Stateflow {
   transition {
     id			    179
     labelString		    "[OperationalState ~= 2]"
-    labelPosition	    [546.732 199.62 119.942 17.965]
+    labelPosition	    [546.732 199.62 129.312 16.842]
     fontSize		    12
     src {
       id		      39
@@ -30741,7 +30737,7 @@ Stateflow {
   transition {
     id			    180
     labelString		    "[OperationalState ~= 3]"
-    labelPosition	    [719.783 178.65 119.942 17.965]
+    labelPosition	    [719.783 178.65 129.312 16.842]
     fontSize		    12
     src {
       id		      55
@@ -30765,7 +30761,7 @@ Stateflow {
   transition {
     id			    181
     labelString		    "[OperationalState == 3]"
-    labelPosition	    [655.096 126.844 119.942 17.965]
+    labelPosition	    [655.096 126.844 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -30789,7 +30785,7 @@ Stateflow {
   transition {
     id			    182
     labelString		    "[OperationalState ~= 4]"
-    labelPosition	    [835.879 149.208 119.942 17.965]
+    labelPosition	    [835.879 149.208 129.312 16.842]
     fontSize		    12
     src {
       id		      23
@@ -30813,7 +30809,7 @@ Stateflow {
   transition {
     id			    183
     labelString		    "[OperationalState == 4]"
-    labelPosition	    [796.691 115.723 119.942 17.965]
+    labelPosition	    [796.691 115.723 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -30837,7 +30833,7 @@ Stateflow {
   transition {
     id			    184
     labelString		    "[OperationalState == 9]"
-    labelPosition	    [169.669 406.151 119.942 17.965]
+    labelPosition	    [169.669 406.151 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -30851,7 +30847,7 @@ Stateflow {
     chart		    2
     linkNode		    [3 234 137]
     visible		    0
-    dataLimits		    [129.438 310.469 425.104 429.904]
+    dataLimits		    [129.438 310.469 425.1 429.9]
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
@@ -31344,7 +31340,7 @@ Stateflow {
   transition {
     id			    206
     labelString		    "[OperationalState == 5]"
-    labelPosition	    [997.174 183.721 119.942 17.965]
+    labelPosition	    [997.174 183.721 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -31368,7 +31364,7 @@ Stateflow {
   transition {
     id			    207
     labelString		    "[OperationalState ~= 5]"
-    labelPosition	    [951.568 123.941 119.942 17.965]
+    labelPosition	    [951.568 123.941 129.312 16.842]
     fontSize		    12
     src {
       id		      70
@@ -31608,7 +31604,7 @@ Stateflow {
   transition {
     id			    217
     labelString		    "[OperationalState ~= 6]"
-    labelPosition	    [1064.547 149.531 119.942 17.965]
+    labelPosition	    [1064.547 149.531 129.312 16.842]
     fontSize		    12
     src {
       id		      96
@@ -31632,7 +31628,7 @@ Stateflow {
   transition {
     id			    218
     labelString		    "[OperationalState == 6]"
-    labelPosition	    [1113.297 205.781 119.942 17.965]
+    labelPosition	    [1113.297 205.781 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -31948,7 +31944,7 @@ Stateflow {
   transition {
     id			    231
     labelString		    "[OperationalState == 7]"
-    labelPosition	    [1267.25 300.75 119.942 17.965]
+    labelPosition	    [1267.25 300.75 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -31962,7 +31958,7 @@ Stateflow {
     chart		    2
     linkNode		    [3 175 232]
     visible		    0
-    dataLimits		    [1254.562 1394.75 327.602 332.402]
+    dataLimits		    [1254.562 1394.75 327.6 332.4]
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
@@ -31972,7 +31968,7 @@ Stateflow {
   transition {
     id			    232
     labelString		    "[OperationalState ~= 7]"
-    labelPosition	    [1268.75 351.75 119.942 17.965]
+    labelPosition	    [1268.75 351.75 129.312 16.842]
     fontSize		    12
     src {
       id		      101
@@ -31986,7 +31982,7 @@ Stateflow {
     chart		    2
     linkNode		    [3 231 233]
     visible		    0
-    dataLimits		    [1254.562 1394.75 341.098 345.898]
+    dataLimits		    [1254.562 1394.75 341.1 345.9]
     stampAngle		    NaN
     subviewer		    3
     drawStyle		    SMART
@@ -31996,7 +31992,7 @@ Stateflow {
   transition {
     id			    233
     labelString		    "[OperationalState == 8]"
-    labelPosition	    [1274.094 385.969 119.942 17.965]
+    labelPosition	    [1274.094 385.969 129.312 16.842]
     fontSize		    12
     src {
       id		      53
@@ -32020,7 +32016,7 @@ Stateflow {
   transition {
     id			    234
     labelString		    "[OperationalState ~=8]"
-    labelPosition	    [1280.75 432.75 116.943 17.965]
+    labelPosition	    [1280.75 432.75 125.564 16.842]
     fontSize		    12
     src {
       id		      102
@@ -32391,6 +32387,8 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    6
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1876
   }
@@ -32414,12 +32412,14 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    6
     drawStyle		    SMART
+    slide {
+    }
     executionOrder	    1
     ssIdNumber		    1877
   }
   transition {
     id			    251
-    labelPosition	    [249.869 51.858 7.954 15.885]
+    labelPosition	    [249.869 51.858 8.433 16.842]
     fontSize		    12
     src {
       intersection	      [0 0 1 0 245.4688 44.5312 0 0]
@@ -32440,7 +32440,7 @@ Stateflow {
   transition {
     id			    252
     labelString		    "[Tare1 > 0.5]"
-    labelPosition	    [393.857 102.656 67.17 15.885]
+    labelPosition	    [393.857 102.656 71.216 16.842]
     fontSize		    12
     src {
       id		      130
@@ -32458,15 +32458,13 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    125
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    2000
   }
   transition {
     id			    253
     labelString		    "[TareDone > 0.5]"
-    labelPosition	    [372.031 137.344 87.498 15.885]
+    labelPosition	    [372.031 137.344 92.768 16.842]
     fontSize		    12
     src {
       id		      126
@@ -32484,8 +32482,6 @@ Stateflow {
     stampAngle		    NaN
     subviewer		    125
     drawStyle		    SMART
-    slide {
-    }
     executionOrder	    1
     ssIdNumber		    2001
   }
