@@ -12,7 +12,7 @@ Heading_Ki = 0.0;
 
 Track_HueHigher = 0.75;
 Track_HueLower = 0.4;
-Track_Saturation = 0.05;
+Track_Saturation = 0.75;
 
 Min_Blob_Size = 15;
 Max_Blob_Size = 19200;
