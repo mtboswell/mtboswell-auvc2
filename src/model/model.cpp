@@ -166,7 +166,8 @@ void Model::setParam(QString name, double value){
 }
 
 void Model::setInput(QString name, double value){
-	if(config["Debug"] == "true") qDebug() << "Setting input: " + name + " to " + QString::number(value);
+	//if(config["Debug"] == "true") 
+	qDebug() << "Setting input: " + name + " to " + QString::number(value);
 	if(name == "RC_Heading") brain_U.RC_Heading = value;
 	else if(name == "RC_ForwardVelocity") brain_U.RC_ForwardVelocity = value;
 	else if(name == "RC_Strafe") brain_U.RC_Strafe = value;

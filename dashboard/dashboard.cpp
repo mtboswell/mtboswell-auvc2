@@ -307,9 +307,15 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 					tabWidget->setCurrentWidget(videoPage);
 				}
 				if(value.toInt() >= states.size() || value.toInt() < 0) badCmd = true;
-				else stateLabel->setText(states.at(value.toInt()));
+				else {
+					currentState = states.at(value.toInt());
+					stateLabel->setText(currentState + ":" + currentSubState);
+				}
 				missionProgressBar->setValue(value.toInt() * (100 / states.size()));
 			}
+		} else if (name == "SubState") {
+			currentSubState = value;
+			stateLabel->setText(currentState + ":" + currentSubState);
 		} else if (name == "Time") {
 			// target brain step frequency
 			// TODO - use actual define value
