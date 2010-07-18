@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model brain.
  *
- * Model version                        : 1.733
+ * Model version                        : 1.736
  * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sun Jul 18 10:54:51 2010
+ * Real-Time Workshop file generated on : Sun Jul 18 11:27:08 2010
  * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sun Jul 18 10:54:52 2010
+ * C/C++ source code generated on       : Sun Jul 18 11:27:08 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -14271,7 +14271,7 @@ static void brain_StateFlowFunctions(void)
       switch (brain_DWork.is_ControlledRC) {
        case brain_IN_Compass:
         /* During 'Compass': '<S7>:1872' */
-        if (brain_U.RC_Source == 1.0) {
+        if (brain_U.RC_Source != 0.0) {
           /* Transition: '<S7>:1876' */
           /* Exit 'Compass': '<S7>:1872' */
           /* Entry 'IMU': '<S7>:1873' */
@@ -14367,7 +14367,7 @@ static void brain_StateFlowFunctions(void)
 
        case brain_IN_IMU:
         /* During 'IMU': '<S7>:1873' */
-        if (brain_U.RC_Source != 0.0) {
+        if (brain_U.RC_Source == 0.0) {
           /* Transition: '<S7>:1877' */
           /* Exit 'IMU': '<S7>:1873' */
           /* Entry 'Compass': '<S7>:1872' */

@@ -167,7 +167,7 @@ void Model::setParam(QString name, double value){
 
 void Model::setInput(QString name, double value){
 	//if(config["Debug"] == "true") 
-	qDebug() << "Setting input: " + name + " to " + QString::number(value);
+	//qDebug() << "Setting input: " + name + " to " + QString::number(value);
 	if(name == "RC_Heading") brain_U.RC_Heading = value;
 	else if(name == "RC_ForwardVelocity") brain_U.RC_ForwardVelocity = value;
 	else if(name == "RC_Strafe") brain_U.RC_Strafe = value;
@@ -185,6 +185,10 @@ void Model::setInput(QString name, double value){
 		else emit status("Autonomous");
 	}else if(name == "Tare"){
 		brain_U.Tare = (boolean_T) value;
+	}else if(name == "RC_Source"){
+		brain_U.RC_Source = (boolean_T) value;
+	}else{
+		qDebug() << "Unrecognized brain input: " + name + " = " + QString::number(value);
 	}
 
 	if(brain_U.RC) {
