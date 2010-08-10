@@ -60,12 +60,19 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 	compass = MICROSTRAIN;
 	
 	/* Initialize hardware interfaces */
+	qDebug() << "Bringing up Arduino";
 	arduino = new Arduino(config["SerialPort.Arduino"]);
+	qDebug() << "Bringing up Microstrain";
 	microstrain = new Microstrain(config["SerialPort.Compass"]);
+	qDebug() << "Bringing up OS5000";
 	os5000 = new OS5000(config["SerialPort.OtherCompass"]);
+	qDebug() << "Bringing up Pololu";
 	pControllers = new Pololu(config["SerialPort.Pololu"]);
+	qDebug() << "Bringing up Power";
 	thrusterPower = new Power(config["SerialPort.ThrusterPower"]);
+	qDebug() << "Bringing up Power";
 	mainPower = new Power(config["SerialPort.MainPower"]);
+	qDebug() << "Bringing up LCD";
 	statusLcd = new LCD(config["SerialPort.LCD"]);
 
 	//connect(this, SIGNAL(status(QString)), this, SLOT(statusMessage(QString)));
