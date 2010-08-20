@@ -1,0 +1,2 @@
+#! /bin/bash
+cp ../simulink/brain.zip brain/ && cd brain && unzip -fo brain.zip && rm brain.zip && cd ..
