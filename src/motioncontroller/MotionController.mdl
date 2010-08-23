@@ -20,7 +20,7 @@ Model {
       Name		      "YAccel"
     }
     Inport {
-      Name		      "Depth"
+      Name		      ""
     }
     Inport {
       Name		      "DesiredDepth"
@@ -47,7 +47,7 @@ Model {
       Name		      "Vertical"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.7"
+    ComputedModelVersion    "1.19"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -66,9 +66,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Aug 13 19:03:08 2010"
-  RTWModifiedTimeStamp	  203624803
-  ModelVersionFormat	  "1.%<AutoIncrement:7>"
+  LastModifiedDate	  "Mon Aug 23 16:31:29 2010"
+  RTWModifiedTimeStamp	  204481883
+  ModelVersionFormat	  "1.%<AutoIncrement:19>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -636,11 +636,6 @@ Model {
       ActionType	      "unset"
     }
     Block {
-      BlockType		      Bias
-      Bias		      "0"
-      SaturateOnIntegerOverflow	on
-    }
-    Block {
       BlockType		      Constant
       Value		      "1"
       VectorParams1D	      on
@@ -656,20 +651,6 @@ Model {
       SampleTime	      "inf"
       FramePeriod	      "inf"
       PreserveConstantTs      off
-    }
-    Block {
-      BlockType		      DataTypeConversion
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeMode	      "Inherit via back propagation"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
-      OutDataTypeStr	      "Inherit: Inherit via back propagation"
-      LockScale		      off
-      ConvertRealWorld	      "Real World Value (RWV)"
-      RndMeth		      "Zero"
-      SaturateOnIntegerOverflow	on
-      SampleTime	      "-1"
     }
     Block {
       BlockType		      DiscreteIntegrator
@@ -751,24 +732,6 @@ Model {
       Interpolate	      on
     }
     Block {
-      BlockType		      Math
-      Operator		      "exp"
-      OutputSignalType	      "auto"
-      SampleTime	      "-1"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeMode	      "Same as first input"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
-      OutDataTypeStr	      "Inherit: Same as first input"
-      LockScale		      off
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	on
-      IntermediateResultsDataTypeStr "Inherit: Inherit via internal rule"
-      AlgorithmType	      "Newton-Raphson"
-      Iterations	      "3"
-    }
-    Block {
       BlockType		      MultiPortSwitch
       DataPortOrder	      "One-based contiguous"
       Inputs		      "3"
@@ -809,27 +772,20 @@ Model {
       InitialOutput	      "[]"
     }
     Block {
-      BlockType		      Product
-      Inputs		      "2"
-      Multiplication	      "Element-wise(.*)"
-      CollapseMode	      "All dimensions"
-      CollapseDim	      "1"
-      InputSameDT	      on
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeMode	      "Same as first input"
-      OutDataType	      "fixdt(1,16,0)"
-      OutScaling	      "[]"
-      OutDataTypeStr	      "Inherit: Same as first input"
-      LockScale		      off
-      RndMeth		      "Zero"
-      SaturateOnIntegerOverflow	on
-      SampleTime	      "-1"
-    }
-    Block {
-      BlockType		      Signum
+      BlockType		      Saturate
+      UpperLimit	      "0.5"
+      LowerLimit	      "-0.5"
+      LinearizeAsGain	      on
       ZeroCross		      on
       SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
     }
     Block {
       BlockType		      SubSystem
@@ -890,7 +846,7 @@ Model {
   }
   System {
     Name		    "MotionController"
-    Location		    [237, 85, 1156, 786]
+    Location		    [1475, 145, 2640, 851]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -904,7 +860,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    168
+    SIDHighWatermark	    206
     Block {
       BlockType		      Inport
       Name		      "DesiredHeading"
@@ -959,6 +915,7 @@ Model {
       Name		      "Depth"
       SID		      149
       Position		      [35, 428, 65, 442]
+      ShowName		      off
       Port		      "6"
       IconDisplay	      "Port number and signal name"
       OutDataType	      "fixdt(1, 16)"
@@ -984,12 +941,13 @@ Model {
       SaturateOnIntegerOverflow	off
     }
     Block {
-      BlockType		      Constant
-      Name		      "Constant"
-      SID		      159
-      Position		      [590, 400, 620, 430]
-      FontSize		      14
-      Value		      "0"
+      BlockType		      Saturate
+      Name		      "Buoyancy \nCompensation\nLimiter"
+      SID		      192
+      Ports		      [1, 1]
+      Position		      [890, 450, 920, 480]
+      UpperLimit	      "100"
+      LowerLimit	      "-30"
       OutDataType	      "fixdt(1, 16)"
       OutScaling	      "2^0"
     }
@@ -1040,7 +998,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Inertial Forward "
-	Location		[132, 278, 787, 707]
+	Location		[1513, 503, 2141, 902]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1112,39 +1070,6 @@ Model {
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "DoubleToint1"
-	  SID			  51
-	  Position		  [375, 173, 450, 207]
-	  OutDataTypeMode	  "int8"
-	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^0"
-	  OutDataTypeStr	  "int8"
-	  RndMeth		  "Floor"
-	}
-	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "DoubleToint2"
-	  SID			  52
-	  Position		  [290, 293, 365, 327]
-	  OutDataTypeMode	  "int8"
-	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^0"
-	  OutDataTypeStr	  "int8"
-	  RndMeth		  "Floor"
-	}
-	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "DoubleToint8"
-	  SID			  53
-	  Position		  [375, 83, 450, 117]
-	  OutDataTypeMode	  "int8"
-	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^0"
-	  OutDataTypeStr	  "int8"
-	  RndMeth		  "Floor"
-	}
-	Block {
 	  BlockType		  Gain
 	  Name			  "Gain"
 	  SID			  54
@@ -1207,7 +1132,7 @@ Model {
 	      SourceType	      "Discrete Derivative"
 	      ShowPortLabels	      "FromPortIcon"
 	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
+	      FunctionWithSeparateData "off"
 	      RTWMemSecFuncInitTerm   "Inherit from model"
 	      RTWMemSecFuncExecute    "Inherit from model"
 	      RTWMemSecDataConstants  "Inherit from model"
@@ -1221,9 +1146,9 @@ Model {
 	      OutputDataTypeScalingMode	"Inherit via internal rule"
 	      OutDataType	      "fixdt(1, 16)"
 	      OutScaling	      "2^-10"
-	      LockScale		      off
+	      LockScale		      "off"
 	      RndMeth		      "Floor"
-	      DoSatur		      on
+	      DoSatur		      "on"
 	    }
 	    Block {
 	      BlockType		      DiscreteIntegrator
@@ -1417,7 +1342,7 @@ Model {
 	      SourceType	      "Discrete Derivative"
 	      ShowPortLabels	      "FromPortIcon"
 	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
+	      FunctionWithSeparateData "off"
 	      RTWMemSecFuncInitTerm   "Inherit from model"
 	      RTWMemSecFuncExecute    "Inherit from model"
 	      RTWMemSecDataConstants  "Inherit from model"
@@ -1431,9 +1356,9 @@ Model {
 	      OutputDataTypeScalingMode	"Inherit via internal rule"
 	      OutDataType	      "fixdt(1, 16)"
 	      OutScaling	      "2^-10"
-	      LockScale		      off
+	      LockScale		      "off"
 	      RndMeth		      "Floor"
-	      DoSatur		      off
+	      DoSatur		      "off"
 	    }
 	    Block {
 	      BlockType		      DiscreteIntegrator
@@ -1582,18 +1507,18 @@ Model {
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "ChangetoLeft1"
+	  Name			  "Left"
 	  SID			  73
-	  Position		  [525, 93, 555, 107]
+	  Position		  [380, 93, 410, 107]
 	  IconDisplay		  "Port number"
 	  OutDataType		  "fixdt(1, 16)"
 	  OutScaling		  "2^0"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "ChangetoRight1"
+	  Name			  "Right"
 	  SID			  74
-	  Position		  [525, 173, 555, 187]
+	  Position		  [380, 183, 410, 197]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	  OutDataType		  "fixdt(1, 16)"
@@ -1601,43 +1526,18 @@ Model {
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "Strafe1"
+	  Name			  "Strafe"
 	  SID			  75
-	  Position		  [525, 303, 555, 317]
+	  Position		  [380, 303, 410, 317]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	  OutDataType		  "fixdt(1, 16)"
 	  OutScaling		  "2^0"
 	}
 	Line {
-	  SrcBlock		  "DoubleToint2"
-	  SrcPort		  1
-	  DstBlock		  "Strafe1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "PID Controller\nRelative Heading"
-	  SrcPort		  1
-	  DstBlock		  "DoubleToint2"
-	  DstPort		  1
-	}
-	Line {
 	  SrcBlock		  "Y_Accel"
 	  SrcPort		  1
 	  DstBlock		  "PID Controller\nRelative Heading"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "DoubleToint1"
-	  SrcPort		  1
-	  Points		  [55, 0]
-	  DstBlock		  "ChangetoRight1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "DoubleToint8"
-	  SrcPort		  1
-	  DstBlock		  "ChangetoLeft1"
 	  DstPort		  1
 	}
 	Line {
@@ -1668,18 +1568,6 @@ Model {
 	  }
 	}
 	Line {
-	  SrcBlock		  "Add3"
-	  SrcPort		  1
-	  DstBlock		  "DoubleToint1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Add4"
-	  SrcPort		  1
-	  DstBlock		  "DoubleToint8"
-	  DstPort		  1
-	}
-	Line {
 	  SrcBlock		  "PID Controller\nYawRate"
 	  SrcPort		  1
 	  Points		  [30, 0]
@@ -1693,7 +1581,61 @@ Model {
 	    DstPort		    1
 	  }
 	}
+	Line {
+	  SrcBlock		  "Add4"
+	  SrcPort		  1
+	  DstBlock		  "Left"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Add3"
+	  SrcPort		  1
+	  DstBlock		  "Right"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "PID Controller\nRelative Heading"
+	  SrcPort		  1
+	  DstBlock		  "Strafe"
+	  DstPort		  1
+	}
       }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Left Drag\nCompensation"
+      SID		      194
+      Ports		      [1, 1]
+      Position		      [790, 120, 820, 150]
+      LibraryVersion	      "1.216"
+      SourceBlock	      "simulink/Discontinuities/Coulomb &\nViscous Friction"
+      SourceType	      "Coulombic and Viscous Friction"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      offset		      "15"
+      gain		      "(100-15)/100"
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Left Thruster \nNormalize"
+      SID		      183
+      Position		      [995, 120, 1025, 150]
+      Gain		      "1/100"
+      ParameterDataTypeMode   "Inherit via internal rule"
+      ParameterDataType	      "fixdt(1, 16)"
+      ParameterScaling	      "2^0"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeMode	      "Inherit via internal rule"
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
     }
     Block {
       BlockType		      SubSystem
@@ -1712,8 +1654,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Maintain Heading"
-	Location		[1507, 108, 2899, 572]
-	Open			off
+	Location		[1597, 285, 2763, 653]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1750,7 +1692,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "DesiredForwardVelocity"
 	  SID			  103
-	  Position		  [70, 383, 100, 397]
+	  Position		  [70, 278, 100, 292]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	  OutDataType		  "fixdt(1, 16)"
@@ -1764,12 +1706,29 @@ Model {
 	  ActionType		  "then"
 	}
 	Block {
-	  BlockType		  Abs
-	  Name			  "Abs"
-	  SID			  164
-	  Position		  [290, 130, 320, 160]
+	  BlockType		  Sum
+	  Name			  "Add\nForward"
+	  SID			  107
+	  Ports			  [2, 1]
+	  Position		  [945, 135, 975, 175]
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^0"
+	  OutScaling		  "2^-10"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Add\nForward1"
+	  SID			  106
+	  Ports			  [2, 1]
+	  Position		  [945, 212, 975, 243]
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "fixdt(1, 16)"
+	  OutScaling		  "2^-10"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
@@ -1788,419 +1747,614 @@ Model {
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  Sum
-	  Name			  "Add2"
-	  SID			  105
-	  Ports			  [3, 1]
-	  Position		  [820, 94, 850, 126]
-	  Inputs		  "+++"
-	  InputSameDT		  off
-	  OutDataTypeMode	  "Inherit via internal rule"
-	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^-10"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Add3"
-	  SID			  106
-	  Ports			  [2, 1]
-	  Position		  [1150, 192, 1180, 223]
-	  InputSameDT		  off
-	  OutDataTypeMode	  "Inherit via internal rule"
-	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^-10"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Sum
-	  Name			  "Add4"
-	  SID			  107
-	  Ports			  [2, 1]
-	  Position		  [1150, 117, 1180, 148]
-	  InputSameDT		  off
-	  OutDataTypeMode	  "Inherit via internal rule"
-	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^-10"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  Bias
-	  Name			  "Bias"
-	  SID			  163
-	  Position		  [345, 130, 385, 160]
-	  Bias			  "1"
-	  SaturateOnIntegerOverflow off
-	}
-	Block {
 	  BlockType		  SubSystem
-	  Name			  "BigError S1"
-	  SID			  108
-	  Ports			  [1, 2, 0, 0, 0, 0, 0, 1]
-	  Position		  [695, 167, 765, 203]
-	  TreatAsAtomicUnit	  on
-	  MinAlgLoopOccurrences	  off
-	  PropExecContextOutsideSubsystem off
-	  RTWSystemCode		  "Auto"
-	  FunctionWithSeparateData off
-	  Opaque		  off
-	  RequestExecContextInheritance	off
-	  MaskHideContents	  off
-	  System {
-	    Name		    "BigError S1"
-	    Location		    [516, 172, 1014, 472]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "usletter"
-	    PaperUnits		    "inches"
-	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "In1"
-	      SID		      109
-	      Position		      [35, 78, 65, 92]
-	      IconDisplay	      "Port number"
-	      OutDataType	      "fixdt(1, 16)"
-	      OutScaling	      "2^0"
-	    }
-	    Block {
-	      BlockType		      ActionPort
-	      Name		      "Action Port"
-	      SID		      110
-	      Position		      [170, 15, 229, 43]
-	      PropagateVarSize	      "During execution"
-	      ActionType	      "then"
-	    }
-	    Block {
-	      BlockType		      Sum
-	      Name		      "Add"
-	      SID		      111
-	      Ports		      [2, 1]
-	      Position		      [185, 77, 215, 108]
-	      Inputs		      "+-"
-	      InputSameDT	      off
-	      OutDataTypeMode	      "Inherit via internal rule"
-	      OutDataType	      "fixdt(1, 16)"
-	      OutScaling	      "2^-10"
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
-	      BlockType		      Constant
-	      Name		      "Constant"
-	      SID		      112
-	      Position		      [95, 150, 125, 180]
-	      Value		      "360"
-	      OutDataType	      "fixdt(1, 16)"
-	      OutScaling	      "2^0"
-	      SampleTime	      "-1"
-	    }
-	    Block {
-	      BlockType		      Constant
-	      Name		      "Constant1"
-	      SID		      113
-	      Position		      [315, 135, 345, 165]
-	      OutDataType	      "fixdt(1, 16)"
-	      OutScaling	      "2^0"
-	      SampleTime	      "-1"
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "Out1"
-	      SID		      114
-	      Position		      [425, 78, 455, 92]
-	      IconDisplay	      "Port number"
-	      OutDataType	      "fixdt(1, 16)"
-	      OutScaling	      "2^0"
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "Out2"
-	      SID		      115
-	      Position		      [425, 143, 455, 157]
-	      Port		      "2"
-	      IconDisplay	      "Port number"
-	      OutDataType	      "fixdt(1, 16)"
-	      OutScaling	      "2^0"
-	      OutputWhenDisabled      "reset"
-	      InitialOutput	      "[0]"
-	    }
-	    Line {
-	      SrcBlock		      "In1"
-	      SrcPort		      1
-	      DstBlock		      "Add"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Constant"
-	      SrcPort		      1
-	      Points		      [15, 0; 0, -65]
-	      DstBlock		      "Add"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "Add"
-	      SrcPort		      1
-	      Points		      [90, 0; 0, -10]
-	      DstBlock		      "Out1"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Constant1"
-	      SrcPort		      1
-	      DstBlock		      "Out2"
-	      DstPort		      1
-	    }
-	  }
-	}
-	Block {
-	  BlockType		  SubSystem
-	  Name			  "BigNegativeError S2"
-	  SID			  116
-	  Ports			  [1, 2, 0, 0, 0, 0, 0, 1]
-	  Position		  [685, 252, 770, 308]
-	  TreatAsAtomicUnit	  on
-	  MinAlgLoopOccurrences	  off
-	  PropExecContextOutsideSubsystem off
-	  RTWSystemCode		  "Auto"
-	  FunctionWithSeparateData off
-	  Opaque		  off
-	  RequestExecContextInheritance	off
-	  MaskHideContents	  off
-	  System {
-	    Name		    "BigNegativeError S2"
-	    Location		    [540, 333, 1038, 633]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "usletter"
-	    PaperUnits		    "inches"
-	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "In1"
-	      SID		      117
-	      Position		      [75, 78, 105, 92]
-	      IconDisplay	      "Port number"
-	      OutDataType	      "fixdt(1, 16)"
-	      OutScaling	      "2^0"
-	    }
-	    Block {
-	      BlockType		      ActionPort
-	      Name		      "Action Port"
-	      SID		      118
-	      Position		      [170, 15, 229, 43]
-	      PropagateVarSize	      "During execution"
-	      ActionType	      "elseif"
-	    }
-	    Block {
-	      BlockType		      Sum
-	      Name		      "Add"
-	      SID		      119
-	      Ports		      [2, 1]
-	      Position		      [200, 77, 230, 108]
-	      InputSameDT	      off
-	      OutDataTypeMode	      "Inherit via internal rule"
-	      OutDataType	      "fixdt(1, 16)"
-	      OutScaling	      "2^-10"
-	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
-	      SaturateOnIntegerOverflow	off
-	    }
-	    Block {
-	      BlockType		      Constant
-	      Name		      "Constant"
-	      SID		      120
-	      Position		      [120, 180, 150, 210]
-	      Value		      "360"
-	      OutDataType	      "fixdt(1, 16)"
-	      OutScaling	      "2^0"
-	      SampleTime	      "-1"
-	    }
-	    Block {
-	      BlockType		      Constant
-	      Name		      "Constant1"
-	      SID		      121
-	      Position		      [270, 170, 300, 200]
-	      Value		      "2"
-	      OutDataType	      "fixdt(1, 16)"
-	      OutScaling	      "2^0"
-	      SampleTime	      "-1"
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "Out1"
-	      SID		      122
-	      Position		      [325, 78, 355, 92]
-	      IconDisplay	      "Port number"
-	      OutDataType	      "fixdt(1, 16)"
-	      OutScaling	      "2^0"
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "Out2"
-	      SID		      123
-	      Position		      [385, 178, 415, 192]
-	      Port		      "2"
-	      IconDisplay	      "Port number"
-	      OutDataType	      "fixdt(1, 16)"
-	      OutScaling	      "2^0"
-	      OutputWhenDisabled      "reset"
-	      InitialOutput	      "[0]"
-	    }
-	    Line {
-	      SrcBlock		      "In1"
-	      SrcPort		      1
-	      DstBlock		      "Add"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Constant"
-	      SrcPort		      1
-	      Points		      [15, 0; 0, -95]
-	      DstBlock		      "Add"
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "Add"
-	      SrcPort		      1
-	      Points		      [35, 0; 0, -10]
-	      DstBlock		      "Out1"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Constant1"
-	      SrcPort		      1
-	      DstBlock		      "Out2"
-	      DstPort		      1
-	    }
-	  }
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant"
-	  SID			  124
-	  Position		  [980, 195, 1010, 225]
-	  Value			  "-1"
-	  OutDataTypeMode	  "int8"
-	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^0"
-	  OutDataTypeStr	  "int8"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant1"
-	  SID			  125
-	  Position		  [745, 85, 775, 115]
-	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^0"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Reference
-	  Name			  "DocBlock"
-	  SID			  168
-	  Ports			  []
-	  Position		  [367, 205, 407, 244]
-	  ShowName		  off
-	  LibraryVersion	  "1.216"
-	  UserDataPersistent	  on
-	  UserData		  "DataTag1"
-	  SourceBlock		  "simulink/Model-Wide\nUtilities/DocBlock"
-	  SourceType		  "DocBlock"
-	  ShowPortLabels	  "FromPortIcon"
-	  SystemSampleTime	  "-1"
-	  FunctionWithSeparateData off
-	  RTWMemSecFuncInitTerm	  "Inherit from model"
-	  RTWMemSecFuncExecute	  "Inherit from model"
-	  RTWMemSecDataConstants  "Inherit from model"
-	  RTWMemSecDataInternal	  "Inherit from model"
-	  RTWMemSecDataParameters "Inherit from model"
-	  DocumentType		  "Text"
-	}
-	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "DoubleToint1"
-	  SID			  126
-	  Position		  [1215, 193, 1290, 227]
-	  OutDataTypeMode	  "int8"
-	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^0"
-	  OutDataTypeStr	  "int8"
-	  RndMeth		  "Floor"
-	}
-	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "DoubleToint8"
-	  SID			  127
-	  Position		  [1215, 118, 1290, 152]
-	  OutDataTypeMode	  "int8"
-	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^0"
-	  OutDataTypeStr	  "int8"
-	  RndMeth		  "Floor"
-	}
-	Block {
-	  BlockType		  If
-	  Name			  "If"
-	  SID			  128
-	  Ports			  [1, 2]
-	  Position		  [595, 91, 695, 129]
-	  IfExpression		  "u1 > 180"
-	  ElseIfExpressions	  "u1 < -180"
-	  ShowElse		  off
-	}
-	Block {
-	  BlockType		  Math
-	  Name			  "Math\nFunction"
-	  SID			  165
+	  Name			  "Error Shaping"
+	  SID			  169
 	  Ports			  [1, 1]
-	  Position		  [410, 130, 440, 160]
-	  Operator		  "log10"
-	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^0"
+	  Position		  [515, 114, 650, 176]
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Error Shaping"
+	    Location		    [1805, 418, 2281, 663]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Ranged Error"
+	      SID		      171
+	      Position		      [25, 88, 55, 102]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "1/Saturation\nAngle"
+	      SID		      204
+	      Position		      [95, 78, 135, 112]
+	      Gain		      "1/45"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      ParameterDataType	      "fixdt(1, 16)"
+	      ParameterScaling	      "2^0"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataType	      "fixdt(1, 16)"
+	      OutScaling	      "2^0"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "DocBlock"
+	      SID		      168
+	      Ports		      []
+	      Position		      [177, 155, 217, 194]
+	      ShowName		      off
+	      LibraryVersion	      "1.216"
+	      UserDataPersistent      on
+	      UserData		      "DataTag1"
+	      SourceBlock	      "simulink/Model-Wide\nUtilities/DocBlock"
+	      SourceType	      "DocBlock"
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData off
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      DocumentType	      "Text"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Saturation\nAngle"
+	      SID		      205
+	      Position		      [215, 80, 245, 110]
+	      Gain		      "45"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      ParameterDataType	      "fixdt(1, 16)"
+	      ParameterScaling	      "2^0"
+	      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataType	      "fixdt(1, 16)"
+	      OutScaling	      "2^0"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "tansig1"
+	      SID		      206
+	      Ports		      [1, 1]
+	      Position		      [160, 83, 185, 107]
+	      LibraryVersion	      "1.37"
+	      SourceBlock	      "neural/Transfer Functions/tansig"
+	      SourceType	      ""
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData off
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Shaped Error"
+	      SID		      170
+	      Position		      [280, 88, 310, 102]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Ranged Error"
+	      SrcPort		      1
+	      DstBlock		      "1/Saturation\nAngle"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "1/Saturation\nAngle"
+	      SrcPort		      1
+	      DstBlock		      "tansig1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "tansig1"
+	      SrcPort		      1
+	      DstBlock		      "Saturation\nAngle"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Saturation\nAngle"
+	      SrcPort		      1
+	      DstBlock		      "Shaped Error"
+	      DstPort		      1
+	    }
+	    Annotation {
+	      Name		      "Error"
+	      Position		      [344, 79]
+	    }
+	  }
 	}
 	Block {
-	  BlockType		  Product
-	  Name			  "Multiply"
-	  SID			  129
-	  Ports			  [2, 1]
-	  Position		  [1090, 179, 1120, 221]
-	  Inputs		  "**"
-	  InputSameDT		  off
-	  OutDataTypeMode	  "int8"
+	  BlockType		  SubSystem
+	  Name			  "Error Shifting and Range Checking"
+	  SID			  172
+	  Ports			  [1, 1]
+	  Position		  [305, 115, 460, 175]
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Error Shifting and Range Checking"
+	    Location		    [1857, 150, 2372, 443]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Raw Error"
+	      SID		      174
+	      Position		      [25, 98, 55, 112]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Add2"
+	      SID		      105
+	      Ports		      [3, 1]
+	      Position		      [330, 54, 360, 86]
+	      Inputs		      "+++"
+	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataType	      "fixdt(1, 16)"
+	      OutScaling	      "2^-10"
+	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "BigError S1"
+	      SID		      108
+	      Ports		      [1, 2, 0, 0, 0, 0, 0, 1]
+	      Position		      [205, 127, 275, 163]
+	      TreatAsAtomicUnit	      on
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      System {
+		Name			"BigError S1"
+		Location		[516, 172, 1014, 472]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "In1"
+		  SID			  109
+		  Position		  [35, 78, 65, 92]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  ActionPort
+		  Name			  "Action Port"
+		  SID			  110
+		  Position		  [170, 15, 229, 43]
+		  PropagateVarSize	  "During execution"
+		  ActionType		  "then"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Add"
+		  SID			  111
+		  Ports			  [2, 1]
+		  Position		  [185, 77, 215, 108]
+		  Inputs		  "+-"
+		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^-10"
+		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "Constant"
+		  SID			  112
+		  Position		  [95, 150, 125, 180]
+		  Value			  "360"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		  SampleTime		  "-1"
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "Constant1"
+		  SID			  113
+		  Position		  [315, 135, 345, 165]
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		  SampleTime		  "-1"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out1"
+		  SID			  114
+		  Position		  [425, 78, 455, 92]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out2"
+		  SID			  115
+		  Position		  [425, 143, 455, 157]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		  OutputWhenDisabled	  "reset"
+		  InitialOutput		  "[0]"
+		}
+		Line {
+		  SrcBlock		  "In1"
+		  SrcPort		  1
+		  DstBlock		  "Add"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Constant"
+		  SrcPort		  1
+		  Points		  [15, 0; 0, -65]
+		  DstBlock		  "Add"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Add"
+		  SrcPort		  1
+		  Points		  [90, 0; 0, -10]
+		  DstBlock		  "Out1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Constant1"
+		  SrcPort		  1
+		  DstBlock		  "Out2"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "BigNegativeError S2"
+	      SID		      116
+	      Ports		      [1, 2, 0, 0, 0, 0, 0, 1]
+	      Position		      [195, 212, 280, 268]
+	      TreatAsAtomicUnit	      on
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      System {
+		Name			"BigNegativeError S2"
+		Location		[540, 333, 1038, 633]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "In1"
+		  SID			  117
+		  Position		  [75, 78, 105, 92]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  ActionPort
+		  Name			  "Action Port"
+		  SID			  118
+		  Position		  [170, 15, 229, 43]
+		  PropagateVarSize	  "During execution"
+		  ActionType		  "elseif"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Add"
+		  SID			  119
+		  Ports			  [2, 1]
+		  Position		  [200, 77, 230, 108]
+		  InputSameDT		  off
+		  OutDataTypeMode	  "Inherit via internal rule"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^-10"
+		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "Constant"
+		  SID			  120
+		  Position		  [120, 180, 150, 210]
+		  Value			  "360"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		  SampleTime		  "-1"
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "Constant1"
+		  SID			  121
+		  Position		  [270, 170, 300, 200]
+		  Value			  "2"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		  SampleTime		  "-1"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out1"
+		  SID			  122
+		  Position		  [325, 78, 355, 92]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out2"
+		  SID			  123
+		  Position		  [385, 178, 415, 192]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "fixdt(1, 16)"
+		  OutScaling		  "2^0"
+		  OutputWhenDisabled	  "reset"
+		  InitialOutput		  "[0]"
+		}
+		Line {
+		  SrcBlock		  "In1"
+		  SrcPort		  1
+		  DstBlock		  "Add"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Constant"
+		  SrcPort		  1
+		  Points		  [15, 0; 0, -95]
+		  DstBlock		  "Add"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Add"
+		  SrcPort		  1
+		  Points		  [35, 0; 0, -10]
+		  DstBlock		  "Out1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Constant1"
+		  SrcPort		  1
+		  DstBlock		  "Out2"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant1"
+	      SID		      125
+	      Position		      [255, 45, 285, 75]
+	      OutDataType	      "fixdt(1, 16)"
+	      OutScaling	      "2^0"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      If
+	      Name		      "If"
+	      SID		      128
+	      Ports		      [1, 2]
+	      Position		      [105, 51, 205, 89]
+	      IfExpression	      "u1 > 180"
+	      ElseIfExpressions	      "u1 < -180"
+	      ShowElse		      off
+	    }
+	    Block {
+	      BlockType		      MultiPortSwitch
+	      Name		      "Multiport\nSwitch"
+	      SID		      130
+	      Ports		      [4, 1]
+	      Position		      [405, 62, 435, 108]
+	      zeroidx		      off
+	      InputSameDT	      off
+	      OutDataType	      "fixdt(1, 16)"
+	      OutScaling	      "2^0"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Ranged Error"
+	      SID		      173
+	      Position		      [460, 78, 490, 92]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "If"
+	      SrcPort		      1
+	      Points		      [30, 0]
+	      DstBlock		      "BigError S1"
+	      DstPort		      ifaction
+	    }
+	    Line {
+	      Labels		      [4, 0]
+	      SrcBlock		      "If"
+	      SrcPort		      2
+	      Points		      [5, 0; 0, 30; -45, 0; 0, 87]
+	      DstBlock		      "BigNegativeError S2"
+	      DstPort		      ifaction
+	    }
+	    Line {
+	      SrcBlock		      "BigError S1"
+	      SrcPort		      1
+	      Points		      [85, 0; 0, -45]
+	      DstBlock		      "Multiport\nSwitch"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "BigNegativeError S2"
+	      SrcPort		      1
+	      Points		      [105, 0]
+	      DstBlock		      "Multiport\nSwitch"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "Constant1"
+	      SrcPort		      1
+	      DstBlock		      "Add2"
+	      DstPort		      1
+	    }
+	    Line {
+	      Labels		      [2, 0]
+	      SrcBlock		      "BigError S1"
+	      SrcPort		      2
+	      Points		      [15, 0; 0, -85]
+	      DstBlock		      "Add2"
+	      DstPort		      2
+	    }
+	    Line {
+	      Labels		      [2, 0]
+	      SrcBlock		      "BigNegativeError S2"
+	      SrcPort		      2
+	      Points		      [30, 0]
+	      DstBlock		      "Add2"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Add2"
+	      SrcPort		      1
+	      DstBlock		      "Multiport\nSwitch"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Raw Error"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      Branch {
+		Points			[0, -75; 295, 0; 0, 50]
+		DstBlock		"Multiport\nSwitch"
+		DstPort			2
+	      }
+	      Branch {
+		Points			[0, 40]
+		Branch {
+		  Points		  [0, 95]
+		  DstBlock		  "BigNegativeError S2"
+		  DstPort		  1
+		}
+		Branch {
+		  DstBlock		  "BigError S1"
+		  DstPort		  1
+		}
+	      }
+	      Branch {
+		Points			[0, -5; 15, 0]
+		DstBlock		"If"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Multiport\nSwitch"
+	      SrcPort		      1
+	      DstBlock		      "Ranged Error"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain"
+	  SID			  175
+	  Position		  [880, 205, 910, 235]
+	  Gain			  "-1"
+	  ParameterDataTypeMode	  "Inherit via internal rule"
+	  ParameterDataType	  "fixdt(1, 16)"
+	  ParameterScaling	  "2^0"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^-10"
-	  OutDataTypeStr	  "int8"
-	  RndMeth		  "Floor"
+	  OutScaling		  "2^0"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  MultiPortSwitch
-	  Name			  "Multiport\nSwitch"
-	  SID			  130
-	  Ports			  [4, 1]
-	  Position		  [895, 102, 925, 148]
-	  zeroidx		  off
-	  InputSameDT		  off
+	  BlockType		  Gain
+	  Name			  "Left \nThruster Gain"
+	  SID			  177
+	  Position		  [1010, 140, 1040, 170]
+	  Gain			  "1/100"
+	  ParameterDataTypeMode	  "Inherit via internal rule"
+	  ParameterDataType	  "fixdt(1, 16)"
+	  ParameterScaling	  "2^0"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataType		  "fixdt(1, 16)"
 	  OutScaling		  "2^0"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
@@ -2209,7 +2363,7 @@ Model {
 	  SID			  131
 	  Description		  "PID"
 	  Ports			  [1, 1]
-	  Position		  [960, 95, 1000, 155]
+	  Position		  [720, 114, 780, 176]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -2266,7 +2420,7 @@ Model {
 	      SourceType	      "Discrete Derivative"
 	      ShowPortLabels	      "FromPortIcon"
 	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
+	      FunctionWithSeparateData "off"
 	      RTWMemSecFuncInitTerm   "Inherit from model"
 	      RTWMemSecFuncExecute    "Inherit from model"
 	      RTWMemSecDataConstants  "Inherit from model"
@@ -2280,9 +2434,9 @@ Model {
 	      OutputDataTypeScalingMode	"Inherit via internal rule"
 	      OutDataType	      "fixdt(1, 16)"
 	      OutScaling	      "2^-10"
-	      LockScale		      off
+	      LockScale		      "off"
 	      RndMeth		      "Floor"
-	      DoSatur		      off
+	      DoSatur		      "off"
 	    }
 	    Block {
 	      BlockType		      DiscreteIntegrator
@@ -2414,12 +2568,15 @@ Model {
 	  }
 	}
 	Block {
-	  BlockType		  Product
-	  Name			  "Product"
-	  SID			  167
-	  Ports			  [2, 1]
-	  Position		  [470, 122, 500, 153]
-	  InputSameDT		  off
+	  BlockType		  Gain
+	  Name			  "Right\nThruster Gain"
+	  SID			  178
+	  Position		  [1010, 215, 1040, 245]
+	  Gain			  "1/100"
+	  ParameterDataTypeMode	  "Inherit via internal rule"
+	  ParameterDataType	  "fixdt(1, 16)"
+	  ParameterScaling	  "2^0"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
 	  OutDataTypeMode	  "Inherit via internal rule"
 	  OutDataType		  "fixdt(1, 16)"
 	  OutScaling		  "2^0"
@@ -2427,16 +2584,10 @@ Model {
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  Signum
-	  Name			  "Sign"
-	  SID			  166
-	  Position		  [310, 75, 340, 105]
-	}
-	Block {
 	  BlockType		  Outport
 	  Name			  "Left"
 	  SID			  140
-	  Position		  [1330, 128, 1360, 142]
+	  Position		  [1080, 148, 1110, 162]
 	  IconDisplay		  "Port number"
 	  OutDataType		  "fixdt(1, 16)"
 	  OutScaling		  "2^0"
@@ -2445,7 +2596,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "Right"
 	  SID			  141
-	  Position		  [1330, 203, 1360, 217]
+	  Position		  [1080, 223, 1110, 237]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	  OutDataType		  "fixdt(1, 16)"
@@ -2458,135 +2609,40 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Constant"
-	  SrcPort		  1
-	  DstBlock		  "Multiply"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Add1"
-	  SrcPort		  1
-	  Points		  [15, 0]
-	  Branch {
-	    DstBlock		    "Abs"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, -55]
-	    DstBlock		    "Sign"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  SrcBlock		  "If"
-	  SrcPort		  1
-	  Points		  [30, 0]
-	  DstBlock		  "BigError S1"
-	  DstPort		  ifaction
-	}
-	Line {
-	  Labels		  [4, 0]
-	  SrcBlock		  "If"
-	  SrcPort		  2
-	  Points		  [5, 0; 0, 30; -45, 0; 0, 87]
-	  DstBlock		  "BigNegativeError S2"
-	  DstPort		  ifaction
-	}
-	Line {
-	  SrcBlock		  "BigError S1"
-	  SrcPort		  1
-	  Points		  [85, 0; 0, -45]
-	  DstBlock		  "Multiport\nSwitch"
-	  DstPort		  3
-	}
-	Line {
-	  SrcBlock		  "BigNegativeError S2"
-	  SrcPort		  1
-	  Points		  [105, 0]
-	  DstBlock		  "Multiport\nSwitch"
-	  DstPort		  4
-	}
-	Line {
-	  SrcBlock		  "Multiport\nSwitch"
-	  SrcPort		  1
-	  DstBlock		  "PID Controller\nHeading S4"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Constant1"
-	  SrcPort		  1
-	  DstBlock		  "Add2"
-	  DstPort		  1
-	}
-	Line {
-	  Labels		  [2, 0]
-	  SrcBlock		  "BigError S1"
-	  SrcPort		  2
-	  Points		  [15, 0; 0, -85]
-	  DstBlock		  "Add2"
-	  DstPort		  2
-	}
-	Line {
-	  Labels		  [2, 0]
-	  SrcBlock		  "BigNegativeError S2"
-	  SrcPort		  2
-	  Points		  [30, 0]
-	  DstBlock		  "Add2"
-	  DstPort		  3
-	}
-	Line {
-	  SrcBlock		  "Add2"
-	  SrcPort		  1
-	  DstBlock		  "Multiport\nSwitch"
-	  DstPort		  1
-	}
-	Line {
 	  SrcBlock		  "CurrentHeading"
 	  SrcPort		  1
 	  DstBlock		  "Add1"
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "Multiply"
-	  SrcPort		  1
-	  DstBlock		  "Add3"
-	  DstPort		  1
-	}
-	Line {
 	  SrcBlock		  "DesiredForwardVelocity"
 	  SrcPort		  1
-	  Points		  [965, 0; 0, -125]
+	  Points		  [760, 0]
 	  Branch {
 	    Points		    [65, 0]
-	    DstBlock		    "Add3"
+	    DstBlock		    "Add\nForward1"
 	    DstPort		    2
 	  }
 	  Branch {
-	    Points		    [0, -125]
-	    DstBlock		    "Add4"
+	    Points		    [0, -120]
+	    DstBlock		    "Add\nForward"
 	    DstPort		    2
 	  }
 	}
 	Line {
-	  SrcBlock		  "Add3"
+	  SrcBlock		  "Add\nForward1"
 	  SrcPort		  1
-	  DstBlock		  "DoubleToint1"
+	  DstBlock		  "Right\nThruster Gain"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "DoubleToint1"
+	  SrcBlock		  "Add\nForward"
 	  SrcPort		  1
-	  DstBlock		  "Right"
+	  DstBlock		  "Left \nThruster Gain"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Add4"
-	  SrcPort		  1
-	  DstBlock		  "DoubleToint8"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "DoubleToint8"
+	  SrcBlock		  "Left \nThruster Gain"
 	  SrcPort		  1
 	  DstBlock		  "Left"
 	  DstPort		  1
@@ -2594,72 +2650,55 @@ Model {
 	Line {
 	  SrcBlock		  "PID Controller\nHeading S4"
 	  SrcPort		  1
-	  Points		  [25, 0]
+	  Points		  [40, 0]
 	  Branch {
-	    DstBlock		    "Add4"
+	    DstBlock		    "Add\nForward"
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, 65]
-	    DstBlock		    "Multiply"
+	    Points		    [0, 75]
+	    DstBlock		    "Gain"
 	    DstPort		    1
 	  }
 	}
 	Line {
-	  SrcBlock		  "Bias"
+	  SrcBlock		  "Add1"
 	  SrcPort		  1
-	  DstBlock		  "Math\nFunction"
+	  DstBlock		  "Error Shifting and Range Checking"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Abs"
+	  SrcBlock		  "Gain"
 	  SrcPort		  1
-	  DstBlock		  "Bias"
+	  DstBlock		  "Add\nForward1"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Sign"
+	  SrcBlock		  "Right\nThruster Gain"
 	  SrcPort		  1
-	  Points		  [110, 0]
-	  DstBlock		  "Product"
+	  DstBlock		  "Right"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Math\nFunction"
+	  SrcBlock		  "Error Shifting and Range Checking"
 	  SrcPort		  1
-	  DstBlock		  "Product"
-	  DstPort		  2
+	  DstBlock		  "Error Shaping"
+	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Product"
+	  SrcBlock		  "Error Shaping"
 	  SrcPort		  1
-	  Points		  [60, 0; 0, 5]
-	  Branch {
-	    Points		    [0, -5; 15, 0]
-	    DstBlock		    "If"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, 40]
-	    Branch {
-	      DstBlock		      "BigError S1"
-	      DstPort		      1
-	    }
-	    Branch {
-	      Points		      [0, 95]
-	      DstBlock		      "BigNegativeError S2"
-	      DstPort		      1
-	    }
-	  }
-	  Branch {
-	    Points		    [0, -75; 295, 0; 0, 50]
-	    DstBlock		    "Multiport\nSwitch"
-	    DstPort		    2
-	  }
+	  DstBlock		  "PID Controller\nHeading S4"
+	  DstPort		  1
 	}
 	Annotation {
-	  Name			  "Error"
-	  Position		  [534, 129]
+	  Name			  "Error Shaping corrects for controller\nbehavior over large error values vs. \nsmall errors."
+	  Position		  [497, 229]
+	  HorizontalAlignment	  "left"
+	}
+	Annotation {
+	  Name			  "Error Ranging puts the error in \nthe range -180 to +180"
+	  Position		  [380, 226]
 	}
       }
     }
@@ -2680,7 +2719,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"MaintainDepth "
-	Location		[326, 85, 983, 387]
+	Location		[172, 85, 583, 233]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2695,9 +2734,9 @@ Model {
 	ZoomFactor		"100"
 	Block {
 	  BlockType		  Inport
-	  Name			  "CurrentDepth1"
+	  Name			  "CurrentDepth"
 	  SID			  77
-	  Position		  [40, 158, 70, 172]
+	  Position		  [30, 83, 60, 97]
 	  IconDisplay		  "Port number"
 	  DataType		  "single"
 	  OutDataType		  "fixdt(1, 16)"
@@ -2706,9 +2745,9 @@ Model {
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "DesiredDepth1"
+	  Name			  "DesiredDepth"
 	  SID			  78
-	  Position		  [40, 108, 70, 122]
+	  Position		  [30, 33, 60, 47]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	  DataType		  "single"
@@ -2721,7 +2760,7 @@ Model {
 	  Name			  "Add"
 	  SID			  80
 	  Ports			  [2, 1]
-	  Position		  [120, 90, 180, 190]
+	  Position		  [110, 15, 170, 115]
 	  Inputs		  "+-"
 	  InputSameDT		  off
 	  OutDataTypeMode	  "double"
@@ -2731,23 +2770,12 @@ Model {
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  DataTypeConversion
-	  Name			  "Double To Int8"
-	  SID			  81
-	  Position		  [360, 123, 435, 157]
-	  OutDataTypeMode	  "int8"
-	  OutDataType		  "fixdt(1, 16)"
-	  OutScaling		  "2^0"
-	  OutDataTypeStr	  "int8"
-	  RndMeth		  "Floor"
-	}
-	Block {
 	  BlockType		  SubSystem
 	  Name			  "PID Controller\nDepth S3"
 	  SID			  82
 	  Description		  "PID"
 	  Ports			  [1, 1]
-	  Position		  [270, 110, 310, 170]
+	  Position		  [260, 35, 300, 95]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -2804,7 +2832,7 @@ Model {
 	      SourceType	      "Discrete Derivative"
 	      ShowPortLabels	      "FromPortIcon"
 	      SystemSampleTime	      "-1"
-	      FunctionWithSeparateData off
+	      FunctionWithSeparateData "off"
 	      RTWMemSecFuncInitTerm   "Inherit from model"
 	      RTWMemSecFuncExecute    "Inherit from model"
 	      RTWMemSecDataConstants  "Inherit from model"
@@ -2818,9 +2846,9 @@ Model {
 	      OutputDataTypeScalingMode	"Inherit via internal rule"
 	      OutDataType	      "fixdt(1, 16)"
 	      OutScaling	      "2^-10"
-	      LockScale		      off
+	      LockScale		      "off"
 	      RndMeth		      "Floor"
-	      DoSatur		      on
+	      DoSatur		      "on"
 	    }
 	    Block {
 	      BlockType		      DiscreteIntegrator
@@ -2953,9 +2981,9 @@ Model {
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "ChangetoVertical"
+	  Name			  "Vertical"
 	  SID			  91
-	  Position		  [535, 133, 565, 147]
+	  Position		  [360, 58, 390, 72]
 	  IconDisplay		  "Port number"
 	  DataType		  "int8"
 	  OutDataType		  "fixdt(1, 16)"
@@ -2971,30 +2999,24 @@ Model {
 	Line {
 	  SrcBlock		  "PID Controller\nDepth S3"
 	  SrcPort		  1
-	  DstBlock		  "Double To Int8"
+	  DstBlock		  "Vertical"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Double To Int8"
-	  SrcPort		  1
-	  DstBlock		  "ChangetoVertical"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "CurrentDepth1"
+	  SrcBlock		  "CurrentDepth"
 	  SrcPort		  1
 	  DstBlock		  "Add"
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "DesiredDepth1"
+	  SrcBlock		  "DesiredDepth"
 	  SrcPort		  1
 	  DstBlock		  "Add"
 	  DstPort		  1
 	}
 	Annotation {
 	  Name			  "Error"
-	  Position		  [219, 127]
+	  Position		  [209, 52]
 	}
       }
     }
@@ -3025,11 +3047,105 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nauvt\\n13-Aug-2010 18:59:38"
+      "nauvt\\n23-Aug-2010 16:28:25"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
       TagMaxNumber	      "20"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Right Drag\nCompensation"
+      SID		      198
+      Ports		      [1, 1]
+      Position		      [790, 210, 820, 240]
+      LibraryVersion	      "1.216"
+      SourceBlock	      "simulink/Discontinuities/Coulomb &\nViscous Friction"
+      SourceType	      "Coulombic and Viscous Friction"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      offset		      "15"
+      gain		      "(100-15)/100"
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Right Thruster\nNormalize"
+      SID		      184
+      Position		      [995, 210, 1025, 240]
+      Gain		      "1/100"
+      ParameterDataTypeMode   "Inherit via internal rule"
+      ParameterDataType	      "fixdt(1, 16)"
+      ParameterScaling	      "2^0"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeMode	      "Inherit via internal rule"
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Saturate
+      Name		      "Strafe Drag\nCompensation\nLimiter"
+      SID		      193
+      Ports		      [1, 1]
+      Position		      [890, 325, 920, 355]
+      UpperLimit	      "100"
+      LowerLimit	      "-100"
+      LinearizeAsGain	      off
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Strafe Drag\nCompensation1"
+      SID		      199
+      Ports		      [1, 1]
+      Position		      [790, 325, 820, 355]
+      LibraryVersion	      "1.216"
+      SourceBlock	      "simulink/Discontinuities/Coulomb &\nViscous Friction"
+      SourceType	      "Coulombic and Viscous Friction"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      offset		      "15"
+      gain		      "(100-15)/100"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Strafe Not\nControlled Value"
+      SID		      159
+      Position		      [590, 375, 620, 405]
+      FontSize		      14
+      Value		      "0"
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Strafe Thruster\nNormalize"
+      SID		      185
+      Position		      [995, 325, 1025, 355]
+      Gain		      "1/100"
+      ParameterDataTypeMode   "Inherit via internal rule"
+      ParameterDataType	      "fixdt(1, 16)"
+      ParameterScaling	      "2^0"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeMode	      "Inherit via internal rule"
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
     }
     Block {
       BlockType		      Sum
@@ -3076,10 +3192,46 @@ Model {
       SaturateOnIntegerOverflow	off
     }
     Block {
+      BlockType		      Reference
+      Name		      "Vertical Drag\nCompensation"
+      SID		      200
+      Ports		      [1, 1]
+      Position		      [790, 450, 820, 480]
+      LibraryVersion	      "1.216"
+      SourceBlock	      "simulink/Discontinuities/Coulomb &\nViscous Friction"
+      SourceType	      "Coulombic and Viscous Friction"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      offset		      "15"
+      gain		      "(100-15)/100"
+    }
+    Block {
+      BlockType		      Gain
+      Name		      "Vertical Thruster\nNormalize"
+      SID		      189
+      Position		      [995, 450, 1025, 480]
+      Gain		      "1/100"
+      ParameterDataTypeMode   "Inherit via internal rule"
+      ParameterDataType	      "fixdt(1, 16)"
+      ParameterScaling	      "2^0"
+      ParamDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutDataTypeMode	      "Inherit via internal rule"
+      OutDataType	      "fixdt(1, 16)"
+      OutScaling	      "2^0"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
       BlockType		      Outport
       Name		      "Left"
       SID		      152
-      Position		      [790, 128, 820, 142]
+      Position		      [1085, 128, 1115, 142]
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
       OutScaling	      "2^0"
@@ -3088,7 +3240,7 @@ Model {
       BlockType		      Outport
       Name		      "Right"
       SID		      153
-      Position		      [790, 218, 820, 232]
+      Position		      [1085, 218, 1115, 232]
       Port		      "2"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -3098,7 +3250,7 @@ Model {
       BlockType		      Outport
       Name		      "Strafe"
       SID		      154
-      Position		      [790, 333, 820, 347]
+      Position		      [1085, 333, 1115, 347]
       Port		      "3"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -3108,7 +3260,7 @@ Model {
       BlockType		      Outport
       Name		      "Vertical"
       SID		      155
-      Position		      [790, 458, 820, 472]
+      Position		      [1085, 458, 1115, 472]
       Port		      "4"
       IconDisplay	      "Port number"
       OutDataType	      "fixdt(1, 16)"
@@ -3244,12 +3396,6 @@ Model {
       DstPort		      3
     }
     Line {
-      SrcBlock		      "Switch"
-      SrcPort		      1
-      DstBlock		      "Left"
-      DstPort		      1
-    }
-    Line {
       SrcBlock		      "Maintain Heading"
       SrcPort		      2
       Points		      [70, 0]
@@ -3264,9 +3410,9 @@ Model {
       DstPort		      3
     }
     Line {
-      SrcBlock		      "Constant"
+      SrcBlock		      "Strafe Not\nControlled Value"
       SrcPort		      1
-      Points		      [25, 0; 0, -65]
+      Points		      [25, 0; 0, -40]
       DstBlock		      "Switch2"
       DstPort		      3
     }
@@ -3278,21 +3424,87 @@ Model {
       DstPort		      1
     }
     Line {
+      SrcBlock		      "Switch"
+      SrcPort		      1
+      DstBlock		      "Left Drag\nCompensation"
+      DstPort		      1
+    }
+    Line {
       SrcBlock		      "Switch1"
       SrcPort		      1
-      DstBlock		      "Right"
+      DstBlock		      "Right Drag\nCompensation"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Switch2"
       SrcPort		      1
+      DstBlock		      "Strafe Drag\nCompensation1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Left Thruster \nNormalize"
+      SrcPort		      1
+      DstBlock		      "Left"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Right Thruster\nNormalize"
+      SrcPort		      1
+      DstBlock		      "Right"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Left Drag\nCompensation"
+      SrcPort		      1
+      DstBlock		      "Left Thruster \nNormalize"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Right Drag\nCompensation"
+      SrcPort		      1
+      DstBlock		      "Right Thruster\nNormalize"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Strafe Thruster\nNormalize"
+      SrcPort		      1
       DstBlock		      "Strafe"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Strafe Drag\nCompensation1"
+      SrcPort		      1
+      DstBlock		      "Strafe Drag\nCompensation\nLimiter"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Strafe Drag\nCompensation\nLimiter"
+      SrcPort		      1
+      DstBlock		      "Strafe Thruster\nNormalize"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Buoyancy \nCompensation\nLimiter"
+      SrcPort		      1
+      DstBlock		      "Vertical Thruster\nNormalize"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Vertical Thruster\nNormalize"
+      SrcPort		      1
+      DstBlock		      "Vertical"
       DstPort		      1
     }
     Line {
       SrcBlock		      "MaintainDepth "
       SrcPort		      1
-      DstBlock		      "Vertical"
+      DstBlock		      "Vertical Drag\nCompensation"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Vertical Drag\nCompensation"
+      SrcPort		      1
+      DstBlock		      "Buoyancy \nCompensation\nLimiter"
       DstPort		      1
     }
   }
@@ -3301,11 +3513,12 @@ MatData {
   NumRecords		  2
   DataRecord {
     Tag			    DataTag1
-    Data		    "  %)30     .    @ $   8    (     @         %    \"     $    !     0         %  0 \"     $    8    =F5R<"
+    Data		    "  %)30     .    L $   8    (     @         %    \"     $    !     0         %  0 \"     $    8    =F5R<"
     "VEO;@!C;VYT96YT &9O<FUA=   #@   #@    &    \"     8         !0    @    !     0    $         \"0    @    S,S,S,S/S/"
-    "PX   \"P    !@    @    $          4    (     0   (     !         !    \"     5&AE<V4@;6%T:\"!F=6YC=&EO;G,@<VAA<&4@"
-    "=&AE(&5R<F]R('1O(&AE;' @;&EN96%R:7IE('1H92!T:')U<W1E<B!R97-P;VYS92X*5&AE(&9U;F-T:6]N(&ES.B!S:6=N*&5R<F]R*2 J(&QO9S"
-    "$P*&%B<RAE<G)O<BDK,2D.    ,     8    (    !          %    \"     $    #     0         0  , 5%A4  "
+    "PX   #@    !@    @    $          4    (     0   *H    !         !    \"J    5&AE<V4@;6%T:\"!F=6YC=&EO;G,@<VAA<&4@="
+    "&AE(&5R<F]R('1O(&AE;' @;&EN96%R:7IE('1H92!T:')U<W1E<B!R97-P;VYS92X*5&AE(&9U;F-T:6]N('=A<SH@<VEG;BAE<G)O<BD@*B!L;V<"
+    "Q,\"AA8G,H97)R;W(I*S$I\"E1H92!N97<@9G5N8W1I;VX@:7,Z(#0U*G1A;G-I9RAE<G)O<B\\Q-2D        .    ,     8    (    !     "
+    "     %    \"     $    #     0         0  , 5%A4  "
   }
   DataRecord {
     Tag			    DataTag0
