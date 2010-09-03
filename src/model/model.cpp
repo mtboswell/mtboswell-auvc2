@@ -152,11 +152,31 @@ void Model::updateSensorsInput(AUVSensors values){
 	*/
 }
 
-void Model::setState(int state){
-	if(state < 0 || state > 5) return;	
-	brain_U.DesiredState = state;
-}
+void Model::updateVideoFrame(QImage frame){
+  	QMutexLocker locker(modelMutex);
 
+	//qDebug() << "Processing QImage" << frame.size() << frame.format();
+
+	// potential for segfaults if the size isn't what matlab is expecting
+	frame = frame.scaled(160,120);
+	int height = frame.height();
+	int width = frame.width();
+	if(height != 120 || width != 160) {
+		qDebug() << "Frame is wrong size";
+		return;
+	}
+
+	unsigned int *imgptr = (unsigned int*) frame.bits();
+	unsigned int pixel;
+	for(int x = width-1; x >= 0; --x){
+		for(int y = height-1; y >= 0; --y){
+			pixel = *(imgptr + width*y+x);
+			brain_U.R[(height*x)+y] = ((pixel >> 24) & 0x000000ff) / 255.0f;
+			brain_U.G[(height*x)+y] = ((pixel >> 16) & 0x000000ff) / 255.0f;
+			brain_U.B[(height*x)+y] = ((pixel >> 8) & 0x000000ff) / 255.0f;
+		}
+	}
+}
 
 void Model::setParam(QString name, double value){
 	if(parameters.contains(name)) {

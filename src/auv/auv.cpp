@@ -75,6 +75,16 @@ AUV::AUV(QMutex* sensorMutex, bool hardwareOverrideDisabled){
 	qDebug() << "Bringing up LCD";
 	statusLcd = new LCD(config["SerialPort.LCD"]);
 
+	qDebug() << "Initializing Camera";
+	camera = new QWebCam();
+	//camThread = new QThread(this);
+	//camThread->start(); // maybe??
+	//camera->moveToThread(camThread);
+	//camThread->start(); // ??
+	connect(camera, SIGNAL(newFrame(QImage)),this, SIGNAL(cameraFrame(QImage)));
+	connect(camera, SIGNAL(newFrame(QPixmap)),this, SIGNAL(cameraFrame(QPixmap)));
+
+
 	//connect(this, SIGNAL(status(QString)), this, SLOT(statusMessage(QString)));
 
 	// dirty hack to disable off switch when we don't have one attached.
