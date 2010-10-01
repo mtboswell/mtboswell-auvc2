@@ -5,12 +5,12 @@
 #define sl_solver_rtw_h
 /*
  *
- * Copyright 2008-2009 The MathWorks, Inc.
+ * Copyright 2008-2010 The MathWorks, Inc.
  *
  * This header is the intrace to the sl_solver_rtw module. It is used by the
  * RTW-RSim and Rapid Accelerartor targets.
  *
- * $Revision: 1.1.6.2.2.1 $
+ * $Revision: 1.1.6.4 $
  *
  */
 
@@ -64,5 +64,9 @@ LINKAGE_SPEC void rsimInstallAllHandlers(
     int        timeLimit );
     
 LINKAGE_SPEC void rsimUninstallNonfatalHandlers(void);
+
+LINKAGE_SPEC boolean_T isVariableStepSolver(const char* slvrName);
+
+LINKAGE_SPEC boolean_T isFixedStepSolver(const char* slvrName);
 
 #endif /* sl_solver_rtw_h */

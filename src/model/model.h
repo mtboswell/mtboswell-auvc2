@@ -9,7 +9,7 @@
 #include <QMutexLocker>
 #include <QTime>
 #include <QHash>
-#include "../auv/auvtypes.h"
+#include "../state.h"
 #include "../auv/camread.h"
 #include "../brain/brain.h"      /* Model's header file */
 #include "parameters.h"
@@ -45,24 +45,28 @@ class Model : public QThread
 		 * If duration > BRAIN_STEP_TIME, an overrun has occurred
 		 */
 		void outputReady(ExternalOutputs_brain Output, int duration);
+		void messageOut(QString, QString);
 		void status(QString);
 		void error(QString);
 		
 	public slots:
+		void messageIn(QString, QString);
+		void sendParams();
 		// Reads sensor data emitted from AUV
 		void updateSensorsInput(AUVSensors values);
+		void updateVideoFrame(QImage frame);
 
 		// Deprecated, use setInput("State", ) instead
-		void setState(int state);
+		//void setState(int state);
 
 		// Deprecated, use setRecordVideo() instead
-		void startRecordVideo(){record_video = true;}
-		void stopRecordVideo(){record_video = false;}
+//		void startRecordVideo(){record_video = true;}
+//		void stopRecordVideo(){record_video = false;}
 		
 		// deprecated, video is now recorded in server thread
 		// Enables/disables video recording.  This is handled here because 
 		// the camera is accessed directly from the brain to save bandwidth
-		void setRecordVideo(bool rec){record_video = rec;}
+//		void setRecordVideo(bool rec){record_video = rec;}
 
 		/**
 		 * Set Model Parameters.
@@ -94,8 +98,8 @@ class Model : public QThread
 		QMutex *modelMutex;
 		// stepTime is deprecated, use BRAIN_STEP_TIME
 		int stepTime;
-		struct camframe myframe;
-		bool record_video;
+//		struct camframe myframe;
+//		bool record_video;
 		QTime stepTimer;
 		// signals overrun, currently everything crashes when an overrun happens
 		boolean_T OverrunFlag;

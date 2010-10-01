@@ -8,7 +8,7 @@
 #define AUV_CPP_
 
 #include "auv.h"
-#include "camread.h"
+//#include "camread.h"
 #include <iostream>
 #include <string>
 #include <QDebug>
@@ -511,12 +511,12 @@ void AUV::setMotion(AUVMotion* velocity){
 void AUV::autoWhiteBalance(){
 	emit status("White-balancing camera");
 	//qDebug() << "Turning off camera...";
-	if(!camread_pause()) emit error("Failed to stop camera");
+	//if(!camread_pause()) emit error("Failed to stop camera");
 	wait(500);
 	//qDebug() << "Sending White Balance command...";
 	wbProc->execute("v4lctl setattr \"Auto White Balance\" on");
 	//wait(500);
-	if(!camread_unpause()) emit error("Failed to turn on camera");
+	//if(!camread_unpause()) emit error("Failed to turn on camera");
 	qDebug() << "White balancing (3s)...";
 	QTimer::singleShot(3000, this, SLOT(finishWhiteBalance()));
 //	qDebug() << "counting down...";
@@ -525,12 +525,12 @@ void AUV::autoWhiteBalance(){
 }
 void AUV::finishWhiteBalance(){
 //	qDebug() << "Turning off camera...";
-	if(!camread_pause()) qDebug() << "Failed to stop camera";
+	//if(!camread_pause()) qDebug() << "Failed to stop camera";
 	wait(500);
 	qDebug() << "Stopping white ballancing";
 	wbProc->execute("v4lctl setattr \"Auto White Balance\" off");
 	wait(500);
-	if(!camread_unpause()) qDebug() << "Failed to turn on camera:";
+	//if(!camread_unpause()) qDebug() << "Failed to turn on camera:";
 	emit status("Done white balancing");
 }
 
@@ -664,5 +664,75 @@ void AUV::statusField(QString name, QString msg){
 	statusLcd->dispField(name, msg);
 }
 
+void AUV::messageIn(QString id, QString value){
+	bool completedCommand = true;
+	if(!id.startsWith("AUV")) return;
+	QString type, name;
+	QStringList ids = id.split('.');
+	if(ids.size() > 1) type = ids[1];
+	if(ids.size() > 2) name = ids[2];
+
+	if(type == "Mode"){
+		if(value == "Running" || value == "Run") goAUV();
+		else if(value == "Stopped" || value == "Stop" || value == "Pause" || value == "Paused") stop();
+		else if(value == "Killed" || value == "Kill" || value == "kill") kill();
+		else if(value == "Reset") reset();
+	}else if(type == "Actuate" || type == "Activate"){
+		if(name == "SelfDestruct") qDebug() << "Self Destruct in 5...";
+		else if(name =="Mech" || name == "Mechanism") emit activateMechanism(value);
+		else if(name == "Script") runScriptedMotion(value);
+		else completedCommand = false;
+	}else if(type == "Move"){
+		if(name == "Camera"){
+			QStringList coords = value.split(",");
+			if(coords.size() < 2) error("Invalid camera coords");
+			else{
+				double x = coords.at(0).toDouble();
+				double y = coords.at(1).toDouble();
+				look(x,y);
+			}
+		}else completedCommand = false;
+	}else if(type == "Script"){
+		if(name == "Run")
+			runScriptedMotion(value);
+	//	else if(name == "New")
+	//		newScript(value);
+	}else if(type == "Calibrate"){
+		if(name == "Depth") setActualDepth(value.toDouble());
+		else if(name == "WhiteBalance") autoWhiteBalance();
+		else completedCommand = false;
+	}
+}
+
+
+void AUV::sendSensorData(AUVSensors sens){
+	if(config["Debug"]=="true") qDebug() << "Sending Sensor Data";
+
+	static int sendCount = 0;
+
+
+	// logging is now done in the dashboard
+	//logger->logData(type + '.' + name, value);
+
+	//sens.stuff;
+	emit messageOut("AUV.Mode", QString::number(sens.status));
+	emit messageOut("AUV.Heading", QString::number(sens.orientation.yaw));
+	emit messageOut("AUV.Depth", QString::number(sens.depth));
+	emit messageOut("AUV.LeftThruster", QString::number(sens.thrusterSpeeds[0]));
+	emit messageOut("AUV.RightThruster", QString::number(sens.thrusterSpeeds[1]));
+	emit messageOut("AUV.LateralThruster", QString::number(sens.thrusterSpeeds[2]));
+	emit messageOut("AUV.VerticalThruster", QString::number(sens.thrusterSpeeds[3]));
+	emit messageOut("AUV.CameraX", QString::number(sens.cameraX));
+	emit messageOut("AUV.CameraY", QString::number(sens.cameraY));
+	// some data gets updated less often
+	if(sendCount%10 == 0){
+		emit messageOut("AUV.ThrusterVoltage", QString::number(sens.thrusterPower.voltage));
+		emit messageOut("AUV.ThrusterCurrent", QString::number(sens.thrusterPower.current));
+		emit messageOut("AUV.ManualOverrideDisabled", sens.manualOverrideDisabled?"true":"false");
+		sendCount = 0;
+	}
+
+}
 
 #endif /*AUV_CPP_*/
+

@@ -4,10 +4,10 @@
  * Real-Time Workshop code generated for Simulink model brain.
  *
  * Model version                        : 1.736
- * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sun Jul 18 11:27:08 2010
- * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sun Jul 18 11:27:08 2010
+ * Real-Time Workshop file version      : 7.6  (R2010b)  03-Aug-2010
+ * Real-Time Workshop file generated on : Fri Oct  1 02:40:39 2010
+ * TLC version                          : 7.6 (Jul 13 2010)
+ * C/C++ source code generated on       : Fri Oct  1 02:40:43 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -110,64 +110,47 @@ RT_MODEL_brain brain_M_;
 RT_MODEL_brain *brain_M = &brain_M_;
 
 /* Forward declaration for local functions */
-static void brain_min(const real_T eml_varargin_1[10], real_T *eml_minval,
-                      real_T *eml_indx);
+static void brain_min(const real_T varargin_1[10], real_T *minval, real_T *indx);
 
 /* Forward declaration for local functions */
-static void brain_Outputs(const boolean_T eml_U0[19200], real_T eml_Y0[100],
-  real_T eml_Y1[50], real_T eml_Y2[50], uint8_T *eml_Y3,
-  rtDW_StateFlowFunctionsBuoysFin *localDW);
-static void brain_c3_brain(const real_T rtu_LabMatrix[19200], real_T
-  rtu_num_colors, rtB_StateFlowFunctionsBuoysFind *localB,
-  rtDW_StateFlowFunctionsBuoysFin *localDW);
+static void brain_Outputs(const boolean_T U0[19200], real_T Y0[100], real_T Y1
+  [50], real_T Y2[50], uint8_T *Y3, rtDW_StateFlowFunctionsBuoysFin *localDW);
 
 /* Forward declaration for local functions */
-static void brain_conv2(const real32_T eml_arg1[19200], const real32_T eml_arg2
-  [9], real32_T eml_c[18644]);
-static void brain_c14_brain(const real_T rtu_I[19200], rtB_LowPassFilter_brain
-  *localB);
+static void brain_conv2(const real32_T arg1[19200], const real32_T arg2[9],
+  real32_T c[18644]);
 
 /* Forward declaration for local functions */
-static void brain_c28_brain(rtB_StateFlowFunctionsBuoysIter *localB);
-
-/* Forward declaration for local functions */
-static void brain_Outputs_f(const boolean_T eml_U0[19200], int32_T eml_Y0[50],
-  real_T eml_Y1[100], real_T eml_Y2[50], real_T eml_Y3[50], uint8_T *eml_Y4,
-  rtDW_StateFlowFunctionsBuoysF_e *localDW);
-static void brain_c5_brain(const real_T rtu_LabelMatrix[19200], real_T
-  rtu_num_colors, rtB_StateFlowFunctionsBuoysFi_d *localB,
+static void brain_Outputs_f(const boolean_T U0[19200], int32_T Y0[50], real_T
+  Y1[100], real_T Y2[50], real_T Y3[50], uint8_T *Y4,
   rtDW_StateFlowFunctionsBuoysF_e *localDW);
 
 /* Forward declaration for local functions */
-static void brain_max(const real_T eml_varargin_1[10], real_T *eml_maxval,
-                      real_T *eml_indx);
+static void brain_max(const real_T varargin_1[10], real_T *maxval, real_T *indx);
 
 /* Forward declaration for local functions */
 static void brain_enter_internal_CalcTare(void);
 static void brain_StateEstimator(void);
 static void brain_Autonomous(void);
 static void brain_enter_internal_Buoys(void);
-static real_T brain_countareas(real_T sf_Size, real_T sf_count1);
-static real_T brain_Turn45Degrees(real_T sf_CHeading, real_T sf_TurnD);
+static real_T brain_countareas(real_T Size, real_T count1);
+static real_T brain_Turn45Degrees(real_T CHeading, real_T TurnD);
 static void brain_FindSecondBuoy(void);
 static void bra_exit_internal_ApproachBuoys(void);
 static void brain_ApproachBuoys(void);
-static real_T brain_countimages(real_T sf_Image1, real_T sf_OldImage, real_T
-  sf_count1);
+static real_T brain_countimages(real_T Image1, real_T OldImage, real_T count1);
 static void brain_exit_internal_Buoys(void);
 static void brain_Buoys(void);
-static void brain_max_o(const real_T eml_varargin_1[71820], real_T eml_maxval
-  [180], real_T eml_indx[180]);
-static void brain_max_oh(const real_T eml_varargin_1[180], real_T *eml_maxval,
-  real_T *eml_indx);
-static void brain_refp1_round(real_T *eml_x);
-static void brain_c30_brain(void);
-static void brain_max_h(const real_T eml_varargin_1[2], real_T *eml_maxval,
-  real_T *eml_indx);
+static void brain_max_o(const real_T varargin_1[71820], real_T maxval[180],
+  real_T indx[180]);
+static void brain_max_oh(const real_T varargin_1[180], real_T *maxval, real_T
+  *indx);
+static void brain_refp1_round(real_T *x);
+static void brain_max_h(const real_T varargin_1[2], real_T *maxval, real_T *indx);
 static void brain_OnePath(void);
 static void brain_RecognizePath(void);
 static void brain_GetInCorrectState(void);
-static real_T brain_GetStrafeDirection(real_T sf_AxisDif);
+static real_T brain_GetStrafeDirection(real_T AxisDif);
 static void exit_internal_GetInitialDirecti(void);
 static void brai_enter_atomic_ApproachHedge(void);
 static void brain_GetInitialDirection(void);
@@ -177,8 +160,7 @@ static void brain_exit_internal_JumpHedge(void);
 static void brain_exit_atomic_JumpHedge(void);
 static void brain_JumpHedge(void);
 static void brain_LocatePinger(void);
-static real_T brain_countimages_m(real_T sf_Image, real_T sf_OldImage, real_T
-  sf_count1);
+static real_T brain_countimages_m(real_T Image, real_T OldImage, real_T count1);
 static void brain_ValidationGate(void);
 static void brain_StateFlowFunctions(void);
 int32_T div_s32_floor(int32_T numerator, int32_T denominator)
@@ -230,55 +212,54 @@ void brain_EmbeddedMATLABFunction1(rtB_EmbeddedMATLABFunction1_bra *localB)
 }
 
 /* Function for Embedded MATLAB: '<S10>/Embedded MATLAB Function' */
-static void brain_min(const real_T eml_varargin_1[10], real_T *eml_minval,
-                      real_T *eml_indx)
+static void brain_min(const real_T varargin_1[10], real_T *minval, real_T *indx)
 {
-  real_T eml_mtmp;
-  int32_T eml_itmp;
-  int32_T eml_ix;
-  boolean_T eml_searchingForNonNaN;
-  int32_T eml_k;
-  boolean_T eml_guard;
-  boolean_T eml_exitg;
-  eml_mtmp = eml_varargin_1[0];
-  eml_itmp = 1;
-  eml_ix = 1;
-  eml_guard = FALSE;
-  if (rtIsNaN(eml_varargin_1[0])) {
-    eml_searchingForNonNaN = TRUE;
-    eml_k = 2;
-    eml_exitg = FALSE;
-    while (((uint32_T)eml_exitg == 0U) && (eml_k < 11)) {
-      eml_ix++;
-      if (!rtIsNaN(eml_varargin_1[eml_ix - 1])) {
-        eml_mtmp = eml_varargin_1[eml_ix - 1];
-        eml_itmp = eml_k;
-        eml_searchingForNonNaN = FALSE;
-        eml_exitg = TRUE;
+  real_T mtmp;
+  int32_T itmp;
+  int32_T ix;
+  boolean_T searchingForNonNaN;
+  int32_T k;
+  boolean_T guard;
+  boolean_T exitg;
+  mtmp = varargin_1[0];
+  itmp = 1;
+  ix = 1;
+  guard = FALSE;
+  if (rtIsNaN(varargin_1[0])) {
+    searchingForNonNaN = TRUE;
+    k = 2;
+    exitg = FALSE;
+    while (((uint32_T)exitg == 0U) && (k < 11)) {
+      ix++;
+      if (!rtIsNaN(varargin_1[ix - 1])) {
+        mtmp = varargin_1[ix - 1];
+        itmp = k;
+        searchingForNonNaN = FALSE;
+        exitg = TRUE;
       } else {
-        eml_k++;
+        k++;
       }
     }
 
-    if (!eml_searchingForNonNaN) {
-      eml_guard = TRUE;
+    if (!searchingForNonNaN) {
+      guard = TRUE;
     }
   } else {
-    eml_guard = TRUE;
+    guard = TRUE;
   }
 
-  if (eml_guard) {
-    for (eml_k = eml_itmp + 1; eml_k < 11; eml_k++) {
-      eml_ix++;
-      if (eml_varargin_1[eml_ix - 1] < eml_mtmp) {
-        eml_mtmp = eml_varargin_1[eml_ix - 1];
-        eml_itmp = eml_k;
+  if (guard) {
+    for (k = itmp + 1; k < 11; k++) {
+      ix++;
+      if (varargin_1[ix - 1] < mtmp) {
+        mtmp = varargin_1[ix - 1];
+        itmp = k;
       }
     }
   }
 
-  *eml_minval = eml_mtmp;
-  *eml_indx = (real_T)eml_itmp;
+  *minval = mtmp;
+  *indx = (real_T)itmp;
 }
 
 /* Initial conditions for function-call system: '<Root>/StateFlow Functions' */
@@ -295,103 +276,103 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   rtB_StateFlowFunctionsBuoysAppr *localB, rtDW_StateFlowFunctionsBuoysApp
   *localDW)
 {
-  int32_T i;
   real_T cc;
-  real_T cc_0;
-  real_T cc_1;
-  int32_T idxROI;
-  int32_T row;
   boolean_T visited;
   boolean_T visited_0;
   boolean_T done;
-  uint32_T OutCode;
-  real_T eml_min_dist;
-  real_T eml_i;
-  real_T eml_Dist[10];
-  real_T eml_MinDist;
-  real_T eml_index;
+  real_T min_dist;
+  real_T Dist[10];
   int8_T rtb_index_h;
+  int32_T padCols;
   boolean_T maxNumBlobsReached;
+  int32_T loop;
   uint8_T currentLabel;
+  int32_T idx;
   int32_T n;
+  int32_T nn;
   uint32_T stackIdx;
   uint32_T pixIdx;
   uint32_T start_pixIdx;
-  int32_T n_0;
   uint32_T BuoyBlobAnalysis_NUM_PIX_DW[10];
   uint32_T numBlobs;
+  int32_T ms;
+  int32_T j;
+  real_T xys;
+  uint32_T k;
+  real_T uxx;
   real_T rtb_TmpSignalConversionAtDrawMa[2];
+  real_T rtb_Error;
+  real_T rtb_TSamp_l;
+  real_T rtb_TSamp_c;
   int32_T rtb_BuoyBlobAnalysis_o1_m[10];
   real_T rtb_BuoyBlobAnalysis_o2_a[20];
   real_T rtb_BuoyBlobAnalysis_o3_l[10];
-  int32_T i_0;
+  int32_T i;
   int32_T line_idx;
   int32_T line_idx_0;
   int32_T line_idx_1;
   int32_T line_idx_2;
   int32_T line_idx_3;
   int32_T line_idx_4;
-  int32_T line_idx_5;
-  int32_T line_idx_6;
   localDW->StateFlowFunctionsBuoysApproa_a = brain_M->Timing.clockTick0 -
     localDW->StateFlowFunctionsBuoysApproa_m;
   localDW->StateFlowFunctionsBuoysApproa_m = brain_M->Timing.clockTick0;
 
   /* S-Function (svipcolorconv): '<S52>/Color Space  Conversion' */
   /* temporary variables for in-place operation */
+  uxx = 0.0;
   cc = 0.0;
-  cc_0 = 0.0;
-  cc_1 = 0.0;
-  eml_min_dist = 6.0 * rtu_B_Hue;
-  eml_index = (real_T)(uint32_T)(eml_min_dist - 1.3322676295501878E-015);
-  eml_min_dist -= eml_index;
-  eml_i = 1.0 - rtu_B_Sat;
-  eml_MinDist = 1.0 - rtu_B_Sat * eml_min_dist;
-  eml_min_dist = rtu_B_Sat * eml_min_dist + eml_i;
-  if (eml_index == 0.0) {
+  xys = 0.0;
+  min_dist = 6.0 * rtu_B_Hue;
+  rtb_TSamp_c = (real_T)(uint32_T)(min_dist - 1.3322676295501878E-15);
+  min_dist -= rtb_TSamp_c;
+  rtb_TSamp_l = 1.0 - rtu_B_Sat;
+  rtb_Error = 1.0 - rtu_B_Sat * min_dist;
+  min_dist = rtu_B_Sat * min_dist + rtb_TSamp_l;
+  if (rtb_TSamp_c == 0.0) {
+    uxx = 1.0;
+    cc = min_dist;
+    xys = rtb_TSamp_l;
+  } else if (rtb_TSamp_c == 1.0) {
+    uxx = rtb_Error;
     cc = 1.0;
-    cc_0 = eml_min_dist;
-    cc_1 = eml_i;
-  } else if (eml_index == 1.0) {
-    cc = eml_MinDist;
-    cc_0 = 1.0;
-    cc_1 = eml_i;
-  } else if (eml_index == 2.0) {
-    cc = eml_i;
-    cc_0 = 1.0;
-    cc_1 = eml_min_dist;
-  } else if (eml_index == 3.0) {
-    cc = eml_i;
-    cc_0 = eml_MinDist;
-    cc_1 = 1.0;
-  } else if (eml_index == 4.0) {
-    cc = eml_min_dist;
-    cc_0 = eml_i;
-    cc_1 = 1.0;
+    xys = rtb_TSamp_l;
+  } else if (rtb_TSamp_c == 2.0) {
+    uxx = rtb_TSamp_l;
+    cc = 1.0;
+    xys = min_dist;
+  } else if (rtb_TSamp_c == 3.0) {
+    uxx = rtb_TSamp_l;
+    cc = rtb_Error;
+    xys = 1.0;
+  } else if (rtb_TSamp_c == 4.0) {
+    uxx = min_dist;
+    cc = rtb_TSamp_l;
+    xys = 1.0;
   } else {
-    if (eml_index == 5.0) {
-      cc = 1.0;
-      cc_0 = eml_i;
-      cc_1 = eml_MinDist;
+    if (rtb_TSamp_c == 5.0) {
+      uxx = 1.0;
+      cc = rtb_TSamp_l;
+      xys = rtb_Error;
     }
   }
 
-  if (cc > cc_0) {
-    eml_min_dist = cc;
+  if (uxx > cc) {
+    min_dist = uxx;
   } else {
-    eml_min_dist = cc_0;
+    min_dist = cc;
   }
 
-  if (!(eml_min_dist > cc_1)) {
-    eml_min_dist = cc_1;
+  if (!(min_dist > xys)) {
+    min_dist = xys;
   }
 
-  eml_min_dist = rtu_B_Value / eml_min_dist;
+  min_dist = rtu_B_Value / min_dist;
 
   /* assign the results */
-  localB->ColorSpaceConversion_o1 = eml_min_dist * cc;
-  localB->ColorSpaceConversion_o2 = eml_min_dist * cc_0;
-  localB->ColorSpaceConversion_o3 = eml_min_dist * cc_1;
+  localB->ColorSpaceConversion_o1 = min_dist * uxx;
+  localB->ColorSpaceConversion_o2 = min_dist * cc;
+  localB->ColorSpaceConversion_o3 = min_dist * xys;
 
   /* S-Function (svipcolorconv): '<S52>/Color Space  Conversion1' */
   /* temporary variables for in-place operation */
@@ -401,44 +382,43 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   /* equivalent to running the gamma correction block with break */
   /* point of 0.00304 and gamma of 2.4; it's built into this */
   /* conversion for convenience */
-  if (localB->ColorSpaceConversion_o1 <= 3.9286085583733095E-002) {
-    eml_min_dist = localB->ColorSpaceConversion_o1 / 1.2923054468333254E+001;
+  if (localB->ColorSpaceConversion_o1 <= 0.039286085583733095) {
+    min_dist = localB->ColorSpaceConversion_o1 / 12.923054468333255;
   } else {
-    eml_min_dist = rt_pow_snf((localB->ColorSpaceConversion_o1 +
-      5.5000519817226361E-002) / 1.0550005198172263E+000, 2.4);
+    min_dist = rt_pow_snf((localB->ColorSpaceConversion_o1 +
+      0.055000519817226347) / 1.0550005198172263, 2.4);
   }
 
-  if (localB->ColorSpaceConversion_o2 <= 3.9286085583733095E-002) {
-    eml_i = localB->ColorSpaceConversion_o2 / 1.2923054468333254E+001;
+  if (localB->ColorSpaceConversion_o2 <= 0.039286085583733095) {
+    rtb_TSamp_l = localB->ColorSpaceConversion_o2 / 12.923054468333255;
   } else {
-    eml_i = rt_pow_snf((localB->ColorSpaceConversion_o2 +
-                        5.5000519817226361E-002) / 1.0550005198172263E+000, 2.4);
+    rtb_TSamp_l = rt_pow_snf((localB->ColorSpaceConversion_o2 +
+      0.055000519817226347) / 1.0550005198172263, 2.4);
   }
 
-  if (localB->ColorSpaceConversion_o3 <= 3.9286085583733095E-002) {
-    eml_MinDist = localB->ColorSpaceConversion_o3 / 1.2923054468333254E+001;
+  if (localB->ColorSpaceConversion_o3 <= 0.039286085583733095) {
+    rtb_Error = localB->ColorSpaceConversion_o3 / 12.923054468333255;
   } else {
-    eml_MinDist = rt_pow_snf((localB->ColorSpaceConversion_o3 +
-      5.5000519817226361E-002) / 1.0550005198172263E+000, 2.4);
+    rtb_Error = rt_pow_snf((localB->ColorSpaceConversion_o3 +
+      0.055000519817226347) / 1.0550005198172263, 2.4);
   }
 
   /* The coefficients for this conversion were derived from ITU-R */
   /* BT.709 reference primaries for sRGB and CIE standard illuminant */
   /* D65, 2 degree observer */
-  eml_index = (4.1239079926596001E-001 * eml_min_dist + 3.5758433938388001E-001 *
-               eml_i) + 1.8048078840182999E-001 * eml_MinDist;
-  cc = (2.1263900587151000E-001 * eml_min_dist + 7.1516867876776002E-001 * eml_i)
-    + 7.2192315360729994E-002 * eml_MinDist;
-  eml_min_dist = (1.9330818715590000E-002 * eml_min_dist +
-                  1.1919477979463000E-001 * eml_i) + 9.5053215224966003E-001 *
-    eml_MinDist;
+  uxx = (0.41239079926596 * min_dist + 0.35758433938388 * rtb_TSamp_l) +
+    0.18048078840183 * rtb_Error;
+  cc = (0.21263900587151 * min_dist + 0.71516867876776 * rtb_TSamp_l) +
+    0.07219231536073 * rtb_Error;
+  xys = (0.01933081871559 * min_dist + 0.11919477979463 * rtb_TSamp_l) +
+    0.95053215224966 * rtb_Error;
 
   /* Make sure that the output is in [0..1] range; clip if necessary */
-  if (eml_index > 1.0) {
-    eml_index = 1.0;
+  if (uxx > 1.0) {
+    uxx = 1.0;
   } else {
-    if (eml_index < 0.0) {
-      eml_index = 0.0;
+    if (uxx < 0.0) {
+      uxx = 0.0;
     }
   }
 
@@ -450,78 +430,78 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     }
   }
 
-  if (eml_min_dist > 1.0) {
-    eml_min_dist = 1.0;
+  if (xys > 1.0) {
+    xys = 1.0;
   } else {
-    if (eml_min_dist < 0.0) {
-      eml_min_dist = 0.0;
+    if (xys < 0.0) {
+      xys = 0.0;
     }
   }
 
   /* assign the results */
-  localB->ColorSpaceConversion1_o1 = eml_index;
+  localB->ColorSpaceConversion1_o1 = uxx;
   localB->ColorSpaceConversion1_o2 = cc;
-  localB->ColorSpaceConversion1_o3 = eml_min_dist;
+  localB->ColorSpaceConversion1_o3 = xys;
 
   /* Convert from XYZ to L*a*b* */
-  eml_min_dist = localB->ColorSpaceConversion1_o1 / 9.6419865576090003E-001;
-  eml_MinDist = localB->ColorSpaceConversion1_o3 / 8.2511648322104003E-001;
+  min_dist = localB->ColorSpaceConversion1_o1 / 0.9641986557609;
+  rtb_Error = localB->ColorSpaceConversion1_o3 / 0.82511648322104;
 
   /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-  if (eml_min_dist > 8.8564516790356311E-003) {
-    eml_index = rt_pow_snf(eml_min_dist, 3.3333333333333331E-001);
+  if (min_dist > 0.0088564516790356311) {
+    rtb_TSamp_c = rt_pow_snf(min_dist, 0.33333333333333331);
   } else {
-    eml_index = 7.7870370370370372E+000 * eml_min_dist + 1.3793103448275862E-001;
+    rtb_TSamp_c = 7.7870370370370372 * min_dist + 0.13793103448275862;
   }
 
-  if (localB->ColorSpaceConversion1_o2 > 8.8564516790356311E-003) {
-    eml_i = rt_pow_snf(localB->ColorSpaceConversion1_o2, 3.3333333333333331E-001);
+  if (localB->ColorSpaceConversion1_o2 > 0.0088564516790356311) {
+    rtb_TSamp_l = rt_pow_snf(localB->ColorSpaceConversion1_o2,
+      0.33333333333333331);
   } else {
-    eml_i = 7.7870370370370372E+000 * localB->ColorSpaceConversion1_o2 +
-      1.3793103448275862E-001;
+    rtb_TSamp_l = 7.7870370370370372 * localB->ColorSpaceConversion1_o2 +
+      0.13793103448275862;
   }
 
-  if (eml_MinDist > 8.8564516790356311E-003) {
-    eml_min_dist = rt_pow_snf(eml_MinDist, 3.3333333333333331E-001);
+  if (rtb_Error > 0.0088564516790356311) {
+    min_dist = rt_pow_snf(rtb_Error, 0.33333333333333331);
   } else {
-    eml_min_dist = 7.7870370370370372E+000 * eml_MinDist +
-      1.3793103448275862E-001;
+    min_dist = 7.7870370370370372 * rtb_Error + 0.13793103448275862;
   }
 
   /* assign the results */
-  localB->ColorSpaceConversion1_o1 = 116.0 * eml_i - 16.0;
-  localB->ColorSpaceConversion1_o2 = (eml_index - eml_i) * 500.0;
-  localB->ColorSpaceConversion1_o3 = (eml_i - eml_min_dist) * 200.0;
+  localB->ColorSpaceConversion1_o1 = 116.0 * rtb_TSamp_l - 16.0;
+  localB->ColorSpaceConversion1_o2 = (rtb_TSamp_c - rtb_TSamp_l) * 500.0;
+  localB->ColorSpaceConversion1_o3 = (rtb_TSamp_l - min_dist) * 200.0;
 
   /* Embedded MATLAB: '<S48>/Choose Closest Color' */
   /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.Buoy/Threshold The Image/Choose Closest Color': '<S51>:1' */
   /*  This function chooses the appropriate color option from the reference colors */
   /*  and set of desired L,a,b values */
   /* '<S51>:1:5' */
-  eml_min_dist = 1000.0;
+  min_dist = 1000.0;
 
   /* '<S51>:1:11' */
   rtb_index_h = 1;
 
   /* '<S51>:1:12' */
-  for (eml_i = 1.0; eml_i <= rtu_Num_Colors; eml_i++) {
+  for (rtb_TSamp_l = 1.0; rtb_TSamp_l <= rtu_Num_Colors; rtb_TSamp_l++) {
     /* '<S51>:1:12' */
     /* '<S51>:1:13' */
-    eml_MinDist = sqrt((rt_pow_snf(localB->ColorSpaceConversion1_o2 -
-      rtu_Ref_Colors[(int32_T)eml_i + 49], 2.0) * 1.5 + rt_pow_snf
-                        (localB->ColorSpaceConversion1_o1 - rtu_Ref_Colors
-                         [(int32_T)eml_i - 1], 2.0)) + rt_pow_snf
-                       (localB->ColorSpaceConversion1_o3 - rtu_Ref_Colors
-                        [(int32_T)eml_i + 99], 2.0) * 1.5);
-    if (eml_MinDist < eml_min_dist) {
+    rtb_Error = sqrt((rt_pow_snf(localB->ColorSpaceConversion1_o2 -
+      rtu_Ref_Colors[(int32_T)rtb_TSamp_l + 49], 2.0) * 1.5 + rt_pow_snf
+                      (localB->ColorSpaceConversion1_o1 - rtu_Ref_Colors
+                       [(int32_T)rtb_TSamp_l - 1], 2.0)) + rt_pow_snf
+                     (localB->ColorSpaceConversion1_o3 - rtu_Ref_Colors[(int32_T)
+                      rtb_TSamp_l + 99], 2.0) * 1.5);
+    if (rtb_Error < min_dist) {
       /* '<S51>:1:14' */
       /* '<S51>:1:15' */
-      eml_min_dist = eml_MinDist;
+      min_dist = rtb_Error;
 
       /* '<S51>:1:16' */
-      cc = floor(eml_i + 0.5);
-      if (cc < 128.0) {
-        rtb_index_h = (int8_T)cc;
+      uxx = floor(rtb_TSamp_l + 0.5);
+      if (uxx < 128.0) {
+        rtb_index_h = (int8_T)uxx;
       } else {
         rtb_index_h = MAX_int8_T;
       }
@@ -529,51 +509,49 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   }
 
   /* RelationalOperator: '<S48>/Relational Operator' */
-  for (i_0 = 0; i_0 < 19200; i_0++) {
-    localB->BW[i_0] = (rtu_LabMatrix[i_0] == (real_T)rtb_index_h);
+  for (i = 0; i < 19200; i++) {
+    localB->BW[i] = (rtu_LabMatrix[i] == (real_T)rtb_index_h);
   }
 
   /* S-Function (svipblob): '<S10>/Buoy Blob Analysis' */
   maxNumBlobsReached = FALSE;
-  for (i = 0; i < 123; i++) {
-    localDW->BuoyBlobAnalysis_PAD_DW[i] = 0U;
+  for (loop = 0; loop < 123; loop++) {
+    localDW->BuoyBlobAnalysis_PAD_DW[loop] = 0U;
   }
 
   currentLabel = 1U;
   i = 0;
-  line_idx_6 = 123;
+  idx = 123;
   for (n = 0; n < 160; n++) {
-    for (n_0 = 0; n_0 < 120; n_0++) {
-      localDW->BuoyBlobAnalysis_PAD_DW[line_idx_6] = (uint8_T)(localB->BW[i] ?
-        255 : 0);
+    for (padCols = 0; padCols < 120; padCols++) {
+      localDW->BuoyBlobAnalysis_PAD_DW[idx] = (uint8_T)(localB->BW[i] ? 255 : 0);
       i++;
-      line_idx_6++;
+      idx++;
     }
 
-    localDW->BuoyBlobAnalysis_PAD_DW[line_idx_6] = 0U;
-    line_idx_6++;
-    localDW->BuoyBlobAnalysis_PAD_DW[line_idx_6] = 0U;
-    line_idx_6++;
+    localDW->BuoyBlobAnalysis_PAD_DW[idx] = 0U;
+    idx++;
+    localDW->BuoyBlobAnalysis_PAD_DW[idx] = 0U;
+    idx++;
   }
 
-  for (i = 0; i < 121; i++) {
-    localDW->BuoyBlobAnalysis_PAD_DW[i + line_idx_6] = 0U;
+  for (loop = 0; loop < 121; loop++) {
+    localDW->BuoyBlobAnalysis_PAD_DW[loop + idx] = 0U;
   }
 
-  n = 1;
+  nn = 1;
   stackIdx = 0U;
   pixIdx = 0U;
-  for (n_0 = 0; n_0 < 160; n_0++) {
-    line_idx_6 = 1;
-    i_0 = n * 122;
-    for (line_idx_5 = 0; line_idx_5 < 120; line_idx_5++) {
-      numBlobs = (uint32_T)(i_0 + line_idx_6);
+  for (n = 0; n < 160; n++) {
+    ms = 1;
+    j = nn * 122;
+    for (padCols = 0; padCols < 120; padCols++) {
+      numBlobs = (uint32_T)(j + ms);
       start_pixIdx = pixIdx;
       if (localDW->BuoyBlobAnalysis_PAD_DW[numBlobs] == 255) {
         localDW->BuoyBlobAnalysis_PAD_DW[numBlobs] = currentLabel;
-        localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)(n - 1);
-        localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(line_idx_6 -
-          1);
+        localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)(nn - 1);
+        localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(ms - 1);
         pixIdx++;
         BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1] = 1U;
         localDW->BuoyBlobAnalysis_STACK_DW[stackIdx] = numBlobs;
@@ -581,17 +559,18 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
         while (stackIdx) {
           stackIdx--;
           numBlobs = localDW->BuoyBlobAnalysis_STACK_DW[stackIdx];
-          for (row = 0; row < 8; row++) {
-            OutCode = numBlobs + (uint32_T)brain_ConstP.pooled27[row];
-            if (localDW->BuoyBlobAnalysis_PAD_DW[OutCode] == 255) {
-              localDW->BuoyBlobAnalysis_PAD_DW[OutCode] = currentLabel;
+          for (i = 0; i < 8; i++) {
+            k = numBlobs + (uint32_T)brain_ConstP.pooled27[i];
+            if (localDW->BuoyBlobAnalysis_PAD_DW[k] == 255) {
+              localDW->BuoyBlobAnalysis_PAD_DW[k] = currentLabel;
               localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)
-                ((int16_T)(OutCode / 122U) - 1);
-              localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(OutCode
-                % 122U - 1U);
+                ((int16_T)(k / 122U) - 1);
+              localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(k %
+                122U - 1U);
               pixIdx++;
-              BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1]++;
-              localDW->BuoyBlobAnalysis_STACK_DW[stackIdx] = OutCode;
+              BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1] =
+                BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1] + 1U;
+              localDW->BuoyBlobAnalysis_STACK_DW[stackIdx] = k;
               stackIdx++;
             }
           }
@@ -606,79 +585,76 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
 
         if (currentLabel == 10) {
           maxNumBlobsReached = TRUE;
-          n_0 = 160;
-          line_idx_5 = 120;
+          n = 160;
+          padCols = 120;
         }
 
-        if (line_idx_5 < 120) {
+        if (padCols < 120) {
           currentLabel++;
         }
       }
 
-      line_idx_6++;
+      ms++;
     }
 
-    n++;
+    nn++;
   }
 
   numBlobs = maxNumBlobsReached ? currentLabel : (uint8_T)(currentLabel - 1);
-  i = 0;
-  n = 0;
-  for (n_0 = 0; n_0 < (int32_T)numBlobs; n_0++) {
-    rtb_BuoyBlobAnalysis_o1_m[n_0] = (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0];
-    line_idx_6 = 0;
-    i_0 = 0;
-    for (line_idx_5 = 0; line_idx_5 < (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0];
-         line_idx_5++) {
-      line_idx_6 += localDW->BuoyBlobAnalysis_N_PIXLIST_DW[line_idx_5 + n];
-      i_0 += localDW->BuoyBlobAnalysis_M_PIXLIST_DW[line_idx_5 + i];
+  loop = 0;
+  idx = 0;
+  for (i = 0; i < (int32_T)numBlobs; i++) {
+    rtb_BuoyBlobAnalysis_o1_m[i] = (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i];
+    nn = 0;
+    ms = 0;
+    for (j = 0; j < (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i]; j++) {
+      nn += localDW->BuoyBlobAnalysis_N_PIXLIST_DW[j + idx];
+      ms += localDW->BuoyBlobAnalysis_M_PIXLIST_DW[j + loop];
     }
 
-    rtb_TmpSignalConversionAtDrawMa[0] = (real_T)i_0 / (real_T)
-      BuoyBlobAnalysis_NUM_PIX_DW[n_0];
-    rtb_TmpSignalConversionAtDrawMa[1] = (real_T)line_idx_6 / (real_T)
-      BuoyBlobAnalysis_NUM_PIX_DW[n_0];
-    rtb_BuoyBlobAnalysis_o2_a[n_0 << 1] = rtb_TmpSignalConversionAtDrawMa[0];
-    rtb_BuoyBlobAnalysis_o2_a[(n_0 << 1) + 1] = rtb_TmpSignalConversionAtDrawMa
-      [1];
-    eml_min_dist = 0.0;
-    eml_index = 0.0;
-    cc = 0.0;
-    for (OutCode = 0U; OutCode < (uint32_T)(int32_T)
-         BuoyBlobAnalysis_NUM_PIX_DW[n_0]; OutCode++) {
-      eml_i = (real_T)localDW->BuoyBlobAnalysis_N_PIXLIST_DW[n + OutCode] -
-        rtb_TmpSignalConversionAtDrawMa[1];
-      eml_MinDist = (real_T)localDW->BuoyBlobAnalysis_M_PIXLIST_DW[i + OutCode]
-        - rtb_TmpSignalConversionAtDrawMa[0];
-      eml_min_dist += eml_i * eml_i;
-      eml_index += eml_MinDist * eml_MinDist;
-      cc += eml_i * (-eml_MinDist);
+    rtb_TmpSignalConversionAtDrawMa[0] = (real_T)ms / (real_T)
+      BuoyBlobAnalysis_NUM_PIX_DW[i];
+    rtb_TmpSignalConversionAtDrawMa[1] = (real_T)nn / (real_T)
+      BuoyBlobAnalysis_NUM_PIX_DW[i];
+    rtb_BuoyBlobAnalysis_o2_a[i << 1] = rtb_TmpSignalConversionAtDrawMa[0];
+    rtb_BuoyBlobAnalysis_o2_a[(i << 1) + 1] = rtb_TmpSignalConversionAtDrawMa[1];
+    min_dist = 0.0;
+    rtb_TSamp_c = 0.0;
+    xys = 0.0;
+    for (k = 0U; k < (uint32_T)(int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i]; k++) {
+      rtb_TSamp_l = (real_T)localDW->BuoyBlobAnalysis_N_PIXLIST_DW[idx +
+        (int32_T)k] - rtb_TmpSignalConversionAtDrawMa[1];
+      rtb_Error = (real_T)localDW->BuoyBlobAnalysis_M_PIXLIST_DW[loop + (int32_T)
+        k] - rtb_TmpSignalConversionAtDrawMa[0];
+      min_dist += rtb_TSamp_l * rtb_TSamp_l;
+      rtb_TSamp_c += rtb_Error * rtb_Error;
+      xys += rtb_TSamp_l * (-rtb_Error);
     }
 
-    cc_0 = eml_min_dist / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0] +
-      8.3333333333333329E-002;
-    eml_MinDist = eml_index / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0] +
-      8.3333333333333329E-002;
-    eml_min_dist = cc / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0];
-    eml_min_dist = sqrt((cc_0 - eml_MinDist) * (cc_0 - eml_MinDist) +
-                        eml_min_dist * eml_min_dist * 4.0);
-    eml_i = ((cc_0 + eml_MinDist) + eml_min_dist) * 8.0;
-    rtb_BuoyBlobAnalysis_o3_l[n_0] = sqrt(eml_i - ((cc_0 + eml_MinDist) -
-      eml_min_dist) * 8.0) / sqrt(eml_i);
-    i += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0];
-    n += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0];
+    uxx = min_dist / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[i] +
+      0.083333333333333329;
+    rtb_Error = rtb_TSamp_c / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[i] +
+      0.083333333333333329;
+    min_dist = xys / (real_T)BuoyBlobAnalysis_NUM_PIX_DW[i];
+    min_dist = sqrt((uxx - rtb_Error) * (uxx - rtb_Error) + min_dist * min_dist *
+                    4.0);
+    rtb_TSamp_l = ((uxx + rtb_Error) + min_dist) * 8.0;
+    rtb_BuoyBlobAnalysis_o3_l[i] = sqrt(rtb_TSamp_l - ((uxx + rtb_Error) -
+      min_dist) * 8.0) / sqrt(rtb_TSamp_l);
+    loop += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i];
+    idx += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i];
   }
 
-  for (i = (int32_T)numBlobs; i < 10; i++) {
-    rtb_BuoyBlobAnalysis_o1_m[i] = -1;
+  for (loop = (int32_T)numBlobs; loop < 10; loop++) {
+    rtb_BuoyBlobAnalysis_o1_m[loop] = -1;
   }
 
-  for (i = (int32_T)numBlobs << 1; i < 20; i++) {
-    rtb_BuoyBlobAnalysis_o2_a[i] = -1.0;
+  for (loop = (int32_T)(numBlobs << 1); loop < 20; loop++) {
+    rtb_BuoyBlobAnalysis_o2_a[loop] = -1.0;
   }
 
-  for (i = (int32_T)numBlobs; i < 10; i++) {
-    rtb_BuoyBlobAnalysis_o3_l[i] = -1.0;
+  for (loop = (int32_T)numBlobs; loop < 10; loop++) {
+    rtb_BuoyBlobAnalysis_o3_l[loop] = -1.0;
   }
 
   /* S-Function (svipscalenconvert): '<S10>/Image Data Type Conversion' */
@@ -694,9 +670,8 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   /*  the desired set of characteristics given a set of blobs */
   /*  Determine closest blob to desired Eccentricity */
   /* '<S46>:1:8' */
-  for (i_0 = 0; i_0 < 10; i_0++) {
-    eml_Dist[i_0] = fabs(rtb_BuoyBlobAnalysis_o3_l[i_0] -
-                         brain_P.Buoy_Min_Eccentricity);
+  for (i = 0; i < 10; i++) {
+    Dist[i] = fabs(rtb_BuoyBlobAnalysis_o3_l[i] - brain_P.Buoy_Min_Eccentricity);
   }
 
   if ((rtb_BuoyBlobAnalysis_o2_a[0] == -1.0) && (rtb_BuoyBlobAnalysis_o2_a[1] ==
@@ -711,50 +686,52 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     /* '<S46>:1:14' */
     localB->BlobArea = -1.0;
   } else {
-    brain_min(eml_Dist, &eml_min_dist, &eml_i);
+    brain_min(Dist, &min_dist, &rtb_TSamp_l);
 
     /* '<S46>:1:17' */
-    eml_Dist[(int32_T)eml_i - 1] = 2.0;
-    brain_min(eml_Dist, &eml_MinDist, &eml_index);
-    if (eml_MinDist < eml_min_dist * 1.5) {
+    Dist[(int32_T)rtb_TSamp_l - 1] = 2.0;
+    brain_min(Dist, &rtb_Error, &rtb_TSamp_c);
+    if (rtb_Error < min_dist * 1.5) {
       /* '<S46>:1:20' */
-      if (rtb_BuoyBlobAnalysis_o2_a[(((int32_T)eml_i - 1) << 1U) + 1] >=
-          rtb_BuoyBlobAnalysis_o2_a[(((int32_T)eml_index - 1) << 1U) + 1]) {
+      if (rtb_BuoyBlobAnalysis_o2_a[(((int32_T)rtb_TSamp_l - 1) << 1U) + 1] >=
+          rtb_BuoyBlobAnalysis_o2_a[(((int32_T)rtb_TSamp_c - 1) << 1U) + 1]) {
         /* '<S46>:1:21' */
         /* '<S46>:1:22' */
-        localB->BlobCentroidX = rtb_BuoyBlobAnalysis_o2_a[(((int32_T)eml_i - 1) <<
-          1U) + 1];
+        localB->BlobCentroidX = rtb_BuoyBlobAnalysis_o2_a[(((int32_T)rtb_TSamp_l
+          - 1) << 1U) + 1];
 
         /* '<S46>:1:23' */
-        localB->BlobCentroidY = rtb_BuoyBlobAnalysis_o2_a[((int32_T)eml_i - 1) <<
-          1U];
+        localB->BlobCentroidY = rtb_BuoyBlobAnalysis_o2_a[((int32_T)rtb_TSamp_l
+          - 1) << 1U];
 
         /* '<S46>:1:24' */
-        localB->BlobArea = (real_T)rtb_BuoyBlobAnalysis_o1_m[(int32_T)eml_i - 1];
+        localB->BlobArea = (real_T)rtb_BuoyBlobAnalysis_o1_m[(int32_T)
+          rtb_TSamp_l - 1];
       } else {
         /* '<S46>:1:26' */
-        localB->BlobCentroidX = rtb_BuoyBlobAnalysis_o2_a[(((int32_T)eml_index -
-          1) << 1U) + 1];
+        localB->BlobCentroidX = rtb_BuoyBlobAnalysis_o2_a[(((int32_T)rtb_TSamp_c
+          - 1) << 1U) + 1];
 
         /* '<S46>:1:27' */
-        localB->BlobCentroidY = rtb_BuoyBlobAnalysis_o2_a[((int32_T)eml_index -
-          1) << 1U];
+        localB->BlobCentroidY = rtb_BuoyBlobAnalysis_o2_a[((int32_T)rtb_TSamp_c
+          - 1) << 1U];
 
         /* '<S46>:1:28' */
-        localB->BlobArea = (real_T)rtb_BuoyBlobAnalysis_o1_m[(int32_T)eml_index
-          - 1];
+        localB->BlobArea = (real_T)rtb_BuoyBlobAnalysis_o1_m[(int32_T)
+          rtb_TSamp_c - 1];
       }
     } else {
       /* '<S46>:1:31' */
-      localB->BlobCentroidX = rtb_BuoyBlobAnalysis_o2_a[(((int32_T)eml_i - 1) <<
-        1U) + 1];
+      localB->BlobCentroidX = rtb_BuoyBlobAnalysis_o2_a[(((int32_T)rtb_TSamp_l -
+        1) << 1U) + 1];
 
       /* '<S46>:1:32' */
-      localB->BlobCentroidY = rtb_BuoyBlobAnalysis_o2_a[((int32_T)eml_i - 1) <<
-        1U];
+      localB->BlobCentroidY = rtb_BuoyBlobAnalysis_o2_a[((int32_T)rtb_TSamp_l -
+        1) << 1U];
 
       /* '<S46>:1:33' */
-      localB->BlobArea = (real_T)rtb_BuoyBlobAnalysis_o1_m[(int32_T)eml_i - 1];
+      localB->BlobArea = (real_T)rtb_BuoyBlobAnalysis_o1_m[(int32_T)rtb_TSamp_l
+        - 1];
     }
   }
 
@@ -768,374 +745,376 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
          (&localB->ImageDataTypeConversion[0]), 19200U * sizeof(real_T));
 
   /* Draw all X marks. */
-  for (idxROI = 0; idxROI < 2; idxROI += 2) {
-    cc = rtb_TmpSignalConversionAtDrawMa[idxROI];
-    if ((rtb_TmpSignalConversionAtDrawMa[idxROI] < 4.5035996273704960E+015) &&
-        (rtb_TmpSignalConversionAtDrawMa[idxROI] > -4.5035996273704960E+015)) {
-      cc = floor(rtb_TmpSignalConversionAtDrawMa[idxROI] + 0.5);
+  for (n = 0; n < 2; n += 2) {
+    uxx = rtb_TmpSignalConversionAtDrawMa[n];
+    if ((rtb_TmpSignalConversionAtDrawMa[n] < 4.503599627370496E+15) &&
+        (rtb_TmpSignalConversionAtDrawMa[n] > -4.503599627370496E+15)) {
+      uxx = floor(rtb_TmpSignalConversionAtDrawMa[n] + 0.5);
     }
 
-    row = (int32_T)cc;
-    cc = rtb_TmpSignalConversionAtDrawMa[idxROI + 1];
-    if ((cc < 4.5035996273704960E+015) && (cc > -4.5035996273704960E+015)) {
-      cc = floor(cc + 0.5);
+    padCols = (int32_T)uxx;
+    uxx = rtb_TmpSignalConversionAtDrawMa[n + 1];
+    if ((rtb_TmpSignalConversionAtDrawMa[n + 1] < 4.503599627370496E+15) &&
+        (rtb_TmpSignalConversionAtDrawMa[n + 1] > -4.503599627370496E+15)) {
+      uxx = floor(rtb_TmpSignalConversionAtDrawMa[n + 1] + 0.5);
     }
 
-    i_0 = (int32_T)cc;
-    line_idx_2 = row - 7;
-    line_idx_1 = i_0 - 7;
-    line_idx_0 = row + 7;
-    line_idx = i_0 + 7;
+    i = (int32_T)uxx;
+    idx = padCols - 7;
+    line_idx_1 = i - 7;
+    line_idx_0 = padCols + 7;
+    line_idx = i + 7;
     maxNumBlobsReached = FALSE;
 
     /* Find the visible portion of a line. */
     visited = FALSE;
     visited_0 = FALSE;
     done = FALSE;
-    line_idx_6 = line_idx_2;
-    line_idx_5 = line_idx_1;
-    line_idx_4 = line_idx_0;
-    line_idx_3 = line_idx;
+    j = idx;
+    line_idx_4 = line_idx_1;
+    line_idx_3 = line_idx_0;
+    line_idx_2 = line_idx;
     while (!done) {
       numBlobs = 0U;
-      OutCode = 0U;
+      k = 0U;
 
       /* Determine viewport violations. */
-      if (line_idx_6 < 0) {
+      if (j < 0) {
         numBlobs = 4U;
       } else {
-        if (line_idx_6 > 119) {
+        if (j > 119) {
           numBlobs = 8U;
         }
       }
 
-      if (line_idx_4 < 0) {
-        OutCode = 4U;
-      } else {
-        if (line_idx_4 > 119) {
-          OutCode = 8U;
-        }
-      }
-
-      if (line_idx_5 < 0) {
-        numBlobs = (uint32_T)((int32_T)numBlobs | 1);
-      } else {
-        if (line_idx_5 > 159) {
-          numBlobs = (uint32_T)((int32_T)numBlobs | 2);
-        }
-      }
-
       if (line_idx_3 < 0) {
-        OutCode = (uint32_T)((int32_T)OutCode | 1);
+        k = 4U;
       } else {
-        if (line_idx_3 > 159) {
-          OutCode = (uint32_T)((int32_T)OutCode | 2);
+        if (line_idx_3 > 119) {
+          k = 8U;
         }
       }
 
-      if (!((uint32_T)((int32_T)numBlobs | (int32_T)OutCode))) {
+      if (line_idx_4 < 0) {
+        numBlobs |= 1U;
+      } else {
+        if (line_idx_4 > 159) {
+          numBlobs |= 2U;
+        }
+      }
+
+      if (line_idx_2 < 0) {
+        k |= 1U;
+      } else {
+        if (line_idx_2 > 159) {
+          k |= 2U;
+        }
+      }
+
+      if (!(numBlobs | k)) {
         /* Line falls completely within bounds. */
         done = TRUE;
         maxNumBlobsReached = TRUE;
-      } else if ((uint32_T)((int32_T)numBlobs & (int32_T)OutCode)) {
+      } else if (numBlobs & k) {
         /* Line falls completely out of bounds. */
         done = TRUE;
         maxNumBlobsReached = FALSE;
       } else if (numBlobs != 0U) {
         /* Clip 1st point; if it's in-bounds, clip 2nd point. */
         if (visited) {
-          line_idx_6 = line_idx_2;
-          line_idx_5 = line_idx_1;
+          j = idx;
+          line_idx_4 = line_idx_1;
         }
 
-        i = line_idx_4 - line_idx_6;
-        n = line_idx_3 - line_idx_5;
-        if ((uint32_T)((int32_T)numBlobs & 4)) {
+        loop = line_idx_3 - j;
+        nn = line_idx_2 - line_idx_4;
+        if (numBlobs & 4U) {
           /* Violated RMin. */
-          n_0 = (0 - line_idx_6) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_5 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
+          ms = (0 - j) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_4 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
           } else {
-            line_idx_5 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
+            line_idx_4 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
           }
 
-          line_idx_6 = 0;
+          j = 0;
           visited = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & 8)) {
+        } else if (numBlobs & 8U) {
           /* Violated RMax. */
-          n_0 = (119 - line_idx_6) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_5 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
+          ms = (119 - j) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_4 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
           } else {
-            line_idx_5 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
+            line_idx_4 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
           }
 
-          line_idx_6 = 119;
+          j = 119;
           visited = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & 1)) {
+        } else if (numBlobs & 1U) {
           /* Violated CMin. */
-          n_0 = (0 - line_idx_5) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            line_idx_6 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
+          ms = (0 - line_idx_4) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            j += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
           } else {
-            line_idx_6 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
+            j += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
           }
 
-          line_idx_5 = 0;
+          line_idx_4 = 0;
           visited = TRUE;
         } else {
           /* Violated CMax. */
-          n_0 = (159 - line_idx_5) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            line_idx_6 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
+          ms = (159 - line_idx_4) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            j += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
           } else {
-            line_idx_6 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
+            j += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
           }
 
-          line_idx_5 = 159;
+          line_idx_4 = 159;
           visited = TRUE;
         }
       } else {
         /* Clip the 2nd point. */
         if (visited_0) {
-          line_idx_4 = line_idx_0;
-          line_idx_3 = line_idx;
+          line_idx_3 = line_idx_0;
+          line_idx_2 = line_idx;
         }
 
-        i = line_idx_4 - line_idx_6;
-        n = line_idx_3 - line_idx_5;
-        if ((uint32_T)((int32_T)OutCode & 4)) {
+        loop = line_idx_3 - j;
+        nn = line_idx_2 - line_idx_4;
+        if (k & 4U) {
           /* Violated RMin. */
-          n_0 = (0 - line_idx_4) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
+          ms = (0 - line_idx_3) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_2 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
           } else {
-            line_idx_3 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
-          }
-
-          line_idx_4 = 0;
-          visited_0 = TRUE;
-        } else if ((uint32_T)((int32_T)OutCode & 8)) {
-          /* Violated RMax. */
-          n_0 = (119 - line_idx_4) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_3 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
-          }
-
-          line_idx_4 = 119;
-          visited_0 = TRUE;
-        } else if ((uint32_T)((int32_T)OutCode & 1)) {
-          /* Violated CMin. */
-          n_0 = (0 - line_idx_3) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            line_idx_4 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
-          } else {
-            line_idx_4 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
+            line_idx_2 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
           }
 
           line_idx_3 = 0;
           visited_0 = TRUE;
-        } else {
-          /* Violated CMax. */
-          n_0 = (159 - line_idx_3) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            line_idx_4 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
+        } else if (k & 8U) {
+          /* Violated RMax. */
+          ms = (119 - line_idx_3) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_2 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
           } else {
-            line_idx_4 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
+            line_idx_2 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
           }
 
-          line_idx_3 = 159;
+          line_idx_3 = 119;
+          visited_0 = TRUE;
+        } else if (k & 1U) {
+          /* Violated CMin. */
+          ms = (0 - line_idx_2) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            line_idx_3 += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
+          } else {
+            line_idx_3 += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
+          }
+
+          line_idx_2 = 0;
+          visited_0 = TRUE;
+        } else {
+          /* Violated CMax. */
+          ms = (159 - line_idx_2) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            line_idx_3 += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
+          } else {
+            line_idx_3 += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
+          }
+
+          line_idx_2 = 159;
           visited_0 = TRUE;
         }
       }
     }
 
     if (maxNumBlobsReached) {
-      n = line_idx_5 * 120 + line_idx_6;
-      while (line_idx_6 <= line_idx_4) {
-        localB->DrawMarkers[n] = 0.5;
-        n += 121;
-        line_idx_6++;
+      ms = line_idx_4 * 120 + j;
+      while (j <= line_idx_3) {
+        localB->DrawMarkers[ms] = 0.5;
+        ms += 121;
+        j++;
       }
     }
 
-    line_idx_2 = row - 7;
-    line_idx_1 = i_0 + 7;
-    line_idx_0 = row + 7;
-    line_idx = i_0 - 7;
+    idx = padCols - 7;
+    line_idx_1 = i + 7;
+    line_idx_0 = padCols + 7;
+    line_idx = i - 7;
     maxNumBlobsReached = FALSE;
 
     /* Find the visible portion of a line. */
     visited = FALSE;
     visited_0 = FALSE;
     done = FALSE;
-    i_0 = line_idx_2;
-    line_idx_5 = line_idx_1;
-    line_idx_4 = line_idx_0;
-    line_idx_3 = line_idx;
+    j = idx;
+    line_idx_4 = line_idx_1;
+    line_idx_3 = line_idx_0;
+    line_idx_2 = line_idx;
     while (!done) {
       numBlobs = 0U;
-      OutCode = 0U;
+      k = 0U;
 
       /* Determine viewport violations. */
-      if (i_0 < 0) {
+      if (j < 0) {
         numBlobs = 4U;
       } else {
-        if (i_0 > 119) {
+        if (j > 119) {
           numBlobs = 8U;
         }
       }
 
-      if (line_idx_4 < 0) {
-        OutCode = 4U;
-      } else {
-        if (line_idx_4 > 119) {
-          OutCode = 8U;
-        }
-      }
-
-      if (line_idx_5 < 0) {
-        numBlobs = (uint32_T)((int32_T)numBlobs | 1);
-      } else {
-        if (line_idx_5 > 159) {
-          numBlobs = (uint32_T)((int32_T)numBlobs | 2);
-        }
-      }
-
       if (line_idx_3 < 0) {
-        OutCode = (uint32_T)((int32_T)OutCode | 1);
+        k = 4U;
       } else {
-        if (line_idx_3 > 159) {
-          OutCode = (uint32_T)((int32_T)OutCode | 2);
+        if (line_idx_3 > 119) {
+          k = 8U;
         }
       }
 
-      if (!((uint32_T)((int32_T)numBlobs | (int32_T)OutCode))) {
+      if (line_idx_4 < 0) {
+        numBlobs |= 1U;
+      } else {
+        if (line_idx_4 > 159) {
+          numBlobs |= 2U;
+        }
+      }
+
+      if (line_idx_2 < 0) {
+        k |= 1U;
+      } else {
+        if (line_idx_2 > 159) {
+          k |= 2U;
+        }
+      }
+
+      if (!(numBlobs | k)) {
         /* Line falls completely within bounds. */
         done = TRUE;
         maxNumBlobsReached = TRUE;
-      } else if ((uint32_T)((int32_T)numBlobs & (int32_T)OutCode)) {
+      } else if (numBlobs & k) {
         /* Line falls completely out of bounds. */
         done = TRUE;
         maxNumBlobsReached = FALSE;
       } else if (numBlobs != 0U) {
         /* Clip 1st point; if it's in-bounds, clip 2nd point. */
         if (visited) {
-          i_0 = line_idx_2;
-          line_idx_5 = line_idx_1;
+          j = idx;
+          line_idx_4 = line_idx_1;
         }
 
-        i = line_idx_4 - i_0;
-        n = line_idx_3 - line_idx_5;
-        if ((uint32_T)((int32_T)numBlobs & 4)) {
+        loop = line_idx_3 - j;
+        nn = line_idx_2 - line_idx_4;
+        if (numBlobs & 4U) {
           /* Violated RMin. */
-          n_0 = (0 - i_0) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_5 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
+          ms = (0 - j) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_4 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
           } else {
-            line_idx_5 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
+            line_idx_4 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
           }
 
-          i_0 = 0;
+          j = 0;
           visited = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & 8)) {
+        } else if (numBlobs & 8U) {
           /* Violated RMax. */
-          n_0 = (119 - i_0) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_5 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
+          ms = (119 - j) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_4 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
           } else {
-            line_idx_5 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
+            line_idx_4 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
           }
 
-          i_0 = 119;
+          j = 119;
           visited = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & 1)) {
+        } else if (numBlobs & 1U) {
           /* Violated CMin. */
-          n_0 = (0 - line_idx_5) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            i_0 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
+          ms = (0 - line_idx_4) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            j += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
           } else {
-            i_0 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
+            j += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
           }
 
-          line_idx_5 = 0;
+          line_idx_4 = 0;
           visited = TRUE;
         } else {
           /* Violated CMax. */
-          n_0 = (159 - line_idx_5) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            i_0 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
+          ms = (159 - line_idx_4) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            j += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
           } else {
-            i_0 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
+            j += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
           }
 
-          line_idx_5 = 159;
+          line_idx_4 = 159;
           visited = TRUE;
         }
       } else {
         /* Clip the 2nd point. */
         if (visited_0) {
-          line_idx_4 = line_idx_0;
-          line_idx_3 = line_idx;
+          line_idx_3 = line_idx_0;
+          line_idx_2 = line_idx;
         }
 
-        i = line_idx_4 - i_0;
-        n = line_idx_3 - line_idx_5;
-        if ((uint32_T)((int32_T)OutCode & 4)) {
+        loop = line_idx_3 - j;
+        nn = line_idx_2 - line_idx_4;
+        if (k & 4U) {
           /* Violated RMin. */
-          n_0 = (0 - line_idx_4) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
+          ms = (0 - line_idx_3) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_2 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
           } else {
-            line_idx_3 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
-          }
-
-          line_idx_4 = 0;
-          visited_0 = TRUE;
-        } else if ((uint32_T)((int32_T)OutCode & 8)) {
-          /* Violated RMax. */
-          n_0 = (119 - line_idx_4) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_3 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
-          }
-
-          line_idx_4 = 119;
-          visited_0 = TRUE;
-        } else if ((uint32_T)((int32_T)OutCode & 1)) {
-          /* Violated CMin. */
-          n_0 = (0 - line_idx_3) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            line_idx_4 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
-          } else {
-            line_idx_4 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
+            line_idx_2 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
           }
 
           line_idx_3 = 0;
           visited_0 = TRUE;
-        } else {
-          /* Violated CMax. */
-          n_0 = (159 - line_idx_3) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            line_idx_4 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
+        } else if (k & 8U) {
+          /* Violated RMax. */
+          ms = (119 - line_idx_3) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_2 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
           } else {
-            line_idx_4 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
+            line_idx_2 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
           }
 
-          line_idx_3 = 159;
+          line_idx_3 = 119;
+          visited_0 = TRUE;
+        } else if (k & 1U) {
+          /* Violated CMin. */
+          ms = (0 - line_idx_2) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            line_idx_3 += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
+          } else {
+            line_idx_3 += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
+          }
+
+          line_idx_2 = 0;
+          visited_0 = TRUE;
+        } else {
+          /* Violated CMax. */
+          ms = (159 - line_idx_2) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            line_idx_3 += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
+          } else {
+            line_idx_3 += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
+          }
+
+          line_idx_2 = 159;
           visited_0 = TRUE;
         }
       }
     }
 
     if (maxNumBlobsReached) {
-      n = line_idx_5 * 120 + i_0;
-      for (n_0 = i_0; n_0 <= line_idx_4; n_0++) {
-        localB->DrawMarkers[n] = 0.5;
-        n += -119;
+      ms = line_idx_4 * 120 + j;
+      while (j <= line_idx_3) {
+        localB->DrawMarkers[ms] = 0.5;
+        ms += -119;
+        j++;
       }
     }
   }
@@ -1144,8 +1123,7 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   brain_EmbeddedMATLABFunction1(&localB->sf_EmbeddedMATLABFunction1);
 
   /* Sum: '<S49>/Subtract' */
-  eml_min_dist = localB->sf_EmbeddedMATLABFunction1.XCenter -
-    localB->BlobCentroidX;
+  min_dist = localB->sf_EmbeddedMATLABFunction1.XCenter - localB->BlobCentroidX;
 
   /* SampleTimeMath: '<S54>/TSamp' incorporates:
    *  Gain: '<S53>/X-Buoy Derivative Gain'
@@ -1153,7 +1131,7 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
    * About '<S54>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
-  eml_i = brain_P.Cam_Forward_XPosition_Kd * eml_min_dist / ((real_T)
+  rtb_TSamp_l = brain_P.Cam_Forward_XPosition_Kd * min_dist / ((real_T)
     localDW->StateFlowFunctionsBuoysApproa_a * 0.2);
 
   /* DataTypeConversion: '<S49>/Data Type Conversion' incorporates:
@@ -1171,11 +1149,11 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
    *
    *  Store in Global RAM
    */
-  cc = floor((brain_P.Cam_Forward_XPosition_Kp * eml_min_dist + (eml_i -
+  uxx = floor((brain_P.Cam_Forward_XPosition_Kp * min_dist + (rtb_TSamp_l -
     localDW->UD_DSTATE)) + localDW->XBuoyDiscreteTimeIntegrator_DST);
-  if (cc < 128.0) {
-    if (cc >= -128.0) {
-      rtb_index_h = (int8_T)cc;
+  if (uxx < 128.0) {
+    if (uxx >= -128.0) {
+      rtb_index_h = (int8_T)uxx;
     } else {
       rtb_index_h = MIN_int8_T;
     }
@@ -1196,8 +1174,7 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   localB->Add1 = (real_T)rtb_index_h * -1.0 + brain_P.Vision_Forward_Velocity;
 
   /* Sum: '<S50>/Subtract' */
-  eml_MinDist = localB->BlobCentroidY -
-    localB->sf_EmbeddedMATLABFunction1.YCenter;
+  rtb_Error = localB->BlobCentroidY - localB->sf_EmbeddedMATLABFunction1.YCenter;
 
   /* SampleTimeMath: '<S56>/TSamp' incorporates:
    *  Gain: '<S55>/Y-Buoy Derivative Gain'
@@ -1205,7 +1182,7 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
    * About '<S56>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
-  eml_index = brain_P.Cam_Forward_YPosition_Kd * eml_MinDist / ((real_T)
+  rtb_TSamp_c = brain_P.Cam_Forward_YPosition_Kd * rtb_Error / ((real_T)
     localDW->StateFlowFunctionsBuoysApproa_a * 0.2);
 
   /* DataTypeConversion: '<S50>/Data Type Conversion' incorporates:
@@ -1223,11 +1200,11 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
    *
    *  Store in Global RAM
    */
-  cc = floor((brain_P.Cam_Forward_YPosition_Kp * eml_MinDist + (eml_index -
+  uxx = floor((brain_P.Cam_Forward_YPosition_Kp * rtb_Error + (rtb_TSamp_c -
     localDW->UD_DSTATE_n)) + localDW->YBuoyDiscreteTimeIntegrator_DST);
-  if (cc < 128.0) {
-    if (cc >= -128.0) {
-      localB->DataTypeConversion = (int8_T)cc;
+  if (uxx < 128.0) {
+    if (uxx >= -128.0) {
+      localB->DataTypeConversion = (int8_T)uxx;
     } else {
       localB->DataTypeConversion = MIN_int8_T;
     }
@@ -1240,14 +1217,14 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
    *
    *  Store in Global RAM
    */
-  localDW->UD_DSTATE = eml_i;
+  localDW->UD_DSTATE = rtb_TSamp_l;
 
   /* Update for DiscreteIntegrator: '<S53>/X-Buoy Discrete-Time Integrator' incorporates:
    *  Gain: '<S53>/X-Buoy Integral Gain'
    */
   localDW->XBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
     localDW->StateFlowFunctionsBuoysApproa_a * (brain_P.Cam_Forward_XPosition_Ki
-    * eml_min_dist) + localDW->XBuoyDiscreteTimeIntegrator_DST;
+    * min_dist) + localDW->XBuoyDiscreteTimeIntegrator_DST;
   if (localDW->XBuoyDiscreteTimeIntegrator_DST >= 15.0) {
     localDW->XBuoyDiscreteTimeIntegrator_DST = 15.0;
   } else {
@@ -1261,14 +1238,14 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
    *
    *  Store in Global RAM
    */
-  localDW->UD_DSTATE_n = eml_index;
+  localDW->UD_DSTATE_n = rtb_TSamp_c;
 
   /* Update for DiscreteIntegrator: '<S55>/Y-Buoy Discrete-Time Integrator' incorporates:
    *  Gain: '<S55>/Y-Buoy Integral Gain'
    */
   localDW->YBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
     localDW->StateFlowFunctionsBuoysApproa_a * (brain_P.Cam_Forward_YPosition_Ki
-    * eml_MinDist) + localDW->YBuoyDiscreteTimeIntegrator_DST;
+    * rtb_Error) + localDW->YBuoyDiscreteTimeIntegrator_DST;
   if (localDW->YBuoyDiscreteTimeIntegrator_DST >= 15.0) {
     localDW->YBuoyDiscreteTimeIntegrator_DST = 15.0;
   } else {
@@ -1279,328 +1256,189 @@ void StateFlowFunctionsBuoysApproach(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
 }
 
 /* Function for Embedded MATLAB: '<S15>/Blob Extraction' */
-static void brain_Outputs(const boolean_T eml_U0[19200], real_T eml_Y0[100],
-  real_T eml_Y1[50], real_T eml_Y2[50], uint8_T *eml_Y3,
-  rtDW_StateFlowFunctionsBuoysFin *localDW)
+static void brain_Outputs(const boolean_T U0[19200], real_T Y0[100], real_T Y1
+  [50], real_T Y2[50], uint8_T *Y3, rtDW_StateFlowFunctionsBuoysFin *localDW)
 {
-  boolean_T eml_maxNumBlobsReached;
-  int32_T eml_loop;
-  uint8_T eml_currentLabel;
-  int32_T eml_idx;
-  int32_T eml_n;
-  uint32_T eml_stackIdx;
-  uint32_T eml_pixIdx;
-  uint32_T eml_start_pixIdx;
-  uint32_T eml_walkerIdx;
-  int32_T eml_numBlobs;
-  int32_T eml_pixListMinc;
-  int32_T eml_pixListNinc;
-  int32_T eml_c_i;
-  int32_T eml_j;
-  int32_T eml_maxc;
-  int32_T eml_maxr;
-  real_T eml_xs;
-  real_T eml_ys;
-  real_T eml_xys;
-  uint32_T eml_k;
-  real_T eml_uyy;
-  real_T eml_majorAxis;
-  real_T eml_centroid_idx;
-  real_T eml_centroid_idx_0;
+  boolean_T maxNumBlobsReached;
+  int32_T loop;
+  uint8_T currentLabel;
+  int32_T idx;
+  int32_T n;
+  uint32_T stackIdx;
+  uint32_T pixIdx;
+  uint32_T start_pixIdx;
+  uint32_T walkerIdx;
+  int32_T numBlobs;
+  int32_T pixListMinc;
+  int32_T pixListNinc;
+  int32_T c_i;
+  int32_T j;
+  int32_T maxc;
+  int32_T maxr;
+  real_T xs;
+  real_T ys;
+  real_T xys;
+  uint32_T k;
+  real_T uyy;
+  real_T majorAxis;
+  real_T centroid_idx;
+  real_T centroid_idx_0;
 
   /* System object Outputs function: video.BlobAnalysis */
-  eml_maxNumBlobsReached = FALSE;
-  memset((void *)&localDW->PAD_DW[0], (int32_T)0U, 123U * sizeof(uint8_T));
-  eml_currentLabel = 1U;
-  eml_loop = 0;
-  eml_idx = 123;
-  for (eml_n = 0; eml_n < 160; eml_n++) {
-    for (eml_maxc = 0; eml_maxc < 120; eml_maxc++) {
-      localDW->PAD_DW[eml_idx] = (uint8_T)(eml_U0[eml_loop] ? 255 : 0);
-      eml_loop++;
-      eml_idx++;
+  maxNumBlobsReached = FALSE;
+  memset((void *)(&localDW->PAD_DW[0]), (int32_T)0U, 123U * sizeof(uint8_T));
+  currentLabel = 1U;
+  loop = 0;
+  idx = 123;
+  for (n = 0; n < 160; n++) {
+    for (maxc = 0; maxc < 120; maxc++) {
+      localDW->PAD_DW[idx] = (uint8_T)(U0[loop] ? 255 : 0);
+      loop++;
+      idx++;
     }
 
-    localDW->PAD_DW[eml_idx] = 0U;
-    eml_idx++;
-    localDW->PAD_DW[eml_idx] = 0U;
-    eml_idx++;
+    localDW->PAD_DW[idx] = 0U;
+    idx++;
+    localDW->PAD_DW[idx] = 0U;
+    idx++;
   }
 
-  memset((void *)&localDW->PAD_DW[eml_idx], (int32_T)0U, 121U * sizeof(uint8_T));
-  eml_loop = 1;
-  eml_stackIdx = 0U;
-  eml_pixIdx = 0U;
-  for (eml_n = 0; eml_n < 160; eml_n++) {
-    eml_maxc = 1;
-    eml_idx = eml_loop * 122;
-    for (eml_maxr = 0; eml_maxr < 120; eml_maxr++) {
-      eml_k = (uint32_T)(eml_idx + eml_maxc);
-      eml_start_pixIdx = eml_pixIdx;
-      if (localDW->PAD_DW[eml_k] == 255) {
-        localDW->PAD_DW[eml_k] = eml_currentLabel;
-        localDW->N_PIXLIST_DW[eml_pixIdx] = (int16_T)(eml_loop - 1);
-        localDW->M_PIXLIST_DW[eml_pixIdx] = (int16_T)(eml_maxc - 1);
-        eml_pixIdx++;
-        localDW->NUM_PIX_DW[eml_currentLabel - 1] = 1U;
-        localDW->STACK_DW[eml_stackIdx] = eml_k;
-        eml_stackIdx++;
-        while (eml_stackIdx) {
-          eml_stackIdx--;
-          eml_k = localDW->STACK_DW[eml_stackIdx];
-          for (eml_pixListMinc = 0; eml_pixListMinc < 8; eml_pixListMinc++) {
-            eml_walkerIdx = eml_k + (uint32_T)localDW->
-              WALKER_RTP[eml_pixListMinc];
-            if (localDW->PAD_DW[eml_walkerIdx] == 255) {
-              localDW->PAD_DW[eml_walkerIdx] = eml_currentLabel;
-              localDW->N_PIXLIST_DW[eml_pixIdx] = (int16_T)((int16_T)
-                (eml_walkerIdx / 122U) - 1);
-              localDW->M_PIXLIST_DW[eml_pixIdx] = (int16_T)(eml_walkerIdx % 122U
-                - 1U);
-              eml_pixIdx++;
-              localDW->NUM_PIX_DW[eml_currentLabel - 1] = localDW->
-                NUM_PIX_DW[eml_currentLabel - 1] + 1U;
-              localDW->STACK_DW[eml_stackIdx] = eml_walkerIdx;
-              eml_stackIdx++;
+  memset((void *)(&localDW->PAD_DW[idx]), (int32_T)0U, 121U * sizeof(uint8_T));
+  loop = 1;
+  stackIdx = 0U;
+  pixIdx = 0U;
+  for (n = 0; n < 160; n++) {
+    maxc = 1;
+    idx = loop * 122;
+    for (maxr = 0; maxr < 120; maxr++) {
+      k = (uint32_T)(idx + maxc);
+      start_pixIdx = pixIdx;
+      if (localDW->PAD_DW[k] == 255) {
+        localDW->PAD_DW[k] = currentLabel;
+        localDW->N_PIXLIST_DW[pixIdx] = (int16_T)(loop - 1);
+        localDW->M_PIXLIST_DW[pixIdx] = (int16_T)(maxc - 1);
+        pixIdx++;
+        localDW->NUM_PIX_DW[currentLabel - 1] = 1U;
+        localDW->STACK_DW[stackIdx] = k;
+        stackIdx++;
+        while (stackIdx) {
+          stackIdx--;
+          k = localDW->STACK_DW[stackIdx];
+          for (pixListMinc = 0; pixListMinc < 8; pixListMinc++) {
+            walkerIdx = k + (uint32_T)localDW->WALKER_RTP[pixListMinc];
+            if (localDW->PAD_DW[walkerIdx] == 255) {
+              localDW->PAD_DW[walkerIdx] = currentLabel;
+              localDW->N_PIXLIST_DW[pixIdx] = (int16_T)((int16_T)(walkerIdx /
+                122U) - 1);
+              localDW->M_PIXLIST_DW[pixIdx] = (int16_T)(walkerIdx % 122U - 1U);
+              pixIdx++;
+              localDW->NUM_PIX_DW[currentLabel - 1] = localDW->
+                NUM_PIX_DW[currentLabel - 1] + 1U;
+              localDW->STACK_DW[stackIdx] = walkerIdx;
+              stackIdx++;
             }
           }
         }
 
-        if (localDW->NUM_PIX_DW[eml_currentLabel - 1] < localDW->MINAREA_RTP) {
-          eml_currentLabel--;
-          eml_pixIdx = eml_start_pixIdx;
+        if (localDW->NUM_PIX_DW[currentLabel - 1] < localDW->MINAREA_RTP) {
+          currentLabel--;
+          pixIdx = start_pixIdx;
         }
 
-        if (eml_currentLabel == 50) {
-          eml_maxNumBlobsReached = TRUE;
-          eml_n = 160;
-          eml_maxr = 120;
+        if (currentLabel == 50) {
+          maxNumBlobsReached = TRUE;
+          n = 160;
+          maxr = 120;
         }
 
-        if (eml_maxr < 120) {
-          eml_currentLabel++;
+        if (maxr < 120) {
+          currentLabel++;
         }
       }
 
-      eml_maxc++;
+      maxc++;
     }
 
-    eml_loop++;
+    loop++;
   }
 
-  eml_numBlobs = eml_maxNumBlobsReached ? eml_currentLabel : (uint8_T)
-    (eml_currentLabel - 1);
-  *eml_Y3 = (uint8_T)eml_numBlobs;
-  eml_pixListMinc = 0;
-  eml_pixListNinc = 0;
-  for (eml_c_i = 0; eml_c_i < eml_numBlobs; eml_c_i++) {
-    eml_loop = 0;
-    eml_n = 0;
-    for (eml_j = 0; eml_j < (int32_T)localDW->NUM_PIX_DW[eml_c_i]; eml_j++) {
-      eml_loop += localDW->N_PIXLIST_DW[eml_j + eml_pixListNinc];
-      eml_n += localDW->M_PIXLIST_DW[eml_j + eml_pixListMinc];
+  numBlobs = maxNumBlobsReached ? currentLabel : (uint8_T)(currentLabel - 1);
+  *Y3 = (uint8_T)numBlobs;
+  pixListMinc = 0;
+  pixListNinc = 0;
+  for (c_i = 0; c_i < numBlobs; c_i++) {
+    loop = 0;
+    n = 0;
+    for (j = 0; j < (int32_T)localDW->NUM_PIX_DW[c_i]; j++) {
+      loop += localDW->N_PIXLIST_DW[j + pixListNinc];
+      n += localDW->M_PIXLIST_DW[j + pixListMinc];
     }
 
-    eml_centroid_idx = (real_T)eml_n / (real_T)localDW->NUM_PIX_DW[eml_c_i];
-    eml_centroid_idx_0 = (real_T)eml_loop / (real_T)localDW->NUM_PIX_DW[eml_c_i];
-    eml_Y0[eml_c_i << 1] = eml_centroid_idx;
-    eml_Y0[(eml_c_i << 1) + 1] = eml_centroid_idx_0;
-    eml_n = 160;
-    eml_idx = 120;
-    eml_maxc = 0;
-    eml_maxr = 0;
-    for (eml_j = 0; eml_j < (int32_T)localDW->NUM_PIX_DW[eml_c_i]; eml_j++) {
-      eml_loop = eml_j + eml_pixListNinc;
-      if (localDW->N_PIXLIST_DW[eml_loop] < eml_n) {
-        eml_n = localDW->N_PIXLIST_DW[eml_loop];
+    centroid_idx = (real_T)n / (real_T)localDW->NUM_PIX_DW[c_i];
+    centroid_idx_0 = (real_T)loop / (real_T)localDW->NUM_PIX_DW[c_i];
+    Y0[c_i << 1] = centroid_idx;
+    Y0[(c_i << 1) + 1] = centroid_idx_0;
+    n = 160;
+    idx = 120;
+    maxc = 0;
+    maxr = 0;
+    for (j = 0; j < (int32_T)localDW->NUM_PIX_DW[c_i]; j++) {
+      loop = j + pixListNinc;
+      if (localDW->N_PIXLIST_DW[loop] < n) {
+        n = localDW->N_PIXLIST_DW[loop];
       }
 
-      if (localDW->N_PIXLIST_DW[eml_loop] > eml_maxc) {
-        eml_maxc = localDW->N_PIXLIST_DW[eml_loop];
+      if (localDW->N_PIXLIST_DW[loop] > maxc) {
+        maxc = localDW->N_PIXLIST_DW[loop];
       }
 
-      eml_loop = eml_j + eml_pixListMinc;
-      if (localDW->M_PIXLIST_DW[eml_loop] < eml_idx) {
-        eml_idx = localDW->M_PIXLIST_DW[eml_loop];
+      loop = j + pixListMinc;
+      if (localDW->M_PIXLIST_DW[loop] < idx) {
+        idx = localDW->M_PIXLIST_DW[loop];
       }
 
-      if (localDW->M_PIXLIST_DW[eml_loop] > eml_maxr) {
-        eml_maxr = localDW->M_PIXLIST_DW[eml_loop];
-      }
-    }
-
-    eml_xs = 0.0;
-    eml_ys = 0.0;
-    eml_xys = 0.0;
-    for (eml_k = 0U; eml_k < (uint32_T)(int32_T)localDW->NUM_PIX_DW[eml_c_i];
-         eml_k++) {
-      eml_majorAxis = (real_T)localDW->N_PIXLIST_DW[eml_pixListNinc + eml_k] -
-        eml_centroid_idx_0;
-      eml_uyy = (real_T)localDW->M_PIXLIST_DW[eml_pixListMinc + eml_k] -
-        eml_centroid_idx;
-      eml_xs += eml_majorAxis * eml_majorAxis;
-      eml_ys += eml_uyy * eml_uyy;
-      eml_xys += eml_majorAxis * (-eml_uyy);
-    }
-
-    eml_centroid_idx = eml_xs / (real_T)localDW->NUM_PIX_DW[eml_c_i] +
-      8.3333333333333329E-002;
-    eml_uyy = eml_ys / (real_T)localDW->NUM_PIX_DW[eml_c_i] +
-      8.3333333333333329E-002;
-    eml_xs = eml_xys / (real_T)localDW->NUM_PIX_DW[eml_c_i];
-    eml_xs = sqrt((eml_centroid_idx - eml_uyy) * (eml_centroid_idx - eml_uyy) +
-                  eml_xs * eml_xs * 4.0);
-    eml_majorAxis = ((eml_centroid_idx + eml_uyy) + eml_xs) * 8.0;
-    eml_Y1[eml_c_i] = sqrt(eml_majorAxis - ((eml_centroid_idx + eml_uyy) -
-      eml_xs) * 8.0) / sqrt(eml_majorAxis);
-    eml_Y2[eml_c_i] = (real_T)localDW->NUM_PIX_DW[eml_c_i] / (real_T)(((eml_maxr
-      + 1) - eml_idx) * ((eml_maxc + 1) - eml_n));
-    eml_pixListMinc += (int32_T)localDW->NUM_PIX_DW[eml_c_i];
-    eml_pixListNinc += (int32_T)localDW->NUM_PIX_DW[eml_c_i];
-  }
-
-  for (eml_loop = eml_numBlobs << 1; eml_loop < 100; eml_loop++) {
-    eml_Y0[eml_loop] = localDW->F0_RTP;
-  }
-
-  for (eml_loop = eml_numBlobs; eml_loop < 50; eml_loop++) {
-    eml_Y1[eml_loop] = localDW->F1_RTP;
-  }
-
-  while (eml_numBlobs < 50) {
-    eml_Y2[eml_numBlobs] = localDW->F2_RTP;
-    eml_numBlobs++;
-  }
-}
-
-/* Function for Embedded MATLAB: '<S15>/Blob Extraction' */
-static void brain_c3_brain(const real_T rtu_LabMatrix[19200], real_T
-  rtu_num_colors, rtB_StateFlowFunctionsBuoysFind *localB,
-  rtDW_StateFlowFunctionsBuoysFin *localDW)
-{
-  real_T eml_num_colors;
-  uint8_T eml_TotalNum;
-  real_T eml_k;
-  int32_T eml_j;
-  uint8_T eml_b_i;
-  real_T eml_TCentroid[100];
-  real_T eml_TEccent[50];
-  real_T eml_TExtent[50];
-  uint8_T eml_TNumBlobs;
-  int32_T i;
-  uint8_T tmp;
-  eml_num_colors = rtu_num_colors;
-
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.LookforBuoys/Blob Extraction': '<S64>:1' */
-  /*  This function will determine the characteristics of the blobs in an image */
-  /*  given a label matrix defining the different binary images contained in a */
-  /*  that label matrix */
-  /* '<S64>:1:7' */
-  for (i = 0; i < 19200; i++) {
-    localB->eml_LogicMatrix[i] = FALSE;
-  }
-
-  /* '<S64>:1:9' */
-  /* '<S64>:1:12' */
-  memset((void *)&localB->Centroid[0], (int32_T)0.0, 100U * sizeof(real_T));
-
-  /* '<S64>:1:13' */
-  /* '<S64>:1:14' */
-  for (i = 0; i < 50; i++) {
-    localB->Eccent[i] = 0.0;
-    localB->Extent[i] = 0.0;
-  }
-
-  /* '<S64>:1:16' */
-  eml_TotalNum = 0U;
-
-  /* '<S64>:1:26' */
-  for (eml_k = 1.0; eml_k <= eml_num_colors; eml_k++) {
-    /* '<S64>:1:26' */
-    /* '<S64>:1:27' */
-    for (i = 0; i < 120; i++) {
-      /* '<S64>:1:27' */
-      /* '<S64>:1:28' */
-      for (eml_j = 0; eml_j < 160; eml_j++) {
-        /* '<S64>:1:28' */
-        if (rtu_LabMatrix[120 * eml_j + i] != eml_k) {
-          /* '<S64>:1:29' */
-          /* '<S64>:1:30' */
-          localB->eml_LogicMatrix[i + 120 * eml_j] = FALSE;
-        } else {
-          /* '<S64>:1:32' */
-          localB->eml_LogicMatrix[i + 120 * eml_j] = TRUE;
-        }
+      if (localDW->M_PIXLIST_DW[loop] > maxr) {
+        maxr = localDW->M_PIXLIST_DW[loop];
       }
     }
 
-    brain_Outputs(&localB->eml_LogicMatrix[0], eml_TCentroid, eml_TEccent,
-                  eml_TExtent, &eml_TNumBlobs, localDW);
-    i = eml_TotalNum + eml_TNumBlobs;
-    if ((uint32_T)i > 255U) {
-      tmp = MAX_uint8_T;
-    } else {
-      tmp = (uint8_T)i;
+    xs = 0.0;
+    ys = 0.0;
+    xys = 0.0;
+    for (k = 0U; (int32_T)k < (int32_T)localDW->NUM_PIX_DW[c_i]; k++) {
+      majorAxis = (real_T)localDW->N_PIXLIST_DW[pixListNinc + (int32_T)k] -
+        centroid_idx_0;
+      uyy = (real_T)localDW->M_PIXLIST_DW[pixListMinc + (int32_T)k] -
+        centroid_idx;
+      xs += majorAxis * majorAxis;
+      ys += uyy * uyy;
+      xys += majorAxis * (-uyy);
     }
 
-    if (tmp < 50) {
-      /* '<S64>:1:38' */
-      /* '<S64>:1:39' */
-      for (eml_b_i = 1U; eml_b_i <= eml_TNumBlobs; eml_b_i = (uint8_T)(uint32_T)
-           (eml_b_i + 1)) {
-        /* '<S64>:1:39' */
-        /* '<S64>:1:40' */
-        i = eml_TotalNum + eml_b_i;
-        if ((uint32_T)i > 255U) {
-          tmp = MAX_uint8_T;
-        } else {
-          tmp = (uint8_T)i;
-        }
-
-        localB->Centroid[tmp - 1] = eml_TCentroid[(eml_b_i - 1) << 1];
-
-        /* '<S64>:1:41' */
-        i = eml_TotalNum + eml_b_i;
-        if ((uint32_T)i > 255U) {
-          tmp = MAX_uint8_T;
-        } else {
-          tmp = (uint8_T)i;
-        }
-
-        localB->Centroid[tmp + 49] = eml_TCentroid[((eml_b_i - 1) << 1) + 1];
-
-        /* '<S64>:1:42' */
-        i = eml_TotalNum + eml_b_i;
-        if ((uint32_T)i > 255U) {
-          tmp = MAX_uint8_T;
-        } else {
-          tmp = (uint8_T)i;
-        }
-
-        localB->Eccent[tmp - 1] = eml_TEccent[eml_b_i - 1];
-
-        /* '<S64>:1:43' */
-        i = eml_TotalNum + eml_b_i;
-        if ((uint32_T)i > 255U) {
-          tmp = MAX_uint8_T;
-        } else {
-          tmp = (uint8_T)i;
-        }
-
-        localB->Extent[tmp - 1] = eml_TExtent[eml_b_i - 1];
-      }
-
-      /* '<S64>:1:45' */
-      i = eml_TotalNum + eml_TNumBlobs;
-      if ((uint32_T)i > 255U) {
-        eml_TotalNum = MAX_uint8_T;
-      } else {
-        eml_TotalNum = (uint8_T)i;
-      }
-    }
+    centroid_idx = xs / (real_T)localDW->NUM_PIX_DW[c_i] + 0.083333333333333329;
+    uyy = ys / (real_T)localDW->NUM_PIX_DW[c_i] + 0.083333333333333329;
+    xs = xys / (real_T)localDW->NUM_PIX_DW[c_i];
+    xs = sqrt((centroid_idx - uyy) * (centroid_idx - uyy) + xs * xs * 4.0);
+    majorAxis = ((centroid_idx + uyy) + xs) * 8.0;
+    Y1[c_i] = sqrt(majorAxis - ((centroid_idx + uyy) - xs) * 8.0) / sqrt
+      (majorAxis);
+    Y2[c_i] = (real_T)localDW->NUM_PIX_DW[c_i] / (real_T)(((maxr + 1) - idx) *
+      ((maxc + 1) - n));
+    pixListMinc += (int32_T)localDW->NUM_PIX_DW[c_i];
+    pixListNinc += (int32_T)localDW->NUM_PIX_DW[c_i];
   }
 
-  localB->TotalNum = eml_TotalNum;
+  for (loop = (int32_T)((uint32_T)numBlobs << 1); loop < 100; loop++) {
+    Y0[loop] = localDW->F0_RTP;
+  }
+
+  for (loop = numBlobs; loop < 50; loop++) {
+    Y1[loop] = localDW->F1_RTP;
+  }
+
+  for (loop = numBlobs; loop < 50; loop++) {
+    Y2[loop] = localDW->F2_RTP;
+  }
 }
 
 /* Initial conditions for function-call system: '<Root>/StateFlow Functions' */
@@ -1618,7 +1456,6 @@ void StateFlowFunctionsBuoysFin_Init(rtDW_StateFlowFunctionsBuoysFin *localDW)
   localDW->F1_RTP = -1.0;
   localDW->F2_RTP = -1.0;
   localDW->MINAREA_RTP = 5U;
-  localDW->hblob = TRUE;
 }
 
 /* Output and update for function-call system: '<Root>/StateFlow Functions' */
@@ -1632,15 +1469,19 @@ void StateFlowFunctionsBuoysFindBuoy(const real_T rtu_RGBin[57600], const real_T
   int32_T in;
   int32_T idxPix;
   boolean_T isInBound;
-  int32_T i;
   boolean_T visited;
   boolean_T visited_0;
   boolean_T done;
-  int32_T OutCode;
-  real_T eml_count;
-  uint8_T eml_i;
+  int32_T idxPix_0;
+  uint8_T TotalNum;
+  real_T k;
+  uint8_T b_i;
+  real_T TEccent[50];
+  real_T TExtent[50];
+  uint8_T TNumBlobs;
+  real_T count;
   real_T rtb_BuoyCent[100];
-  int32_T i_0;
+  int32_T i;
   int32_T line_idx;
   int32_T line_idx_0;
   int32_T line_idx_1;
@@ -1648,9 +1489,110 @@ void StateFlowFunctionsBuoysFindBuoy(const real_T rtu_RGBin[57600], const real_T
   int32_T line_idx_3;
   int32_T line_idx_4;
   int32_T line_idx_5;
+  int32_T line_idx_6;
 
   /* Embedded MATLAB: '<S15>/Blob Extraction' */
-  brain_c3_brain(rtu_LabMatrix, rtu_num_colors, localB, localDW);
+  count = rtu_num_colors;
+
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.LookforBuoys/Blob Extraction': '<S64>:1' */
+  /*  This function will determine the characteristics of the blobs in an image */
+  /*  given a label matrix defining the different binary images contained in a */
+  /*  that label matrix */
+  /* '<S64>:1:7' */
+  for (i = 0; i < 19200; i++) {
+    localB->LogicMatrix[i] = FALSE;
+  }
+
+  /* '<S64>:1:9' */
+  /* '<S64>:1:12' */
+  memset((void *)(&localB->Centroid[0]), 0, 100U * sizeof(real_T));
+
+  /* '<S64>:1:13' */
+  /* '<S64>:1:14' */
+  for (i = 0; i < 50; i++) {
+    localB->Eccent[i] = 0.0;
+    localB->Extent[i] = 0.0;
+  }
+
+  /* '<S64>:1:16' */
+  TotalNum = 0U;
+
+  /* '<S64>:1:26' */
+  for (k = 1.0; k <= count; k++) {
+    /* '<S64>:1:26' */
+    /* '<S64>:1:27' */
+    for (i = 0; i < 120; i++) {
+      /* '<S64>:1:27' */
+      /* '<S64>:1:28' */
+      for (idxPix = 0; idxPix < 160; idxPix++) {
+        /* '<S64>:1:28' */
+        if (rtu_LabMatrix[120 * idxPix + i] != k) {
+          /* '<S64>:1:29' */
+          /* '<S64>:1:30' */
+          localB->LogicMatrix[i + 120 * idxPix] = FALSE;
+        } else {
+          /* '<S64>:1:32' */
+          localB->LogicMatrix[i + 120 * idxPix] = TRUE;
+        }
+      }
+    }
+
+    brain_Outputs(&localB->LogicMatrix[0], rtb_BuoyCent, TEccent, TExtent,
+                  &TNumBlobs, localDW);
+    idxPix_0 = (int32_T)((uint32_T)TotalNum + (uint32_T)TNumBlobs);
+    if ((uint32_T)idxPix_0 > 255U) {
+      idxPix_0 = 255;
+    }
+
+    if (idxPix_0 < 50) {
+      /* '<S64>:1:38' */
+      /* '<S64>:1:39' */
+      for (b_i = 1U; b_i <= TNumBlobs; b_i = (uint8_T)((uint32_T)b_i + 1U)) {
+        /* '<S64>:1:39' */
+        /* '<S64>:1:40' */
+        idxPix_0 = (int32_T)((uint32_T)TotalNum + (uint32_T)b_i);
+        if ((uint32_T)idxPix_0 > 255U) {
+          idxPix_0 = 255;
+        }
+
+        localB->Centroid[idxPix_0 - 1] = rtb_BuoyCent[(b_i - 1) << 1];
+
+        /* '<S64>:1:41' */
+        idxPix_0 = (int32_T)((uint32_T)TotalNum + (uint32_T)b_i);
+        if ((uint32_T)idxPix_0 > 255U) {
+          idxPix_0 = 255;
+        }
+
+        localB->Centroid[idxPix_0 + 49] = rtb_BuoyCent[((b_i - 1) << 1) + 1];
+
+        /* '<S64>:1:42' */
+        idxPix_0 = (int32_T)((uint32_T)TotalNum + (uint32_T)b_i);
+        if ((uint32_T)idxPix_0 > 255U) {
+          idxPix_0 = 255;
+        }
+
+        localB->Eccent[idxPix_0 - 1] = TEccent[b_i - 1];
+
+        /* '<S64>:1:43' */
+        idxPix_0 = (int32_T)((uint32_T)TotalNum + (uint32_T)b_i);
+        if ((uint32_T)idxPix_0 > 255U) {
+          idxPix_0 = 255;
+        }
+
+        localB->Extent[idxPix_0 - 1] = TExtent[b_i - 1];
+      }
+
+      /* '<S64>:1:45' */
+      idxPix_0 = (int32_T)((uint32_T)TotalNum + (uint32_T)TNumBlobs);
+      if ((uint32_T)idxPix_0 > 255U) {
+        idxPix_0 = 255;
+      }
+
+      TotalNum = (uint8_T)idxPix_0;
+    }
+  }
+
+  localB->TotalNum = TotalNum;
 
   /* Embedded MATLAB: '<S15>/IF Buoy Conditions' incorporates:
    *  Constant: '<S15>/Constant'
@@ -1665,35 +1607,35 @@ void StateFlowFunctionsBuoysFindBuoy(const real_T rtu_RGBin[57600], const real_T
   localB->Image = 0.0;
 
   /* '<S65>:1:6' */
-  eml_count = 0.0;
+  count = 0.0;
 
   /* '<S65>:1:7' */
-  for (i_0 = 0; i_0 < 100; i_0++) {
-    rtb_BuoyCent[i_0] = 1.0;
+  for (i = 0; i < 100; i++) {
+    rtb_BuoyCent[i] = 1.0;
   }
 
   /* '<S65>:1:9' */
-  for (eml_i = 1U; eml_i <= localB->TotalNum; eml_i = (uint8_T)(uint32_T)(eml_i
-        + 1)) {
+  for (TotalNum = 1U; TotalNum <= localB->TotalNum; TotalNum = (uint8_T)
+       ((uint32_T)TotalNum + 1U)) {
     /* '<S65>:1:9' */
-    if ((localB->Eccent[eml_i - 1] > brain_P.Buoy_Min_Eccentricity) &&
-        (localB->Eccent[eml_i - 1] < brain_P.Buoy_Max_Eccentricity) &&
-        (localB->Extent[eml_i - 1] > brain_P.Buoy_Min_Extent) && (localB->
-         Extent[eml_i - 1] < brain_P.Buoy_Max_Extent)) {
+    if ((localB->Eccent[TotalNum - 1] > brain_P.Buoy_Min_Eccentricity) &&
+        (localB->Eccent[TotalNum - 1] < brain_P.Buoy_Max_Eccentricity) &&
+        (localB->Extent[TotalNum - 1] > brain_P.Buoy_Min_Extent) &&
+        (localB->Extent[TotalNum - 1] < brain_P.Buoy_Max_Extent)) {
       /* '<S65>:1:10' */
       /* '<S65>:1:11' */
-      eml_count++;
+      count++;
 
       /* '<S65>:1:12' */
-      rtb_BuoyCent[((int32_T)eml_count - 1) << 1U] = localB->Centroid[eml_i - 1];
+      rtb_BuoyCent[((int32_T)count - 1) << 1U] = localB->Centroid[TotalNum - 1];
 
       /* '<S65>:1:13' */
-      rtb_BuoyCent[1 + (((int32_T)eml_count - 1) << 1U)] = localB->
-        Centroid[eml_i + 49];
+      rtb_BuoyCent[1 + (((int32_T)count - 1) << 1U)] = localB->Centroid[TotalNum
+        + 49];
     }
   }
 
-  if (eml_count >= 3.0) {
+  if (count >= 3.0) {
     /* '<S65>:1:17' */
     /* '<S65>:1:18' */
     localB->Image = 1.0;
@@ -1706,20 +1648,20 @@ void StateFlowFunctionsBuoysFindBuoy(const real_T rtu_RGBin[57600], const real_T
 
   /* Draw all X marks. */
   for (idxROI = 0; idxROI < 100; idxROI += 2) {
-    eml_count = rtb_BuoyCent[idxROI];
-    if ((rtb_BuoyCent[idxROI] < 4.5035996273704960E+015) && (rtb_BuoyCent[idxROI]
-         > -4.5035996273704960E+015)) {
-      eml_count = floor(rtb_BuoyCent[idxROI] + 0.5);
+    count = rtb_BuoyCent[idxROI];
+    if ((rtb_BuoyCent[idxROI] < 4.503599627370496E+15) && (rtb_BuoyCent[idxROI] >
+         -4.503599627370496E+15)) {
+      count = floor(rtb_BuoyCent[idxROI] + 0.5);
     }
 
-    row = (int32_T)eml_count;
-    eml_count = rtb_BuoyCent[idxROI + 1];
-    if ((eml_count < 4.5035996273704960E+015) && (eml_count >
-         -4.5035996273704960E+015)) {
-      eml_count = floor(eml_count + 0.5);
+    row = (int32_T)count;
+    count = rtb_BuoyCent[idxROI + 1];
+    if ((rtb_BuoyCent[idxROI + 1] < 4.503599627370496E+15) &&
+        (rtb_BuoyCent[idxROI + 1] > -4.503599627370496E+15)) {
+      count = floor(rtb_BuoyCent[idxROI + 1] + 0.5);
     }
 
-    col = (int32_T)eml_count;
+    col = (int32_T)count;
     line_idx = row - 7;
     line_idx_0 = col - 7;
     line_idx_1 = row + 7;
@@ -1730,104 +1672,104 @@ void StateFlowFunctionsBuoysFindBuoy(const real_T rtu_RGBin[57600], const real_T
     visited = FALSE;
     visited_0 = FALSE;
     done = FALSE;
-    i_0 = line_idx;
+    line_idx_4 = line_idx;
     line_idx_3 = line_idx_0;
-    line_idx_4 = line_idx_1;
-    line_idx_5 = line_idx_2;
+    line_idx_5 = line_idx_1;
+    line_idx_6 = line_idx_2;
     while (!done) {
+      idxPix_0 = 0;
       in = 0;
-      OutCode = 0;
 
       /* Determine viewport violations. */
-      if (i_0 < 0) {
-        in = 4;
-      } else {
-        if (i_0 > 119) {
-          in = 8;
-        }
-      }
-
       if (line_idx_4 < 0) {
-        OutCode = 4;
+        idxPix_0 = 4;
       } else {
         if (line_idx_4 > 119) {
-          OutCode = 8;
-        }
-      }
-
-      if (line_idx_3 < 0) {
-        in |= 1;
-      } else {
-        if (line_idx_3 > 159) {
-          in |= 2;
+          idxPix_0 = 8;
         }
       }
 
       if (line_idx_5 < 0) {
-        OutCode |= 1;
+        in = 4;
       } else {
-        if (line_idx_5 > 159) {
-          OutCode |= 2;
+        if (line_idx_5 > 119) {
+          in = 8;
         }
       }
 
-      if (!((uint32_T)(in | OutCode))) {
+      if (line_idx_3 < 0) {
+        idxPix_0 = (int32_T)((uint32_T)idxPix_0 | 1U);
+      } else {
+        if (line_idx_3 > 159) {
+          idxPix_0 = (int32_T)((uint32_T)idxPix_0 | 2U);
+        }
+      }
+
+      if (line_idx_6 < 0) {
+        in = (int32_T)((uint32_T)in | 1U);
+      } else {
+        if (line_idx_6 > 159) {
+          in = (int32_T)((uint32_T)in | 2U);
+        }
+      }
+
+      if (!((uint32_T)idxPix_0 | (uint32_T)in)) {
         /* Line falls completely within bounds. */
         done = TRUE;
         isInBound = TRUE;
-      } else if ((uint32_T)(in & OutCode)) {
+      } else if ((uint32_T)idxPix_0 & (uint32_T)in) {
         /* Line falls completely out of bounds. */
         done = TRUE;
         isInBound = FALSE;
-      } else if ((uint32_T)in != 0U) {
+      } else if ((uint32_T)idxPix_0 != 0U) {
         /* Clip 1st point; if it's in-bounds, clip 2nd point. */
         if (visited) {
-          i_0 = line_idx;
+          line_idx_4 = line_idx;
           line_idx_3 = line_idx_0;
         }
 
-        i = line_idx_4 - i_0;
-        idxPix = line_idx_5 - line_idx_3;
-        if ((uint32_T)(in & 4)) {
+        idxPix = line_idx_5 - line_idx_4;
+        i = line_idx_6 - line_idx_3;
+        if ((uint32_T)idxPix_0 & 4U) {
           /* Violated RMin. */
-          in = (0 - i_0) * idxPix;
-          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(in << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_3 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
-          }
-
-          i_0 = 0;
-          visited = TRUE;
-        } else if ((uint32_T)(in & 8)) {
-          /* Violated RMax. */
-          in = (119 - i_0) * idxPix;
-          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(in << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_3 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
-          }
-
-          i_0 = 119;
-          visited = TRUE;
-        } else if ((uint32_T)(in & 1)) {
-          /* Violated CMin. */
-          in = (0 - line_idx_3) * i;
+          in = (0 - line_idx_4) * i;
           if (((in >= 0) && (idxPix >= 0)) || ((in < 0) && (idxPix < 0))) {
-            i_0 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
+            line_idx_3 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
           } else {
-            i_0 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
+            line_idx_3 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
+          }
+
+          line_idx_4 = 0;
+          visited = TRUE;
+        } else if ((uint32_T)idxPix_0 & 8U) {
+          /* Violated RMax. */
+          in = (119 - line_idx_4) * i;
+          if (((in >= 0) && (idxPix >= 0)) || ((in < 0) && (idxPix < 0))) {
+            line_idx_3 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
+          } else {
+            line_idx_3 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
+          }
+
+          line_idx_4 = 119;
+          visited = TRUE;
+        } else if ((uint32_T)idxPix_0 & 1U) {
+          /* Violated CMin. */
+          in = (0 - line_idx_3) * idxPix;
+          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
+            line_idx_4 += (div_s32_floor(in << 1U, i) + 1) >> 1;
+          } else {
+            line_idx_4 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
           }
 
           line_idx_3 = 0;
           visited = TRUE;
         } else {
           /* Violated CMax. */
-          in = (159 - line_idx_3) * i;
-          if (((in >= 0) && (idxPix >= 0)) || ((in < 0) && (idxPix < 0))) {
-            i_0 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
+          in = (159 - line_idx_3) * idxPix;
+          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
+            line_idx_4 += (div_s32_floor(in << 1U, i) + 1) >> 1;
           } else {
-            i_0 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
+            line_idx_4 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
           }
 
           line_idx_3 = 159;
@@ -1836,68 +1778,68 @@ void StateFlowFunctionsBuoysFindBuoy(const real_T rtu_RGBin[57600], const real_T
       } else {
         /* Clip the 2nd point. */
         if (visited_0) {
-          line_idx_4 = line_idx_1;
-          line_idx_5 = line_idx_2;
+          line_idx_5 = line_idx_1;
+          line_idx_6 = line_idx_2;
         }
 
-        i = line_idx_4 - i_0;
-        idxPix = line_idx_5 - line_idx_3;
-        if ((uint32_T)(OutCode & 4)) {
+        idxPix = line_idx_5 - line_idx_4;
+        i = line_idx_6 - line_idx_3;
+        if ((uint32_T)in & 4U) {
           /* Violated RMin. */
-          in = (0 - line_idx_4) * idxPix;
-          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
-            line_idx_5 += (div_s32_floor(in << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_5 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
-          }
-
-          line_idx_4 = 0;
-          visited_0 = TRUE;
-        } else if ((uint32_T)(OutCode & 8)) {
-          /* Violated RMax. */
-          in = (119 - line_idx_4) * idxPix;
-          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
-            line_idx_5 += (div_s32_floor(in << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_5 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
-          }
-
-          line_idx_4 = 119;
-          visited_0 = TRUE;
-        } else if ((uint32_T)(OutCode & 1)) {
-          /* Violated CMin. */
           in = (0 - line_idx_5) * i;
           if (((in >= 0) && (idxPix >= 0)) || ((in < 0) && (idxPix < 0))) {
-            line_idx_4 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
+            line_idx_6 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
           } else {
-            line_idx_4 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
+            line_idx_6 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
           }
 
           line_idx_5 = 0;
           visited_0 = TRUE;
-        } else {
-          /* Violated CMax. */
-          in = (159 - line_idx_5) * i;
+        } else if ((uint32_T)in & 8U) {
+          /* Violated RMax. */
+          in = (119 - line_idx_5) * i;
           if (((in >= 0) && (idxPix >= 0)) || ((in < 0) && (idxPix < 0))) {
-            line_idx_4 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
+            line_idx_6 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
           } else {
-            line_idx_4 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
+            line_idx_6 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
           }
 
-          line_idx_5 = 159;
+          line_idx_5 = 119;
+          visited_0 = TRUE;
+        } else if ((uint32_T)in & 1U) {
+          /* Violated CMin. */
+          in = (0 - line_idx_6) * idxPix;
+          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
+            line_idx_5 += (div_s32_floor(in << 1U, i) + 1) >> 1;
+          } else {
+            line_idx_5 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
+          }
+
+          line_idx_6 = 0;
+          visited_0 = TRUE;
+        } else {
+          /* Violated CMax. */
+          in = (159 - line_idx_6) * idxPix;
+          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
+            line_idx_5 += (div_s32_floor(in << 1U, i) + 1) >> 1;
+          } else {
+            line_idx_5 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
+          }
+
+          line_idx_6 = 159;
           visited_0 = TRUE;
         }
       }
     }
 
     if (isInBound) {
-      idxPix = line_idx_3 * 120 + i_0;
-      for (in = i_0; in <= line_idx_4; in++) {
+      idxPix = line_idx_3 * 120 + line_idx_4;
+      for (in = line_idx_4; in <= line_idx_5; in++) {
         localB->DrawMarkers[idxPix] = 0.0;
-        i_0 = idxPix + 19200;
-        localB->DrawMarkers[i_0] = 0.0;
-        i_0 += 19200;
-        localB->DrawMarkers[i_0] = 0.0;
+        idxPix_0 = idxPix + 19200;
+        localB->DrawMarkers[idxPix_0] = 0.0;
+        idxPix_0 += 19200;
+        localB->DrawMarkers[idxPix_0] = 0.0;
         idxPix += 121;
       }
     }
@@ -1912,104 +1854,104 @@ void StateFlowFunctionsBuoysFindBuoy(const real_T rtu_RGBin[57600], const real_T
     visited = FALSE;
     visited_0 = FALSE;
     done = FALSE;
-    i_0 = line_idx;
+    line_idx_4 = line_idx;
     line_idx_3 = line_idx_0;
-    row = line_idx_1;
-    line_idx_5 = line_idx_2;
+    line_idx_5 = line_idx_1;
+    line_idx_6 = line_idx_2;
     while (!done) {
+      idxPix_0 = 0;
       in = 0;
-      OutCode = 0;
 
       /* Determine viewport violations. */
-      if (i_0 < 0) {
-        in = 4;
+      if (line_idx_4 < 0) {
+        idxPix_0 = 4;
       } else {
-        if (i_0 > 119) {
-          in = 8;
-        }
-      }
-
-      if (row < 0) {
-        OutCode = 4;
-      } else {
-        if (row > 119) {
-          OutCode = 8;
-        }
-      }
-
-      if (line_idx_3 < 0) {
-        in |= 1;
-      } else {
-        if (line_idx_3 > 159) {
-          in |= 2;
+        if (line_idx_4 > 119) {
+          idxPix_0 = 8;
         }
       }
 
       if (line_idx_5 < 0) {
-        OutCode |= 1;
+        in = 4;
       } else {
-        if (line_idx_5 > 159) {
-          OutCode |= 2;
+        if (line_idx_5 > 119) {
+          in = 8;
         }
       }
 
-      if (!((uint32_T)(in | OutCode))) {
+      if (line_idx_3 < 0) {
+        idxPix_0 = (int32_T)((uint32_T)idxPix_0 | 1U);
+      } else {
+        if (line_idx_3 > 159) {
+          idxPix_0 = (int32_T)((uint32_T)idxPix_0 | 2U);
+        }
+      }
+
+      if (line_idx_6 < 0) {
+        in = (int32_T)((uint32_T)in | 1U);
+      } else {
+        if (line_idx_6 > 159) {
+          in = (int32_T)((uint32_T)in | 2U);
+        }
+      }
+
+      if (!((uint32_T)idxPix_0 | (uint32_T)in)) {
         /* Line falls completely within bounds. */
         done = TRUE;
         isInBound = TRUE;
-      } else if ((uint32_T)(in & OutCode)) {
+      } else if ((uint32_T)idxPix_0 & (uint32_T)in) {
         /* Line falls completely out of bounds. */
         done = TRUE;
         isInBound = FALSE;
-      } else if ((uint32_T)in != 0U) {
+      } else if ((uint32_T)idxPix_0 != 0U) {
         /* Clip 1st point; if it's in-bounds, clip 2nd point. */
         if (visited) {
-          i_0 = line_idx;
+          line_idx_4 = line_idx;
           line_idx_3 = line_idx_0;
         }
 
-        i = row - i_0;
-        idxPix = line_idx_5 - line_idx_3;
-        if ((uint32_T)(in & 4)) {
+        idxPix = line_idx_5 - line_idx_4;
+        i = line_idx_6 - line_idx_3;
+        if ((uint32_T)idxPix_0 & 4U) {
           /* Violated RMin. */
-          in = (0 - i_0) * idxPix;
-          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(in << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_3 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
-          }
-
-          i_0 = 0;
-          visited = TRUE;
-        } else if ((uint32_T)(in & 8)) {
-          /* Violated RMax. */
-          in = (119 - i_0) * idxPix;
-          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(in << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_3 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
-          }
-
-          i_0 = 119;
-          visited = TRUE;
-        } else if ((uint32_T)(in & 1)) {
-          /* Violated CMin. */
-          in = (0 - line_idx_3) * i;
+          in = (0 - line_idx_4) * i;
           if (((in >= 0) && (idxPix >= 0)) || ((in < 0) && (idxPix < 0))) {
-            i_0 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
+            line_idx_3 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
           } else {
-            i_0 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
+            line_idx_3 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
+          }
+
+          line_idx_4 = 0;
+          visited = TRUE;
+        } else if ((uint32_T)idxPix_0 & 8U) {
+          /* Violated RMax. */
+          in = (119 - line_idx_4) * i;
+          if (((in >= 0) && (idxPix >= 0)) || ((in < 0) && (idxPix < 0))) {
+            line_idx_3 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
+          } else {
+            line_idx_3 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
+          }
+
+          line_idx_4 = 119;
+          visited = TRUE;
+        } else if ((uint32_T)idxPix_0 & 1U) {
+          /* Violated CMin. */
+          in = (0 - line_idx_3) * idxPix;
+          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
+            line_idx_4 += (div_s32_floor(in << 1U, i) + 1) >> 1;
+          } else {
+            line_idx_4 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
           }
 
           line_idx_3 = 0;
           visited = TRUE;
         } else {
           /* Violated CMax. */
-          in = (159 - line_idx_3) * i;
-          if (((in >= 0) && (idxPix >= 0)) || ((in < 0) && (idxPix < 0))) {
-            i_0 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
+          in = (159 - line_idx_3) * idxPix;
+          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
+            line_idx_4 += (div_s32_floor(in << 1U, i) + 1) >> 1;
           } else {
-            i_0 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
+            line_idx_4 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
           }
 
           line_idx_3 = 159;
@@ -2018,68 +1960,68 @@ void StateFlowFunctionsBuoysFindBuoy(const real_T rtu_RGBin[57600], const real_T
       } else {
         /* Clip the 2nd point. */
         if (visited_0) {
-          row = line_idx_1;
-          line_idx_5 = line_idx_2;
+          line_idx_5 = line_idx_1;
+          line_idx_6 = line_idx_2;
         }
 
-        i = row - i_0;
-        idxPix = line_idx_5 - line_idx_3;
-        if ((uint32_T)(OutCode & 4)) {
+        idxPix = line_idx_5 - line_idx_4;
+        i = line_idx_6 - line_idx_3;
+        if ((uint32_T)in & 4U) {
           /* Violated RMin. */
-          in = (0 - row) * idxPix;
-          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
-            line_idx_5 += (div_s32_floor(in << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_5 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
-          }
-
-          row = 0;
-          visited_0 = TRUE;
-        } else if ((uint32_T)(OutCode & 8)) {
-          /* Violated RMax. */
-          in = (119 - row) * idxPix;
-          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
-            line_idx_5 += (div_s32_floor(in << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_5 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
-          }
-
-          row = 119;
-          visited_0 = TRUE;
-        } else if ((uint32_T)(OutCode & 1)) {
-          /* Violated CMin. */
           in = (0 - line_idx_5) * i;
           if (((in >= 0) && (idxPix >= 0)) || ((in < 0) && (idxPix < 0))) {
-            row += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
+            line_idx_6 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
           } else {
-            row += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
+            line_idx_6 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
           }
 
           line_idx_5 = 0;
           visited_0 = TRUE;
-        } else {
-          /* Violated CMax. */
-          in = (159 - line_idx_5) * i;
+        } else if ((uint32_T)in & 8U) {
+          /* Violated RMax. */
+          in = (119 - line_idx_5) * i;
           if (((in >= 0) && (idxPix >= 0)) || ((in < 0) && (idxPix < 0))) {
-            row += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
+            line_idx_6 += (div_s32_floor(in << 1U, idxPix) + 1) >> 1;
           } else {
-            row += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
+            line_idx_6 += -((div_s32_floor((-in) << 1U, idxPix) + 1) >> 1);
           }
 
-          line_idx_5 = 159;
+          line_idx_5 = 119;
+          visited_0 = TRUE;
+        } else if ((uint32_T)in & 1U) {
+          /* Violated CMin. */
+          in = (0 - line_idx_6) * idxPix;
+          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
+            line_idx_5 += (div_s32_floor(in << 1U, i) + 1) >> 1;
+          } else {
+            line_idx_5 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
+          }
+
+          line_idx_6 = 0;
+          visited_0 = TRUE;
+        } else {
+          /* Violated CMax. */
+          in = (159 - line_idx_6) * idxPix;
+          if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
+            line_idx_5 += (div_s32_floor(in << 1U, i) + 1) >> 1;
+          } else {
+            line_idx_5 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
+          }
+
+          line_idx_6 = 159;
           visited_0 = TRUE;
         }
       }
     }
 
     if (isInBound) {
-      idxPix = line_idx_3 * 120 + i_0;
-      for (in = i_0; in <= row; in++) {
+      idxPix = line_idx_3 * 120 + line_idx_4;
+      for (in = line_idx_4; in <= line_idx_5; in++) {
         localB->DrawMarkers[idxPix] = 0.0;
-        i_0 = idxPix + 19200;
-        localB->DrawMarkers[i_0] = 0.0;
-        i_0 += 19200;
-        localB->DrawMarkers[i_0] = 0.0;
+        idxPix_0 = idxPix + 19200;
+        localB->DrawMarkers[idxPix_0] = 0.0;
+        idxPix_0 += 19200;
+        localB->DrawMarkers[idxPix_0] = 0.0;
         idxPix += -119;
       }
     }
@@ -2097,8 +2039,8 @@ void StateFlowFunctionsBuoysShowSegm(const real_T rtu_LabMatrix[19200], const
   real_T cc;
   real_T cc_0;
   real_T cc_1;
-  int32_T eml_i;
-  int32_T eml_j;
+  int32_T i;
+  int32_T j;
 
   /* Embedded MATLAB: '<S18>/Embedded MATLAB Function' */
   /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function': '<S74>:1' */
@@ -2107,98 +2049,98 @@ void StateFlowFunctionsBuoysShowSegm(const real_T rtu_LabMatrix[19200], const
   /* '<S74>:1:6' */
   /* '<S74>:1:7' */
   /* '<S74>:1:9' */
-  for (eml_i = 0; eml_i < 120; eml_i++) {
+  for (i = 0; i < 120; i++) {
     /* '<S74>:1:9' */
     /* '<S74>:1:10' */
-    for (eml_j = 0; eml_j < 160; eml_j++) {
+    for (j = 0; j < 160; j++) {
       /* '<S74>:1:10' */
       /* '<S74>:1:11' */
-      localB->L[eml_i + 120 * eml_j] = rtu_Ref_Colors[(int32_T)rtu_LabMatrix[120
-        * eml_j + eml_i] - 1];
+      localB->L[i + 120 * j] = rtu_Ref_Colors[(int32_T)rtu_LabMatrix[120 * j + i]
+        - 1];
 
       /* '<S74>:1:12' */
-      localB->a[eml_i + 120 * eml_j] = rtu_Ref_Colors[(int32_T)rtu_LabMatrix[120
-        * eml_j + eml_i] + 49];
+      localB->a[i + 120 * j] = rtu_Ref_Colors[(int32_T)rtu_LabMatrix[120 * j + i]
+        + 49];
 
       /* '<S74>:1:13' */
-      localB->b[eml_i + 120 * eml_j] = rtu_Ref_Colors[(int32_T)rtu_LabMatrix[120
-        * eml_j + eml_i] + 99];
+      localB->b[i + 120 * j] = rtu_Ref_Colors[(int32_T)rtu_LabMatrix[120 * j + i]
+        + 99];
     }
   }
 
   /* S-Function (svipcolorconv): '<S18>/Color Space  Conversion' */
   /* temporary variables for in-place operation */
   /* First convert to XYZ */
-  for (eml_i = 0; eml_i < 19200; eml_i++) {
-    cc = (localB->L[eml_i] + 16.0) / 116.0;
-    cc_0 = localB->a[eml_i] / 500.0 + cc;
-    cc_1 = localB->b[eml_i] / -200.0 + cc;
-    if (cc_0 <= 2.0689655172413793E-001) {
-      cc_0 -= 1.3793103448275862E-001;
-      cc_0 /= 7.7870370370370372E+000;
-    } else {
-      cc_0 = rt_pow_snf(cc_0, 3.0);
-    }
-
-    if (cc <= 2.0689655172413793E-001) {
-      cc -= 1.3793103448275862E-001;
-      cc /= 7.7870370370370372E+000;
+  for (i = 0; i < 19200; i++) {
+    cc_0 = (localB->L[i] + 16.0) / 116.0;
+    cc = localB->a[i] / 500.0 + cc_0;
+    cc_1 = localB->b[i] / -200.0 + cc_0;
+    if (cc <= 0.20689655172413793) {
+      cc -= 0.13793103448275862;
+      cc /= 7.7870370370370372;
     } else {
       cc = rt_pow_snf(cc, 3.0);
     }
 
-    if (cc_1 <= 2.0689655172413793E-001) {
-      cc_1 -= 1.3793103448275862E-001;
-      cc_1 /= 7.7870370370370372E+000;
+    if (cc_0 <= 0.20689655172413793) {
+      cc_0 -= 0.13793103448275862;
+      cc_0 /= 7.7870370370370372;
+    } else {
+      cc_0 = rt_pow_snf(cc_0, 3.0);
+    }
+
+    if (cc_1 <= 0.20689655172413793) {
+      cc_1 -= 0.13793103448275862;
+      cc_1 /= 7.7870370370370372;
     } else {
       cc_1 = rt_pow_snf(cc_1, 3.0);
     }
 
-    cc_0 *= 9.6419865576090003E-001;
-    cc_1 *= 8.2511648322104003E-001;
+    cc *= 0.9641986557609;
+    cc_1 *= 0.82511648322104;
 
     /* assign the results */
-    localB->ColorSpaceConversion_o1[eml_i] = cc_0;
-    localB->ColorSpaceConversion_o2[eml_i] = cc;
-    localB->ColorSpaceConversion_o3[eml_i] = cc_1;
+    localB->ColorSpaceConversion_o1[i] = cc;
+    localB->ColorSpaceConversion_o2[i] = cc_0;
+    localB->ColorSpaceConversion_o3[i] = cc_1;
   }
 
   /* Go from XYZ to sRGB; do it in place on the output buffer */
   /* temporary variables for in-place operation */
-  for (eml_i = 0; eml_i < 19200; eml_i++) {
+  for (i = 0; i < 19200; i++) {
     /* The coefficients for this conversion were derived from ITU-R */
     /* BT.709 reference primaries for sRGB and CIE standard illuminant */
     /* D65, 2 degree observer */
-    cc = (3.2409699419045102E+000 * localB->ColorSpaceConversion_o1[eml_i] +
-          -1.5373831775700899E+000 * localB->ColorSpaceConversion_o2[eml_i]) +
-      -4.9861076029299001E-001 * localB->ColorSpaceConversion_o3[eml_i];
-    cc_0 = (-9.6924363628086996E-001 * localB->ColorSpaceConversion_o1[eml_i] +
-            1.8759675015077100E+000 * localB->ColorSpaceConversion_o2[eml_i]) +
-      4.1555057407179997E-002 * localB->ColorSpaceConversion_o3[eml_i];
-    cc_1 = (5.5630079696999998E-002 * localB->ColorSpaceConversion_o1[eml_i] +
-            -2.0397695888899001E-001 * localB->ColorSpaceConversion_o2[eml_i]) +
-      1.0569715142428799E+000 * localB->ColorSpaceConversion_o3[eml_i];
+    cc = (3.24096994190451 * localB->ColorSpaceConversion_o1[i] +
+          -1.53738317757009 * localB->ColorSpaceConversion_o2[i]) +
+      -0.49861076029299 * localB->ColorSpaceConversion_o3[i];
+    cc_0 = (-0.96924363628087 * localB->ColorSpaceConversion_o1[i] +
+            1.87596750150771 * localB->ColorSpaceConversion_o2[i]) +
+      0.04155505740718 * localB->ColorSpaceConversion_o3[i];
+    cc_1 = (0.055630079697 * localB->ColorSpaceConversion_o1[i] +
+            -0.20397695888899 * localB->ColorSpaceConversion_o2[i]) +
+      1.05697151424288 * localB->ColorSpaceConversion_o3[i];
 
     /* Apply gamma correction to get R'G'B' */
     if (cc <= 0.00304) {
-      cc *= 1.2923054468333254E+001;
+      cc *= 12.923054468333255;
     } else {
-      cc = 1.0550005198172263E+000 * rt_pow_snf(cc, 4.1666666666666669E-001) -
-        5.5000519817226361E-002;
+      cc = 1.0550005198172263 * rt_pow_snf(cc, 0.41666666666666669) -
+        0.055000519817226347;
     }
 
     if (cc_0 <= 0.00304) {
-      cc_0 *= 1.2923054468333254E+001;
+      cc_0 *= 12.923054468333255;
     } else {
-      cc_0 = 1.0550005198172263E+000 * rt_pow_snf(cc_0, 4.1666666666666669E-001)
-        - 5.5000519817226361E-002;
+      cc_0 = 1.0550005198172263 * rt_pow_snf(cc_0, 0.41666666666666669) -
+        0.055000519817226347;
     }
 
     if (cc_1 <= 0.00304) {
-      cc_1 *= 1.2923054468333254E+001;
+      cc_1 *= 12.923054468333255;
     } else {
-      cc_1 = 1.0550005198172263E+000 * rt_pow_snf(cc_1, 4.1666666666666669E-001)
-        - 5.5000519817226361E-002;
+      cc_1 = 1.0550005198172263 * rt_pow_snf(cc_1, 0.41666666666666669) -
+        0.055000519817226347;
     }
 
     /* Make sure that the output is in [0..1] range; clip if necessary */
@@ -2227,193 +2169,73 @@ void StateFlowFunctionsBuoysShowSegm(const real_T rtu_LabMatrix[19200], const
     }
 
     /* assign the results */
-    localB->ColorSpaceConversion_o1[eml_i] = cc;
-    localB->ColorSpaceConversion_o2[eml_i] = cc_0;
-    localB->ColorSpaceConversion_o3[eml_i] = cc_1;
+    localB->ColorSpaceConversion_o1[i] = cc;
+    localB->ColorSpaceConversion_o2[i] = cc_0;
+    localB->ColorSpaceConversion_o3[i] = cc_1;
   }
 
   /* Embedded MATLAB: '<S18>/Embedded MATLAB Function1' */
   /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ShowSegmentedImage/Embedded MATLAB Function1': '<S75>:1' */
   /*  This function combines the separate color signals into a single 3-D signal */
   /* '<S75>:1:6' */
-  memset((void *)(&localB->RGB[0]), (int32_T)0.0, 57600U * sizeof(real_T));
+  memset((void *)(&localB->RGB[0]), 0, 57600U * sizeof(real_T));
 
   /* '<S75>:1:8' */
-  for (eml_i = 0; eml_i < 120; eml_i++) {
+  for (i = 0; i < 120; i++) {
     /* '<S75>:1:8' */
     /* '<S75>:1:9' */
-    for (eml_j = 0; eml_j < 160; eml_j++) {
+    for (j = 0; j < 160; j++) {
       /* '<S75>:1:9' */
       /* '<S75>:1:10' */
-      localB->RGB[eml_i + 120 * eml_j] = localB->ColorSpaceConversion_o1[120 *
-        eml_j + eml_i];
+      localB->RGB[i + 120 * j] = localB->ColorSpaceConversion_o1[120 * j + i];
 
       /* '<S75>:1:11' */
-      localB->RGB[19200 + (eml_i + 120 * eml_j)] =
-        localB->ColorSpaceConversion_o2[120 * eml_j + eml_i];
+      localB->RGB[19200 + (i + 120 * j)] = localB->ColorSpaceConversion_o2[120 *
+        j + i];
 
       /* '<S75>:1:12' */
-      localB->RGB[38400 + (eml_i + 120 * eml_j)] =
-        localB->ColorSpaceConversion_o3[120 * eml_j + eml_i];
+      localB->RGB[38400 + (i + 120 * j)] = localB->ColorSpaceConversion_o3[120 *
+        j + i];
     }
   }
 }
 
 /* Function for Embedded MATLAB: '<S66>/Low Pass Filter' */
-static void brain_conv2(const real32_T eml_arg1[19200], const real32_T eml_arg2
-  [9], real32_T eml_c[18644])
+static void brain_conv2(const real32_T arg1[19200], const real32_T arg2[9],
+  real32_T c[18644])
 {
-  int32_T eml_j;
-  int32_T eml_jp;
-  int32_T eml_ja;
-  int32_T eml_i;
-  int32_T eml_ip;
-  int32_T eml_ia;
-  real32_T eml_s;
-  int32_T eml_jb;
-  int32_T eml_jc;
-  int32_T eml_ic;
-  int32_T eml_ja_0;
-  int32_T eml_ia_0;
-  for (eml_jc = 0; eml_jc < 158; eml_jc++) {
-    eml_j = eml_jc + 3;
-    eml_jp = eml_j + 1;
-    eml_ja = eml_jp - 3;
-    for (eml_ic = 0; eml_ic < 118; eml_ic++) {
-      eml_i = eml_ic + 3;
-      eml_ip = eml_i + 1;
-      eml_ia = eml_ip - 3;
-      eml_s = 0.0F;
-      for (eml_ja_0 = eml_ja; eml_ja_0 <= eml_j; eml_ja_0++) {
-        eml_jb = eml_jp - eml_ja_0;
-        for (eml_ia_0 = eml_ia; eml_ia_0 <= eml_i; eml_ia_0++) {
-          eml_s += eml_arg1[(eml_ja_0 - 1) * 120 + (eml_ia_0 - 1)] * eml_arg2
-            [((eml_ip - eml_ia_0) - 1) + (eml_jb - 1) * 3];
+  int32_T j;
+  int32_T jp;
+  int32_T ja;
+  int32_T i;
+  int32_T ip;
+  int32_T ia;
+  real32_T s;
+  int32_T jb;
+  int32_T jc;
+  int32_T ic;
+  int32_T ja_0;
+  int32_T ia_0;
+  for (jc = 0; jc < 158; jc++) {
+    j = jc + 3;
+    jp = j + 1;
+    ja = jp - 3;
+    for (ic = 0; ic < 118; ic++) {
+      i = ic + 3;
+      ip = i + 1;
+      ia = ip - 3;
+      s = 0.0F;
+      for (ja_0 = ja; ja_0 <= j; ja_0++) {
+        jb = jp - ja_0;
+        for (ia_0 = ia; ia_0 <= i; ia_0++) {
+          s += arg1[(ja_0 - 1) * 120 + (ia_0 - 1)] * arg2[((ip - ia_0) - 1) +
+            (jb - 1) * 3];
         }
       }
 
-      eml_c[eml_ic + 118 * eml_jc] = eml_s;
+      c[ic + 118 * jc] = s;
     }
   }
-}
-
-/* Function for Embedded MATLAB: '<S66>/Low Pass Filter' */
-static void brain_c14_brain(const real_T rtu_I[19200], rtB_LowPassFilter_brain
-  *localB)
-{
-  real_T eml_G[9];
-  real_T eml_Gsum;
-  int32_T eml_i;
-  real32_T eml_G_0[9];
-
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.IterativeSegmentation/Low Pass Filter/Low Pass Filter': '<S68>:1' */
-  /*  This function calculates the gaussian blur of an intensity image */
-  /*  Gaussian matrix rows */
-  /*  Gaussian matrix columns */
-  /* '<S68>:1:11' */
-  memset((void *)&localB->Iout[0], (int32_T)0.0F, 19200U * sizeof(real32_T));
-
-  /* '<S68>:1:17' */
-  memset((void *)&eml_G[0], (int32_T)0.0, 9U * sizeof(real_T));
-
-  /* '<S68>:1:19' */
-  /* '<S68>:1:21' */
-  /* '<S68>:1:23' */
-  eml_Gsum = 0.0;
-
-  /* '<S68>:1:24' */
-  for (eml_i = -1; eml_i < 2; eml_i++) {
-    /* '<S68>:1:24' */
-    /* '<S68>:1:25' */
-    /* '<S68>:1:26' */
-    eml_G[eml_i + 1] = exp((-((real_T)(eml_i * eml_i) + 1.0)) /
-      4.0000000000000009E+000);
-
-    /* '<S68>:1:27' */
-    eml_Gsum += eml_G[eml_i + 1];
-
-    /* '<S68>:1:25' */
-    /* '<S68>:1:26' */
-    eml_G[eml_i + 4] = exp((real_T)(-(eml_i * eml_i)) / 4.0000000000000009E+000);
-
-    /* '<S68>:1:27' */
-    eml_Gsum += eml_G[eml_i + 4];
-
-    /* '<S68>:1:25' */
-    /* '<S68>:1:26' */
-    eml_G[eml_i + 7] = exp((-((real_T)(eml_i * eml_i) + 1.0)) /
-      4.0000000000000009E+000);
-
-    /* '<S68>:1:27' */
-    eml_Gsum += eml_G[eml_i + 7];
-  }
-
-  /* '<S68>:1:31' */
-  for (eml_i = 0; eml_i < 9; eml_i++) {
-    eml_G[eml_i] /= eml_Gsum;
-  }
-
-  /* '<S68>:1:33' */
-  for (eml_i = 0; eml_i < 19200; eml_i++) {
-    localB->fv0[eml_i] = (real32_T)rtu_I[eml_i];
-  }
-
-  for (eml_i = 0; eml_i < 9; eml_i++) {
-    eml_G_0[eml_i] = (real32_T)eml_G[eml_i];
-  }
-
-  brain_conv2(&localB->fv0[0], eml_G_0, &localB->eml_Itemp[0]);
-
-  /*  reflect boundaries to keep image the same size */
-  /*  top */
-  /* '<S68>:1:37' */
-  for (eml_i = 0; eml_i < 158; eml_i++) {
-    localB->Iout[120 * (1 + eml_i)] = localB->eml_Itemp[118 * eml_i];
-  }
-
-  /*  bottom */
-  /* '<S68>:1:39' */
-  for (eml_i = 0; eml_i < 158; eml_i++) {
-    localB->Iout[119 + 120 * (1 + eml_i)] = localB->eml_Itemp[118 * eml_i + 117];
-  }
-
-  /*  left */
-  /* '<S68>:1:41' */
-  memcpy((void *)&localB->Iout[1], (void *)&localB->eml_Itemp[0], 118U * sizeof
-         (real32_T));
-
-  /*  right */
-  /* '<S68>:1:43' */
-  memcpy((void *)&localB->Iout[19081], (void *)&localB->eml_Itemp[18526], 118U *
-         sizeof(real32_T));
-
-  /*  center */
-  /* '<S68>:1:45' */
-  for (eml_i = 0; eml_i < 158; eml_i++) {
-    memcpy((void *)&localB->Iout[1 + 120 * (1 + eml_i)], (void *)
-           &localB->eml_Itemp[118 * eml_i], 118U * sizeof(real32_T));
-  }
-
-  /*  top left corner */
-  /* '<S68>:1:47' */
-  localB->Iout[0] = localB->eml_Itemp[0];
-
-  /*  top right corner */
-  /* '<S68>:1:49' */
-  localB->Iout[18960] = localB->eml_Itemp[18408];
-  localB->Iout[19080] = localB->eml_Itemp[18526];
-
-  /*  bottom left corner */
-  /* '<S68>:1:51' */
-  localB->Iout[118] = localB->eml_Itemp[116];
-  localB->Iout[119] = localB->eml_Itemp[117];
-
-  /*  bottom right corner */
-  /* '<S68>:1:53' */
-  localB->Iout[19078] = localB->eml_Itemp[18524];
-  localB->Iout[19079] = localB->eml_Itemp[18525];
-  localB->Iout[19198] = localB->eml_Itemp[18642];
-  localB->Iout[19199] = localB->eml_Itemp[18643];
 }
 
 /*
@@ -2428,203 +2250,118 @@ static void brain_c14_brain(const real_T rtu_I[19200], rtB_LowPassFilter_brain
 void brain_LowPassFilter(const real_T rtu_I[19200], rtB_LowPassFilter_brain
   *localB)
 {
-  /* Embedded MATLAB: '<S66>/Low Pass Filter' */
-  brain_c14_brain(rtu_I, localB);
-}
-
-/* Function for Embedded MATLAB: '<S67>/Reference Color Selection' */
-static void brain_c28_brain(rtB_StateFlowFunctionsBuoysIter *localB)
-{
-  int32_T eml_num_colors;
-  int32_T eml_i;
-  int32_T eml_j;
-  real_T eml_min_dist;
-  int32_T eml_index;
-  real32_T eml_dist;
-  real_T eml_ref_color_L_avg[50];
-  real_T eml_ref_color_a_avg[50];
-  real_T eml_ref_color_b_avg[50];
-  real_T eml_color_count[50];
-  uint32_T eml_c_i;
+  real_T G[9];
+  real_T Gsum;
   int32_T i;
+  real32_T G_0[9];
 
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.IterativeSegmentation/Segmentation/Reference Color Selection': '<S72>:1' */
-  /*  This function tries segmentation by adding new reference colors everytime */
-  /*  a pixel is found with a distance greater than a certain amount from */
-  /*  every other reference color */
-  /* '<S72>:1:6' */
-  /*  L = 0 to 100, a = -100 to 100, b = -100 to 100 */
-  /*  max dist = 300 -> 60/300 is 20% */
-  /*  coefficients determining distance calculation */
-  /* '<S72>:1:14' */
-  /* '<S72>:1:15' */
-  memset((void *)&localB->ref_colors[0], (int32_T)0.0, 150U * sizeof(real_T));
+  /* Embedded MATLAB: '<S66>/Low Pass Filter' */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.IterativeSegmentation/Low Pass Filter/Low Pass Filter': '<S68>:1' */
+  /*  This function calculates the gaussian blur of an intensity image */
+  /*  Gaussian matrix rows */
+  /*  Gaussian matrix columns */
+  /* '<S68>:1:11' */
+  memset((void *)(&localB->Iout[0]), (int32_T)0.0F, 19200U * sizeof(real32_T));
 
-  /*  At most 50 different reference colors */
-  /* '<S72>:1:16' */
-  memset((void *)&localB->eml_LabelMatrix[0], (int32_T)0U, 4800U * sizeof
-         (uint32_T));
+  /* '<S68>:1:17' */
+  memset((void *)&G[0], 0, 9U * sizeof(real_T));
 
-  /* '<S72>:1:17' */
-  eml_num_colors = 1;
+  /* '<S68>:1:19' */
+  /* '<S68>:1:21' */
+  /* '<S68>:1:23' */
+  Gsum = 0.0;
 
-  /* '<S72>:1:22' */
-  localB->ref_colors[0] = localB->Resize[2369];
-  localB->ref_colors[50] = localB->Resize1[2369];
-  localB->ref_colors[100] = localB->Resize2[2369];
+  /* '<S68>:1:24' */
+  for (i = -1; i < 2; i++) {
+    /* '<S68>:1:24' */
+    /* '<S68>:1:25' */
+    /* '<S68>:1:26' */
+    G[i + 1] = exp((-((real_T)(i * i) + 1.0)) / 4.0000000000000009);
 
-  /* '<S72>:1:24' */
-  i = 0;
+    /* '<S68>:1:27' */
+    Gsum += G[i + 1];
 
-  /* '<S72>:1:25' */
-  eml_i = 1;
+    /* '<S68>:1:25' */
+    /* '<S68>:1:26' */
+    G[i + 4] = exp((real_T)(-(i * i)) / 4.0000000000000009);
 
-  /* '<S72>:1:26' */
-  eml_j = 1;
-  while (eml_i <= 60) {
-    /* '<S72>:1:27' */
-    /*  perform initial segmentation */
-    while ((eml_i <= 60) && (i == 0)) {
-      /* '<S72>:1:28' */
-      while ((eml_j <= 80) && (i == 0)) {
-        /* '<S72>:1:29' */
-        /* '<S72>:1:30' */
-        eml_c_i = 1U;
+    /* '<S68>:1:27' */
+    Gsum += G[i + 4];
 
-        /* '<S72>:1:31' */
-        eml_min_dist = 1000.0;
+    /* '<S68>:1:25' */
+    /* '<S68>:1:26' */
+    G[i + 7] = exp((-((real_T)(i * i) + 1.0)) / 4.0000000000000009);
 
-        /* '<S72>:1:32' */
-        eml_index = 1;
-        while (eml_c_i <= (uint32_T)eml_num_colors) {
-          /* '<S72>:1:33' */
-          /* '<S72>:1:34' */
-          eml_dist = (real32_T)sqrt((rt_pow32_snf((real32_T)localB->
-            ref_colors[eml_c_i + 49] - localB->Resize1[(eml_j - 1) * 60 + (eml_i
-            - 1)], 2.0F) * 1.5F + rt_pow32_snf((real32_T)localB->
-            ref_colors[eml_c_i - 1] - localB->Resize[(eml_j - 1) * 60 + (eml_i -
-            1)], 2.0F)) + rt_pow32_snf((real32_T)localB->ref_colors[eml_c_i + 99]
-            - localB->Resize2[(eml_j - 1) * 60 + (eml_i - 1)], 2.0F) * 1.5F);
-          if (eml_min_dist > (real_T)eml_dist) {
-            /* '<S72>:1:35' */
-            /* '<S72>:1:36' */
-            eml_min_dist = eml_dist;
-
-            /* '<S72>:1:37' */
-            eml_index = (int32_T)eml_c_i;
-          }
-
-          /* '<S72>:1:39' */
-          eml_c_i++;
-        }
-
-        if ((eml_min_dist > brain_P.Iter_Segment_Thresh) && (eml_num_colors < 50))
-        {
-          /* '<S72>:1:44' */
-          /* '<S72>:1:45' */
-          localB->ref_colors[eml_num_colors] = localB->Resize[(eml_j - 1) * 60 +
-            (eml_i - 1)];
-          localB->ref_colors[eml_num_colors + 50] = localB->Resize1[(eml_j - 1) *
-            60 + (eml_i - 1)];
-          localB->ref_colors[eml_num_colors + 100] = localB->Resize2[(eml_j - 1)
-            * 60 + (eml_i - 1)];
-
-          /* '<S72>:1:46' */
-          eml_num_colors++;
-
-          /* '<S72>:1:47' */
-          i = 1;
-
-          /* '<S72>:1:48' */
-          eml_i = 0;
-
-          /* '<S72>:1:49' */
-          eml_j = 0;
-        } else {
-          /* '<S72>:1:51' */
-          localB->eml_LabelMatrix[(eml_i - 1) + 60 * (eml_j - 1)] = (uint32_T)
-            eml_index;
-        }
-
-        /* '<S72>:1:53' */
-        eml_j++;
-      }
-
-      /* '<S72>:1:55' */
-      eml_j = 1;
-
-      /* '<S72>:1:56' */
-      eml_i++;
-    }
-
-    /* '<S72>:1:58' */
-    i = 0;
+    /* '<S68>:1:27' */
+    Gsum += G[i + 7];
   }
 
-  /*  Go through image once more to get more accurate values for the different regions */
-  /* '<S72>:1:62' */
-  /* '<S72>:1:63' */
-  /* '<S72>:1:64' */
-  /* '<S72>:1:65' */
-  for (i = 0; i < 50; i++) {
-    eml_ref_color_L_avg[i] = 0.0;
-    eml_ref_color_a_avg[i] = 0.0;
-    eml_ref_color_b_avg[i] = 0.0;
-    eml_color_count[i] = 0.0;
+  /* '<S68>:1:31' */
+  for (i = 0; i < 9; i++) {
+    G[i] = G[i] / Gsum;
   }
 
-  /* '<S72>:1:66' */
-  for (i = 0; i < 60; i++) {
-    /* '<S72>:1:66' */
-    /* '<S72>:1:67' */
-    for (eml_i = 0; eml_i < 80; eml_i++) {
-      /* '<S72>:1:67' */
-      /* '<S72>:1:68' */
-      /* '<S72>:1:69' */
-      eml_ref_color_L_avg[(int32_T)localB->eml_LabelMatrix[i + 60 * eml_i] - 1] =
-        (real32_T)eml_ref_color_L_avg[(int32_T)localB->eml_LabelMatrix[60 *
-        eml_i + i] - 1] + localB->Resize[60 * eml_i + i];
-
-      /* '<S72>:1:70' */
-      eml_ref_color_a_avg[(int32_T)localB->eml_LabelMatrix[i + 60 * eml_i] - 1] =
-        (real32_T)eml_ref_color_a_avg[(int32_T)localB->eml_LabelMatrix[60 *
-        eml_i + i] - 1] + localB->Resize1[60 * eml_i + i];
-
-      /* '<S72>:1:71' */
-      eml_ref_color_b_avg[(int32_T)localB->eml_LabelMatrix[i + 60 * eml_i] - 1] =
-        (real32_T)eml_ref_color_b_avg[(int32_T)localB->eml_LabelMatrix[60 *
-        eml_i + i] - 1] + localB->Resize2[60 * eml_i + i];
-
-      /* '<S72>:1:72' */
-      eml_color_count[(int32_T)localB->eml_LabelMatrix[i + 60 * eml_i] - 1] =
-        eml_color_count[(int32_T)localB->eml_LabelMatrix[60 * eml_i + i] - 1] +
-        1.0;
-    }
+  /* '<S68>:1:33' */
+  for (i = 0; i < 19200; i++) {
+    localB->fv0[i] = (real32_T)rtu_I[i];
   }
 
-  /* '<S72>:1:75' */
-  /* '<S72>:1:76' */
-  /* '<S72>:1:77' */
-  for (i = 0; i < 50; i++) {
-    eml_ref_color_L_avg[i] /= eml_color_count[i];
-    eml_ref_color_a_avg[i] /= eml_color_count[i];
-    eml_ref_color_b_avg[i] /= eml_color_count[i];
+  for (i = 0; i < 9; i++) {
+    G_0[i] = (real32_T)G[i];
   }
 
-  /* '<S72>:1:79' */
-  for (eml_c_i = 1U; eml_c_i <= (uint32_T)eml_num_colors; eml_c_i++) {
-    /* '<S72>:1:79' */
-    /* '<S72>:1:80' */
-    localB->ref_colors[eml_c_i - 1] = eml_ref_color_L_avg[(int32_T)eml_c_i - 1];
+  brain_conv2(&localB->fv0[0], G_0, &localB->Itemp[0]);
 
-    /* '<S72>:1:81' */
-    localB->ref_colors[eml_c_i + 49] = eml_ref_color_a_avg[(int32_T)eml_c_i - 1];
-
-    /* '<S72>:1:82' */
-    localB->ref_colors[eml_c_i + 99] = eml_ref_color_b_avg[(int32_T)eml_c_i - 1];
+  /*  reflect boundaries to keep image the same size */
+  /*  top */
+  /* '<S68>:1:37' */
+  for (i = 0; i < 158; i++) {
+    localB->Iout[120 * (1 + i)] = localB->Itemp[118 * i];
   }
 
-  localB->num_colors = (real_T)eml_num_colors;
+  /*  bottom */
+  /* '<S68>:1:39' */
+  for (i = 0; i < 158; i++) {
+    localB->Iout[119 + 120 * (1 + i)] = localB->Itemp[118 * i + 117];
+  }
+
+  /*  left */
+  /* '<S68>:1:41' */
+  memcpy((void *)(&localB->Iout[1]), (void *)(&localB->Itemp[0]), 118U * sizeof
+         (real32_T));
+
+  /*  right */
+  /* '<S68>:1:43' */
+  memcpy((void *)(&localB->Iout[19081]), (void *)(&localB->Itemp[18526]), 118U *
+         sizeof(real32_T));
+
+  /*  center */
+  /* '<S68>:1:45' */
+  for (i = 0; i < 158; i++) {
+    memcpy((void *)(&localB->Iout[1 + 120 * (1 + i)]), (void *)(&localB->Itemp
+            [118 * i]), 118U * sizeof(real32_T));
+  }
+
+  /*  top left corner */
+  /* '<S68>:1:47' */
+  localB->Iout[0] = localB->Itemp[0];
+
+  /*  top right corner */
+  /* '<S68>:1:49' */
+  localB->Iout[18960] = localB->Itemp[18408];
+  localB->Iout[19080] = localB->Itemp[18526];
+
+  /*  bottom left corner */
+  /* '<S68>:1:51' */
+  localB->Iout[118] = localB->Itemp[116];
+  localB->Iout[119] = localB->Itemp[117];
+
+  /*  bottom right corner */
+  /* '<S68>:1:53' */
+  localB->Iout[19078] = localB->Itemp[18524];
+  localB->Iout[19079] = localB->Itemp[18525];
+  localB->Iout[19198] = localB->Itemp[18642];
+  localB->Iout[19199] = localB->Itemp[18643];
 }
 
 /*
@@ -2640,19 +2377,23 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
   real_T cc;
   real_T cc_0;
   real_T cc_1;
-  uint32_T k;
+  real_T n;
   real32_T cc_2;
   real32_T Yr;
   real32_T Zr;
   real32_T Xf;
-  int32_T n;
-  int32_T ictr;
   int32_T indx;
-  real_T eml_min_dist;
-  real_T eml_index;
-  real32_T eml_dist;
-  int32_T eml_j;
-  real_T eml_k;
+  int32_T num_colors;
+  int32_T flag;
+  int32_T j;
+  real_T ref_color_L_avg[50];
+  real_T ref_color_a_avg[50];
+  real_T ref_color_b_avg[50];
+  real_T color_count[50];
+  real_T min_dist;
+  real_T index;
+  real32_T dist;
+  real_T k;
   real32_T Resize2_LineBuffer[120];
 
   /* S-Function (svipcolorconv): '<S17>/Color Space  Conversion' */
@@ -2661,56 +2402,56 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
   cc_0 = 0.0;
   cc_1 = 0.0;
   for (i = 0; i < 19200; i++) {
-    eml_min_dist = 6.0 * rtu_H[i];
-    k = (uint32_T)(eml_min_dist - 1.3322676295501878E-015);
-    eml_min_dist -= (real_T)k;
-    eml_index = 1.0 - rtu_S[i];
-    eml_k = 1.0 - rtu_S[i] * eml_min_dist;
-    eml_min_dist = rtu_S[i] * eml_min_dist + eml_index;
-    if (k == 0U) {
+    min_dist = 6.0 * rtu_H[i];
+    k = (real_T)(uint32_T)(min_dist - 1.3322676295501878E-15);
+    min_dist -= k;
+    index = 1.0 - rtu_S[i];
+    n = 1.0 - rtu_S[i] * min_dist;
+    min_dist = rtu_S[i] * min_dist + index;
+    if (k == 0.0) {
       cc = 1.0;
-      cc_0 = eml_min_dist;
-      cc_1 = eml_index;
-    } else if (k == 1U) {
-      cc = eml_k;
+      cc_0 = min_dist;
+      cc_1 = index;
+    } else if (k == 1.0) {
+      cc = n;
       cc_0 = 1.0;
-      cc_1 = eml_index;
-    } else if (k == 2U) {
-      cc = eml_index;
+      cc_1 = index;
+    } else if (k == 2.0) {
+      cc = index;
       cc_0 = 1.0;
-      cc_1 = eml_min_dist;
-    } else if (k == 3U) {
-      cc = eml_index;
-      cc_0 = eml_k;
+      cc_1 = min_dist;
+    } else if (k == 3.0) {
+      cc = index;
+      cc_0 = n;
       cc_1 = 1.0;
-    } else if (k == 4U) {
-      cc = eml_min_dist;
-      cc_0 = eml_index;
+    } else if (k == 4.0) {
+      cc = min_dist;
+      cc_0 = index;
       cc_1 = 1.0;
     } else {
-      if (k == 5U) {
+      if (k == 5.0) {
         cc = 1.0;
-        cc_0 = eml_index;
-        cc_1 = eml_k;
+        cc_0 = index;
+        cc_1 = n;
       }
     }
 
     if (cc > cc_0) {
-      eml_min_dist = cc;
+      min_dist = cc;
     } else {
-      eml_min_dist = cc_0;
+      min_dist = cc_0;
     }
 
-    if (!(eml_min_dist > cc_1)) {
-      eml_min_dist = cc_1;
+    if (!(min_dist > cc_1)) {
+      min_dist = cc_1;
     }
 
-    eml_min_dist = rtu_V[i] / eml_min_dist;
+    min_dist = rtu_V[i] / min_dist;
 
     /* assign the results */
-    localB->ColorSpaceConversion_o1[i] = eml_min_dist * cc;
-    localB->ColorSpaceConversion_o2[i] = eml_min_dist * cc_0;
-    localB->ColorSpaceConversion_o3[i] = eml_min_dist * cc_1;
+    localB->ColorSpaceConversion_o1[i] = min_dist * cc;
+    localB->ColorSpaceConversion_o2[i] = min_dist * cc_0;
+    localB->ColorSpaceConversion_o3[i] = min_dist * cc_1;
   }
 
   /* Embedded MATLAB: '<S66>/Low Pass Filter' */
@@ -2733,36 +2474,33 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
     /* equivalent to running the gamma correction block with break */
     /* point of 0.00304 and gamma of 2.4; it's built into this */
     /* conversion for convenience */
-    if (localB->sf_LowPassFilter.Iout[i] <= 3.928608447E-002F) {
-      Zr = localB->sf_LowPassFilter.Iout[i] / 1.292305470E+001F;
+    if (localB->sf_LowPassFilter.Iout[i] <= 0.0392860845F) {
+      dist = localB->sf_LowPassFilter.Iout[i] / 12.9230547F;
     } else {
-      Zr = rt_pow32_snf((localB->sf_LowPassFilter.Iout[i] + 5.500052124E-002F) /
-                        1.055000544E+000F, 2.400000095E+000F);
+      dist = rt_pow32_snf((localB->sf_LowPassFilter.Iout[i] + 0.0550005212F) /
+                          1.05500054F, 2.4F);
     }
 
-    if (localB->sf_LowPassFilter1.Iout[i] <= 3.928608447E-002F) {
-      eml_dist = localB->sf_LowPassFilter1.Iout[i] / 1.292305470E+001F;
+    if (localB->sf_LowPassFilter1.Iout[i] <= 0.0392860845F) {
+      Yr = localB->sf_LowPassFilter1.Iout[i] / 12.9230547F;
     } else {
-      eml_dist = rt_pow32_snf((localB->sf_LowPassFilter1.Iout[i] +
-        5.500052124E-002F) / 1.055000544E+000F, 2.400000095E+000F);
+      Yr = rt_pow32_snf((localB->sf_LowPassFilter1.Iout[i] + 0.0550005212F) /
+                        1.05500054F, 2.4F);
     }
 
-    if (localB->sf_LowPassFilter2.Iout[i] <= 3.928608447E-002F) {
-      Yr = localB->sf_LowPassFilter2.Iout[i] / 1.292305470E+001F;
+    if (localB->sf_LowPassFilter2.Iout[i] <= 0.0392860845F) {
+      Zr = localB->sf_LowPassFilter2.Iout[i] / 12.9230547F;
     } else {
-      Yr = rt_pow32_snf((localB->sf_LowPassFilter2.Iout[i] + 5.500052124E-002F) /
-                        1.055000544E+000F, 2.400000095E+000F);
+      Zr = rt_pow32_snf((localB->sf_LowPassFilter2.Iout[i] + 0.0550005212F) /
+                        1.05500054F, 2.4F);
     }
 
     /* The coefficients for this conversion were derived from ITU-R */
     /* BT.709 reference primaries for sRGB and CIE standard illuminant */
     /* D65, 2 degree observer */
-    Xf = (4.123907983E-001F * Zr + 3.575843275E-001F * eml_dist) +
-      1.804807931E-001F * Yr;
-    cc_2 = (2.126390040E-001F * Zr + 7.151686549E-001F * eml_dist) +
-      7.219231874E-002F * Yr;
-    eml_dist = (1.933081821E-002F * Zr + 1.191947833E-001F * eml_dist) +
-      9.505321383E-001F * Yr;
+    Xf = (0.412390798F * dist + 0.357584327F * Yr) + 0.180480793F * Zr;
+    cc_2 = (0.212639F * dist + 0.715168655F * Yr) + 0.0721923187F * Zr;
+    dist = (0.0193308182F * dist + 0.119194783F * Yr) + 0.950532138F * Zr;
 
     /* Make sure that the output is in [0..1] range; clip if necessary */
     if (Xf > 1.0F) {
@@ -2781,217 +2519,394 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
       }
     }
 
-    if (eml_dist > 1.0F) {
-      eml_dist = 1.0F;
+    if (dist > 1.0F) {
+      dist = 1.0F;
     } else {
-      if (eml_dist < 0.0F) {
-        eml_dist = 0.0F;
+      if (dist < 0.0F) {
+        dist = 0.0F;
       }
     }
 
     /* assign the results */
     localB->ColorSpaceConversion1_o1[i] = Xf;
     localB->ColorSpaceConversion1_o2[i] = cc_2;
-    localB->ColorSpaceConversion1_o3[i] = eml_dist;
+    localB->ColorSpaceConversion1_o3[i] = dist;
   }
 
   /* Convert from XYZ to L*a*b* */
   for (i = 0; i < 19200; i++) {
-    eml_dist = localB->ColorSpaceConversion1_o1[i] / 9.641986489E-001F;
-    Zr = localB->ColorSpaceConversion1_o3[i] / 8.251164556E-001F;
+    dist = localB->ColorSpaceConversion1_o1[i] / 0.964198649F;
+    Zr = localB->ColorSpaceConversion1_o3[i] / 0.825116456F;
 
     /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-    if (eml_dist > 8.856452070E-003F) {
-      Xf = rt_pow32_snf(eml_dist, 3.333333433E-001F);
+    if (dist > 0.00885645207F) {
+      Xf = rt_pow32_snf(dist, 0.333333343F);
     } else {
-      Xf = 7.787036896E+000F * eml_dist + 1.379310340E-001F;
+      Xf = 7.7870369F * dist + 0.137931034F;
     }
 
-    if (localB->ColorSpaceConversion1_o2[i] > 8.856452070E-003F) {
-      Yr = rt_pow32_snf(localB->ColorSpaceConversion1_o2[i], 3.333333433E-001F);
+    if (localB->ColorSpaceConversion1_o2[i] > 0.00885645207F) {
+      Yr = rt_pow32_snf(localB->ColorSpaceConversion1_o2[i], 0.333333343F);
     } else {
-      Yr = 7.787036896E+000F * localB->ColorSpaceConversion1_o2[i] +
-        1.379310340E-001F;
+      Yr = 7.7870369F * localB->ColorSpaceConversion1_o2[i] + 0.137931034F;
     }
 
-    if (Zr > 8.856452070E-003F) {
-      eml_dist = rt_pow32_snf(Zr, 3.333333433E-001F);
+    if (Zr > 0.00885645207F) {
+      dist = rt_pow32_snf(Zr, 0.333333343F);
     } else {
-      eml_dist = 7.787036896E+000F * Zr + 1.379310340E-001F;
+      dist = 7.7870369F * Zr + 0.137931034F;
     }
 
     /* assign the results */
     localB->ColorSpaceConversion1_o1[i] = 116.0F * Yr - 16.0F;
     localB->ColorSpaceConversion1_o2[i] = (Xf - Yr) * 500.0F;
-    localB->ColorSpaceConversion1_o3[i] = (Yr - eml_dist) * 200.0F;
+    localB->ColorSpaceConversion1_o3[i] = (Yr - dist) * 200.0F;
   }
 
   /* S-Function (svipresize): '<S73>/Resize' */
   /* use pre-computed weights and index table to perform interpolation */
-  eml_j = 0;
-  for (i = 0; i < 120; i++) {
-    indx = i;
-    for (n = 0; n < 80; n++) {
-      ictr = n + 80;
-      eml_dist = localB->ColorSpaceConversion1_o1[brain_ConstP.pooled30[n] * 120
-        + i] * brain_ConstP.pooled23[n] + localB->
-        ColorSpaceConversion1_o1[brain_ConstP.pooled30[ictr] * 120 + i] *
-        brain_ConstP.pooled23[ictr];
-      ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o1[brain_ConstP.pooled30[ictr] *
-        120 + i] * brain_ConstP.pooled23[ictr];
-      ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o1[brain_ConstP.pooled30[ictr] *
-        120 + i] * brain_ConstP.pooled23[ictr];
-      localDW->Resize_IntBuffer[indx] = eml_dist;
+  flag = 0;
+  for (j = 0; j < 120; j++) {
+    indx = j;
+    for (num_colors = 0; num_colors < 80; num_colors++) {
+      i = num_colors + 80;
+      dist = localB->ColorSpaceConversion1_o1[brain_ConstP.pooled30[num_colors] *
+        120 + j] * brain_ConstP.pooled23[num_colors] +
+        localB->ColorSpaceConversion1_o1[brain_ConstP.pooled30[i] * 120 + j] *
+        brain_ConstP.pooled23[i];
+      i += 80;
+      dist += localB->ColorSpaceConversion1_o1[brain_ConstP.pooled30[i] * 120 +
+        j] * brain_ConstP.pooled23[i];
+      i += 80;
+      dist += localB->ColorSpaceConversion1_o1[brain_ConstP.pooled30[i] * 120 +
+        j] * brain_ConstP.pooled23[i];
+      localDW->Resize_IntBuffer[indx] = dist;
       indx += 120;
     }
   }
 
-  for (n = 0; n < 80; n++) {
-    memcpy((void *)&Resize2_LineBuffer[0], (void *)(&localDW->Resize_IntBuffer[n
-            * 120]), 120U * sizeof(real32_T));
-    for (i = 0; i < 60; i++) {
-      ictr = i + 60;
-      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
-        brain_ConstP.pooled22[i] + Resize2_LineBuffer[brain_ConstP.pooled29[ictr]]
-        * brain_ConstP.pooled22[ictr];
-      ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled29[ictr]] *
-        brain_ConstP.pooled22[ictr];
-      ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled29[ictr]] *
-        brain_ConstP.pooled22[ictr];
-      localB->Resize[eml_j] = eml_dist;
-      eml_j++;
+  for (num_colors = 0; num_colors < 80; num_colors++) {
+    memcpy((void *)&Resize2_LineBuffer[0], (void *)(&localDW->
+            Resize_IntBuffer[num_colors * 120]), 120U * sizeof(real32_T));
+    for (j = 0; j < 60; j++) {
+      i = j + 60;
+      dist = Resize2_LineBuffer[brain_ConstP.pooled29[j]] *
+        brain_ConstP.pooled22[j] + Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
+        brain_ConstP.pooled22[i];
+      i += 60;
+      dist += Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
+        brain_ConstP.pooled22[i];
+      i += 60;
+      dist += Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
+        brain_ConstP.pooled22[i];
+      localB->Resize[flag] = dist;
+      flag++;
     }
   }
 
   /* S-Function (svipresize): '<S73>/Resize1' */
   /* use pre-computed weights and index table to perform interpolation */
-  eml_j = 0;
-  for (i = 0; i < 120; i++) {
-    indx = i;
-    for (n = 0; n < 80; n++) {
-      ictr = n + 80;
-      eml_dist = localB->ColorSpaceConversion1_o2[brain_ConstP.pooled30[n] * 120
-        + i] * brain_ConstP.pooled23[n] + localB->
-        ColorSpaceConversion1_o2[brain_ConstP.pooled30[ictr] * 120 + i] *
-        brain_ConstP.pooled23[ictr];
-      ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o2[brain_ConstP.pooled30[ictr] *
-        120 + i] * brain_ConstP.pooled23[ictr];
-      ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o2[brain_ConstP.pooled30[ictr] *
-        120 + i] * brain_ConstP.pooled23[ictr];
-      localDW->Resize1_IntBuffer[indx] = eml_dist;
+  flag = 0;
+  for (j = 0; j < 120; j++) {
+    indx = j;
+    for (num_colors = 0; num_colors < 80; num_colors++) {
+      i = num_colors + 80;
+      dist = localB->ColorSpaceConversion1_o2[brain_ConstP.pooled30[num_colors] *
+        120 + j] * brain_ConstP.pooled23[num_colors] +
+        localB->ColorSpaceConversion1_o2[brain_ConstP.pooled30[i] * 120 + j] *
+        brain_ConstP.pooled23[i];
+      i += 80;
+      dist += localB->ColorSpaceConversion1_o2[brain_ConstP.pooled30[i] * 120 +
+        j] * brain_ConstP.pooled23[i];
+      i += 80;
+      dist += localB->ColorSpaceConversion1_o2[brain_ConstP.pooled30[i] * 120 +
+        j] * brain_ConstP.pooled23[i];
+      localDW->Resize1_IntBuffer[indx] = dist;
       indx += 120;
     }
   }
 
-  for (n = 0; n < 80; n++) {
+  for (num_colors = 0; num_colors < 80; num_colors++) {
     memcpy((void *)&Resize2_LineBuffer[0], (void *)(&localDW->
-            Resize1_IntBuffer[n * 120]), 120U * sizeof(real32_T));
-    for (i = 0; i < 60; i++) {
-      ictr = i + 60;
-      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
-        brain_ConstP.pooled22[i] + Resize2_LineBuffer[brain_ConstP.pooled29[ictr]]
-        * brain_ConstP.pooled22[ictr];
-      ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled29[ictr]] *
-        brain_ConstP.pooled22[ictr];
-      ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled29[ictr]] *
-        brain_ConstP.pooled22[ictr];
-      localB->Resize1[eml_j] = eml_dist;
-      eml_j++;
+            Resize1_IntBuffer[num_colors * 120]), 120U * sizeof(real32_T));
+    for (j = 0; j < 60; j++) {
+      i = j + 60;
+      dist = Resize2_LineBuffer[brain_ConstP.pooled29[j]] *
+        brain_ConstP.pooled22[j] + Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
+        brain_ConstP.pooled22[i];
+      i += 60;
+      dist += Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
+        brain_ConstP.pooled22[i];
+      i += 60;
+      dist += Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
+        brain_ConstP.pooled22[i];
+      localB->Resize1[flag] = dist;
+      flag++;
     }
   }
 
   /* S-Function (svipresize): '<S73>/Resize2' */
   /* use pre-computed weights and index table to perform interpolation */
-  eml_j = 0;
-  for (i = 0; i < 120; i++) {
-    indx = i;
-    for (n = 0; n < 80; n++) {
-      ictr = n + 80;
-      eml_dist = localB->ColorSpaceConversion1_o3[brain_ConstP.pooled30[n] * 120
-        + i] * brain_ConstP.pooled23[n] + localB->
-        ColorSpaceConversion1_o3[brain_ConstP.pooled30[ictr] * 120 + i] *
-        brain_ConstP.pooled23[ictr];
-      ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o3[brain_ConstP.pooled30[ictr] *
-        120 + i] * brain_ConstP.pooled23[ictr];
-      ictr += 80;
-      eml_dist += localB->ColorSpaceConversion1_o3[brain_ConstP.pooled30[ictr] *
-        120 + i] * brain_ConstP.pooled23[ictr];
-      localDW->Resize2_IntBuffer[indx] = eml_dist;
+  flag = 0;
+  for (j = 0; j < 120; j++) {
+    indx = j;
+    for (num_colors = 0; num_colors < 80; num_colors++) {
+      i = num_colors + 80;
+      dist = localB->ColorSpaceConversion1_o3[brain_ConstP.pooled30[num_colors] *
+        120 + j] * brain_ConstP.pooled23[num_colors] +
+        localB->ColorSpaceConversion1_o3[brain_ConstP.pooled30[i] * 120 + j] *
+        brain_ConstP.pooled23[i];
+      i += 80;
+      dist += localB->ColorSpaceConversion1_o3[brain_ConstP.pooled30[i] * 120 +
+        j] * brain_ConstP.pooled23[i];
+      i += 80;
+      dist += localB->ColorSpaceConversion1_o3[brain_ConstP.pooled30[i] * 120 +
+        j] * brain_ConstP.pooled23[i];
+      localDW->Resize2_IntBuffer[indx] = dist;
       indx += 120;
     }
   }
 
-  for (n = 0; n < 80; n++) {
+  for (num_colors = 0; num_colors < 80; num_colors++) {
     memcpy((void *)&Resize2_LineBuffer[0], (void *)(&localDW->
-            Resize2_IntBuffer[n * 120]), 120U * sizeof(real32_T));
-    for (i = 0; i < 60; i++) {
-      ictr = i + 60;
-      eml_dist = Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
-        brain_ConstP.pooled22[i] + Resize2_LineBuffer[brain_ConstP.pooled29[ictr]]
-        * brain_ConstP.pooled22[ictr];
-      ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled29[ictr]] *
-        brain_ConstP.pooled22[ictr];
-      ictr += 60;
-      eml_dist += Resize2_LineBuffer[brain_ConstP.pooled29[ictr]] *
-        brain_ConstP.pooled22[ictr];
-      localB->Resize2[eml_j] = eml_dist;
-      eml_j++;
+            Resize2_IntBuffer[num_colors * 120]), 120U * sizeof(real32_T));
+    for (j = 0; j < 60; j++) {
+      i = j + 60;
+      dist = Resize2_LineBuffer[brain_ConstP.pooled29[j]] *
+        brain_ConstP.pooled22[j] + Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
+        brain_ConstP.pooled22[i];
+      i += 60;
+      dist += Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
+        brain_ConstP.pooled22[i];
+      i += 60;
+      dist += Resize2_LineBuffer[brain_ConstP.pooled29[i]] *
+        brain_ConstP.pooled22[i];
+      localB->Resize2[flag] = dist;
+      flag++;
     }
   }
 
-  /* Embedded MATLAB: '<S67>/Reference Color Selection' */
-  brain_c28_brain(localB);
+  /* Embedded MATLAB: '<S67>/Reference Color Selection' incorporates:
+   *  Constant: '<S67>/Dist_Thresh'
+   */
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.IterativeSegmentation/Segmentation/Reference Color Selection': '<S72>:1' */
+  /*  This function tries segmentation by adding new reference colors everytime */
+  /*  a pixel is found with a distance greater than a certain amount from */
+  /*  every other reference color */
+  /* '<S72>:1:6' */
+  /*  L = 0 to 100, a = -100 to 100, b = -100 to 100 */
+  /*  max dist = 300 -> 60/300 is 20% */
+  /*  coefficients determining distance calculation */
+  /* '<S72>:1:14' */
+  /* '<S72>:1:15' */
+  memset((void *)(&localB->ref_colors[0]), 0, 150U * sizeof(real_T));
+
+  /*  At most 50 different reference colors */
+  /* '<S72>:1:16' */
+  memset((void *)(&localB->LabelMatrix_m[0]), (int32_T)0U, 4800U * sizeof
+         (uint32_T));
+
+  /* '<S72>:1:17' */
+  num_colors = 1;
+
+  /* '<S72>:1:22' */
+  localB->ref_colors[0] = localB->Resize[2369];
+  localB->ref_colors[50] = localB->Resize1[2369];
+  localB->ref_colors[100] = localB->Resize2[2369];
+
+  /* '<S72>:1:24' */
+  flag = 0;
+
+  /* '<S72>:1:25' */
+  i = 1;
+
+  /* '<S72>:1:26' */
+  j = 1;
+  while (i <= 60) {
+    /* '<S72>:1:27' */
+    /*  perform initial segmentation */
+    while ((i <= 60) && (flag == 0)) {
+      /* '<S72>:1:28' */
+      while ((j <= 80) && (flag == 0)) {
+        /* '<S72>:1:29' */
+        /* '<S72>:1:30' */
+        k = 1.0;
+
+        /* '<S72>:1:31' */
+        min_dist = 1000.0;
+
+        /* '<S72>:1:32' */
+        index = 1.0;
+        while ((uint32_T)k <= (uint32_T)num_colors) {
+          /* '<S72>:1:33' */
+          /* '<S72>:1:34' */
+          dist = (real32_T)sqrt((rt_pow32_snf((real32_T)localB->ref_colors
+            [(int32_T)k + 49] - localB->Resize1[(j - 1) * 60 + (i - 1)], 2.0F) *
+            1.5F + rt_pow32_snf((real32_T)localB->ref_colors[(int32_T)k - 1] -
+                                localB->Resize[(j - 1) * 60 + (i - 1)], 2.0F)) +
+                                rt_pow32_snf((real32_T)localB->ref_colors
+            [(int32_T)k + 99] - localB->Resize2[(j - 1) * 60 + (i - 1)], 2.0F) *
+                                1.5F);
+          if (min_dist > (real_T)dist) {
+            /* '<S72>:1:35' */
+            /* '<S72>:1:36' */
+            min_dist = dist;
+
+            /* '<S72>:1:37' */
+            index = k;
+          }
+
+          /* '<S72>:1:39' */
+          k++;
+        }
+
+        if ((min_dist > brain_P.Iter_Segment_Thresh) && (num_colors < 50)) {
+          /* '<S72>:1:44' */
+          /* '<S72>:1:45' */
+          localB->ref_colors[num_colors] = localB->Resize[(j - 1) * 60 + (i - 1)];
+          localB->ref_colors[num_colors + 50] = localB->Resize1[(j - 1) * 60 +
+            (i - 1)];
+          localB->ref_colors[num_colors + 100] = localB->Resize2[(j - 1) * 60 +
+            (i - 1)];
+
+          /* '<S72>:1:46' */
+          num_colors++;
+
+          /* '<S72>:1:47' */
+          flag = 1;
+
+          /* '<S72>:1:48' */
+          i = 0;
+
+          /* '<S72>:1:49' */
+          j = 0;
+        } else {
+          /* '<S72>:1:51' */
+          localB->LabelMatrix_m[(i - 1) + 60 * (j - 1)] = (uint32_T)index;
+        }
+
+        /* '<S72>:1:53' */
+        j++;
+      }
+
+      /* '<S72>:1:55' */
+      j = 1;
+
+      /* '<S72>:1:56' */
+      i++;
+    }
+
+    /* '<S72>:1:58' */
+    flag = 0;
+  }
+
+  /*  Go through image once more to get more accurate values for the different regions */
+  /* '<S72>:1:62' */
+  /* '<S72>:1:63' */
+  /* '<S72>:1:64' */
+  /* '<S72>:1:65' */
+  for (i = 0; i < 50; i++) {
+    ref_color_L_avg[i] = 0.0;
+    ref_color_a_avg[i] = 0.0;
+    ref_color_b_avg[i] = 0.0;
+    color_count[i] = 0.0;
+  }
+
+  /* '<S72>:1:66' */
+  for (i = 0; i < 60; i++) {
+    /* '<S72>:1:66' */
+    /* '<S72>:1:67' */
+    for (flag = 0; flag < 80; flag++) {
+      /* '<S72>:1:67' */
+      /* '<S72>:1:68' */
+      /* '<S72>:1:69' */
+      ref_color_L_avg[(int32_T)localB->LabelMatrix_m[i + 60 * flag] - 1] =
+        (real32_T)ref_color_L_avg[(int32_T)localB->LabelMatrix_m[60 * flag + i]
+        - 1] + localB->Resize[60 * flag + i];
+
+      /* '<S72>:1:70' */
+      ref_color_a_avg[(int32_T)localB->LabelMatrix_m[i + 60 * flag] - 1] =
+        (real32_T)ref_color_a_avg[(int32_T)localB->LabelMatrix_m[60 * flag + i]
+        - 1] + localB->Resize1[60 * flag + i];
+
+      /* '<S72>:1:71' */
+      ref_color_b_avg[(int32_T)localB->LabelMatrix_m[i + 60 * flag] - 1] =
+        (real32_T)ref_color_b_avg[(int32_T)localB->LabelMatrix_m[60 * flag + i]
+        - 1] + localB->Resize2[60 * flag + i];
+
+      /* '<S72>:1:72' */
+      color_count[(int32_T)localB->LabelMatrix_m[i + 60 * flag] - 1] =
+        color_count[(int32_T)localB->LabelMatrix_m[60 * flag + i] - 1] + 1.0;
+    }
+  }
+
+  /* '<S72>:1:75' */
+  /* '<S72>:1:76' */
+  /* '<S72>:1:77' */
+  for (i = 0; i < 50; i++) {
+    ref_color_L_avg[i] = ref_color_L_avg[i] / color_count[i];
+    ref_color_a_avg[i] = ref_color_a_avg[i] / color_count[i];
+    ref_color_b_avg[i] = ref_color_b_avg[i] / color_count[i];
+  }
+
+  /* '<S72>:1:79' */
+  for (min_dist = 1.0; (uint32_T)min_dist <= (uint32_T)num_colors; min_dist++) {
+    /* '<S72>:1:79' */
+    /* '<S72>:1:80' */
+    localB->ref_colors[(int32_T)min_dist - 1] = ref_color_L_avg[(int32_T)
+      min_dist - 1];
+
+    /* '<S72>:1:81' */
+    localB->ref_colors[(int32_T)min_dist + 49] = ref_color_a_avg[(int32_T)
+      min_dist - 1];
+
+    /* '<S72>:1:82' */
+    localB->ref_colors[(int32_T)min_dist + 99] = ref_color_b_avg[(int32_T)
+      min_dist - 1];
+  }
+
+  localB->num_colors = (real_T)num_colors;
 
   /* Embedded MATLAB: '<S67>/LabSegmentation' */
   /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.IterativeSegmentation/Segmentation/LabSegmentation': '<S71>:1' */
   /*  This function generates the label matrix */
   /* '<S71>:1:10' */
-  memset((void *)(&localB->LabelMatrix[0]), (int32_T)0.0, 19200U * sizeof(real_T));
+  memset((void *)(&localB->LabelMatrix[0]), 0, 19200U * sizeof(real_T));
 
   /* '<S71>:1:12' */
   for (i = 0; i < 120; i++) {
     /* '<S71>:1:12' */
     /* '<S71>:1:13' */
-    for (eml_j = 0; eml_j < 160; eml_j++) {
+    for (j = 0; j < 160; j++) {
       /* '<S71>:1:13' */
       /* '<S71>:1:14' */
-      eml_min_dist = 1000.0;
+      min_dist = 1000.0;
 
       /* '<S71>:1:15' */
-      eml_index = 1.0;
+      index = 1.0;
 
       /* '<S71>:1:16' */
-      for (eml_k = 1.0; eml_k <= localB->num_colors; eml_k++) {
+      for (k = 1.0; k <= localB->num_colors; k++) {
         /* '<S71>:1:16' */
         /* '<S71>:1:17' */
-        eml_dist = (real32_T)sqrt((rt_pow32_snf((real32_T)localB->ref_colors
-          [(int32_T)eml_k - 1] - localB->ColorSpaceConversion1_o1[120 * eml_j +
-          i], 2.0F) + rt_pow32_snf((real32_T)localB->ref_colors[(int32_T)eml_k +
-          49] - localB->ColorSpaceConversion1_o2[120 * eml_j + i], 2.0F)) +
-          rt_pow32_snf((real32_T)localB->ref_colors[(int32_T)eml_k + 99] -
-                       localB->ColorSpaceConversion1_o3[120 * eml_j + i], 2.0F));
-        if ((real_T)eml_dist < eml_min_dist) {
+        dist = (real32_T)sqrt((rt_pow32_snf((real32_T)localB->ref_colors
+          [(int32_T)k - 1] - localB->ColorSpaceConversion1_o1[120 * j + i], 2.0F)
+          + rt_pow32_snf((real32_T)localB->ref_colors[(int32_T)k + 49] -
+                         localB->ColorSpaceConversion1_o2[120 * j + i], 2.0F)) +
+                              rt_pow32_snf((real32_T)localB->ref_colors[(int32_T)
+          k + 99] - localB->ColorSpaceConversion1_o3[120 * j + i], 2.0F));
+        if ((real_T)dist < min_dist) {
           /* '<S71>:1:18' */
           /* '<S71>:1:19' */
-          eml_min_dist = eml_dist;
+          min_dist = dist;
 
           /* '<S71>:1:20' */
-          eml_index = eml_k;
+          index = k;
         }
       }
 
       /* '<S71>:1:23' */
-      localB->LabelMatrix[i + 120 * eml_j] = eml_index;
+      localB->LabelMatrix[i + 120 * j] = index;
     }
   }
 
@@ -2999,347 +2914,195 @@ void StateFlowFunctionsBuoysIterativ(const real_T rtu_H[19200], const real_T
 }
 
 /* Function for Embedded MATLAB: '<S14>/Blob Extraction' */
-static void brain_Outputs_f(const boolean_T eml_U0[19200], int32_T eml_Y0[50],
-  real_T eml_Y1[100], real_T eml_Y2[50], real_T eml_Y3[50], uint8_T *eml_Y4,
+static void brain_Outputs_f(const boolean_T U0[19200], int32_T Y0[50], real_T
+  Y1[100], real_T Y2[50], real_T Y3[50], uint8_T *Y4,
   rtDW_StateFlowFunctionsBuoysF_e *localDW)
 {
-  boolean_T eml_maxNumBlobsReached;
-  int32_T eml_loop;
-  uint8_T eml_currentLabel;
-  int32_T eml_idx;
-  int32_T eml_n;
-  uint32_T eml_stackIdx;
-  uint32_T eml_pixIdx;
-  uint32_T eml_start_pixIdx;
-  uint32_T eml_walkerIdx;
-  int32_T eml_numBlobs;
-  int32_T eml_pixListMinc;
-  int32_T eml_pixListNinc;
-  int32_T eml_c_i;
-  int32_T eml_j;
-  int32_T eml_maxc;
-  int32_T eml_maxr;
-  real_T eml_xs;
-  real_T eml_ys;
-  real_T eml_xys;
-  uint32_T eml_k;
-  real_T eml_uyy;
-  real_T eml_majorAxis;
-  real_T eml_centroid_idx;
-  real_T eml_centroid_idx_0;
+  boolean_T maxNumBlobsReached;
+  int32_T loop;
+  uint8_T currentLabel;
+  int32_T idx;
+  int32_T n;
+  uint32_T stackIdx;
+  uint32_T pixIdx;
+  uint32_T start_pixIdx;
+  uint32_T walkerIdx;
+  int32_T numBlobs;
+  int32_T pixListMinc;
+  int32_T pixListNinc;
+  int32_T c_i;
+  int32_T j;
+  int32_T maxc;
+  int32_T maxr;
+  real_T xs;
+  real_T ys;
+  real_T xys;
+  uint32_T k;
+  real_T uyy;
+  real_T majorAxis;
+  real_T centroid_idx;
+  real_T centroid_idx_0;
 
   /* System object Outputs function: video.BlobAnalysis */
-  eml_maxNumBlobsReached = FALSE;
-  memset((void *)&localDW->PAD_DW[0], (int32_T)0U, 123U * sizeof(uint8_T));
-  eml_currentLabel = 1U;
-  eml_loop = 0;
-  eml_idx = 123;
-  for (eml_n = 0; eml_n < 160; eml_n++) {
-    for (eml_maxc = 0; eml_maxc < 120; eml_maxc++) {
-      localDW->PAD_DW[eml_idx] = (uint8_T)(eml_U0[eml_loop] ? 255 : 0);
-      eml_loop++;
-      eml_idx++;
+  maxNumBlobsReached = FALSE;
+  memset((void *)(&localDW->PAD_DW[0]), (int32_T)0U, 123U * sizeof(uint8_T));
+  currentLabel = 1U;
+  loop = 0;
+  idx = 123;
+  for (n = 0; n < 160; n++) {
+    for (maxc = 0; maxc < 120; maxc++) {
+      localDW->PAD_DW[idx] = (uint8_T)(U0[loop] ? 255 : 0);
+      loop++;
+      idx++;
     }
 
-    localDW->PAD_DW[eml_idx] = 0U;
-    eml_idx++;
-    localDW->PAD_DW[eml_idx] = 0U;
-    eml_idx++;
+    localDW->PAD_DW[idx] = 0U;
+    idx++;
+    localDW->PAD_DW[idx] = 0U;
+    idx++;
   }
 
-  memset((void *)&localDW->PAD_DW[eml_idx], (int32_T)0U, 121U * sizeof(uint8_T));
-  eml_loop = 1;
-  eml_stackIdx = 0U;
-  eml_pixIdx = 0U;
-  for (eml_n = 0; eml_n < 160; eml_n++) {
-    eml_maxc = 1;
-    eml_idx = eml_loop * 122;
-    for (eml_maxr = 0; eml_maxr < 120; eml_maxr++) {
-      eml_k = (uint32_T)(eml_idx + eml_maxc);
-      eml_start_pixIdx = eml_pixIdx;
-      if (localDW->PAD_DW[eml_k] == 255) {
-        localDW->PAD_DW[eml_k] = eml_currentLabel;
-        localDW->N_PIXLIST_DW[eml_pixIdx] = (int16_T)(eml_loop - 1);
-        localDW->M_PIXLIST_DW[eml_pixIdx] = (int16_T)(eml_maxc - 1);
-        eml_pixIdx++;
-        localDW->NUM_PIX_DW[eml_currentLabel - 1] = 1U;
-        localDW->STACK_DW[eml_stackIdx] = eml_k;
-        eml_stackIdx++;
-        while (eml_stackIdx) {
-          eml_stackIdx--;
-          eml_k = localDW->STACK_DW[eml_stackIdx];
-          for (eml_pixListMinc = 0; eml_pixListMinc < 8; eml_pixListMinc++) {
-            eml_walkerIdx = eml_k + (uint32_T)localDW->
-              WALKER_RTP[eml_pixListMinc];
-            if (localDW->PAD_DW[eml_walkerIdx] == 255) {
-              localDW->PAD_DW[eml_walkerIdx] = eml_currentLabel;
-              localDW->N_PIXLIST_DW[eml_pixIdx] = (int16_T)((int16_T)
-                (eml_walkerIdx / 122U) - 1);
-              localDW->M_PIXLIST_DW[eml_pixIdx] = (int16_T)(eml_walkerIdx % 122U
-                - 1U);
-              eml_pixIdx++;
-              localDW->NUM_PIX_DW[eml_currentLabel - 1] = localDW->
-                NUM_PIX_DW[eml_currentLabel - 1] + 1U;
-              localDW->STACK_DW[eml_stackIdx] = eml_walkerIdx;
-              eml_stackIdx++;
+  memset((void *)(&localDW->PAD_DW[idx]), (int32_T)0U, 121U * sizeof(uint8_T));
+  loop = 1;
+  stackIdx = 0U;
+  pixIdx = 0U;
+  for (n = 0; n < 160; n++) {
+    maxc = 1;
+    idx = loop * 122;
+    for (maxr = 0; maxr < 120; maxr++) {
+      k = (uint32_T)(idx + maxc);
+      start_pixIdx = pixIdx;
+      if (localDW->PAD_DW[k] == 255) {
+        localDW->PAD_DW[k] = currentLabel;
+        localDW->N_PIXLIST_DW[pixIdx] = (int16_T)(loop - 1);
+        localDW->M_PIXLIST_DW[pixIdx] = (int16_T)(maxc - 1);
+        pixIdx++;
+        localDW->NUM_PIX_DW[currentLabel - 1] = 1U;
+        localDW->STACK_DW[stackIdx] = k;
+        stackIdx++;
+        while (stackIdx) {
+          stackIdx--;
+          k = localDW->STACK_DW[stackIdx];
+          for (pixListMinc = 0; pixListMinc < 8; pixListMinc++) {
+            walkerIdx = k + (uint32_T)localDW->WALKER_RTP[pixListMinc];
+            if (localDW->PAD_DW[walkerIdx] == 255) {
+              localDW->PAD_DW[walkerIdx] = currentLabel;
+              localDW->N_PIXLIST_DW[pixIdx] = (int16_T)((int16_T)(walkerIdx /
+                122U) - 1);
+              localDW->M_PIXLIST_DW[pixIdx] = (int16_T)(walkerIdx % 122U - 1U);
+              pixIdx++;
+              localDW->NUM_PIX_DW[currentLabel - 1] = localDW->
+                NUM_PIX_DW[currentLabel - 1] + 1U;
+              localDW->STACK_DW[stackIdx] = walkerIdx;
+              stackIdx++;
             }
           }
         }
 
-        if (localDW->NUM_PIX_DW[eml_currentLabel - 1] < localDW->MINAREA_RTP) {
-          eml_currentLabel--;
-          eml_pixIdx = eml_start_pixIdx;
+        if (localDW->NUM_PIX_DW[currentLabel - 1] < localDW->MINAREA_RTP) {
+          currentLabel--;
+          pixIdx = start_pixIdx;
         }
 
-        if (eml_currentLabel == 50) {
-          eml_maxNumBlobsReached = TRUE;
-          eml_n = 160;
-          eml_maxr = 120;
+        if (currentLabel == 50) {
+          maxNumBlobsReached = TRUE;
+          n = 160;
+          maxr = 120;
         }
 
-        if (eml_maxr < 120) {
-          eml_currentLabel++;
+        if (maxr < 120) {
+          currentLabel++;
         }
       }
 
-      eml_maxc++;
+      maxc++;
     }
 
-    eml_loop++;
+    loop++;
   }
 
-  eml_numBlobs = eml_maxNumBlobsReached ? eml_currentLabel : (uint8_T)
-    (eml_currentLabel - 1);
-  *eml_Y4 = (uint8_T)eml_numBlobs;
-  eml_pixListMinc = 0;
-  eml_pixListNinc = 0;
-  for (eml_c_i = 0; eml_c_i < eml_numBlobs; eml_c_i++) {
-    eml_Y0[eml_c_i] = (int32_T)localDW->NUM_PIX_DW[eml_c_i];
-    eml_loop = 0;
-    eml_n = 0;
-    for (eml_j = 0; eml_j < (int32_T)localDW->NUM_PIX_DW[eml_c_i]; eml_j++) {
-      eml_loop += localDW->N_PIXLIST_DW[eml_j + eml_pixListNinc];
-      eml_n += localDW->M_PIXLIST_DW[eml_j + eml_pixListMinc];
+  numBlobs = maxNumBlobsReached ? currentLabel : (uint8_T)(currentLabel - 1);
+  *Y4 = (uint8_T)numBlobs;
+  pixListMinc = 0;
+  pixListNinc = 0;
+  for (c_i = 0; c_i < numBlobs; c_i++) {
+    Y0[c_i] = (int32_T)localDW->NUM_PIX_DW[c_i];
+    loop = 0;
+    n = 0;
+    for (j = 0; j < (int32_T)localDW->NUM_PIX_DW[c_i]; j++) {
+      loop += localDW->N_PIXLIST_DW[j + pixListNinc];
+      n += localDW->M_PIXLIST_DW[j + pixListMinc];
     }
 
-    eml_centroid_idx = (real_T)eml_n / (real_T)localDW->NUM_PIX_DW[eml_c_i];
-    eml_centroid_idx_0 = (real_T)eml_loop / (real_T)localDW->NUM_PIX_DW[eml_c_i];
-    eml_Y1[eml_c_i << 1] = eml_centroid_idx;
-    eml_Y1[(eml_c_i << 1) + 1] = eml_centroid_idx_0;
-    eml_n = 160;
-    eml_idx = 120;
-    eml_maxc = 0;
-    eml_maxr = 0;
-    for (eml_j = 0; eml_j < (int32_T)localDW->NUM_PIX_DW[eml_c_i]; eml_j++) {
-      eml_loop = eml_j + eml_pixListNinc;
-      if (localDW->N_PIXLIST_DW[eml_loop] < eml_n) {
-        eml_n = localDW->N_PIXLIST_DW[eml_loop];
+    centroid_idx = (real_T)n / (real_T)localDW->NUM_PIX_DW[c_i];
+    centroid_idx_0 = (real_T)loop / (real_T)localDW->NUM_PIX_DW[c_i];
+    Y1[c_i << 1] = centroid_idx;
+    Y1[(c_i << 1) + 1] = centroid_idx_0;
+    n = 160;
+    idx = 120;
+    maxc = 0;
+    maxr = 0;
+    for (j = 0; j < (int32_T)localDW->NUM_PIX_DW[c_i]; j++) {
+      loop = j + pixListNinc;
+      if (localDW->N_PIXLIST_DW[loop] < n) {
+        n = localDW->N_PIXLIST_DW[loop];
       }
 
-      if (localDW->N_PIXLIST_DW[eml_loop] > eml_maxc) {
-        eml_maxc = localDW->N_PIXLIST_DW[eml_loop];
+      if (localDW->N_PIXLIST_DW[loop] > maxc) {
+        maxc = localDW->N_PIXLIST_DW[loop];
       }
 
-      eml_loop = eml_j + eml_pixListMinc;
-      if (localDW->M_PIXLIST_DW[eml_loop] < eml_idx) {
-        eml_idx = localDW->M_PIXLIST_DW[eml_loop];
+      loop = j + pixListMinc;
+      if (localDW->M_PIXLIST_DW[loop] < idx) {
+        idx = localDW->M_PIXLIST_DW[loop];
       }
 
-      if (localDW->M_PIXLIST_DW[eml_loop] > eml_maxr) {
-        eml_maxr = localDW->M_PIXLIST_DW[eml_loop];
-      }
-    }
-
-    eml_xs = 0.0;
-    eml_ys = 0.0;
-    eml_xys = 0.0;
-    for (eml_k = 0U; eml_k < (uint32_T)(int32_T)localDW->NUM_PIX_DW[eml_c_i];
-         eml_k++) {
-      eml_majorAxis = (real_T)localDW->N_PIXLIST_DW[eml_pixListNinc + eml_k] -
-        eml_centroid_idx_0;
-      eml_uyy = (real_T)localDW->M_PIXLIST_DW[eml_pixListMinc + eml_k] -
-        eml_centroid_idx;
-      eml_xs += eml_majorAxis * eml_majorAxis;
-      eml_ys += eml_uyy * eml_uyy;
-      eml_xys += eml_majorAxis * (-eml_uyy);
-    }
-
-    eml_centroid_idx = eml_xs / (real_T)localDW->NUM_PIX_DW[eml_c_i] +
-      8.3333333333333329E-002;
-    eml_uyy = eml_ys / (real_T)localDW->NUM_PIX_DW[eml_c_i] +
-      8.3333333333333329E-002;
-    eml_xs = eml_xys / (real_T)localDW->NUM_PIX_DW[eml_c_i];
-    eml_xs = sqrt((eml_centroid_idx - eml_uyy) * (eml_centroid_idx - eml_uyy) +
-                  eml_xs * eml_xs * 4.0);
-    eml_majorAxis = ((eml_centroid_idx + eml_uyy) + eml_xs) * 8.0;
-    eml_Y2[eml_c_i] = sqrt(eml_majorAxis - ((eml_centroid_idx + eml_uyy) -
-      eml_xs) * 8.0) / sqrt(eml_majorAxis);
-    eml_Y3[eml_c_i] = (real_T)localDW->NUM_PIX_DW[eml_c_i] / (real_T)(((eml_maxr
-      + 1) - eml_idx) * ((eml_maxc + 1) - eml_n));
-    eml_pixListMinc += (int32_T)localDW->NUM_PIX_DW[eml_c_i];
-    eml_pixListNinc += (int32_T)localDW->NUM_PIX_DW[eml_c_i];
-  }
-
-  for (eml_loop = eml_numBlobs; eml_loop < 50; eml_loop++) {
-    eml_Y0[eml_loop] = localDW->F0_RTP;
-  }
-
-  for (eml_loop = eml_numBlobs << 1; eml_loop < 100; eml_loop++) {
-    eml_Y1[eml_loop] = localDW->F1_RTP;
-  }
-
-  for (eml_loop = eml_numBlobs; eml_loop < 50; eml_loop++) {
-    eml_Y2[eml_loop] = localDW->F2_RTP;
-  }
-
-  while (eml_numBlobs < 50) {
-    eml_Y3[eml_numBlobs] = localDW->F3_RTP;
-    eml_numBlobs++;
-  }
-}
-
-/* Function for Embedded MATLAB: '<S14>/Blob Extraction' */
-static void brain_c5_brain(const real_T rtu_LabelMatrix[19200], real_T
-  rtu_num_colors, rtB_StateFlowFunctionsBuoysFi_d *localB,
-  rtDW_StateFlowFunctionsBuoysF_e *localDW)
-{
-  real_T eml_num_colors;
-  uint8_T eml_TotalNum;
-  real_T eml_k;
-  int32_T eml_j;
-  uint8_T eml_b_i;
-  int32_T eml_TArea[50];
-  real_T eml_TCentroid[100];
-  real_T eml_TEccent[50];
-  real_T eml_TExtent[50];
-  uint8_T eml_TNumBlobs;
-  int32_T i;
-  uint8_T tmp;
-  eml_num_colors = rtu_num_colors;
-
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors/Blob Extraction': '<S61>:1' */
-  /*  This function will determine the characteristics of the blobs in an image */
-  /*  given a label matrix defining the different binary images contained in a */
-  /*  that label matrix */
-  /* '<S61>:1:7' */
-  for (i = 0; i < 19200; i++) {
-    localB->eml_LogicMatrix[i] = FALSE;
-  }
-
-  /* '<S61>:1:9' */
-  /* '<S61>:1:12' */
-  memset((void *)&localB->Area[0], (int32_T)0.0, 50U * sizeof(real_T));
-
-  /* '<S61>:1:13' */
-  memset((void *)&localB->Centroid[0], (int32_T)0.0, 100U * sizeof(real_T));
-
-  /* '<S61>:1:14' */
-  /* '<S61>:1:15' */
-  for (i = 0; i < 50; i++) {
-    localB->Eccent[i] = 0.0;
-    localB->Extent[i] = 0.0;
-  }
-
-  /* '<S61>:1:17' */
-  eml_TotalNum = 0U;
-
-  /* '<S61>:1:27' */
-  for (eml_k = 1.0; eml_k <= eml_num_colors; eml_k++) {
-    /* '<S61>:1:27' */
-    /* '<S61>:1:28' */
-    for (i = 0; i < 120; i++) {
-      /* '<S61>:1:28' */
-      /* '<S61>:1:29' */
-      for (eml_j = 0; eml_j < 160; eml_j++) {
-        /* '<S61>:1:29' */
-        if (rtu_LabelMatrix[120 * eml_j + i] != eml_k) {
-          /* '<S61>:1:30' */
-          /* '<S61>:1:31' */
-          localB->eml_LogicMatrix[i + 120 * eml_j] = FALSE;
-        } else {
-          /* '<S61>:1:33' */
-          localB->eml_LogicMatrix[i + 120 * eml_j] = TRUE;
-        }
+      if (localDW->M_PIXLIST_DW[loop] > maxr) {
+        maxr = localDW->M_PIXLIST_DW[loop];
       }
     }
 
-    brain_Outputs_f(&localB->eml_LogicMatrix[0], eml_TArea, eml_TCentroid,
-                    eml_TEccent, eml_TExtent, &eml_TNumBlobs, localDW);
-    i = eml_TNumBlobs + eml_TotalNum;
-    if ((uint32_T)i > 255U) {
-      tmp = MAX_uint8_T;
-    } else {
-      tmp = (uint8_T)i;
+    xs = 0.0;
+    ys = 0.0;
+    xys = 0.0;
+    for (k = 0U; (int32_T)k < (int32_T)localDW->NUM_PIX_DW[c_i]; k++) {
+      majorAxis = (real_T)localDW->N_PIXLIST_DW[pixListNinc + (int32_T)k] -
+        centroid_idx_0;
+      uyy = (real_T)localDW->M_PIXLIST_DW[pixListMinc + (int32_T)k] -
+        centroid_idx;
+      xs += majorAxis * majorAxis;
+      ys += uyy * uyy;
+      xys += majorAxis * (-uyy);
     }
 
-    if (tmp < 50) {
-      /* '<S61>:1:39' */
-      /* '<S61>:1:40' */
-      for (eml_b_i = 1U; eml_b_i <= eml_TNumBlobs; eml_b_i = (uint8_T)(uint32_T)
-           (eml_b_i + 1)) {
-        /* '<S61>:1:40' */
-        /* '<S61>:1:41' */
-        i = eml_TotalNum + eml_b_i;
-        if ((uint32_T)i > 255U) {
-          tmp = MAX_uint8_T;
-        } else {
-          tmp = (uint8_T)i;
-        }
-
-        localB->Area[tmp - 1] = (real_T)eml_TArea[eml_b_i - 1];
-
-        /* '<S61>:1:42' */
-        i = eml_TotalNum + eml_b_i;
-        if ((uint32_T)i > 255U) {
-          tmp = MAX_uint8_T;
-        } else {
-          tmp = (uint8_T)i;
-        }
-
-        localB->Centroid[tmp - 1] = eml_TCentroid[(eml_b_i - 1) << 1];
-
-        /* '<S61>:1:43' */
-        i = eml_TotalNum + eml_b_i;
-        if ((uint32_T)i > 255U) {
-          tmp = MAX_uint8_T;
-        } else {
-          tmp = (uint8_T)i;
-        }
-
-        localB->Centroid[tmp + 49] = eml_TCentroid[((eml_b_i - 1) << 1) + 1];
-
-        /* '<S61>:1:44' */
-        i = eml_TotalNum + eml_b_i;
-        if ((uint32_T)i > 255U) {
-          tmp = MAX_uint8_T;
-        } else {
-          tmp = (uint8_T)i;
-        }
-
-        localB->Eccent[tmp - 1] = eml_TEccent[eml_b_i - 1];
-
-        /* '<S61>:1:45' */
-        i = eml_TotalNum + eml_b_i;
-        if ((uint32_T)i > 255U) {
-          tmp = MAX_uint8_T;
-        } else {
-          tmp = (uint8_T)i;
-        }
-
-        localB->Extent[tmp - 1] = eml_TExtent[eml_b_i - 1];
-      }
-
-      /* '<S61>:1:47' */
-      i = eml_TotalNum + eml_TNumBlobs;
-      if ((uint32_T)i > 255U) {
-        eml_TotalNum = MAX_uint8_T;
-      } else {
-        eml_TotalNum = (uint8_T)i;
-      }
-    }
+    centroid_idx = xs / (real_T)localDW->NUM_PIX_DW[c_i] + 0.083333333333333329;
+    uyy = ys / (real_T)localDW->NUM_PIX_DW[c_i] + 0.083333333333333329;
+    xs = xys / (real_T)localDW->NUM_PIX_DW[c_i];
+    xs = sqrt((centroid_idx - uyy) * (centroid_idx - uyy) + xs * xs * 4.0);
+    majorAxis = ((centroid_idx + uyy) + xs) * 8.0;
+    Y2[c_i] = sqrt(majorAxis - ((centroid_idx + uyy) - xs) * 8.0) / sqrt
+      (majorAxis);
+    Y3[c_i] = (real_T)localDW->NUM_PIX_DW[c_i] / (real_T)(((maxr + 1) - idx) *
+      ((maxc + 1) - n));
+    pixListMinc += (int32_T)localDW->NUM_PIX_DW[c_i];
+    pixListNinc += (int32_T)localDW->NUM_PIX_DW[c_i];
   }
 
-  localB->TotalNum = eml_TotalNum;
+  for (loop = numBlobs; loop < 50; loop++) {
+    Y0[loop] = localDW->F0_RTP;
+  }
+
+  for (loop = (int32_T)((uint32_T)numBlobs << 1); loop < 100; loop++) {
+    Y1[loop] = localDW->F1_RTP;
+  }
+
+  for (loop = numBlobs; loop < 50; loop++) {
+    Y2[loop] = localDW->F2_RTP;
+  }
+
+  for (loop = numBlobs; loop < 50; loop++) {
+    Y3[loop] = localDW->F3_RTP;
+  }
 }
 
 /* Initial conditions for function-call system: '<Root>/StateFlow Functions' */
@@ -3358,7 +3121,6 @@ void StateFlowFunctionsBuoysF_e_Init(rtDW_StateFlowFunctionsBuoysF_e *localDW)
   localDW->F2_RTP = -1.0;
   localDW->F3_RTP = -1.0;
   localDW->MINAREA_RTP = 10U;
-  localDW->hblob = TRUE;
 }
 
 /* Output and update for function-call system: '<Root>/StateFlow Functions' */
@@ -3367,22 +3129,137 @@ void StateFlowFunctionsBuoysFindBu_l(const real_T rtu_LabelMatrix[19200], real_T
   rtB_StateFlowFunctionsBuoysFi_d *localB, rtDW_StateFlowFunctionsBuoysF_e
   *localDW)
 {
-  real_T eml_count;
-  uint8_T eml_i;
-  real_T eml_colors[150];
-  real_T eml_centX[50];
-  real_T eml_centY[50];
-  real_T eml_mtmp;
-  int32_T eml_ix;
-  boolean_T eml_searchingForNonNaN;
-  int32_T eml_k;
-  boolean_T eml_guard;
-  boolean_T eml_exitg;
+  real_T num_colors;
+  uint8_T TotalNum;
+  real_T k;
+  uint8_T b_i;
+  int32_T TArea[50];
+  uint8_T TNumBlobs;
+  real_T colors[150];
+  real_T centX[50];
+  real_T centY[50];
+  int32_T ix;
+  boolean_T searchingForNonNaN;
+  int32_T k_0;
+  int32_T b_k;
+  boolean_T guard;
+  boolean_T exitg;
   real_T rtb_Centroid_Out[100];
   int32_T i;
 
   /* Embedded MATLAB: '<S14>/Blob Extraction' */
-  brain_c5_brain(rtu_LabelMatrix, rtu_num_colors, localB, localDW);
+  num_colors = rtu_num_colors;
+
+  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors/Blob Extraction': '<S61>:1' */
+  /*  This function will determine the characteristics of the blobs in an image */
+  /*  given a label matrix defining the different binary images contained in a */
+  /*  that label matrix */
+  /* '<S61>:1:7' */
+  for (i = 0; i < 19200; i++) {
+    localB->LogicMatrix[i] = FALSE;
+  }
+
+  /* '<S61>:1:9' */
+  /* '<S61>:1:12' */
+  memset((void *)(&localB->Area[0]), 0, 50U * sizeof(real_T));
+
+  /* '<S61>:1:13' */
+  memset((void *)(&localB->Centroid[0]), 0, 100U * sizeof(real_T));
+
+  /* '<S61>:1:14' */
+  /* '<S61>:1:15' */
+  for (i = 0; i < 50; i++) {
+    localB->Eccent[i] = 0.0;
+    localB->Extent[i] = 0.0;
+  }
+
+  /* '<S61>:1:17' */
+  TotalNum = 0U;
+
+  /* '<S61>:1:27' */
+  for (k = 1.0; k <= num_colors; k++) {
+    /* '<S61>:1:27' */
+    /* '<S61>:1:28' */
+    for (k_0 = 0; k_0 < 120; k_0++) {
+      /* '<S61>:1:28' */
+      /* '<S61>:1:29' */
+      for (b_k = 0; b_k < 160; b_k++) {
+        /* '<S61>:1:29' */
+        if (rtu_LabelMatrix[120 * b_k + k_0] != k) {
+          /* '<S61>:1:30' */
+          /* '<S61>:1:31' */
+          localB->LogicMatrix[k_0 + 120 * b_k] = FALSE;
+        } else {
+          /* '<S61>:1:33' */
+          localB->LogicMatrix[k_0 + 120 * b_k] = TRUE;
+        }
+      }
+    }
+
+    brain_Outputs_f(&localB->LogicMatrix[0], TArea, rtb_Centroid_Out, centX,
+                    centY, &TNumBlobs, localDW);
+    i = (int32_T)((uint32_T)TNumBlobs + (uint32_T)TotalNum);
+    if ((uint32_T)i > 255U) {
+      i = 255;
+    }
+
+    if (i < 50) {
+      /* '<S61>:1:39' */
+      /* '<S61>:1:40' */
+      for (b_i = 1U; b_i <= TNumBlobs; b_i = (uint8_T)((uint32_T)b_i + 1U)) {
+        /* '<S61>:1:40' */
+        /* '<S61>:1:41' */
+        i = (int32_T)((uint32_T)TotalNum + (uint32_T)b_i);
+        if ((uint32_T)i > 255U) {
+          i = 255;
+        }
+
+        localB->Area[i - 1] = (real_T)TArea[b_i - 1];
+
+        /* '<S61>:1:42' */
+        i = (int32_T)((uint32_T)TotalNum + (uint32_T)b_i);
+        if ((uint32_T)i > 255U) {
+          i = 255;
+        }
+
+        localB->Centroid[i - 1] = rtb_Centroid_Out[(b_i - 1) << 1];
+
+        /* '<S61>:1:43' */
+        i = (int32_T)((uint32_T)TotalNum + (uint32_T)b_i);
+        if ((uint32_T)i > 255U) {
+          i = 255;
+        }
+
+        localB->Centroid[i + 49] = rtb_Centroid_Out[((b_i - 1) << 1) + 1];
+
+        /* '<S61>:1:44' */
+        i = (int32_T)((uint32_T)TotalNum + (uint32_T)b_i);
+        if ((uint32_T)i > 255U) {
+          i = 255;
+        }
+
+        localB->Eccent[i - 1] = centX[b_i - 1];
+
+        /* '<S61>:1:45' */
+        i = (int32_T)((uint32_T)TotalNum + (uint32_T)b_i);
+        if ((uint32_T)i > 255U) {
+          i = 255;
+        }
+
+        localB->Extent[i - 1] = centY[b_i - 1];
+      }
+
+      /* '<S61>:1:47' */
+      i = (int32_T)((uint32_T)TotalNum + (uint32_T)TNumBlobs);
+      if ((uint32_T)i > 255U) {
+        i = 255;
+      }
+
+      TotalNum = (uint8_T)i;
+    }
+  }
+
+  localB->TotalNum = TotalNum;
 
   /* Embedded MATLAB: '<S14>/IF Buoy Conditions' incorporates:
    *  Constant: '<S14>/Constant'
@@ -3394,138 +3271,142 @@ void StateFlowFunctionsBuoysFindBu_l(const real_T rtu_LabelMatrix[19200], real_T
   /*  This function will take in 2 1x10 vectors, eccent and extent to determine */
   /*  the cenroids of the most circular objects in the image */
   /* '<S62>:1:5' */
-  eml_count = 0.0;
+  num_colors = 0.0;
 
   /* '<S62>:1:6' */
-  memset((void *)&rtb_Centroid_Out[0], (int32_T)0.0, 100U * sizeof(real_T));
+  memset((void *)&rtb_Centroid_Out[0], 0, 100U * sizeof(real_T));
 
   /* '<S62>:1:9' */
-  for (eml_i = 1U; eml_i <= localB->TotalNum; eml_i = (uint8_T)(uint32_T)(eml_i
-        + 1)) {
+  for (TotalNum = 1U; TotalNum <= localB->TotalNum; TotalNum = (uint8_T)
+       ((uint32_T)TotalNum + 1U)) {
     /* '<S62>:1:9' */
-    if ((localB->Eccent[eml_i - 1] > brain_P.Buoy_Min_Eccentricity) &&
-        (localB->Eccent[eml_i - 1] < brain_P.Buoy_Max_Eccentricity) &&
-        (localB->Extent[eml_i - 1] > brain_P.Buoy_Min_Extent) && (localB->
-         Extent[eml_i - 1] < brain_P.Buoy_Max_Extent)) {
+    if ((localB->Eccent[TotalNum - 1] > brain_P.Buoy_Min_Eccentricity) &&
+        (localB->Eccent[TotalNum - 1] < brain_P.Buoy_Max_Eccentricity) &&
+        (localB->Extent[TotalNum - 1] > brain_P.Buoy_Min_Extent) &&
+        (localB->Extent[TotalNum - 1] < brain_P.Buoy_Max_Extent)) {
       /* '<S62>:1:10' */
       /* '<S62>:1:11' */
-      eml_count++;
+      num_colors++;
 
       /* '<S62>:1:12' */
-      rtb_Centroid_Out[(int32_T)eml_count - 1] = localB->Centroid[eml_i - 1];
+      rtb_Centroid_Out[(int32_T)num_colors - 1] = localB->Centroid[TotalNum - 1];
 
       /* '<S62>:1:13' */
-      rtb_Centroid_Out[(int32_T)eml_count + 49] = localB->Centroid[eml_i + 49];
+      rtb_Centroid_Out[(int32_T)num_colors + 49] = localB->Centroid[TotalNum +
+        49];
     }
   }
 
-  localB->count = eml_count;
+  localB->count = num_colors;
 
   /* Embedded MATLAB: '<S14>/Say Which Buoy Is Which' */
   /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors/Say Which Buoy Is Which': '<S63>:1' */
   /*  This function determines which buoy is in which location, left, middle, */
   /*  or right. */
   /* '<S63>:1:6' */
-  memset((void *)&eml_colors[0], (int32_T)0.0, 150U * sizeof(real_T));
+  memset((void *)&colors[0], 0, 150U * sizeof(real_T));
 
   /* '<S63>:1:7' */
   /* '<S63>:1:8' */
   for (i = 0; i < 50; i++) {
-    eml_centX[i] = 0.0;
-    eml_centY[i] = 0.0;
+    centX[i] = 0.0;
+    centY[i] = 0.0;
   }
 
   /* '<S63>:1:10' */
-  memset((void *)(&localB->blobs[0]), (int32_T)0.0, 200U * sizeof(real_T));
+  memset((void *)(&localB->blobs[0]), 0, 200U * sizeof(real_T));
 
   /* '<S63>:1:12' */
-  for (eml_count = 1.0; eml_count <= localB->count; eml_count++) {
+  for (num_colors = 1.0; num_colors <= localB->count; num_colors++) {
     /* '<S63>:1:12' */
     /* '<S63>:1:13' */
-    eml_centX[(int32_T)eml_count - 1] = floor(rtb_Centroid_Out[(int32_T)
-      eml_count + 49]);
+    centX[(int32_T)num_colors - 1] = floor(rtb_Centroid_Out[(int32_T)num_colors
+      + 49]);
 
     /* '<S63>:1:14' */
-    eml_centY[(int32_T)eml_count - 1] = floor(rtb_Centroid_Out[(int32_T)
-      eml_count - 1]);
-    if (eml_centX[(int32_T)eml_count - 1] < 1.0) {
+    centY[(int32_T)num_colors - 1] = floor(rtb_Centroid_Out[(int32_T)num_colors
+      - 1]);
+    if (centX[(int32_T)num_colors - 1] < 1.0) {
       /* '<S63>:1:15' */
       /* '<S63>:1:16' */
-      eml_centX[(int32_T)eml_count - 1] = 1.0;
+      centX[(int32_T)num_colors - 1] = 1.0;
     }
 
-    if (eml_centY[(int32_T)eml_count - 1] < 1.0) {
+    if (centY[(int32_T)num_colors - 1] < 1.0) {
       /* '<S63>:1:18' */
       /* '<S63>:1:19' */
-      eml_centY[(int32_T)eml_count - 1] = 1.0;
+      centY[(int32_T)num_colors - 1] = 1.0;
     }
 
     /* '<S63>:1:22' */
-    eml_mtmp = rtu_LabelMatrix[((int32_T)eml_centX[(int32_T)eml_count - 1] - 1) *
-      120 + ((int32_T)eml_centY[(int32_T)eml_count - 1] - 1)];
-
     /* '<S63>:1:24' */
-    i = (int32_T)eml_count - 1;
-    eml_colors[i] = rtu_ref_colors[(int32_T)eml_mtmp - 1];
-    eml_colors[i + 50] = rtu_ref_colors[(int32_T)eml_mtmp + 49];
-    eml_colors[i + 100] = rtu_ref_colors[(int32_T)eml_mtmp + 99];
+    i = (int32_T)num_colors - 1;
+    colors[i] = rtu_ref_colors[(int32_T)rtu_LabelMatrix[((int32_T)centX[(int32_T)
+      num_colors - 1] - 1) * 120 + ((int32_T)centY[(int32_T)num_colors - 1] - 1)]
+      - 1];
+    colors[i + 50] = rtu_ref_colors[(int32_T)rtu_LabelMatrix[((int32_T)centX
+      [(int32_T)num_colors - 1] - 1) * 120 + ((int32_T)centY[(int32_T)num_colors
+      - 1] - 1)] + 49];
+    colors[i + 100] = rtu_ref_colors[(int32_T)rtu_LabelMatrix[((int32_T)centX
+      [(int32_T)num_colors - 1] - 1) * 120 + ((int32_T)centY[(int32_T)num_colors
+      - 1] - 1)] + 99];
   }
 
   /*  Putting blobs in order from left to right */
   /* '<S63>:1:28' */
-  for (eml_count = 1.0; eml_count <= localB->count; eml_count++) {
+  for (num_colors = 1.0; num_colors <= localB->count; num_colors++) {
     /* '<S63>:1:28' */
-    eml_mtmp = eml_centX[0];
+    k = centX[0];
     i = 1;
-    eml_ix = 1;
-    eml_guard = FALSE;
-    if (rtIsNaN(eml_centX[0])) {
-      eml_searchingForNonNaN = TRUE;
-      eml_k = 2;
-      eml_exitg = FALSE;
-      while (((uint32_T)eml_exitg == 0U) && (eml_k < 51)) {
-        eml_ix++;
-        if (!rtIsNaN(eml_centX[eml_ix - 1])) {
-          eml_mtmp = eml_centX[eml_ix - 1];
-          i = eml_k;
-          eml_searchingForNonNaN = FALSE;
-          eml_exitg = TRUE;
+    ix = 1;
+    guard = FALSE;
+    if (rtIsNaN(centX[0])) {
+      searchingForNonNaN = TRUE;
+      k_0 = 2;
+      exitg = FALSE;
+      while (((uint32_T)exitg == 0U) && (k_0 < 51)) {
+        ix++;
+        if (!rtIsNaN(centX[ix - 1])) {
+          k = centX[ix - 1];
+          i = k_0;
+          searchingForNonNaN = FALSE;
+          exitg = TRUE;
         } else {
-          eml_k++;
+          k_0++;
         }
       }
 
-      if (!eml_searchingForNonNaN) {
-        eml_guard = TRUE;
+      if (!searchingForNonNaN) {
+        guard = TRUE;
       }
     } else {
-      eml_guard = TRUE;
+      guard = TRUE;
     }
 
-    if (eml_guard) {
-      for (eml_k = i + 1; eml_k < 51; eml_k++) {
-        eml_ix++;
-        if (eml_centX[eml_ix - 1] < eml_mtmp) {
-          eml_mtmp = eml_centX[eml_ix - 1];
-          i = eml_k;
+    if (guard) {
+      for (b_k = i + 1; b_k < 51; b_k++) {
+        ix++;
+        if (centX[ix - 1] < k) {
+          k = centX[ix - 1];
+          i = b_k;
         }
       }
     }
 
     /* '<S63>:1:30' */
-    localB->blobs[(int32_T)eml_count - 1] = eml_colors[i - 1];
+    localB->blobs[(int32_T)num_colors - 1] = colors[i - 1];
 
     /* '<S63>:1:31' */
-    localB->blobs[(int32_T)eml_count + 49] = eml_colors[i + 49];
+    localB->blobs[(int32_T)num_colors + 49] = colors[i + 49];
 
     /* '<S63>:1:32' */
-    localB->blobs[(int32_T)eml_count + 99] = eml_colors[i + 99];
+    localB->blobs[(int32_T)num_colors + 99] = colors[i + 99];
 
     /* '<S63>:1:33' */
-    localB->blobs[(int32_T)eml_count + 149] = localB->Area[i - 1];
+    localB->blobs[(int32_T)num_colors + 149] = localB->Area[i - 1];
 
     /* '<S63>:1:34' */
-    eml_centX[i - 1] = 1000.0;
+    centX[i - 1] = 1000.0;
   }
 }
 
@@ -3697,8 +3578,8 @@ void StateFlowFunctionsMaintainHeadi(real_T rtu_DesiredHeading1, real_T
   /* DataTypeConversion: '<S39>/DoubleToint1' incorporates:
    *  Sum: '<S39>/Add3'
    */
-  tmp = (real_T)(int8_T)(tmp < 0.0 ? (int32_T)(int8_T)(-((int8_T)(uint8_T)(-tmp)))
-    : (int32_T)(int8_T)(uint8_T)tmp) + rtu_ForwardVelocity1;
+  tmp = (real_T)(int8_T)(tmp < 0.0 ? (int8_T)(-((int8_T)(uint8_T)(-tmp))) :
+    (int8_T)(uint8_T)tmp) + rtu_ForwardVelocity1;
   tmp = floor(tmp);
   if (tmp < 128.0) {
     if (tmp >= -128.0) {
@@ -3780,13 +3661,14 @@ void StateFlowFunctionsValidationGat(const real_T rtu_H[19200], const real_T
   rtDW_StateFlowFunctionsValidati *localDW)
 {
   boolean_T maxNumBlobsReached;
+  int32_T loop;
   uint8_T currentLabel;
   int32_T idx;
-  int32_T n;
+  int32_T nn;
   uint32_T stackIdx;
   uint32_T pixIdx;
   uint32_T start_pixIdx;
-  int32_T n_0;
+  int32_T m;
   uint32_T BlobAnalysis_NUM_PIX_DW;
   uint32_T numBlobs;
   int32_T ms;
@@ -3817,15 +3699,15 @@ void StateFlowFunctionsValidationGat(const real_T rtu_H[19200], const real_T
 
   /* S-Function (svipblob): '<S142>/Blob Analysis' */
   maxNumBlobsReached = FALSE;
-  for (i = 0; i < 123; i++) {
-    localDW->BlobAnalysis_PAD_DW[i] = 0U;
+  for (loop = 0; loop < 123; loop++) {
+    localDW->BlobAnalysis_PAD_DW[loop] = 0U;
   }
 
   currentLabel = 1U;
   i = 0;
   idx = 123;
-  for (n = 0; n < 160; n++) {
-    for (n_0 = 0; n_0 < 120; n_0++) {
+  for (loop = 0; loop < 160; loop++) {
+    for (m = 0; m < 120; m++) {
       localDW->BlobAnalysis_PAD_DW[idx] = (uint8_T)(localB->BW[i] ? 255 : 0);
       i++;
       idx++;
@@ -3837,22 +3719,22 @@ void StateFlowFunctionsValidationGat(const real_T rtu_H[19200], const real_T
     idx++;
   }
 
-  for (i = 0; i < 121; i++) {
-    localDW->BlobAnalysis_PAD_DW[i + idx] = 0U;
+  for (loop = 0; loop < 121; loop++) {
+    localDW->BlobAnalysis_PAD_DW[loop + idx] = 0U;
   }
 
-  n = 1;
+  nn = 1;
   stackIdx = 0U;
   pixIdx = 0U;
-  for (n_0 = 0; n_0 < 160; n_0++) {
+  for (loop = 0; loop < 160; loop++) {
     ms = 1;
-    j = n * 122;
-    for (idx = 0; idx < 120; idx++) {
+    j = nn * 122;
+    for (m = 0; m < 120; m++) {
       numBlobs = (uint32_T)(j + ms);
       start_pixIdx = pixIdx;
       if (localDW->BlobAnalysis_PAD_DW[numBlobs] == 255) {
         localDW->BlobAnalysis_PAD_DW[numBlobs] = currentLabel;
-        localDW->BlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)(n - 1);
+        localDW->BlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)(nn - 1);
         localDW->BlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(ms - 1);
         pixIdx++;
         BlobAnalysis_NUM_PIX_DW = 1U;
@@ -3885,11 +3767,11 @@ void StateFlowFunctionsValidationGat(const real_T rtu_H[19200], const real_T
 
         if (currentLabel == 1) {
           maxNumBlobsReached = TRUE;
-          n_0 = 160;
-          idx = 120;
+          loop = 160;
+          m = 120;
         }
 
-        if (idx < 120) {
+        if (m < 120) {
           currentLabel++;
         }
       }
@@ -3897,48 +3779,49 @@ void StateFlowFunctionsValidationGat(const real_T rtu_H[19200], const real_T
       ms++;
     }
 
-    n++;
+    nn++;
   }
 
   numBlobs = maxNumBlobsReached ? currentLabel : (uint8_T)(currentLabel - 1);
-  i = 0;
-  n = 0;
-  for (n_0 = 0; n_0 < (int32_T)numBlobs; n_0++) {
-    idx = 0;
+  loop = 0;
+  idx = 0;
+  for (i = 0; i < (int32_T)numBlobs; i++) {
+    nn = 0;
     ms = 0;
     for (j = 0; j < (int32_T)BlobAnalysis_NUM_PIX_DW; j++) {
-      idx += localDW->BlobAnalysis_N_PIXLIST_DW[j + n];
-      ms += localDW->BlobAnalysis_M_PIXLIST_DW[j + i];
+      nn += localDW->BlobAnalysis_N_PIXLIST_DW[j + idx];
+      ms += localDW->BlobAnalysis_M_PIXLIST_DW[j + loop];
     }
 
     centroid_idx = (real32_T)ms / (real32_T)BlobAnalysis_NUM_PIX_DW;
-    centroid_idx_0 = (real32_T)idx / (real32_T)BlobAnalysis_NUM_PIX_DW;
+    centroid_idx_0 = (real32_T)nn / (real32_T)BlobAnalysis_NUM_PIX_DW;
     rtb_BlobAnalysis = 0.0F;
     ys = 0.0F;
     xys = 0.0F;
     for (k = 0U; k < (uint32_T)(int32_T)BlobAnalysis_NUM_PIX_DW; k++) {
-      majorAxis = (real32_T)localDW->BlobAnalysis_N_PIXLIST_DW[n + k] -
-        centroid_idx_0;
-      uyy = (real32_T)localDW->BlobAnalysis_M_PIXLIST_DW[i + k] - centroid_idx;
+      majorAxis = (real32_T)localDW->BlobAnalysis_N_PIXLIST_DW[idx + (int32_T)k]
+        - centroid_idx_0;
+      uyy = (real32_T)localDW->BlobAnalysis_M_PIXLIST_DW[loop + (int32_T)k] -
+        centroid_idx;
       rtb_BlobAnalysis += majorAxis * majorAxis;
       ys += uyy * uyy;
       xys += majorAxis * (-uyy);
     }
 
     centroid_idx = rtb_BlobAnalysis / (real32_T)BlobAnalysis_NUM_PIX_DW +
-      8.333333582E-002F;
-    uyy = ys / (real32_T)BlobAnalysis_NUM_PIX_DW + 8.333333582E-002F;
+      0.0833333358F;
+    uyy = ys / (real32_T)BlobAnalysis_NUM_PIX_DW + 0.0833333358F;
     rtb_BlobAnalysis = xys / (real32_T)BlobAnalysis_NUM_PIX_DW;
     rtb_BlobAnalysis = (real32_T)sqrt((centroid_idx - uyy) * (centroid_idx - uyy)
       + rtb_BlobAnalysis * rtb_BlobAnalysis * 4.0F);
     majorAxis = ((centroid_idx + uyy) + rtb_BlobAnalysis) * 8.0F;
     rtb_BlobAnalysis = (real32_T)sqrt(majorAxis - ((centroid_idx + uyy) -
       rtb_BlobAnalysis) * 8.0F) / (real32_T)sqrt(majorAxis);
-    i += (int32_T)BlobAnalysis_NUM_PIX_DW;
-    n += (int32_T)BlobAnalysis_NUM_PIX_DW;
+    loop += (int32_T)BlobAnalysis_NUM_PIX_DW;
+    idx += (int32_T)BlobAnalysis_NUM_PIX_DW;
   }
 
-  for (i = (int32_T)numBlobs; i < 1; i = 1) {
+  for (loop = (int32_T)numBlobs; loop < 1; loop = 1) {
     rtb_BlobAnalysis = -1.0F;
   }
 
@@ -4054,55 +3937,54 @@ void StateFlowFunctionsFollowOnePath(real_T rtu_HeadingAlong, RT_MODEL_brain *
 }
 
 /* Function for Embedded MATLAB: '<S23>/Embedded MATLAB Function' */
-static void brain_max(const real_T eml_varargin_1[10], real_T *eml_maxval,
-                      real_T *eml_indx)
+static void brain_max(const real_T varargin_1[10], real_T *maxval, real_T *indx)
 {
-  real_T eml_mtmp;
-  int32_T eml_itmp;
-  int32_T eml_ix;
-  boolean_T eml_searchingForNonNaN;
-  int32_T eml_k;
-  boolean_T eml_guard;
-  boolean_T eml_exitg;
-  eml_mtmp = eml_varargin_1[0];
-  eml_itmp = 1;
-  eml_ix = 1;
-  eml_guard = FALSE;
-  if (rtIsNaN(eml_varargin_1[0])) {
-    eml_searchingForNonNaN = TRUE;
-    eml_k = 2;
-    eml_exitg = FALSE;
-    while (((uint32_T)eml_exitg == 0U) && (eml_k < 11)) {
-      eml_ix++;
-      if (!rtIsNaN(eml_varargin_1[eml_ix - 1])) {
-        eml_mtmp = eml_varargin_1[eml_ix - 1];
-        eml_itmp = eml_k;
-        eml_searchingForNonNaN = FALSE;
-        eml_exitg = TRUE;
+  real_T mtmp;
+  int32_T itmp;
+  int32_T ix;
+  boolean_T searchingForNonNaN;
+  int32_T k;
+  boolean_T guard;
+  boolean_T exitg;
+  mtmp = varargin_1[0];
+  itmp = 1;
+  ix = 1;
+  guard = FALSE;
+  if (rtIsNaN(varargin_1[0])) {
+    searchingForNonNaN = TRUE;
+    k = 2;
+    exitg = FALSE;
+    while (((uint32_T)exitg == 0U) && (k < 11)) {
+      ix++;
+      if (!rtIsNaN(varargin_1[ix - 1])) {
+        mtmp = varargin_1[ix - 1];
+        itmp = k;
+        searchingForNonNaN = FALSE;
+        exitg = TRUE;
       } else {
-        eml_k++;
+        k++;
       }
     }
 
-    if (!eml_searchingForNonNaN) {
-      eml_guard = TRUE;
+    if (!searchingForNonNaN) {
+      guard = TRUE;
     }
   } else {
-    eml_guard = TRUE;
+    guard = TRUE;
   }
 
-  if (eml_guard) {
-    for (eml_k = eml_itmp + 1; eml_k < 11; eml_k++) {
-      eml_ix++;
-      if (eml_varargin_1[eml_ix - 1] > eml_mtmp) {
-        eml_mtmp = eml_varargin_1[eml_ix - 1];
-        eml_itmp = eml_k;
+  if (guard) {
+    for (k = itmp + 1; k < 11; k++) {
+      ix++;
+      if (varargin_1[ix - 1] > mtmp) {
+        mtmp = varargin_1[ix - 1];
+        itmp = k;
       }
     }
   }
 
-  *eml_maxval = eml_mtmp;
-  *eml_indx = (real_T)eml_itmp;
+  *maxval = mtmp;
+  *indx = (real_T)itmp;
 }
 
 /* Initial conditions for function-call system: '<Root>/StateFlow Functions' */
@@ -4117,31 +3999,33 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
   const brain_M, rtB_StateFlowFunctionsFollowO_k *localB,
   rtDW_StateFlowFunctionsFollow_g *localDW)
 {
-  int32_T idxROI;
-  int32_T row;
   boolean_T visited;
   boolean_T visited_0;
   boolean_T done;
-  uint32_T OutCode;
-  int32_T eml_Area[10];
-  real_T eml_BlobArea;
-  real_T eml_index;
-  real_T eml_BlobArea_0;
-  real_T eml_index_0;
+  int32_T Area[10];
   int32_T i;
+  int32_T padCols;
   boolean_T maxNumBlobsReached;
+  int32_T loop;
   uint8_T currentLabel;
+  int32_T idx;
   int32_T n;
+  int32_T nn;
   uint32_T stackIdx;
   uint32_T pixIdx;
   uint32_T start_pixIdx;
-  int32_T n_0;
   uint32_T BuoyBlobAnalysis_NUM_PIX_DW[10];
+  uint32_T walkerIdx;
   uint32_T numBlobs;
+  int32_T ms;
+  int32_T j;
   real_T rtb_TmpSignalConversionAtDraw_f[2];
+  real_T rtb_Sum_c;
+  real_T rtb_Error_m;
+  real_T rtb_TSamp_ct;
+  real_T rtb_TSamp_o;
   int32_T rtb_BuoyBlobAnalysis_o1_l[10];
   real_T rtb_BuoyBlobAnalysis_o2_h[20];
-  int32_T i_0;
   real_T rtb_BuoyBlobAnalysis_o1_l_0[10];
   int32_T line_idx;
   int32_T line_idx_0;
@@ -4149,8 +4033,6 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
   int32_T line_idx_2;
   int32_T line_idx_3;
   int32_T line_idx_4;
-  int32_T line_idx_5;
-  int32_T line_idx_6;
   real_T tmp;
   localDW->StateFlowFunctionsFollowOnePa_g = brain_M->Timing.clockTick0 -
     localDW->StateFlowFunctionsFollowOnePa_l;
@@ -4163,45 +4045,44 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
 
   /* S-Function (svipblob): '<S23>/Buoy Blob Analysis' */
   maxNumBlobsReached = FALSE;
-  for (i = 0; i < 123; i++) {
-    localDW->BuoyBlobAnalysis_PAD_DW[i] = 0U;
+  for (loop = 0; loop < 123; loop++) {
+    localDW->BuoyBlobAnalysis_PAD_DW[loop] = 0U;
   }
 
   currentLabel = 1U;
   i = 0;
-  line_idx_4 = 123;
+  idx = 123;
   for (n = 0; n < 160; n++) {
-    for (n_0 = 0; n_0 < 120; n_0++) {
-      localDW->BuoyBlobAnalysis_PAD_DW[line_idx_4] = (uint8_T)
+    for (padCols = 0; padCols < 120; padCols++) {
+      localDW->BuoyBlobAnalysis_PAD_DW[idx] = (uint8_T)
         (localB->ImageDataTypeConversion[i] ? 255 : 0);
       i++;
-      line_idx_4++;
+      idx++;
     }
 
-    localDW->BuoyBlobAnalysis_PAD_DW[line_idx_4] = 0U;
-    line_idx_4++;
-    localDW->BuoyBlobAnalysis_PAD_DW[line_idx_4] = 0U;
-    line_idx_4++;
+    localDW->BuoyBlobAnalysis_PAD_DW[idx] = 0U;
+    idx++;
+    localDW->BuoyBlobAnalysis_PAD_DW[idx] = 0U;
+    idx++;
   }
 
-  for (i = 0; i < 121; i++) {
-    localDW->BuoyBlobAnalysis_PAD_DW[i + line_idx_4] = 0U;
+  for (loop = 0; loop < 121; loop++) {
+    localDW->BuoyBlobAnalysis_PAD_DW[loop + idx] = 0U;
   }
 
-  n = 1;
+  nn = 1;
   stackIdx = 0U;
   pixIdx = 0U;
-  for (n_0 = 0; n_0 < 160; n_0++) {
-    line_idx_4 = 1;
-    i_0 = n * 122;
-    for (line_idx_3 = 0; line_idx_3 < 120; line_idx_3++) {
-      numBlobs = (uint32_T)(i_0 + line_idx_4);
+  for (n = 0; n < 160; n++) {
+    ms = 1;
+    j = nn * 122;
+    for (padCols = 0; padCols < 120; padCols++) {
+      numBlobs = (uint32_T)(j + ms);
       start_pixIdx = pixIdx;
       if (localDW->BuoyBlobAnalysis_PAD_DW[numBlobs] == 255) {
         localDW->BuoyBlobAnalysis_PAD_DW[numBlobs] = currentLabel;
-        localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)(n - 1);
-        localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(line_idx_4 -
-          1);
+        localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)(nn - 1);
+        localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(ms - 1);
         pixIdx++;
         BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1] = 1U;
         localDW->BuoyBlobAnalysis_STACK_DW[stackIdx] = numBlobs;
@@ -4209,17 +4090,18 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
         while (stackIdx) {
           stackIdx--;
           numBlobs = localDW->BuoyBlobAnalysis_STACK_DW[stackIdx];
-          for (row = 0; row < 8; row++) {
-            OutCode = numBlobs + (uint32_T)brain_ConstP.pooled27[row];
-            if (localDW->BuoyBlobAnalysis_PAD_DW[OutCode] == 255) {
-              localDW->BuoyBlobAnalysis_PAD_DW[OutCode] = currentLabel;
+          for (i = 0; i < 8; i++) {
+            walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled27[i];
+            if (localDW->BuoyBlobAnalysis_PAD_DW[walkerIdx] == 255) {
+              localDW->BuoyBlobAnalysis_PAD_DW[walkerIdx] = currentLabel;
               localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)
-                ((int16_T)(OutCode / 122U) - 1);
-              localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(OutCode
-                % 122U - 1U);
+                ((int16_T)(walkerIdx / 122U) - 1);
+              localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)
+                (walkerIdx % 122U - 1U);
               pixIdx++;
-              BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1]++;
-              localDW->BuoyBlobAnalysis_STACK_DW[stackIdx] = OutCode;
+              BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1] =
+                BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1] + 1U;
+              localDW->BuoyBlobAnalysis_STACK_DW[stackIdx] = walkerIdx;
               stackIdx++;
             }
           }
@@ -4234,56 +4116,54 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
 
         if (currentLabel == 10) {
           maxNumBlobsReached = TRUE;
-          n_0 = 160;
-          line_idx_3 = 120;
+          n = 160;
+          padCols = 120;
         }
 
-        if (line_idx_3 < 120) {
+        if (padCols < 120) {
           currentLabel++;
         }
       }
 
-      line_idx_4++;
+      ms++;
     }
 
-    n++;
+    nn++;
   }
 
   numBlobs = maxNumBlobsReached ? currentLabel : (uint8_T)(currentLabel - 1);
-  i = 0;
-  n = 0;
-  for (n_0 = 0; n_0 < (int32_T)numBlobs; n_0++) {
-    rtb_BuoyBlobAnalysis_o1_l[n_0] = (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0];
-    line_idx_4 = 0;
-    i_0 = 0;
-    for (line_idx_3 = 0; line_idx_3 < (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0];
-         line_idx_3++) {
-      line_idx_4 += localDW->BuoyBlobAnalysis_N_PIXLIST_DW[line_idx_3 + n];
-      i_0 += localDW->BuoyBlobAnalysis_M_PIXLIST_DW[line_idx_3 + i];
+  loop = 0;
+  idx = 0;
+  for (i = 0; i < (int32_T)numBlobs; i++) {
+    rtb_BuoyBlobAnalysis_o1_l[i] = (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i];
+    nn = 0;
+    ms = 0;
+    for (j = 0; j < (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i]; j++) {
+      nn += localDW->BuoyBlobAnalysis_N_PIXLIST_DW[j + idx];
+      ms += localDW->BuoyBlobAnalysis_M_PIXLIST_DW[j + loop];
     }
 
-    rtb_TmpSignalConversionAtDraw_f[0] = (real_T)i_0 / (real_T)
-      BuoyBlobAnalysis_NUM_PIX_DW[n_0];
-    rtb_TmpSignalConversionAtDraw_f[1] = (real_T)line_idx_4 / (real_T)
-      BuoyBlobAnalysis_NUM_PIX_DW[n_0];
-    rtb_BuoyBlobAnalysis_o2_h[n_0 << 1] = rtb_TmpSignalConversionAtDraw_f[0];
-    rtb_BuoyBlobAnalysis_o2_h[(n_0 << 1) + 1] = rtb_TmpSignalConversionAtDraw_f
-      [1];
-    i += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0];
-    n += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[n_0];
+    rtb_TmpSignalConversionAtDraw_f[0] = (real_T)ms / (real_T)
+      BuoyBlobAnalysis_NUM_PIX_DW[i];
+    rtb_TmpSignalConversionAtDraw_f[1] = (real_T)nn / (real_T)
+      BuoyBlobAnalysis_NUM_PIX_DW[i];
+    rtb_BuoyBlobAnalysis_o2_h[i << 1] = rtb_TmpSignalConversionAtDraw_f[0];
+    rtb_BuoyBlobAnalysis_o2_h[(i << 1) + 1] = rtb_TmpSignalConversionAtDraw_f[1];
+    loop += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i];
+    idx += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i];
   }
 
-  for (i = (int32_T)numBlobs; i < 10; i++) {
-    rtb_BuoyBlobAnalysis_o1_l[i] = -1;
+  for (loop = (int32_T)numBlobs; loop < 10; loop++) {
+    rtb_BuoyBlobAnalysis_o1_l[loop] = -1;
   }
 
-  for (i = (int32_T)numBlobs << 1; i < 20; i++) {
-    rtb_BuoyBlobAnalysis_o2_h[i] = -1.0;
+  for (loop = (int32_T)(numBlobs << 1); loop < 20; loop++) {
+    rtb_BuoyBlobAnalysis_o2_h[loop] = -1.0;
   }
 
   /* Embedded MATLAB: '<S23>/Embedded MATLAB Function' */
-  for (i_0 = 0; i_0 < 10; i_0++) {
-    eml_Area[i_0] = rtb_BuoyBlobAnalysis_o1_l[i_0];
+  for (i = 0; i < 10; i++) {
+    Area[i] = rtb_BuoyBlobAnalysis_o1_l[i];
   }
 
   /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.CenterOver_Strafe/Embedded MATLAB Function': '<S91>:1' */
@@ -4293,58 +4173,57 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
        -1.0)) {
     /* '<S91>:1:5' */
     /* '<S91>:1:7' */
-    eml_BlobArea = 80.0;
+    rtb_Error_m = 80.0;
 
     /* '<S91>:1:8' */
-    eml_BlobArea_0 = 60.0;
+    rtb_TSamp_o = 60.0;
   } else {
-    for (i_0 = 0; i_0 < 10; i_0++) {
-      rtb_BuoyBlobAnalysis_o1_l_0[i_0] = (real_T)rtb_BuoyBlobAnalysis_o1_l[i_0];
+    for (i = 0; i < 10; i++) {
+      rtb_BuoyBlobAnalysis_o1_l_0[i] = (real_T)rtb_BuoyBlobAnalysis_o1_l[i];
     }
 
-    brain_max(rtb_BuoyBlobAnalysis_o1_l_0, &eml_BlobArea, &eml_index);
+    brain_max(rtb_BuoyBlobAnalysis_o1_l_0, &rtb_Error_m, &rtb_Sum_c);
 
     /* '<S91>:1:12' */
-    eml_Area[(int32_T)eml_index - 1] = 0;
-    for (i_0 = 0; i_0 < 10; i_0++) {
-      rtb_BuoyBlobAnalysis_o1_l_0[i_0] = (real_T)eml_Area[i_0];
+    Area[(int32_T)rtb_Sum_c - 1] = 0;
+    for (i = 0; i < 10; i++) {
+      rtb_BuoyBlobAnalysis_o1_l_0[i] = (real_T)Area[i];
     }
 
-    brain_max(rtb_BuoyBlobAnalysis_o1_l_0, &eml_BlobArea_0, &eml_index_0);
-    if (eml_BlobArea < eml_BlobArea_0 * 1.25) {
+    brain_max(rtb_BuoyBlobAnalysis_o1_l_0, &rtb_TSamp_o, &rtb_TSamp_ct);
+    if (rtb_Error_m < rtb_TSamp_o * 1.25) {
       /* '<S91>:1:15' */
-      if (rtb_BuoyBlobAnalysis_o2_h[(((int32_T)eml_index - 1) << 1U) + 1] >
-          rtb_BuoyBlobAnalysis_o2_h[(((int32_T)eml_index_0 - 1) << 1U) + 1]) {
+      if (rtb_BuoyBlobAnalysis_o2_h[(((int32_T)rtb_Sum_c - 1) << 1U) + 1] >
+          rtb_BuoyBlobAnalysis_o2_h[(((int32_T)rtb_TSamp_ct - 1) << 1U) + 1]) {
         /* '<S91>:1:16' */
         /* '<S91>:1:17' */
-        eml_BlobArea = rtb_BuoyBlobAnalysis_o2_h[(((int32_T)eml_index_0 - 1) <<
+        rtb_Error_m = rtb_BuoyBlobAnalysis_o2_h[(((int32_T)rtb_TSamp_ct - 1) <<
           1U) + 1];
 
         /* '<S91>:1:18' */
-        eml_BlobArea_0 = rtb_BuoyBlobAnalysis_o2_h[((int32_T)eml_index_0 - 1) <<
+        rtb_TSamp_o = rtb_BuoyBlobAnalysis_o2_h[((int32_T)rtb_TSamp_ct - 1) <<
           1U];
       } else {
         /* '<S91>:1:20' */
-        eml_BlobArea = rtb_BuoyBlobAnalysis_o2_h[(((int32_T)eml_index - 1) << 1U)
+        rtb_Error_m = rtb_BuoyBlobAnalysis_o2_h[(((int32_T)rtb_Sum_c - 1) << 1U)
           + 1];
 
         /* '<S91>:1:21' */
-        eml_BlobArea_0 = rtb_BuoyBlobAnalysis_o2_h[((int32_T)eml_index - 1) <<
-          1U];
+        rtb_TSamp_o = rtb_BuoyBlobAnalysis_o2_h[((int32_T)rtb_Sum_c - 1) << 1U];
       }
     } else {
       /* '<S91>:1:24' */
-      eml_BlobArea = rtb_BuoyBlobAnalysis_o2_h[(((int32_T)eml_index - 1) << 1U)
-        + 1];
+      rtb_Error_m = rtb_BuoyBlobAnalysis_o2_h[(((int32_T)rtb_Sum_c - 1) << 1U) +
+        1];
 
       /* '<S91>:1:25' */
-      eml_BlobArea_0 = rtb_BuoyBlobAnalysis_o2_h[((int32_T)eml_index - 1) << 1U];
+      rtb_TSamp_o = rtb_BuoyBlobAnalysis_o2_h[((int32_T)rtb_Sum_c - 1) << 1U];
     }
   }
 
   /* SignalConversion: '<S23>/TmpSignal ConversionAtDraw MarkersInport2' */
-  rtb_TmpSignalConversionAtDraw_f[0] = eml_BlobArea_0;
-  rtb_TmpSignalConversionAtDraw_f[1] = eml_BlobArea;
+  rtb_TmpSignalConversionAtDraw_f[0] = rtb_TSamp_o;
+  rtb_TmpSignalConversionAtDraw_f[1] = rtb_Error_m;
 
   /* S-Function (svipdrawmarkers): '<S23>/Draw Markers' */
   /* Copy the image from input to output. */
@@ -4352,374 +4231,376 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
          sizeof(real_T));
 
   /* Draw all X marks. */
-  for (idxROI = 0; idxROI < 2; idxROI += 2) {
-    tmp = rtb_TmpSignalConversionAtDraw_f[idxROI];
-    if ((rtb_TmpSignalConversionAtDraw_f[idxROI] < 4.5035996273704960E+015) &&
-        (rtb_TmpSignalConversionAtDraw_f[idxROI] > -4.5035996273704960E+015)) {
-      tmp = floor(rtb_TmpSignalConversionAtDraw_f[idxROI] + 0.5);
+  for (n = 0; n < 2; n += 2) {
+    tmp = rtb_TmpSignalConversionAtDraw_f[n];
+    if ((rtb_TmpSignalConversionAtDraw_f[n] < 4.503599627370496E+15) &&
+        (rtb_TmpSignalConversionAtDraw_f[n] > -4.503599627370496E+15)) {
+      tmp = floor(rtb_TmpSignalConversionAtDraw_f[n] + 0.5);
     }
 
-    row = (int32_T)tmp;
-    tmp = rtb_TmpSignalConversionAtDraw_f[idxROI + 1];
-    if ((tmp < 4.5035996273704960E+015) && (tmp > -4.5035996273704960E+015)) {
-      tmp = floor(tmp + 0.5);
+    padCols = (int32_T)tmp;
+    tmp = rtb_TmpSignalConversionAtDraw_f[n + 1];
+    if ((rtb_TmpSignalConversionAtDraw_f[n + 1] < 4.503599627370496E+15) &&
+        (rtb_TmpSignalConversionAtDraw_f[n + 1] > -4.503599627370496E+15)) {
+      tmp = floor(rtb_TmpSignalConversionAtDraw_f[n + 1] + 0.5);
     }
 
-    i_0 = (int32_T)tmp;
-    line_idx = row - 7;
-    line_idx_0 = i_0 - 7;
-    line_idx_1 = row + 7;
-    line_idx_2 = i_0 + 7;
+    i = (int32_T)tmp;
+    idx = padCols - 7;
+    line_idx = i - 7;
+    line_idx_0 = padCols + 7;
+    line_idx_1 = i + 7;
     maxNumBlobsReached = FALSE;
 
     /* Find the visible portion of a line. */
     visited = FALSE;
     visited_0 = FALSE;
     done = FALSE;
-    line_idx_4 = line_idx;
+    j = idx;
+    line_idx_2 = line_idx;
     line_idx_3 = line_idx_0;
-    line_idx_5 = line_idx_1;
-    line_idx_6 = line_idx_2;
+    line_idx_4 = line_idx_1;
     while (!done) {
       numBlobs = 0U;
-      OutCode = 0U;
+      walkerIdx = 0U;
 
       /* Determine viewport violations. */
-      if (line_idx_4 < 0) {
+      if (j < 0) {
         numBlobs = 4U;
       } else {
-        if (line_idx_4 > 119) {
+        if (j > 119) {
           numBlobs = 8U;
         }
       }
 
-      if (line_idx_5 < 0) {
-        OutCode = 4U;
-      } else {
-        if (line_idx_5 > 119) {
-          OutCode = 8U;
-        }
-      }
-
       if (line_idx_3 < 0) {
-        numBlobs = (uint32_T)((int32_T)numBlobs | 1);
+        walkerIdx = 4U;
       } else {
-        if (line_idx_3 > 159) {
-          numBlobs = (uint32_T)((int32_T)numBlobs | 2);
+        if (line_idx_3 > 119) {
+          walkerIdx = 8U;
         }
       }
 
-      if (line_idx_6 < 0) {
-        OutCode = (uint32_T)((int32_T)OutCode | 1);
+      if (line_idx_2 < 0) {
+        numBlobs |= 1U;
       } else {
-        if (line_idx_6 > 159) {
-          OutCode = (uint32_T)((int32_T)OutCode | 2);
+        if (line_idx_2 > 159) {
+          numBlobs |= 2U;
         }
       }
 
-      if (!((uint32_T)((int32_T)numBlobs | (int32_T)OutCode))) {
+      if (line_idx_4 < 0) {
+        walkerIdx |= 1U;
+      } else {
+        if (line_idx_4 > 159) {
+          walkerIdx |= 2U;
+        }
+      }
+
+      if (!(numBlobs | walkerIdx)) {
         /* Line falls completely within bounds. */
         done = TRUE;
         maxNumBlobsReached = TRUE;
-      } else if ((uint32_T)((int32_T)numBlobs & (int32_T)OutCode)) {
+      } else if (numBlobs & walkerIdx) {
         /* Line falls completely out of bounds. */
         done = TRUE;
         maxNumBlobsReached = FALSE;
       } else if (numBlobs != 0U) {
         /* Clip 1st point; if it's in-bounds, clip 2nd point. */
         if (visited) {
-          line_idx_4 = line_idx;
-          line_idx_3 = line_idx_0;
+          j = idx;
+          line_idx_2 = line_idx;
         }
 
-        i = line_idx_5 - line_idx_4;
-        n = line_idx_6 - line_idx_3;
-        if ((uint32_T)((int32_T)numBlobs & 4)) {
+        loop = line_idx_3 - j;
+        nn = line_idx_4 - line_idx_2;
+        if (numBlobs & 4U) {
           /* Violated RMin. */
-          n_0 = (0 - line_idx_4) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
+          ms = (0 - j) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_2 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
           } else {
-            line_idx_3 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
+            line_idx_2 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
+          }
+
+          j = 0;
+          visited = TRUE;
+        } else if (numBlobs & 8U) {
+          /* Violated RMax. */
+          ms = (119 - j) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_2 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
+          } else {
+            line_idx_2 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
+          }
+
+          j = 119;
+          visited = TRUE;
+        } else if (numBlobs & 1U) {
+          /* Violated CMin. */
+          ms = (0 - line_idx_2) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            j += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
+          } else {
+            j += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
+          }
+
+          line_idx_2 = 0;
+          visited = TRUE;
+        } else {
+          /* Violated CMax. */
+          ms = (159 - line_idx_2) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            j += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
+          } else {
+            j += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
+          }
+
+          line_idx_2 = 159;
+          visited = TRUE;
+        }
+      } else {
+        /* Clip the 2nd point. */
+        if (visited_0) {
+          line_idx_3 = line_idx_0;
+          line_idx_4 = line_idx_1;
+        }
+
+        loop = line_idx_3 - j;
+        nn = line_idx_4 - line_idx_2;
+        if (walkerIdx & 4U) {
+          /* Violated RMin. */
+          ms = (0 - line_idx_3) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_4 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
+          } else {
+            line_idx_4 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
+          }
+
+          line_idx_3 = 0;
+          visited_0 = TRUE;
+        } else if (walkerIdx & 8U) {
+          /* Violated RMax. */
+          ms = (119 - line_idx_3) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_4 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
+          } else {
+            line_idx_4 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
+          }
+
+          line_idx_3 = 119;
+          visited_0 = TRUE;
+        } else if (walkerIdx & 1U) {
+          /* Violated CMin. */
+          ms = (0 - line_idx_4) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            line_idx_3 += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
+          } else {
+            line_idx_3 += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
           }
 
           line_idx_4 = 0;
-          visited = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & 8)) {
-          /* Violated RMax. */
-          n_0 = (119 - line_idx_4) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_3 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
-          }
-
-          line_idx_4 = 119;
-          visited = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & 1)) {
-          /* Violated CMin. */
-          n_0 = (0 - line_idx_3) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            line_idx_4 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
-          } else {
-            line_idx_4 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
-          }
-
-          line_idx_3 = 0;
-          visited = TRUE;
-        } else {
-          /* Violated CMax. */
-          n_0 = (159 - line_idx_3) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            line_idx_4 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
-          } else {
-            line_idx_4 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
-          }
-
-          line_idx_3 = 159;
-          visited = TRUE;
-        }
-      } else {
-        /* Clip the 2nd point. */
-        if (visited_0) {
-          line_idx_5 = line_idx_1;
-          line_idx_6 = line_idx_2;
-        }
-
-        i = line_idx_5 - line_idx_4;
-        n = line_idx_6 - line_idx_3;
-        if ((uint32_T)((int32_T)OutCode & 4)) {
-          /* Violated RMin. */
-          n_0 = (0 - line_idx_5) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_6 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_6 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
-          }
-
-          line_idx_5 = 0;
-          visited_0 = TRUE;
-        } else if ((uint32_T)((int32_T)OutCode & 8)) {
-          /* Violated RMax. */
-          n_0 = (119 - line_idx_5) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_6 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_6 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
-          }
-
-          line_idx_5 = 119;
-          visited_0 = TRUE;
-        } else if ((uint32_T)((int32_T)OutCode & 1)) {
-          /* Violated CMin. */
-          n_0 = (0 - line_idx_6) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            line_idx_5 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
-          } else {
-            line_idx_5 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
-          }
-
-          line_idx_6 = 0;
           visited_0 = TRUE;
         } else {
           /* Violated CMax. */
-          n_0 = (159 - line_idx_6) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            line_idx_5 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
+          ms = (159 - line_idx_4) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            line_idx_3 += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
           } else {
-            line_idx_5 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
+            line_idx_3 += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
           }
 
-          line_idx_6 = 159;
+          line_idx_4 = 159;
           visited_0 = TRUE;
         }
       }
     }
 
     if (maxNumBlobsReached) {
-      n = line_idx_3 * 120 + line_idx_4;
-      while (line_idx_4 <= line_idx_5) {
-        localB->DrawMarkers[n] = 0.75;
-        n += 121;
-        line_idx_4++;
+      ms = line_idx_2 * 120 + j;
+      while (j <= line_idx_3) {
+        localB->DrawMarkers[ms] = 0.75;
+        ms += 121;
+        j++;
       }
     }
 
-    line_idx = row - 7;
-    line_idx_0 = i_0 + 7;
-    line_idx_1 = row + 7;
-    line_idx_2 = i_0 - 7;
+    idx = padCols - 7;
+    line_idx = i + 7;
+    line_idx_0 = padCols + 7;
+    line_idx_1 = i - 7;
     maxNumBlobsReached = FALSE;
 
     /* Find the visible portion of a line. */
     visited = FALSE;
     visited_0 = FALSE;
     done = FALSE;
-    i_0 = line_idx;
+    j = idx;
+    line_idx_2 = line_idx;
     line_idx_3 = line_idx_0;
-    line_idx_5 = line_idx_1;
-    line_idx_6 = line_idx_2;
+    line_idx_4 = line_idx_1;
     while (!done) {
       numBlobs = 0U;
-      OutCode = 0U;
+      walkerIdx = 0U;
 
       /* Determine viewport violations. */
-      if (i_0 < 0) {
+      if (j < 0) {
         numBlobs = 4U;
       } else {
-        if (i_0 > 119) {
+        if (j > 119) {
           numBlobs = 8U;
         }
       }
 
-      if (line_idx_5 < 0) {
-        OutCode = 4U;
-      } else {
-        if (line_idx_5 > 119) {
-          OutCode = 8U;
-        }
-      }
-
       if (line_idx_3 < 0) {
-        numBlobs = (uint32_T)((int32_T)numBlobs | 1);
+        walkerIdx = 4U;
       } else {
-        if (line_idx_3 > 159) {
-          numBlobs = (uint32_T)((int32_T)numBlobs | 2);
+        if (line_idx_3 > 119) {
+          walkerIdx = 8U;
         }
       }
 
-      if (line_idx_6 < 0) {
-        OutCode = (uint32_T)((int32_T)OutCode | 1);
+      if (line_idx_2 < 0) {
+        numBlobs |= 1U;
       } else {
-        if (line_idx_6 > 159) {
-          OutCode = (uint32_T)((int32_T)OutCode | 2);
+        if (line_idx_2 > 159) {
+          numBlobs |= 2U;
         }
       }
 
-      if (!((uint32_T)((int32_T)numBlobs | (int32_T)OutCode))) {
+      if (line_idx_4 < 0) {
+        walkerIdx |= 1U;
+      } else {
+        if (line_idx_4 > 159) {
+          walkerIdx |= 2U;
+        }
+      }
+
+      if (!(numBlobs | walkerIdx)) {
         /* Line falls completely within bounds. */
         done = TRUE;
         maxNumBlobsReached = TRUE;
-      } else if ((uint32_T)((int32_T)numBlobs & (int32_T)OutCode)) {
+      } else if (numBlobs & walkerIdx) {
         /* Line falls completely out of bounds. */
         done = TRUE;
         maxNumBlobsReached = FALSE;
       } else if (numBlobs != 0U) {
         /* Clip 1st point; if it's in-bounds, clip 2nd point. */
         if (visited) {
-          i_0 = line_idx;
-          line_idx_3 = line_idx_0;
+          j = idx;
+          line_idx_2 = line_idx;
         }
 
-        i = line_idx_5 - i_0;
-        n = line_idx_6 - line_idx_3;
-        if ((uint32_T)((int32_T)numBlobs & 4)) {
+        loop = line_idx_3 - j;
+        nn = line_idx_4 - line_idx_2;
+        if (numBlobs & 4U) {
           /* Violated RMin. */
-          n_0 = (0 - i_0) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
+          ms = (0 - j) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_2 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
           } else {
-            line_idx_3 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
+            line_idx_2 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
           }
 
-          i_0 = 0;
+          j = 0;
           visited = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & 8)) {
+        } else if (numBlobs & 8U) {
           /* Violated RMax. */
-          n_0 = (119 - i_0) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
+          ms = (119 - j) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_2 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
           } else {
-            line_idx_3 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
+            line_idx_2 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
           }
 
-          i_0 = 119;
+          j = 119;
           visited = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & 1)) {
+        } else if (numBlobs & 1U) {
           /* Violated CMin. */
-          n_0 = (0 - line_idx_3) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            i_0 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
+          ms = (0 - line_idx_2) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            j += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
           } else {
-            i_0 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
+            j += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
           }
 
-          line_idx_3 = 0;
+          line_idx_2 = 0;
           visited = TRUE;
         } else {
           /* Violated CMax. */
-          n_0 = (159 - line_idx_3) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            i_0 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
+          ms = (159 - line_idx_2) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            j += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
           } else {
-            i_0 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
+            j += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
           }
 
-          line_idx_3 = 159;
+          line_idx_2 = 159;
           visited = TRUE;
         }
       } else {
         /* Clip the 2nd point. */
         if (visited_0) {
-          line_idx_5 = line_idx_1;
-          line_idx_6 = line_idx_2;
+          line_idx_3 = line_idx_0;
+          line_idx_4 = line_idx_1;
         }
 
-        i = line_idx_5 - i_0;
-        n = line_idx_6 - line_idx_3;
-        if ((uint32_T)((int32_T)OutCode & 4)) {
+        loop = line_idx_3 - j;
+        nn = line_idx_4 - line_idx_2;
+        if (walkerIdx & 4U) {
           /* Violated RMin. */
-          n_0 = (0 - line_idx_5) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_6 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
+          ms = (0 - line_idx_3) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_4 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
           } else {
-            line_idx_6 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
+            line_idx_4 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
           }
 
-          line_idx_5 = 0;
+          line_idx_3 = 0;
           visited_0 = TRUE;
-        } else if ((uint32_T)((int32_T)OutCode & 8)) {
+        } else if (walkerIdx & 8U) {
           /* Violated RMax. */
-          n_0 = (119 - line_idx_5) * n;
-          if (((n_0 >= 0) && (i >= 0)) || ((n_0 < 0) && (i < 0))) {
-            line_idx_6 += (div_s32_floor(n_0 << 1U, i) + 1) >> 1;
+          ms = (119 - line_idx_3) * nn;
+          if (((ms >= 0) && (loop >= 0)) || ((ms < 0) && (loop < 0))) {
+            line_idx_4 += (div_s32_floor(ms << 1U, loop) + 1) >> 1;
           } else {
-            line_idx_6 += -((div_s32_floor((-n_0) << 1U, i) + 1) >> 1);
+            line_idx_4 += -((div_s32_floor((-ms) << 1U, loop) + 1) >> 1);
           }
 
-          line_idx_5 = 119;
+          line_idx_3 = 119;
           visited_0 = TRUE;
-        } else if ((uint32_T)((int32_T)OutCode & 1)) {
+        } else if (walkerIdx & 1U) {
           /* Violated CMin. */
-          n_0 = (0 - line_idx_6) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            line_idx_5 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
+          ms = (0 - line_idx_4) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            line_idx_3 += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
           } else {
-            line_idx_5 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
+            line_idx_3 += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
           }
 
-          line_idx_6 = 0;
+          line_idx_4 = 0;
           visited_0 = TRUE;
         } else {
           /* Violated CMax. */
-          n_0 = (159 - line_idx_6) * i;
-          if (((n_0 >= 0) && (n >= 0)) || ((n_0 < 0) && (n < 0))) {
-            line_idx_5 += (div_s32_floor(n_0 << 1U, n) + 1) >> 1;
+          ms = (159 - line_idx_4) * loop;
+          if (((ms >= 0) && (nn >= 0)) || ((ms < 0) && (nn < 0))) {
+            line_idx_3 += (div_s32_floor(ms << 1U, nn) + 1) >> 1;
           } else {
-            line_idx_5 += -((div_s32_floor((-n_0) << 1U, n) + 1) >> 1);
+            line_idx_3 += -((div_s32_floor((-ms) << 1U, nn) + 1) >> 1);
           }
 
-          line_idx_6 = 159;
+          line_idx_4 = 159;
           visited_0 = TRUE;
         }
       }
     }
 
     if (maxNumBlobsReached) {
-      n = line_idx_3 * 120 + i_0;
-      for (n_0 = i_0; n_0 <= line_idx_5; n_0++) {
-        localB->DrawMarkers[n] = 0.75;
-        n += -119;
+      ms = line_idx_2 * 120 + j;
+      while (j <= line_idx_3) {
+        localB->DrawMarkers[ms] = 0.75;
+        ms += -119;
+        j++;
       }
     }
   }
@@ -4728,14 +4609,13 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
   brain_EmbeddedMATLABFunction1(&localB->sf_EmbeddedMATLABFunction1);
 
   /* Sum: '<S23>/Subtract' */
-  localB->Subtract = eml_BlobArea - localB->sf_EmbeddedMATLABFunction1.XCenter;
+  localB->Subtract = rtb_Error_m - localB->sf_EmbeddedMATLABFunction1.XCenter;
 
   /* Sum: '<S23>/Subtract1' */
-  localB->Subtract1 = eml_BlobArea_0 -
-    localB->sf_EmbeddedMATLABFunction1.YCenter;
+  localB->Subtract1 = rtb_TSamp_o - localB->sf_EmbeddedMATLABFunction1.YCenter;
 
   /* Sum: '<S93>/Subtract' */
-  eml_index = localB->sf_EmbeddedMATLABFunction1.XCenter - eml_BlobArea;
+  rtb_Sum_c = localB->sf_EmbeddedMATLABFunction1.XCenter - rtb_Error_m;
 
   /* SampleTimeMath: '<S96>/TSamp' incorporates:
    *  Gain: '<S95>/CamDown Strafe XPos Derivative Gain'
@@ -4743,7 +4623,7 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
    * About '<S96>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
-  eml_index_0 = brain_P.Cam_Down_Strafe_XPos_Kd * eml_index / ((real_T)
+  rtb_TSamp_ct = brain_P.Cam_Down_Strafe_XPos_Kd * rtb_Sum_c / ((real_T)
     localDW->StateFlowFunctionsFollowOnePa_g * 0.2);
 
   /* DataTypeConversion: '<S93>/Data Type Conversion' incorporates:
@@ -4761,7 +4641,7 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
    *
    *  Store in Global RAM
    */
-  tmp = (brain_P.Cam_Down_Strafe_XPos_Kp * eml_index + (eml_index_0 -
+  tmp = (brain_P.Cam_Down_Strafe_XPos_Kp * rtb_Sum_c + (rtb_TSamp_ct -
           localDW->UD_DSTATE)) + localDW->XBuoyDiscreteTimeIntegrator_DST;
   tmp = floor(tmp);
   if (tmp < 128.0) {
@@ -4775,7 +4655,7 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
   }
 
   /* Sum: '<S94>/Subtract' */
-  eml_BlobArea = localB->sf_EmbeddedMATLABFunction1.YCenter - eml_BlobArea_0;
+  rtb_Error_m = localB->sf_EmbeddedMATLABFunction1.YCenter - rtb_TSamp_o;
 
   /* SampleTimeMath: '<S98>/TSamp' incorporates:
    *  Gain: '<S97>/Y-Buoy Derivative Gain'
@@ -4783,7 +4663,7 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
    * About '<S98>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
-  eml_BlobArea_0 = brain_P.Cam_Down_YPos_Kd * eml_BlobArea / ((real_T)
+  rtb_TSamp_o = brain_P.Cam_Down_YPos_Kd * rtb_Error_m / ((real_T)
     localDW->StateFlowFunctionsFollowOnePa_g * 0.2);
 
   /* DataTypeConversion: '<S94>/Data Type Conversion' incorporates:
@@ -4801,7 +4681,7 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
    *
    *  Store in Global RAM
    */
-  tmp = (brain_P.Cam_Down_YPos_Kp * eml_BlobArea + (eml_BlobArea_0 -
+  tmp = (brain_P.Cam_Down_YPos_Kp * rtb_Error_m + (rtb_TSamp_o -
           localDW->UD_DSTATE_n)) + localDW->YBuoyDiscreteTimeIntegrator_DST;
   tmp = floor(tmp);
   if (tmp < 128.0) {
@@ -4819,14 +4699,14 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
    *
    *  Store in Global RAM
    */
-  localDW->UD_DSTATE = eml_index_0;
+  localDW->UD_DSTATE = rtb_TSamp_ct;
 
   /* Update for DiscreteIntegrator: '<S95>/X-Buoy Discrete-Time Integrator' incorporates:
    *  Gain: '<S95>/CamDown Strafe XPos Integral Gain'
    */
   localDW->XBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
     localDW->StateFlowFunctionsFollowOnePa_g * (brain_P.Cam_Down_Strafe_XPos_Ki *
-    eml_index) + localDW->XBuoyDiscreteTimeIntegrator_DST;
+    rtb_Sum_c) + localDW->XBuoyDiscreteTimeIntegrator_DST;
   if (localDW->XBuoyDiscreteTimeIntegrator_DST >= 15.0) {
     localDW->XBuoyDiscreteTimeIntegrator_DST = 15.0;
   } else {
@@ -4840,14 +4720,14 @@ void StateFlowFunctionsFollowOnePa_i(const real_T rtu_BW[19200], RT_MODEL_brain 
    *
    *  Store in Global RAM
    */
-  localDW->UD_DSTATE_n = eml_BlobArea_0;
+  localDW->UD_DSTATE_n = rtb_TSamp_o;
 
   /* Update for DiscreteIntegrator: '<S97>/Y-Buoy Discrete-Time Integrator' incorporates:
    *  Gain: '<S97>/Y-Buoy Integral Gain'
    */
   localDW->YBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
     localDW->StateFlowFunctionsFollowOnePa_g * (brain_P.Cam_Down_YPos_Ki *
-    eml_BlobArea) + localDW->YBuoyDiscreteTimeIntegrator_DST;
+    rtb_Error_m) + localDW->YBuoyDiscreteTimeIntegrator_DST;
   if (localDW->YBuoyDiscreteTimeIntegrator_DST >= 15.0) {
     localDW->YBuoyDiscreteTimeIntegrator_DST = 15.0;
   } else {
@@ -4866,67 +4746,67 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   real_T cc_0;
   real_T cc_1;
   real_T Xf;
-  real_T eml_min_dist;
-  real_T eml_dist;
-  real_T eml_i;
+  real_T min_dist;
+  real_T dist;
+  real_T i;
   int8_T rtb_index_j;
-  int32_T i;
+  int32_T i_0;
 
   /* S-Function (svipcolorconv): '<S124>/Color Space  Conversion' */
   /* temporary variables for in-place operation */
   cc = 0.0;
   cc_0 = 0.0;
   cc_1 = 0.0;
-  eml_min_dist = 6.0 * rtu_B_Hue;
-  Xf = (real_T)(uint32_T)(eml_min_dist - 1.3322676295501878E-015);
-  eml_min_dist -= Xf;
-  eml_i = 1.0 - rtu_B_Sat;
-  eml_dist = 1.0 - rtu_B_Sat * eml_min_dist;
-  eml_min_dist = rtu_B_Sat * eml_min_dist + eml_i;
+  min_dist = 6.0 * rtu_B_Hue;
+  Xf = (real_T)(uint32_T)(min_dist - 1.3322676295501878E-15);
+  min_dist -= Xf;
+  i = 1.0 - rtu_B_Sat;
+  dist = 1.0 - rtu_B_Sat * min_dist;
+  min_dist = rtu_B_Sat * min_dist + i;
   if (Xf == 0.0) {
     cc = 1.0;
-    cc_0 = eml_min_dist;
-    cc_1 = eml_i;
+    cc_0 = min_dist;
+    cc_1 = i;
   } else if (Xf == 1.0) {
-    cc = eml_dist;
+    cc = dist;
     cc_0 = 1.0;
-    cc_1 = eml_i;
+    cc_1 = i;
   } else if (Xf == 2.0) {
-    cc = eml_i;
+    cc = i;
     cc_0 = 1.0;
-    cc_1 = eml_min_dist;
+    cc_1 = min_dist;
   } else if (Xf == 3.0) {
-    cc = eml_i;
-    cc_0 = eml_dist;
+    cc = i;
+    cc_0 = dist;
     cc_1 = 1.0;
   } else if (Xf == 4.0) {
-    cc = eml_min_dist;
-    cc_0 = eml_i;
+    cc = min_dist;
+    cc_0 = i;
     cc_1 = 1.0;
   } else {
     if (Xf == 5.0) {
       cc = 1.0;
-      cc_0 = eml_i;
-      cc_1 = eml_dist;
+      cc_0 = i;
+      cc_1 = dist;
     }
   }
 
   if (cc > cc_0) {
-    eml_min_dist = cc;
+    min_dist = cc;
   } else {
-    eml_min_dist = cc_0;
+    min_dist = cc_0;
   }
 
-  if (!(eml_min_dist > cc_1)) {
-    eml_min_dist = cc_1;
+  if (!(min_dist > cc_1)) {
+    min_dist = cc_1;
   }
 
-  eml_min_dist = rtu_B_Value / eml_min_dist;
+  min_dist = rtu_B_Value / min_dist;
 
   /* assign the results */
-  localB->ColorSpaceConversion_o1 = eml_min_dist * cc;
-  localB->ColorSpaceConversion_o2 = eml_min_dist * cc_0;
-  localB->ColorSpaceConversion_o3 = eml_min_dist * cc_1;
+  localB->ColorSpaceConversion_o1 = min_dist * cc;
+  localB->ColorSpaceConversion_o2 = min_dist * cc_0;
+  localB->ColorSpaceConversion_o3 = min_dist * cc_1;
 
   /* S-Function (svipcolorconv): '<S124>/Color Space  Conversion1' */
   /* temporary variables for in-place operation */
@@ -4936,50 +4816,41 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   /* equivalent to running the gamma correction block with break */
   /* point of 0.00304 and gamma of 2.4; it's built into this */
   /* conversion for convenience */
-  if (localB->ColorSpaceConversion_o1 <= 3.9286085583733095E-002) {
-    eml_min_dist = localB->ColorSpaceConversion_o1 / 1.2923054468333254E+001;
+  if (localB->ColorSpaceConversion_o1 <= 0.039286085583733095) {
+    min_dist = localB->ColorSpaceConversion_o1 / 12.923054468333255;
   } else {
-    eml_min_dist = (localB->ColorSpaceConversion_o1 + 5.5000519817226361E-002) /
-      1.0550005198172263E+000;
-    eml_min_dist = rt_pow_snf(eml_min_dist, 2.4);
+    min_dist = (localB->ColorSpaceConversion_o1 + 0.055000519817226347) /
+      1.0550005198172263;
+    min_dist = rt_pow_snf(min_dist, 2.4);
   }
 
-  if (localB->ColorSpaceConversion_o2 <= 3.9286085583733095E-002) {
-    eml_i = localB->ColorSpaceConversion_o2 / 1.2923054468333254E+001;
+  if (localB->ColorSpaceConversion_o2 <= 0.039286085583733095) {
+    i = localB->ColorSpaceConversion_o2 / 12.923054468333255;
   } else {
-    eml_i = (localB->ColorSpaceConversion_o2 + 5.5000519817226361E-002) /
-      1.0550005198172263E+000;
-    eml_i = rt_pow_snf(eml_i, 2.4);
+    i = (localB->ColorSpaceConversion_o2 + 0.055000519817226347) /
+      1.0550005198172263;
+    i = rt_pow_snf(i, 2.4);
   }
 
-  if (localB->ColorSpaceConversion_o3 <= 3.9286085583733095E-002) {
-    eml_dist = localB->ColorSpaceConversion_o3 / 1.2923054468333254E+001;
+  if (localB->ColorSpaceConversion_o3 <= 0.039286085583733095) {
+    dist = localB->ColorSpaceConversion_o3 / 12.923054468333255;
   } else {
-    eml_dist = (localB->ColorSpaceConversion_o3 + 5.5000519817226361E-002) /
-      1.0550005198172263E+000;
-    eml_dist = rt_pow_snf(eml_dist, 2.4);
+    dist = (localB->ColorSpaceConversion_o3 + 0.055000519817226347) /
+      1.0550005198172263;
+    dist = rt_pow_snf(dist, 2.4);
   }
 
   /* The coefficients for this conversion were derived from ITU-R */
   /* BT.709 reference primaries for sRGB and CIE standard illuminant */
   /* D65, 2 degree observer */
-  Xf = (4.1239079926596001E-001 * eml_min_dist + 3.5758433938388001E-001 * eml_i)
-    + 1.8048078840182999E-001 * eml_dist;
-  cc = (2.1263900587151000E-001 * eml_min_dist + 7.1516867876776002E-001 * eml_i)
-    + 7.2192315360729994E-002 * eml_dist;
-  eml_min_dist = (1.9330818715590000E-002 * eml_min_dist +
-                  1.1919477979463000E-001 * eml_i) + 9.5053215224966003E-001 *
-    eml_dist;
+  cc = (0.41239079926596 * min_dist + 0.35758433938388 * i) + 0.18048078840183 *
+    dist;
+  cc_0 = (0.21263900587151 * min_dist + 0.71516867876776 * i) + 0.07219231536073
+    * dist;
+  cc_1 = (0.01933081871559 * min_dist + 0.11919477979463 * i) + 0.95053215224966
+    * dist;
 
   /* Make sure that the output is in [0..1] range; clip if necessary */
-  if (Xf > 1.0) {
-    Xf = 1.0;
-  } else {
-    if (Xf < 0.0) {
-      Xf = 0.0;
-    }
-  }
-
   if (cc > 1.0) {
     cc = 1.0;
   } else {
@@ -4988,76 +4859,83 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     }
   }
 
-  if (eml_min_dist > 1.0) {
-    eml_min_dist = 1.0;
+  if (cc_0 > 1.0) {
+    cc_0 = 1.0;
   } else {
-    if (eml_min_dist < 0.0) {
-      eml_min_dist = 0.0;
+    if (cc_0 < 0.0) {
+      cc_0 = 0.0;
+    }
+  }
+
+  if (cc_1 > 1.0) {
+    cc_1 = 1.0;
+  } else {
+    if (cc_1 < 0.0) {
+      cc_1 = 0.0;
     }
   }
 
   /* assign the results */
-  localB->ColorSpaceConversion1_o1 = Xf;
-  localB->ColorSpaceConversion1_o2 = cc;
-  localB->ColorSpaceConversion1_o3 = eml_min_dist;
+  localB->ColorSpaceConversion1_o1 = cc;
+  localB->ColorSpaceConversion1_o2 = cc_0;
+  localB->ColorSpaceConversion1_o3 = cc_1;
 
   /* Convert from XYZ to L*a*b* */
-  eml_min_dist = localB->ColorSpaceConversion1_o1 / 9.6419865576090003E-001;
-  eml_dist = localB->ColorSpaceConversion1_o3 / 8.2511648322104003E-001;
+  min_dist = localB->ColorSpaceConversion1_o1 / 0.9641986557609;
+  dist = localB->ColorSpaceConversion1_o3 / 0.82511648322104;
 
   /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-  if (eml_min_dist > 8.8564516790356311E-003) {
-    Xf = rt_pow_snf(eml_min_dist, 3.3333333333333331E-001);
+  if (min_dist > 0.0088564516790356311) {
+    Xf = rt_pow_snf(min_dist, 0.33333333333333331);
   } else {
-    Xf = 7.7870370370370372E+000 * eml_min_dist + 1.3793103448275862E-001;
+    Xf = 7.7870370370370372 * min_dist + 0.13793103448275862;
   }
 
-  if (localB->ColorSpaceConversion1_o2 > 8.8564516790356311E-003) {
-    eml_i = rt_pow_snf(localB->ColorSpaceConversion1_o2, 3.3333333333333331E-001);
+  if (localB->ColorSpaceConversion1_o2 > 0.0088564516790356311) {
+    i = rt_pow_snf(localB->ColorSpaceConversion1_o2, 0.33333333333333331);
   } else {
-    eml_i = 7.7870370370370372E+000 * localB->ColorSpaceConversion1_o2 +
-      1.3793103448275862E-001;
+    i = 7.7870370370370372 * localB->ColorSpaceConversion1_o2 +
+      0.13793103448275862;
   }
 
-  if (eml_dist > 8.8564516790356311E-003) {
-    eml_min_dist = rt_pow_snf(eml_dist, 3.3333333333333331E-001);
+  if (dist > 0.0088564516790356311) {
+    min_dist = rt_pow_snf(dist, 0.33333333333333331);
   } else {
-    eml_min_dist = 7.7870370370370372E+000 * eml_dist + 1.3793103448275862E-001;
+    min_dist = 7.7870370370370372 * dist + 0.13793103448275862;
   }
 
   /* assign the results */
-  localB->ColorSpaceConversion1_o1 = 116.0 * eml_i - 16.0;
-  localB->ColorSpaceConversion1_o2 = (Xf - eml_i) * 500.0;
-  localB->ColorSpaceConversion1_o3 = (eml_i - eml_min_dist) * 200.0;
+  localB->ColorSpaceConversion1_o1 = 116.0 * i - 16.0;
+  localB->ColorSpaceConversion1_o2 = (Xf - i) * 500.0;
+  localB->ColorSpaceConversion1_o3 = (i - min_dist) * 200.0;
 
   /* Embedded MATLAB: '<S122>/Choose Closest Color' */
   /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.JumpHedge.IndividualSegmentation/Threshold The Image/Choose Closest Color': '<S123>:1' */
   /*  This function chooses the appropriate color option from the reference colors */
   /*  and set of desired L,a,b values */
   /* '<S123>:1:5' */
-  eml_min_dist = 1000.0;
+  min_dist = 1000.0;
 
   /* '<S123>:1:6' */
   /* '<S123>:1:12' */
   rtb_index_j = 1;
 
   /* '<S123>:1:13' */
-  for (eml_i = 1.0; eml_i <= rtu_Num_Colors; eml_i++) {
+  for (i = 1.0; i <= rtu_Num_Colors; i++) {
     /* '<S123>:1:13' */
     /* '<S123>:1:14' */
-    eml_dist = sqrt((rt_pow_snf(localB->ColorSpaceConversion1_o2 -
-      rtu_Ref_Colors[(int32_T)eml_i + 49], 2.0) * 1.5 + rt_pow_snf
-                     (localB->ColorSpaceConversion1_o1 - rtu_Ref_Colors[(int32_T)
-                      eml_i - 1], 2.0)) + rt_pow_snf
-                    (localB->ColorSpaceConversion1_o3 - rtu_Ref_Colors[(int32_T)
-                     eml_i + 99], 2.0) * 1.5);
-    if (eml_dist < eml_min_dist) {
+    dist = sqrt((rt_pow_snf(localB->ColorSpaceConversion1_o2 - rtu_Ref_Colors
+      [(int32_T)i + 49], 2.0) * 1.5 + rt_pow_snf
+                 (localB->ColorSpaceConversion1_o1 - rtu_Ref_Colors[(int32_T)i -
+                  1], 2.0)) + rt_pow_snf(localB->ColorSpaceConversion1_o3 -
+      rtu_Ref_Colors[(int32_T)i + 99], 2.0) * 1.5);
+    if (dist < min_dist) {
       /* '<S123>:1:15' */
       /* '<S123>:1:16' */
-      eml_min_dist = eml_dist;
+      min_dist = dist;
 
       /* '<S123>:1:17' */
-      cc = floor(eml_i + 0.5);
+      cc = floor(i + 0.5);
       if (cc < 128.0) {
         rtb_index_j = (int8_T)cc;
       } else {
@@ -5066,11 +4944,11 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
     }
   }
 
-  if (eml_min_dist > 100.0) {
+  if (min_dist > 100.0) {
     /* '<S123>:1:21' */
     /* '<S123>:1:22' */
     cc = rtu_Num_Colors + 1.0;
-    cc = cc < 0.0 ? ceil(cc - 0.5) : floor(cc + 0.5);
+    cc = (int32_T)(cc < 0.0) ? ceil(cc - 0.5) : floor(cc + 0.5);
     if (cc < 128.0) {
       if (cc >= -128.0) {
         rtb_index_j = (int8_T)cc;
@@ -5083,8 +4961,8 @@ void StateFlowFunctionsJumpHedgeIndi(real_T rtu_B_Hue, real_T rtu_B_Sat, real_T
   }
 
   /* RelationalOperator: '<S122>/Relational Operator' */
-  for (i = 0; i < 19200; i++) {
-    localB->BW[i] = (rtu_LabMatrix[i] == (real_T)rtb_index_j);
+  for (i_0 = 0; i_0 < 19200; i_0++) {
+    localB->BW[i_0] = (rtu_LabMatrix[i_0] == (real_T)rtb_index_j);
   }
 }
 
@@ -5106,17 +4984,18 @@ void StateFlowFunctionsJumpH_a_Start(RT_MODEL_brain *const brain_M,
   int32_T m;
 
   /* Start for S-Function (svipmorphop): '<S29>/Dilation' */
+  idxNHood = 0;
   idxOffsets = 0;
   curNumNonZ = 0;
-  idxNHood = 4;
-  for (m = 0; m < 2; m++) {
-    for (n = 0; n < 2; n++) {
-      idxNHood--;
+  for (n = 0; n < 2; n++) {
+    for (m = 0; m < 2; m++) {
       if (brain_ConstP.pooled36[idxNHood]) {
-        localDW->Dilation_DILATE_OFF_DW[idxOffsets] = m * 123 + n;
+        localDW->Dilation_DILATE_OFF_DW[idxOffsets] = n * 123 + m;
         curNumNonZ++;
         idxOffsets++;
       }
+
+      idxNHood++;
     }
   }
 
@@ -5161,31 +5040,29 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
   rtB_StateFlowFunctionsJumpHed_b *localB, rtDW_StateFlowFunctionsJumpHe_e
   *localDW)
 {
-  int32_T idxROI;
   boolean_T visited;
   boolean_T visited_0;
   boolean_T done;
-  uint32_T OutCode;
-  real_T eml_BlobCentroidX;
-  real_T eml_BlobCentroidY;
   int32_T i;
-  int32_T ku;
-  int32_T i_0;
+  int32_T inIdx;
+  int32_T centerM;
+  int32_T centerN;
   int32_T n;
-  int32_T i_1;
-  int32_T idxAdj;
-  int32_T n_0;
-  int32_T outIdx;
+  int32_T startR;
   boolean_T maxNumBlobsReached;
   uint8_T currentLabel;
   uint32_T stackIdx;
   uint32_T pixIdx;
   uint32_T start_pixIdx;
+  int32_T m;
   uint32_T BuoyBlobAnalysis_NUM_PIX_DW[10];
+  uint32_T walkerIdx;
   uint32_T numBlobs;
   real_T rtb_TmpSignalConversionAtDraw_p[2];
   real_T rtb_Sum_cg;
+  real_T rtb_Error_p;
   real_T rtb_TSamp_n;
+  real_T rtb_TSamp_e;
   int32_T rtb_BuoyBlobAnalysis_o1_c[10];
   real_T rtb_BuoyBlobAnalysis_o2_c[20];
   int32_T line_idx;
@@ -5193,6 +5070,8 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
   int32_T line_idx_1;
   int32_T line_idx_2;
   int32_T line_idx_3;
+  int32_T line_idx_4;
+  int32_T line_idx_5;
   real_T tmp;
   int8_T rtb_DataTypeConversion_m_0;
   localDW->StateFlowFunctionsJumpHedgeCa_c = brain_M->Timing.clockTick0 -
@@ -5205,163 +5084,143 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
   }
 
   /* S-Function (svipmorphop): '<S29>/Dilation' */
-  i = 0;
-  ku = 0;
-  for (n = 0; n < 123; n++) {
+  for (i = 0; i < 20049; i++) {
     localDW->Dilation_ONE_PAD_IMG_DW[i] = FALSE;
-    i++;
   }
 
-  for (i_0 = 0; i_0 < 160; i_0++) {
-    localDW->Dilation_ONE_PAD_IMG_DW[i] = FALSE;
-    i++;
-    memcpy((void *)(&localDW->Dilation_ONE_PAD_IMG_DW[i]), (void *)
-           (&localB->ImageDataTypeConversion[ku]), 120U * sizeof(boolean_T));
-    i += 120;
-    ku += 120;
-    localDW->Dilation_ONE_PAD_IMG_DW[i] = FALSE;
-    i++;
-    localDW->Dilation_ONE_PAD_IMG_DW[i] = FALSE;
-    i++;
-  }
-
-  for (i_0 = 161; i_0 < 163; i_0++) {
-    for (n = 0; n < 123; n++) {
-      localDW->Dilation_ONE_PAD_IMG_DW[i] = FALSE;
-      i++;
-    }
-  }
-
-  i = 0;
-  ku = 0;
-  for (n = 0; n < 160; n++) {
-    for (i_1 = 0; i_1 < 120; i_1++) {
-      localB->Dilation[ku] = FALSE;
-      for (outIdx = 0; outIdx < localDW->Dilation_NUMNONZ_DW; outIdx++) {
-        if (localDW->Dilation_ONE_PAD_IMG_DW[i + localDW->
-            Dilation_DILATE_OFF_DW[outIdx]]) {
-          localB->Dilation[ku] = TRUE;
-          outIdx = localDW->Dilation_NUMNONZ_DW;
-        }
+  for (inIdx = 0; inIdx < 19200; inIdx++) {
+    if (localB->ImageDataTypeConversion[inIdx]) {
+      centerM = inIdx / 120;
+      centerM = (inIdx - centerM * 120) + centerM * 123;
+      for (i = 0; i < localDW->Dilation_NUMNONZ_DW; i++) {
+        localDW->Dilation_ONE_PAD_IMG_DW[centerM +
+          localDW->Dilation_DILATE_OFF_DW[i]] = TRUE;
       }
+    }
+  }
 
-      i++;
-      ku++;
+  inIdx = 0;
+  centerM = 0;
+  for (n = 0; n < 160; n++) {
+    for (m = 0; m < 120; m++) {
+      localB->Dilation[centerM] = localDW->Dilation_ONE_PAD_IMG_DW[inIdx];
+      centerM++;
+      inIdx++;
     }
 
-    i += 3;
+    inIdx += 3;
   }
 
   /* S-Function (svipmorphop): '<S29>/Erosion' */
-  i = 0;
-  ku = 0;
-  for (n = 0; n < 127; n++) {
-    localDW->Erosion_ONE_PAD_IMG_DW[i] = TRUE;
-    i++;
+  centerM = 0;
+  centerN = 0;
+  for (inIdx = 0; inIdx < 127; inIdx++) {
+    localDW->Erosion_ONE_PAD_IMG_DW[centerM] = TRUE;
+    centerM++;
   }
 
-  for (i_0 = 0; i_0 < 160; i_0++) {
-    localDW->Erosion_ONE_PAD_IMG_DW[i] = TRUE;
-    i++;
-    memcpy((void *)(&localDW->Erosion_ONE_PAD_IMG_DW[i]), (void *)
-           (&localB->Dilation[ku]), 120U * sizeof(boolean_T));
-    i += 120;
-    ku += 120;
-    for (n = 121; n < 127; n++) {
-      localDW->Erosion_ONE_PAD_IMG_DW[i] = TRUE;
-      i++;
+  for (i = 0; i < 160; i++) {
+    localDW->Erosion_ONE_PAD_IMG_DW[centerM] = TRUE;
+    centerM++;
+    memcpy((void *)(&localDW->Erosion_ONE_PAD_IMG_DW[centerM]), (void *)
+           (&localB->Dilation[centerN]), 120U * sizeof(boolean_T));
+    centerM += 120;
+    centerN += 120;
+    for (inIdx = 121; inIdx < 127; inIdx++) {
+      localDW->Erosion_ONE_PAD_IMG_DW[centerM] = TRUE;
+      centerM++;
     }
   }
 
-  for (i_0 = 161; i_0 < 167; i_0++) {
-    for (n = 0; n < 127; n++) {
-      localDW->Erosion_ONE_PAD_IMG_DW[i] = TRUE;
-      i++;
+  for (i = 161; i < 167; i++) {
+    for (inIdx = 0; inIdx < 127; inIdx++) {
+      localDW->Erosion_ONE_PAD_IMG_DW[centerM] = TRUE;
+      centerM++;
     }
   }
 
-  for (i_1 = 0; i_1 < 21209; i_1++) {
-    localDW->Erosion_TWO_PAD_IMG_DW[i_1] = TRUE;
+  for (i = 0; i < 21209; i++) {
+    localDW->Erosion_TWO_PAD_IMG_DW[i] = TRUE;
   }
 
-  ku = 0;
-  for (n_0 = 0; n_0 < 167; n_0++) {
-    for (line_idx_3 = 0; line_idx_3 < 124; line_idx_3++) {
-      localDW->Erosion_TWO_PAD_IMG_DW[1 + ku] = TRUE;
-      for (i_1 = 0; i_1 < localDW->Erosion_NUMNONZ_DW[0]; i_1++) {
-        if (!localDW->Erosion_ONE_PAD_IMG_DW[ku + localDW->
-            Erosion_ERODE_OFF_DW[i_1]]) {
-          localDW->Erosion_TWO_PAD_IMG_DW[1 + ku] = FALSE;
-          i_1 = localDW->Erosion_NUMNONZ_DW[0];
+  centerN = 0;
+  for (n = 0; n < 167; n++) {
+    for (m = 0; m < 124; m++) {
+      localDW->Erosion_TWO_PAD_IMG_DW[1 + centerN] = TRUE;
+      for (i = 0; i < localDW->Erosion_NUMNONZ_DW[0]; i++) {
+        if (!localDW->Erosion_ONE_PAD_IMG_DW[centerN +
+            localDW->Erosion_ERODE_OFF_DW[i]]) {
+          localDW->Erosion_TWO_PAD_IMG_DW[1 + centerN] = FALSE;
+          i = localDW->Erosion_NUMNONZ_DW[0];
         }
       }
 
-      ku++;
+      centerN++;
     }
 
-    ku += 3;
+    centerN += 3;
   }
 
-  n = 1;
-  outIdx = 0;
-  for (n_0 = 0; n_0 < 160; n_0++) {
-    for (line_idx_3 = 1; line_idx_3 < 121; line_idx_3++) {
-      localB->Erosion[outIdx] = TRUE;
-      for (i_1 = 0; i_1 < localDW->Erosion_NUMNONZ_DW[1]; i_1++) {
-        if (!localDW->Erosion_TWO_PAD_IMG_DW[localDW->Erosion_ERODE_OFF_DW[i_1 +
-            localDW->Erosion_NUMNONZ_DW[0]] + n]) {
-          localB->Erosion[outIdx] = FALSE;
-          i_1 = localDW->Erosion_NUMNONZ_DW[1];
+  inIdx = 1;
+  centerM = 0;
+  for (n = 0; n < 160; n++) {
+    for (m = 1; m < 121; m++) {
+      localB->Erosion[centerM] = TRUE;
+      for (i = 0; i < localDW->Erosion_NUMNONZ_DW[1]; i++) {
+        if (!localDW->Erosion_TWO_PAD_IMG_DW[localDW->Erosion_ERODE_OFF_DW[i +
+            localDW->Erosion_NUMNONZ_DW[0]] + inIdx]) {
+          localB->Erosion[centerM] = FALSE;
+          i = localDW->Erosion_NUMNONZ_DW[1];
         }
       }
 
-      n++;
-      outIdx++;
+      inIdx++;
+      centerM++;
     }
 
-    n += 7;
+    inIdx += 7;
   }
 
   /* S-Function (svipblob): '<S29>/Buoy Blob Analysis' */
   maxNumBlobsReached = FALSE;
-  for (i = 0; i < 123; i++) {
-    localDW->BuoyBlobAnalysis_PAD_DW[i] = 0U;
+  for (centerM = 0; centerM < 123; centerM++) {
+    localDW->BuoyBlobAnalysis_PAD_DW[centerM] = 0U;
   }
 
   currentLabel = 1U;
   i = 0;
-  n = 123;
-  for (ku = 0; ku < 160; ku++) {
-    for (i_0 = 0; i_0 < 120; i_0++) {
-      localDW->BuoyBlobAnalysis_PAD_DW[n] = (uint8_T)(localB->Erosion[i] ? 255 :
-        0);
+  centerN = 123;
+  for (n = 0; n < 160; n++) {
+    for (m = 0; m < 120; m++) {
+      localDW->BuoyBlobAnalysis_PAD_DW[centerN] = (uint8_T)(localB->Erosion[i] ?
+        255 : 0);
       i++;
-      n++;
+      centerN++;
     }
 
-    localDW->BuoyBlobAnalysis_PAD_DW[n] = 0U;
-    n++;
-    localDW->BuoyBlobAnalysis_PAD_DW[n] = 0U;
-    n++;
+    localDW->BuoyBlobAnalysis_PAD_DW[centerN] = 0U;
+    centerN++;
+    localDW->BuoyBlobAnalysis_PAD_DW[centerN] = 0U;
+    centerN++;
   }
 
-  for (i = 0; i < 121; i++) {
-    localDW->BuoyBlobAnalysis_PAD_DW[i + n] = 0U;
+  for (centerM = 0; centerM < 121; centerM++) {
+    localDW->BuoyBlobAnalysis_PAD_DW[centerM + centerN] = 0U;
   }
 
-  ku = 1;
+  centerN = 1;
   stackIdx = 0U;
   pixIdx = 0U;
-  for (i_0 = 0; i_0 < 160; i_0++) {
-    n = 1;
-    i_1 = ku * 122;
-    for (outIdx = 0; outIdx < 120; outIdx++) {
-      numBlobs = (uint32_T)(i_1 + n);
+  for (n = 0; n < 160; n++) {
+    inIdx = 1;
+    startR = centerN * 122;
+    for (m = 0; m < 120; m++) {
+      numBlobs = (uint32_T)(startR + inIdx);
       start_pixIdx = pixIdx;
       if (localDW->BuoyBlobAnalysis_PAD_DW[numBlobs] == 255) {
         localDW->BuoyBlobAnalysis_PAD_DW[numBlobs] = currentLabel;
-        localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)(ku - 1);
-        localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(n - 1);
+        localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)(centerN - 1);
+        localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(inIdx - 1);
         pixIdx++;
         BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1] = 1U;
         localDW->BuoyBlobAnalysis_STACK_DW[stackIdx] = numBlobs;
@@ -5369,17 +5228,18 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
         while (stackIdx) {
           stackIdx--;
           numBlobs = localDW->BuoyBlobAnalysis_STACK_DW[stackIdx];
-          for (idxAdj = 0; idxAdj < 8; idxAdj++) {
-            OutCode = numBlobs + (uint32_T)brain_ConstP.pooled27[idxAdj];
-            if (localDW->BuoyBlobAnalysis_PAD_DW[OutCode] == 255) {
-              localDW->BuoyBlobAnalysis_PAD_DW[OutCode] = currentLabel;
+          for (i = 0; i < 8; i++) {
+            walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled27[i];
+            if (localDW->BuoyBlobAnalysis_PAD_DW[walkerIdx] == 255) {
+              localDW->BuoyBlobAnalysis_PAD_DW[walkerIdx] = currentLabel;
               localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)
-                ((int16_T)(OutCode / 122U) - 1);
-              localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(OutCode
-                % 122U - 1U);
+                ((int16_T)(walkerIdx / 122U) - 1);
+              localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)
+                (walkerIdx % 122U - 1U);
               pixIdx++;
-              BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1]++;
-              localDW->BuoyBlobAnalysis_STACK_DW[stackIdx] = OutCode;
+              BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1] =
+                BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1] + 1U;
+              localDW->BuoyBlobAnalysis_STACK_DW[stackIdx] = walkerIdx;
               stackIdx++;
             }
           }
@@ -5394,51 +5254,49 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
 
         if (currentLabel == 10) {
           maxNumBlobsReached = TRUE;
-          i_0 = 160;
-          outIdx = 120;
+          n = 160;
+          m = 120;
         }
 
-        if (outIdx < 120) {
+        if (m < 120) {
           currentLabel++;
         }
       }
 
-      n++;
+      inIdx++;
     }
 
-    ku++;
+    centerN++;
   }
 
   numBlobs = maxNumBlobsReached ? currentLabel : (uint8_T)(currentLabel - 1);
-  i = 0;
-  ku = 0;
-  for (i_0 = 0; i_0 < (int32_T)numBlobs; i_0++) {
-    rtb_BuoyBlobAnalysis_o1_c[i_0] = (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i_0];
+  centerM = 0;
+  centerN = 0;
+  for (i = 0; i < (int32_T)numBlobs; i++) {
+    rtb_BuoyBlobAnalysis_o1_c[i] = (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i];
     n = 0;
-    i_1 = 0;
-    for (outIdx = 0; outIdx < (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i_0]; outIdx
-         ++) {
-      n += localDW->BuoyBlobAnalysis_N_PIXLIST_DW[outIdx + ku];
-      i_1 += localDW->BuoyBlobAnalysis_M_PIXLIST_DW[outIdx + i];
+    startR = 0;
+    for (inIdx = 0; inIdx < (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i]; inIdx++) {
+      n += localDW->BuoyBlobAnalysis_N_PIXLIST_DW[inIdx + centerN];
+      startR += localDW->BuoyBlobAnalysis_M_PIXLIST_DW[inIdx + centerM];
     }
 
-    rtb_TmpSignalConversionAtDraw_p[0] = (real_T)i_1 / (real_T)
-      BuoyBlobAnalysis_NUM_PIX_DW[i_0];
+    rtb_TmpSignalConversionAtDraw_p[0] = (real_T)startR / (real_T)
+      BuoyBlobAnalysis_NUM_PIX_DW[i];
     rtb_TmpSignalConversionAtDraw_p[1] = (real_T)n / (real_T)
-      BuoyBlobAnalysis_NUM_PIX_DW[i_0];
-    rtb_BuoyBlobAnalysis_o2_c[i_0 << 1] = rtb_TmpSignalConversionAtDraw_p[0];
-    rtb_BuoyBlobAnalysis_o2_c[(i_0 << 1) + 1] = rtb_TmpSignalConversionAtDraw_p
-      [1];
-    i += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i_0];
-    ku += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i_0];
+      BuoyBlobAnalysis_NUM_PIX_DW[i];
+    rtb_BuoyBlobAnalysis_o2_c[i << 1] = rtb_TmpSignalConversionAtDraw_p[0];
+    rtb_BuoyBlobAnalysis_o2_c[(i << 1) + 1] = rtb_TmpSignalConversionAtDraw_p[1];
+    centerM += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i];
+    centerN += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i];
   }
 
-  for (i = (int32_T)numBlobs; i < 10; i++) {
-    rtb_BuoyBlobAnalysis_o1_c[i] = -1;
+  for (centerM = (int32_T)numBlobs; centerM < 10; centerM++) {
+    rtb_BuoyBlobAnalysis_o1_c[centerM] = -1;
   }
 
-  for (i = (int32_T)numBlobs << 1; i < 20; i++) {
-    rtb_BuoyBlobAnalysis_o2_c[i] = -1.0;
+  for (centerM = (int32_T)(numBlobs << 1); centerM < 20; centerM++) {
+    rtb_BuoyBlobAnalysis_o2_c[centerM] = -1.0;
   }
 
   /* S-Function (svipscalenconvert): '<S29>/Image Data Type Conversion1' */
@@ -5454,35 +5312,35 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
        -1.0)) {
     /* '<S113>:1:5' */
     /* '<S113>:1:7' */
-    eml_BlobCentroidX = 80.0;
+    rtb_Error_p = 80.0;
 
     /* '<S113>:1:8' */
-    eml_BlobCentroidY = 60.0;
+    rtb_TSamp_e = 60.0;
 
     /* '<S113>:1:9' */
   } else {
-    i = rtb_BuoyBlobAnalysis_o1_c[0];
-    ku = 1;
-    i_0 = 1;
-    for (n = 2; n < 11; n++) {
-      i_0++;
-      if (rtb_BuoyBlobAnalysis_o1_c[i_0 - 1] > i) {
-        i = rtb_BuoyBlobAnalysis_o1_c[i_0 - 1];
-        ku = n;
+    centerN = rtb_BuoyBlobAnalysis_o1_c[0];
+    n = 1;
+    startR = 1;
+    for (centerM = 2; centerM < 11; centerM++) {
+      startR++;
+      if (rtb_BuoyBlobAnalysis_o1_c[startR - 1] > centerN) {
+        centerN = rtb_BuoyBlobAnalysis_o1_c[startR - 1];
+        n = centerM;
       }
     }
 
     /* '<S113>:1:11' */
     /* '<S113>:1:12' */
-    eml_BlobCentroidX = rtb_BuoyBlobAnalysis_o2_c[((ku - 1) << 1) + 1];
+    rtb_Error_p = rtb_BuoyBlobAnalysis_o2_c[((n - 1) << 1) + 1];
 
     /* '<S113>:1:13' */
-    eml_BlobCentroidY = rtb_BuoyBlobAnalysis_o2_c[(ku - 1) << 1];
+    rtb_TSamp_e = rtb_BuoyBlobAnalysis_o2_c[(n - 1) << 1];
   }
 
   /* SignalConversion: '<S29>/TmpSignal ConversionAtDraw MarkersInport2' */
-  rtb_TmpSignalConversionAtDraw_p[0] = eml_BlobCentroidY;
-  rtb_TmpSignalConversionAtDraw_p[1] = eml_BlobCentroidX;
+  rtb_TmpSignalConversionAtDraw_p[0] = rtb_TSamp_e;
+  rtb_TmpSignalConversionAtDraw_p[1] = rtb_Error_p;
 
   /* S-Function (svipdrawmarkers): '<S29>/Draw Markers' */
   /* Copy the image from input to output. */
@@ -5490,373 +5348,390 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
          (&localB->ImageDataTypeConversion1[0]), 19200U * sizeof(real_T));
 
   /* Draw all X marks. */
-  for (idxROI = 0; idxROI < 2; idxROI += 2) {
-    tmp = rtb_TmpSignalConversionAtDraw_p[idxROI];
-    if ((rtb_TmpSignalConversionAtDraw_p[idxROI] < 4.5035996273704960E+015) &&
-        (rtb_TmpSignalConversionAtDraw_p[idxROI] > -4.5035996273704960E+015)) {
-      tmp = floor(rtb_TmpSignalConversionAtDraw_p[idxROI] + 0.5);
+  for (m = 0; m < 2; m += 2) {
+    tmp = rtb_TmpSignalConversionAtDraw_p[m];
+    if ((rtb_TmpSignalConversionAtDraw_p[m] < 4.503599627370496E+15) &&
+        (rtb_TmpSignalConversionAtDraw_p[m] > -4.503599627370496E+15)) {
+      tmp = floor(rtb_TmpSignalConversionAtDraw_p[m] + 0.5);
     }
 
-    outIdx = (int32_T)tmp;
-    tmp = rtb_TmpSignalConversionAtDraw_p[idxROI + 1];
-    if ((tmp < 4.5035996273704960E+015) && (tmp > -4.5035996273704960E+015)) {
-      tmp = floor(tmp + 0.5);
+    n = (int32_T)tmp;
+    tmp = rtb_TmpSignalConversionAtDraw_p[m + 1];
+    if ((rtb_TmpSignalConversionAtDraw_p[m + 1] < 4.503599627370496E+15) &&
+        (rtb_TmpSignalConversionAtDraw_p[m + 1] > -4.503599627370496E+15)) {
+      tmp = floor(rtb_TmpSignalConversionAtDraw_p[m + 1] + 0.5);
     }
 
-    idxAdj = (int32_T)tmp;
-    line_idx = outIdx - 7;
-    line_idx_0 = idxAdj - 7;
-    line_idx_1 = outIdx + 7;
-    line_idx_2 = idxAdj + 7;
+    i = (int32_T)tmp;
+    inIdx = n - 7;
+    line_idx = i - 7;
+    line_idx_0 = n + 7;
+    line_idx_1 = i + 7;
     maxNumBlobsReached = FALSE;
 
     /* Find the visible portion of a line. */
     visited = FALSE;
     visited_0 = FALSE;
     done = FALSE;
-    n_0 = line_idx;
-    n = line_idx_0;
-    i_1 = line_idx_1;
-    line_idx_3 = line_idx_2;
+    line_idx_3 = inIdx;
+    line_idx_2 = line_idx;
+    line_idx_4 = line_idx_0;
+    line_idx_5 = line_idx_1;
     while (!done) {
       numBlobs = 0U;
-      OutCode = 0U;
+      walkerIdx = 0U;
 
       /* Determine viewport violations. */
-      if (n_0 < 0) {
+      if (line_idx_3 < 0) {
         numBlobs = 4U;
       } else {
-        if (n_0 > 119) {
+        if (line_idx_3 > 119) {
           numBlobs = 8U;
         }
       }
 
-      if (i_1 < 0) {
-        OutCode = 4U;
+      if (line_idx_4 < 0) {
+        walkerIdx = 4U;
       } else {
-        if (i_1 > 119) {
-          OutCode = 8U;
+        if (line_idx_4 > 119) {
+          walkerIdx = 8U;
         }
       }
 
-      if (n < 0) {
-        numBlobs = (uint32_T)((int32_T)numBlobs | 1);
+      if (line_idx_2 < 0) {
+        numBlobs |= 1U;
       } else {
-        if (n > 159) {
-          numBlobs = (uint32_T)((int32_T)numBlobs | 2);
+        if (line_idx_2 > 159) {
+          numBlobs |= 2U;
         }
       }
 
-      if (line_idx_3 < 0) {
-        OutCode = (uint32_T)((int32_T)OutCode | 1);
+      if (line_idx_5 < 0) {
+        walkerIdx |= 1U;
       } else {
-        if (line_idx_3 > 159) {
-          OutCode = (uint32_T)((int32_T)OutCode | 2);
+        if (line_idx_5 > 159) {
+          walkerIdx |= 2U;
         }
       }
 
-      if (!((uint32_T)((int32_T)numBlobs | (int32_T)OutCode))) {
+      if (!(numBlobs | walkerIdx)) {
         /* Line falls completely within bounds. */
         done = TRUE;
         maxNumBlobsReached = TRUE;
-      } else if ((uint32_T)((int32_T)numBlobs & (int32_T)OutCode)) {
+      } else if (numBlobs & walkerIdx) {
         /* Line falls completely out of bounds. */
         done = TRUE;
         maxNumBlobsReached = FALSE;
       } else if (numBlobs != 0U) {
         /* Clip 1st point; if it's in-bounds, clip 2nd point. */
         if (visited) {
-          n_0 = line_idx;
-          n = line_idx_0;
+          line_idx_3 = inIdx;
+          line_idx_2 = line_idx;
         }
 
-        i = i_1 - n_0;
-        ku = line_idx_3 - n;
-        if ((uint32_T)((int32_T)numBlobs & 4)) {
+        centerM = line_idx_4 - line_idx_3;
+        centerN = line_idx_5 - line_idx_2;
+        if (numBlobs & 4U) {
           /* Violated RMin. */
-          i_0 = (0 - n_0) * ku;
-          if (((i_0 >= 0) && (i >= 0)) || ((i_0 < 0) && (i < 0))) {
-            n += (div_s32_floor(i_0 << 1U, i) + 1) >> 1;
+          startR = (0 - line_idx_3) * centerN;
+          if (((startR >= 0) && (centerM >= 0)) || ((startR < 0) && (centerM < 0)))
+          {
+            line_idx_2 += (div_s32_floor(startR << 1U, centerM) + 1) >> 1;
           } else {
-            n += -((div_s32_floor((-i_0) << 1U, i) + 1) >> 1);
+            line_idx_2 += -((div_s32_floor((-startR) << 1U, centerM) + 1) >> 1);
           }
 
-          n_0 = 0;
+          line_idx_3 = 0;
           visited = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & 8)) {
+        } else if (numBlobs & 8U) {
           /* Violated RMax. */
-          i_0 = (119 - n_0) * ku;
-          if (((i_0 >= 0) && (i >= 0)) || ((i_0 < 0) && (i < 0))) {
-            n += (div_s32_floor(i_0 << 1U, i) + 1) >> 1;
+          startR = (119 - line_idx_3) * centerN;
+          if (((startR >= 0) && (centerM >= 0)) || ((startR < 0) && (centerM < 0)))
+          {
+            line_idx_2 += (div_s32_floor(startR << 1U, centerM) + 1) >> 1;
           } else {
-            n += -((div_s32_floor((-i_0) << 1U, i) + 1) >> 1);
+            line_idx_2 += -((div_s32_floor((-startR) << 1U, centerM) + 1) >> 1);
           }
 
-          n_0 = 119;
+          line_idx_3 = 119;
           visited = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & 1)) {
+        } else if (numBlobs & 1U) {
           /* Violated CMin. */
-          i_0 = (0 - n) * i;
-          if (((i_0 >= 0) && (ku >= 0)) || ((i_0 < 0) && (ku < 0))) {
-            n_0 += (div_s32_floor(i_0 << 1U, ku) + 1) >> 1;
+          startR = (0 - line_idx_2) * centerM;
+          if (((startR >= 0) && (centerN >= 0)) || ((startR < 0) && (centerN < 0)))
+          {
+            line_idx_3 += (div_s32_floor(startR << 1U, centerN) + 1) >> 1;
           } else {
-            n_0 += -((div_s32_floor((-i_0) << 1U, ku) + 1) >> 1);
+            line_idx_3 += -((div_s32_floor((-startR) << 1U, centerN) + 1) >> 1);
           }
 
-          n = 0;
+          line_idx_2 = 0;
           visited = TRUE;
         } else {
           /* Violated CMax. */
-          i_0 = (159 - n) * i;
-          if (((i_0 >= 0) && (ku >= 0)) || ((i_0 < 0) && (ku < 0))) {
-            n_0 += (div_s32_floor(i_0 << 1U, ku) + 1) >> 1;
+          startR = (159 - line_idx_2) * centerM;
+          if (((startR >= 0) && (centerN >= 0)) || ((startR < 0) && (centerN < 0)))
+          {
+            line_idx_3 += (div_s32_floor(startR << 1U, centerN) + 1) >> 1;
           } else {
-            n_0 += -((div_s32_floor((-i_0) << 1U, ku) + 1) >> 1);
+            line_idx_3 += -((div_s32_floor((-startR) << 1U, centerN) + 1) >> 1);
           }
 
-          n = 159;
+          line_idx_2 = 159;
           visited = TRUE;
         }
       } else {
         /* Clip the 2nd point. */
         if (visited_0) {
-          i_1 = line_idx_1;
-          line_idx_3 = line_idx_2;
+          line_idx_4 = line_idx_0;
+          line_idx_5 = line_idx_1;
         }
 
-        i = i_1 - n_0;
-        ku = line_idx_3 - n;
-        if ((uint32_T)((int32_T)OutCode & 4)) {
+        centerM = line_idx_4 - line_idx_3;
+        centerN = line_idx_5 - line_idx_2;
+        if (walkerIdx & 4U) {
           /* Violated RMin. */
-          i_0 = (0 - i_1) * ku;
-          if (((i_0 >= 0) && (i >= 0)) || ((i_0 < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(i_0 << 1U, i) + 1) >> 1;
+          startR = (0 - line_idx_4) * centerN;
+          if (((startR >= 0) && (centerM >= 0)) || ((startR < 0) && (centerM < 0)))
+          {
+            line_idx_5 += (div_s32_floor(startR << 1U, centerM) + 1) >> 1;
           } else {
-            line_idx_3 += -((div_s32_floor((-i_0) << 1U, i) + 1) >> 1);
+            line_idx_5 += -((div_s32_floor((-startR) << 1U, centerM) + 1) >> 1);
           }
 
-          i_1 = 0;
+          line_idx_4 = 0;
           visited_0 = TRUE;
-        } else if ((uint32_T)((int32_T)OutCode & 8)) {
+        } else if (walkerIdx & 8U) {
           /* Violated RMax. */
-          i_0 = (119 - i_1) * ku;
-          if (((i_0 >= 0) && (i >= 0)) || ((i_0 < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(i_0 << 1U, i) + 1) >> 1;
+          startR = (119 - line_idx_4) * centerN;
+          if (((startR >= 0) && (centerM >= 0)) || ((startR < 0) && (centerM < 0)))
+          {
+            line_idx_5 += (div_s32_floor(startR << 1U, centerM) + 1) >> 1;
           } else {
-            line_idx_3 += -((div_s32_floor((-i_0) << 1U, i) + 1) >> 1);
+            line_idx_5 += -((div_s32_floor((-startR) << 1U, centerM) + 1) >> 1);
           }
 
-          i_1 = 119;
+          line_idx_4 = 119;
           visited_0 = TRUE;
-        } else if ((uint32_T)((int32_T)OutCode & 1)) {
+        } else if (walkerIdx & 1U) {
           /* Violated CMin. */
-          i_0 = (0 - line_idx_3) * i;
-          if (((i_0 >= 0) && (ku >= 0)) || ((i_0 < 0) && (ku < 0))) {
-            i_1 += (div_s32_floor(i_0 << 1U, ku) + 1) >> 1;
+          startR = (0 - line_idx_5) * centerM;
+          if (((startR >= 0) && (centerN >= 0)) || ((startR < 0) && (centerN < 0)))
+          {
+            line_idx_4 += (div_s32_floor(startR << 1U, centerN) + 1) >> 1;
           } else {
-            i_1 += -((div_s32_floor((-i_0) << 1U, ku) + 1) >> 1);
+            line_idx_4 += -((div_s32_floor((-startR) << 1U, centerN) + 1) >> 1);
           }
 
-          line_idx_3 = 0;
+          line_idx_5 = 0;
           visited_0 = TRUE;
         } else {
           /* Violated CMax. */
-          i_0 = (159 - line_idx_3) * i;
-          if (((i_0 >= 0) && (ku >= 0)) || ((i_0 < 0) && (ku < 0))) {
-            i_1 += (div_s32_floor(i_0 << 1U, ku) + 1) >> 1;
+          startR = (159 - line_idx_5) * centerM;
+          if (((startR >= 0) && (centerN >= 0)) || ((startR < 0) && (centerN < 0)))
+          {
+            line_idx_4 += (div_s32_floor(startR << 1U, centerN) + 1) >> 1;
           } else {
-            i_1 += -((div_s32_floor((-i_0) << 1U, ku) + 1) >> 1);
+            line_idx_4 += -((div_s32_floor((-startR) << 1U, centerN) + 1) >> 1);
           }
 
-          line_idx_3 = 159;
+          line_idx_5 = 159;
           visited_0 = TRUE;
         }
       }
     }
 
     if (maxNumBlobsReached) {
-      ku = n * 120 + n_0;
-      for (i_0 = n_0; i_0 <= i_1; i_0++) {
-        localB->DrawMarkers[ku] = 0.5;
-        ku += 121;
+      centerN = line_idx_2 * 120 + line_idx_3;
+      for (startR = line_idx_3; startR <= line_idx_4; startR++) {
+        localB->DrawMarkers[centerN] = 0.5;
+        centerN += 121;
       }
     }
 
-    line_idx = outIdx - 7;
-    line_idx_0 = idxAdj + 7;
-    line_idx_1 = outIdx + 7;
-    line_idx_2 = idxAdj - 7;
+    inIdx = n - 7;
+    line_idx = i + 7;
+    line_idx_0 = n + 7;
+    line_idx_1 = i - 7;
     maxNumBlobsReached = FALSE;
 
     /* Find the visible portion of a line. */
     visited = FALSE;
     visited_0 = FALSE;
     done = FALSE;
-    n_0 = line_idx;
-    line_idx_3 = line_idx_0;
-    n = line_idx_1;
-    i_1 = line_idx_2;
+    line_idx_3 = inIdx;
+    line_idx_2 = line_idx;
+    line_idx_4 = line_idx_0;
+    line_idx_5 = line_idx_1;
     while (!done) {
       numBlobs = 0U;
-      OutCode = 0U;
+      walkerIdx = 0U;
 
       /* Determine viewport violations. */
-      if (n_0 < 0) {
+      if (line_idx_3 < 0) {
         numBlobs = 4U;
       } else {
-        if (n_0 > 119) {
+        if (line_idx_3 > 119) {
           numBlobs = 8U;
         }
       }
 
-      if (n < 0) {
-        OutCode = 4U;
+      if (line_idx_4 < 0) {
+        walkerIdx = 4U;
       } else {
-        if (n > 119) {
-          OutCode = 8U;
+        if (line_idx_4 > 119) {
+          walkerIdx = 8U;
         }
       }
 
-      if (line_idx_3 < 0) {
-        numBlobs = (uint32_T)((int32_T)numBlobs | 1);
+      if (line_idx_2 < 0) {
+        numBlobs |= 1U;
       } else {
-        if (line_idx_3 > 159) {
-          numBlobs = (uint32_T)((int32_T)numBlobs | 2);
+        if (line_idx_2 > 159) {
+          numBlobs |= 2U;
         }
       }
 
-      if (i_1 < 0) {
-        OutCode = (uint32_T)((int32_T)OutCode | 1);
+      if (line_idx_5 < 0) {
+        walkerIdx |= 1U;
       } else {
-        if (i_1 > 159) {
-          OutCode = (uint32_T)((int32_T)OutCode | 2);
+        if (line_idx_5 > 159) {
+          walkerIdx |= 2U;
         }
       }
 
-      if (!((uint32_T)((int32_T)numBlobs | (int32_T)OutCode))) {
+      if (!(numBlobs | walkerIdx)) {
         /* Line falls completely within bounds. */
         done = TRUE;
         maxNumBlobsReached = TRUE;
-      } else if ((uint32_T)((int32_T)numBlobs & (int32_T)OutCode)) {
+      } else if (numBlobs & walkerIdx) {
         /* Line falls completely out of bounds. */
         done = TRUE;
         maxNumBlobsReached = FALSE;
       } else if (numBlobs != 0U) {
         /* Clip 1st point; if it's in-bounds, clip 2nd point. */
         if (visited) {
-          n_0 = line_idx;
-          line_idx_3 = line_idx_0;
+          line_idx_3 = inIdx;
+          line_idx_2 = line_idx;
         }
 
-        i = n - n_0;
-        ku = i_1 - line_idx_3;
-        if ((uint32_T)((int32_T)numBlobs & 4)) {
+        centerM = line_idx_4 - line_idx_3;
+        centerN = line_idx_5 - line_idx_2;
+        if (numBlobs & 4U) {
           /* Violated RMin. */
-          i_0 = (0 - n_0) * ku;
-          if (((i_0 >= 0) && (i >= 0)) || ((i_0 < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(i_0 << 1U, i) + 1) >> 1;
+          startR = (0 - line_idx_3) * centerN;
+          if (((startR >= 0) && (centerM >= 0)) || ((startR < 0) && (centerM < 0)))
+          {
+            line_idx_2 += (div_s32_floor(startR << 1U, centerM) + 1) >> 1;
           } else {
-            line_idx_3 += -((div_s32_floor((-i_0) << 1U, i) + 1) >> 1);
-          }
-
-          n_0 = 0;
-          visited = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & 8)) {
-          /* Violated RMax. */
-          i_0 = (119 - n_0) * ku;
-          if (((i_0 >= 0) && (i >= 0)) || ((i_0 < 0) && (i < 0))) {
-            line_idx_3 += (div_s32_floor(i_0 << 1U, i) + 1) >> 1;
-          } else {
-            line_idx_3 += -((div_s32_floor((-i_0) << 1U, i) + 1) >> 1);
-          }
-
-          n_0 = 119;
-          visited = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & 1)) {
-          /* Violated CMin. */
-          i_0 = (0 - line_idx_3) * i;
-          if (((i_0 >= 0) && (ku >= 0)) || ((i_0 < 0) && (ku < 0))) {
-            n_0 += (div_s32_floor(i_0 << 1U, ku) + 1) >> 1;
-          } else {
-            n_0 += -((div_s32_floor((-i_0) << 1U, ku) + 1) >> 1);
+            line_idx_2 += -((div_s32_floor((-startR) << 1U, centerM) + 1) >> 1);
           }
 
           line_idx_3 = 0;
           visited = TRUE;
-        } else {
-          /* Violated CMax. */
-          i_0 = (159 - line_idx_3) * i;
-          if (((i_0 >= 0) && (ku >= 0)) || ((i_0 < 0) && (ku < 0))) {
-            n_0 += (div_s32_floor(i_0 << 1U, ku) + 1) >> 1;
+        } else if (numBlobs & 8U) {
+          /* Violated RMax. */
+          startR = (119 - line_idx_3) * centerN;
+          if (((startR >= 0) && (centerM >= 0)) || ((startR < 0) && (centerM < 0)))
+          {
+            line_idx_2 += (div_s32_floor(startR << 1U, centerM) + 1) >> 1;
           } else {
-            n_0 += -((div_s32_floor((-i_0) << 1U, ku) + 1) >> 1);
+            line_idx_2 += -((div_s32_floor((-startR) << 1U, centerM) + 1) >> 1);
           }
 
-          line_idx_3 = 159;
+          line_idx_3 = 119;
+          visited = TRUE;
+        } else if (numBlobs & 1U) {
+          /* Violated CMin. */
+          startR = (0 - line_idx_2) * centerM;
+          if (((startR >= 0) && (centerN >= 0)) || ((startR < 0) && (centerN < 0)))
+          {
+            line_idx_3 += (div_s32_floor(startR << 1U, centerN) + 1) >> 1;
+          } else {
+            line_idx_3 += -((div_s32_floor((-startR) << 1U, centerN) + 1) >> 1);
+          }
+
+          line_idx_2 = 0;
+          visited = TRUE;
+        } else {
+          /* Violated CMax. */
+          startR = (159 - line_idx_2) * centerM;
+          if (((startR >= 0) && (centerN >= 0)) || ((startR < 0) && (centerN < 0)))
+          {
+            line_idx_3 += (div_s32_floor(startR << 1U, centerN) + 1) >> 1;
+          } else {
+            line_idx_3 += -((div_s32_floor((-startR) << 1U, centerN) + 1) >> 1);
+          }
+
+          line_idx_2 = 159;
           visited = TRUE;
         }
       } else {
         /* Clip the 2nd point. */
         if (visited_0) {
-          n = line_idx_1;
-          i_1 = line_idx_2;
+          line_idx_4 = line_idx_0;
+          line_idx_5 = line_idx_1;
         }
 
-        i = n - n_0;
-        ku = i_1 - line_idx_3;
-        if ((uint32_T)((int32_T)OutCode & 4)) {
+        centerM = line_idx_4 - line_idx_3;
+        centerN = line_idx_5 - line_idx_2;
+        if (walkerIdx & 4U) {
           /* Violated RMin. */
-          i_0 = (0 - n) * ku;
-          if (((i_0 >= 0) && (i >= 0)) || ((i_0 < 0) && (i < 0))) {
-            i_1 += (div_s32_floor(i_0 << 1U, i) + 1) >> 1;
+          startR = (0 - line_idx_4) * centerN;
+          if (((startR >= 0) && (centerM >= 0)) || ((startR < 0) && (centerM < 0)))
+          {
+            line_idx_5 += (div_s32_floor(startR << 1U, centerM) + 1) >> 1;
           } else {
-            i_1 += -((div_s32_floor((-i_0) << 1U, i) + 1) >> 1);
+            line_idx_5 += -((div_s32_floor((-startR) << 1U, centerM) + 1) >> 1);
           }
 
-          n = 0;
+          line_idx_4 = 0;
           visited_0 = TRUE;
-        } else if ((uint32_T)((int32_T)OutCode & 8)) {
+        } else if (walkerIdx & 8U) {
           /* Violated RMax. */
-          i_0 = (119 - n) * ku;
-          if (((i_0 >= 0) && (i >= 0)) || ((i_0 < 0) && (i < 0))) {
-            i_1 += (div_s32_floor(i_0 << 1U, i) + 1) >> 1;
+          startR = (119 - line_idx_4) * centerN;
+          if (((startR >= 0) && (centerM >= 0)) || ((startR < 0) && (centerM < 0)))
+          {
+            line_idx_5 += (div_s32_floor(startR << 1U, centerM) + 1) >> 1;
           } else {
-            i_1 += -((div_s32_floor((-i_0) << 1U, i) + 1) >> 1);
+            line_idx_5 += -((div_s32_floor((-startR) << 1U, centerM) + 1) >> 1);
           }
 
-          n = 119;
+          line_idx_4 = 119;
           visited_0 = TRUE;
-        } else if ((uint32_T)((int32_T)OutCode & 1)) {
+        } else if (walkerIdx & 1U) {
           /* Violated CMin. */
-          i_0 = (0 - i_1) * i;
-          if (((i_0 >= 0) && (ku >= 0)) || ((i_0 < 0) && (ku < 0))) {
-            n += (div_s32_floor(i_0 << 1U, ku) + 1) >> 1;
+          startR = (0 - line_idx_5) * centerM;
+          if (((startR >= 0) && (centerN >= 0)) || ((startR < 0) && (centerN < 0)))
+          {
+            line_idx_4 += (div_s32_floor(startR << 1U, centerN) + 1) >> 1;
           } else {
-            n += -((div_s32_floor((-i_0) << 1U, ku) + 1) >> 1);
+            line_idx_4 += -((div_s32_floor((-startR) << 1U, centerN) + 1) >> 1);
           }
 
-          i_1 = 0;
+          line_idx_5 = 0;
           visited_0 = TRUE;
         } else {
           /* Violated CMax. */
-          i_0 = (159 - i_1) * i;
-          if (((i_0 >= 0) && (ku >= 0)) || ((i_0 < 0) && (ku < 0))) {
-            n += (div_s32_floor(i_0 << 1U, ku) + 1) >> 1;
+          startR = (159 - line_idx_5) * centerM;
+          if (((startR >= 0) && (centerN >= 0)) || ((startR < 0) && (centerN < 0)))
+          {
+            line_idx_4 += (div_s32_floor(startR << 1U, centerN) + 1) >> 1;
           } else {
-            n += -((div_s32_floor((-i_0) << 1U, ku) + 1) >> 1);
+            line_idx_4 += -((div_s32_floor((-startR) << 1U, centerN) + 1) >> 1);
           }
 
-          i_1 = 159;
+          line_idx_5 = 159;
           visited_0 = TRUE;
         }
       }
     }
 
     if (maxNumBlobsReached) {
-      ku = line_idx_3 * 120 + n_0;
-      for (i_0 = n_0; i_0 <= n; i_0++) {
-        localB->DrawMarkers[ku] = 0.5;
-        ku += -119;
+      centerN = line_idx_2 * 120 + line_idx_3;
+      for (startR = line_idx_3; startR <= line_idx_4; startR++) {
+        localB->DrawMarkers[centerN] = 0.5;
+        centerN += -119;
       }
     }
   }
@@ -5865,7 +5740,7 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
   brain_EmbeddedMATLABFunction1(&localB->sf_EmbeddedMATLABFunction1);
 
   /* Sum: '<S115>/Subtract' */
-  rtb_Sum_cg = localB->sf_EmbeddedMATLABFunction1.XCenter - eml_BlobCentroidX;
+  rtb_Sum_cg = localB->sf_EmbeddedMATLABFunction1.XCenter - rtb_Error_p;
 
   /* SampleTimeMath: '<S118>/TSamp' incorporates:
    *  Gain: '<S117>/X-Buoy Derivative Gain'
@@ -5914,8 +5789,7 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
   localB->Add1 = (real_T)rtb_DataTypeConversion_m_0 * -1.0 + rtu_ForwardVelocity;
 
   /* Sum: '<S116>/Subtract' */
-  eml_BlobCentroidX = eml_BlobCentroidY -
-    localB->sf_EmbeddedMATLABFunction1.YCenter;
+  rtb_Error_p = rtb_TSamp_e - localB->sf_EmbeddedMATLABFunction1.YCenter;
 
   /* SampleTimeMath: '<S120>/TSamp' incorporates:
    *  Gain: '<S119>/Y-Buoy Derivative Gain'
@@ -5923,8 +5797,8 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
    * About '<S120>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
-  eml_BlobCentroidY = brain_P.Cam_Forward_YPosition_Kd * eml_BlobCentroidX /
-    ((real_T)localDW->StateFlowFunctionsJumpHedgeCa_c * 0.2);
+  rtb_TSamp_e = brain_P.Cam_Forward_YPosition_Kd * rtb_Error_p / ((real_T)
+    localDW->StateFlowFunctionsJumpHedgeCa_c * 0.2);
 
   /* DataTypeConversion: '<S116>/Data Type Conversion' incorporates:
    *  DiscreteIntegrator: '<S119>/Y-Buoy Discrete-Time Integrator'
@@ -5941,9 +5815,8 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
    *
    *  Store in Global RAM
    */
-  tmp = (brain_P.Cam_Forward_YPosition_Kp * eml_BlobCentroidX +
-         (eml_BlobCentroidY - localDW->UD_DSTATE_a)) +
-    localDW->YBuoyDiscreteTimeIntegrator_DST;
+  tmp = (brain_P.Cam_Forward_YPosition_Kp * rtb_Error_p + (rtb_TSamp_e -
+          localDW->UD_DSTATE_a)) + localDW->YBuoyDiscreteTimeIntegrator_DST;
   tmp = floor(tmp);
   if (tmp < 128.0) {
     if (tmp >= -128.0) {
@@ -5981,14 +5854,14 @@ void StateFlowFunctionsJumpHedgeCame(const real_T rtu_BW[19200], real_T
    *
    *  Store in Global RAM
    */
-  localDW->UD_DSTATE_a = eml_BlobCentroidY;
+  localDW->UD_DSTATE_a = rtb_TSamp_e;
 
   /* Update for DiscreteIntegrator: '<S119>/Y-Buoy Discrete-Time Integrator' incorporates:
    *  Gain: '<S119>/Y-Buoy Integral Gain'
    */
   localDW->YBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
     localDW->StateFlowFunctionsJumpHedgeCa_c * (brain_P.Cam_Forward_YPosition_Ki
-    * eml_BlobCentroidX) + localDW->YBuoyDiscreteTimeIntegrator_DST;
+    * rtb_Error_p) + localDW->YBuoyDiscreteTimeIntegrator_DST;
   if (localDW->YBuoyDiscreteTimeIntegrator_DST >= 15.0) {
     localDW->YBuoyDiscreteTimeIntegrator_DST = 15.0;
   } else {
@@ -6003,10 +5876,12 @@ void StateFlowFunctionsJumpHedgeGetA(const real_T rtu_BW[19200],
   rtB_StateFlowFunctionsJumpHed_m *localB, rtDW_StateFlowFunctionsJumpHe_j
   *localDW)
 {
+  int32_T ix;
   int32_T i;
   int32_T padRows;
   int32_T padCols;
   boolean_T maxNumBlobsReached;
+  int32_T loop;
   uint8_T currentLabel;
   int32_T idx;
   int32_T n;
@@ -6016,8 +5891,6 @@ void StateFlowFunctionsJumpHedgeGetA(const real_T rtu_BW[19200],
   uint32_T BlobAnalysis_NUM_PIX_DW[10];
   uint32_T walkerIdx;
   uint32_T numBlobs;
-  int32_T pixListMinc;
-  int32_T maxr;
   int32_T j;
   int32_T rtb_BlobAnalysis_o1[10];
   int32_T rtb_BlobAnalysis_o2[40];
@@ -6029,15 +5902,15 @@ void StateFlowFunctionsJumpHedgeGetA(const real_T rtu_BW[19200],
 
   /* S-Function (svipblob): '<S30>/Blob Analysis' */
   maxNumBlobsReached = FALSE;
-  for (i = 0; i < 123; i++) {
-    localDW->BlobAnalysis_PAD_DW[i] = 0U;
+  for (loop = 0; loop < 123; loop++) {
+    localDW->BlobAnalysis_PAD_DW[loop] = 0U;
   }
 
   currentLabel = 1U;
   i = 0;
   idx = 123;
   for (n = 0; n < 160; n++) {
-    for (nn = 0; nn < 120; nn++) {
+    for (j = 0; j < 120; j++) {
       localDW->BlobAnalysis_PAD_DW[idx] = (uint8_T)
         (localB->ImageDataTypeConversion[i] ? 255 : 0);
       i++;
@@ -6050,22 +5923,22 @@ void StateFlowFunctionsJumpHedgeGetA(const real_T rtu_BW[19200],
     idx++;
   }
 
-  for (i = 0; i < 121; i++) {
-    localDW->BlobAnalysis_PAD_DW[i + idx] = 0U;
+  for (loop = 0; loop < 121; loop++) {
+    localDW->BlobAnalysis_PAD_DW[loop + idx] = 0U;
   }
 
   nn = 1;
   stackIdx = 0U;
   pixIdx = 0U;
   for (n = 0; n < 160; n++) {
-    idx = 1;
-    maxr = nn * 122;
+    ix = 1;
+    idx = nn * 122;
     for (j = 0; j < 120; j++) {
-      numBlobs = (uint32_T)(maxr + idx);
+      numBlobs = (uint32_T)(idx + ix);
       if (localDW->BlobAnalysis_PAD_DW[numBlobs] == 255) {
         localDW->BlobAnalysis_PAD_DW[numBlobs] = currentLabel;
         localDW->BlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)(nn - 1);
-        localDW->BlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(idx - 1);
+        localDW->BlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(ix - 1);
         pixIdx++;
         BlobAnalysis_NUM_PIX_DW[currentLabel - 1] = 1U;
         localDW->BlobAnalysis_STACK_DW[stackIdx] = numBlobs;
@@ -6073,8 +5946,8 @@ void StateFlowFunctionsJumpHedgeGetA(const real_T rtu_BW[19200],
         while (stackIdx) {
           stackIdx--;
           numBlobs = localDW->BlobAnalysis_STACK_DW[stackIdx];
-          for (pixListMinc = 0; pixListMinc < 8; pixListMinc++) {
-            walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled27[pixListMinc];
+          for (i = 0; i < 8; i++) {
+            walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled27[i];
             if (localDW->BlobAnalysis_PAD_DW[walkerIdx] == 255) {
               localDW->BlobAnalysis_PAD_DW[walkerIdx] = currentLabel;
               localDW->BlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)((int16_T)
@@ -6082,7 +5955,8 @@ void StateFlowFunctionsJumpHedgeGetA(const real_T rtu_BW[19200],
               localDW->BlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(walkerIdx %
                 122U - 1U);
               pixIdx++;
-              BlobAnalysis_NUM_PIX_DW[currentLabel - 1]++;
+              BlobAnalysis_NUM_PIX_DW[currentLabel - 1] =
+                BlobAnalysis_NUM_PIX_DW[currentLabel - 1] + 1U;
               localDW->BlobAnalysis_STACK_DW[stackIdx] = walkerIdx;
               stackIdx++;
             }
@@ -6100,56 +5974,56 @@ void StateFlowFunctionsJumpHedgeGetA(const real_T rtu_BW[19200],
         }
       }
 
-      idx++;
+      ix++;
     }
 
     nn++;
   }
 
   numBlobs = maxNumBlobsReached ? currentLabel : (uint8_T)(currentLabel - 1);
-  pixListMinc = 0;
   padRows = 0;
-  for (padCols = 0; padCols < (int32_T)numBlobs; padCols++) {
-    rtb_BlobAnalysis_o1[padCols] = (int32_T)BlobAnalysis_NUM_PIX_DW[padCols];
-    n = 160;
+  padCols = 0;
+  for (i = 0; i < (int32_T)numBlobs; i++) {
+    rtb_BlobAnalysis_o1[i] = (int32_T)BlobAnalysis_NUM_PIX_DW[i];
+    ix = 160;
     idx = 120;
     nn = 0;
-    maxr = 0;
-    for (j = 0; j < (int32_T)BlobAnalysis_NUM_PIX_DW[padCols]; j++) {
-      i = j + padRows;
-      if (localDW->BlobAnalysis_N_PIXLIST_DW[i] < n) {
-        n = localDW->BlobAnalysis_N_PIXLIST_DW[i];
+    n = 0;
+    for (j = 0; j < (int32_T)BlobAnalysis_NUM_PIX_DW[i]; j++) {
+      loop = j + padCols;
+      if (localDW->BlobAnalysis_N_PIXLIST_DW[loop] < ix) {
+        ix = localDW->BlobAnalysis_N_PIXLIST_DW[loop];
       }
 
-      if (localDW->BlobAnalysis_N_PIXLIST_DW[i] > nn) {
-        nn = localDW->BlobAnalysis_N_PIXLIST_DW[i];
+      if (localDW->BlobAnalysis_N_PIXLIST_DW[loop] > nn) {
+        nn = localDW->BlobAnalysis_N_PIXLIST_DW[loop];
       }
 
-      i = j + pixListMinc;
-      if (localDW->BlobAnalysis_M_PIXLIST_DW[i] < idx) {
-        idx = localDW->BlobAnalysis_M_PIXLIST_DW[i];
+      loop = j + padRows;
+      if (localDW->BlobAnalysis_M_PIXLIST_DW[loop] < idx) {
+        idx = localDW->BlobAnalysis_M_PIXLIST_DW[loop];
       }
 
-      if (localDW->BlobAnalysis_M_PIXLIST_DW[i] > maxr) {
-        maxr = localDW->BlobAnalysis_M_PIXLIST_DW[i];
+      if (localDW->BlobAnalysis_M_PIXLIST_DW[loop] > n) {
+        n = localDW->BlobAnalysis_M_PIXLIST_DW[loop];
       }
     }
 
-    i = padCols << 2;
-    rtb_BlobAnalysis_o2[i] = idx;
-    rtb_BlobAnalysis_o2[i + 1] = n;
-    rtb_BlobAnalysis_o2[i + 2] = (maxr + 1) - idx;
-    rtb_BlobAnalysis_o2[i + 3] = (nn + 1) - n;
-    pixListMinc += (int32_T)BlobAnalysis_NUM_PIX_DW[padCols];
-    padRows += (int32_T)BlobAnalysis_NUM_PIX_DW[padCols];
+    loop = i << 2;
+    rtb_BlobAnalysis_o2[loop] = idx;
+    rtb_BlobAnalysis_o2[loop + 1] = ix;
+    rtb_BlobAnalysis_o2[loop + 2] = (n + 1) - idx;
+    rtb_BlobAnalysis_o2[loop + 3] = (nn + 1) - ix;
+    padRows += (int32_T)BlobAnalysis_NUM_PIX_DW[i];
+    padCols += (int32_T)BlobAnalysis_NUM_PIX_DW[i];
   }
 
-  for (i = (int32_T)numBlobs; i < 10; i++) {
-    rtb_BlobAnalysis_o1[i] = -1;
+  for (loop = (int32_T)numBlobs; loop < 10; loop++) {
+    rtb_BlobAnalysis_o1[loop] = -1;
   }
 
-  for (i = (int32_T)numBlobs << 2; i < 40; i++) {
-    rtb_BlobAnalysis_o2[i] = -1;
+  for (loop = (int32_T)(numBlobs << 2); loop < 40; loop++) {
+    rtb_BlobAnalysis_o2[loop] = -1;
   }
 
   /* Embedded MATLAB: '<S30>/Embedded MATLAB Function' */
@@ -6163,21 +6037,21 @@ void StateFlowFunctionsJumpHedgeGetA(const real_T rtu_BW[19200],
 
     /* '<S121>:1:8' */
   } else {
-    i = rtb_BlobAnalysis_o1[0];
-    n = 1;
+    idx = rtb_BlobAnalysis_o1[0];
     nn = 1;
-    for (idx = 2; idx < 11; idx++) {
-      nn++;
-      if (rtb_BlobAnalysis_o1[nn - 1] > i) {
-        i = rtb_BlobAnalysis_o1[nn - 1];
-        n = idx;
+    ix = 1;
+    for (loop = 2; loop < 11; loop++) {
+      ix++;
+      if (rtb_BlobAnalysis_o1[ix - 1] > idx) {
+        idx = rtb_BlobAnalysis_o1[ix - 1];
+        nn = loop;
       }
     }
 
     /* '<S121>:1:10' */
     /* '<S121>:1:11' */
-    localB->AxisRatio = (real_T)rtb_BlobAnalysis_o2[((n - 1) << 2) + 3] /
-      (real_T)rtb_BlobAnalysis_o2[((n - 1) << 2) + 2];
+    localB->AxisRatio = (real_T)rtb_BlobAnalysis_o2[((nn - 1) << 2) + 3] /
+      (real_T)rtb_BlobAnalysis_o2[((nn - 1) << 2) + 2];
   }
 }
 
@@ -6212,24 +6086,25 @@ void StateFlowFunctionsFollowOnePa_e(const real_T rtu_BW[19200], RT_MODEL_brain 
   const brain_M, rtB_StateFlowFunctionsFollowO_f *localB,
   rtDW_StateFlowFunctionsFollo_gn *localDW)
 {
-  real_T eml_BlobCentroidX;
-  real_T eml_BlobCentroidY;
   int32_T i;
   boolean_T maxNumBlobsReached;
+  int32_T loop;
   uint8_T currentLabel;
   int32_T idx;
-  int32_T n;
+  int32_T nn;
   uint32_T stackIdx;
   uint32_T pixIdx;
   uint32_T start_pixIdx;
-  int32_T n_0;
+  int32_T m;
   uint32_T BuoyBlobAnalysis_NUM_PIX_DW[10];
   uint32_T walkerIdx;
   uint32_T numBlobs;
-  int32_T ms;
+  int32_T ns;
   int32_T j;
   real_T rtb_Sum_l;
+  real_T rtb_Error_i;
   real_T rtb_TSamp_m;
+  real_T rtb_TSamp_c4;
   int32_T rtb_BuoyBlobAnalysis_o1_o[10];
   real_T rtb_BuoyBlobAnalysis_o2_ci[20];
   real_T tmp;
@@ -6245,15 +6120,15 @@ void StateFlowFunctionsFollowOnePa_e(const real_T rtu_BW[19200], RT_MODEL_brain 
 
   /* S-Function (svipblob): '<S22>/Buoy Blob Analysis' */
   maxNumBlobsReached = FALSE;
-  for (i = 0; i < 123; i++) {
-    localDW->BuoyBlobAnalysis_PAD_DW[i] = 0U;
+  for (loop = 0; loop < 123; loop++) {
+    localDW->BuoyBlobAnalysis_PAD_DW[loop] = 0U;
   }
 
   currentLabel = 1U;
   i = 0;
   idx = 123;
-  for (n = 0; n < 160; n++) {
-    for (n_0 = 0; n_0 < 120; n_0++) {
+  for (loop = 0; loop < 160; loop++) {
+    for (m = 0; m < 120; m++) {
       localDW->BuoyBlobAnalysis_PAD_DW[idx] = (uint8_T)
         (localB->ImageDataTypeConversion[i] ? 255 : 0);
       i++;
@@ -6266,23 +6141,23 @@ void StateFlowFunctionsFollowOnePa_e(const real_T rtu_BW[19200], RT_MODEL_brain 
     idx++;
   }
 
-  for (i = 0; i < 121; i++) {
-    localDW->BuoyBlobAnalysis_PAD_DW[i + idx] = 0U;
+  for (loop = 0; loop < 121; loop++) {
+    localDW->BuoyBlobAnalysis_PAD_DW[loop + idx] = 0U;
   }
 
-  n = 1;
+  nn = 1;
   stackIdx = 0U;
   pixIdx = 0U;
-  for (n_0 = 0; n_0 < 160; n_0++) {
-    ms = 1;
-    j = n * 122;
-    for (idx = 0; idx < 120; idx++) {
-      numBlobs = (uint32_T)(j + ms);
+  for (loop = 0; loop < 160; loop++) {
+    ns = 1;
+    j = nn * 122;
+    for (m = 0; m < 120; m++) {
+      numBlobs = (uint32_T)(j + ns);
       start_pixIdx = pixIdx;
       if (localDW->BuoyBlobAnalysis_PAD_DW[numBlobs] == 255) {
         localDW->BuoyBlobAnalysis_PAD_DW[numBlobs] = currentLabel;
-        localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)(n - 1);
-        localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(ms - 1);
+        localDW->BuoyBlobAnalysis_N_PIXLIST_DW[pixIdx] = (int16_T)(nn - 1);
+        localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)(ns - 1);
         pixIdx++;
         BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1] = 1U;
         localDW->BuoyBlobAnalysis_STACK_DW[stackIdx] = numBlobs;
@@ -6299,7 +6174,8 @@ void StateFlowFunctionsFollowOnePa_e(const real_T rtu_BW[19200], RT_MODEL_brain 
               localDW->BuoyBlobAnalysis_M_PIXLIST_DW[pixIdx] = (int16_T)
                 (walkerIdx % 122U - 1U);
               pixIdx++;
-              BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1]++;
+              BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1] =
+                BuoyBlobAnalysis_NUM_PIX_DW[currentLabel - 1] + 1U;
               localDW->BuoyBlobAnalysis_STACK_DW[stackIdx] = walkerIdx;
               stackIdx++;
             }
@@ -6315,47 +6191,47 @@ void StateFlowFunctionsFollowOnePa_e(const real_T rtu_BW[19200], RT_MODEL_brain 
 
         if (currentLabel == 10) {
           maxNumBlobsReached = TRUE;
-          n_0 = 160;
-          idx = 120;
+          loop = 160;
+          m = 120;
         }
 
-        if (idx < 120) {
+        if (m < 120) {
           currentLabel++;
         }
       }
 
-      ms++;
+      ns++;
     }
 
-    n++;
+    nn++;
   }
 
   numBlobs = maxNumBlobsReached ? currentLabel : (uint8_T)(currentLabel - 1);
-  i = 0;
-  n_0 = 0;
-  for (idx = 0; idx < (int32_T)numBlobs; idx++) {
-    rtb_BuoyBlobAnalysis_o1_o[idx] = (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[idx];
-    n = 0;
-    ms = 0;
-    for (j = 0; j < (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[idx]; j++) {
-      n += localDW->BuoyBlobAnalysis_N_PIXLIST_DW[j + n_0];
-      ms += localDW->BuoyBlobAnalysis_M_PIXLIST_DW[j + i];
+  loop = 0;
+  nn = 0;
+  for (i = 0; i < (int32_T)numBlobs; i++) {
+    rtb_BuoyBlobAnalysis_o1_o[i] = (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i];
+    ns = 0;
+    idx = 0;
+    for (j = 0; j < (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i]; j++) {
+      ns += localDW->BuoyBlobAnalysis_N_PIXLIST_DW[j + nn];
+      idx += localDW->BuoyBlobAnalysis_M_PIXLIST_DW[j + loop];
     }
 
-    rtb_BuoyBlobAnalysis_o2_ci[idx << 1] = (real_T)ms / (real_T)
-      BuoyBlobAnalysis_NUM_PIX_DW[idx];
-    rtb_BuoyBlobAnalysis_o2_ci[(idx << 1) + 1] = (real_T)n / (real_T)
-      BuoyBlobAnalysis_NUM_PIX_DW[idx];
-    i += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[idx];
-    n_0 += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[idx];
+    rtb_BuoyBlobAnalysis_o2_ci[i << 1] = (real_T)idx / (real_T)
+      BuoyBlobAnalysis_NUM_PIX_DW[i];
+    rtb_BuoyBlobAnalysis_o2_ci[(i << 1) + 1] = (real_T)ns / (real_T)
+      BuoyBlobAnalysis_NUM_PIX_DW[i];
+    loop += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i];
+    nn += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW[i];
   }
 
-  for (i = (int32_T)numBlobs; i < 10; i++) {
-    rtb_BuoyBlobAnalysis_o1_o[i] = -1;
+  for (loop = (int32_T)numBlobs; loop < 10; loop++) {
+    rtb_BuoyBlobAnalysis_o1_o[loop] = -1;
   }
 
-  for (i = (int32_T)numBlobs << 1; i < 20; i++) {
-    rtb_BuoyBlobAnalysis_o2_ci[i] = -1.0;
+  for (loop = (int32_T)(numBlobs << 1); loop < 20; loop++) {
+    rtb_BuoyBlobAnalysis_o2_ci[loop] = -1.0;
   }
 
   /* Embedded MATLAB: '<S22>/Embedded MATLAB Function' */
@@ -6366,42 +6242,40 @@ void StateFlowFunctionsFollowOnePa_e(const real_T rtu_BW[19200], RT_MODEL_brain 
        -1.0)) {
     /* '<S83>:1:5' */
     /* '<S83>:1:7' */
-    eml_BlobCentroidX = 80.0;
+    rtb_Error_i = 80.0;
 
     /* '<S83>:1:8' */
-    eml_BlobCentroidY = 60.0;
+    rtb_TSamp_c4 = 60.0;
   } else {
-    i = rtb_BuoyBlobAnalysis_o1_o[0];
-    n = 1;
-    n_0 = 1;
-    for (idx = 2; idx < 11; idx++) {
-      n_0++;
-      if (rtb_BuoyBlobAnalysis_o1_o[n_0 - 1] > i) {
-        i = rtb_BuoyBlobAnalysis_o1_o[n_0 - 1];
-        n = idx;
+    nn = rtb_BuoyBlobAnalysis_o1_o[0];
+    ns = 1;
+    idx = 1;
+    for (loop = 2; loop < 11; loop++) {
+      idx++;
+      if (rtb_BuoyBlobAnalysis_o1_o[idx - 1] > nn) {
+        nn = rtb_BuoyBlobAnalysis_o1_o[idx - 1];
+        ns = loop;
       }
     }
 
     /* '<S83>:1:12' */
-    eml_BlobCentroidX = rtb_BuoyBlobAnalysis_o2_ci[((n - 1) << 1) + 1];
+    rtb_Error_i = rtb_BuoyBlobAnalysis_o2_ci[((ns - 1) << 1) + 1];
 
     /* '<S83>:1:13' */
-    eml_BlobCentroidY = rtb_BuoyBlobAnalysis_o2_ci[(n - 1) << 1];
+    rtb_TSamp_c4 = rtb_BuoyBlobAnalysis_o2_ci[(ns - 1) << 1];
   }
 
   /* Embedded MATLAB: '<S22>/Embedded MATLAB Function1' */
   brain_EmbeddedMATLABFunction1(&localB->sf_EmbeddedMATLABFunction1);
 
   /* Sum: '<S22>/Subtract' */
-  localB->Subtract = eml_BlobCentroidX -
-    localB->sf_EmbeddedMATLABFunction1.XCenter;
+  localB->Subtract = rtb_Error_i - localB->sf_EmbeddedMATLABFunction1.XCenter;
 
   /* Sum: '<S22>/Subtract1' */
-  localB->Subtract1 = eml_BlobCentroidY -
-    localB->sf_EmbeddedMATLABFunction1.YCenter;
+  localB->Subtract1 = rtb_TSamp_c4 - localB->sf_EmbeddedMATLABFunction1.YCenter;
 
   /* Sum: '<S85>/Subtract' */
-  rtb_Sum_l = eml_BlobCentroidX - localB->sf_EmbeddedMATLABFunction1.XCenter;
+  rtb_Sum_l = rtb_Error_i - localB->sf_EmbeddedMATLABFunction1.XCenter;
 
   /* SampleTimeMath: '<S88>/TSamp' incorporates:
    *  Gain: '<S87>/X-Buoy Derivative Gain'
@@ -6445,14 +6319,13 @@ void StateFlowFunctionsFollowOnePa_e(const real_T rtu_BW[19200], RT_MODEL_brain 
    */
   tmp_0 = (int16_T)(-128 * localB->DataTypeConversion >> 7);
   if (tmp_0 > 127) {
-    localB->DataTypeConversion1 = MAX_int8_T;
-  } else {
-    localB->DataTypeConversion1 = (int8_T)tmp_0;
+    tmp_0 = 127;
   }
 
+  localB->DataTypeConversion1 = (int8_T)tmp_0;
+
   /* Sum: '<S86>/Subtract' */
-  eml_BlobCentroidX = localB->sf_EmbeddedMATLABFunction1.YCenter -
-    eml_BlobCentroidY;
+  rtb_Error_i = localB->sf_EmbeddedMATLABFunction1.YCenter - rtb_TSamp_c4;
 
   /* SampleTimeMath: '<S90>/TSamp' incorporates:
    *  Gain: '<S89>/Y-Blob Derivative Gain'
@@ -6460,7 +6333,7 @@ void StateFlowFunctionsFollowOnePa_e(const real_T rtu_BW[19200], RT_MODEL_brain 
    * About '<S90>/TSamp':
    *  y = u * K where K = 1 / ( w * Ts )
    */
-  eml_BlobCentroidY = brain_P.Cam_Down_YPos_Kd * eml_BlobCentroidX / ((real_T)
+  rtb_TSamp_c4 = brain_P.Cam_Down_YPos_Kd * rtb_Error_i / ((real_T)
     localDW->StateFlowFunctionsFollowOnePa_g * 0.2);
 
   /* DataTypeConversion: '<S86>/Data Type Conversion' incorporates:
@@ -6478,7 +6351,7 @@ void StateFlowFunctionsFollowOnePa_e(const real_T rtu_BW[19200], RT_MODEL_brain 
    *
    *  Store in Global RAM
    */
-  tmp = (brain_P.Cam_Down_YPos_Kp * eml_BlobCentroidX + (eml_BlobCentroidY -
+  tmp = (brain_P.Cam_Down_YPos_Kp * rtb_Error_i + (rtb_TSamp_c4 -
           localDW->UD_DSTATE_o)) + localDW->YBuoyDiscreteTimeIntegrator_DST;
   tmp = floor(tmp);
   if (tmp < 128.0) {
@@ -6517,14 +6390,14 @@ void StateFlowFunctionsFollowOnePa_e(const real_T rtu_BW[19200], RT_MODEL_brain 
    *
    *  Store in Global RAM
    */
-  localDW->UD_DSTATE_o = eml_BlobCentroidY;
+  localDW->UD_DSTATE_o = rtb_TSamp_c4;
 
   /* Update for DiscreteIntegrator: '<S89>/Y-Buoy Discrete-Time Integrator' incorporates:
    *  Gain: '<S89>/Y-Blob Integral Gain'
    */
   localDW->YBuoyDiscreteTimeIntegrator_DST = 0.2 * (real_T)
     localDW->StateFlowFunctionsFollowOnePa_g * (brain_P.Cam_Down_YPos_Ki *
-    eml_BlobCentroidX) + localDW->YBuoyDiscreteTimeIntegrator_DST;
+    rtb_Error_i) + localDW->YBuoyDiscreteTimeIntegrator_DST;
   if (localDW->YBuoyDiscreteTimeIntegrator_DST >= 15.0) {
     localDW->YBuoyDiscreteTimeIntegrator_DST = 15.0;
   } else {
@@ -6725,12 +6598,12 @@ static void brain_enter_internal_CalcTare(void)
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
 static void brain_StateEstimator(void)
 {
-  int32_T sf_T;
-  real_T sf_Accel[3];
-  real_T sf_YawRate_Model;
-  real_T sf_DeltaT;
-  real_T sf_PitchRate;
-  real_T sf_RollRate;
+  int32_T T;
+  real_T Accel[3];
+  real_T YawRate_Model;
+  real_T DeltaT;
+  real_T PitchRate;
+  real_T RollRate;
   real_T tmp[9];
   real_T unnamed_idx;
   real_T unnamed_idx_0;
@@ -6753,32 +6626,32 @@ static void brain_StateEstimator(void)
       if (brain_U.DeltaT < 0.1) {
         /* '<S7>:2026:4' */
         /* '<S7>:2026:5' */
-        sf_DeltaT = 0.01;
+        DeltaT = 0.01;
       } else {
         /* '<S7>:2026:7' */
-        sf_DeltaT = brain_U.DeltaT / 1000.0;
+        DeltaT = brain_U.DeltaT / 1000.0;
       }
 
-      sf_PitchRate = brain_U.PitchRate - brain_DWork.TarPitchRate;
-      sf_RollRate = brain_U.RollRate - brain_DWork.TarRollRate;
+      PitchRate = brain_U.PitchRate - brain_DWork.TarPitchRate;
+      RollRate = brain_U.RollRate - brain_DWork.TarRollRate;
 
       /* Embedded MATLAB Function 'AUV_Yaw_Model': '<S7>:2045' */
       /*  This uses a math model of the auv to calculate the yaw rate and yaw of */
       /*  the AUV */
       /* '<S7>:2045:7' */
-      sf_T = brain_B.Left - brain_B.Right;
+      T = brain_B.Left - brain_B.Right;
 
       /* '<S7>:2045:9' */
       /* '<S7>:2045:10' */
       /* '<S7>:2045:12' */
-      sf_YawRate_Model = (((0.0012 * rt_pow_snf((real_T)sf_T, 2.0) + 0.6913 *
-                            (real_T)sf_T) + 0.8157) - brain_DWork.OldYawRate) /
-        ((0.0006 * rt_pow_snf((real_T)sf_T, 2.0) + 0.0865 * (real_T)sf_T)
-         + 5.6421) * 3.0 * sf_DeltaT + brain_DWork.OldYawRate;
-      if ((fabs(brain_DWork.OldYawRate) < 1.2) && (fabs((real_T)sf_T) < 5.0)) {
+      YawRate_Model = (((0.0012 * rt_pow_snf((real_T)T, 2.0) + 0.6913 * (real_T)
+                         T) + 0.8157) - brain_DWork.OldYawRate) / ((0.0006 *
+        rt_pow_snf((real_T)T, 2.0) + 0.0865 * (real_T)T) + 5.6421) * 3.0 *
+        DeltaT + brain_DWork.OldYawRate;
+      if ((fabs(brain_DWork.OldYawRate) < 1.2) && (fabs((real_T)T) < 5.0)) {
         /* '<S7>:2045:14' */
         /* '<S7>:2045:15' */
-        sf_YawRate_Model = 0.0;
+        YawRate_Model = 0.0;
       }
 
       /* Embedded MATLAB Function 'combinevalues': '<S7>:2039' */
@@ -6787,17 +6660,17 @@ static void brain_StateEstimator(void)
       /* '<S7>:2039:5' */
       /* '<S7>:2039:7' */
       brain_B.YawRate_Out = (brain_U.YawRate - brain_DWork.TarYawRate) *
-        5.9322033898305082E-001 + 4.0677966101694918E-001 * sf_YawRate_Model;
+        0.59322033898305082 + 0.40677966101694918 * YawRate_Model;
       brain_DWork.OldYawRate = brain_B.YawRate_Out;
-      brain_B.PitchRate_Out = sf_PitchRate;
-      brain_B.RollRate_Out = sf_RollRate;
+      brain_B.PitchRate_Out = PitchRate;
+      brain_B.RollRate_Out = RollRate;
 
       /* Embedded MATLAB Function 'Integrate3': '<S7>:2015' */
       /*  This function calculates the euler angles using an IMU approach */
       /* '<S7>:2015:4' */
       /* '<S7>:2015:5' */
       /* '<S7>:2015:6' */
-      brain_B.Yaw = brain_B.YawRate_Out * sf_DeltaT + brain_DWork.OldYaw;
+      brain_B.Yaw = brain_B.YawRate_Out * DeltaT + brain_DWork.OldYaw;
       brain_DWork.OldYaw = brain_B.Yaw;
 
       /* Embedded MATLAB Function 'combinevalues': '<S7>:2039' */
@@ -6805,9 +6678,9 @@ static void brain_StateEstimator(void)
       /* '<S7>:2039:4' */
       /* '<S7>:2039:5' */
       /* '<S7>:2039:7' */
-      brain_B.Pitch = (sf_PitchRate * sf_DeltaT + brain_DWork.OldPitch) *
-        5.7142857142857140E-001 + (brain_U.PitchEuler - brain_DWork.TarPitch) *
-        4.2857142857142860E-001;
+      brain_B.Pitch = (PitchRate * DeltaT + brain_DWork.OldPitch) *
+        0.5714285714285714 + (brain_U.PitchEuler - brain_DWork.TarPitch) *
+        0.4285714285714286;
       brain_DWork.OldPitch = brain_B.Pitch;
 
       /* Embedded MATLAB Function 'combinevalues': '<S7>:2039' */
@@ -6815,9 +6688,9 @@ static void brain_StateEstimator(void)
       /* '<S7>:2039:4' */
       /* '<S7>:2039:5' */
       /* '<S7>:2039:7' */
-      brain_B.Roll = (sf_RollRate * sf_DeltaT + brain_DWork.OldRoll) *
-        5.7142857142857140E-001 + (brain_U.RollEuler - brain_DWork.TarRoll) *
-        4.2857142857142860E-001;
+      brain_B.Roll = (RollRate * DeltaT + brain_DWork.OldRoll) *
+        0.5714285714285714 + (brain_U.RollEuler - brain_DWork.TarRoll) *
+        0.4285714285714286;
       brain_DWork.OldRoll = brain_B.Roll;
 
       /* Embedded MATLAB Function 'GoToEarthCFrame': '<S7>:2029' */
@@ -6826,13 +6699,13 @@ static void brain_StateEstimator(void)
       /*  the roll and pitch an effect on the accelerations so the strafe thruster */
       /*  maintains its position in the xy-plane */
       /* '<S7>:2029:9' */
-      sf_PitchRate = brain_B.Yaw * 3.1415926535897931E+000 / 180.0;
+      PitchRate = brain_B.Yaw * 3.1415926535897931 / 180.0;
 
       /* '<S7>:2029:10' */
-      sf_RollRate = brain_B.Pitch * 3.1415926535897931E+000 / 180.0;
+      RollRate = brain_B.Pitch * 3.1415926535897931 / 180.0;
 
       /* '<S7>:2029:11' */
-      sf_YawRate_Model = brain_B.Roll * 3.1415926535897931E+000 / 180.0;
+      YawRate_Model = brain_B.Roll * 3.1415926535897931 / 180.0;
 
       /* '<S7>:2029:12' */
       /*  Rotation matrix */
@@ -6841,39 +6714,39 @@ static void brain_StateEstimator(void)
       unnamed_idx = (brain_U.RollAccelB - brain_DWork.TRA) / 0.3048;
       unnamed_idx_0 = (brain_U.PitchAccelB - brain_DWork.TPA) / 0.3048;
       unnamed_idx_1 = (brain_U.YawAccelB - brain_DWork.TYA) / 0.3048;
-      tmp[0] = cos(sf_PitchRate) * cos(sf_RollRate);
-      tmp[1] = sin(sf_PitchRate) * cos(sf_RollRate);
-      tmp[2] = -sin(sf_RollRate);
-      tmp[3] = cos(sf_PitchRate) * sin(sf_RollRate) * sin(sf_YawRate_Model) -
-        sin(sf_PitchRate) * cos(sf_YawRate_Model);
-      tmp[4] = sin(sf_PitchRate) * sin(sf_RollRate) * sin(sf_YawRate_Model) +
-        cos(sf_PitchRate) * cos(sf_YawRate_Model);
-      tmp[5] = cos(sf_RollRate) * sin(sf_YawRate_Model);
-      tmp[6] = cos(sf_PitchRate) * sin(sf_RollRate) * cos(sf_YawRate_Model) +
-        sin(sf_PitchRate) * sin(sf_YawRate_Model);
-      tmp[7] = sin(sf_PitchRate) * sin(sf_YawRate_Model) * cos(sf_RollRate) -
-        cos(sf_PitchRate) * sin(sf_YawRate_Model);
-      tmp[8] = cos(sf_RollRate) * cos(sf_YawRate_Model);
-      for (sf_T = 0; sf_T < 3; sf_T++) {
-        sf_Accel[sf_T] = tmp[sf_T + 6] * unnamed_idx_1 + (tmp[sf_T + 3] *
-          unnamed_idx_0 + tmp[sf_T] * unnamed_idx);
+      tmp[0] = cos(PitchRate) * cos(RollRate);
+      tmp[1] = sin(PitchRate) * cos(RollRate);
+      tmp[2] = -sin(RollRate);
+      tmp[3] = cos(PitchRate) * sin(RollRate) * sin(YawRate_Model) - sin
+        (PitchRate) * cos(YawRate_Model);
+      tmp[4] = sin(PitchRate) * sin(RollRate) * sin(YawRate_Model) + cos
+        (PitchRate) * cos(YawRate_Model);
+      tmp[5] = cos(RollRate) * sin(YawRate_Model);
+      tmp[6] = cos(PitchRate) * sin(RollRate) * cos(YawRate_Model) + sin
+        (PitchRate) * sin(YawRate_Model);
+      tmp[7] = sin(PitchRate) * sin(YawRate_Model) * cos(RollRate) - cos
+        (PitchRate) * sin(YawRate_Model);
+      tmp[8] = cos(RollRate) * cos(YawRate_Model);
+      for (T = 0; T < 3; T++) {
+        Accel[T] = tmp[T + 6] * unnamed_idx_1 + (tmp[T + 3] * unnamed_idx_0 +
+          tmp[T] * unnamed_idx);
       }
 
       /* '<S7>:2029:21' */
       /* '<S7>:2029:22' */
       /* '<S7>:2029:23' */
-      brain_B.Roll_Accel = sf_Accel[0];
-      brain_B.Pitch_Accel = sf_Accel[1];
-      brain_B.Yaw_Accel = sf_Accel[2];
+      brain_B.Roll_Accel = Accel[0];
+      brain_B.Pitch_Accel = Accel[1];
+      brain_B.Yaw_Accel = Accel[2];
 
       /* Embedded MATLAB Function 'Integrate3': '<S7>:2015' */
       /*  This function calculates the euler angles using an IMU approach */
       /* '<S7>:2015:4' */
       /* '<S7>:2015:5' */
       /* '<S7>:2015:6' */
-      brain_B.XVel = brain_B.Roll_Accel * sf_DeltaT + brain_DWork.OldXVel;
-      brain_B.YVel = brain_B.Pitch_Accel * sf_DeltaT + brain_DWork.OldYVel;
-      brain_B.ZVel = brain_B.Yaw_Accel * sf_DeltaT + brain_DWork.OldZVel;
+      brain_B.XVel = brain_B.Roll_Accel * DeltaT + brain_DWork.OldXVel;
+      brain_B.YVel = brain_B.Pitch_Accel * DeltaT + brain_DWork.OldYVel;
+      brain_B.ZVel = brain_B.Yaw_Accel * DeltaT + brain_DWork.OldZVel;
       brain_DWork.OldXVel = brain_B.XVel;
       brain_DWork.OldYVel = brain_B.YVel;
       brain_DWork.OldZVel = brain_B.ZVel;
@@ -6883,9 +6756,9 @@ static void brain_StateEstimator(void)
       /* '<S7>:2015:4' */
       /* '<S7>:2015:5' */
       /* '<S7>:2015:6' */
-      brain_B.X = brain_B.XVel * sf_DeltaT + brain_DWork.OldX;
-      brain_B.Y = brain_B.YVel * sf_DeltaT + brain_DWork.OldY;
-      brain_B.Z = brain_B.ZVel * sf_DeltaT + brain_DWork.OldZ;
+      brain_B.X = brain_B.XVel * DeltaT + brain_DWork.OldX;
+      brain_B.Y = brain_B.YVel * DeltaT + brain_DWork.OldY;
+      brain_B.Z = brain_B.ZVel * DeltaT + brain_DWork.OldZ;
     }
     break;
 
@@ -6928,30 +6801,29 @@ static void brain_StateEstimator(void)
           if (brain_U.DeltaT < 0.1) {
             /* '<S7>:2026:4' */
             /* '<S7>:2026:5' */
-            sf_DeltaT = 0.01;
+            DeltaT = 0.01;
           } else {
             /* '<S7>:2026:7' */
-            sf_DeltaT = brain_U.DeltaT / 1000.0;
+            DeltaT = brain_U.DeltaT / 1000.0;
           }
 
           /* Embedded MATLAB Function 'AUV_Yaw_Model': '<S7>:2045' */
           /*  This uses a math model of the auv to calculate the yaw rate and yaw of */
           /*  the AUV */
           /* '<S7>:2045:7' */
-          sf_T = brain_B.Left - brain_B.Right;
+          T = brain_B.Left - brain_B.Right;
 
           /* '<S7>:2045:9' */
           /* '<S7>:2045:10' */
           /* '<S7>:2045:12' */
-          sf_YawRate_Model = (((0.0012 * rt_pow_snf((real_T)sf_T, 2.0) + 0.6913 *
-                                (real_T)sf_T) + 0.8157) - brain_DWork.OldYawRate)
-            / ((0.0006 * rt_pow_snf((real_T)sf_T, 2.0) + 0.0865 * (real_T)sf_T)
-               + 5.6421) * 3.0 * sf_DeltaT + brain_DWork.OldYawRate;
-          if ((fabs(brain_DWork.OldYawRate) < 1.2) && (fabs((real_T)sf_T) < 5.0))
-          {
+          YawRate_Model = (((0.0012 * rt_pow_snf((real_T)T, 2.0) + 0.6913 *
+                             (real_T)T) + 0.8157) - brain_DWork.OldYawRate) /
+            ((0.0006 * rt_pow_snf((real_T)T, 2.0) + 0.0865 * (real_T)T) + 5.6421)
+            * 3.0 * DeltaT + brain_DWork.OldYawRate;
+          if ((fabs(brain_DWork.OldYawRate) < 1.2) && (fabs((real_T)T) < 5.0)) {
             /* '<S7>:2045:14' */
             /* '<S7>:2045:15' */
-            sf_YawRate_Model = 0.0;
+            YawRate_Model = 0.0;
           }
 
           /* Embedded MATLAB Function 'combinevalues': '<S7>:2039' */
@@ -6960,7 +6832,7 @@ static void brain_StateEstimator(void)
           /* '<S7>:2039:5' */
           /* '<S7>:2039:7' */
           brain_B.YawRate_Out = (brain_U.YawRate - brain_DWork.TarYawRate) *
-            5.9322033898305082E-001 + 4.0677966101694918E-001 * sf_YawRate_Model;
+            0.59322033898305082 + 0.40677966101694918 * YawRate_Model;
           brain_DWork.OldYawRate = brain_B.YawRate_Out;
 
           /* Embedded MATLAB Function 'Integrate3': '<S7>:2015' */
@@ -6968,7 +6840,7 @@ static void brain_StateEstimator(void)
           /* '<S7>:2015:4' */
           /* '<S7>:2015:5' */
           /* '<S7>:2015:6' */
-          brain_B.Yaw = brain_B.YawRate_Out * sf_DeltaT + brain_DWork.OldYaw;
+          brain_B.Yaw = brain_B.YawRate_Out * DeltaT + brain_DWork.OldYaw;
           brain_DWork.OldYaw = brain_B.Yaw;
 
           /* Embedded MATLAB Function 'combinevalues': '<S7>:2039' */
@@ -6977,9 +6849,8 @@ static void brain_StateEstimator(void)
           /* '<S7>:2039:5' */
           /* '<S7>:2039:7' */
           brain_B.Pitch = ((brain_U.PitchRate - brain_DWork.TarPitchRate) *
-                           sf_DeltaT + brain_DWork.OldPitch) *
-            5.7142857142857140E-001 + (brain_U.PitchEuler - brain_DWork.TarPitch)
-            * 4.2857142857142860E-001;
+                           DeltaT + brain_DWork.OldPitch) * 0.5714285714285714 +
+            (brain_U.PitchEuler - brain_DWork.TarPitch) * 0.4285714285714286;
           brain_DWork.OldPitch = brain_B.Pitch;
 
           /* Embedded MATLAB Function 'combinevalues': '<S7>:2039' */
@@ -6997,9 +6868,8 @@ static void brain_StateEstimator(void)
           /* '<S7>:2039:4' */
           /* '<S7>:2039:5' */
           /* '<S7>:2039:7' */
-          brain_B.Yaw = (brain_U.YawRate * sf_DeltaT + brain_DWork.OldYaw) *
-            5.7142857142857140E-001 + 4.2857142857142860E-001 *
-            brain_U.CurrentHeading;
+          brain_B.Yaw = (brain_U.YawRate * DeltaT + brain_DWork.OldYaw) *
+            0.5714285714285714 + 0.4285714285714286 * brain_U.CurrentHeading;
           brain_DWork.OldYaw = brain_B.Yaw;
 
           /* Embedded MATLAB Function 'combinevalues': '<S7>:2039' */
@@ -7007,9 +6877,8 @@ static void brain_StateEstimator(void)
           /* '<S7>:2039:4' */
           /* '<S7>:2039:5' */
           /* '<S7>:2039:7' */
-          brain_B.Pitch = (brain_U.PitchRate * sf_DeltaT + brain_DWork.OldPitch)
-            * 5.7142857142857140E-001 + 4.2857142857142860E-001 *
-            brain_U.PitchEuler;
+          brain_B.Pitch = (brain_U.PitchRate * DeltaT + brain_DWork.OldPitch) *
+            0.5714285714285714 + 0.4285714285714286 * brain_U.PitchEuler;
           brain_DWork.OldPitch = brain_B.Pitch;
 
           /* Embedded MATLAB Function 'combinevalues': '<S7>:2039' */
@@ -7017,9 +6886,8 @@ static void brain_StateEstimator(void)
           /* '<S7>:2039:4' */
           /* '<S7>:2039:5' */
           /* '<S7>:2039:7' */
-          brain_B.Roll = (brain_U.RollRate * sf_DeltaT + brain_DWork.OldRoll) *
-            5.7142857142857140E-001 + 4.2857142857142860E-001 *
-            brain_U.RollEuler;
+          brain_B.Roll = (brain_U.RollRate * DeltaT + brain_DWork.OldRoll) *
+            0.5714285714285714 + 0.4285714285714286 * brain_U.RollEuler;
           brain_DWork.OldRoll = brain_B.Roll;
           brain_DWork.TRA = brain_U.RollAccelB;
           brain_DWork.TPA = brain_U.PitchAccelB;
@@ -7573,15 +7441,15 @@ static void brain_enter_internal_Buoys(void)
 }
 
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
-static real_T brain_countareas(real_T sf_Size, real_T sf_count1)
+static real_T brain_countareas(real_T Size, real_T count1)
 {
   /* Embedded MATLAB Function 'countareas': '<S7>:1366' */
   /*  This function acts to count the number of consecutive times a particular */
   /*  area is recognized by the recognition software */
-  if (sf_Size > 16000.0) {
+  if (Size > 16000.0) {
     /* '<S7>:1366:6' */
     /* '<S7>:1366:7' */
-    return sf_count1 + 1.0;
+    return count1 + 1.0;
   } else {
     /* '<S7>:1366:9' */
     return 0.0;
@@ -7589,48 +7457,45 @@ static real_T brain_countareas(real_T sf_Size, real_T sf_count1)
 }
 
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
-static real_T brain_Turn45Degrees(real_T sf_CHeading, real_T sf_TurnD)
+static real_T brain_Turn45Degrees(real_T CHeading, real_T TurnD)
 {
-  real_T sf_DHeading;
+  real_T DHeading;
 
   /* Embedded MATLAB Function 'Turn45Degrees': '<S7>:1333' */
   /*  This function changes the current heading by 45 degrees in the correct */
   /*  direction to see the next buoy */
   /* '<S7>:1333:5' */
-  sf_DHeading = sf_TurnD * 45.0 + sf_CHeading;
-  if (sf_DHeading > 360.0) {
+  DHeading = TurnD * 45.0 + CHeading;
+  if (DHeading > 360.0) {
     /* '<S7>:1333:7' */
     /* '<S7>:1333:8' */
-    sf_DHeading -= 360.0;
+    DHeading -= 360.0;
   } else {
-    if (sf_DHeading < 0.0) {
+    if (DHeading < 0.0) {
       /* '<S7>:1333:9' */
       /* '<S7>:1333:10' */
-      sf_DHeading += 360.0;
+      DHeading += 360.0;
     }
   }
 
-  return sf_DHeading;
+  return DHeading;
 }
 
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
 static void brain_FindSecondBuoy(void)
 {
-  int32_T i;
   real_T cc;
-  real_T cc_0;
-  real_T cc_1;
-  int32_T idxROI;
   boolean_T visited;
   boolean_T visited_0;
   boolean_T done;
-  int32_T in;
-  uint32_T OutCode;
-  uint8_T eml_i;
+  uint8_T i;
   real_T rtb_Add;
   real_T rtb_TSamp;
   int8_T rtb_index;
+  int32_T padRows;
+  int32_T padCols;
   boolean_T maxNumBlobsReached;
+  int32_T loop;
   uint8_T currentLabel;
   int32_T idx;
   int32_T n;
@@ -7640,8 +7505,12 @@ static void brain_FindSecondBuoy(void)
   uint32_T BuoyBlobAnalysis_NUM_PIX_DW_c[10];
   uint32_T numBlobs;
   int32_T pixListMinc;
-  int32_T pixListNinc;
+  int32_T minr;
+  int32_T maxc;
   real_T ys;
+  real_T xys;
+  uint32_T k;
+  real_T uxx;
   real_T uyy;
   real_T rtb_BlobPos[2];
   real_T rtb_BuoyBlobAnalysis_o1[20];
@@ -7653,8 +7522,6 @@ static void brain_FindSecondBuoy(void)
   int32_T line_idx_1;
   int32_T line_idx_2;
   int32_T line_idx_3;
-  int32_T line_idx_4;
-  int32_T line_idx_5;
 
   /* During 'FindSecondBuoy': '<S7>:1317' */
   if (brain_DWork.Image == 1.0) {
@@ -7710,12 +7577,12 @@ static void brain_FindSecondBuoy(void)
      *
      *  Store in Global RAM
      */
-    cc = (brain_P.Depth_Kp * rtb_Add + (rtb_TSamp - brain_DWork.UD_DSTATE)) +
+    uxx = (brain_P.Depth_Kp * rtb_Add + (rtb_TSamp - brain_DWork.UD_DSTATE)) +
       brain_DWork.DepthDiscreteTimeIntegrator_DST;
-    cc = floor(cc);
-    if (cc < 128.0) {
-      if (cc >= -128.0) {
-        brain_B.DoubleToInt8 = (int8_T)cc;
+    uxx = floor(uxx);
+    if (uxx < 128.0) {
+      if (uxx >= -128.0) {
+        brain_B.DoubleToInt8 = (int8_T)uxx;
       } else {
         brain_B.DoubleToInt8 = MIN_int8_T;
       }
@@ -7763,19 +7630,19 @@ static void brain_FindSecondBuoy(void)
     StateFlowFunctionsBuoysIterativ(brain_B.H, brain_B.S, brain_B.V,
       &brain_B.StateFlowFunctionsBuoysIterat_g,
       &brain_DWork.StateFlowFunctionsBuoysIterat_g);
-    memcpy((void *)&brain_DWork.LabelMatrix[0], (void *)
-           &brain_B.StateFlowFunctionsBuoysIterat_g.LabelMatrix[0], 19200U *
+    memcpy((void *)(&brain_DWork.LabelMatrix[0]), (void *)
+           (&brain_B.StateFlowFunctionsBuoysIterat_g.LabelMatrix[0]), 19200U *
            sizeof(real_T));
     brain_DWork.num_colors = brain_B.StateFlowFunctionsBuoysIterat_g.num_colors;
-    memcpy((void *)&brain_DWork.ref_colors[0], (void *)
-           &brain_B.StateFlowFunctionsBuoysIterat_g.ref_colors[0], 150U * sizeof
-           (real_T));
+    memcpy((void *)(&brain_DWork.ref_colors[0]), (void *)
+           (&brain_B.StateFlowFunctionsBuoysIterat_g.ref_colors[0]), 150U *
+           sizeof(real_T));
 
     /* Simulink Function 'SecondBuoy': '<S7>:1318' */
-    memcpy((void *)&brain_B.LabMatrix_b[0], (void *)&brain_DWork.LabelMatrix[0],
-           19200U * sizeof(real_T));
-    memcpy((void *)&brain_B.Ref_Colors_d[0], (void *)&brain_DWork.ref_colors[0],
-           150U * sizeof(real_T));
+    memcpy((void *)(&brain_B.LabMatrix_b[0]), (void *)(&brain_DWork.LabelMatrix
+            [0]), 19200U * sizeof(real_T));
+    memcpy((void *)(&brain_B.Ref_Colors_d[0]), (void *)(&brain_DWork.ref_colors
+            [0]), 150U * sizeof(real_T));
     brain_B.Num_Colors_p = brain_DWork.num_colors;
     brain_B.B_Hue_c = brain_DWork.BuoyHue;
     brain_B.B_Sat_g = brain_DWork.BuoySaturation;
@@ -7783,59 +7650,59 @@ static void brain_FindSecondBuoy(void)
 
     /* S-Function (svipcolorconv): '<S60>/Color Space  Conversion' */
     /* temporary variables for in-place operation */
+    uxx = 0.0;
     cc = 0.0;
-    cc_0 = 0.0;
-    cc_1 = 0.0;
+    xys = 0.0;
     rtb_Add = 6.0 * brain_B.B_Hue_c;
-    uyy = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-015);
+    uyy = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-15);
     rtb_Add -= uyy;
     rtb_TSamp = 1.0 - brain_B.B_Sat_g;
     ys = 1.0 - brain_B.B_Sat_g * rtb_Add;
     rtb_Add = brain_B.B_Sat_g * rtb_Add + rtb_TSamp;
     if (uyy == 0.0) {
-      cc = 1.0;
-      cc_0 = rtb_Add;
-      cc_1 = rtb_TSamp;
-    } else if (uyy == 1.0) {
-      cc = ys;
-      cc_0 = 1.0;
-      cc_1 = rtb_TSamp;
-    } else if (uyy == 2.0) {
-      cc = rtb_TSamp;
-      cc_0 = 1.0;
-      cc_1 = rtb_Add;
-    } else if (uyy == 3.0) {
-      cc = rtb_TSamp;
-      cc_0 = ys;
-      cc_1 = 1.0;
-    } else if (uyy == 4.0) {
+      uxx = 1.0;
       cc = rtb_Add;
-      cc_0 = rtb_TSamp;
-      cc_1 = 1.0;
+      xys = rtb_TSamp;
+    } else if (uyy == 1.0) {
+      uxx = ys;
+      cc = 1.0;
+      xys = rtb_TSamp;
+    } else if (uyy == 2.0) {
+      uxx = rtb_TSamp;
+      cc = 1.0;
+      xys = rtb_Add;
+    } else if (uyy == 3.0) {
+      uxx = rtb_TSamp;
+      cc = ys;
+      xys = 1.0;
+    } else if (uyy == 4.0) {
+      uxx = rtb_Add;
+      cc = rtb_TSamp;
+      xys = 1.0;
     } else {
       if (uyy == 5.0) {
-        cc = 1.0;
-        cc_0 = rtb_TSamp;
-        cc_1 = ys;
+        uxx = 1.0;
+        cc = rtb_TSamp;
+        xys = ys;
       }
     }
 
-    if (cc > cc_0) {
-      rtb_Add = cc;
+    if (uxx > cc) {
+      rtb_Add = uxx;
     } else {
-      rtb_Add = cc_0;
+      rtb_Add = cc;
     }
 
-    if (!(rtb_Add > cc_1)) {
-      rtb_Add = cc_1;
+    if (!(rtb_Add > xys)) {
+      rtb_Add = xys;
     }
 
     rtb_Add = brain_B.B_Value_p / rtb_Add;
 
     /* assign the results */
-    brain_B.ColorSpaceConversion_o1 = rtb_Add * cc;
-    brain_B.ColorSpaceConversion_o2 = rtb_Add * cc_0;
-    brain_B.ColorSpaceConversion_o3 = rtb_Add * cc_1;
+    brain_B.ColorSpaceConversion_o1 = rtb_Add * uxx;
+    brain_B.ColorSpaceConversion_o2 = rtb_Add * cc;
+    brain_B.ColorSpaceConversion_o3 = rtb_Add * xys;
 
     /* S-Function (svipcolorconv): '<S60>/Color Space  Conversion1' */
     /* temporary variables for in-place operation */
@@ -7845,46 +7712,46 @@ static void brain_FindSecondBuoy(void)
     /* equivalent to running the gamma correction block with break */
     /* point of 0.00304 and gamma of 2.4; it's built into this */
     /* conversion for convenience */
-    if (brain_B.ColorSpaceConversion_o1 <= 3.9286085583733095E-002) {
-      rtb_Add = brain_B.ColorSpaceConversion_o1 / 1.2923054468333254E+001;
+    if (brain_B.ColorSpaceConversion_o1 <= 0.039286085583733095) {
+      rtb_Add = brain_B.ColorSpaceConversion_o1 / 12.923054468333255;
     } else {
-      rtb_Add = (brain_B.ColorSpaceConversion_o1 + 5.5000519817226361E-002) /
-        1.0550005198172263E+000;
+      rtb_Add = (brain_B.ColorSpaceConversion_o1 + 0.055000519817226347) /
+        1.0550005198172263;
       rtb_Add = rt_pow_snf(rtb_Add, 2.4);
     }
 
-    if (brain_B.ColorSpaceConversion_o2 <= 3.9286085583733095E-002) {
-      rtb_TSamp = brain_B.ColorSpaceConversion_o2 / 1.2923054468333254E+001;
+    if (brain_B.ColorSpaceConversion_o2 <= 0.039286085583733095) {
+      rtb_TSamp = brain_B.ColorSpaceConversion_o2 / 12.923054468333255;
     } else {
-      rtb_TSamp = (brain_B.ColorSpaceConversion_o2 + 5.5000519817226361E-002) /
-        1.0550005198172263E+000;
+      rtb_TSamp = (brain_B.ColorSpaceConversion_o2 + 0.055000519817226347) /
+        1.0550005198172263;
       rtb_TSamp = rt_pow_snf(rtb_TSamp, 2.4);
     }
 
-    if (brain_B.ColorSpaceConversion_o3 <= 3.9286085583733095E-002) {
-      uyy = brain_B.ColorSpaceConversion_o3 / 1.2923054468333254E+001;
+    if (brain_B.ColorSpaceConversion_o3 <= 0.039286085583733095) {
+      uyy = brain_B.ColorSpaceConversion_o3 / 12.923054468333255;
     } else {
-      uyy = (brain_B.ColorSpaceConversion_o3 + 5.5000519817226361E-002) /
-        1.0550005198172263E+000;
+      uyy = (brain_B.ColorSpaceConversion_o3 + 0.055000519817226347) /
+        1.0550005198172263;
       uyy = rt_pow_snf(uyy, 2.4);
     }
 
     /* The coefficients for this conversion were derived from ITU-R */
     /* BT.709 reference primaries for sRGB and CIE standard illuminant */
     /* D65, 2 degree observer */
-    ys = (4.1239079926596001E-001 * rtb_Add + 3.5758433938388001E-001 *
-          rtb_TSamp) + 1.8048078840182999E-001 * uyy;
-    cc = (2.1263900587151000E-001 * rtb_Add + 7.1516867876776002E-001 *
-          rtb_TSamp) + 7.2192315360729994E-002 * uyy;
-    rtb_Add = (1.9330818715590000E-002 * rtb_Add + 1.1919477979463000E-001 *
-               rtb_TSamp) + 9.5053215224966003E-001 * uyy;
+    uxx = (0.41239079926596 * rtb_Add + 0.35758433938388 * rtb_TSamp) +
+      0.18048078840183 * uyy;
+    cc = (0.21263900587151 * rtb_Add + 0.71516867876776 * rtb_TSamp) +
+      0.07219231536073 * uyy;
+    xys = (0.01933081871559 * rtb_Add + 0.11919477979463 * rtb_TSamp) +
+      0.95053215224966 * uyy;
 
     /* Make sure that the output is in [0..1] range; clip if necessary */
-    if (ys > 1.0) {
-      ys = 1.0;
+    if (uxx > 1.0) {
+      uxx = 1.0;
     } else {
-      if (ys < 0.0) {
-        ys = 0.0;
+      if (uxx < 0.0) {
+        uxx = 0.0;
       }
     }
 
@@ -7896,42 +7763,42 @@ static void brain_FindSecondBuoy(void)
       }
     }
 
-    if (rtb_Add > 1.0) {
-      rtb_Add = 1.0;
+    if (xys > 1.0) {
+      xys = 1.0;
     } else {
-      if (rtb_Add < 0.0) {
-        rtb_Add = 0.0;
+      if (xys < 0.0) {
+        xys = 0.0;
       }
     }
 
     /* assign the results */
-    brain_B.ColorSpaceConversion1_o1_d = ys;
+    brain_B.ColorSpaceConversion1_o1_d = uxx;
     brain_B.ColorSpaceConversion1_o2_k = cc;
-    brain_B.ColorSpaceConversion1_o3_e = rtb_Add;
+    brain_B.ColorSpaceConversion1_o3_e = xys;
 
     /* Convert from XYZ to L*a*b* */
-    rtb_Add = brain_B.ColorSpaceConversion1_o1_d / 9.6419865576090003E-001;
-    uyy = brain_B.ColorSpaceConversion1_o3_e / 8.2511648322104003E-001;
+    rtb_Add = brain_B.ColorSpaceConversion1_o1_d / 0.9641986557609;
+    uyy = brain_B.ColorSpaceConversion1_o3_e / 0.82511648322104;
 
     /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-    if (rtb_Add > 8.8564516790356311E-003) {
-      ys = rt_pow_snf(rtb_Add, 3.3333333333333331E-001);
+    if (rtb_Add > 0.0088564516790356311) {
+      ys = rt_pow_snf(rtb_Add, 0.33333333333333331);
     } else {
-      ys = 7.7870370370370372E+000 * rtb_Add + 1.3793103448275862E-001;
+      ys = 7.7870370370370372 * rtb_Add + 0.13793103448275862;
     }
 
-    if (brain_B.ColorSpaceConversion1_o2_k > 8.8564516790356311E-003) {
+    if (brain_B.ColorSpaceConversion1_o2_k > 0.0088564516790356311) {
       rtb_TSamp = rt_pow_snf(brain_B.ColorSpaceConversion1_o2_k,
-        3.3333333333333331E-001);
+        0.33333333333333331);
     } else {
-      rtb_TSamp = 7.7870370370370372E+000 * brain_B.ColorSpaceConversion1_o2_k +
-        1.3793103448275862E-001;
+      rtb_TSamp = 7.7870370370370372 * brain_B.ColorSpaceConversion1_o2_k +
+        0.13793103448275862;
     }
 
-    if (uyy > 8.8564516790356311E-003) {
-      rtb_Add = rt_pow_snf(uyy, 3.3333333333333331E-001);
+    if (uyy > 0.0088564516790356311) {
+      rtb_Add = rt_pow_snf(uyy, 0.33333333333333331);
     } else {
-      rtb_Add = 7.7870370370370372E+000 * uyy + 1.3793103448275862E-001;
+      rtb_Add = 7.7870370370370372 * uyy + 0.13793103448275862;
     }
 
     /* assign the results */
@@ -7948,11 +7815,11 @@ static void brain_FindSecondBuoy(void)
     rtb_Add = 1000.0;
 
     /* '<S59>:1:8' */
-    cc = brain_B.Num_Colors_p + 1.0;
-    cc = cc < 0.0 ? ceil(cc - 0.5) : floor(cc + 0.5);
-    if (cc < 128.0) {
-      if (cc >= -128.0) {
-        rtb_index = (int8_T)cc;
+    uxx = brain_B.Num_Colors_p + 1.0;
+    uxx = (int32_T)(uxx < 0.0) ? ceil(uxx - 0.5) : floor(uxx + 0.5);
+    if (uxx < 128.0) {
+      if (uxx >= -128.0) {
+        rtb_index = (int8_T)uxx;
       } else {
         rtb_index = MIN_int8_T;
       }
@@ -7978,9 +7845,9 @@ static void brain_FindSecondBuoy(void)
 
         /*  max min_dist = 346 if L dist is doubled */
         /* '<S59>:1:15' */
-        cc = floor(rtb_TSamp + 0.5);
-        if (cc < 128.0) {
-          rtb_index = (int8_T)cc;
+        uxx = floor(rtb_TSamp + 0.5);
+        if (uxx < 128.0) {
+          rtb_index = (int8_T)uxx;
         } else {
           rtb_index = MAX_int8_T;
         }
@@ -7996,18 +7863,18 @@ static void brain_FindSecondBuoy(void)
 
     /* S-Function (svipblob): '<S13>/Buoy Blob Analysis' */
     maxNumBlobsReached = FALSE;
-    for (i = 0; i < 123; i++) {
-      brain_DWork.BuoyBlobAnalysis_PAD_DW_h[i] = 0U;
+    for (loop = 0; loop < 123; loop++) {
+      brain_DWork.BuoyBlobAnalysis_PAD_DW_h[loop] = 0U;
     }
 
     currentLabel = 1U;
-    i = 0;
+    i_0 = 0;
     idx = 123;
     for (n = 0; n < 160; n++) {
-      for (in = 0; in < 120; in++) {
-        brain_DWork.BuoyBlobAnalysis_PAD_DW_h[idx] = (uint8_T)(brain_B.BW_fi[i] ?
-          255 : 0);
-        i++;
+      for (pixListMinc = 0; pixListMinc < 120; pixListMinc++) {
+        brain_DWork.BuoyBlobAnalysis_PAD_DW_h[idx] = (uint8_T)(brain_B.BW_fi[i_0]
+          ? 255 : 0);
+        i_0++;
         idx++;
       }
 
@@ -8017,23 +7884,25 @@ static void brain_FindSecondBuoy(void)
       idx++;
     }
 
-    for (i = 0; i < 121; i++) {
-      brain_DWork.BuoyBlobAnalysis_PAD_DW_h[i + idx] = 0U;
+    for (loop = 0; loop < 121; loop++) {
+      brain_DWork.BuoyBlobAnalysis_PAD_DW_h[loop + idx] = 0U;
     }
 
-    n = 1;
+    idx = 1;
     stackIdx = 0U;
     pixIdx = 0U;
-    for (idx = 0; idx < 160; idx++) {
-      in = 1;
-      line_idx_4 = n * 122;
+    for (n = 0; n < 160; n++) {
+      minr = 1;
+      maxc = idx * 122;
       for (pixListMinc = 0; pixListMinc < 120; pixListMinc++) {
-        numBlobs = (uint32_T)(line_idx_4 + in);
+        numBlobs = (uint32_T)(maxc + minr);
         start_pixIdx = pixIdx;
         if (brain_DWork.BuoyBlobAnalysis_PAD_DW_h[numBlobs] == 255) {
           brain_DWork.BuoyBlobAnalysis_PAD_DW_h[numBlobs] = currentLabel;
-          brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[pixIdx] = (int16_T)(n - 1);
-          brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[pixIdx] = (int16_T)(in - 1);
+          brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[pixIdx] = (int16_T)(idx -
+            1);
+          brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[pixIdx] = (int16_T)(minr -
+            1);
           pixIdx++;
           BuoyBlobAnalysis_NUM_PIX_DW_c[currentLabel - 1] = 1U;
           brain_DWork.BuoyBlobAnalysis_STACK_DW_g[stackIdx] = numBlobs;
@@ -8041,17 +7910,18 @@ static void brain_FindSecondBuoy(void)
           while (stackIdx) {
             stackIdx--;
             numBlobs = brain_DWork.BuoyBlobAnalysis_STACK_DW_g[stackIdx];
-            for (pixListNinc = 0; pixListNinc < 8; pixListNinc++) {
-              OutCode = numBlobs + (uint32_T)brain_ConstP.pooled27[pixListNinc];
-              if (brain_DWork.BuoyBlobAnalysis_PAD_DW_h[OutCode] == 255) {
-                brain_DWork.BuoyBlobAnalysis_PAD_DW_h[OutCode] = currentLabel;
+            for (i_0 = 0; i_0 < 8; i_0++) {
+              k = numBlobs + (uint32_T)brain_ConstP.pooled27[i_0];
+              if (brain_DWork.BuoyBlobAnalysis_PAD_DW_h[k] == 255) {
+                brain_DWork.BuoyBlobAnalysis_PAD_DW_h[k] = currentLabel;
                 brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[pixIdx] = (int16_T)
-                  ((int16_T)(OutCode / 122U) - 1);
+                  ((int16_T)(k / 122U) - 1);
                 brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[pixIdx] = (int16_T)
-                  (OutCode % 122U - 1U);
+                  (k % 122U - 1U);
                 pixIdx++;
-                BuoyBlobAnalysis_NUM_PIX_DW_c[currentLabel - 1]++;
-                brain_DWork.BuoyBlobAnalysis_STACK_DW_g[stackIdx] = OutCode;
+                BuoyBlobAnalysis_NUM_PIX_DW_c[currentLabel - 1] =
+                  BuoyBlobAnalysis_NUM_PIX_DW_c[currentLabel - 1] + 1U;
+                brain_DWork.BuoyBlobAnalysis_STACK_DW_g[stackIdx] = k;
                 stackIdx++;
               }
             }
@@ -8067,7 +7937,7 @@ static void brain_FindSecondBuoy(void)
 
           if (currentLabel == 10) {
             maxNumBlobsReached = TRUE;
-            idx = 160;
+            n = 160;
             pixListMinc = 120;
           }
 
@@ -8076,101 +7946,98 @@ static void brain_FindSecondBuoy(void)
           }
         }
 
-        in++;
+        minr++;
       }
 
-      n++;
+      idx++;
     }
 
     numBlobs = maxNumBlobsReached ? currentLabel : (uint8_T)(currentLabel - 1);
     currentLabel = (uint8_T)numBlobs;
     pixListMinc = 0;
-    pixListNinc = 0;
+    padRows = 0;
     for (i_0 = 0; i_0 < (int32_T)numBlobs; i_0++) {
-      i = 0;
-      n = 0;
-      for (line_idx_5 = 0; line_idx_5 < (int32_T)
-           BuoyBlobAnalysis_NUM_PIX_DW_c[i_0]; line_idx_5++) {
-        i += brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[line_idx_5 +
-          pixListNinc];
-        n += brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[line_idx_5 +
-          pixListMinc];
+      loop = 0;
+      idx = 0;
+      for (padCols = 0; padCols < (int32_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0];
+           padCols++) {
+        loop += brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[padCols + padRows];
+        idx += brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[padCols + pixListMinc];
       }
 
-      rtb_BlobPos[0] = (real_T)n / (real_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0];
-      rtb_BlobPos[1] = (real_T)i / (real_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0];
+      rtb_BlobPos[0] = (real_T)idx / (real_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0];
+      rtb_BlobPos[1] = (real_T)loop / (real_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0];
       rtb_BuoyBlobAnalysis_o1[i_0 << 1] = rtb_BlobPos[0];
       rtb_BuoyBlobAnalysis_o1[(i_0 << 1) + 1] = rtb_BlobPos[1];
-      n = 160;
-      idx = 120;
-      in = 0;
-      line_idx_4 = 0;
-      for (line_idx_5 = 0; line_idx_5 < (int32_T)
-           BuoyBlobAnalysis_NUM_PIX_DW_c[i_0]; line_idx_5++) {
-        i = line_idx_5 + pixListNinc;
-        if (brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[i] < n) {
-          n = brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[i];
+      idx = 160;
+      minr = 120;
+      maxc = 0;
+      n = 0;
+      for (padCols = 0; padCols < (int32_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0];
+           padCols++) {
+        loop = padCols + padRows;
+        if (brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[loop] < idx) {
+          idx = brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[loop];
         }
 
-        if (brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[i] > in) {
-          in = brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[i];
+        if (brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[loop] > maxc) {
+          maxc = brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[loop];
         }
 
-        i = line_idx_5 + pixListMinc;
-        if (brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[i] < idx) {
-          idx = brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[i];
+        loop = padCols + pixListMinc;
+        if (brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[loop] < minr) {
+          minr = brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[loop];
         }
 
-        if (brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[i] > line_idx_4) {
-          line_idx_4 = brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[i];
+        if (brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[loop] > n) {
+          n = brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[loop];
         }
       }
 
       rtb_Add = 0.0;
       ys = 0.0;
-      cc = 0.0;
-      for (OutCode = 0U; OutCode < (uint32_T)(int32_T)
-           BuoyBlobAnalysis_NUM_PIX_DW_c[i_0]; OutCode++) {
-        rtb_TSamp = (real_T)
-          brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[pixListNinc + OutCode] -
-          rtb_BlobPos[1];
+      xys = 0.0;
+      for (k = 0U; k < (uint32_T)(int32_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0]; k
+           ++) {
+        rtb_TSamp = (real_T)brain_DWork.BuoyBlobAnalysis_N_PIXLIST_DW_k[padRows
+          + (int32_T)k] - rtb_BlobPos[1];
         uyy = (real_T)brain_DWork.BuoyBlobAnalysis_M_PIXLIST_DW_m[pixListMinc +
-          OutCode] - rtb_BlobPos[0];
+          (int32_T)k] - rtb_BlobPos[0];
         rtb_Add += rtb_TSamp * rtb_TSamp;
         ys += uyy * uyy;
-        cc += rtb_TSamp * (-uyy);
+        xys += rtb_TSamp * (-uyy);
       }
 
-      cc_0 = rtb_Add / (real_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0] +
-        8.3333333333333329E-002;
+      uxx = rtb_Add / (real_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0] +
+        0.083333333333333329;
       uyy = ys / (real_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0] +
-        8.3333333333333329E-002;
-      rtb_Add = cc / (real_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0];
-      rtb_Add = sqrt((cc_0 - uyy) * (cc_0 - uyy) + rtb_Add * rtb_Add * 4.0);
-      rtb_TSamp = ((cc_0 + uyy) + rtb_Add) * 8.0;
-      rtb_BuoyBlobAnalysis_o2[i_0] = sqrt(rtb_TSamp - ((cc_0 + uyy) - rtb_Add) *
+        0.083333333333333329;
+      rtb_Add = xys / (real_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0];
+      rtb_Add = sqrt((uxx - uyy) * (uxx - uyy) + rtb_Add * rtb_Add * 4.0);
+      rtb_TSamp = ((uxx + uyy) + rtb_Add) * 8.0;
+      rtb_BuoyBlobAnalysis_o2[i_0] = sqrt(rtb_TSamp - ((uxx + uyy) - rtb_Add) *
         8.0) / sqrt(rtb_TSamp);
       rtb_BuoyBlobAnalysis_o3[i_0] = (real_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0] /
-        (real_T)(((line_idx_4 + 1) - idx) * ((in + 1) - n));
+        (real_T)(((n + 1) - minr) * ((maxc + 1) - idx));
       pixListMinc += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0];
-      pixListNinc += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0];
+      padRows += (int32_T)BuoyBlobAnalysis_NUM_PIX_DW_c[i_0];
     }
 
-    for (i = (int32_T)numBlobs << 1; i < 20; i++) {
-      rtb_BuoyBlobAnalysis_o1[i] = -1.0;
+    for (loop = (int32_T)(numBlobs << 1); loop < 20; loop++) {
+      rtb_BuoyBlobAnalysis_o1[loop] = -1.0;
     }
 
-    for (i = (int32_T)numBlobs; i < 10; i++) {
-      rtb_BuoyBlobAnalysis_o2[i] = -1.0;
+    for (loop = (int32_T)numBlobs; loop < 10; loop++) {
+      rtb_BuoyBlobAnalysis_o2[loop] = -1.0;
     }
 
-    for (i = (int32_T)numBlobs; i < 10; i++) {
-      rtb_BuoyBlobAnalysis_o3[i] = -1.0;
+    for (loop = (int32_T)numBlobs; loop < 10; loop++) {
+      rtb_BuoyBlobAnalysis_o3[loop] = -1.0;
     }
 
     /* S-Function (svipscalenconvert): '<S13>/Image Data Type Conversion' */
-    for (i = 0; i < 19200; i++) {
-      brain_B.ImageDataTypeConversion[i] = brain_B.BW_fi[i] ? 1.0 : 0.0;
+    for (i_0 = 0; i_0 < 19200; i_0++) {
+      brain_B.ImageDataTypeConversion[i_0] = brain_B.BW_fi[i_0] ? 1.0 : 0.0;
     }
 
     /* Embedded MATLAB: '<S13>/IF Buoy Conditions' incorporates:
@@ -8190,398 +8057,398 @@ static void brain_FindSecondBuoy(void)
     rtb_BlobPos[1] = 1.0;
 
     /* '<S57>:1:9' */
-    for (eml_i = 1U; eml_i <= currentLabel; eml_i = (uint8_T)(uint32_T)(eml_i +
-          1)) {
+    for (i = 1U; i <= currentLabel; i = (uint8_T)((uint32_T)i + 1U)) {
       /* '<S57>:1:9' */
-      if ((rtb_BuoyBlobAnalysis_o2[eml_i - 1] > brain_P.Buoy_Min_Eccentricity) &&
-          (rtb_BuoyBlobAnalysis_o2[eml_i - 1] < brain_P.Buoy_Max_Eccentricity) &&
-          (rtb_BuoyBlobAnalysis_o3[eml_i - 1] > brain_P.Buoy_Min_Extent) &&
-          (rtb_BuoyBlobAnalysis_o3[eml_i - 1] < brain_P.Buoy_Max_Extent)) {
+      if ((rtb_BuoyBlobAnalysis_o2[i - 1] > brain_P.Buoy_Min_Eccentricity) &&
+          (rtb_BuoyBlobAnalysis_o2[i - 1] < brain_P.Buoy_Max_Eccentricity) &&
+          (rtb_BuoyBlobAnalysis_o3[i - 1] > brain_P.Buoy_Min_Extent) &&
+          (rtb_BuoyBlobAnalysis_o3[i - 1] < brain_P.Buoy_Max_Extent)) {
         /* '<S57>:1:10' */
         /* '<S57>:1:11' */
         brain_B.Image_g = 1.0;
 
         /* '<S57>:1:12' */
-        rtb_BlobPos[0] = rtb_BuoyBlobAnalysis_o1[(eml_i - 1) << 1];
+        rtb_BlobPos[0] = rtb_BuoyBlobAnalysis_o1[(i - 1) << 1];
 
         /* '<S57>:1:13' */
-        rtb_BlobPos[1] = rtb_BuoyBlobAnalysis_o1[((eml_i - 1) << 1) + 1];
+        rtb_BlobPos[1] = rtb_BuoyBlobAnalysis_o1[((i - 1) << 1) + 1];
       }
     }
 
     /* S-Function (svipdrawmarkers): '<S13>/Draw Markers' */
     /* Copy the image from input to output. */
-    memcpy((void *)&brain_B.DrawMarkers[0], (void *)
-           &brain_B.ImageDataTypeConversion[0], 19200U * sizeof(real_T));
+    memcpy((void *)(&brain_B.DrawMarkers[0]), (void *)
+           (&brain_B.ImageDataTypeConversion[0]), 19200U * sizeof(real_T));
 
     /* Draw all X marks. */
-    for (idxROI = 0; idxROI < 2; idxROI += 2) {
-      cc = rtb_BlobPos[idxROI];
-      if ((rtb_BlobPos[idxROI] < 4.5035996273704960E+015) && (rtb_BlobPos[idxROI]
-           > -4.5035996273704960E+015)) {
-        cc = floor(rtb_BlobPos[idxROI] + 0.5);
+    for (pixListMinc = 0; pixListMinc < 2; pixListMinc += 2) {
+      uxx = rtb_BlobPos[pixListMinc];
+      if ((rtb_BlobPos[pixListMinc] < 4.503599627370496E+15) &&
+          (rtb_BlobPos[pixListMinc] > -4.503599627370496E+15)) {
+        uxx = floor(rtb_BlobPos[pixListMinc] + 0.5);
       }
 
-      pixListMinc = (int32_T)cc;
-      cc = rtb_BlobPos[idxROI + 1];
-      if ((cc < 4.5035996273704960E+015) && (cc > -4.5035996273704960E+015)) {
-        cc = floor(cc + 0.5);
+      i_0 = (int32_T)uxx;
+      uxx = rtb_BlobPos[pixListMinc + 1];
+      if ((rtb_BlobPos[pixListMinc + 1] < 4.503599627370496E+15) &&
+          (rtb_BlobPos[pixListMinc + 1] > -4.503599627370496E+15)) {
+        uxx = floor(rtb_BlobPos[pixListMinc + 1] + 0.5);
       }
 
-      pixListNinc = (int32_T)cc;
-      line_idx_2 = pixListMinc - 7;
-      line_idx_1 = pixListNinc - 7;
-      line_idx_0 = pixListMinc + 7;
-      line_idx = pixListNinc + 7;
+      n = (int32_T)uxx;
+      padRows = i_0 - 7;
+      padCols = n - 7;
+      maxc = i_0 + 7;
+      line_idx = n + 7;
       maxNumBlobsReached = FALSE;
 
       /* Find the visible portion of a line. */
       visited = FALSE;
       visited_0 = FALSE;
       done = FALSE;
-      i_0 = line_idx_2;
-      line_idx_5 = line_idx_1;
-      line_idx_4 = line_idx_0;
-      line_idx_3 = line_idx;
+      line_idx_3 = padRows;
+      line_idx_2 = padCols;
+      line_idx_1 = maxc;
+      line_idx_0 = line_idx;
       while (!done) {
         numBlobs = 0U;
-        OutCode = 0U;
+        k = 0U;
 
         /* Determine viewport violations. */
-        if (i_0 < 0) {
+        if (line_idx_3 < 0) {
           numBlobs = 4U;
         } else {
-          if (i_0 > 119) {
+          if (line_idx_3 > 119) {
             numBlobs = 8U;
           }
         }
 
-        if (line_idx_4 < 0) {
-          OutCode = 4U;
+        if (line_idx_1 < 0) {
+          k = 4U;
         } else {
-          if (line_idx_4 > 119) {
-            OutCode = 8U;
+          if (line_idx_1 > 119) {
+            k = 8U;
           }
         }
 
-        if (line_idx_5 < 0) {
-          numBlobs = (uint32_T)((int32_T)numBlobs | 1);
+        if (line_idx_2 < 0) {
+          numBlobs |= 1U;
         } else {
-          if (line_idx_5 > 159) {
-            numBlobs = (uint32_T)((int32_T)numBlobs | 2);
+          if (line_idx_2 > 159) {
+            numBlobs |= 2U;
           }
         }
 
-        if (line_idx_3 < 0) {
-          OutCode = (uint32_T)((int32_T)OutCode | 1);
+        if (line_idx_0 < 0) {
+          k |= 1U;
         } else {
-          if (line_idx_3 > 159) {
-            OutCode = (uint32_T)((int32_T)OutCode | 2);
+          if (line_idx_0 > 159) {
+            k |= 2U;
           }
         }
 
-        if (!((uint32_T)((int32_T)numBlobs | (int32_T)OutCode))) {
+        if (!(numBlobs | k)) {
           /* Line falls completely within bounds. */
           done = TRUE;
           maxNumBlobsReached = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & (int32_T)OutCode)) {
+        } else if (numBlobs & k) {
           /* Line falls completely out of bounds. */
           done = TRUE;
           maxNumBlobsReached = FALSE;
         } else if (numBlobs != 0U) {
           /* Clip 1st point; if it's in-bounds, clip 2nd point. */
           if (visited) {
-            i_0 = line_idx_2;
-            line_idx_5 = line_idx_1;
+            line_idx_3 = padRows;
+            line_idx_2 = padCols;
           }
 
-          i = line_idx_4 - i_0;
-          n = line_idx_3 - line_idx_5;
-          if ((uint32_T)((int32_T)numBlobs & 4)) {
+          loop = line_idx_1 - line_idx_3;
+          idx = line_idx_0 - line_idx_2;
+          if (numBlobs & 4U) {
             /* Violated RMin. */
-            idx = (0 - i_0) * n;
-            if (((idx >= 0) && (i >= 0)) || ((idx < 0) && (i < 0))) {
-              line_idx_5 += (div_s32_floor(idx << 1U, i) + 1) >> 1;
+            minr = (0 - line_idx_3) * idx;
+            if (((minr >= 0) && (loop >= 0)) || ((minr < 0) && (loop < 0))) {
+              line_idx_2 += (div_s32_floor(minr << 1U, loop) + 1) >> 1;
             } else {
-              line_idx_5 += -((div_s32_floor((-idx) << 1U, i) + 1) >> 1);
+              line_idx_2 += -((div_s32_floor((-minr) << 1U, loop) + 1) >> 1);
             }
 
-            i_0 = 0;
+            line_idx_3 = 0;
             visited = TRUE;
-          } else if ((uint32_T)((int32_T)numBlobs & 8)) {
+          } else if (numBlobs & 8U) {
             /* Violated RMax. */
-            idx = (119 - i_0) * n;
-            if (((idx >= 0) && (i >= 0)) || ((idx < 0) && (i < 0))) {
-              line_idx_5 += (div_s32_floor(idx << 1U, i) + 1) >> 1;
+            minr = (119 - line_idx_3) * idx;
+            if (((minr >= 0) && (loop >= 0)) || ((minr < 0) && (loop < 0))) {
+              line_idx_2 += (div_s32_floor(minr << 1U, loop) + 1) >> 1;
             } else {
-              line_idx_5 += -((div_s32_floor((-idx) << 1U, i) + 1) >> 1);
+              line_idx_2 += -((div_s32_floor((-minr) << 1U, loop) + 1) >> 1);
             }
 
-            i_0 = 119;
+            line_idx_3 = 119;
             visited = TRUE;
-          } else if ((uint32_T)((int32_T)numBlobs & 1)) {
+          } else if (numBlobs & 1U) {
             /* Violated CMin. */
-            idx = (0 - line_idx_5) * i;
-            if (((idx >= 0) && (n >= 0)) || ((idx < 0) && (n < 0))) {
-              i_0 += (div_s32_floor(idx << 1U, n) + 1) >> 1;
+            minr = (0 - line_idx_2) * loop;
+            if (((minr >= 0) && (idx >= 0)) || ((minr < 0) && (idx < 0))) {
+              line_idx_3 += (div_s32_floor(minr << 1U, idx) + 1) >> 1;
             } else {
-              i_0 += -((div_s32_floor((-idx) << 1U, n) + 1) >> 1);
+              line_idx_3 += -((div_s32_floor((-minr) << 1U, idx) + 1) >> 1);
             }
 
-            line_idx_5 = 0;
+            line_idx_2 = 0;
             visited = TRUE;
           } else {
             /* Violated CMax. */
-            idx = (159 - line_idx_5) * i;
-            if (((idx >= 0) && (n >= 0)) || ((idx < 0) && (n < 0))) {
-              i_0 += (div_s32_floor(idx << 1U, n) + 1) >> 1;
+            minr = (159 - line_idx_2) * loop;
+            if (((minr >= 0) && (idx >= 0)) || ((minr < 0) && (idx < 0))) {
+              line_idx_3 += (div_s32_floor(minr << 1U, idx) + 1) >> 1;
             } else {
-              i_0 += -((div_s32_floor((-idx) << 1U, n) + 1) >> 1);
+              line_idx_3 += -((div_s32_floor((-minr) << 1U, idx) + 1) >> 1);
             }
 
-            line_idx_5 = 159;
+            line_idx_2 = 159;
             visited = TRUE;
           }
         } else {
           /* Clip the 2nd point. */
           if (visited_0) {
-            line_idx_4 = line_idx_0;
-            line_idx_3 = line_idx;
+            line_idx_1 = maxc;
+            line_idx_0 = line_idx;
           }
 
-          i = line_idx_4 - i_0;
-          n = line_idx_3 - line_idx_5;
-          if ((uint32_T)((int32_T)OutCode & 4)) {
+          loop = line_idx_1 - line_idx_3;
+          idx = line_idx_0 - line_idx_2;
+          if (k & 4U) {
             /* Violated RMin. */
-            idx = (0 - line_idx_4) * n;
-            if (((idx >= 0) && (i >= 0)) || ((idx < 0) && (i < 0))) {
-              line_idx_3 += (div_s32_floor(idx << 1U, i) + 1) >> 1;
+            minr = (0 - line_idx_1) * idx;
+            if (((minr >= 0) && (loop >= 0)) || ((minr < 0) && (loop < 0))) {
+              line_idx_0 += (div_s32_floor(minr << 1U, loop) + 1) >> 1;
             } else {
-              line_idx_3 += -((div_s32_floor((-idx) << 1U, i) + 1) >> 1);
+              line_idx_0 += -((div_s32_floor((-minr) << 1U, loop) + 1) >> 1);
             }
 
-            line_idx_4 = 0;
+            line_idx_1 = 0;
             visited_0 = TRUE;
-          } else if ((uint32_T)((int32_T)OutCode & 8)) {
+          } else if (k & 8U) {
             /* Violated RMax. */
-            idx = (119 - line_idx_4) * n;
-            if (((idx >= 0) && (i >= 0)) || ((idx < 0) && (i < 0))) {
-              line_idx_3 += (div_s32_floor(idx << 1U, i) + 1) >> 1;
+            minr = (119 - line_idx_1) * idx;
+            if (((minr >= 0) && (loop >= 0)) || ((minr < 0) && (loop < 0))) {
+              line_idx_0 += (div_s32_floor(minr << 1U, loop) + 1) >> 1;
             } else {
-              line_idx_3 += -((div_s32_floor((-idx) << 1U, i) + 1) >> 1);
+              line_idx_0 += -((div_s32_floor((-minr) << 1U, loop) + 1) >> 1);
             }
 
-            line_idx_4 = 119;
+            line_idx_1 = 119;
             visited_0 = TRUE;
-          } else if ((uint32_T)((int32_T)OutCode & 1)) {
+          } else if (k & 1U) {
             /* Violated CMin. */
-            idx = (0 - line_idx_3) * i;
-            if (((idx >= 0) && (n >= 0)) || ((idx < 0) && (n < 0))) {
-              line_idx_4 += (div_s32_floor(idx << 1U, n) + 1) >> 1;
+            minr = (0 - line_idx_0) * loop;
+            if (((minr >= 0) && (idx >= 0)) || ((minr < 0) && (idx < 0))) {
+              line_idx_1 += (div_s32_floor(minr << 1U, idx) + 1) >> 1;
             } else {
-              line_idx_4 += -((div_s32_floor((-idx) << 1U, n) + 1) >> 1);
+              line_idx_1 += -((div_s32_floor((-minr) << 1U, idx) + 1) >> 1);
             }
 
-            line_idx_3 = 0;
+            line_idx_0 = 0;
             visited_0 = TRUE;
           } else {
             /* Violated CMax. */
-            idx = (159 - line_idx_3) * i;
-            if (((idx >= 0) && (n >= 0)) || ((idx < 0) && (n < 0))) {
-              line_idx_4 += (div_s32_floor(idx << 1U, n) + 1) >> 1;
+            minr = (159 - line_idx_0) * loop;
+            if (((minr >= 0) && (idx >= 0)) || ((minr < 0) && (idx < 0))) {
+              line_idx_1 += (div_s32_floor(minr << 1U, idx) + 1) >> 1;
             } else {
-              line_idx_4 += -((div_s32_floor((-idx) << 1U, n) + 1) >> 1);
+              line_idx_1 += -((div_s32_floor((-minr) << 1U, idx) + 1) >> 1);
             }
 
-            line_idx_3 = 159;
+            line_idx_0 = 159;
             visited_0 = TRUE;
           }
         }
       }
 
       if (maxNumBlobsReached) {
-        n = line_idx_5 * 120 + i_0;
-        for (idx = i_0; idx <= line_idx_4; idx++) {
-          brain_B.DrawMarkers[n] = 0.75;
-          n += 121;
+        idx = line_idx_2 * 120 + line_idx_3;
+        for (minr = line_idx_3; minr <= line_idx_1; minr++) {
+          brain_B.DrawMarkers[idx] = 0.75;
+          idx += 121;
         }
       }
 
-      line_idx_2 = pixListMinc - 7;
-      line_idx_1 = pixListNinc + 7;
-      line_idx_0 = pixListMinc + 7;
-      line_idx = pixListNinc - 7;
+      padRows = i_0 - 7;
+      padCols = n + 7;
+      maxc = i_0 + 7;
+      line_idx = n - 7;
       maxNumBlobsReached = FALSE;
 
       /* Find the visible portion of a line. */
       visited = FALSE;
       visited_0 = FALSE;
       done = FALSE;
-      i_0 = line_idx_2;
-      line_idx_5 = line_idx_1;
-      line_idx_4 = line_idx_0;
-      line_idx_3 = line_idx;
+      line_idx_3 = padRows;
+      line_idx_2 = padCols;
+      line_idx_1 = maxc;
+      line_idx_0 = line_idx;
       while (!done) {
         numBlobs = 0U;
-        OutCode = 0U;
+        k = 0U;
 
         /* Determine viewport violations. */
-        if (i_0 < 0) {
+        if (line_idx_3 < 0) {
           numBlobs = 4U;
         } else {
-          if (i_0 > 119) {
+          if (line_idx_3 > 119) {
             numBlobs = 8U;
           }
         }
 
-        if (line_idx_4 < 0) {
-          OutCode = 4U;
+        if (line_idx_1 < 0) {
+          k = 4U;
         } else {
-          if (line_idx_4 > 119) {
-            OutCode = 8U;
+          if (line_idx_1 > 119) {
+            k = 8U;
           }
         }
 
-        if (line_idx_5 < 0) {
-          numBlobs = (uint32_T)((int32_T)numBlobs | 1);
+        if (line_idx_2 < 0) {
+          numBlobs |= 1U;
         } else {
-          if (line_idx_5 > 159) {
-            numBlobs = (uint32_T)((int32_T)numBlobs | 2);
+          if (line_idx_2 > 159) {
+            numBlobs |= 2U;
           }
         }
 
-        if (line_idx_3 < 0) {
-          OutCode = (uint32_T)((int32_T)OutCode | 1);
+        if (line_idx_0 < 0) {
+          k |= 1U;
         } else {
-          if (line_idx_3 > 159) {
-            OutCode = (uint32_T)((int32_T)OutCode | 2);
+          if (line_idx_0 > 159) {
+            k |= 2U;
           }
         }
 
-        if (!((uint32_T)((int32_T)numBlobs | (int32_T)OutCode))) {
+        if (!(numBlobs | k)) {
           /* Line falls completely within bounds. */
           done = TRUE;
           maxNumBlobsReached = TRUE;
-        } else if ((uint32_T)((int32_T)numBlobs & (int32_T)OutCode)) {
+        } else if (numBlobs & k) {
           /* Line falls completely out of bounds. */
           done = TRUE;
           maxNumBlobsReached = FALSE;
         } else if (numBlobs != 0U) {
           /* Clip 1st point; if it's in-bounds, clip 2nd point. */
           if (visited) {
-            i_0 = line_idx_2;
-            line_idx_5 = line_idx_1;
+            line_idx_3 = padRows;
+            line_idx_2 = padCols;
           }
 
-          i = line_idx_4 - i_0;
-          n = line_idx_3 - line_idx_5;
-          if ((uint32_T)((int32_T)numBlobs & 4)) {
+          loop = line_idx_1 - line_idx_3;
+          idx = line_idx_0 - line_idx_2;
+          if (numBlobs & 4U) {
             /* Violated RMin. */
-            in = (0 - i_0) * n;
-            if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
-              line_idx_5 += (div_s32_floor(in << 1U, i) + 1) >> 1;
+            minr = (0 - line_idx_3) * idx;
+            if (((minr >= 0) && (loop >= 0)) || ((minr < 0) && (loop < 0))) {
+              line_idx_2 += (div_s32_floor(minr << 1U, loop) + 1) >> 1;
             } else {
-              line_idx_5 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
+              line_idx_2 += -((div_s32_floor((-minr) << 1U, loop) + 1) >> 1);
             }
 
-            i_0 = 0;
+            line_idx_3 = 0;
             visited = TRUE;
-          } else if ((uint32_T)((int32_T)numBlobs & 8)) {
+          } else if (numBlobs & 8U) {
             /* Violated RMax. */
-            in = (119 - i_0) * n;
-            if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
-              line_idx_5 += (div_s32_floor(in << 1U, i) + 1) >> 1;
+            minr = (119 - line_idx_3) * idx;
+            if (((minr >= 0) && (loop >= 0)) || ((minr < 0) && (loop < 0))) {
+              line_idx_2 += (div_s32_floor(minr << 1U, loop) + 1) >> 1;
             } else {
-              line_idx_5 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
+              line_idx_2 += -((div_s32_floor((-minr) << 1U, loop) + 1) >> 1);
             }
 
-            i_0 = 119;
+            line_idx_3 = 119;
             visited = TRUE;
-          } else if ((uint32_T)((int32_T)numBlobs & 1)) {
+          } else if (numBlobs & 1U) {
             /* Violated CMin. */
-            in = (0 - line_idx_5) * i;
-            if (((in >= 0) && (n >= 0)) || ((in < 0) && (n < 0))) {
-              i_0 += (div_s32_floor(in << 1U, n) + 1) >> 1;
+            minr = (0 - line_idx_2) * loop;
+            if (((minr >= 0) && (idx >= 0)) || ((minr < 0) && (idx < 0))) {
+              line_idx_3 += (div_s32_floor(minr << 1U, idx) + 1) >> 1;
             } else {
-              i_0 += -((div_s32_floor((-in) << 1U, n) + 1) >> 1);
+              line_idx_3 += -((div_s32_floor((-minr) << 1U, idx) + 1) >> 1);
             }
 
-            line_idx_5 = 0;
+            line_idx_2 = 0;
             visited = TRUE;
           } else {
             /* Violated CMax. */
-            in = (159 - line_idx_5) * i;
-            if (((in >= 0) && (n >= 0)) || ((in < 0) && (n < 0))) {
-              i_0 += (div_s32_floor(in << 1U, n) + 1) >> 1;
+            minr = (159 - line_idx_2) * loop;
+            if (((minr >= 0) && (idx >= 0)) || ((minr < 0) && (idx < 0))) {
+              line_idx_3 += (div_s32_floor(minr << 1U, idx) + 1) >> 1;
             } else {
-              i_0 += -((div_s32_floor((-in) << 1U, n) + 1) >> 1);
+              line_idx_3 += -((div_s32_floor((-minr) << 1U, idx) + 1) >> 1);
             }
 
-            line_idx_5 = 159;
+            line_idx_2 = 159;
             visited = TRUE;
           }
         } else {
           /* Clip the 2nd point. */
           if (visited_0) {
-            line_idx_4 = line_idx_0;
-            line_idx_3 = line_idx;
+            line_idx_1 = maxc;
+            line_idx_0 = line_idx;
           }
 
-          i = line_idx_4 - i_0;
-          n = line_idx_3 - line_idx_5;
-          if ((uint32_T)((int32_T)OutCode & 4)) {
+          loop = line_idx_1 - line_idx_3;
+          idx = line_idx_0 - line_idx_2;
+          if (k & 4U) {
             /* Violated RMin. */
-            in = (0 - line_idx_4) * n;
-            if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
-              line_idx_3 += (div_s32_floor(in << 1U, i) + 1) >> 1;
+            minr = (0 - line_idx_1) * idx;
+            if (((minr >= 0) && (loop >= 0)) || ((minr < 0) && (loop < 0))) {
+              line_idx_0 += (div_s32_floor(minr << 1U, loop) + 1) >> 1;
             } else {
-              line_idx_3 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
+              line_idx_0 += -((div_s32_floor((-minr) << 1U, loop) + 1) >> 1);
             }
 
-            line_idx_4 = 0;
+            line_idx_1 = 0;
             visited_0 = TRUE;
-          } else if ((uint32_T)((int32_T)OutCode & 8)) {
+          } else if (k & 8U) {
             /* Violated RMax. */
-            in = (119 - line_idx_4) * n;
-            if (((in >= 0) && (i >= 0)) || ((in < 0) && (i < 0))) {
-              line_idx_3 += (div_s32_floor(in << 1U, i) + 1) >> 1;
+            minr = (119 - line_idx_1) * idx;
+            if (((minr >= 0) && (loop >= 0)) || ((minr < 0) && (loop < 0))) {
+              line_idx_0 += (div_s32_floor(minr << 1U, loop) + 1) >> 1;
             } else {
-              line_idx_3 += -((div_s32_floor((-in) << 1U, i) + 1) >> 1);
+              line_idx_0 += -((div_s32_floor((-minr) << 1U, loop) + 1) >> 1);
             }
 
-            line_idx_4 = 119;
+            line_idx_1 = 119;
             visited_0 = TRUE;
-          } else if ((uint32_T)((int32_T)OutCode & 1)) {
+          } else if (k & 1U) {
             /* Violated CMin. */
-            in = (0 - line_idx_3) * i;
-            if (((in >= 0) && (n >= 0)) || ((in < 0) && (n < 0))) {
-              line_idx_4 += (div_s32_floor(in << 1U, n) + 1) >> 1;
+            minr = (0 - line_idx_0) * loop;
+            if (((minr >= 0) && (idx >= 0)) || ((minr < 0) && (idx < 0))) {
+              line_idx_1 += (div_s32_floor(minr << 1U, idx) + 1) >> 1;
             } else {
-              line_idx_4 += -((div_s32_floor((-in) << 1U, n) + 1) >> 1);
+              line_idx_1 += -((div_s32_floor((-minr) << 1U, idx) + 1) >> 1);
             }
 
-            line_idx_3 = 0;
+            line_idx_0 = 0;
             visited_0 = TRUE;
           } else {
             /* Violated CMax. */
-            in = (159 - line_idx_3) * i;
-            if (((in >= 0) && (n >= 0)) || ((in < 0) && (n < 0))) {
-              line_idx_4 += (div_s32_floor(in << 1U, n) + 1) >> 1;
+            minr = (159 - line_idx_0) * loop;
+            if (((minr >= 0) && (idx >= 0)) || ((minr < 0) && (idx < 0))) {
+              line_idx_1 += (div_s32_floor(minr << 1U, idx) + 1) >> 1;
             } else {
-              line_idx_4 += -((div_s32_floor((-in) << 1U, n) + 1) >> 1);
+              line_idx_1 += -((div_s32_floor((-minr) << 1U, idx) + 1) >> 1);
             }
 
-            line_idx_3 = 159;
+            line_idx_0 = 159;
             visited_0 = TRUE;
           }
         }
       }
 
       if (maxNumBlobsReached) {
-        n = line_idx_5 * 120 + i_0;
-        for (in = i_0; in <= line_idx_4; in++) {
-          brain_B.DrawMarkers[n] = 0.75;
-          n += -119;
+        idx = line_idx_2 * 120 + line_idx_3;
+        for (minr = line_idx_3; minr <= line_idx_1; minr++) {
+          brain_B.DrawMarkers[idx] = 0.75;
+          idx += -119;
         }
       }
     }
@@ -8594,12 +8461,12 @@ static void brain_FindSecondBuoy(void)
       brain_B.LabMatrix_o[i_0] = brain_DWork.LabelMatrix[i_0];
     }
 
-    memcpy((void *)&brain_B.Ref_Colors_j[0], (void *)&brain_DWork.ref_colors[0],
-           150U * sizeof(real_T));
+    memcpy((void *)(&brain_B.Ref_Colors_j[0]), (void *)(&brain_DWork.ref_colors
+            [0]), 150U * sizeof(real_T));
     StateFlowFunctionsBuoysShowSegm(brain_B.LabMatrix_o, brain_B.Ref_Colors_j,
       &brain_B.StateFlowFunctionsBuoysShowSe_o);
-    memcpy((void *)&brain_B.RGBout[0], (void *)
-           &brain_B.StateFlowFunctionsBuoysShowSe_o.RGB[0], 57600U * sizeof
+    memcpy((void *)(&brain_B.RGBout[0]), (void *)
+           (&brain_B.StateFlowFunctionsBuoysShowSe_o.RGB[0]), 57600U * sizeof
            (real_T));
   }
 }
@@ -8630,14 +8497,14 @@ static void bra_exit_internal_ApproachBuoys(void)
 static void brain_ApproachBuoys(void)
 {
   real_T cc;
-  real_T cc_0;
-  real_T cc_1;
-  real_T eml_min_dist;
-  real_T eml_min_dist_0;
-  real_T eml_FirstD[50];
-  real_T eml_SecondD[50];
-  real_T eml_count;
-  real_T eml_b_i;
+  real_T min_dist;
+  real_T min_dist_0;
+  real_T FirstD[50];
+  real_T SecondD[50];
+  real_T count;
+  real_T count_0;
+  real_T Index;
+  real_T Index_0;
   int32_T i;
 
   /* During 'ApproachBuoys': '<S7>:1312' */
@@ -8688,20 +8555,20 @@ static void brain_ApproachBuoys(void)
         StateFlowFunctionsBuoysIterativ(brain_B.H, brain_B.S, brain_B.V,
           &brain_B.StateFlowFunctionsBuoysIterat_g,
           &brain_DWork.StateFlowFunctionsBuoysIterat_g);
-        memcpy((void *)&brain_DWork.LabelMatrix[0], (void *)
-               &brain_B.StateFlowFunctionsBuoysIterat_g.LabelMatrix[0], 19200U *
-               sizeof(real_T));
+        memcpy((void *)(&brain_DWork.LabelMatrix[0]), (void *)
+               (&brain_B.StateFlowFunctionsBuoysIterat_g.LabelMatrix[0]), 19200U
+               * sizeof(real_T));
         brain_DWork.num_colors =
           brain_B.StateFlowFunctionsBuoysIterat_g.num_colors;
-        memcpy((void *)&brain_DWork.ref_colors[0], (void *)
-               &brain_B.StateFlowFunctionsBuoysIterat_g.ref_colors[0], 150U *
+        memcpy((void *)(&brain_DWork.ref_colors[0]), (void *)
+               (&brain_B.StateFlowFunctionsBuoysIterat_g.ref_colors[0]), 150U *
                sizeof(real_T));
 
         /* Simulink Function 'Buoy': '<S7>:1495' */
-        memcpy((void *)&brain_B.LabMatrix[0], (void *)&brain_DWork.LabelMatrix[0],
-               19200U * sizeof(real_T));
-        memcpy((void *)&brain_B.Ref_Colors[0], (void *)&brain_DWork.ref_colors[0],
-               150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabMatrix[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.Ref_Colors[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         brain_B.Num_Colors = brain_DWork.num_colors;
         brain_B.B_Hue = brain_DWork.BuoyHue;
         brain_B.B_Sat = brain_DWork.BuoySaturation;
@@ -8730,13 +8597,13 @@ static void brain_ApproachBuoys(void)
           brain_B.LabMatrix_o[i] = brain_DWork.LabelMatrix[i];
         }
 
-        memcpy((void *)&brain_B.Ref_Colors_j[0], (void *)
-               &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.Ref_Colors_j[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         StateFlowFunctionsBuoysShowSegm(brain_B.LabMatrix_o,
           brain_B.Ref_Colors_j, &brain_B.StateFlowFunctionsBuoysShowSe_o);
-        memcpy((void *)&brain_B.RGBout[0], (void *)
-               &brain_B.StateFlowFunctionsBuoysShowSe_o.RGB[0], 57600U * sizeof
-               (real_T));
+        memcpy((void *)(&brain_B.RGBout[0]), (void *)
+               (&brain_B.StateFlowFunctionsBuoysShowSe_o.RGB[0]), 57600U *
+               sizeof(real_T));
       }
       break;
 
@@ -8752,20 +8619,20 @@ static void brain_ApproachBuoys(void)
       StateFlowFunctionsBuoysIterativ(brain_B.H, brain_B.S, brain_B.V,
         &brain_B.StateFlowFunctionsBuoysIterat_g,
         &brain_DWork.StateFlowFunctionsBuoysIterat_g);
-      memcpy((void *)&brain_DWork.LabelMatrix[0], (void *)
-             &brain_B.StateFlowFunctionsBuoysIterat_g.LabelMatrix[0], 19200U *
+      memcpy((void *)(&brain_DWork.LabelMatrix[0]), (void *)
+             (&brain_B.StateFlowFunctionsBuoysIterat_g.LabelMatrix[0]), 19200U *
              sizeof(real_T));
       brain_DWork.num_colors =
         brain_B.StateFlowFunctionsBuoysIterat_g.num_colors;
-      memcpy((void *)&brain_DWork.ref_colors[0], (void *)
-             &brain_B.StateFlowFunctionsBuoysIterat_g.ref_colors[0], 150U *
+      memcpy((void *)(&brain_DWork.ref_colors[0]), (void *)
+             (&brain_B.StateFlowFunctionsBuoysIterat_g.ref_colors[0]), 150U *
              sizeof(real_T));
 
       /* Simulink Function 'Buoy': '<S7>:1495' */
-      memcpy((void *)&brain_B.LabMatrix[0], (void *)&brain_DWork.LabelMatrix[0],
-             19200U * sizeof(real_T));
-      memcpy((void *)&brain_B.Ref_Colors[0], (void *)&brain_DWork.ref_colors[0],
-             150U * sizeof(real_T));
+      memcpy((void *)(&brain_B.LabMatrix[0]), (void *)(&brain_DWork.LabelMatrix
+              [0]), 19200U * sizeof(real_T));
+      memcpy((void *)(&brain_B.Ref_Colors[0]), (void *)(&brain_DWork.ref_colors
+              [0]), 150U * sizeof(real_T));
       brain_B.Num_Colors = brain_DWork.num_colors;
       brain_B.B_Hue = brain_DWork.BuoyHue;
       brain_B.B_Sat = brain_DWork.BuoySaturation;
@@ -8793,12 +8660,12 @@ static void brain_ApproachBuoys(void)
         brain_B.LabMatrix_o[i] = brain_DWork.LabelMatrix[i];
       }
 
-      memcpy((void *)&brain_B.Ref_Colors_j[0], (void *)&brain_DWork.ref_colors[0],
-             150U * sizeof(real_T));
+      memcpy((void *)(&brain_B.Ref_Colors_j[0]), (void *)
+             (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
       StateFlowFunctionsBuoysShowSegm(brain_B.LabMatrix_o, brain_B.Ref_Colors_j,
         &brain_B.StateFlowFunctionsBuoysShowSe_o);
-      memcpy((void *)&brain_B.RGBout[0], (void *)
-             &brain_B.StateFlowFunctionsBuoysShowSe_o.RGB[0], 57600U * sizeof
+      memcpy((void *)(&brain_B.RGBout[0]), (void *)
+             (&brain_B.StateFlowFunctionsBuoysShowSe_o.RGB[0]), 57600U * sizeof
              (real_T));
       break;
 
@@ -8827,8 +8694,8 @@ static void brain_ApproachBuoys(void)
       brain_DWork.BuoyValue = brain_B.Constant1;
 
       /* Simulink Function 'WhichBuoysToApproach': '<S7>:1514' */
-      memcpy((void *)&brain_B.buoys[0], (void *)&brain_DWork.BuoyBlobs[0], 200U *
-             sizeof(real_T));
+      memcpy((void *)(&brain_B.buoys[0]), (void *)(&brain_DWork.BuoyBlobs[0]),
+             200U * sizeof(real_T));
       brain_B.num_blobs = brain_DWork.num_blobs;
 
       /* S-Function (svipcolorconv): '<S43>/Color Space  Conversion' incorporates:
@@ -8837,59 +8704,59 @@ static void brain_ApproachBuoys(void)
        *  Constant: '<S43>/Constant2'
        */
       /* temporary variables for in-place operation */
+      count_0 = 0.0;
       cc = 0.0;
-      cc_0 = 0.0;
-      cc_1 = 0.0;
-      eml_b_i = 6.0 * brain_P.Buoy1_Hue;
-      eml_min_dist_0 = (real_T)(uint32_T)(eml_b_i - 1.3322676295501878E-015);
-      eml_b_i -= eml_min_dist_0;
-      eml_count = 1.0 - brain_P.Buoy1_Saturation;
-      eml_min_dist = 1.0 - brain_P.Buoy1_Saturation * eml_b_i;
-      eml_b_i = brain_P.Buoy1_Saturation * eml_b_i + eml_count;
-      if (eml_min_dist_0 == 0.0) {
+      count = 0.0;
+      Index_0 = 6.0 * brain_P.Buoy1_Hue;
+      min_dist_0 = (real_T)(uint32_T)(Index_0 - 1.3322676295501878E-15);
+      Index_0 -= min_dist_0;
+      Index = 1.0 - brain_P.Buoy1_Saturation;
+      min_dist = 1.0 - brain_P.Buoy1_Saturation * Index_0;
+      Index_0 = brain_P.Buoy1_Saturation * Index_0 + Index;
+      if (min_dist_0 == 0.0) {
+        count_0 = 1.0;
+        cc = Index_0;
+        count = Index;
+      } else if (min_dist_0 == 1.0) {
+        count_0 = min_dist;
         cc = 1.0;
-        cc_0 = eml_b_i;
-        cc_1 = eml_count;
-      } else if (eml_min_dist_0 == 1.0) {
-        cc = eml_min_dist;
-        cc_0 = 1.0;
-        cc_1 = eml_count;
-      } else if (eml_min_dist_0 == 2.0) {
-        cc = eml_count;
-        cc_0 = 1.0;
-        cc_1 = eml_b_i;
-      } else if (eml_min_dist_0 == 3.0) {
-        cc = eml_count;
-        cc_0 = eml_min_dist;
-        cc_1 = 1.0;
-      } else if (eml_min_dist_0 == 4.0) {
-        cc = eml_b_i;
-        cc_0 = eml_count;
-        cc_1 = 1.0;
+        count = Index;
+      } else if (min_dist_0 == 2.0) {
+        count_0 = Index;
+        cc = 1.0;
+        count = Index_0;
+      } else if (min_dist_0 == 3.0) {
+        count_0 = Index;
+        cc = min_dist;
+        count = 1.0;
+      } else if (min_dist_0 == 4.0) {
+        count_0 = Index_0;
+        cc = Index;
+        count = 1.0;
       } else {
-        if (eml_min_dist_0 == 5.0) {
-          cc = 1.0;
-          cc_0 = eml_count;
-          cc_1 = eml_min_dist;
+        if (min_dist_0 == 5.0) {
+          count_0 = 1.0;
+          cc = Index;
+          count = min_dist;
         }
       }
 
-      if (cc > cc_0) {
-        eml_b_i = cc;
+      if (count_0 > cc) {
+        Index_0 = count_0;
       } else {
-        eml_b_i = cc_0;
+        Index_0 = cc;
       }
 
-      if (!(eml_b_i > cc_1)) {
-        eml_b_i = cc_1;
+      if (!(Index_0 > count)) {
+        Index_0 = count;
       }
 
-      eml_b_i = brain_P.Buoy1_Value / eml_b_i;
+      Index_0 = brain_P.Buoy1_Value / Index_0;
 
       /* assign the results */
-      brain_B.ColorSpaceConversion_o3_c = eml_b_i * cc;
-      brain_B.ColorSpaceConversion_o2_o = eml_b_i * cc_0;
-      brain_B.ColorSpaceConversion_o1_g = eml_b_i * cc_1;
+      brain_B.ColorSpaceConversion_o3_c = Index_0 * count_0;
+      brain_B.ColorSpaceConversion_o2_o = Index_0 * cc;
+      brain_B.ColorSpaceConversion_o1_g = Index_0 * count;
 
       /* S-Function (svipcolorconv): '<S43>/Color Space  Conversion1' */
       /* temporary variables for in-place operation */
@@ -8899,102 +8766,99 @@ static void brain_ApproachBuoys(void)
       /* equivalent to running the gamma correction block with break */
       /* point of 0.00304 and gamma of 2.4; it's built into this */
       /* conversion for convenience */
-      if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-002) {
-        eml_b_i = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333254E+001;
+      if (brain_B.ColorSpaceConversion_o3_c <= 0.039286085583733095) {
+        Index_0 = brain_B.ColorSpaceConversion_o3_c / 12.923054468333255;
       } else {
-        eml_b_i = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226361E-002) /
-          1.0550005198172263E+000;
-        eml_b_i = rt_pow_snf(eml_b_i, 2.4);
+        Index_0 = (brain_B.ColorSpaceConversion_o3_c + 0.055000519817226347) /
+          1.0550005198172263;
+        Index_0 = rt_pow_snf(Index_0, 2.4);
       }
 
-      if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-002) {
-        eml_min_dist = brain_B.ColorSpaceConversion_o2_o /
-          1.2923054468333254E+001;
+      if (brain_B.ColorSpaceConversion_o2_o <= 0.039286085583733095) {
+        min_dist = brain_B.ColorSpaceConversion_o2_o / 12.923054468333255;
       } else {
-        eml_min_dist = (brain_B.ColorSpaceConversion_o2_o +
-                        5.5000519817226361E-002) / 1.0550005198172263E+000;
-        eml_min_dist = rt_pow_snf(eml_min_dist, 2.4);
+        min_dist = (brain_B.ColorSpaceConversion_o2_o + 0.055000519817226347) /
+          1.0550005198172263;
+        min_dist = rt_pow_snf(min_dist, 2.4);
       }
 
-      if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-002) {
-        cc = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333254E+001;
+      if (brain_B.ColorSpaceConversion_o1_g <= 0.039286085583733095) {
+        Index = brain_B.ColorSpaceConversion_o1_g / 12.923054468333255;
       } else {
-        cc = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226361E-002) /
-          1.0550005198172263E+000;
-        cc = rt_pow_snf(cc, 2.4);
+        Index = (brain_B.ColorSpaceConversion_o1_g + 0.055000519817226347) /
+          1.0550005198172263;
+        Index = rt_pow_snf(Index, 2.4);
       }
 
       /* The coefficients for this conversion were derived from ITU-R */
       /* BT.709 reference primaries for sRGB and CIE standard illuminant */
       /* D65, 2 degree observer */
-      eml_min_dist_0 = (4.1239079926596001E-001 * eml_b_i +
-                        3.5758433938388001E-001 * eml_min_dist) +
-        1.8048078840182999E-001 * cc;
-      eml_count = (2.1263900587151000E-001 * eml_b_i + 7.1516867876776002E-001 *
-                   eml_min_dist) + 7.2192315360729994E-002 * cc;
-      eml_b_i = (1.9330818715590000E-002 * eml_b_i + 1.1919477979463000E-001 *
-                 eml_min_dist) + 9.5053215224966003E-001 * cc;
+      count_0 = (0.41239079926596 * Index_0 + 0.35758433938388 * min_dist) +
+        0.18048078840183 * Index;
+      cc = (0.21263900587151 * Index_0 + 0.71516867876776 * min_dist) +
+        0.07219231536073 * Index;
+      count = (0.01933081871559 * Index_0 + 0.11919477979463 * min_dist) +
+        0.95053215224966 * Index;
 
       /* Make sure that the output is in [0..1] range; clip if necessary */
-      if (eml_min_dist_0 > 1.0) {
-        eml_min_dist_0 = 1.0;
+      if (count_0 > 1.0) {
+        count_0 = 1.0;
       } else {
-        if (eml_min_dist_0 < 0.0) {
-          eml_min_dist_0 = 0.0;
+        if (count_0 < 0.0) {
+          count_0 = 0.0;
         }
       }
 
-      if (eml_count > 1.0) {
-        eml_count = 1.0;
+      if (cc > 1.0) {
+        cc = 1.0;
       } else {
-        if (eml_count < 0.0) {
-          eml_count = 0.0;
+        if (cc < 0.0) {
+          cc = 0.0;
         }
       }
 
-      if (eml_b_i > 1.0) {
-        eml_b_i = 1.0;
+      if (count > 1.0) {
+        count = 1.0;
       } else {
-        if (eml_b_i < 0.0) {
-          eml_b_i = 0.0;
+        if (count < 0.0) {
+          count = 0.0;
         }
       }
 
       /* assign the results */
-      brain_B.ColorSpaceConversion1_o1 = eml_min_dist_0;
-      brain_B.ColorSpaceConversion1_o2 = eml_count;
-      brain_B.ColorSpaceConversion1_o3 = eml_b_i;
+      brain_B.ColorSpaceConversion1_o1 = count_0;
+      brain_B.ColorSpaceConversion1_o2 = cc;
+      brain_B.ColorSpaceConversion1_o3 = count;
 
       /* Convert from XYZ to L*a*b* */
-      eml_b_i = brain_B.ColorSpaceConversion1_o1 / 9.6419865576090003E-001;
-      cc = brain_B.ColorSpaceConversion1_o3 / 8.2511648322104003E-001;
+      Index_0 = brain_B.ColorSpaceConversion1_o1 / 0.9641986557609;
+      Index = brain_B.ColorSpaceConversion1_o3 / 0.82511648322104;
 
       /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-      if (eml_b_i > 8.8564516790356311E-003) {
-        eml_min_dist_0 = rt_pow_snf(eml_b_i, 3.3333333333333331E-001);
+      if (Index_0 > 0.0088564516790356311) {
+        min_dist_0 = rt_pow_snf(Index_0, 0.33333333333333331);
       } else {
-        eml_min_dist_0 = 7.7870370370370372E+000 * eml_b_i +
-          1.3793103448275862E-001;
+        min_dist_0 = 7.7870370370370372 * Index_0 + 0.13793103448275862;
       }
 
-      if (brain_B.ColorSpaceConversion1_o2 > 8.8564516790356311E-003) {
-        eml_min_dist = rt_pow_snf(brain_B.ColorSpaceConversion1_o2,
-          3.3333333333333331E-001);
+      if (brain_B.ColorSpaceConversion1_o2 > 0.0088564516790356311) {
+        min_dist = rt_pow_snf(brain_B.ColorSpaceConversion1_o2,
+                              0.33333333333333331);
       } else {
-        eml_min_dist = 7.7870370370370372E+000 *
-          brain_B.ColorSpaceConversion1_o2 + 1.3793103448275862E-001;
+        min_dist = 7.7870370370370372 * brain_B.ColorSpaceConversion1_o2 +
+          0.13793103448275862;
       }
 
-      if (cc > 8.8564516790356311E-003) {
-        eml_b_i = rt_pow_snf(cc, 3.3333333333333331E-001);
+      if (Index > 0.0088564516790356311) {
+        Index_0 = rt_pow_snf(Index, 0.33333333333333331);
       } else {
-        eml_b_i = 7.7870370370370372E+000 * cc + 1.3793103448275862E-001;
+        Index_0 = 7.7870370370370372 * Index + 0.13793103448275862;
       }
 
       /* assign the results */
-      brain_B.ColorSpaceConversion1_o1 = 116.0 * eml_min_dist - 16.0;
-      brain_B.ColorSpaceConversion1_o2 = (eml_min_dist_0 - eml_min_dist) * 500.0;
-      brain_B.ColorSpaceConversion1_o3 = (eml_min_dist - eml_b_i) * 200.0;
+      brain_B.ColorSpaceConversion1_o1 = 116.0 * min_dist - 16.0;
+      brain_B.ColorSpaceConversion1_o2 = (min_dist_0 - min_dist) * 500.0;
+      brain_B.ColorSpaceConversion1_o3 = (min_dist - Index_0) * 200.0;
 
       /* S-Function (svipcolorconv): '<S45>/Color Space  Conversion' incorporates:
        *  Constant: '<S45>/Constant'
@@ -9002,59 +8866,59 @@ static void brain_ApproachBuoys(void)
        *  Constant: '<S45>/Constant2'
        */
       /* temporary variables for in-place operation */
+      count_0 = 0.0;
       cc = 0.0;
-      cc_0 = 0.0;
-      cc_1 = 0.0;
-      eml_b_i = 6.0 * brain_P.Buoy2_Hue;
-      eml_min_dist_0 = (real_T)(uint32_T)(eml_b_i - 1.3322676295501878E-015);
-      eml_b_i -= eml_min_dist_0;
-      eml_count = 1.0 - brain_P.Buoy2_Saturation;
-      eml_min_dist = 1.0 - brain_P.Buoy2_Saturation * eml_b_i;
-      eml_b_i = brain_P.Buoy2_Saturation * eml_b_i + eml_count;
-      if (eml_min_dist_0 == 0.0) {
+      count = 0.0;
+      Index_0 = 6.0 * brain_P.Buoy2_Hue;
+      min_dist_0 = (real_T)(uint32_T)(Index_0 - 1.3322676295501878E-15);
+      Index_0 -= min_dist_0;
+      Index = 1.0 - brain_P.Buoy2_Saturation;
+      min_dist = 1.0 - brain_P.Buoy2_Saturation * Index_0;
+      Index_0 = brain_P.Buoy2_Saturation * Index_0 + Index;
+      if (min_dist_0 == 0.0) {
+        count_0 = 1.0;
+        cc = Index_0;
+        count = Index;
+      } else if (min_dist_0 == 1.0) {
+        count_0 = min_dist;
         cc = 1.0;
-        cc_0 = eml_b_i;
-        cc_1 = eml_count;
-      } else if (eml_min_dist_0 == 1.0) {
-        cc = eml_min_dist;
-        cc_0 = 1.0;
-        cc_1 = eml_count;
-      } else if (eml_min_dist_0 == 2.0) {
-        cc = eml_count;
-        cc_0 = 1.0;
-        cc_1 = eml_b_i;
-      } else if (eml_min_dist_0 == 3.0) {
-        cc = eml_count;
-        cc_0 = eml_min_dist;
-        cc_1 = 1.0;
-      } else if (eml_min_dist_0 == 4.0) {
-        cc = eml_b_i;
-        cc_0 = eml_count;
-        cc_1 = 1.0;
+        count = Index;
+      } else if (min_dist_0 == 2.0) {
+        count_0 = Index;
+        cc = 1.0;
+        count = Index_0;
+      } else if (min_dist_0 == 3.0) {
+        count_0 = Index;
+        cc = min_dist;
+        count = 1.0;
+      } else if (min_dist_0 == 4.0) {
+        count_0 = Index_0;
+        cc = Index;
+        count = 1.0;
       } else {
-        if (eml_min_dist_0 == 5.0) {
-          cc = 1.0;
-          cc_0 = eml_count;
-          cc_1 = eml_min_dist;
+        if (min_dist_0 == 5.0) {
+          count_0 = 1.0;
+          cc = Index;
+          count = min_dist;
         }
       }
 
-      if (cc > cc_0) {
-        eml_b_i = cc;
+      if (count_0 > cc) {
+        Index_0 = count_0;
       } else {
-        eml_b_i = cc_0;
+        Index_0 = cc;
       }
 
-      if (!(eml_b_i > cc_1)) {
-        eml_b_i = cc_1;
+      if (!(Index_0 > count)) {
+        Index_0 = count;
       }
 
-      eml_b_i = brain_P.Buoy2_Value / eml_b_i;
+      Index_0 = brain_P.Buoy2_Value / Index_0;
 
       /* assign the results */
-      brain_B.ColorSpaceConversion_o1_g = eml_b_i * cc;
-      brain_B.ColorSpaceConversion_o2_o = eml_b_i * cc_0;
-      brain_B.ColorSpaceConversion_o3_c = eml_b_i * cc_1;
+      brain_B.ColorSpaceConversion_o1_g = Index_0 * count_0;
+      brain_B.ColorSpaceConversion_o2_o = Index_0 * cc;
+      brain_B.ColorSpaceConversion_o3_c = Index_0 * count;
 
       /* S-Function (svipcolorconv): '<S45>/Color Space  Conversion1' */
       /* temporary variables for in-place operation */
@@ -9064,103 +8928,99 @@ static void brain_ApproachBuoys(void)
       /* equivalent to running the gamma correction block with break */
       /* point of 0.00304 and gamma of 2.4; it's built into this */
       /* conversion for convenience */
-      if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-002) {
-        eml_b_i = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333254E+001;
+      if (brain_B.ColorSpaceConversion_o1_g <= 0.039286085583733095) {
+        Index_0 = brain_B.ColorSpaceConversion_o1_g / 12.923054468333255;
       } else {
-        eml_b_i = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226361E-002) /
-          1.0550005198172263E+000;
-        eml_b_i = rt_pow_snf(eml_b_i, 2.4);
+        Index_0 = (brain_B.ColorSpaceConversion_o1_g + 0.055000519817226347) /
+          1.0550005198172263;
+        Index_0 = rt_pow_snf(Index_0, 2.4);
       }
 
-      if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-002) {
-        eml_min_dist = brain_B.ColorSpaceConversion_o2_o /
-          1.2923054468333254E+001;
+      if (brain_B.ColorSpaceConversion_o2_o <= 0.039286085583733095) {
+        min_dist = brain_B.ColorSpaceConversion_o2_o / 12.923054468333255;
       } else {
-        eml_min_dist = (brain_B.ColorSpaceConversion_o2_o +
-                        5.5000519817226361E-002) / 1.0550005198172263E+000;
-        eml_min_dist = rt_pow_snf(eml_min_dist, 2.4);
+        min_dist = (brain_B.ColorSpaceConversion_o2_o + 0.055000519817226347) /
+          1.0550005198172263;
+        min_dist = rt_pow_snf(min_dist, 2.4);
       }
 
-      if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-002) {
-        cc = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333254E+001;
+      if (brain_B.ColorSpaceConversion_o3_c <= 0.039286085583733095) {
+        Index = brain_B.ColorSpaceConversion_o3_c / 12.923054468333255;
       } else {
-        cc = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226361E-002) /
-          1.0550005198172263E+000;
-        cc = rt_pow_snf(cc, 2.4);
+        Index = (brain_B.ColorSpaceConversion_o3_c + 0.055000519817226347) /
+          1.0550005198172263;
+        Index = rt_pow_snf(Index, 2.4);
       }
 
       /* The coefficients for this conversion were derived from ITU-R */
       /* BT.709 reference primaries for sRGB and CIE standard illuminant */
       /* D65, 2 degree observer */
-      eml_min_dist_0 = (4.1239079926596001E-001 * eml_b_i +
-                        3.5758433938388001E-001 * eml_min_dist) +
-        1.8048078840182999E-001 * cc;
-      eml_count = (2.1263900587151000E-001 * eml_b_i + 7.1516867876776002E-001 *
-                   eml_min_dist) + 7.2192315360729994E-002 * cc;
-      eml_b_i = (1.9330818715590000E-002 * eml_b_i + 1.1919477979463000E-001 *
-                 eml_min_dist) + 9.5053215224966003E-001 * cc;
+      count_0 = (0.41239079926596 * Index_0 + 0.35758433938388 * min_dist) +
+        0.18048078840183 * Index;
+      cc = (0.21263900587151 * Index_0 + 0.71516867876776 * min_dist) +
+        0.07219231536073 * Index;
+      count = (0.01933081871559 * Index_0 + 0.11919477979463 * min_dist) +
+        0.95053215224966 * Index;
 
       /* Make sure that the output is in [0..1] range; clip if necessary */
-      if (eml_min_dist_0 > 1.0) {
-        eml_min_dist_0 = 1.0;
+      if (count_0 > 1.0) {
+        count_0 = 1.0;
       } else {
-        if (eml_min_dist_0 < 0.0) {
-          eml_min_dist_0 = 0.0;
+        if (count_0 < 0.0) {
+          count_0 = 0.0;
         }
       }
 
-      if (eml_count > 1.0) {
-        eml_count = 1.0;
+      if (cc > 1.0) {
+        cc = 1.0;
       } else {
-        if (eml_count < 0.0) {
-          eml_count = 0.0;
+        if (cc < 0.0) {
+          cc = 0.0;
         }
       }
 
-      if (eml_b_i > 1.0) {
-        eml_b_i = 1.0;
+      if (count > 1.0) {
+        count = 1.0;
       } else {
-        if (eml_b_i < 0.0) {
-          eml_b_i = 0.0;
+        if (count < 0.0) {
+          count = 0.0;
         }
       }
 
       /* assign the results */
-      brain_B.ColorSpaceConversion1_o1_n = eml_min_dist_0;
-      brain_B.ColorSpaceConversion1_o2_i = eml_count;
-      brain_B.ColorSpaceConversion1_o3_m = eml_b_i;
+      brain_B.ColorSpaceConversion1_o1_n = count_0;
+      brain_B.ColorSpaceConversion1_o2_i = cc;
+      brain_B.ColorSpaceConversion1_o3_m = count;
 
       /* Convert from XYZ to L*a*b* */
-      eml_b_i = brain_B.ColorSpaceConversion1_o1_n / 9.6419865576090003E-001;
-      cc = brain_B.ColorSpaceConversion1_o3_m / 8.2511648322104003E-001;
+      Index_0 = brain_B.ColorSpaceConversion1_o1_n / 0.9641986557609;
+      Index = brain_B.ColorSpaceConversion1_o3_m / 0.82511648322104;
 
       /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-      if (eml_b_i > 8.8564516790356311E-003) {
-        eml_min_dist_0 = rt_pow_snf(eml_b_i, 3.3333333333333331E-001);
+      if (Index_0 > 0.0088564516790356311) {
+        min_dist_0 = rt_pow_snf(Index_0, 0.33333333333333331);
       } else {
-        eml_min_dist_0 = 7.7870370370370372E+000 * eml_b_i +
-          1.3793103448275862E-001;
+        min_dist_0 = 7.7870370370370372 * Index_0 + 0.13793103448275862;
       }
 
-      if (brain_B.ColorSpaceConversion1_o2_i > 8.8564516790356311E-003) {
-        eml_min_dist = rt_pow_snf(brain_B.ColorSpaceConversion1_o2_i,
-          3.3333333333333331E-001);
+      if (brain_B.ColorSpaceConversion1_o2_i > 0.0088564516790356311) {
+        min_dist = rt_pow_snf(brain_B.ColorSpaceConversion1_o2_i,
+                              0.33333333333333331);
       } else {
-        eml_min_dist = 7.7870370370370372E+000 *
-          brain_B.ColorSpaceConversion1_o2_i + 1.3793103448275862E-001;
+        min_dist = 7.7870370370370372 * brain_B.ColorSpaceConversion1_o2_i +
+          0.13793103448275862;
       }
 
-      if (cc > 8.8564516790356311E-003) {
-        eml_b_i = rt_pow_snf(cc, 3.3333333333333331E-001);
+      if (Index > 0.0088564516790356311) {
+        Index_0 = rt_pow_snf(Index, 0.33333333333333331);
       } else {
-        eml_b_i = 7.7870370370370372E+000 * cc + 1.3793103448275862E-001;
+        Index_0 = 7.7870370370370372 * Index + 0.13793103448275862;
       }
 
       /* assign the results */
-      brain_B.ColorSpaceConversion1_o1_n = 116.0 * eml_min_dist - 16.0;
-      brain_B.ColorSpaceConversion1_o2_i = (eml_min_dist_0 - eml_min_dist) *
-        500.0;
-      brain_B.ColorSpaceConversion1_o3_m = (eml_min_dist - eml_b_i) * 200.0;
+      brain_B.ColorSpaceConversion1_o1_n = 116.0 * min_dist - 16.0;
+      brain_B.ColorSpaceConversion1_o2_i = (min_dist_0 - min_dist) * 500.0;
+      brain_B.ColorSpaceConversion1_o3_m = (min_dist - Index_0) * 200.0;
 
       /* Embedded MATLAB: '<S9>/GetBestColorMatch' */
       /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.Buoys.ApproachBuoys.ApproachFirstBuoy.WhichBuoysToApproach/GetBestColorMatch': '<S44>:1' */
@@ -9168,104 +9028,103 @@ static void brain_ApproachBuoys(void)
       /*  Buoys = zeros(3,3); */
       /*  Buoys = [L;M;R]; */
       /* '<S44>:1:6' */
-      eml_min_dist = 1000.0;
+      min_dist = 1000.0;
 
       /* '<S44>:1:7' */
-      eml_min_dist_0 = 1000.0;
+      min_dist_0 = 1000.0;
 
       /* '<S44>:1:8' */
       /* '<S44>:1:9' */
       for (i = 0; i < 50; i++) {
-        eml_FirstD[i] = 2.0;
-        eml_SecondD[i] = 2.0;
+        FirstD[i] = 2.0;
+        SecondD[i] = 2.0;
       }
 
       /* '<S44>:1:11' */
-      eml_count = 0.0;
+      count = 0.0;
 
       /* '<S44>:1:12' */
-      cc_0 = 0.0;
+      count_0 = 0.0;
 
       /* '<S44>:1:14' */
-      for (cc = 1.0; cc <= brain_B.num_blobs; cc++) {
+      for (Index = 1.0; Index <= brain_B.num_blobs; Index++) {
         /* '<S44>:1:14' */
         /* '<S44>:1:15' */
-        eml_b_i = sqrt((rt_pow_snf(brain_B.buoys[(int32_T)cc - 1] -
+        Index_0 = sqrt((rt_pow_snf(brain_B.buoys[(int32_T)Index - 1] -
           brain_B.ColorSpaceConversion1_o1, 2.0) + rt_pow_snf(brain_B.buoys
-          [(int32_T)cc + 49] - brain_B.ColorSpaceConversion1_o2, 2.0)) +
-                       rt_pow_snf(brain_B.buoys[(int32_T)cc + 99] -
+          [(int32_T)Index + 49] - brain_B.ColorSpaceConversion1_o2, 2.0)) +
+                       rt_pow_snf(brain_B.buoys[(int32_T)Index + 99] -
           brain_B.ColorSpaceConversion1_o3, 2.0));
-        if (eml_b_i <= eml_min_dist) {
+        if (Index_0 <= min_dist) {
           /* '<S44>:1:16' */
           /* '<S44>:1:17' */
-          eml_count++;
+          count++;
 
           /* '<S44>:1:18' */
-          eml_min_dist = eml_b_i;
+          min_dist = Index_0;
 
           /* '<S44>:1:19' */
-          eml_FirstD[(int32_T)eml_count - 1] = cc;
+          FirstD[(int32_T)count - 1] = Index;
         }
 
         /* '<S44>:1:21' */
-        eml_b_i = sqrt((rt_pow_snf(brain_B.buoys[(int32_T)cc - 1] -
+        Index_0 = sqrt((rt_pow_snf(brain_B.buoys[(int32_T)Index - 1] -
           brain_B.ColorSpaceConversion1_o1_n, 2.0) + rt_pow_snf(brain_B.buoys
-          [(int32_T)cc + 49] - brain_B.ColorSpaceConversion1_o2_i, 2.0)) +
-                       rt_pow_snf(brain_B.buoys[(int32_T)cc + 99] -
+          [(int32_T)Index + 49] - brain_B.ColorSpaceConversion1_o2_i, 2.0)) +
+                       rt_pow_snf(brain_B.buoys[(int32_T)Index + 99] -
           brain_B.ColorSpaceConversion1_o3_m, 2.0));
-        if (eml_b_i < eml_min_dist_0) {
+        if (Index_0 < min_dist_0) {
           /* '<S44>:1:22' */
           /* '<S44>:1:23' */
-          cc_0++;
+          count_0++;
 
           /* '<S44>:1:24' */
-          eml_min_dist_0 = eml_b_i;
+          min_dist_0 = Index_0;
 
           /* '<S44>:1:25' */
-          eml_SecondD[(int32_T)cc_0 - 1] = cc;
+          SecondD[(int32_T)count_0 - 1] = Index;
         }
       }
 
       /* '<S44>:1:29' */
-      cc = 2.0;
+      Index = 2.0;
 
       /* '<S44>:1:30' */
       /* '<S44>:1:31' */
-      for (eml_b_i = 1.0; eml_b_i <= eml_count; eml_b_i++) {
+      for (Index_0 = 1.0; Index_0 <= count; Index_0++) {
         /* '<S44>:1:31' */
         /* '<S44>:1:32' */
-        if (brain_B.buoys[(int32_T)eml_FirstD[(int32_T)eml_b_i - 1] + 149] > 0.0)
-        {
+        if (brain_B.buoys[(int32_T)FirstD[(int32_T)Index_0 - 1] + 149] > 0.0) {
           /* '<S44>:1:33' */
           /* '<S44>:1:34' */
-          cc = eml_FirstD[(int32_T)eml_b_i - 1];
+          Index = FirstD[(int32_T)Index_0 - 1];
         }
       }
 
       /* '<S44>:1:39' */
-      eml_b_i = 2.0;
+      Index_0 = 2.0;
 
       /* '<S44>:1:40' */
       /* '<S44>:1:41' */
-      for (eml_min_dist = 1.0; eml_min_dist <= cc_0; eml_min_dist++) {
+      for (min_dist = 1.0; min_dist <= count_0; min_dist++) {
         /* '<S44>:1:41' */
         /* '<S44>:1:42' */
-        if (brain_B.buoys[(int32_T)eml_SecondD[(int32_T)eml_min_dist - 1] + 149]
-            > 0.0) {
+        if (brain_B.buoys[(int32_T)SecondD[(int32_T)min_dist - 1] + 149] > 0.0)
+        {
           /* '<S44>:1:43' */
           /* '<S44>:1:44' */
-          eml_b_i = eml_SecondD[(int32_T)eml_min_dist - 1];
+          Index_0 = SecondD[(int32_T)min_dist - 1];
         }
       }
 
-      if (cc > eml_b_i) {
+      if (Index > Index_0) {
         /* '<S44>:1:49' */
         /* '<S44>:1:50' */
         brain_B.Direction1 = 1.0;
 
         /* '<S44>:1:51' */
         brain_B.Direction2 = 3.0;
-      } else if (cc == eml_b_i) {
+      } else if (Index == Index_0) {
         /* '<S44>:1:52' */
         /* '<S44>:1:53' */
         brain_B.Direction1 = 2.0;
@@ -9285,18 +9144,17 @@ static void brain_ApproachBuoys(void)
 }
 
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
-static real_T brain_countimages(real_T sf_Image1, real_T sf_OldImage, real_T
-  sf_count1)
+static real_T brain_countimages(real_T Image1, real_T OldImage, real_T count1)
 {
-  UNUSED_PARAMETER(sf_OldImage);
+  UNUSED_PARAMETER(OldImage);
 
   /* Embedded MATLAB Function 'countimages': '<S7>:1300' */
   /*  This function acts to count the number of consecutive times a particular */
   /*  image is recognized by the recognition software */
-  if (sf_Image1 == 1.0) {
+  if (Image1 == 1.0) {
     /* '<S7>:1300:6' */
     /* '<S7>:1300:7' */
-    return sf_count1 + 1.0;
+    return count1 + 1.0;
   } else {
     /* '<S7>:1300:9' */
     return 0.0;
@@ -9333,16 +9191,16 @@ static void brain_exit_internal_Buoys(void)
    case brain_IN_FindBuoys:
     /* Exit 'FindBuoys': '<S7>:1295' */
     /* Simulink Function 'GetBuoyColors': '<S7>:1521' */
-    memcpy((void *)&brain_B.LabelMatrix[0], (void *)&brain_DWork.LabelMatrix[0],
-           19200U * sizeof(real_T));
-    memcpy((void *)&brain_B.ref_colors[0], (void *)&brain_DWork.ref_colors[0],
+    memcpy((void *)(&brain_B.LabelMatrix[0]), (void *)(&brain_DWork.LabelMatrix
+            [0]), 19200U * sizeof(real_T));
+    memcpy((void *)(&brain_B.ref_colors[0]), (void *)(&brain_DWork.ref_colors[0]),
            150U * sizeof(real_T));
     brain_B.num_colors_k = brain_DWork.num_colors;
     StateFlowFunctionsBuoysFindBu_l(brain_B.LabelMatrix, brain_B.num_colors_k,
       brain_B.ref_colors, &brain_B.StateFlowFunctionsBuoysFindB_ls,
       &brain_DWork.StateFlowFunctionsBuoysFindB_ls);
-    memcpy((void *)&brain_DWork.BuoyBlobs[0], (void *)
-           &brain_B.StateFlowFunctionsBuoysFindB_ls.blobs[0], 200U * sizeof
+    memcpy((void *)(&brain_DWork.BuoyBlobs[0]), (void *)
+           (&brain_B.StateFlowFunctionsBuoysFindB_ls.blobs[0]), 200U * sizeof
            (real_T));
     brain_DWork.num_blobs = brain_B.StateFlowFunctionsBuoysFindB_ls.count;
     brain_DWork.is_Buoys = (uint8_T)brain_IN_NO_ACTIVE_CHILD;
@@ -9360,12 +9218,12 @@ static void brain_exit_internal_Buoys(void)
 static void brain_Buoys(void)
 {
   real_T cc;
-  real_T cc_0;
-  real_T cc_1;
-  real_T eml_min_dist;
-  real_T eml_FirstD[50];
-  real_T eml_SecondD[50];
-  real_T eml_count;
+  real_T min_dist;
+  real_T FirstD[50];
+  real_T SecondD[50];
+  real_T count;
+  real_T count_0;
+  real_T Index;
   real_T rtb_Add;
   real_T rtb_TSamp;
   int32_T i;
@@ -9394,10 +9252,10 @@ static void brain_Buoys(void)
         /* Transition: '<S7>:1292' */
         /* Exit 'FindBuoys': '<S7>:1295' */
         /* Simulink Function 'GetBuoyColors': '<S7>:1521' */
-        memcpy((void *)&brain_B.LabelMatrix[0], (void *)
-               &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
-        memcpy((void *)&brain_B.ref_colors[0], (void *)&brain_DWork.ref_colors[0],
-               150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabelMatrix[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.ref_colors[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         brain_B.num_colors_k = brain_DWork.num_colors;
         StateFlowFunctionsBuoysFindBu_l(brain_B.LabelMatrix,
           brain_B.num_colors_k, brain_B.ref_colors,
@@ -9445,59 +9303,59 @@ static void brain_Buoys(void)
          *  Constant: '<S43>/Constant2'
          */
         /* temporary variables for in-place operation */
+        count_0 = 0.0;
         cc = 0.0;
-        cc_0 = 0.0;
-        cc_1 = 0.0;
+        count = 0.0;
         rtb_Add = 6.0 * brain_P.Buoy1_Hue;
-        eml_min_dist = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-015);
-        rtb_Add -= eml_min_dist;
+        min_dist = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-15);
+        rtb_Add -= min_dist;
         rtb_TSamp = 1.0 - brain_P.Buoy1_Saturation;
-        eml_count = 1.0 - brain_P.Buoy1_Saturation * rtb_Add;
+        Index = 1.0 - brain_P.Buoy1_Saturation * rtb_Add;
         rtb_Add = brain_P.Buoy1_Saturation * rtb_Add + rtb_TSamp;
-        if (eml_min_dist == 0.0) {
-          cc = 1.0;
-          cc_0 = rtb_Add;
-          cc_1 = rtb_TSamp;
-        } else if (eml_min_dist == 1.0) {
-          cc = eml_count;
-          cc_0 = 1.0;
-          cc_1 = rtb_TSamp;
-        } else if (eml_min_dist == 2.0) {
-          cc = rtb_TSamp;
-          cc_0 = 1.0;
-          cc_1 = rtb_Add;
-        } else if (eml_min_dist == 3.0) {
-          cc = rtb_TSamp;
-          cc_0 = eml_count;
-          cc_1 = 1.0;
-        } else if (eml_min_dist == 4.0) {
+        if (min_dist == 0.0) {
+          count_0 = 1.0;
           cc = rtb_Add;
-          cc_0 = rtb_TSamp;
-          cc_1 = 1.0;
+          count = rtb_TSamp;
+        } else if (min_dist == 1.0) {
+          count_0 = Index;
+          cc = 1.0;
+          count = rtb_TSamp;
+        } else if (min_dist == 2.0) {
+          count_0 = rtb_TSamp;
+          cc = 1.0;
+          count = rtb_Add;
+        } else if (min_dist == 3.0) {
+          count_0 = rtb_TSamp;
+          cc = Index;
+          count = 1.0;
+        } else if (min_dist == 4.0) {
+          count_0 = rtb_Add;
+          cc = rtb_TSamp;
+          count = 1.0;
         } else {
-          if (eml_min_dist == 5.0) {
-            cc = 1.0;
-            cc_0 = rtb_TSamp;
-            cc_1 = eml_count;
+          if (min_dist == 5.0) {
+            count_0 = 1.0;
+            cc = rtb_TSamp;
+            count = Index;
           }
         }
 
-        if (cc > cc_0) {
-          rtb_Add = cc;
+        if (count_0 > cc) {
+          rtb_Add = count_0;
         } else {
-          rtb_Add = cc_0;
+          rtb_Add = cc;
         }
 
-        if (!(rtb_Add > cc_1)) {
-          rtb_Add = cc_1;
+        if (!(rtb_Add > count)) {
+          rtb_Add = count;
         }
 
         rtb_Add = brain_P.Buoy1_Value / rtb_Add;
 
         /* assign the results */
-        brain_B.ColorSpaceConversion_o3_c = rtb_Add * cc;
-        brain_B.ColorSpaceConversion_o2_o = rtb_Add * cc_0;
-        brain_B.ColorSpaceConversion_o1_g = rtb_Add * cc_1;
+        brain_B.ColorSpaceConversion_o3_c = rtb_Add * count_0;
+        brain_B.ColorSpaceConversion_o2_o = rtb_Add * cc;
+        brain_B.ColorSpaceConversion_o1_g = rtb_Add * count;
 
         /* S-Function (svipcolorconv): '<S43>/Color Space  Conversion1' */
         /* temporary variables for in-place operation */
@@ -9507,101 +9365,98 @@ static void brain_Buoys(void)
         /* equivalent to running the gamma correction block with break */
         /* point of 0.00304 and gamma of 2.4; it's built into this */
         /* conversion for convenience */
-        if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-002) {
-          rtb_Add = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333254E+001;
+        if (brain_B.ColorSpaceConversion_o3_c <= 0.039286085583733095) {
+          rtb_Add = brain_B.ColorSpaceConversion_o3_c / 12.923054468333255;
         } else {
-          rtb_Add = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226361E-002)
-            / 1.0550005198172263E+000;
+          rtb_Add = (brain_B.ColorSpaceConversion_o3_c + 0.055000519817226347) /
+            1.0550005198172263;
           rtb_Add = rt_pow_snf(rtb_Add, 2.4);
         }
 
-        if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-002) {
-          rtb_TSamp = brain_B.ColorSpaceConversion_o2_o /
-            1.2923054468333254E+001;
+        if (brain_B.ColorSpaceConversion_o2_o <= 0.039286085583733095) {
+          rtb_TSamp = brain_B.ColorSpaceConversion_o2_o / 12.923054468333255;
         } else {
-          rtb_TSamp = (brain_B.ColorSpaceConversion_o2_o +
-                       5.5000519817226361E-002) / 1.0550005198172263E+000;
+          rtb_TSamp = (brain_B.ColorSpaceConversion_o2_o + 0.055000519817226347)
+            / 1.0550005198172263;
           rtb_TSamp = rt_pow_snf(rtb_TSamp, 2.4);
         }
 
-        if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-002) {
-          cc = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333254E+001;
+        if (brain_B.ColorSpaceConversion_o1_g <= 0.039286085583733095) {
+          Index = brain_B.ColorSpaceConversion_o1_g / 12.923054468333255;
         } else {
-          cc = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226361E-002) /
-            1.0550005198172263E+000;
-          cc = rt_pow_snf(cc, 2.4);
+          Index = (brain_B.ColorSpaceConversion_o1_g + 0.055000519817226347) /
+            1.0550005198172263;
+          Index = rt_pow_snf(Index, 2.4);
         }
 
         /* The coefficients for this conversion were derived from ITU-R */
         /* BT.709 reference primaries for sRGB and CIE standard illuminant */
         /* D65, 2 degree observer */
-        eml_min_dist = (4.1239079926596001E-001 * rtb_Add +
-                        3.5758433938388001E-001 * rtb_TSamp) +
-          1.8048078840182999E-001 * cc;
-        eml_count = (2.1263900587151000E-001 * rtb_Add + 7.1516867876776002E-001
-                     * rtb_TSamp) + 7.2192315360729994E-002 * cc;
-        rtb_Add = (1.9330818715590000E-002 * rtb_Add + 1.1919477979463000E-001 *
-                   rtb_TSamp) + 9.5053215224966003E-001 * cc;
+        count_0 = (0.41239079926596 * rtb_Add + 0.35758433938388 * rtb_TSamp) +
+          0.18048078840183 * Index;
+        cc = (0.21263900587151 * rtb_Add + 0.71516867876776 * rtb_TSamp) +
+          0.07219231536073 * Index;
+        count = (0.01933081871559 * rtb_Add + 0.11919477979463 * rtb_TSamp) +
+          0.95053215224966 * Index;
 
         /* Make sure that the output is in [0..1] range; clip if necessary */
-        if (eml_min_dist > 1.0) {
-          eml_min_dist = 1.0;
+        if (count_0 > 1.0) {
+          count_0 = 1.0;
         } else {
-          if (eml_min_dist < 0.0) {
-            eml_min_dist = 0.0;
+          if (count_0 < 0.0) {
+            count_0 = 0.0;
           }
         }
 
-        if (eml_count > 1.0) {
-          eml_count = 1.0;
+        if (cc > 1.0) {
+          cc = 1.0;
         } else {
-          if (eml_count < 0.0) {
-            eml_count = 0.0;
+          if (cc < 0.0) {
+            cc = 0.0;
           }
         }
 
-        if (rtb_Add > 1.0) {
-          rtb_Add = 1.0;
+        if (count > 1.0) {
+          count = 1.0;
         } else {
-          if (rtb_Add < 0.0) {
-            rtb_Add = 0.0;
+          if (count < 0.0) {
+            count = 0.0;
           }
         }
 
         /* assign the results */
-        brain_B.ColorSpaceConversion1_o1 = eml_min_dist;
-        brain_B.ColorSpaceConversion1_o2 = eml_count;
-        brain_B.ColorSpaceConversion1_o3 = rtb_Add;
+        brain_B.ColorSpaceConversion1_o1 = count_0;
+        brain_B.ColorSpaceConversion1_o2 = cc;
+        brain_B.ColorSpaceConversion1_o3 = count;
 
         /* Convert from XYZ to L*a*b* */
-        rtb_Add = brain_B.ColorSpaceConversion1_o1 / 9.6419865576090003E-001;
-        cc = brain_B.ColorSpaceConversion1_o3 / 8.2511648322104003E-001;
+        rtb_Add = brain_B.ColorSpaceConversion1_o1 / 0.9641986557609;
+        Index = brain_B.ColorSpaceConversion1_o3 / 0.82511648322104;
 
         /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-        if (rtb_Add > 8.8564516790356311E-003) {
-          eml_min_dist = rt_pow_snf(rtb_Add, 3.3333333333333331E-001);
+        if (rtb_Add > 0.0088564516790356311) {
+          min_dist = rt_pow_snf(rtb_Add, 0.33333333333333331);
         } else {
-          eml_min_dist = 7.7870370370370372E+000 * rtb_Add +
-            1.3793103448275862E-001;
+          min_dist = 7.7870370370370372 * rtb_Add + 0.13793103448275862;
         }
 
-        if (brain_B.ColorSpaceConversion1_o2 > 8.8564516790356311E-003) {
+        if (brain_B.ColorSpaceConversion1_o2 > 0.0088564516790356311) {
           rtb_TSamp = rt_pow_snf(brain_B.ColorSpaceConversion1_o2,
-            3.3333333333333331E-001);
+            0.33333333333333331);
         } else {
-          rtb_TSamp = 7.7870370370370372E+000 * brain_B.ColorSpaceConversion1_o2
-            + 1.3793103448275862E-001;
+          rtb_TSamp = 7.7870370370370372 * brain_B.ColorSpaceConversion1_o2 +
+            0.13793103448275862;
         }
 
-        if (cc > 8.8564516790356311E-003) {
-          rtb_Add = rt_pow_snf(cc, 3.3333333333333331E-001);
+        if (Index > 0.0088564516790356311) {
+          rtb_Add = rt_pow_snf(Index, 0.33333333333333331);
         } else {
-          rtb_Add = 7.7870370370370372E+000 * cc + 1.3793103448275862E-001;
+          rtb_Add = 7.7870370370370372 * Index + 0.13793103448275862;
         }
 
         /* assign the results */
         brain_B.ColorSpaceConversion1_o1 = 116.0 * rtb_TSamp - 16.0;
-        brain_B.ColorSpaceConversion1_o2 = (eml_min_dist - rtb_TSamp) * 500.0;
+        brain_B.ColorSpaceConversion1_o2 = (min_dist - rtb_TSamp) * 500.0;
         brain_B.ColorSpaceConversion1_o3 = (rtb_TSamp - rtb_Add) * 200.0;
 
         /* S-Function (svipcolorconv): '<S45>/Color Space  Conversion' incorporates:
@@ -9610,59 +9465,59 @@ static void brain_Buoys(void)
          *  Constant: '<S45>/Constant2'
          */
         /* temporary variables for in-place operation */
+        count_0 = 0.0;
         cc = 0.0;
-        cc_0 = 0.0;
-        cc_1 = 0.0;
+        count = 0.0;
         rtb_Add = 6.0 * brain_P.Buoy2_Hue;
-        eml_min_dist = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-015);
-        rtb_Add -= eml_min_dist;
+        min_dist = (real_T)(uint32_T)(rtb_Add - 1.3322676295501878E-15);
+        rtb_Add -= min_dist;
         rtb_TSamp = 1.0 - brain_P.Buoy2_Saturation;
-        eml_count = 1.0 - brain_P.Buoy2_Saturation * rtb_Add;
+        Index = 1.0 - brain_P.Buoy2_Saturation * rtb_Add;
         rtb_Add = brain_P.Buoy2_Saturation * rtb_Add + rtb_TSamp;
-        if (eml_min_dist == 0.0) {
-          cc = 1.0;
-          cc_0 = rtb_Add;
-          cc_1 = rtb_TSamp;
-        } else if (eml_min_dist == 1.0) {
-          cc = eml_count;
-          cc_0 = 1.0;
-          cc_1 = rtb_TSamp;
-        } else if (eml_min_dist == 2.0) {
-          cc = rtb_TSamp;
-          cc_0 = 1.0;
-          cc_1 = rtb_Add;
-        } else if (eml_min_dist == 3.0) {
-          cc = rtb_TSamp;
-          cc_0 = eml_count;
-          cc_1 = 1.0;
-        } else if (eml_min_dist == 4.0) {
+        if (min_dist == 0.0) {
+          count_0 = 1.0;
           cc = rtb_Add;
-          cc_0 = rtb_TSamp;
-          cc_1 = 1.0;
+          count = rtb_TSamp;
+        } else if (min_dist == 1.0) {
+          count_0 = Index;
+          cc = 1.0;
+          count = rtb_TSamp;
+        } else if (min_dist == 2.0) {
+          count_0 = rtb_TSamp;
+          cc = 1.0;
+          count = rtb_Add;
+        } else if (min_dist == 3.0) {
+          count_0 = rtb_TSamp;
+          cc = Index;
+          count = 1.0;
+        } else if (min_dist == 4.0) {
+          count_0 = rtb_Add;
+          cc = rtb_TSamp;
+          count = 1.0;
         } else {
-          if (eml_min_dist == 5.0) {
-            cc = 1.0;
-            cc_0 = rtb_TSamp;
-            cc_1 = eml_count;
+          if (min_dist == 5.0) {
+            count_0 = 1.0;
+            cc = rtb_TSamp;
+            count = Index;
           }
         }
 
-        if (cc > cc_0) {
-          rtb_Add = cc;
+        if (count_0 > cc) {
+          rtb_Add = count_0;
         } else {
-          rtb_Add = cc_0;
+          rtb_Add = cc;
         }
 
-        if (!(rtb_Add > cc_1)) {
-          rtb_Add = cc_1;
+        if (!(rtb_Add > count)) {
+          rtb_Add = count;
         }
 
         rtb_Add = brain_P.Buoy2_Value / rtb_Add;
 
         /* assign the results */
-        brain_B.ColorSpaceConversion_o1_g = rtb_Add * cc;
-        brain_B.ColorSpaceConversion_o2_o = rtb_Add * cc_0;
-        brain_B.ColorSpaceConversion_o3_c = rtb_Add * cc_1;
+        brain_B.ColorSpaceConversion_o1_g = rtb_Add * count_0;
+        brain_B.ColorSpaceConversion_o2_o = rtb_Add * cc;
+        brain_B.ColorSpaceConversion_o3_c = rtb_Add * count;
 
         /* S-Function (svipcolorconv): '<S45>/Color Space  Conversion1' */
         /* temporary variables for in-place operation */
@@ -9672,101 +9527,98 @@ static void brain_Buoys(void)
         /* equivalent to running the gamma correction block with break */
         /* point of 0.00304 and gamma of 2.4; it's built into this */
         /* conversion for convenience */
-        if (brain_B.ColorSpaceConversion_o1_g <= 3.9286085583733095E-002) {
-          rtb_Add = brain_B.ColorSpaceConversion_o1_g / 1.2923054468333254E+001;
+        if (brain_B.ColorSpaceConversion_o1_g <= 0.039286085583733095) {
+          rtb_Add = brain_B.ColorSpaceConversion_o1_g / 12.923054468333255;
         } else {
-          rtb_Add = (brain_B.ColorSpaceConversion_o1_g + 5.5000519817226361E-002)
-            / 1.0550005198172263E+000;
+          rtb_Add = (brain_B.ColorSpaceConversion_o1_g + 0.055000519817226347) /
+            1.0550005198172263;
           rtb_Add = rt_pow_snf(rtb_Add, 2.4);
         }
 
-        if (brain_B.ColorSpaceConversion_o2_o <= 3.9286085583733095E-002) {
-          rtb_TSamp = brain_B.ColorSpaceConversion_o2_o /
-            1.2923054468333254E+001;
+        if (brain_B.ColorSpaceConversion_o2_o <= 0.039286085583733095) {
+          rtb_TSamp = brain_B.ColorSpaceConversion_o2_o / 12.923054468333255;
         } else {
-          rtb_TSamp = (brain_B.ColorSpaceConversion_o2_o +
-                       5.5000519817226361E-002) / 1.0550005198172263E+000;
+          rtb_TSamp = (brain_B.ColorSpaceConversion_o2_o + 0.055000519817226347)
+            / 1.0550005198172263;
           rtb_TSamp = rt_pow_snf(rtb_TSamp, 2.4);
         }
 
-        if (brain_B.ColorSpaceConversion_o3_c <= 3.9286085583733095E-002) {
-          cc = brain_B.ColorSpaceConversion_o3_c / 1.2923054468333254E+001;
+        if (brain_B.ColorSpaceConversion_o3_c <= 0.039286085583733095) {
+          Index = brain_B.ColorSpaceConversion_o3_c / 12.923054468333255;
         } else {
-          cc = (brain_B.ColorSpaceConversion_o3_c + 5.5000519817226361E-002) /
-            1.0550005198172263E+000;
-          cc = rt_pow_snf(cc, 2.4);
+          Index = (brain_B.ColorSpaceConversion_o3_c + 0.055000519817226347) /
+            1.0550005198172263;
+          Index = rt_pow_snf(Index, 2.4);
         }
 
         /* The coefficients for this conversion were derived from ITU-R */
         /* BT.709 reference primaries for sRGB and CIE standard illuminant */
         /* D65, 2 degree observer */
-        eml_min_dist = (4.1239079926596001E-001 * rtb_Add +
-                        3.5758433938388001E-001 * rtb_TSamp) +
-          1.8048078840182999E-001 * cc;
-        eml_count = (2.1263900587151000E-001 * rtb_Add + 7.1516867876776002E-001
-                     * rtb_TSamp) + 7.2192315360729994E-002 * cc;
-        rtb_Add = (1.9330818715590000E-002 * rtb_Add + 1.1919477979463000E-001 *
-                   rtb_TSamp) + 9.5053215224966003E-001 * cc;
+        count_0 = (0.41239079926596 * rtb_Add + 0.35758433938388 * rtb_TSamp) +
+          0.18048078840183 * Index;
+        cc = (0.21263900587151 * rtb_Add + 0.71516867876776 * rtb_TSamp) +
+          0.07219231536073 * Index;
+        count = (0.01933081871559 * rtb_Add + 0.11919477979463 * rtb_TSamp) +
+          0.95053215224966 * Index;
 
         /* Make sure that the output is in [0..1] range; clip if necessary */
-        if (eml_min_dist > 1.0) {
-          eml_min_dist = 1.0;
+        if (count_0 > 1.0) {
+          count_0 = 1.0;
         } else {
-          if (eml_min_dist < 0.0) {
-            eml_min_dist = 0.0;
+          if (count_0 < 0.0) {
+            count_0 = 0.0;
           }
         }
 
-        if (eml_count > 1.0) {
-          eml_count = 1.0;
+        if (cc > 1.0) {
+          cc = 1.0;
         } else {
-          if (eml_count < 0.0) {
-            eml_count = 0.0;
+          if (cc < 0.0) {
+            cc = 0.0;
           }
         }
 
-        if (rtb_Add > 1.0) {
-          rtb_Add = 1.0;
+        if (count > 1.0) {
+          count = 1.0;
         } else {
-          if (rtb_Add < 0.0) {
-            rtb_Add = 0.0;
+          if (count < 0.0) {
+            count = 0.0;
           }
         }
 
         /* assign the results */
-        brain_B.ColorSpaceConversion1_o1_n = eml_min_dist;
-        brain_B.ColorSpaceConversion1_o2_i = eml_count;
-        brain_B.ColorSpaceConversion1_o3_m = rtb_Add;
+        brain_B.ColorSpaceConversion1_o1_n = count_0;
+        brain_B.ColorSpaceConversion1_o2_i = cc;
+        brain_B.ColorSpaceConversion1_o3_m = count;
 
         /* Convert from XYZ to L*a*b* */
-        rtb_Add = brain_B.ColorSpaceConversion1_o1_n / 9.6419865576090003E-001;
-        cc = brain_B.ColorSpaceConversion1_o3_m / 8.2511648322104003E-001;
+        rtb_Add = brain_B.ColorSpaceConversion1_o1_n / 0.9641986557609;
+        Index = brain_B.ColorSpaceConversion1_o3_m / 0.82511648322104;
 
         /* Prepare Xf, Yf, and Zf for computation of a* and b* components */
-        if (rtb_Add > 8.8564516790356311E-003) {
-          eml_min_dist = rt_pow_snf(rtb_Add, 3.3333333333333331E-001);
+        if (rtb_Add > 0.0088564516790356311) {
+          min_dist = rt_pow_snf(rtb_Add, 0.33333333333333331);
         } else {
-          eml_min_dist = 7.7870370370370372E+000 * rtb_Add +
-            1.3793103448275862E-001;
+          min_dist = 7.7870370370370372 * rtb_Add + 0.13793103448275862;
         }
 
-        if (brain_B.ColorSpaceConversion1_o2_i > 8.8564516790356311E-003) {
+        if (brain_B.ColorSpaceConversion1_o2_i > 0.0088564516790356311) {
           rtb_TSamp = rt_pow_snf(brain_B.ColorSpaceConversion1_o2_i,
-            3.3333333333333331E-001);
+            0.33333333333333331);
         } else {
-          rtb_TSamp = 7.7870370370370372E+000 *
-            brain_B.ColorSpaceConversion1_o2_i + 1.3793103448275862E-001;
+          rtb_TSamp = 7.7870370370370372 * brain_B.ColorSpaceConversion1_o2_i +
+            0.13793103448275862;
         }
 
-        if (cc > 8.8564516790356311E-003) {
-          rtb_Add = rt_pow_snf(cc, 3.3333333333333331E-001);
+        if (Index > 0.0088564516790356311) {
+          rtb_Add = rt_pow_snf(Index, 0.33333333333333331);
         } else {
-          rtb_Add = 7.7870370370370372E+000 * cc + 1.3793103448275862E-001;
+          rtb_Add = 7.7870370370370372 * Index + 0.13793103448275862;
         }
 
         /* assign the results */
         brain_B.ColorSpaceConversion1_o1_n = 116.0 * rtb_TSamp - 16.0;
-        brain_B.ColorSpaceConversion1_o2_i = (eml_min_dist - rtb_TSamp) * 500.0;
+        brain_B.ColorSpaceConversion1_o2_i = (min_dist - rtb_TSamp) * 500.0;
         brain_B.ColorSpaceConversion1_o3_m = (rtb_TSamp - rtb_Add) * 200.0;
 
         /* Embedded MATLAB: '<S9>/GetBestColorMatch' */
@@ -9778,75 +9630,75 @@ static void brain_Buoys(void)
         rtb_TSamp = 1000.0;
 
         /* '<S44>:1:7' */
-        eml_min_dist = 1000.0;
+        min_dist = 1000.0;
 
         /* '<S44>:1:8' */
         /* '<S44>:1:9' */
         for (i = 0; i < 50; i++) {
-          eml_FirstD[i] = 2.0;
-          eml_SecondD[i] = 2.0;
+          FirstD[i] = 2.0;
+          SecondD[i] = 2.0;
         }
 
         /* '<S44>:1:11' */
-        eml_count = 0.0;
+        count = 0.0;
 
         /* '<S44>:1:12' */
-        cc_0 = 0.0;
+        count_0 = 0.0;
 
         /* '<S44>:1:14' */
-        for (cc = 1.0; cc <= brain_B.num_blobs; cc++) {
+        for (Index = 1.0; Index <= brain_B.num_blobs; Index++) {
           /* '<S44>:1:14' */
           /* '<S44>:1:15' */
-          rtb_Add = sqrt((rt_pow_snf(brain_B.buoys[(int32_T)cc - 1] -
+          rtb_Add = sqrt((rt_pow_snf(brain_B.buoys[(int32_T)Index - 1] -
             brain_B.ColorSpaceConversion1_o1, 2.0) + rt_pow_snf(brain_B.buoys
-            [(int32_T)cc + 49] - brain_B.ColorSpaceConversion1_o2, 2.0)) +
-                         rt_pow_snf(brain_B.buoys[(int32_T)cc + 99] -
+            [(int32_T)Index + 49] - brain_B.ColorSpaceConversion1_o2, 2.0)) +
+                         rt_pow_snf(brain_B.buoys[(int32_T)Index + 99] -
             brain_B.ColorSpaceConversion1_o3, 2.0));
           if (rtb_Add <= rtb_TSamp) {
             /* '<S44>:1:16' */
             /* '<S44>:1:17' */
-            eml_count++;
+            count++;
 
             /* '<S44>:1:18' */
             rtb_TSamp = rtb_Add;
 
             /* '<S44>:1:19' */
-            eml_FirstD[(int32_T)eml_count - 1] = cc;
+            FirstD[(int32_T)count - 1] = Index;
           }
 
           /* '<S44>:1:21' */
-          rtb_Add = sqrt((rt_pow_snf(brain_B.buoys[(int32_T)cc - 1] -
+          rtb_Add = sqrt((rt_pow_snf(brain_B.buoys[(int32_T)Index - 1] -
             brain_B.ColorSpaceConversion1_o1_n, 2.0) + rt_pow_snf(brain_B.buoys
-                           [(int32_T)cc + 49] -
+                           [(int32_T)Index + 49] -
             brain_B.ColorSpaceConversion1_o2_i, 2.0)) + rt_pow_snf
-                         (brain_B.buoys[(int32_T)cc + 99] -
+                         (brain_B.buoys[(int32_T)Index + 99] -
                           brain_B.ColorSpaceConversion1_o3_m, 2.0));
-          if (rtb_Add < eml_min_dist) {
+          if (rtb_Add < min_dist) {
             /* '<S44>:1:22' */
             /* '<S44>:1:23' */
-            cc_0++;
+            count_0++;
 
             /* '<S44>:1:24' */
-            eml_min_dist = rtb_Add;
+            min_dist = rtb_Add;
 
             /* '<S44>:1:25' */
-            eml_SecondD[(int32_T)cc_0 - 1] = cc;
+            SecondD[(int32_T)count_0 - 1] = Index;
           }
         }
 
         /* '<S44>:1:29' */
-        cc = 2.0;
+        Index = 2.0;
 
         /* '<S44>:1:30' */
         /* '<S44>:1:31' */
-        for (rtb_Add = 1.0; rtb_Add <= eml_count; rtb_Add++) {
+        for (rtb_Add = 1.0; rtb_Add <= count; rtb_Add++) {
           /* '<S44>:1:31' */
           /* '<S44>:1:32' */
-          if (brain_B.buoys[(int32_T)eml_FirstD[(int32_T)rtb_Add - 1] + 149] >
-              0.0) {
+          if (brain_B.buoys[(int32_T)FirstD[(int32_T)rtb_Add - 1] + 149] > 0.0)
+          {
             /* '<S44>:1:33' */
             /* '<S44>:1:34' */
-            cc = eml_FirstD[(int32_T)rtb_Add - 1];
+            Index = FirstD[(int32_T)rtb_Add - 1];
           }
         }
 
@@ -9855,25 +9707,25 @@ static void brain_Buoys(void)
 
         /* '<S44>:1:40' */
         /* '<S44>:1:41' */
-        for (rtb_TSamp = 1.0; rtb_TSamp <= cc_0; rtb_TSamp++) {
+        for (rtb_TSamp = 1.0; rtb_TSamp <= count_0; rtb_TSamp++) {
           /* '<S44>:1:41' */
           /* '<S44>:1:42' */
-          if (brain_B.buoys[(int32_T)eml_SecondD[(int32_T)rtb_TSamp - 1] + 149] >
+          if (brain_B.buoys[(int32_T)SecondD[(int32_T)rtb_TSamp - 1] + 149] >
               0.0) {
             /* '<S44>:1:43' */
             /* '<S44>:1:44' */
-            rtb_Add = eml_SecondD[(int32_T)rtb_TSamp - 1];
+            rtb_Add = SecondD[(int32_T)rtb_TSamp - 1];
           }
         }
 
-        if (cc > rtb_Add) {
+        if (Index > rtb_Add) {
           /* '<S44>:1:49' */
           /* '<S44>:1:50' */
           brain_B.Direction1 = 1.0;
 
           /* '<S44>:1:51' */
           brain_B.Direction2 = 3.0;
-        } else if (cc == rtb_Add) {
+        } else if (Index == rtb_Add) {
           /* '<S44>:1:52' */
           /* '<S44>:1:53' */
           brain_B.Direction1 = 2.0;
@@ -9898,40 +9750,40 @@ static void brain_Buoys(void)
         StateFlowFunctionsBuoysIterativ(brain_B.H, brain_B.S, brain_B.V,
           &brain_B.StateFlowFunctionsBuoysIterat_g,
           &brain_DWork.StateFlowFunctionsBuoysIterat_g);
-        memcpy((void *)&brain_DWork.LabelMatrix[0], (void *)
-               &brain_B.StateFlowFunctionsBuoysIterat_g.LabelMatrix[0], 19200U *
-               sizeof(real_T));
+        memcpy((void *)(&brain_DWork.LabelMatrix[0]), (void *)
+               (&brain_B.StateFlowFunctionsBuoysIterat_g.LabelMatrix[0]), 19200U
+               * sizeof(real_T));
         brain_DWork.num_colors =
           brain_B.StateFlowFunctionsBuoysIterat_g.num_colors;
-        memcpy((void *)&brain_DWork.ref_colors[0], (void *)
-               &brain_B.StateFlowFunctionsBuoysIterat_g.ref_colors[0], 150U *
+        memcpy((void *)(&brain_DWork.ref_colors[0]), (void *)
+               (&brain_B.StateFlowFunctionsBuoysIterat_g.ref_colors[0]), 150U *
                sizeof(real_T));
 
         /* Simulink Function 'ShowSegmentedImage': '<S7>:1370' */
-        memcpy((void *)&brain_B.LabMatrix_o[0], (void *)
-               &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
-        memcpy((void *)&brain_B.Ref_Colors_j[0], (void *)
-               &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabMatrix_o[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.Ref_Colors_j[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         StateFlowFunctionsBuoysShowSegm(brain_B.LabMatrix_o,
           brain_B.Ref_Colors_j, &brain_B.StateFlowFunctionsBuoysShowSe_o);
-        memcpy((void *)&brain_B.RGBout[0], (void *)
-               &brain_B.StateFlowFunctionsBuoysShowSe_o.RGB[0], 57600U * sizeof
-               (real_T));
+        memcpy((void *)(&brain_B.RGBout[0]), (void *)
+               (&brain_B.StateFlowFunctionsBuoysShowSe_o.RGB[0]), 57600U *
+               sizeof(real_T));
 
         /* Simulink Function 'LookforBuoys': '<S7>:1491' */
-        memcpy((void *)&brain_B.LabMatrix_k[0], (void *)
-               &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabMatrix_k[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
         brain_B.num_colors = brain_DWork.num_colors;
-        memcpy((void *)&brain_B.RGBin[0], (void *)&brain_B.RGBout[0], 57600U *
-               sizeof(real_T));
+        memcpy((void *)(&brain_B.RGBin[0]), (void *)(&brain_B.RGBout[0]), 57600U
+               * sizeof(real_T));
         StateFlowFunctionsBuoysFindBuoy(brain_B.RGBin, brain_B.LabMatrix_k,
           brain_B.num_colors, &brain_B.StateFlowFunctionsBuoysFindB_ln,
           &brain_DWork.StateFlowFunctionsBuoysFindB_ln);
         brain_DWork.Obstacle = (brain_B.StateFlowFunctionsBuoysFindB_ln.Image !=
           0.0);
-        memcpy((void *)&brain_B.RGBout[0], (void *)
-               &brain_B.StateFlowFunctionsBuoysFindB_ln.DrawMarkers[0], 57600U *
-               sizeof(real_T));
+        memcpy((void *)(&brain_B.RGBout[0]), (void *)
+               (&brain_B.StateFlowFunctionsBuoysFindB_ln.DrawMarkers[0]), 57600U
+               * sizeof(real_T));
         brain_DWork.BuoyCount = brain_countimages((real_T)brain_DWork.Obstacle,
           (real_T)brain_DWork.OldObstacle, brain_DWork.BuoyCount);
 
@@ -9986,12 +9838,13 @@ static void brain_Buoys(void)
          *
          *  Store in Global RAM
          */
-        cc = (brain_P.Depth_Kp * rtb_Add + (rtb_TSamp - brain_DWork.UD_DSTATE))
-          + brain_DWork.DepthDiscreteTimeIntegrator_DST;
-        cc = floor(cc);
-        if (cc < 128.0) {
-          if (cc >= -128.0) {
-            brain_B.DoubleToInt8 = (int8_T)cc;
+        count_0 = (brain_P.Depth_Kp * rtb_Add + (rtb_TSamp -
+                    brain_DWork.UD_DSTATE)) +
+          brain_DWork.DepthDiscreteTimeIntegrator_DST;
+        count_0 = floor(count_0);
+        if (count_0 < 128.0) {
+          if (count_0 >= -128.0) {
+            brain_B.DoubleToInt8 = (int8_T)count_0;
           } else {
             brain_B.DoubleToInt8 = MIN_int8_T;
           }
@@ -10033,362 +9886,215 @@ static void brain_Buoys(void)
 }
 
 /* Function for Embedded MATLAB: '<S81>/IsLinePresent' */
-static void brain_max_o(const real_T eml_varargin_1[71820], real_T eml_maxval
-  [180], real_T eml_indx[180])
+static void brain_max_o(const real_T varargin_1[71820], real_T maxval[180],
+  real_T indx[180])
 {
-  int16_T eml_b_indx[180];
-  int32_T eml_ix;
-  int32_T eml_iy;
-  real_T eml_mtmp;
-  int32_T eml_itmp;
-  int32_T eml_i;
-  int32_T eml_b_ix;
-  boolean_T eml_searchingForNonNaN;
-  int32_T eml_k;
-  boolean_T eml_guard;
-  boolean_T eml_exitg;
-  for (eml_ix = 0; eml_ix < 180; eml_ix++) {
-    eml_b_indx[eml_ix] = 1;
+  int16_T b_indx[180];
+  int32_T ix;
+  int32_T iy;
+  real_T mtmp;
+  int32_T itmp;
+  int32_T b_ix;
+  boolean_T searchingForNonNaN;
+  int32_T k;
+  boolean_T guard;
+  boolean_T exitg;
+  int32_T i;
+  for (i = 0; i < 180; i++) {
+    b_indx[i] = 1;
   }
 
-  eml_ix = 0;
-  eml_iy = 0;
-  for (eml_i = 0; eml_i < 180; eml_i++) {
-    eml_ix++;
-    eml_mtmp = eml_varargin_1[eml_ix - 1];
-    eml_itmp = 1;
-    eml_b_ix = eml_ix;
-    eml_guard = FALSE;
-    if (rtIsNaN(eml_mtmp)) {
-      eml_searchingForNonNaN = TRUE;
-      eml_k = 2;
-      eml_exitg = FALSE;
-      while (((uint32_T)eml_exitg == 0U) && (eml_k < 400)) {
-        eml_b_ix++;
-        if (!rtIsNaN(eml_varargin_1[eml_b_ix - 1])) {
-          eml_mtmp = eml_varargin_1[eml_b_ix - 1];
-          eml_itmp = eml_k;
-          eml_searchingForNonNaN = FALSE;
-          eml_exitg = TRUE;
+  ix = 0;
+  iy = 0;
+  for (i = 0; i < 180; i++) {
+    ix++;
+    mtmp = varargin_1[ix - 1];
+    itmp = 1;
+    b_ix = ix;
+    guard = FALSE;
+    if (rtIsNaN(varargin_1[ix - 1])) {
+      searchingForNonNaN = TRUE;
+      k = 2;
+      exitg = FALSE;
+      while (((uint32_T)exitg == 0U) && (k < 400)) {
+        b_ix++;
+        if (!rtIsNaN(varargin_1[b_ix - 1])) {
+          mtmp = varargin_1[b_ix - 1];
+          itmp = k;
+          searchingForNonNaN = FALSE;
+          exitg = TRUE;
         } else {
-          eml_k++;
+          k++;
         }
       }
 
-      if (!eml_searchingForNonNaN) {
-        eml_guard = TRUE;
+      if (!searchingForNonNaN) {
+        guard = TRUE;
       }
     } else {
-      eml_guard = TRUE;
+      guard = TRUE;
     }
 
-    if (eml_guard) {
-      for (eml_k = eml_itmp + 1; eml_k < 400; eml_k++) {
-        eml_b_ix++;
-        if (eml_varargin_1[eml_b_ix - 1] > eml_mtmp) {
-          eml_mtmp = eml_varargin_1[eml_b_ix - 1];
-          eml_itmp = eml_k;
+    if (guard) {
+      for (k = itmp + 1; k < 400; k++) {
+        b_ix++;
+        if (varargin_1[b_ix - 1] > mtmp) {
+          mtmp = varargin_1[b_ix - 1];
+          itmp = k;
         }
       }
     }
 
-    eml_iy++;
-    eml_maxval[eml_iy - 1] = eml_mtmp;
-    eml_b_indx[eml_iy - 1] = (int16_T)eml_itmp;
-    eml_ix += 398;
+    iy++;
+    maxval[iy - 1] = mtmp;
+    b_indx[iy - 1] = (int16_T)itmp;
+    ix += 398;
   }
 
-  for (eml_ix = 0; eml_ix < 180; eml_ix++) {
-    eml_indx[eml_ix] = (real_T)eml_b_indx[eml_ix];
+  for (i = 0; i < 180; i++) {
+    indx[i] = (real_T)b_indx[i];
   }
 }
 
 /* Function for Embedded MATLAB: '<S81>/IsLinePresent' */
-static void brain_max_oh(const real_T eml_varargin_1[180], real_T *eml_maxval,
-  real_T *eml_indx)
+static void brain_max_oh(const real_T varargin_1[180], real_T *maxval, real_T
+  *indx)
 {
-  real_T eml_mtmp;
-  int32_T eml_itmp;
-  int32_T eml_ix;
-  boolean_T eml_searchingForNonNaN;
-  int32_T eml_k;
-  boolean_T eml_guard;
-  boolean_T eml_exitg;
-  eml_mtmp = eml_varargin_1[0];
-  eml_itmp = 1;
-  eml_ix = 1;
-  eml_guard = FALSE;
-  if (rtIsNaN(eml_varargin_1[0])) {
-    eml_searchingForNonNaN = TRUE;
-    eml_k = 2;
-    eml_exitg = FALSE;
-    while (((uint32_T)eml_exitg == 0U) && (eml_k < 181)) {
-      eml_ix++;
-      if (!rtIsNaN(eml_varargin_1[eml_ix - 1])) {
-        eml_mtmp = eml_varargin_1[eml_ix - 1];
-        eml_itmp = eml_k;
-        eml_searchingForNonNaN = FALSE;
-        eml_exitg = TRUE;
+  real_T mtmp;
+  int32_T itmp;
+  int32_T ix;
+  boolean_T searchingForNonNaN;
+  int32_T k;
+  boolean_T guard;
+  boolean_T exitg;
+  mtmp = varargin_1[0];
+  itmp = 1;
+  ix = 1;
+  guard = FALSE;
+  if (rtIsNaN(varargin_1[0])) {
+    searchingForNonNaN = TRUE;
+    k = 2;
+    exitg = FALSE;
+    while (((uint32_T)exitg == 0U) && (k < 181)) {
+      ix++;
+      if (!rtIsNaN(varargin_1[ix - 1])) {
+        mtmp = varargin_1[ix - 1];
+        itmp = k;
+        searchingForNonNaN = FALSE;
+        exitg = TRUE;
       } else {
-        eml_k++;
+        k++;
       }
     }
 
-    if (!eml_searchingForNonNaN) {
-      eml_guard = TRUE;
+    if (!searchingForNonNaN) {
+      guard = TRUE;
     }
   } else {
-    eml_guard = TRUE;
+    guard = TRUE;
   }
 
-  if (eml_guard) {
-    for (eml_k = eml_itmp + 1; eml_k < 181; eml_k++) {
-      eml_ix++;
-      if (eml_varargin_1[eml_ix - 1] > eml_mtmp) {
-        eml_mtmp = eml_varargin_1[eml_ix - 1];
-        eml_itmp = eml_k;
+  if (guard) {
+    for (k = itmp + 1; k < 181; k++) {
+      ix++;
+      if (varargin_1[ix - 1] > mtmp) {
+        mtmp = varargin_1[ix - 1];
+        itmp = k;
       }
     }
   }
 
-  *eml_maxval = eml_mtmp;
-  *eml_indx = (real_T)eml_itmp;
+  *maxval = mtmp;
+  *indx = (real_T)itmp;
 }
 
 /* Function for Embedded MATLAB: '<S81>/IsLinePresent' */
-static void brain_refp1_round(real_T *eml_x)
+static void brain_refp1_round(real_T *x)
 {
-  if (*eml_x < 0.0) {
-    *eml_x = ceil(*eml_x - 0.5);
+  if (*x < 0.0) {
+    *x = ceil(*x - 0.5);
   } else {
-    *eml_x = floor(*eml_x + 0.5);
-  }
-}
-
-/* Function for Embedded MATLAB: '<S81>/IsLinePresent' */
-static void brain_c30_brain(void)
-{
-  int32_T eml_count;
-  real_T eml_maxValues[180];
-  real_T eml_RhoIndices[180];
-  real_T eml_b;
-  real_T eml_c;
-  int32_T eml_i;
-  real_T eml_ThetaIndex_idx;
-  real_T eml_RhoIndex_idx;
-  real_T eml_ThetaIndex_idx_0;
-  real_T eml_RhoIndex_idx_0;
-  memcpy((void *)&brain_B.eml_HoughTable[0], (void *)
-         &brain_B.HoughTransform_o1_n[0], 71820U * sizeof(real_T));
-
-  /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings/Hough Transform Stuff/IsLinePresent': '<S82>:1' */
-  /*  This function takes a Hough/hash table as input and  determines if a line */
-  /*  is present and if so what its Rho and Theta are. */
-  /* '<S82>:1:5' */
-  /* '<S82>:1:7' */
-  /* '<S82>:1:9' */
-  /* '<S82>:1:10' */
-  /* '<S82>:1:11' */
-  /* '<S82>:1:12' */
-  /* '<S82>:1:13' */
-  brain_B.Rho[0] = -999.0;
-  brain_B.Theta[0] = -999.0;
-  brain_B.maxVotes[0] = -999.0;
-  brain_B.Rho[1] = -999.0;
-  brain_B.Theta[1] = -999.0;
-  brain_B.maxVotes[1] = -999.0;
-  eml_ThetaIndex_idx_0 = -999.0;
-  eml_RhoIndex_idx_0 = -999.0;
-
-  /* '<S82>:1:17' */
-  brain_max_o(&brain_B.HoughTransform_o1_n[0], eml_maxValues, eml_RhoIndices);
-  brain_max_oh(eml_maxValues, &eml_b, &eml_c);
-
-  /* '<S82>:1:20' */
-  brain_B.maxVotes[0] = eml_b;
-
-  /* '<S82>:1:20' */
-  /* '<S82>:1:21' */
-  eml_b = 0.0;
-
-  /* '<S82>:1:22' */
-  eml_c = 0.0;
-
-  /* '<S82>:1:23' */
-  for (eml_i = 0; eml_i < 180; eml_i++) {
-    /* '<S82>:1:23' */
-    if (brain_B.maxVotes[0] - eml_maxValues[eml_i] < 0.15 * brain_B.maxVotes[0])
-    {
-      /* '<S82>:1:24' */
-      /* '<S82>:1:25' */
-      eml_b += ((real_T)eml_i + 1.0) * eml_maxValues[eml_i];
-
-      /* '<S82>:1:26' */
-      eml_c += eml_maxValues[eml_i];
-    }
-  }
-
-  if (eml_c > 0.0) {
-    /* '<S82>:1:29' */
-    /* '<S82>:1:30' */
-    eml_b /= eml_c;
-    brain_refp1_round(&eml_b);
-  } else {
-    /* '<S82>:1:32' */
-    eml_b = 1.0;
-  }
-
-  /* '<S82>:1:35' */
-  eml_ThetaIndex_idx = eml_b;
-
-  /* '<S82>:1:36' */
-  brain_B.maxVotes[0] = eml_maxValues[(int32_T)eml_b - 1];
-
-  /* '<S82>:1:38' */
-  eml_RhoIndex_idx = eml_RhoIndices[(int32_T)eml_b - 1];
-  if (brain_B.maxVotes[0] >= 15.0) {
-    /* '<S82>:1:40' */
-    /* '<S82>:1:41' */
-    brain_B.eml_HoughTable[((int32_T)eml_RhoIndex_idx - 1) + 399 * ((int32_T)
-      eml_b - 1)] = 0.0;
-
-    /* '<S82>:1:43' */
-    eml_i = 2;
-
-    /* '<S82>:1:44' */
-    eml_count = 0;
-    while ((eml_i <= 2) && (eml_count < 12)) {
-      /* '<S82>:1:45' */
-      /* '<S82>:1:46' */
-      eml_count++;
-      brain_max_o(&brain_B.eml_HoughTable[0], eml_maxValues, eml_RhoIndices);
-      brain_max_oh(eml_maxValues, &eml_b, &eml_c);
-
-      /* '<S82>:1:48' */
-      brain_B.maxVotes[1] = eml_b;
-
-      /* '<S82>:1:48' */
-      eml_ThetaIndex_idx_0 = eml_c;
-
-      /* '<S82>:1:49' */
-      eml_RhoIndex_idx_0 = eml_RhoIndices[(int32_T)eml_c - 1];
-
-      /* '<S82>:1:51' */
-      brain_B.eml_HoughTable[((int32_T)eml_RhoIndex_idx_0 - 1) + 399 * ((int32_T)
-        eml_c - 1)] = 0.0;
-      if ((fabs(eml_RhoIndex_idx_0 - eml_RhoIndex_idx) > 20.0) || (fabs(eml_c -
-            eml_ThetaIndex_idx) > 30.0)) {
-        /* '<S82>:1:53' */
-        /* '<S82>:1:54' */
-        eml_i = 3;
-      }
-    }
-
-    /* '<S82>:1:59' */
-    if (brain_B.maxVotes[0] > 15.0) {
-      /* '<S82>:1:60' */
-      /* '<S82>:1:61' */
-      brain_B.Theta[0] = brain_B.HoughTransform_o2_e[(int32_T)eml_ThetaIndex_idx
-        - 1];
-
-      /* '<S82>:1:62' */
-      brain_B.Rho[0] = brain_B.HoughTransform_o3_n[(int32_T)eml_RhoIndex_idx - 1];
-      if ((brain_B.Theta[0] > 0.0) && (brain_B.Rho[0] < 0.0)) {
-        /* '<S82>:1:63' */
-        /* '<S82>:1:64' */
-        brain_B.Rho[0] = brain_B.Rho[0] * -1.0;
-      }
-    }
-
-    /* '<S82>:1:59' */
-    if (brain_B.maxVotes[1] > 15.0) {
-      /* '<S82>:1:60' */
-      /* '<S82>:1:61' */
-      brain_B.Theta[1] = brain_B.HoughTransform_o2_e[(int32_T)
-        eml_ThetaIndex_idx_0 - 1];
-
-      /* '<S82>:1:62' */
-      brain_B.Rho[1] = brain_B.HoughTransform_o3_n[(int32_T)eml_RhoIndex_idx_0 -
-        1];
-      if ((brain_B.Theta[1] > 0.0) && (brain_B.Rho[1] < 0.0)) {
-        /* '<S82>:1:63' */
-        /* '<S82>:1:64' */
-        brain_B.Rho[1] = brain_B.Rho[1] * -1.0;
-      }
-    }
+    *x = floor(*x + 0.5);
   }
 }
 
 /* Function for Embedded MATLAB: '<S21>/GetHeadingToPath' */
-static void brain_max_h(const real_T eml_varargin_1[2], real_T *eml_maxval,
-  real_T *eml_indx)
+static void brain_max_h(const real_T varargin_1[2], real_T *maxval, real_T *indx)
 {
-  real_T eml_mtmp;
-  int32_T eml_itmp;
-  int32_T eml_ix;
-  boolean_T eml_searchingForNonNaN;
-  int32_T eml_k;
-  boolean_T eml_guard;
-  eml_mtmp = eml_varargin_1[0];
-  eml_itmp = 1;
-  eml_ix = 1;
-  eml_guard = FALSE;
-  if (rtIsNaN(eml_varargin_1[0])) {
-    eml_searchingForNonNaN = TRUE;
-    eml_ix = 2;
-    if (!rtIsNaN(eml_varargin_1[1])) {
-      eml_mtmp = eml_varargin_1[1];
-      eml_itmp = 2;
-      eml_searchingForNonNaN = FALSE;
+  real_T mtmp;
+  int32_T itmp;
+  int32_T ix;
+  boolean_T searchingForNonNaN;
+  int32_T k;
+  boolean_T guard;
+  mtmp = varargin_1[0];
+  itmp = 1;
+  ix = 1;
+  guard = FALSE;
+  if (rtIsNaN(varargin_1[0])) {
+    searchingForNonNaN = TRUE;
+    ix = 2;
+    if (!rtIsNaN(varargin_1[1])) {
+      mtmp = varargin_1[1];
+      itmp = 2;
+      searchingForNonNaN = FALSE;
     }
 
-    if (!eml_searchingForNonNaN) {
-      eml_guard = TRUE;
+    if (!searchingForNonNaN) {
+      guard = TRUE;
     }
   } else {
-    eml_guard = TRUE;
+    guard = TRUE;
   }
 
-  if (eml_guard) {
-    for (eml_k = eml_itmp + 1; eml_k < 3; eml_k = 3) {
-      eml_ix++;
-      if (eml_varargin_1[eml_ix - 1] > eml_mtmp) {
-        eml_mtmp = eml_varargin_1[eml_ix - 1];
-        eml_itmp = 2;
+  if (guard) {
+    for (k = itmp + 1; k < 3; k = 3) {
+      ix++;
+      if (varargin_1[ix - 1] > mtmp) {
+        mtmp = varargin_1[ix - 1];
+        itmp = 2;
       }
     }
   }
 
-  *eml_maxval = eml_mtmp;
-  *eml_indx = (real_T)eml_itmp;
+  *maxval = mtmp;
+  *indx = (real_T)itmp;
 }
 
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
 static void brain_OnePath(void)
 {
-  real_T sf_ErrorY;
-  real_T y;
   int32_T idxROI;
   int32_T idxStart;
   boolean_T isInBound;
   boolean_T visited;
   boolean_T visited_0;
   boolean_T done;
-  real_T eml_b;
-  real_T eml_c;
+  real_T index_moment;
+  real_T sum_maxValues;
+  real_T maxValues[180];
+  real_T RhoIndices[180];
   int32_T ky;
   int32_T ku;
+  int32_T idxAdj;
+  int32_T n;
+  int32_T startC;
   int32_T inIdx;
   int32_T outIdx;
+  real_T rtb_Theta[2];
+  real_T rtb_maxVotes[2];
   int32_T i;
   int32_T line_idx;
   int32_T line_idx_0;
   int32_T line_idx_1;
   int32_T line_idx_2;
   int32_T line_idx_3;
-  int32_T line_idx_4;
-  int32_T line_idx_5;
-  real_T tmp;
+  real_T ThetaIndex_idx;
+  real_T RhoIndex_idx;
+  real_T ThetaIndex_idx_0;
+  real_T RhoIndex_idx_0;
+  real_T rtb_Rho_idx;
+  real_T rtb_Rho_idx_0;
 
   /* During 'OnePath': '<S7>:1549' */
   switch (brain_DWork.is_OnePath) {
@@ -10429,7 +10135,7 @@ static void brain_OnePath(void)
       /* S-Function (svipmorphop): '<S99>/Erosion' */
       ky = 0;
       ku = 0;
-      for (inIdx = 0; inIdx < 127; inIdx++) {
+      for (startC = 0; startC < 127; startC++) {
         brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ky] = TRUE;
         ky++;
       }
@@ -10437,37 +10143,36 @@ static void brain_OnePath(void)
       for (i = 0; i < 160; i++) {
         brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ky] = TRUE;
         ky++;
-        memcpy((void *)&brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ky], (void *)
-               &brain_B.BW_m[ku], 120U * sizeof(boolean_T));
+        memcpy((void *)(&brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ky]), (void *)
+               (&brain_B.BW_m[ku]), 120U * sizeof(boolean_T));
         ky += 120;
         ku += 120;
-        for (inIdx = 121; inIdx < 127; inIdx++) {
+        for (startC = 121; startC < 127; startC++) {
           brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ky] = TRUE;
           ky++;
         }
       }
 
       for (i = 161; i < 167; i++) {
-        for (inIdx = 0; inIdx < 127; inIdx++) {
+        for (startC = 0; startC < 127; startC++) {
           brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ky] = TRUE;
           ky++;
         }
       }
 
-      for (line_idx_5 = 0; line_idx_5 < 21209; line_idx_5++) {
-        brain_DWork.Erosion_TWO_PAD_IMG_DW_h[line_idx_5] = TRUE;
+      for (i = 0; i < 21209; i++) {
+        brain_DWork.Erosion_TWO_PAD_IMG_DW_h[i] = TRUE;
       }
 
       ku = 0;
-      for (i = 0; i < 167; i++) {
-        for (line_idx_3 = 0; line_idx_3 < 124; line_idx_3++) {
+      for (n = 0; n < 167; n++) {
+        for (startC = 0; startC < 124; startC++) {
           brain_DWork.Erosion_TWO_PAD_IMG_DW_h[1 + ku] = TRUE;
-          for (line_idx_5 = 0; line_idx_5 < brain_DWork.Erosion_NUMNONZ_DW_f[0];
-               line_idx_5++) {
+          for (i = 0; i < brain_DWork.Erosion_NUMNONZ_DW_f[0]; i++) {
             if (!brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ku +
-                brain_DWork.Erosion_ERODE_OFF_DW_l[line_idx_5]]) {
+                brain_DWork.Erosion_ERODE_OFF_DW_l[i]]) {
               brain_DWork.Erosion_TWO_PAD_IMG_DW_h[1 + ku] = FALSE;
-              line_idx_5 = brain_DWork.Erosion_NUMNONZ_DW_f[0];
+              i = brain_DWork.Erosion_NUMNONZ_DW_f[0];
             }
           }
 
@@ -10479,15 +10184,14 @@ static void brain_OnePath(void)
 
       inIdx = 1;
       outIdx = 0;
-      for (i = 0; i < 160; i++) {
-        for (line_idx_3 = 1; line_idx_3 < 121; line_idx_3++) {
+      for (n = 0; n < 160; n++) {
+        for (startC = 1; startC < 121; startC++) {
           brain_B.Erosion_m[outIdx] = TRUE;
-          for (line_idx_5 = 0; line_idx_5 < brain_DWork.Erosion_NUMNONZ_DW_f[1];
-               line_idx_5++) {
+          for (i = 0; i < brain_DWork.Erosion_NUMNONZ_DW_f[1]; i++) {
             if (!brain_DWork.Erosion_TWO_PAD_IMG_DW_h[brain_DWork.Erosion_ERODE_OFF_DW_l
-                [line_idx_5 + brain_DWork.Erosion_NUMNONZ_DW_f[0]] + inIdx]) {
+                [i + brain_DWork.Erosion_NUMNONZ_DW_f[0]] + inIdx]) {
               brain_B.Erosion_m[outIdx] = FALSE;
-              line_idx_5 = brain_DWork.Erosion_NUMNONZ_DW_f[1];
+              i = brain_DWork.Erosion_NUMNONZ_DW_f[1];
             }
           }
 
@@ -10507,8 +10211,8 @@ static void brain_OnePath(void)
       }
 
       /* S-Function (svipscalenconvert): '<S21>/Image Data Type Conversion' */
-      for (ky = 0; ky < 19200; ky++) {
-        brain_B.ImageDataTypeConversion_p[ky] = ((brain_B.BW[ky] == 0.0 ? 0 : 1)
+      for (i = 0; i < 19200; i++) {
+        brain_B.ImageDataTypeConversion_p[i] = ((brain_B.BW[i] == 0.0 ? 0 : 1)
           != 0);
       }
 
@@ -10518,39 +10222,183 @@ static void brain_OnePath(void)
                     &brain_ConstP.pooled19, 120, 160, 399, 91);
 
       /* Embedded MATLAB: '<S81>/IsLinePresent' */
-      brain_c30_brain();
+      memcpy((void *)(&brain_B.HoughTable[0]), (void *)
+             (&brain_B.HoughTransform_o1_n[0]), 71820U * sizeof(real_T));
+
+      /* Embedded MATLAB Function 'StateFlow Functions/StateFlowFunctions.FollowOnePath.OnePath.AlignWithPath.GetHeadings/Hough Transform Stuff/IsLinePresent': '<S82>:1' */
+      /*  This function takes a Hough/hash table as input and  determines if a line */
+      /*  is present and if so what its Rho and Theta are. */
+      /* '<S82>:1:5' */
+      /* '<S82>:1:7' */
+      /* '<S82>:1:9' */
+      /* '<S82>:1:10' */
+      /* '<S82>:1:11' */
+      /* '<S82>:1:12' */
+      /* '<S82>:1:13' */
+      rtb_Rho_idx = -999.0;
+      rtb_Theta[0] = -999.0;
+      rtb_maxVotes[0] = -999.0;
+      rtb_Rho_idx_0 = -999.0;
+      rtb_Theta[1] = -999.0;
+      rtb_maxVotes[1] = -999.0;
+      ThetaIndex_idx_0 = -999.0;
+      RhoIndex_idx_0 = -999.0;
+
+      /* '<S82>:1:17' */
+      memcpy((void *)(&brain_B.dv0[0]), (void *)(&brain_B.HoughTransform_o1_n[0]),
+             71820U * sizeof(real_T));
+      brain_max_o(&brain_B.dv0[0], maxValues, RhoIndices);
+      brain_max_oh(maxValues, &index_moment, &sum_maxValues);
+
+      /* '<S82>:1:20' */
+      rtb_maxVotes[0] = index_moment;
+
+      /* '<S82>:1:20' */
+      /* '<S82>:1:21' */
+      index_moment = 0.0;
+
+      /* '<S82>:1:22' */
+      sum_maxValues = 0.0;
+
+      /* '<S82>:1:23' */
+      for (i = 0; i < 180; i++) {
+        /* '<S82>:1:23' */
+        if (rtb_maxVotes[0] - maxValues[i] < 0.15 * rtb_maxVotes[0]) {
+          /* '<S82>:1:24' */
+          /* '<S82>:1:25' */
+          index_moment += ((real_T)i + 1.0) * maxValues[i];
+
+          /* '<S82>:1:26' */
+          sum_maxValues += maxValues[i];
+        }
+      }
+
+      if (sum_maxValues > 0.0) {
+        /* '<S82>:1:29' */
+        /* '<S82>:1:30' */
+        index_moment /= sum_maxValues;
+        brain_refp1_round(&index_moment);
+      } else {
+        /* '<S82>:1:32' */
+        index_moment = 1.0;
+      }
+
+      /* '<S82>:1:35' */
+      ThetaIndex_idx = index_moment;
+
+      /* '<S82>:1:36' */
+      rtb_maxVotes[0] = maxValues[(int32_T)index_moment - 1];
+
+      /* '<S82>:1:38' */
+      RhoIndex_idx = RhoIndices[(int32_T)index_moment - 1];
+      if (rtb_maxVotes[0] >= 15.0) {
+        /* '<S82>:1:40' */
+        /* '<S82>:1:41' */
+        brain_B.HoughTable[((int32_T)RhoIndices[(int32_T)index_moment - 1] - 1)
+          + 399 * ((int32_T)index_moment - 1)] = 0.0;
+
+        /* '<S82>:1:43' */
+        ky = 2;
+
+        /* '<S82>:1:44' */
+        inIdx = 0;
+        while ((ky <= 2) && (inIdx < 12)) {
+          /* '<S82>:1:45' */
+          /* '<S82>:1:46' */
+          inIdx++;
+          brain_max_o(&brain_B.HoughTable[0], maxValues, RhoIndices);
+          brain_max_oh(maxValues, &index_moment, &sum_maxValues);
+
+          /* '<S82>:1:48' */
+          rtb_maxVotes[1] = index_moment;
+
+          /* '<S82>:1:48' */
+          ThetaIndex_idx_0 = sum_maxValues;
+
+          /* '<S82>:1:49' */
+          RhoIndex_idx_0 = RhoIndices[(int32_T)sum_maxValues - 1];
+
+          /* '<S82>:1:51' */
+          brain_B.HoughTable[((int32_T)RhoIndices[(int32_T)sum_maxValues - 1] -
+                              1) + 399 * ((int32_T)sum_maxValues - 1)] = 0.0;
+          if ((fabs(RhoIndices[(int32_T)sum_maxValues - 1] - RhoIndex_idx) >
+               20.0) || (fabs(sum_maxValues - ThetaIndex_idx) > 30.0)) {
+            /* '<S82>:1:53' */
+            /* '<S82>:1:54' */
+            ky = 3;
+          }
+        }
+
+        /* '<S82>:1:59' */
+        if (rtb_maxVotes[0] > 15.0) {
+          /* '<S82>:1:60' */
+          /* '<S82>:1:61' */
+          rtb_Theta[0] = brain_B.HoughTransform_o2_e[(int32_T)ThetaIndex_idx - 1];
+
+          /* '<S82>:1:62' */
+          rtb_Rho_idx = brain_B.HoughTransform_o3_n[(int32_T)RhoIndex_idx - 1];
+          if ((rtb_Theta[0] > 0.0) && (brain_B.HoughTransform_o3_n[(int32_T)
+               RhoIndex_idx - 1] < 0.0)) {
+            /* '<S82>:1:63' */
+            /* '<S82>:1:64' */
+            rtb_Rho_idx = brain_B.HoughTransform_o3_n[(int32_T)RhoIndex_idx - 1]
+              * -1.0;
+          }
+        }
+
+        /* '<S82>:1:59' */
+        if (rtb_maxVotes[1] > 15.0) {
+          /* '<S82>:1:60' */
+          /* '<S82>:1:61' */
+          rtb_Theta[1] = brain_B.HoughTransform_o2_e[(int32_T)ThetaIndex_idx_0 -
+            1];
+
+          /* '<S82>:1:62' */
+          rtb_Rho_idx_0 = brain_B.HoughTransform_o3_n[(int32_T)RhoIndex_idx_0 -
+            1];
+          if ((rtb_Theta[1] > 0.0) && (brain_B.HoughTransform_o3_n[(int32_T)
+               RhoIndex_idx_0 - 1] < 0.0)) {
+            /* '<S82>:1:63' */
+            /* '<S82>:1:64' */
+            rtb_Rho_idx_0 = brain_B.HoughTransform_o3_n[(int32_T)RhoIndex_idx_0
+              - 1] * -1.0;
+          }
+        }
+      }
 
       /* S-Function (sviphoughlines): '<S21>/Hough Lines' */
       inIdx = 0;
-      eml_b = (brain_B.Rho[0] + 2.2204460492503131E-016) / (cos(brain_B.Theta[0])
-        + 2.2204460492503131E-016);
+      index_moment = (rtb_Rho_idx + 2.2204460492503131E-16) / (cos(rtb_Theta[0])
+        + 2.2204460492503131E-16);
 
       /* part-1: top horizontal axis */
-      eml_c = floor(eml_b + 0.5);
-      if ((eml_c >= 0.0) && (eml_c <= 159.0)) {
+      sum_maxValues = floor(index_moment + 0.5);
+      if ((sum_maxValues >= 0.0) && (sum_maxValues <= 159.0)) {
         brain_B.HoughLines_a[0] = 0;
-        brain_B.HoughLines_a[1] = (int32_T)floor((real_T)(int32_T)eml_c + 0.5);
+        brain_B.HoughLines_a[1] = (int32_T)floor((real_T)(int32_T)sum_maxValues
+          + 0.5);
         inIdx = 1;
       }
 
-      y = (brain_B.Rho[0] + 2.2204460492503131E-016) / (sin(brain_B.Theta[0]) +
-        2.2204460492503131E-016);
+      RhoIndex_idx_0 = (rtb_Rho_idx + 2.2204460492503131E-16) / (sin(rtb_Theta[0])
+        + 2.2204460492503131E-16);
 
       /* part-2: left vertical axis */
-      eml_c = floor(y + 0.5);
-      if ((eml_c >= 0.0) && (eml_c <= 119.0)) {
+      sum_maxValues = floor(RhoIndex_idx_0 + 0.5);
+      if ((sum_maxValues >= 0.0) && (sum_maxValues <= 119.0)) {
         brain_B.HoughLines_a[(inIdx << 1)] = (int32_T)floor((real_T)(int32_T)
-          eml_c + 0.5);
+          sum_maxValues + 0.5);
         brain_B.HoughLines_a[1 + (inIdx << 1)] = 0;
         inIdx++;
       }
 
       /* part-3: Right vertical axis */
       if (inIdx < 2) {
-        eml_c = floor((eml_b - 159.0) * (y / eml_b) + 0.5);
-        if ((eml_c >= 0.0) && (eml_c <= 119.0)) {
+        sum_maxValues = floor((index_moment - 159.0) * (RhoIndex_idx_0 /
+          index_moment) + 0.5);
+        if ((sum_maxValues >= 0.0) && (sum_maxValues <= 119.0)) {
           brain_B.HoughLines_a[(inIdx << 1)] = (int32_T)floor((real_T)(int32_T)
-            eml_c + 0.5);
+            sum_maxValues + 0.5);
           brain_B.HoughLines_a[1 + (inIdx << 1)] = 159;
           inIdx++;
         }
@@ -10558,11 +10406,12 @@ static void brain_OnePath(void)
 
       /* part-4: bottom horizontal axis */
       if (inIdx < 2) {
-        eml_c = floor((eml_b - eml_b / y * 119.0) + 0.5);
-        if ((eml_c >= 0.0) && (eml_c <= 159.0)) {
+        sum_maxValues = floor((index_moment - index_moment / RhoIndex_idx_0 *
+          119.0) + 0.5);
+        if ((sum_maxValues >= 0.0) && (sum_maxValues <= 159.0)) {
           brain_B.HoughLines_a[(inIdx << 1)] = 119;
           brain_B.HoughLines_a[1 + (inIdx << 1)] = (int32_T)floor((real_T)
-            (int32_T)eml_c + 0.5);
+            (int32_T)sum_maxValues + 0.5);
           inIdx++;
         }
       }
@@ -10575,35 +10424,37 @@ static void brain_OnePath(void)
       }
 
       inIdx = 0;
-      eml_b = (brain_B.Rho[1] + 2.2204460492503131E-016) / (cos(brain_B.Theta[1])
-        + 2.2204460492503131E-016);
+      index_moment = (rtb_Rho_idx_0 + 2.2204460492503131E-16) / (cos(rtb_Theta[1])
+        + 2.2204460492503131E-16);
 
       /* part-1: top horizontal axis */
-      eml_c = floor(eml_b + 0.5);
-      if ((eml_c >= 0.0) && (eml_c <= 159.0)) {
+      sum_maxValues = floor(index_moment + 0.5);
+      if ((sum_maxValues >= 0.0) && (sum_maxValues <= 159.0)) {
         brain_B.HoughLines_a[4] = 0;
-        brain_B.HoughLines_a[5] = (int32_T)floor((real_T)(int32_T)eml_c + 0.5);
+        brain_B.HoughLines_a[5] = (int32_T)floor((real_T)(int32_T)sum_maxValues
+          + 0.5);
         inIdx = 1;
       }
 
-      y = (brain_B.Rho[1] + 2.2204460492503131E-016) / (sin(brain_B.Theta[1]) +
-        2.2204460492503131E-016);
+      RhoIndex_idx_0 = (rtb_Rho_idx_0 + 2.2204460492503131E-16) / (sin
+        (rtb_Theta[1]) + 2.2204460492503131E-16);
 
       /* part-2: left vertical axis */
-      eml_c = floor(y + 0.5);
-      if ((eml_c >= 0.0) && (eml_c <= 119.0)) {
+      sum_maxValues = floor(RhoIndex_idx_0 + 0.5);
+      if ((sum_maxValues >= 0.0) && (sum_maxValues <= 119.0)) {
         brain_B.HoughLines_a[4 + (inIdx << 1)] = (int32_T)floor((real_T)(int32_T)
-          eml_c + 0.5);
+          sum_maxValues + 0.5);
         brain_B.HoughLines_a[5 + (inIdx << 1)] = 0;
         inIdx++;
       }
 
       /* part-3: Right vertical axis */
       if (inIdx < 2) {
-        eml_c = floor((eml_b - 159.0) * (y / eml_b) + 0.5);
-        if ((eml_c >= 0.0) && (eml_c <= 119.0)) {
+        sum_maxValues = floor((index_moment - 159.0) * (RhoIndex_idx_0 /
+          index_moment) + 0.5);
+        if ((sum_maxValues >= 0.0) && (sum_maxValues <= 119.0)) {
           brain_B.HoughLines_a[4 + (inIdx << 1)] = (int32_T)floor((real_T)
-            (int32_T)eml_c + 0.5);
+            (int32_T)sum_maxValues + 0.5);
           brain_B.HoughLines_a[5 + (inIdx << 1)] = 159;
           inIdx++;
         }
@@ -10611,11 +10462,12 @@ static void brain_OnePath(void)
 
       /* part-4: bottom horizontal axis */
       if (inIdx < 2) {
-        eml_c = floor((eml_b - eml_b / y * 119.0) + 0.5);
-        if ((eml_c >= 0.0) && (eml_c <= 159.0)) {
+        sum_maxValues = floor((index_moment - index_moment / RhoIndex_idx_0 *
+          119.0) + 0.5);
+        if ((sum_maxValues >= 0.0) && (sum_maxValues <= 159.0)) {
           brain_B.HoughLines_a[4 + (inIdx << 1)] = 119;
           brain_B.HoughLines_a[5 + (inIdx << 1)] = (int32_T)floor((real_T)
-            (int32_T)eml_c + 0.5);
+            (int32_T)sum_maxValues + 0.5);
           inIdx++;
         }
       }
@@ -10629,37 +10481,38 @@ static void brain_OnePath(void)
 
       /* S-Function (svipdrawshapes): '<S21>/Draw Shapes' */
       /* Copy the image from input to output. */
-      memcpy((void *)&brain_B.DrawShapes_m[0], (void *)&brain_B.BW[0], 19200U *
-             sizeof(real_T));
+      memcpy((void *)(&brain_B.DrawShapes_m[0]), (void *)(&brain_B.BW[0]),
+             19200U * sizeof(real_T));
       idxStart = 0;
       for (idxROI = 0; idxROI < 2; idxROI++) {
-        for (i = 0; i < 1; i = 1) {
-          line_idx_2 = brain_B.HoughLines_a[idxStart];
-          line_idx_3 = brain_B.HoughLines_a[idxStart + 1];
-          inIdx = brain_B.HoughLines_a[idxStart + 2];
-          line_idx_4 = brain_B.HoughLines_a[idxStart + 3];
-          if ((brain_B.HoughLines_a[idxStart] != inIdx) || (line_idx_3 !=
-               line_idx_4)) {
+        for (startC = 0; startC < 1; startC = 1) {
+          inIdx = brain_B.HoughLines_a[idxStart];
+          i = brain_B.HoughLines_a[idxStart + 1];
+          line_idx_2 = brain_B.HoughLines_a[idxStart + 2];
+          line_idx_3 = brain_B.HoughLines_a[idxStart + 3];
+          if ((brain_B.HoughLines_a[idxStart + 2] !=
+               brain_B.HoughLines_a[idxStart]) || (brain_B.HoughLines_a[idxStart
+               + 1] != brain_B.HoughLines_a[idxStart + 3])) {
             isInBound = FALSE;
 
             /* Find the visible portion of a line. */
             visited = FALSE;
             visited_0 = FALSE;
             done = FALSE;
-            line_idx_5 = brain_B.HoughLines_a[idxStart];
-            line_idx = line_idx_3;
-            line_idx_1 = inIdx;
-            line_idx_0 = line_idx_4;
+            idxAdj = brain_B.HoughLines_a[idxStart];
+            line_idx = brain_B.HoughLines_a[idxStart + 1];
+            line_idx_1 = brain_B.HoughLines_a[idxStart + 2];
+            line_idx_0 = brain_B.HoughLines_a[idxStart + 3];
             while (!done) {
-              i = 0;
+              n = 0;
               outIdx = 0;
 
               /* Determine viewport violations. */
-              if (line_idx_5 < 0) {
-                i = 4;
+              if (idxAdj < 0) {
+                n = 4;
               } else {
-                if (line_idx_5 > 119) {
-                  i = 8;
+                if (idxAdj > 119) {
+                  n = 8;
                 }
               }
 
@@ -10672,78 +10525,82 @@ static void brain_OnePath(void)
               }
 
               if (line_idx < 0) {
-                i |= 1;
+                n = (int32_T)((uint32_T)n | 1U);
               } else {
                 if (line_idx > 159) {
-                  i |= 2;
+                  n = (int32_T)((uint32_T)n | 2U);
                 }
               }
 
               if (line_idx_0 < 0) {
-                outIdx |= 1;
+                outIdx = (int32_T)((uint32_T)outIdx | 1U);
               } else {
                 if (line_idx_0 > 159) {
-                  outIdx |= 2;
+                  outIdx = (int32_T)((uint32_T)outIdx | 2U);
                 }
               }
 
-              if (!((uint32_T)(i | outIdx))) {
+              if (!((uint32_T)n | (uint32_T)outIdx)) {
                 /* Line falls completely within bounds. */
                 done = TRUE;
                 isInBound = TRUE;
-              } else if ((uint32_T)(i & outIdx)) {
+              } else if ((uint32_T)n & (uint32_T)outIdx) {
                 /* Line falls completely out of bounds. */
                 done = TRUE;
                 isInBound = FALSE;
-              } else if ((uint32_T)i != 0U) {
+              } else if ((uint32_T)n != 0U) {
                 /* Clip 1st point; if it's in-bounds, clip 2nd point. */
                 if (visited) {
-                  line_idx_5 = line_idx_2;
-                  line_idx = line_idx_3;
+                  idxAdj = inIdx;
+                  line_idx = i;
                 }
 
-                ky = line_idx_1 - line_idx_5;
+                ky = line_idx_1 - idxAdj;
                 ku = line_idx_0 - line_idx;
-                if ((uint32_T)(i & 4)) {
+                if ((uint32_T)n & 4U) {
                   /* Violated RMin. */
-                  i = (0 - line_idx_5) * ku;
-                  if (((i >= 0) && (ky >= 0)) || ((i < 0) && (ky < 0))) {
-                    line_idx += (div_s32_floor(i << 1U, ky) + 1) >> 1;
+                  startC = (0 - idxAdj) * ku;
+                  if (((startC >= 0) && (ky >= 0)) || ((startC < 0) && (ky < 0)))
+                  {
+                    line_idx += (div_s32_floor(startC << 1U, ky) + 1) >> 1;
                   } else {
-                    line_idx += -((div_s32_floor((-i) << 1U, ky) + 1) >> 1);
+                    line_idx += -((div_s32_floor((-startC) << 1U, ky) + 1) >> 1);
                   }
 
-                  line_idx_5 = 0;
+                  idxAdj = 0;
                   visited = TRUE;
-                } else if ((uint32_T)(i & 8)) {
+                } else if ((uint32_T)n & 8U) {
                   /* Violated RMax. */
-                  i = (119 - line_idx_5) * ku;
-                  if (((i >= 0) && (ky >= 0)) || ((i < 0) && (ky < 0))) {
-                    line_idx += (div_s32_floor(i << 1U, ky) + 1) >> 1;
+                  startC = (119 - idxAdj) * ku;
+                  if (((startC >= 0) && (ky >= 0)) || ((startC < 0) && (ky < 0)))
+                  {
+                    line_idx += (div_s32_floor(startC << 1U, ky) + 1) >> 1;
                   } else {
-                    line_idx += -((div_s32_floor((-i) << 1U, ky) + 1) >> 1);
+                    line_idx += -((div_s32_floor((-startC) << 1U, ky) + 1) >> 1);
                   }
 
-                  line_idx_5 = 119;
+                  idxAdj = 119;
                   visited = TRUE;
-                } else if ((uint32_T)(i & 1)) {
+                } else if ((uint32_T)n & 1U) {
                   /* Violated CMin. */
-                  i = (0 - line_idx) * ky;
-                  if (((i >= 0) && (ku >= 0)) || ((i < 0) && (ku < 0))) {
-                    line_idx_5 += (div_s32_floor(i << 1U, ku) + 1) >> 1;
+                  startC = (0 - line_idx) * ky;
+                  if (((startC >= 0) && (ku >= 0)) || ((startC < 0) && (ku < 0)))
+                  {
+                    idxAdj += (div_s32_floor(startC << 1U, ku) + 1) >> 1;
                   } else {
-                    line_idx_5 += -((div_s32_floor((-i) << 1U, ku) + 1) >> 1);
+                    idxAdj += -((div_s32_floor((-startC) << 1U, ku) + 1) >> 1);
                   }
 
                   line_idx = 0;
                   visited = TRUE;
                 } else {
                   /* Violated CMax. */
-                  i = (159 - line_idx) * ky;
-                  if (((i >= 0) && (ku >= 0)) || ((i < 0) && (ku < 0))) {
-                    line_idx_5 += (div_s32_floor(i << 1U, ku) + 1) >> 1;
+                  startC = (159 - line_idx) * ky;
+                  if (((startC >= 0) && (ku >= 0)) || ((startC < 0) && (ku < 0)))
+                  {
+                    idxAdj += (div_s32_floor(startC << 1U, ku) + 1) >> 1;
                   } else {
-                    line_idx_5 += -((div_s32_floor((-i) << 1U, ku) + 1) >> 1);
+                    idxAdj += -((div_s32_floor((-startC) << 1U, ku) + 1) >> 1);
                   }
 
                   line_idx = 159;
@@ -10752,52 +10609,60 @@ static void brain_OnePath(void)
               } else {
                 /* Clip the 2nd point. */
                 if (visited_0) {
-                  line_idx_1 = inIdx;
-                  line_idx_0 = line_idx_4;
+                  line_idx_1 = line_idx_2;
+                  line_idx_0 = line_idx_3;
                 }
 
-                ky = line_idx_1 - line_idx_5;
+                ky = line_idx_1 - idxAdj;
                 ku = line_idx_0 - line_idx;
-                if ((uint32_T)(outIdx & 4)) {
+                if ((uint32_T)outIdx & 4U) {
                   /* Violated RMin. */
-                  i = (0 - line_idx_1) * ku;
-                  if (((i >= 0) && (ky >= 0)) || ((i < 0) && (ky < 0))) {
-                    line_idx_0 += (div_s32_floor(i << 1U, ky) + 1) >> 1;
+                  startC = (0 - line_idx_1) * ku;
+                  if (((startC >= 0) && (ky >= 0)) || ((startC < 0) && (ky < 0)))
+                  {
+                    line_idx_0 += (div_s32_floor(startC << 1U, ky) + 1) >> 1;
                   } else {
-                    line_idx_0 += -((div_s32_floor((-i) << 1U, ky) + 1) >> 1);
+                    line_idx_0 += -((div_s32_floor((-startC) << 1U, ky) + 1) >>
+                                    1);
                   }
 
                   line_idx_1 = 0;
                   visited_0 = TRUE;
-                } else if ((uint32_T)(outIdx & 8)) {
+                } else if ((uint32_T)outIdx & 8U) {
                   /* Violated RMax. */
-                  i = (119 - line_idx_1) * ku;
-                  if (((i >= 0) && (ky >= 0)) || ((i < 0) && (ky < 0))) {
-                    line_idx_0 += (div_s32_floor(i << 1U, ky) + 1) >> 1;
+                  startC = (119 - line_idx_1) * ku;
+                  if (((startC >= 0) && (ky >= 0)) || ((startC < 0) && (ky < 0)))
+                  {
+                    line_idx_0 += (div_s32_floor(startC << 1U, ky) + 1) >> 1;
                   } else {
-                    line_idx_0 += -((div_s32_floor((-i) << 1U, ky) + 1) >> 1);
+                    line_idx_0 += -((div_s32_floor((-startC) << 1U, ky) + 1) >>
+                                    1);
                   }
 
                   line_idx_1 = 119;
                   visited_0 = TRUE;
-                } else if ((uint32_T)(outIdx & 1)) {
+                } else if ((uint32_T)outIdx & 1U) {
                   /* Violated CMin. */
-                  i = (0 - line_idx_0) * ky;
-                  if (((i >= 0) && (ku >= 0)) || ((i < 0) && (ku < 0))) {
-                    line_idx_1 += (div_s32_floor(i << 1U, ku) + 1) >> 1;
+                  startC = (0 - line_idx_0) * ky;
+                  if (((startC >= 0) && (ku >= 0)) || ((startC < 0) && (ku < 0)))
+                  {
+                    line_idx_1 += (div_s32_floor(startC << 1U, ku) + 1) >> 1;
                   } else {
-                    line_idx_1 += -((div_s32_floor((-i) << 1U, ku) + 1) >> 1);
+                    line_idx_1 += -((div_s32_floor((-startC) << 1U, ku) + 1) >>
+                                    1);
                   }
 
                   line_idx_0 = 0;
                   visited_0 = TRUE;
                 } else {
                   /* Violated CMax. */
-                  i = (159 - line_idx_0) * ky;
-                  if (((i >= 0) && (ku >= 0)) || ((i < 0) && (ku < 0))) {
-                    line_idx_1 += (div_s32_floor(i << 1U, ku) + 1) >> 1;
+                  startC = (159 - line_idx_0) * ky;
+                  if (((startC >= 0) && (ku >= 0)) || ((startC < 0) && (ku < 0)))
+                  {
+                    line_idx_1 += (div_s32_floor(startC << 1U, ku) + 1) >> 1;
                   } else {
-                    line_idx_1 += -((div_s32_floor((-i) << 1U, ku) + 1) >> 1);
+                    line_idx_1 += -((div_s32_floor((-startC) << 1U, ku) + 1) >>
+                                    1);
                   }
 
                   line_idx_0 = 159;
@@ -10809,10 +10674,10 @@ static void brain_OnePath(void)
             if (isInBound) {
               /* Draw a line using Bresenham algorithm. */
               /* Initialize the Bresenham algorithm. */
-              if (line_idx_1 >= line_idx_5) {
-                ky = line_idx_1 - line_idx_5;
+              if (line_idx_1 >= idxAdj) {
+                ky = line_idx_1 - idxAdj;
               } else {
-                ky = line_idx_5 - line_idx_1;
+                ky = idxAdj - line_idx_1;
               }
 
               if (line_idx_0 >= line_idx) {
@@ -10822,29 +10687,29 @@ static void brain_OnePath(void)
               }
 
               if (ky > ku) {
-                line_idx_3 = 1;
+                i = 1;
                 ku = 120;
               } else {
-                line_idx_3 = 120;
+                i = 120;
                 ku = 1;
-                ky = line_idx_5;
-                line_idx_5 = line_idx;
+                ky = idxAdj;
+                idxAdj = line_idx;
                 line_idx = ky;
                 ky = line_idx_1;
                 line_idx_1 = line_idx_0;
                 line_idx_0 = ky;
               }
 
-              if (line_idx_5 > line_idx_1) {
-                ky = line_idx_5;
-                line_idx_5 = line_idx_1;
+              if (idxAdj > line_idx_1) {
+                ky = idxAdj;
+                idxAdj = line_idx_1;
                 line_idx_1 = ky;
                 ky = line_idx;
                 line_idx = line_idx_0;
                 line_idx_0 = ky;
               }
 
-              inIdx = line_idx_1 - line_idx_5;
+              inIdx = line_idx_1 - idxAdj;
               if (line_idx <= line_idx_0) {
                 ky = 1;
                 outIdx = line_idx_0 - line_idx;
@@ -10853,24 +10718,24 @@ static void brain_OnePath(void)
                 outIdx = line_idx - line_idx_0;
               }
 
-              line_idx_2 = -((inIdx + 1) >> 1);
-              i = line_idx_5 * line_idx_3 + line_idx * ku;
-              ky = ky * ku + line_idx_3;
-              for (isInBound = (line_idx_5 <= line_idx_1); isInBound; isInBound =
-                   (line_idx_5 <= line_idx_1)) {
-                brain_B.DrawShapes_m[i] = 0.75;
+              n = -((inIdx + 1) >> 1);
+              startC = idxAdj * i + line_idx * ku;
+              ky = ky * ku + i;
+              for (isInBound = (idxAdj <= line_idx_1); isInBound; isInBound =
+                   (idxAdj <= line_idx_1)) {
+                brain_B.DrawShapes_m[startC] = 0.75;
 
                 /* Compute the next location using Bresenham algorithm. */
                 /* Move to the next pixel location. */
-                line_idx_2 += outIdx;
-                if (line_idx_2 >= 0) {
-                  line_idx_2 -= inIdx;
-                  i += ky;
+                n += outIdx;
+                if (n >= 0) {
+                  n -= inIdx;
+                  startC += ky;
                 } else {
-                  i += line_idx_3;
+                  startC += i;
                 }
 
-                line_idx_5++;
+                idxAdj++;
               }
             }
           }
@@ -10887,17 +10752,17 @@ static void brain_OnePath(void)
       /* '<S80>:1:4' */
       /* '<S80>:1:6' */
       brain_B.AlongPathHeading = -999.0;
-      brain_max_h(&brain_B.maxVotes[0], &eml_b, &eml_c);
+      brain_max_h(rtb_maxVotes, &index_moment, &sum_maxValues);
 
       /* '<S80>:1:10' */
       /* '<S80>:1:11' */
       /* '<S80>:1:12' */
-      if ((brain_B.Theta[(int32_T)eml_c - 1] > -1.5707963267948966E+000) &&
-          (brain_B.Theta[(int32_T)eml_c - 1] < 1.5707963267948966E+000)) {
+      if ((rtb_Theta[(int32_T)sum_maxValues - 1] > -1.5707963267948966) &&
+          (rtb_Theta[(int32_T)sum_maxValues - 1] < 1.5707963267948966)) {
         /* '<S80>:1:21' */
         /* '<S80>:1:22' */
-        brain_B.AlongPathHeading = brain_B.Theta[(int32_T)eml_c - 1] * 180.0 /
-          3.1415926535897931E+000;
+        brain_B.AlongPathHeading = rtb_Theta[(int32_T)sum_maxValues - 1] * 180.0
+          / 3.1415926535897931;
       }
 
       brain_DWork.HeadingAlongPath = brain_B.AlongPathHeading;
@@ -10925,7 +10790,8 @@ static void brain_OnePath(void)
       brain_DWork.StateFlowFunctionsMaintainDep_k = brain_M->Timing.clockTick0;
 
       /* Sum: '<S38>/Add' */
-      eml_b = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
+      index_moment = (real_T)brain_B.DesiredDepth1 - (real_T)
+        brain_B.CurrentDepth1;
 
       /* SampleTimeMath: '<S137>/TSamp' incorporates:
        *  Gain: '<S136>/Depth Derivative Gain'
@@ -10933,7 +10799,7 @@ static void brain_OnePath(void)
        * About '<S137>/TSamp':
        *  y = u * K where K = 1 / ( w * Ts )
        */
-      eml_c = brain_P.Depth_Kd * eml_b / ((real_T)
+      sum_maxValues = brain_P.Depth_Kd * index_moment / ((real_T)
         brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
       /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
@@ -10951,12 +10817,12 @@ static void brain_OnePath(void)
        *
        *  Store in Global RAM
        */
-      tmp = (brain_P.Depth_Kp * eml_b + (eml_c - brain_DWork.UD_DSTATE)) +
-        brain_DWork.DepthDiscreteTimeIntegrator_DST;
-      tmp = floor(tmp);
-      if (tmp < 128.0) {
-        if (tmp >= -128.0) {
-          brain_B.DoubleToInt8 = (int8_T)tmp;
+      rtb_Rho_idx = (brain_P.Depth_Kp * index_moment + (sum_maxValues -
+        brain_DWork.UD_DSTATE)) + brain_DWork.DepthDiscreteTimeIntegrator_DST;
+      rtb_Rho_idx = floor(rtb_Rho_idx);
+      if (rtb_Rho_idx < 128.0) {
+        if (rtb_Rho_idx >= -128.0) {
+          brain_B.DoubleToInt8 = (int8_T)rtb_Rho_idx;
         } else {
           brain_B.DoubleToInt8 = MIN_int8_T;
         }
@@ -10969,14 +10835,14 @@ static void brain_OnePath(void)
        *
        *  Store in Global RAM
        */
-      brain_DWork.UD_DSTATE = eml_c;
+      brain_DWork.UD_DSTATE = sum_maxValues;
 
       /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
        *  Gain: '<S136>/Depth Integral Gain'
        */
       brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
-        brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki * eml_b)
-        + brain_DWork.DepthDiscreteTimeIntegrator_DST;
+        brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
+        index_moment) + brain_DWork.DepthDiscreteTimeIntegrator_DST;
       if (brain_DWork.DepthDiscreteTimeIntegrator_DST >= 10.0) {
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 10.0;
       } else {
@@ -11035,7 +10901,7 @@ static void brain_OnePath(void)
       /* S-Function (svipmorphop): '<S99>/Erosion' */
       ky = 0;
       ku = 0;
-      for (inIdx = 0; inIdx < 127; inIdx++) {
+      for (startC = 0; startC < 127; startC++) {
         brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ky] = TRUE;
         ky++;
       }
@@ -11043,37 +10909,36 @@ static void brain_OnePath(void)
       for (i = 0; i < 160; i++) {
         brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ky] = TRUE;
         ky++;
-        memcpy((void *)&brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ky], (void *)
-               &brain_B.BW_m[ku], 120U * sizeof(boolean_T));
+        memcpy((void *)(&brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ky]), (void *)
+               (&brain_B.BW_m[ku]), 120U * sizeof(boolean_T));
         ky += 120;
         ku += 120;
-        for (inIdx = 121; inIdx < 127; inIdx++) {
+        for (startC = 121; startC < 127; startC++) {
           brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ky] = TRUE;
           ky++;
         }
       }
 
       for (i = 161; i < 167; i++) {
-        for (inIdx = 0; inIdx < 127; inIdx++) {
+        for (startC = 0; startC < 127; startC++) {
           brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ky] = TRUE;
           ky++;
         }
       }
 
-      for (line_idx_5 = 0; line_idx_5 < 21209; line_idx_5++) {
-        brain_DWork.Erosion_TWO_PAD_IMG_DW_h[line_idx_5] = TRUE;
+      for (i = 0; i < 21209; i++) {
+        brain_DWork.Erosion_TWO_PAD_IMG_DW_h[i] = TRUE;
       }
 
       ku = 0;
-      for (i = 0; i < 167; i++) {
-        for (line_idx_3 = 0; line_idx_3 < 124; line_idx_3++) {
+      for (n = 0; n < 167; n++) {
+        for (startC = 0; startC < 124; startC++) {
           brain_DWork.Erosion_TWO_PAD_IMG_DW_h[1 + ku] = TRUE;
-          for (line_idx_5 = 0; line_idx_5 < brain_DWork.Erosion_NUMNONZ_DW_f[0];
-               line_idx_5++) {
+          for (i = 0; i < brain_DWork.Erosion_NUMNONZ_DW_f[0]; i++) {
             if (!brain_DWork.Erosion_ONE_PAD_IMG_DW_k[ku +
-                brain_DWork.Erosion_ERODE_OFF_DW_l[line_idx_5]]) {
+                brain_DWork.Erosion_ERODE_OFF_DW_l[i]]) {
               brain_DWork.Erosion_TWO_PAD_IMG_DW_h[1 + ku] = FALSE;
-              line_idx_5 = brain_DWork.Erosion_NUMNONZ_DW_f[0];
+              i = brain_DWork.Erosion_NUMNONZ_DW_f[0];
             }
           }
 
@@ -11085,15 +10950,14 @@ static void brain_OnePath(void)
 
       inIdx = 1;
       outIdx = 0;
-      for (i = 0; i < 160; i++) {
-        for (line_idx_3 = 1; line_idx_3 < 121; line_idx_3++) {
+      for (n = 0; n < 160; n++) {
+        for (startC = 1; startC < 121; startC++) {
           brain_B.Erosion_m[outIdx] = TRUE;
-          for (line_idx_5 = 0; line_idx_5 < brain_DWork.Erosion_NUMNONZ_DW_f[1];
-               line_idx_5++) {
+          for (i = 0; i < brain_DWork.Erosion_NUMNONZ_DW_f[1]; i++) {
             if (!brain_DWork.Erosion_TWO_PAD_IMG_DW_h[brain_DWork.Erosion_ERODE_OFF_DW_l
-                [line_idx_5 + brain_DWork.Erosion_NUMNONZ_DW_f[0]] + inIdx]) {
+                [i + brain_DWork.Erosion_NUMNONZ_DW_f[0]] + inIdx]) {
               brain_B.Erosion_m[outIdx] = FALSE;
-              line_idx_5 = brain_DWork.Erosion_NUMNONZ_DW_f[1];
+              i = brain_DWork.Erosion_NUMNONZ_DW_f[1];
             }
           }
 
@@ -11120,8 +10984,8 @@ static void brain_OnePath(void)
         brain_B.StateFlowFunctionsFollowOneP_ey.DataTypeConversion1;
       brain_DWork.Forward = (real_T)
         brain_B.StateFlowFunctionsFollowOneP_ey.DataTypeConversion_m;
-      y = brain_B.StateFlowFunctionsFollowOneP_ey.Subtract1;
-      sf_ErrorY = brain_B.StateFlowFunctionsFollowOneP_ey.Subtract;
+      RhoIndex_idx_0 = brain_B.StateFlowFunctionsFollowOneP_ey.Subtract1;
+      ThetaIndex_idx_0 = brain_B.StateFlowFunctionsFollowOneP_ey.Subtract;
 
       /* Simulink Function 'MaintainDepth': '<S7>:926' */
       brain_B.CurrentDepth1 = (real32_T)brain_U.CurrentDepth;
@@ -11131,7 +10995,8 @@ static void brain_OnePath(void)
       brain_DWork.StateFlowFunctionsMaintainDep_k = brain_M->Timing.clockTick0;
 
       /* Sum: '<S38>/Add' */
-      eml_b = (real_T)brain_B.DesiredDepth1 - (real_T)brain_B.CurrentDepth1;
+      index_moment = (real_T)brain_B.DesiredDepth1 - (real_T)
+        brain_B.CurrentDepth1;
 
       /* SampleTimeMath: '<S137>/TSamp' incorporates:
        *  Gain: '<S136>/Depth Derivative Gain'
@@ -11139,7 +11004,7 @@ static void brain_OnePath(void)
        * About '<S137>/TSamp':
        *  y = u * K where K = 1 / ( w * Ts )
        */
-      eml_c = brain_P.Depth_Kd * eml_b / ((real_T)
+      sum_maxValues = brain_P.Depth_Kd * index_moment / ((real_T)
         brain_DWork.StateFlowFunctionsMaintainDepth * 0.2);
 
       /* DataTypeConversion: '<S38>/Double To Int8' incorporates:
@@ -11157,12 +11022,12 @@ static void brain_OnePath(void)
        *
        *  Store in Global RAM
        */
-      tmp = (brain_P.Depth_Kp * eml_b + (eml_c - brain_DWork.UD_DSTATE)) +
-        brain_DWork.DepthDiscreteTimeIntegrator_DST;
-      tmp = floor(tmp);
-      if (tmp < 128.0) {
-        if (tmp >= -128.0) {
-          brain_B.DoubleToInt8 = (int8_T)tmp;
+      rtb_Rho_idx = (brain_P.Depth_Kp * index_moment + (sum_maxValues -
+        brain_DWork.UD_DSTATE)) + brain_DWork.DepthDiscreteTimeIntegrator_DST;
+      rtb_Rho_idx = floor(rtb_Rho_idx);
+      if (rtb_Rho_idx < 128.0) {
+        if (rtb_Rho_idx >= -128.0) {
+          brain_B.DoubleToInt8 = (int8_T)rtb_Rho_idx;
         } else {
           brain_B.DoubleToInt8 = MIN_int8_T;
         }
@@ -11175,14 +11040,14 @@ static void brain_OnePath(void)
        *
        *  Store in Global RAM
        */
-      brain_DWork.UD_DSTATE = eml_c;
+      brain_DWork.UD_DSTATE = sum_maxValues;
 
       /* Update for DiscreteIntegrator: '<S136>/Depth Discrete-Time Integrator' incorporates:
        *  Gain: '<S136>/Depth Integral Gain'
        */
       brain_DWork.DepthDiscreteTimeIntegrator_DST = 0.2 * (real_T)
-        brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki * eml_b)
-        + brain_DWork.DepthDiscreteTimeIntegrator_DST;
+        brain_DWork.StateFlowFunctionsMaintainDepth * (brain_P.Depth_Ki *
+        index_moment) + brain_DWork.DepthDiscreteTimeIntegrator_DST;
       if (brain_DWork.DepthDiscreteTimeIntegrator_DST >= 10.0) {
         brain_DWork.DepthDiscreteTimeIntegrator_DST = 10.0;
       } else {
@@ -11199,7 +11064,7 @@ static void brain_OnePath(void)
       /*  This function calculates the error between the center of the screen and  */
       /*  the centroid of the orange/red blob */
       /* '<S7>:1555:5' */
-      brain_DWork.Error = fabs(y) + fabs(sf_ErrorY);
+      brain_DWork.Error = fabs(RhoIndex_idx_0) + fabs(ThetaIndex_idx_0);
     }
     break;
 
@@ -11584,24 +11449,24 @@ static void brain_GetInCorrectState(void)
     /*  This function simply makes an HSV image a single multidimensional */
     /*  signal */
     /* '<S76>:1:7' */
-    memset((void *)&brain_B.HSVImage1[0], (int32_T)0.0, 57600U * sizeof(real_T));
+    memset((void *)(&brain_B.HSVImage1[0]), 0, 57600U * sizeof(real_T));
 
     /* '<S76>:1:9' */
     for (i = 0; i < 160; i++) {
-      memcpy((void *)&brain_B.HSVImage1[120 * i], (void *)&brain_B.H1[120 * i],
+      memcpy((void *)(&brain_B.HSVImage1[120 * i]), (void *)(&brain_B.H1[120 * i]),
              120U * sizeof(real_T));
     }
 
     /* '<S76>:1:10' */
     for (i = 0; i < 160; i++) {
-      memcpy((void *)&brain_B.HSVImage1[19200 + 120 * i], (void *)&brain_B.S1
-             [120 * i], 120U * sizeof(real_T));
+      memcpy((void *)(&brain_B.HSVImage1[19200 + 120 * i]), (void *)
+             (&brain_B.S1[120 * i]), 120U * sizeof(real_T));
     }
 
     /* '<S76>:1:11' */
     for (i = 0; i < 160; i++) {
-      memcpy((void *)&brain_B.HSVImage1[38400 + 120 * i], (void *)&brain_B.V1
-             [120 * i], 120U * sizeof(real_T));
+      memcpy((void *)(&brain_B.HSVImage1[38400 + 120 * i]), (void *)
+             (&brain_B.V1[120 * i]), 120U * sizeof(real_T));
     }
 
     /* Transition: '<S7>:1547' */
@@ -11680,25 +11545,25 @@ static void brain_GetInCorrectState(void)
 }
 
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
-static real_T brain_GetStrafeDirection(real_T sf_AxisDif)
+static real_T brain_GetStrafeDirection(real_T AxisDif)
 {
-  real_T sf_StrafeDir1;
+  real_T StrafeDir1;
 
   /* Embedded MATLAB Function 'GetStrafeDirection': '<S7>:1630' */
   /*  This function determines the direction the AUV should be strafing based */
   /*  on the initial major axis length change when strafing right */
-  if (sf_AxisDif < 0.0) {
+  if (AxisDif < 0.0) {
     /* '<S7>:1630:5' */
     /* '<S7>:1630:6' */
-    sf_StrafeDir1 = -1.0;
+    StrafeDir1 = -1.0;
   } else {
     /* '<S7>:1630:8' */
-    sf_StrafeDir1 = 1.0;
+    StrafeDir1 = 1.0;
   }
 
   /*  StrafeDir = -1 corresponds to strafing left */
   /*  StrafeDir = 1 corresponds to strafing right */
-  return sf_StrafeDir1;
+  return StrafeDir1;
 }
 
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
@@ -11784,20 +11649,20 @@ static void brain_GetInitialDirection(void)
         StateFlowFunctionsBuoysIterativ(brain_B.H_p, brain_B.S_j, brain_B.V_j,
           &brain_B.StateFlowFunctionsJumpHedgeIter,
           &brain_DWork.StateFlowFunctionsJumpHedgeIter);
-        memcpy((void *)&brain_DWork.LabelMatrix[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0], 19200U *
-               sizeof(real_T));
+        memcpy((void *)(&brain_DWork.LabelMatrix[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0]), 19200U
+               * sizeof(real_T));
         brain_DWork.num_colors =
           brain_B.StateFlowFunctionsJumpHedgeIter.num_colors;
-        memcpy((void *)&brain_DWork.ref_colors[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0], 150U *
+        memcpy((void *)(&brain_DWork.ref_colors[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0]), 150U *
                sizeof(real_T));
 
         /* Simulink Function 'IndividualSegmentation': '<S7>:1672' */
-        memcpy((void *)&brain_B.LabMatrix_e[0], (void *)
-               &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
-        memcpy((void *)&brain_B.Ref_Colors_o[0], (void *)
-               &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabMatrix_e[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.Ref_Colors_o[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         brain_B.Num_Colors_k = brain_DWork.num_colors;
         brain_B.B_Hue_i = brain_DWork.H_Hue;
         brain_B.B_Sat_c = brain_DWork.H_Sat;
@@ -11823,15 +11688,15 @@ static void brain_GetInitialDirection(void)
         brain_DWork.MoveOn = 1.0;
 
         /* Simulink Function 'ShowSegmentedImage': '<S7>:1649' */
-        memcpy((void *)&brain_B.LabMatrix_i[0], (void *)
-               &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
-        memcpy((void *)&brain_B.Ref_Colors_m[0], (void *)
-               &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabMatrix_i[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.Ref_Colors_m[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         StateFlowFunctionsBuoysShowSegm(brain_B.LabMatrix_i,
           brain_B.Ref_Colors_m, &brain_B.StateFlowFunctionsJumpHedgeShow);
-        memcpy((void *)&brain_B.RGBout[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0], 57600U * sizeof
-               (real_T));
+        memcpy((void *)(&brain_B.RGBout[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0]), 57600U *
+               sizeof(real_T));
       } else {
         /* Simulink Function 'IterativeSegmentation': '<S7>:1680' */
         for (i = 0; i < 19200; i++) {
@@ -11843,20 +11708,20 @@ static void brain_GetInitialDirection(void)
         StateFlowFunctionsBuoysIterativ(brain_B.H_p, brain_B.S_j, brain_B.V_j,
           &brain_B.StateFlowFunctionsJumpHedgeIter,
           &brain_DWork.StateFlowFunctionsJumpHedgeIter);
-        memcpy((void *)&brain_DWork.LabelMatrix[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0], 19200U *
-               sizeof(real_T));
+        memcpy((void *)(&brain_DWork.LabelMatrix[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0]), 19200U
+               * sizeof(real_T));
         brain_DWork.num_colors =
           brain_B.StateFlowFunctionsJumpHedgeIter.num_colors;
-        memcpy((void *)&brain_DWork.ref_colors[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0], 150U *
+        memcpy((void *)(&brain_DWork.ref_colors[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0]), 150U *
                sizeof(real_T));
 
         /* Simulink Function 'IndividualSegmentation': '<S7>:1672' */
-        memcpy((void *)&brain_B.LabMatrix_e[0], (void *)
-               &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
-        memcpy((void *)&brain_B.Ref_Colors_o[0], (void *)
-               &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabMatrix_e[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.Ref_Colors_o[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         brain_B.Num_Colors_k = brain_DWork.num_colors;
         brain_B.B_Hue_i = brain_DWork.H_Hue;
         brain_B.B_Sat_c = brain_DWork.H_Sat;
@@ -11883,15 +11748,15 @@ static void brain_GetInitialDirection(void)
         brain_B.Strafe = (int8_T)(40.0 * brain_DWork.StrafeDir);
 
         /* Simulink Function 'ShowSegmentedImage': '<S7>:1649' */
-        memcpy((void *)&brain_B.LabMatrix_i[0], (void *)
-               &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
-        memcpy((void *)&brain_B.Ref_Colors_m[0], (void *)
-               &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabMatrix_i[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.Ref_Colors_m[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         StateFlowFunctionsBuoysShowSegm(brain_B.LabMatrix_i,
           brain_B.Ref_Colors_m, &brain_B.StateFlowFunctionsJumpHedgeShow);
-        memcpy((void *)&brain_B.RGBout[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0], 57600U * sizeof
-               (real_T));
+        memcpy((void *)(&brain_B.RGBout[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0]), 57600U *
+               sizeof(real_T));
       }
       break;
 
@@ -11913,20 +11778,20 @@ static void brain_GetInitialDirection(void)
       StateFlowFunctionsBuoysIterativ(brain_B.H_p, brain_B.S_j, brain_B.V_j,
         &brain_B.StateFlowFunctionsJumpHedgeIter,
         &brain_DWork.StateFlowFunctionsJumpHedgeIter);
-      memcpy((void *)&brain_DWork.LabelMatrix[0], (void *)
-             &brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0], 19200U *
+      memcpy((void *)(&brain_DWork.LabelMatrix[0]), (void *)
+             (&brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0]), 19200U *
              sizeof(real_T));
       brain_DWork.num_colors =
         brain_B.StateFlowFunctionsJumpHedgeIter.num_colors;
-      memcpy((void *)&brain_DWork.ref_colors[0], (void *)
-             &brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0], 150U *
+      memcpy((void *)(&brain_DWork.ref_colors[0]), (void *)
+             (&brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0]), 150U *
              sizeof(real_T));
 
       /* Simulink Function 'IndividualSegmentation': '<S7>:1672' */
-      memcpy((void *)&brain_B.LabMatrix_e[0], (void *)&brain_DWork.LabelMatrix[0],
-             19200U * sizeof(real_T));
-      memcpy((void *)&brain_B.Ref_Colors_o[0], (void *)&brain_DWork.ref_colors[0],
-             150U * sizeof(real_T));
+      memcpy((void *)(&brain_B.LabMatrix_e[0]), (void *)
+             (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+      memcpy((void *)(&brain_B.Ref_Colors_o[0]), (void *)
+             (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
       brain_B.Num_Colors_k = brain_DWork.num_colors;
       brain_B.B_Hue_i = brain_DWork.H_Hue;
       brain_B.B_Sat_c = brain_DWork.H_Sat;
@@ -11948,14 +11813,14 @@ static void brain_GetInitialDirection(void)
         brain_B.StateFlowFunctionsJumpHedgeGe_k.AxisRatio;
 
       /* Simulink Function 'ShowSegmentedImage': '<S7>:1649' */
-      memcpy((void *)&brain_B.LabMatrix_i[0], (void *)&brain_DWork.LabelMatrix[0],
-             19200U * sizeof(real_T));
-      memcpy((void *)&brain_B.Ref_Colors_m[0], (void *)&brain_DWork.ref_colors[0],
-             150U * sizeof(real_T));
+      memcpy((void *)(&brain_B.LabMatrix_i[0]), (void *)
+             (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+      memcpy((void *)(&brain_B.Ref_Colors_m[0]), (void *)
+             (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
       StateFlowFunctionsBuoysShowSegm(brain_B.LabMatrix_i, brain_B.Ref_Colors_m,
         &brain_B.StateFlowFunctionsJumpHedgeShow);
-      memcpy((void *)&brain_B.RGBout[0], (void *)
-             &brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0], 57600U * sizeof
+      memcpy((void *)(&brain_B.RGBout[0]), (void *)
+             (&brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0]), 57600U * sizeof
              (real_T));
       break;
     }
@@ -12014,7 +11879,7 @@ static void brain_IncreaseAxisRatio(void)
         brain_DWork.is_IncreaseAxisRatio = brain_IN_CheckAxisRatio;
 
         /* Simulink Function 'GetAxisRatio': '<S7>:1665' */
-        memcpy((void *)&brain_B.BW_p[0], (void *)&brain_B.BWout[0], 19200U *
+        memcpy((void *)(&brain_B.BW_p[0]), (void *)(&brain_B.BWout[0]), 19200U *
                sizeof(real_T));
         StateFlowFunctionsJumpHedgeGetA(brain_B.BW_p,
           &brain_B.StateFlowFunctionsJumpHedgeGe_k,
@@ -12032,20 +11897,20 @@ static void brain_IncreaseAxisRatio(void)
         StateFlowFunctionsBuoysIterativ(brain_B.H_p, brain_B.S_j, brain_B.V_j,
           &brain_B.StateFlowFunctionsJumpHedgeIter,
           &brain_DWork.StateFlowFunctionsJumpHedgeIter);
-        memcpy((void *)&brain_DWork.LabelMatrix[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0], 19200U *
-               sizeof(real_T));
+        memcpy((void *)(&brain_DWork.LabelMatrix[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0]), 19200U
+               * sizeof(real_T));
         brain_DWork.num_colors =
           brain_B.StateFlowFunctionsJumpHedgeIter.num_colors;
-        memcpy((void *)&brain_DWork.ref_colors[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0], 150U *
+        memcpy((void *)(&brain_DWork.ref_colors[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0]), 150U *
                sizeof(real_T));
 
         /* Simulink Function 'IndividualSegmentation': '<S7>:1672' */
-        memcpy((void *)&brain_B.LabMatrix_e[0], (void *)
-               &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
-        memcpy((void *)&brain_B.Ref_Colors_o[0], (void *)
-               &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabMatrix_e[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.Ref_Colors_o[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         brain_B.Num_Colors_k = brain_DWork.num_colors;
         brain_B.B_Hue_i = brain_DWork.H_Hue;
         brain_B.B_Sat_c = brain_DWork.H_Sat;
@@ -12073,15 +11938,15 @@ static void brain_IncreaseAxisRatio(void)
         brain_DWork.count = brain_DWork.count + 1.0;
 
         /* Simulink Function 'ShowSegmentedImage': '<S7>:1649' */
-        memcpy((void *)&brain_B.LabMatrix_i[0], (void *)
-               &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
-        memcpy((void *)&brain_B.Ref_Colors_m[0], (void *)
-               &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabMatrix_i[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.Ref_Colors_m[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         StateFlowFunctionsBuoysShowSegm(brain_B.LabMatrix_i,
           brain_B.Ref_Colors_m, &brain_B.StateFlowFunctionsJumpHedgeShow);
-        memcpy((void *)&brain_B.RGBout[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0], 57600U * sizeof
-               (real_T));
+        memcpy((void *)(&brain_B.RGBout[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0]), 57600U *
+               sizeof(real_T));
       }
       break;
 
@@ -12105,21 +11970,22 @@ static void brain_RecognizeHedge(void)
   boolean_T visited;
   boolean_T visited_0;
   boolean_T done;
-  real_T eml_max_votes;
-  real_T eml_top_vote;
+  real_T max_votes;
+  real_T top_vote;
   real_T rtb_Add;
   real_T rtb_TSamp;
-  int32_T i;
+  int32_T ky;
   int32_T ku;
+  int32_T idxAdj;
   int32_T n;
-  int32_T i_0;
+  int32_T m;
+  int32_T i;
   int32_T line_idx;
   int32_T line_idx_0;
   int32_T line_idx_1;
   int32_T line_idx_2;
   int32_T line_idx_3;
   int32_T line_idx_4;
-  int32_T line_idx_5;
   real_T rtb_R_idx;
   real_T rtb_T_idx;
   real_T rtb_R_idx_0;
@@ -12143,28 +12009,28 @@ static void brain_RecognizeHedge(void)
     brain_DWork.StrafeDir = 1.0;
 
     /* Simulink Function 'IterativeSegmentation': '<S7>:1680' */
-    for (i_0 = 0; i_0 < 19200; i_0++) {
-      brain_B.H_p[i_0] = brain_B.Resize[i_0];
-      brain_B.S_j[i_0] = brain_B.Resize1[i_0];
-      brain_B.V_j[i_0] = brain_B.Resize2[i_0];
+    for (i = 0; i < 19200; i++) {
+      brain_B.H_p[i] = brain_B.Resize[i];
+      brain_B.S_j[i] = brain_B.Resize1[i];
+      brain_B.V_j[i] = brain_B.Resize2[i];
     }
 
     StateFlowFunctionsBuoysIterativ(brain_B.H_p, brain_B.S_j, brain_B.V_j,
       &brain_B.StateFlowFunctionsJumpHedgeIter,
       &brain_DWork.StateFlowFunctionsJumpHedgeIter);
-    memcpy((void *)&brain_DWork.LabelMatrix[0], (void *)
-           &brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0], 19200U *
+    memcpy((void *)(&brain_DWork.LabelMatrix[0]), (void *)
+           (&brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0]), 19200U *
            sizeof(real_T));
     brain_DWork.num_colors = brain_B.StateFlowFunctionsJumpHedgeIter.num_colors;
-    memcpy((void *)&brain_DWork.ref_colors[0], (void *)
-           &brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0], 150U * sizeof
-           (real_T));
+    memcpy((void *)(&brain_DWork.ref_colors[0]), (void *)
+           (&brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0]), 150U *
+           sizeof(real_T));
 
     /* Simulink Function 'IndividualSegmentation': '<S7>:1672' */
-    memcpy((void *)&brain_B.LabMatrix_e[0], (void *)&brain_DWork.LabelMatrix[0],
-           19200U * sizeof(real_T));
-    memcpy((void *)&brain_B.Ref_Colors_o[0], (void *)&brain_DWork.ref_colors[0],
-           150U * sizeof(real_T));
+    memcpy((void *)(&brain_B.LabMatrix_e[0]), (void *)(&brain_DWork.LabelMatrix
+            [0]), 19200U * sizeof(real_T));
+    memcpy((void *)(&brain_B.Ref_Colors_o[0]), (void *)(&brain_DWork.ref_colors
+            [0]), 150U * sizeof(real_T));
     brain_B.Num_Colors_k = brain_DWork.num_colors;
     brain_B.B_Hue_i = brain_DWork.H_Hue;
     brain_B.B_Sat_c = brain_DWork.H_Sat;
@@ -12174,10 +12040,9 @@ static void brain_RecognizeHedge(void)
       brain_B.Num_Colors_k, &brain_B.StateFlowFunctionsJumpHedgeIn_m);
 
     /* Simulink Function 'GetAxisRatio': '<S7>:1665' */
-    for (i_0 = 0; i_0 < 19200; i_0++) {
-      brain_B.BWout[i_0] = (real_T)
-        brain_B.StateFlowFunctionsJumpHedgeIn_m.BW[i_0];
-      brain_B.BW_p[i_0] = brain_B.BWout[i_0];
+    for (i = 0; i < 19200; i++) {
+      brain_B.BWout[i] = (real_T)brain_B.StateFlowFunctionsJumpHedgeIn_m.BW[i];
+      brain_B.BW_p[i] = brain_B.BWout[i];
     }
 
     StateFlowFunctionsJumpHedgeGetA(brain_B.BW_p,
@@ -12186,39 +12051,39 @@ static void brain_RecognizeHedge(void)
     brain_DWork.OldAxisRatio = brain_B.StateFlowFunctionsJumpHedgeGe_k.AxisRatio;
 
     /* Simulink Function 'ShowSegmentedImage': '<S7>:1649' */
-    memcpy((void *)&brain_B.LabMatrix_i[0], (void *)&brain_DWork.LabelMatrix[0],
-           19200U * sizeof(real_T));
-    memcpy((void *)&brain_B.Ref_Colors_m[0], (void *)&brain_DWork.ref_colors[0],
-           150U * sizeof(real_T));
+    memcpy((void *)(&brain_B.LabMatrix_i[0]), (void *)(&brain_DWork.LabelMatrix
+            [0]), 19200U * sizeof(real_T));
+    memcpy((void *)(&brain_B.Ref_Colors_m[0]), (void *)(&brain_DWork.ref_colors
+            [0]), 150U * sizeof(real_T));
     StateFlowFunctionsBuoysShowSegm(brain_B.LabMatrix_i, brain_B.Ref_Colors_m,
       &brain_B.StateFlowFunctionsJumpHedgeShow);
-    memcpy((void *)&brain_B.RGBout[0], (void *)
-           &brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0], 57600U * sizeof
+    memcpy((void *)(&brain_B.RGBout[0]), (void *)
+           (&brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0]), 57600U * sizeof
            (real_T));
   } else {
     /* Simulink Function 'IterativeSegmentation': '<S7>:1680' */
-    for (i_0 = 0; i_0 < 19200; i_0++) {
-      brain_B.H_p[i_0] = brain_B.Resize[i_0];
-      brain_B.S_j[i_0] = brain_B.Resize1[i_0];
-      brain_B.V_j[i_0] = brain_B.Resize2[i_0];
+    for (i = 0; i < 19200; i++) {
+      brain_B.H_p[i] = brain_B.Resize[i];
+      brain_B.S_j[i] = brain_B.Resize1[i];
+      brain_B.V_j[i] = brain_B.Resize2[i];
     }
 
     StateFlowFunctionsBuoysIterativ(brain_B.H_p, brain_B.S_j, brain_B.V_j,
       &brain_B.StateFlowFunctionsJumpHedgeIter,
       &brain_DWork.StateFlowFunctionsJumpHedgeIter);
-    memcpy((void *)&brain_DWork.LabelMatrix[0], (void *)
-           &brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0], 19200U *
+    memcpy((void *)(&brain_DWork.LabelMatrix[0]), (void *)
+           (&brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0]), 19200U *
            sizeof(real_T));
     brain_DWork.num_colors = brain_B.StateFlowFunctionsJumpHedgeIter.num_colors;
-    memcpy((void *)&brain_DWork.ref_colors[0], (void *)
-           &brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0], 150U * sizeof
-           (real_T));
+    memcpy((void *)(&brain_DWork.ref_colors[0]), (void *)
+           (&brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0]), 150U *
+           sizeof(real_T));
 
     /* Simulink Function 'IndividualSegmentation': '<S7>:1672' */
-    memcpy((void *)&brain_B.LabMatrix_e[0], (void *)&brain_DWork.LabelMatrix[0],
-           19200U * sizeof(real_T));
-    memcpy((void *)&brain_B.Ref_Colors_o[0], (void *)&brain_DWork.ref_colors[0],
-           150U * sizeof(real_T));
+    memcpy((void *)(&brain_B.LabMatrix_e[0]), (void *)(&brain_DWork.LabelMatrix
+            [0]), 19200U * sizeof(real_T));
+    memcpy((void *)(&brain_B.Ref_Colors_o[0]), (void *)(&brain_DWork.ref_colors
+            [0]), 150U * sizeof(real_T));
     brain_B.Num_Colors_k = brain_DWork.num_colors;
     brain_B.B_Hue_i = brain_DWork.H_Hue;
     brain_B.B_Sat_c = brain_DWork.H_Sat;
@@ -12226,9 +12091,8 @@ static void brain_RecognizeHedge(void)
     StateFlowFunctionsJumpHedgeIndi(brain_B.B_Hue_i, brain_B.B_Sat_c,
       brain_B.B_Value_n, brain_B.LabMatrix_e, brain_B.Ref_Colors_o,
       brain_B.Num_Colors_k, &brain_B.StateFlowFunctionsJumpHedgeIn_m);
-    for (i_0 = 0; i_0 < 19200; i_0++) {
-      brain_B.BWout[i_0] = (real_T)
-        brain_B.StateFlowFunctionsJumpHedgeIn_m.BW[i_0];
+    for (i = 0; i < 19200; i++) {
+      brain_B.BWout[i] = (real_T)brain_B.StateFlowFunctionsJumpHedgeIn_m.BW[i];
     }
 
     /* Simulink Function 'MaintainHeading': '<S7>:918' */
@@ -12313,61 +12177,60 @@ static void brain_RecognizeHedge(void)
     brain_B.Vertical = brain_B.DoubleToInt8;
 
     /* Simulink Function 'LookForHedge': '<S7>:1634' */
-    for (i_0 = 0; i_0 < 19200; i_0++) {
-      brain_B.BW_fn[i_0] = brain_B.BWout[i_0];
+    for (i = 0; i < 19200; i++) {
+      brain_B.BW_fn[i] = brain_B.BWout[i];
 
       /* S-Function (svipscalenconvert): '<S35>/Image Data Type Conversion' */
-      brain_B.ImageDataTypeConversion_e[i_0] = ((brain_B.BW_fn[i_0] == 0.0 ? 0 :
-        1) != 0);
+      brain_B.ImageDataTypeConversion_e[i] = ((brain_B.BW_fn[i] == 0.0 ? 0 : 1)
+        != 0);
     }
 
     /* S-Function (svipmorphop): '<S35>/Erosion' */
-    i = 0;
+    ky = 0;
     ku = 0;
     for (n = 0; n < 123; n++) {
-      brain_DWork.Erosion_ONE_PAD_IMG_DW[i] = TRUE;
-      i++;
+      brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = TRUE;
+      ky++;
     }
 
-    for (i_0 = 0; i_0 < 160; i_0++) {
-      memcpy((void *)&brain_DWork.Erosion_ONE_PAD_IMG_DW[i], (void *)
-             &brain_B.ImageDataTypeConversion_e[ku], 120U * sizeof(boolean_T));
-      i += 120;
+    for (i = 0; i < 160; i++) {
+      memcpy((void *)(&brain_DWork.Erosion_ONE_PAD_IMG_DW[ky]), (void *)
+             (&brain_B.ImageDataTypeConversion_e[ku]), 120U * sizeof(boolean_T));
+      ky += 120;
       ku += 120;
-      brain_DWork.Erosion_ONE_PAD_IMG_DW[i] = TRUE;
-      i++;
-      brain_DWork.Erosion_ONE_PAD_IMG_DW[i] = TRUE;
-      i++;
-      brain_DWork.Erosion_ONE_PAD_IMG_DW[i] = TRUE;
-      i++;
+      brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = TRUE;
+      ky++;
+      brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = TRUE;
+      ky++;
+      brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = TRUE;
+      ky++;
     }
 
-    for (i_0 = 161; i_0 < 165; i_0++) {
+    for (i = 161; i < 165; i++) {
       for (n = 0; n < 123; n++) {
-        brain_DWork.Erosion_ONE_PAD_IMG_DW[i] = TRUE;
-        i++;
+        brain_DWork.Erosion_ONE_PAD_IMG_DW[ky] = TRUE;
+        ky++;
       }
     }
 
-    i = 0;
+    ky = 0;
     ku = 0;
     for (n = 0; n < 160; n++) {
-      for (line_idx_3 = 0; line_idx_3 < 120; line_idx_3++) {
+      for (m = 0; m < 120; m++) {
         brain_B.Erosion_g[ku] = TRUE;
-        for (line_idx_5 = 0; line_idx_5 < brain_DWork.Erosion_NUMNONZ_DW;
-             line_idx_5++) {
-          if (!brain_DWork.Erosion_ONE_PAD_IMG_DW[i +
-              brain_DWork.Erosion_ERODE_OFF_DW[line_idx_5]]) {
+        for (i = 0; i < brain_DWork.Erosion_NUMNONZ_DW; i++) {
+          if (!brain_DWork.Erosion_ONE_PAD_IMG_DW[ky +
+              brain_DWork.Erosion_ERODE_OFF_DW[i]]) {
             brain_B.Erosion_g[ku] = FALSE;
-            line_idx_5 = brain_DWork.Erosion_NUMNONZ_DW;
+            i = brain_DWork.Erosion_NUMNONZ_DW;
           }
         }
 
-        i++;
+        ky++;
         ku++;
       }
 
-      i += 3;
+      ky += 3;
     }
 
     /* S-Function (sviphough): '<S35>/Hough Transform' */
@@ -12396,30 +12259,30 @@ static void brain_RecognizeHedge(void)
     rtb_TSamp = 0.0;
 
     /* '<S133>:1:14' */
-    i = 1;
+    ky = 1;
 
     /* '<S133>:1:16' */
     ku = 1;
 
     /* '<S133>:1:17' */
-    i_0 = 1;
+    idxAdj = 1;
 
     /* '<S133>:1:19' */
-    for (n = 0; n < 399; n++) {
+    for (i = 0; i < 399; i++) {
       /* '<S133>:1:19' */
       /* '<S133>:1:20' */
-      for (line_idx_3 = 85; line_idx_3 < 96; line_idx_3++) {
+      for (n = 85; n < 96; n++) {
         /* '<S133>:1:20' */
-        if (brain_B.HoughTransform_o1[(line_idx_3 - 1) * 399 + n] > rtb_Add) {
+        if (brain_B.HoughTransform_o1[(n - 1) * 399 + i] > rtb_Add) {
           /* '<S133>:1:21' */
-          if (fabs(brain_B.HoughTransform_o3[i - 1] -
-                   brain_B.HoughTransform_o3[n]) > 20.0) {
+          if (fabs(brain_B.HoughTransform_o3[ky - 1] -
+                   brain_B.HoughTransform_o3[i]) > 20.0) {
             /* '<S133>:1:22' */
             /* '<S133>:1:23' */
-            rtb_TSamp = brain_B.HoughTransform_o1[(i_0 - 1) * 399 + (i - 1)];
+            rtb_TSamp = brain_B.HoughTransform_o1[(idxAdj - 1) * 399 + (ky - 1)];
 
             /* '<S133>:1:25' */
-            i_0 = ku;
+            idxAdj = ku;
 
             /* '<S133>:1:26' */
             rtb_R_idx_0 = rtb_R_idx_1;
@@ -12429,35 +12292,35 @@ static void brain_RecognizeHedge(void)
           }
 
           /* '<S133>:1:29' */
-          rtb_Add = brain_B.HoughTransform_o1[(line_idx_3 - 1) * 399 + n];
+          rtb_Add = brain_B.HoughTransform_o1[(n - 1) * 399 + i];
 
           /* '<S133>:1:30' */
-          i = n + 1;
+          ky = i + 1;
 
           /* '<S133>:1:31' */
-          ku = line_idx_3;
+          ku = n;
 
           /* '<S133>:1:32' */
-          rtb_R_idx_1 = brain_B.HoughTransform_o3[n];
+          rtb_R_idx_1 = brain_B.HoughTransform_o3[i];
 
           /* '<S133>:1:33' */
-          rtb_T_idx_1 = brain_B.HoughTransform_o2[line_idx_3 - 1];
+          rtb_T_idx_1 = brain_B.HoughTransform_o2[n - 1];
         } else {
-          if ((brain_B.HoughTransform_o1[(line_idx_3 - 1) * 399 + n] > rtb_TSamp)
-              && (fabs(brain_B.HoughTransform_o3[i - 1] -
-                       brain_B.HoughTransform_o3[n]) > 20.0)) {
+          if ((brain_B.HoughTransform_o1[(n - 1) * 399 + i] > rtb_TSamp) &&
+              (fabs(brain_B.HoughTransform_o3[ky - 1] -
+                    brain_B.HoughTransform_o3[i]) > 20.0)) {
             /* '<S133>:1:34' */
             /* '<S133>:1:35' */
-            rtb_TSamp = brain_B.HoughTransform_o1[(line_idx_3 - 1) * 399 + n];
+            rtb_TSamp = brain_B.HoughTransform_o1[(n - 1) * 399 + i];
 
             /* '<S133>:1:37' */
-            i_0 = line_idx_3;
+            idxAdj = n;
 
             /* '<S133>:1:38' */
-            rtb_R_idx_0 = brain_B.HoughTransform_o3[n];
+            rtb_R_idx_0 = brain_B.HoughTransform_o3[i];
 
             /* '<S133>:1:39' */
-            rtb_T_idx_0 = brain_B.HoughTransform_o2[line_idx_3 - 1];
+            rtb_T_idx_0 = brain_B.HoughTransform_o2[n - 1];
           }
         }
       }
@@ -12465,225 +12328,225 @@ static void brain_RecognizeHedge(void)
 
     /*  Find the horizontal line */
     /* '<S133>:1:45' */
-    eml_max_votes = 0.0;
+    max_votes = 0.0;
 
     /* '<S133>:1:47' */
     for (ku = 0; ku < 399; ku++) {
       /* '<S133>:1:47' */
       /* '<S133>:1:48' */
-      for (i = 0; i < 10; i++) {
+      for (ky = 0; ky < 10; ky++) {
         /* '<S133>:1:48' */
-        if (brain_B.HoughTransform_o1[399 * i + ku] > eml_max_votes) {
+        if (brain_B.HoughTransform_o1[399 * ky + ku] > max_votes) {
           /* '<S133>:1:49' */
           /* '<S133>:1:50' */
-          eml_max_votes = brain_B.HoughTransform_o1[399 * i + ku];
+          max_votes = brain_B.HoughTransform_o1[399 * ky + ku];
 
           /* '<S133>:1:52' */
           rtb_R_idx = brain_B.HoughTransform_o3[ku];
 
           /* '<S133>:1:53' */
-          rtb_T_idx = brain_B.HoughTransform_o2[i];
+          rtb_T_idx = brain_B.HoughTransform_o2[ky];
         }
       }
 
       /* '<S133>:1:56' */
-      for (i = 170; i < 181; i++) {
+      for (ky = 170; ky < 181; ky++) {
         /* '<S133>:1:56' */
-        if (brain_B.HoughTransform_o1[(i - 1) * 399 + ku] > eml_max_votes) {
+        if (brain_B.HoughTransform_o1[(ky - 1) * 399 + ku] > max_votes) {
           /* '<S133>:1:57' */
           /* '<S133>:1:58' */
-          eml_max_votes = brain_B.HoughTransform_o1[(i - 1) * 399 + ku];
+          max_votes = brain_B.HoughTransform_o1[(ky - 1) * 399 + ku];
 
           /* '<S133>:1:60' */
           rtb_R_idx = brain_B.HoughTransform_o3[ku];
 
           /* '<S133>:1:61' */
-          rtb_T_idx = brain_B.HoughTransform_o2[i - 1];
+          rtb_T_idx = brain_B.HoughTransform_o2[ky - 1];
         }
       }
     }
 
     /*  Find the most prominent line */
     /* '<S133>:1:67' */
-    eml_top_vote = 0.0;
+    top_vote = 0.0;
 
     /* '<S133>:1:70' */
-    for (i = 0; i < 399; i++) {
+    for (ky = 0; ky < 399; ky++) {
       /* '<S133>:1:70' */
       /* '<S133>:1:71' */
       for (ku = 0; ku < 180; ku++) {
         /* '<S133>:1:71' */
-        if (brain_B.HoughTransform_o1[399 * ku + i] > eml_top_vote) {
+        if (brain_B.HoughTransform_o1[399 * ku + ky] > top_vote) {
           /* '<S133>:1:72' */
           /* '<S133>:1:73' */
-          eml_top_vote = brain_B.HoughTransform_o1[399 * ku + i];
+          top_vote = brain_B.HoughTransform_o1[399 * ku + ky];
         }
       }
     }
 
     /* '<S133>:1:80' */
     brain_B.Image = 0.0;
-    if ((eml_top_vote * 0.75 < eml_max_votes) && (eml_top_vote * 0.3 < rtb_Add) &&
-        (eml_top_vote * 0.3 < rtb_TSamp)) {
+    if ((top_vote * 0.75 < max_votes) && (top_vote * 0.3 < rtb_Add) && (top_vote
+         * 0.3 < rtb_TSamp)) {
       /* '<S133>:1:81' */
       /* '<S133>:1:82' */
       brain_B.Image = 1.0;
     }
 
     /* S-Function (sviphoughlines): '<S35>/Hough Lines' */
-    n = 0;
-    rtb_Add = (rtb_R_idx_1 + 2.2204460492503131E-016) / (cos(rtb_T_idx_1) +
-      2.2204460492503131E-016);
+    idxAdj = 0;
+    rtb_Add = (rtb_R_idx_1 + 2.2204460492503131E-16) / (cos(rtb_T_idx_1) +
+      2.2204460492503131E-16);
 
     /* part-1: top horizontal axis */
     rtb_TSamp = floor(rtb_Add + 0.5);
     if ((rtb_TSamp >= 0.0) && (rtb_TSamp <= 159.0)) {
       brain_B.HoughLines[0] = 0;
       brain_B.HoughLines[1] = (int32_T)floor((real_T)(int32_T)rtb_TSamp + 0.5);
-      n = 1;
+      idxAdj = 1;
     }
 
-    eml_max_votes = (rtb_R_idx_1 + 2.2204460492503131E-016) / (sin(rtb_T_idx_1)
-      + 2.2204460492503131E-016);
+    max_votes = (rtb_R_idx_1 + 2.2204460492503131E-16) / (sin(rtb_T_idx_1) +
+      2.2204460492503131E-16);
 
     /* part-2: left vertical axis */
-    rtb_TSamp = floor(eml_max_votes + 0.5);
+    rtb_TSamp = floor(max_votes + 0.5);
     if ((rtb_TSamp >= 0.0) && (rtb_TSamp <= 119.0)) {
-      brain_B.HoughLines[(n << 1)] = (int32_T)floor((real_T)(int32_T)rtb_TSamp +
-        0.5);
-      brain_B.HoughLines[1 + (n << 1)] = 0;
-      n++;
+      brain_B.HoughLines[(idxAdj << 1)] = (int32_T)floor((real_T)(int32_T)
+        rtb_TSamp + 0.5);
+      brain_B.HoughLines[1 + (idxAdj << 1)] = 0;
+      idxAdj++;
     }
 
     /* part-3: Right vertical axis */
-    if (n < 2) {
-      rtb_TSamp = floor((rtb_Add - 159.0) * (eml_max_votes / rtb_Add) + 0.5);
+    if (idxAdj < 2) {
+      rtb_TSamp = floor((rtb_Add - 159.0) * (max_votes / rtb_Add) + 0.5);
       if ((rtb_TSamp >= 0.0) && (rtb_TSamp <= 119.0)) {
-        brain_B.HoughLines[(n << 1)] = (int32_T)floor((real_T)(int32_T)rtb_TSamp
-          + 0.5);
-        brain_B.HoughLines[1 + (n << 1)] = 159;
-        n++;
+        brain_B.HoughLines[(idxAdj << 1)] = (int32_T)floor((real_T)(int32_T)
+          rtb_TSamp + 0.5);
+        brain_B.HoughLines[1 + (idxAdj << 1)] = 159;
+        idxAdj++;
       }
     }
 
     /* part-4: bottom horizontal axis */
-    if (n < 2) {
-      rtb_TSamp = floor((rtb_Add - rtb_Add / eml_max_votes * 119.0) + 0.5);
+    if (idxAdj < 2) {
+      rtb_TSamp = floor((rtb_Add - rtb_Add / max_votes * 119.0) + 0.5);
       if ((rtb_TSamp >= 0.0) && (rtb_TSamp <= 159.0)) {
-        brain_B.HoughLines[(n << 1)] = 119;
-        brain_B.HoughLines[1 + (n << 1)] = (int32_T)floor((real_T)(int32_T)
+        brain_B.HoughLines[(idxAdj << 1)] = 119;
+        brain_B.HoughLines[1 + (idxAdj << 1)] = (int32_T)floor((real_T)(int32_T)
           rtb_TSamp + 0.5);
-        n++;
+        idxAdj++;
       }
     }
 
-    if (n < 2) {
+    if (idxAdj < 2) {
       brain_B.HoughLines[0] = -1;
       brain_B.HoughLines[1] = -1;
       brain_B.HoughLines[2] = -1;
       brain_B.HoughLines[3] = -1;
     }
 
-    n = 0;
-    rtb_Add = (rtb_R_idx_0 + 2.2204460492503131E-016) / (cos(rtb_T_idx_0) +
-      2.2204460492503131E-016);
+    idxAdj = 0;
+    rtb_Add = (rtb_R_idx_0 + 2.2204460492503131E-16) / (cos(rtb_T_idx_0) +
+      2.2204460492503131E-16);
 
     /* part-1: top horizontal axis */
     rtb_TSamp = floor(rtb_Add + 0.5);
     if ((rtb_TSamp >= 0.0) && (rtb_TSamp <= 159.0)) {
       brain_B.HoughLines[4] = 0;
       brain_B.HoughLines[5] = (int32_T)floor((real_T)(int32_T)rtb_TSamp + 0.5);
-      n = 1;
+      idxAdj = 1;
     }
 
-    eml_max_votes = (rtb_R_idx_0 + 2.2204460492503131E-016) / (sin(rtb_T_idx_0)
-      + 2.2204460492503131E-016);
+    max_votes = (rtb_R_idx_0 + 2.2204460492503131E-16) / (sin(rtb_T_idx_0) +
+      2.2204460492503131E-16);
 
     /* part-2: left vertical axis */
-    rtb_TSamp = floor(eml_max_votes + 0.5);
+    rtb_TSamp = floor(max_votes + 0.5);
     if ((rtb_TSamp >= 0.0) && (rtb_TSamp <= 119.0)) {
-      brain_B.HoughLines[4 + (n << 1)] = (int32_T)floor((real_T)(int32_T)
+      brain_B.HoughLines[4 + (idxAdj << 1)] = (int32_T)floor((real_T)(int32_T)
         rtb_TSamp + 0.5);
-      brain_B.HoughLines[5 + (n << 1)] = 0;
-      n++;
+      brain_B.HoughLines[5 + (idxAdj << 1)] = 0;
+      idxAdj++;
     }
 
     /* part-3: Right vertical axis */
-    if (n < 2) {
-      rtb_TSamp = floor((rtb_Add - 159.0) * (eml_max_votes / rtb_Add) + 0.5);
+    if (idxAdj < 2) {
+      rtb_TSamp = floor((rtb_Add - 159.0) * (max_votes / rtb_Add) + 0.5);
       if ((rtb_TSamp >= 0.0) && (rtb_TSamp <= 119.0)) {
-        brain_B.HoughLines[4 + (n << 1)] = (int32_T)floor((real_T)(int32_T)
+        brain_B.HoughLines[4 + (idxAdj << 1)] = (int32_T)floor((real_T)(int32_T)
           rtb_TSamp + 0.5);
-        brain_B.HoughLines[5 + (n << 1)] = 159;
-        n++;
+        brain_B.HoughLines[5 + (idxAdj << 1)] = 159;
+        idxAdj++;
       }
     }
 
     /* part-4: bottom horizontal axis */
-    if (n < 2) {
-      rtb_TSamp = floor((rtb_Add - rtb_Add / eml_max_votes * 119.0) + 0.5);
+    if (idxAdj < 2) {
+      rtb_TSamp = floor((rtb_Add - rtb_Add / max_votes * 119.0) + 0.5);
       if ((rtb_TSamp >= 0.0) && (rtb_TSamp <= 159.0)) {
-        brain_B.HoughLines[4 + (n << 1)] = 119;
-        brain_B.HoughLines[5 + (n << 1)] = (int32_T)floor((real_T)(int32_T)
+        brain_B.HoughLines[4 + (idxAdj << 1)] = 119;
+        brain_B.HoughLines[5 + (idxAdj << 1)] = (int32_T)floor((real_T)(int32_T)
           rtb_TSamp + 0.5);
-        n++;
+        idxAdj++;
       }
     }
 
-    if (n < 2) {
+    if (idxAdj < 2) {
       brain_B.HoughLines[4] = -1;
       brain_B.HoughLines[5] = -1;
       brain_B.HoughLines[6] = -1;
       brain_B.HoughLines[7] = -1;
     }
 
-    n = 0;
-    rtb_Add = (rtb_R_idx + 2.2204460492503131E-016) / (cos(rtb_T_idx) +
-      2.2204460492503131E-016);
+    idxAdj = 0;
+    rtb_Add = (rtb_R_idx + 2.2204460492503131E-16) / (cos(rtb_T_idx) +
+      2.2204460492503131E-16);
 
     /* part-1: top horizontal axis */
     rtb_TSamp = floor(rtb_Add + 0.5);
     if ((rtb_TSamp >= 0.0) && (rtb_TSamp <= 159.0)) {
       brain_B.HoughLines[8] = 0;
       brain_B.HoughLines[9] = (int32_T)floor((real_T)(int32_T)rtb_TSamp + 0.5);
-      n = 1;
+      idxAdj = 1;
     }
 
-    eml_max_votes = (rtb_R_idx + 2.2204460492503131E-016) / (sin(rtb_T_idx) +
-      2.2204460492503131E-016);
+    max_votes = (rtb_R_idx + 2.2204460492503131E-16) / (sin(rtb_T_idx) +
+      2.2204460492503131E-16);
 
     /* part-2: left vertical axis */
-    rtb_TSamp = floor(eml_max_votes + 0.5);
+    rtb_TSamp = floor(max_votes + 0.5);
     if ((rtb_TSamp >= 0.0) && (rtb_TSamp <= 119.0)) {
-      brain_B.HoughLines[8 + (n << 1)] = (int32_T)floor((real_T)(int32_T)
+      brain_B.HoughLines[8 + (idxAdj << 1)] = (int32_T)floor((real_T)(int32_T)
         rtb_TSamp + 0.5);
-      brain_B.HoughLines[9 + (n << 1)] = 0;
-      n++;
+      brain_B.HoughLines[9 + (idxAdj << 1)] = 0;
+      idxAdj++;
     }
 
     /* part-3: Right vertical axis */
-    if (n < 2) {
-      rtb_TSamp = floor((rtb_Add - 159.0) * (eml_max_votes / rtb_Add) + 0.5);
+    if (idxAdj < 2) {
+      rtb_TSamp = floor((rtb_Add - 159.0) * (max_votes / rtb_Add) + 0.5);
       if ((rtb_TSamp >= 0.0) && (rtb_TSamp <= 119.0)) {
-        brain_B.HoughLines[8 + (n << 1)] = (int32_T)floor((real_T)(int32_T)
+        brain_B.HoughLines[8 + (idxAdj << 1)] = (int32_T)floor((real_T)(int32_T)
           rtb_TSamp + 0.5);
-        brain_B.HoughLines[9 + (n << 1)] = 159;
-        n++;
+        brain_B.HoughLines[9 + (idxAdj << 1)] = 159;
+        idxAdj++;
       }
     }
 
     /* part-4: bottom horizontal axis */
-    if (n < 2) {
-      rtb_TSamp = floor((rtb_Add - rtb_Add / eml_max_votes * 119.0) + 0.5);
+    if (idxAdj < 2) {
+      rtb_TSamp = floor((rtb_Add - rtb_Add / max_votes * 119.0) + 0.5);
       if ((rtb_TSamp >= 0.0) && (rtb_TSamp <= 159.0)) {
-        brain_B.HoughLines[8 + (n << 1)] = 119;
-        brain_B.HoughLines[9 + (n << 1)] = (int32_T)floor((real_T)(int32_T)
+        brain_B.HoughLines[8 + (idxAdj << 1)] = 119;
+        brain_B.HoughLines[9 + (idxAdj << 1)] = (int32_T)floor((real_T)(int32_T)
           rtb_TSamp + 0.5);
-        n++;
+        idxAdj++;
       }
     }
 
-    if (n < 2) {
+    if (idxAdj < 2) {
       brain_B.HoughLines[8] = -1;
       brain_B.HoughLines[9] = -1;
       brain_B.HoughLines[10] = -1;
@@ -12692,37 +12555,38 @@ static void brain_RecognizeHedge(void)
 
     /* S-Function (svipdrawshapes): '<S35>/Draw Shapes' */
     /* Copy the image from input to output. */
-    memcpy((void *)&brain_B.DrawShapes[0], (void *)&brain_B.BW_fn[0], 19200U *
-           sizeof(real_T));
+    memcpy((void *)(&brain_B.DrawShapes[0]), (void *)(&brain_B.BW_fn[0]), 19200U
+           * sizeof(real_T));
     idxStart = 0;
     for (idxROI = 0; idxROI < 3; idxROI++) {
-      for (i_0 = 0; i_0 < 1; i_0 = 1) {
-        n = brain_B.HoughLines[idxStart];
-        line_idx_2 = brain_B.HoughLines[idxStart + 1];
+      for (idxAdj = 0; idxAdj < 1; idxAdj = 1) {
+        line_idx_2 = brain_B.HoughLines[idxStart];
+        n = brain_B.HoughLines[idxStart + 1];
         line_idx_3 = brain_B.HoughLines[idxStart + 2];
         line_idx_4 = brain_B.HoughLines[idxStart + 3];
-        if ((brain_B.HoughLines[idxStart] != line_idx_3) || (line_idx_2 !=
-             line_idx_4)) {
+        if ((brain_B.HoughLines[idxStart + 2] != brain_B.HoughLines[idxStart]) ||
+            (brain_B.HoughLines[idxStart + 1] != brain_B.HoughLines[idxStart + 3]))
+        {
           isInBound = FALSE;
 
           /* Find the visible portion of a line. */
           visited = FALSE;
           visited_0 = FALSE;
           done = FALSE;
-          line_idx_5 = brain_B.HoughLines[idxStart];
-          line_idx = line_idx_2;
-          line_idx_1 = line_idx_3;
-          line_idx_0 = line_idx_4;
+          i = brain_B.HoughLines[idxStart];
+          line_idx = brain_B.HoughLines[idxStart + 1];
+          line_idx_1 = brain_B.HoughLines[idxStart + 2];
+          line_idx_0 = brain_B.HoughLines[idxStart + 3];
           while (!done) {
-            i_0 = 0;
+            m = 0;
             err = 0;
 
             /* Determine viewport violations. */
-            if (line_idx_5 < 0) {
-              i_0 = 4;
+            if (i < 0) {
+              m = 4;
             } else {
-              if (line_idx_5 > 119) {
-                i_0 = 8;
+              if (i > 119) {
+                m = 8;
               }
             }
 
@@ -12735,78 +12599,82 @@ static void brain_RecognizeHedge(void)
             }
 
             if (line_idx < 0) {
-              i_0 |= 1;
+              m = (int32_T)((uint32_T)m | 1U);
             } else {
               if (line_idx > 159) {
-                i_0 |= 2;
+                m = (int32_T)((uint32_T)m | 2U);
               }
             }
 
             if (line_idx_0 < 0) {
-              err |= 1;
+              err = (int32_T)((uint32_T)err | 1U);
             } else {
               if (line_idx_0 > 159) {
-                err |= 2;
+                err = (int32_T)((uint32_T)err | 2U);
               }
             }
 
-            if (!((uint32_T)(i_0 | err))) {
+            if (!((uint32_T)m | (uint32_T)err)) {
               /* Line falls completely within bounds. */
               done = TRUE;
               isInBound = TRUE;
-            } else if ((uint32_T)(i_0 & err)) {
+            } else if ((uint32_T)m & (uint32_T)err) {
               /* Line falls completely out of bounds. */
               done = TRUE;
               isInBound = FALSE;
-            } else if ((uint32_T)i_0 != 0U) {
+            } else if ((uint32_T)m != 0U) {
               /* Clip 1st point; if it's in-bounds, clip 2nd point. */
               if (visited) {
-                line_idx_5 = n;
-                line_idx = line_idx_2;
+                i = line_idx_2;
+                line_idx = n;
               }
 
-              i = line_idx_1 - line_idx_5;
+              ky = line_idx_1 - i;
               ku = line_idx_0 - line_idx;
-              if ((uint32_T)(i_0 & 4)) {
+              if ((uint32_T)m & 4U) {
                 /* Violated RMin. */
-                i_0 = (0 - line_idx_5) * ku;
-                if (((i_0 >= 0) && (i >= 0)) || ((i_0 < 0) && (i < 0))) {
-                  line_idx += (div_s32_floor(i_0 << 1U, i) + 1) >> 1;
+                idxAdj = (0 - i) * ku;
+                if (((idxAdj >= 0) && (ky >= 0)) || ((idxAdj < 0) && (ky < 0)))
+                {
+                  line_idx += (div_s32_floor(idxAdj << 1U, ky) + 1) >> 1;
                 } else {
-                  line_idx += -((div_s32_floor((-i_0) << 1U, i) + 1) >> 1);
+                  line_idx += -((div_s32_floor((-idxAdj) << 1U, ky) + 1) >> 1);
                 }
 
-                line_idx_5 = 0;
+                i = 0;
                 visited = TRUE;
-              } else if ((uint32_T)(i_0 & 8)) {
+              } else if ((uint32_T)m & 8U) {
                 /* Violated RMax. */
-                i_0 = (119 - line_idx_5) * ku;
-                if (((i_0 >= 0) && (i >= 0)) || ((i_0 < 0) && (i < 0))) {
-                  line_idx += (div_s32_floor(i_0 << 1U, i) + 1) >> 1;
+                idxAdj = (119 - i) * ku;
+                if (((idxAdj >= 0) && (ky >= 0)) || ((idxAdj < 0) && (ky < 0)))
+                {
+                  line_idx += (div_s32_floor(idxAdj << 1U, ky) + 1) >> 1;
                 } else {
-                  line_idx += -((div_s32_floor((-i_0) << 1U, i) + 1) >> 1);
+                  line_idx += -((div_s32_floor((-idxAdj) << 1U, ky) + 1) >> 1);
                 }
 
-                line_idx_5 = 119;
+                i = 119;
                 visited = TRUE;
-              } else if ((uint32_T)(i_0 & 1)) {
+              } else if ((uint32_T)m & 1U) {
                 /* Violated CMin. */
-                i_0 = (0 - line_idx) * i;
-                if (((i_0 >= 0) && (ku >= 0)) || ((i_0 < 0) && (ku < 0))) {
-                  line_idx_5 += (div_s32_floor(i_0 << 1U, ku) + 1) >> 1;
+                idxAdj = (0 - line_idx) * ky;
+                if (((idxAdj >= 0) && (ku >= 0)) || ((idxAdj < 0) && (ku < 0)))
+                {
+                  i += (div_s32_floor(idxAdj << 1U, ku) + 1) >> 1;
                 } else {
-                  line_idx_5 += -((div_s32_floor((-i_0) << 1U, ku) + 1) >> 1);
+                  i += -((div_s32_floor((-idxAdj) << 1U, ku) + 1) >> 1);
                 }
 
                 line_idx = 0;
                 visited = TRUE;
               } else {
                 /* Violated CMax. */
-                i_0 = (159 - line_idx) * i;
-                if (((i_0 >= 0) && (ku >= 0)) || ((i_0 < 0) && (ku < 0))) {
-                  line_idx_5 += (div_s32_floor(i_0 << 1U, ku) + 1) >> 1;
+                idxAdj = (159 - line_idx) * ky;
+                if (((idxAdj >= 0) && (ku >= 0)) || ((idxAdj < 0) && (ku < 0)))
+                {
+                  i += (div_s32_floor(idxAdj << 1U, ku) + 1) >> 1;
                 } else {
-                  line_idx_5 += -((div_s32_floor((-i_0) << 1U, ku) + 1) >> 1);
+                  i += -((div_s32_floor((-idxAdj) << 1U, ku) + 1) >> 1);
                 }
 
                 line_idx = 159;
@@ -12819,48 +12687,52 @@ static void brain_RecognizeHedge(void)
                 line_idx_0 = line_idx_4;
               }
 
-              i = line_idx_1 - line_idx_5;
+              ky = line_idx_1 - i;
               ku = line_idx_0 - line_idx;
-              if ((uint32_T)(err & 4)) {
+              if ((uint32_T)err & 4U) {
                 /* Violated RMin. */
-                i_0 = (0 - line_idx_1) * ku;
-                if (((i_0 >= 0) && (i >= 0)) || ((i_0 < 0) && (i < 0))) {
-                  line_idx_0 += (div_s32_floor(i_0 << 1U, i) + 1) >> 1;
+                idxAdj = (0 - line_idx_1) * ku;
+                if (((idxAdj >= 0) && (ky >= 0)) || ((idxAdj < 0) && (ky < 0)))
+                {
+                  line_idx_0 += (div_s32_floor(idxAdj << 1U, ky) + 1) >> 1;
                 } else {
-                  line_idx_0 += -((div_s32_floor((-i_0) << 1U, i) + 1) >> 1);
+                  line_idx_0 += -((div_s32_floor((-idxAdj) << 1U, ky) + 1) >> 1);
                 }
 
                 line_idx_1 = 0;
                 visited_0 = TRUE;
-              } else if ((uint32_T)(err & 8)) {
+              } else if ((uint32_T)err & 8U) {
                 /* Violated RMax. */
-                i_0 = (119 - line_idx_1) * ku;
-                if (((i_0 >= 0) && (i >= 0)) || ((i_0 < 0) && (i < 0))) {
-                  line_idx_0 += (div_s32_floor(i_0 << 1U, i) + 1) >> 1;
+                idxAdj = (119 - line_idx_1) * ku;
+                if (((idxAdj >= 0) && (ky >= 0)) || ((idxAdj < 0) && (ky < 0)))
+                {
+                  line_idx_0 += (div_s32_floor(idxAdj << 1U, ky) + 1) >> 1;
                 } else {
-                  line_idx_0 += -((div_s32_floor((-i_0) << 1U, i) + 1) >> 1);
+                  line_idx_0 += -((div_s32_floor((-idxAdj) << 1U, ky) + 1) >> 1);
                 }
 
                 line_idx_1 = 119;
                 visited_0 = TRUE;
-              } else if ((uint32_T)(err & 1)) {
+              } else if ((uint32_T)err & 1U) {
                 /* Violated CMin. */
-                i_0 = (0 - line_idx_0) * i;
-                if (((i_0 >= 0) && (ku >= 0)) || ((i_0 < 0) && (ku < 0))) {
-                  line_idx_1 += (div_s32_floor(i_0 << 1U, ku) + 1) >> 1;
+                idxAdj = (0 - line_idx_0) * ky;
+                if (((idxAdj >= 0) && (ku >= 0)) || ((idxAdj < 0) && (ku < 0)))
+                {
+                  line_idx_1 += (div_s32_floor(idxAdj << 1U, ku) + 1) >> 1;
                 } else {
-                  line_idx_1 += -((div_s32_floor((-i_0) << 1U, ku) + 1) >> 1);
+                  line_idx_1 += -((div_s32_floor((-idxAdj) << 1U, ku) + 1) >> 1);
                 }
 
                 line_idx_0 = 0;
                 visited_0 = TRUE;
               } else {
                 /* Violated CMax. */
-                i_0 = (159 - line_idx_0) * i;
-                if (((i_0 >= 0) && (ku >= 0)) || ((i_0 < 0) && (ku < 0))) {
-                  line_idx_1 += (div_s32_floor(i_0 << 1U, ku) + 1) >> 1;
+                idxAdj = (159 - line_idx_0) * ky;
+                if (((idxAdj >= 0) && (ku >= 0)) || ((idxAdj < 0) && (ku < 0)))
+                {
+                  line_idx_1 += (div_s32_floor(idxAdj << 1U, ku) + 1) >> 1;
                 } else {
-                  line_idx_1 += -((div_s32_floor((-i_0) << 1U, ku) + 1) >> 1);
+                  line_idx_1 += -((div_s32_floor((-idxAdj) << 1U, ku) + 1) >> 1);
                 }
 
                 line_idx_0 = 159;
@@ -12872,10 +12744,10 @@ static void brain_RecognizeHedge(void)
           if (isInBound) {
             /* Draw a line using Bresenham algorithm. */
             /* Initialize the Bresenham algorithm. */
-            if (line_idx_1 >= line_idx_5) {
-              i = line_idx_1 - line_idx_5;
+            if (line_idx_1 >= i) {
+              ky = line_idx_1 - i;
             } else {
-              i = line_idx_5 - line_idx_1;
+              ky = i - line_idx_1;
             }
 
             if (line_idx_0 >= line_idx) {
@@ -12884,56 +12756,56 @@ static void brain_RecognizeHedge(void)
               ku = line_idx - line_idx_0;
             }
 
-            if (i > ku) {
+            if (ky > ku) {
               line_idx_2 = 1;
               ku = 120;
             } else {
               line_idx_2 = 120;
               ku = 1;
-              i = line_idx_5;
-              line_idx_5 = line_idx;
-              line_idx = i;
-              i = line_idx_1;
-              line_idx_1 = line_idx_0;
-              line_idx_0 = i;
-            }
-
-            if (line_idx_5 > line_idx_1) {
-              i = line_idx_5;
-              line_idx_5 = line_idx_1;
-              line_idx_1 = i;
+              ky = i;
               i = line_idx;
+              line_idx = ky;
+              ky = line_idx_1;
+              line_idx_1 = line_idx_0;
+              line_idx_0 = ky;
+            }
+
+            if (i > line_idx_1) {
+              ky = i;
+              i = line_idx_1;
+              line_idx_1 = ky;
+              ky = line_idx;
               line_idx = line_idx_0;
-              line_idx_0 = i;
+              line_idx_0 = ky;
             }
 
-            line_idx_3 = line_idx_1 - line_idx_5;
+            n = line_idx_1 - i;
             if (line_idx <= line_idx_0) {
-              i = 1;
-              n = line_idx_0 - line_idx;
+              ky = 1;
+              m = line_idx_0 - line_idx;
             } else {
-              i = -1;
-              n = line_idx - line_idx_0;
+              ky = -1;
+              m = line_idx - line_idx_0;
             }
 
-            err = -((line_idx_3 + 1) >> 1);
-            i_0 = line_idx_5 * line_idx_2 + line_idx * ku;
-            i = i * ku + line_idx_2;
-            for (isInBound = (line_idx_5 <= line_idx_1); isInBound; isInBound =
-                 (line_idx_5 <= line_idx_1)) {
-              brain_B.DrawShapes[i_0] = 0.8;
+            err = -((n + 1) >> 1);
+            idxAdj = i * line_idx_2 + line_idx * ku;
+            ky = ky * ku + line_idx_2;
+            for (isInBound = (i <= line_idx_1); isInBound; isInBound = (i <=
+                  line_idx_1)) {
+              brain_B.DrawShapes[idxAdj] = 0.8;
 
               /* Compute the next location using Bresenham algorithm. */
               /* Move to the next pixel location. */
-              err += n;
+              err += m;
               if (err >= 0) {
-                err -= line_idx_3;
-                i_0 += i;
+                err -= n;
+                idxAdj += ky;
               } else {
-                i_0 += line_idx_2;
+                idxAdj += line_idx_2;
               }
 
-              line_idx_5++;
+              i++;
             }
           }
         }
@@ -12947,17 +12819,17 @@ static void brain_RecognizeHedge(void)
     brain_DWork.Image = brain_B.Image;
 
     /* Simulink Function 'ShowSegmentedImage': '<S7>:1649' */
-    for (i_0 = 0; i_0 < 19200; i_0++) {
-      brain_B.BWout[i_0] = brain_B.DrawShapes[i_0];
-      brain_B.LabMatrix_i[i_0] = brain_DWork.LabelMatrix[i_0];
+    for (i = 0; i < 19200; i++) {
+      brain_B.BWout[i] = brain_B.DrawShapes[i];
+      brain_B.LabMatrix_i[i] = brain_DWork.LabelMatrix[i];
     }
 
-    memcpy((void *)&brain_B.Ref_Colors_m[0], (void *)&brain_DWork.ref_colors[0],
-           150U * sizeof(real_T));
+    memcpy((void *)(&brain_B.Ref_Colors_m[0]), (void *)(&brain_DWork.ref_colors
+            [0]), 150U * sizeof(real_T));
     StateFlowFunctionsBuoysShowSegm(brain_B.LabMatrix_i, brain_B.Ref_Colors_m,
       &brain_B.StateFlowFunctionsJumpHedgeShow);
-    memcpy((void *)&brain_B.RGBout[0], (void *)
-           &brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0], 57600U * sizeof
+    memcpy((void *)(&brain_B.RGBout[0]), (void *)
+           (&brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0]), 57600U * sizeof
            (real_T));
   }
 }
@@ -13031,21 +12903,22 @@ static void brain_exit_atomic_JumpHedge(void)
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
 static void brain_JumpHedge(void)
 {
-  int32_T ku;
-  int32_T i;
+  int32_T inIdx;
+  int32_T centerM;
+  int32_T centerN;
   int32_T n;
-  int32_T i_0;
-  int32_T outIdx;
+  int32_T startR;
   boolean_T maxNumBlobsReached;
   uint8_T currentLabel;
   uint32_T stackIdx;
+  int32_T m;
   uint32_T BuoyBlobAnalysis_NUM_PIX_DW;
   uint32_T walkerIdx;
   uint32_T numBlobs;
   int32_T rtb_BuoyBlobAnalysis;
   real_T rtb_Add;
   real_T rtb_TSamp;
-  int32_T i_1;
+  int32_T i;
   real_T tmp;
 
   /* During 'JumpHedge': '<S7>:1605' */
@@ -13073,29 +12946,29 @@ static void brain_JumpHedge(void)
         brain_DWork.count = 0.0;
       } else {
         /* Simulink Function 'IterativeSegmentation': '<S7>:1680' */
-        for (i_1 = 0; i_1 < 19200; i_1++) {
-          brain_B.H_p[i_1] = brain_B.Resize[i_1];
-          brain_B.S_j[i_1] = brain_B.Resize1[i_1];
-          brain_B.V_j[i_1] = brain_B.Resize2[i_1];
+        for (i = 0; i < 19200; i++) {
+          brain_B.H_p[i] = brain_B.Resize[i];
+          brain_B.S_j[i] = brain_B.Resize1[i];
+          brain_B.V_j[i] = brain_B.Resize2[i];
         }
 
         StateFlowFunctionsBuoysIterativ(brain_B.H_p, brain_B.S_j, brain_B.V_j,
           &brain_B.StateFlowFunctionsJumpHedgeIter,
           &brain_DWork.StateFlowFunctionsJumpHedgeIter);
-        memcpy((void *)&brain_DWork.LabelMatrix[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0], 19200U *
-               sizeof(real_T));
+        memcpy((void *)(&brain_DWork.LabelMatrix[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0]), 19200U
+               * sizeof(real_T));
         brain_DWork.num_colors =
           brain_B.StateFlowFunctionsJumpHedgeIter.num_colors;
-        memcpy((void *)&brain_DWork.ref_colors[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0], 150U *
+        memcpy((void *)(&brain_DWork.ref_colors[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0]), 150U *
                sizeof(real_T));
 
         /* Simulink Function 'IndividualSegmentation': '<S7>:1672' */
-        memcpy((void *)&brain_B.LabMatrix_e[0], (void *)
-               &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
-        memcpy((void *)&brain_B.Ref_Colors_o[0], (void *)
-               &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabMatrix_e[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.Ref_Colors_o[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         brain_B.Num_Colors_k = brain_DWork.num_colors;
         brain_B.B_Hue_i = brain_DWork.H_Hue;
         brain_B.B_Sat_c = brain_DWork.H_Sat;
@@ -13105,10 +12978,10 @@ static void brain_JumpHedge(void)
           brain_B.Num_Colors_k, &brain_B.StateFlowFunctionsJumpHedgeIn_m);
 
         /* Simulink Function 'CameraForward_CenterOnBlobYaw': '<S7>:1658' */
-        for (i_1 = 0; i_1 < 19200; i_1++) {
-          brain_B.BWout[i_1] = (real_T)
-            brain_B.StateFlowFunctionsJumpHedgeIn_m.BW[i_1];
-          brain_B.BW_l[i_1] = brain_B.BWout[i_1];
+        for (i = 0; i < 19200; i++) {
+          brain_B.BWout[i] = (real_T)
+            brain_B.StateFlowFunctionsJumpHedgeIn_m.BW[i];
+          brain_B.BW_l[i] = brain_B.BWout[i];
         }
 
         brain_B.ForwardVelocity = brain_DWork.Forward;
@@ -13121,168 +12994,149 @@ static void brain_JumpHedge(void)
           brain_B.StateFlowFunctionsJumpHedgeCa_p.DataTypeConversion;
 
         /* Simulink Function 'GetArea': '<S7>:1614' */
-        for (i_1 = 0; i_1 < 19200; i_1++) {
-          brain_B.BWout[i_1] =
-            brain_B.StateFlowFunctionsJumpHedgeCa_p.DrawMarkers[i_1];
-          brain_B.BW_g[i_1] = brain_B.BWout[i_1];
+        for (i = 0; i < 19200; i++) {
+          brain_B.BWout[i] =
+            brain_B.StateFlowFunctionsJumpHedgeCa_p.DrawMarkers[i];
+          brain_B.BW_g[i] = brain_B.BWout[i];
 
           /* S-Function (svipscalenconvert): '<S28>/Image Data Type Conversion' */
-          brain_B.ImageDataTypeConversion_d[i_1] = ((brain_B.BW_g[i_1] == 0.0 ?
-            0 : 1) != 0);
+          brain_B.ImageDataTypeConversion_d[i] = ((brain_B.BW_g[i] == 0.0 ? 0 :
+            1) != 0);
         }
 
         /* S-Function (svipmorphop): '<S28>/Dilation' */
-        i_1 = 0;
-        ku = 0;
-        for (n = 0; n < 123; n++) {
-          brain_DWork.Dilation_ONE_PAD_IMG_DW[i_1] = FALSE;
-          i_1++;
+        for (i = 0; i < 20049; i++) {
+          brain_DWork.Dilation_ONE_PAD_IMG_DW[i] = FALSE;
         }
 
-        for (i = 0; i < 160; i++) {
-          brain_DWork.Dilation_ONE_PAD_IMG_DW[i_1] = FALSE;
-          i_1++;
-          memcpy((void *)&brain_DWork.Dilation_ONE_PAD_IMG_DW[i_1], (void *)
-                 &brain_B.ImageDataTypeConversion_d[ku], 120U * sizeof(boolean_T));
-          i_1 += 120;
-          ku += 120;
-          brain_DWork.Dilation_ONE_PAD_IMG_DW[i_1] = FALSE;
-          i_1++;
-          brain_DWork.Dilation_ONE_PAD_IMG_DW[i_1] = FALSE;
-          i_1++;
-        }
-
-        for (i = 161; i < 163; i++) {
-          for (n = 0; n < 123; n++) {
-            brain_DWork.Dilation_ONE_PAD_IMG_DW[i_1] = FALSE;
-            i_1++;
-          }
-        }
-
-        i_1 = 0;
-        ku = 0;
-        for (n = 0; n < 160; n++) {
-          for (outIdx = 0; outIdx < 120; outIdx++) {
-            brain_B.Dilation[ku] = FALSE;
-            for (i_0 = 0; i_0 < brain_DWork.Dilation_NUMNONZ_DW; i_0++) {
-              if (brain_DWork.Dilation_ONE_PAD_IMG_DW[i_1 +
-                  brain_DWork.Dilation_DILATE_OFF_DW[i_0]]) {
-                brain_B.Dilation[ku] = TRUE;
-                i_0 = brain_DWork.Dilation_NUMNONZ_DW;
-              }
+        for (inIdx = 0; inIdx < 19200; inIdx++) {
+          if (brain_B.ImageDataTypeConversion_d[inIdx]) {
+            centerM = inIdx / 120;
+            centerM = (inIdx - centerM * 120) + centerM * 123;
+            for (i = 0; i < brain_DWork.Dilation_NUMNONZ_DW; i++) {
+              brain_DWork.Dilation_ONE_PAD_IMG_DW[centerM +
+                brain_DWork.Dilation_DILATE_OFF_DW[i]] = TRUE;
             }
+          }
+        }
 
-            i_1++;
-            ku++;
+        inIdx = 0;
+        centerM = 0;
+        for (n = 0; n < 160; n++) {
+          for (m = 0; m < 120; m++) {
+            brain_B.Dilation[centerM] =
+              brain_DWork.Dilation_ONE_PAD_IMG_DW[inIdx];
+            centerM++;
+            inIdx++;
           }
 
-          i_1 += 3;
+          inIdx += 3;
         }
 
         /* S-Function (svipmorphop): '<S28>/Erosion' */
-        i_1 = 0;
-        ku = 0;
-        for (n = 0; n < 127; n++) {
-          brain_DWork.Erosion_ONE_PAD_IMG_DW_a[i_1] = TRUE;
-          i_1++;
+        centerM = 0;
+        centerN = 0;
+        for (startR = 0; startR < 127; startR++) {
+          brain_DWork.Erosion_ONE_PAD_IMG_DW_a[centerM] = TRUE;
+          centerM++;
         }
 
         for (i = 0; i < 160; i++) {
-          brain_DWork.Erosion_ONE_PAD_IMG_DW_a[i_1] = TRUE;
-          i_1++;
-          memcpy((void *)&brain_DWork.Erosion_ONE_PAD_IMG_DW_a[i_1], (void *)
-                 &brain_B.Dilation[ku], 120U * sizeof(boolean_T));
-          i_1 += 120;
-          ku += 120;
-          for (n = 121; n < 127; n++) {
-            brain_DWork.Erosion_ONE_PAD_IMG_DW_a[i_1] = TRUE;
-            i_1++;
+          brain_DWork.Erosion_ONE_PAD_IMG_DW_a[centerM] = TRUE;
+          centerM++;
+          memcpy((void *)(&brain_DWork.Erosion_ONE_PAD_IMG_DW_a[centerM]), (void
+                  *)(&brain_B.Dilation[centerN]), 120U * sizeof(boolean_T));
+          centerM += 120;
+          centerN += 120;
+          for (startR = 121; startR < 127; startR++) {
+            brain_DWork.Erosion_ONE_PAD_IMG_DW_a[centerM] = TRUE;
+            centerM++;
           }
         }
 
         for (i = 161; i < 167; i++) {
-          for (n = 0; n < 127; n++) {
-            brain_DWork.Erosion_ONE_PAD_IMG_DW_a[i_1] = TRUE;
-            i_1++;
+          for (startR = 0; startR < 127; startR++) {
+            brain_DWork.Erosion_ONE_PAD_IMG_DW_a[centerM] = TRUE;
+            centerM++;
           }
         }
 
-        for (i_0 = 0; i_0 < 21209; i_0++) {
-          brain_DWork.Erosion_TWO_PAD_IMG_DW[i_0] = TRUE;
+        for (i = 0; i < 21209; i++) {
+          brain_DWork.Erosion_TWO_PAD_IMG_DW[i] = TRUE;
         }
 
-        ku = 0;
-        for (i_1 = 0; i_1 < 167; i_1++) {
-          for (i = 0; i < 124; i++) {
-            brain_DWork.Erosion_TWO_PAD_IMG_DW[1 + ku] = TRUE;
-            for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW_j[0]; i_0++) {
-              if (!brain_DWork.Erosion_ONE_PAD_IMG_DW_a[ku +
-                  brain_DWork.Erosion_ERODE_OFF_DW_i[i_0]]) {
-                brain_DWork.Erosion_TWO_PAD_IMG_DW[1 + ku] = FALSE;
-                i_0 = brain_DWork.Erosion_NUMNONZ_DW_j[0];
+        centerN = 0;
+        for (n = 0; n < 167; n++) {
+          for (m = 0; m < 124; m++) {
+            brain_DWork.Erosion_TWO_PAD_IMG_DW[1 + centerN] = TRUE;
+            for (i = 0; i < brain_DWork.Erosion_NUMNONZ_DW_j[0]; i++) {
+              if (!brain_DWork.Erosion_ONE_PAD_IMG_DW_a[centerN +
+                  brain_DWork.Erosion_ERODE_OFF_DW_i[i]]) {
+                brain_DWork.Erosion_TWO_PAD_IMG_DW[1 + centerN] = FALSE;
+                i = brain_DWork.Erosion_NUMNONZ_DW_j[0];
               }
             }
 
-            ku++;
+            centerN++;
           }
 
-          ku += 3;
+          centerN += 3;
         }
 
-        n = 1;
-        outIdx = 0;
-        for (i_1 = 0; i_1 < 160; i_1++) {
-          for (i = 1; i < 121; i++) {
-            brain_B.Erosion[outIdx] = TRUE;
-            for (i_0 = 0; i_0 < brain_DWork.Erosion_NUMNONZ_DW_j[1]; i_0++) {
+        inIdx = 1;
+        centerM = 0;
+        for (n = 0; n < 160; n++) {
+          for (m = 1; m < 121; m++) {
+            brain_B.Erosion[centerM] = TRUE;
+            for (i = 0; i < brain_DWork.Erosion_NUMNONZ_DW_j[1]; i++) {
               if (!brain_DWork.Erosion_TWO_PAD_IMG_DW[brain_DWork.Erosion_ERODE_OFF_DW_i
-                  [i_0 + brain_DWork.Erosion_NUMNONZ_DW_j[0]] + n]) {
-                brain_B.Erosion[outIdx] = FALSE;
-                i_0 = brain_DWork.Erosion_NUMNONZ_DW_j[1];
+                  [i + brain_DWork.Erosion_NUMNONZ_DW_j[0]] + inIdx]) {
+                brain_B.Erosion[centerM] = FALSE;
+                i = brain_DWork.Erosion_NUMNONZ_DW_j[1];
               }
             }
 
-            n++;
-            outIdx++;
+            inIdx++;
+            centerM++;
           }
 
-          n += 7;
+          inIdx += 7;
         }
 
         /* S-Function (svipblob): '<S28>/Buoy Blob Analysis' */
         maxNumBlobsReached = FALSE;
-        for (i_1 = 0; i_1 < 123; i_1++) {
-          brain_DWork.BuoyBlobAnalysis_PAD_DW[i_1] = 0U;
+        for (centerM = 0; centerM < 123; centerM++) {
+          brain_DWork.BuoyBlobAnalysis_PAD_DW[centerM] = 0U;
         }
 
         currentLabel = 1U;
-        i_1 = 0;
-        n = 123;
-        for (ku = 0; ku < 160; ku++) {
-          for (i = 0; i < 120; i++) {
-            brain_DWork.BuoyBlobAnalysis_PAD_DW[n] = (uint8_T)
-              (brain_B.Erosion[i_1] ? 255 : 0);
-            i_1++;
-            n++;
+        i = 0;
+        centerN = 123;
+        for (n = 0; n < 160; n++) {
+          for (m = 0; m < 120; m++) {
+            brain_DWork.BuoyBlobAnalysis_PAD_DW[centerN] = (uint8_T)
+              (brain_B.Erosion[i] ? 255 : 0);
+            i++;
+            centerN++;
           }
 
-          brain_DWork.BuoyBlobAnalysis_PAD_DW[n] = 0U;
-          n++;
-          brain_DWork.BuoyBlobAnalysis_PAD_DW[n] = 0U;
-          n++;
+          brain_DWork.BuoyBlobAnalysis_PAD_DW[centerN] = 0U;
+          centerN++;
+          brain_DWork.BuoyBlobAnalysis_PAD_DW[centerN] = 0U;
+          centerN++;
         }
 
-        for (i_1 = 0; i_1 < 121; i_1++) {
-          brain_DWork.BuoyBlobAnalysis_PAD_DW[i_1 + n] = 0U;
+        for (centerM = 0; centerM < 121; centerM++) {
+          brain_DWork.BuoyBlobAnalysis_PAD_DW[centerM + centerN] = 0U;
         }
 
-        ku = 1;
+        centerN = 1;
         stackIdx = 0U;
-        for (i = 0; i < 160; i++) {
-          n = 1;
-          i_0 = ku * 122;
-          for (outIdx = 0; outIdx < 120; outIdx++) {
-            numBlobs = (uint32_T)(i_0 + n);
+        for (n = 0; n < 160; n++) {
+          startR = 1;
+          inIdx = centerN * 122;
+          for (m = 0; m < 120; m++) {
+            numBlobs = (uint32_T)(inIdx + startR);
             if (brain_DWork.BuoyBlobAnalysis_PAD_DW[numBlobs] == 255) {
               brain_DWork.BuoyBlobAnalysis_PAD_DW[numBlobs] = currentLabel;
               BuoyBlobAnalysis_NUM_PIX_DW = 1U;
@@ -13291,8 +13145,8 @@ static void brain_JumpHedge(void)
               while (stackIdx) {
                 stackIdx--;
                 numBlobs = brain_DWork.BuoyBlobAnalysis_STACK_DW[stackIdx];
-                for (i_1 = 0; i_1 < 8; i_1++) {
-                  walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled27[i_1];
+                for (i = 0; i < 8; i++) {
+                  walkerIdx = numBlobs + (uint32_T)brain_ConstP.pooled27[i];
                   if (brain_DWork.BuoyBlobAnalysis_PAD_DW[walkerIdx] == 255) {
                     brain_DWork.BuoyBlobAnalysis_PAD_DW[walkerIdx] =
                       currentLabel;
@@ -13310,28 +13164,28 @@ static void brain_JumpHedge(void)
 
               if (currentLabel == 1) {
                 maxNumBlobsReached = TRUE;
-                i = 160;
-                outIdx = 120;
+                n = 160;
+                m = 120;
               }
 
-              if (outIdx < 120) {
+              if (m < 120) {
                 currentLabel++;
               }
             }
 
-            n++;
+            startR++;
           }
 
-          ku++;
+          centerN++;
         }
 
         numBlobs = maxNumBlobsReached ? currentLabel : (uint8_T)(currentLabel -
           1);
-        for (i_1 = 0; i_1 < (int32_T)numBlobs; i_1++) {
+        for (i = 0; i < (int32_T)numBlobs; i++) {
           rtb_BuoyBlobAnalysis = (int32_T)BuoyBlobAnalysis_NUM_PIX_DW;
         }
 
-        for (i_1 = (int32_T)numBlobs; i_1 < 1; i_1 = 1) {
+        for (centerM = (int32_T)numBlobs; centerM < 1; centerM = 1) {
           rtb_BuoyBlobAnalysis = -1;
         }
 
@@ -13351,15 +13205,15 @@ static void brain_JumpHedge(void)
         brain_DWork.Area = (int32_T)brain_B.BlobArea;
 
         /* Simulink Function 'ShowSegmentedImage': '<S7>:1649' */
-        memcpy((void *)&brain_B.LabMatrix_i[0], (void *)
-               &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
-        memcpy((void *)&brain_B.Ref_Colors_m[0], (void *)
-               &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabMatrix_i[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.Ref_Colors_m[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         StateFlowFunctionsBuoysShowSegm(brain_B.LabMatrix_i,
           brain_B.Ref_Colors_m, &brain_B.StateFlowFunctionsJumpHedgeShow);
-        memcpy((void *)&brain_B.RGBout[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0], 57600U * sizeof
-               (real_T));
+        memcpy((void *)(&brain_B.RGBout[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0]), 57600U *
+               sizeof(real_T));
       }
       break;
 
@@ -13384,29 +13238,29 @@ static void brain_JumpHedge(void)
         brain_DWork.Done = 1.0;
       } else {
         /* Simulink Function 'IterativeSegmentation': '<S7>:1680' */
-        for (i_1 = 0; i_1 < 19200; i_1++) {
-          brain_B.H_p[i_1] = brain_B.Resize[i_1];
-          brain_B.S_j[i_1] = brain_B.Resize1[i_1];
-          brain_B.V_j[i_1] = brain_B.Resize2[i_1];
+        for (i = 0; i < 19200; i++) {
+          brain_B.H_p[i] = brain_B.Resize[i];
+          brain_B.S_j[i] = brain_B.Resize1[i];
+          brain_B.V_j[i] = brain_B.Resize2[i];
         }
 
         StateFlowFunctionsBuoysIterativ(brain_B.H_p, brain_B.S_j, brain_B.V_j,
           &brain_B.StateFlowFunctionsJumpHedgeIter,
           &brain_DWork.StateFlowFunctionsJumpHedgeIter);
-        memcpy((void *)&brain_DWork.LabelMatrix[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0], 19200U *
-               sizeof(real_T));
+        memcpy((void *)(&brain_DWork.LabelMatrix[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeIter.LabelMatrix[0]), 19200U
+               * sizeof(real_T));
         brain_DWork.num_colors =
           brain_B.StateFlowFunctionsJumpHedgeIter.num_colors;
-        memcpy((void *)&brain_DWork.ref_colors[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0], 150U *
+        memcpy((void *)(&brain_DWork.ref_colors[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeIter.ref_colors[0]), 150U *
                sizeof(real_T));
 
         /* Simulink Function 'IndividualSegmentation': '<S7>:1672' */
-        memcpy((void *)&brain_B.LabMatrix_e[0], (void *)
-               &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
-        memcpy((void *)&brain_B.Ref_Colors_o[0], (void *)
-               &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabMatrix_e[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.Ref_Colors_o[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         brain_B.Num_Colors_k = brain_DWork.num_colors;
         brain_B.B_Hue_i = brain_DWork.H_Hue;
         brain_B.B_Sat_c = brain_DWork.H_Sat;
@@ -13414,9 +13268,9 @@ static void brain_JumpHedge(void)
         StateFlowFunctionsJumpHedgeIndi(brain_B.B_Hue_i, brain_B.B_Sat_c,
           brain_B.B_Value_n, brain_B.LabMatrix_e, brain_B.Ref_Colors_o,
           brain_B.Num_Colors_k, &brain_B.StateFlowFunctionsJumpHedgeIn_m);
-        for (i_1 = 0; i_1 < 19200; i_1++) {
-          brain_B.BWout[i_1] = (real_T)
-            brain_B.StateFlowFunctionsJumpHedgeIn_m.BW[i_1];
+        for (i = 0; i < 19200; i++) {
+          brain_B.BWout[i] = (real_T)
+            brain_B.StateFlowFunctionsJumpHedgeIn_m.BW[i];
         }
 
         /* Simulink Function 'MaintainHeading': '<S7>:918' */
@@ -13502,15 +13356,15 @@ static void brain_JumpHedge(void)
         brain_DWork.count = brain_DWork.count + 1.0;
 
         /* Simulink Function 'ShowSegmentedImage': '<S7>:1649' */
-        memcpy((void *)&brain_B.LabMatrix_i[0], (void *)
-               &brain_DWork.LabelMatrix[0], 19200U * sizeof(real_T));
-        memcpy((void *)&brain_B.Ref_Colors_m[0], (void *)
-               &brain_DWork.ref_colors[0], 150U * sizeof(real_T));
+        memcpy((void *)(&brain_B.LabMatrix_i[0]), (void *)
+               (&brain_DWork.LabelMatrix[0]), 19200U * sizeof(real_T));
+        memcpy((void *)(&brain_B.Ref_Colors_m[0]), (void *)
+               (&brain_DWork.ref_colors[0]), 150U * sizeof(real_T));
         StateFlowFunctionsBuoysShowSegm(brain_B.LabMatrix_i,
           brain_B.Ref_Colors_m, &brain_B.StateFlowFunctionsJumpHedgeShow);
-        memcpy((void *)&brain_B.RGBout[0], (void *)
-               &brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0], 57600U * sizeof
-               (real_T));
+        memcpy((void *)(&brain_B.RGBout[0]), (void *)
+               (&brain_B.StateFlowFunctionsJumpHedgeShow.RGB[0]), 57600U *
+               sizeof(real_T));
       }
       break;
 
@@ -13555,9 +13409,9 @@ static void brain_JumpHedge(void)
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
 static void brain_LocatePinger(void)
 {
-  real_T sf_differences[16];
-  real_T sf_Headings[4];
-  int32_T sf_i;
+  real_T differences[16];
+  real_T Headings[4];
+  int32_T index;
   real_T rtb_Add;
   real_T rtb_TSamp;
   real_T tmp;
@@ -13755,45 +13609,45 @@ static void brain_LocatePinger(void)
           /*  heading to the pinger */
           /* '<S7>:1798:5' */
           /* '<S7>:1798:7' */
-          sf_Headings[0] = 0.0;
-          sf_Headings[1] = 0.0;
-          sf_Headings[2] = 0.0;
-          sf_Headings[3] = 0.0;
+          Headings[0] = 0.0;
+          Headings[1] = 0.0;
+          Headings[2] = 0.0;
+          Headings[3] = 0.0;
 
           /* '<S7>:1798:9' */
-          sf_Headings[0] = brain_DWork.Heading1;
+          Headings[0] = brain_DWork.Heading1;
 
           /* '<S7>:1798:10' */
-          sf_Headings[1] = brain_DWork.Heading2;
+          Headings[1] = brain_DWork.Heading2;
 
           /* '<S7>:1798:11' */
-          sf_Headings[2] = brain_DWork.Heading3;
+          Headings[2] = brain_DWork.Heading3;
 
           /* '<S7>:1798:12' */
-          sf_Headings[3] = brain_DWork.Heading4;
+          Headings[3] = brain_DWork.Heading4;
 
           /* '<S7>:1798:14' */
-          for (sf_i = 0; sf_i < 4; sf_i++) {
+          for (index = 0; index < 4; index++) {
             /* '<S7>:1798:14' */
             /* '<S7>:1798:15' */
             /* '<S7>:1798:16' */
-            sf_differences[sf_i] = fabs(sf_Headings[sf_i] - sf_Headings[0]);
+            differences[index] = fabs(Headings[index] - Headings[0]);
 
             /* '<S7>:1798:15' */
             /* '<S7>:1798:16' */
-            sf_differences[sf_i + 4] = fabs(sf_Headings[sf_i] - sf_Headings[1]);
+            differences[index + 4] = fabs(Headings[index] - Headings[1]);
 
             /* '<S7>:1798:15' */
             /* '<S7>:1798:16' */
-            sf_differences[sf_i + 8] = fabs(sf_Headings[sf_i] - sf_Headings[2]);
+            differences[index + 8] = fabs(Headings[index] - Headings[2]);
 
             /* '<S7>:1798:15' */
             /* '<S7>:1798:16' */
-            sf_differences[sf_i + 12] = fabs(sf_Headings[sf_i] - sf_Headings[3]);
+            differences[index + 12] = fabs(Headings[index] - Headings[3]);
           }
 
           /* '<S7>:1798:20' */
-          sf_i = 1;
+          index = 1;
 
           /* '<S7>:1798:21' */
           rtb_Add = 1000.0;
@@ -13801,53 +13655,53 @@ static void brain_LocatePinger(void)
           /* '<S7>:1798:22' */
           /* '<S7>:1798:23' */
           /* '<S7>:1798:24' */
-          if (sf_differences[8] < 1000.0) {
+          if (differences[8] < 1000.0) {
             /* '<S7>:1798:25' */
             /* '<S7>:1798:26' */
-            rtb_Add = sf_differences[8];
+            rtb_Add = differences[8];
 
             /* '<S7>:1798:27' */
-            sf_i = 1;
+            index = 1;
           }
 
           /* '<S7>:1798:23' */
           /* '<S7>:1798:24' */
-          if (sf_differences[12] < rtb_Add) {
+          if (differences[12] < rtb_Add) {
             /* '<S7>:1798:25' */
             /* '<S7>:1798:26' */
-            rtb_Add = sf_differences[12];
+            rtb_Add = differences[12];
 
             /* '<S7>:1798:27' */
-            sf_i = 1;
+            index = 1;
           }
 
           /* '<S7>:1798:22' */
           /* '<S7>:1798:23' */
           /* '<S7>:1798:24' */
-          if (sf_differences[9] < rtb_Add) {
+          if (differences[9] < rtb_Add) {
             /* '<S7>:1798:25' */
             /* '<S7>:1798:26' */
-            rtb_Add = sf_differences[9];
+            rtb_Add = differences[9];
 
             /* '<S7>:1798:27' */
-            sf_i = 2;
+            index = 2;
           }
 
           /* '<S7>:1798:23' */
           /* '<S7>:1798:24' */
-          if (sf_differences[13] < rtb_Add) {
+          if (differences[13] < rtb_Add) {
             /* '<S7>:1798:25' */
             /* '<S7>:1798:26' */
-            rtb_Add = sf_differences[13];
+            rtb_Add = differences[13];
 
             /* '<S7>:1798:27' */
-            sf_i = 2;
+            index = 2;
           }
 
           if (rtb_Add < 5.0) {
             /* '<S7>:1798:33' */
             /* '<S7>:1798:34' */
-            brain_B.DesiredHeading = sf_Headings[sf_i - 1];
+            brain_B.DesiredHeading = Headings[index - 1];
           } else {
             /* '<S7>:1798:36' */
             brain_B.DesiredHeading = -1.0;
@@ -14017,16 +13871,15 @@ static void brain_LocatePinger(void)
 }
 
 /* Function for Stateflow: '<Root>/StateFlow Functions' */
-static real_T brain_countimages_m(real_T sf_Image, real_T sf_OldImage, real_T
-  sf_count1)
+static real_T brain_countimages_m(real_T Image, real_T OldImage, real_T count1)
 {
   /* Embedded MATLAB Function 'countimages': '<S7>:1159' */
   /*  This function acts to count the number of consecutive times a particular */
   /*  image is recognized by the recognition software */
-  if ((sf_Image != 0.0) && (sf_Image == sf_OldImage)) {
+  if ((Image != 0.0) && (Image == OldImage)) {
     /* '<S7>:1159:6' */
     /* '<S7>:1159:7' */
-    return sf_count1 + 1.0;
+    return count1 + 1.0;
   } else {
     /* '<S7>:1159:9' */
     return 0.0;
@@ -14669,58 +14522,57 @@ void brain_step(void)
   uint32_T yDiff;
   real32_T cc_1;
   real32_T max;
+  int32_T m;
   real32_T sum;
-  int32_T indx;
+  int32_T k;
   int32_T outStep;
   int32_T inStep;
   int32_T n;
-  int32_T outStep_0;
-  int32_T inStep_0;
-  int32_T n_0;
+  int32_T o;
   real32_T Resize2_LineBuffer[480];
 
   /* S-Function (svipchromresamp): '<S5>/Chroma Resampling' incorporates:
-   *  Inport: '<Root>/Cb'
-   *  Inport: '<Root>/Cr'
+   *  Inport: '<Root>/B'
+   *  Inport: '<Root>/G'
    */
   outStep = 0;
   inStep = 0;
   for (n = 0; n < 320; n++) {
-    indx = inStep;
-    for (outStep_0 = 0; outStep_0 < 240; outStep_0++) {
-      inStep_0 = outStep_0 << 1;
-      brain_B.ChromaResampling_o1[outStep + inStep_0] = brain_U.Cb[indx];
-      brain_B.ChromaResampling_o1[(outStep + inStep_0) + 1] = brain_U.Cb[indx];
-      inStep_0 += 480;
-      brain_B.ChromaResampling_o1[outStep + inStep_0] = brain_U.Cb[indx];
-      brain_B.ChromaResampling_o1[(outStep + inStep_0) + 1] = brain_U.Cb[indx];
-      indx++;
+    o = inStep;
+    for (m = 0; m < 240; m++) {
+      k = m << 1;
+      brain_B.ChromaResampling_o1[outStep + k] = brain_U.G[o];
+      brain_B.ChromaResampling_o1[(outStep + k) + 1] = brain_U.G[o];
+      k += 480;
+      brain_B.ChromaResampling_o1[outStep + k] = brain_U.G[o];
+      brain_B.ChromaResampling_o1[(outStep + k) + 1] = brain_U.G[o];
+      o++;
     }
 
     inStep += 240;
     outStep += 960;
   }
 
-  outStep_0 = 0;
-  inStep_0 = 0;
-  for (n_0 = 0; n_0 < 320; n_0++) {
-    indx = inStep_0;
-    for (outStep = 0; outStep < 240; outStep++) {
-      inStep = outStep << 1;
-      brain_B.ChromaResampling_o2[outStep_0 + inStep] = brain_U.Cr[indx];
-      brain_B.ChromaResampling_o2[(outStep_0 + inStep) + 1] = brain_U.Cr[indx];
-      inStep += 480;
-      brain_B.ChromaResampling_o2[outStep_0 + inStep] = brain_U.Cr[indx];
-      brain_B.ChromaResampling_o2[(outStep_0 + inStep) + 1] = brain_U.Cr[indx];
-      indx++;
+  outStep = 0;
+  inStep = 0;
+  for (n = 0; n < 320; n++) {
+    o = inStep;
+    for (m = 0; m < 240; m++) {
+      k = m << 1;
+      brain_B.ChromaResampling_o2[outStep + k] = brain_U.B[o];
+      brain_B.ChromaResampling_o2[(outStep + k) + 1] = brain_U.B[o];
+      k += 480;
+      brain_B.ChromaResampling_o2[outStep + k] = brain_U.B[o];
+      brain_B.ChromaResampling_o2[(outStep + k) + 1] = brain_U.B[o];
+      o++;
     }
 
-    inStep_0 += 240;
-    outStep_0 += 960;
+    inStep += 240;
+    outStep += 960;
   }
 
   /* S-Function (svipcolorconv): '<S5>/Y-Cb-Cr to RGB Color Space  Conversion' incorporates:
-   *  Inport: '<Root>/Y'
+   *  Inport: '<Root>/R'
    */
   /* Precompute constants */
   for (outStep = 0; outStep < 307200; outStep++) {
@@ -14734,12 +14586,12 @@ void brain_step(void)
     /* that the arithmetic can be done using unsigned integers */
     /* Given that Y is in the proper range, yDiff should */
     /* always be positive */
-    yDiff = (uint32_T)brain_U.Y[outStep] - 16U;
+    yDiff = (uint32_T)brain_U.R[outStep] - 16U;
 
     /* Red; 8192 in this equations is 0.5*2^14 or 2^13; adding 0.5  */
     /* before truncation will result in rounding */
-    pos = (yDiff * 19077U + (uint32_T)(brain_B.ChromaResampling_o2[outStep] *
-            26149)) + 8192U;
+    pos = (yDiff * 19077U + (uint32_T)brain_B.ChromaResampling_o2[outStep] *
+           26149U) + 8192U;
     if (pos > 3347072U) {
       cc = pos - 3347072U;
     } else {
@@ -14755,8 +14607,8 @@ void brain_step(void)
 
     /* Compute green channel */
     pos = yDiff * 19077U + 2534784U;
-    neg = (uint32_T)(brain_B.ChromaResampling_o1[outStep] * 6419 +
-                     brain_B.ChromaResampling_o2[outStep] * 13320);
+    neg = (uint32_T)brain_B.ChromaResampling_o1[outStep] * 6419U + (uint32_T)
+      brain_B.ChromaResampling_o2[outStep] * 13320U;
     if (pos > neg) {
       cc_0 = pos - neg;
     } else {
@@ -14770,8 +14622,8 @@ void brain_step(void)
     }
 
     /* Compute blue channel */
-    pos = (yDiff * 19077U + (uint32_T)(brain_B.ChromaResampling_o1[outStep] *
-            33050)) + 8192U;
+    pos = (yDiff * 19077U + (uint32_T)brain_B.ChromaResampling_o1[outStep] *
+           33050U) + 8192U;
     if (pos > 4230400U) {
       neg = pos - 4230400U;
     } else {
@@ -14875,33 +14727,32 @@ void brain_step(void)
   /* S-Function (svipresize): '<S5>/Resize' */
   /* use pre-computed weights and index table to perform interpolation */
   inStep = 0;
-  for (n = 0; n < 480; n++) {
-    indx = n;
-    for (outStep_0 = 0; outStep_0 < 160; outStep_0++) {
-      n_0 = outStep_0;
+  for (m = 0; m < 480; m++) {
+    outStep = m;
+    for (n = 0; n < 160; n++) {
+      o = n;
       sum = 0.0F;
-      for (inStep_0 = 0; inStep_0 < 8; inStep_0++) {
-        sum += brain_B.RGBtoHSVColorSpaceConversion_o1[brain_ConstP.pooled34[n_0]
-          * 480 + n] * brain_ConstP.pooled26[n_0];
-        n_0 += 160;
+      for (k = 0; k < 8; k++) {
+        sum += brain_B.RGBtoHSVColorSpaceConversion_o1[brain_ConstP.pooled34[o] *
+          480 + m] * brain_ConstP.pooled26[o];
+        o += 160;
       }
 
-      brain_DWork.Resize_IntBuffer[indx] = sum;
-      indx += 480;
+      brain_DWork.Resize_IntBuffer[outStep] = sum;
+      outStep += 480;
     }
   }
 
-  for (outStep_0 = 0; outStep_0 < 160; outStep_0++) {
+  for (n = 0; n < 160; n++) {
     memcpy((void *)&Resize2_LineBuffer[0], (void *)
-           (&brain_DWork.Resize_IntBuffer[outStep_0 * 480]), 480U * sizeof
-           (real32_T));
-    for (n = 0; n < 120; n++) {
-      n_0 = n;
+           (&brain_DWork.Resize_IntBuffer[n * 480]), 480U * sizeof(real32_T));
+    for (m = 0; m < 120; m++) {
+      o = m;
       sum = 0.0F;
-      for (inStep_0 = 0; inStep_0 < 8; inStep_0++) {
-        sum += Resize2_LineBuffer[brain_ConstP.pooled33[n_0]] *
-          brain_ConstP.pooled25[n_0];
-        n_0 += 120;
+      for (k = 0; k < 8; k++) {
+        sum += Resize2_LineBuffer[brain_ConstP.pooled33[o]] *
+          brain_ConstP.pooled25[o];
+        o += 120;
       }
 
       brain_B.Resize[inStep] = sum;
@@ -14912,33 +14763,32 @@ void brain_step(void)
   /* S-Function (svipresize): '<S5>/Resize1' */
   /* use pre-computed weights and index table to perform interpolation */
   inStep = 0;
-  for (n = 0; n < 480; n++) {
-    indx = n;
-    for (outStep_0 = 0; outStep_0 < 160; outStep_0++) {
-      n_0 = outStep_0;
+  for (m = 0; m < 480; m++) {
+    outStep = m;
+    for (n = 0; n < 160; n++) {
+      o = n;
       sum = 0.0F;
-      for (inStep_0 = 0; inStep_0 < 8; inStep_0++) {
-        sum += brain_B.RGBtoHSVColorSpaceConversion_o2[brain_ConstP.pooled34[n_0]
-          * 480 + n] * brain_ConstP.pooled26[n_0];
-        n_0 += 160;
+      for (k = 0; k < 8; k++) {
+        sum += brain_B.RGBtoHSVColorSpaceConversion_o2[brain_ConstP.pooled34[o] *
+          480 + m] * brain_ConstP.pooled26[o];
+        o += 160;
       }
 
-      brain_DWork.Resize1_IntBuffer[indx] = sum;
-      indx += 480;
+      brain_DWork.Resize1_IntBuffer[outStep] = sum;
+      outStep += 480;
     }
   }
 
-  for (outStep_0 = 0; outStep_0 < 160; outStep_0++) {
+  for (n = 0; n < 160; n++) {
     memcpy((void *)&Resize2_LineBuffer[0], (void *)
-           (&brain_DWork.Resize1_IntBuffer[outStep_0 * 480]), 480U * sizeof
-           (real32_T));
-    for (n = 0; n < 120; n++) {
-      n_0 = n;
+           (&brain_DWork.Resize1_IntBuffer[n * 480]), 480U * sizeof(real32_T));
+    for (m = 0; m < 120; m++) {
+      o = m;
       sum = 0.0F;
-      for (inStep_0 = 0; inStep_0 < 8; inStep_0++) {
-        sum += Resize2_LineBuffer[brain_ConstP.pooled33[n_0]] *
-          brain_ConstP.pooled25[n_0];
-        n_0 += 120;
+      for (k = 0; k < 8; k++) {
+        sum += Resize2_LineBuffer[brain_ConstP.pooled33[o]] *
+          brain_ConstP.pooled25[o];
+        o += 120;
       }
 
       brain_B.Resize1[inStep] = sum;
@@ -14949,33 +14799,32 @@ void brain_step(void)
   /* S-Function (svipresize): '<S5>/Resize2' */
   /* use pre-computed weights and index table to perform interpolation */
   inStep = 0;
-  for (n = 0; n < 480; n++) {
-    indx = n;
-    for (outStep_0 = 0; outStep_0 < 160; outStep_0++) {
-      n_0 = outStep_0;
+  for (m = 0; m < 480; m++) {
+    outStep = m;
+    for (n = 0; n < 160; n++) {
+      o = n;
       sum = 0.0F;
-      for (inStep_0 = 0; inStep_0 < 8; inStep_0++) {
-        sum += brain_B.RGBtoHSVColorSpaceConversion_o3[brain_ConstP.pooled34[n_0]
-          * 480 + n] * brain_ConstP.pooled26[n_0];
-        n_0 += 160;
+      for (k = 0; k < 8; k++) {
+        sum += brain_B.RGBtoHSVColorSpaceConversion_o3[brain_ConstP.pooled34[o] *
+          480 + m] * brain_ConstP.pooled26[o];
+        o += 160;
       }
 
-      brain_DWork.Resize2_IntBuffer[indx] = sum;
-      indx += 480;
+      brain_DWork.Resize2_IntBuffer[outStep] = sum;
+      outStep += 480;
     }
   }
 
-  for (outStep_0 = 0; outStep_0 < 160; outStep_0++) {
+  for (n = 0; n < 160; n++) {
     memcpy((void *)&Resize2_LineBuffer[0], (void *)
-           (&brain_DWork.Resize2_IntBuffer[outStep_0 * 480]), 480U * sizeof
-           (real32_T));
-    for (n = 0; n < 120; n++) {
-      n_0 = n;
+           (&brain_DWork.Resize2_IntBuffer[n * 480]), 480U * sizeof(real32_T));
+    for (m = 0; m < 120; m++) {
+      o = m;
       sum = 0.0F;
-      for (inStep_0 = 0; inStep_0 < 8; inStep_0++) {
-        sum += Resize2_LineBuffer[brain_ConstP.pooled33[n_0]] *
-          brain_ConstP.pooled25[n_0];
-        n_0 += 120;
+      for (k = 0; k < 8; k++) {
+        sum += Resize2_LineBuffer[brain_ConstP.pooled33[o]] *
+          brain_ConstP.pooled25[o];
+        o += 120;
       }
 
       brain_B.Resize2[inStep] = sum;
@@ -15302,186 +15151,186 @@ void brain_initialize(void)
                 sizeof(BlockIO_brain));
 
   {
-    brain_B.HoughTransform_o2[0] = -1.5707963267948966E+000;
-    brain_B.HoughTransform_o2[1] = -1.5533430342749532E+000;
-    brain_B.HoughTransform_o2[2] = -1.5358897417550099E+000;
-    brain_B.HoughTransform_o2[3] = -1.5184364492350666E+000;
-    brain_B.HoughTransform_o2[4] = -1.5009831567151235E+000;
-    brain_B.HoughTransform_o2[5] = -1.4835298641951802E+000;
-    brain_B.HoughTransform_o2[6] = -1.4660765716752369E+000;
-    brain_B.HoughTransform_o2[7] = -1.4486232791552935E+000;
-    brain_B.HoughTransform_o2[8] = -1.4311699866353502E+000;
-    brain_B.HoughTransform_o2[9] = -1.4137166941154069E+000;
-    brain_B.HoughTransform_o2[10] = -1.3962634015954636E+000;
-    brain_B.HoughTransform_o2[11] = -1.3788101090755203E+000;
-    brain_B.HoughTransform_o2[12] = -1.3613568165555769E+000;
-    brain_B.HoughTransform_o2[13] = -1.3439035240356338E+000;
-    brain_B.HoughTransform_o2[14] = -1.3264502315156905E+000;
-    brain_B.HoughTransform_o2[15] = -1.3089969389957472E+000;
-    brain_B.HoughTransform_o2[16] = -1.2915436464758039E+000;
-    brain_B.HoughTransform_o2[17] = -1.2740903539558606E+000;
-    brain_B.HoughTransform_o2[18] = -1.2566370614359172E+000;
-    brain_B.HoughTransform_o2[19] = -1.2391837689159739E+000;
-    brain_B.HoughTransform_o2[20] = -1.2217304763960306E+000;
-    brain_B.HoughTransform_o2[21] = -1.2042771838760873E+000;
-    brain_B.HoughTransform_o2[22] = -1.1868238913561442E+000;
-    brain_B.HoughTransform_o2[23] = -1.1693705988362009E+000;
-    brain_B.HoughTransform_o2[24] = -1.1519173063162575E+000;
-    brain_B.HoughTransform_o2[25] = -1.1344640137963142E+000;
-    brain_B.HoughTransform_o2[26] = -1.1170107212763709E+000;
-    brain_B.HoughTransform_o2[27] = -1.0995574287564276E+000;
-    brain_B.HoughTransform_o2[28] = -1.0821041362364843E+000;
-    brain_B.HoughTransform_o2[29] = -1.0646508437165410E+000;
-    brain_B.HoughTransform_o2[30] = -1.0471975511965976E+000;
-    brain_B.HoughTransform_o2[31] = -1.0297442586766545E+000;
-    brain_B.HoughTransform_o2[32] = -1.0122909661567112E+000;
-    brain_B.HoughTransform_o2[33] = -9.9483767363676789E-001;
-    brain_B.HoughTransform_o2[34] = -9.7738438111682457E-001;
-    brain_B.HoughTransform_o2[35] = -9.5993108859688125E-001;
-    brain_B.HoughTransform_o2[36] = -9.4247779607693793E-001;
-    brain_B.HoughTransform_o2[37] = -9.2502450355699462E-001;
-    brain_B.HoughTransform_o2[38] = -9.0757121103705141E-001;
-    brain_B.HoughTransform_o2[39] = -8.9011791851710809E-001;
-    brain_B.HoughTransform_o2[40] = -8.7266462599716477E-001;
-    brain_B.HoughTransform_o2[41] = -8.5521133347722145E-001;
-    brain_B.HoughTransform_o2[42] = -8.3775804095727824E-001;
-    brain_B.HoughTransform_o2[43] = -8.2030474843733492E-001;
-    brain_B.HoughTransform_o2[44] = -8.0285145591739160E-001;
-    brain_B.HoughTransform_o2[45] = -7.8539816339744828E-001;
-    brain_B.HoughTransform_o2[46] = -7.6794487087750496E-001;
-    brain_B.HoughTransform_o2[47] = -7.5049157835756175E-001;
-    brain_B.HoughTransform_o2[48] = -7.3303828583761843E-001;
-    brain_B.HoughTransform_o2[49] = -7.1558499331767511E-001;
-    brain_B.HoughTransform_o2[50] = -6.9813170079773179E-001;
-    brain_B.HoughTransform_o2[51] = -6.8067840827778847E-001;
-    brain_B.HoughTransform_o2[52] = -6.6322511575784526E-001;
-    brain_B.HoughTransform_o2[53] = -6.4577182323790194E-001;
-    brain_B.HoughTransform_o2[54] = -6.2831853071795862E-001;
-    brain_B.HoughTransform_o2[55] = -6.1086523819801530E-001;
-    brain_B.HoughTransform_o2[56] = -5.9341194567807209E-001;
-    brain_B.HoughTransform_o2[57] = -5.7595865315812877E-001;
-    brain_B.HoughTransform_o2[58] = -5.5850536063818546E-001;
-    brain_B.HoughTransform_o2[59] = -5.4105206811824214E-001;
-    brain_B.HoughTransform_o2[60] = -5.2359877559829882E-001;
-    brain_B.HoughTransform_o2[61] = -5.0614548307835561E-001;
-    brain_B.HoughTransform_o2[62] = -4.8869219055841229E-001;
-    brain_B.HoughTransform_o2[63] = -4.7123889803846897E-001;
-    brain_B.HoughTransform_o2[64] = -4.5378560551852570E-001;
-    brain_B.HoughTransform_o2[65] = -4.3633231299858238E-001;
-    brain_B.HoughTransform_o2[66] = -4.1887902047863912E-001;
-    brain_B.HoughTransform_o2[67] = -4.0142572795869580E-001;
-    brain_B.HoughTransform_o2[68] = -3.8397243543875248E-001;
-    brain_B.HoughTransform_o2[69] = -3.6651914291880922E-001;
-    brain_B.HoughTransform_o2[70] = -3.4906585039886590E-001;
-    brain_B.HoughTransform_o2[71] = -3.3161255787892263E-001;
-    brain_B.HoughTransform_o2[72] = -3.1415926535897931E-001;
-    brain_B.HoughTransform_o2[73] = -2.9670597283903605E-001;
-    brain_B.HoughTransform_o2[74] = -2.7925268031909273E-001;
-    brain_B.HoughTransform_o2[75] = -2.6179938779914941E-001;
-    brain_B.HoughTransform_o2[76] = -2.4434609527920614E-001;
-    brain_B.HoughTransform_o2[77] = -2.2689280275926285E-001;
-    brain_B.HoughTransform_o2[78] = -2.0943951023931956E-001;
-    brain_B.HoughTransform_o2[79] = -1.9198621771937624E-001;
-    brain_B.HoughTransform_o2[80] = -1.7453292519943295E-001;
-    brain_B.HoughTransform_o2[81] = -1.5707963267948966E-001;
-    brain_B.HoughTransform_o2[82] = -1.3962634015954636E-001;
-    brain_B.HoughTransform_o2[83] = -1.2217304763960307E-001;
-    brain_B.HoughTransform_o2[84] = -1.0471975511965978E-001;
-    brain_B.HoughTransform_o2[85] = -8.7266462599716474E-002;
-    brain_B.HoughTransform_o2[86] = -6.9813170079773182E-002;
-    brain_B.HoughTransform_o2[87] = -5.2359877559829890E-002;
-    brain_B.HoughTransform_o2[88] = -3.4906585039886591E-002;
-    brain_B.HoughTransform_o2[89] = -1.7453292519943295E-002;
+    brain_B.HoughTransform_o2[0] = -1.5707963267948966;
+    brain_B.HoughTransform_o2[1] = -1.5533430342749532;
+    brain_B.HoughTransform_o2[2] = -1.53588974175501;
+    brain_B.HoughTransform_o2[3] = -1.5184364492350666;
+    brain_B.HoughTransform_o2[4] = -1.5009831567151235;
+    brain_B.HoughTransform_o2[5] = -1.4835298641951802;
+    brain_B.HoughTransform_o2[6] = -1.4660765716752369;
+    brain_B.HoughTransform_o2[7] = -1.4486232791552935;
+    brain_B.HoughTransform_o2[8] = -1.4311699866353502;
+    brain_B.HoughTransform_o2[9] = -1.4137166941154069;
+    brain_B.HoughTransform_o2[10] = -1.3962634015954636;
+    brain_B.HoughTransform_o2[11] = -1.3788101090755203;
+    brain_B.HoughTransform_o2[12] = -1.3613568165555769;
+    brain_B.HoughTransform_o2[13] = -1.3439035240356338;
+    brain_B.HoughTransform_o2[14] = -1.3264502315156905;
+    brain_B.HoughTransform_o2[15] = -1.3089969389957472;
+    brain_B.HoughTransform_o2[16] = -1.2915436464758039;
+    brain_B.HoughTransform_o2[17] = -1.2740903539558606;
+    brain_B.HoughTransform_o2[18] = -1.2566370614359172;
+    brain_B.HoughTransform_o2[19] = -1.2391837689159739;
+    brain_B.HoughTransform_o2[20] = -1.2217304763960306;
+    brain_B.HoughTransform_o2[21] = -1.2042771838760873;
+    brain_B.HoughTransform_o2[22] = -1.1868238913561442;
+    brain_B.HoughTransform_o2[23] = -1.1693705988362009;
+    brain_B.HoughTransform_o2[24] = -1.1519173063162575;
+    brain_B.HoughTransform_o2[25] = -1.1344640137963142;
+    brain_B.HoughTransform_o2[26] = -1.1170107212763709;
+    brain_B.HoughTransform_o2[27] = -1.0995574287564276;
+    brain_B.HoughTransform_o2[28] = -1.0821041362364843;
+    brain_B.HoughTransform_o2[29] = -1.064650843716541;
+    brain_B.HoughTransform_o2[30] = -1.0471975511965976;
+    brain_B.HoughTransform_o2[31] = -1.0297442586766545;
+    brain_B.HoughTransform_o2[32] = -1.0122909661567112;
+    brain_B.HoughTransform_o2[33] = -0.99483767363676789;
+    brain_B.HoughTransform_o2[34] = -0.97738438111682457;
+    brain_B.HoughTransform_o2[35] = -0.95993108859688125;
+    brain_B.HoughTransform_o2[36] = -0.94247779607693793;
+    brain_B.HoughTransform_o2[37] = -0.92502450355699462;
+    brain_B.HoughTransform_o2[38] = -0.90757121103705141;
+    brain_B.HoughTransform_o2[39] = -0.89011791851710809;
+    brain_B.HoughTransform_o2[40] = -0.87266462599716477;
+    brain_B.HoughTransform_o2[41] = -0.85521133347722145;
+    brain_B.HoughTransform_o2[42] = -0.83775804095727824;
+    brain_B.HoughTransform_o2[43] = -0.82030474843733492;
+    brain_B.HoughTransform_o2[44] = -0.8028514559173916;
+    brain_B.HoughTransform_o2[45] = -0.78539816339744828;
+    brain_B.HoughTransform_o2[46] = -0.767944870877505;
+    brain_B.HoughTransform_o2[47] = -0.75049157835756175;
+    brain_B.HoughTransform_o2[48] = -0.73303828583761843;
+    brain_B.HoughTransform_o2[49] = -0.71558499331767511;
+    brain_B.HoughTransform_o2[50] = -0.69813170079773179;
+    brain_B.HoughTransform_o2[51] = -0.68067840827778847;
+    brain_B.HoughTransform_o2[52] = -0.66322511575784526;
+    brain_B.HoughTransform_o2[53] = -0.64577182323790194;
+    brain_B.HoughTransform_o2[54] = -0.62831853071795862;
+    brain_B.HoughTransform_o2[55] = -0.6108652381980153;
+    brain_B.HoughTransform_o2[56] = -0.59341194567807209;
+    brain_B.HoughTransform_o2[57] = -0.57595865315812877;
+    brain_B.HoughTransform_o2[58] = -0.55850536063818546;
+    brain_B.HoughTransform_o2[59] = -0.54105206811824214;
+    brain_B.HoughTransform_o2[60] = -0.52359877559829882;
+    brain_B.HoughTransform_o2[61] = -0.50614548307835561;
+    brain_B.HoughTransform_o2[62] = -0.48869219055841229;
+    brain_B.HoughTransform_o2[63] = -0.47123889803846897;
+    brain_B.HoughTransform_o2[64] = -0.4537856055185257;
+    brain_B.HoughTransform_o2[65] = -0.43633231299858238;
+    brain_B.HoughTransform_o2[66] = -0.41887902047863912;
+    brain_B.HoughTransform_o2[67] = -0.4014257279586958;
+    brain_B.HoughTransform_o2[68] = -0.38397243543875248;
+    brain_B.HoughTransform_o2[69] = -0.36651914291880922;
+    brain_B.HoughTransform_o2[70] = -0.3490658503988659;
+    brain_B.HoughTransform_o2[71] = -0.33161255787892263;
+    brain_B.HoughTransform_o2[72] = -0.31415926535897931;
+    brain_B.HoughTransform_o2[73] = -0.29670597283903605;
+    brain_B.HoughTransform_o2[74] = -0.27925268031909273;
+    brain_B.HoughTransform_o2[75] = -0.26179938779914941;
+    brain_B.HoughTransform_o2[76] = -0.24434609527920614;
+    brain_B.HoughTransform_o2[77] = -0.22689280275926285;
+    brain_B.HoughTransform_o2[78] = -0.20943951023931956;
+    brain_B.HoughTransform_o2[79] = -0.19198621771937624;
+    brain_B.HoughTransform_o2[80] = -0.17453292519943295;
+    brain_B.HoughTransform_o2[81] = -0.15707963267948966;
+    brain_B.HoughTransform_o2[82] = -0.13962634015954636;
+    brain_B.HoughTransform_o2[83] = -0.12217304763960307;
+    brain_B.HoughTransform_o2[84] = -0.10471975511965978;
+    brain_B.HoughTransform_o2[85] = -0.087266462599716474;
+    brain_B.HoughTransform_o2[86] = -0.069813170079773182;
+    brain_B.HoughTransform_o2[87] = -0.05235987755982989;
+    brain_B.HoughTransform_o2[88] = -0.034906585039886591;
+    brain_B.HoughTransform_o2[89] = -0.017453292519943295;
     brain_B.HoughTransform_o2[90] = 0.0;
-    brain_B.HoughTransform_o2[91] = 1.7453292519943295E-002;
-    brain_B.HoughTransform_o2[92] = 3.4906585039886591E-002;
-    brain_B.HoughTransform_o2[93] = 5.2359877559829890E-002;
-    brain_B.HoughTransform_o2[94] = 6.9813170079773182E-002;
-    brain_B.HoughTransform_o2[95] = 8.7266462599716474E-002;
-    brain_B.HoughTransform_o2[96] = 1.0471975511965978E-001;
-    brain_B.HoughTransform_o2[97] = 1.2217304763960307E-001;
-    brain_B.HoughTransform_o2[98] = 1.3962634015954636E-001;
-    brain_B.HoughTransform_o2[99] = 1.5707963267948966E-001;
-    brain_B.HoughTransform_o2[100] = 1.7453292519943295E-001;
-    brain_B.HoughTransform_o2[101] = 1.9198621771937624E-001;
-    brain_B.HoughTransform_o2[102] = 2.0943951023931956E-001;
-    brain_B.HoughTransform_o2[103] = 2.2689280275926285E-001;
-    brain_B.HoughTransform_o2[104] = 2.4434609527920614E-001;
-    brain_B.HoughTransform_o2[105] = 2.6179938779914941E-001;
-    brain_B.HoughTransform_o2[106] = 2.7925268031909273E-001;
-    brain_B.HoughTransform_o2[107] = 2.9670597283903605E-001;
-    brain_B.HoughTransform_o2[108] = 3.1415926535897931E-001;
-    brain_B.HoughTransform_o2[109] = 3.3161255787892263E-001;
-    brain_B.HoughTransform_o2[110] = 3.4906585039886590E-001;
-    brain_B.HoughTransform_o2[111] = 3.6651914291880922E-001;
-    brain_B.HoughTransform_o2[112] = 3.8397243543875248E-001;
-    brain_B.HoughTransform_o2[113] = 4.0142572795869580E-001;
-    brain_B.HoughTransform_o2[114] = 4.1887902047863912E-001;
-    brain_B.HoughTransform_o2[115] = 4.3633231299858238E-001;
-    brain_B.HoughTransform_o2[116] = 4.5378560551852570E-001;
-    brain_B.HoughTransform_o2[117] = 4.7123889803846897E-001;
-    brain_B.HoughTransform_o2[118] = 4.8869219055841229E-001;
-    brain_B.HoughTransform_o2[119] = 5.0614548307835561E-001;
-    brain_B.HoughTransform_o2[120] = 5.2359877559829882E-001;
-    brain_B.HoughTransform_o2[121] = 5.4105206811824214E-001;
-    brain_B.HoughTransform_o2[122] = 5.5850536063818546E-001;
-    brain_B.HoughTransform_o2[123] = 5.7595865315812877E-001;
-    brain_B.HoughTransform_o2[124] = 5.9341194567807209E-001;
-    brain_B.HoughTransform_o2[125] = 6.1086523819801530E-001;
-    brain_B.HoughTransform_o2[126] = 6.2831853071795862E-001;
-    brain_B.HoughTransform_o2[127] = 6.4577182323790194E-001;
-    brain_B.HoughTransform_o2[128] = 6.6322511575784526E-001;
-    brain_B.HoughTransform_o2[129] = 6.8067840827778847E-001;
-    brain_B.HoughTransform_o2[130] = 6.9813170079773179E-001;
-    brain_B.HoughTransform_o2[131] = 7.1558499331767511E-001;
-    brain_B.HoughTransform_o2[132] = 7.3303828583761843E-001;
-    brain_B.HoughTransform_o2[133] = 7.5049157835756175E-001;
-    brain_B.HoughTransform_o2[134] = 7.6794487087750496E-001;
-    brain_B.HoughTransform_o2[135] = 7.8539816339744828E-001;
-    brain_B.HoughTransform_o2[136] = 8.0285145591739160E-001;
-    brain_B.HoughTransform_o2[137] = 8.2030474843733492E-001;
-    brain_B.HoughTransform_o2[138] = 8.3775804095727824E-001;
-    brain_B.HoughTransform_o2[139] = 8.5521133347722145E-001;
-    brain_B.HoughTransform_o2[140] = 8.7266462599716477E-001;
-    brain_B.HoughTransform_o2[141] = 8.9011791851710809E-001;
-    brain_B.HoughTransform_o2[142] = 9.0757121103705141E-001;
-    brain_B.HoughTransform_o2[143] = 9.2502450355699462E-001;
-    brain_B.HoughTransform_o2[144] = 9.4247779607693793E-001;
-    brain_B.HoughTransform_o2[145] = 9.5993108859688125E-001;
-    brain_B.HoughTransform_o2[146] = 9.7738438111682457E-001;
-    brain_B.HoughTransform_o2[147] = 9.9483767363676789E-001;
-    brain_B.HoughTransform_o2[148] = 1.0122909661567112E+000;
-    brain_B.HoughTransform_o2[149] = 1.0297442586766545E+000;
-    brain_B.HoughTransform_o2[150] = 1.0471975511965976E+000;
-    brain_B.HoughTransform_o2[151] = 1.0646508437165410E+000;
-    brain_B.HoughTransform_o2[152] = 1.0821041362364843E+000;
-    brain_B.HoughTransform_o2[153] = 1.0995574287564276E+000;
-    brain_B.HoughTransform_o2[154] = 1.1170107212763709E+000;
-    brain_B.HoughTransform_o2[155] = 1.1344640137963142E+000;
-    brain_B.HoughTransform_o2[156] = 1.1519173063162575E+000;
-    brain_B.HoughTransform_o2[157] = 1.1693705988362009E+000;
-    brain_B.HoughTransform_o2[158] = 1.1868238913561442E+000;
-    brain_B.HoughTransform_o2[159] = 1.2042771838760873E+000;
-    brain_B.HoughTransform_o2[160] = 1.2217304763960306E+000;
-    brain_B.HoughTransform_o2[161] = 1.2391837689159739E+000;
-    brain_B.HoughTransform_o2[162] = 1.2566370614359172E+000;
-    brain_B.HoughTransform_o2[163] = 1.2740903539558606E+000;
-    brain_B.HoughTransform_o2[164] = 1.2915436464758039E+000;
-    brain_B.HoughTransform_o2[165] = 1.3089969389957472E+000;
-    brain_B.HoughTransform_o2[166] = 1.3264502315156905E+000;
-    brain_B.HoughTransform_o2[167] = 1.3439035240356338E+000;
-    brain_B.HoughTransform_o2[168] = 1.3613568165555769E+000;
-    brain_B.HoughTransform_o2[169] = 1.3788101090755203E+000;
-    brain_B.HoughTransform_o2[170] = 1.3962634015954636E+000;
-    brain_B.HoughTransform_o2[171] = 1.4137166941154069E+000;
-    brain_B.HoughTransform_o2[172] = 1.4311699866353502E+000;
-    brain_B.HoughTransform_o2[173] = 1.4486232791552935E+000;
-    brain_B.HoughTransform_o2[174] = 1.4660765716752369E+000;
-    brain_B.HoughTransform_o2[175] = 1.4835298641951802E+000;
-    brain_B.HoughTransform_o2[176] = 1.5009831567151235E+000;
-    brain_B.HoughTransform_o2[177] = 1.5184364492350666E+000;
-    brain_B.HoughTransform_o2[178] = 1.5358897417550099E+000;
-    brain_B.HoughTransform_o2[179] = 1.5533430342749532E+000;
+    brain_B.HoughTransform_o2[91] = 0.017453292519943295;
+    brain_B.HoughTransform_o2[92] = 0.034906585039886591;
+    brain_B.HoughTransform_o2[93] = 0.05235987755982989;
+    brain_B.HoughTransform_o2[94] = 0.069813170079773182;
+    brain_B.HoughTransform_o2[95] = 0.087266462599716474;
+    brain_B.HoughTransform_o2[96] = 0.10471975511965978;
+    brain_B.HoughTransform_o2[97] = 0.12217304763960307;
+    brain_B.HoughTransform_o2[98] = 0.13962634015954636;
+    brain_B.HoughTransform_o2[99] = 0.15707963267948966;
+    brain_B.HoughTransform_o2[100] = 0.17453292519943295;
+    brain_B.HoughTransform_o2[101] = 0.19198621771937624;
+    brain_B.HoughTransform_o2[102] = 0.20943951023931956;
+    brain_B.HoughTransform_o2[103] = 0.22689280275926285;
+    brain_B.HoughTransform_o2[104] = 0.24434609527920614;
+    brain_B.HoughTransform_o2[105] = 0.26179938779914941;
+    brain_B.HoughTransform_o2[106] = 0.27925268031909273;
+    brain_B.HoughTransform_o2[107] = 0.29670597283903605;
+    brain_B.HoughTransform_o2[108] = 0.31415926535897931;
+    brain_B.HoughTransform_o2[109] = 0.33161255787892263;
+    brain_B.HoughTransform_o2[110] = 0.3490658503988659;
+    brain_B.HoughTransform_o2[111] = 0.36651914291880922;
+    brain_B.HoughTransform_o2[112] = 0.38397243543875248;
+    brain_B.HoughTransform_o2[113] = 0.4014257279586958;
+    brain_B.HoughTransform_o2[114] = 0.41887902047863912;
+    brain_B.HoughTransform_o2[115] = 0.43633231299858238;
+    brain_B.HoughTransform_o2[116] = 0.4537856055185257;
+    brain_B.HoughTransform_o2[117] = 0.47123889803846897;
+    brain_B.HoughTransform_o2[118] = 0.48869219055841229;
+    brain_B.HoughTransform_o2[119] = 0.50614548307835561;
+    brain_B.HoughTransform_o2[120] = 0.52359877559829882;
+    brain_B.HoughTransform_o2[121] = 0.54105206811824214;
+    brain_B.HoughTransform_o2[122] = 0.55850536063818546;
+    brain_B.HoughTransform_o2[123] = 0.57595865315812877;
+    brain_B.HoughTransform_o2[124] = 0.59341194567807209;
+    brain_B.HoughTransform_o2[125] = 0.6108652381980153;
+    brain_B.HoughTransform_o2[126] = 0.62831853071795862;
+    brain_B.HoughTransform_o2[127] = 0.64577182323790194;
+    brain_B.HoughTransform_o2[128] = 0.66322511575784526;
+    brain_B.HoughTransform_o2[129] = 0.68067840827778847;
+    brain_B.HoughTransform_o2[130] = 0.69813170079773179;
+    brain_B.HoughTransform_o2[131] = 0.71558499331767511;
+    brain_B.HoughTransform_o2[132] = 0.73303828583761843;
+    brain_B.HoughTransform_o2[133] = 0.75049157835756175;
+    brain_B.HoughTransform_o2[134] = 0.767944870877505;
+    brain_B.HoughTransform_o2[135] = 0.78539816339744828;
+    brain_B.HoughTransform_o2[136] = 0.8028514559173916;
+    brain_B.HoughTransform_o2[137] = 0.82030474843733492;
+    brain_B.HoughTransform_o2[138] = 0.83775804095727824;
+    brain_B.HoughTransform_o2[139] = 0.85521133347722145;
+    brain_B.HoughTransform_o2[140] = 0.87266462599716477;
+    brain_B.HoughTransform_o2[141] = 0.89011791851710809;
+    brain_B.HoughTransform_o2[142] = 0.90757121103705141;
+    brain_B.HoughTransform_o2[143] = 0.92502450355699462;
+    brain_B.HoughTransform_o2[144] = 0.94247779607693793;
+    brain_B.HoughTransform_o2[145] = 0.95993108859688125;
+    brain_B.HoughTransform_o2[146] = 0.97738438111682457;
+    brain_B.HoughTransform_o2[147] = 0.99483767363676789;
+    brain_B.HoughTransform_o2[148] = 1.0122909661567112;
+    brain_B.HoughTransform_o2[149] = 1.0297442586766545;
+    brain_B.HoughTransform_o2[150] = 1.0471975511965976;
+    brain_B.HoughTransform_o2[151] = 1.064650843716541;
+    brain_B.HoughTransform_o2[152] = 1.0821041362364843;
+    brain_B.HoughTransform_o2[153] = 1.0995574287564276;
+    brain_B.HoughTransform_o2[154] = 1.1170107212763709;
+    brain_B.HoughTransform_o2[155] = 1.1344640137963142;
+    brain_B.HoughTransform_o2[156] = 1.1519173063162575;
+    brain_B.HoughTransform_o2[157] = 1.1693705988362009;
+    brain_B.HoughTransform_o2[158] = 1.1868238913561442;
+    brain_B.HoughTransform_o2[159] = 1.2042771838760873;
+    brain_B.HoughTransform_o2[160] = 1.2217304763960306;
+    brain_B.HoughTransform_o2[161] = 1.2391837689159739;
+    brain_B.HoughTransform_o2[162] = 1.2566370614359172;
+    brain_B.HoughTransform_o2[163] = 1.2740903539558606;
+    brain_B.HoughTransform_o2[164] = 1.2915436464758039;
+    brain_B.HoughTransform_o2[165] = 1.3089969389957472;
+    brain_B.HoughTransform_o2[166] = 1.3264502315156905;
+    brain_B.HoughTransform_o2[167] = 1.3439035240356338;
+    brain_B.HoughTransform_o2[168] = 1.3613568165555769;
+    brain_B.HoughTransform_o2[169] = 1.3788101090755203;
+    brain_B.HoughTransform_o2[170] = 1.3962634015954636;
+    brain_B.HoughTransform_o2[171] = 1.4137166941154069;
+    brain_B.HoughTransform_o2[172] = 1.4311699866353502;
+    brain_B.HoughTransform_o2[173] = 1.4486232791552935;
+    brain_B.HoughTransform_o2[174] = 1.4660765716752369;
+    brain_B.HoughTransform_o2[175] = 1.4835298641951802;
+    brain_B.HoughTransform_o2[176] = 1.5009831567151235;
+    brain_B.HoughTransform_o2[177] = 1.5184364492350666;
+    brain_B.HoughTransform_o2[178] = 1.53588974175501;
+    brain_B.HoughTransform_o2[179] = 1.5533430342749532;
     brain_B.HoughTransform_o3[0] = -199.0;
     brain_B.HoughTransform_o3[1] = -198.0;
     brain_B.HoughTransform_o3[2] = -197.0;
@@ -15881,186 +15730,186 @@ void brain_initialize(void)
     brain_B.HoughTransform_o3[396] = 197.0;
     brain_B.HoughTransform_o3[397] = 198.0;
     brain_B.HoughTransform_o3[398] = 199.0;
-    brain_B.HoughTransform_o2_e[0] = -1.5707963267948966E+000;
-    brain_B.HoughTransform_o2_e[1] = -1.5533430342749532E+000;
-    brain_B.HoughTransform_o2_e[2] = -1.5358897417550099E+000;
-    brain_B.HoughTransform_o2_e[3] = -1.5184364492350666E+000;
-    brain_B.HoughTransform_o2_e[4] = -1.5009831567151235E+000;
-    brain_B.HoughTransform_o2_e[5] = -1.4835298641951802E+000;
-    brain_B.HoughTransform_o2_e[6] = -1.4660765716752369E+000;
-    brain_B.HoughTransform_o2_e[7] = -1.4486232791552935E+000;
-    brain_B.HoughTransform_o2_e[8] = -1.4311699866353502E+000;
-    brain_B.HoughTransform_o2_e[9] = -1.4137166941154069E+000;
-    brain_B.HoughTransform_o2_e[10] = -1.3962634015954636E+000;
-    brain_B.HoughTransform_o2_e[11] = -1.3788101090755203E+000;
-    brain_B.HoughTransform_o2_e[12] = -1.3613568165555769E+000;
-    brain_B.HoughTransform_o2_e[13] = -1.3439035240356338E+000;
-    brain_B.HoughTransform_o2_e[14] = -1.3264502315156905E+000;
-    brain_B.HoughTransform_o2_e[15] = -1.3089969389957472E+000;
-    brain_B.HoughTransform_o2_e[16] = -1.2915436464758039E+000;
-    brain_B.HoughTransform_o2_e[17] = -1.2740903539558606E+000;
-    brain_B.HoughTransform_o2_e[18] = -1.2566370614359172E+000;
-    brain_B.HoughTransform_o2_e[19] = -1.2391837689159739E+000;
-    brain_B.HoughTransform_o2_e[20] = -1.2217304763960306E+000;
-    brain_B.HoughTransform_o2_e[21] = -1.2042771838760873E+000;
-    brain_B.HoughTransform_o2_e[22] = -1.1868238913561442E+000;
-    brain_B.HoughTransform_o2_e[23] = -1.1693705988362009E+000;
-    brain_B.HoughTransform_o2_e[24] = -1.1519173063162575E+000;
-    brain_B.HoughTransform_o2_e[25] = -1.1344640137963142E+000;
-    brain_B.HoughTransform_o2_e[26] = -1.1170107212763709E+000;
-    brain_B.HoughTransform_o2_e[27] = -1.0995574287564276E+000;
-    brain_B.HoughTransform_o2_e[28] = -1.0821041362364843E+000;
-    brain_B.HoughTransform_o2_e[29] = -1.0646508437165410E+000;
-    brain_B.HoughTransform_o2_e[30] = -1.0471975511965976E+000;
-    brain_B.HoughTransform_o2_e[31] = -1.0297442586766545E+000;
-    brain_B.HoughTransform_o2_e[32] = -1.0122909661567112E+000;
-    brain_B.HoughTransform_o2_e[33] = -9.9483767363676789E-001;
-    brain_B.HoughTransform_o2_e[34] = -9.7738438111682457E-001;
-    brain_B.HoughTransform_o2_e[35] = -9.5993108859688125E-001;
-    brain_B.HoughTransform_o2_e[36] = -9.4247779607693793E-001;
-    brain_B.HoughTransform_o2_e[37] = -9.2502450355699462E-001;
-    brain_B.HoughTransform_o2_e[38] = -9.0757121103705141E-001;
-    brain_B.HoughTransform_o2_e[39] = -8.9011791851710809E-001;
-    brain_B.HoughTransform_o2_e[40] = -8.7266462599716477E-001;
-    brain_B.HoughTransform_o2_e[41] = -8.5521133347722145E-001;
-    brain_B.HoughTransform_o2_e[42] = -8.3775804095727824E-001;
-    brain_B.HoughTransform_o2_e[43] = -8.2030474843733492E-001;
-    brain_B.HoughTransform_o2_e[44] = -8.0285145591739160E-001;
-    brain_B.HoughTransform_o2_e[45] = -7.8539816339744828E-001;
-    brain_B.HoughTransform_o2_e[46] = -7.6794487087750496E-001;
-    brain_B.HoughTransform_o2_e[47] = -7.5049157835756175E-001;
-    brain_B.HoughTransform_o2_e[48] = -7.3303828583761843E-001;
-    brain_B.HoughTransform_o2_e[49] = -7.1558499331767511E-001;
-    brain_B.HoughTransform_o2_e[50] = -6.9813170079773179E-001;
-    brain_B.HoughTransform_o2_e[51] = -6.8067840827778847E-001;
-    brain_B.HoughTransform_o2_e[52] = -6.6322511575784526E-001;
-    brain_B.HoughTransform_o2_e[53] = -6.4577182323790194E-001;
-    brain_B.HoughTransform_o2_e[54] = -6.2831853071795862E-001;
-    brain_B.HoughTransform_o2_e[55] = -6.1086523819801530E-001;
-    brain_B.HoughTransform_o2_e[56] = -5.9341194567807209E-001;
-    brain_B.HoughTransform_o2_e[57] = -5.7595865315812877E-001;
-    brain_B.HoughTransform_o2_e[58] = -5.5850536063818546E-001;
-    brain_B.HoughTransform_o2_e[59] = -5.4105206811824214E-001;
-    brain_B.HoughTransform_o2_e[60] = -5.2359877559829882E-001;
-    brain_B.HoughTransform_o2_e[61] = -5.0614548307835561E-001;
-    brain_B.HoughTransform_o2_e[62] = -4.8869219055841229E-001;
-    brain_B.HoughTransform_o2_e[63] = -4.7123889803846897E-001;
-    brain_B.HoughTransform_o2_e[64] = -4.5378560551852570E-001;
-    brain_B.HoughTransform_o2_e[65] = -4.3633231299858238E-001;
-    brain_B.HoughTransform_o2_e[66] = -4.1887902047863912E-001;
-    brain_B.HoughTransform_o2_e[67] = -4.0142572795869580E-001;
-    brain_B.HoughTransform_o2_e[68] = -3.8397243543875248E-001;
-    brain_B.HoughTransform_o2_e[69] = -3.6651914291880922E-001;
-    brain_B.HoughTransform_o2_e[70] = -3.4906585039886590E-001;
-    brain_B.HoughTransform_o2_e[71] = -3.3161255787892263E-001;
-    brain_B.HoughTransform_o2_e[72] = -3.1415926535897931E-001;
-    brain_B.HoughTransform_o2_e[73] = -2.9670597283903605E-001;
-    brain_B.HoughTransform_o2_e[74] = -2.7925268031909273E-001;
-    brain_B.HoughTransform_o2_e[75] = -2.6179938779914941E-001;
-    brain_B.HoughTransform_o2_e[76] = -2.4434609527920614E-001;
-    brain_B.HoughTransform_o2_e[77] = -2.2689280275926285E-001;
-    brain_B.HoughTransform_o2_e[78] = -2.0943951023931956E-001;
-    brain_B.HoughTransform_o2_e[79] = -1.9198621771937624E-001;
-    brain_B.HoughTransform_o2_e[80] = -1.7453292519943295E-001;
-    brain_B.HoughTransform_o2_e[81] = -1.5707963267948966E-001;
-    brain_B.HoughTransform_o2_e[82] = -1.3962634015954636E-001;
-    brain_B.HoughTransform_o2_e[83] = -1.2217304763960307E-001;
-    brain_B.HoughTransform_o2_e[84] = -1.0471975511965978E-001;
-    brain_B.HoughTransform_o2_e[85] = -8.7266462599716474E-002;
-    brain_B.HoughTransform_o2_e[86] = -6.9813170079773182E-002;
-    brain_B.HoughTransform_o2_e[87] = -5.2359877559829890E-002;
-    brain_B.HoughTransform_o2_e[88] = -3.4906585039886591E-002;
-    brain_B.HoughTransform_o2_e[89] = -1.7453292519943295E-002;
+    brain_B.HoughTransform_o2_e[0] = -1.5707963267948966;
+    brain_B.HoughTransform_o2_e[1] = -1.5533430342749532;
+    brain_B.HoughTransform_o2_e[2] = -1.53588974175501;
+    brain_B.HoughTransform_o2_e[3] = -1.5184364492350666;
+    brain_B.HoughTransform_o2_e[4] = -1.5009831567151235;
+    brain_B.HoughTransform_o2_e[5] = -1.4835298641951802;
+    brain_B.HoughTransform_o2_e[6] = -1.4660765716752369;
+    brain_B.HoughTransform_o2_e[7] = -1.4486232791552935;
+    brain_B.HoughTransform_o2_e[8] = -1.4311699866353502;
+    brain_B.HoughTransform_o2_e[9] = -1.4137166941154069;
+    brain_B.HoughTransform_o2_e[10] = -1.3962634015954636;
+    brain_B.HoughTransform_o2_e[11] = -1.3788101090755203;
+    brain_B.HoughTransform_o2_e[12] = -1.3613568165555769;
+    brain_B.HoughTransform_o2_e[13] = -1.3439035240356338;
+    brain_B.HoughTransform_o2_e[14] = -1.3264502315156905;
+    brain_B.HoughTransform_o2_e[15] = -1.3089969389957472;
+    brain_B.HoughTransform_o2_e[16] = -1.2915436464758039;
+    brain_B.HoughTransform_o2_e[17] = -1.2740903539558606;
+    brain_B.HoughTransform_o2_e[18] = -1.2566370614359172;
+    brain_B.HoughTransform_o2_e[19] = -1.2391837689159739;
+    brain_B.HoughTransform_o2_e[20] = -1.2217304763960306;
+    brain_B.HoughTransform_o2_e[21] = -1.2042771838760873;
+    brain_B.HoughTransform_o2_e[22] = -1.1868238913561442;
+    brain_B.HoughTransform_o2_e[23] = -1.1693705988362009;
+    brain_B.HoughTransform_o2_e[24] = -1.1519173063162575;
+    brain_B.HoughTransform_o2_e[25] = -1.1344640137963142;
+    brain_B.HoughTransform_o2_e[26] = -1.1170107212763709;
+    brain_B.HoughTransform_o2_e[27] = -1.0995574287564276;
+    brain_B.HoughTransform_o2_e[28] = -1.0821041362364843;
+    brain_B.HoughTransform_o2_e[29] = -1.064650843716541;
+    brain_B.HoughTransform_o2_e[30] = -1.0471975511965976;
+    brain_B.HoughTransform_o2_e[31] = -1.0297442586766545;
+    brain_B.HoughTransform_o2_e[32] = -1.0122909661567112;
+    brain_B.HoughTransform_o2_e[33] = -0.99483767363676789;
+    brain_B.HoughTransform_o2_e[34] = -0.97738438111682457;
+    brain_B.HoughTransform_o2_e[35] = -0.95993108859688125;
+    brain_B.HoughTransform_o2_e[36] = -0.94247779607693793;
+    brain_B.HoughTransform_o2_e[37] = -0.92502450355699462;
+    brain_B.HoughTransform_o2_e[38] = -0.90757121103705141;
+    brain_B.HoughTransform_o2_e[39] = -0.89011791851710809;
+    brain_B.HoughTransform_o2_e[40] = -0.87266462599716477;
+    brain_B.HoughTransform_o2_e[41] = -0.85521133347722145;
+    brain_B.HoughTransform_o2_e[42] = -0.83775804095727824;
+    brain_B.HoughTransform_o2_e[43] = -0.82030474843733492;
+    brain_B.HoughTransform_o2_e[44] = -0.8028514559173916;
+    brain_B.HoughTransform_o2_e[45] = -0.78539816339744828;
+    brain_B.HoughTransform_o2_e[46] = -0.767944870877505;
+    brain_B.HoughTransform_o2_e[47] = -0.75049157835756175;
+    brain_B.HoughTransform_o2_e[48] = -0.73303828583761843;
+    brain_B.HoughTransform_o2_e[49] = -0.71558499331767511;
+    brain_B.HoughTransform_o2_e[50] = -0.69813170079773179;
+    brain_B.HoughTransform_o2_e[51] = -0.68067840827778847;
+    brain_B.HoughTransform_o2_e[52] = -0.66322511575784526;
+    brain_B.HoughTransform_o2_e[53] = -0.64577182323790194;
+    brain_B.HoughTransform_o2_e[54] = -0.62831853071795862;
+    brain_B.HoughTransform_o2_e[55] = -0.6108652381980153;
+    brain_B.HoughTransform_o2_e[56] = -0.59341194567807209;
+    brain_B.HoughTransform_o2_e[57] = -0.57595865315812877;
+    brain_B.HoughTransform_o2_e[58] = -0.55850536063818546;
+    brain_B.HoughTransform_o2_e[59] = -0.54105206811824214;
+    brain_B.HoughTransform_o2_e[60] = -0.52359877559829882;
+    brain_B.HoughTransform_o2_e[61] = -0.50614548307835561;
+    brain_B.HoughTransform_o2_e[62] = -0.48869219055841229;
+    brain_B.HoughTransform_o2_e[63] = -0.47123889803846897;
+    brain_B.HoughTransform_o2_e[64] = -0.4537856055185257;
+    brain_B.HoughTransform_o2_e[65] = -0.43633231299858238;
+    brain_B.HoughTransform_o2_e[66] = -0.41887902047863912;
+    brain_B.HoughTransform_o2_e[67] = -0.4014257279586958;
+    brain_B.HoughTransform_o2_e[68] = -0.38397243543875248;
+    brain_B.HoughTransform_o2_e[69] = -0.36651914291880922;
+    brain_B.HoughTransform_o2_e[70] = -0.3490658503988659;
+    brain_B.HoughTransform_o2_e[71] = -0.33161255787892263;
+    brain_B.HoughTransform_o2_e[72] = -0.31415926535897931;
+    brain_B.HoughTransform_o2_e[73] = -0.29670597283903605;
+    brain_B.HoughTransform_o2_e[74] = -0.27925268031909273;
+    brain_B.HoughTransform_o2_e[75] = -0.26179938779914941;
+    brain_B.HoughTransform_o2_e[76] = -0.24434609527920614;
+    brain_B.HoughTransform_o2_e[77] = -0.22689280275926285;
+    brain_B.HoughTransform_o2_e[78] = -0.20943951023931956;
+    brain_B.HoughTransform_o2_e[79] = -0.19198621771937624;
+    brain_B.HoughTransform_o2_e[80] = -0.17453292519943295;
+    brain_B.HoughTransform_o2_e[81] = -0.15707963267948966;
+    brain_B.HoughTransform_o2_e[82] = -0.13962634015954636;
+    brain_B.HoughTransform_o2_e[83] = -0.12217304763960307;
+    brain_B.HoughTransform_o2_e[84] = -0.10471975511965978;
+    brain_B.HoughTransform_o2_e[85] = -0.087266462599716474;
+    brain_B.HoughTransform_o2_e[86] = -0.069813170079773182;
+    brain_B.HoughTransform_o2_e[87] = -0.05235987755982989;
+    brain_B.HoughTransform_o2_e[88] = -0.034906585039886591;
+    brain_B.HoughTransform_o2_e[89] = -0.017453292519943295;
     brain_B.HoughTransform_o2_e[90] = 0.0;
-    brain_B.HoughTransform_o2_e[91] = 1.7453292519943295E-002;
-    brain_B.HoughTransform_o2_e[92] = 3.4906585039886591E-002;
-    brain_B.HoughTransform_o2_e[93] = 5.2359877559829890E-002;
-    brain_B.HoughTransform_o2_e[94] = 6.9813170079773182E-002;
-    brain_B.HoughTransform_o2_e[95] = 8.7266462599716474E-002;
-    brain_B.HoughTransform_o2_e[96] = 1.0471975511965978E-001;
-    brain_B.HoughTransform_o2_e[97] = 1.2217304763960307E-001;
-    brain_B.HoughTransform_o2_e[98] = 1.3962634015954636E-001;
-    brain_B.HoughTransform_o2_e[99] = 1.5707963267948966E-001;
-    brain_B.HoughTransform_o2_e[100] = 1.7453292519943295E-001;
-    brain_B.HoughTransform_o2_e[101] = 1.9198621771937624E-001;
-    brain_B.HoughTransform_o2_e[102] = 2.0943951023931956E-001;
-    brain_B.HoughTransform_o2_e[103] = 2.2689280275926285E-001;
-    brain_B.HoughTransform_o2_e[104] = 2.4434609527920614E-001;
-    brain_B.HoughTransform_o2_e[105] = 2.6179938779914941E-001;
-    brain_B.HoughTransform_o2_e[106] = 2.7925268031909273E-001;
-    brain_B.HoughTransform_o2_e[107] = 2.9670597283903605E-001;
-    brain_B.HoughTransform_o2_e[108] = 3.1415926535897931E-001;
-    brain_B.HoughTransform_o2_e[109] = 3.3161255787892263E-001;
-    brain_B.HoughTransform_o2_e[110] = 3.4906585039886590E-001;
-    brain_B.HoughTransform_o2_e[111] = 3.6651914291880922E-001;
-    brain_B.HoughTransform_o2_e[112] = 3.8397243543875248E-001;
-    brain_B.HoughTransform_o2_e[113] = 4.0142572795869580E-001;
-    brain_B.HoughTransform_o2_e[114] = 4.1887902047863912E-001;
-    brain_B.HoughTransform_o2_e[115] = 4.3633231299858238E-001;
-    brain_B.HoughTransform_o2_e[116] = 4.5378560551852570E-001;
-    brain_B.HoughTransform_o2_e[117] = 4.7123889803846897E-001;
-    brain_B.HoughTransform_o2_e[118] = 4.8869219055841229E-001;
-    brain_B.HoughTransform_o2_e[119] = 5.0614548307835561E-001;
-    brain_B.HoughTransform_o2_e[120] = 5.2359877559829882E-001;
-    brain_B.HoughTransform_o2_e[121] = 5.4105206811824214E-001;
-    brain_B.HoughTransform_o2_e[122] = 5.5850536063818546E-001;
-    brain_B.HoughTransform_o2_e[123] = 5.7595865315812877E-001;
-    brain_B.HoughTransform_o2_e[124] = 5.9341194567807209E-001;
-    brain_B.HoughTransform_o2_e[125] = 6.1086523819801530E-001;
-    brain_B.HoughTransform_o2_e[126] = 6.2831853071795862E-001;
-    brain_B.HoughTransform_o2_e[127] = 6.4577182323790194E-001;
-    brain_B.HoughTransform_o2_e[128] = 6.6322511575784526E-001;
-    brain_B.HoughTransform_o2_e[129] = 6.8067840827778847E-001;
-    brain_B.HoughTransform_o2_e[130] = 6.9813170079773179E-001;
-    brain_B.HoughTransform_o2_e[131] = 7.1558499331767511E-001;
-    brain_B.HoughTransform_o2_e[132] = 7.3303828583761843E-001;
-    brain_B.HoughTransform_o2_e[133] = 7.5049157835756175E-001;
-    brain_B.HoughTransform_o2_e[134] = 7.6794487087750496E-001;
-    brain_B.HoughTransform_o2_e[135] = 7.8539816339744828E-001;
-    brain_B.HoughTransform_o2_e[136] = 8.0285145591739160E-001;
-    brain_B.HoughTransform_o2_e[137] = 8.2030474843733492E-001;
-    brain_B.HoughTransform_o2_e[138] = 8.3775804095727824E-001;
-    brain_B.HoughTransform_o2_e[139] = 8.5521133347722145E-001;
-    brain_B.HoughTransform_o2_e[140] = 8.7266462599716477E-001;
-    brain_B.HoughTransform_o2_e[141] = 8.9011791851710809E-001;
-    brain_B.HoughTransform_o2_e[142] = 9.0757121103705141E-001;
-    brain_B.HoughTransform_o2_e[143] = 9.2502450355699462E-001;
-    brain_B.HoughTransform_o2_e[144] = 9.4247779607693793E-001;
-    brain_B.HoughTransform_o2_e[145] = 9.5993108859688125E-001;
-    brain_B.HoughTransform_o2_e[146] = 9.7738438111682457E-001;
-    brain_B.HoughTransform_o2_e[147] = 9.9483767363676789E-001;
-    brain_B.HoughTransform_o2_e[148] = 1.0122909661567112E+000;
-    brain_B.HoughTransform_o2_e[149] = 1.0297442586766545E+000;
-    brain_B.HoughTransform_o2_e[150] = 1.0471975511965976E+000;
-    brain_B.HoughTransform_o2_e[151] = 1.0646508437165410E+000;
-    brain_B.HoughTransform_o2_e[152] = 1.0821041362364843E+000;
-    brain_B.HoughTransform_o2_e[153] = 1.0995574287564276E+000;
-    brain_B.HoughTransform_o2_e[154] = 1.1170107212763709E+000;
-    brain_B.HoughTransform_o2_e[155] = 1.1344640137963142E+000;
-    brain_B.HoughTransform_o2_e[156] = 1.1519173063162575E+000;
-    brain_B.HoughTransform_o2_e[157] = 1.1693705988362009E+000;
-    brain_B.HoughTransform_o2_e[158] = 1.1868238913561442E+000;
-    brain_B.HoughTransform_o2_e[159] = 1.2042771838760873E+000;
-    brain_B.HoughTransform_o2_e[160] = 1.2217304763960306E+000;
-    brain_B.HoughTransform_o2_e[161] = 1.2391837689159739E+000;
-    brain_B.HoughTransform_o2_e[162] = 1.2566370614359172E+000;
-    brain_B.HoughTransform_o2_e[163] = 1.2740903539558606E+000;
-    brain_B.HoughTransform_o2_e[164] = 1.2915436464758039E+000;
-    brain_B.HoughTransform_o2_e[165] = 1.3089969389957472E+000;
-    brain_B.HoughTransform_o2_e[166] = 1.3264502315156905E+000;
-    brain_B.HoughTransform_o2_e[167] = 1.3439035240356338E+000;
-    brain_B.HoughTransform_o2_e[168] = 1.3613568165555769E+000;
-    brain_B.HoughTransform_o2_e[169] = 1.3788101090755203E+000;
-    brain_B.HoughTransform_o2_e[170] = 1.3962634015954636E+000;
-    brain_B.HoughTransform_o2_e[171] = 1.4137166941154069E+000;
-    brain_B.HoughTransform_o2_e[172] = 1.4311699866353502E+000;
-    brain_B.HoughTransform_o2_e[173] = 1.4486232791552935E+000;
-    brain_B.HoughTransform_o2_e[174] = 1.4660765716752369E+000;
-    brain_B.HoughTransform_o2_e[175] = 1.4835298641951802E+000;
-    brain_B.HoughTransform_o2_e[176] = 1.5009831567151235E+000;
-    brain_B.HoughTransform_o2_e[177] = 1.5184364492350666E+000;
-    brain_B.HoughTransform_o2_e[178] = 1.5358897417550099E+000;
-    brain_B.HoughTransform_o2_e[179] = 1.5533430342749532E+000;
+    brain_B.HoughTransform_o2_e[91] = 0.017453292519943295;
+    brain_B.HoughTransform_o2_e[92] = 0.034906585039886591;
+    brain_B.HoughTransform_o2_e[93] = 0.05235987755982989;
+    brain_B.HoughTransform_o2_e[94] = 0.069813170079773182;
+    brain_B.HoughTransform_o2_e[95] = 0.087266462599716474;
+    brain_B.HoughTransform_o2_e[96] = 0.10471975511965978;
+    brain_B.HoughTransform_o2_e[97] = 0.12217304763960307;
+    brain_B.HoughTransform_o2_e[98] = 0.13962634015954636;
+    brain_B.HoughTransform_o2_e[99] = 0.15707963267948966;
+    brain_B.HoughTransform_o2_e[100] = 0.17453292519943295;
+    brain_B.HoughTransform_o2_e[101] = 0.19198621771937624;
+    brain_B.HoughTransform_o2_e[102] = 0.20943951023931956;
+    brain_B.HoughTransform_o2_e[103] = 0.22689280275926285;
+    brain_B.HoughTransform_o2_e[104] = 0.24434609527920614;
+    brain_B.HoughTransform_o2_e[105] = 0.26179938779914941;
+    brain_B.HoughTransform_o2_e[106] = 0.27925268031909273;
+    brain_B.HoughTransform_o2_e[107] = 0.29670597283903605;
+    brain_B.HoughTransform_o2_e[108] = 0.31415926535897931;
+    brain_B.HoughTransform_o2_e[109] = 0.33161255787892263;
+    brain_B.HoughTransform_o2_e[110] = 0.3490658503988659;
+    brain_B.HoughTransform_o2_e[111] = 0.36651914291880922;
+    brain_B.HoughTransform_o2_e[112] = 0.38397243543875248;
+    brain_B.HoughTransform_o2_e[113] = 0.4014257279586958;
+    brain_B.HoughTransform_o2_e[114] = 0.41887902047863912;
+    brain_B.HoughTransform_o2_e[115] = 0.43633231299858238;
+    brain_B.HoughTransform_o2_e[116] = 0.4537856055185257;
+    brain_B.HoughTransform_o2_e[117] = 0.47123889803846897;
+    brain_B.HoughTransform_o2_e[118] = 0.48869219055841229;
+    brain_B.HoughTransform_o2_e[119] = 0.50614548307835561;
+    brain_B.HoughTransform_o2_e[120] = 0.52359877559829882;
+    brain_B.HoughTransform_o2_e[121] = 0.54105206811824214;
+    brain_B.HoughTransform_o2_e[122] = 0.55850536063818546;
+    brain_B.HoughTransform_o2_e[123] = 0.57595865315812877;
+    brain_B.HoughTransform_o2_e[124] = 0.59341194567807209;
+    brain_B.HoughTransform_o2_e[125] = 0.6108652381980153;
+    brain_B.HoughTransform_o2_e[126] = 0.62831853071795862;
+    brain_B.HoughTransform_o2_e[127] = 0.64577182323790194;
+    brain_B.HoughTransform_o2_e[128] = 0.66322511575784526;
+    brain_B.HoughTransform_o2_e[129] = 0.68067840827778847;
+    brain_B.HoughTransform_o2_e[130] = 0.69813170079773179;
+    brain_B.HoughTransform_o2_e[131] = 0.71558499331767511;
+    brain_B.HoughTransform_o2_e[132] = 0.73303828583761843;
+    brain_B.HoughTransform_o2_e[133] = 0.75049157835756175;
+    brain_B.HoughTransform_o2_e[134] = 0.767944870877505;
+    brain_B.HoughTransform_o2_e[135] = 0.78539816339744828;
+    brain_B.HoughTransform_o2_e[136] = 0.8028514559173916;
+    brain_B.HoughTransform_o2_e[137] = 0.82030474843733492;
+    brain_B.HoughTransform_o2_e[138] = 0.83775804095727824;
+    brain_B.HoughTransform_o2_e[139] = 0.85521133347722145;
+    brain_B.HoughTransform_o2_e[140] = 0.87266462599716477;
+    brain_B.HoughTransform_o2_e[141] = 0.89011791851710809;
+    brain_B.HoughTransform_o2_e[142] = 0.90757121103705141;
+    brain_B.HoughTransform_o2_e[143] = 0.92502450355699462;
+    brain_B.HoughTransform_o2_e[144] = 0.94247779607693793;
+    brain_B.HoughTransform_o2_e[145] = 0.95993108859688125;
+    brain_B.HoughTransform_o2_e[146] = 0.97738438111682457;
+    brain_B.HoughTransform_o2_e[147] = 0.99483767363676789;
+    brain_B.HoughTransform_o2_e[148] = 1.0122909661567112;
+    brain_B.HoughTransform_o2_e[149] = 1.0297442586766545;
+    brain_B.HoughTransform_o2_e[150] = 1.0471975511965976;
+    brain_B.HoughTransform_o2_e[151] = 1.064650843716541;
+    brain_B.HoughTransform_o2_e[152] = 1.0821041362364843;
+    brain_B.HoughTransform_o2_e[153] = 1.0995574287564276;
+    brain_B.HoughTransform_o2_e[154] = 1.1170107212763709;
+    brain_B.HoughTransform_o2_e[155] = 1.1344640137963142;
+    brain_B.HoughTransform_o2_e[156] = 1.1519173063162575;
+    brain_B.HoughTransform_o2_e[157] = 1.1693705988362009;
+    brain_B.HoughTransform_o2_e[158] = 1.1868238913561442;
+    brain_B.HoughTransform_o2_e[159] = 1.2042771838760873;
+    brain_B.HoughTransform_o2_e[160] = 1.2217304763960306;
+    brain_B.HoughTransform_o2_e[161] = 1.2391837689159739;
+    brain_B.HoughTransform_o2_e[162] = 1.2566370614359172;
+    brain_B.HoughTransform_o2_e[163] = 1.2740903539558606;
+    brain_B.HoughTransform_o2_e[164] = 1.2915436464758039;
+    brain_B.HoughTransform_o2_e[165] = 1.3089969389957472;
+    brain_B.HoughTransform_o2_e[166] = 1.3264502315156905;
+    brain_B.HoughTransform_o2_e[167] = 1.3439035240356338;
+    brain_B.HoughTransform_o2_e[168] = 1.3613568165555769;
+    brain_B.HoughTransform_o2_e[169] = 1.3788101090755203;
+    brain_B.HoughTransform_o2_e[170] = 1.3962634015954636;
+    brain_B.HoughTransform_o2_e[171] = 1.4137166941154069;
+    brain_B.HoughTransform_o2_e[172] = 1.4311699866353502;
+    brain_B.HoughTransform_o2_e[173] = 1.4486232791552935;
+    brain_B.HoughTransform_o2_e[174] = 1.4660765716752369;
+    brain_B.HoughTransform_o2_e[175] = 1.4835298641951802;
+    brain_B.HoughTransform_o2_e[176] = 1.5009831567151235;
+    brain_B.HoughTransform_o2_e[177] = 1.5184364492350666;
+    brain_B.HoughTransform_o2_e[178] = 1.53588974175501;
+    brain_B.HoughTransform_o2_e[179] = 1.5533430342749532;
     brain_B.HoughTransform_o3_n[0] = -199.0;
     brain_B.HoughTransform_o3_n[1] = -198.0;
     brain_B.HoughTransform_o3_n[2] = -197.0;
@@ -16576,17 +16425,18 @@ void brain_initialize(void)
     brain_DWork.Erosion_NUMNONZ_DW_f[1] = curNumNonZ;
 
     /* Start for S-Function (svipmorphop): '<S28>/Dilation' */
+    idxNHood = 0;
     idxOffsets = 0;
     curNumNonZ = 0;
-    idxNHood = 4;
-    for (m = 0; m < 2; m++) {
-      for (n = 0; n < 2; n++) {
-        idxNHood--;
+    for (n = 0; n < 2; n++) {
+      for (m = 0; m < 2; m++) {
         if (brain_ConstP.pooled36[idxNHood]) {
-          brain_DWork.Dilation_DILATE_OFF_DW[idxOffsets] = m * 123 + n;
+          brain_DWork.Dilation_DILATE_OFF_DW[idxOffsets] = n * 123 + m;
           curNumNonZ++;
           idxOffsets++;
         }
+
+        idxNHood++;
       }
     }
 
@@ -16736,15 +16586,13 @@ void brain_initialize(void)
   brain_DWork.BuoySaturation = 0.0;
   brain_DWork.BuoyValue = 0.0;
   brain_DWork.Image = 0.0;
-  memset((void *)(&brain_DWork.LabelMatrix[0]), (int32_T)0.0, 19200U * sizeof
-         (real_T));
+  memset((void *)(&brain_DWork.LabelMatrix[0]), 0, 19200U * sizeof(real_T));
   brain_DWork.TurnDirection = 0.0;
   brain_DWork.count2ndarea = 0.0;
   brain_DWork.num_colors = 0.0;
-  memset((void *)(&brain_DWork.ref_colors[0]), (int32_T)0.0, 150U * sizeof
-         (real_T));
+  memset((void *)(&brain_DWork.ref_colors[0]), 0, 150U * sizeof(real_T));
   brain_DWork.num_blobs = 0.0;
-  memset((void *)(&brain_DWork.BuoyBlobs[0]), (int32_T)0.0, 200U * sizeof(real_T));
+  memset((void *)(&brain_DWork.BuoyBlobs[0]), 0, 200U * sizeof(real_T));
   brain_DWork.H_Hue = 0.0;
   brain_DWork.H_Sat = 0.0;
   brain_DWork.H_Value = 0.0;
@@ -16788,8 +16636,8 @@ void brain_initialize(void)
   brain_B.BuoyCentroidX = 0.0;
   brain_B.BuoyCentroidY = 0.0;
   brain_B.State = 0;
-  memset((void *)(&brain_B.BWout[0]), (int32_T)0.0, 19200U * sizeof(real_T));
-  memset((void *)(&brain_B.RGBout[0]), (int32_T)0.0, 57600U * sizeof(real_T));
+  memset((void *)(&brain_B.BWout[0]), 0, 19200U * sizeof(real_T));
+  memset((void *)(&brain_B.RGBout[0]), 0, 57600U * sizeof(real_T));
   brain_B.Pitch = 0.0;
   brain_B.Roll = 0.0;
   brain_B.Yaw = 0.0;

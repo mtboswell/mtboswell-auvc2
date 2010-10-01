@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 1990-2002 The MathWorks, Inc.
  *
- * File: simstruc_types.h     $Revision: 1.1.6.28 $
+ * File: simstruc_types.h     $Revision: 1.1.6.30 $
  *
  * Abstract:
  *   The embedded RTW code formats do not include simstruc.h, but

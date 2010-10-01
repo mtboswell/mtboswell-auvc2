@@ -4,10 +4,10 @@
  * Real-Time Workshop code generated for Simulink model brain.
  *
  * Model version                        : 1.736
- * Real-Time Workshop file version      : 7.5  (R2010a)  25-Jan-2010
- * Real-Time Workshop file generated on : Sun Jul 18 11:27:08 2010
- * TLC version                          : 7.5 (Jan 19 2010)
- * C/C++ source code generated on       : Sun Jul 18 11:27:08 2010
+ * Real-Time Workshop file version      : 7.6  (R2010b)  03-Aug-2010
+ * Real-Time Workshop file generated on : Fri Oct  1 02:40:39 2010
+ * TLC version                          : 7.6 (Jul 13 2010)
+ * C/C++ source code generated on       : Fri Oct  1 02:40:43 2010
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: AMD->K5/K6/Athlon
@@ -91,7 +91,7 @@ typedef struct {
 /* Block signals for system '<S7>/StateFlowFunctions.Buoys.FindBuoys.LookforBuoys' */
 typedef struct {
   real_T DrawMarkers[57600];           /* '<S15>/Draw Markers' */
-  boolean_T eml_LogicMatrix[19200];
+  boolean_T LogicMatrix[19200];
   real_T Image;                        /* '<S15>/IF Buoy Conditions' */
   real_T Eccent[50];                   /* '<S15>/Blob Extraction' */
   real_T Extent[50];                   /* '<S15>/Blob Extraction' */
@@ -111,18 +111,17 @@ typedef struct {
   int16_T N_PIXLIST_DW[19200];         /* '<S15>/Blob Extraction' */
   int16_T M_PIXLIST_DW[19200];         /* '<S15>/Blob Extraction' */
   uint8_T PAD_DW[19764];               /* '<S15>/Blob Extraction' */
-  boolean_T hblob;                     /* '<S15>/Blob Extraction' */
 } rtDW_StateFlowFunctionsBuoysFin;
 
 /* Block signals for system '<S7>/StateFlowFunctions.Buoys.ShowSegmentedImage' */
 typedef struct {
-  real_T L[19200];                     /* '<S18>/Embedded MATLAB Function' */
-  real_T a[19200];                     /* '<S18>/Embedded MATLAB Function' */
-  real_T b[19200];                     /* '<S18>/Embedded MATLAB Function' */
   real_T ColorSpaceConversion_o1[19200];/* '<S18>/Color Space  Conversion' */
   real_T ColorSpaceConversion_o2[19200];/* '<S18>/Color Space  Conversion' */
   real_T ColorSpaceConversion_o3[19200];/* '<S18>/Color Space  Conversion' */
   real_T RGB[57600];                   /* '<S18>/Embedded MATLAB Function1' */
+  real_T L[19200];                     /* '<S18>/Embedded MATLAB Function' */
+  real_T a[19200];                     /* '<S18>/Embedded MATLAB Function' */
+  real_T b[19200];                     /* '<S18>/Embedded MATLAB Function' */
 } rtB_StateFlowFunctionsBuoysShow;
 
 /* Block states (auto storage) for system '<S7>/StateFlowFunctions.Buoys.ShowSegmentedImage' */
@@ -132,9 +131,9 @@ typedef struct {
 
 /* Block signals for system '<S66>/Low Pass Filter' */
 typedef struct {
-  real32_T fv0[19200];
   real32_T Iout[19200];                /* '<S66>/Low Pass Filter' */
-  real32_T eml_Itemp[18644];
+  real32_T fv0[19200];
+  real32_T Itemp[18644];
 } rtB_LowPassFilter_brain;
 
 /* Block signals for system '<S7>/StateFlowFunctions.Buoys.IterativeSegmentation' */
@@ -148,7 +147,7 @@ typedef struct {
   real32_T ColorSpaceConversion1_o1[19200];/* '<S17>/Color Space  Conversion1' */
   real32_T ColorSpaceConversion1_o2[19200];/* '<S17>/Color Space  Conversion1' */
   real32_T ColorSpaceConversion1_o3[19200];/* '<S17>/Color Space  Conversion1' */
-  uint32_T eml_LabelMatrix[4800];
+  uint32_T LabelMatrix_m[4800];
   real32_T Resize[4800];               /* '<S73>/Resize' */
   real32_T Resize1[4800];              /* '<S73>/Resize1' */
   real32_T Resize2[4800];              /* '<S73>/Resize2' */
@@ -168,7 +167,7 @@ typedef struct {
 
 /* Block signals for system '<S7>/StateFlowFunctions.Buoys.FindBuoys.GetBuoyColors' */
 typedef struct {
-  boolean_T eml_LogicMatrix[19200];
+  boolean_T LogicMatrix[19200];
   real_T blobs[200];                   /* '<S14>/Say Which Buoy Is Which' */
   real_T count;                        /* '<S14>/IF Buoy Conditions' */
   real_T Eccent[50];                   /* '<S14>/Blob Extraction' */
@@ -191,7 +190,6 @@ typedef struct {
   int16_T N_PIXLIST_DW[19200];         /* '<S14>/Blob Extraction' */
   int16_T M_PIXLIST_DW[19200];         /* '<S14>/Blob Extraction' */
   uint8_T PAD_DW[19764];               /* '<S14>/Blob Extraction' */
-  boolean_T hblob;                     /* '<S14>/Blob Extraction' */
 } rtDW_StateFlowFunctionsBuoysF_e;
 
 /* Block signals for system '<S7>/StateFlowFunctions.MaintainHeading' */
@@ -388,8 +386,8 @@ typedef struct {
 
 /* Block signals (auto storage) */
 typedef struct {
-  real_T eml_HoughTable[71820];
-  boolean_T BW_m[19200];               /* '<S99>/Logical Operator1' */
+  real_T HoughTable[71820];
+  real_T dv0[71820];
   real_T DesiredDepth;                 /* '<Root>/StateFlow Functions' */
   real_T DesiredHeading;               /* '<Root>/StateFlow Functions' */
   real_T BuoyCentroidX;                /* '<Root>/StateFlow Functions' */
@@ -487,9 +485,6 @@ typedef struct {
   real_T HoughTransform_o2_e[180];     /* '<S81>/Hough Transform' */
   real_T HoughTransform_o3_n[399];     /* '<S81>/Hough Transform' */
   real_T DrawShapes_m[19200];          /* '<S21>/Draw Shapes' */
-  real_T Theta[2];                     /* '<S81>/IsLinePresent' */
-  real_T Rho[2];                       /* '<S81>/IsLinePresent' */
-  real_T maxVotes[2];                  /* '<S81>/IsLinePresent' */
   real_T AlongPathHeading;             /* '<S21>/GetHeadingToPath' */
   real_T Constant;                     /* '<S26>/Constant' */
   real_T HeadingForwardVelocity_o;     /* '<S40>/Heading Forward Velocity' */
@@ -521,6 +516,7 @@ typedef struct {
   real32_T Resize[19200];              /* '<S5>/Resize' */
   real32_T Resize1[19200];             /* '<S5>/Resize1' */
   real32_T Resize2[19200];             /* '<S5>/Resize2' */
+  boolean_T BW_m[19200];               /* '<S99>/Logical Operator1' */
   real32_T CurrentDepth1;              /* '<Root>/StateFlow Functions' */
   real32_T DesiredDepth1;              /* '<Root>/StateFlow Functions' */
   real32_T RGBtoHSVColorSpaceConversion_o1[307200];/* '<S5>/RGB to HSV Color Space  Conversion' */
@@ -847,9 +843,9 @@ typedef struct {
 typedef struct {
   real_T CurrentDepth;                 /* '<Root>/CurrentDepth' */
   real_T CurrentHeading;               /* '<Root>/CurrentHeading' */
-  uint8_T Y[307200];                   /* '<Root>/Y' */
-  uint8_T Cb[76800];                   /* '<Root>/Cb' */
-  uint8_T Cr[76800];                   /* '<Root>/Cr' */
+  uint8_T R[307200];                   /* '<Root>/R' */
+  uint8_T G[76800];                    /* '<Root>/G' */
+  uint8_T B[76800];                    /* '<Root>/B' */
   int8_T Status;                       /* '<Root>/Status' */
   int8_T DesiredState;                 /* '<Root>/DesiredState' */
   real_T RC_Heading;                   /* '<Root>/RC_Heading' */

@@ -1,10 +1,9 @@
 #include "model.h"
-#include "../auv/auvtypes.h"
 #include "../auv/calibration.h"
-#include "../auv/camread.h"
+//#include "../auv/camread.h"
 #include "../configloader.h"
-#include <iostream>
-#include <cstdlib>
+//#include <iostream>
+//#include <cstdlib>
 #include <QDebug>
 #include <QTime>
 
@@ -33,21 +32,21 @@ Model::Model(QMutex* mutex){
   
 	//qDebug("Allocating Framebuffer");
 	// Initialize framebuffer and start video capture 
-	myframe.y = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT);
-	myframe.cb = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
-	myframe.cr = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
+//	myframe.y = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT);
+//	myframe.cb = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
+//	myframe.cr = malloc(CAMERA_FRAME_WIDTH*CAMERA_FRAME_HEIGHT/4);
 	//qDebug("Done");
 
 	if(parameters.isEmpty()) init_params(parameters);
 
-	record_video = false;
+//	record_video = false;
 	stepTimer.start();
 }
 
 Model::~Model(){
 //	delete modelTimer;
 	qDebug("Shutting Down Brain");
-	camread_close();
+//	camread_close();
 	wait();
 }
 
@@ -128,6 +127,7 @@ void Model::updateSensorsInput(AUVSensors values){
 	//qDebug() << values.orientation.pitchacc << values.orientation.yawacc << values.orientation. yawrate;
 	brain_U.Status = values.status;                       /* '<Root>/Status' */	
 	
+/*
 	// Transfer video frame into MATLAB, swapping buffers 
 	if(!video_paused){
 		if(config["Debug"]=="true") qDebug() << "Getting video frame";
@@ -138,6 +138,7 @@ void Model::updateSensorsInput(AUVSensors values){
 		SwappyCopy(brain_U.Cr, (unsigned char*)myframe.cr, 320, 240);
 		//qDebug() << "We survived the Swappy";
 	}//else qDebug() << "Brain skipping video copy";
+*/
 	
 	
 	/* Values:
@@ -219,3 +220,31 @@ void Model::setInput(QString name, double value){
 			+ " S" + QString::number(brain_U.RC_Strafe));
 	}
 } 
+
+void Model::messageIn(QString id, QString value){
+	if(!id.startsWith("Brain")) return;
+	QString type, name;
+	QStringList ids = id.split('.');
+	if(ids.size() > 1) type = ids[1];
+	if(ids.size() > 2) name = ids[2];
+	if(type == "Param" || type == "Parameter"){
+		setParam(name, value.toDouble());
+	}else if(type == "Input"){
+		setInput(name, value.toDouble());
+	}else if(type == "GetParams"){
+		sendParams();
+	}
+}
+
+
+void Model::sendParams(){
+	qDebug() << "Sending Params";
+
+	QHashIterator<QString, double*> i(parameters);
+	 while (i.hasNext()) {
+	     i.next();
+	//	qDebug() << "Getting Parameter:" << i.key();
+		emit messageOut("Brain.Parameter."+i.key(), QString::number(*(i.value())));
+	 }
+}
+

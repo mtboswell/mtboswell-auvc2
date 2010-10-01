@@ -1,19 +1,19 @@
 /*
  *  dspsizeof_rt.h
  *
- *  Copyright 2008 The MathWorks, Inc.
- *  $Revision: 1.1.8.1 $ $Date: 2008/02/29 12:41:04 $
+ *  Copyright 2008-2010 The MathWorks, Inc.
+ *  $Revision: 1.1.8.1.10.1 $ $Date: 2010/07/23 15:38:12 $
  */
 
 #ifndef dspsizeof_rt_h
 #define dspsizeof_rt_h
 
-#define MWDSP_SIZEOF_DOUBLE     sizeof(double)
-#define MWDSP_SIZEOF_FLOAT      sizeof(float)
+#define MWDSP_SIZEOF_DOUBLE     sizeof(real64_T)
+#define MWDSP_SIZEOF_FLOAT      sizeof(real32_T)
 #define MWDSP_SIZEOF_BOOLEAN    sizeof(boolean_T)
-#define MWDSP_SIZEOF_CHAR       sizeof(char)
-#define MWDSP_SIZEOF_SHORT      sizeof(short)
-#define MWDSP_SIZEOF_INT        sizeof(int)
-#define MWDSP_SIZEOF_LONG       sizeof(long)
+#define MWDSP_SIZEOF_INT8       sizeof(int8_T)
+#define MWDSP_SIZEOF_INT16      sizeof(int16_T)
+#define MWDSP_SIZEOF_INT32      sizeof(int32_T)
+#define MWDSP_SIZEOF_LONG       sizeof(ulong_T)
 
 #endif /* dspsizeof_rt_h */

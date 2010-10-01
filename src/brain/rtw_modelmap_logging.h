@@ -1,7 +1,7 @@
 /*
- * Copyright 1994-2005 The MathWorks, Inc.
+ * Copyright 1994-2010 The MathWorks, Inc.
  *
- * File: rtw_modelmap_logging.h     $Revision: 1.1.6.1 $
+ * File: rtw_modelmap_logging.h     $Revision: 1.1.6.2 $
  *
  * Abstract:
  *   Meta information used in conjunction with the ModelMappingInfo to
@@ -45,6 +45,19 @@ typedef struct rtwCAPI_LoggingBusSignals_tag {
     const rtwCAPI_LoggingBusElement *elements;
 } rtwCAPI_LoggingBusSignals;
 
+/* Structure used for representing bus hierarchy information for dataset logging */
+typedef struct rtwCAPI_SignalHierLoggingInfo_tag {
+    const char_T* signalName;
+    uint_T        numChildren;
+    int_T         childStartIdx;
+} rtwCAPI_SignalHierLoggingInfo;
+
+typedef struct rtwCAPI_SignalHierLoggingInfoTable_tag {
+    uint_T numSignals;
+    rtwCAPI_SignalHierLoggingInfo const* infoTable;
+    uint_T const* childIndexTable;
+} rtwCAPI_SignalHierLoggingInfoTable;
+
 /* ModelMapLoggingStaticInfo */
 struct rtwCAPI_ModelMapLoggingStaticInfo_tag {
     /* Total number of non-virtual systems */
@@ -58,6 +71,9 @@ struct rtwCAPI_ModelMapLoggingStaticInfo_tag {
     /* Bus signals info */
     uint_T numBusSignals;
     rtwCAPI_LoggingBusSignals const *busSignals;
+
+    /* Dataset format hierarchy info */
+    rtwCAPI_SignalHierLoggingInfoTable hierInfoTable;
 };
 
 /* Macros for accessing static fields */

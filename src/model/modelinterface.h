@@ -1,6 +1,8 @@
 #ifndef __MODELINT_H
 #define __MODELINT_H
 
+#ifdef MODEL_NAME
+
 #include <QObject>
 #include <QMutex>
 #include <QMutexLocker>
@@ -21,7 +23,7 @@
  * a parameter update function.
  */
 		
-class Model : public QThread 
+class Model_MODEL_NAME : public QThread 
 {
 
 	Q_OBJECT
@@ -31,17 +33,17 @@ class Model : public QThread
 		 * Constructor
 		 * @param mutex QMutex for protecting access to model data (parameters and such).
 		 */
-		Model(QMutex* mutex);
-		~Model();
+		Model_MODEL_NAME();
+		~Model_MODEL_NAME();
 		
 	signals:
 		/** 
-		 * Emitted at the end of every brain processing cycle. 
+		 * Emitted at the end of every model processing cycle. 
 		 * @param duration measures
 		 * the time from the end of one cycle to the end of the next.
 		 * If duration > BRAIN_STEP_TIME, an overrun has occurred
 		 */
-		void outputReady(ExternalOutputs_brain Output, int duration);
+		void outputReady(ExternalOutputs_MODEL_NAME Output, int duration);
 		void status(QString);
 		void error(QString);
 		
@@ -81,3 +83,5 @@ class Model : public QThread
 };
 
 #endif
+#endif
+

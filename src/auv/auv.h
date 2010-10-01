@@ -6,10 +6,11 @@
  */
 
 // sensor datatypes defined in auvtypes.h
-#include "auvtypes.h"
+#include "../state.h"
 #include "../configloader.h"
 #include "ports.h"
 #include "calibration.h"
+#include "qwebcam.h"
 #include "microstrain.h"
 #include "os5000.h"
 #include "arduino.h"
@@ -26,6 +27,8 @@
 #include <QQueue>
 #include <QMap>
 #include <QMapIterator>
+#include <QPixmap>
+#include <QImage>
 #include <iostream>
 #include <string>
 
@@ -116,6 +119,8 @@ class AUV : public QThread {
 		
 		
 	public slots:
+		void messageIn(QString, QString);
+		void sendSensorData(AUVSensors sens);
 		// Standard control levels
 		/**
 		 * Turn on the thrusters and start accepting commands.
@@ -196,11 +201,14 @@ class AUV : public QThread {
 		void statusField(QString name, QString msg);
 		
 	signals:
+		void messageOut(QString, QString);
 		/**
 		 * Sensor data is available for processing.
 		 * @param data sensor data in an AUVSensors struct.
 		 */
 		void sensorUpdate(AUVSensors data);
+		void cameraFrame(QImage immy);
+		void cameraFrame(QPixmap pixy);
 		// Deprecated
 		void setControllers(ExternalInputs_brain inputs);
 		/**
@@ -254,6 +262,7 @@ class AUV : public QThread {
 		Power* thrusterPower;
 		Power* mainPower;
 		LCD* statusLcd;
+		QWebCam* camera;
 		
 		AUVSensors data;
 		
