@@ -1,5 +1,14 @@
 AUVC TODO list
 
+Write up module integration spec
+Finish pulling vision stuff out of brain
+Write director
+Write cmd interpreter and controllers
+Outline new Vision stuff
+Fix opencv stuff
+
+== Old stuff ==
+
 Finish script sending
 Add logging to dashboard
 
