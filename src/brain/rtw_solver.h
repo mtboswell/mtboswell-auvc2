@@ -1,7 +1,7 @@
 /*
- * Copyright 1990-2009 The MathWorks, Inc.
+ * Copyright 1990-2010 The MathWorks, Inc.
  *
- * File: rtw_solver.h     $Revision: 1.1.6.5 $
+ * File: rtw_solver.h     $Revision: 1.1.6.6 $
  *
  * Abstract:
  *   Type definitions for continuous-time solver support.
@@ -87,6 +87,8 @@ typedef struct _ssSolverInfo_tag {
     boolean_T   blkStateChange;
     boolean_T   isComputingJacobian;
     int_T       solverJacobianMethodControl;
+    int_T       ignoredZcDiagnostic;
+    int_T       maskedZcDiagnostic;
 } ssSolverInfo;
 
 /* Support old name RTWSolverInfo */
@@ -139,9 +141,6 @@ typedef ssSolverInfo RTWSolverInfo;
 
 #define rtsiSetSolverMaxOrder(S,smo) ((S)->solverMaxOrder = (smo))
 #define rtsiGetSolverMaxOrder(S)     (S)->solverMaxOrder
-
-#define rtsiSetSolverConsecutiveZCsError(S,smcm)   (ssGetSolverInfo(S)->solverConsecutiveZCsError = (smcm))
-#define rtsiGetSolverConsecutiveZCsError(S)        ssGetSolverInfo(S)->solverConsecutiveZCsError
 
 #define rtsiSetSolverJacobianMethodControl(S,smcm)   (ssGetSolverInfo(S)->solverJacobianMethodControl = (smcm))
 #define rtsiGetSolverJacobianMethodControl(S)        ssGetSolverInfo(S)->solverJacobianMethodControl

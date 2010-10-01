@@ -11,13 +11,13 @@ Model {
       Name		      "CurrentHeading"
     }
     Inport {
-      Name		      "R"
+      Name		      "Y"
     }
     Inport {
-      Name		      "G"
+      Name		      "Cb"
     }
     Inport {
-      Name		      "B"
+      Name		      "Cr"
     }
     Inport {
       Name		      "Status"
@@ -1100,7 +1100,7 @@ Model {
     }
     Block {
       BlockType		      Inport
-      Name		      "R"
+      Name		      "Y"
       SID		      75
       Position		      [95, 148, 125, 162]
       Port		      "3"
@@ -1113,7 +1113,7 @@ Model {
     }
     Block {
       BlockType		      Inport
-      Name		      "G"
+      Name		      "Cb"
       SID		      76
       Position		      [95, 183, 125, 197]
       Port		      "4"
@@ -1126,7 +1126,7 @@ Model {
     }
     Block {
       BlockType		      Inport
-      Name		      "B"
+      Name		      "Cr"
       SID		      77
       Position		      [95, 218, 125, 232]
       Port		      "5"
@@ -25846,21 +25846,21 @@ Model {
       DstPort		      5
     }
     Line {
-      SrcBlock		      "R"
+      SrcBlock		      "Y"
       SrcPort		      1
       Points		      [80, 0; 0, -60]
       DstBlock		      "Environment\nController"
       DstPort		      2
     }
     Line {
-      SrcBlock		      "G"
+      SrcBlock		      "Cb"
       SrcPort		      1
       Points		      [90, 0; 0, -20]
       DstBlock		      "Environment\nController1"
       DstPort		      2
     }
     Line {
-      SrcBlock		      "B"
+      SrcBlock		      "Cr"
       SrcPort		      1
       Points		      [0, 20]
       DstBlock		      "Environment\nController2"

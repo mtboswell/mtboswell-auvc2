@@ -3,7 +3,7 @@
 
 #include "../configloader.h"
 #include "../brain/brain.h"
-#include "../auv/auvtypes.h"
+#include "../state.h"
 #include "../model/parameters.h"
 #include "../version.h"
 #include "sidsocket.h"

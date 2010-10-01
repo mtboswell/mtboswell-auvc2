@@ -4,20 +4,20 @@
 #include "configloader.h"
 QMap<QString, QString> config;
 
-#include "server/server.h"
+#include "state.h"
+#include "datahub/datahub.h"
+
+//#include "server/server.h"
 //#include "server-jaus/server-jaus.h"
 #include "auv/auv.h"
 #include "auv/calibrateservos.h"
 //#include "brain/brain.h"
-#include "auv/camread.h"
+//#include "auv/camread.h"
 #include "model/model.h"
-#include <iostream>
-#include <QDebug>
-using namespace std;
 
-static bool noCamera = false;
-static bool stdCamera = false;
-static bool noHardSwitch = false;
+#include <QDebug>
+
+static bool simulate = false;
 
 int main(int argc, char *argv[]){
 
@@ -26,7 +26,7 @@ int main(int argc, char *argv[]){
 	QString arg;
 	foreach(arg, args){
 		// -s means the hardware switch is missing and is not needed.  This is necessary for debugging, since we won't start anything if the switch is off or missing.
-		if(arg == "-s" || arg == "--simulate") noHardSwitch = true;
+		if(arg == "-s" || arg == "--simulate") simulate = true;
 		// -c triggers servo calibration mode.  See docs in auv/calibrateservos.h.
 		else if(arg == "-c" || arg == "--calibrate-servos") return calibrateServos();
 		else if(arg == "-h"){
@@ -34,47 +34,41 @@ int main(int argc, char *argv[]){
 			qDebug() << "\t-s or --simulate : disable hardware on/off switch";
 			qDebug() << "\t-c or --calibrate-servos : enter servo calibration mode instead of running normally";
 			return 0;
-		}else if(arg == "-Y"){
-			stdCamera = true;
 		}
 	}
 
 	if(config.isEmpty())
 		loadConfigFile(config);
 
+	AUV_State stateData;
+	DataHub hub;
+
 	QMutex modelMutex;
 	QMutex sensorMutex;
 	
-	/* Initialize camread  ************************************************************/
-	qDebug("Initializing Camera");
-
-	if(camread_open("/dev/video0", 640, 480)) {
-		// We may or may not want to white balance when we start up
-		//if(!white_balance()) qDebug("White Balance failed.");
-		qDebug("Camera Online");
-	} else {
-		noCamera = true;
-		qDebug("Error: Camera Not Found or Initialization Error");
-	}
 
 	/* Create and initialize objects ******************************************************/
 	qDebug("Initializing Hardware Interfaces");
 
-	AUV* auv = new AUV(&sensorMutex, noHardSwitch);
+	AUV* auv = new AUV(&sensorMutex, simulate);
+	hub.addModule(auv);
 
 	/* Initialize Server */
-	qDebug("Initializing Server");
-	Server* server = new Server();
+	//qDebug("Initializing Server");
+	//Server* server = new Server();
+	//hub.addModule(server);
 
 	/* Initialize JAUS */
 	//JAUSServer* jaus = new JAUSServer(116,1,1);
 
 	/* Initialize Brain */
-	qDebug("Initializing Model");
+	qDebug("Initializing Brain");
 	Model* brain = new Model(&modelMutex);
+	hub.addModule(brain);
 
 
 	/* Connect Signals and Slots ****************************************************************** */
+/*
 	qDebug("Connecting Components");
 
 	// From AUV to Brain
@@ -116,6 +110,7 @@ int main(int argc, char *argv[]){
 	QObject::connect(server, SIGNAL(setParam(QString, double)), brain, SLOT(setParam(QString, double)));
 	QObject::connect(server, SIGNAL(setRec(bool)), brain, SLOT(setRecordVideo(bool)));
 		
+*/
 
 	/* Start threads ******************************************************************************/
 	qDebug("Starting Hardware Interfaces");
@@ -125,8 +120,8 @@ int main(int argc, char *argv[]){
 	qDebug("Starting Model");
 	brain->start(QThread::HighPriority);
 
-	qDebug("Starting Server");
-	server->start();
+	//qDebug("Starting Server");
+	//server->start();
 	
 	//qDebug("Starting JAUS");
 	//jaus->start();

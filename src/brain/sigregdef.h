@@ -1,6 +1,6 @@
 /*
- * Copyright 1990-2008 The MathWorks, Inc.
- * The MathWorks grants you the right to copy this file to other 
+ * Copyright 1990-2009 The MathWorks, Inc.
+ * MathWorks grants you the right to copy this file to other 
  * computer systems and embed this file within your products. You 
  * can make modifications for your application.
  *
@@ -15,7 +15,7 @@
  *  model.  Also see the 'PUBLIC DESCRIPTION' section at the bottom of 
  *  of the file for further explanation and the list of macro assessors that
  *  should be used to access the sigmap and siglist info.  Note that direct
- *  access to these structures is not recomended as the structures may
+ *  access to these structures is not recommended as the structures may
  *  change in future releases.
  */
 
@@ -48,7 +48,7 @@
 
 /* region node */
 typedef struct SL_SigRegion_tag {
-#if !defined(S_FUNCTION_NAME)
+#if !defined(S_FUNCTION_NAME) && !defined(EXPORT_SLLOGGING_API)
     slPort *portObj;        /* output port associated with reg */
 #else
     void *portObj;
@@ -59,7 +59,7 @@ typedef struct SL_SigRegion_tag {
                              */
     int          nEls;      /* number of elements in region     */
     bool         entireSig; /* is this region the whole sig?    */
-    unsigned int status;    /* bit field: see SLREG_xxx status
+    unsigned int status;    /* bit field: see SLREG_* status
                              * vals above */
 
     int index; /* The i'th region in the original map.  So, if a mux

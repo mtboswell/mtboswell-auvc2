@@ -52,4 +52,10 @@ typedef enum {
 
 #define SS_NUM_PREDEFINED_DTYPES  5
 
+/*
+ * DYNAMICALLY_TYPED - Specify for input/output port data types that can
+ * accept a variety of data types.
+ */
+#define DYNAMICALLY_TYPED            (-1)
+
 #endif /* __SL_TYPES_DEF_H__ */

@@ -1,7 +1,8 @@
+
 /*
- * Copyright 1990-2009 The MathWorks, Inc.
+ * Copyright 1990-2010 The MathWorks, Inc.
  *
- * File: simstruc.h     $Revision: 1.1.6.16.2.3 $
+ * File: simstruc.h     $Revision: 1.1.6.23.2.1 $
  *
  * Abstract:
  *      Data structures and access methods for S-functions.
@@ -504,10 +505,6 @@
 /*
  * DYNAMICALLY_SIZED - Specify for sizes entries that inherit their values
  * from the block that drives them.
- *
- * DYNAMICALLY_TYPED - Specify for input/output port data types that can
- * accept a variety of data types.
- *
  * SIMSTRUCT_VERSION - An integer which is the sizeof the SimStruct times
  * 10000 plus the version times 100. When updating version numbers within the
  * Matlab image, increment both level 1 and level 2 S-functions. Level 1
@@ -527,7 +524,6 @@
 #define NEVER_REFRESHED           (2)
 
 #define DYNAMICALLY_SIZED            (-1)
-#define DYNAMICALLY_TYPED            (-1)
 #define SIMSTRUCT_VERSION_LEVEL1     (sizeof(SimStruct)*10000 + 214)
 #define SIMSTRUCT_VERSION_LEVEL2     (sizeof(SimStruct)*10000 + 229)
 
@@ -948,9 +944,10 @@ struct _ssSizes {
       unsigned int modelRefNormalModeSupport: 2;
       unsigned int simStateCompliance: 4;
       unsigned int simStateVisibility: 1;
-
+      /* Use JacobianFcn in places of SlvrJacobianFcn */
+      unsigned int disableMdlSlvrJacobian :1; 
       /* prevent lint warning about bit fields greater than 16 bits */
-      unsigned int reserved:          8; /* remainder are reserved        */
+      unsigned int reserved:          7; /* remainder are reserved        */
   } flags;
 
   int_T numJacobianNzMax;  /* number of nonzero elements in sparse Jacobian  */
@@ -1606,7 +1603,27 @@ typedef enum {
     GEN_FCN_ACCEL_COPY_STATE_CACHE_FOR_IIS,
     GEN_FCN_REG_AUTOSAR_CLIENT_BLOCK,
     GEN_FCN_REG_MODELREF_GLOBAL_VARUSAGE,
-    GEN_FCN_SET_MODELREF_STATE_INSIDE_FOREACH
+    GEN_FCN_SET_MODELREF_STATE_INSIDE_FOREACH,
+    GEN_FCN_CALL_DEFAULT_JACOBIAN,
+    GEN_FCN_CONFIG_DEFAULT_JACOBIAN,
+    GEN_FCN_SET_DATA_MIN_MAX_VALUES,
+    GEN_FCN_DATASET_CREATE_SET_DESCRIPT,
+    GEN_FCN_DATASET_ADD_ELEMENT_DESCRIPT,
+    GEN_FCN_DATASET_ADD_TIMESERIES_DESCRIPT,
+    GEN_FCN_DATASET_CREATE_FROM_DESCRIPT,
+    GEN_FCN_DATASET_ADD_ELEMENT_PROP,
+    GEN_FCN_DATASET_UPDATE_LOGVAR,
+    GEN_FCN_SET_HAS_PAR_FOREACH_SS,
+    GEN_FCN_GET_DATATYPEOVERRIDEAPPLIESTO,
+    GEN_FCN_READ_FROM_DATA_STORE_REGION,
+    GEN_FCN_WRITE_TO_DATA_STORE_REGION,
+    GEN_FCN_UPDATE_DATA_STORE_DIAGNOSTICS,
+    GEN_FCN_GET_DATA_STORE_DIAGNOSTICS_STATUS,
+    GEN_FCN_CREATE_MEM_REGION_DESC,
+    GEN_FCN_SET_FLAT_MEM_SUB_REGION_DESC,
+    GEN_FCN_DESTROY_MEM_REGION_DESC,
+    GEN_FCN_GET_ZC_CONTROL_DISABLED,
+    GEN_FCN_GET_REG_SUBMODELS_MDLINFO
 } GenFcnType;
 
 #if SS_SL_INTERNAL || SS_SFCN_FOR_SIM
@@ -2382,7 +2399,7 @@ struct _ssSFcnModelMethods2 {
           (S)->states.flags.alreadyWarned
 
 typedef real_T const * const * UPtrsType;
-
+ 
 struct _ssStates {
     union {
         void       *vect;                 /* not const because of SL1.3 compat*/
@@ -2410,7 +2427,7 @@ struct _ssStates {
     boolean_T       *contStateDisabled;   /* Entry for each cont state        */
     ZCSigState      *prevZCSigState;      /* Used for detecting zc events     */
     real_T          *nonsampledZCs;       /* Nonsampled zero crossing signals */
-   ZCDirection     *nonsampledZCDirs;    /* Nonsampled zc directions          */
+    ZCDirection     *nonsampledZCDirs;    /* Nonsampled zc directions          */
 
     SparseHeader    *jacobian;		/* struct containing system Jacobian  */
     struct _ssSFcnModelMethods2 *modelMethods2;
@@ -3082,6 +3099,16 @@ struct SimStruct_tag {
 
 #define ssIsMdlProjectionDisabled(S) \
            ((S)->sizes.flags.disableMdlProjection == 1U)
+
+/*
+ * mdlSlvrJacobian may be present but S-Fcn may want to call default 
+   method
+ */
+#define ssSetDisableMdlSlvrJacobian(S,boolVal) \
+           ((S)->sizes.flags.disableMdlSlvrJacobian = (boolVal) ? 1U : 0U)
+
+#define ssIsMdlSlvrJacobianDisabled(S) \
+           ((S)->sizes.flags.disableMdlSlvrJacobian == 1U)
 
 /*
  * ss(S|G)etExplicitFCSSCtrl
@@ -3938,6 +3965,28 @@ typedef enum {
  */
 #define ssRegisterOutputPortMinMaxPrmIndices(S,portIdx,prmMinIdx,prmMaxIdx)        \
     ssRegisterDataMinMaxPrmIndices((S),SS_DATA_DESC_OUTPUT,(portIdx),(prmMinIdx),(prmMaxIdx))
+
+
+/*
+ * Set the output port min/max values.  This is used by Stateflow and other S-Functions
+ * in which min/max values are not Parameters with indices.  In case of Stateflow,
+ * the min/max values are data properties.
+ * This API and ssRegisterOutputPortMinMaxPrmIndices() are mutually exclusive!
+ */
+typedef struct outputPortMinMaxStruct_t {
+    int    dataDescType;
+    double designMin;
+    double designMax;
+} outputPortMinMaxStruct;
+        
+#define ssSetOutputPortMinMaxValues(S,portIdx,minValue,maxValue) \
+    { \
+        outputPortMinMaxStruct _moreArgs = { (int)(SS_DATA_DESC_OUTPUT), minValue, maxValue }; \
+        _ssSafelyCallGenericFcnStart(S)((S),  \
+            GEN_FCN_SET_DATA_MIN_MAX_VALUES, (portIdx), (void*) &_moreArgs) \
+        _ssSafelyCallGenericFcnEnd; \
+    }
+
 
  /* OutputComplexSignal - For each input port or your S-function block, this is
   *   whether or not the outgoing signal is complex, where (-1=either, 0=no,
@@ -5334,6 +5383,18 @@ struct _ssInputReqIISNumItersDWorks_tag {
 #   define ssSetInputRequestIISNumIterationsDWorks(S, pIdx, numDWs, numItersVals)
 # endif
 
+# if (SS_SL_INTERNAL || SS_SFCN_FOR_SIM) && defined(ssGetOwnerBlock)
+# define ssSetModelRefHasParforForEachSS(S, _setting) \
+{  if (ssGetOwnerBlock(S) != NULL) { \
+       boolean_T val = _setting; \
+       _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_SET_HAS_PAR_FOREACH_SS,0,&val) \
+       _ssSafelyCallGenericFcnEnd; \
+   }\
+} 
+# else
+#   define ssSetModelRefHasParforForEachSS(S, _setting)
+# endif
+
 /* ============================================================================
  * Variable dimensions APIs
  * ==========================================================================*/
@@ -5846,8 +5907,150 @@ typedef struct {
     _ssSafelyCallGenericFcnEnd; \
    }
 #endif
+
+/* Region-wise memory access API */
+typedef enum {
+    MEM_REGION_SELECT_ALL = 0,
+    MEM_REGION_STARTIDX_INCR_ENDIDX,
+    MEM_REGION_VECTOR,
+    MEM_REGION_VECTOR_FLATIDX
+} SFcnMemRegionIndexMode_T;
+
+typedef struct {
+    SFcnMemRegionIndexMode_T indexMode;
+    int                      numIndices;
+    int                      *indices;
+} SFcnSubMemRegionIndexInfo;
+
+typedef struct {
+    int         	      busElementIdx;
+    int     		      numDims;
+    SFcnSubMemRegionIndexInfo *subMemRegionIndexInfos;
+} SFcnSubMemRegionInfo;
+
+typedef struct {
+    int                  numSubMemRegions;
+    SFcnSubMemRegionInfo *subMemRegionInfos;
+    /* Following fields for Simulink use only */
+    boolean_T            cacheSlMemRootRegion;
+    void                 *slMemRootRegion;
+} SFcnMemRegionInfo;
+
+typedef struct {
+    const char        *bpath;
+    void              *addr;
+    SFcnMemRegionInfo *regionDescriptor;
+} SFcnDataStoreMemRegionArg;
+
+typedef struct {
+    const char        *bpath;
+    const void        *addr;
+    SFcnMemRegionInfo *regionDescriptor;
+} SFcnDataStoreMemRegionConstArg;
+
+typedef struct {    
+    int               busElemIdx;
+    int               numFlatElems;
+    int               *flatElemIndices;
+    SFcnMemRegionInfo *regionDescriptor;
+} SFcnDataStoreFlatSubMemRegionArg;
+
+typedef struct {
+    const char *bpath;
+    int        startOffset;
+    int        endOffset;
+    boolean_T  doRead; /* true: updates diagnostics for read operations, 
+                          false: updates diagnostics for write operations */
+} SFcnDataStoreUpdateMemRegionArg;
+
+/* APIs to create/destroy region descriptors */
+#if SS_SFCN && SS_SIM
+# define ssMemRegionCreateDescriptor(S, numSubMemRegions, memRegionDescriptor) \
+   {\
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_CREATE_MEM_REGION_DESC, numSubMemRegions, (void *)memRegionDescriptor) \
+    _ssSafelyCallGenericFcnEnd; \
+   }
+
+# define ssMemRegionSetFlatSubElement(S, memRegionDescriptor, subRegionIdx, busElementIdx, numFlatIdx, flatIdxs) \
+   {\
+    SFcnDataStoreFlatSubMemRegionArg locPI;\
+    locPI.regionDescriptor = memRegionDescriptor;\
+    locPI.busElemIdx = busElementIdx;\
+    locPI.numFlatElems = numFlatIdx;\
+    locPI.flatElemIndices = flatIdxs;\
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_SET_FLAT_MEM_SUB_REGION_DESC, subRegionIdx, &locPI) \
+    _ssSafelyCallGenericFcnEnd; \
+   }
+
+# define ssMemRegionDestroyDescriptor(S, memRegionDescriptor) \
+   {\
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_DESTROY_MEM_REGION_DESC, 0, (void *)memRegionDescriptor) \
+    _ssSafelyCallGenericFcnEnd; \
+   }
+#endif
+
+/* APIs to perform region-wise read/write */
+#if SS_SFCN && SS_SIM
+# define ssReadFromDataStoreRegionWithPath(S, dsmIdx, dsmBPath, dataAddr, dsmRegionDescriptor) \
+   {\
+    SFcnDataStoreMemRegionArg locPI;\
+    locPI.bpath = dsmBPath;\
+    locPI.addr = dataAddr;\
+    locPI.regionDescriptor = dsmRegionDescriptor;\
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_READ_FROM_DATA_STORE_REGION, dsmIdx, &locPI)\
+    _ssSafelyCallGenericFcnEnd; \
+   }
+# define ssReadFromDataStoreRegion(S, dsmIdx, dataAddr, dsmRegionDescriptor) \
+    ssReadFromDataStoreRegionWithPath(S, dsmIdx, NULL, dataAddr, dsmRegionDescriptor)
+#endif
+
+#if SS_SFCN && SS_SIM
+# define ssWriteToDataStoreRegionWithPath(S, dsmIdx, dsmBPath, dataAddr, dsmRegionDescriptor) \
+   {\
+    SFcnDataStoreMemRegionConstArg locPI;\
+    locPI.bpath = dsmBPath;\
+    locPI.addr = dataAddr;\
+    locPI.regionDescriptor = dsmRegionDescriptor;\
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_WRITE_TO_DATA_STORE_REGION, dsmIdx, &locPI)\
+    _ssSafelyCallGenericFcnEnd; \
+   }
+# define ssWriteToDataStoreRegion(S, dsmIdx, dataAddr, dsmRegionDescriptor) \
+    ssWriteToDataStoreRegionWithPath(S, dsmIdx, NULL, dataAddr, dsmRegionDescriptor)
+#endif
+
+/* API to notify Simulink of region-wise read/write */
+#if SS_SFCN && SS_SIM
+# define ssUpdateDataStoreRegionDiagnostics(S, dsmIdx, dsmBPath, startOffset, endOffset, doRead) \
+   {\
+    SFcnDataStoreUpdateMemRegionArg locPI;\
+    locPI.bpath = dsmBPath;\
+    locPI.startOffset = startOffset;\
+    locPI.endOffset = endOffset;\
+    locPI.doRead = doRead;\
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_UPDATE_DATA_STORE_DIAGNOSTICS, dsmIdx, &locPI)\
+    _ssSafelyCallGenericFcnEnd; \
+   }
+#endif
+
+/* API to detect if read/write diagnostics are ON on a given data store memory */
+#if SS_SFCN && SS_SIM
+# define ssGetDataStoreRWDiagnosticsStatus(S, dsmIdx, dsmDiagStatus)  \
+   {\
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_GET_DATA_STORE_DIAGNOSTICS_STATUS, dsmIdx, dsmDiagStatus)\
+    _ssSafelyCallGenericFcnEnd; \
+   }
+#endif
+
 /* end  Data Store API (internal Simulink use only) */
 /*============================================================================*/
+
+#if SS_SFCN && SS_SIM
+#define ssGetRegSubmodelsMdlinfo(S, result) \
+    {   \
+        _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_GET_REG_SUBMODELS_MDLINFO, 0, result) \
+        _ssSafelyCallGenericFcnEnd;      \
+    }
+#endif
 
 #if SS_SFCN && SS_SIM
 #define ssSetInputPortsNeedAddress(S, val) \
@@ -5868,14 +6071,12 @@ typedef struct {
     int_T        _regionElIdx;
     boolean_T    _result;
 }_ssRegionElementIdxInfo;
-
-/*
- * Specify that the input port is being used to comptue the continuous zero
- * crossing signal values
- */
+ 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+extern boolean_T ssGetIsZeroCrossControlDisabled(SimStruct *S);
 extern void ssSetIsInputPortUsedForContZcSignal(SimStruct *S, int_T pIdx, boolean_T value); 
 extern void ssSetZcSignalIsZcElementDisc(SimStruct *S, int_T zcsIdx, int_T zcsElIdx, boolean_T value); 
 extern void ssSetZcSignalName(SimStruct *S, int_T zcsIdx, char* name); 
@@ -5964,6 +6165,7 @@ typedef enum {
     MDL_INFO_ID_ENUMTYPE_STRING,
     MDL_INFO_ID_MODEL_FCN_ARGNAME,
     MDL_INFO_ID_MODEL_FCN_NAME,
+    MDL_INFO_ID_MODEL_CLASS_NAME,
     MDL_INFO_ID_AUTOSAR_RTE_FCN_NAME,
     MDL_INFO_ID_RESERVED,
     MDL_INFO_ID_VARIANT,
@@ -6655,6 +6857,20 @@ typedef enum {
 
 #define ssSetJacobianTypeAndMsg(S, type, msg) _ssSetJacobianTypeAndMsg(S, type, msg)
 #define ssSetJacobianType(S, type) _ssSetJacobianTypeAndMsg(S, type, NULL)
+
+#define ssCallDefaultJacobianMethod(S) \
+{\
+    _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_CALL_DEFAULT_JACOBIAN, 0,NULL) \
+     _ssSafelyCallGenericFcnEnd;\
+}
+
+#define ssConfigDefaultJacobian(S) \
+{\
+    ssSetJacobianNzMax(S, -1); \
+    _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_CONFIG_DEFAULT_JACOBIAN, 0,NULL) \
+    _ssSafelyCallGenericFcnEnd;\
+}
+
 
 /* SupportRunTimeModelAPI - Runtime model API refers to the model function with
 'outputs', 'derivs' and 'update' command. If the S-function block writes to
@@ -7944,6 +8160,12 @@ typedef enum {
 
 #endif
 
+#define ssGetSolverIsAtLeftPostOfContZcEvent(S) \
+        ((S)->mdlInfo->solverInfo->isAtLeftPostOfContZcEvent == 1U)
+
+#define ssGetSolverIsAtRightPostOfContZcEvent(S) \
+        ((S)->mdlInfo->solverInfo->isAtRightPostOfContZcEvent == 1U)
+
 #if !SS_SFCN || SS_GENERATED_S_FUNCTION
 
 # define ssSetSolverInfo(S,ptr) \
@@ -7982,13 +8204,9 @@ typedef enum {
 
 #define ssSetSolverIsAtLeftPostOfContZcEvent(S, val) \
         ssGetSolverInfo(S)->isAtLeftPostOfContZcEvent = (val)
-#define ssGetSolverIsAtLeftPostOfContZcEvent(S) \
-        (ssGetSolverInfo(S)->isAtLeftPostOfContZcEvent == 1U)
 
 #define ssSetSolverIsAtRightPostOfContZcEvent(S, val) \
         ssGetSolverInfo(S)->isAtRightPostOfContZcEvent = (val)
-#define ssGetSolverIsAtRightPostOfContZcEvent(S) \
-        (ssGetSolverInfo(S)->isAtRightPostOfContZcEvent == 1U)
 
 
 #define ssSetSolverNeedsContZcEventNotification(S, val) \
@@ -8100,6 +8318,16 @@ typedef enum {
         ssGetSolverInfo(S)->consecutiveZCsError
 #define ssSetSolverConsecutiveZCsError(S, val) \
         ssGetSolverInfo(S)->consecutiveZCsError = (val)
+
+#define ssGetSolverMaskedZcDiagnostic(S) \
+        ssGetSolverInfo(S)->maskedZcDiagnostic
+#define ssSetSolverMaskedZcDiagnostic(S, val) \
+        ssGetSolverInfo(S)->maskedZcDiagnostic = (val)
+
+#define ssGetSolverIgnoredZcDiagnostic(S) \
+        ssGetSolverInfo(S)->ignoredZcDiagnostic
+#define ssSetSolverIgnoredZcDiagnostic(S, val) \
+        ssGetSolverInfo(S)->ignoredZcDiagnostic = (val)
 
 
 /* Support old name RTWSolverInfo */
@@ -9442,45 +9670,10 @@ extern int_T _ssGetCallSystemNumFcnCallDestinations(SimStruct *S, int_T elemIdx)
    _ssSafelyCallGenericFcnEnd
 
 /*---------------------------- get system level setting ---------------------*/
-/*
- * FixPt: Data type override options
- */
-typedef enum {
-    FIXPT_DATATYPE_LOCAL,
-    FIXPT_DATATYPE_SCALED_DOUBLES,
-    FIXPT_DATATYPE_TRUE_DOUBLES,
-    FIXPT_DATATYPE_TRUE_SINGLES,
-    FIXPT_DATATYPE_OFF,
-    FIXPT_DATATYPE_OVERRIDE_IGNORE,
-    FIXPT_DATATYPE_OVERRIDE_UNKNOWN
-} FixPtDataTypeOverride;
 
-/*
- * FixPt: Min/Max logging options
- */
-typedef enum {
-    FIXPT_LOGGING_LOCAL,
-    FIXPT_LOGGING_MIN_MAX_OVERFLOW,
-    FIXPT_LOGGING_OVERFLOW_ONLY,
-    FIXPT_LOGGING_OFF
-} FixPtMinMaxOverflowLogging;
+#include "sl_fixpt.h"
 
-/*
- * FixPt: Min/Max logging mode options
- */
-typedef enum {
-    FIXPT_ARCHIVEMODE_OVERWRITE,
-    FIXPT_ARCHIVEMODE_MERGE
-} FixPtMinMaxOverflowArchiveMode;
-
-/*
- * Production hardware characteristics settings
- */
-typedef enum {
-    FIXPT_PRODHWDEVICE_MICRO,
-    FIXPT_PRODHWDEVICE_ASIC,
-    FIXPT_PRODHWDEVICE_UNKNOWN
-} ProdHWDeviceType;
+#include "sl_prodhwdevicetype.h"
 
 /* Get whether net slope corrections can use division
  */
@@ -9496,11 +9689,18 @@ typedef enum {
           _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_GET_SIMULATIONTYPE, 0, result)\
           _ssSafelyCallGenericFcnEnd
 
-/* get the double override settting of current system
+/* get the double override setting of current system
  */
 #define ssGetDataTypeOverride(S, result) \
           _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_GET_DATATYPEOVERRIDE, 0, result)\
           _ssSafelyCallGenericFcnEnd
+
+/* get the datatype override applies to setting of current system
+ */
+#define ssGetDataTypeOverrideAppliesTo(S, result) \
+          _ssSafelyCallGenericFcnStart(S)((S), GEN_FCN_GET_DATATYPEOVERRIDEAPPLIESTO, 0, result)\
+          _ssSafelyCallGenericFcnEnd
+
 
 /* The term Doubles-Override is outdated and misleading.
  * Instead, the terms Data-Type-Override and Scaled-Doubles should be used
@@ -10967,6 +11167,181 @@ typedef void (*voidFcnVoidStarType)(void*,void*);
 
 # define ssGetArg(S,argNum)                ssGetSFcnParam(S,argNum)
 # define ssSetArg(S,argIdx,argMat)         ssSetSFcnParam(S,argIdx,argMat)
+
+#endif
+
+/*===========================================================================*
+ * Dataset Format Logging                                                    *
+ *===========================================================================*/
+
+typedef struct {
+    void         *mmi;
+    const char_T *name;
+    void         **ppRet;
+} SFcnDatasetCreateSetDescriptInfo;
+
+typedef struct {
+    void         *pDatasetDesc;
+    const char_T *className;
+    const char_T *name;
+    const char_T *bpath;
+    int_T        portIdx;
+    int_T        hierInfoIdx;
+    void         **ppRet;
+} SFcnDatasetAddElementDescriptInfo;
+
+typedef struct {
+    void         *pElementDesc;
+    const char_T *name;
+    int_T        max_points;
+    int_T        decimation_val;
+    int_T        width;
+    int_T        nDims;
+    const int_T  *dims;
+    DTypeId      dataType;
+    boolean_T    complexity;
+} SFcnDatasetAddTimeseriesDescInfo;
+
+typedef struct {
+    void *pDatasetDesc;
+    void **ppRetElementArray;
+} SFcnDatasetCreateFromDescptInfo;
+
+typedef struct {
+    const char  *propName;
+    mxArray     *propVal;
+    void        *pElement;
+} SFcnDatasetAddElementPropInfo;
+
+typedef struct {
+    void   *pwork;
+    real_T inputTime;
+    const void* const* inputData;
+} SFcnDatasetUpdateLogVarInfo;
+
+#if SS_SFCN && SS_SIM
+
+/** CREATION STEP 1:  Create a dataset description **/
+#define ssDatasetCreateSetDescript(S, \
+                                   modelMappingInfo, \
+                                   datasetName, \
+                                   ppSetDesc) { \
+    SFcnDatasetCreateSetDescriptInfo info; \
+    info.mmi = modelMappingInfo; \
+    info.name = datasetName; \
+    info.ppRet = ppSetDesc; \
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_DATASET_CREATE_SET_DESCRIPT, 0, &info)\
+    _ssSafelyCallGenericFcnEnd; \
+}
+
+#define ssDatasetCreateSigLogSetDescript(S, \
+                                         modelMappingInfo, \
+                                         ppSetDesc) \
+    ssDatasetCreateSetDescript(S, modelMappingInfo, NULL, ppSetDesc)
+
+
+/** CREATION STEP 2:  Add element descriptions to dataset description **/
+#define ssDatasetAddSignalElementDescript(S, \
+                                          pSetDesc, \
+                                          elementName, \
+                                          blockPath, \
+                                          portIndex, \
+                                          busHierarchyIdx, \
+                                          ppElementDesc) { \
+    SFcnDatasetAddElementDescriptInfo info; \
+    info.pDatasetDesc = pSetDesc; \
+    info.className = NULL; \
+    info.name = elementName; \
+    info.bpath = blockPath; \
+    info.portIdx = portIndex; \
+    info.hierInfoIdx = busHierarchyIdx; \
+    info.ppRet = ppElementDesc; \
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_DATASET_ADD_ELEMENT_DESCRIPT, 0, &info)\
+    _ssSafelyCallGenericFcnEnd; \
+}
+
+#define ssDatasetAddGenericElementDescript(S, \
+                                           pSetDesc, \
+                                           elementClassName, \
+                                           elementName, \
+                                           blockPath, \
+                                           busHierarchyIdx, \
+                                           ppElementDesc) { \
+    SFcnDatasetAddElementDescriptInfo info; \
+    info.pDatasetDesc = pSetDesc; \
+    info.className = elementClassName; \
+    info.name = elementName; \
+    info.bpath = blockPath; \
+    info.portIdx = -1; \
+    info.hierInfoIdx = busHierarchyIdx; \
+    info.ppRet = ppElementDesc; \
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_DATASET_ADD_ELEMENT_DESCRIPT, 0, &info)\
+    _ssSafelyCallGenericFcnEnd; \
+}
+
+
+/** CREATION STEP 3:  Add timeseries description to a dataset element description **/
+#define ssDatasetAddTimeseriesDescript(S, \
+                                       pElementDescript, \
+                                       timeseriesName, \
+                                       maxPoints, \
+                                       decimation, \
+                                       signalWidth, \
+                                       signalNdims, \
+                                       signalDims, \
+                                       signalDataType, \
+                                       signalComplexity) { \
+    SFcnDatasetAddTimeseriesDescInfo info; \
+    info.pElementDesc = pElementDescript; \
+    info.name = timeseriesName; \
+    info.max_points = maxPoints; \
+    info.decimation_val = decimation; \
+    info.width = signalWidth; \
+    info.nDims = signalNdims; \
+    info.dims = signalDims; \
+    info.dataType = signalDataType; \
+    info.complexity = signalComplexity; \
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_DATASET_ADD_TIMESERIES_DESCRIPT, 0, &info)\
+    _ssSafelyCallGenericFcnEnd; \
+}
+
+/* CREATION STEP 4:  Construct variable from description */
+#define ssDatasetCreateFromDescpt(S, \
+                                  pSetDesc, \
+                                  elementPtrArray) { \
+    SFcnDatasetCreateFromDescptInfo info; \
+    info.pDatasetDesc = pSetDesc; \
+    info.ppRetElementArray = elementPtrArray; \
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_DATASET_CREATE_FROM_DESCRIPT, 0, &info)\
+    _ssSafelyCallGenericFcnEnd; \
+}
+
+/** CREATION STEP 5 (optional):  Add additional properties to generic element **/
+# define ssDatasetAddElementProperty(S, \
+                                     elementPtr, \
+                                     propertyName, \
+                                     propertyVal) {\
+    SFcnDatasetAddElementPropInfo info; \
+    info.propName = propertyName; \
+    info.propVal = propertyVal; \
+    info.pElement = elementPtr; \
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_DATASET_ADD_ELEMENT_PROP, 0, &info)\
+    _ssSafelyCallGenericFcnEnd; \
+}
+
+/** UPDATE **/
+# define ssDatasetUpdateTimeseries(S, \
+                                   elementPtr, \
+                                   timeseriesIdx, \
+                                   timeVal, \
+                                   dataPtr) {\
+    SFcnDatasetUpdateLogVarInfo info; \
+    info.pwork = elementPtr; \
+    info.inputTime = timeVal; \
+    info.inputData = dataPtr; \
+    _ssSafelyCallGenericFcnStart(S)((S),GEN_FCN_DATASET_UPDATE_LOGVAR, timeseriesIdx, &info)\
+    _ssSafelyCallGenericFcnEnd; \
+}
 
 #endif
 

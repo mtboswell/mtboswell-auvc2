@@ -1,4 +1,13 @@
+#ifndef AUV_STATE
+#define AUV_STATE
+#include <QImage>
+#include <QString>
+#include <QMap>
+#include "auv/auvtypes.h"
 
+#define NUMBER_OF_THRUSTERS 4
+#define NO_OF_IR_SENSORS 1
+#define SIZE_OF_MAESTRO 12
 
 struct axes {
 	double x, y, z;
@@ -63,6 +72,7 @@ typedef struct
 	 int update; //1 if not yet given to the user, 0 if already given
  } AHRSdata;
 
+/*
 typedef struct
 {
 	double power;
@@ -70,6 +80,7 @@ typedef struct
 	double current;
 	bool state;
 } powerData;
+*/
 
 struct sensorData {
 	AHRSdata ahrs;
@@ -97,9 +108,9 @@ struct actuatorData {
 struct AUV_State {
 	enum status {STOPPED, RUNNING, KILLED};
 	enum controlSource {DIRECTOR, RC};
-	Task* currentTask;
-	Action* currentAction;
-	Object* currentTarget;
+	QString currentTask;
+	QString currentAction;
+	QString currentTarget;
 	QString currentCommand;
 	struct targetData targetingResults;
 	struct physicalState currentState;
@@ -108,5 +119,6 @@ struct AUV_State {
 	struct sensorData sensors;
 	struct actuatorData actuators;
 	QMap<QString, double> params; // Module.paramname = value
-} state;
+};
 
+#endif

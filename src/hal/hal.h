@@ -6,9 +6,8 @@
  */
 
 // sensor datatypes defined in datatypes.h
-#include "auvdatatypes.h"
+#include "../state.h"
 #include "../configloader.h"
-#include "../brain/brain.h"
 
 #include <QThread>
 #include <QTimer>
@@ -34,11 +33,37 @@ class HAL : public QObject {
 	public:
 		/**
 		 * Constructor.
-		 * @param sensorMutex Mutex to protect sensor data?
-		 * @param hardwareOverrideDisabled If set to true, the hardware on/off switch will have no effect.
 		 */
 		HAL();
 		~HAL();
+
+
+		struct SensorInfo {
+			enum type{STATE,ENV,META};
+			QMap<QString, QString> dataAvailable; // id,units 
+			// data IDs: X,Y,Z,XRate,YRate,ZRate,XAcc,YAcc,ZAcc,Roll,Pitch,Yaw,RollRate,PitchRate,YawRate,RollAcc,PitchAcc,YawAcc,Temp,Light,deltaTime,clockTime,MagX,MagY,MagZ,deltaX,deltaY,deltaZ,
+			// units: ft, ft/s, ft/s^2, deg, rad, deg/s, rad/s, degF, sec, millisec, gauss, etc.
+			QMap<QString, double> dataAccuracy; // id, accuracy
+
+		};
+		struct ThrusterInfo {
+			QVector3D effectOnXYZ;  // assuming symmetric thrusters; units are force on given (positive) axis at full (positive) throttle
+			QVector3D effectOnRollPitchYaw;
+			double responseTime;
+		};
+		struct cameraInfo {
+			double whiteLevel;
+			QImage fieldOfView; // ??
+		};
+
+		QMap<double, double> getData(QString dataID); // QMap: value, accuracy
+
+		QMap<QString, SensorInfo> getSensorInfo(); // QMap: name, info
+		QMap<QString, ThrusterInfo> getThrusterInfo(); // QMap: name, info
+		QStringList getMechanismList();
+
+		QMap<QString, double> getSensorData(QString sensor);
+		void setThruster(QString name, double value);  // value = -1.0 to 1.0
 
 		/**
 		 * Set all of the thruster speeds to 0.
@@ -50,7 +75,7 @@ class HAL : public QObject {
 		 * orientation.yaw, roll, pitch
 		 * @return imu_data struct containing acceleration and compass data for all 3 axes.
 		 */
-		virtual imu_data getOrientation();
+		virtual imu_data getOrientation(int sensorIndex);
 		/**
 		 * Get current compass heading.
 		 * If you don't need all of the AHRS data, this returns only the yaw, or heading.

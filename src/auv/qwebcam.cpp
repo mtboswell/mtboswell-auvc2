@@ -20,7 +20,7 @@
 
 #include "qwebcam.h"
 
-QWebCam::QWebCam(QWidget * parent):QLabel(parent),
+QWebCam::QWebCam(QObject * parent):QObject(parent),
 	timer_(this),
 	counter_(0)
 {

@@ -2,6 +2,15 @@ TEMPLATE = app
 TARGET = ../agent
 CONFIG += qt
 QT += network  # phonon 
+unix {
+	CONFIG += link_pkgconfig
+	PKGCONFIG += opencv
+}
+
+win32 {
+	LIBS += cv.lib highgui.lib cvaux.lib cxcore.lib
+}
+
 DEPENDPATH += . \
 	      auv \
 	      brain \
@@ -16,10 +25,12 @@ INCLUDEPATH += . \
 	     server 
 #	     server-jaus
 #LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
+#LIBS += -lcv -lhighgui
 # Input
-HEADERS += server/server.h \
+HEADERS += \
 	server/sidsocket.h \
-#	server-jaus/server-jaus.h \
+	state.h \
+	datahub/datahub.h \
 	version.h \
 	configloader.h \
 	model/parameters.h \
@@ -28,9 +39,9 @@ HEADERS += server/server.h \
 	auv/auv.h \
 	auv/auvtypes.h \
 	auv/calibration.h \
-	auv/camread.h \
 	auv/imudata.h \
 	auv/microstrain.h \
+	auv/qwebcam.h \
 	auv/os5000.h \
 	auv/pololu.h \
 	auv/ports.h \
@@ -42,9 +53,8 @@ HEADERS += server/server.h \
 	auv/qextserialport/qextserialenumerator.h \
 	auv/qextserialport/qextserialport_global.h \
 	auv/qextserialport/qextserialport.h
-SOURCES += server/server.cpp \
+SOURCES += \
 	   server/sidsocket.cpp \
-#	   server-jaus/server-jaus.cpp \
 	   main.cpp \
 	   version.cpp \
 	   configloader.cpp \
@@ -52,7 +62,7 @@ SOURCES += server/server.cpp \
 	   model/parameters.cpp \
 	   auv/arduino.cpp \
 	   auv/auv.cpp \
-	   auv/camread.cpp \
+	   auv/qwebcam.cpp \
 	   auv/microstrain.cpp \
 	   auv/os5000.cpp \
 	   auv/pololu.cpp \

@@ -1,17 +1,18 @@
-brain/brain.cpp:3556:6: warning: unused parameter ‘brain_M’
-brain/brain.cpp:5092:6: warning: unused parameter ‘brain_M’
-brain/brain.cpp: In function ‘void StateFlowFunctionsBuoysFindBuoy(const real_T*, const real_T*, real_T, rtB_StateFlowFunctionsBuoysFind*, rtDW_StateFlowFunctionsBuoysFin*)’:
-brain/brain.cpp:1554:33: warning: array subscript is above array bounds
-brain/brain.cpp:1564:34: warning: array subscript is above array bounds
-brain/brain.cpp:1574:31: warning: array subscript is above array bounds
-brain/brain.cpp: In function ‘void StateFlowFunctionsBuoysFindBu_l(const real_T*, real_T, const real_T*, rtB_StateFlowFunctionsBuoysFi_d*, rtDW_StateFlowFunctionsBuoysF_e*)’:
-brain/brain.cpp:3283:29: warning: array subscript is above array bounds
-brain/brain.cpp:3293:33: warning: array subscript is above array bounds
-brain/brain.cpp:3303:34: warning: array subscript is above array bounds
-brain/brain.cpp:3313:31: warning: array subscript is above array bounds
-brain/brain.cpp: In function ‘void StateFlowFunctionsValidationGat(const real_T*, const real_T*, rtB_StateFlowFunctionsValidatio*, rtDW_StateFlowFunctionsValidati*)’:
-brain/brain.cpp:3784:12: warning: ‘BlobAnalysis_NUM_PIX_DW’ may be used uninitialized in this function
-brain/brain.cpp:3793:12: warning: ‘rtb_BlobAnalysis’ may be used uninitialized in this function
-brain/brain.cpp: In function ‘void brain_JumpHedge()’:
-brain/brain.cpp:12992:12: warning: ‘BuoyBlobAnalysis_NUM_PIX_DW’ may be used uninitialized in this function
-brain/brain.cpp:12995:11: warning: ‘rtb_BuoyBlobAnalysis’ may be used uninitialized in this function
+model/model.cpp: In member function ‘void Model::updateSensorsInput(AUVSensors)’:
+model/model.cpp:135:22: error: ‘struct ExternalInputs_brain’ has no member named ‘Y’
+model/model.cpp:136:22: error: ‘struct ExternalInputs_brain’ has no member named ‘Cb’
+model/model.cpp:137:22: error: ‘struct ExternalInputs_brain’ has no member named ‘Cr’
+make: *** [model.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from main.cpp:8:0:
+datahub/datahub.h: In member function ‘void DataHub::messageIn(QString, QString)’:
+datahub/datahub.h:43:66: error: ‘message’ was not declared in this scope
+datahub/datahub.h: At global scope:
+datahub/datahub.h:43:8: warning: unused parameter ‘id’
+datahub/datahub.h:43:8: warning: unused parameter ‘data’
+auv/auv.cpp: In constructor ‘AUV::AUV(QMutex*, bool)’:
+auv/auv.cpp:79:2: error: ‘camera’ was not declared in this scope
+auv/auv.cpp:79:15: error: expected type-specifier before ‘QWebCam’
+auv/auv.cpp:79:15: error: expected ‘;’ before ‘QWebCam’
+make: *** [main.o] Error 1
+make: *** [auv.o] Error 1
