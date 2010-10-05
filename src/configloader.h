@@ -6,6 +6,7 @@
 #include <QStringList>
 #include <QTextStream>
 
+//typedef QMap<QString, QString> StringTable;
 extern QMap<QString, QString> config;
 extern QFile * confFile;
 static QStringList confFileContents;
