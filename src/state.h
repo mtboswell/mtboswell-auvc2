@@ -3,16 +3,19 @@
 #include <QImage>
 #include <QString>
 #include <QMap>
+#include <QMutex>
 #include "auv/auvtypes.h"
 
 #define NUMBER_OF_THRUSTERS 4
 #define NO_OF_IR_SENSORS 1
 #define SIZE_OF_MAESTRO 12
 
-struct axes {
+/// Datatype for 3D vectors, should use QVector3D instead
+typedef struct{
 	double x, y, z;
-};
+} axes;
 
+/// Data from targeting system about identified objects
 struct targetData {
 	bool found;
 	int progressPercentage;
@@ -24,55 +27,30 @@ struct targetData {
 
 
 /**
- * Data container to contain data from an AHRS, such as the Microstrain 3DM-GX1.
+ * Data container to contain data from the Microstrain 3DM-GX1.
  */
 typedef struct
  {
+ 	// misc comm data
 	 int command, tmticks, chksum;
 	 /**
 	  * Local magnetic declination
 	  */
 	 double magDecl;					// local magnetic declination
-	 /**
-	  * Roll angle of the vehicle
-	  */
 	 double roll;
-	 /**
-	  * Pitch angle of the vehicle
-	  */
 	 double pitch;
-	 /**
-	  * Yaw, or Heading, measured from North (0).
-	  */
 	 double yaw;		// orientation
-	 /**
-	  * Angular rate of rotation around the roll axis
-	  */
 	 double rollrate;
-	 /**
-	  * Angular rate of rotation around the pitch axis
-	  */
 	 double pitchrate;
-	 /**
-	  * Angular rate of rotation around the yaw axis
-	  */
 	 double yawrate;	// angular rates
-	 /**
-	  * Acceleration along the roll axis
-	  */
 	 double rollacc;
-	 /**
-	  * Acceleration along the pitch axis
-	  */
 	 double pitchacc;
-	 /**
-	  * Acceleration along the yaw axis
-	  */
 	 double yawacc;		// accelerations
+	 // deprecated:
 	 int update; //1 if not yet given to the user, 0 if already given
  } AHRSdata;
 
-/*
+/* defined in auvtypes.h - uncomment when we get rid of that file
 typedef struct
 {
 	double power;
@@ -82,6 +60,11 @@ typedef struct
 } powerData;
 */
 
+/**
+ * Sensor Data - from the HAL.
+ * There are two ways to deal with this data, both shown here.
+ */
+/// old way:
 struct sensorData {
 	AHRSdata ahrs;
 	double depth;
@@ -91,10 +74,21 @@ struct sensorData {
 	powerData thrusterPower;
 	int irSensors[NO_OF_IR_SENSORS];
 };
+/// new way?
+struct sensor{
+	QString ID;
+	QMap<double, double> values;
+};
 
+/** 
+ * Represents the current position and other physical properties of the vehicle.
+ * The coordinate system is absolute, with 0,0,0 being the AUV start or tare point.
+ * Remember that +Z is down, +Y is right, +X is forward.
+ */
 struct physicalState {
 	double roll, pitch, yaw;
 	double rollRate, pitchRate, yawRate;
+	double rollAcc, pitchAcc, yawAcc;
 	double xPos, yPos, zPos;
 	double xSpeed, ySpeed, zSpeed;
 	double xAccel, yAccel, zAccel;
@@ -102,23 +96,45 @@ struct physicalState {
 
 struct actuatorData {
 	double thrusters[NUMBER_OF_THRUSTERS];
-	int servos[SIZE_OF_MAESTRO];
+	int mechs[NUMBER_OF_MECHANISMS];
 };
 
+/**
+ * AUV_State is the main shared dataset for all of the modules.
+ */
 struct AUV_State {
+	/// Supervisor outputs
+	QMutex supervisorMutex; // for supervisor
 	enum status {STOPPED, RUNNING, KILLED};
 	enum controlSource {DIRECTOR, RC};
+
+	/// Director outputs
+	QMutex directorMutex;
 	QString currentTask;
 	QString currentAction;
 	QString currentTarget;
 	QString currentCommand;
+
+	/// Targeting outputs
+	QMutex targeterMutex;
 	struct targetData targetingResults;
+
+	/// State estimator outputs
+	QMutex stateMutex;
 	struct physicalState currentState;
-	struct physicalState desiredState;
-	// Mechanism states (from HAL)
-	struct sensorData sensors;
+
+	/// Actor/Controllers output
+	QMutex actorMutex;
+	struct controlsData desiredActions;
+
+	/// HAL outputs
+	QMutex HALmutex;
+	// new way?
+	QList<sensor> sensors; // doesn't include cameras
+	QImage fwdCam, downCam;
+	// old way
+	struct sensorData sensors; // includes cameras
 	struct actuatorData actuators;
-	QMap<QString, double> params; // Module.paramname = value
 };
 
 #endif
