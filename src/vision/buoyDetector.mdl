@@ -11,7 +11,7 @@ Model {
       Name		      "Number of Buoys"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.11"
+    ComputedModelVersion    "1.13"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -31,9 +31,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Sep 28 17:59:42 2010"
-  RTWModifiedTimeStamp	  207597110
-  ModelVersionFormat	  "1.%<AutoIncrement:11>"
+  LastModifiedDate	  "Sun Oct  3 13:37:10 2010"
+  RTWModifiedTimeStamp	  208013827
+  ModelVersionFormat	  "1.%<AutoIncrement:13>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -583,7 +583,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 276, 113, 1164, 769 ] "
+      ConfigPrmDlgPosition    " [ 276, 122, 1164, 778 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -727,7 +727,7 @@ Model {
   }
   System {
     Name		    "buoyDetector"
-    Location		    [247, 83, 2808, 938]
+    Location		    [0, 83, 1440, 867]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -741,7 +741,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "85"
+    SIDHighWatermark	    "86"
     Block {
       BlockType		      Reference
       Name		      "Color Space\n Conversion"
@@ -785,7 +785,7 @@ Model {
       System {
 	Name			"GetBuoyColors"
 	Location		[49, 144, 1389, 777]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -836,11 +836,6 @@ Model {
 	  RTWSystemCode		  "Auto"
 	  FunctionWithSeparateData off
 	  Opaque		  off
-	  Array {
-	    Type		    "Handle"
-	    Dimension		    0
-	    PropName		    "AvailSigsLoadSave"
-	  }
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  MaskType		  "Stateflow"
@@ -1048,7 +1043,6 @@ Model {
 	  Name			  "Constant"
 	  SID			  "69"
 	  Position		  [265, 266, 420, 314]
-	  Value			  "Buoy_Min_Eccentricity"
 	  SampleTime		  "-1"
 	}
 	Block {
@@ -1088,11 +1082,6 @@ Model {
 	  RTWSystemCode		  "Auto"
 	  FunctionWithSeparateData off
 	  Opaque		  off
-	  Array {
-	    Type		    "Handle"
-	    Dimension		    0
-	    PropName		    "AvailSigsLoadSave"
-	  }
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  MaskType		  "Stateflow"
@@ -1327,11 +1316,6 @@ Model {
 	  RTWSystemCode		  "Auto"
 	  FunctionWithSeparateData off
 	  Opaque		  off
-	  Array {
-	    Type		    "Handle"
-	    Dimension		    0
-	    PropName		    "AvailSigsLoadSave"
-	  }
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  MaskType		  "Stateflow"
@@ -1809,11 +1793,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -1927,11 +1906,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -2045,11 +2019,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -2283,11 +2252,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -2457,11 +2421,6 @@ Model {
 	      RTWSystemCode	      "Auto"
 	      FunctionWithSeparateData off
 	      Opaque		      off
-	      Array {
-		Type			"Handle"
-		Dimension		0
-		PropName		"AvailSigsLoadSave"
-	      }
 	      RequestExecContextInheritance off
 	      MaskHideContents	      off
 	      MaskType		      "Stateflow"
@@ -3122,7 +3081,7 @@ Model {
       System {
 	Name			"LookforBuoys"
 	Location		[4, 83, 1350, 716]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3173,11 +3132,6 @@ Model {
 	  RTWSystemCode		  "Auto"
 	  FunctionWithSeparateData off
 	  Opaque		  off
-	  Array {
-	    Type		    "Handle"
-	    Dimension		    0
-	    PropName		    "AvailSigsLoadSave"
-	  }
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  MaskType		  "Stateflow"
@@ -3363,7 +3317,6 @@ Model {
 	  Name			  "Constant"
 	  SID			  "55"
 	  Position		  [125, 131, 280, 179]
-	  Value			  "Buoy_Min_Eccentricity"
 	  SampleTime		  "-1"
 	}
 	Block {
@@ -3439,11 +3392,6 @@ Model {
 	  RTWSystemCode		  "Auto"
 	  FunctionWithSeparateData off
 	  Opaque		  off
-	  Array {
-	    Type		    "Handle"
-	    Dimension		    0
-	    PropName		    "AvailSigsLoadSave"
-	  }
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  MaskType		  "Stateflow"
@@ -3866,11 +3814,6 @@ Model {
 	  RTWSystemCode		  "Auto"
 	  FunctionWithSeparateData off
 	  Opaque		  off
-	  Array {
-	    Type		    "Handle"
-	    Dimension		    0
-	    PropName		    "AvailSigsLoadSave"
-	  }
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  MaskType		  "Stateflow"
@@ -4043,11 +3986,6 @@ Model {
 	  RTWSystemCode		  "Auto"
 	  FunctionWithSeparateData off
 	  Opaque		  off
-	  Array {
-	    Type		    "Handle"
-	    Dimension		    0
-	    PropName		    "AvailSigsLoadSave"
-	  }
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  MaskType		  "Stateflow"
@@ -4245,6 +4183,30 @@ Model {
       }
     }
     Block {
+      BlockType		      Reference
+      Name		      "Video Viewer"
+      SID		      "86"
+      Ports		      [1]
+      Position		      [1310, 535, 1425, 605]
+      LibraryVersion	      "1.251"
+      UserDataPersistent      on
+      UserData		      "DataTag5"
+      DialogControllerArgs    "DataTag6"
+      SourceBlock	      "vipsnks/Video Viewer"
+      SourceType	      "Video Viewer"
+      inputType		      "Obsolete7b"
+      imagePorts	      "One multidimensional signal"
+      useColorMap	      off
+      colormapValue	      "jet(256)"
+      specRange		      off
+      minInputVal	      "0"
+      maxInputVal	      "255"
+      FigPos		      "[2707 511 410 300]"
+      AxisZoom		      on
+      trueSizedOnce	      off
+      OpenAtMdlStart	      on
+    }
+    Block {
       BlockType		      SubSystem
       Name		      "countimages"
       SID		      "77"
@@ -4258,11 +4220,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -4452,9 +4409,17 @@ Model {
     Line {
       SrcBlock		      "ShowSegmentedImage"
       SrcPort		      1
-      Points		      [130, 0; 0, -120]
-      DstBlock		      "LookforBuoys"
-      DstPort		      3
+      Points		      [125, 0]
+      Branch {
+	Points			[5, 0; 0, -120]
+	DstBlock		"LookforBuoys"
+	DstPort			3
+      }
+      Branch {
+	Points			[0, -10]
+	DstBlock		"Video Viewer"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "LookforBuoys"
@@ -4545,7 +4510,60 @@ Model {
   }
 }
 MatData {
-  NumRecords		  5
+  NumRecords		  7
+  DataRecord {
+    Tag			    DataTag6
+    Data		    "  %)30     .    ,     8    (    !          %    \"                0         0          "
+  }
+  DataRecord {
+    Tag			    DataTag5
+    Data		    "  %)30     .    4 $   8    (     @         %    \"     $    !     0         %  0 #0    $    :    4V-O<&"
+    "5#9F=.86UE %-C;W!E                   .    4     8    (    !          %    \"     $    =     0         0    '0   '9"
+    "I<'-C;W!E<RY6:61E;U9I97=E<E-C;W!E0V9G    #@   )@    &    \"    !$          0         !  0 34-/4P$    :    <V-O<&5E"
+    ">'1E;G-I;VYS+E=I<F5D4V-O<&4        .    2     8    (    #0         %    \"     8    !     0         &    &        "
+    "-T\"     0    $    !     P    X   !P#0  !@    @    )          4    (     0   $ -   !          (   ! #0    %)30    "
+    " .    H P   8    (     @         %    \"     $    !     0         %  0 !0    $    %    34-/4P     .    6 P   8    "
+    "(    $0         !          $ ! !-0T]3 0    T   !&:6QE5W)A<'!E<E]?    #@   !@,   &    \"     $         !0    @    &"
+    "     0    $         #@   %@\"   &    \"     D         !0    @    H @   0    $          @   \"@\"   \"    %    \"@!"
+    "  !H 0  D $  / !   ( @  * (             86YY %!A<G-E9$%R9W, 4V-O<&5#3$D =6ES8V]P97, 3F%M90!!<F=S $%R9TYA;65S %9I9&"
+    "5O5FEE=V5R4V-O<&5#9F< =FEP<V-O<&5S $)L;V-K %-C;W!E $-U<G)E;G1#;VYF:6=U<F%T:6]N %!O<VET:6]N %=I;F1O=U-T>6QE %=I<F5D"
+    "4V-O<&4 <V-O<&5E>'1E;G-I;VYS $%L;&]W4V-O<&5#:&%N9V5S $%L;&]W0FQO8VM#:&%N9V5S $ES4V-O<&5#9F=/;&0 <VEG=71I;',N07!P;&"
+    "EC871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\                        $     P              \"0    @              !     /  "
+    "                        $    !     0    (    !     0    $    !                                     P              "
+    " 0         #     @               @         \"     0                    $    !               !     @    $          "
+    "                                          .          X    P    !@    @    $          4    (               !       "
+    "  !          #@   \" \"   &    \"     (         !0    @    !     0    $         !0 $ !4    !    :0   &-L87-S      "
+    "               $-U<G)E;G1#;VYF:6=U<F%T:6]N %-C;W!E0TQ)                 %!O<VET:6]N                 %=I;F1O=U-T>6QE"
+    "                       .    4     8    (    !          %    \"     $    =     0         0    '0   '9I<'-C;W!E<RY6:"
+    "61E;U9I97=E<E-C;W!E0V9G    #@   #     &    \"     8         !0    @               $         \"0         .    2    "
+    " 8    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    #     0    X   !0    !@   "
+    " @    &          4    (     0    0    !          D    @           LE4       '!W0       H'E       # <D .    .     8"
+    "    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ' !   &    \"     (         !0    "
+    "@    !     0    $         !0 $  H    !    *    %-C;W!E0V9G  !\";&]C:TYA;64 5FES:6)L90   %9E<G-I;VX    .    2     8"
+    "    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    \"     @    X   !     !@    "
+    "@    $          4    (     0    T    !         !     -    +U9I9&5O(%9I97=E<@    X    P    !@    @    $          4 "
+    "   (     0    ,    !         !   P!O9F8 #@   #@    &    \"     8         !0    @    !     0    $         \"0    @ "
+    "          #P/PX   \"H!0  !@    @    !          4    (    !     $    !          X    X    !@    @    \"          4 "
+    "   (     0         !          4 !  !     0         .    , $   8    (     @         %    \"     $    !     0       "
+    "  %  0 \"P    $    L    3F%M90        !!<F=S         %!A<G-E9$%R9W, 07)G3F%M97,         #@   #     &    \"     0  "
+    "       !0    @               $         $          .    *     8    (     0         %    \"                0        "
+    " .    *     8    (     0         %    \"                0         .    *     8    (     0         %    \"         "
+    "       0         .    , (   8    (     @         %    \"     $    !     0         %  0 %0    $   !^    0FQO8VL    "
+    "                 4V-O<&4                     0W5R<F5N=$-O;F9I9W5R871I;VX 4V-O<&5#3$D                 4&]S:71I;VX  "
+    "               5VEN9&]W4W1Y;&4                .    ,     8    (    !@         %    \"                0         )  "
+    "        X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8        "
+    " !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )   "
+    "       X   !0    !@    @    &          4    (     0    0    !          D    @           LE4       '!W0       H'E  "
+    "     # <D .    .     8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ,@!   &    \""
+    "     (         !0    @    !     0    $         !0 $ \"H    !    J    $%L;&]W4V-O<&5#:&%N9V5S                      "
+    "           $%L;&]W0FQO8VM#:&%N9V5S                                 $ES4V-O<&5#9F=/;&0                             "
+    "         '-I9W5T:6QS+D%P<&QI8V%T:6]N1&%T82Y!<'!L:6-A=&EO;D1A=&%?  X    P    !@    @    ) @        4    (     0    "
+    "$    !          (  0 !    #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    .    ,     "
+    "8    (    \"0(        %    \"     $    !     0         \"  $       X    X    !@    @    \"          4    (     0  "
+    "  $    !          4 !  !     0         .    B     8    (    \"0         %    \"     $   !8     0         \"    6  "
+    "    !24T     #@   $@    &    \"     (         !0    @    !     0    $         !0 $  4    !    !0   $U#3U,     #@  "
+    "       "
+  }
   DataRecord {
     Tag			    DataTag4
     Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
