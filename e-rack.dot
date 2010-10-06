@@ -1,0 +1,127 @@
+graph G {
+	// note, edge order is important.  everything should be going front->back of rack
+	rankdir = RL;
+//	remincross = true;
+	concentrate = true;
+//	rank = "same";
+	nodesep = "0.1";
+	ranksep = "2";
+	layers = "data:power";
+	node [layer=all];
+	edge [layer=all];
+	//EndCap [label="End Cap\nand Depth Sensor"];
+	subgraph clusterEndCap{
+		pos = "0,0";
+		label = "End Cap";
+		ConnThA [label="ThA"];
+		ConnThB [label="ThB"];
+		ConnEth [label="Eth0"];
+		DepthSensor [label="Depth\nSensor"];
+		ConnExtPwr [label="Pwr"];
+		ConnServo [label="Servo"];
+		ConnSonar [label="Sonar"];
+		ConnSw [label="Switch"];
+	}
+	subgraph clusterPwrA {
+		label="Logic Power Supply";
+		PSA [label="Power Switch A"];
+		PBA [label="Power Bus A"];
+		BattA;
+		//BattMeterA;
+		//BattMeterA -- PSA;
+		DiodesA [label="Pwr Diodes",layer="power"];
+		BattA -- DiodesA;
+		PSA -- DiodesA;
+		PSA -- PBA;
+	}
+		DiodesA -- ConnExtPwr;
+		PBA -- DepthSensor;
+		CmpPwr -- PBA [layer="power"];
+		CmpSerial -- PSA [layer="data"];
+	subgraph clusterPwrB {
+		label="Actuator Power Supply";
+		PSB [label="Power Switch B"];
+		PBB [label="Power Bus B"];
+		//BattMeterB;
+		BattB;
+		BEC;
+		DiodesB [label="Pwr Diodes",layer="power"];
+		BattB -- DiodesB;
+		//BattMeterB -- PSB;
+		BEC -- PBB;
+		PSB -- DiodesB;
+		PSB -- PBB;
+	}
+		// external connections
+		DiodesB -- ConnExtPwr;
+		PSB -- ConnThA;// [label="Kill Switch"];
+		CmpSerial -- PSB [layer="data"];
+		CmpPS -- PSB [layer="power"];
+		// powers
+		PBB -- TReXA;
+		PBB -- TReXB;
+		ServoCont -- BEC;// [label="6V"];
+		//BEC -- ConnServo;// [label="6V"];
+	subgraph clusterTh {
+		label="Motor Controllers";
+		TReXA [label="TReX A"];
+		TReXB [label="TReX B"];
+	}
+		TReXA -- ConnThA;// [label="Thruster 0"];
+		TReXA -- ConnThA;// [label="Thruster 1"];
+		TReXB -- ConnThB;// [label="Thruster 2"];
+		TReXB -- ConnThB;// [label="Thruster 3"];
+
+	subgraph clusterComputer {
+		label = "Computer";
+		CmpPwr [label="Power"];
+		CmpPS [label="Pwr Supply"];
+		CmpSerial [label="RS-232"];
+		CmpUSB [label="USB"];
+		CmpEth [label="Ethernet"];
+		//Computer [label="Computer\nLS-371"];
+		Pololu [label="Pololu\nSerial",layer="data"];
+	}
+	AHRS [label="3DM-GX1"];
+		CmpEth -- ConnEth;// [label="Ethernet"];
+		// 3DM-GX1 AHRS
+		AHRS -- CmpPS;// [label="12V",layer="power"];
+		AHRS -- CmpSerial;// [label="RS-232",layer="data"];
+		// Pololu Serial Line
+		//CmpUSB -- Pololu;// [label="TTL-232R",layer="data"];
+		Pololu -- ServoCont;
+		Pololu -- TReXA;
+		Pololu -- TReXB;
+		//Pololu -- ConnServo [layer="data"];
+	subgraph clusterCamera {
+		label="Camera Gimbal";
+		Camera;
+		ServoX;
+		ServoY;
+	}
+		ServoCont [label="Servo\nController"];
+		ServoX -- ServoCont;
+		ServoY -- ServoCont;
+		Camera -- CmpUSB;
+	subgraph clusterMicroCont {
+		label="Microcontroller";
+		Arduino;
+		DepthAmp [label="ProtoBoard"];
+		//LCD;
+		//LCD -- Arduino;
+		//Arduino -- DepthAmp;
+	}
+		// input
+		CmpUSB -- Arduino;// [label="TTL-232R"];
+		Arduino -- ConnSw;// [label="On/Off Sw."];
+		// output
+		ServoCont -- DepthAmp;// [label="ServoCont\nReset"];
+		// depth
+		DepthAmp -- DepthSensor [layer="data"];
+		//DepthAmp -- DepthSensor [label="",layer="power"];
+	Sonar [label = "Hydrophone\nInterface"];
+	Sonar -- ConnSonar;
+	Arduino -- Sonar;
+	ServoCont -- ConnServo;
+	ServoCont -- ConnServo;
+}
