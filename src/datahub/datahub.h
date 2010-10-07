@@ -4,6 +4,7 @@
 #include <QMetaMethod>
 #include <QStringList>
 #include <QDebug>
+#include "../module.h"
 #include "server/sidsocket.h"
 
 class DataHub : public QObject
@@ -21,25 +22,24 @@ class DataHub : public QObject
 		 * called messageIn(QString).  Messages are SID strings.
 		 * \param module pointer to module QObject
 		 */
-		void addModule(QObject* module){
+		void addModule(Module* module){
 			const QMetaObject* metaMod = module->metaObject();
-			QStringList methods;
-			for(int i = metaMod->methodOffset(); i < metaMod->methodCount(); ++i)
-				methods << QString::fromLatin1(metaMod->method(i).signature());
-			//qDebug() << "Methods of class" << metaMod->className() << ":" << methods;
-			if(methods.contains("messageIn(QString,QString)")){
-				QMetaMethod method = metaMod->method(metaMod->methodOffset()+methods.indexOf("messageIn(QString,QString)"));
-				if(method.methodType() == QMetaMethod::Slot)
-					connect(this, SIGNAL(messageBroadcast(QString,QString)), module, SLOT(messageIn(QString,QString)));
-				qDebug() << "Module" << metaMod->className() << "is accepting messages.";
-			}else qDebug() << "Module" << metaMod->className() << "is not accepting messages.";
-			if(methods.contains("messageOut(QString,QString)")){
-				QMetaMethod method = metaMod->method(metaMod->methodOffset()+methods.indexOf("messageIn(QString,QString)"));
-				if(method.methodType() == QMetaMethod::Signal)
-					connect(module, SIGNAL(messageOut(QString,QString)), this, SLOT(messageIn(QString,QString)));
-				qDebug() << "Module" << metaMod->className() << "can send messages.";
-			}else qDebug() << "Module" << metaMod->className() << "is not sending messages.";
+			qDebug() << "Initializing Module:" << metaMod->className();
+			connect(this, SIGNAL(messageBroadcast(QString,QString)), module, SLOT(messageIn(QString,QString)));
+			connect(module, SIGNAL(messageOut(QString,QString)), this, SLOT(messageIn(QString,QString)));
+			connect(this, SIGNAL(go()), module, SLOT(start()));
 
+		}
+		/**
+		 * As an alternative to the addModule function, you can set this module as the parent of your modules, then call this function.
+		 */
+		void initializeAndLaunchAllModules(){
+			QObjectList kids = this->children();
+			foreach(QObject* kid, kids){
+				if(kid->inherits("Module")) addModule(kid);
+			}
+			startAll();
+			qDebug() << "Initialization Complete, System Online";
 		}
 
 	public slots:
@@ -47,9 +47,11 @@ class DataHub : public QObject
 			qDebug() << "Message ID:" << id;
 			emit messageBroadcast(id, data);
 		}
+		void startAll(){emit go();}
 
 	signals:
 		void messageBroadcast(QString id, QString data);
+		void go(); // used to launch modules
 
 	private:
 		SIDSocket* srv;
