@@ -1,127 +1,149 @@
 graph G {
 	// note, edge order is important.  everything should be going front->back of rack
-	rankdir = RL;
-//	remincross = true;
-	concentrate = true;
-//	rank = "same";
+	rank = "max";
+	rankdir = LR;
 	nodesep = "0.1";
 	ranksep = "2";
-	layers = "data:power";
-	node [layer=all];
-	edge [layer=all];
-	//EndCap [label="End Cap\nand Depth Sensor"];
-	subgraph clusterEndCap{
-		pos = "0,0";
-		label = "End Cap";
-		ConnThA [label="ThA"];
-		ConnThB [label="ThB"];
-		ConnEth [label="Eth0"];
-		DepthSensor [label="Depth\nSensor"];
-		ConnExtPwr [label="Pwr"];
-		ConnServo [label="Servo"];
-		ConnSonar [label="Sonar"];
-		ConnSw [label="Switch"];
-	}
-	subgraph clusterPwrA {
-		label="Logic Power Supply";
-		PSA [label="Power Switch A"];
-		PBA [label="Power Bus A"];
-		BattA;
-		//BattMeterA;
-		//BattMeterA -- PSA;
-		DiodesA [label="Pwr Diodes",layer="power"];
-		BattA -- DiodesA;
-		PSA -- DiodesA;
-		PSA -- PBA;
-	}
-		DiodesA -- ConnExtPwr;
-		PBA -- DepthSensor;
-		CmpPwr -- PBA [layer="power"];
-		CmpSerial -- PSA [layer="data"];
-	subgraph clusterPwrB {
-		label="Actuator Power Supply";
-		PSB [label="Power Switch B"];
-		PBB [label="Power Bus B"];
-		//BattMeterB;
-		BattB;
-		BEC;
-		DiodesB [label="Pwr Diodes",layer="power"];
-		BattB -- DiodesB;
-		//BattMeterB -- PSB;
-		BEC -- PBB;
-		PSB -- DiodesB;
-		PSB -- PBB;
-	}
-		// external connections
-		DiodesB -- ConnExtPwr;
-		PSB -- ConnThA;// [label="Kill Switch"];
-		CmpSerial -- PSB [layer="data"];
-		CmpPS -- PSB [layer="power"];
-		// powers
-		PBB -- TReXA;
-		PBB -- TReXB;
-		ServoCont -- BEC;// [label="6V"];
-		//BEC -- ConnServo;// [label="6V"];
-	subgraph clusterTh {
-		label="Motor Controllers";
-		TReXA [label="TReX A"];
-		TReXB [label="TReX B"];
-	}
-		TReXA -- ConnThA;// [label="Thruster 0"];
-		TReXA -- ConnThA;// [label="Thruster 1"];
-		TReXB -- ConnThB;// [label="Thruster 2"];
-		TReXB -- ConnThB;// [label="Thruster 3"];
+	root = "clusterComputer";
+	pack = true;
+	packmode = "node";
 
 	subgraph clusterComputer {
 		label = "Computer";
-		CmpPwr [label="Power"];
-		CmpPS [label="Pwr Supply"];
-		CmpSerial [label="RS-232"];
-		CmpUSB [label="USB"];
-		CmpEth [label="Ethernet"];
-		//Computer [label="Computer\nLS-371"];
-		Pololu [label="Pololu\nSerial",layer="data"];
+		subgraph clusterComputerFront {
+			label = "Ports";
+			CmpSerialA [label="RS-232"];
+			CmpEth [label="Ethernet"];
+		}
+		subgraph clusterComputerTop {
+			label = "Headers";
+			CmpPwr [label="Power In"];
+			CmpSerialB [label="RS-232"];
+			CmpUSBA [label="USB"];
+			CmpUSBB [label="USB"];
+			CmpUSBC [label="USB"];
+			CmpUSBD [label="USB"];
+		}
+		USBHub [label="USB Hub"];
+		//USBHub -- CmpUSBD [weight=100];
 	}
-	AHRS [label="3DM-GX1"];
-		CmpEth -- ConnEth;// [label="Ethernet"];
-		// 3DM-GX1 AHRS
-		AHRS -- CmpPS;// [label="12V",layer="power"];
-		AHRS -- CmpSerial;// [label="RS-232",layer="data"];
-		// Pololu Serial Line
-		//CmpUSB -- Pololu;// [label="TTL-232R",layer="data"];
-		Pololu -- ServoCont;
-		Pololu -- TReXA;
-		Pololu -- TReXB;
-		//Pololu -- ConnServo [layer="data"];
-	subgraph clusterCamera {
-		label="Camera Gimbal";
-		Camera;
-		ServoX;
-		ServoY;
+
+	subgraph clusterEndCap {
+		label = "End Cap";
+		ConnThA [label="ThA"];
+		ConnThB [label="ThB"];
+		ConnThC [label="ThC"];
+		ConnThD [label="ThD"];
+		ConnEth [label="Eth0"];
+		DepthSensor [label="Depth\nSensor"];
+		ConnExtPwr [label="Pwr"];
+		ConnServoA [label="Servos A"];
+		ConnServoB [label="Servos B"];
+		ConnSonar [label="Sonar"];
+		ConnSw [label="Switches"];
 	}
+
+	PSL [label="Logic Battery Switch"];
+	DiodesA [label="Ext. Pwr Diodes"];
+	PSL -- DiodesA [weight="10"];
+	//subgraph clusterPSATX {
+		//label = "Logic Power Distribution";
+		PSATX [label="M3-ATX Power Supply"];
+		PB12V [label="12V Bus"];
+		PB5V [label="5V Bus"];
+		PB3V3 [label="3.3V Bus"];
+		PSATX -- PB12V [weight=100];
+		PB5V -- PSATX [weight=100];
+		PB3V3 -- PSATX [weight=100];
+	//}
+
+	PSM [label="Motor Power Switch"];
+	PBM [label="Motor Power Bus"];
+	BEC -- PBM;
+	PSM -- PBM [weight=200];
+
+	subgraph clusterFront {
+		label = "Forward Components";
+		CameraA [label="Forward Camera"];
+		IR [label="Infrared Distance Sensor"];
+		OS5000;
+		LightSens [label="Ambient Light Sensor"];
+	}
+	subgraph clusterBack {
+		label = "Near-end-cap components";
+		subgraph clusterTh {
+			label="Motor Controllers";
+			TReXA [label="TReX A"];
+			TReXB [label="TReX B"];
+		}
 		ServoCont [label="Servo\nController"];
-		ServoX -- ServoCont;
-		ServoY -- ServoCont;
-		Camera -- CmpUSB;
-	subgraph clusterMicroCont {
-		label="Microcontroller";
-		Arduino;
-		DepthAmp [label="ProtoBoard"];
-		//LCD;
-		//LCD -- Arduino;
-		//Arduino -- DepthAmp;
+		AHRS [label="Microstrain"];
 	}
-		// input
-		CmpUSB -- Arduino;// [label="TTL-232R"];
-		Arduino -- ConnSw;// [label="On/Off Sw."];
-		// output
-		ServoCont -- DepthAmp;// [label="ServoCont\nReset"];
-		// depth
-		DepthAmp -- DepthSensor [layer="data"];
-		//DepthAmp -- DepthSensor [label="",layer="power"];
-	Sonar [label = "Hydrophone\nInterface"];
-	Sonar -- ConnSonar;
-	Arduino -- Sonar;
-	ServoCont -- ConnServo;
-	ServoCont -- ConnServo;
+	subgraph clusterMaestroBoard {
+		label = "Maestro";
+		Maestro [label="I/O"];
+		MaestroSer [label="Serial"];
+	}
+	CameraB [label="Downward Camera"];
+	BattA;
+	BattB;
+	BattC;
+	BattD;
+
+	// Data
+	USBHub -- PSL;
+	USBHub -- PSM;
+	PSM -- ConnSw [label="Kill Switch"];
+	CmpEth -- ConnEth [weight=10];
+	CmpSerialA -- AHRS [weight=5];
+	OS5000 -- CmpSerialB;
+	MaestroSer -- ServoCont;
+	MaestroSer -- TReXA;
+	MaestroSer -- TReXB;
+	Maestro -- ConnSw
+
+	// Power
+	PSATX -- DiodesA [weight=100];
+	BattA -- PSL [weight=10];
+	BattC -- PSL [weight=10];
+	PSL -- BattD [weight=10];
+	PSM -- BattB [weight=10];
+	DiodesA -- ConnExtPwr [weight=10];
+	CmpPwr -- PB12V [weight=10];
+	PB5V -- PSM;
+	BEC -- ServoCont [weight=100];
+	BEC -- ConnServoA;
+	PBM -- TReXA;
+	PBM -- TReXB;
+	PB12V -- AHRS;
+	OS5000 -- PB3V3;
+	PB5V -- Maestro;
+
+	// Power + Data
+	CameraA -- CmpUSBB [weight=10];
+	CmpUSBC -- CameraB;
+	CmpUSBA -- MaestroSer;
+	IR -- Maestro;
+	Maestro -- DepthSensor;
+	LightSens -- Maestro [weight=100];
+
+	// other
+	TReXA -- ConnThA [weight=100];
+	TReXA -- ConnThB [weight=100];
+	TReXB -- ConnThC [weight=100];
+	TReXB -- ConnThD [weight=100];
+	ServoCont -- ConnServoA [weight=100];
+	ServoCont -- ConnServoB [weight=100];
+
+
+	Sonar [label="Hydrophone\nInterface"];
+	Sonar -- ConnSonar [weight=100];
+	PB12V -- Sonar;
+	USBHub -- Sonar;
+
+	Gyros [label="Gyroscope"];
+	Gyros -- Maestro [weight=100];
+	PB3V3 -- Gyros;
+
 }
+
