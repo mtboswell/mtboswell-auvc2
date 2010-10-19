@@ -3,6 +3,7 @@
 
 #include "serialdevice.h"
 #include <QRegExp>
+#include <QDebug>
 
 class OS5000 : public SerialDevice
 {

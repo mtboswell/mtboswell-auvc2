@@ -8,6 +8,6 @@ DEPENDPATH += .
 INCLUDEPATH += . ../../ ../../qextserialport
 
 # Input
-HEADERS += ../../os5000.h ../../serialdevice.h ../../qextserialport/qextserialport.h ../../qextserialport/qextserialport_global.h
-SOURCES += main.cpp ../../os5000.cpp ../../serialdevice.cpp ../../qextserialport/qextserialport.cpp ../../qextserialport/posix_qextserialport.cpp
+HEADERS += ../../os5000.h ../../serialdevice.h ../../qextserialport/qextserialport.h ../../qextserialport/qextserialport_global.h os5000Thread.h
+SOURCES += main.cpp ../../os5000.cpp ../../serialdevice.cpp ../../qextserialport/qextserialport.cpp ../../qextserialport/posix_qextserialport.cpp os5000Thread.cpp
 

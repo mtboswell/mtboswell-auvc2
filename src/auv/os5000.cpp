@@ -1,9 +1,11 @@
 #include "os5000.h"
 #include <QDebug>
+#include <QString>
 
-OS5000::OS5000(const QString & serialPort): SerialDevice(serialPort, BAUD19200) {
+OS5000::OS5000(const QString & serialPort): SerialDevice(serialPort, BAUD19200, true) {
 	setIncomingDelimiter("$");
 	setIncomingMaxLength(200);
+	qDebug() << "spawning os5000";
 }
 
 double OS5000::heading(){return m_heading;}
@@ -11,7 +13,9 @@ double OS5000::pitch(){return m_pitch;}
 double OS5000::roll(){return m_roll;}
 
 void OS5000::processData(QByteArray data){
-	QRegExp fmt("C([-][\\d\\.]+)P([-][\\d\\.]+)R([-][\\d\\.]+)T([-][\\d\\.]+)[.]*\\*([A-F0-9]{2})");
+	qDebug() << "processing os5000 data";
+	QRegExp fmt("C(\\d{1,3}\.\\d)P(-?\\d{1,2}\.\\d)R(-?\\d{1,2}\.\\d)T(-?\\d{1,2}\.\\d)\\*(\\w{2})\\r\\n");
+	qDebug() << data;
 	if(fmt.exactMatch(data)){
 		double heading = fmt.cap(1).toDouble();
 		double pitch = fmt.cap(2).toDouble();
@@ -30,8 +34,9 @@ void OS5000::processData(QByteArray data){
 			m_pitch = pitch;
 			m_roll = roll;
 			m_temp = temp;
-		}
+		}else qDebug() << "Checksum Error";
 	}
+	else qDebug() << "os5000 format error";	
 
 }
 

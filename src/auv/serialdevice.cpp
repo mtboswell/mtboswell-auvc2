@@ -20,9 +20,9 @@ void SerialDevice::open(QString portName, BaudRateType baud,  bool listen){
 	port->setParity(PAR_NONE);
 	port->setDataBits(DATA_8);
 	port->setFlowControl(FLOW_OFF);
-
+	
+	if(listen) connect(port, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
 	if (port->open(QIODevice::ReadWrite)) {
-		if(listen) connect(port, SIGNAL(readyRead()), this, SLOT(onReadyRead()));
 		qDebug() << "Port opened:" << port->portName();
 	}else {
 		qDebug() << "Device failed to open:" << port->errorString();
