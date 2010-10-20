@@ -7,6 +7,10 @@
 #include "../module.h"
 #include "server/sidsocket.h"
 
+/**
+ * DataHub is a class designed to connect and manage Modules.
+ * \ingroup HUB
+ */
 class DataHub : public QObject
 {
 	Q_OBJECT

@@ -1,9 +1,6 @@
 #ifndef AUV_H_
 #define AUV_H_
 
-/**
- * \defgroup AUV Vehicle Interfaces
- */
 
 // sensor datatypes defined in auvtypes.h
 #include "../state.h"
