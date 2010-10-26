@@ -25,7 +25,7 @@ Model {
       Name		      "Image1"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1"
+    ComputedModelVersion    "1.2"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -45,9 +45,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Oct  5 17:55:02 2010"
-  RTWModifiedTimeStamp	  208202039
-  ModelVersionFormat	  "1.%<AutoIncrement:1>"
+  LastModifiedDate	  "Tue Oct 12 18:19:11 2010"
+  RTWModifiedTimeStamp	  208808348
+  ModelVersionFormat	  "1.%<AutoIncrement:2>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -753,8 +753,9 @@ Model {
       BlockType		      Inport
       Name		      "H1"
       SID		      "53"
-      Position		      [90, 183, 120, 197]
+      Position		      [65, 188, 95, 202]
       IconDisplay	      "Port number"
+      PortDimensions	      "[480 640]"
     }
     Block {
       BlockType		      Inport
@@ -763,6 +764,7 @@ Model {
       Position		      [65, 283, 95, 297]
       Port		      "2"
       IconDisplay	      "Port number"
+      PortDimensions	      "[480 640]"
     }
     Block {
       BlockType		      Reference
@@ -894,7 +896,7 @@ Model {
 	  Position		  [180, 100, 230, 160]
 	  FunctionName		  "sf_sfun"
 	  PortCounts		  "[2 2]"
-	  EnableBusSupport	  off
+	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
 	    Name		    "Image"
@@ -1140,7 +1142,7 @@ Model {
     Line {
       SrcBlock		      "H1"
       SrcPort		      1
-      Points		      [5, 0]
+      Points		      [0, -5; 30, 0]
       Branch {
 	Points			[0, 45]
 	DstBlock		"Hue Higher Comparison"
@@ -1192,8 +1194,6 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    6
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
