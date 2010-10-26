@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.13"
+    ComputedModelVersion    "1.20"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -24,11 +24,11 @@ Model {
   Creator		  "pacifist"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "pacifist"
+  LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Oct 15 15:41:02 2010"
-  RTWModifiedTimeStamp	  209053731
-  ModelVersionFormat	  "1.%<AutoIncrement:13>"
+  LastModifiedDate	  "Tue Oct 26 17:25:10 2010"
+  RTWModifiedTimeStamp	  210014403
+  ModelVersionFormat	  "1.%<AutoIncrement:20>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -106,7 +106,7 @@ Model {
       Version		      "1.10.0"
       Array {
 	Type			"Handle"
-	Dimension		8
+	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  2
 	  Version		  "1.10.0"
@@ -574,6 +574,23 @@ Model {
 	    PropName		    "Components"
 	  }
 	}
+	DES.SimEventsCC {
+	  $BackupClass		  "Simulink.CustomCC"
+	  $ObjectID		  12
+	  Version		  "1.10.0"
+	  Name			  "SimEvents"
+	  SimEventsActiveTab	  "0"
+	  propIdentEvents	  "0"
+	  propIdentEventSeed	  "123456789"
+	  propUnconnectedPorts	  "0"
+	  propMaxDesBlkSimulEvents "1000"
+	  propMaxDesMdlSimulEvents "100000"
+	  propDiagAttribOutput	  "1"
+	  propDiagFcnCallOutput	  "1"
+	  propDiagStatOutput	  "0"
+	  propDiagChangeAttrib	  "2"
+	  propRNGIdenticalSeeds	  "1"
+	}
 	PropName		"Components"
       }
       Name		      "Configuration"
@@ -635,6 +652,13 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      Integrator
       ExternalReset	      "none"
       InitialConditionSource  "internal"
@@ -649,10 +673,25 @@ Model {
       ZeroCross		      on
       ContinuousStateAttributes	"''"
     }
+    Block {
+      BlockType		      Sqrt
+      Operator		      "sqrt"
+      OutputSignalType	      "auto"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      IntermediateResultsDataTypeStr "Inherit: Inherit via internal rule"
+      AlgorithmType	      "Exact"
+      Iterations	      "3"
+    }
   }
   System {
     Name		    "Opticflowtest"
-    Location		    [282, 287, 1216, 687]
+    Location		    [238, 224, 1200, 640]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -666,37 +705,46 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "104"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "30"
+    SIDHighWatermark	    "52"
     Block {
       BlockType		      ComplexToRealImag
       Name		      "Complex to\nReal-Imag"
-      SID		      "20"
+      SID		      "37"
       Ports		      [1, 2]
-      Position		      [560, 93, 590, 122]
+      Position		      [535, 73, 565, 102]
       Output		      "Real and imag"
     }
     Block {
       BlockType		      DataTypeConversion
       Name		      "Data Type Conversion"
-      SID		      "29"
-      Position		      [655, 158, 730, 192]
+      SID		      "38"
+      Position		      [630, 123, 705, 157]
       RndMeth		      "Floor"
       SaturateOnIntegerOverflow	off
     }
     Block {
       BlockType		      DataTypeConversion
       Name		      "Data Type Conversion1"
-      SID		      "30"
-      Position		      [655, 38, 730, 72]
+      SID		      "39"
+      Position		      [630, 33, 705, 67]
       RndMeth		      "Floor"
       SaturateOnIntegerOverflow	off
     }
     Block {
+      BlockType		      Display
+      Name		      "Display"
+      SID		      "35"
+      Ports		      [1]
+      Position		      [780, 270, 870, 300]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
       BlockType		      Reference
-      Name		      "From Video Device"
-      SID		      "16"
+      Name		      "From Video Device1"
+      SID		      "32"
       Ports		      [0, 3]
-      Position		      [160, 99, 270, 151]
+      Position		      [25, 114, 135, 166]
       LibraryVersion	      "1.58"
       UserDataPersistent      on
       UserData		      "DataTag0"
@@ -718,7 +766,7 @@ Model {
       DataType		      "single"
       CanDoHWTrigger	      "no"
       ReturnedColorSpace      "YCbCr"
-      BlockHandle	      "2231.0004"
+      BlockHandle	      "8.001"
       ROIWidth		      "160"
       ROIHeight		      "120"
       ROIColumn		      "0"
@@ -729,30 +777,24 @@ Model {
     }
     Block {
       BlockType		      Integrator
-      Name		      "Integrator1"
-      SID		      "27"
+      Name		      "Integrator"
+      SID		      "48"
       Ports		      [1, 1]
-      Position		      [775, 130, 805, 160]
-      LimitOutput	      on
-      UpperSaturationLimit    ".01"
-      LowerSaturationLimit    "-.01"
+      Position		      [755, 55, 785, 85]
     }
     Block {
       BlockType		      Integrator
-      Name		      "Integrator2"
-      SID		      "28"
+      Name		      "Integrator1"
+      SID		      "49"
       Ports		      [1, 1]
-      Position		      [775, 65, 805, 95]
-      LimitOutput	      on
-      UpperSaturationLimit    ".01"
-      LowerSaturationLimit    "-.01"
+      Position		      [755, 125, 785, 155]
     }
     Block {
       BlockType		      Reference
       Name		      "Mean"
-      SID		      "14"
+      SID		      "43"
       Ports		      [1, 1]
-      Position		      [465, 90, 520, 130]
+      Position		      [440, 70, 495, 110]
       LibraryVersion	      "1.530"
       UserDataPersistent      on
       UserData		      "DataTag2"
@@ -791,10 +833,52 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "Optical Flow"
-      SID		      "8"
+      Name		      "Mean1"
+      SID		      "33"
       Ports		      [1, 1]
-      Position		      [305, 80, 430, 140]
+      Position		      [595, 265, 650, 305]
+      LibraryVersion	      "1.530"
+      UserDataPersistent      on
+      UserData		      "DataTag4"
+      DialogController	      "dspDDGCreate"
+      DialogControllerArgs    "DataTag5"
+      SourceBlock	      "dspstat3/Mean"
+      SourceType	      "Mean"
+      run		      off
+      reset_popup	      "None"
+      InputProcessing	      "Elements as channels (sample based)"
+      directionMode	      "Entire input"
+      dimension		      "1"
+      treatSBRowAsCol	      on
+      roiEnable		      off
+      roiType		      "Rectangles"
+      roiPortion	      "Entire ROI"
+      roiOutput		      "Individual statistics for each ROI"
+      roiFlag		      off
+      additionalParams	      off
+      allowOverrides	      on
+      outputMode	      "Same as accumulator"
+      outputWordLength	      "32"
+      outputFracLength	      "30"
+      outputDataTypeStr	      "Inherit: Same as accumulator"
+      outputLastDataTypeStr   "Inherit: Same as accumulator"
+      outputMin		      "[]"
+      outputMax		      "[]"
+      accumMode		      "Binary point scaling"
+      accumWordLength	      "32"
+      accumFracLength	      "0"
+      accumDataTypeStr	      "fixdt([],32,0)"
+      accumLastDataTypeStr    "fixdt([],32,0)"
+      roundingMode	      "Floor"
+      overflowMode	      off
+      LockScale		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Optical Flow"
+      SID		      "44"
+      Ports		      [1, 1]
+      Position		      [280, 60, 405, 120]
       LibraryVersion	      "1.378"
       LinkData {
 	BlockName		"Optical Flow Estimation"
@@ -804,7 +888,7 @@ Model {
 	}
       }
       DialogController	      "vipDDGCreate"
-      DialogControllerArgs    "DataTag4"
+      DialogControllerArgs    "DataTag6"
       SourceBlock	      "vipanalysis/Optical Flow"
       SourceType	      "Optical Flow"
       ShowPortLabels	      "FromPortIcon"
@@ -852,10 +936,77 @@ Model {
     }
     Block {
       BlockType		      Reference
+      Name		      "Optical Flow1"
+      SID		      "31"
+      Ports		      [1, 1]
+      Position		      [245, 255, 370, 315]
+      LibraryVersion	      "1.378"
+      LinkData {
+	BlockName		"Optical Flow Estimation"
+	DialogParameters {
+	  which2img		  "Current frame and N-th frame back"
+	  outVelForm		  "Magnitude-squared"
+	}
+      }
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag7"
+      SourceBlock	      "vipanalysis/Optical Flow"
+      SourceType	      "Optical Flow"
+      ShowPortLabels	      "FromPortIcon"
+      SystemSampleTime	      "-1"
+      FunctionWithSeparateData off
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      GeneratePreprocessorConditionals off
+      method		      "Horn-Schunck"
+      gradMethod	      "Difference filter [-1 1]"
+      which2img		      "Current frame and N-th frame back"
+      N			      "1"
+      outVelForm	      "Magnitude-squared"
+      lambda		      "5"
+      stop_criteria	      "When maximum number of iterations is reached"
+      maxAllowAbsDiff	      "eps"
+      maxIter		      "10"
+      numInports	      "3"
+      sigmaS		      "1.5"
+      sigmaW		      "1"
+      eigTh		      "0.0039"
+      discardNormalFlow	      off
+      outputCurrentImage      off
+      firstCoeffMode	      "Same word length as first input"
+      firstCoeffWordLength    "16"
+      firstCoeffFracLength    "12"
+      prodOutputMode	      "Binary point scaling"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "20"
+      accumMode		      "Same as product output"
+      accumWordLength	      "32"
+      accumFracLength	      "20"
+      memoryMode	      "Same as accumulator"
+      memoryWordLength	      "32"
+      memoryFracLength	      "20"
+      outputMode	      "Binary point scaling"
+      outputWordLength	      "32"
+      outputFracLength	      "20"
+      roundingMode	      "Nearest"
+      overflowMode	      on
+      LockScale		      off
+    }
+    Block {
+      BlockType		      Sqrt
+      Name		      "Sqrt"
+      SID		      "36"
+      Position		      [490, 270, 520, 300]
+    }
+    Block {
+      BlockType		      Reference
       Name		      "XY Graph"
-      SID		      "21"
+      SID		      "45"
       Ports		      [2]
-      Position		      [855, 90, 885, 125]
+      Position		      [840, 90, 870, 125]
       LibraryVersion	      "1.225"
       SourceBlock	      "simulink/Sinks/XY Graph"
       SourceType	      "XY scope."
@@ -881,76 +1032,113 @@ Model {
       DstPort		      1
     }
     Line {
-      SrcBlock		      "From Video Device"
-      SrcPort		      1
-      DstBlock		      "Optical Flow"
-      DstPort		      1
-    }
-    Line {
       SrcBlock		      "Mean"
       SrcPort		      1
       DstBlock		      "Complex to\nReal-Imag"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Integrator2"
-      SrcPort		      1
-      Points		      [10, 0; 0, 20]
-      DstBlock		      "XY Graph"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Integrator1"
-      SrcPort		      1
-      Points		      [15, 0; 0, -30]
-      DstBlock		      "XY Graph"
-      DstPort		      2
-    }
-    Line {
       SrcBlock		      "Complex to\nReal-Imag"
       SrcPort		      1
-      Points		      [35, 0; 0, -45]
+      Points		      [35, 0; 0, -30]
       DstBlock		      "Data Type Conversion1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Complex to\nReal-Imag"
       SrcPort		      2
-      Points		      [25, 0; 0, 60]
+      Points		      [25, 0; 0, 45]
       DstBlock		      "Data Type Conversion"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Data Type Conversion"
       SrcPort		      1
-      Points		      [20, 0; 0, -30]
       DstBlock		      "Integrator1"
       DstPort		      1
     }
     Line {
+      SrcBlock		      "Integrator1"
+      SrcPort		      1
+      Points		      [10, 0; 0, -25]
+      DstBlock		      "XY Graph"
+      DstPort		      2
+    }
+    Line {
       SrcBlock		      "Data Type Conversion1"
       SrcPort		      1
-      Points		      [25, 0]
-      DstBlock		      "Integrator2"
+      Points		      [15, 0; 0, 20]
+      DstBlock		      "Integrator"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Integrator"
+      SrcPort		      1
+      Points		      [10, 0; 0, 30]
+      DstBlock		      "XY Graph"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Optical Flow1"
+      SrcPort		      1
+      DstBlock		      "Sqrt"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From Video Device1"
+      SrcPort		      1
+      Points		      [90, 0]
+      Branch {
+	DstBlock		"Optical Flow1"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -35]
+	DstBlock		"Optical Flow"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Sqrt"
+      SrcPort		      1
+      DstBlock		      "Mean1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Mean1"
+      SrcPort		      1
+      DstBlock		      "Display"
       DstPort		      1
     }
     Annotation {
-      Name		      "Notes:\n1) try and slow down the feed/average the data\n2)Mess with smoothnesss more\n3) Try to mak"
-      "e more accurate for faster speeds"
-      Position		      [189, 228]
-    }
-    Annotation {
-      Name		      "Reminder:\nIf you try running this don't forget to change the camera"
-      Position		      [165, 78]
+      Name		      "Notes:\n1) try and slow down the feed/average the data?\n2) Try to make more accurate for faster sp"
+      "eeds\n3)Try and output the time and the current velocity"
+      Position		      [114, 268]
     }
   }
 }
 MatData {
-  NumRecords		  5
+  NumRecords		  8
   DataRecord {
-    Tag			    DataTag4
+    Tag			    DataTag7
     Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
     "     %    \"     $    +     0         0    \"P   $]P=&EC86Q&;&]W       "
+  }
+  DataRecord {
+    Tag			    DataTag6
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    +     0         0    \"P   $]P=&EC86Q&;&]W       "
+  }
+  DataRecord {
+    Tag			    DataTag5
+    Data		    "  %)30     .    L     8    (     0         %    \"     $    \"     0         .    ,     8    (    !    "
+    "      %    \"     $    $     0         0  0 365A;@X   !(    !@    @    $          4    (     0   !4    !         !"
+    "     5    4U!#56YI9FEE9$9I>'!T1&QG1$1'    "
+  }
+  DataRecord {
+    Tag			    DataTag4
+    Data		    "  %)30     .    B     8    (     @         %    \"     $    !     0         %  0 $P    $    3    :&%S26"
+    "YH97)I=&5D3W!T:6]N        #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    "
   }
   DataRecord {
     Tag			    DataTag3
