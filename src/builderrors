@@ -1,0 +1,18 @@
+model/model.cpp: In member function ‘void Model::updateSensorsInput(AUVSensors)’:
+model/model.cpp:135:22: error: ‘struct ExternalInputs_brain’ has no member named ‘Y’
+model/model.cpp:136:22: error: ‘struct ExternalInputs_brain’ has no member named ‘Cb’
+model/model.cpp:137:22: error: ‘struct ExternalInputs_brain’ has no member named ‘Cr’
+make: *** [model.o] Error 1
+make: *** Waiting for unfinished jobs....
+In file included from main.cpp:8:0:
+datahub/datahub.h: In member function ‘void DataHub::messageIn(QString, QString)’:
+datahub/datahub.h:43:66: error: ‘message’ was not declared in this scope
+datahub/datahub.h: At global scope:
+datahub/datahub.h:43:8: warning: unused parameter ‘id’
+datahub/datahub.h:43:8: warning: unused parameter ‘data’
+auv/auv.cpp: In constructor ‘AUV::AUV(QMutex*, bool)’:
+auv/auv.cpp:79:2: error: ‘camera’ was not declared in this scope
+auv/auv.cpp:79:15: error: expected type-specifier before ‘QWebCam’
+auv/auv.cpp:79:15: error: expected ‘;’ before ‘QWebCam’
+make: *** [main.o] Error 1
+make: *** [auv.o] Error 1
