@@ -19,9 +19,9 @@ Dashboard::Dashboard(QMainWindow *parent)
 
 	m_DS = new SIDSocket((quint16) config["Client.Port.Data"].toUInt(), (quint16) config["Server.Port.Data"].toUInt());
 
-	videoLabel->hide();
-	videoWidget = new VideoWidget(videoContainer);
-	videoContainerLayout->addWidget(videoWidget);
+	videoPlaceholder->hide();
+	videoWidget = new VideoWidget(videoContainerWidget);
+	//videoWidgetTargetLayout->addWidget(videoWidget);
 
 	dashboardWidget->setEnabled(false);
      
@@ -99,13 +99,26 @@ Dashboard::Dashboard(QMainWindow *parent)
 	//videoWidget->setScaledContents(true);
 	//bitVideoLabel->setScaledContents(true);
 
+	// setup compasses
+	QwtSimpleCompassRose* rose = new QwtSimpleCompassRose();
+	QwtCompassMagnetNeedle* needle = new QwtCompassMagnetNeedle();
+	headingDial->setRose(rose);
+	headingDial->setNeedle(needle);
+	//desiredHeadingDial->setRose(&rose);
+
 	// init controls
 	RC = desiredSpeed = desiredHeading = desiredDepth = desiredStrafe = desiredVideoStream = 0;
-	desiredCameraX = desiredCameraY = 0;
+	//desiredCameraX = desiredCameraY = 0;
 	desiredSpeedSlider->setTracking(false);
 	desiredDepthSlider->setTracking(false);
 	desiredStrafeSlider->setTracking(false);
 	desiredHeadingDial->setTracking(false);
+
+	// init parameter editor
+	paramEditor = new ParameterEditor(paramEditTreeView, this);
+	connect(paramEditor, SIGNAL(parameterEdited(QString,QString)), this, SIGNAL(sendSID(QString,QString)));
+	connect(this, SIGNAL(receivedParam(QString, QString)), paramEditor, SLOT(updateParameter(QString,QString)));
+	paramEditTreeView->setModel(paramEditor->model);
 
 	// Connect to AUV
 	//emit sendSID("Connect.Data", "This");
@@ -116,10 +129,6 @@ Dashboard::Dashboard(QMainWindow *parent)
 	videoSocket->start();
 	bitmapSocket->start();
 
-        logger = new DataLogger(this, "logs/data-" + QDateTime::currentDateTime().toString("yyyy-MM-dd+hh-mm") + ".csv", 1000, config["StepTime.DataLog"].toInt(), ",");
- 	connect(actionLogData, SIGNAL(triggered(bool)), logger, SLOT(enable(bool)));
-	connect(this, SIGNAL(sendSID(QString,QString)), this, SLOT(logCmd(QString, QString)));
-
 	timeSinceLastDataReceived = new QTime();
 	timeSinceLastDataReceived->start();
 	dataTimeoutTimer = new QTimer();
@@ -129,7 +138,6 @@ Dashboard::Dashboard(QMainWindow *parent)
 }
 
 Dashboard::~Dashboard(){
-	delete logger;
 	delete videoSocket;
 	delete bitmapSocket;
 	delete m_DS;
@@ -149,17 +157,17 @@ void Dashboard::reconnectAction(){
 void Dashboard::startAction(){
 	statusBar()->showMessage(tr("Attempting to start AUV"), 2000);
 	emit sendSID("Mode", "Run");
-	controlGroupBox->setEnabled(true);
+	controlsTabWidget->setEnabled(true);
 }
 void Dashboard::stopAction(){
 	statusBar()->showMessage(tr("Attempting to stop AUV"), 2000);
 	emit sendSID("Mode", "Stop");
-	controlGroupBox->setEnabled(false);
+	controlsTabWidget->setEnabled(false);
 }
 void Dashboard::resetAction(){
 	statusBar()->showMessage(tr("Attempting to reset AUV"), 2000);
 	emit sendSID("Mode", "Reset");
-	controlGroupBox->setEnabled(true);
+	controlsTabWidget->setEnabled(true);
 }
 void Dashboard::killAction(){
 	emit sendSID("Mode", "Kill");
@@ -177,11 +185,11 @@ void Dashboard::recordVideo(bool record){
 }
 
 void Dashboard::logData(bool log){
-	logger->enable(log);
+	//logger->enable(log);
 	//emit sendSID("Flag.Log", log?"true":"false");
 }
 void Dashboard::logCmd(QString id, QString data){
-	logger->logData("LastCommand", id + "=" + data+";");
+	//logger->logData("LastCommand", id + "=" + data+";");
 }
 
 void Dashboard::unbroadcastAction(){
@@ -273,8 +281,8 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 			vertThrusterProgressBar->setValue(value.toDouble());
 		else if (name == "LateralThruster")
 			strafeThrusterProgressBar->setValue(value.toDouble());
-		else if (name == "CameraX") cameraPosXLabel->setText("X: " + value);
-		else if (name == "CameraY") cameraPosYLabel->setText("Y: " + value);
+		//else if (name == "CameraX") cameraPosXLabel->setText("X: " + value);
+		//else if (name == "CameraY") cameraPosYLabel->setText("Y: " + value);
 		else if (name == "ManualOverrideDisabled") if(value == "true") warningLabel->setText("Warning: Off switch disabled!");
 			else warningLabel->setText("");
 		else badCmd = true;
@@ -287,27 +295,21 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 				stateLabel->setText(currentState + ":" + currentSubState);
 				// set RC to make sure we don't send a command
 				RC = 1;
-				if(!controlGroupBox->isChecked()) {
-					controlGroupBox->setChecked(true); 
-					tabWidget->setCurrentWidget(controlsPage);
-				}
+				controlsTabWidget->setCurrentWidget(rcTab);
 			}else if(value.toDouble() == -2) {
 				// stopped state
 				currentState = "Stopped";
 				stateLabel->setText(currentState + ":" + currentSubState);
 				// enter RC state as soon as we leave the stopped state
 				/*
-				if(!controlGroupBox->isChecked()) {
-					controlGroupBox->setChecked(true); 
-					tabWidget->setCurrentWidget(controlsPage);
+				if(!controlsTabWidget->isChecked()) {
+					controlsTabWidget->setChecked(true); 
+					controlsTabWidget->setCurrentWidget(rcTab);
 				}
 				*/
 			}else{
 				RC = 0;
-				if(controlGroupBox->isChecked()){
-					controlGroupBox->setChecked(false);
-					tabWidget->setCurrentWidget(videoPage);
-				}
+				controlsTabWidget->setCurrentWidget(videoTab);
 				if(value.toInt() >= states.size() || value.toInt() < 0) badCmd = true;
 				else {
 					currentState = states.at(value.toInt());
@@ -381,7 +383,7 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 			}
 		}else if(name == "RC") {
 			RC = value.toInt();
-			controlGroupBox->setChecked((value == "1")?true:false);
+			//controlsTabWidget->setChecked((value == "1")?true:false);
 		}else if(name == "DesiredState") {
 			stateComboBox->setCurrentIndex(value.toInt());
 		}else badCmd = true;
@@ -392,18 +394,8 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 			videoStreamComboBox->setCurrentIndex(intValue);
 		}
 	} else if (type == "Parameter") { // parameter values from Brain
-		// these get set once at startup and if changed by another dashboard
-		double paramVal = value.toDouble();
-		// update parameters
-		// controller gain initial settings
-
-		// uses parameters.def to assign to the correct box
-		if(false);
-#define GEN_PARAM(guiParam,brainParam) \
-		else if(name == #brainParam) guiParam->setValue(paramVal);
-#include "parameters.def"
-		else badCmd = true;
-
+		emit receivedParam(name, value);
+	//	qDebug() << "New Param!";
 	}else if(type == "Status"){
 		// wait for the Status=Connected packet before enabling the interface
 		if(value == "Connected") {
@@ -420,9 +412,9 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 		statusBar()->showMessage("Someone (maybe you) is connecting to the AUV...", 5000);
 	}else badCmd = true;
 	// catch and log unparsed commands or data
-	if(badCmd) qDebug() << "Unrecognized data: " + type + "." + name + "=" + value;
-	else if(type=="AUV" || type=="Brain" || type=="Parameter" || type=="Status") logger->logData(id, value);
-	else logCmd(id, value);
+	//if(badCmd) qDebug() << "Unrecognized data: " + type + "." + name + "=" + value;
+//	else if(type=="AUV" || type=="Brain" || type=="Parameter" || type=="Status") logger->logData(id, value);
+//	else logCmd(id, value);
 
 } // end HandleAUVParam()
 
@@ -443,15 +435,15 @@ void Dashboard::disableDashboard(QString missedId, QString missedData){
 	qDebug() << "Flaky connection or you are hitting buttons too fast";
 	// if enough packets go missing, disable the controls to prevent more pileup
 	//dashboardWidget->setEnabled(false);
-	controlGroupBox->setEnabled(false);
-	tabContainer->setEnabled(false);
+	//rcTab->setEnabled(false);
+	controlsTabWidget->setEnabled(false);
 	if(missedId == "timeout")
 		dashboardWidget->setEnabled(false);
 }
 void Dashboard::enableDashboard(){
 	dashboardWidget->setEnabled(true);
-	controlGroupBox->setEnabled(true);
-	tabContainer->setEnabled(true);
+	controlsTabWidget->setEnabled(true);
+	//tabContainer->setEnabled(true);
 }
 
 void Dashboard::checkForDataTimeout(){
@@ -514,36 +506,28 @@ void Dashboard::keyPressEvent(QKeyEvent* event){
 		case Qt::Key_Cancel: stopAction(); break;
 		case Qt::Key_Sleep: stopAction(); break;
 		case Qt::Key_Control:
-			if(controlGroupBox->isChecked()) {
-				controlGroupBox->setChecked(false);
-				tabWidget->setCurrentWidget(videoPage);
-				this->setFocus(Qt::OtherFocusReason);
-			}else{
-				controlGroupBox->setChecked(true);
-				tabWidget->setCurrentWidget(controlsPage);
-				this->setFocus(Qt::OtherFocusReason);
-			}
+			// TODO - enter RC mode
 			break;
 		case Qt::Key_Left: 
-			desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepSub); 
-			if(desiredHeadingDial->value() == 0) desiredHeadingDial->setValue(360);
+			desiredHeadingDial->incValue(-1); 
+			//if(desiredHeadingDial->value() == 0) desiredHeadingDial->setValue(360);
 			break;
 		case Qt::Key_Up: desiredSpeedSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
 		case Qt::Key_Right: 
-			desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepAdd); 
-			if(desiredHeadingDial->value() == 360) desiredHeadingDial->setValue(0);
+			desiredHeadingDial->incValue(1); 
+			//if(desiredHeadingDial->value() == 360) desiredHeadingDial->setValue(0);
 			break;
 		case Qt::Key_Down: desiredSpeedSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
 		case Qt::Key_PageUp: desiredDepthSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
 		case Qt::Key_PageDown: desiredDepthSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
 		case Qt::Key_W: desiredSpeedSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
 		case Qt::Key_A: 
-			desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepSub); 
+			desiredHeadingDial->incValue(-1); 
 			if(desiredHeadingDial->value() == 0) desiredHeadingDial->setValue(360);
 			break;
 		case Qt::Key_S: desiredSpeedSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
 		case Qt::Key_D: 
-			desiredHeadingDial->triggerAction(QAbstractSlider::SliderSingleStepAdd); 
+			desiredHeadingDial->incValue(1); 
 			if(desiredHeadingDial->value() == 360) desiredHeadingDial->setValue(0);
 			break;
 		case Qt::Key_Q: desiredDepthSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
@@ -551,18 +535,6 @@ void Dashboard::keyPressEvent(QKeyEvent* event){
 		case Qt::Key_Z: desiredStrafeSlider->triggerAction(QAbstractSlider::SliderSingleStepSub); break;
 		case Qt::Key_C: desiredStrafeSlider->triggerAction(QAbstractSlider::SliderSingleStepAdd); break;
 		case Qt::Key_X: on_setAllZeroButton_clicked(); break;
-		case Qt::Key_T: 
-			camPosYSpinBox->stepDown();
-			break;
-		case Qt::Key_G:
-			camPosYSpinBox->stepUp();
-			break;
-		case Qt::Key_F:
-			camPosXSpinBox->stepDown();
-			break;
-		case Qt::Key_H:
-			camPosXSpinBox->stepUp();
-			break;
 		case Qt::Key_K: stopAction(); break;
 		default:
 			QMainWindow::keyPressEvent(event);
@@ -611,7 +583,7 @@ void Dashboard::on_tareAccelPushButton_clicked(){
 
 
 // RC Controls
-void Dashboard::on_controlGroupBox_toggled(bool rc){
+void Dashboard::on_goRCButton_toggled(bool rc){
 //	emit sendSID("Mode", "Stop");
 	if(rc && RC == 0){
 		emit sendSID("Input.RC", "1");
@@ -630,8 +602,8 @@ void Dashboard::on_controlGroupBox_toggled(bool rc){
 }
 
 void Dashboard::on_useInertialCheckBox_stateChanged(int state){
-	if(state == Qt::Checked) emit sendSID("Input.RC_Source", "1");
-	else emit sendSID("Input.RC_Source", "0");
+	//if(state == Qt::Checked) emit sendSID("Input.RC_Source", "1");
+	//else emit sendSID("Input.RC_Source", "0");
 }
 
 void Dashboard::on_desiredDepthSlider_valueChanged(int value){
@@ -686,14 +658,6 @@ void Dashboard::on_actuateMechPushButton_clicked(){
 }
 
 
-// Camera
-void Dashboard::on_camPosXSpinBox_valueChanged(double value){
-	emit sendSID("Move.Camera", QString::number(camPosXSpinBox->value()) + "," + QString::number(camPosYSpinBox->value())); 
-}
-void Dashboard::on_camPosYSpinBox_valueChanged(double value){
-	emit sendSID("Move.Camera", QString::number(camPosXSpinBox->value()) + "," + QString::number(camPosYSpinBox->value())); 
-}
-
 
 /* Save/Load parameters ****************************** */
 void Dashboard::saveParameters(){
@@ -706,10 +670,9 @@ void Dashboard::saveParameters(){
 	QTextStream out(&saveFile);
 	out << QString("% Parameters file generated ") + QDateTime::currentDateTime().toString() << endl;
 
-#define GEN_PARAM(guiParam,brainParam) \
-	out << QString(#brainParam) + " = " + QString::number(guiParam->value()) + ";" << endl;
-#include "parameters.def"
-	
+	// TODO - save params to file
+
+
 	saveFile.close();
 
 }
@@ -731,6 +694,7 @@ void Dashboard::loadParameters(){
 
 }
 
+// warning: this function assumes parameter values are doubles
 void Dashboard::loadParameter(QString param){
 	if(param.isEmpty() || param.startsWith("%") || !param.contains("=")) return;
 	QStringList codeLines = param.split(";");
@@ -743,26 +707,10 @@ void Dashboard::loadParameter(QString param){
 		double paramVal = paramLine.at(1).trimmed().toDouble(&ok);
 		if(!ok) continue; 
 		else{
-			if(false);
-#define GEN_PARAM(guiParam,brainParam) \
-			else if(paramName == #brainParam){\
-				guiParam->setValue(paramVal); \
-				emit sendSID(QString("Parameter.") + QString(#brainParam), QString::number(paramVal)); \
-			}
-#include "parameters.def"
+			emit receivedParam(paramName, QString::number(paramVal));
 		}
+
 	}
 }
-
-
-/* *** Parameters Interface ************************************** */
-// Code Generation!
-// Edit parameters.def to change the parameters
-
-#define GEN_PARAM(guiParam,brainParam) \
-void Dashboard::on_##guiParam##_editingFinished(){ \
-	emit sendSID(QString("Parameter.") + QString(#brainParam), QString::number(guiParam->value())); \
-}
-#include "parameters.def"
 
 

@@ -38,30 +38,28 @@
  **
  ****************************************************************************/
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef PARAMEDIT_H
+#define PARAMEDIT_H
 
-#include <QMainWindow>
 #include <QModelIndex>
+#include "treemodel.h"
+#include "doubleeditor.h"
 
-#include "ui_mainwindow.h"
-
-class QAction;
 class QTreeView;
-class QWidget;
 
-class MainWindow : public QMainWindow, private Ui::MainWindow
+class ParameterEditor : public QObject
 {
 	Q_OBJECT
-
 	public:
-		MainWindow(QWidget *parent = 0);
+		ParameterEditor(QTreeView* paramEditView, QObject *parent = 0);
+		TreeModel *model;
 
 	public slots:
-		void updateActions();
+		void updateParameter(QString name, QString value);
 
-	private slots:
-		void setupTreeEdit(QTreeView* paramEdit);
+	signals:
+		void parameterEdited(QString name, QString value);
+
 };
 
 #endif

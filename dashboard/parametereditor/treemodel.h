@@ -44,16 +44,16 @@
 #include <QAbstractItemModel>
 #include <QModelIndex>
 #include <QVariant>
+#include "treeitem.h"
 
-class TreeItem;
+//class TreeItem;
 
 class TreeModel : public QAbstractItemModel
 {
 	Q_OBJECT
 
 	public:
-		TreeModel(const QStringList &headers, const QString &data,
-				QObject *parent = 0);
+		TreeModel(const QStringList &headers,QObject *parent = 0);
 		~TreeModel();
 
 		QVariant data(const QModelIndex &index, int role) const;
@@ -82,7 +82,6 @@ class TreeModel : public QAbstractItemModel
 		bool removeRows(int position, int rows,
 				const QModelIndex &parent = QModelIndex());
 
-	public slots:
 		void setData(QString name, QString value);
 
 	signals:

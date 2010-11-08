@@ -15,22 +15,31 @@ STYLE += gtk
 DEPENDPATH += . \
 	      ..
 INCLUDEPATH += . \
-	       .. 
+	       .. \
+	       /usr/include/qwt-qt4
+LIBS += -lqwt-qt4
 # Input
 HEADERS += dashboard.h \
 	../src/server/sidsocket.h \
 	videosocket.h \
-	parameters.def \
 	videowidget.h \
-	datalogger.h \
 	../src/version.h \
 	../src/configloader.h \
-	../src/auv/mechanisms.h
-FORMS += dashboard.ui
+	../src/auv/mechanisms.h \
+	parametereditor/doubleeditor.h \
+	parametereditor/paramedit.h \
+	parametereditor/treeitem.h \
+	parametereditor/treemodel.h
+FORMS += dashboard.ui \
+	paths.ui
 SOURCES += dashboard.cpp \
 	../src/server/sidsocket.cpp \
 	main.cpp \
 	videosocket.cpp \
 	../src/version.cpp \
 	../src/configloader.cpp \
-	../src/auv/mechanisms.cpp
+	../src/auv/mechanisms.cpp \
+	parametereditor/doubleeditor.cpp \
+	parametereditor/paramedit.cpp \
+	parametereditor/treeitem.cpp \
+	parametereditor/treemodel.cpp
