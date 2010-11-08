@@ -44,8 +44,7 @@
 #include "treemodel.h"
 
 //! [0]
-TreeModel::TreeModel(const QStringList &headers, const QString &data,
-		QObject *parent)
+TreeModel::TreeModel(const QStringList &headers,QObject *parent)
 : QAbstractItemModel(parent)
 {
 	QVector<QVariant> rootData;
@@ -53,7 +52,10 @@ TreeModel::TreeModel(const QStringList &headers, const QString &data,
 		rootData << header;
 
 	rootItem = new TreeItem(rootData);
-	setupModelData(data.split(QString("\n")), rootItem);
+	rootItem->insertChildren(rootItem->childCount(), 1, rootItem->columnCount());
+	TreeItem* newItem = rootItem->child(rootItem->childCount() - 1);
+	newItem->setData(0, "Testing!");
+	setData("Testing_Param", "Hello");
 }
 //! [0]
 
@@ -273,12 +275,9 @@ void TreeModel::setupModelData(const QStringList &lines, TreeItem *parent)
 
 // returns the item for the specified SID ID (e.g. Parameter.Actor.YawController)
 TreeItem* TreeModel::getItem(QString value, TreeItem* parentItem){
-	QStringList thisIDTree = value.split(".");
+	QString level_delimiter = "_";
+	QStringList thisIDTree = value.split(level_delimiter);
 	thisIDTree.removeAll("");
-	if(thisIDTree.isEmpty())
-		return parentItem;
-	if(thisIDTree.first() == "Parameter")
-		thisIDTree.removeFirst();
 	if(thisIDTree.isEmpty())
 		return parentItem;
 	QString nameToLookFor = thisIDTree.takeFirst();
@@ -290,7 +289,7 @@ TreeItem* TreeModel::getItem(QString value, TreeItem* parentItem){
 			if(thisIDTree.isEmpty())
 				return thisItem;
 			else
-				return getItem(thisIDTree.join("."), thisItem);
+				return getItem(thisIDTree.join(level_delimiter), thisItem);
 		}
 	}
 	// item not found, create it
@@ -301,11 +300,16 @@ TreeItem* TreeModel::getItem(QString value, TreeItem* parentItem){
 	if(thisIDTree.isEmpty())
 		return newItem;
 	else
-		return getItem(thisIDTree.join("."), newItem);
+		return getItem(thisIDTree.join(level_delimiter), newItem);
 
 }
 
 void TreeModel::setData(QString id, QString data){
-	TreeItem* param = getItem(id, rootItem);
-	param->setData(1, data);
+	qDebug() << "Model setting " << id << "to" << data;
+	TreeItem* thisItem = getItem(id, rootItem);
+	if(thisItem == rootItem){
+		qDebug() << "Item location/creation error";
+		return;
+	}
+	thisItem->setData(1, data);
 }

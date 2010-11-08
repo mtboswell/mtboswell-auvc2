@@ -39,62 +39,41 @@
  ****************************************************************************/
 
 #include <QtGui>
+#include "paramedit.h"
 
-#include "mainwindow.h"
-#include "treemodel.h"
-#include "parametereditorcreator.h"
-
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
-	setupUi(this);
-	
-	setupTreeEdit(view);
-
-	connect(exitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
-
-	connect(view->selectionModel(),	SIGNAL(selectionChanged(const QItemSelection &,	const QItemSelection &)),this, SLOT(updateActions()));
-
-	updateActions();
-}
-
-void MainWindow::setupTreeEdit(QTreeView* paramEdit) {
+ParameterEditor::ParameterEditor(QTreeView* paramEdit, QObject *parent) : QObject(parent) {
 
 	QStringList headers;
 	headers << tr("Parameter") << tr("Value");
 
-	// load values
-	QFile file("parameters.txt");
-	file.open(QIODevice::ReadOnly);
-	TreeModel *model = new TreeModel(headers, file.readAll());
-	file.close();
+	model = new TreeModel(headers, this);
 
 	// link model to view
 	paramEdit->setModel(model);
 
 	// setup display/edit properties
+	/*
 	paramEdit->header()->setStretchLastSection(false);
 	paramEdit->expandAll();
 	for (int column = 0; column < model->columnCount(); ++column)
 		paramEdit->resizeColumnToContents(column);
 	paramEdit->collapseAll();
+	*/
 
 	QItemEditorFactory *factory = new QItemEditorFactory;
-	QItemEditorCreatorBase *paramEditCreator = new QStandardItemEditorCreator<ParameterEditor>();
-	factory->registerEditor(QVariant::Double, paramEditCreator);
+	QItemEditorCreatorBase *doubleEditorCreator = new QStandardItemEditorCreator<DoubleEditor>();
+	factory->registerEditor(QVariant::Double, doubleEditorCreator);
 	QItemEditorFactory::setDefaultFactory(factory);
 
 	//QStyledItemDelegate* itemDel = view->itemDelegateForColumn(1);
 	//itemDel->itemEditorFactory()->registerEditor(QVariant::Double, paramEditCreator);
+
+	// connect signals and slots
+	//connect(paramEdit->selectionModel(),SIGNAL(selectionChanged(const QItemSelection &,const QItemSelection &)),this, SLOT(updateActions()));
+
+	connect(model, SIGNAL(dataUpdated(QString, QString)), this, SIGNAL(parameterEdited(QString,QString)));
 }
 
-void MainWindow::updateActions()
-{
-	bool hasSelection = !view->selectionModel()->selection().isEmpty();
-	bool hasCurrent = view->selectionModel()->currentIndex().isValid();
-
-	if (hasCurrent) {
-		view->closePersistentEditor(view->selectionModel()->currentIndex());
-
-		int row = view->selectionModel()->currentIndex().row();
-		int column = view->selectionModel()->currentIndex().column();
-	}
+void ParameterEditor::updateParameter(QString name, QString value){
+	model->setData(name, value);
 }

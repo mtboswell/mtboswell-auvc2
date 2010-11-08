@@ -13,8 +13,11 @@
 
 #include "../src/server/sidsocket.h"
 #include "videosocket.h"
-#include "datalogger.h"
+//#include "datalogger.h"
 #include "videowidget.h"
+#include "parametereditor/paramedit.h"
+#include "qwt_compass_rose.h"
+#include "qwt_dial_needle.h"
 
 static QHash<QString,QString> AUVState;
 
@@ -30,6 +33,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 	signals:
 		void sendSID(QString key, QString value);
 		void setAddress(QString);
+		void receivedParam(QString, QString);
 
 	public slots:
 		// Receieve UDP Data
@@ -85,7 +89,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void on_tareAccelPushButton_clicked();
 
 		// RC
-		void on_controlGroupBox_toggled(bool rc);
+		void on_goRCButton_toggled(bool rc);
 		void on_useInertialCheckBox_stateChanged(int state);
 		void on_desiredDepthSlider_valueChanged(int value);
 		void on_desiredStrafeSlider_valueChanged(int value);
@@ -99,69 +103,8 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void on_runScriptPushButton_clicked();
 		void on_actuateMechPushButton_clicked(); 
 		
-		// Camera
-		void on_camPosXSpinBox_valueChanged(double value);
-		void on_camPosYSpinBox_valueChanged(double value);
-
 		// Video Streams
 		void on_videoStreamComboBox_activated(int index);
-
-/*
-#define GEN_PARAM(guiParam,brainParam) \
-void on_##guiParam##_editingFinished();
-#include "parameters.def"
-*/
-
-		// controller gains
-		void on_fwdVelocitySpinBox_editingFinished();
-		void on_headingDGainSpinBox_editingFinished();
-		void on_headingIGainSpinBox_editingFinished();
-		void on_headingPGainSpinBox_editingFinished();
-		void on_depthDGainSpinBox_editingFinished();
-		void on_depthIGainSpinBox_editingFinished();
-		void on_depthPGainSpinBox_editingFinished();
-		void on_approachVelocitySpinBox_editingFinished();
-		void on_fwdYGainD_editingFinished();
-		void on_fwdYGainI_editingFinished();
-		void on_fwdYGainP_editingFinished();
-		void on_fwdXGainD_editingFinished();
-		void on_fwdXGainI_editingFinished();
-		void on_fwdXGainP_editingFinished();
-		void on_downYGainD_editingFinished();
-		void on_downYGainI_editingFinished();
-		void on_downYGainP_editingFinished();
-		void on_downXYawGainD_editingFinished();
-		void on_downXYawGainI_editingFinished();
-		void on_downXYawGainP_editingFinished();
-		void on_downXStrafeGainD_editingFinished();
-		void on_downXStrafeGainI_editingFinished();
-		void on_downXStrafeGainP_editingFinished();
-
-		// Vision
-		void on_pathHueHighSpinBox_editingFinished();
-		void on_pathHueLowSpinBox_editingFinished();
-		void on_pathSaturationSpinBox_editingFinished();
-		void on_pathDepthSpinBox_editingFinished();
-		void on_buoyMinEccentSpinBox_editingFinished();
-		void on_buoyMaxEccentSpinBox_editingFinished();
-		void on_buoyMinExtentSpinBox_editingFinished();
-		void on_buoyMaxExtentSpinBox_editingFinished();
-		void on_buoy1HueSpinBox_editingFinished();
-		void on_buoy1SaturationSpinBox_editingFinished();
-		void on_buoy1ValueSpinBox_editingFinished();
-		void on_buoy2HueSpinBox_editingFinished();
-		void on_buoy2SaturationSpinBox_editingFinished();
-		void on_buoy2ValueSpinBox_editingFinished();
-		void on_iterSegmentThreshSpinBox_editingFinished();
-
-		// IMU
-		void on_yVelPSpinBox_editingFinished();
-		void on_yVelISpinBox_editingFinished();
-		void on_yVelDSpinBox_editingFinished();
-		void on_yawRatePSpinBox_editingFinished();
-		void on_yawRateISpinBox_editingFinished();
-		void on_yawRateDSpinBox_editingFinished();
-
 
 	private:
 		SIDSocket* m_DS;
@@ -183,11 +126,12 @@ void on_##guiParam##_editingFinished();
 		QProcess* process;
 		int RC, desiredHeading, desiredDepth, desiredSpeed, desiredStrafe;
 		int desiredVideoStream;
-		double desiredCameraX, desiredCameraY;
 		
 		VideoWidget* videoWidget;
 
-		DataLogger* logger;
+		//DataLogger* logger;
 		QString currentState, currentSubState;
+
+		ParameterEditor* paramEditor;
 
 };
