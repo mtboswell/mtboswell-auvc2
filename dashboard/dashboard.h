@@ -46,13 +46,13 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 
 
 	private slots:
-		void startAction();
-		void stopAction();
-		void resetAction();
-		void killAction();
+		void startAutonomousAction(bool sendToAUV = true);
+		void startRCAction(bool sendToAUV = true);
+		void stopAction(bool sendToAUV = true);
+		void resetAction(bool sendToAUV = true);
+		void killAction(bool sendToAUV = true);
 
 		void logData(bool log);
-		void logCmd(QString, QString);
 		void recordVideo(bool record);
 
 		//! \todo Implement turn off feature
@@ -77,9 +77,9 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 
 		// Gui Event Handlers
 
-		void on_goButton_clicked();
+		void on_goAutonomousButton_clicked();
+		void on_goRCButton_clicked();
 		void on_stopButton_clicked();
-		void on_whiteBalancePushButton_clicked();
 
 		// Calibration
 		void on_zeroDepthPushButton_clicked();
@@ -92,8 +92,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void on_tareAccelPushButton_clicked();
 
 		// RC
-		void on_goRCButton_toggled(bool rc);
-		void on_useInertialCheckBox_stateChanged(int state);
+		//void on_goRCButton_toggled(bool rc);
 		void on_desiredDepthSlider_valueChanged(int value);
 		void on_desiredStrafeSlider_valueChanged(int value);
 		void on_desiredSpeedSlider_valueChanged(int value);
@@ -110,6 +109,9 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		void on_videoStreamComboBox_activated(int index);
 
 	private:
+
+		enum mode {STOPPED, AUTONOMOUS, RC, KILLED} currentMode;
+
 		SIDSocket* m_DS;
 		VideoSocket* videoSocket;
 		VideoSocket* bitmapSocket;
@@ -127,7 +129,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		QStringList scripts;
 
 		QProcess* process;
-		int RC, desiredHeading, desiredDepth, desiredSpeed, desiredStrafe;
+		int desiredHeading, desiredDepth, desiredSpeed, desiredStrafe;
 		int desiredVideoStream;
 		
 		VideoWidget* videoWidget;

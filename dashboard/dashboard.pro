@@ -16,8 +16,10 @@ DEPENDPATH += . \
 	      ..
 INCLUDEPATH += . \
 	       .. \
-	       /usr/include/qwt-qt4
-LIBS += -lqwt-qt4
+#	       /usr/include/qwt-qt4 \
+	       /usr/include/qwt
+LIBS += -lqwt
+#LIBS += -lqwt-qt4
 # Input
 HEADERS += dashboard.h \
 	../src/server/sidsocket.h \
