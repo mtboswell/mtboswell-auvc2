@@ -82,6 +82,9 @@ class TreeModel : public QAbstractItemModel
 		bool removeRows(int position, int rows,
 				const QModelIndex &parent = QModelIndex());
 
+		QModelIndex getIndex(TreeItem* thisItem, int column);
+
+	public slots:
 		void setData(QString name, QString value);
 
 	signals:

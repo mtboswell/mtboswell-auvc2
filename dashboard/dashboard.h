@@ -15,7 +15,10 @@
 #include "videosocket.h"
 //#include "datalogger.h"
 #include "videowidget.h"
-#include "parametereditor/paramedit.h"
+
+#include "parametereditor/treemodel.h"
+#include "parametereditor/doubleeditor.h"
+
 #include "qwt_compass_rose.h"
 #include "qwt_dial_needle.h"
 
@@ -132,6 +135,8 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		//DataLogger* logger;
 		QString currentState, currentSubState;
 
-		ParameterEditor* paramEditor;
+		//ParameterEditor* paramEditor;
+		TreeModel *paramModel;
+		void setupParamEdit();
 
 };

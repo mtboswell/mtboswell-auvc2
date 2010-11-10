@@ -151,7 +151,7 @@ bool TreeItem::setData(int column, const QVariant &value)
 	if (column < 0 || column >= itemData.size())
 		return false;
 
-	qDebug() << "Setting data in column" << column << "to" << value;
+	//qDebug() << "Setting data in column" << column << "to" << value;
 	itemData[column] = value;
 	return true;
 }

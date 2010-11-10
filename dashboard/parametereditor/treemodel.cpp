@@ -43,7 +43,6 @@
 #include "treeitem.h"
 #include "treemodel.h"
 
-//! [0]
 TreeModel::TreeModel(const QStringList &headers,QObject *parent)
 : QAbstractItemModel(parent)
 {
@@ -52,26 +51,23 @@ TreeModel::TreeModel(const QStringList &headers,QObject *parent)
 		rootData << header;
 
 	rootItem = new TreeItem(rootData);
+	/*
 	rootItem->insertChildren(rootItem->childCount(), 1, rootItem->columnCount());
 	TreeItem* newItem = rootItem->child(rootItem->childCount() - 1);
 	newItem->setData(0, "Testing!");
 	setData("Testing_Param", "Hello");
+	*/
 }
-//! [0]
 
-//! [1]
 TreeModel::~TreeModel()
 {
 	delete rootItem;
 }
-//! [1]
 
-//! [2]
 int TreeModel::columnCount(const QModelIndex & /* parent */) const
 {
 	return rootItem->columnCount();
 }
-//! [2]
 
 QVariant TreeModel::data(const QModelIndex &index, int role) const
 {
@@ -86,7 +82,6 @@ QVariant TreeModel::data(const QModelIndex &index, int role) const
 	return item->data(index.column());
 }
 
-//! [3]
 Qt::ItemFlags TreeModel::flags(const QModelIndex &index) const
 {
 	if (!index.isValid())
@@ -97,9 +92,7 @@ Qt::ItemFlags TreeModel::flags(const QModelIndex &index) const
 	else
 		return Qt::ItemIsEditable | Qt::ItemIsEnabled | Qt::ItemIsSelectable;
 }
-//! [3]
 
-//! [4]
 TreeItem *TreeModel::getItem(const QModelIndex &index) const
 {
 	if (index.isValid()) {
@@ -108,7 +101,6 @@ TreeItem *TreeModel::getItem(const QModelIndex &index) const
 	}
 	return rootItem;
 }
-//! [4]
 
 QVariant TreeModel::headerData(int section, Qt::Orientation orientation,
 		int role) const
@@ -119,14 +111,11 @@ QVariant TreeModel::headerData(int section, Qt::Orientation orientation,
 	return QVariant();
 }
 
-//! [5]
 QModelIndex TreeModel::index(int row, int column, const QModelIndex &parent) const
 {
 	if (parent.isValid() && parent.column() != 0)
 		return QModelIndex();
-	//! [5]
 
-	//! [6]
 	TreeItem *parentItem = getItem(parent);
 
 	TreeItem *childItem = parentItem->child(row);
@@ -135,7 +124,6 @@ QModelIndex TreeModel::index(int row, int column, const QModelIndex &parent) con
 	else
 		return QModelIndex();
 }
-//! [6]
 
 bool TreeModel::insertColumns(int position, int columns, const QModelIndex &parent)
 {
@@ -160,7 +148,6 @@ bool TreeModel::insertRows(int position, int rows, const QModelIndex &parent)
 	return success;
 }
 
-//! [7]
 QModelIndex TreeModel::parent(const QModelIndex &index) const
 {
 	if (!index.isValid())
@@ -174,7 +161,6 @@ QModelIndex TreeModel::parent(const QModelIndex &index) const
 
 	return createIndex(parentItem->childNumber(), 0, parentItem);
 }
-//! [7]
 
 bool TreeModel::removeColumns(int position, int columns, const QModelIndex &parent)
 {
@@ -202,17 +188,14 @@ bool TreeModel::removeRows(int position, int rows, const QModelIndex &parent)
 	return success;
 }
 
-//! [8]
 int TreeModel::rowCount(const QModelIndex &parent) const
 {
 	TreeItem *parentItem = getItem(parent);
 
 	return parentItem->childCount();
 }
-//! [8]
 
-bool TreeModel::setData(const QModelIndex &index, const QVariant &value,
-		int role)
+bool TreeModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
 	if (role != Qt::EditRole)
 		return false;
@@ -222,7 +205,14 @@ bool TreeModel::setData(const QModelIndex &index, const QVariant &value,
 
 	if (result){
 		emit dataChanged(index, index);
-		emit dataUpdated(item->data(0).toString(), item->data(1).toString());
+
+		QString itemName = item->data(0).toString();
+		TreeItem* iParent = item->parent();
+		while(iParent != rootItem){
+			itemName.prepend(iParent->data(0).toString() + ".");
+			iParent = iParent->parent();
+		}
+		emit dataUpdated(itemName, item->data(1).toString());
 	}
 
 	return result;
@@ -305,11 +295,38 @@ TreeItem* TreeModel::getItem(QString value, TreeItem* parentItem){
 }
 
 void TreeModel::setData(QString id, QString data){
-	qDebug() << "Model setting " << id << "to" << data;
 	TreeItem* thisItem = getItem(id, rootItem);
 	if(thisItem == rootItem){
 		qDebug() << "Item location/creation error";
 		return;
 	}
-	thisItem->setData(1, data);
+	bool isDouble = false;
+	double doubleData = data.toDouble(&isDouble);
+	if(isDouble)
+		thisItem->setData(1, doubleData);
+	else
+		thisItem->setData(1, data);
+	QModelIndex rootIndex = index(0,0);
+	QModelIndex thisIndex = getIndex(thisItem, 2);
+	emit dataChanged(thisIndex, thisIndex);
+	emit layoutChanged();
+	//qDebug() << "Model setting " << id << "to" << data;
+}
+
+QModelIndex TreeModel::getIndex(TreeItem* thisItem, int column){
+	return createIndex(thisItem->childNumber(), column, thisItem);
+/*
+	QStack<TreeItem*> parents;
+	TreeItem* iParent = thisItem;
+	while(iParent != rootItem){
+		iParent = iParent->parent();
+		parents << iParent;
+	}
+	QModelIndex thisIndex;
+	while(!parents.isEmpty()){
+		TreeItem* iItem = parents.pop();
+		thisIndex = createIndex(iItem->childNumber(), 0, thisIndex);
+	}
+	QModelIndex
+*/
 }
