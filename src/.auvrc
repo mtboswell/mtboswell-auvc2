@@ -1,6 +1,6 @@
 #  Config stuff
 
-Debug=false;
+Debug=true;
 
 #  MAGNETIC_DECLINATION = local magnetic declination.  
 #  Use this webpage to calculate:

@@ -100,11 +100,13 @@ Dashboard::Dashboard(QMainWindow *parent)
 	//bitVideoLabel->setScaledContents(true);
 
 	// setup compasses
-	QwtSimpleCompassRose* rose = new QwtSimpleCompassRose();
-	QwtCompassMagnetNeedle* needle = new QwtCompassMagnetNeedle();
-	headingDial->setRose(rose);
-	headingDial->setNeedle(needle);
+	//QwtSimpleCompassRose* rose = new QwtSimpleCompassRose();
+	//headingDial->setRose(rose);
 	//desiredHeadingDial->setRose(&rose);
+	QwtCompassMagnetNeedle* hNeedle = new QwtCompassMagnetNeedle();
+	headingDial->setNeedle(hNeedle);
+	QwtCompassMagnetNeedle* dHNeedle = new QwtCompassMagnetNeedle();
+	desiredHeadingDial->setNeedle(dHNeedle);
 
 	// init controls
 	RC = desiredSpeed = desiredHeading = desiredDepth = desiredStrafe = desiredVideoStream = 0;
@@ -115,10 +117,12 @@ Dashboard::Dashboard(QMainWindow *parent)
 	desiredHeadingDial->setTracking(false);
 
 	// init parameter editor
-	paramEditor = new ParameterEditor(paramEditTreeView, this);
-	connect(paramEditor, SIGNAL(parameterEdited(QString,QString)), this, SIGNAL(sendSID(QString,QString)));
-	connect(this, SIGNAL(receivedParam(QString, QString)), paramEditor, SLOT(updateParameter(QString,QString)));
-	paramEditTreeView->setModel(paramEditor->model);
+	//paramEditor = new ParameterEditor(paramEditTreeView, this);
+	//connect(paramEditor, SIGNAL(parameterEdited(QString,QString)), this, SIGNAL(sendSID(QString,QString)));
+	//connect(this, SIGNAL(receivedParam(QString, QString)), paramEditor, SLOT(updateParameter(QString,QString)));
+	//paramEditTreeView->setModel(paramEditor->model);
+	setupParamEdit();
+	//emit receivedParam("Test3","1.00");
 
 	// Connect to AUV
 	//emit sendSID("Connect.Data", "This");
@@ -135,6 +139,34 @@ Dashboard::Dashboard(QMainWindow *parent)
 	connect(dataTimeoutTimer, SIGNAL(timeout()), this, SLOT(checkForDataTimeout()));
 	dataTimeoutTimer->start(100);
 
+}
+
+void Dashboard::setupParamEdit(){
+	QStringList headers;
+	headers << tr("Parameter") << tr("Value");
+
+	paramModel = new TreeModel(headers, this);
+
+	// link model to view
+	paramEditTreeView->setModel(paramModel);
+
+	// setup display/edit properties
+	/*
+	paramEditTreeView->header()->setStretchLastSection(false);
+	paramEditTreeView->expandAll();
+	for (int column = 0; column < model->columnCount(); ++column)
+		paramEditTreeView->resizeColumnToContents(column);
+	paramEditTreeView->collapseAll();
+	*/
+
+	// NOTE that this assumes all params are doubles!  You will not be able to edit anything else without adding more QItemEditorCreatorBases to the factory!
+	QItemEditorFactory *factory = new QItemEditorFactory;
+	QItemEditorCreatorBase *doubleEditorCreator = new QStandardItemEditorCreator<DoubleEditor>();
+	factory->registerEditor(QVariant::Double, doubleEditorCreator);
+	QItemEditorFactory::setDefaultFactory(factory);
+
+	connect(paramModel, SIGNAL(dataUpdated(QString,QString)), this, SIGNAL(sendSID(QString,QString)));
+	connect(this, SIGNAL(receivedParam(QString, QString)), paramModel, SLOT(setData(QString,QString)));
 }
 
 Dashboard::~Dashboard(){
@@ -395,7 +427,7 @@ void Dashboard::handleAUVParam(QString id, QString value) {
 		}
 	} else if (type == "Parameter") { // parameter values from Brain
 		emit receivedParam(name, value);
-	//	qDebug() << "New Param!";
+		//qDebug() << "New Param!";
 	}else if(type == "Status"){
 		// wait for the Status=Connected packet before enabling the interface
 		if(value == "Connected") {
