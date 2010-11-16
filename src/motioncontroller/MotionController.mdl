@@ -3,7 +3,7 @@ Model {
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
-    NumRootInports	    17
+    NumRootInports	    18
     Inport {
       BusObject		      ""
       Name		      "TargetSelect"
@@ -11,6 +11,10 @@ Model {
     Inport {
       BusObject		      ""
       Name		      "TargetFound"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "MaintainHeading"
     }
     Inport {
       BusObject		      ""
@@ -109,7 +113,7 @@ Model {
       Name		      "RightAngled"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.69"
+    ComputedModelVersion    "1.78"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -127,13 +131,13 @@ Model {
   Creator		  "auvt"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "auvt"
+  LastModifiedBy	  "micah"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Oct 26 22:22:00 2010"
-  RTWModifiedTimeStamp	  210006141
-  ModelVersionFormat	  "1.%<AutoIncrement:69>"
+  LastModifiedDate	  "Fri Nov 12 17:24:16 2010"
+  RTWModifiedTimeStamp	  211481016
+  ModelVersionFormat	  "1.%<AutoIncrement:78>"
   ConfigurationManager	  "None"
-  SampleTimeColors	  off
+  SampleTimeColors	  on
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
   WideLines		  off
@@ -156,6 +160,13 @@ Model {
   BrowserShowLibraryLinks off
   BrowserLookUnderMasks	  off
   SimulationMode	  "normal"
+  RTW.FcnDefault {
+    $PropName		    "RTWFcnClass"
+    $ObjectID		    1
+    Name		    "Auto"
+    FunctionName	    "MotionController_step"
+    InitFunctionName	    "MotionController_initialize"
+  }
   LinearizationMsg	  "none"
   Profile		  off
   ParamWorkspaceSource	  "ReferencedWorkspace"
@@ -198,10 +209,15 @@ Model {
   ExtModeSkipDownloadWhenConnect off
   ExtModeLogAll		  on
   ExtModeAutoUpdateStatusClock on
-  TunableVars		  "Depth_Kd,Depth_Ki,Depth_Kp,Heading_Kd,Heading_Ki,Heading_Kp,IMU_YVel_Kd,IMU_YVel_Ki,IMU_YVel_Kp,IMU_"
-  "YawRate_Kd,IMU_YawRate_Ki,IMU_YawRate_Kp"
-  TunableVarsStorageClass "Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
-  TunableVarsTypeQualifier ",,,,,,,,,,,"
+  TunableVars		  "Compass_Yaw_Kd,Compass_Yaw_Ki,Compass_Yaw_Kp,Depth_Kd,Depth_Ki,Depth_Kp,Heading_Kd,Heading_Ki,Headin"
+  "g_Kp,IMU_YVel_Kd,IMU_YVel_Ki,IMU_YVel_Kp,IMU_YawRate_Kd,IMU_YawRate_Ki,IMU_YawRate_Kp,Target_Down_X_Kd,Target_Down_X"
+  "_Ki,Target_Down_X_Kp,Target_Down_Y_Kd,Target_Down_Y_Ki,Target_Down_Y_Kp,Target_Down_Yaw_Kd,Target_Down_Yaw_Ki,Target"
+  "_Down_Yaw_Kp,Target_Forward_Y_Kd,Target_Forward_Y_Ki,Target_Forward_Y_Kp,Target_Forward_Yaw_Kd,Target_Forward_Yaw_Ki"
+  ",Target_Forward_Yaw_Kp,Target_Forward_Z_Kd,Target_Forward_Z_Ki,Target_Forward_Z_Kp,Thruster_Friction_Zero,Thruster_L"
+  "eftAngled_Gain,Thruster_LeftFwd_Gain,Thruster_RightAngled_Gain,Thruster_RightFwd_Gain,ZVelocity_Neg_Max"
+  TunableVarsStorageClass "Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,A"
+  "uto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+  TunableVarsTypeQualifier ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"
   BufferReuse		  on
   ShowModelReferenceBlockVersion off
   ShowModelReferenceBlockIO off
@@ -209,18 +225,18 @@ Model {
     Type		    "Handle"
     Dimension		    1
     Simulink.ConfigSet {
-      $ObjectID		      1
+      $ObjectID		      2
       Version		      "1.10.0"
       Array {
 	Type			"Handle"
 	Dimension		8
 	Simulink.SolverCC {
-	  $ObjectID		  2
+	  $ObjectID		  3
 	  Version		  "1.10.0"
 	  StartTime		  "0.0"
 	  StopTime		  "inf"
 	  AbsTol		  "auto"
-	  FixedStep		  "1"
+	  FixedStep		  "0.02"
 	  InitialStep		  "auto"
 	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
@@ -233,7 +249,7 @@ Model {
 	  MinStep		  "auto"
 	  MaxConsecutiveMinStep	  "1"
 	  RelTol		  "1e-3"
-	  SolverMode		  "Auto"
+	  SolverMode		  "SingleTasking"
 	  ConcurrentTasks	  off
 	  Solver		  "FixedStepDiscrete"
 	  SolverName		  "FixedStepDiscrete"
@@ -245,11 +261,21 @@ Model {
 	  SolverResetMethod	  "Fast"
 	  PositivePriorityOrder	  off
 	  AutoInsertRateTranBlk	  off
-	  SampleTimeConstraint	  "Unconstrained"
+	  SampleTimeConstraint	  "Specified"
 	  InsertRTBMode		  "Whenever possible"
+	  Array {
+	    Type		    "Struct"
+	    Dimension		    1
+	    MATStruct {
+	      SampleTime	      "0.02"
+	      Offset		      "0"
+	      Priority		      [1.0]
+	    }
+	    PropName		    "SampleTimeProperty"
+	  }
 	}
 	Simulink.DataIOCC {
-	  $ObjectID		  3
+	  $ObjectID		  4
 	  Version		  "1.10.0"
 	  Decimation		  "1"
 	  ExternalInput		  "[t, u]"
@@ -280,7 +306,7 @@ Model {
 	  Refine		  "1"
 	}
 	Simulink.OptimizationCC {
-	  $ObjectID		  4
+	  $ObjectID		  5
 	  Version		  "1.10.0"
 	  BlockReduction	  on
 	  BooleanDataType	  on
@@ -321,7 +347,7 @@ Model {
 	  AccelVerboseBuild	  off
 	}
 	Simulink.DebuggingCC {
-	  $ObjectID		  5
+	  $ObjectID		  6
 	  Version		  "1.10.0"
 	  RTPrefix		  "error"
 	  ConsistencyChecking	  "none"
@@ -406,7 +432,7 @@ Model {
 	  SFTransitionOutsideNaturalParentDiag "warning"
 	}
 	Simulink.HardwareCC {
-	  $ObjectID		  6
+	  $ObjectID		  7
 	  Version		  "1.10.0"
 	  ProdBitPerChar	  8
 	  ProdBitPerShort	  16
@@ -443,7 +469,7 @@ Model {
 	  ProdEqTarget		  on
 	}
 	Simulink.ModelReferenceCC {
-	  $ObjectID		  7
+	  $ObjectID		  8
 	  Version		  "1.10.0"
 	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
 	  CheckModelReferenceTargetMessage "error"
@@ -458,7 +484,7 @@ Model {
 	  SupportModelReferenceSimTargetCustomCode off
 	}
 	Simulink.SFSimCC {
-	  $ObjectID		  8
+	  $ObjectID		  9
 	  Version		  "1.10.0"
 	  SFSimEnableDebug	  on
 	  SFSimOverflowDetection  on
@@ -473,13 +499,14 @@ Model {
 	}
 	Simulink.RTWCC {
 	  $BackupClass		  "Simulink.RTWCC"
-	  $ObjectID		  9
+	  $ObjectID		  10
 	  Version		  "1.10.0"
 	  SystemTargetFile	  "ert.tlc"
 	  GenCodeOnly		  on
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
 	  TemplateMakefile	  "ert_default_tmf"
+	  PostCodeGenCommand	  "packNGo(buildInfo);"
 	  Description		  "Real-Time Workshop Embedded Coder"
 	  GenerateReport	  on
 	  SaveLog		  off
@@ -514,7 +541,7 @@ Model {
 	    Type		    "Handle"
 	    Dimension		    2
 	    Simulink.CodeAppCC {
-	      $ObjectID		      10
+	      $ObjectID		      11
 	      Version		      "1.10.0"
 	      ForceParamTrailComments off
 	      GenerateComments	      on
@@ -553,7 +580,7 @@ Model {
 	    }
 	    Simulink.ERTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
-	      $ObjectID		      11
+	      $ObjectID		      12
 	      Version		      "1.10.0"
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
@@ -667,14 +694,14 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 1479, 7, 2966, 979 ] "
+      CurrentDlgPage	      "Real-Time Workshop/Interface"
+      ConfigPrmDlgPosition    " [ 123, 6, 1024, 600 ] "
     }
     PropName		    "ConfigurationSets"
   }
   Simulink.ConfigSet {
     $PropName		    "ActiveConfigurationSet"
-    $ObjectID		    1
+    $ObjectID		    2
   }
   BlockDefaults {
     ForegroundColor	    "black"
@@ -948,7 +975,7 @@ Model {
   }
   System {
     Name		    "MotionController"
-    Location		    [1544, 69, 2755, 914]
+    Location		    [1, 53, 1212, 898]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -962,20 +989,30 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "678"
+    SIDHighWatermark	    "679"
     Block {
       BlockType		      Inport
       Name		      "TargetSelect"
       SID		      "251"
-      Position		      [180, 38, 210, 52]
+      Position		      [180, 28, 210, 42]
       IconDisplay	      "Port number"
+      SampleTime	      "0.02"
     }
     Block {
       BlockType		      Inport
       Name		      "TargetFound"
       SID		      "252"
-      Position		      [180, 98, 210, 112]
+      Position		      [180, 68, 210, 82]
       Port		      "2"
+      IconDisplay	      "Port number"
+      SampleTime	      "0.02"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "MaintainHeading"
+      SID		      "679"
+      Position		      [180, 103, 210, 117]
+      Port		      "3"
       IconDisplay	      "Port number"
     }
     Block {
@@ -983,7 +1020,7 @@ Model {
       Name		      "TargetX"
       SID		      "243"
       Position		      [180, 138, 210, 152]
-      Port		      "3"
+      Port		      "4"
       IconDisplay	      "Port number"
       Port {
 	PortNumber		1
@@ -997,7 +1034,7 @@ Model {
       Name		      "TargetY"
       SID		      "244"
       Position		      [180, 183, 210, 197]
-      Port		      "4"
+      Port		      "5"
       IconDisplay	      "Port number"
       Port {
 	PortNumber		1
@@ -1011,7 +1048,7 @@ Model {
       Name		      "TargetZ"
       SID		      "245"
       Position		      [180, 228, 210, 242]
-      Port		      "5"
+      Port		      "6"
       IconDisplay	      "Port number"
       Port {
 	PortNumber		1
@@ -1025,7 +1062,7 @@ Model {
       Name		      "TargetYaw"
       SID		      "246"
       Position		      [180, 273, 210, 287]
-      Port		      "6"
+      Port		      "7"
       IconDisplay	      "Port number"
       Port {
 	PortNumber		1
@@ -1039,7 +1076,7 @@ Model {
       Name		      "DesiredTargetX"
       SID		      "247"
       Position		      [180, 338, 210, 352]
-      Port		      "7"
+      Port		      "8"
       IconDisplay	      "Port number"
       Port {
 	PortNumber		1
@@ -1053,7 +1090,7 @@ Model {
       Name		      "DesiredTargetY"
       SID		      "248"
       Position		      [180, 378, 210, 392]
-      Port		      "8"
+      Port		      "9"
       IconDisplay	      "Port number"
       Port {
 	PortNumber		1
@@ -1067,7 +1104,7 @@ Model {
       Name		      "DesiredTargetZ"
       SID		      "249"
       Position		      [180, 418, 210, 432]
-      Port		      "9"
+      Port		      "10"
       IconDisplay	      "Port number"
       Port {
 	PortNumber		1
@@ -1081,7 +1118,7 @@ Model {
       Name		      "DesiredTargetYaw"
       SID		      "250"
       Position		      [180, 458, 210, 472]
-      Port		      "10"
+      Port		      "11"
       IconDisplay	      "Port number"
       Port {
 	PortNumber		1
@@ -1095,8 +1132,9 @@ Model {
       Name		      "MeasuredZ"
       SID		      "314"
       Position		      [180, 523, 210, 537]
-      Port		      "11"
+      Port		      "12"
       IconDisplay	      "Port number"
+      SampleTime	      "0.02"
       Port {
 	PortNumber		1
 	Name			"MeasuredZ"
@@ -1109,8 +1147,9 @@ Model {
       Name		      "MeasuredYAccel"
       SID		      "148"
       Position		      [180, 563, 210, 577]
-      Port		      "12"
+      Port		      "13"
       IconDisplay	      "Port number"
+      SampleTime	      "0.02"
       Port {
 	PortNumber		1
 	Name			"MeasuredYAccel"
@@ -1123,8 +1162,9 @@ Model {
       Name		      "MeasuredYaw"
       SID		      "145"
       Position		      [180, 603, 210, 617]
-      Port		      "13"
+      Port		      "14"
       IconDisplay	      "Port number"
+      SampleTime	      "0.02"
       Port {
 	PortNumber		1
 	Name			"MeasuredYaw"
@@ -1137,7 +1177,7 @@ Model {
       Name		      "MeasuredYawRate"
       SID		      "147"
       Position		      [180, 643, 210, 657]
-      Port		      "14"
+      Port		      "15"
       IconDisplay	      "Port number"
       Port {
 	PortNumber		1
@@ -1151,7 +1191,7 @@ Model {
       Name		      "DesiredZ"
       SID		      "315"
       Position		      [180, 713, 210, 727]
-      Port		      "15"
+      Port		      "16"
       IconDisplay	      "Port number"
       Port {
 	PortNumber		1
@@ -1165,7 +1205,7 @@ Model {
       Name		      "DesiredXVelocity"
       SID		      "146"
       Position		      [180, 753, 210, 767]
-      Port		      "16"
+      Port		      "17"
       IconDisplay	      "Port number"
       Port {
 	PortNumber		1
@@ -1179,7 +1219,7 @@ Model {
       Name		      "DesiredYaw"
       SID		      "143"
       Position		      [180, 793, 210, 807]
-      Port		      "17"
+      Port		      "18"
       IconDisplay	      "Port number"
       Port {
 	PortNumber		1
@@ -1294,7 +1334,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nauvt\\n26-Oct-2010 22:13:17"
+      "nmicah\\n12-Nov-2010 17:17:24"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -1315,7 +1355,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Non-Targeting Controllers"
-	Location		[1679, 208, 2781, 860]
+	Location		[-128, 128, 974, 780]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2123,7 +2163,7 @@ Model {
 		  MaskHideContents	  off
 		  System {
 		    Name		    "PID Controller\nHeading"
-		    Location		    [188, 193, 674, 484]
+		    Location		    [188, 194, 674, 485]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -2365,7 +2405,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Maintain Zero YawRate and Zero YVelocity"
-		Location		[1513, 503, 2015, 921]
+		Location		[261, 92, 763, 510]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -2410,6 +2450,7 @@ Model {
 		  IntegratorMethod	  "Integration: Forward Euler"
 		  ExternalReset		  "none"
 		  InitialConditionSource  "internal"
+		  SampleTime		  "-1"
 		  LimitOutput		  on
 		  UpperSaturationLimit	  "10"
 		  LowerSaturationLimit	  "-10"
@@ -2433,7 +2474,7 @@ Model {
 		  MaskHideContents	  off
 		  System {
 		    Name		    "PID Controller\nRelative Heading"
-		    Location		    [586, 217, 1340, 624]
+		    Location		    [144, 156, 898, 563]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -2622,7 +2663,7 @@ Model {
 		  MaskHideContents	  off
 		  System {
 		    Name		    "PID Controller\nYawRate"
-		    Location		    [139, 156, 897, 615]
+		    Location		    [139, 157, 897, 616]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -3008,7 +3049,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Maintain Desired Z "
-	    Location		    [350, 163, 761, 311]
+	    Location		    [350, 164, 761, 312]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -3065,7 +3106,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"PID Controller\nDepth S3"
-		Location		[1692, 223, 2446, 630]
+		Location		[135, 97, 889, 504]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -3135,6 +3176,7 @@ Model {
 		  gainval		  "1"
 		  ExternalReset		  "none"
 		  InitialConditionSource  "internal"
+		  SampleTime		  "-1"
 		  LimitOutput		  on
 		  UpperSaturationLimit	  "10"
 		  LowerSaturationLimit	  "-10"
@@ -3397,6 +3439,87 @@ Model {
 	  DstBlock		  "Switch Case"
 	  DstPort		  1
 	}
+	Line {
+	  Name			  "<MeasuredYaw>"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  "Bus\nSelector"
+	  SrcPort		  1
+	  Points		  [135, 0; 0, -60]
+	  DstBlock		  "Heading and Straight Line\nController"
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "<MeasuredYawRate>"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  "Bus\nSelector"
+	  SrcPort		  2
+	  Points		  [145, 0; 0, -65]
+	  DstBlock		  "Heading and Straight Line\nController"
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "<MeasuredYAccel>"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  "Bus\nSelector"
+	  SrcPort		  3
+	  Points		  [170, 0; 0, -70]
+	  DstBlock		  "Heading and Straight Line\nController"
+	  DstPort		  4
+	}
+	Line {
+	  Name			  "<MeasuredZ>"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  "Bus\nSelector"
+	  SrcPort		  4
+	  Points		  [175, 0]
+	  DstBlock		  "Maintain Desired Z "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<DesiredYaw>"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  1
+	  Points		  [160, 0; 0, -235]
+	  DstBlock		  "Heading and Straight Line\nController"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<DesiredZ>"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  2
+	  Points		  [155, 0; 0, 95]
+	  DstBlock		  "Maintain Desired Z "
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Maintain Desired Z "
+	  SrcPort		  1
+	  DstBlock		  "DesiredZVelocity"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Add"
+	  SrcPort		  1
+	  DstBlock		  "DesiredYVelocity"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Switch1"
+	  SrcPort		  1
+	  DstBlock		  "DesiredYawRate"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "<DesiredXVelocity>"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  "Bus\nSelector1"
+	  SrcPort		  3
+	  Points		  [80, 0; 0, 170; 775, 0]
+	  DstBlock		  "DesiredXVelocity"
+	  DstPort		  1
+	}
 	Annotation {
 	  Name			  "Z is global coords \n(depth under surface)"
 	  Position		  [406, 588]
@@ -3424,7 +3547,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Targeting Controllers"
-	Location		[1562, 99, 2278, 645]
+	Location		[307, 49, 1023, 595]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -3544,7 +3667,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Search for \nTarget"
-	    Location		    [2533, 352, 3046, 949]
+	    Location		    [83, 133, 596, 730]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -3654,8 +3777,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Track Target"
-	    Location		    [1981, 286, 2823, 809]
-	    Open		    on
+	    Location		    [102, 97, 944, 620]
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -3899,7 +4022,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Down Target"
-		Location		[1814, 206, 2143, 611]
+		Location		[347, 98, 676, 503]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -5511,7 +5634,7 @@ Model {
     Line {
       SrcBlock		      "TargetSelect"
       SrcPort		      1
-      Points		      [115, 0]
+      Points		      [0, 10; 115, 0]
       Branch {
 	Points			[200, 0]
 	DstBlock		"Targeting Controllers"
@@ -5533,7 +5656,7 @@ Model {
     Line {
       SrcBlock		      "TargetFound"
       SrcPort		      1
-      Points		      [190, 0; 0, 190]
+      Points		      [190, 0; 0, 220]
       DstBlock		      "Targeting Controllers"
       DstPort		      3
     }
@@ -5774,6 +5897,13 @@ Model {
 	DstBlock		"Non-Targeting Controllers"
 	DstPort			2
       }
+    }
+    Line {
+      SrcBlock		      "MaintainHeading"
+      SrcPort		      1
+      Points		      [200, 0; 0, 140]
+      DstBlock		      "Targeting Controllers"
+      DstPort		      2
     }
     Annotation {
       Name		      "We have three modes:\n 0: not targeting\n1: targeting forward\n2: targeting down"
