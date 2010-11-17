@@ -1,2 +1,2 @@
 #! /bin/bash
-hg blame -u * 2> /dev/null | grep -v binary | cut -d":" -f1 -s | cut -f1 | cut -d " " -f1 | sort -iu | xargs ./myloc
+hg blame -u * 2> /dev/null | grep -v binary | cut -d":" -f1 -s | cut -f1 | cut -d " " -f1 | sort -iu | xargs ./utils/myloc
