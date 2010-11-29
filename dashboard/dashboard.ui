@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>997</width>
-    <height>555</height>
+    <width>1012</width>
+    <height>580</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1406,7 +1406,7 @@
          <enum>QTabWidget::North</enum>
         </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="optionsTab">
          <attribute name="title">
@@ -1430,7 +1430,28 @@
               </widget>
              </item>
              <item row="0" column="1">
-              <widget class="QComboBox" name="comboBox_2"/>
+              <widget class="QComboBox" name="comboBox_2">
+               <item>
+                <property name="text">
+                 <string>Move</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Track</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Hold Position</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Surface</string>
+                </property>
+               </item>
+              </widget>
              </item>
             </layout>
            </widget>
@@ -1454,20 +1475,104 @@
                 </widget>
                </item>
                <item row="0" column="1">
-                <widget class="QComboBox" name="currentTargetComboBox"/>
+                <widget class="QComboBox" name="currentTargetComboBox">
+                 <item>
+                  <property name="text">
+                   <string>Path</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Red Buoy</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Yellow Buoy</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Green Buoy</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Hedge</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Bins</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Windows</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Pinger</string>
+                  </property>
+                 </item>
+                </widget>
                </item>
               </layout>
              </item>
              <item>
-              <widget class="QGroupBox" name="groupBox_4">
-               <property name="title">
-                <string>Edit Target Definitions</string>
+              <widget class="QRadioButton" name="radioButton">
+               <property name="text">
+                <string>Forward</string>
                </property>
-               <layout class="QVBoxLayout" name="verticalLayout_19">
-                <item>
-                 <widget class="QTreeView" name="treeView"/>
-                </item>
-               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="radioButton_2">
+               <property name="text">
+                <string>Down</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_6">
+               <property name="text">
+                <string>Approach Speed</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QSpinBox" name="spinBox"/>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox">
+               <property name="text">
+                <string>Use Yaw for targeting (Align for down or TrackX=Yaw for fwd)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBox_2">
+               <property name="text">
+                <string>Estimate Distance</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>Target Diameter (or X size) in feet:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton">
+               <property name="text">
+                <string>Save Target</string>
+               </property>
               </widget>
              </item>
             </layout>
@@ -2164,8 +2269,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>997</width>
-     <height>20</height>
+     <width>1012</width>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
