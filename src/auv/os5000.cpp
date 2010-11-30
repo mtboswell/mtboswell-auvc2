@@ -1,4 +1,5 @@
 #include "os5000.h"
+#include "../state.h"
 #include <QDebug>
 #include <QString>
 
@@ -8,7 +9,23 @@ OS5000::OS5000(const QString & serialPort): SerialDevice(serialPort, BAUD19200, 
 	qDebug() << "spawning os5000";
 }
 
-double OS5000::heading(){return m_heading;}
+
+HALdata* OS5000::produceHALData(double yaw, double pitch, double yaw){
+// something goes here that produces the HAL data
+}
+
+physicalState* OS5000::returnPhysicalState(double yaw, double pitch, double yaw){
+    physicalState pState = new physicalState();
+    pState.rotPos = roll();
+    pState.rotRate = pitch();
+    pState.rotAcc = yaw();
+    pState.coordinates = GLOBAL; //or LOCAL not sure
+    pState.linAcc = 0; // not sure how to get this value
+    pState.linPos = 0; // or this value
+    pState.linRate = 0; // or this value
+}
+
+double OS5000::yaw(){return m_yaw;}
 double OS5000::pitch(){return m_pitch;}
 double OS5000::roll(){return m_roll;}
 
@@ -17,7 +34,7 @@ void OS5000::processData(QByteArray data){
 	QRegExp fmt("C(\\d{1,3}\.\\d)P(-?\\d{1,2}\.\\d)R(-?\\d{1,2}\.\\d)T(-?\\d{1,2}\.\\d)\\*(\\w{2})\\r\\n");
 	qDebug() << data;
 	if(fmt.exactMatch(data)){
-		double heading = fmt.cap(1).toDouble();
+                double yaw = fmt.cap(1).toDouble();
 		double pitch = fmt.cap(2).toDouble();
 		double roll = fmt.cap(3).toDouble();
 		double temp = fmt.cap(4).toDouble();
@@ -29,8 +46,8 @@ void OS5000::processData(QByteArray data){
 			else sum = sum ^ byte;
 		}
 		if(sum == checksum){
-			emit compassData(heading, pitch, roll);
-			m_heading = heading;
+                        emit compassData(yaw, pitch, roll);
+                        m_yaw = yaw;
 			m_pitch = pitch;
 			m_roll = roll;
 			m_temp = temp;
