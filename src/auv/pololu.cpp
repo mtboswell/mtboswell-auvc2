@@ -1,5 +1,14 @@
+/*
+  References used:
+    1)  Pololu TReX User's Guide (web):   http://www.pololu.com/docs/0J1/all
+    2)  TReX Command Documentation (PDF):   http://www.pololu.com/catalog/product/777/resources
+
+  Notes:
+    Assimilation of this files returned data into the format of the HAL will occur in maestro.cpp
+  */
 #include "pololu.h"
 #include "../configloader.h"
+#include "../state.h"
 #include <QDebug>
 
 Pololu::Pololu(const QString & portName)
@@ -99,6 +108,54 @@ bool Pololu::setTrexConfig(char device, char param, char value){
 	else return false;
 }
 
+/* This function currently returns 7 bytes as follows:
+    'T', 'R', 'e', 'X', major byte, '.', minor byte
+   for example: " TReX1.0 "
+  */
+QString getTrexSignature(char device){
+    QByteArray data;
+    char info = sendTrexQuery(device, 0x81, 1, data)[0];
+    return(info[0]);
+}
+
+/* This function currently returns 1 byte indicating the mode of the device,
+   the format of which is as follows:
+    'R' (0x52) = RC mode
+    'A' (0x41) = Analog mode
+    'r' (0x72) = Serial mode with channels configured for RC input signals
+    'a' (0x61) = Serial mode with channels configured for analog input signals
+
+    (see reference #2)
+  */
+char getTrexMode(char device){
+    QByteArray data;
+    char info = sendTrexQuery(device, 0x82, 1, data)[0];
+    return(info[0]);
+}
+
+/* This function currently returns current in Amps (to get mA, divide by 1000)
+    It is using the default device # of 0x07 since the device # is not needed to getMotorCurrent
+    The commands 0x8D and 0x8E are classified as "Data-Query Commands" by reference #2 (see line )
+   */
+sensorValue getMotorCurrent(char motorNum){
+    QByteArray data;
+    if( motorNum == '1' ){
+        char info = sendTrexQuery(0x07, 0x8D, 1, data)[0];
+        double currToAmps = info[0];
+        return( currToAmps * 0.15);
+    }
+    if( motorNum == '2' ){
+        char info = sendTrexQuery(0x07, 0x8E, 1, data)[0];
+        double currToAmps = info[0];
+        return( currToAmps * 0.15);
+    }
+}
+
+/*  Currently not needed
+void setSaneTrexParams(char device){
+    //need implementation
+}
+*/
 
 void Pololu::setMotorSpeed(int motorNum, int motorSpeed){
 	if(config["Debug"]=="true") qDebug() << "Setting motor " + QString::number(motorNum) + " to " + QString::number(motorSpeed);
