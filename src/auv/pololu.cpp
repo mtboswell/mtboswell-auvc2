@@ -114,8 +114,8 @@ bool Pololu::setTrexConfig(char device, char param, char value){
   */
 QString getTrexSignature(char device){
     QByteArray data;
-    char info = sendTrexQuery(device, 0x81, 1, data)[0];
-    return(info[0]);
+    QString info = sendTrexQuery(device, 0x81, 1, data);
+    return(info);
 }
 
 /* This function currently returns 1 byte indicating the mode of the device,
@@ -135,25 +135,25 @@ char getTrexMode(char device){
 
 /* This function currently returns current in Amps (to get mA, divide by 1000)
     It is using the default device # of 0x07 since the device # is not needed to getMotorCurrent
-    The commands 0x8D and 0x8E are classified as "Data-Query Commands" by reference #2 (see line )
+    The commands 0x8D and 0x8E are classified as "Data-Query Commands" by reference #2 (see line 4 above)
    */
 sensorValue getMotorCurrent(char motorNum){
     QByteArray data;
-    if( motorNum == '1' ){
-        char info = sendTrexQuery(0x07, 0x8D, 1, data)[0];
+    //if( motorNum == '1' ){
+        char device = (0x07 + (motorNum/2)) & 0x7F;
+        char info = sendTrexQuery(device, ( (0x8D) + (motorNum%2)), 1, data)[0];
         double currToAmps = info[0];
         return( currToAmps * 0.15);
-    }
+    /*}
     if( motorNum == '2' ){
         char info = sendTrexQuery(0x07, 0x8E, 1, data)[0];
         double currToAmps = info[0];
         return( currToAmps * 0.15);
-    }
+    }*/
 }
 
 /*  Currently not needed
 void setSaneTrexParams(char device){
-    //need implementation
 }
 */
 

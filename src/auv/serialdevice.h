@@ -1,7 +1,7 @@
 #ifndef SERIALDEVICE_H
 #define SERIALDEVICE_H
 
-#include <qextserialport.h>
+//#include <qextserialport.h>
 #include <QString>
 #include <QThread>
 #include <QByteArray>
@@ -24,7 +24,7 @@ class SerialDevice : public QThread
 		 * @param listen Start listening on the port, and call processData with each data string.
 		 * @param delimiter Incoming data string separator
 		 */
-		SerialDevice(const QString & portName, BaudRateType baudRate,  bool listen = false, QByteArray delimiter = " ");
+                //SerialDevice(const QString & portName, BaudRateType baudRate,  bool listen = false, QByteArray delimiter = " ");
 		~SerialDevice();
 
 
