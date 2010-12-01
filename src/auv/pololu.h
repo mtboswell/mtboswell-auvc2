@@ -45,7 +45,8 @@ class Pololu : public QThread
 
 		//QHash<int, TrexError> getErrors();
 
-		void setSaneTrexParams(char device);
+                //currently not needed
+                //void setSaneTrexParams(char device);
 
 
 		//int getAnalogInput(char inputNum);

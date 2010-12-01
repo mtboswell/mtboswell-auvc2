@@ -2,8 +2,11 @@
 #define AUV_STATE
 #include <QImage>
 #include <QString>
+#include <QVariant>
+#include <QTime>
 #include <QMap>
 #include <QReadWriteLock>
+#include <QVector3D>
 
 /**
  * \defgroup HUB	Central Data Hub
@@ -32,13 +35,13 @@ struct targetInfo {
 	bool align;
 	bool useStrafe;
 	double desiredYaw;
-	QColor color;
+        QColor color;
 	//shape??
-}
+};
 
 /// a value from a sensor
 /// \ingroup HAL
-struct sensorValue {
+struct sensorValue{
 	QString datumID;
 	QString sensorID;
 	QVariant value;
@@ -48,15 +51,15 @@ struct sensorValue {
 /// \ingroup HAL
 typedef enum axes {posX,posY,posZ,posROLL,posPITCH,posYAW,negX,negY,negZ,negROLL,negPITCH,negYAW}; // does this work?
 
-/// Sensor and camera data from the HAL
-/// \ingroup HAL
+///// Sensor and camera data from the HAL
+///// \ingroup HAL
 struct HALdata {
 	QReadWriteLock HALlock;
 	// sensors
-	QMap<QString, QList<sensorValue>> sensorData; // datumID, values
-	QMap<QString, QMap<QString,QVariant>> sensorMeta; // sensorID, metaData
+        QMap<QString, QList<sensorValue> > sensorData; // datumID, values
+        QMap<QString, QMap<QString,QVariant> > sensorMeta; // sensorID, metaData
 
-	QMap<QString, QList<axes>> thrusterMeta; // thrusterID, axesaffected 
+        QMap<QString, QList<axes> > thrusterMeta; // thrusterID, axesaffected
 	QMap<QString, double> thrusterSpeeds; // thrusterID, speed
 
 	QMap<QString, bool> mechs; // name, triggered state
@@ -108,8 +111,8 @@ struct supervisorData {
 	currentTargetLocation; // fwd or down
 	int approachSpeed;
 	// move
-	desired XVel, YVel, Z, Yaw
-	current XVel, YVel, Z, Yaw
+        //desired XVel, YVel, Z, Yaw
+        //current XVel, YVel, Z, Yaw
 	
 
 };
