@@ -2,6 +2,7 @@
 #include "../state.h"
 #include <QDebug>
 #include <QString>
+#include <QTime>
 
 OS5000::OS5000(const QString & serialPort): SerialDevice(serialPort, BAUD19200, true) {
 	setIncomingDelimiter("$");
@@ -9,11 +10,12 @@ OS5000::OS5000(const QString & serialPort): SerialDevice(serialPort, BAUD19200, 
 	qDebug() << "spawning os5000";
 }
 
-
-HALdata* OS5000::produceHALData(double yaw, double pitch, double yaw){
+//is this function needed? --RS
+HALdata* OS5000::produceHALData(double roll, double pitch, double yaw){
 // something goes here that produces the HAL data
 }
 
+/*
 physicalState* OS5000::returnPhysicalState(double yaw, double pitch, double yaw){
     physicalState pState = new physicalState();
     pState.rotPos = roll();
@@ -24,6 +26,7 @@ physicalState* OS5000::returnPhysicalState(double yaw, double pitch, double yaw)
     pState.linPos = 0; // or this value
     pState.linRate = 0; // or this value
 }
+*/
 
 double OS5000::yaw(){return m_yaw;}
 double OS5000::pitch(){return m_pitch;}
@@ -37,7 +40,7 @@ void OS5000::processData(QByteArray data){
                 double yaw = fmt.cap(1).toDouble();
 		double pitch = fmt.cap(2).toDouble();
 		double roll = fmt.cap(3).toDouble();
-		double temp = fmt.cap(4).toDouble();
+                //double temp = fmt.cap(4).toDouble();
 		char checksum = data.at(-1);
 		// calculate checksum here
 		char sum = 0;
@@ -46,11 +49,34 @@ void OS5000::processData(QByteArray data){
 			else sum = sum ^ byte;
 		}
 		if(sum == checksum){
-                        emit compassData(yaw, pitch, roll);
-                        m_yaw = yaw;
-			m_pitch = pitch;
-			m_roll = roll;
-			m_temp = temp;
+                        struct sensorValue* yawSV = new sensorValue;
+                        yawSV->datumID = "yaw";
+                        yawSV->sensorID = "os5000";
+                        yawSV->timestamp = QTime::currentTime();
+                        yawSV->value = yaw;
+
+                        struct sensorValue* pitchSV = new sensorValue;
+                        pitchSV->datumID = "pitch";
+                        pitchSV->sensorID = "os5000";
+                        pitchSV->timestamp = QTime::currentTime();
+                        pitchSV->value = pitch;
+
+                        struct sensorValue* rollSV = new sensorValue;
+                        rollSV->datumID = "roll";
+                        rollSV->sensorID = "os5000";
+                        rollSV->timestamp = QTime::currentTime();
+                        rollSV->value = roll;
+
+                        QList<sensorValue> *compassData = new QList<sensorValue>;
+                        (*compassData).append( (*yawSV) );
+                        (*compassData).append( (*pitchSV) );
+                        (*compassData).append( (*rollSV) );
+                        emit compassDataReady( (*compassData) );
+                        //m_yaw = yaw;
+                        //m_pitch = pitch;
+                        //m_roll = roll;
+                        //m_temp = temp;
+                        //emit compassData(yaw, pitch, roll);
 		}else qDebug() << "Checksum Error";
 	}
 	else qDebug() << "os5000 format error";	
