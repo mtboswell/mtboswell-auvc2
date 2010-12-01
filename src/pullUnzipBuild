@@ -1,0 +1,2 @@
+#! /bin/bash
+hg incoming && hg pull && hg update -v && ./unzipBrain && make -j3

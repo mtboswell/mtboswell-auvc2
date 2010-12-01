@@ -1,0 +1,44 @@
+AUVC TODO list
+
+Write up module integration spec
+Finish pulling vision stuff out of brain
+Write director
+Write cmd interpreter and controllers
+Outline new Vision stuff
+Fix opencv stuff
+
+== Old stuff ==
+
+Finish script sending
+Add logging to dashboard
+
+DONE fix microstrain error checking
+Partially tested - fix serialdevice.cpp and test
+move drivers to serialdevice
+thruster scaling calibration
+fix camera output in brain - ???
+integrate controlboard
+separate auv.cpp into other classes
+- scripting
+- auvmotion (yaw, heave, surge, sway)
+-- pid
+-- thruster control
+- you have pointers to the output devices, use them to have things work together! Don't forget the mutexes though.
+New state machine
+- States that start() model threads on entry, and quit() them on exit
+- parallel states for vision processing?
+Simulink model base class
+- generated?
+- model list (name, inputs, paramters, outputs)
+-- generated from model files?
+-- reflection?
+-- c api?
+- base class + generated derivatives/subclasses
+- global set input, set parameter, and process output functions?
+-- how to set parameter when model isn't running?
+--- still have object, just not calling step_()
+-- model hierarchy with all (e.g. path.input.centroid, path.param.hue, path.out.lookforthis, all.out.yaw, all.input.heading)
+- Integrated or separate vision processing?
+-- different steps (i.e. segmentation and blob analysis) in different models/threads?
+Dashboard - set hold pos when entering and leaving rc mode
+- better (actual) rc mode handling
