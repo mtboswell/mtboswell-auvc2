@@ -101,7 +101,7 @@ void SerialDevice::sendPollCmd(){
 	sendData(pollCmd);
 }
 void SerialDevice::sendPollQuery(){
-	processData(sendQuery(pollCmd, pollResponseLength));
+	processQueryData(sendQuery(pollCmd, pollResponseLength));
 }
 
 

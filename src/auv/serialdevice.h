@@ -59,6 +59,8 @@ class SerialDevice : public QThread
 	protected slots:
 		// called with new data from the port
 		virtual void processData(QByteArray data){QByteArray stuff(data);}
+		// called with new data from the port that is the result of a query
+		virtual void processQueryData(QByteArray data){QByteArray stuff(data);}
 		// send data via the serial port
 		void sendData(QByteArray data);
 
