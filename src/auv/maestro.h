@@ -6,11 +6,16 @@
 
 #include <QStringList>
 
+/**
+ * Driver class for a Pololu Maestro servo controller being used as an A-D converter/interface.
+ * Note that it assumes that the first set of channels are inputs, and the following set are outputs.
+ */
 class Maestro : public Sensor, public SerialDevice {
 	Q_OBJECT
 	public:
 		Maestro():SerialDevice("/dev/ttyACM1", BAUD115200,  false, QByteArray delimiter = " "){
-			numberOfChannels = 12;
+			numberOfInputChannels = 12;
+			numberOfOutputChannels = 0;
 
 			channelDatumIDs[1] = "Z";
 			channelDatumIDs[2] = "YawAcc";
@@ -24,21 +29,24 @@ class Maestro : public Sensor, public SerialDevice {
 
 
 			QByteArray readQuery;
-			for(int i = 1; i <= numberOfChannels; i++){
+			for(int i = 1; i <= numberOfInputChannels; i++){
 				readQuery << 0x90;
 				readQuery << i;
 			}
 			// set to read all inputs every 100 msecs
-			setPollQuery(readQuery, 2*numberOfChannels, 100); // from SerialDevice
+			setPollQuery(readQuery, 2*numberOfInputChannels, 100); // from SerialDevice
 		}
+	public slots:
+		void setDigitalOutput(QString outName, bool value);
 	private slots:
-		// this function processes the data received from the maestro
-		// called by SerialDevice when we receive data from a scheduled device query
+		//! this function processes the data received from the maestro
+		//! It is called by SerialDevice when we receive data from a scheduled device query.
+		//! Note that it assumes that the inputs are all on sequential channels.
 		virtual void processQueryData(QByteArray data){
 			// check to make sure we have received the right amount of data
-			if(data.size() != 2*numberOfChannels) return;
-			int inputData[numberOfChannels];
-			for(int i = 1; i <= numberOfChannels; i++){
+			if(data.size() != 2*numberOfInputChannels) return;
+			int inputData[numberOfInputChannels];
+			for(int i = 1; i <= numberOfInputChannels; i++){
 				// extract the data for each channel from the input stream
 				inputData[i] = (((int)data[(i*2)-2])&0x0F) | (((int)data[(i*2)-1]<<8)&0xF0);
 				// add the data to the local store (sensor.h)
@@ -49,7 +57,9 @@ class Maestro : public Sensor, public SerialDevice {
 		}
 
 	private:
-		int numberOfChannels;
+		int numberOfInputChannels;
+		int numberOfOutputChannels;
 		QHash<int, QString> channelDatumIDs;
 		QHash<int, QString> channelSensorIDs;
+		QHash<QString, int> OutputChannelIDs;
 };
