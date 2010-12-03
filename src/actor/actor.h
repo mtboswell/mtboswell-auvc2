@@ -39,8 +39,9 @@ class Actor : public SimulinkModule
 
 		void setCmd(QString cmd);
 
+		void setThrusters(int thrusterSpeeds[]);
 		void move(heading, depth, fwd, strafe, timeout = inf);
-		void deadReckon(axis, distance);
+		//void deadReckon(axis, distance);
 		void track(object, down/fwd, bool maintainHeading, align=long/short, int approachSpeed);
 		void surface();
 
@@ -50,6 +51,7 @@ class Actor : public SimulinkModule
 
 	private slots:
 		void runStep();
+		void messageIn(QString Id, QString Data);
 
 	private:
 		ActCmd currentCMD;
