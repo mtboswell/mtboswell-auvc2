@@ -50,7 +50,7 @@ Actor::Actor(QMap<QString, QString>* configIn, AUV_State* stateIn, QObject* pare
 void Actor::runStep(){
 
 	// identify current mandate
-	currentCMD = state->director.currentCMD;
+	currentCMD = state["Command"];
 	
 
 	// set inputs based on all relevant data (primarily the currentCMD)
@@ -116,4 +116,11 @@ void Actor::runStep(){
 	state->actorData. = MotionController_Y.RightFwd;                     
 	state->actorData. = MotionController_Y.LeftAngled;                   
 	state->actorData. = MotionController_Y.RightAngled;                  
+}
+
+void Actor::messageIn(SID message){
+	if(message.ID[0] != "Actor") return;
+	if(message.ID[1] == "Move"){
+		currentCMD = MOVING;
+	}
 }

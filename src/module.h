@@ -29,21 +29,22 @@ class Module : public QThread
 		 * \param Id data Identifier
 		 * \param Data data data
 		 */
-		virtual void messageIn(QString Id, QString Data){}
+		virtual void messageIn(QString Id, QString Data)=0;
+		virtual void messageIn(SID message)=0;
 		/**
 		 * setParameter() - set a module parameter.
 		 * Default implementation ignores all parameters.
 		 * \param name name of the parameter to set
 		 * \param value value of parameter (numeric)
 		 */
-		virtual void setParameter(QString name, double value){}
+		virtual void setParameter(QString name, double value)=0;
 		/**
 		 * setParameter() - overloaded version of above to deal with non-double params.
 		 * Default implementation ignores all parameters.
 		 * \param name name of parameter to set
 		 * \param value value to set parameter to
 		 */
-		virtual void setParameter(QString name, QString value){}
+		virtual void setParameter(QString name, QString value)=0;
 
 	signals:
 		/**
@@ -53,6 +54,7 @@ class Module : public QThread
 		 * \param Data data
 		 */
 		void messageOut(QString ID, QString Data);
+		void messageOut(SID message);
 		/**
 		 * Parameter sender.
 		 * I think this is a viable option for sending the parameters to the dashboard.
