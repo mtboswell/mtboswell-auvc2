@@ -6,7 +6,7 @@
 
 struct SID {
 	QStringList ID;
-	QMap<QString, QString> Data;
+	QMap<QString, QVariant> Data;
 };
 
 SID parseSID(QString ID, QString Data);

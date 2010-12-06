@@ -1,6 +1,7 @@
 #ifndef ACTOR_H
 #define ACTOR_H
 
+#include "../sid.h"
 #include "../simulinkmodule.h"
 #include "src/MotionController.h"
 #include "mechanisms.h"
@@ -32,8 +33,15 @@ class Actor : public SimulinkModule
 	public:
 		Actor(QMap<QString, QString>* configIn, AUV_State* stateIn, QObject* parent = 0);
 		bool ActorFinished;
-		enum ActorMode {OPENLOOPMOVING, CLOSEDLOOPMOVING, TRACKING, SURFACING};
+		enum ActorMode {DIRECTRC, MOVING, TRACKING, SURFACING};
 		enum targetDir {FORWARD, DOWN};
+		
+		// targetFlags
+		int TargetDown = 0x01;
+		int TargetNotForward = 0x01;
+		// These are the same
+		int MaintainHeading = 0x02;
+		int UseStrafe = 0x02;
 		
 	public slots:
 
@@ -41,7 +49,6 @@ class Actor : public SimulinkModule
 
 		void setThrusters(int thrusterSpeeds[]);
 		void move(heading, depth, fwd, strafe, timeout = inf);
-		//void deadReckon(axis, distance);
 		void track(object, down/fwd, bool maintainHeading, align=long/short, int approachSpeed);
 		void surface();
 
@@ -51,9 +58,23 @@ class Actor : public SimulinkModule
 
 	private slots:
 		void runStep();
-		void messageIn(QString Id, QString Data);
+		void messageIn(SID message);
 
 	private:
-		ActCmd currentCMD;
-		targetObj *currentOBJ;
+		ActorMode currentCMD;
+
+		// directRC
+		QList<char> thrusterSpeeds;
+		// move
+		double desiredYaw,
+			desiredZ,
+			desiredXVel,
+			desiredYVel;
+		QTime timeout;
+		// tracking
+		QString targetID;
+		targetDir targetDirection;
+		bool maintainHeading;
+		double approachSpeed;
+		double alignAngle;
 };

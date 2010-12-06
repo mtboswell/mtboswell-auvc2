@@ -6,8 +6,11 @@
 #include "state.h"
 #include "datahub/datahub.h"
 
-// should this be here?
+//! \todo should this be here?
 #include "auv/calibrateservos.h"
+
+// modules
+#include "actor/actor.h"
 
 #include <QDebug>
 
@@ -31,6 +34,7 @@ int main(int argc, char *argv[]){
 		}
 	}
 
+	// should we use QSettings?
 	QMap<QString, QString> config;
 	loadConfigFile(config);
 
@@ -39,18 +43,18 @@ int main(int argc, char *argv[]){
 
 	DataHub hub;
 
-
-
 	/* Create Module objects and set hub as parent */
-	Module* samp = new Sample(&config, &stateData, &hub);
+	//Module* samp = new Sample(&config, &stateData, &hub);
 	// OR	
-	Sample2 samp2(&config, &stateData, &hub);
+	//Sample2 samp2(&config, &stateData, &hub);
 
 
+	Module* actor = new Actor(&config, &stateData, &hub);
 
 	/* Start everything */
 	hub->initializeAndLaunchAllModules();
 	// Start main event loop (for dataHub)
 	return app.exec();
 	/* Done, keep running forever */
+	//! \todo add exit and shutdown features
 }
