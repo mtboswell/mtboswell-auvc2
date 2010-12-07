@@ -3,6 +3,8 @@
 
 #include <QStringList>
 #include <QMap>
+#include <QTime>
+#include <QVariant>
 
 // tree item format
 struct TIF {
@@ -11,7 +13,7 @@ struct TIF {
 	QTime timestamp;
 	bool available;
 	QVariant meta;
-}
+};
 
 // tree message format
 struct TMF {
@@ -21,7 +23,7 @@ struct TMF {
 
 TMF parseTMF(QByteArray treeData);
 
-QString serializeTIF(TIF treeItem);
-QString serializeTMF(TMF tree);
+QByteArray serializeTIF(TIF treeItem);
+QByteArray serializeTMF(TMF tree);
 
 #endif

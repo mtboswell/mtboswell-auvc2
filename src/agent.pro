@@ -11,218 +11,157 @@ win32 {
 	LIBS += cv.lib highgui.lib cvaux.lib cxcore.lib
 }
 
-DEPENDPATH += . \
-	      auv \
-	      brain \
-	      server \
-	      model \
-	      /usr/local/Trolltech/Qt-4.6.1
-INCLUDEPATH += . \
-	     brain \
-	     auv \
-	     model \
-	     auv/qextserialport \
-	     server 
-#	     server-jaus
 #LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
-#LIBS += -lcv -lhighgui
+
+DEPENDPATH += . \
+              actor \
+#              auv \
+              datahub \
+#              director \
+#              hal \
+              server \
+              treemodel \
+              actor/src \
+#              auv/camera \
+              auv/qextserialport 
+INCLUDEPATH += . \
+               treemodel \
+               datahub \
+               server \
+#               auv \
+               auv/qextserialport \
+               actor \
+               actor/src \
+#               hal \
+#               auv/camera 
+
 # Input
 HEADERS += \
-	server/sidsocket.h \
-	state.h \
-	datahub/datahub.h \
-	version.h \
-	configloader.h \
-	model/parameters.h \
-	model/model.h \
-	auv/arduino.h \
-	auv/auv.h \
-	auv/auvtypes.h \
-	auv/calibration.h \
-	auv/imudata.h \
-	auv/microstrain.h \
-	auv/qwebcam.h \
-	auv/os5000.h \
-	auv/pololu.h \
-	auv/ports.h \
-	auv/power.h \
-	auv/mechanisms.h \
-	auv/calibrateservos.h \
-	auv/serialdevice.h \
-	auv/lcd.h \
-	auv/qextserialport/qextserialenumerator.h \
-	auv/qextserialport/qextserialport_global.h \
-	auv/qextserialport/qextserialport.h
-SOURCES += \
-	   server/sidsocket.cpp \
-	   main.cpp \
-	   version.cpp \
-	   configloader.cpp \
-	   model/model.cpp \
-	   model/parameters.cpp \
-	   auv/arduino.cpp \
-	   auv/auv.cpp \
-	   auv/qwebcam.cpp \
-	   auv/microstrain.cpp \
-	   auv/os5000.cpp \
-	   auv/pololu.cpp \
-	   auv/power.cpp \
-	   auv/mechanisms.cpp \
-	   auv/calibrateservos.cpp \
-	   auv/serialdevice.cpp \
-	   auv/lcd.cpp \
-	   auv/qextserialport/posix_qextserialport.cpp \
-	   auv/qextserialport/qextserialenumerator_unix.cpp \
-	   auv/qextserialport/qextserialport.cpp
-
-HEADERS += \
-brain/AudioDefs.h \
-brain/autobuild.h \
-brain/bio_sig.h \
-brain/blascompat32.h \
-brain/blas.h \
-brain/brain.h \
-brain/brain_private.h \
-brain/brain_types.h \
-brain/cg_matrx.h \
-brain/cg_sfun.h \
-brain/compare_fcn.h \
-brain/dll_utils_win.h \
-brain/dspallpole_rt.h \
-brain/dspbiquad_rt.h \
-brain/dspblms_rt.h \
-brain/dsp_blms_sim.h \
-brain/dsp_chol_sim.h \
-brain/dsp_dlyerr_sim.h \
-brain/dspendian_rt.h \
-brain/dspeph_rt.h \
-brain/dsp_fft_common_sim.h \
-brain/dsp_fft_sim.h \
-brain/dspfilterbank_rt.h \
-brain/dsp_filtstruct_sim.h \
-brain/dspfir_rt.h \
-brain/dsp_ic_rt.h \
-brain/dspiir_rt.h \
-brain/dsp_interp_sim.h \
-brain/dsp_iso_math_rt.h \
-brain/dspmmutils_rt.h \
-brain/dsp_offset_sim.h \
-brain/dspqrdc_rt.h \
-brain/dsprandsrc32bit_rt.h \
-brain/dsprandsrc64bit_rt.h \
-brain/dsprandsrc_rt.h \
-brain/dsp_randsrc_sim.h \
-brain/dsprebuff_rt.h \
-brain/dsp_rebuff_sim.h \
-brain/dsp_rt.h \
-brain/dspsizeof_rt.h \
-brain/dsp_sqdesign.h \
-brain/dspsrt_rt.h \
-brain/dsp_srt_sim.h \
-brain/dspsvd_rt.h \
-brain/dsp_vqdesign.h \
-brain/dt_info.h \
-brain/emlrt.h \
-brain/engine.h \
-brain/ext_share.h \
-brain/ext_svr.h \
-brain/ext_svr_transport.h \
-brain/ext_test.h \
-brain/ext_types.h \
-brain/ext_work.h \
-brain/fintrf.h \
-brain/fixedpoint.h \
-brain/fromwavedevice_ex_win32.h \
-brain/fromwavedevice_win32.h \
-brain/fromwavefile_ex_win32.h \
-brain/fromwavefile_win32.h \
-brain/HostLib_Audio.h \
-brain/HostLib_MMFile.h \
-brain/HostLib_Multimedia.h \
-brain/HostLib_Video.h \
-brain/io64.h \
-brain/lapack.h \
-brain/lexicmp.h \
-brain/mat.h \
-brain/matrix.h \
-brain/mdl_info.h \
-brain/mem_mgr.h \
-brain/mex.h \
-brain/mwdebug.h \
-brain/mwmathutil.h \
-brain/mwutil.h \
-brain/odesup.h \
-brain/pt_info.h \
-brain/rtGetInf.h \
-brain/rtGetNaN.h \
-brain/rtiostream.h \
-brain/rt_logging.h \
-brain/rt_logging_mmi.h \
-brain/rt_matrx.h \
-brain/rtmcmacros.h \
-brain/rtmmacros.h \
-brain/rt_mxclassid.h \
-brain/rt_nonfinite.h \
-brain/rt_pow32_snf.h \
-brain/rt_pow_snf.h \
-brain/rt_sim.h \
-brain/rtsplntypes.h \
-brain/rtw_capi_examples.h \
-brain/rtw_capi.h \
-brain/rtw_continuous.h \
-brain/rtw_extmode.h \
-brain/rtw_matlogging.h \
-brain/rtw_modelmap.h \
-brain/rtw_modelmap_logging.h \
-brain/rtw_solver.h \
-brain/rtwtypes.h \
-brain/sfcn_bridge.h \
-brain/sigmapdef_sfcn.h \
-brain/sigregdef.h \
-brain/simstruc.h \
-brain/simstruc_types.h \
-brain/simulink2.h \
-brain/simulink.h \
-brain/sl_datatype_access.h \
-brain/sl_fileio_rtw.h \
-brain/sl_solver_rtw.h \
-brain/sl_types_def.h \
-brain/solver_zc.h \
-brain/sysran_types.h \
-brain/tmwtypes.h \
-brain/towavedevice_ex_win32.h \
-brain/towavedevice_win32.h \
-brain/towavefile_ex_win32.h \
-brain/towavefile_win32.h \
-brain/updown.h \
-brain/updown_util.h \
-brain/upsup_public.h \
-brain/VideoDefs.h \
-brain/vip_2dpad_sim.h \
-brain/vipblob_rt.h \
-brain/vipblockmatch_rt.h \
-brain/vipdrawtext_rt.h \
-brain/vipedge_rt.h \
-brain/vipfileread_rt.h \
-brain/vipfilewrite_rt.h \
-brain/vip_fourcclist_sim.h \
-brain/viphough_rt.h \
-brain/vip_imgcomplement_sim.h \
-brain/vipmdnfilter_rt.h \
-brain/vipopticalflow_rt.h \
-brain/vipprojective.h \
-brain/vipprojective_rt.h \
-brain/viprotate_rt.h \
-brain/vip_sim.h
-
-SOURCES += \
-brain/hough_d_rt.c \
-brain/hough_r_rt.c \
-brain/brain.cpp \
-brain/brain_data.cpp \
-brain/rtGetInf.cpp \
-brain/rtGetNaN.cpp \
-brain/rt_nonfinite.cpp \
-brain/rt_pow32_snf.cpp \
-brain/rt_pow_snf.cpp
-
+           configloader.h \
+#           datalogger.h \
+           module.h \
+           simulinkmodule.h \
+           state.h \
+           tmf.h \
+           version.h \
+           actor/actor.h \
+#           actor/mechanisms.h \
+#           auv/arduino.h \
+#           auv/auv.h \
+#           auv/auvmotion.h \
+#           auv/auvtypes.h \
+           auv/calibrateservos.h \
+#           auv/lcd.h \
+#           auv/maestro.h \
+#           auv/microstrain.h \
+#           auv/os5000.h \
+#           auv/pololu.h \
+#           auv/power.h \
+#           auv/qwebcam.h \
+#           auv/sensor.h \
+#           auv/serialdevice.h \
+           datahub/datahub.h \
+#           director/director.h \
+#           hal/datatypes.h \
+#           hal/hal.h \
+           server/tmfsocket.h \
+           treemodel/treeitem.h \
+           treemodel/treemodel.h \
+           actor/src/bio_sig.h \
+           actor/src/blas.h \
+           actor/src/blascompat32.h \
+           actor/src/cg_matrx.h \
+           actor/src/cg_sfun.h \
+           actor/src/dt_info.h \
+           actor/src/emlrt.h \
+           actor/src/engine.h \
+           actor/src/ext_share.h \
+           actor/src/ext_svr.h \
+           actor/src/ext_svr_transport.h \
+           actor/src/ext_test.h \
+           actor/src/ext_types.h \
+           actor/src/ext_work.h \
+           actor/src/fintrf.h \
+           actor/src/fixedpoint.h \
+           actor/src/io64.h \
+           actor/src/lapack.h \
+           actor/src/mat.h \
+           actor/src/matrix.h \
+           actor/src/mdl_info.h \
+           actor/src/mem_mgr.h \
+           actor/src/mex.h \
+           actor/src/MotionController.h \
+           actor/src/MotionController_private.h \
+           actor/src/MotionController_types.h \
+           actor/src/mwmathutil.h \
+           actor/src/mwutil.h \
+           actor/src/odesup.h \
+           actor/src/pt_info.h \
+           actor/src/rt_logging.h \
+           actor/src/rt_logging_mmi.h \
+           actor/src/rt_math.h \
+           actor/src/rt_matrx.h \
+           actor/src/rt_mxclassid.h \
+           actor/src/rt_sim.h \
+           actor/src/rtiostream.h \
+           actor/src/rtmcmacros.h \
+           actor/src/rtmmacros.h \
+           actor/src/rtsplntypes.h \
+           actor/src/rtw_capi.h \
+           actor/src/rtw_capi_examples.h \
+           actor/src/rtw_continuous.h \
+           actor/src/rtw_extmode.h \
+           actor/src/rtw_matlogging.h \
+           actor/src/rtw_modelmap.h \
+           actor/src/rtw_modelmap_logging.h \
+           actor/src/rtw_solver.h \
+           actor/src/rtwtypes.h \
+           actor/src/sfcn_bridge.h \
+           actor/src/sigmapdef_sfcn.h \
+           actor/src/sigregdef.h \
+           actor/src/simstruc.h \
+           actor/src/simstruc_types.h \
+           actor/src/simulink.h \
+           actor/src/simulink2.h \
+           actor/src/sl_datatype_access.h \
+           actor/src/sl_fileio_rtw.h \
+           actor/src/sl_fixpt.h \
+           actor/src/sl_prodhwdevicetype.h \
+           actor/src/sl_solver_rtw.h \
+           actor/src/sl_types_def.h \
+           actor/src/solver_zc.h \
+           actor/src/sysran_types.h \
+           actor/src/tmwtypes.h \
+           actor/src/updown.h \
+           actor/src/updown_util.h \
+           actor/src/upsup_public.h \
+           auv/qextserialport/qextserialenumerator.h \
+           auv/qextserialport/qextserialport.h \
+           auv/qextserialport/qextserialport_global.h 
+SOURCES += configloader.cpp \
+           main.cpp \
+           module.cpp \
+           tmf.cpp \
+           version.cpp \
+           actor/actor.cpp \
+           actor/mechanisms.cpp \
+#           auv/arduino.cpp \
+#           auv/auv.cpp \
+#           auv/calibrateservos.cpp \
+#           auv/camread.cpp \
+#           auv/lcd.cpp \
+#           auv/microstrain.cpp \
+#           auv/os5000.cpp \
+#           auv/pololu.cpp \
+#           auv/power.cpp \
+#           auv/qwebcam.cpp \
+#           auv/sensor.cpp \
+#           auv/serialdevice.cpp \
+           server/tmfsocket.cpp \
+           treemodel/treeitem.cpp \
+           treemodel/treemodel.cpp \
+           actor/src/MotionController.cpp \
+           actor/src/MotionController_data.cpp \
+           auv/qextserialport/posix_qextserialport.cpp \
+           auv/qextserialport/qextserialenumerator_unix.cpp \
+           auv/qextserialport/qextserialport.cpp 

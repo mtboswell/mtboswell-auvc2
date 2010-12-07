@@ -157,5 +157,15 @@ bool TreeItem::setData(int column, const QVariant &value)
 }
 
 QVariant & TreeItem::operator[](int col){
-	return data(col);
+	return itemData[col];
+}
+
+TIF TreeItem::toTIF(){
+	TIF out;
+	out.ID = itemData[0].toString();
+	out.value = itemData[1];
+	out.timestamp = itemData[2].toTime();
+	out.available = itemData[3].toBool();
+	out.meta = itemData[4];
+	return out;
 }

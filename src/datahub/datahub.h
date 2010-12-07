@@ -22,11 +22,12 @@ class DataHub : public QObject
 			srv = new TMFSocket(5325, 5236, true);
 			connect(srv, SIGNAL(tmfReceived(TMF, QHostAddress)), this, SLOT(messageIn(TMF)));
 			connect(this, SIGNAL(messageBroadcast(TMF)), srv, SLOT(sendTMF(TMF)));
+			connect(state, SIGNAL(dataUpdated(TMF)), srv, SLOT(sendTMF(TMF)));
 		}
 		/**
 		 * addModule adds a module object to the message broadcasting system.
 		 * The module object should have a signal messageOut(QString), and a slot
-		 * called messageIn(QString).  Messages are SID strings.
+		 * called messageIn(QString).  Messages are TMFs.
 		 * \param module pointer to module QObject
 		 */
 		void addModule(Module* module){
@@ -44,7 +45,7 @@ class DataHub : public QObject
 		void initializeAndLaunchAllModules(){
 			QObjectList kids = this->children();
 			foreach(QObject* kid, kids){
-				if(kid->inherits("Module")) addModule(kid);
+				if(kid->inherits("Module")) addModule((Module*)kid);
 			}
 			startAll();
 			qDebug() << "Initialization Complete, System Online";
@@ -62,6 +63,6 @@ class DataHub : public QObject
 		void go(); // used to launch modules
 
 	private:
-		SIDSocket* srv;
+		TMFSocket* srv;
 		AUVC_State_Data* state;
 };

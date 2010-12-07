@@ -41,20 +41,20 @@ int main(int argc, char *argv[]){
 	AUVC_State_Data stateData;
 	stateData["Simulate"] = simulate;
 
-	DataHub hub;
+	DataHub hub(&stateData);
 
 	/* Create Module objects and set hub as parent */
 	//Module* samp = new Sample(&config, &stateData, &hub);
 	// OR	
 	//Sample2 samp2(&config, &stateData, &hub);
 
-
 	Module* actor = new Actor(&config, &stateData, &hub);
 
 	/* Start everything */
-	hub->initializeAndLaunchAllModules();
+	hub.initializeAndLaunchAllModules();
 	// Start main event loop (for dataHub)
 	return app.exec();
+
 	/* Done, keep running forever */
 	//! \todo add exit and shutdown features
 }

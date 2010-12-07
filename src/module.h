@@ -8,6 +8,9 @@
 
  #include "state.h"
  #include <QMap>
+ #include <QThread>
+ #include <QString>
+ #include <QTimer>
 
 class Module : public QThread
 {
@@ -31,21 +34,21 @@ class Module : public QThread
 		 */
 		virtual void messageIn(QString message)=0;
 		virtual void messageIn(TMF message)=0;
-		virtual void newData(QString ID)=0;
+		virtual void newData(QString ID, QVariant value)=0;
 		/**
 		 * setParameter() - set a module parameter.
 		 * Default implementation ignores all parameters.
 		 * \param name name of the parameter to set
 		 * \param value value of parameter (numeric)
 		 */
-		virtual void setParameter(QString name, double value)=0;
+		//virtual void setParameter(QString name, double value);
 		/**
 		 * setParameter() - overloaded version of above to deal with non-double params.
 		 * Default implementation ignores all parameters.
 		 * \param name name of parameter to set
 		 * \param value value to set parameter to
 		 */
-		virtual void setParameter(QString name, QString value)=0;
+		//virtual void setParameter(QString name, QString value);
 
 	signals:
 		/**
@@ -54,8 +57,8 @@ class Module : public QThread
 		 * \param Id data Identifier
 		 * \param Data data
 		 */
-		void messageOut(QString ID, QString Data);
-		void messageOut(SID message);
+		void messageOut(QString ID, QVariant Data);
+		void messageOut(TMF message);
 		/**
 		 * Parameter sender.
 		 * I think this is a viable option for sending the parameters to the dashboard.
@@ -73,7 +76,7 @@ class Module : public QThread
 		/// state variable pointer
 		AUVC_State_Data* state;
 		/// config variable pointer
-		QMap<QString, QString>* conf;
+		QMap<QString, QString>* config;
 		/// timer for step function
 		QTimer* stepTimer;
 

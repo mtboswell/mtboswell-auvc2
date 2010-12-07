@@ -41,6 +41,7 @@
 #ifndef TREEITEM_H
 #define TREEITEM_H
 
+#include "../tmf.h"
 #include <QList>
 #include <QVariant>
 #include <QVector>
@@ -63,6 +64,7 @@ class TreeItem
 		int childNumber() const;
 		bool setData(int column, const QVariant &value);
 		QVariant & operator[](int col);
+		TIF toTIF();
 
 	private:
 		QList<TreeItem*> childItems;

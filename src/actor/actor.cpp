@@ -1,7 +1,7 @@
 
 #include "actor.h"
 
-Actor::Actor(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0):Module(configIn, stateIn, parent){
+Actor::Actor(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent):SimulinkModule(configIn, stateIn, parent){
 
 	// vim cmd to generate below code from generated list in MotionController.h: 
 	// :s/\/\*.*\*\///
@@ -55,42 +55,42 @@ void Actor::runStep(){
 	// :s/\/\*.*\*\///
 	// :s/  .*_T \(.*\);/MotionController_U.\1 = state->;/
 
-	MotionController_U.TargetSelect = (state["TargetOptions.TargetSelect"]=="Forward"); 
+	MotionController_U.TargetSelect = (state->value("TargetOptions.TargetSelect")=="Forward"); 
 
-	MotionController_U.TargetFound = state["TargetData.Found"];                  
-	MotionController_U.TargetX = state["TargetData.Position.X"];
-	MotionController_U.TargetY = state["TargetData.Position.Y"];
-	MotionController_U.TargetZ = state["TargetData.Position.Z"]; 
-	MotionController_U.TargetYaw = state["TargetData.Position.Bearing"];                    
+	MotionController_U.TargetFound = state->value("TargetData.Found").toBool();
+	MotionController_U.TargetX = state->value("TargetData.Position.X").toDouble();
+	MotionController_U.TargetY = state->value("TargetData.Position.Y").toDouble();
+	MotionController_U.TargetZ = state->value("TargetData.Position.Z").toDouble(); 
+	MotionController_U.TargetYaw = state->value("TargetData.Position.Bearing").toDouble();                    
 
 	// sensors
-	MotionController_U.MeasuredZ = state["Position.Depth"];                    
-	MotionController_U.MeasuredYAccel = state["Motion.Accel.Y"];               
-	MotionController_U.MeasuredYaw = state["Orientation.Heading"];                  
-	MotionController_U.MeasuredYawRate = state["Motion.YawRate"];              
+	MotionController_U.MeasuredZ = state->value("Position.Depth").toDouble();
+	MotionController_U.MeasuredYAccel = state->value("Motion.Accel.Y").toDouble();               
+	MotionController_U.MeasuredYaw = state->value("Orientation.Heading").toDouble();                  
+	MotionController_U.MeasuredYawRate = state->value("Motion.YawRate").toDouble();              
 
 
 	// arrange stuff for current command
-	if(state["Command"] == "Target" && !state["TargetOptions.Approach"]){
+	if(state->value("Command") == "Target" && !state->value("TargetOptions.Approach").toBool()){
 		MotionController_U.DesiredTargetX = MotionController_U.TargetX;               
 		MotionController_U.DesiredTargetY = MotionController_U.TargetY;               
 		MotionController_U.DesiredTargetZ = MotionController_U.TargetZ;               
 		MotionController_U.DesiredTargetYaw = MotionController_U.TargetYaw;       
 	}
-	else if(state["Command"] == "Target" && state["TargetOptions.Approach"]){
+	else if(state->value("Command") == "Target" && state->value("TargetOptions.Approach").toBool()){
 		MotionController_U.DesiredTargetX = 0;               
 		MotionController_U.DesiredTargetY = 0;               
 		MotionController_U.DesiredTargetZ = 0;               
 		MotionController_U.DesiredTargetYaw = 0;             
 	}
-	else if(state["Command"] == "DeadReckon"){
-		MotionController_U.DesiredZ = state["DeadReckon.Depth"];                     
-		MotionController_U.DesiredXVelocity = state["DeadReckon.ForwardSpeed"];             
-		MotionController_U.DesiredYaw = state["DeadReckon.Heading"]; 
+	else if(state->value("Command") == "DeadReckon"){
+		MotionController_U.DesiredZ = state->value("DeadReckon.Depth").toDouble();                     
+		MotionController_U.DesiredXVelocity = state->value("DeadReckon.ForwardSpeed").toDouble();             
+		MotionController_U.DesiredYaw = state->value("DeadReckon.Heading").toDouble(); 
 	}
 
 
-	MotionController_U.MaintainHeading = state["TargetOptions.MaintainHeading"];             
+	MotionController_U.MaintainHeading = state->value("TargetOptions.MaintainHeading").toBool();             
 
 	// step model
 	MotionController_step();
@@ -106,5 +106,7 @@ void Actor::runStep(){
 	state->setData("Thrusters.RightAngled", MotionController_Y.RightAngled);                  
 }
 
-void Actor::messageIn(SID message){
-}
+
+void Actor::messageIn(QString message){}
+void Actor::messageIn(TMF message){}
+void Actor::newData(QString ID, QVariant value){}
