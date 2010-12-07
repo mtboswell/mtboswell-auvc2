@@ -1,7 +1,7 @@
 #include "tmf.h"
 
 TMF parseTMF(QByteArray treeData){
-	QDataStream in(&treeData);
+	QDataStream in(treeData);
 	TMF tree;
 	//! \todo implement actual hierarachy
 	tree.parentID="";
@@ -10,17 +10,18 @@ TMF parseTMF(QByteArray treeData){
 	quint32 magic;
 	in >> magic;
 	if (magic != 0x01212220)
-		return 0;
+		return TMF();
 
 	// Read the version
 	qint32 version;
 	in >> version;
 	if (version != 200)
-		return 0;
+		return TMF();
 	in.setVersion(QDataStream::Qt_4_0);
 
 	TIF thisItem;
-	while(in >> thisItem.ID){
+	while(!in.atEnd()){
+		in >> thisItem.ID;
 		in >> thisItem.value;
 		in >> thisItem.timestamp;
 		in >> thisItem.available;

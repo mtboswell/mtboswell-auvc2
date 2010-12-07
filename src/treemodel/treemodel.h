@@ -44,6 +44,7 @@
 #include <QAbstractItemModel>
 #include <QModelIndex>
 #include <QVariant>
+#include "../tmf.h"
 #include "treeitem.h"
 
 //class TreeItem;
@@ -84,22 +85,26 @@ class TreeModel : public QAbstractItemModel
 
 		QModelIndex getIndex(TreeItem* thisItem, int column);
 
-		QVariant& operator[](QString ID);
+		QVariant& operator[](const char* ID);
 
-		bool available(QStringID);
+		bool available(QString ID);
 		QVariant value(QString ID);
 		QTime timestamp(QString ID);
 
 		//! \todo implement TreeModel.serialize()
-		QByteArray serialize(QString ID){}
+		//QByteArray serialize(QString ID){return 0;}
+
 
 	public slots:
 		void setData(QString name, QVariant value, QTime timestamp = QTime::currentTime(), bool available = true);
 
 	signals:
-		void dataUpdated(QString ID, QVariant Value);
+		void dataUpdated(QString ID, QVariant value);
+		void dataUpdated(TMF data);
 
 	private:
+		TMF getTMF(QString ID);
+
 		void setupModelData(const QStringList &lines, TreeItem *parent);
 		TreeItem *getItem(const QModelIndex &index) const;
 		TreeItem *getItem(QString name, TreeItem* parentItem);

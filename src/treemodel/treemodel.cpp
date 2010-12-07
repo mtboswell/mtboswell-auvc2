@@ -209,12 +209,18 @@ bool TreeModel::setData(const QModelIndex &index, const QVariant &value, int rol
 		emit dataChanged(index, index);
 
 		QString itemName = item->data(0).toString();
+		QString itemParents = "";
 		TreeItem* iParent = item->parent();
 		while(iParent != rootItem){
+			itemParents.prepend(iParent->data(0).toString() + ".");
 			itemName.prepend(iParent->data(0).toString() + ".");
 			iParent = iParent->parent();
 		}
 		emit dataUpdated(itemName, item->data(1));
+		TMF dataTMF;
+		dataTMF.parentID = "AUV."+itemParents;
+		dataTMF.treeItems << item->getTIF;
+		emit dataUpdated(dataTMF);
 	}
 
 	return result;
