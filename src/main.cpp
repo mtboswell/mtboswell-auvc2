@@ -38,8 +38,8 @@ int main(int argc, char *argv[]){
 	QMap<QString, QString> config;
 	loadConfigFile(config);
 
-	AUV_State stateData;
-	stateData.simulate = simulate;
+	AUVC_State_Data stateData;
+	stateData["Simulate"] = simulate;
 
 	DataHub hub;
 

@@ -53,7 +53,7 @@ class TreeModel : public QAbstractItemModel
 	Q_OBJECT
 
 	public:
-		TreeModel(const QStringList &headers,QObject *parent = 0);
+		TreeModel(QObject *parent = 0);
 		~TreeModel();
 
 		QVariant data(const QModelIndex &index, int role) const;
@@ -86,11 +86,18 @@ class TreeModel : public QAbstractItemModel
 
 		QVariant& operator[](QString ID);
 
+		bool available(QStringID);
+		QVariant value(QString ID);
+		QTime timestamp(QString ID);
+
+		//! \todo implement TreeModel.serialize()
+		QByteArray serialize(QString ID){}
+
 	public slots:
-		void setData(QString name, QString value);
+		void setData(QString name, QVariant value, QTime timestamp = QTime::currentTime(), bool available = true);
 
 	signals:
-		void dataUpdated(QString name, QString value);
+		void dataUpdated(QString ID, QVariant Value);
 
 	private:
 		void setupModelData(const QStringList &lines, TreeItem *parent);

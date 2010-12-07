@@ -1,6 +1,3 @@
-
-Should Actor mode be a Parameter or an Input?
-
 Example SID for commanding Actor:
 "Actor.Mode=Targeting;"
 "Actor.Track{Target=RedBuoy,Dir=Ahead/Forward?,KeepHeading=true,ApproachSpeed=40%}"
@@ -13,90 +10,62 @@ or
 DataType.Module.Name
 ?
 
-New stuff is same as old stuff but uses QMap<QString, QVariant> instead of custom structs.
-Messages contain QMaps or SIDs. Does SID need a new name?
+New data stucture
+uses TreeModel as base model
+includes metadata in columns:
 
-New datatype: 
-simple 
-data 
-database
-hierarchial
-flexible
-modular
-timestamped
-
-signed?
-
-// for multiple values
-struct SIDs {
-	QStringList ID;
-	QMap<QString, QVariant> Data;
-	QMap<QString, QTime> Timestamps;
-};
-// for one value
-struct SID {
-	QStringList ID;
-	QVariant Data;
-	QTime timestamp;
-}
-
-can a sensorValue fit in a QVariant?
-maybe?
-
-metadata we could use:
 ID/Name // obviously
-source // user/sensor/output/state
-data type // data/param/mode/command
+value // more obviously
 timestamp
 availability // defaults to unavailable w/other fields missing when ID created by lookup/access
 
+source // user/sensor/output/state // could just use ID
+data type // data/param/mode/command
 
-need: custom TreeItem type with above data and functions for checking them
-and functions for serializing an item and all children
 
+need: functions for serializing an item and all children?
+
+Sources:
 QMap<QString, QMap<QString, QVariant>> sourceMeta; // sourceID, metaKey, value
 
 
+Phys Data:
+	Position:
+	Depth
 
+	Orientation:
+	Roll
+	Pitch
+	Heading
 
-State
-Position+Orientation
-Motion
-
-Position:
-Depth
-
-Orientation:
-Roll
-Pitch
-Heading
-
-Motion:
-XSpeed
-YSpeed
-ZSpeed
-
-Motion:
-RollRate
-PitchRate
-YawRate
+	Motion:
+	XSpeed
+	RollRate
+	PitchRate
+	YawRate
 
 AUV.Actuators.Thrusters.Left
 AUV.Actuators.Mechanisms.DropO/X
+AUV.Sensors.Heading QList<sensorValue> ?
+AUV.Sensors.MicroStrain.Heading double ?
 AUV.Sensors.OS5000.Heading
 AUV.Sensors.OS5000.Accel.Y
 AUV.Sensors.Depth
 AUV.Position.Depth 
+AUV.Orientation.Heading
 AUV.Motion.Velocity.X
 AUV.Motion.Accel.Y
 AUV.Sys.Power.MainVoltage
 AUV.Sys.EnvBrightness
 AUV.Mode // autonomous, rc, off
-AUV.Mode.RC // direct, deadReckoning, tracking
-AUV.Mode.Autonomous // deadReckoning, tracking
-AUV.Command // direct, dR, tracking, hold, surface
+AUV.Command // direct, deadReckoning, tracking, hold, surface
+AUV.DeadReckoning.Heading
+AUV.DeadReckoning.Velocity.X
+AUV.DeadReckoning.Velocity.Y
+AUV.DeadReckoning.Velocity.Z
+AUV.DeadReckoning.Sway
 
 
 Message Signals/Message handlers take care of synchronous data transfer
-Hub keeps track of data for asynchronous access
+Hub/StateTree keeps track of data for asynchronous access
 Low-Latency, but no need for redundant copies

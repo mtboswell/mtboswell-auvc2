@@ -43,10 +43,12 @@
 #include "treeitem.h"
 #include "treemodel.h"
 
-TreeModel::TreeModel(const QStringList &headers,QObject *parent)
+TreeModel::TreeModel(QObject *parent)
 : QAbstractItemModel(parent)
 {
 	QVector<QVariant> rootData;
+	QStringList headers;
+	headers << "ID" << "Value" << "Timestamp" << "Availabile" << "Meta";
 	foreach (QString header, headers)
 		rootData << header;
 
@@ -212,7 +214,7 @@ bool TreeModel::setData(const QModelIndex &index, const QVariant &value, int rol
 			itemName.prepend(iParent->data(0).toString() + ".");
 			iParent = iParent->parent();
 		}
-		emit dataUpdated(itemName, item->data(1).toString());
+		emit dataUpdated(itemName, item->data(1));
 	}
 
 	return result;
@@ -286,6 +288,8 @@ TreeItem* TreeModel::getItem(QString value, TreeItem* parentItem){
 	parentItem->insertChildren(parentItem->childCount(), 1, rootItem->columnCount());
 	TreeItem* newItem = parentItem->child(parentItem->childCount() - 1);
 	newItem->setData(0, nameToLookFor);
+	newItem->setData(2, QTime());
+	newItem->setData(3, false);
 
 	if(thisIDTree.isEmpty())
 		return newItem;
@@ -294,22 +298,20 @@ TreeItem* TreeModel::getItem(QString value, TreeItem* parentItem){
 
 }
 
-void TreeModel::setData(QString id, QString data){
+void TreeModel::setData(QString id, QVariant value, QTime timestamp, bool available){
 	TreeItem* thisItem = getItem(id, rootItem);
 	if(thisItem == rootItem){
 		qDebug() << "Item location/creation error";
 		return;
 	}
-	bool isDouble = false;
-	double doubleData = data.toDouble(&isDouble);
-	if(isDouble)
-		thisItem->setData(1, doubleData);
-	else
-		thisItem->setData(1, data);
+	thisItem->setData(1, value);
+	thisItem->setData(2, timestamp);
+	thisItem->setData(3, available);
 	QModelIndex rootIndex = index(0,0);
-	QModelIndex thisIndex = getIndex(thisItem, 2);
+	QModelIndex thisIndex = getIndex(thisItem, 3);
 	emit dataChanged(thisIndex, thisIndex);
 	emit layoutChanged();
+	emit dataUpdated(id, thisItem->data(1));
 	//qDebug() << "Model setting " << id << "to" << data;
 }
 
@@ -334,4 +336,13 @@ QModelIndex TreeModel::getIndex(TreeItem* thisItem, int column){
 
 QVariant & TreeModel::operator[](QString ID){
 	return getItem(ID, rootItem)[1];
+}
+QVariant TreeModel::value(QString ID){
+	return getItem(ID, rootItem)[1];
+}
+QTime TreeModel::timestamp(QString ID){
+	return getItem(ID, rootItem)[2];
+}
+bool TreeModel::available(QStringID){
+	return getItem(ID, rootItem)[3];
 }

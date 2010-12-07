@@ -1,7 +1,7 @@
 
 #include "actor.h"
 
-Actor::Actor(QMap<QString, QString>* configIn, AUV_State* stateIn, QObject* parent = 0):Module(configIn, stateIn, parent){
+Actor::Actor(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0):Module(configIn, stateIn, parent){
 
 	// vim cmd to generate below code from generated list in MotionController.h: 
 	// :s/\/\*.*\*\///
@@ -49,78 +49,62 @@ Actor::Actor(QMap<QString, QString>* configIn, AUV_State* stateIn, QObject* pare
 }
 void Actor::runStep(){
 
-	// identify current mandate
-	currentCMD = state["Command"];
-	
-
 	// set inputs based on all relevant data (primarily the currentCMD)
 
 	// vim cmd used to parse .h:
 	// :s/\/\*.*\*\///
 	// :s/  .*_T \(.*\);/MotionController_U.\1 = state->;/
 
-	MotionController_U.TargetSelect = state->targeter.;                 
-	MotionController_U.TargetFound = state->targeter.;                  
+	MotionController_U.TargetSelect = (state["TargetOptions.TargetSelect"]=="Forward"); 
 
-	MotionController_U.TargetX = state->targeter.;                      
-	MotionController_U.TargetY = state->targeter.;                      
-	MotionController_U.TargetZ = state->targeter.;                      
-	MotionController_U.TargetYaw = state->targeter.;                    
-
+	MotionController_U.TargetFound = state["TargetData.Found"];                  
+	MotionController_U.TargetX = state["TargetData.Position.X"];
+	MotionController_U.TargetY = state["TargetData.Position.Y"];
+	MotionController_U.TargetZ = state["TargetData.Position.Z"]; 
+	MotionController_U.TargetYaw = state["TargetData.Position.Bearing"];                    
 
 	// sensors
-	MotionController_U.MeasuredZ = state->;                    
-	MotionController_U.MeasuredYAccel = state->;               
-	MotionController_U.MeasuredYaw = state->;                  
-	MotionController_U.MeasuredYawRate = state->;              
+	MotionController_U.MeasuredZ = state["Position.Depth"];                    
+	MotionController_U.MeasuredYAccel = state["Motion.Accel.Y"];               
+	MotionController_U.MeasuredYaw = state["Orientation.Heading"];                  
+	MotionController_U.MeasuredYawRate = state["Motion.YawRate"];              
 
-	MotionController_U.DesiredZ = state->;                     
-	MotionController_U.DesiredXVelocity = state->;             
-	MotionController_U.DesiredYaw = state->;                   
 
 	// arrange stuff for current command
-	switch(currentCMD){
-		case TRACK:
-			MotionController_U.DesiredTargetX = MotionController_U.TargetX;               
-			MotionController_U.DesiredTargetY = MotionController_U.TargetY;               
-			MotionController_U.DesiredTargetZ = MotionController_U.TargetZ;               
-			MotionController_U.DesiredTargetYaw = MotionController_U.TargetYaw;       
-			break;
-		case APPROACH:
-			MotionController_U.DesiredTargetX = 0;               
-			MotionController_U.DesiredTargetY = 0;               
-			MotionController_U.DesiredTargetZ = 0;               
-			MotionController_U.DesiredTargetYaw = 0;             
-			break;
-	
+	if(state["Command"] == "Target" && !state["TargetOptions.Approach"]){
+		MotionController_U.DesiredTargetX = MotionController_U.TargetX;               
+		MotionController_U.DesiredTargetY = MotionController_U.TargetY;               
+		MotionController_U.DesiredTargetZ = MotionController_U.TargetZ;               
+		MotionController_U.DesiredTargetYaw = MotionController_U.TargetYaw;       
+	}
+	else if(state["Command"] == "Target" && state["TargetOptions.Approach"]){
+		MotionController_U.DesiredTargetX = 0;               
+		MotionController_U.DesiredTargetY = 0;               
+		MotionController_U.DesiredTargetZ = 0;               
+		MotionController_U.DesiredTargetYaw = 0;             
+	}
+	else if(state["Command"] == "DeadReckon"){
+		MotionController_U.DesiredZ = state["DeadReckon.Depth"];                     
+		MotionController_U.DesiredXVelocity = state["DeadReckon.ForwardSpeed"];             
+		MotionController_U.DesiredYaw = state["DeadReckon.Heading"]; 
 	}
 
 
-	// where does this info come from?
-	MotionController_U.MaintainHeading = state->director.;             
-
+	MotionController_U.MaintainHeading = state["TargetOptions.MaintainHeading"];             
 
 	// step model
 	MotionController_step();
 
-
-
-
 	// set outputs
-	QReadWriteLocker(state->actorData.actorLock);
 
 	// vim cmd (as above)
 	// :s/  .*_T \(.*\);/state-> = MotionController_Y.\1;/
 
-	state->actorData. = MotionController_Y.LeftFwd;                      
-	state->actorData. = MotionController_Y.RightFwd;                     
-	state->actorData. = MotionController_Y.LeftAngled;                   
-	state->actorData. = MotionController_Y.RightAngled;                  
+	state->setData("Thrusters.LeftFwd", MotionController_Y.LeftFwd);                      
+	state->setData("Thrusters.RightFwd", MotionController_Y.RightFwd);                     
+	state->setData("Thrusters.LeftAngled", MotionController_Y.LeftAngled);                   
+	state->setData("Thrusters.RightAngled", MotionController_Y.RightAngled);                  
 }
 
 void Actor::messageIn(SID message){
-	if(message.ID[0] != "Actor") return;
-	if(message.ID[1] == "Move"){
-		currentCMD = MOVING;
-	}
 }
