@@ -19,7 +19,7 @@ class Module : public QThread
 		 * \param config pointer to the config data from configloader
 		 * \param stateIn pointer to the shared state data
 		 */
-		Module(QMap<QString, QString>* configIn, AUV_State* stateIn, QObject* parent = 0);
+		Module(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
 
 	public slots:
 		/**
@@ -29,8 +29,9 @@ class Module : public QThread
 		 * \param Id data Identifier
 		 * \param Data data data
 		 */
-		virtual void messageIn(QString Id, QString Data)=0;
-		virtual void messageIn(SID message)=0;
+		virtual void messageIn(QString message)=0;
+		virtual void messageIn(TMF message)=0;
+		virtual void newData(QString ID)=0;
 		/**
 		 * setParameter() - set a module parameter.
 		 * Default implementation ignores all parameters.
@@ -61,20 +62,20 @@ class Module : public QThread
 		 */
 		void parameters(QMap<QString, double> params);
 
-	private slots:
+	protected slots:
 		/**
 		 * step() - implement this function to do any work periodically.
 		 * Gets called every 20ms (50Hz) by default.  Call stepTimer->setInterval([stepTimeInMs]) in your constructor to change.
 		 */
-		void step(){}
+		virtual void step(){}
 
-	private:
-		/// timer for step function
-		QTimer* stepTimer;
+	protected:
 		/// state variable pointer
-		AUV_State* state;
+		AUVC_State_Data* state;
 		/// config variable pointer
 		QMap<QString, QString>* conf;
+		/// timer for step function
+		QTimer* stepTimer;
 
 };
 #endif

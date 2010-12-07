@@ -4,8 +4,10 @@
 #include <QMetaMethod>
 #include <QStringList>
 #include <QDebug>
+#include "../state.h"
+#include "../tmf.h"
 #include "../module.h"
-#include "server/sidsocket.h"
+#include "../server/tmfsocket.h"
 
 /**
  * DataHub is a class designed to connect and manage Modules.
@@ -15,10 +17,11 @@ class DataHub : public QObject
 {
 	Q_OBJECT
 	public:
-		DataHub(){
-			srv = new SIDSocket(5325, 5236, true);
-			connect(srv, SIGNAL(sidReceived(QString, QString, QHostAddress)), this, SLOT(messageIn(QString, QString)));
-			connect(this, SIGNAL(messageBroadcast(QString, QString)), srv, SLOT(sendSID(QString, QString)));
+		DataHub(AUVC_State_Data* stateIn){
+			state = stateIn;
+			srv = new TMFSocket(5325, 5236, true);
+			connect(srv, SIGNAL(tmfReceived(TMF, QHostAddress)), this, SLOT(messageIn(TMF)));
+			connect(this, SIGNAL(messageBroadcast(TMF)), srv, SLOT(sendTMF(TMF)));
 		}
 		/**
 		 * addModule adds a module object to the message broadcasting system.
@@ -30,6 +33,7 @@ class DataHub : public QObject
 			const QMetaObject* metaMod = module->metaObject();
 			qDebug() << "Initializing Module:" << metaMod->className();
 			connect(this, SIGNAL(messageBroadcast(QString,QString)), module, SLOT(messageIn(QString,QString)));
+			connect(state, SIGNAL(dataUpdated(QString)), module, SLOT(newData(QString)));
 			connect(module, SIGNAL(messageOut(QString,QString)), this, SLOT(messageIn(QString,QString)));
 			connect(this, SIGNAL(go()), module, SLOT(start()));
 
@@ -59,4 +63,5 @@ class DataHub : public QObject
 
 	private:
 		SIDSocket* srv;
+		AUVC_State_Data* state;
 };
