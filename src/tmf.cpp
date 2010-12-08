@@ -1,8 +1,8 @@
 #include "tmf.h"
 
-TMF parseTMF(QByteArray treeData){
+VData parseVData(QByteArray treeData){
 	QDataStream in(treeData);
-	TMF tree;
+	VData tree;
 	//! \todo implement actual hierarachy
 	tree.parentID="";
 
@@ -10,16 +10,16 @@ TMF parseTMF(QByteArray treeData){
 	quint32 magic;
 	in >> magic;
 	if (magic != 0x01212220)
-		return TMF();
+		return VData();
 
 	// Read the version
 	qint32 version;
 	in >> version;
 	if (version != 200)
-		return TMF();
+		return VData();
 	in.setVersion(QDataStream::Qt_4_0);
 
-	TIF thisItem;
+	VDatum thisItem;
 	while(!in.atEnd()){
 		in >> thisItem.ID;
 		in >> thisItem.value;
@@ -31,7 +31,7 @@ TMF parseTMF(QByteArray treeData){
 	return tree;
 }
 
-QByteArray serializeTIF(TIF treeItem){
+QByteArray serializeVDatum(VDatum treeItem){
 	QByteArray outArray;
 	QDataStream out(&outArray,QIODevice::WriteOnly);
 	out.setVersion(QDataStream::Qt_4_0);
@@ -45,7 +45,7 @@ QByteArray serializeTIF(TIF treeItem){
 	return outArray;
 }
 
-QByteArray serializeTMF(TMF tree){
+QByteArray serializeVData(VData tree){
 	QByteArray outArray;
 	QDataStream out(&outArray,QIODevice::WriteOnly);
 
@@ -58,9 +58,9 @@ QByteArray serializeTMF(TMF tree){
 
 	// Write the data
 	//! \todo implement actual hierarchy
-	foreach(TIF item, tree.treeItems){
+	foreach(VDatum item, tree.treeItems){
 		item.ID.prepend(tree.parentID+".");
-		out << serializeTIF(item);
+		out << serializeVDatum(item);
 	}
 	return outArray;
 }

@@ -19,23 +19,23 @@ class DataHub : public QObject
 	public:
 		DataHub(AUVC_State_Data* stateIn){
 			state = stateIn;
-			srv = new TMFSocket(5325, 5236, true);
-			connect(srv, SIGNAL(tmfReceived(TMF, QHostAddress)), this, SLOT(messageIn(TMF)));
-			connect(this, SIGNAL(messageBroadcast(TMF)), srv, SLOT(sendTMF(TMF)));
-			connect(state, SIGNAL(dataUpdated(TMF)), srv, SLOT(sendTMF(TMF)));
+			srv = new VDataSocket(5325, 5236, true);
+			connect(srv, SIGNAL(tmfReceived(VData, QHostAddress)), this, SLOT(messageIn(VData)));
+			connect(this, SIGNAL(messageBroadcast(VData)), srv, SLOT(sendVData(VData)));
+			connect(state, SIGNAL(dataUpdated(VData)), srv, SLOT(sendVData(VData)));
 		}
 		/**
 		 * addModule adds a module object to the message broadcasting system.
 		 * The module object should have a signal messageOut(QString), and a slot
-		 * called messageIn(QString).  Messages are TMFs.
+		 * called messageIn(QString).  Messages are VDatas.
 		 * \param module pointer to module QObject
 		 */
 		void addModule(Module* module){
 			const QMetaObject* metaMod = module->metaObject();
 			qDebug() << "Initializing Module:" << metaMod->className();
-			connect(this, SIGNAL(messageBroadcast(QString,QString)), module, SLOT(messageIn(QString,QString)));
+			connect(this, SIGNAL(messageBroadcast(VData)), module, SLOT(messageIn(VData)));
 			connect(state, SIGNAL(dataUpdated(QString)), module, SLOT(newData(QString)));
-			connect(module, SIGNAL(messageOut(QString,QString)), this, SLOT(messageIn(QString,QString)));
+			connect(module, SIGNAL(messageOut(VData)), this, SLOT(messageIn(VData)));
 			connect(this, SIGNAL(go()), module, SLOT(start()));
 
 		}
@@ -46,23 +46,24 @@ class DataHub : public QObject
 			QObjectList kids = this->children();
 			foreach(QObject* kid, kids){
 				if(kid->inherits("Module")) addModule((Module*)kid);
+				qDebug() << "Adding Module";
 			}
 			startAll();
 			qDebug() << "Initialization Complete, System Online";
 		}
 
 	public slots:
-		void messageIn(QString id, QString data){
-			qDebug() << "Message ID:" << id;
-			emit messageBroadcast(id, data);
+		void messageIn(VData msg){
+			qDebug() << "Message ID:" << msg.treeItems[0].ID;
+			emit messageBroadcast(msg);
 		}
 		void startAll(){emit go();}
 
 	signals:
-		void messageBroadcast(QString id, QString data);
+		void messageBroadcast(VData msg);
 		void go(); // used to launch modules
 
 	private:
-		TMFSocket* srv;
+		VDataSocket* srv;
 		AUVC_State_Data* state;
 };

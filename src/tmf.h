@@ -1,5 +1,5 @@
-#ifndef TMF_H
-#define TMF_H
+#ifndef VData_H
+#define VData_H
 
 #include <QStringList>
 #include <QMap>
@@ -7,23 +7,23 @@
 #include <QVariant>
 
 // tree item format
-struct TIF {
+typedef struct VDatum {
 	QString ID;
 	QVariant value;
 	QTime timestamp;
 	bool available;
 	QVariant meta;
-};
+} VDatum;
 
 // tree message format
-struct TMF {
+typedef struct VData {
 	QString parentID;
-	QList<TIF> treeItems;
-};
+	QList<VDatum> treeItems;
+} VData;
 
-TMF parseTMF(QByteArray treeData);
+VData parseVData(QByteArray treeData);
 
-QByteArray serializeTIF(TIF treeItem);
-QByteArray serializeTMF(TMF tree);
+QByteArray serializeVDatum(VDatum treeItem);
+QByteArray serializeVData(VData tree);
 
 #endif

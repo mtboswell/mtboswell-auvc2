@@ -100,10 +100,10 @@ class TreeModel : public QAbstractItemModel
 
 	signals:
 		void dataUpdated(QString ID, QVariant value);
-		void dataUpdated(TMF data);
+		void dataUpdated(VData data);
 
 	private:
-		TMF getTMF(QString ID);
+		VData getVData(QString ID);
 
 		void setupModelData(const QStringList &lines, TreeItem *parent);
 		TreeItem *getItem(const QModelIndex &index) const;
