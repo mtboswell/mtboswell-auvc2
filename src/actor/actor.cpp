@@ -1,4 +1,3 @@
-
 #include "actor.h"
 
 Actor::Actor(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent):SimulinkModule(configIn, stateIn, parent){
@@ -47,7 +46,8 @@ Actor::Actor(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject
 
 	MotionController_initialize();
 }
-void Actor::runStep(){
+void Actor::step(){
+	qDebug() << "Stepping Actor";
 
 	// set inputs based on all relevant data (primarily the currentCMD)
 
@@ -108,5 +108,5 @@ void Actor::runStep(){
 
 
 void Actor::messageIn(QString message){}
-void Actor::messageIn(TMF message){}
+void Actor::messageIn(VData message){}
 void Actor::newData(QString ID, QVariant value){}

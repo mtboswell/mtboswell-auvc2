@@ -4,6 +4,7 @@
 #include "../tmf.h"
 #include "../simulinkmodule.h"
 #include "src/MotionController.h"
+#include <QDebug>
 
 /**
  * Actor Module.
@@ -22,7 +23,7 @@ class Actor : public SimulinkModule
 	//	void track(object, down/fwd, bool maintainHeading, align=long/short, int approachSpeed);
 	//	void surface();
 		void messageIn(QString message);
-		void messageIn(TMF message);
+		void messageIn(VData message);
 		void newData(QString ID, QVariant value);
 
 	signals:
@@ -30,7 +31,7 @@ class Actor : public SimulinkModule
 		void finished();
 
 	private slots:
-		void runStep();
+		void step();
 
 	private:
 	/*

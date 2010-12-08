@@ -11,7 +11,7 @@
 #include <QTimer>
 #include <QTime>
 
-#include "../src/server/sidsocket.h"
+#include "../src/server/tmfsocket.h"
 #include "videosocket.h"
 //#include "datalogger.h"
 #include "videowidget.h"
@@ -34,13 +34,14 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		~Dashboard();
 
 	signals:
-		void sendSID(QString key, QString value);
+		void sendMsg(VData msg);
+		void sendMsg(QString, QString);
 		void setAddress(QString);
 		void receivedParam(QString, QString);
 
 	public slots:
 		// Receieve UDP Data
-		void handleAUVParam(QString id, QString value);
+		void handleAUVParam(VDatum datum);
 		void HandleVideoFrame(QImage* frame);
 		void HandleBitmapFrame(QImage* frame);
 
@@ -112,7 +113,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 
 		enum mode {STOPPED, AUTONOMOUS, RC, KILLED} currentMode;
 
-		SIDSocket* m_DS;
+		VDataSocket* m_DS;
 		VideoSocket* videoSocket;
 		VideoSocket* bitmapSocket;
 		QGraphicsScene* headingScene;

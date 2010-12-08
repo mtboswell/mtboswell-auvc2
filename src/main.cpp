@@ -7,7 +7,7 @@
 #include "datahub/datahub.h"
 
 //! \todo should this be here?
-#include "auv/calibrateservos.h"
+//#include "auv/calibrateservos.h"
 
 // modules
 #include "actor/actor.h"
@@ -25,7 +25,7 @@ int main(int argc, char *argv[]){
 		// -s means simulate, or, more specifically, ignore hardware
 		if(arg == "-s" || arg == "--simulate") simulate = true;
 		// -c triggers servo calibration mode.  See docs in auv/calibrateservos.h.
-		else if(arg == "-c" || arg == "--calibrate-servos") return calibrateServos();
+//		else if(arg == "-c" || arg == "--calibrate-servos") return calibrateServos();
 		else if(arg == "-h"){
 			qDebug() << "Available Arguments:";
 			qDebug() << "\t-s or --simulate : disable hardware";
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]){
 	loadConfigFile(config);
 
 	AUVC_State_Data stateData;
-	stateData["Simulate"] = simulate;
+	stateData.setData("Simulate", simulate);
 
 	DataHub hub(&stateData);
 

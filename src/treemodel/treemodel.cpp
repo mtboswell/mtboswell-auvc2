@@ -217,10 +217,16 @@ bool TreeModel::setData(const QModelIndex &index, const QVariant &value, int rol
 			iParent = iParent->parent();
 		}
 		emit dataUpdated(itemName, item->data(1));
-		TMF dataTMF;
-		dataTMF.parentID = "AUV."+itemParents;
-		dataTMF.treeItems << item->getTIF;
-		emit dataUpdated(dataTMF);
+		VData dataVData;
+		dataVData.parentID = "AUV."+itemParents;
+		VDatum tmp;
+		tmp.ID = item->data(0).toString();
+		tmp.value = item->data(1);
+		tmp.timestamp = item->data(2).toTime();
+		tmp.available = item->data(3).toBool();
+		tmp.meta = item->data(4);
+		dataVData.treeItems.prepend(tmp);
+		emit dataUpdated(dataVData);
 	}
 
 	return result;
@@ -340,15 +346,13 @@ QModelIndex TreeModel::getIndex(TreeItem* thisItem, int column){
 }
 
 
-QVariant & TreeModel::operator[](QString ID){
-	return getItem(ID, rootItem)[1];
-}
 QVariant TreeModel::value(QString ID){
-	return getItem(ID, rootItem)[1];
+	return (*getItem(ID, rootItem))[1];
 }
 QTime TreeModel::timestamp(QString ID){
-	return getItem(ID, rootItem)[2];
+	return (*getItem(ID, rootItem))[2].toTime();
 }
-bool TreeModel::available(QStringID){
-	return getItem(ID, rootItem)[3];
+
+bool TreeModel::available(QString ID){
+	return (*getItem(ID, rootItem))[3].toBool();
 }

@@ -64,7 +64,7 @@ class TreeItem
 		int childNumber() const;
 		bool setData(int column, const QVariant &value);
 		QVariant & operator[](int col);
-		TIF toTIF();
+		VDatum toVDatum();
 
 	private:
 		QList<TreeItem*> childItems;

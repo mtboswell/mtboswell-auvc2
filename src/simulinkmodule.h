@@ -11,11 +11,11 @@ class SimulinkModule : public Module
 		SimulinkModule(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0):Module(configIn, stateIn, parent){}
 	public slots:
 		/// set Simulink params by using paramList
-		void setParameter(QString name, double value);
+		void setParameter(QString name, double value){}
 
 	protected slots:
 		/// runStep is implemented in the child class to read inputs, call rt_OneStep(), and write outputs
-		virtual void runStep();
+		virtual void step()=0;
 	protected:
 
 		/// paramList should be populated from the constructor of the child class

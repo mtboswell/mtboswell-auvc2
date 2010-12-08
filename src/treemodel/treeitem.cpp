@@ -160,8 +160,8 @@ QVariant & TreeItem::operator[](int col){
 	return itemData[col];
 }
 
-TIF TreeItem::toTIF(){
-	TIF out;
+VDatum TreeItem::toVDatum(){
+	VDatum out;
 	out.ID = itemData[0].toString();
 	out.value = itemData[1];
 	out.timestamp = itemData[2].toTime();

@@ -33,7 +33,7 @@ class Module : public QThread
 		 * \param Data data data
 		 */
 		virtual void messageIn(QString message)=0;
-		virtual void messageIn(TMF message)=0;
+		virtual void messageIn(VData message)=0;
 		virtual void newData(QString ID, QVariant value)=0;
 		/**
 		 * setParameter() - set a module parameter.
@@ -58,7 +58,7 @@ class Module : public QThread
 		 * \param Data data
 		 */
 		void messageOut(QString ID, QVariant Data);
-		void messageOut(TMF message);
+		void messageOut(VData message);
 		/**
 		 * Parameter sender.
 		 * I think this is a viable option for sending the parameters to the dashboard.

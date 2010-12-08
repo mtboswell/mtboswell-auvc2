@@ -6,7 +6,6 @@
 #include <QDebug>
 #include <QTime>
 #include <QDir>
-#include "../src/auv/mechanisms.h"
 
 QMap<QString, QString> config;
 
@@ -18,8 +17,8 @@ Dashboard::Dashboard(QMainWindow *parent)
 
 	loadConfigFile(config);
 
-	// setup SID socket for main data comm
-	m_DS = new SIDSocket((quint16) config["Client.Port.Data"].toUInt(), (quint16) config["Server.Port.Data"].toUInt());
+	// setup socket for main data comm
+	m_DS = new VDataSocket((quint16) config["Client.Port.Data"].toUInt(), (quint16) config["Server.Port.Data"].toUInt());
 
 	// setup video widget to support maximized/fullscreen video
 	videoPlaceholder->hide();
@@ -53,11 +52,12 @@ Dashboard::Dashboard(QMainWindow *parent)
 	connect(actionLoad_Script, SIGNAL(triggered()), this, SLOT(sendScript()));
 
 	// Connect to Network Sockets 	
- 	connect(m_DS, SIGNAL(sidReceived(QString,QString,QHostAddress)), this, SLOT(handleAUVParam(QString,QString)));
- 	connect(m_DS, SIGNAL(remoteNotResponding(QString,QString)), this, SLOT(disableDashboard(QString,QString)));
+ 	connect(m_DS, SIGNAL(tmfReceived(VDatum,QHostAddress)), this, SLOT(handleAUVParam(VDatum)));
+ 	connect(m_DS, SIGNAL(remoteNotResponding()), this, SLOT(disableDashboard()));
  	connect(m_DS, SIGNAL(connectionRestored()), this, SLOT(enableDashboard()));
 
- 	connect(this, SIGNAL(sendSID(QString,QString)), m_DS, SLOT(sendSID(QString,QString)));
+ 	connect(this, SIGNAL(sendMsg(VData)), m_DS, SLOT(sendVData(VData)));
+ 	connect(this, SIGNAL(sendMsg(QString, QString)), m_DS, SLOT(sendVData(QString,QString)));
 	connect(this, SIGNAL(setAddress(QString)), m_DS, SLOT(setRemoteAddr(QString)));
 
 	// video sockets setup
@@ -89,8 +89,8 @@ Dashboard::Dashboard(QMainWindow *parent)
 	scriptsComboBox->insertItems(0, scripts);
 
 	// populate mech combo box
-	populateMechs(mechanisms);
-	mechsComboBox->insertItems(0, mechanisms.keys());
+	//populateMechs(mechanisms);
+	//mechsComboBox->insertItems(0, mechanisms.keys());
 
 	// Processing rate display
 	rateLabel = new QLabel("Not Connected");
@@ -156,17 +156,17 @@ Dashboard::~Dashboard(){
 
 /* *** Connection Actions ************************* */
 void Dashboard::reconnectAction(){
-	emit sendSID("Connect.Data", "Broadcast");
-        emit sendSID("Connect.Video", "This");
-	emit sendSID("GetParams", "all");
+	emit sendMsg("Connect.Data", "Broadcast");
+        emit sendMsg("Connect.Video", "This");
+	emit sendMsg("GetParams", "all");
 #ifndef _WIN32
-	emit sendSID("Dashboard.Version", getVersion());
+	emit sendMsg("Dashboard.Version", getVersion());
 #endif
 }
 void Dashboard::unbroadcastAction(){
-	emit sendSID("Connect.Data", "This");
-        emit sendSID("Connect.Video", "This");
-	emit sendSID("GetParams", "all");
+	emit sendMsg("Connect.Data", "This");
+        emit sendMsg("Connect.Video", "This");
+	emit sendMsg("GetParams", "all");
 }
 
 void Dashboard::connectToAddress(){
@@ -179,9 +179,9 @@ void Dashboard::connectToAddress(){
 }
 void Dashboard::connectToLocalhost(){
 	emit setAddress("127.0.0.1");
-	emit sendSID("Connect.Data", "127.0.0.1");
-	emit sendSID("Connect.Video", "127.0.0.1");
-	emit sendSID("GetParams", "all");
+	emit sendMsg("Connect.Data", "127.0.0.1");
+	emit sendMsg("Connect.Video", "127.0.0.1");
+	emit sendMsg("GetParams", "all");
 }
 
 
@@ -200,7 +200,7 @@ void Dashboard::on_stopButton_clicked(){
 void Dashboard::startAutonomousAction(bool sendToAUV){
 	currentMode = AUTONOMOUS;
 	if(sendToAUV)
-		emit sendSID("Mode", "Autonomous");
+		emit sendMsg("Mode", "Autonomous");
 	controlStateLabel->setText("Autonomous");
 	statusBar()->showMessage(tr("Entering Autonomous mode"), 2000);
 
@@ -221,7 +221,7 @@ void Dashboard::startAutonomousAction(bool sendToAUV){
 void Dashboard::startRCAction(bool sendToAUV){
 	currentMode = RC;
 	if(sendToAUV)
-		emit sendSID("Mode", "RC");
+		emit sendMsg("Mode", "RC");
 	controlStateLabel->setText("Remote Control");
 	statusBar()->showMessage(tr("Entering RC Mode"), 2000);
 
@@ -241,7 +241,7 @@ void Dashboard::startRCAction(bool sendToAUV){
 }
 void Dashboard::stopAction(bool sendToAUV){
 	if(sendToAUV)
-		emit sendSID("Mode", "Stop");
+		emit sendMsg("Mode", "Stop");
 	currentMode = STOPPED;
 	controlStateLabel->setText("Stopped");
 	statusBar()->showMessage(tr("Attempting to stop AUV"), 2000);
@@ -259,14 +259,14 @@ void Dashboard::stopAction(bool sendToAUV){
 }
 void Dashboard::resetAction(bool sendToAUV){
 	if(sendToAUV)
-		emit sendSID("Mode", "Reset");
+		emit sendMsg("Mode", "Reset");
 	stopAction();
 	controlStateLabel->setText("Resetting...");
 	statusBar()->showMessage(tr("Attempting to reset AUV"), 2000);
 }
 void Dashboard::killAction(bool sendToAUV){
 	if(sendToAUV)
-		emit sendSID("Mode", "Kill");
+		emit sendMsg("Mode", "Kill");
 	currentMode = KILLED;
 	controlStateLabel->setText("Killed");
 	statusBar()->showMessage(tr("Die, bad Robot! Die!"), 2000);
@@ -287,11 +287,11 @@ void Dashboard::turnOffAUVAction() {
 void Dashboard::recordVideo(bool record){
 	if(record) statusBar()->showMessage(tr("Recording Video..."), 2000);
 	else statusBar()->showMessage(tr("Stopping Video Recording..."), 2000);
-	emit sendSID("Flag.Rec", record?"true":"false");
+	emit sendMsg("Flag.Rec", record?"true":"false");
 }
 
 void Dashboard::logData(bool log){
-	emit sendSID("Flag.Log", log?"true":"false");
+	emit sendMsg("Flag.Log", log?"true":"false");
 }
 
 
@@ -307,7 +307,7 @@ void Dashboard::sendScript(){
 			if(!line.startsWith("#") && !line.contains(";")) script.append(line.simplified());
 		}
 
-		emit sendSID("Script.New", scriptFilename+",,"+script.join(","));
+		emit sendMsg("Script.New", scriptFilename+",,"+script.join(","));
 	}
 }
 
@@ -322,18 +322,19 @@ void Dashboard::sendScript(){
  *	is logged with qDebug().
  */
 
-void Dashboard::handleAUVParam(QString id, QString value) {
+void Dashboard::handleAUVParam(VDatum datum) {
 	bool badCmd = false;
 	// reset idle timer
 	timeSinceLastDataReceived->restart();
 
-	// parse SID structure
+	// parse VData structure
 	QString type, name;
-	QStringList ids = id.split('.');
+	QStringList ids = datum.ID.split('.');
 	if(ids.size() > 0) type = ids[0];
 	else type = "";
 	if(ids.size() > 1) name = ids[1];
 	else name = "";
+	QString value = datum.value.toString();
 
 	// set dashboard mode to match vehicle mode
 	if (type == "Mode") {
@@ -647,28 +648,28 @@ void Dashboard::keyPressEvent(QKeyEvent* event){
 
 // State Select
 void Dashboard::on_stateComboBox_activated(int index){
-	emit sendSID("Input.DesiredState", QString::number(index));
+	emit sendMsg("Input.DesiredState", QString::number(index));
 }
 
 // select processed video stream to view
 void Dashboard::on_videoStreamComboBox_activated(int index){
 	if(index != desiredVideoStream){
 		desiredVideoStream = index;
-		emit sendSID("Video.Stream", QString::number(index));
+		emit sendMsg("Video.Stream", QString::number(index));
 	}
 }
 
 // Depth Calibration
 void Dashboard::on_zeroDepthPushButton_clicked(){
-	emit sendSID("Calibrate.Depth", "0");
+	emit sendMsg("Calibrate.Depth", "0");
 }
 void Dashboard::on_setActualDepthPushButton_clicked(){
-	emit sendSID("Calibrate.Depth", QString::number(actualDepthDoubleSpinBox->value()));
+	emit sendMsg("Calibrate.Depth", QString::number(actualDepthDoubleSpinBox->value()));
 }
 
 // tare IMU
 void Dashboard::on_tareAccelPushButton_clicked(){
-	emit sendSID("Input.Tare", "1");
+	emit sendMsg("Input.Tare", "1");
 }
 
 
@@ -676,38 +677,38 @@ void Dashboard::on_tareAccelPushButton_clicked(){
 void Dashboard::on_desiredDepthSlider_valueChanged(int value){
 	if(value != desiredDepth){
 		desiredDepth = value;
-		emit sendSID("RC.desiredDepth", QString::number(value));
+		emit sendMsg("RC.desiredDepth", QString::number(value));
 	}	
 }
 void Dashboard::on_desiredStrafeSlider_valueChanged(int value){
 	if(value != desiredStrafe){
 		desiredStrafe = value;
-		emit sendSID("RC.desiredStrafe", QString::number(value));
+		emit sendMsg("RC.desiredStrafe", QString::number(value));
 	}
 }
 void Dashboard::on_desiredSpeedSlider_valueChanged(int value){
 	if(value != desiredSpeed){
 		desiredSpeed = value;
-		emit sendSID("RC.desiredForwardVelocity", QString::number(value));
+		emit sendMsg("RC.desiredForwardVelocity", QString::number(value));
 	}
 }
 void Dashboard::on_desiredHeadingDial_valueChanged(int value){
 	if(value != desiredHeading){
 		desiredHeading = value;
-		emit sendSID("RC.desiredHeading", QString::number(value));
+		emit sendMsg("RC.desiredHeading", QString::number(value));
 	}
 }
 void Dashboard::on_desiredHeadingSpinBox_editingFinished(){
-	emit sendSID("RC.desiredHeading", QString::number(desiredHeadingSpinBox->value()));
+	emit sendMsg("RC.desiredHeading", QString::number(desiredHeadingSpinBox->value()));
 }
 void Dashboard::on_desiredDepthSpinBox_editingFinished(){
-	emit sendSID("RC.desiredDepth", QString::number(desiredDepthSpinBox->value()));
+	emit sendMsg("RC.desiredDepth", QString::number(desiredDepthSpinBox->value()));
 }
 void Dashboard::on_desiredSpeedSpinBox_editingFinished(){
-	emit sendSID("RC.desiredForwardVelocity", QString::number(desiredSpeedSpinBox->value()));
+	emit sendMsg("RC.desiredForwardVelocity", QString::number(desiredSpeedSpinBox->value()));
 }
 void Dashboard::on_desiredStrafeSpinBox_editingFinished(){
-	emit sendSID("RC.desiredStrafe", QString::number(desiredStrafeSpinBox->value()));
+	emit sendMsg("RC.desiredStrafe", QString::number(desiredStrafeSpinBox->value()));
 }
 void Dashboard::on_setAllZeroButton_clicked(){
 	desiredDepthSlider->setValue(depthLcdNumber->value());
@@ -718,10 +719,10 @@ void Dashboard::on_setAllZeroButton_clicked(){
 
 // Other buttons
 void Dashboard::on_runScriptPushButton_clicked(){
-	emit sendSID("Activate.Script", scriptsComboBox->currentText());
+	emit sendMsg("Activate.Script", scriptsComboBox->currentText());
 }
 void Dashboard::on_actuateMechPushButton_clicked(){
-	emit sendSID("Actuate.Mechanism", mechsComboBox->currentText());
+	emit sendMsg("Actuate.Mechanism", mechsComboBox->currentText());
 }
 
 
@@ -750,8 +751,8 @@ void Dashboard::setupParamEdit(){
 	factory->registerEditor(QVariant::Double, doubleEditorCreator);
 	QItemEditorFactory::setDefaultFactory(factory);
 
-	connect(paramModel, SIGNAL(dataUpdated(QString,QString)), this, SIGNAL(sendSID(QString,QString)));
-	connect(this, SIGNAL(receivedParam(QString, QString)), paramModel, SLOT(setData(QString,QString)));
+	connect(paramModel, SIGNAL(dataUpdated(VData)), this, SIGNAL(sendMsg(VData)));
+	connect(this, SIGNAL(receivedParam(VData)), paramModel, SLOT(setData(VData)));
 }
 
 /* Save/Load parameters ****************************** */

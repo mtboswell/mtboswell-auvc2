@@ -41,6 +41,7 @@ void loadConfigFile(QMap<QString, QString> &config){
 }
 
 
+/*
 void saveConfig(QString id){
 	if(!confFile || !confFile->isOpen() || confFileContents.isEmpty()) return;
 	confFileContents.replaceInStrings(QRegExp(id+"=.*;"),id+"="+config[id]+";");
@@ -61,3 +62,4 @@ void saveAllConfigs(){
 	out.flush();
 	confFile->flush();
 }
+*/
