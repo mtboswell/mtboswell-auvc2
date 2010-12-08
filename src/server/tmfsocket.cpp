@@ -110,15 +110,12 @@ void VDataSocket::handlePendingDatagrams() {
 
 void VDataSocket::processDatagram(QByteArray datagram, QHostAddress fromAddr, quint16 fromPort){
 
-	static QList<QString> VDatas;
 	VData receivedMessage;
+	receivedMessage = parseVData(datagram);
 
 	if(fromPort){}
-
-	VDatas = QString(datagram).split("VData");
-	foreach (QString msg, VDatas) {
-		receivedMessage = parseVData(msg.toAscii());
-		emit tmfReceived(receivedMessage, fromAddr);
+	foreach (VDatum msg, receivedMessage.treeItems) {
+		emit datumReceived(msg, fromAddr);
 	}
 }
 

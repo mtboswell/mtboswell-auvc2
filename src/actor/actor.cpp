@@ -43,11 +43,14 @@ Actor::Actor(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject
 	paramList["Thruster_RightFwd_Gain"] = &MotionController_P.Thruster_RightFwd_Gain;
 	paramList["ZVelocity_Neg_Max"] = &MotionController_P.ZVelocity_Neg_Max;
 
+	initializeParameters();
 
 	MotionController_initialize();
 }
 void Actor::step(){
-	qDebug() << "Stepping Actor";
+	//qDebug() << "Stepping Actor";
+
+	updateParameters();
 
 	// set inputs based on all relevant data (primarily the currentCMD)
 

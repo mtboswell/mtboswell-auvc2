@@ -1,4 +1,5 @@
-#include <QCoreApplication>
+#include <QApplication>
+#include <QDebug>
 #include <QMutex>
 
 #include "configloader.h"
@@ -12,13 +13,14 @@
 // modules
 #include "actor/actor.h"
 
-#include <QDebug>
+#include <QTreeView>
+
 
 static bool simulate = false;
 
 int main(int argc, char *argv[]){
 
-	QCoreApplication app(argc, argv);
+	QApplication app(argc, argv);
 	QStringList args = app.arguments();
 	QString arg;
 	foreach(arg, args){
@@ -50,8 +52,17 @@ int main(int argc, char *argv[]){
 
 	Module* actor = new Actor(&config, &stateData, &hub);
 
+
+	QTreeView *tree = new QTreeView();
+	tree->setModel(&stateData);
+
+
 	/* Start everything */
 	hub.initializeAndLaunchAllModules();
+
+
+	tree->show();
+
 	// Start main event loop (for dataHub)
 	return app.exec();
 

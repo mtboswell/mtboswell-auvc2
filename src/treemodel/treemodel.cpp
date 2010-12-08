@@ -279,7 +279,7 @@ void TreeModel::setupModelData(const QStringList &lines, TreeItem *parent)
 
 // returns the item for the specified SID ID (e.g. Parameter.Actor.YawController)
 TreeItem* TreeModel::getItem(QString value, TreeItem* parentItem){
-	QString level_delimiter = "_";
+	QString level_delimiter = ".";
 	QStringList thisIDTree = value.split(level_delimiter);
 	thisIDTree.removeAll("");
 	if(thisIDTree.isEmpty())

@@ -141,6 +141,7 @@ HEADERS += \
 SOURCES += configloader.cpp \
            main.cpp \
            module.cpp \
+           simulinkmodule.cpp \
            tmf.cpp \
            version.cpp \
            actor/actor.cpp \
