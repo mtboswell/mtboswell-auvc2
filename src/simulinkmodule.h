@@ -14,8 +14,10 @@ class SimulinkModule : public Module
 		void setParameter(QString name, double value){}
 
 	protected slots:
-		/// runStep is implemented in the child class to read inputs, call rt_OneStep(), and write outputs
+		/// step is implemented in the child class to read inputs, call rt_OneStep(), and write outputs
 		virtual void step()=0;
+		void initializeParameters();
+		void updateParameters();
 	protected:
 
 		/// paramList should be populated from the constructor of the child class

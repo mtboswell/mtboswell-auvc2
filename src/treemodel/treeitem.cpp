@@ -153,6 +153,7 @@ bool TreeItem::setData(int column, const QVariant &value)
 
 	//qDebug() << "Setting data in column" << column << "to" << value;
 	itemData[column] = value;
+	if(column==1 || column == 3) itemData[2] = QTime::currentTime();
 	return true;
 }
 
