@@ -34,7 +34,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 		~Dashboard();
 
 	signals:
-		void sendMsg(VData msg);
+		void sendMsg(VDatum msg);
 		void sendMsg(QString, QString);
 		void setAddress(QString);
 		void receivedParam(QString, QString);

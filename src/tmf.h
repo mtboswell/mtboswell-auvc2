@@ -15,6 +15,7 @@ typedef struct VDatum {
 	QVariant meta;
 } VDatum;
 
+/* this is for future expansion
 // tree message format
 typedef struct VData {
 	QString parentID;
@@ -23,7 +24,12 @@ typedef struct VData {
 
 VData parseVData(QByteArray treeData);
 
-QByteArray serializeVDatum(VDatum treeItem);
-QByteArray serializeVData(VData tree);
+*/
+QList<VDatum> parseVDatums(QByteArray treeData);
+
+QByteArray serializeVDatum(VDatum datum);
+QByteArray serializeVDatums(QList<VDatum> datums);
+
+//QByteArray serializeVData(VData tree);
 
 #endif

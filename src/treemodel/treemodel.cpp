@@ -217,16 +217,13 @@ bool TreeModel::setData(const QModelIndex &index, const QVariant &value, int rol
 			iParent = iParent->parent();
 		}
 		emit dataUpdated(itemName, item->data(1));
-		VData dataVData;
-		dataVData.parentID = "AUV."+itemParents;
 		VDatum tmp;
-		tmp.ID = item->data(0).toString();
+		tmp.ID = item->data(0).toString().prepend("AUV."+itemParents);
 		tmp.value = item->data(1);
 		tmp.timestamp = item->data(2).toTime();
 		tmp.available = item->data(3).toBool();
 		tmp.meta = item->data(4);
-		dataVData.treeItems.prepend(tmp);
-		emit dataUpdated(dataVData);
+		emit dataUpdated(tmp);
 	}
 
 	return result;

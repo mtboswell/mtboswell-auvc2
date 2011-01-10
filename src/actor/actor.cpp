@@ -111,5 +111,5 @@ void Actor::step(){
 
 
 void Actor::messageIn(QString message){}
-void Actor::messageIn(VData message){}
+void Actor::messageIn(VDatum message){}
 void Actor::newData(QString ID, QVariant value){}

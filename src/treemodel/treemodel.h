@@ -100,10 +100,10 @@ class TreeModel : public QAbstractItemModel
 
 	signals:
 		void dataUpdated(QString ID, QVariant value);
-		void dataUpdated(VData data);
+		void dataUpdated(VDatum data);
 
 	private:
-		VData getVData(QString ID);
+		VDatum getVDatum(QString ID);
 
 		void setupModelData(const QStringList &lines, TreeItem *parent);
 		TreeItem *getItem(const QModelIndex &index) const;

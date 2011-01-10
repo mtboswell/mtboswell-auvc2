@@ -20,9 +20,9 @@ class DataHub : public QObject
 		DataHub(AUVC_State_Data* stateIn){
 			state = stateIn;
 			srv = new VDataSocket(5325, 5236, true);
-			connect(srv, SIGNAL(tmfReceived(VData, QHostAddress)), this, SLOT(messageIn(VData)));
-			connect(this, SIGNAL(messageBroadcast(VData)), srv, SLOT(sendVData(VData)));
-			connect(state, SIGNAL(dataUpdated(VData)), srv, SLOT(sendVData(VData)));
+			connect(srv, SIGNAL(datumReceived(VDatum, QHostAddress)), this, SLOT(messageIn(VDatum)));
+			connect(this, SIGNAL(messageBroadcast(VDatum)), srv, SLOT(sendVDatum(VDatum)));
+			connect(state, SIGNAL(dataUpdated(VDatum)), srv, SLOT(sendVDatum(VDatum)));
 		}
 		/**
 		 * addModule adds a module object to the message broadcasting system.
@@ -33,9 +33,9 @@ class DataHub : public QObject
 		void addModule(Module* module){
 			const QMetaObject* metaMod = module->metaObject();
 			qDebug() << "Initializing Module:" << metaMod->className();
-			connect(this, SIGNAL(messageBroadcast(VData)), module, SLOT(messageIn(VData)));
+			connect(this, SIGNAL(messageBroadcast(VDatum)), module, SLOT(messageIn(VDatum)));
 			connect(state, SIGNAL(dataUpdated(QString)), module, SLOT(newData(QString)));
-			connect(module, SIGNAL(messageOut(VData)), this, SLOT(messageIn(VData)));
+			connect(module, SIGNAL(messageOut(VDatum)), this, SLOT(messageIn(VDatum)));
 			connect(this, SIGNAL(go()), module, SLOT(start()));
 
 		}
@@ -53,14 +53,14 @@ class DataHub : public QObject
 		}
 
 	public slots:
-		void messageIn(VData msg){
-			qDebug() << "Message ID:" << msg.treeItems[0].ID;
+		void messageIn(VDatum msg){
+			qDebug() << "Message ID:" << msg.ID;
 			emit messageBroadcast(msg);
 		}
 		void startAll(){emit go();}
 
 	signals:
-		void messageBroadcast(VData msg);
+		void messageBroadcast(VDatum msg);
 		void go(); // used to launch modules
 
 	private:
