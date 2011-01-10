@@ -23,7 +23,7 @@ class Actor : public SimulinkModule
 	//	void track(object, down/fwd, bool maintainHeading, align=long/short, int approachSpeed);
 	//	void surface();
 		void messageIn(QString message);
-		void messageIn(VData message);
+		void messageIn(VDatum message);
 		void newData(QString ID, QVariant value);
 
 	signals:

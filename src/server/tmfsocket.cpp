@@ -25,9 +25,9 @@ void VDataSocket::setRemoteAddr(QString addr, quint16 port){
 	if(port != 0) m_remotePort = port;
 }
 
-void VDataSocket::sendVData(VData message, bool critical) {
-	m_outBuffer.append("VData");
-	m_outBuffer.append(serializeVData(message));
+void VDataSocket::sendVDatum(VDatum message, bool critical) {
+	m_outBuffer.append("VDatum");
+	m_outBuffer.append(serializeVDatum(message));
 	if(!m_buffer) {
 		sendDatagram(m_outBuffer, critical);
 		m_outBuffer.clear();
@@ -110,11 +110,11 @@ void VDataSocket::handlePendingDatagrams() {
 
 void VDataSocket::processDatagram(QByteArray datagram, QHostAddress fromAddr, quint16 fromPort){
 
-	VData receivedMessage;
-	receivedMessage = parseVData(datagram);
+	QList<VDatum> receivedMessage;
+	receivedMessage = parseVDatums(datagram);
 
 	if(fromPort){}
-	foreach (VDatum msg, receivedMessage.treeItems) {
+	foreach (VDatum msg, receivedMessage) {
 		emit datumReceived(msg, fromAddr);
 	}
 }

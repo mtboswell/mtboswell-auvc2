@@ -1,6 +1,6 @@
 /**
  * @file tmfsocket.h
- * Class provides a VData (Simple Id/Data Format) Network Socket
+ * Class provides a VDatum (Simple Id/Data Format) Network Socket
  */
 #ifndef __VDataSOCKET_H
 #define __VDataSOCKET_H
@@ -33,7 +33,7 @@ class VDataSocket : public QObject {
 		 * Received a VData packet.
 		 */
 		//void tmfReceived(QString ID, QString data);
-		void dataReceived(VData message, QHostAddress from);
+		//void dataReceived(VData message, QHostAddress from);
 		void datumReceived(VDatum message, QHostAddress from);
 		/**
 		 * Unused?
@@ -61,7 +61,7 @@ class VDataSocket : public QObject {
 		 * @param ID data identifier
 		 * @param data data
 		 */
-		void sendVData(VData message, bool critical=false);
+		void sendVDatum(VDatum message, bool critical=false);
 		/**
 		 * Send all data to the specified address and port.
 		 */
