@@ -1,18 +1,12 @@
 Model {
-  Name			  "lookForPath"
+  Name			  "CenterFinderTest"
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
-    NumRootOutports	    1
-    Outport {
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
-      SignalName	      "BW"
-      Name		      "BWout"
-    }
+    NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.10"
+    ComputedModelVersion    "1.9"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,16 +20,16 @@ Model {
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
   MaxMDLFileLineLength	  120
-  Created		  "Tue Oct  5 17:25:53 2010"
-  Creator		  "auvt"
+  Created		  "Mon Nov 15 16:23:21 2010"
+  Creator		  "pacifist"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Nov 16 17:51:09 2010"
-  RTWModifiedTimeStamp	  211829733
-  ModelVersionFormat	  "1.%<AutoIncrement:10>"
-  ConfigurationManager	  "customverctrl"
+  LastModifiedDate	  "Tue Nov 16 17:51:17 2010"
+  RTWModifiedTimeStamp	  211828615
+  ModelVersionFormat	  "1.%<AutoIncrement:9>"
+  ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -134,8 +128,8 @@ Model {
 	  RelTol		  "1e-3"
 	  SolverMode		  "Auto"
 	  ConcurrentTasks	  off
-	  Solver		  "ode45"
-	  SolverName		  "ode45"
+	  Solver		  "FixedStepDiscrete"
+	  SolverName		  "FixedStepDiscrete"
 	  SolverJacobianMethodControl "auto"
 	  ShapePreserveControl	  "DisableAll"
 	  ZeroCrossControl	  "UseLocalSettings"
@@ -143,7 +137,7 @@ Model {
 	  AlgebraicLoopSolver	  "TrustRegion"
 	  SolverResetMethod	  "Fast"
 	  PositivePriorityOrder	  off
-	  AutoInsertRateTranBlk	  off
+	  AutoInsertRateTranBlk	  on
 	  SampleTimeConstraint	  "Unconstrained"
 	  InsertRTBMode		  "Whenever possible"
 	}
@@ -161,12 +155,12 @@ Model {
 	  SaveFinalState	  off
 	  SaveCompleteFinalSimState off
 	  SaveFormat		  "Array"
-	  SaveOutput		  on
+	  SaveOutput		  off
 	  SaveState		  off
 	  SignalLogging		  on
 	  DSMLogging		  on
 	  InspectSignalLogs	  off
-	  SaveTime		  on
+	  SaveTime		  off
 	  ReturnWorkspaceOutputs  off
 	  StateSaveName		  "xout"
 	  TimeSaveName		  "tout"
@@ -181,26 +175,13 @@ Model {
 	Simulink.OptimizationCC {
 	  $ObjectID		  4
 	  Version		  "1.10.0"
-	  Array {
-	    Type		    "Cell"
-	    Dimension		    8
-	    Cell		    "BooleansAsBitfields"
-	    Cell		    "PassReuseOutputArgsAs"
-	    Cell		    "PassReuseOutputArgsThreshold"
-	    Cell		    "ZeroExternalMemoryAtStartup"
-	    Cell		    "ZeroInternalMemoryAtStartup"
-	    Cell		    "OptimizeModelRefInitCode"
-	    Cell		    "NoFixptDivByZeroProtection"
-	    Cell		    "UseSpecifiedMinMax"
-	    PropName		    "DisabledProps"
-	  }
 	  BlockReduction	  on
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
-	  InlineParams		  off
+	  InlineParams		  on
 	  UseIntDivNetSlope	  off
 	  UseSpecifiedMinMax	  off
-	  InlineInvariantSignals  off
+	  InlineInvariantSignals  on
 	  OptimizeBlockIOStorage  on
 	  BufferReuse		  on
 	  EnhancedBackFolding	  off
@@ -216,17 +197,17 @@ Model {
 	  LocalBlockOutputs	  on
 	  RollThreshold		  5
 	  SystemCodeInlineAuto	  off
-	  StateBitsets		  off
-	  DataBitsets		  off
-	  UseTempVars		  off
-	  ZeroExternalMemoryAtStartup on
-	  ZeroInternalMemoryAtStartup on
+	  StateBitsets		  on
+	  DataBitsets		  on
+	  UseTempVars		  on
+	  ZeroExternalMemoryAtStartup off
+	  ZeroInternalMemoryAtStartup off
 	  InitFltsAndDblsToZero	  off
-	  NoFixptDivByZeroProtection off
+	  NoFixptDivByZeroProtection on
 	  EfficientFloat2IntCast  off
 	  EfficientMapNaN2IntZero on
-	  OptimizeModelRefInitCode off
-	  LifeSpan		  "inf"
+	  OptimizeModelRefInitCode on
+	  LifeSpan		  "1"
 	  MaxStackSize		  "Inherit from target"
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
@@ -329,11 +310,11 @@ Model {
 	  ProdBitPerPointer	  32
 	  ProdLargestAtomicInteger "Char"
 	  ProdLargestAtomicFloat  "None"
-	  ProdIntDivRoundTo	  "Undefined"
-	  ProdEndianess		  "Unspecified"
+	  ProdIntDivRoundTo	  "Floor"
+	  ProdEndianess		  "LittleEndian"
 	  ProdWordSize		  32
 	  ProdShiftRightIntArith  on
-	  ProdHWDeviceType	  "32-bit Generic"
+	  ProdHWDeviceType	  "Generic->Custom"
 	  TargetBitPerChar	  8
 	  TargetBitPerShort	  16
 	  TargetBitPerInt	  32
@@ -387,26 +368,16 @@ Model {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  9
 	  Version		  "1.10.0"
-	  Array {
-	    Type		    "Cell"
-	    Dimension		    7
-	    Cell		    "IncludeHyperlinkInReport"
-	    Cell		    "GenerateTraceInfo"
-	    Cell		    "GenerateTraceReport"
-	    Cell		    "GenerateTraceReportSl"
-	    Cell		    "GenerateTraceReportSf"
-	    Cell		    "GenerateTraceReportEml"
-	    Cell		    "GenerateSLWebview"
-	    PropName		    "DisabledProps"
-	  }
-	  SystemTargetFile	  "grt.tlc"
-	  GenCodeOnly		  off
+	  SystemTargetFile	  "ert.tlc"
+	  TLCOptions		  "-p0"
+	  GenCodeOnly		  on
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
-	  TemplateMakefile	  "grt_default_tmf"
-	  GenerateReport	  off
+	  TemplateMakefile	  "ert_default_tmf"
+	  Description		  "Real-Time Workshop Embedded Coder"
+	  GenerateReport	  on
 	  SaveLog		  off
-	  RTWVerbose		  on
+	  RTWVerbose		  off
 	  RetainRTWFile		  off
 	  ProfileTLC		  off
 	  TLCDebug		  off
@@ -414,11 +385,12 @@ Model {
 	  TLCAssert		  off
 	  ProcessScriptMode	  "Default"
 	  ConfigurationMode	  "Optimized"
+	  ProcessScript		  "ert_make_rtw_hook"
 	  ConfigAtBuild		  off
 	  RTWUseLocalCustomCode	  off
 	  RTWUseSimCustomCode	  off
-	  IncludeHyperlinkInReport off
-	  LaunchReport		  off
+	  IncludeHyperlinkInReport on
+	  LaunchReport		  on
 	  TargetLang		  "C"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
 	  IncludeERTFirstTime	  off
@@ -438,35 +410,9 @@ Model {
 	    Simulink.CodeAppCC {
 	      $ObjectID		      10
 	      Version		      "1.10.0"
-	      Array {
-		Type			"Cell"
-		Dimension		21
-		Cell			"IgnoreCustomStorageClasses"
-		Cell			"IgnoreTestpoints"
-		Cell			"InsertBlockDesc"
-		Cell			"InsertPolySpaceComments"
-		Cell			"SFDataObjDesc"
-		Cell			"MATLABFcnDesc"
-		Cell			"SimulinkDataObjDesc"
-		Cell			"DefineNamingRule"
-		Cell			"SignalNamingRule"
-		Cell			"ParamNamingRule"
-		Cell			"InlinedPrmAccess"
-		Cell			"CustomSymbolStr"
-		Cell			"CustomSymbolStrGlobalVar"
-		Cell			"CustomSymbolStrType"
-		Cell			"CustomSymbolStrField"
-		Cell			"CustomSymbolStrFcn"
-		Cell			"CustomSymbolStrFcnArg"
-		Cell			"CustomSymbolStrBlkIO"
-		Cell			"CustomSymbolStrTmpVar"
-		Cell			"CustomSymbolStrMacro"
-		Cell			"ReqsInCode"
-		PropName		"DisabledProps"
-	      }
-	      ForceParamTrailComments off
+	      ForceParamTrailComments on
 	      GenerateComments	      on
-	      IgnoreCustomStorageClasses on
+	      IgnoreCustomStorageClasses off
 	      IgnoreTestpoints	      off
 	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
@@ -474,23 +420,23 @@ Model {
 	      PreserveNameWithParent  off
 	      ShowEliminatedStatement off
 	      IncAutoGenComments      off
-	      SimulinkDataObjDesc     off
+	      SimulinkDataObjDesc     on
 	      SFDataObjDesc	      off
 	      MATLABFcnDesc	      off
 	      IncDataTypeInIds	      off
 	      MangleLength	      1
-	      CustomSymbolStrGlobalVar "$R$N$M"
-	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrGlobalVar "rt$N$M"
+	      CustomSymbolStrType     "$N$M"
 	      CustomSymbolStrField    "$N$M"
-	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcn      "$N$M$F"
 	      CustomSymbolStrFcnArg   "rt$I$N$M"
 	      CustomSymbolStrBlkIO    "rtb_$N$M"
 	      CustomSymbolStrTmpVar   "$N$M"
-	      CustomSymbolStrMacro    "$R$N$M"
+	      CustomSymbolStrMacro    "$N$M"
 	      DefineNamingRule	      "None"
 	      ParamNamingRule	      "None"
 	      SignalNamingRule	      "None"
-	      InsertBlockDesc	      off
+	      InsertBlockDesc	      on
 	      InsertPolySpaceComments off
 	      SimulinkBlockComments   on
 	      MATLABSourceComments    off
@@ -499,83 +445,114 @@ Model {
 	      ReqsInCode	      off
 	      UseSimReservedNames     off
 	    }
-	    Simulink.GRTTargetCC {
+	    Simulink.ERTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      11
 	      Version		      "1.10.0"
-	      Array {
-		Type			"Cell"
-		Dimension		16
-		Cell			"GeneratePreprocessorConditionals"
-		Cell			"IncludeMdlTerminateFcn"
-		Cell			"CombineOutputUpdateFcns"
-		Cell			"SuppressErrorStatus"
-		Cell			"ERTCustomFileBanners"
-		Cell			"GenerateSampleERTMain"
-		Cell			"GenerateTestInterfaces"
-		Cell			"ModelStepFunctionPrototypeControlCompliant"
-		Cell			"CPPClassGenCompliant"
-		Cell			"MultiInstanceERTCode"
-		Cell			"PurelyIntegerCode"
-		Cell			"SupportComplex"
-		Cell			"SupportAbsoluteTime"
-		Cell			"SupportContinuousTime"
-		Cell			"SupportNonInlinedSFcns"
-		Cell			"PortableWordSizes"
-		PropName		"DisabledProps"
-	      }
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
-	      TargetFunctionLibrary   "ANSI_C"
+	      TargetFunctionLibrary   "ISO_C"
 	      UtilityFuncGeneration   "Auto"
 	      ERTMultiwordTypeDef     "System defined"
 	      ERTCodeCoverageTool     "None"
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
-	      GenerateSampleERTMain   off
+	      GenerateSampleERTMain   on
 	      GenerateTestInterfaces  off
 	      IsPILTarget	      off
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant on
 	      CompOptLevelCompliant   on
-	      IncludeMdlTerminateFcn  on
-	      GeneratePreprocessorConditionals "Disable all"
-	      CombineOutputUpdateFcns off
+	      IncludeMdlTerminateFcn  off
+	      GeneratePreprocessorConditionals "Use local settings"
+	      CombineOutputUpdateFcns on
 	      CombineSignalStateStructs	off
-	      SuppressErrorStatus     off
-	      ERTFirstTimeCompliant   off
+	      SuppressErrorStatus     on
+	      ERTFirstTimeCompliant   on
 	      IncludeFileDelimiter    "Auto"
-	      ERTCustomFileBanners    off
-	      SupportAbsoluteTime     on
+	      ERTCustomFileBanners    on
+	      SupportAbsoluteTime     off
 	      LogVarNameModifier      "rt_"
-	      MatFileLogging	      on
+	      MatFileLogging	      off
 	      MultiInstanceERTCode    off
-	      SupportNonFinite	      on
-	      SupportComplex	      on
-	      PurelyIntegerCode	      off
-	      SupportContinuousTime   on
-	      SupportNonInlinedSFcns  on
+	      SupportNonFinite	      off
+	      SupportComplex	      off
+	      PurelyIntegerCode	      on
+	      SupportContinuousTime   off
+	      SupportNonInlinedSFcns  off
 	      SupportVariableSizeSignals off
 	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
 	      PortableWordSizes	      off
-	      ModelStepFunctionPrototypeControlCompliant off
-	      CPPClassGenCompliant    off
+	      ModelStepFunctionPrototypeControlCompliant on
+	      CPPClassGenCompliant    on
 	      AutosarCompliant	      off
-	      UseMalloc		      off
+	      GenerateErtSFunction    off
+	      CreateSILPILBlock	      "None"
+	      GenerateASAP2	      off
 	      ExtMode		      off
-	      ExtModeStaticAlloc      off
-	      ExtModeTesting	      off
-	      ExtModeStaticAllocSize  1000000
 	      ExtModeTransport	      0
+	      ExtModeStaticAlloc      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTesting	      off
 	      ExtModeMexFile	      "ext_comm"
 	      ExtModeIntrfLevel	      "Level1"
+	      InlinedParameterPlacement	"NonHierarchical"
+	      TargetOS		      "BareBoardExample"
+	      MultiInstanceErrorCode  "Error"
+	      RateGroupingCode	      on
+	      RootIOFormat	      "Structure reference"
 	      RTWCAPISignals	      off
 	      RTWCAPIParams	      off
 	      RTWCAPIStates	      off
-	      GenerateASAP2	      off
+	      ERTSrcFileBannerTemplate "ert_code_template.cgt"
+	      ERTHdrFileBannerTemplate "ert_code_template.cgt"
+	      ERTDataSrcFileTemplate  "ert_code_template.cgt"
+	      ERTDataHdrFileTemplate  "ert_code_template.cgt"
+	      ERTCustomFileTemplate   "example_file_process.tlc"
+	      CoverageDialogOpen      "off"
+	      ModuleNamingRule	      "Unspecified"
+	      SignalDisplayLevel      10
+	      ParamTuneLevel	      10
+	      GlobalDataDefinition    "Auto"
+	      DataDefinitionFile      "global.c"
+	      GlobalDataReference     "Auto"
+	      ERTFilePackagingFormat  "Modular"
+	      DataReferenceFile	      "global.h"
+	      GRTInterface	      off
+	      PreserveExpressionOrder off
+	      PreserveIfCondition     off
+	      ConvertIfToSwitch	      off
+	      PreserveExternInFcnDecls on
+	      EnableUserReplacementTypes off
+	      Array {
+		Type			"Struct"
+		Dimension		1
+		MATStruct {
+		  double		  ""
+		  single		  ""
+		  int32			  ""
+		  int16			  ""
+		  int8			  ""
+		  uint32		  ""
+		  uint16		  ""
+		  uint8			  ""
+		  boolean		  ""
+		  int			  ""
+		  uint			  ""
+		  char			  ""
+		}
+		PropName		"ReplacementTypes"
+	      }
+	      MemSecPackage	      "--- None ---"
+	      MemSecDataConstants     "Default"
+	      MemSecDataIO	      "Default"
+	      MemSecDataInternal      "Default"
+	      MemSecDataParameters    "Default"
+	      MemSecFuncInitTerm      "Default"
+	      MemSecFuncExecute	      "Default"
 	    }
 	    PropName		    "Components"
 	  }
@@ -584,7 +561,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 1120, 210, 2000, 840 ] "
+      ConfigPrmDlgPosition    " [ 200, 85, 1080, 715 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -597,8 +574,8 @@ Model {
     BackgroundColor	    "white"
     DropShadow		    off
     NamePlacement	    "normal"
-    FontName		    "FreeSans"
-    FontSize		    12
+    FontName		    "Helvetica"
+    FontSize		    10
     FontWeight		    "normal"
     FontAngle		    "normal"
     ShowName		    on
@@ -611,32 +588,19 @@ Model {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
     DropShadow		    off
-    FontName		    "FreeSans"
-    FontSize		    12
+    FontName		    "Helvetica"
+    FontSize		    10
     FontWeight		    "normal"
     FontAngle		    "normal"
     UseDisplayTextAsClickCallback off
   }
   LineDefaults {
-    FontName		    "FreeSans"
-    FontSize		    12
+    FontName		    "Helvetica"
+    FontSize		    9
     FontWeight		    "normal"
     FontAngle		    "normal"
   }
   BlockParameterDefaults {
-    Block {
-      BlockType		      Constant
-      Value		      "1"
-      VectorParams1D	      on
-      SamplingMode	      "Sample based"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
-      LockScale		      off
-      SampleTime	      "inf"
-      FramePeriod	      "inf"
-      PreserveConstantTs      off
-    }
     Block {
       BlockType		      Demux
       Outputs		      "4"
@@ -666,15 +630,6 @@ Model {
       LatchByDelayingOutsideSignal off
       LatchInputForFeedbackSignals off
       Interpolate	      on
-    }
-    Block {
-      BlockType		      Logic
-      Operator		      "AND"
-      Inputs		      "2"
-      IconShape		      "rectangular"
-      AllPortsSameDT	      on
-      OutDataTypeStr	      "Inherit: Logical (see Configuration Parameters: Optimization)"
-      SampleTime	      "-1"
     }
     Block {
       BlockType		      Outport
@@ -727,8 +682,8 @@ Model {
     }
   }
   System {
-    Name		    "lookForPath"
-    Location		    [1, 127, 1279, 819]
+    Name		    "CenterFinderTest"
+    Location		    [16, 387, 1246, 987]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -742,203 +697,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "74"
-    Block {
-      BlockType		      Reference
-      Name		      "Blob Analysis"
-      SID		      "55"
-      Tag		      "vipblks_row_conv"
-      Ports		      [1, 1]
-      Position		      [695, 169, 870, 241]
-      LibraryVersion	      "1.582"
-      DialogController	      "vipDDGCreate"
-      DialogControllerArgs    "DataTag0"
-      SourceBlock	      "vipstatistics/Blob Analysis"
-      SourceType	      "Blob Analysis"
-      area		      off
-      centroid		      off
-      bBox		      off
-      majorAxis		      off
-      minorAxis		      off
-      angle		      off
-      eccentricity	      on
-      equivDiameterSq	      off
-      extent		      off
-      perimeter		      off
-      maxBlobs		      "Max_Num_Blobs"
-      warnIfNumBlobsExceeded  on
-      isCount		      off
-      useMinArea	      on
-      minArea		      "Min_Blob_Size"
-      useMaxArea	      on
-      maxArea		      "Max_Blob_Size"
-      excludeBorderBlob	      off
-      outDT		      "single"
-      isOutVarDim	      off
-      isFill		      on
-      fillValues	      "-1"
-      conn		      "8"
-      isLabel		      off
-      outputMode	      "Binary point scaling"
-      outputWordLength	      "32"
-      outputFracLength	      "16"
-      memoryMode	      "Same as product output"
-      memoryWordLength	      "32"
-      memoryFracLength	      "16"
-      firstCoeffMode	      "Binary point scaling"
-      firstCoeffWordLength    "16"
-      firstCoeffFracLength    "14"
-      secondCoeffMode	      "Binary point scaling"
-      secondCoeffWordLength   "32"
-      secondCoeffFracLength   "16"
-      accumMode		      "Binary point scaling"
-      accumWordLength	      "32"
-      accumFracLength	      "0"
-      prodOutputMode	      "Binary point scaling"
-      prodOutputWordLength    "32"
-      prodOutputFracLength    "16"
-      roundingMode	      "Floor"
-      overflowMode	      off
-      LockScale		      off
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "CheckConditions"
-      SID		      "56"
-      Ports		      [2, 1]
-      Position		      [1000, 182, 1145, 278]
-      PermitHierarchicalResolution "ExplicitOnly"
-      TreatAsAtomicUnit	      on
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
-      RequestExecContextInheritance off
-      MaskHideContents	      off
-      MaskType		      "Stateflow"
-      MaskDescription	      "Embedded MATLAB block"
-      MaskSelfModifiable      on
-      MaskDisplay	      "disp('CheckConditions');"
-      MaskIconFrame	      on
-      MaskIconOpaque	      off
-      MaskIconRotate	      "none"
-      MaskPortRotate	      "default"
-      MaskIconUnits	      "autoscale"
-      System {
-	Name			"CheckConditions"
-	Location		[257, 457, 812, 717]
-	Open			off
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SIDHighWatermark	"14"
-	Block {
-	  BlockType		  Inport
-	  Name			  "Eccent"
-	  SID			  "56::1"
-	  Position		  [20, 101, 40, 119]
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "Track_Min_Eccentricity"
-	  SID			  "56::2"
-	  Position		  [20, 136, 40, 154]
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Demux
-	  Name			  " Demux "
-	  SID			  "56::12"
-	  Ports			  [1, 1]
-	  Position		  [270, 160, 320, 200]
-	  Outputs		  "1"
-	}
-	Block {
-	  BlockType		  "S-Function"
-	  Name			  " SFunction "
-	  SID			  "56::11"
-	  Tag			  "Stateflow S-Function lookForPath 1"
-	  Ports			  [2, 2]
-	  Position		  [180, 100, 230, 160]
-	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[2 2]"
-	  EnableBusSupport	  on
-	  Port {
-	    PortNumber		    2
-	    Name		    "Image"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  " Terminator "
-	  SID			  "56::14"
-	  Position		  [460, 171, 480, 189]
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "Image"
-	  SID			  "56::6"
-	  Position		  [460, 101, 480, 119]
-	  IconDisplay		  "Port number"
-	}
-	Line {
-	  SrcBlock		  " Demux "
-	  SrcPort		  1
-	  DstBlock		  " Terminator "
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "Image"
-	  Labels		  [0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  2
-	  DstBlock		  "Image"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Track_Min_Eccentricity"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Eccent"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  1
-	  DstBlock		  " Demux "
-	  DstPort		  1
-	}
-      }
-    }
+    SIDHighWatermark	    "17"
     Block {
       BlockType		      Reference
       Name		      "Color Space\n Conversion"
-      SID		      "70"
+      SID		      "7"
       Ports		      [3, 3]
-      Position		      [165, 386, 265, 444]
+      Position		      [170, 21, 270, 79]
       LibraryVersion	      "1.328"
       SourceBlock	      "vipconversions/Color Space\n Conversion"
       SourceType	      "Color Space Conversion"
@@ -952,9 +717,9 @@ Model {
     Block {
       BlockType		      Reference
       Name		      "Color Space\n Conversion1"
-      SID		      "71"
+      SID		      "8"
       Ports		      [3, 3]
-      Position		      [285, 386, 385, 444]
+      Position		      [350, 21, 450, 79]
       LibraryVersion	      "1.328"
       SourceBlock	      "vipconversions/Color Space\n Conversion"
       SourceType	      "Color Space Conversion"
@@ -966,46 +731,29 @@ Model {
       imagePorts	      "Separate color signals"
     }
     Block {
-      BlockType		      Constant
-      Name		      "Constant"
-      SID		      "57"
-      Position		      [795, 272, 930, 318]
-      Value		      "Track_Min_Eccentricity"
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      Display
       Name		      "Display"
-      SID		      "65"
+      SID		      "9"
       Ports		      [1]
-      Position		      [1160, 390, 1250, 420]
+      Position		      [975, 35, 1065, 65]
       Decimation	      "1"
       Lockdown		      off
     }
     Block {
       BlockType		      Display
       Name		      "Display1"
-      SID		      "66"
+      SID		      "10"
       Ports		      [1]
-      Position		      [1160, 465, 1250, 495]
-      Decimation	      "1"
-      Lockdown		      off
-    }
-    Block {
-      BlockType		      Display
-      Name		      "Display2"
-      SID		      "73"
-      Ports		      [1]
-      Position		      [1170, 215, 1260, 245]
+      Position		      [975, 110, 1065, 140]
       Decimation	      "1"
       Lockdown		      off
     }
     Block {
       BlockType		      SubSystem
       Name		      "Embedded\nMATLAB Function"
-      SID		      "67"
+      SID		      "4"
       Ports		      [1, 2]
-      Position		      [675, 375, 870, 495]
+      Position		      [490, 20, 685, 140]
       LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
@@ -1049,14 +797,14 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "bwMatrix"
-	  SID			  "67::1"
+	  SID			  "4::1"
 	  Position		  [20, 101, 40, 119]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "67::15"
+	  SID			  "4::15"
 	  Ports			  [1, 1]
 	  Position		  [270, 180, 320, 220]
 	  Outputs		  "1"
@@ -1064,8 +812,8 @@ Model {
 	Block {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
-	  SID			  "67::14"
-	  Tag			  "Stateflow S-Function lookForPath 2"
+	  SID			  "4::14"
+	  Tag			  "Stateflow S-Function CenterFinderTest 2"
 	  Ports			  [1, 3]
 	  Position		  [180, 100, 230, 180]
 	  FunctionName		  "sf_sfun"
@@ -1087,20 +835,20 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "67::17"
+	  SID			  "4::17"
 	  Position		  [460, 191, 480, 209]
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "centroid_x"
-	  SID			  "67::5"
+	  SID			  "4::5"
 	  Position		  [460, 101, 480, 119]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "centroid_y"
-	  SID			  "67::18"
+	  SID			  "4::18"
 	  Position		  [460, 136, 480, 154]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -1144,9 +892,9 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "Embedded\nMATLAB Function1"
-      SID		      "68"
+      SID		      "5"
       Ports		      [2, 2]
-      Position		      [945, 369, 1140, 516]
+      Position		      [760, 14, 955, 161]
       LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
@@ -1190,14 +938,14 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "centroid_x"
-	  SID			  "68::1"
+	  SID			  "5::1"
 	  Position		  [20, 101, 40, 119]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "centroid_y"
-	  SID			  "68::18"
+	  SID			  "5::18"
 	  Position		  [20, 136, 40, 154]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -1205,7 +953,7 @@ Model {
 	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "68::15"
+	  SID			  "5::15"
 	  Ports			  [1, 1]
 	  Position		  [270, 180, 320, 220]
 	  Outputs		  "1"
@@ -1213,8 +961,8 @@ Model {
 	Block {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
-	  SID			  "68::14"
-	  Tag			  "Stateflow S-Function lookForPath 3"
+	  SID			  "5::14"
+	  Tag			  "Stateflow S-Function CenterFinderTest 1"
 	  Ports			  [2, 3]
 	  Position		  [180, 100, 230, 180]
 	  FunctionName		  "sf_sfun"
@@ -1236,20 +984,20 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "68::17"
+	  SID			  "5::17"
 	  Position		  [460, 191, 480, 209]
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "heading_y_deg"
-	  SID			  "68::5"
+	  SID			  "5::5"
 	  Position		  [460, 101, 480, 119]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "heading_z_deg"
-	  SID			  "68::19"
+	  SID			  "5::19"
 	  Position		  [460, 136, 480, 154]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -1298,15 +1046,15 @@ Model {
     }
     Block {
       BlockType		      Reference
-      Name		      "From Video Device2"
-      SID		      "72"
+      Name		      "From Video Device1"
+      SID		      "2"
       Ports		      [0, 3]
-      Position		      [35, 389, 145, 441]
+      Position		      [15, 19, 125, 71]
       LibraryVersion	      "1.58"
       UserDataPersistent      on
-      UserData		      "DataTag1"
+      UserData		      "DataTag0"
       DialogController	      "imaqcreatedialog"
-      DialogControllerArgs    "DataTag2"
+      DialogControllerArgs    "DataTag1"
       SourceBlock	      "imaqlib/From Video Device"
       SourceType	      "From Video Device"
       DeviceMenu	      "linuxvideo 2 (UVC Camera (046d:0804))"
@@ -1323,7 +1071,7 @@ Model {
       DataType		      "single"
       CanDoHWTrigger	      "no"
       ReturnedColorSpace      "YCbCr"
-      BlockHandle	      "2181.0009"
+      BlockHandle	      "34.0012"
       ROIWidth		      "160"
       ROIHeight		      "120"
       ROIColumn		      "0"
@@ -1332,173 +1080,43 @@ Model {
       DevXMLPath	      "/usr/local/MATLAB/R2010b/toolbox/imaq/imaqadaptors/glnx86"
       EngLibPath	      "/usr/local/MATLAB/R2010b/toolbox/imaq/imaqblks/imaqmex/glnx86"
     }
-    Block {
-      BlockType		      Reference
-      Name		      "Hue Higher Comparison"
-      SID		      "58"
-      Ports		      [1, 1]
-      Position		      [330, 214, 375, 246]
-      LibraryVersion	      "1.225"
-      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
-      SourceType	      "Compare To Constant"
-      ShowPortLabels	      "FromPortIcon"
-      SystemSampleTime	      "-1"
-      FunctionWithSeparateData off
-      RTWMemSecFuncInitTerm   "Inherit from model"
-      RTWMemSecFuncExecute    "Inherit from model"
-      RTWMemSecDataConstants  "Inherit from model"
-      RTWMemSecDataInternal   "Inherit from model"
-      RTWMemSecDataParameters "Inherit from model"
-      GeneratePreprocessorConditionals off
-      relop		      ">"
-      const		      "Track_HueHigher"
-      LogicOutDataTypeMode    "boolean"
-      ZeroCross		      off
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Hue Lower Comparison"
-      SID		      "59"
-      Ports		      [1, 1]
-      Position		      [330, 119, 375, 151]
-      LibraryVersion	      "1.225"
-      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
-      SourceType	      "Compare To Constant"
-      ShowPortLabels	      "FromPortIcon"
-      SystemSampleTime	      "-1"
-      FunctionWithSeparateData off
-      RTWMemSecFuncInitTerm   "Inherit from model"
-      RTWMemSecFuncExecute    "Inherit from model"
-      RTWMemSecDataConstants  "Inherit from model"
-      RTWMemSecDataInternal   "Inherit from model"
-      RTWMemSecDataParameters "Inherit from model"
-      GeneratePreprocessorConditionals off
-      relop		      "<"
-      const		      "Track_HueLower"
-      LogicOutDataTypeMode    "boolean"
-      ZeroCross		      off
-    }
-    Block {
-      BlockType		      Logic
-      Name		      "Logical\nOperator"
-      SID		      "60"
-      Ports		      [2, 1]
-      Position		      [435, 167, 465, 198]
-      Operator		      "OR"
-      AllPortsSameDT	      off
-      OutDataTypeStr	      "boolean"
-    }
-    Block {
-      BlockType		      Logic
-      Name		      "Logical\nOperator1"
-      SID		      "61"
-      Ports		      [2, 1]
-      Position		      [595, 187, 625, 218]
-      AllPortsSameDT	      off
-      OutDataTypeStr	      "boolean"
-      Port {
-	PortNumber		1
-	Name			"BW"
-	RTWStorageClass		"Auto"
-	DataLoggingNameMode	"SignalName"
-      }
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Saturation Comparison"
-      SID		      "62"
-      Ports		      [1, 1]
-      Position		      [485, 230, 540, 260]
-      LibraryVersion	      "1.225"
-      SourceBlock	      "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
-      SourceType	      "Compare To Constant"
-      ShowPortLabels	      "FromPortIcon"
-      SystemSampleTime	      "-1"
-      FunctionWithSeparateData off
-      RTWMemSecFuncInitTerm   "Inherit from model"
-      RTWMemSecFuncExecute    "Inherit from model"
-      RTWMemSecDataConstants  "Inherit from model"
-      RTWMemSecDataInternal   "Inherit from model"
-      RTWMemSecDataParameters "Inherit from model"
-      GeneratePreprocessorConditionals off
-      relop		      ">"
-      const		      "Track_Saturation"
-      LogicOutDataTypeMode    "boolean"
-      ZeroCross		      off
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "BWout"
-      SID		      "63"
-      Position		      [695, 128, 725, 142]
-      IconDisplay	      "Port number"
-    }
     Line {
-      SrcBlock		      "CheckConditions"
+      SrcBlock		      "From Video Device1"
       SrcPort		      1
-      DstBlock		      "Display2"
+      DstBlock		      "Color Space\n Conversion"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Constant"
+      SrcBlock		      "Color Space\n Conversion"
       SrcPort		      1
-      Points		      [50, 0]
-      DstBlock		      "CheckConditions"
+      DstBlock		      "Color Space\n Conversion1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "From Video Device1"
+      SrcPort		      2
+      Points		      [0, 5]
+      DstBlock		      "Color Space\n Conversion"
       DstPort		      2
     }
     Line {
-      Name		      "BW"
-      Labels		      [0, 0]
-      SrcBlock		      "Logical\nOperator1"
-      SrcPort		      1
-      Points		      [30, 0]
-      Branch {
-	Points			[-5, 0; 0, -70]
-	DstBlock		"BWout"
-	DstPort			1
-      }
-      Branch {
-	DstBlock		"Blob Analysis"
-	DstPort			1
-      }
-      Branch {
-	DstBlock		"Embedded\nMATLAB Function"
-	DstPort			1
-      }
+      SrcBlock		      "From Video Device1"
+      SrcPort		      3
+      Points		      [10, 0; 0, 10]
+      DstBlock		      "Color Space\n Conversion"
+      DstPort		      3
     }
     Line {
-      SrcBlock		      "Saturation Comparison"
-      SrcPort		      1
-      Points		      [10, 0; 0, -35]
-      DstBlock		      "Logical\nOperator1"
+      SrcBlock		      "Color Space\n Conversion"
+      SrcPort		      2
+      DstBlock		      "Color Space\n Conversion1"
       DstPort		      2
     }
     Line {
-      SrcBlock		      "Logical\nOperator"
-      SrcPort		      1
-      Points		      [55, 0; 0, 10]
-      DstBlock		      "Logical\nOperator1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      1
-      DstBlock		      "CheckConditions"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Hue Higher Comparison"
-      SrcPort		      1
-      Points		      [20, 0; 0, -40]
-      DstBlock		      "Logical\nOperator"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Hue Lower Comparison"
-      SrcPort		      1
-      Points		      [20, 0; 0, 40]
-      DstBlock		      "Logical\nOperator"
-      DstPort		      1
+      SrcBlock		      "Color Space\n Conversion"
+      SrcPort		      3
+      DstBlock		      "Color Space\n Conversion1"
+      DstPort		      3
     }
     Line {
       SrcBlock		      "Embedded\nMATLAB Function"
@@ -1526,77 +1144,22 @@ Model {
       DstPort		      1
     }
     Line {
-      SrcBlock		      "From Video Device2"
-      SrcPort		      1
-      DstBlock		      "Color Space\n Conversion"
+      Labels		      [0, 0]
+      Points		      [455, 70; 10, 0; 0, 10]
+      DstBlock		      "Embedded\nMATLAB Function"
       DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Color Space\n Conversion"
-      SrcPort		      1
-      DstBlock		      "Color Space\n Conversion1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "From Video Device2"
-      SrcPort		      2
-      DstBlock		      "Color Space\n Conversion"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "From Video Device2"
-      SrcPort		      3
-      DstBlock		      "Color Space\n Conversion"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Color Space\n Conversion"
-      SrcPort		      2
-      DstBlock		      "Color Space\n Conversion1"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Color Space\n Conversion"
-      SrcPort		      3
-      DstBlock		      "Color Space\n Conversion1"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Color Space\n Conversion1"
-      SrcPort		      1
-      Points		      [0, -80; -115, 0; 0, -130; 30, 0]
-      Branch {
-	Points			[0, 45]
-	DstBlock		"Hue Higher Comparison"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, -50]
-	DstBlock		"Hue Lower Comparison"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Color Space\n Conversion1"
-      SrcPort		      2
-      Points		      [15, 0; 0, -170]
-      DstBlock		      "Saturation Comparison"
-      DstPort		      1
-    }
-    Annotation {
-      Position		      [598, 199]
     }
   }
 }
 MatData {
-  NumRecords		  3
+  NumRecords		  2
   DataRecord {
-    Tag			    DataTag2
+    Tag			    DataTag1
     Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
     "     %    \"     $    /     0         0    #P   &9R;VUV:61E;V1E=FEC90 "
   }
   DataRecord {
-    Tag			    DataTag1
+    Tag			    DataTag0
     Data		    "  %)30     .    Z ,   8    (     @         %    \"     $    !     0         %  0 &     $    ( 0  0F%C:V"
     "QI9VAT0V]M<&5N<V%T:6]N    0G)I9VAT;F5S<P                  0V]N=')A<W0                     17AP;W-U<F5!=71O4')I;W)I"
     "='D     1G)A;652871E                    4&]W97),:6YE1G)E<75E;F-Y        4V%T=7)A=&EO;@                  4VAA<G!N97"
@@ -1611,11 +1174,6 @@ MatData {
     "   !@    $         $     8   !M86YU86P   X    X    !@    @    &          4    (     0    $    !          D    (   "
     "       ! KT "
   }
-  DataRecord {
-    Tag			    DataTag0
-    Data		    "  %)30     .    8     8    (     0         %    \"     $    !     0         .    ,     8    (    !     "
-    "     %    \"     $    $     0         0  0 0FQO8@"
-  }
 }
 # Finite State Machines
 #
@@ -1627,35 +1185,35 @@ MatData {
 Stateflow {
   machine {
     id			    1
-    name		    "lookForPath"
-    created		    "05-Oct-2010 17:26:17"
+    name		    "CenterFinderTest"
+    created		    "15-Nov-2010 16:30:39"
     isLibrary		    0
-    firstTarget		    27
+    firstTarget		    19
     debug {
     }
     sfVersion		    75014000.000003
   }
   chart {
     id			    2
-    name		    "CheckConditions"
-    windowPosition	    [461.813 174 200.25 189.75]
+    name		    "Embedded\nMATLAB Function1"
+    windowPosition	    [300.6 338.917 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3120 1050 1.180555555555556]
+    screen		    [1 1 1280 800 1.25]
     treeNode		    [0 3 0 0]
     firstTransition	    5
     firstJunction	    4
     viewObj		    2
     machine		    1
-    ssIdHighWaterMark	    6
+    toolbarMode		    LIBRARY_TOOLBAR
+    ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    6
     chartFileNumber	    1
     disableImplicitCasting  1
     eml {
-      name		      "CheckConditions"
+      name		      "Centroid2Heading"
     }
-    supportVariableSizing   0
   }
   state {
     id			    3
@@ -1671,13 +1229,16 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function Image = CheckConditions(Eccent, Track_Min_Eccentricity)\n% This function checks the cond"
-      "itions to decide if a track is present\n\nif(Eccent > Track_Min_Eccentricity)\n    Image = 1;\nelse\n    Image ="
-      " 0;\nend\n\nreturn\n"
-      editorLayout	      "100 M4x1[146 214 671 364]"
-      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
-      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
-      emlDefaultFimath	      FimathUserSpecified
+      script		      "function [heading_y_deg, heading_z_deg] = Centroid2Heading(centroid_x, centroid_y)\n%Author: Yama"
+      " Habib\n%Revision: 10/27/2010\n%Centroid2Heading takes a raw matrix centroid coordinate and converts\n%it into a"
+      " correction heading, in degrees (i.e. heading_y_deg = -30,\n%heading_z_deg = 45 means that in order to orient yo"
+      "urself so that the\n%object in question is centered in the video feed, you need to turn 30\n%degrees to the left"
+      " and 45 degrees upwards, assuming the camera is mounted\n%on the front) The probability that this function will "
+      "return exactly 0\n%degrees is laughably low, so applying a reasonable threshold to the\n%result is strongly reco"
+      "mmended.\n\n%Should these be parameters? I think they're fine as constants.\nWIDTH = 160;\nHEIGHT = 120;\nMAXANG"
+      "LE = 130;\n\nheading_y_deg = ((centroid_x-(WIDTH/2)) / (WIDTH/2)) * (MAXANGLE/2);\nheading_z_deg = ((centroid_y-"
+      "(HEIGHT/2)) / (HEIGHT/2)) * (MAXANGLE/2);\nend\n"
+      editorLayout	      "100 M4x1[174 42 1080 734]"
     }
   }
   junction {
@@ -1713,7 +1274,7 @@ Stateflow {
   data {
     id			    6
     ssIdNumber		    4
-    name		    "Eccent"
+    name		    "centroid_x"
     linkNode		    [2 0 7]
     scope		    INPUT_DATA
     machine		    1
@@ -1732,7 +1293,7 @@ Stateflow {
   data {
     id			    7
     ssIdNumber		    5
-    name		    "Image"
+    name		    "heading_y_deg"
     linkNode		    [2 6 8]
     scope		    OUTPUT_DATA
     machine		    1
@@ -1752,8 +1313,8 @@ Stateflow {
   data {
     id			    8
     ssIdNumber		    6
-    name		    "Track_Min_Eccentricity"
-    linkNode		    [2 7 0]
+    name		    "centroid_y"
+    linkNode		    [2 7 9]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -1771,29 +1332,49 @@ Stateflow {
     }
     dataType		    "Inherit: Same as Simulink"
   }
-  instance {
+  data {
     id			    9
-    name		    "CheckConditions"
+    ssIdNumber		    7
+    name		    "heading_z_deg"
+    linkNode		    [2 8 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    10
+    name		    "Embedded\nMATLAB Function1"
     machine		    1
     chart		    2
   }
   chart {
-    id			    10
+    id			    11
     name		    "Embedded\nMATLAB Function"
-    windowPosition	    [315.6 323.917 200.25 189.75]
+    windowPosition	    [300.6 338.917 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.25]
-    treeNode		    [0 11 0 0]
-    firstTransition	    13
-    firstJunction	    12
-    viewObj		    10
+    treeNode		    [0 12 0 0]
+    firstTransition	    14
+    firstJunction	    13
+    viewObj		    11
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    6
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    14
+    firstData		    15
     chartFileNumber	    2
     disableImplicitCasting  1
     eml {
@@ -1801,14 +1382,14 @@ Stateflow {
     }
   }
   state {
-    id			    11
+    id			    12
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    10
-    treeNode		    [10 0 0 0]
+    chart		    11
+    treeNode		    [11 0 0 0]
     superState		    SUBCHART
-    subviewer		    10
+    subviewer		    11
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -1842,16 +1423,16 @@ Stateflow {
     }
   }
   junction {
-    id			    12
+    id			    13
     position		    [23.5747 49.5747 7]
-    chart		    10
-    linkNode		    [10 0 0]
-    subviewer		    10
+    chart		    11
+    linkNode		    [11 0 0]
+    subviewer		    11
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    13
+    id			    14
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -1859,23 +1440,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      12
+      id		      13
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    10
-    linkNode		    [10 0 0]
+    chart		    11
+    linkNode		    [11 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    10
+    subviewer		    11
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    14
+    id			    15
     ssIdNumber		    4
     name		    "bwMatrix"
-    linkNode		    [10 0 15]
+    linkNode		    [11 0 16]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -1887,34 +1468,34 @@ Stateflow {
 	primitive		SF_DOUBLE_TYPE
       }
       complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    15
-    ssIdNumber		    5
-    name		    "centroid_x"
-    linkNode		    [10 14 16]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    16
+    ssIdNumber		    5
+    name		    "centroid_x"
+    linkNode		    [11 15 17]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    17
     ssIdNumber		    6
     name		    "centroid_y"
-    linkNode		    [10 15 0]
+    linkNode		    [11 16 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -1933,182 +1514,13 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    17
+    id			    18
     name		    "Embedded\nMATLAB Function"
     machine		    1
-    chart		    10
-  }
-  chart {
-    id			    18
-    name		    "Embedded\nMATLAB Function1"
-    windowPosition	    [315.6 323.917 200.25 189.75]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 1280 800 1.25]
-    treeNode		    [0 19 0 0]
-    firstTransition	    21
-    firstJunction	    20
-    viewObj		    18
-    machine		    1
-    toolbarMode		    LIBRARY_TOOLBAR
-    subviewS {
-    }
-    ssIdHighWaterMark	    7
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    22
-    chartFileNumber	    3
-    disableImplicitCasting  1
-    eml {
-      name		      "Centroid2Heading"
-    }
-  }
-  state {
-    id			    19
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    18
-    treeNode		    [18 0 0 0]
-    superState		    SUBCHART
-    subviewer		    18
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function [heading_y_deg, heading_z_deg] = Centroid2Heading(centroid_x, centroid_y)\n%Author: Yama"
-      " Habib\n%Revision: 10/27/2010\n%Centroid2Heading takes a raw matrix centroid coordinate and converts\n%it into a"
-      " correction heading, in degrees (i.e. heading_y_deg = -30,\n%heading_z_deg = 45 means that in order to orient yo"
-      "urself so that the\n%object in question is centered in the video feed, you need to turn 30\n%degrees to the left"
-      " and 45 degrees upwards, assuming the camera is mounted\n%on the front) The probability that this function will "
-      "return exactly 0\n%degrees is laughably low, so applying a reasonable threshold to the\n%result is strongly reco"
-      "mmended.\n\n%Should these be parameters? I think they're fine as constants.\nWIDTH = 160;\nHEIGHT = 120;\nMAXANG"
-      "LE = 130;\n\nheading_y_deg = ((centroid_x-(WIDTH/2)) / (WIDTH/2)) * (MAXANGLE/2);\nheading_z_deg = ((centroid_y-"
-      "(HEIGHT/2)) / (HEIGHT/2)) * (MAXANGLE/2);\nend\n"
-      editorLayout	      "100 M4x1[174 42 1080 734]"
-    }
-  }
-  junction {
-    id			    20
-    position		    [23.5747 49.5747 7]
-    chart		    18
-    linkNode		    [18 0 0]
-    subviewer		    18
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    21
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      20
-      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    18
-    linkNode		    [18 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    18
-    drawStyle		    SMART
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  data {
-    id			    22
-    ssIdNumber		    4
-    name		    "centroid_x"
-    linkNode		    [18 0 23]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    23
-    ssIdNumber		    5
-    name		    "heading_y_deg"
-    linkNode		    [18 22 24]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    24
-    ssIdNumber		    6
-    name		    "centroid_y"
-    linkNode		    [18 23 25]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    25
-    ssIdNumber		    7
-    name		    "heading_z_deg"
-    linkNode		    [18 24 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  instance {
-    id			    26
-    name		    "Embedded\nMATLAB Function1"
-    machine		    1
-    chart		    18
+    chart		    11
   }
   target {
-    id			    27
+    id			    19
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
