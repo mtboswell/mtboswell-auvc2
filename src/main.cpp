@@ -11,7 +11,7 @@
 //#include "auv/calibrateservos.h"
 
 // modules
-#include "actor/actor.h"
+#include "controllers/controllers.h"
 
 #include <QTreeView>
 
@@ -50,7 +50,7 @@ int main(int argc, char *argv[]){
 	// OR	
 	//Sample2 samp2(&config, &stateData, &hub);
 
-	Module* actor = new Actor(&config, &stateData, &hub);
+	Module* controllers = new Controllers(&config, &stateData, &hub);
 
 
 	QTreeView *tree = new QTreeView();

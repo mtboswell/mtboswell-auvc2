@@ -1,5 +1,5 @@
-#ifndef ACTOR_H
-#define ACTOR_H
+#ifndef CONTROLLERS_H
+#define CONTROLLERS_H
 
 #include "../tmf.h"
 #include "../simulinkmodule.h"
@@ -7,13 +7,13 @@
 #include <QDebug>
 
 /**
- * Actor Module.
+ * Controllers Module.
  */
-class Actor : public SimulinkModule 
+class Controllers : public SimulinkModule 
 {
 	Q_OBJECT;
 	public:
-		Actor(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
+		Controllers(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
 	public slots:
 
 	//	void setCmd(QString cmd);
@@ -35,7 +35,7 @@ class Actor : public SimulinkModule
 
 	private:
 	/*
-		ActorMode currentCMD;
+		ControllersMode currentCMD;
 
 		// directRC
 		QList<char> thrusterSpeeds;
