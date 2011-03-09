@@ -1,6 +1,6 @@
-#include "actor.h"
+#include "controllers.h"
 
-Actor::Actor(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent):SimulinkModule(configIn, stateIn, parent){
+Controllers::Controllers(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent):SimulinkModule(configIn, stateIn, parent){
 
 	// vim cmd to generate below code from generated list in MotionController.h: 
 	// :s/\/\*.*\*\///
@@ -47,8 +47,8 @@ Actor::Actor(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject
 
 	MotionController_initialize();
 }
-void Actor::step(){
-	//qDebug() << "Stepping Actor";
+void Controllers::step(){
+	//qDebug() << "Stepping Controllers";
 
 	updateParameters();
 
@@ -110,6 +110,6 @@ void Actor::step(){
 }
 
 
-void Actor::messageIn(QString message){}
-void Actor::messageIn(VDatum message){}
-void Actor::newData(QString ID, QVariant value){}
+void Controllers::messageIn(QString message){}
+void Controllers::messageIn(VDatum message){}
+void Controllers::newData(QString ID, QVariant value){}
