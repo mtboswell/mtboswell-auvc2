@@ -1,3 +1,7 @@
+/**
+ * AUVC State Data storage structure.
+ * Some code borrowed from the Qt documentation. Copyright below applies only to copied code.
+ */
 /****************************************************************************
  **
  ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
@@ -44,7 +48,7 @@
 #include <QAbstractItemModel>
 #include <QModelIndex>
 #include <QVariant>
-#include "../tmf.h"
+#include "../vdatum.h"
 #include "treeitem.h"
 
 //class TreeItem;
@@ -97,6 +101,7 @@ class TreeModel : public QAbstractItemModel
 
 	public slots:
 		void setData(QString name, QVariant value, QTime timestamp = QTime::currentTime(), bool available = true);
+		void setData(VDatum datum);
 
 	signals:
 		void dataUpdated(QString ID, QVariant value);

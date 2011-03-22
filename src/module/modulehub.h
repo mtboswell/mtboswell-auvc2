@@ -4,10 +4,10 @@
 #include <QMetaMethod>
 #include <QStringList>
 #include <QDebug>
-#include "../state.h"
-#include "../tmf.h"
-#include "../module.h"
-#include "../server/tmfsocket.h"
+#include "../state/state.h"
+#include "../state/vdatum.h"
+#include "../module/module.h"
+#include "../state/vdatasocket.h"
 
 /**
  * DataHub is a class designed to connect and manage Modules.
@@ -19,6 +19,7 @@ class DataHub : public QObject
 	public:
 		DataHub(AUVC_State_Data* stateIn){
 			state = stateIn;
+			// connect up server to state data
 			srv = new VDataSocket(5325, 5236, true);
 			connect(srv, SIGNAL(datumReceived(VDatum, QHostAddress)), this, SLOT(messageIn(VDatum)));
 			connect(this, SIGNAL(messageBroadcast(VDatum)), srv, SLOT(sendVDatum(VDatum)));
@@ -33,9 +34,14 @@ class DataHub : public QObject
 		void addModule(Module* module){
 			const QMetaObject* metaMod = module->metaObject();
 			qDebug() << "Initializing Module:" << metaMod->className();
-			connect(this, SIGNAL(messageBroadcast(VDatum)), module, SLOT(messageIn(VDatum)));
-			connect(state, SIGNAL(dataUpdated(QString)), module, SLOT(newData(QString)));
-			connect(module, SIGNAL(messageOut(VDatum)), this, SLOT(messageIn(VDatum)));
+			//connect(this, SIGNAL(messageBroadcast(VDatum)), module, SLOT(messageIn(VDatum)));
+			//connect(state, SIGNAL(dataUpdated(QString)), module, SLOT(newData(QString)));
+
+
+			connect(this, SIGNAL(subOut(QString, VDatum)), module, SLOT(recvDatum(QString, VDatum)));
+			addSubscriptions(metaMod->className(), module->subscriptions());
+
+			connect(module, SIGNAL(setData(VDatum)), this, SLOT(messageIn(VDatum)));
 			connect(this, SIGNAL(go()), module, SLOT(start()));
 
 		}
@@ -52,10 +58,25 @@ class DataHub : public QObject
 			qDebug() << "Initialization Complete, System Online";
 		}
 
+		void addSubscriptions(QString module, QStringList IDs){
+			foreach(QString str, IDs){
+				subscriptions[str].append(module);
+			}
+		}
+		void addSubscription(QString module, QString ID){
+			subscriptions[ID].append(module);
+		}
+
 	public slots:
 		void messageIn(VDatum msg){
 			qDebug() << "Message ID:" << msg.ID;
-			emit messageBroadcast(msg);
+			state->setData(msg);
+			//emit messageBroadcast(msg);
+
+			// handle subscriptions
+			foreach(QString str, subscriptions[msg.ID]){
+				subOut(str, msg);
+			}
 		}
 		void startAll(){emit go();}
 
@@ -66,4 +87,5 @@ class DataHub : public QObject
 	private:
 		VDataSocket* srv;
 		AUVC_State_Data* state;
+		QMap<QString, QStringList> subscriptions;
 };

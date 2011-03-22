@@ -1,5 +1,5 @@
 /**
- * @file tmfsocket.h
+ * @file vdatasocket.h
  * Class provides a VDatum (Simple Id/Data Format) Network Socket
  */
 #ifndef __VDataSOCKET_H
