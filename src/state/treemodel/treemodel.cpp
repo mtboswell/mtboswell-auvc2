@@ -307,6 +307,9 @@ TreeItem* TreeModel::getItem(QString value, TreeItem* parentItem){
 
 }
 
+void TreeModel::setData(VDatum datum){
+	setData(datum.id, datum.value, datum.timestamp, data.available);
+}
 void TreeModel::setData(QString id, QVariant value, QTime timestamp, bool available){
 	TreeItem* thisItem = getItem(id, rootItem);
 	if(thisItem == rootItem){

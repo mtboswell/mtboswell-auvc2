@@ -1,4 +1,4 @@
-#include "tmfsocket.h"
+#include "vdatasocket.h"
 #include <QDebug>
 
 VDataSocket::VDataSocket(quint16 bindPort, quint16 remotePort, bool server,

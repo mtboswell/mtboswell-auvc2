@@ -6,7 +6,7 @@
 #include <QTime>
 #include <QVariant>
 
-// tree item format
+// vehicle universal data type
 typedef struct VDatum {
 	QString ID;
 	QVariant value;
@@ -15,21 +15,9 @@ typedef struct VDatum {
 	QVariant meta;
 } VDatum;
 
-/* this is for future expansion
-// tree message format
-typedef struct VData {
-	QString parentID;
-	QList<VDatum> treeItems;
-} VData;
-
-VData parseVData(QByteArray treeData);
-
-*/
 QList<VDatum> parseVDatums(QByteArray treeData);
 
 QByteArray serializeVDatum(VDatum datum);
 QByteArray serializeVDatums(QList<VDatum> datums);
-
-//QByteArray serializeVData(VData tree);
 
 #endif

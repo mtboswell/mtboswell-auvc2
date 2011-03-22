@@ -1,7 +1,9 @@
 #include <QtCore>
 #include <QApplication>
 #include <QtGui>
+#include "../module.h"
 #include "dashboard.h"
+
 #ifdef STATIC
 #include <QtPlugin>
 
