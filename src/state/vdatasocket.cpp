@@ -14,7 +14,7 @@ VDataSocket::VDataSocket(quint16 bindPort, quint16 remotePort, bool server,
 			this, SLOT(handlePendingDatagrams()));
 	m_AckTimeout = 2000;
 
-	if(config.isEmpty()) loadConfigFile(config);
+//	if(config.isEmpty()) loadConfigFile(config);
 }
 
 VDataSocket::~VDataSocket() {

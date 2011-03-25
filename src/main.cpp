@@ -2,7 +2,7 @@
 #include <QDebug>
 #include <QMutex>
 
-#include "configloader.h"
+#include "misc/configloader.h"
 
 #include "state/state.h"
 #include "module/modulehub.h"

@@ -1,7 +1,9 @@
 TEMPLATE = app
 TARGET = ../agent
-CONFIG += qt
+CONFIG += qt warn_off
 QT += network  # phonon 
+MOC_DIR = tmp
+OBJECTS_DIR = tmp
 
 #LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
 
@@ -14,12 +16,12 @@ INCLUDEPATH += . \
 
 # Input
 HEADERS += \
-           configloader.h \
+           misc/configloader.h \
            module/module.h \
            module/simulinkmodule.h \
            state/state.h \
            state/vdatum.h \
-           version.h \
+#           version.h \
            controllers/controllers.h \
            module/modulehub.h \
            state/vdatasocket.h \
@@ -93,12 +95,12 @@ HEADERS += \
            controllers/src/updown.h \
            controllers/src/updown_util.h \
            controllers/src/upsup_public.h 
-SOURCES += configloader.cpp \
+SOURCES += misc/configloader.cpp \
            main.cpp \
            module/module.cpp \
            module/simulinkmodule.cpp \
            state/vdatum.cpp \
-           version.cpp \
+#           version.cpp \
            controllers/controllers.cpp \
            controllers/mechanisms.cpp \
            state/vdatasocket.cpp \

@@ -1,24 +1,44 @@
+#ifndef SAL_H
+#define SAL_H
 
+/*
+ * Data this module needs to provide:
+ * 
+	 Command
+	 TargetOptions.TargetSelect
+	 TargetOptions.Approach
+	 TargetOptions.MaintainHeading
+	 DeadReckon.Depth
+	 DeadReckon.ForwardSpeed
+	 DeadReckon.Heading 
 
-class Director : public QObject 
+	 TargetData.Found
+	 TargetData.Position.X
+	 TargetData.Position.Y
+	 TargetData.Position.Z
+	 TargetData.Position.Bearing
+	 Position.Depth
+	 Motion.Accel.Y
+	 Motion.YawRate
+	 Orientation.Heading
+
+ */
+
+class SAL: public Module
 {
 	Q_OBJECT
 	public:
-		Director(AUV* state, QMutex* stateMutex, QObject * parent = 0);
-
-
-	public slots:
-		start();
-		
-	signals:
-		message(QString message);
-		setCmd(QString action);
-
-	private:
-		loadScript(QFile script);
-		addTask(Task* seq, int position = -1);
-
-		 // cmdTree
-		QMap<QString, QMap<QString, Action*>> cmdTree;
-
+		SAL(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
+		QStringList subscriptions(){
+			QStringList sub;
+			sub << "";
+			return sub;
+		}
+	protected slots:
+//		void dataIn(VDatum datum);
+	private slots:
 };
+
+
+#endif
+
