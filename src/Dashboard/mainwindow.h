@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QModelIndex>
-#include "../state.h"
+#include "../state/state.h"
 
 namespace Ui {
     class MainWindow;

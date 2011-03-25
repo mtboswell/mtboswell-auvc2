@@ -13,32 +13,30 @@ INCLUDEPATH += . ../ \
                ../treemodel/ /usr/include/QtNetwork/ \
 
 SOURCES += main.cpp\
-        mainwindow.cpp ../treemodel/treemodel.cpp  ../treemodel/treeitem.cpp \
-# datahub
-        ../tmf.cpp ../module.cpp ../server/tmfsocket.cpp \
+        mainwindow.cpp ../state/treemodel/treemodel.cpp  ../state/treemodel/treeitem.cpp \
+# modulehub (tmf.cpp --> vdatum.cpp ... tmfsocket.cpp --> vdatasocket.cpp)
+        ../state/vdatum.cpp ../module/module.cpp ../state/vdatasocket.cpp \
 # configloader
-        ../configloader.cpp \
+        ../misc/configloader.cpp \
 # controllers
         ../controllers/controllers.cpp \
         ../controllers/src/MotionController.cpp \
         ../controllers/src/MotionController_data.cpp \
 # simulink
-        ../simulinkmodule.cpp \
+        ../module/simulinkmodule.cpp \
 
-HEADERS  += mainwindow.h ../treemodel/treemodel.h ../treemodel/treeitem.h ../datahub/datahub.h \
-# datahub
-            ../state.h ../tmf.h ../module.h ../server/tmfsocket.h \
+HEADERS  += mainwindow.h ../state/treemodel/treemodel.h ../state/treemodel/treeitem.h ../module/modulehub.h \
+# modulehub
+            ../state/state.h ../state/vdatum.h ../module/module.h ../state/vdatasocket.h \
 # configloader
-        ../configloader.h \
+        ../misc/configloader.h \
 # controllers
         ../controllers/controllers.h \
         ../controllers/src/MotionController.h \
         ../controllers/src/MotionController_private.h \
         ../controllers/src/MotionController_types.h \
 # simulink
-        ../simulinkmodule.h \
-
-
+        ../module/simulinkmodule.h \
 
 FORMS    += mainwindow.ui
 
