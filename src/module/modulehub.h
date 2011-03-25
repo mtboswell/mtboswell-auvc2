@@ -73,11 +73,21 @@ class ModuleHub : public QObject
 		void messageIn(VDatum msg){
 			//qDebug() << "Message ID:" << msg.id;
 			state->setData(msg);
-			//emit messageBroadcast(msg);
+
+			QStringList modulesToNotify;
+
+
+			QMapIterator<QString, QStringList> i(subscriptions); 
+			while(i.hasNext()){
+				i.next();
+				if(msg.id.contains(i.key())) modulesToNotify.append(i.value());
+			}
+
+			modulesToNotify.removeDuplicates();
 
 			// handle subscriptions
-			foreach(QString str, subscriptions[msg.id]){
-				subOut(str, msg);
+			foreach(QString str, modulesToNotify){
+				emit subOut(str, msg);
 			}
 		}
 		void startAll(){emit go();}

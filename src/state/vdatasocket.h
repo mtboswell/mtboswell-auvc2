@@ -5,7 +5,6 @@
 #ifndef __VDataSOCKET_H
 #define __VDataSOCKET_H
 
-#include "../configloader.h"
 #include "vdatum.h"
 #include <QUdpSocket>
 #include <QHostAddress>
