@@ -43,9 +43,12 @@ Controllers::Controllers(QMap<QString, QString>* configIn, AUVC_State_Data* stat
 	paramList["Thruster_RightFwd_Gain"] = &MotionController_P.Thruster_RightFwd_Gain;
 	paramList["ZVelocity_Neg_Max"] = &MotionController_P.ZVelocity_Neg_Max;
 
-	initializeParameters();
-
 	MotionController_initialize();
+
+	// can't do this in constructor
+	//initializeParameters();
+
+	stepTimer->start(20);
 }
 void Controllers::step(){
 	//qDebug() << "Stepping Controllers";
@@ -58,42 +61,43 @@ void Controllers::step(){
 	// :s/\/\*.*\*\///
 	// :s/  .*_T \(.*\);/MotionController_U.\1 = state->;/
 
-	MotionController_U.TargetSelect = (state->value("TargetOptions.TargetSelect")=="Forward"); 
+	MotionController_U.TargetSelect = (value("TargetOptions.TargetSelect")=="Forward"); 
 
-	MotionController_U.TargetFound = state->value("TargetData.Found").toBool();
-	MotionController_U.TargetX = state->value("TargetData.Position.X").toDouble();
-	MotionController_U.TargetY = state->value("TargetData.Position.Y").toDouble();
-	MotionController_U.TargetZ = state->value("TargetData.Position.Z").toDouble(); 
-	MotionController_U.TargetYaw = state->value("TargetData.Position.Bearing").toDouble();                    
+	MotionController_U.TargetFound = boolValue("TargetData.Found");
+	MotionController_U.TargetX = doubleValue("TargetData.Position.X");
+	MotionController_U.TargetY = doubleValue("TargetData.Position.Y");
+	MotionController_U.TargetZ = doubleValue("TargetData.Position.Z"); 
+	MotionController_U.TargetYaw = doubleValue("TargetData.Position.Bearing");                    
 
 	// sensors
-	MotionController_U.MeasuredZ = state->value("Position.Depth").toDouble();
-	MotionController_U.MeasuredYAccel = state->value("Motion.Accel.Y").toDouble();               
-	MotionController_U.MeasuredYaw = state->value("Orientation.Heading").toDouble();                  
-	MotionController_U.MeasuredYawRate = state->value("Motion.YawRate").toDouble();              
+	MotionController_U.MeasuredZ = doubleValue("Position.Depth");
+	//qDebug() << MotionController_U.MeasuredZ;
+	MotionController_U.MeasuredYAccel = doubleValue("Motion.Accel.Y");               
+	MotionController_U.MeasuredYaw = doubleValue("Orientation.Heading");                  
+	MotionController_U.MeasuredYawRate = doubleValue("Motion.YawRate");              
 
 
 	// arrange stuff for current command
-	if(state->value("Command") == "Target" && !state->value("TargetOptions.Approach").toBool()){
+	if(value("Command") == "Target" && !boolValue("TargetOptions.Approach")){
 		MotionController_U.DesiredTargetX = MotionController_U.TargetX;               
 		MotionController_U.DesiredTargetY = MotionController_U.TargetY;               
 		MotionController_U.DesiredTargetZ = MotionController_U.TargetZ;               
 		MotionController_U.DesiredTargetYaw = MotionController_U.TargetYaw;       
 	}
-	else if(state->value("Command") == "Target" && state->value("TargetOptions.Approach").toBool()){
+	else if(value("Command") == "Target" && boolValue("TargetOptions.Approach")){
 		MotionController_U.DesiredTargetX = 0;               
 		MotionController_U.DesiredTargetY = 0;               
 		MotionController_U.DesiredTargetZ = 0;               
 		MotionController_U.DesiredTargetYaw = 0;             
 	}
-	else if(state->value("Command") == "DeadReckon"){
-		MotionController_U.DesiredZ = state->value("DeadReckon.Depth").toDouble();                     
-		MotionController_U.DesiredXVelocity = state->value("DeadReckon.ForwardSpeed").toDouble();             
-		MotionController_U.DesiredYaw = state->value("DeadReckon.Heading").toDouble(); 
+	else if(value("Command") == "DeadReckon"){
+		MotionController_U.DesiredZ = doubleValue("DeadReckon.Depth");                     
+		MotionController_U.DesiredXVelocity = doubleValue("DeadReckon.ForwardSpeed");             
+		MotionController_U.DesiredYaw = doubleValue("DeadReckon.Heading"); 
 	}
 
 
-	MotionController_U.MaintainHeading = state->value("TargetOptions.MaintainHeading").toBool();             
+	MotionController_U.MaintainHeading = boolValue("TargetOptions.MaintainHeading");             
 
 	// step model
 	MotionController_step();
@@ -103,13 +107,8 @@ void Controllers::step(){
 	// vim cmd (as above)
 	// :s/  .*_T \(.*\);/state-> = MotionController_Y.\1;/
 
-	state->setData("Thrusters.LeftFwd", MotionController_Y.LeftFwd);                      
-	state->setData("Thrusters.RightFwd", MotionController_Y.RightFwd);                     
-	state->setData("Thrusters.LeftAngled", MotionController_Y.LeftAngled);                   
-	state->setData("Thrusters.RightAngled", MotionController_Y.RightAngled);                  
+	setData("Thrusters.LeftFwd", MotionController_Y.LeftFwd);                      
+	setData("Thrusters.RightFwd", MotionController_Y.RightFwd);                     
+	setData("Thrusters.LeftAngled", MotionController_Y.LeftAngled);                   
+	setData("Thrusters.RightAngled", MotionController_Y.RightAngled);                  
 }
-
-
-void Controllers::messageIn(QString message){}
-void Controllers::messageIn(VDatum message){}
-void Controllers::newData(QString ID, QVariant value){}

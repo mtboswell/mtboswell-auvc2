@@ -53,25 +53,30 @@ TreeItem::TreeItem(const QVector<QVariant> &data, TreeItem *parent)
 {
 	parentItem = parent;
 	itemData = data;
+	lock = new QReadWriteLock();
 }
 
 TreeItem::~TreeItem()
 {
+	QWriteLocker locker(lock);
 	qDeleteAll(childItems);
 }
 
 TreeItem *TreeItem::child(int number)
 {
+	QReadLocker locker(lock);
 	return childItems.value(number);
 }
 
 int TreeItem::childCount() const
 {
+	QReadLocker locker(lock);
 	return childItems.count();
 }
 
 int TreeItem::childNumber() const
 {
+	QReadLocker locker(lock);
 	if (parentItem)
 		return parentItem->childItems.indexOf(const_cast<TreeItem*>(this));
 
@@ -80,11 +85,13 @@ int TreeItem::childNumber() const
 
 int TreeItem::columnCount() const
 {
+	QReadLocker locker(lock);
 	return itemData.count();
 }
 
 QVariant TreeItem::data(int column) const
 {
+	QReadLocker locker(lock);
 	return itemData.value(column);
 }
 
@@ -92,6 +99,7 @@ bool TreeItem::insertChildren(int position, int count, int columns)
 {
 	if (position < 0 || position > childItems.size())
 		return false;
+	QWriteLocker locker(lock);
 
 	for (int row = 0; row < count; ++row) {
 		QVector<QVariant> data(columns);
@@ -106,6 +114,7 @@ bool TreeItem::insertColumns(int position, int columns)
 {
 	if (position < 0 || position > itemData.size())
 		return false;
+	QWriteLocker locker(lock);
 
 	for (int column = 0; column < columns; ++column)
 		itemData.insert(position, QVariant());
@@ -125,6 +134,7 @@ bool TreeItem::removeChildren(int position, int count)
 {
 	if (position < 0 || position + count > childItems.size())
 		return false;
+	QWriteLocker locker(lock);
 
 	for (int row = 0; row < count; ++row)
 		delete childItems.takeAt(position);
@@ -136,6 +146,7 @@ bool TreeItem::removeColumns(int position, int columns)
 {
 	if (position < 0 || position + columns > itemData.size())
 		return false;
+	QWriteLocker locker(lock);
 
 	for (int column = 0; column < columns; ++column)
 		itemData.remove(position);
@@ -150,6 +161,7 @@ bool TreeItem::setData(int column, const QVariant &value)
 {
 	if (column < 0 || column >= itemData.size())
 		return false;
+	QWriteLocker locker(lock);
 
 	//qDebug() << "Setting data in column" << column << "to" << value;
 	itemData[column] = value;
@@ -158,12 +170,14 @@ bool TreeItem::setData(int column, const QVariant &value)
 }
 
 QVariant & TreeItem::operator[](int col){
+	QReadLocker locker(lock);
 	return itemData[col];
 }
 
 VDatum TreeItem::toVDatum(){
+	QReadLocker locker(lock);
 	VDatum out;
-	out.ID = itemData[0].toString();
+	out.id = itemData[0].toString();
 	out.value = itemData[1];
 	out.timestamp = itemData[2].toTime();
 	out.available = itemData[3].toBool();

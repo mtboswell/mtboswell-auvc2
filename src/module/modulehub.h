@@ -7,17 +7,18 @@
 #include "../state/state.h"
 #include "../state/vdatum.h"
 #include "../module/module.h"
+#include "../module/simulinkmodule.h"
 #include "../state/vdatasocket.h"
 
 /**
  * DataHub is a class designed to connect and manage Modules.
  * \ingroup HUB
  */
-class DataHub : public QObject
+class ModuleHub : public QObject
 {
 	Q_OBJECT
 	public:
-		DataHub(AUVC_State_Data* stateIn){
+		ModuleHub(AUVC_State_Data* stateIn){
 			state = stateIn;
 			// connect up server to state data
 			srv = new VDataSocket(5325, 5236, true);
@@ -52,6 +53,7 @@ class DataHub : public QObject
 			QObjectList kids = this->children();
 			foreach(QObject* kid, kids){
 				if(kid->inherits("Module")) addModule((Module*)kid);
+				if(kid->inherits("SimulinkModule")) ((SimulinkModule*)kid)->initializeParameters();
 				qDebug() << "Adding Module";
 			}
 			startAll();
@@ -69,12 +71,12 @@ class DataHub : public QObject
 
 	public slots:
 		void messageIn(VDatum msg){
-			qDebug() << "Message ID:" << msg.ID;
+			//qDebug() << "Message ID:" << msg.id;
 			state->setData(msg);
 			//emit messageBroadcast(msg);
 
 			// handle subscriptions
-			foreach(QString str, subscriptions[msg.ID]){
+			foreach(QString str, subscriptions[msg.id]){
 				subOut(str, msg);
 			}
 		}
@@ -83,6 +85,8 @@ class DataHub : public QObject
 	signals:
 		void messageBroadcast(VDatum msg);
 		void go(); // used to launch modules
+		// subscription outputs
+		void subOut(QString, VDatum);
 
 	private:
 		VDataSocket* srv;

@@ -7,58 +7,24 @@ QT += network  # phonon
 
 DEPENDPATH += . \
               controllers \
-#              auv \
-              datahub \
-#              director \
-#              hal \
-              server \
-              treemodel \
-              controllers/src \
-#              auv/camera \
-              auv/qextserialport 
+              controllers/src 
 INCLUDEPATH += . \
-               treemodel \
-               datahub \
-               server \
-#               auv \
-               auv/qextserialport \
                controllers \
-               controllers/src \
-#               hal \
-#               auv/camera 
+               controllers/src 
 
 # Input
 HEADERS += \
            configloader.h \
-#           datalogger.h \
-           module.h \
-           simulinkmodule.h \
-           state.h \
-           tmf.h \
+           module/module.h \
+           module/simulinkmodule.h \
+           state/state.h \
+           state/vdatum.h \
            version.h \
            controllers/controllers.h \
-#           controllers/mechanisms.h \
-#           auv/arduino.h \
-#           auv/auv.h \
-#           auv/auvmotion.h \
-#           auv/auvtypes.h \
-           auv/calibrateservos.h \
-#           auv/lcd.h \
-#           auv/maestro.h \
-#           auv/microstrain.h \
-#           auv/os5000.h \
-#           auv/pololu.h \
-#           auv/power.h \
-#           auv/qwebcam.h \
-#           auv/sensor.h \
-#           auv/serialdevice.h \
-           datahub/datahub.h \
-#           director/director.h \
-#           hal/datatypes.h \
-#           hal/hal.h \
-           server/tmfsocket.h \
-           treemodel/treeitem.h \
-           treemodel/treemodel.h \
+           module/modulehub.h \
+           state/vdatasocket.h \
+           state/treemodel/treeitem.h \
+           state/treemodel/treemodel.h \
            controllers/src/bio_sig.h \
            controllers/src/blas.h \
            controllers/src/blascompat32.h \
@@ -126,35 +92,17 @@ HEADERS += \
            controllers/src/tmwtypes.h \
            controllers/src/updown.h \
            controllers/src/updown_util.h \
-           controllers/src/upsup_public.h \
-           auv/qextserialport/qextserialenumerator.h \
-           auv/qextserialport/qextserialport.h \
-           auv/qextserialport/qextserialport_global.h 
+           controllers/src/upsup_public.h 
 SOURCES += configloader.cpp \
            main.cpp \
-           module.cpp \
-           simulinkmodule.cpp \
-           tmf.cpp \
+           module/module.cpp \
+           module/simulinkmodule.cpp \
+           state/vdatum.cpp \
            version.cpp \
            controllers/controllers.cpp \
            controllers/mechanisms.cpp \
-#           auv/arduino.cpp \
-#           auv/auv.cpp \
-#           auv/calibrateservos.cpp \
-#           auv/camread.cpp \
-#           auv/lcd.cpp \
-#           auv/microstrain.cpp \
-#           auv/os5000.cpp \
-#           auv/pololu.cpp \
-#           auv/power.cpp \
-#           auv/qwebcam.cpp \
-#           auv/sensor.cpp \
-#           auv/serialdevice.cpp \
-           server/tmfsocket.cpp \
-           treemodel/treeitem.cpp \
-           treemodel/treemodel.cpp \
+           state/vdatasocket.cpp \
+           state/treemodel/treeitem.cpp \
+           state/treemodel/treemodel.cpp \
            controllers/src/MotionController.cpp \
-           controllers/src/MotionController_data.cpp \
-           auv/qextserialport/posix_qextserialport.cpp \
-           auv/qextserialport/qextserialenumerator_unix.cpp \
-           auv/qextserialport/qextserialport.cpp 
+           controllers/src/MotionController_data.cpp 

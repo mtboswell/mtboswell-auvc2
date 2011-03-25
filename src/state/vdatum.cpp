@@ -20,7 +20,7 @@ QList<VDatum> parseVDatums(QByteArray treeData){
 
 	VDatum thisItem;
 	while(!in.atEnd()){
-		in >> thisItem.ID;
+		in >> thisItem.id;
 		in >> thisItem.value;
 		in >> thisItem.timestamp;
 		in >> thisItem.available;
@@ -35,7 +35,7 @@ QByteArray serializeVDatum(VDatum treeItem){
 	QDataStream out(&outArray,QIODevice::WriteOnly);
 	out.setVersion(QDataStream::Qt_4_0);
 
-	out << treeItem.ID;
+	out << treeItem.id;
 	out << treeItem.value;
 	out << treeItem.timestamp;
 	out << treeItem.available;
@@ -58,7 +58,7 @@ QByteArray serializeVDatums(QList<VDatum> tree){
 	// Write the data
 	//! \todo implement actual hierarchy
 	foreach(VDatum item, tree){
-		//item.ID.prepend(tree.parentID+".");
+		//item.id.prepend(tree.parentID+".");
 		out << serializeVDatum(item);
 	}
 	return outArray;

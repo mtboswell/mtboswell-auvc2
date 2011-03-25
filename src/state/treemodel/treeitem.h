@@ -45,6 +45,7 @@
 #include <QList>
 #include <QVariant>
 #include <QVector>
+#include <QReadWriteLock>
 
 class TreeItem
 {
@@ -70,6 +71,7 @@ class TreeItem
 		QList<TreeItem*> childItems;
 		QVector<QVariant> itemData;
 		TreeItem *parentItem;
+		QReadWriteLock* lock;
 };
 
 #endif

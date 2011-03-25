@@ -39,6 +39,7 @@
  ****************************************************************************/
 
 #include <QtGui>
+#include <QDebug>
 
 #include "treeitem.h"
 #include "treemodel.h"
@@ -218,7 +219,7 @@ bool TreeModel::setData(const QModelIndex &index, const QVariant &value, int rol
 		}
 		emit dataUpdated(itemName, item->data(1));
 		VDatum tmp;
-		tmp.ID = item->data(0).toString().prepend("AUV."+itemParents);
+		tmp.id = item->data(0).toString().prepend("AUV."+itemParents);
 		tmp.value = item->data(1);
 		tmp.timestamp = item->data(2).toTime();
 		tmp.available = item->data(3).toBool();
@@ -308,9 +309,9 @@ TreeItem* TreeModel::getItem(QString value, TreeItem* parentItem){
 }
 
 void TreeModel::setData(VDatum datum){
-	setData(datum.id, datum.value, datum.timestamp, data.available);
+	setData(datum.id, datum.value, datum.timestamp, datum.available, datum.meta);
 }
-void TreeModel::setData(QString id, QVariant value, QTime timestamp, bool available){
+void TreeModel::setData(QString id, QVariant value, QTime timestamp, bool available, QVariant meta){
 	TreeItem* thisItem = getItem(id, rootItem);
 	if(thisItem == rootItem){
 		qDebug() << "Item location/creation error";
@@ -319,12 +320,13 @@ void TreeModel::setData(QString id, QVariant value, QTime timestamp, bool availa
 	thisItem->setData(1, value);
 	thisItem->setData(2, timestamp);
 	thisItem->setData(3, available);
+	thisItem->setData(4, meta);
 	QModelIndex rootIndex = index(0,0);
 	QModelIndex thisIndex = getIndex(thisItem, 3);
 	emit dataChanged(thisIndex, thisIndex);
 	emit layoutChanged();
 	emit dataUpdated(id, thisItem->data(1));
-	//qDebug() << "Model setting " << id << "to" << data;
+	//qDebug() << "Module setting " << id << "to" << value;
 }
 
 QModelIndex TreeModel::getIndex(TreeItem* thisItem, int column){

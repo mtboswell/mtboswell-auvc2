@@ -100,7 +100,7 @@ class TreeModel : public QAbstractItemModel
 
 
 	public slots:
-		void setData(QString name, QVariant value, QTime timestamp = QTime::currentTime(), bool available = true);
+		void setData(QString name, QVariant value, QTime timestamp = QTime::currentTime(), bool available = true, QVariant meta = QVariant());
 		void setData(VDatum datum);
 
 	signals:
