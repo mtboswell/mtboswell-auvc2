@@ -3,8 +3,8 @@
 
 #include <QtGui/QApplication>
 #include <QString>
-#include "../state.h"
-#include "../datahub/datahub.h"
+#include "../state/state.h"
+#include "../module/modulehub.h"
 #include "../controllers/controllers.h"
 
 MainWindow::MainWindow(QWidget *parent, AUVC_State_Data *someData) :

@@ -8,6 +8,8 @@ void loadConfigFile(QMap<QString, QString> &config){
 	// look in the following places for the config file:
 	QStringList confFileLocations;
 	confFileLocations << "../src/.auvrc";
+	confFileLocations << "../.auvrc";
+	confFileLocations << "./src/.auvrc";
 	confFileLocations << QDir::homePath() + "/auvc/src/.auvrc";
 	confFileLocations << "auvrc";
 	confFileLocations << QDir::homePath()+"/.auvrc";

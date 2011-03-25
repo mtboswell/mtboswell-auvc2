@@ -1,7 +1,8 @@
 #include <QtGui/QApplication>
 #include "mainwindow.h"
-#include "../state.h"
-#include "../datahub/datahub.h"
+#include "../state/state.h"
+#include "../module/modulehub.h"
+#include "../misc/configloader.h"
 #include <QTreeView>
 #include <QString>
 
@@ -14,7 +15,7 @@ int main(int argc, char *argv[])
     QMap<QString, QString> config;
     loadConfigFile(config);
     AUVC_State_Data stateData;
-    DataHub hub(&stateData);
+    ModuleHub hub(&stateData);
     Module* controllers = new Controllers(&config, &stateData, &hub);
     hub.initializeAndLaunchAllModules();
 
