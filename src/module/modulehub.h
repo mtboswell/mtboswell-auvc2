@@ -80,7 +80,7 @@ class ModuleHub : public QObject
 			QMapIterator<QString, QStringList> i(subscriptions); 
 			while(i.hasNext()){
 				i.next();
-				if(msg.id.contains(i.key())) modulesToNotify.append(i.value());
+				if(msg.id.startsWith(i.key())) modulesToNotify.append(i.value());
 			}
 
 			modulesToNotify.removeDuplicates();

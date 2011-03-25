@@ -4,6 +4,7 @@ CONFIG += qt warn_off
 QT += network  # phonon 
 MOC_DIR = tmp
 OBJECTS_DIR = tmp
+UI_DIR = tmp
 
 #LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
 
@@ -21,7 +22,6 @@ HEADERS += \
            module/simulinkmodule.h \
            state/state.h \
            state/vdatum.h \
-#           version.h \
            controllers/controllers.h \
            module/modulehub.h \
            state/vdatasocket.h \
@@ -100,9 +100,7 @@ SOURCES += misc/configloader.cpp \
            module/module.cpp \
            module/simulinkmodule.cpp \
            state/vdatum.cpp \
-#           version.cpp \
            controllers/controllers.cpp \
-           controllers/mechanisms.cpp \
            state/vdatasocket.cpp \
            state/treemodel/treeitem.cpp \
            state/treemodel/treemodel.cpp \
