@@ -1,11 +1,13 @@
 #include "simulinkmodule.h"
+#include <QDebug>
 
 void SimulinkModule::initializeParameters(){
 	QMapIterator<QString, double*> i(paramList);
 	while (i.hasNext()) {
 		i.next();
 		QString paramID = "Parameter."+i.key();
-		state->setData(paramID.replace('_','.'), (*i.value()));
+		setData(paramID.replace('_','.'), *(i.value()));
+	//	qDebug() << "setData(paramID.replace('_','.'), *(i.value()));" << paramID.replace('_','.') << *(i.value());
 	}
 }
 void SimulinkModule::updateParameters(){
@@ -13,6 +15,6 @@ void SimulinkModule::updateParameters(){
 	while (i.hasNext()) {
 		i.next();
 		QString paramID = "Parameter."+i.key();
-		(*i.value()) = state->value(paramID.replace('_','.')).toDouble();
+		*(paramList[i.key()]) = doubleValue(paramID.replace('_','.'));
 	}
 }

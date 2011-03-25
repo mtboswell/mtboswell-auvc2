@@ -1,8 +1,8 @@
 #ifndef CONTROLLERS_H
 #define CONTROLLERS_H
 
-#include "../tmf.h"
-#include "../simulinkmodule.h"
+#include "../state/vdatum.h"
+#include "../module/simulinkmodule.h"
 #include "src/MotionController.h"
 #include <QDebug>
 
@@ -14,6 +14,11 @@ class Controllers : public SimulinkModule
 	Q_OBJECT;
 	public:
 		Controllers(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
+		QStringList subscriptions(){
+			QStringList sub;
+			sub << "";
+			return sub;
+		}
 	public slots:
 
 	//	void setCmd(QString cmd);
@@ -22,9 +27,7 @@ class Controllers : public SimulinkModule
 	//	void move(heading, depth, fwd, strafe, timeout = inf);
 	//	void track(object, down/fwd, bool maintainHeading, align=long/short, int approachSpeed);
 	//	void surface();
-		void messageIn(QString message);
-		void messageIn(VDatum message);
-		void newData(QString ID, QVariant value);
+//		void dataIn(VDatum message);
 
 	signals:
 		void statusChanged();

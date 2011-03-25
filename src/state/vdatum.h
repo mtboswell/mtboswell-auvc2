@@ -8,7 +8,7 @@
 
 // vehicle universal data type
 typedef struct VDatum {
-	QString ID;
+	QString id;
 	QVariant value;
 	QTime timestamp;
 	bool available;

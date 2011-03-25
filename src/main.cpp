@@ -4,11 +4,8 @@
 
 #include "configloader.h"
 
-#include "state.h"
-#include "datahub/datahub.h"
-
-//! \todo should this be here?
-//#include "auv/calibrateservos.h"
+#include "state/state.h"
+#include "module/modulehub.h"
 
 // modules
 #include "controllers/controllers.h"
@@ -31,7 +28,7 @@ int main(int argc, char *argv[]){
 		else if(arg == "-h"){
 			qDebug() << "Available Arguments:";
 			qDebug() << "\t-s or --simulate : disable hardware";
-			qDebug() << "\t-c or --calibrate-servos : enter servo calibration mode instead of running normally";
+		//	qDebug() << "\t-c or --calibrate-servos : enter servo calibration mode instead of running normally";
 			return 0;
 		}
 	}
@@ -43,7 +40,7 @@ int main(int argc, char *argv[]){
 	AUVC_State_Data stateData;
 	stateData.setData("Simulate", simulate);
 
-	DataHub hub(&stateData);
+	ModuleHub hub(&stateData);
 
 	/* Create Module objects and set hub as parent */
 	//Module* samp = new Sample(&config, &stateData, &hub);
