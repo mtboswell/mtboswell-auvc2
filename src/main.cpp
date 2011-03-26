@@ -40,7 +40,7 @@ int main(int argc, char *argv[]){
 	AUVC_State_Data stateData;
 	stateData.setData("Simulate", simulate);
 
-	ModuleHub hub(&stateData);
+	ModuleHub hub(&stateData, true, 5325, 5743);
 
 	/* Create Module objects and set hub as parent */
 	//Module* samp = new Sample(&config, &stateData, &hub);

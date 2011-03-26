@@ -5,18 +5,18 @@ QList<VDatum> parseVDatums(QByteArray treeData){
 	QDataStream in(treeData);
 	// legacy name
 	QList<VDatum> tree;
-
+/*
 	// Read and check the header
 	quint32 magic;
 	in >> magic;
 	if (magic != 0x01212220)
 		return QList<VDatum>();
-
 	// Read the version
 	qint32 version;
 	in >> version;
 	if (version != 200)
 		return QList<VDatum>();
+*/
 	in.setVersion(QDataStream::Qt_4_0);
 
 	VDatum thisItem;
@@ -33,8 +33,8 @@ QList<VDatum> parseVDatums(QByteArray treeData){
 
 QByteArray serializeVDatum(VDatum treeItem){
 	QByteArray outArray;
-	//QDataStream out(&outArray,QIODevice::WriteOnly);
-	QDataStream out(&outArray,QIODevice::ReadWrite);
+	QDataStream out(&outArray,QIODevice::WriteOnly);
+	//QDataStream out(&outArray,QIODevice::ReadWrite);
 	out.setVersion(QDataStream::Qt_4_0);
 
 	out << treeItem.id;
@@ -43,7 +43,7 @@ QByteArray serializeVDatum(VDatum treeItem){
 	out << treeItem.available;
 	out << treeItem.meta;
 
-	qDebug() << "Serialized: " << treeItem.id << outArray.size() << out;
+	//qDebug() << "Serialized: " << treeItem.id << outArray.size() << out;
 	return outArray;
 }
 // legacy parameter name

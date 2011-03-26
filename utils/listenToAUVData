@@ -1,2 +1,2 @@
 #! /bin/bash
-netcat -lu -p 5237 | ./linebreaks
+netcat -lu -p 5743 | ./linebreaks
