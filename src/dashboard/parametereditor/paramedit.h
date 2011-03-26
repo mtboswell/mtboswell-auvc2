@@ -42,7 +42,7 @@
 #define PARAMEDIT_H
 
 #include <QModelIndex>
-#include "treemodel.h"
+#include "../../state/treemodel/treemodel.h"
 #include "doubleeditor.h"
 
 class QTreeView;

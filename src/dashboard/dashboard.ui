@@ -1410,172 +1410,297 @@
         </property>
         <widget class="QWidget" name="optionsTab">
          <attribute name="title">
-          <string>Options</string>
+          <string>Director</string>
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout_17">
           <item>
-           <widget class="QGroupBox" name="groupBox_2">
-            <property name="title">
-             <string>Control Options</string>
+           <widget class="QTabWidget" name="tabWidget">
+            <property name="currentIndex">
+             <number>0</number>
             </property>
-            <layout class="QFormLayout" name="formLayout_2">
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_7">
-               <property name="text">
-                <string>Command:</string>
-               </property>
-               <property name="buddy">
-                <cstring>comboBox_2</cstring>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QComboBox" name="comboBox_2">
-               <item>
+            <widget class="QWidget" name="tab">
+             <attribute name="title">
+              <string>Target</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <layout class="QFormLayout" name="formLayout_3">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="currentTargetLabel">
+                  <property name="text">
+                   <string>Current Target:</string>
+                  </property>
+                  <property name="buddy">
+                   <cstring>currentTargetComboBox</cstring>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QPushButton" name="pushButton_2">
+                  <property name="text">
+                   <string>Go</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QComboBox" name="currentTargetComboBox">
+                  <item>
+                   <property name="text">
+                    <string>Path</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Red Buoy</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Yellow Buoy</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Green Buoy</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Hedge</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Bins</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Windows</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Pinger</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton_2">
                 <property name="text">
-                 <string>Move</string>
+                 <string>Down</string>
                 </property>
-               </item>
-               <item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton">
                 <property name="text">
-                 <string>Track</string>
+                 <string>Forward</string>
                 </property>
-               </item>
-               <item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_6">
                 <property name="text">
-                 <string>Hold Position</string>
+                 <string>Approach Speed</string>
                 </property>
-               </item>
-               <item>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="spinBox"/>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox">
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
                 <property name="text">
-                 <string>Surface</string>
+                 <string>Use Yaw for targeting (Align for down or TrackX=Yaw for fwd)</string>
                 </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_3">
-            <property name="title">
-             <string>Targeting</string>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_18">
-             <item>
-              <layout class="QFormLayout" name="formLayout_3">
-               <item row="0" column="0">
-                <widget class="QLabel" name="currentTargetLabel">
-                 <property name="text">
-                  <string>Current Target:</string>
-                 </property>
-                 <property name="buddy">
-                  <cstring>currentTargetComboBox</cstring>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QComboBox" name="currentTargetComboBox">
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox">
+                <property name="font">
+                 <font>
+                  <weight>50</weight>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="title">
+                 <string>Estimate Distance with Vision</string>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_5">
                  <item>
-                  <property name="text">
-                   <string>Path</string>
-                  </property>
+                  <widget class="QLabel" name="label_8">
+                   <property name="text">
+                    <string>Target Diameter (or X size) in feet:</string>
+                   </property>
+                  </widget>
                  </item>
                  <item>
-                  <property name="text">
-                   <string>Red Buoy</string>
-                  </property>
+                  <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
                  </item>
-                 <item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="text">
+                 <string>Save Target</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="tab_4">
+             <attribute name="title">
+              <string>DeadReckon</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <layout class="QFormLayout" name="formLayout_2">
+                <property name="fieldGrowthPolicy">
+                 <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_7">
                   <property name="text">
-                   <string>Yellow Buoy</string>
+                   <string>Desired Heading</string>
                   </property>
-                 </item>
-                 <item>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_10">
                   <property name="text">
-                   <string>Green Buoy</string>
+                   <string>Desired Speed</string>
                   </property>
-                 </item>
-                 <item>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QRadioButton" name="radioButton_3">
                   <property name="text">
-                   <string>Hedge</string>
+                   <string>Time</string>
                   </property>
-                 </item>
-                 <item>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QRadioButton" name="radioButton_4">
                   <property name="text">
-                   <string>Bins</string>
+                   <string>Distance</string>
                   </property>
-                 </item>
-                 <item>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QTimeEdit" name="timeEdit">
+                  <property name="maximumTime">
+                   <time>
+                    <hour>0</hour>
+                    <minute>20</minute>
+                    <second>0</second>
+                   </time>
+                  </property>
+                  <property name="currentSection">
+                   <enum>QDateTimeEdit::MinuteSection</enum>
+                  </property>
+                  <property name="displayFormat">
+                   <string>mm:ss</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1">
+                 <widget class="QDoubleSpinBox" name="doubleSpinBox_2">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="suffix">
+                   <string>ft</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QDoubleSpinBox" name="doubleSpinBox_3">
+                  <property name="maximum">
+                   <double>360.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QSpinBox" name="spinBox_2">
+                  <property name="minimum">
+                   <number>-100</number>
+                  </property>
+                  <property name="maximum">
+                   <number>100</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_11">
                   <property name="text">
-                   <string>Windows</string>
+                   <string>Desired Depth</string>
                   </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Pinger</string>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QDoubleSpinBox" name="doubleSpinBox_4">
+                  <property name="maximum">
+                   <double>16.000000000000000</double>
                   </property>
-                 </item>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <widget class="QRadioButton" name="radioButton">
-               <property name="text">
-                <string>Forward</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QRadioButton" name="radioButton_2">
-               <property name="text">
-                <string>Down</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_6">
-               <property name="text">
-                <string>Approach Speed</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QSpinBox" name="spinBox"/>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="checkBox">
-               <property name="text">
-                <string>Use Yaw for targeting (Align for down or TrackX=Yaw for fwd)</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="checkBox_2">
-               <property name="text">
-                <string>Estimate Distance</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_8">
-               <property name="text">
-                <string>Target Diameter (or X size) in feet:</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
-             </item>
-             <item>
-              <widget class="QPushButton" name="pushButton">
-               <property name="text">
-                <string>Save Target</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton_3">
+                <property name="text">
+                 <string>Go</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_6">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
            </widget>
           </item>
          </layout>
@@ -2103,7 +2228,7 @@
         </widget>
         <widget class="QWidget" name="paramsTab">
          <attribute name="title">
-          <string>Params</string>
+          <string>State</string>
          </attribute>
          <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
@@ -2480,8 +2605,8 @@
      <y>449</y>
     </hint>
     <hint type="destinationlabel">
-     <x>837</x>
-     <y>419</y>
+     <x>874</x>
+     <y>418</y>
     </hint>
    </hints>
   </connection>
@@ -2508,8 +2633,8 @@
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>837</x>
-     <y>419</y>
+     <x>874</x>
+     <y>418</y>
     </hint>
     <hint type="destinationlabel">
      <x>838</x>
@@ -2560,8 +2685,8 @@
      <y>310</y>
     </hint>
     <hint type="destinationlabel">
-     <x>838</x>
-     <y>386</y>
+     <x>875</x>
+     <y>379</y>
     </hint>
    </hints>
   </connection>
@@ -2576,8 +2701,8 @@
      <y>376</y>
     </hint>
     <hint type="destinationlabel">
-     <x>679</x>
-     <y>350</y>
+     <x>874</x>
+     <y>348</y>
     </hint>
    </hints>
   </connection>
@@ -2604,12 +2729,12 @@
    <slot>setValue(double)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>883</x>
-     <y>172</y>
+     <x>989</x>
+     <y>205</y>
     </hint>
     <hint type="destinationlabel">
-     <x>876</x>
-     <y>206</y>
+     <x>950</x>
+     <y>406</y>
     </hint>
    </hints>
   </connection>
@@ -2624,8 +2749,8 @@
      <y>260</y>
     </hint>
     <hint type="destinationlabel">
-     <x>928</x>
-     <y>172</y>
+     <x>989</x>
+     <y>205</y>
     </hint>
    </hints>
   </connection>
@@ -2640,8 +2765,40 @@
      <y>294</y>
     </hint>
     <hint type="destinationlabel">
-     <x>949</x>
-     <y>176</y>
+     <x>989</x>
+     <y>205</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_3</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>timeEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>723</x>
+     <y>238</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>810</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>radioButton_4</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>doubleSpinBox_2</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>750</x>
+     <y>273</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>811</x>
+     <y>274</y>
     </hint>
    </hints>
   </connection>

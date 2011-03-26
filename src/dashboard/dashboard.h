@@ -1,6 +1,6 @@
 #include "ui_dashboard.h"
-#include "../src/configloader.h"
-#include "../src/version.h"
+#include "../module/module.h"
+#include "../src/misc/version.h"
 
 #include <QMutexLocker>
 #include <QGraphicsLineItem>
@@ -11,12 +11,9 @@
 #include <QTimer>
 #include <QTime>
 
-#include "../src/server/tmfsocket.h"
 #include "videosocket.h"
-//#include "datalogger.h"
 #include "videowidget.h"
 
-#include "parametereditor/treemodel.h"
 #include "parametereditor/doubleeditor.h"
 
 #include "qwt_compass_rose.h"
@@ -25,23 +22,27 @@
 static QHash<QString,QString> AUVState;
 
 
-class Dashboard : public QMainWindow, private Ui::DashboardWindow
+class Dashboard : public GuiModule, private Ui::DashboardWindow
 {
 	Q_OBJECT
 
 	public:
-		Dashboard(QMainWindow *parent = 0);
+		Dashboard(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QWidget* parent = 0);
+		QStringList subscriptions(){
+			QStringList sub;
+			sub << ""; // subscribe to all
+			return sub;
+		}
 		~Dashboard();
+		bool isThread(){return false;}
 
 	signals:
-		void sendMsg(VDatum msg);
-		void sendMsg(QString, QString);
 		void setAddress(QString);
-		void receivedParam(QString, QString);
+		//void receivedParam(QString, QString);
 
 	public slots:
 		// Receieve UDP Data
-		void handleAUVParam(VDatum datum);
+		void dataIn(VDatum datum);
 		void HandleVideoFrame(QImage* frame);
 		void HandleBitmapFrame(QImage* frame);
 
@@ -113,7 +114,7 @@ class Dashboard : public QMainWindow, private Ui::DashboardWindow
 
 		enum mode {STOPPED, AUTONOMOUS, RC, KILLED} currentMode;
 
-		VDataSocket* m_DS;
+		//VDataSocket* m_DS;
 		VideoSocket* videoSocket;
 		VideoSocket* bitmapSocket;
 		QGraphicsScene* headingScene;

@@ -1,7 +1,10 @@
-#include <QtCore>
 #include <QApplication>
 #include <QtGui>
-#include "../module.h"
+
+#include "../module/modulehub.h"
+#include "../misc/configloader.h"
+#include "../state/state.h"
+
 #include "dashboard.h"
 
 #ifdef STATIC
@@ -18,9 +21,22 @@ int main(int argc, char *argv[]){
 
 	QApplication::setStyle(new QCleanlooksStyle); 
 
+	// should we use QSettings?
+	QMap<QString, QString> config;
+	loadConfigFile(config);
+
+	AUVC_State_Data stateData;
+
+	ModuleHub hub(&stateData, false, 5743, 5325);
+
 	/* Initialize Dashboard */
 	qDebug("Initializing Dashboard");
-	Dashboard* gui = new Dashboard();
+	GuiModule* gui = new Dashboard(&config, &stateData);
+
+//	QObject::connect(gui, SIGNAL(setData(VDatum)), hub, SLOT(messageIn(VDatum)));
+
+	hub.addModule(gui);
+	hub.initializeAndLaunchAllModules();
 
 	qDebug("Starting Display");
 	gui->show();

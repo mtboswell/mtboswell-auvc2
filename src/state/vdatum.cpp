@@ -1,4 +1,5 @@
 #include "vdatum.h"
+#include <QDebug>
 
 QList<VDatum> parseVDatums(QByteArray treeData){
 	QDataStream in(treeData);
@@ -32,7 +33,8 @@ QList<VDatum> parseVDatums(QByteArray treeData){
 
 QByteArray serializeVDatum(VDatum treeItem){
 	QByteArray outArray;
-	QDataStream out(&outArray,QIODevice::WriteOnly);
+	//QDataStream out(&outArray,QIODevice::WriteOnly);
+	QDataStream out(&outArray,QIODevice::ReadWrite);
 	out.setVersion(QDataStream::Qt_4_0);
 
 	out << treeItem.id;
@@ -41,6 +43,7 @@ QByteArray serializeVDatum(VDatum treeItem){
 	out << treeItem.available;
 	out << treeItem.meta;
 
+	qDebug() << "Serialized: " << treeItem.id << outArray.size() << out;
 	return outArray;
 }
 // legacy parameter name

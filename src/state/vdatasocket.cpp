@@ -57,7 +57,8 @@ void VDataSocket::sendDatagram(QByteArray out, bool force) {
 		return;
 	}
 	m_Sock.writeDatagram(out, m_remoteAddr, m_remotePort);
-	if(config["Debug"] == "true") qDebug() << "Sent" << out << "to " + m_remoteAddr.toString() + ":" + QString::number(m_remotePort);
+	if(1|| config["Debug"] == "true") qDebug() << "Sent" << out << "to " + m_remoteAddr.toString() + ":" + QString::number(m_remotePort);
+	qDebug() << "Sending Datagram";
 
 	if(!m_Server){
 		m_Acks.insert(out, QTime::currentTime());
@@ -85,6 +86,7 @@ void VDataSocket::handlePendingDatagrams() {
 	static QHostAddress sender;
 	static quint16 senderPort;
 	while (m_Sock.hasPendingDatagrams()) {
+		qDebug() << "Reading Datagram";
 
 		datagram.resize(m_Sock.pendingDatagramSize()); // prep buffer
 
@@ -109,6 +111,7 @@ void VDataSocket::handlePendingDatagrams() {
 }
 
 void VDataSocket::processDatagram(QByteArray datagram, QHostAddress fromAddr, quint16 fromPort){
+	qDebug() << "Got Datagram";
 
 	QList<VDatum> receivedMessage;
 	receivedMessage = parseVDatums(datagram);
