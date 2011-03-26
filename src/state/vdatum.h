@@ -11,7 +11,7 @@ typedef struct VDatum {
 	QString id;
 	QVariant value;
 	QTime timestamp;
-	bool available;
+	quint8 available;
 	QVariant meta;
 } VDatum;
 

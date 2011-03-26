@@ -98,6 +98,7 @@ HEADERS += \
 SOURCES += misc/configloader.cpp \
            main.cpp \
            module/module.cpp \
+           module/modulehub.cpp \
            module/simulinkmodule.cpp \
            state/vdatum.cpp \
            controllers/controllers.cpp \

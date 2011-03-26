@@ -47,7 +47,7 @@ int main(int argc, char *argv[]){
 	// OR	
 	//Sample2 samp2(&config, &stateData, &hub);
 
-	Module* controllers = new Controllers(&config, &stateData, &hub);
+	Controllers* controllers = new Controllers(&config, &stateData, &hub);
 
 
 	QTreeView *tree = new QTreeView();

@@ -16,7 +16,7 @@ class Controllers : public SimulinkModule
 		Controllers(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
 		QStringList subscriptions(){
 			QStringList sub;
-			sub << "";
+			//sub << ""; // subscribe to all
 			return sub;
 		}
 	public slots:

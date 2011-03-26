@@ -1,48 +1,61 @@
 TEMPLATE = app
 TARGET = ../../dashboard
-CONFIG += qt gui # static
+CONFIG += qt gui debug warn_off # static
 static { // Everything below takes effect with CONFIG += static
     QTPLUGIN += qpng qjpeg
     DEFINES += STATIC // Equivalent to "#define STATIC" in source code
     message("Static build.")
 }
 QT += network # phonon 
+
 STYLE += gtk
+
+MOC_DIR = tmp
+OBJECTS_DIR = tmp
+UI_DIR = tmp
+
 DEPENDPATH += . \
 	      ..
 INCLUDEPATH += . \
 	       .. \
 	       /usr/include/qt4 \
+# for Ubuntu:
 	       /usr/include/qwt-qt4
-# for Ubuntu
-# for Arch
+# for Arch:
 #	       /usr/include/qwt
-# for Arch
-#LIBS += -lqwt
-# for Ubuntu
+
+# for Ubuntu:
 LIBS += -lqwt-qt4
+# for Arch:
+#LIBS += -lqwt
+
+
 # Input
 HEADERS += dashboard.h \
-	../tmf.h \
-	../server/tmfsocket.h \
+	../state/vdatum.h \
+	../state/treemodel/treemodel.h \
+	../state/treemodel/treeitem.h \
+	../state/vdatasocket.h \
+	../module/module.h \
+	../module/modulehub.h \
+	../module/simulinkmodule.h \
 	videosocket.h \
 	videowidget.h \
-	../version.h \
-	../configloader.h \
-	parametereditor/doubleeditor.h \
-	parametereditor/paramedit.h \
-	parametereditor/treeitem.h \
-	parametereditor/treemodel.h
+	../misc/version.h \
+	../misc/configloader.h \
+	parametereditor/doubleeditor.h
 FORMS += dashboard.ui \
 	paths.ui
 SOURCES += dashboard.cpp \
-	../tmf.cpp \
-	../server/tmfsocket.cpp \
+	../state/vdatum.cpp \
+	../state/treemodel/treemodel.cpp \
+	../state/treemodel/treeitem.cpp \
+	../state/vdatasocket.cpp \
+	../module/module.cpp \
+	../module/modulehub.cpp \
+	../module/simulinkmodule.cpp \
 	main.cpp \
 	videosocket.cpp \
-	../version.cpp \
-	../configloader.cpp \
-	parametereditor/doubleeditor.cpp \
-	parametereditor/paramedit.cpp \
-	parametereditor/treeitem.cpp \
-	parametereditor/treemodel.cpp
+	../misc/version.cpp \
+	../misc/configloader.cpp \
+	parametereditor/doubleeditor.h
