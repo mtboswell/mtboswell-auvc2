@@ -9,18 +9,29 @@ Welcome to the Virginia Tech Autonomous Underwater Vehicle Team's AUV Control So
 
 This guide will show you how to use the AUV.
 
+Last updated 2011-03-26 by Micah Boswell
+
 ######################################################################
- ___                _             ___                   _              
-| _ \_  _ _ _  _ _ (_)_ _  __ _  | _ ) __ _ _ _ _ _ ___| |___ _  _ ___ 
-|   / || | ' \| ' \| | ' \/ _` | | _ \/ _` | '_| '_/ -_) / -_) || / -_)
-|_|_\\_,_|_||_|_||_|_|_||_\__, | |___/\__,_|_| |_| \___|_\___|\_, \___|
-                          |___/                               |__/     
+    _                    _   
+   / \   __ _  ___ _ __ | |_ 
+  / _ \ / _` |/ _ \ '_ \| __|
+ / ___ \ (_| |  __/ | | | |_ 
+/_/   \_\__, |\___|_| |_|\__|
+        |___/                
 
-Starting the AUV server software is simple.  You just have to run the ./start scriptAgent.  Similarly, if you need to stop the software for some reason (rare), run ./stopAgent .
+You may be wondering why the software is named Agent.  This wikipedia page should help: http://en.wikipedia.org/wiki/Intelligent_agent
 
-If you run ./startAgent on the AUV, it should simply tell you that it is running and send you back to the shell.  The software is now running and you can connect to the AUV with the client software.  If you are running the server on another computer, it will start up in the foreground and display information about how the server is running.
+######################################################################
+ ____                    _               _   _               _   _   ___     __
+|  _ \ _   _ _ __  _ __ (_)_ __   __ _  | |_| |__   ___     / \ | | | \ \   / /
+| |_) | | | | '_ \| '_ \| | '_ \ / _` | | __| '_ \ / _ \   / _ \| | | |\ \ / / 
+|  _ <| |_| | | | | | | | | | | | (_| | | |_| | | |  __/  / ___ \ |_| | \ V /  
+|_| \_\\__,_|_| |_|_| |_|_|_| |_|\__, |  \__|_| |_|\___| /_/   \_\___/   \_/   
+                                 |___/                                         
 
-There are various other scripts in the utils/ folder that allow you to debug the software or send commands manually.  If you wish to send individual commands manually instead of using one of the interfaces, use the ./sendCmd script.  Simply give it the command you want to send as the first argument.
+Starting the AUV server software is simple.  You just have to run `./agent`.  If you need to stop the software for some reason, run `kill agent`.
+
+If you run ./agent on the AUV, it should simply tell you that it is running and sit there.  The software is now running and you can connect to the AUV with the client software.  If you are running the server on another computer, it will start up in the foreground and display information about how the server is running.
 
 #######################################################################
  ___          _    _                      _ 
@@ -36,7 +47,7 @@ __   ___    _
  \ V /| / _` / -_) _ \
   \_/ |_\__,_\___\___/
 
-If you use the video recording features, you will at some point want to view and download this video. You can view the video over an X-forwarding connection (ssh -CY) by running ./playVideo.  To download the video, first run ./utils/convertVideo and then download the file called recorded_video.avi in the home folder.
+If you use the video recording features, you will at some point want to view and download this video. One of the easiest ways to record video is to use VLC to view and record the broadcasted video stream. Of course, this only works when the AUV is in network range, so you must use local logging during competition runs.
 
 ####################################################################### 
  ___     _         _ _    _ _           
@@ -45,6 +56,7 @@ If you use the video recording features, you will at some point want to view and
 |_|_\___|_.__/\_,_|_|_\__,_|_|_||_\__, |
                                   |___/ 
 
+Note: the information in this section is inaccurate, but should become more accurate in the future.
 To re-generate and re-compile all of the software automatically, just run ./buildAgent.  If it builds successfully, the script output will end with "Done!". If not, check the builderrors file for the cause of the problem.
 
 ######################################################################
@@ -62,8 +74,6 @@ Cats, unlike AUVs, are not rumored to like water.  Most of them are entirely lan
 |___/\___\__|_| \___|\__| /_/ \_\__, \___|_||_\__|
                                 |___/             
 
-To unlock the secrets of the agent, you must first learn of the command line options.  These can be obtained by incanting a '-h' after ./startAgent.
+To unlock the secrets of the agent, you must first learn of the command line options.  These can be obtained by incanting a '-h' after ./agent.
 
 ######################################################################
-Author: Micah Boswell <micah27@vt.edu>
-Last Updated: 2010-03-12
