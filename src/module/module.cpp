@@ -27,12 +27,22 @@ void Module::setData(QString ID, QVariant value, QTime timestamp, QVariant meta)
 	datum.meta = meta;
 	emit setData(datum);
 }
+void Module::setData(VDatum datum){
+	emit setData(datum);
+}
+void Module::setData(QList<VDatum> datums){
+	foreach(VDatum datum, datums){
+		emit setData(datum);
+	}
+}
 
 QVariant Module::value(QString ID){return state->value(ID);}
 bool Module::boolValue(QString ID){return state->value(ID).toBool();}
 int Module::intValue(QString ID){return state->value(ID).toInt();}
 double Module::doubleValue(QString ID){return state->value(ID).toDouble();}
 QString Module::stringValue(QString ID){return state->value(ID).toString();}
+bool Module::available(QString ID){return state->available(ID);}
+QTime Module::timestamp(QString ID){return state->timestamp(ID);}
 
 
 
