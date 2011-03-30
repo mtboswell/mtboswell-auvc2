@@ -34,13 +34,6 @@ class Module : public QThread
 		/// Return true from this function if you want a module to run in its own thread.
 		virtual bool isThread(){return true;}
 
-	public slots:
-		/// internally converted to dataIn(VDatum)
-		void recvDatum(QString module, VDatum datum);
-
-	signals:
-		/// internally converted from setData(QString...
-		void sendData(VDatum datum);
 
 	protected slots:
 		/**
@@ -60,6 +53,10 @@ class Module : public QThread
 		void setData(VDatum);
 		void setData(QList<VDatum>);
 
+		/**
+		 * init() - implement this function to do any work when the application starts.
+		 */
+		virtual void init(){}
 
 		/**
 		 * step() - implement this function to do any work periodically.
@@ -85,8 +82,19 @@ class Module : public QThread
 		/// timer for step function
 		QTimer* stepTimer;
 
+
+
+	/* Ignore everything below this line ******************************************************************/
+	private slots:
+		void run();
 	private:
 		AUVC_State_Data* state;
+	public slots:
+		/// internally converted to dataIn(VDatum)
+		void recvDatum(QString module, VDatum datum);
+	signals:
+		/// internally converted from setData(QString...
+		void sendData(VDatum datum);
 };
 
 /// GuiModule is copypasted from Module with the following differences:

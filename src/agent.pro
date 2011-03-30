@@ -10,16 +10,8 @@ UI_DIR = tmp
 LIBS +=  -lueye_api
 
 DEPENDPATH += . \
-		/usr/include/ueye.h \
-		/usr/lib \
-		module \
-		state \
-		sal/drivers \
-		sal/drivers/qextserialport \
 
 INCLUDEPATH += . \
-	     /usr/include \
-	     /usr/include/qt4/QtCore \
 	     module \
 	     state \
 	     misc \

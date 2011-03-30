@@ -34,6 +34,7 @@ class Controllers : public SimulinkModule
 		void finished();
 
 	private slots:
+		void init();
 		void step();
 
 	private:

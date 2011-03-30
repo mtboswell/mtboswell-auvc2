@@ -71,6 +71,8 @@ int main(int argc, char *argv[]){
 
 	tree->show();
 
+	qDebug("Main thread id: %d", (int) QThread::currentThreadId());
+
 	// Start main event loop (for dataHub)
 	return app.exec();
 
