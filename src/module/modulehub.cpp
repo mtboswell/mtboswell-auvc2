@@ -20,7 +20,7 @@ void ModuleHub::addModule(Module* module){
 	connect(this, SIGNAL(subOut(QString, VDatum)), module, SLOT(recvDatum(QString, VDatum)));
 	addSubscriptions(metaMod->className(), module->subscriptions());
 
-	connect(module, SIGNAL(setData(VDatum)), this, SLOT(moduleIn(VDatum)));
+	connect(module, SIGNAL(sendData(VDatum)), this, SLOT(moduleIn(VDatum)));
 
 }
 void ModuleHub::addModule(GuiModule* module){
@@ -30,7 +30,7 @@ void ModuleHub::addModule(GuiModule* module){
 	connect(this, SIGNAL(subOut(QString, VDatum)), module, SLOT(recvDatum(QString, VDatum)));
 	addSubscriptions(metaMod->className(), module->subscriptions());
 
-	connect(module, SIGNAL(setData(VDatum)), this, SLOT(moduleIn(VDatum)));
+	connect(module, SIGNAL(sendData(VDatum)), this, SLOT(moduleIn(VDatum)));
 
 }
 /**

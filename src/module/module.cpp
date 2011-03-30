@@ -25,14 +25,14 @@ void Module::setData(QString ID, QVariant value, QTime timestamp, QVariant meta)
 	datum.value = value;
 	datum.timestamp = timestamp;
 	datum.meta = meta;
-	emit setData(datum);
+	emit sendData(datum);
 }
 void Module::setData(VDatum datum){
-	emit setData(datum);
+	emit sendData(datum);
 }
 void Module::setData(QList<VDatum> datums){
 	foreach(VDatum datum, datums){
-		emit setData(datum);
+		emit sendData(datum);
 	}
 }
 
@@ -72,7 +72,15 @@ void GuiModule::setData(QString ID, QVariant value, QTime timestamp, QVariant me
 	datum.value = value;
 	datum.timestamp = timestamp;
 	datum.meta = meta;
-	emit setData(datum);
+	emit sendData(datum);
+}
+void GuiModule::setData(VDatum datum){
+	emit sendData(datum);
+}
+void GuiModule::setData(QList<VDatum> datums){
+	foreach(VDatum datum, datums){
+		emit sendData(datum);
+	}
 }
 
 QVariant GuiModule::value(QString ID){return state->value(ID);}
