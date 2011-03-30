@@ -47,16 +47,16 @@ int main(int argc, char *argv[]){
 	// OR	
 	//Sample2 samp2(&config, &stateData, &hub);
 
-	Controllers* controllers = new Controllers(&config, &stateData, &hub);
-
-
-	QTreeView *tree = new QTreeView();
-	tree->setModel(&stateData);
+	Controllers* controllers = new Controllers(&config, &stateData);
+	hub.addModule(controllers);
 
 
 	/* Start everything */
 	hub.initializeAndLaunchAllModules();
 
+
+	QTreeView *tree = new QTreeView();
+	tree->setModel(&stateData);
 
 	tree->show();
 
