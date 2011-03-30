@@ -3,6 +3,7 @@
 
 #include "imudata.h"
 #include "qextserialport.h"
+#include "vdatum.h"
 #include <QThread>
 #include <QString>
 #include <QByteArray>
@@ -48,7 +49,8 @@ class Microstrain : public QThread
 		 * Unimplemented.
 		 * @param data is the latest AHRS data
 		 */
-		void imuDataReady(imu_data data);
+		//void imuDataReady(imu_data data);
+		void dataReady(VDatum);
 
 	private slots:
 		void onReadyRead();

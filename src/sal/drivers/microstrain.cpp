@@ -140,6 +140,20 @@ void Microstrain::process(QByteArray & data){
 
 	// indicate that all variables were updated
 	status.update = 1;
+	
+	VDatum yawdatum;
+	yawdatum.id = "Orientation.Heading";
+	yawdatum.value = status.yaw;
+	yawdatum.timestamp = QTime::currentTime();
+	
+	emit dataReady(yawdatum);
+
+	VDatum yawratedatum;
+        yawratedatum.id = "Motion.YawRate";
+        yawratedatum.value = status.yawrate;
+        yawratedatum.timestamp = QTime::currentTime();
+
+        emit dataReady(yawratedatum);
 
 }
 

@@ -31,6 +31,7 @@
  #include "drivers/microstrain.h"
  #include "drivers/maestro.h"
  #include "drivers/os5000.h"
+ #include "../module/module.h"
 
 class SAL: public Module
 {
@@ -39,15 +40,19 @@ class SAL: public Module
 		SAL(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
 		QStringList subscriptions(){
 			QStringList sub;
-			sub << "";
+			//sub << "";
 			return sub;
 		}
 	protected slots:
 //		void dataIn(VDatum datum);
 	private slots:
+		void step();	//look in module.h
+			//setData(id string, driver->getData());
 	private:
-		OS5000* os5000;
-		Maestro* maestro;
+		OS5000* os5000;		//connect in constructor
+		Maestro* maestro;	//this too
+		Microstrain* microstrain;	//old, will need to be included in step()
+		
 		//...
 };
 
