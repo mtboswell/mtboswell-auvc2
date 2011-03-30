@@ -9,7 +9,6 @@
 #include <QStringList>
 #include <QBuffer>
 #include <QRegExp>
-#include "../configloader.h"
 
 /**
  * Interface for Pololu motor and servo controllers.

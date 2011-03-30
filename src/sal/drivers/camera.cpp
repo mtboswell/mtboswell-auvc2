@@ -20,10 +20,8 @@
  * as soon as the Maestro is up and running
  */
 
-Camera(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
+Camera(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0):Module(configIn, stateIn, parent)
 {
-	state = stateIn;
-	config = configIn;
 	
 	fps = framesPerSecond;
 	byteStorage = (char*) malloc(752 * 480 * 32);
@@ -35,8 +33,6 @@ Camera(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* pare
 	// The camera thread is not launched here.
 	// It is launched in the main thread with all the other modules
 	
-	//this->start();
-	//QObject::moveToThread(this);
 }
 
 // Initializes the camera and creates an event loop to handle events.
