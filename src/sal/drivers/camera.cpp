@@ -20,14 +20,14 @@
  * as soon as the Maestro is up and running
  */
 
-Camera(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0):Module(configIn, stateIn, parent)
+Camera::Camera(QObject* parent):QThread(parent)
 {
 	
-	fps = framesPerSecond;
+	//fps = framesPerSecond;
 	byteStorage = (char*) malloc(752 * 480 * 32);
 	
 	// stepTimer is used to poll stateData for changes in camera settings (unimplemented)
-	stepTimer->setInterval(3000)
+	//stepTimer->setInterval(3000)
 	
 	
 	// The camera thread is not launched here.
@@ -35,8 +35,55 @@ Camera(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* pare
 	
 }
 
+// getImage() captures a single frame from the camera and saves it to
+// hard disk under image.bmp (currently). Then loads it to a QImage.
+void Camera::captureImage()
+{
+
+	if( is_FreezeVideo( m_hCam, IS_WAIT ) != IS_SUCCESS )
+	{	
+		qDebug() << "ERROR: is_FreezeVideo(...) in function UEyeDriver::getImage()";
+	}
+	else {
+		if( is_SaveImage(m_hCam, "image.bmp") != IS_SUCCESS)
+		{
+			qDebug() << "ERROR: is_SaveImage(...) in fucntion UEyeDriver::getImage()";
+		}
+		else 
+		{
+			qDebug("Image Captured in thread %d", (int) QThread::currentThreadId());
+			
+			
+			
+			//loads the image from the disk TODO: replace this with direct loading from DIB
+			//if (!image.loadFromData(byteStorage, 752*480*32, 0))
+			//	{
+			//		qDebug() << "Image failed to load";
+			//	}
+				
+			// Let the system know a new frame is ready and emit it with
+			// the signal as a QImage
+		}
+		if ( is_CopyImageMem(m_hCam, m_pcImageMemory, m_lMemoryID, byteStorage) != IS_SUCCESS) {
+			qDebug() << "ERROR: is_CopyImageMem in function UEyeDriver::getImage()";
+		}
+		else {
+			imageArray = QByteArray(byteStorage);
+			qimage = new QImage("image.bmp");
+			if (qimage->isNull()) {
+				qDebug() << "image failed to load";
+			}
+			qpixmap = QPixmap::fromImage(*qimage);
+			emit qPixmapReady(qpixmap);
+			emit qImageReady(*qimage);
+			qimage->~QImage();
+
+		}
+	}
+}
+
 // Initializes the camera and creates an event loop to handle events.
-void ::run()
+void Camera::run()
 {
 	
 	qDebug("Camera thread id: %d", (int) QThread::currentThreadId());
@@ -101,49 +148,3 @@ void ::run()
 	
 }
 
-// getImage() captures a single frame from the camera and saves it to
-// hard disk under image.bmp (currently). Then loads it to a QImage.
-void UEyeDriver::captureImage()
-{
-
-	if( is_FreezeVideo( m_hCam, IS_WAIT ) != IS_SUCCESS )
-	{	
-		qDebug() << "ERROR: is_FreezeVideo(...) in function UEyeDriver::getImage()";
-	}
-	else {
-		if( is_SaveImage(m_hCam, "image.bmp") != IS_SUCCESS)
-		{
-			qDebug() << "ERROR: is_SaveImage(...) in fucntion UEyeDriver::getImage()";
-		}
-		else 
-		{
-			qDebug("Image Captured in thread %d", (int) QThread::currentThreadId());
-			
-			
-			
-			//loads the image from the disk TODO: replace this with direct loading from DIB
-			//if (!image.loadFromData(byteStorage, 752*480*32, 0))
-			//	{
-			//		qDebug() << "Image failed to load";
-			//	}
-				
-			// Let the system know a new frame is ready and emit it with
-			// the signal as a QImage
-		}
-		if ( is_CopyImageMem(m_hCam, m_pcImageMemory, m_lMemoryID, byteStorage) != IS_SUCCESS) {
-			qDebug() << "ERROR: is_CopyImageMem in function UEyeDriver::getImage()";
-		}
-		else {
-			imageArray = QByteArray(byteStorage);
-			qimage = new QImage("image.bmp");
-			if (qimage->isNull()) {
-				qDebug() << "image failed to load";
-			}
-			qpixmap = QPixmap::fromImage(*qimage);
-			emit qPixmapReady(qpixmap);
-			emit qImageReady(*qimage);
-			qimage->~QImage();
-
-		}
-	}
-}
