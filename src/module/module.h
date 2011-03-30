@@ -40,7 +40,7 @@ class Module : public QThread
 
 	signals:
 		/// internally converted from setData(QString...
-		void setData(VDatum datum);
+		void sendData(VDatum datum);
 
 	protected slots:
 		/**
@@ -120,7 +120,7 @@ class GuiModule : public QMainWindow
 
 	signals:
 		/// internally converted from setData(QString...
-		void setData(VDatum datum);
+		void sendData(VDatum datum);
 
 	protected slots:
 		/**
@@ -129,19 +129,21 @@ class GuiModule : public QMainWindow
 		 */
 		virtual void dataIn(VDatum datum){}
 		/**
-		 * step() - implement this function to do any work periodically.
-		 * Call stepTimer->start([stepTimeInMs]) in your constructor to activate.
-		 */
-		virtual void step(){}
-
-	protected:
-		/**
 		 * Data sender.
 		 * Data sent via this method will be propogated and broadcasted as far as possible via dataHub (state).
 		 * \param Id data Identifier
 		 * \param Data data
 		 */
 		void setData(QString ID, QVariant value, QTime timestamp = QTime::currentTime(), QVariant meta = QVariant());
+		void setData(VDatum);
+		void setData(QList<VDatum>);
+		/**
+		 * step() - implement this function to do any work periodically.
+		 * Call stepTimer->start([stepTimeInMs]) in your constructor to activate.
+		 */
+		virtual void step(){}
+
+	protected:
 
 		/**
 		 * Read values from state data.
