@@ -28,11 +28,11 @@
 
  */
 
- #include "../module/module.h"
- #include "drivers/microstrain.h"
- #include "drivers/maestro.h"
- #include "drivers/os5000.h"
- #include "drivers/camera.h"
+ #include "module.h"
+ #include "microstrain.h"
+ #include "maestro.h"
+ #include "os5000.h"
+ #include "camera.h"
 
 class SAL: public Module
 {

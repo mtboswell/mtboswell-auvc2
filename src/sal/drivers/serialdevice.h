@@ -60,7 +60,7 @@ class SerialDevice : public QThread
 		// called with new data from the port
 		virtual void processData(QByteArray data) = 0;
 		// called with new data from the port that is the result of a query
-		virtual void processQueryData(QByteArray data) = 0;
+		virtual void processQueryData(QByteArray data){}
 		// send data via the serial port
 		void sendData(QByteArray data);
 

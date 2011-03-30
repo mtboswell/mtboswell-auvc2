@@ -1,8 +1,4 @@
 #include "os5000.h"
-#include "../state.h"
-#include <QDebug>
-#include <QString>
-#include <QTime>
 
 OS5000::OS5000(const QString & serialPort): SerialDevice(serialPort, BAUD19200, true) {
 	setIncomingDelimiter("$");
@@ -11,9 +7,9 @@ OS5000::OS5000(const QString & serialPort): SerialDevice(serialPort, BAUD19200, 
 }
 
 //is this function needed? --RS
-HALdata* OS5000::produceHALData(double roll, double pitch, double yaw){
+//* OS5000::produceHALData(double roll, double pitch, double yaw){
 // something goes here that produces the HAL data
-}
+//}
 
 /*
 physicalState* OS5000::returnPhysicalState(double yaw, double pitch, double yaw){
