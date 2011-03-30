@@ -12,6 +12,7 @@ DEPENDPATH += . \
 		/usr/include/ueye.h \
 		module \
 		state \
+		sal/drivers \
 		sal/drivers/qextserialport \
 
 INCLUDEPATH += . \
@@ -20,6 +21,7 @@ INCLUDEPATH += . \
 	     module \
 	     state \
 	     misc \
+	     sal/drivers \
 	     sal/drivers/qextserialport \
 	     controllers/src 
 
@@ -127,13 +129,32 @@ SOURCES += \
 
 # SAL ###############################################
 HEADERS += \
-           sal/sal.h 
+           sal/sal.h \
+	   sal/drivers/microstrain.h \
+	   sal/drivers/os5000.h
 SOURCES += \
-           sal/sal.cpp 
+           sal/sal.cpp \
+	   sal/drivers/microstrain.cpp \
+	   sal/drivers/os5000.cpp
 
+
+# QExtSerialPort ###############################################
+HEADERS += \
+		sal/drivers/serialdevice.h \
+		sal/drivers/qextserialport/qextserialenumerator.h \
+		sal/drivers/qextserialport/qextserialport_global.h \
+		sal/drivers/qextserialport/qextserialport.h
+
+SOURCES += \
+		sal/drivers/serialdevice.cpp \
+		sal/drivers/qextserialport/qextserialport.cpp \
+		sal/drivers/qextserialport/posix_qextserialport.cpp \
+		sal/drivers/qextserialport/qextserialenumerator_unix.cpp 
+#		sal/drivers/qextserialport/qextserialenumerator_win.cpp \
+#		sal/drivers/qextserialport/win_qextserialport.cpp
 
 # Actuators ###############################################
-HEADERS += \
-           actuators/actuators.h 
-SOURCES += \
-           actuators/actuators.cpp 
+#HEADERS += \
+#           actuators/actuators.h 
+#SOURCES += \
+#           actuators/actuators.cpp 

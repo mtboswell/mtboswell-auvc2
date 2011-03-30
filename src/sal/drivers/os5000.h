@@ -1,7 +1,7 @@
 #ifndef OS5000_H
 #define OS5000_H
 
-#include "../state/vdatum.h"
+#include "vdatum.h"
 #include "serialdevice.h"
 #include <QRegExp>
 #include <QDebug>

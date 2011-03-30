@@ -6,8 +6,8 @@
 
 SAL::SAL(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent):Module(configIn, stateIn, parent)
 {
-	os5000 = new OS5000();			//takes in serial port name as a string
-	microstrain = new Microstrain();	//takes in dev
+	os5000 = new OS5000("");			//takes in serial port name as a string
+	microstrain = new Microstrain("");	//takes in dev
 
 
 	QObject::connect(os5000, SIGNAL(compassDataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
