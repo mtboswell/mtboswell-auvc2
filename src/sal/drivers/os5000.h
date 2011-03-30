@@ -1,7 +1,7 @@
 #ifndef OS5000_H
 #define OS5000_H
 
-#include "../state.h"
+#include "../state/vdatum.h"
 #include "serialdevice.h"
 #include <QRegExp>
 #include <QDebug>
@@ -21,7 +21,7 @@ class OS5000 : public SerialDevice
 
         signals:
                 //generic signal for alerting when data from a sensor is ready
-                void compassDataReady(QList<sensorValue> newCompassData);
+                void compassDataReady(QList<VDatum> newCompassData);
 
                 //following is the old version (used by Mike V.?) of the emit signal
                 //void compassData(double currentYaw, double currentPitch, double currentRoll);

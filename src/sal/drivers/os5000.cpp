@@ -49,29 +49,29 @@ void OS5000::processData(QByteArray data){
 			else sum = sum ^ byte;
 		}
 		if(sum == checksum){
-                        struct sensorValue* yawSV = new sensorValue;
-                        yawSV->datumID = "yaw";
-                        yawSV->sensorID = "os5000";
-                        yawSV->timestamp = QTime::currentTime();
-                        yawSV->value = yaw;
+                        VDatum yawSV;
+                        yawSV.id = "yaw";
+                        yawSV.meta = "os5000";
+                        yawSV.timestamp = QTime::currentTime();
+                        yawSV.value = yaw;
 
-                        struct sensorValue* pitchSV = new sensorValue;
-                        pitchSV->datumID = "pitch";
-                        pitchSV->sensorID = "os5000";
-                        pitchSV->timestamp = QTime::currentTime();
-                        pitchSV->value = pitch;
+                        VDatum pitchSV;
+                        pitchSV.id = "pitch";
+                        pitchSV.meta = "os5000";
+                        pitchSV.timestamp = QTime::currentTime();
+                        pitchSV.value = pitch;
 
-                        struct sensorValue* rollSV = new sensorValue;
-                        rollSV->datumID = "roll";
-                        rollSV->sensorID = "os5000";
-                        rollSV->timestamp = QTime::currentTime();
-                        rollSV->value = roll;
+                        VDatum rollSV;
+                        rollSV.id = "roll";
+                        rollSV.meta = "os5000";
+                        rollSV.timestamp = QTime::currentTime();
+                        rollSV.value = roll;
 
-                        QList<sensorValue> *compassData = new QList<sensorValue>;
-                        (*compassData).append( (*yawSV) );
-                        (*compassData).append( (*pitchSV) );
-                        (*compassData).append( (*rollSV) );
-                        emit compassDataReady( (*compassData) );
+                        QList<VDatum> compassData;
+                        (compassData).append( (yawSV) );
+                        (compassData).append( (pitchSV) );
+                        (compassData).append( (rollSV) );
+                        emit compassDataReady( (compassData) );
                         //m_yaw = yaw;
                         //m_pitch = pitch;
                         //m_roll = roll;
