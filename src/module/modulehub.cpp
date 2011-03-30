@@ -45,8 +45,8 @@ void ModuleHub::initializeAndLaunchAllModules(){
 		if(kid->inherits("Module")) addModule((Module*)kid);
 		qDebug() << "Adding Module";
 	}
+	qDebug() << "Module Initialization Complete, Starting Threads";
 	startAll();
-	qDebug() << "Initialization Complete, System Online";
 }
 
 void ModuleHub::addSubscriptions(QString module, QStringList IDs){

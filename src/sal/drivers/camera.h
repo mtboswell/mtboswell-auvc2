@@ -2,7 +2,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "/usr/include/ueye.h"
+#include "ueye.h"
 #include <QImage>
 #include <QThread>
 #include <QTimer>

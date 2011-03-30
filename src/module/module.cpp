@@ -36,6 +36,11 @@ void Module::setData(QList<VDatum> datums){
 	}
 }
 
+void Module::run(){
+	init();
+	exec();
+}
+
 QVariant Module::value(QString ID){return state->value(ID);}
 bool Module::boolValue(QString ID){return state->value(ID).toBool();}
 int Module::intValue(QString ID){return state->value(ID).toInt();}

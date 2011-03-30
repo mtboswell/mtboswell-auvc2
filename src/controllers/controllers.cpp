@@ -50,6 +50,9 @@ Controllers::Controllers(QMap<QString, QString>* configIn, AUVC_State_Data* stat
 
 	stepTimer->start(20);
 }
+void Controllers::init(){
+	qDebug("Controllers thread id: %d", (int) QThread::currentThreadId());
+}
 void Controllers::step(){
 	//qDebug() << "Stepping Controllers";
 
@@ -112,3 +115,5 @@ void Controllers::step(){
 	setData("Thrusters.LeftAngled", MotionController_Y.LeftAngled);                   
 	setData("Thrusters.RightAngled", MotionController_Y.RightAngled);                  
 }
+
+

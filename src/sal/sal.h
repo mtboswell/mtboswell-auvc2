@@ -47,7 +47,7 @@ class SAL: public Module
 //		void dataIn(VDatum datum);
 	private slots:
 		void step();	//calls setData(id string, driver->getData());
-		void run();
+		void init();
 	private:
 		OS5000* os5000;		//connect in constructor
 		Maestro* maestro;	//this too
