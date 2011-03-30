@@ -5,6 +5,7 @@
 #include "misc/configloader.h"
 
 #include "state/state.h"
+#include "state/vdatum.h"
 #include "module/modulehub.h"
 
 // modules
@@ -34,6 +35,9 @@ int main(int argc, char *argv[]){
 			return 0;
 		}
 	}
+
+	// Required for using VDatums in signals and slots
+	qRegisterMetaType<VDatum>("VDatum");
 
 	// should we use QSettings?
 	QMap<QString, QString> config;

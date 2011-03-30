@@ -23,4 +23,9 @@ void SAL::step()
 
 }
 
+void SAL::run(){
+	setData("Module.SAL", 1);
+	exec();
+}
+
 #endif

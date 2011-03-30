@@ -44,11 +44,10 @@ class SAL: public Module
 			//sub << "";
 			return sub;
 		}
-	protected slots:
 //		void dataIn(VDatum datum);
 	private slots:
-		void step();	//look in module.h
-			//setData(id string, driver->getData());
+		void step();	//calls setData(id string, driver->getData());
+		void run();
 	private:
 		OS5000* os5000;		//connect in constructor
 		Maestro* maestro;	//this too
