@@ -21,6 +21,8 @@ void ModuleHub::addModule(Module* module){
 	addSubscriptions(metaMod->className(), module->subscriptions());
 
 	connect(module, SIGNAL(sendData(VDatum)), this, SLOT(moduleIn(VDatum)));
+	if(module->inherits("SimulinkModule")) ((SimulinkModule*)module)->initializeParameters();
+	if(module->isThread()) connect(this, SIGNAL(go()), module, SLOT(start()));
 
 }
 void ModuleHub::addModule(GuiModule* module){
@@ -31,7 +33,8 @@ void ModuleHub::addModule(GuiModule* module){
 	addSubscriptions(metaMod->className(), module->subscriptions());
 
 	connect(module, SIGNAL(sendData(VDatum)), this, SLOT(moduleIn(VDatum)));
-
+	if(module->inherits("SimulinkModule")) ((SimulinkModule*)module)->initializeParameters();
+	if(module->isThread()) connect(this, SIGNAL(go()), module, SLOT(start()));
 }
 /**
  * As an alternative to the addModule function, you can set this module as the parent of your modules, then call this function.
@@ -40,8 +43,6 @@ void ModuleHub::initializeAndLaunchAllModules(){
 	QObjectList kids = this->children();
 	foreach(QObject* kid, kids){
 		if(kid->inherits("Module")) addModule((Module*)kid);
-		if(kid->inherits("SimulinkModule")) ((SimulinkModule*)kid)->initializeParameters();
-		if(((Module*) kid)->isThread()) connect(this, SIGNAL(go()), kid, SLOT(start()));
 		qDebug() << "Adding Module";
 	}
 	startAll();
