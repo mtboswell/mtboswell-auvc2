@@ -20,26 +20,13 @@ class Camera : public Module
 	Q_OBJECT;
 	public:
 		Camera(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
-		
-	public slots:
-		
-		//These fucntions are currently not redefined from module.h
-		//ignores all messages and data updates from StateData
-		
-		// void messageIn(QString message);
-		// void messageIn(VDatum message);
-		// void newData(QString ID, QVariant value);
-		void captureImage();
 
 	signals:
-	
-		void messageOut(QString ID, QVariant Data);
-		void messageOut(VDatum message);
-		void parameters(QMap<QString, double> params);
+		void qPixmapReady(QPixmap);
+		void qImageReady(QImage);
 
 	private slots:
-		
-		void step();
+		void captureImage();
 
 	private:
 		

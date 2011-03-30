@@ -1,7 +1,7 @@
 #ifndef MAESTRO_H
 #define MAESTRO_H
 
-#include "../module.h"
+#include "module.h"
 #include "serialdevice.h"
 
 #include <QStringList>
@@ -30,3 +30,5 @@ class Maestro : public Module, public SerialDevice {
 		int byteArrayToInt(QByteArray in);
 
 };
+
+#endif

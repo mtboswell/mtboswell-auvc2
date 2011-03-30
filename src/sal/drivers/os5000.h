@@ -11,7 +11,7 @@ class OS5000 : public SerialDevice
         Q_OBJECT
         public:
                 OS5000(const QString & serialPort);
-                HALdata* produceHALData(double roll, double pitch, double yaw);
+                //VDatum* produceSALData(double roll, double pitch, double yaw);
                 double yaw();
                 double pitch();
                 double roll();
