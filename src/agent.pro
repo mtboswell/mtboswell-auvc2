@@ -1,7 +1,7 @@
 TEMPLATE = app
 TARGET = ../agent
-CONFIG += qt warn_off
-QT += network  # phonon 
+CONFIG += qt gui debug warn_off
+QT += network 
 MOC_DIR = tmp
 OBJECTS_DIR = tmp
 UI_DIR = tmp
@@ -9,24 +9,47 @@ UI_DIR = tmp
 #LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
 
 DEPENDPATH += . \
-              controllers \
-              controllers/src 
-INCLUDEPATH += . \
-               controllers \
-               controllers/src 
+		/usr/include/ueye.h \
+		module \
+		state \
+		sal/drivers/qextserialport \
 
-# Input
+INCLUDEPATH += . \
+	     /usr/include \
+	     /usr/include/qt4/QtCore \
+	     module \
+	     state \
+	     misc \
+	     sal/drivers/qextserialport \
+	     controllers/src 
+
+# Main ####################################################
 HEADERS += \
            misc/configloader.h \
            module/module.h \
            module/simulinkmodule.h \
+           module/modulehub.h \
            state/state.h \
            state/vdatum.h \
-           controllers/controllers.h \
-           module/modulehub.h \
            state/vdatasocket.h \
            state/treemodel/treeitem.h \
-           state/treemodel/treemodel.h \
+           state/treemodel/treemodel.h 
+
+SOURCES += \
+	   misc/configloader.cpp \
+           main.cpp \
+           module/module.cpp \
+           module/modulehub.cpp \
+           module/simulinkmodule.cpp \
+           state/vdatum.cpp \
+           state/vdatasocket.cpp \
+           state/treemodel/treeitem.cpp \
+           state/treemodel/treemodel.cpp \
+
+
+# Controllers ###############################################
+HEADERS += \
+           controllers/controllers.h \
            controllers/src/bio_sig.h \
            controllers/src/blas.h \
            controllers/src/blascompat32.h \
@@ -95,15 +118,22 @@ HEADERS += \
            controllers/src/updown.h \
            controllers/src/updown_util.h \
            controllers/src/upsup_public.h 
-SOURCES += misc/configloader.cpp \
-           main.cpp \
-           module/module.cpp \
-           module/modulehub.cpp \
-           module/simulinkmodule.cpp \
-           state/vdatum.cpp \
+
+SOURCES += \
            controllers/controllers.cpp \
-           state/vdatasocket.cpp \
-           state/treemodel/treeitem.cpp \
-           state/treemodel/treemodel.cpp \
            controllers/src/MotionController.cpp \
            controllers/src/MotionController_data.cpp 
+
+
+# SAL ###############################################
+HEADERS += \
+           sal/sal.h 
+SOURCES += \
+           sal/sal.cpp 
+
+
+# Actuators ###############################################
+HEADERS += \
+           actuators/actuators.h 
+SOURCES += \
+           actuators/actuators.cpp 

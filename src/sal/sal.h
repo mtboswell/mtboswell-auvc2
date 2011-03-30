@@ -28,10 +28,11 @@
 
  */
 
+ #include "../module/module.h"
  #include "drivers/microstrain.h"
  #include "drivers/maestro.h"
  #include "drivers/os5000.h"
- #include "../module/module.h"
+ #include "drivers/camera.h"
 
 class SAL: public Module
 {
@@ -52,6 +53,7 @@ class SAL: public Module
 		OS5000* os5000;		//connect in constructor
 		Maestro* maestro;	//this too
 		Microstrain* microstrain;	//old, will need to be included in step()
+		Camera* camera;
 		
 		//...
 };
