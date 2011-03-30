@@ -7,9 +7,11 @@ OBJECTS_DIR = tmp
 UI_DIR = tmp
 
 #LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
+LIBS +=  -lueye_api
 
 DEPENDPATH += . \
 		/usr/include/ueye.h \
+		/usr/lib \
 		module \
 		state \
 		sal/drivers \
@@ -131,10 +133,12 @@ SOURCES += \
 HEADERS += \
            sal/sal.h \
 	   sal/drivers/microstrain.h \
+	   sal/drivers/camera.h \
 	   sal/drivers/os5000.h
 SOURCES += \
            sal/sal.cpp \
 	   sal/drivers/microstrain.cpp \
+	   sal/drivers/camera.cpp \
 	   sal/drivers/os5000.cpp
 
 

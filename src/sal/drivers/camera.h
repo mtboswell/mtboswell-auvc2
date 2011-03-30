@@ -9,25 +9,26 @@
 #include <QString>
 #include <QByteArray>
 #include <QPixmap>
-#include "module.h"
 #include <QDebug>
+#include <QThread>
 
 /**
  * Camera Module.
  */
-class Camera : public Module 
+class Camera : public QThread 
 {
 	Q_OBJECT;
 	public:
-		Camera(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
+		Camera(QObject* parent = 0);
 
 	signals:
 		void qPixmapReady(QPixmap);
 		void qImageReady(QImage);
 
-	private slots:
+	protected slots:
 		void captureImage();
 
+		void run();
 	private:
 		
 		HIDS m_hCam;
