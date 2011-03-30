@@ -1,3 +1,3 @@
 #! /bin/bash
-yes | sudo apt-get install qt4-dev-tools libqt4 libcap2 \
+yes | sudo apt-get install qt4-dev-tools libqt4 libcap2 qwt-qt4 \
 && sudo ./ueyesdk-setup-3.70r1-usb-i686.gz.run
