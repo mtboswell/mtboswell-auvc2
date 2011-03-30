@@ -1,8 +1,8 @@
 #ifndef CONTROLLERS_H
 #define CONTROLLERS_H
 
-#include "../state/vdatum.h"
-#include "../module/simulinkmodule.h"
+#include "vdatum.h"
+#include "simulinkmodule.h"
 #include "src/MotionController.h"
 #include <QDebug>
 
@@ -35,6 +35,10 @@ class Controllers : public SimulinkModule
 
 	private slots:
 		void init();
+		/**
+		 * Module step function.
+		 * Since this is a SimulinkModule, all of the work is done in this funciton.
+		 */
 		void step();
 
 	private:
