@@ -1,0 +1,290 @@
+cmd 0 0 0
+hold 5  
+cmd 10 -10 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 20 -20 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 30 -30 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 40 -40 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 50 -50 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 60 -60 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 70 -70 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 80 -80 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 90 -90 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 100 -100 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 110 -110 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 120 -120 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -10 10 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -20 20 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -30 30 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -40 40 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -50 50 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -60 60 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -70 70 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -80 80 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -90 90 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -100 100 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -110 110 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -120 120 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 10 10 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 20 20 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 30 30 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 40 40 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 50 50 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 60 60 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 70 70 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 80 80 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 90 90 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 100 100 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 110 110 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 120 120 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -10 -10 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -20 -20 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -30 -30 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -40 -40 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -50 -50 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -60 -60 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -70 -70 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -80 -80 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -90 -90 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -100 -100 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -110 -110 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd -120 -120 0
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 -10
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 -20
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 -30
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 -40
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 -50
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 -60
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 -70
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 -80
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 -90
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 -100
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 -110
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 -120
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 10
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 20
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 30
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 40
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 50
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 60
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 70
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 80
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 90
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 100
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 110
+hold 5  
+cmd 0 0 0
+hold 5  
+cmd 0 0 120
+hold 5  
+cmd 0 0 0
+hold 5  
