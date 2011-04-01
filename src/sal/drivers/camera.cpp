@@ -14,30 +14,29 @@
  * 	-set stateData with new frames (semi-implemented, untestested)
  *  -testing for 2 similtanious cameras needs to be done
  * 	-some other small things I can't think of
- 
- 
- * I intended to get back to this and make it fully robust
- * as soon as the Maestro is up and running
  */
 
-Camera::Camera(QObject* parent):QThread(parent)
+Camera::Camera(QObject* parent)
 {
 	
 	//fps = framesPerSecond;
 	byteStorage = (char*) malloc(752 * 480 * 32);
 	
+	//initialization for QudpSocket and QImageWriter
+	videoSocket = new QUdpSocket(this);
+	videoSocket->bind(5566);
+	videoOut = new QImageWriter(videoSocket, "jpeg");
+	videoOut->setQuality(70);
+	
 	// stepTimer is used to poll stateData for changes in camera settings (unimplemented)
 	//stepTimer->setInterval(3000)
-	
-	
-	// The camera thread is not launched here.
-	// It is launched in the main thread with all the other modules
+	init();
 	
 }
 
 // getImage() captures a single frame from the camera and saves it to
 // hard disk under image.bmp (currently). Then loads it to a QImage.
-void Camera::captureImage()
+void Camera::step()
 {
 
 	if( is_FreezeVideo( m_hCam, IS_WAIT ) != IS_SUCCESS )
@@ -69,13 +68,20 @@ void Camera::captureImage()
 		}
 		else {
 			imageArray = QByteArray(byteStorage);
-			qimage = new QImage("image.bmp");
+			qimage = new QImage("image.bmp");	//dynamic pointer to the qimage
 			if (qimage->isNull()) {
 				qDebug() << "image failed to load";
 			}
-			qpixmap = QPixmap::fromImage(*qimage);
-			emit qPixmapReady(qpixmap);
-			emit qImageReady(*qimage);
+			qpixmap = QPixmap::fromImage(*qimage);	//qpixmap data to be sent to dash
+			//emit qPixmapReady(qpixmap);
+			//emit qImageReady(*qimage);  //old way. now we create a VDatum and send it along
+			VDatum datum;
+			datum.id = "Image";
+			datum.value = *qimage;
+			
+			//write out to the UDP port
+			videoOut->write(*qimage);
+			emit dataReady(datum);
 			qimage->~QImage();
 
 		}
@@ -83,24 +89,28 @@ void Camera::captureImage()
 }
 
 // Initializes the camera and creates an event loop to handle events.
-void Camera::run()
+void Camera::init()
 {
 	
 	qDebug("Camera thread id: %d", (int) QThread::currentThreadId());
-	//Camera init
+	
+	// Set the size of the image in pixels
+	// TODO: make configurable in the config file instead of hardcoded
 	m_nSizeX = 752;
 	m_nSizeY = 480;
 	m_nBitsPerPixel = 32;
 	//m_hCam = 0 -> tells driver to use first avaliable camera
 	m_hCam = 0;
+	
+	//connect and activate the camera
 	INT nRet = is_InitCamera(&m_hCam, NULL);
 	if (nRet != IS_SUCCESS)
 	{
 		qDebug() << "Failed to initialize camera";
 	}
-	else
+	else  //This step in initalization only happens on a succesful connection
 	{
-		//When the camera is properly initialized, this block 
+		
 		qDebug() << "Camera initialized";
 		
 		//Set the color mode (see uEye Manual)
@@ -132,18 +142,9 @@ void Camera::run()
 		
 		// This function sets the display mode to save images to memory
 		// Direct Display Mode (the alternative is not supported in
-		// Linux
+		// Linux)
 		
 		is_SetDisplayMode (m_hCam, IS_SET_DM_DIB);
-		
-		// start a timer to capture camera frames
-		QTimer *frameTimer = new QTimer(this);
-		connect(frameTimer, SIGNAL(timeout()), this, SLOT(captureImage()));
-		frameTimer->start(1000 / fps);
-		
-		this->exec();
-		qDebug() << "uEye camera thread terminating";
-		
 	}
 	
 }
