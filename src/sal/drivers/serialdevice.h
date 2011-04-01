@@ -14,7 +14,7 @@
  * It supports devices that send data continously, as well as devices that need to 
  * be polled periodically, and devices that just receive commands.
  */
-class SerialDevice : public QThread
+class SerialDevice : public QObject
 {
 	Q_OBJECT
 	public:
