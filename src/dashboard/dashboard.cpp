@@ -332,8 +332,19 @@ void Dashboard::dataIn(VDatum datum) {
 	else name = "";
 	QString value = datum.value.toString();
 
+	if(type == "Thrusters"){
+		if (name == "LeftFwd")
+			leftThrusterProgressBar->setValue(value.toDouble());
+		else if (name == "RightFwd")
+			rightThrusterProgressBar->setValue(value.toDouble());
+		else if (name == "LeftAngled")
+			vertThrusterProgressBar->setValue(value.toDouble());
+		else if (name == "RightAngled")
+			strafeThrusterProgressBar->setValue(value.toDouble());
+	}
+	/*
 	// set dashboard mode to match vehicle mode
-	if (type == "Mode") {
+	else if (type == "Mode") {
 
 		// this is all wrong because mode should be a string, not an int
 
@@ -376,7 +387,7 @@ void Dashboard::dataIn(VDatum datum) {
 	else if(type == "Connect" || type == "GetParams" || type == "Dashboard"){
 		// these are special becuase the echos don't get filtered out.
 		// that means it could be us or anyone connecting
-		statusBar()->showMessage("Someone (maybe you) is connecting to the AUV...", 5000);
+		statusBar()->showMessage("Someone (probably you) is connecting to the AUV...", 5000);
 	}
 	// supervisory control data
 	else if (type == "Supervisor") {
@@ -517,10 +528,11 @@ void Dashboard::dataIn(VDatum datum) {
 	}
 	// catch unparsed commands or data
 	else badCmd = true;
+	*/
 
 	//if(badCmd) qDebug() << "Unrecognized data: " + type + "." + name + "=" + value;
 
-} // end HandleAUVParam()
+} // end dataIn()
 
 // copy video frames into video labels
 void Dashboard::HandleVideoFrame(QImage* frame) {

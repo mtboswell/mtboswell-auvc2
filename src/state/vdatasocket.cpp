@@ -51,6 +51,7 @@ void VDataSocket::sendDatagram(QByteArray out, bool force) {
 		qDebug() << "Acks overflow";
 		//qDebug() << QString::number(m_Acks.size()) + " commands still unacknowledged";
 		m_flaky=true;
+		timeLostConn = QTime::currentTime();
 		// the first time we have unacked packets, send a connect datagram
 		sendDatagram("Connect", true);
 		emit reconnecting();
@@ -96,12 +97,22 @@ void VDataSocket::handlePendingDatagrams() {
 			if(datagram == "Connect") {
 				m_flaky = false;
 				while(!m_outQueue.isEmpty()) sendDatagram();
+				QByteArray updateDat = "Update:";
+				updateDat.append(timeLostConn.toString("hh:mm:ss.zzz"));
+				sendDatagram(updateDat);
 			}
 			m_Acks.remove(datagram); // and remove from unanswered list 
 		}else{
-			// server echos to acknowledge received
-			//if(m_Server) m_Sock.writeDatagram(datagram, sender, senderPort);
-			if(m_Server) m_Sock.writeDatagram(datagram, m_remoteAddr, senderPort);
+			if(m_Server) {
+				// server echos to acknowledge received
+				//if(m_Server) m_Sock.writeDatagram(datagram, sender, senderPort);
+				m_Sock.writeDatagram(datagram, m_remoteAddr, senderPort);
+				if(datagram.startsWith("Update:")){
+					datagram = datagram.right(datagram.size()-7);
+					timeLostConn = QTime::fromString(datagram, "hh:mm:ss.zzz");
+					emit connectionRestored(timeLostConn);
+				}
+			}
 
 			// TODO - start in thread
 			processDatagram(datagram, sender, senderPort);

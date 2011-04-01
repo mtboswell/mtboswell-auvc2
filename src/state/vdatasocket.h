@@ -35,9 +35,9 @@ class VDataSocket : public QObject {
 		//void dataReceived(VData message, QHostAddress from);
 		void datumReceived(VDatum message, QHostAddress from);
 		/**
-		 * Unused?
+		 * Signal to send any data from time when connection was lost
 		 */
-		void connectionRestored();
+		void connectionRestored(QTime timeLost);
 		/**
 		 * May have lost some packets, sent data will be delayed by 500 ms until connection is confirmed.
 		 */
@@ -95,6 +95,7 @@ class VDataSocket : public QObject {
 		QQueue<QByteArray> m_outQueue;
 		QByteArray m_outBuffer;
 		QMap<QString, QString> config;
+		QTime timeLostConn;
 };
 
 #endif //#ifndef __VDataSOCKET_H
