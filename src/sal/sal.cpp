@@ -29,7 +29,7 @@ void SAL::step()
 
 void SAL::init(){
 	setData("Module.SAL", 1);
-	camera->start();
+	//camera->start();
 	qDebug("SAL thread id: %d", (int) QThread::currentThreadId());
 }
 
