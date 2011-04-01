@@ -81,10 +81,13 @@ void SerialDevice::sendData(QByteArray data){
 QByteArray SerialDevice::sendQuery(QByteArray data, int responseLength){
 	sendData(data);
 	// get response
-	QDataStream in(port);
 	QByteArray inData;
-	while (inData.size() < responseLength)
-		in >> inData;
+	while (port->bytesAvailable() < responseLength) {
+		usleep(750);
+	}
+	inData.resize(responseLength);
+	port->read(inData.data(), inData.size());
+	qDebug() << responseLength << " bytes read";
 	return inData;
 }
 QByteArray SerialDevice::sendQuery(QByteArray data, QByteArray endOfResponseMarker){
@@ -103,5 +106,3 @@ void SerialDevice::sendPollCmd(){
 void SerialDevice::sendPollQuery(){
 	processQueryData(sendQuery(pollCmd, pollResponseLength));
 }
-
-

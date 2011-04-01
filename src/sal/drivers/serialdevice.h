@@ -14,7 +14,7 @@
  * It supports devices that send data continously, as well as devices that need to 
  * be polled periodically, and devices that just receive commands.
  */
-class SerialDevice : public QThread
+class SerialDevice : public QObject
 {
 	Q_OBJECT
 	public:
@@ -26,6 +26,9 @@ class SerialDevice : public QThread
 		 */
                 SerialDevice(const QString & portName, BaudRateType baudRate,  bool listen = false, QByteArray delimiter = " ");
 		~SerialDevice();
+		
+		QByteArray sendQuery(QByteArray data, int responseLength);
+		QByteArray sendQuery(QByteArray data, QByteArray endOfResponseMarker);
 
 
 	protected:
@@ -52,13 +55,11 @@ class SerialDevice : public QThread
 		 * Sets the maximum length of the incoming data stream that should be buffered before calling processData().
 		 */
 		void setIncomingMaxLength(int maxLength);
-
-		QByteArray sendQuery(QByteArray data, int responseLength);
-		QByteArray sendQuery(QByteArray data, QByteArray endOfResponseMarker);
+		
 
 	protected slots:
 		// called with new data from the port
-		virtual void processData(QByteArray data) = 0;
+		virtual void processData(QByteArray data){}
 		// called with new data from the port that is the result of a query
 		virtual void processQueryData(QByteArray data){}
 		// send data via the serial port
