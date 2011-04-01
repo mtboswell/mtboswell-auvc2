@@ -157,7 +157,7 @@ void Microstrain::process(QByteArray & data){
 
 	VDatum yacceldatum;
         yacceldatum.id = "Motion.Accel.Y";
-        yacceldatum.value = status.pitchaccel;
+        yacceldatum.value = status.pitchacc;
         yacceldatum.timestamp = QTime::currentTime();
 
         emit dataReady(yacceldatum);
