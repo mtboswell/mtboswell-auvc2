@@ -26,6 +26,9 @@ class SerialDevice : public QObject
 		 */
                 SerialDevice(const QString & portName, BaudRateType baudRate,  bool listen = false, QByteArray delimiter = " ");
 		~SerialDevice();
+		
+		QByteArray sendQuery(QByteArray data, int responseLength);
+		QByteArray sendQuery(QByteArray data, QByteArray endOfResponseMarker);
 
 
 	protected:
@@ -52,9 +55,7 @@ class SerialDevice : public QObject
 		 * Sets the maximum length of the incoming data stream that should be buffered before calling processData().
 		 */
 		void setIncomingMaxLength(int maxLength);
-
-		QByteArray sendQuery(QByteArray data, int responseLength);
-		QByteArray sendQuery(QByteArray data, QByteArray endOfResponseMarker);
+		
 
 	protected slots:
 		// called with new data from the port

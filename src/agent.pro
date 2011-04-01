@@ -126,12 +126,14 @@ HEADERS += \
            sal/sal.h \
 	   sal/drivers/microstrain.h \
 	   sal/drivers/camera.h \
-	   sal/drivers/os5000.h
+	   sal/drivers/os5000.h \
+	   sal/drivers/maestro.h
 SOURCES += \
            sal/sal.cpp \
 	   sal/drivers/microstrain.cpp \
 	   sal/drivers/camera.cpp \
-	   sal/drivers/os5000.cpp
+	   sal/drivers/os5000.cpp \
+	   sal/drivers/maestro.cpp
 
 
 # QExtSerialPort ###############################################
