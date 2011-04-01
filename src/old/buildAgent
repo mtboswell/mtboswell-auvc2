@@ -1,0 +1,27 @@
+#! /bin/bash
+if echo "Updating Brain" \
+&& cd .. \
+&& ./utils/updateBrain > src/builderrors \
+&& cd src
+then
+echo "Brain Built Successfully";
+else
+echo "Brain Build Failed";
+more src/builderrors;
+exit 1
+fi
+if echo "Generating Makefile" \
+&& qmake -Wnone \
+&& echo "Building..." \
+&& make -j5 2> builderrors > /dev/null 
+then
+echo "Built agent successfully";
+else
+echo "Agent build failed";
+more builderrors
+exit 1
+fi
+echo "Cleaning up." \
+&& make clean \
+&& echo "Done!" 
+exit 0
