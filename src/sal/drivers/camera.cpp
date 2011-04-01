@@ -23,8 +23,9 @@ Camera::Camera(QObject* parent)
 	byteStorage = (char*) malloc(752 * 480 * 32);
 	
 	//initialization for QudpSocket and QImageWriter
-	videoSocket = new QUdpSocket(this);
-	videoSocket->bind(5566);
+	videoSocket = new QUdpSocket();
+	videoSocket->connectToHost(QHostAddress::LocalHost,5566);
+	qDebug() << videoSocket->state() << " o " << videoSocket->error();
 	videoOut = new QImageWriter(videoSocket, "jpeg");
 	videoOut->setQuality(70);
 	
@@ -38,7 +39,7 @@ Camera::Camera(QObject* parent)
 // hard disk under image.bmp (currently). Then loads it to a QImage.
 void Camera::step()
 {
-
+	qDebug() << "capturing frame";
 	if( is_FreezeVideo( m_hCam, IS_WAIT ) != IS_SUCCESS )
 	{	
 		qDebug() << "ERROR: is_FreezeVideo(...) in function UEyeDriver::getImage()";
@@ -75,13 +76,13 @@ void Camera::step()
 			qpixmap = QPixmap::fromImage(*qimage);	//qpixmap data to be sent to dash
 			//emit qPixmapReady(qpixmap);
 			//emit qImageReady(*qimage);  //old way. now we create a VDatum and send it along
-			VDatum datum;
-			datum.id = "Image";
-			datum.value = *qimage;
+			//VDatum datum; out for testing
+			//datum.id = "Image"; out for testing
+			//datum.value = *qimage; out for testing
 			
 			//write out to the UDP port
 			videoOut->write(*qimage);
-			emit dataReady(datum);
+			//emit dataReady(datum); out for testing
 			qimage->~QImage();
 
 		}
@@ -120,6 +121,7 @@ void Camera::init()
 		//allocate memory for a single image and activate that memory
 		is_AllocImageMem(m_hCam, m_nSizeX, m_nSizeY, m_nBitsPerPixel, &m_pcImageMemory, &m_lMemoryID);
 		is_SetImageMem (m_hCam, m_pcImageMemory, m_lMemoryID);
+		is_SetPixelClock(m_hCam, 10);
 		
 		
 		

@@ -13,7 +13,7 @@
  * TODO: check pointer arithmatic in the construction of the QList for emit dataReady()
  * TODO: double check equation to convert sensor data into an integer
  */
-class Maestro : public Module {
+class Maestro : public QObject {
 	
 	Q_OBJECT
 	public:
@@ -45,6 +45,7 @@ class Maestro : public Module {
 		//a qextSerialDevice to talk to the maestro
 		SerialDevice* device;
 		bool isModule;
+		QTimer* timer;
 	
 	signals:
 		void dataReady(QList<VDatum>);

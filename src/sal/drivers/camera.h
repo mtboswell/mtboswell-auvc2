@@ -13,7 +13,7 @@
 #include <QHostAddress>
 #include <QUdpSocket>
 #include <QImageWriter>
-#include "../../state/vdatum.h"
+//#include "../../state/vdatum.h" out for testing
 
 /**
  * Camera Module.
@@ -27,7 +27,7 @@ class Camera : public QObject
 	signals:
 		void qPixmapReady(QPixmap);
 		void qImageReady(QImage);
-		void dataReady(VDatum);
+		//void dataReady(VDatum); out for testing
 
 	public slots:
 		void step();
