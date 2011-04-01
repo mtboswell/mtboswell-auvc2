@@ -2,17 +2,12 @@
 #include <QDebug>
 
 
-Maestro::Maestro(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent):Module(configIn, stateIn, parent)
-{
-		isModule = true;
-		stepTimer->start(100);
-		device = new SerialDevice("/dev/pts/7", BAUD9600);
-		
-	}
 	
-Maestro::Maestro(QObject* parent):Module(NULL, NULL, parent) {
+Maestro::Maestro(QObject* parent) {
 		isModule = false;
-		stepTimer->start(100);
+		timer = new QTimer(this);
+		timer->start(100);
+		QObject::connect(timer, SIGNAL(timeout()), this, SLOT(step()));
 		device = new SerialDevice("/dev/pts/7", BAUD9600);
 }
 
@@ -24,31 +19,9 @@ void Maestro::step() {
 	outData[0] = 0x90;
 	//...................//
 	
-	if (isModule) {
-		
-		//Querry channel 10....//
-		outData[1] = 0x0A;
-		inData = device->sendQuery(outData, 2);
-		//convert maestro output and write to stateData
-		int dataValue = byteArrayToInt(inData);
-			
-		//This debug line is part on an ongoing investigation into why the
-		//GUI hangs waiting for the query to return fron device->sendQuery.
-		qDebug("Maestro capturing data in thread (Module): %d", (int) QThread::currentThreadId());
-		
-		qDebug() << "Writing Channel 10: " << dataValue << "to stateData...";
-		setData("Channel 10", dataValue);
-		qDebug() << " Done";
-		
-		//End Query channel 10....//
-		
-		/**
-		TODO: add the rest of the channels
-		*/
-	}
-	else {
+
 		QList<VDatum> list;
-		
+		qDebug("Maestro capturing data in thread (SAL mode): %d", (int) QThread::currentThreadId());
 		//Querry channel 10....//
 		outData[1] = 0x0A;
 		inData = device->sendQuery(outData, 2);
@@ -62,10 +35,9 @@ void Maestro::step() {
 		
 		//This debug line is part on an ongoing investigation into why the
 		//GUI hangs waiting for the query to return fron device->sendQuery.
-		qDebug("Maestro capturing data in thread (SAL mode): %d", (int) QThread::currentThreadId());
 		
 		emit dataReady(list);
-	}
+
 }
 
 int Maestro::byteArrayToInt(QByteArray in) {

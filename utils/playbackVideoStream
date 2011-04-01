@@ -1,2 +1,2 @@
 #! /bin/bash
-vlc udp://@:5235
+vlc udp://@:5566
