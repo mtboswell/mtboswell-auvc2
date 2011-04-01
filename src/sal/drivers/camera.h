@@ -10,27 +10,31 @@
 #include <QByteArray>
 #include <QPixmap>
 #include <QDebug>
-#include <QThread>
+#include <QHostAddress>
+#include <QUdpSocket>
+#include <QImageWriter>
+#include "../../state/vdatum.h"
 
 /**
  * Camera Module.
  */
-class Camera : public QThread 
+class Camera : public QObject
 {
-	Q_OBJECT;
+	Q_OBJECT
 	public:
 		Camera(QObject* parent = 0);
 
 	signals:
 		void qPixmapReady(QPixmap);
 		void qImageReady(QImage);
+		void dataReady(VDatum);
 
-	protected slots:
-		void captureImage();
-
-		void run();
+	public slots:
+		void step();
+		
 	private:
 		
+		void init();
 		HIDS m_hCam;
 		int m_nRenderMode, m_lMemoryID, m_nSizeX, m_nSizeY, m_nBitsPerPixel;
 		int fps;
@@ -41,6 +45,8 @@ class Camera : public QThread
 		QImage* qimage;
 		QPixmap qpixmap;
 		QByteArray imageArray;
+		QUdpSocket* videoSocket;
+		QImageWriter* videoOut;
 		
 
 
