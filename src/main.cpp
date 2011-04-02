@@ -11,7 +11,7 @@
 // modules
 #include "controllers/controllers.h"
 #include "sal/sal.h"
-//#include "actuators/actuators.h"
+#include "actuators/actuators.h"
 
 #include <QTreeView>
 
@@ -59,8 +59,8 @@ int main(int argc, char *argv[]){
 	SAL* sal = new SAL(&config, &stateData);
 	hub.addModule(sal);
 
-//	Actuators* actuators = new Actuators(&config, &stateData);
-//	hub.addModule(actuators);
+	Actuators* actuators = new Actuators(&config, &stateData);
+	hub.addModule(actuators);
 
 	/* Start everything */
 	hub.initializeAndLaunchAllModules();

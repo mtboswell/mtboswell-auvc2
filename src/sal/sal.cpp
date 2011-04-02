@@ -30,7 +30,7 @@ void SAL::init(){
 	//camera->start();
 	qDebug("SAL thread id: %d", (int) QThread::currentThreadId());
 	maestro = new Maestro(this);
-	QObject::connect(maestro, SIGNAL(dataReady(QList<VDatum)), this, SLOT(setData(QList<VDatum>)));
+	QObject::connect(maestro, SIGNAL(dataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
 
 
 }

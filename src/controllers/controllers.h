@@ -5,6 +5,7 @@
 #include "simulinkmodule.h"
 #include "src/MotionController.h"
 #include <QDebug>
+#include <QVector4D>
 
 /**
  * Controllers Module.

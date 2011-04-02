@@ -33,7 +33,7 @@ class Pololu : public QThread
 		QString getTrexSignature(char device);
 		char getTrexMode(char device);
 		//bool trexControl(char device);
-		int getMotorCurrent(char motorNum);
+		double getMotorCurrent(char motorNum);
 		//char getTrexConfig(char device, char param);
 
 		// emit RC or ananlog inputs periodically every msecs
@@ -93,7 +93,7 @@ class Pololu : public QThread
 		 */
 		void sendServoCmd(char command, char servoNum, char data1, char data2=0, bool maestro = false);
 		void sendTrexCmd(char command, char motorNum, QByteArray data);
-		QByteArray sendTrexQuery(char command, char motorNum, int responseLength, QByteArray data);
+		QByteArray sendTrexQuery(char device, char command, int responseLength, QByteArray data);
 
 
 };
