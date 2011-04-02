@@ -218,6 +218,7 @@ void Dashboard::startRCAction(bool sendToAUV){
 	currentMode = RC;
 	if(sendToAUV)
 		setData("Mode", "RC");
+		setData("Command", "DeadReckon");
 	controlStateLabel->setText("Remote Control");
 	statusBar()->showMessage(tr("Entering RC Mode"), 2000);
 
@@ -684,10 +685,10 @@ void Dashboard::on_tareAccelPushButton_clicked(){
 
 
 /* ****** RC Controls **************************************************** */
-void Dashboard::on_desiredDepthSlider_valueChanged(int value){
+void Dashboard::on_desiredDepthSlider_valueChanged(double value){
 	if(value != desiredDepth){
 		desiredDepth = value;
-		setData("RC.desiredDepth", QString::number(value));
+		setData("DeadReckon.Depth", QString::number(value));
 	}	
 }
 void Dashboard::on_desiredStrafeSlider_valueChanged(int value){
@@ -699,23 +700,23 @@ void Dashboard::on_desiredStrafeSlider_valueChanged(int value){
 void Dashboard::on_desiredSpeedSlider_valueChanged(int value){
 	if(value != desiredSpeed){
 		desiredSpeed = value;
-		setData("RC.desiredForwardVelocity", QString::number(value));
+		setData("DeadReckon.ForwardSpeed", QString::number(value));
 	}
 }
-void Dashboard::on_desiredHeadingDial_valueChanged(int value){
+void Dashboard::on_desiredHeadingDial_valueChanged(double value){
 	if(value != desiredHeading){
 		desiredHeading = value;
-		setData("RC.desiredHeading", QString::number(value));
+		setData("DeadReckon.Heading", QString::number(value));
 	}
 }
 void Dashboard::on_desiredHeadingSpinBox_editingFinished(){
-	setData("RC.desiredHeading", QString::number(desiredHeadingSpinBox->value()));
+	setData("DeadReckon.Heading", QString::number(desiredHeadingSpinBox->value()));
 }
 void Dashboard::on_desiredDepthSpinBox_editingFinished(){
-	setData("RC.desiredDepth", QString::number(desiredDepthSpinBox->value()));
+	setData("DeadReckon.Depth", QString::number(desiredDepthSpinBox->value()));
 }
 void Dashboard::on_desiredSpeedSpinBox_editingFinished(){
-	setData("RC.desiredForwardVelocity", QString::number(desiredSpeedSpinBox->value()));
+	setData("DeadReckon.ForwardSpeed", QString::number(desiredSpeedSpinBox->value()));
 }
 void Dashboard::on_desiredStrafeSpinBox_editingFinished(){
 	setData("RC.desiredStrafe", QString::number(desiredStrafeSpinBox->value()));

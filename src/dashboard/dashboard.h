@@ -96,10 +96,10 @@ class Dashboard : public GuiModule, private Ui::DashboardWindow
 
 		// RC
 		//void on_goRCButton_toggled(bool rc);
-		void on_desiredDepthSlider_valueChanged(int value);
+		void on_desiredDepthSlider_valueChanged(double value);
 		void on_desiredStrafeSlider_valueChanged(int value);
 		void on_desiredSpeedSlider_valueChanged(int value);
-		void on_desiredHeadingDial_valueChanged(int value);
+		void on_desiredHeadingDial_valueChanged(double value);
 		void on_desiredHeadingSpinBox_editingFinished();
 		void on_desiredDepthSpinBox_editingFinished();
 		void on_desiredSpeedSpinBox_editingFinished();
