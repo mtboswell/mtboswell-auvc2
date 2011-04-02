@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model MotionController.
  *
- * Model version                        : 1.78
- * Real-Time Workshop file version      : 7.6  (R2010b)  03-Aug-2010
- * Real-Time Workshop file generated on : Fri Nov 12 17:24:40 2010
+ * Model version                        : 1.79
+ * Real-Time Workshop file version      : 7.6.1  (R2010bSP1)  28-Jan-2011
+ * Real-Time Workshop file generated on : Sat Apr  2 13:41:47 2011
  * TLC version                          : 7.6 (Jul 13 2010)
- * C/C++ source code generated on       : Fri Nov 12 17:24:41 2010
+ * C/C++ source code generated on       : Sat Apr  2 13:41:47 2011
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic

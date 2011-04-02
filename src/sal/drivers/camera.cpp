@@ -73,16 +73,18 @@ void Camera::step()
 			if (qimage->isNull()) {
 				qDebug() << "image failed to load";
 			}
-			qpixmap = QPixmap::fromImage(*qimage);	//qpixmap data to be sent to dash
+			//qpixmap = QPixmap::fromImage(*qimage);	//qpixmap data to be sent to dash
 			//emit qPixmapReady(qpixmap);
 			//emit qImageReady(*qimage);  //old way. now we create a VDatum and send it along
-			//VDatum datum; out for testing
-			//datum.id = "Image"; out for testing
-			//datum.value = *qimage; out for testing
+			VDatum datum; //out for testing
+			datum.id = "Camera.Frame"; //out for testing
+			datum.value = *qimage; //out for testing
+			datum.timestamp = QTime::currentTime();
 			
+			emit dataReady(datum); //out for testing
+
 			//write out to the UDP port
 			videoOut->write(*qimage);
-			//emit dataReady(datum); out for testing
 			qimage->~QImage();
 
 		}

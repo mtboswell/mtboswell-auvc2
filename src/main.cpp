@@ -65,12 +65,15 @@ int main(int argc, char *argv[]){
 	// OR	
 	//Sample2 samp2(&config, &stateData, &hub);
 
+	qDebug() << "Creating Controllers";
 	Controllers* controllers = new Controllers(&config, &stateData);
 	hub.addModule(controllers);
 
+	qDebug() << "Creating SAL";
 	SAL* sal = new SAL(&config, &stateData);
 	hub.addModule(sal);
 
+	qDebug() << "Creating Actuators";
 	Actuators* actuators = new Actuators(&config, &stateData);
 	hub.addModule(actuators);
 
