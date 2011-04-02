@@ -17,10 +17,11 @@ void Actuators::init(){
 }
 
 void Actuators::dataIn(VDatum datum){
-	qDebug() << "Actuators got data:" << datum.id;
 	if(datum.id != "Thrusters") return;	
 	if(datum.value == oldData.value) return;
 	oldData = datum;
+
+	qDebug() << "Actuators got data:" << datum.id;
 
 	double thrusters[4];
 	thrusters[0] = datum.value.value<QVector4D>().w();
@@ -38,6 +39,7 @@ void Actuators::setThrusters(double thrusterSpeeds[4]){
 
 	if(config["Debug"]=="true") qDebug("Conversing with TReXs");
 	for(int i = 0; i < 4; i++){
+		qDebug() << "Setting Thruster" << i << "to" << thrusterSpeeds[i];
 		pololu->setMotorSpeed(i, thrusterSpeeds[i]*127);
 	}
 }
