@@ -152,7 +152,9 @@ SOURCES += \
 #		sal/drivers/qextserialport/win_qextserialport.cpp
 
 # Actuators ###############################################
-#HEADERS += \
-#           actuators/actuators.h 
-#SOURCES += \
-#           actuators/actuators.cpp 
+HEADERS += \
+           actuators/actuators.h \
+	   actuators/pololu.h
+SOURCES += \
+           actuators/actuators.cpp \
+	   actuators/pololu.cpp

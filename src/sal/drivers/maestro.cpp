@@ -8,7 +8,7 @@ Maestro::Maestro(QObject* parent) {
 		timer = new QTimer(this);
 		timer->start(100);
 		QObject::connect(timer, SIGNAL(timeout()), this, SLOT(step()));
-		device = new SerialDevice("/dev/pts/7", BAUD9600);
+		device = new SerialDevice("/dev/ttyACM0", BAUD9600);
 }
 
 void Maestro::step() {
@@ -41,6 +41,6 @@ void Maestro::step() {
 }
 
 int Maestro::byteArrayToInt(QByteArray in) {
-	//TODO: this formula needs to be double checked
-	return (((int)in[0])&0x0F) | (((int)in[2]<<8)&0xF0);
+	// Assuming most significant byte second
+	return ((int)in[0])&0x00FF | (((int)in[1])<<8)&0xFF00;
 }

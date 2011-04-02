@@ -110,10 +110,13 @@ void Controllers::step(){
 	// vim cmd (as above)
 	// :s/  .*_T \(.*\);/state-> = MotionController_Y.\1;/
 
-	setData("Thrusters.LeftFwd", MotionController_Y.LeftFwd);                      
-	setData("Thrusters.RightFwd", MotionController_Y.RightFwd);                     
-	setData("Thrusters.LeftAngled", MotionController_Y.LeftAngled);                   
-	setData("Thrusters.RightAngled", MotionController_Y.RightAngled);                  
+	QVector4D thrusters;
+	thrusters.setW(MotionController_Y.LeftFwd);
+	thrusters.setX(MotionController_Y.LeftAngled);
+	thrusters.setY(MotionController_Y.RightAngled);
+	thrusters.setZ(MotionController_Y.RightFwd);
+
+	setData("Thrusters", thrusters);                      
 }
 
 

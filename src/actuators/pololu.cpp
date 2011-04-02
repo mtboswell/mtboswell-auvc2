@@ -7,13 +7,10 @@
     Assimilation of this files returned data into the format of the HAL will occur in maestro.cpp
   */
 #include "pololu.h"
-#include "../configloader.h"
-#include "../state.h"
 #include <QDebug>
 
 Pololu::Pololu(const QString & portName)
 {
-	if(config.isEmpty()) loadConfigFile(config);
 	port = new QextSerialPort(portName);
 	port->setBaudRate(BAUD19200);
 	port->setStopBits(STOP_1);
@@ -78,7 +75,7 @@ void Pololu::sendServoCmd(char command, char servoNum, char data1, char data2, b
 
 }
 void Pololu::sendTrexCmd(char device, char command, QByteArray data){
-	if(config["Debug"]=="true") qDebug() << "Sending command:" << QString::number(command) << "to device" << QString::number(device) << "with data" << data.toUInt();
+	//if(config["Debug"]=="true") qDebug() << "Sending command:" << QString::number(command) << "to device" << QString::number(device) << "with data" << data.toUInt();
 	QByteArray cmd;
 	cmd.append(0x80);
 	cmd.append(device & 0x7F);
@@ -112,7 +109,7 @@ bool Pololu::setTrexConfig(char device, char param, char value){
     'T', 'R', 'e', 'X', major byte, '.', minor byte
    for example: " TReX1.0 "
   */
-QString getTrexSignature(char device){
+QString Pololu::getTrexSignature(char device){
     QByteArray data;
     QString info = sendTrexQuery(device, 0x81, 1, data);
     return(info);
@@ -127,22 +124,22 @@ QString getTrexSignature(char device){
 
     (see reference #2)
   */
-char getTrexMode(char device){
+char Pololu::getTrexMode(char device){
     QByteArray data;
     char info = sendTrexQuery(device, 0x82, 1, data)[0];
-    return(info[0]);
+    return(info);
 }
 
 /* This function currently returns current in Amps (to get mA, divide by 1000)
     It is using the default device # of 0x07 since the device # is not needed to getMotorCurrent
     The commands 0x8D and 0x8E are classified as "Data-Query Commands" by reference #2 (see line 4 above)
    */
-sensorValue getMotorCurrent(char motorNum){
+double Pololu::getMotorCurrent(char motorNum){
     QByteArray data;
     //if( motorNum == '1' ){
         char device = (0x07 + (motorNum/2)) & 0x7F;
         char info = sendTrexQuery(device, ( (0x8D) + (motorNum%2)), 1, data)[0];
-        double currToAmps = info[0];
+        double currToAmps = info;
         return( currToAmps * 0.15);
     /*}
     if( motorNum == '2' ){
@@ -158,7 +155,7 @@ void setSaneTrexParams(char device){
 */
 
 void Pololu::setMotorSpeed(int motorNum, int motorSpeed){
-	if(config["Debug"]=="true") qDebug() << "Setting motor " + QString::number(motorNum) + " to " + QString::number(motorSpeed);
+	//if(config["Debug"]=="true") qDebug() << "Setting motor " + QString::number(motorNum) + " to " + QString::number(motorSpeed);
 	if(motorSpeed > 127) motorSpeed = 127;
 	else if(motorSpeed < -127) motorSpeed = -127;
 
