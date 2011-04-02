@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model MotionController.
  *
- * Model version                        : 1.78
- * Real-Time Workshop file version      : 7.6  (R2010b)  03-Aug-2010
- * Real-Time Workshop file generated on : Fri Nov 12 17:24:40 2010
+ * Model version                        : 1.79
+ * Real-Time Workshop file version      : 7.6.1  (R2010bSP1)  28-Jan-2011
+ * Real-Time Workshop file generated on : Sat Apr  2 13:41:47 2011
  * TLC version                          : 7.6 (Jul 13 2010)
- * C/C++ source code generated on       : Fri Nov 12 17:24:41 2010
+ * C/C++ source code generated on       : Sat Apr  2 13:41:47 2011
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic
@@ -863,8 +863,9 @@ void MotionController_step(void)
 
   /* Switch: '<S2>/Switch1' incorporates:
    *  Constant: '<S2>/Constant1'
+   *  Inport: '<Root>/TargetSelect'
    */
-  if (0.0 >= 0.0) {
+  if (MotionController_U.TargetSelect != 0.0) {
     rtb_YAccelerometerIntegralGain = 0.0;
   } else {
     rtb_YAccelerometerIntegralGain = rtb_MergeDesiredYawRate;
@@ -911,8 +912,9 @@ void MotionController_step(void)
 
   /* Switch: '<S2>/Switch' incorporates:
    *  Constant: '<S2>/Constant'
+   *  Inport: '<Root>/TargetSelect'
    */
-  if (0.0 >= 0.0) {
+  if (MotionController_U.TargetSelect != 0.0) {
     rtb_YAxisDragCompensationLimite = rtb_MergeDesiredYawRate;
   } else {
     rtb_YAxisDragCompensationLimite = 0.0;

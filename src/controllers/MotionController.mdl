@@ -113,7 +113,7 @@ Model {
       Name		      "RightAngled"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.78"
+    ComputedModelVersion    "1.79"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -131,11 +131,11 @@ Model {
   Creator		  "auvt"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "micah"
+  LastModifiedBy	  "boswell"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Nov 12 17:24:16 2010"
-  RTWModifiedTimeStamp	  211481016
-  ModelVersionFormat	  "1.%<AutoIncrement:78>"
+  LastModifiedDate	  "Sat Apr  2 13:41:34 2011"
+  RTWModifiedTimeStamp	  223652430
+  ModelVersionFormat	  "1.%<AutoIncrement:79>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -965,17 +965,10 @@ Model {
       SampleTime	      "-1"
       AllowDiffInputSizes     off
     }
-    Block {
-      BlockType		      SwitchCase
-      CaseConditions	      "{1}"
-      ShowDefaultCase	      on
-      ZeroCross		      on
-      SampleTime	      "-1"
-    }
   }
   System {
     Name		    "MotionController"
-    Location		    [1, 53, 1212, 898]
+    Location		    [760, 110, 1971, 955]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -989,7 +982,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "679"
+    SIDHighWatermark	    "692"
     Block {
       BlockType		      Inport
       Name		      "TargetSelect"
@@ -1334,7 +1327,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nmicah\\n12-Nov-2010 17:17:24"
+      "nboswell\\n02-Apr-2011 13:40:44"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -1355,7 +1348,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Non-Targeting Controllers"
-	Location		[-128, 128, 974, 780]
+	Location		[641, 148, 1743, 800]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1500,7 +1493,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Heading and Straight Line\nController"
-	    Location		    [1889, 212, 2598, 687]
+	    Location		    [1103, 205, 1812, 680]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1576,7 +1569,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Maintain Desired Yaw"
-		Location		[2067, 435, 2850, 668]
+		Location		[778, 381, 1561, 614]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -2163,7 +2156,7 @@ Model {
 		  MaskHideContents	  off
 		  System {
 		    Name		    "PID Controller\nHeading"
-		    Location		    [188, 194, 674, 485]
+		    Location		    [1010, 241, 1496, 532]
 		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
@@ -3322,22 +3315,16 @@ Model {
 	  Name			  "Switch"
 	  SID			  "387"
 	  Position		  [675, 250, 725, 290]
+	  Criteria		  "u2 ~= 0"
 	  InputSameDT		  off
 	  SaturateOnIntegerOverflow off
-	}
-	Block {
-	  BlockType		  SwitchCase
-	  Name			  "Switch Case"
-	  SID			  "458"
-	  Ports			  [1, 4]
-	  Position		  [105, 51, 210, 114]
-	  CaseConditions	  "{0,1,2}"
 	}
 	Block {
 	  BlockType		  Switch
 	  Name			  "Switch1"
 	  SID			  "417"
 	  Position		  [735, 170, 785, 210]
+	  Criteria		  "u2 ~= 0"
 	  InputSameDT		  off
 	  SaturateOnIntegerOverflow off
 	}
@@ -3436,8 +3423,16 @@ Model {
 	Line {
 	  SrcBlock		  "TargetSelect"
 	  SrcPort		  1
-	  DstBlock		  "Switch Case"
-	  DstPort		  1
+	  Points		  [15, 0; 0, 5; 445, 0; 0, 100; 40, 0]
+	  Branch {
+	    DstBlock		    "Switch1"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 80]
+	    DstBlock		    "Switch"
+	    DstPort		    2
+	  }
 	}
 	Line {
 	  Name			  "<MeasuredYaw>"
@@ -4120,7 +4115,7 @@ Model {
 		  Position		  [110, 56, 225, 114]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4142,7 +4137,7 @@ Model {
 		  Position		  [105, 181, 225, 239]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4164,7 +4159,7 @@ Model {
 		  Position		  [105, 306, 225, 364]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4396,7 +4391,7 @@ Model {
 		  Position		  [110, 65, 215, 120]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4418,7 +4413,7 @@ Model {
 		  Position		  [110, 200, 220, 255]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4440,7 +4435,7 @@ Model {
 		  Position		  [110, 342, 220, 398]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -5136,7 +5131,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Thruster Arrangement"
-	Location		[2175, 75, 2946, 548]
+	Location		[1031, 199, 1802, 672]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200

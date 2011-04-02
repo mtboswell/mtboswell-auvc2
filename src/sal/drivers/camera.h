@@ -3,6 +3,7 @@
 #define CAMERA_H
 
 #include "ueye.h"
+#include "vdatum.h"
 #include <QImage>
 #include <QThread>
 #include <QTimer>
@@ -27,7 +28,7 @@ class Camera : public QObject
 	signals:
 		void qPixmapReady(QPixmap);
 		void qImageReady(QImage);
-		//void dataReady(VDatum); out for testing
+		void dataReady(VDatum);// out for testing
 
 	public slots:
 		void step();

@@ -48,10 +48,10 @@ Controllers::Controllers(QMap<QString, QString>* configIn, AUVC_State_Data* stat
 	// can't do this in constructor
 	//initializeParameters();
 
-	stepTimer->start(20);
 }
 void Controllers::init(){
 	qDebug("Controllers thread id: %d", (int) QThread::currentThreadId());
+	stepTimer->start(20);
 }
 void Controllers::step(){
 	//qDebug() << "Stepping Controllers";
