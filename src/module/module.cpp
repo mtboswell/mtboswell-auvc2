@@ -7,8 +7,8 @@
  Module::Module(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent):QThread(parent){
  	state = stateIn;
 	config = *configIn;
-	stepTimer = new QTimer(this);
- 	connect(stepTimer, SIGNAL(timeout()), this, SLOT(step()));
+	//stepTimer = new QTimer();
+ 	//connect(stepTimer, SIGNAL(timeout()), this, SLOT(step()));
 	//stepTimer->start(20);
  }
 
@@ -37,6 +37,8 @@ void Module::setData(QList<VDatum> datums){
 }
 
 void Module::run(){
+	stepTimer = new QTimer();
+ 	connect(stepTimer, SIGNAL(timeout()), this, SLOT(step()));
 	init();
 	exec();
 }

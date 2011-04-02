@@ -14,6 +14,8 @@ void Actuators::step(){
 void Actuators::init(){
 	setData("Module.Actuators", 1);
 	qDebug("Actuators thread id: %d", (int) QThread::currentThreadId());
+qDebug() << "Set motor 1 to 64";
+pololu->setMotorSpeed(1, 64);
 }
 
 void Actuators::dataIn(VDatum datum){
