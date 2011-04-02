@@ -25,9 +25,9 @@ Client.Port.Data=5237;
 
 #  VIDEO_PORT = UDP port used for video. 
 #  5235 = last 3 digits of UPC of aqua's aquarium album + track number of "Doctor Jones"
-Server.Port.Video1=5235;
-Server.IP=192.168.3.5;
-Client.Port.Video1=5335;
+Server.Port.Video1=5567;
+Server.IP=127.0.0.1;
+Client.Port.Video1=5566;
 # ! port used for second video stream:# /
 Server.Port.Video2=5239;
 Client.Port.Video2=5339;

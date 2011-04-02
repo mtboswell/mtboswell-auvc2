@@ -63,6 +63,9 @@ class SAL: public Module
 		Maestro* maestro;	//this too
 		Microstrain* microstrain;	//old, will need to be included in step()
 		Camera* camera;
+
+		// for sim
+		int heading;
 		
 		//...
 };

@@ -198,7 +198,7 @@ class GuiModule : public QMainWindow
 		QString stringValue(QString ID);
 
 		/// config variable pointer
-		QMap<QString, QString>* config;
+		QMap<QString, QString> config;
 		/// timer for step function
 		QTimer* stepTimer;
 

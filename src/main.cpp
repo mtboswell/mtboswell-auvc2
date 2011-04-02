@@ -1,4 +1,12 @@
+
+//#define GUI
+
+#ifdef GUI
 #include <QApplication>
+#else
+#include <QCoreApplication>
+#endif
+
 #include <QDebug>
 #include <QMutex>
 
@@ -20,7 +28,11 @@ static bool simulate = false;
 
 int main(int argc, char *argv[]){
 
+#ifdef GUI
 	QApplication app(argc, argv);
+#else
+	QCoreApplication app(argc, argv);
+#endif
 	QStringList args = app.arguments();
 	QString arg;
 	foreach(arg, args){
@@ -66,10 +78,12 @@ int main(int argc, char *argv[]){
 	hub.initializeAndLaunchAllModules();
 
 
+#ifdef GUI
 	QTreeView *tree = new QTreeView();
 	tree->setModel(&stateData);
 
 	tree->show();
+#endif
 
 	qDebug("Main thread id: %d", (int) QThread::currentThreadId());
 

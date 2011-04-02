@@ -45,6 +45,7 @@ class ModuleHub : public QObject
 		void messageIn(VDatum msg);
 		void moduleIn(VDatum msg);
 		void startAll(){emit go();}
+		void reconnect();
 
 
 	private:

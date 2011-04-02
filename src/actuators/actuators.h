@@ -31,6 +31,7 @@ class Actuators: public Module
 		void setThrusters(double[4]);
 	private:
 		Pololu* pololu;
+		VDatum oldData;
 };
 
 
