@@ -34,15 +34,15 @@ void SAL::init(){
 	setData("Module.SAL", 1);
 	//camera->start();
 	qDebug("SAL thread id: %d", (int) QThread::currentThreadId());
-	maestro = new Maestro(this);
-	QObject::connect(maestro, SIGNAL(dataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
 
 	if(value("Simulate") == "true"){
 		qDebug() << "Init Simulating Heading";
 		stepTimer->start(1000);
 		heading = 0;
+	}else{
+		maestro = new Maestro(this);
+		QObject::connect(maestro, SIGNAL(dataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
 	}
-
 
 }
 
