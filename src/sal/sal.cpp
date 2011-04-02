@@ -24,7 +24,7 @@ void SAL::step()
 //	setData(string id, driver->getData());
 
 	if(value("Simulate") == "true"){
-		//qDebug() << "Simulating Heading";
+		qDebug() << "Simulating Heading" << heading;
 		setData("Orientation.Heading", heading = (heading+1)%360);
 	}
 }

@@ -17,9 +17,11 @@ void Actuators::init(){
 }
 
 void Actuators::dataIn(VDatum datum){
+	qDebug() << "Actuators got data:" << datum.id;
 	if(datum.id != "Thrusters") return;	
 	if(datum.value == oldData.value) return;
 	oldData = datum;
+
 	double thrusters[4];
 	thrusters[0] = datum.value.value<QVector4D>().w();
 	thrusters[1] = datum.value.value<QVector4D>().x();
