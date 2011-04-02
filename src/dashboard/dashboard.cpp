@@ -57,8 +57,8 @@ Dashboard::Dashboard(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn,
 	//connect(this, SIGNAL(setAddress(QString)), m_DS, SLOT(setRemoteAddr(QString)));
 
 	// video sockets setup
-	videoSocket = new VideoSocket((*config)["Server.IP"], (*config)["Server.Port.Video1"].toUInt(), (*config)["Client.Port.Video1"].toUInt(), this);
-	bitmapSocket = new VideoSocket((*config)["Server.IP"], (*config)["Server.Port.Video2"].toUInt(), (*config)["Client.Port.Video2"].toUInt(), this);
+	videoSocket = new VideoSocket((config)["Server.IP"], (config)["Server.Port.Video1"].toUInt(), (config)["Client.Port.Video1"].toUInt(), this);
+	bitmapSocket = new VideoSocket((config)["Server.IP"], (config)["Server.Port.Video2"].toUInt(), (config)["Client.Port.Video2"].toUInt(), this);
 	connect(videoSocket, SIGNAL(frameReady(QImage*)), this, SLOT(HandleVideoFrame(QImage*)));
 	connect(bitmapSocket, SIGNAL(frameReady(QImage*)), this, SLOT(HandleBitmapFrame(QImage*)));
  	
@@ -330,17 +330,19 @@ void Dashboard::dataIn(VDatum datum) {
 	else type = "";
 	if(ids.size() > 1) name = ids[1];
 	else name = "";
-	QString value = datum.value.toString();
+	QString stringvalue = datum.value.toString();
 
 	if(type == "Thrusters"){
-		if (name == "LeftFwd")
-			leftThrusterProgressBar->setValue(value.toDouble());
-		else if (name == "RightFwd")
-			rightThrusterProgressBar->setValue(value.toDouble());
-		else if (name == "LeftAngled")
-			vertThrusterProgressBar->setValue(value.toDouble());
-		else if (name == "RightAngled")
-			strafeThrusterProgressBar->setValue(value.toDouble());
+		leftThrusterProgressBar->setValue(datum.value.value<QVector4D>().w()*100);
+		rightThrusterProgressBar->setValue(datum.value.value<QVector4D>().z()*100);
+		vertThrusterProgressBar->setValue(datum.value.value<QVector4D>().x()*100);
+		strafeThrusterProgressBar->setValue(datum.value.value<QVector4D>().y()*100);
+	}
+	else if(type == "Orientation") {
+		if(name == "Heading"){
+			headingLcdNumber->display(datum.value.toDouble());
+			headingDial->setValue(datum.value.toDouble());
+		}
 	}
 	/*
 	// set dashboard mode to match vehicle mode

@@ -23,14 +23,25 @@ void SAL::step()
 {
 //	setData(string id, driver->getData());
 
+	if(value("Simulate") == "true"){
+		//qDebug() << "Simulating Heading";
+		setData("Orientation.Heading", heading = (heading+1)%360);
+	}
 }
 
 void SAL::init(){
+	qDebug() << "Starting SAL";
 	setData("Module.SAL", 1);
 	//camera->start();
 	qDebug("SAL thread id: %d", (int) QThread::currentThreadId());
 	maestro = new Maestro(this);
 	QObject::connect(maestro, SIGNAL(dataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
+
+	if(value("Simulate") == "true"){
+		qDebug() << "Init Simulating Heading";
+		stepTimer->start(1000);
+		heading = 0;
+	}
 
 
 }

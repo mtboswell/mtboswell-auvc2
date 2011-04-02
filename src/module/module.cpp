@@ -58,7 +58,7 @@ QTime Module::timestamp(QString ID){return state->timestamp(ID);}
 
  GuiModule::GuiModule(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QWidget* parent):QMainWindow(parent){
  	state = stateIn;
-	config = configIn;
+	config = *configIn;
 	stepTimer = new QTimer(this);
  	connect(stepTimer, SIGNAL(timeout()), this, SLOT(step()));
 	//stepTimer->start(20);

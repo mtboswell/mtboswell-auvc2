@@ -85,3 +85,7 @@ void ModuleHub::moduleIn(VDatum msg){
 	messageBroadcast(msg);
 	messageIn(msg);
 }
+
+void ModuleHub::reconnect(){
+	//srv->	
+}

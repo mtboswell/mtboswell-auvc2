@@ -38,6 +38,7 @@ class Dashboard : public GuiModule, private Ui::DashboardWindow
 
 	signals:
 		void setAddress(QString);
+		void reconnect();
 		//void receivedParam(QString, QString);
 
 	public slots:
