@@ -3,19 +3,6 @@
 #include <QString>
 #include <QTime>
 
-/*
- * What works:
- * 	-Camera initialization
- * 	-slot caputreFrame captures a frame
- * 
- * To do:
- * 	-fix hardcoded framerate and other settings
- * 	-polling of above settings from stateData
- * 	-set stateData with new frames (semi-implemented, untestested)
- *  -testing for 2 similtanious cameras needs to be done
- * 	-some other small things I can't think of
- */
-
 Camera::Camera(QObject* parent)
 {
 	
@@ -29,9 +16,16 @@ Camera::Camera(QObject* parent)
 	videoOut = new QImageWriter(videoSocket, "jpeg");
 	videoOut->setQuality(70);
 	
+	
 	// stepTimer is used to poll stateData for changes in camera settings (unimplemented)
 	//stepTimer->setInterval(3000)
 	init();
+	
+	//start the timer to capture frames
+	fps = 15;
+	timer = new QTimer(this);
+	timer->start(1000/fps);
+	QObject::connect(timer, SIGNAL(timeout()), this, SLOT(step()));
 	
 }
 
