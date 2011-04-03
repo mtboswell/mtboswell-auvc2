@@ -28,7 +28,7 @@ class Camera : public QObject
 	signals:
 		void qPixmapReady(QPixmap);
 		void qImageReady(QImage);
-		void dataReady(VDatum);// out for testing
+		void dataReady(VDatum);
 
 	public slots:
 		void step();
@@ -48,6 +48,7 @@ class Camera : public QObject
 		QByteArray imageArray;
 		QUdpSocket* videoSocket;
 		QImageWriter* videoOut;
+		QTimer* timer;
 		
 
 
