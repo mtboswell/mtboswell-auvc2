@@ -5,6 +5,7 @@
 #include "ueye.h"
 #include "vdatum.h"
 #include <QImage>
+#include <QString>
 #include <QThread>
 #include <QTimer>
 #include <QString>
@@ -16,6 +17,17 @@
 #include <QImageWriter>
 //#include "../../state/vdatum.h" out for testing
 
+
+ /**
+  * Struct containing all the variables for the camera.
+  * A struct is created and filled in the SAL using the config files and passed
+  * to the camera object in its constructor.
+  **/
+ struct CameraParams {
+	int x, y, pixelclock, fps, identity; // identity: 0 for forward camera, 1 for downward camera
+	QString serial; // camera serial number to connect to 
+ };
+
 /**
  * Camera Module.
  */
@@ -23,7 +35,7 @@ class Camera : public QObject
 {
 	Q_OBJECT
 	public:
-		Camera(QObject* parent = 0);
+		Camera(CameraParams* params, QObject* parent = 0);
 
 	signals:
 		void qPixmapReady(QPixmap);

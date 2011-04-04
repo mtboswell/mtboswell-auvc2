@@ -40,7 +40,22 @@ SerialPort.Pololu=/dev/ttyUSB0;
 SerialPort.Arduino=/dev/ttyUSB1;
 SerialPort.LCD=/dev/ttyUSB2;
 
-Camera=/dev/video0;
+# Cameras
+
+Camera.Forward.X=752;
+Camera.Forward.Y=480;
+Camera.Forward.fps=15;
+Camera.Forward.pixelclock=14;
+Camera.Forward.indentity=0;
+Camera.Forward.serial=unknown;
+
+Camera.Down.x=752;
+Camera.Down.y=480;
+Camera.Down.fps=15;
+Camera.Down.pixelclock=14;
+Camera.Down.indentity=0;
+Camera.Down.serial=unknown;
+
 
 # Mechanisms
 Mechanism.DropLeft.Servo=7;
