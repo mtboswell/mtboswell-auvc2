@@ -38,6 +38,7 @@
  #include "os5000.h"
  #include "camera.h"
 
+
 class SAL: public Module
 {
 	Q_OBJECT
@@ -59,10 +60,15 @@ class SAL: public Module
 		void step();	//calls setData(id string, driver->getData());
 		void init();
 	private:
+		QMap<QString, QString>* config;
 		OS5000* os5000;		//connect in constructor
 		Maestro* maestro;	//this too
 		Microstrain* microstrain;	//old, will need to be included in step()
-		Camera* camera;
+		Camera* forwardCamera;
+		Camera* downCamera;
+		CameraParams* forwardParams;
+		CameraParams* downParams;
+		
 
 		// for sim
 		int heading;

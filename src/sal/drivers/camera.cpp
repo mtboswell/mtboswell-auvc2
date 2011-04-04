@@ -3,7 +3,7 @@
 #include <QString>
 #include <QTime>
 
-Camera::Camera(QObject* parent)
+Camera::Camera(CameraParams* params, QObject* parent)
 {
 	
 	//fps = framesPerSecond;
@@ -98,6 +98,7 @@ void Camera::init()
 	m_nBitsPerPixel = 32;
 	//m_hCam = 0 -> tells driver to use first avaliable camera
 	m_hCam = 0;
+	
 	
 	//connect and activate the camera
 	INT nRet = is_InitCamera(&m_hCam, NULL);
