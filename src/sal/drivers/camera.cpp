@@ -3,18 +3,25 @@
 #include <QString>
 #include <QTime>
 
-Camera::Camera(CameraParams* params, QObject* parent)
+Camera::Camera(CameraParams* paramsIn, QObject* parent)
 {
+	params = paramsIn;
 	
 	//fps = framesPerSecond;
-	byteStorage = (char*) malloc(752 * 480 * 32);
+	byteStorage = (char*) malloc((params->x) * (params->y) * 32);
 	
 	//initialization for QudpSocket and QImageWriter
 	videoSocket = new QUdpSocket();
-	videoSocket->connectToHost(QHostAddress::LocalHost,5566);
-	qDebug() << videoSocket->state() << " o " << videoSocket->error();
+	videoSocket->connectToHost(QHostAddress::LocalHost, params->port);
 	videoOut = new QImageWriter(videoSocket, "jpeg");
 	videoOut->setQuality(70);
+	
+	if (params->identity == 0) {
+		imageName = "front.bmp";
+	}
+	else {
+		imageName = "down.bmp";
+	}
 	
 	
 	// stepTimer is used to poll stateData for changes in camera settings (unimplemented)
@@ -22,9 +29,8 @@ Camera::Camera(CameraParams* params, QObject* parent)
 	init();
 	
 	//start the timer to capture frames
-	fps = 15;
 	timer = new QTimer(this);
-	timer->start(1000/fps);
+	timer->start(1000/(params->fps));
 	QObject::connect(timer, SIGNAL(timeout()), this, SLOT(step()));
 	
 }
@@ -39,7 +45,7 @@ void Camera::step()
 		qDebug() << "ERROR: is_FreezeVideo(...) in function UEyeDriver::getImage()";
 	}
 	else {
-		if( is_SaveImage(m_hCam, "image.bmp") != IS_SUCCESS)
+		if( is_SaveImage(m_hCam, (IS_CHAR*)imageName.constData()) != IS_SUCCESS)
 		{
 			qDebug() << "ERROR: is_SaveImage(...) in fucntion UEyeDriver::getImage()";
 		}
@@ -63,7 +69,7 @@ void Camera::step()
 		}
 		else {
 			imageArray = QByteArray(byteStorage);
-			qimage = new QImage("image.bmp");	//dynamic pointer to the qimage
+			qimage = new QImage((IS_CHAR*)imageName.constData());	//dynamic pointer to the qimage
 			if (qimage->isNull()) {
 				qDebug() << "image failed to load";
 			}
@@ -71,11 +77,16 @@ void Camera::step()
 			//emit qPixmapReady(qpixmap);
 			//emit qImageReady(*qimage);  //old way. now we create a VDatum and send it along
 			VDatum datum; //out for testing
-			datum.id = "Camera.Frame"; //out for testing
-			datum.value = *qimage; //out for testing
+			if (params->identity == 0) {
+				datum.id = "Camera.Forward.Frame";
+			}
+			else {
+				datum.id = "Camera.Downward.Frame";
+			}
+			datum.value = *qimage;
 			datum.timestamp = QTime::currentTime();
 			
-			emit dataReady(datum); //out for testing
+			emit dataReady(datum);
 
 			//write out to the UDP port
 			videoOut->write(*qimage);
@@ -93,8 +104,8 @@ void Camera::init()
 	
 	// Set the size of the image in pixels
 	// TODO: make configurable in the config file instead of hardcoded
-	m_nSizeX = 752;
-	m_nSizeY = 480;
+	m_nSizeX = params->x;
+	m_nSizeY = params->y;
 	m_nBitsPerPixel = 32;
 	//m_hCam = 0 -> tells driver to use first avaliable camera
 	m_hCam = 0;
@@ -118,7 +129,7 @@ void Camera::init()
 		//allocate memory for a single image and activate that memory
 		is_AllocImageMem(m_hCam, m_nSizeX, m_nSizeY, m_nBitsPerPixel, &m_pcImageMemory, &m_lMemoryID);
 		is_SetImageMem (m_hCam, m_pcImageMemory, m_lMemoryID);
-		is_SetPixelClock(m_hCam, 10);
+		is_SetPixelClock(m_hCam, params->pixelclock);
 		
 		
 		

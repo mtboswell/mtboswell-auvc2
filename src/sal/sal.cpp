@@ -53,6 +53,7 @@ void SAL::init(){
 		forwardParams->pixelclock = (*config)["Camera.Forward.pixelclock"].toInt();
 		forwardParams->identity = (*config)["Camera.Forward.identity"].toInt();
 		forwardParams->serial = (*config)["Camera.Forward.serial"];
+		forwardParams->serial = (*config)["Camera.Forward.port"];
 
 		forwardCamera = new Camera(forwardParams, this);
 		QObject::connect(forwardCamera, SIGNAL(dataReady(VDatum)), this, SLOT(setData(VDatum)));
@@ -65,6 +66,7 @@ void SAL::init(){
 		downParams->pixelclock = (*config)["Camera.Down.pixelclock"].toInt();
 		downParams->identity = (*config)["Camera.Down.identity"].toInt();
 		downParams->serial = (*config)["Camera.Down.serial"];
+		downParams->port = (*config)["Camera.Down.port"].toInt();
 
 		downCamera = new Camera(downParams, this);
 		QObject::connect(downCamera, SIGNAL(dataReady(VDatum)), this, SLOT(setData(VDatum)));

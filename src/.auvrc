@@ -48,6 +48,7 @@ Camera.Forward.fps=15;
 Camera.Forward.pixelclock=14;
 Camera.Forward.indentity=0;
 Camera.Forward.serial=unknown;
+Camera.Forward.port=5566;
 
 Camera.Down.x=752;
 Camera.Down.y=480;
@@ -55,6 +56,7 @@ Camera.Down.fps=15;
 Camera.Down.pixelclock=14;
 Camera.Down.indentity=0;
 Camera.Down.serial=unknown;
+Camera.Down.port=5567;
 
 
 # Mechanisms

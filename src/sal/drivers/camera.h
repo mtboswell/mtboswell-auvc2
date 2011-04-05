@@ -24,7 +24,7 @@
   * to the camera object in its constructor.
   **/
  struct CameraParams {
-	int x, y, pixelclock, fps, identity; // identity: 0 for forward camera, 1 for downward camera
+	int x, y, pixelclock, fps, port, identity; // identity: 0 for forward camera, 1 for downward camera
 	QString serial; // camera serial number to connect to 
  };
 
@@ -50,7 +50,6 @@ class Camera : public QObject
 		void init();
 		HIDS m_hCam;
 		int m_nRenderMode, m_lMemoryID, m_nSizeX, m_nSizeY, m_nBitsPerPixel;
-		int fps;
 		char* m_pcImageMemory;
 		char* byteStorage;
 		// localx etc. for testing purposes only (see is_SetAOI())
@@ -61,6 +60,8 @@ class Camera : public QObject
 		QUdpSocket* videoSocket;
 		QImageWriter* videoOut;
 		QTimer* timer;
+		CameraParams* params;
+		QString imageName;
 		
 
 
