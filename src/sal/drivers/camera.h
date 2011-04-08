@@ -35,10 +35,10 @@ class Camera : public QObject
 {
 	Q_OBJECT
 	public:
-		Camera(CameraParams* params, QObject* parent = 0);
+		Camera(int id, QObject* parent = 0);
 
 	signals:
-		void qPixmapReady(QPixmap);
+		//void qPixmapReady(QPixmap);
 		void qImageReady(QImage);
 		void dataReady(VDatum);
 
@@ -55,13 +55,13 @@ class Camera : public QObject
 		// localx etc. for testing purposes only (see is_SetAOI())
 		INT localx, localy, localx2, localy2;
 		QImage* qimage;
-		QPixmap qpixmap;
+		//QPixmap qpixmap;
 		QByteArray imageArray;
 		QUdpSocket* videoSocket;
 		QImageWriter* videoOut;
 		QTimer* timer;
 		CameraParams* params;
-		QString imageName;
+		char saveName[6];
 		
 
 
