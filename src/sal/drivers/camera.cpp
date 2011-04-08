@@ -5,27 +5,9 @@
 
 Camera::Camera(CameraParams* paramsIn, QObject* parent)
 {
-	INT nNumCam;
-	if( is_GetNumberOfCameras( &nNumCam ) == IS_SUCCESS) {
-		if( nNumCam >= 1 ) {
-
-			// Create new list with suitable size
-
-			UEYE_CAMERA_LIST* pucl;
-			pucl = (UEYE_CAMERA_LIST*) new char [sizeof (DWORD) + nNumCam * sizeof (UEYE_CAMERA_INFO)];
-			pucl->dwCount = nNumCam;
-			
-			
-			//Retrieve camera info
-			if (is_GetCameraList(pucl) == IS_SUCCESS) {
-				int iCamera;
-				for (iCamera = 0; iCamera < (int)pucl->dwCount; iCamera++) {
-					//Test output of camera info on the screen
-					printf("Camera %i Id: %d", iCamera, pucl->uci[iCamera].dwCameraID);
-				}
-			}
-		}
-	}
+	
+	params = paramsIn;
+	
 	//fps = framesPerSecond;
 	byteStorage = (char*) malloc((params->x) * (params->y) * 32);
 	
@@ -41,11 +23,11 @@ Camera::Camera(CameraParams* paramsIn, QObject* parent)
 	saveName[4] = 'p';
 	saveName[5] = '\0';
 	
-	if (params->identity == 0) {
-		saveName[0] = '0';
+	if (params->identity == 2) {
+		saveName[0] = '2';
 	}
 	else {
-		saveName[0] = '1';
+		saveName[0] = '3';
 	}
 	
 	
@@ -67,7 +49,7 @@ void Camera::step()
 	qDebug() << "capturing frame";
 	if( is_FreezeVideo( m_hCam, IS_WAIT ) != IS_SUCCESS )
 	{	
-		qDebug() << "ERROR: is_FreezeVideo(...) in function UEyeDriver::getImage()";
+		qDebug() << "ERROR: is_FreezeVideo on camera" << params->identity;
 	}
 	else {
 		if( is_SaveImage(m_hCam, saveName) != IS_SUCCESS)
@@ -76,7 +58,7 @@ void Camera::step()
 		}
 		else 
 		{
-			qDebug("Image Captured in thread %d", (int) QThread::currentThreadId());
+			qDebug("Image Captured in with camID %d", params->identity);
 			
 			
 			
@@ -105,7 +87,7 @@ void Camera::step()
 			//emit qPixmapReady(qpixmap);
 			//emit qImageReady(*qimage);  //old way. now we create a VDatum and send it along
 			VDatum datum; //out for testing
-			if (params->identity == 0) {
+			if (params->identity == 2) {
 				datum.id = "Camera.Forward.Frame";
 			}
 			else {
@@ -127,17 +109,14 @@ void Camera::step()
 // Initializes the camera and creates an event loop to handle events.
 void Camera::init()
 {
-	
-	qDebug("Camera thread id: %d", (int) QThread::currentThreadId());
-	
+		
 	// Set the size of the image in pixels
 	// TODO: make configurable in the config file instead of hardcoded
 	m_nSizeX = params->x;
 	m_nSizeY = params->y;
 	m_nBitsPerPixel = 32;
-	//m_hCam = 0 -> tells driver to use first avaliable camera
-	m_hCam = 0;
-	
+	//m_hCam = 0; //-> tells driver to use first avaliable camera
+	m_hCam = params->identity;
 	
 	//connect and activate the camera
 	INT nRet = is_InitCamera(&m_hCam, NULL);

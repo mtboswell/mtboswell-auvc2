@@ -44,18 +44,18 @@ SerialPort.LCD=/dev/ttyUSB2;
 
 Camera.Forward.X=752;
 Camera.Forward.Y=480;
-Camera.Forward.fps=15;
-Camera.Forward.pixelclock=14;
-Camera.Forward.indentity=0;
-Camera.Forward.serial=unknown;
+Camera.Forward.fps=5;
+Camera.Forward.pixelclock=12;
+Camera.Forward.identity=2;
+Camera.Forward.serial=4002761437;
 Camera.Forward.port=5566;
 
 Camera.Down.x=752;
 Camera.Down.y=480;
-Camera.Down.fps=15;
-Camera.Down.pixelclock=14;
-Camera.Down.indentity=0;
-Camera.Down.serial=unknown;
+Camera.Down.fps=5;
+Camera.Down.pixelclock=12;
+Camera.Down.identity=3;
+Camera.Down.serial=4002761434;
 Camera.Down.port=5567;
 
 

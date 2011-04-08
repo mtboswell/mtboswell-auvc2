@@ -35,7 +35,7 @@ class Camera : public QObject
 {
 	Q_OBJECT
 	public:
-		Camera(int id, QObject* parent = 0);
+		Camera(CameraParams* paramsIn, QObject* parent = 0);
 
 	signals:
 		//void qPixmapReady(QPixmap);

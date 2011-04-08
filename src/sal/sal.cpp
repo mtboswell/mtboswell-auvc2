@@ -8,11 +8,11 @@ SAL::SAL(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* pa
 {
 	config = configIn;
 	//os5000 = new OS5000("");			//takes in serial port name as a string
-	microstrain = new Microstrain("/dev/ttyS0");	//takes in dev
+	//microstrain = new Microstrain("/dev/ttyS0");	//takes in dev
 
 
 	//QObject::connect(os5000, SIGNAL(compassDataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
-	QObject::connect(microstrain, SIGNAL(dataReady(VDatum)), this, SLOT(setData(VDatum)));
+	//QObject::connect(microstrain, SIGNAL(dataReady(VDatum)), this, SLOT(setData(VDatum)));
 
 
 }
@@ -20,7 +20,7 @@ SAL::SAL(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* pa
 
 void SAL::step()
 {
-//	setData(string id, driver->getData());
+	//	setData(string id, driver->getData());
 
 	if(boolValue("Simulate")){
 		qDebug() << "Simulating Heading" << heading;
@@ -42,8 +42,8 @@ void SAL::init(){
 		stepTimer->start(500);
 		heading = 0;
 	}else{
-		maestro = new Maestro(this);
-		QObject::connect(maestro, SIGNAL(dataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
+		//maestro = new Maestro(this);
+		//QObject::connect(maestro, SIGNAL(dataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
 		
 		//initiate forward camera
 		forwardParams = new CameraParams;
