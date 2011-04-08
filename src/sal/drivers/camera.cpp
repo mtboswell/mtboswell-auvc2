@@ -5,8 +5,27 @@
 
 Camera::Camera(CameraParams* paramsIn, QObject* parent)
 {
-	params = paramsIn;
-	
+	INT nNumCam;
+	if( is_GetNumberOfCameras( &nNumCam ) == IS_SUCCESS) {
+		if( nNumCam >= 1 ) {
+
+			// Create new list with suitable size
+
+			UEYE_CAMERA_LIST* pucl;
+			pucl = (UEYE_CAMERA_LIST*) new char [sizeof (DWORD) + nNumCam * sizeof (UEYE_CAMERA_INFO)];
+			pucl->dwCount = nNumCam;
+			
+			
+			//Retrieve camera info
+			if (is_GetCameraList(pucl) == IS_SUCCESS) {
+				int iCamera;
+				for (iCamera = 0; iCamera < (int)pucl->dwCount; iCamera++) {
+					//Test output of camera info on the screen
+					printf("Camera %i Id: %d", iCamera, pucl->uci[iCamera].dwCameraID);
+				}
+			}
+		}
+	}
 	//fps = framesPerSecond;
 	byteStorage = (char*) malloc((params->x) * (params->y) * 32);
 	
@@ -16,11 +35,17 @@ Camera::Camera(CameraParams* paramsIn, QObject* parent)
 	videoOut = new QImageWriter(videoSocket, "jpeg");
 	videoOut->setQuality(70);
 	
+	saveName[1] = '.';
+	saveName[2] = 'b';
+	saveName[3] = 'm';
+	saveName[4] = 'p';
+	saveName[5] = '\0';
+	
 	if (params->identity == 0) {
-		imageName = "front.bmp";
+		saveName[0] = '0';
 	}
 	else {
-		imageName = "down.bmp";
+		saveName[0] = '1';
 	}
 	
 	
@@ -45,7 +70,7 @@ void Camera::step()
 		qDebug() << "ERROR: is_FreezeVideo(...) in function UEyeDriver::getImage()";
 	}
 	else {
-		if( is_SaveImage(m_hCam, (IS_CHAR*)imageName.constData()) != IS_SUCCESS)
+		if( is_SaveImage(m_hCam, saveName) != IS_SUCCESS)
 		{
 			qDebug() << "ERROR: is_SaveImage(...) in fucntion UEyeDriver::getImage()";
 		}
@@ -68,8 +93,11 @@ void Camera::step()
 			qDebug() << "ERROR: is_CopyImageMem in function UEyeDriver::getImage()";
 		}
 		else {
-			imageArray = QByteArray(byteStorage);
-			qimage = new QImage((IS_CHAR*)imageName.constData());	//dynamic pointer to the qimage
+			imageArray = QByteArray(byteStorage); 
+			if (params->identity == 0) {
+				qimage = new QImage(saveName);
+			}
+				//dynamic pointer to the qimage
 			if (qimage->isNull()) {
 				qDebug() << "image failed to load";
 			}
