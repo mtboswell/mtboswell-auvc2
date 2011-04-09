@@ -165,7 +165,7 @@ bool TreeItem::setData(int column, const QVariant &value)
 
 	//qDebug() << "Setting data in column" << column << "to" << value;
 	itemData[column] = value;
-	if(column==1 || column == 3) itemData[2] = QTime::currentTime();
+	//if(column==1 || column == 3) itemData[2] = QTime::currentTime();
 	return true;
 }
 
@@ -177,7 +177,8 @@ QVariant & TreeItem::operator[](int col){
 VDatum TreeItem::toVDatum(){
 	QReadLocker locker(lock);
 	VDatum out;
-	out.id = itemData[0].toString();
+
+	out.id = itemData[5].toString();
 	out.value = itemData[1];
 	out.timestamp = itemData[2].toTime();
 	out.available = itemData[3].toBool();

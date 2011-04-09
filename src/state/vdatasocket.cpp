@@ -15,6 +15,8 @@ VDataSocket::VDataSocket(quint16 bindPort, quint16 remotePort, bool server,
 	m_AckTimeout = 2000;
 
 //	if(config.isEmpty()) loadConfigFile(config);
+	if(!m_Server)
+		sendDatagram("Connect", true);
 }
 
 VDataSocket::~VDataSocket() {
@@ -23,6 +25,8 @@ VDataSocket::~VDataSocket() {
 void VDataSocket::setRemoteAddr(QString addr, quint16 port){
 	if(!QHostAddress(addr).isNull()) m_remoteAddr = addr;
 	if(port != 0) m_remotePort = port;
+	if(!m_Server)
+		sendDatagram("Connect", true);
 }
 
 void VDataSocket::sendVDatum(VDatum message, bool critical) {
@@ -71,6 +75,15 @@ void VDataSocket::sendDatagram(QByteArray out, bool force) {
 			}
 		}
 	}
+}
+
+void VDataSocket::sync(){
+	timeLostConn = QTime::currentTime().addSecs(-300);
+	sendDatagram("Connect", true);
+}
+void VDataSocket::sync(QTime last){
+	timeLostConn = last;
+	sendDatagram("Connect", true);
 }
 
 void VDataSocket::setAckTimeout(int msecs){

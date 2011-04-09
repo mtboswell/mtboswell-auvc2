@@ -102,10 +102,14 @@ class TreeModel : public QAbstractItemModel
 	public slots:
 		void setData(QString name, QVariant value, QTime timestamp = QTime::currentTime(), bool available = true, QVariant meta = QVariant());
 		void setData(VDatum datum);
+		void sync(QTime fromWhen, TreeItem* parent);
+		void sync(QTime fromWhen);
 
 	signals:
 		void dataUpdated(QString ID, QVariant value);
 		void dataUpdated(VDatum data);
+		void dataEdited(VDatum data);
+		void syncData(VDatum data);
 
 	private:
 		VDatum getVDatum(QString ID);

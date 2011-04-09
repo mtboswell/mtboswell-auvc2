@@ -152,6 +152,7 @@ Dashboard::~Dashboard(){
 
 /* *** Connection Actions ************************* */
 void Dashboard::reconnectAction(){
+	emit reconnect();
 	setData("Connect.Data", "Broadcast");
         setData("Connect.Video", "This");
 	setData("GetParams", "all");
@@ -276,8 +277,9 @@ void Dashboard::turnOffAUVAction() {
 
 
 
-
-
+void Dashboard::on_syncButton_clicked(){
+	emit reconnect();
+}
 
 
 
