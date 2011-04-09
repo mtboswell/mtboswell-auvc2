@@ -7,7 +7,11 @@ ModuleHub::ModuleHub(AUVC_State_Data* stateIn, bool server, quint16 listenPort, 
 	srv = new VDataSocket(listenPort, remotePort, server, QHostAddress::LocalHost);
 	connect(srv, SIGNAL(datumReceived(VDatum, QHostAddress)), this, SLOT(messageIn(VDatum)));
 	connect(this, SIGNAL(messageBroadcast(VDatum)), srv, SLOT(sendVDatum(VDatum)));
-	//connect(state, SIGNAL(dataUpdated(VDatum)), srv, SLOT(sendVDatum(VDatum)));
+
+	connect(srv, SIGNAL(connectionRestored(QTime)), state, SLOT(sync(QTime)));
+	connect(state, SIGNAL(syncData(VDatum)), srv, SLOT(sendVDatum(VDatum)));
+
+	connect(state, SIGNAL(dataEdited(VDatum)), this, SLOT(editIn(VDatum)));
 }
 /**
  * addModule adds a module object to the vdata broadcasting system.
@@ -58,10 +62,7 @@ void ModuleHub::addSubscription(QString module, QString ID){
 	subscriptions[ID].append(module);
 }
 
-void ModuleHub::messageIn(VDatum msg){
-	//qDebug() << "Message ID:" << msg.id;
-	state->setData(msg);
-
+void ModuleHub::notify(VDatum msg){
 	QStringList modulesToNotify;
 
 
@@ -82,10 +83,21 @@ void ModuleHub::messageIn(VDatum msg){
 void ModuleHub::moduleIn(VDatum msg){
 	//qDebug() << "Message ID:" << msg.id;
 	state->setData(msg);
+	notify(msg);
 	messageBroadcast(msg);
-	messageIn(msg);
+}
+
+void ModuleHub::messageIn(VDatum msg){
+	//qDebug() << "Message ID:" << msg.id;
+	state->setData(msg);
+	notify(msg);
+}
+
+void ModuleHub::editIn(VDatum msg){
+	notify(msg);
+	messageBroadcast(msg);
 }
 
 void ModuleHub::reconnect(){
-	//srv->	
+	srv->sync(QTime::currentTime().addSecs(-300));
 }

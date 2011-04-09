@@ -74,6 +74,8 @@ class VDataSocket : public QObject {
 
 		void buffer();
 		void flush();
+		void sync();
+		void sync(QTime);
 
 	private slots:
 		void sendDatagram(QByteArray out, bool resend = false);

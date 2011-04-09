@@ -84,6 +84,8 @@ class Dashboard : public GuiModule, private Ui::DashboardWindow
 		void on_goRCButton_clicked();
 		void on_stopButton_clicked();
 
+		void on_syncButton_clicked();
+
 		// Calibration
 		void on_zeroDepthPushButton_clicked();
 		void on_setActualDepthPushButton_clicked();

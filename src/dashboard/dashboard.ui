@@ -1406,7 +1406,7 @@
          <enum>QTabWidget::North</enum>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>3</number>
         </property>
         <widget class="QWidget" name="optionsTab">
          <attribute name="title">
@@ -2233,6 +2233,13 @@
          <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
            <widget class="QTreeView" name="paramEditTreeView"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="syncButton">
+            <property name="text">
+             <string>Sync Data</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>

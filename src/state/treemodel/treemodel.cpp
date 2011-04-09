@@ -49,7 +49,7 @@ TreeModel::TreeModel(QObject *parent)
 {
 	QVector<QVariant> rootData;
 	QStringList headers;
-	headers << "ID" << "Value" << "Timestamp" << "Availabile" << "Meta";
+	headers << "ID" << "Value" << "Timestamp" << "Availabile" << "Meta" << "Path";
 	foreach (QString header, headers)
 		rootData << header;
 
@@ -219,12 +219,13 @@ bool TreeModel::setData(const QModelIndex &index, const QVariant &value, int rol
 		}
 		emit dataUpdated(itemName, item->data(1));
 		VDatum tmp;
-		tmp.id = item->data(0).toString().prepend("AUV."+itemParents);
+		tmp.id = item->data(0).toString().prepend(itemParents);
 		tmp.value = item->data(1);
 		tmp.timestamp = item->data(2).toTime();
 		tmp.available = item->data(3).toBool();
 		tmp.meta = item->data(4);
 		emit dataUpdated(tmp);
+		emit dataEdited(tmp);
 	}
 
 	return result;
@@ -321,6 +322,7 @@ void TreeModel::setData(QString id, QVariant value, QTime timestamp, bool availa
 	thisItem->setData(2, timestamp);
 	thisItem->setData(3, available);
 	thisItem->setData(4, meta);
+	thisItem->setData(5, id);
 	QModelIndex rootIndex = index(0,0);
 	QModelIndex thisIndex = getIndex(thisItem, 3);
 	emit dataChanged(thisIndex, thisIndex);
@@ -358,3 +360,29 @@ QTime TreeModel::timestamp(QString ID){
 bool TreeModel::available(QString ID){
 	return (*getItem(ID, rootItem))[3].toBool();
 }
+
+void TreeModel::sync(QTime last){
+	sync(last, rootItem);
+}
+// this function contains a stack overflow bug
+void TreeModel::sync(QTime last, TreeItem* parentItem){
+	if(parentItem == 0) parentItem = rootItem;
+	if(parentItem == rootItem) qDebug() << "Syncing";
+	// foreach treeitems
+	// 	if time > last
+	// 		emit syncData(item->vdatum)
+	TreeItem* thisItem;
+	QTime thisItemDate;
+	for(int i = parentItem->childCount()-1; i >= 0; --i){
+		thisItem = parentItem->child(i);
+		if(thisItem->childCount() > 0){
+			sync(last, thisItem);
+		}else{
+			thisItemDate = thisItem->data(2).toTime();
+			if(thisItemDate > last){
+				emit syncData(thisItem->toVDatum());
+			}
+		}
+	}
+}
+

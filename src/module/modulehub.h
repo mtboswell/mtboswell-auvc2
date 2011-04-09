@@ -44,12 +44,13 @@ class ModuleHub : public QObject
 	public slots:
 		void messageIn(VDatum msg);
 		void moduleIn(VDatum msg);
+		void editIn(VDatum msg);
 		void startAll(){emit go();}
 		void reconnect();
-
 
 	private:
 		VDataSocket* srv;
 		AUVC_State_Data* state;
 		QMap<QString, QStringList> subscriptions;
+		void notify(VDatum msg);
 };
