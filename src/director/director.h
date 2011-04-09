@@ -1,41 +1,28 @@
-#ifndef SAL_H
-#define SAL_H
+#ifndef DIRECTOR_H
+#define DIRECTOR_H
+
+#include "../state/treemodel/treemodel.h"
+#include "../state/state.h"
+#include "../module/module.h"
 
 /*
- * Data this module needs to provide:
- * 
-	 Command
-	 TargetOptions.TargetSelect
-	 TargetOptions.Approach
-	 TargetOptions.MaintainHeading
-	 DeadReckon.Depth
-	 DeadReckon.ForwardSpeed
-	 DeadReckon.Heading 
-
-	 TargetData.Found
-	 TargetData.Position.X
-	 TargetData.Position.Y
-	 TargetData.Position.Z
-	 TargetData.Position.Bearing
-	 Position.Depth
-	 Motion.Accel.Y
-	 Motion.YawRate
-	 Orientation.Heading
-
+ *  The director determines the AUV's state by listening to AUV data and making decisions
+ *  based on its current state.  State change can also be invoked by built-in timers.
  */
-
-class SAL: public Module
+class director : public Module
 {
 	Q_OBJECT
 	public:
-		SAL(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
-		QStringList subscriptions(){
+                director(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
+                QStringList subscriptions()
+                {
 			QStringList sub;
 			sub << "";
 			return sub;
 		}
 	protected slots:
-//		void dataIn(VDatum datum);
+                void dataIn(VDatum datum);
+                void doSomething();
 	private slots:
 };
 
