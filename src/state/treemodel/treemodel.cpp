@@ -207,6 +207,10 @@ bool TreeModel::setData(const QModelIndex &index, const QVariant &value, int rol
 	bool result = item->setData(index.column(), value);
 
 	if (result){
+		if(index.column() == 1){
+			item->setData(2, QTime::currentTime());
+			item->setData(3, true);
+		}	
 		emit dataChanged(index, index);
 
 		QString itemName = item->data(0).toString();
@@ -274,6 +278,18 @@ void TreeModel::setupModelData(const QStringList &lines, TreeItem *parent)
 	}
 
 
+}
+
+
+TreeItem* TreeModel::getItem(QString id){
+	TreeItem* thisItem = getItem(id, rootItem);
+	if(thisItem == rootItem){
+		qDebug() << "Item location/creation error";
+		return thisItem;
+	}
+	if(!(*thisItem)[5].isValid())
+		thisItem->setData(5, id);
+	return thisItem;
 }
 
 // returns the item for the specified SID ID (e.g. Parameter.Actor.YawController)
@@ -351,14 +367,14 @@ QModelIndex TreeModel::getIndex(TreeItem* thisItem, int column){
 
 
 QVariant TreeModel::value(QString ID){
-	return (*getItem(ID, rootItem))[1];
+	return (*getItem(ID))[1];
 }
 QTime TreeModel::timestamp(QString ID){
-	return (*getItem(ID, rootItem))[2].toTime();
+	return (*getItem(ID))[2].toTime();
 }
 
 bool TreeModel::available(QString ID){
-	return (*getItem(ID, rootItem))[3].toBool();
+	return (*getItem(ID))[3].toBool();
 }
 
 void TreeModel::sync(QTime last){
@@ -382,6 +398,25 @@ void TreeModel::sync(QTime last, TreeItem* parentItem){
 			if(thisItemDate > last){
 				emit syncData(thisItem->toVDatum());
 			}
+		}
+	}
+}
+void TreeModel::sync(){
+	sync(rootItem);
+}
+// this function contains a stack overflow bug
+void TreeModel::sync(TreeItem* parentItem){
+	if(parentItem == 0) parentItem = rootItem;
+	if(parentItem == rootItem) qDebug() << "Syncing";
+	// foreach treeitems
+	// 	emit syncData(item->vdatum)
+	TreeItem* thisItem;
+	for(int i = parentItem->childCount()-1; i >= 0; --i){
+		thisItem = parentItem->child(i);
+		if(thisItem->childCount() > 0){
+			sync(thisItem);
+		}else{
+			emit syncData(thisItem->toVDatum());
 		}
 	}
 }

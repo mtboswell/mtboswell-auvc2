@@ -9,6 +9,7 @@ ModuleHub::ModuleHub(AUVC_State_Data* stateIn, bool server, quint16 listenPort, 
 	connect(this, SIGNAL(messageBroadcast(VDatum)), srv, SLOT(sendVDatum(VDatum)));
 
 	connect(srv, SIGNAL(connectionRestored(QTime)), state, SLOT(sync(QTime)));
+	connect(srv, SIGNAL(syncData()), state, SLOT(sync()));
 	connect(state, SIGNAL(syncData(VDatum)), srv, SLOT(sendVDatum(VDatum)));
 
 	connect(state, SIGNAL(dataEdited(VDatum)), this, SLOT(editIn(VDatum)));
@@ -99,5 +100,6 @@ void ModuleHub::editIn(VDatum msg){
 }
 
 void ModuleHub::reconnect(){
-	srv->sync(QTime::currentTime().addSecs(-300));
+	//srv->sync(QTime::currentTime().addSecs(-300));
+	srv->sync();
 }
