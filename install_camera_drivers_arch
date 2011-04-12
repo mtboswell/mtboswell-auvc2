@@ -1,0 +1,4 @@
+#! /bin/bash
+mkdir /etc/init.d/
+./ueyesdk-setup-3.70r1-usb-i686.gz.run
+cp /etc/init.d/ueyeusbdrc /etc/rc.d/ueyeusbdrc
