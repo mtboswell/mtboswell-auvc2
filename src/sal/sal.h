@@ -60,7 +60,6 @@ class SAL: public Module
 		void step();	//calls setData(id string, driver->getData());
 		void init();
 	private:
-		QMap<QString, QString>* config;
 		OS5000* os5000;		//connect in constructor
 		Maestro* maestro;	//this too
 		Microstrain* microstrain;	//old, will need to be included in step()

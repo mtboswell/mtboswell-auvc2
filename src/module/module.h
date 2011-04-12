@@ -112,7 +112,7 @@ class Module : public QThread
 		 */
 		QTime timestamp(QString ID);
 
-		// config variable pointer
+		// config variable 
 		QMap<QString, QString> config;
 		// timer for step function
 		QTimer* stepTimer;
@@ -197,7 +197,7 @@ class GuiModule : public QMainWindow
 		double doubleValue(QString ID);
 		QString stringValue(QString ID);
 
-		/// config variable pointer
+		/// config variable 
 		QMap<QString, QString> config;
 		/// timer for step function
 		QTimer* stepTimer;
