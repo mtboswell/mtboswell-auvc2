@@ -33,12 +33,12 @@ Camera::Camera(CameraParams* paramsIn, QObject* parent)
 	
 	// stepTimer is used to poll stateData for changes in camera settings (unimplemented)
 	//stepTimer->setInterval(3000)
-	init();
-	
-	//start the timer to capture frames
-	timer = new QTimer(this);
-	timer->start(1000/(params->fps));
-	QObject::connect(timer, SIGNAL(timeout()), this, SLOT(step()));
+	if (init()) {
+		//start the timer to capture frames
+		timer = new QTimer(this);
+		timer->start(1000/(params->fps));
+		QObject::connect(timer, SIGNAL(timeout()), this, SLOT(step()));
+	}
 	
 }
 
@@ -107,7 +107,7 @@ void Camera::step()
 }
 
 // Initializes the camera and creates an event loop to handle events.
-void Camera::init()
+bool Camera::init()
 {
 		
 	// Set the size of the image in pixels
@@ -123,6 +123,7 @@ void Camera::init()
 	if (nRet != IS_SUCCESS)
 	{
 		qDebug() << "Failed to initialize camera";
+		return false;
 	}
 	else  //This step in initalization only happens on a succesful connection
 	{
@@ -162,6 +163,7 @@ void Camera::init()
 		// Linux)
 		
 		is_SetDisplayMode (m_hCam, IS_SET_DM_DIB);
+		return true;
 	}
 	
 }

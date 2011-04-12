@@ -47,7 +47,7 @@ class Camera : public QObject
 		
 	private:
 		
-		void init();
+		bool init();
 		HIDS m_hCam;
 		int m_nRenderMode, m_lMemoryID, m_nSizeX, m_nSizeY, m_nBitsPerPixel;
 		char* m_pcImageMemory;
