@@ -1,0 +1,39 @@
+-- All -----------------------------------------------------------
+Generic:
+Compiler
+Qt4
+
+Ubuntu:
+build-essential
+libqt4-dev
+qt4-*
+
+Arch:
+
+Windows:
+Qt SDK
+
+-- Agent ---------------------------------------------------------
+Generic:
+OpenCV/HighGUI
+Matlab/Simulink RTW
+
+Ubuntu:
+libcv
+libhighgui
+xawtv (legacy)
+Matlab
+
+Windows:
+Matlab
+
+-- Dashboard -----------------------------------------------------
+Generic:
+qwt
+
+Ubuntu:
+libqwt5-qt4-dev
+
+Arch:
+libqwt?
+
