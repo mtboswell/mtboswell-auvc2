@@ -53,6 +53,9 @@ class VDataSocket : public QObject {
 		 * Params are last data to be not sent.
 		 */
 		void remoteNotResponding();
+		
+		/// signal to re-broadcast all data
+		void syncData();
 
 	public slots:
 		/** 
@@ -72,10 +75,16 @@ class VDataSocket : public QObject {
 		 */
 		void setAckTimeout(int msec);
 
+		// hold outgoing messages until flush() is called
 		void buffer();
+		// release/send buffered outgoing messages
 		void flush();
+		// trigger remote to send all data
 		void sync();
-		void sync(QTime);
+		// ask remote for all data updated since time arg
+		void sync(QTime since);
+		// attempt to contact remote host
+		void reconnect();
 
 	private slots:
 		void sendDatagram(QByteArray out, bool resend = false);

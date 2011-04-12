@@ -77,12 +77,19 @@ void VDataSocket::sendDatagram(QByteArray out, bool force) {
 	}
 }
 
+// called by dashboard
 void VDataSocket::sync(){
-	timeLostConn = QTime::currentTime().addSecs(-300);
-	sendDatagram("Connect", true);
+	sendDatagram("Update:All", true);
 }
 void VDataSocket::sync(QTime last){
 	timeLostConn = last;
+	QByteArray updateDat = "Update:";
+	updateDat.append(timeLostConn.toString("hh:mm:ss.zzz"));
+	sendDatagram(updateDat);
+}
+
+void VDataSocket::reconnect(){
+	timeLostConn = QTime::currentTime();
 	sendDatagram("Connect", true);
 }
 
@@ -122,8 +129,12 @@ void VDataSocket::handlePendingDatagrams() {
 				m_Sock.writeDatagram(datagram, m_remoteAddr, senderPort);
 				if(datagram.startsWith("Update:")){
 					datagram = datagram.right(datagram.size()-7);
-					timeLostConn = QTime::fromString(datagram, "hh:mm:ss.zzz");
-					emit connectionRestored(timeLostConn);
+					if(datagram == "All"){
+						emit syncData();
+					}else{
+						timeLostConn = QTime::fromString(datagram, "hh:mm:ss.zzz");
+						emit connectionRestored(timeLostConn);
+					}
 				}
 			}
 
