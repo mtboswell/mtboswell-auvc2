@@ -53,8 +53,8 @@ void SAL::init(){
 		forwardParams->pixelclock = (config)["Camera.Forward.pixelclock"].toInt();
 		forwardParams->identity = (config)["Camera.Forward.identity"].toInt();
 		forwardParams->serial = (config)["Camera.Forward.serial"];
-		forwardParams->serial = (config)["Camera.Forward.port"];
-
+		forwardParams->port = (config)["Camera.Forward.port"].toInt();
+		qDebug() << "Camera.Forward.pixelclock" << forwardParams->pixelclock;
 		forwardCamera = new Camera(forwardParams, this);
 		QObject::connect(forwardCamera, SIGNAL(dataReady(VDatum)), this, SLOT(setData(VDatum)));
 		
