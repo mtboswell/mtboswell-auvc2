@@ -102,6 +102,8 @@ class TreeModel : public QAbstractItemModel
 	public slots:
 		void setData(QString name, QVariant value, QTime timestamp = QTime::currentTime(), bool available = true, QVariant meta = QVariant());
 		void setData(VDatum datum);
+		void sync();
+		void sync(TreeItem* parent);
 		void sync(QTime fromWhen, TreeItem* parent);
 		void sync(QTime fromWhen);
 
@@ -116,6 +118,7 @@ class TreeModel : public QAbstractItemModel
 
 		void setupModelData(const QStringList &lines, TreeItem *parent);
 		TreeItem *getItem(const QModelIndex &index) const;
+		TreeItem *getItem(QString name);
 		TreeItem *getItem(QString name, TreeItem* parentItem);
 
 		TreeItem *rootItem;
