@@ -29,7 +29,7 @@
  };
 
 /**
- * Camera Module.
+ * Camera Driver.
  */
 class Camera : public QObject
 {
