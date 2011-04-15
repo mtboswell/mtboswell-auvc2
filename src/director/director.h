@@ -4,6 +4,11 @@
 #include "../state/treemodel/treemodel.h"
 #include "../state/state.h"
 #include "../module/module.h"
+#include "stateImpl/BaseState.h"
+#include "stateImpl/DefaultState.h"
+
+class BaseState;
+class DefaultState;
 
 /*
  *  The director determines the AUV's state by listening to AUV data and making decisions
@@ -20,10 +25,17 @@ class director : public Module
 			sub << "";
 			return sub;
 		}
+                void process();
+                void changeState(BaseState *);
+                void run();
 	protected slots:
                 void dataIn(VDatum datum);
-                void doSomething();
+
+
 	private slots:
+
+        private:
+                BaseState *currentState;
 };
 
 
