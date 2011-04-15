@@ -4,7 +4,7 @@
 #include "../state/state.h"
 #include "../state/vdatum.h"
 #include "../module/modulehub.h"
-
+#include <QDebug>
 
 int main(int argc, char *argv[])
 {
@@ -15,6 +15,6 @@ int main(int argc, char *argv[])
 
     director d(&config, &stateData);
 
-
+    qDebug() << "Blocking" << "\n";
     return a.exec();
 }
