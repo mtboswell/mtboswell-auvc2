@@ -25,7 +25,7 @@
   **/
  struct CameraParams {
 	int x, y, pixelclock, fps, port, identity; // identity: 0 for forward camera, 1 for downward camera
-	QString serial; // camera serial number to connect to 
+	QString serial, address; // camera serial number to connect to 
  };
 
 /**

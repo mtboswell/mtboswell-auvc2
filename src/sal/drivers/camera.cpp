@@ -13,7 +13,7 @@ Camera::Camera(CameraParams* paramsIn, QObject* parent)
 	
 	//initialization for QudpSocket and QImageWriter
 	videoSocket = new QUdpSocket();
-	videoSocket->connectToHost(QHostAddress::LocalHost, params->port);
+	videoSocket->connectToHost(QHostAddress(params->address), params->port);
 	videoOut = new QImageWriter(videoSocket, "jpeg");
 	videoOut->setQuality(70);
 	
