@@ -19,7 +19,8 @@ HEADERS += \
     director.h \
     ../module/module.h ../state/treemodel/treemodel.h ../state/treemodel/treeitem.h ../misc/configloader.h \
     stateImpl/BaseState.h \
-    stateImpl/DefaultState.h
+    stateImpl/DefaultState.h \
+    TransitionComparator.h
 
 SOURCES += \
     main.cpp \
