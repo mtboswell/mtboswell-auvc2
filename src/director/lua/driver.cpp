@@ -1,3 +1,7 @@
+/*	STANDALONE DRIVER TO TEST IF THE LUA C PROGRAM IS PARSING THE CORRECT VALUES
+ *
+ */
+
 #include "QueryLua.h"
 #include <iostream>
 #include <QDebug>
@@ -12,6 +16,8 @@ int main ()
 	ql->init(filename);
 	QList<State> states = ql->queryStates();
 	
+	
+	// Print out contents of structs
 	for (int i = 0; i < states.size(); ++i)
 	{
 		State s = states.at(i);
@@ -32,6 +38,7 @@ int main ()
 			qDebug() << "Trans. Label" << t.label;
 			qDebug() << "Trans. Operator" << t.cOperator;
 			qDebug() << "Trans. Value" << t.value;
+			qDebug() << "Trans. To" << t.to;
 		}
 		
 		qDebug();

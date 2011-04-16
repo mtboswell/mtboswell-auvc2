@@ -10,6 +10,7 @@ struct Transition
 	QString label;
 	QString	cOperator;	// comparison operator
 	QVariant value;	
+	QString to;
 };
 
 // defines an Options object
