@@ -1,4 +1,5 @@
 #include "director.h"
+#include "TransitionComparator.h"
 #include <QDebug>
 #include <QTimer>
 #include <iostream>
@@ -9,7 +10,8 @@ director::director(QMap<QString, QString> *configIn, AUVC_State_Data *stateIn, Q
 		: Module(configIn, stateIn, parent)
 {
     loadStateFile();
-    currentState = states.at(0).stateName;   // set the current state to the first entry
+    if (!states.isEmpty())
+        currentState = states.at(0).stateName;   // set the current state to the first entry
 }
 
 // Loads the states from auv.lua
@@ -19,7 +21,6 @@ void director::loadStateFile()
     char filename[256] = "auv.lua";
     l->init(filename);
     states = l->queryStates();
-
     delete l;
 }
 
@@ -33,31 +34,50 @@ void director::dataIn(VDatum datum)
         return;
 
     if (hasTransition(datum))
-        qDebug() << "A condition was hit... !!!";   // should transition to next state
+    {
+        setStateData(nextTransition());
+    }
 }
 
+
+// Calls setData, the parameters in setData are a state's Option objects
 void director::setStateData(QString stateName)
 {
-    for (int i = 0; i < states.size(); ++i)
+    qDebug() << "Transition to State: " << stateName;
+    QList<Option> opts = getOptions(stateName);
+    for (int i = 0; i < opts.size(); ++i)
     {
-        if (states.at(i).stateName == stateName)
-        {
-            qDebug() << "found a state with that name: " + stateName;
-            return;
-        }
+        qDebug() << "Attempting to Set: " << opts[i].label << " with " << opts[i].value;
+        QString label = opts[i].label;
+        QVariant value = opts[i].value;
+        setData(label, value);
     }
-
-    qDebug() << "NOT FOUND a state with that name: " + stateName;
 }
 
 /*  Retrieves the reference to stateName
  */
 const State& director::getState(QString stateName)
 {
-    for (int i = 0; i < states.size(); ++i)
+    try
     {
-        if (stateName == states[i].stateName)
-            return states[i];
+        for (int i = 0; i < states.size(); ++i)
+        {
+            if (stateName == states[i].stateName)
+                return states[i];
+        }
+        throw (0); // should not hit
+    }
+    catch (int i)
+    {
+        switch (i)
+        {
+        case 0:
+            qDebug() << "ERROR. Could not find a state with name: " + stateName;
+            exit(1);
+            break;
+        default:
+                break;
+        }
     }
 }
 
@@ -73,98 +93,33 @@ const QList<Option>& director::getOptions(QString stateName)
     return currState.options;
 }
 
-
 /*  Determines if the current vDatum has triggered a transition
- *
+ *  If TRUE:
+ *      Variable: QString transitionTo points to the next transition state
  */
 bool director::hasTransition(VDatum datum)
 {
     QString transitionID = datum.id;
     QList<Transition> tList = getTransitions(currentState);
-    qDebug() << "DIRECTOR HAS TRANSITION: " << transitionID;
 
     for (int i = 0; i < tList.size(); ++i)
     {
         if (transitionID == tList[i].label) // match, now test if the condition has been triggered
-        {
-            qDebug() << "FOUND A POSSIBLE MATCH";
-
-            if (isConditionTriggered(datum, tList[i]))
+            if (isConditionTriggered(datum, tList[i]))  // static function in TransitionComparator
             {
-                qDebug() << "FOUND A MATCH INDEED! YESSS!";
-                // transition
+                transitionTo = tList[i].to;
+                return true;
             }
-//            qDebug() << tList[i].label << tList[i].cOperator << tList[i].value << tList[i].to;
-            qDebug();
-        }
     }
-
     return false;
 }
 
-bool director::isConditionTriggered(VDatum datum, Transition t)
-{
-    QVariant::Type dType = datum.value.type();
-    QVariant::Type tType = t.value.type();
-
-    // Hackish solution for QVariant comparisons
-    if (tType != dType)
-    {
-        if (tType == QVariant::Double)
-            datum.value = datum.value.toDouble();
-        else if (tType == QVariant::Int)
-            datum.value = datum.value.toInt();
-        else if (tType == QVariant::String)
-            datum.value = datum.value.toString();
-    }
-
-    if (t.cOperator == ">")
-    {
-        if (t.value > datum.value)
-            return true;
-    }
-    else if (t.cOperator == "<")
-    {
-        if (t.value < datum.value)
-            return true;
-    }
-    else if (t.cOperator == "==")
-    {
-        if (t.value == datum.value)
-            return true;
-    }
-    else if (t.cOperator == ">=")
-    {
-        if (t.value >= datum.value)
-            return true;
-    }
-    else if (t.cOperator == "<=")
-    {
-        if (t.value <= datum.value)
-            return true;
-    }
-    else if (t.cOperator == "!=")
-    {
-        if (t.value != datum.value)
-            return true;
-    }
-
-    return false;
-}
-
+// Returns the next state, assuming hasTransition() returned true
 QString director::nextTransition()
 {
-
-}
-
-void director::setTransitions(QString stateName)
-{
-
-}
-
-void director::transitionToState(QString stateName)
-{
-
+    if (!transitionTo.isEmpty() || transitionTo != NULL)
+        return transitionTo;
+    return NULL;
 }
 
 void director::step()

@@ -34,13 +34,16 @@ state =
 	Command = "Target";
 	Options =
 	{
-		count = 2;
+		count = 3;
 		
 		o1_label = "Target.DesiredHeading22222";
 		o1_value = 2.3;
 		
 		o2_label = "Target.Type";
 		o2_value = "Buoy";
+		
+		o3_label = "Position.Depth";
+		o3_value = 96;
 	};
 	
 	Transitions =

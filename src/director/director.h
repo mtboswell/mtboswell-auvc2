@@ -37,17 +37,15 @@ class director : public Module
 
                 bool    hasTransition(VDatum datum);
                 QString nextTransition();
-                bool isConditionTriggered(VDatum datum, Transition t);
-
-                void setTransitions(QString stateName);
-                void transitionToState(QString stateName);
-                void setStateData(QString stateName);    // calls setData() with parameters based on the current state
+                void setStateData(QString stateName);    // calls setData() with parameters based on stateName's Option objects
 
 	private slots:
 
         private:
                 QString currentState;
                 QList<State> states;    // contains all possible states, as delineated in the auv.lua file
+
+                QString transitionTo;   // a QString that represents the name of a state, updated in hasTransition()
 };
 
 #endif
