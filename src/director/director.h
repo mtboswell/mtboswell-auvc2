@@ -4,15 +4,12 @@
 #include "../state/treemodel/treemodel.h"
 #include "../state/state.h"
 #include "../module/module.h"
-#include "stateImpl/BaseState.h"
-#include "stateImpl/DefaultState.h"
+#include "lua/QueryLua.h"
+#include "lua.hpp"
 
-class BaseState;
-class DefaultState;
-
-/*
+/*  @author Carlo del Mundo @date 4-15-2011
  *  The director determines the AUV's state by listening to AUV data and making decisions
- *  based on its current state.  State change can also be invoked by built-in timers.
+ *  based on its current state (VDatum).  State change can also be invoked by built-in timers.
  */
 class director : public Module
 {
@@ -22,22 +19,36 @@ class director : public Module
                 QStringList subscriptions()
                 {
 			QStringList sub;
-			sub << "";
+                        sub << "Orientation.Heading";
 			return sub;
 		}
                 void process();
-                void changeState(BaseState *);
-                void run();
+                void loadStateFile();   // parses the auv.lua file
+
+                // getter functions -- for convenience
+                const State& getState(QString stateName);
+                const QList<Transition>& getTransitions(QString stateName);
+                const QList<Option>& getOptions(QString stateName);
+
 	protected slots:
                 void dataIn(VDatum datum);
+                void init();
+                void step();
 
+                bool    hasTransition(VDatum datum);
+                QString nextTransition();
+                bool isConditionTriggered(VDatum datum, Transition t);
+
+                void setTransitions(QString stateName);
+                void transitionToState(QString stateName);
+                void setStateData(QString stateName);    // calls setData() with parameters based on the current state
 
 	private slots:
 
         private:
-                BaseState *currentState;
+                QString currentState;
+                QList<State> states;    // contains all possible states, as delineated in the auv.lua file
 };
-
 
 #endif
 

@@ -6,6 +6,7 @@
 
 QT       += core network
 
+LIBS    +=  -llua
 #QT       -= gui
 
 TARGET = ../../director

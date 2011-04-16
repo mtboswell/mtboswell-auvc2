@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     loadConfigFile(config);
     AUVC_State_Data stateData;
 
-    director d(&config, &stateData);
+//    director d(&config, &stateData);
 
     qDebug() << "Blocking" << "\n";
     return a.exec();

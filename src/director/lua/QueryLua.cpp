@@ -116,6 +116,17 @@ QList<Transition> QueryLua::getTransition(int index)
 			t.value = lua_tostring(pmLuaState, -1);
 		lua_pop(pmLuaState, 1);
 		
+		std::stringstream ss4;
+		ss4 << "t" << i << "_to";
+		lua_pushstring(pmLuaState, ss4.str().c_str());
+		lua_gettable(pmLuaState, -2);
+		
+		if (!lua_isstring(pmLuaState, -1))
+			std::cerr << "ERROR. Expecting a string, but did not get it for states[index].Transition.t<index>_to" << std::endl;
+		else
+			t.to = lua_tostring(pmLuaState, -1);
+		lua_pop(pmLuaState, 1);
+		
 		list.push_back(t);
 	}
 	
