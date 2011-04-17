@@ -5,6 +5,14 @@
 
 #include "director.h"
 
+/*
+ *  TransitionComparator
+ *
+ *  Compares two QVariants by casting them to Transition.value.type().
+ *  The comparison operator is stored in the Transition object.
+ *
+ *  There might be a more elegant way to do this.
+ */
 bool static isConditionTriggered(VDatum, Transition);   // function header
 
 bool static isConditionTriggered(VDatum datum, Transition t)
