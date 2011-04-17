@@ -14,7 +14,7 @@ director::director(QMap<QString, QString> *configIn, AUVC_State_Data *stateIn, Q
         currentState = states.at(0).stateName;   // set the current state to the first entry
 }
 
-// Loads the states from auv.lua
+// Loads the states from filename, auv.lua in present working directory
 void director::loadStateFile()
 {
     QueryLua *l = new QueryLua();
@@ -34,9 +34,7 @@ void director::dataIn(VDatum datum)
         return;
 
     if (hasTransition(datum))
-    {
         setStateData(nextTransition());
-    }
 }
 
 
@@ -44,6 +42,9 @@ void director::dataIn(VDatum datum)
 void director::setStateData(QString stateName)
 {
     qDebug() << "Transition to State: " << stateName;
+
+    // TODO: undo previous values of currentState
+
     QList<Option> opts = getOptions(stateName);
     for (int i = 0; i < opts.size(); ++i)
     {
@@ -54,8 +55,7 @@ void director::setStateData(QString stateName)
     }
 }
 
-/*  Retrieves the reference to stateName
- */
+//  Retrieves the reference variable given QString stateName
 const State& director::getState(QString stateName)
 {
     try

@@ -16,14 +16,9 @@ CONFIG   -= app_bundle
 TEMPLATE = app
 
 HEADERS += \
-    director.h \
+    director.h TransitionComparator.h lua/QueryLua.h \
     ../module/module.h ../state/treemodel/treemodel.h ../state/treemodel/treeitem.h ../misc/configloader.h \
-    stateImpl/BaseState.h \
-    stateImpl/DefaultState.h \
-    TransitionComparator.h
 
 SOURCES += \
-    main.cpp \
-    director.cpp \
+    main.cpp director.cpp lua/QueryLua.cpp \
     ../module/module.cpp ../state/treemodel/treemodel.cpp ../state/treemodel/treeitem.cpp ../misc/configloader.cpp \
-    stateImpl/DefaultState.cpp
