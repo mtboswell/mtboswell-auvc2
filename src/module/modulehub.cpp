@@ -4,7 +4,12 @@
 ModuleHub::ModuleHub(AUVC_State_Data* stateIn, bool server, quint16 listenPort, quint16 remotePort){
 	state = stateIn;
 	// connect up server to state data
-	srv = new VDataSocket(listenPort, remotePort, server, QHostAddress::LocalHost);
+	if(server){
+		srv = new VDataSocket(listenPort, remotePort, server, QHostAddress("192.168.3.2"));
+	}
+	else{
+		srv = new VDataSocket(listenPort, remotePort, server, QHostAddress("192.168.3.5"));
+	}
 	connect(srv, SIGNAL(datumReceived(VDatum, QHostAddress)), this, SLOT(messageIn(VDatum)));
 	connect(this, SIGNAL(messageBroadcast(VDatum)), srv, SLOT(sendVDatum(VDatum)));
 
