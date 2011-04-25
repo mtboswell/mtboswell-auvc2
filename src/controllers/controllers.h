@@ -18,6 +18,7 @@ class Controllers : public SimulinkModule
 		QStringList subscriptions(){
 			QStringList sub;
 			//sub << ""; // subscribe to all
+			sub << "Mode";
 			return sub;
 		}
 	public slots:
@@ -28,7 +29,7 @@ class Controllers : public SimulinkModule
 	//	void move(heading, depth, fwd, strafe, timeout = inf);
 	//	void track(object, down/fwd, bool maintainHeading, align=long/short, int approachSpeed);
 	//	void surface();
-//		void dataIn(VDatum message);
+		void dataIn(VDatum message);
 
 	signals:
 		void statusChanged();
@@ -61,6 +62,7 @@ class Controllers : public SimulinkModule
 		double approachSpeed;
 		double alignAngle;
 		*/
+		bool stopped;
 };
 
 #endif
