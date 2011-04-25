@@ -63,6 +63,15 @@ void SAL::init(){
 		heading = 0;
 	}else{
 	
+		//Connect the microstrain and the os5000 to the system
+
+		//os5000 = new OS5000("");			//takes in serial port name as a string
+		microstrain = new Microstrain("/dev/ttyS0");	//takes in dev
+		
+		
+		//QObject::connect(os5000, SIGNAL(compassDataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
+		QObject::connect(microstrain, SIGNAL(dataReady(VDatum)), this, SLOT(setData(VDatum)));
+	
 		//The maestro is created here and its dataReady SIGNAL (which is called when it has new sensor
 		//data) is connceted to the setData SLOT of the SAL which is in charge of forwarding that data to the
 		//stateData.  At this point I feel I should note that there are actually two versions of setData
@@ -84,6 +93,7 @@ void SAL::init(){
 		forwardParams->serial = (config)["Camera.Forward.serial"];
 		forwardParams->port = (config)["Camera.Forward.port"].toInt();
 		forwardParams->address = (config)["Camera.Forward.address"];
+		forwardParams->quality = (config)["Camera.Forward.quality"].toInt();
 		
 		//here the camera is created and passed the paramaters and is connected up
 		forwardCamera = new Camera(forwardParams, this);
@@ -100,6 +110,7 @@ void SAL::init(){
 		downParams->serial = (config)["Camera.Down.serial"];
 		downParams->port = (config)["Camera.Down.port"].toInt();
 		downParams->address = (config)["Camera.Down.address"];
+		downParams->quality = (config)["Camera.Down.quality"].toInt();
 
 		downCamera = new Camera(downParams, this);
 		QObject::connect(downCamera, SIGNAL(dataReady(VDatum)), this, SLOT(setData(VDatum)));

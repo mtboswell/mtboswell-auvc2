@@ -48,6 +48,7 @@ Camera.Forward.fps=10;
 Camera.Forward.pixelclock=12;
 Camera.Forward.identity=2;
 Camera.Forward.serial=4002761437;
+Camera.Forward.quality=70;
 Camera.Forward.port=5566;
 Camera.Forward.address=192.168.3.2;
 #Camera.Forward.address=127.0.0.1;
@@ -58,9 +59,10 @@ Camera.Down.fps=10;
 Camera.Down.pixelclock=12;
 Camera.Down.identity=3;
 Camera.Down.serial=4002761434;
+Camera.Down.quality=70;
 Camera.Down.port=5567;
 Camera.Down.address=192.168.3.2;
-#Camera.Forward.address=127.0.0.1;
+#Camera.Down.address=127.0.0.1;
 
 
 # Mechanisms

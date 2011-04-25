@@ -30,11 +30,13 @@ void VDataSocket::setRemoteAddr(QString addr, quint16 port){
 }
 
 void VDataSocket::sendVDatum(VDatum message, bool critical) {
-	m_outBuffer.append("VDatum");
-	m_outBuffer.append(serializeVDatum(message));
-	if(!m_buffer) {
-		sendDatagram(m_outBuffer, critical);
-		m_outBuffer.clear();
+	if (message.id != "Camera.Downward.Frame" && message.id != "Camera.Forward.Frame") {
+		m_outBuffer.append("VDatum");
+		m_outBuffer.append(serializeVDatum(message));
+		if(!m_buffer) {
+			sendDatagram(m_outBuffer, critical);
+			m_outBuffer.clear();
+		}
 	}
 }
 

@@ -20,14 +20,14 @@ INCLUDEPATH += . \
 	       .. \
 	       /usr/include/qt4 \
 # for Ubuntu:
-#	       /usr/include/qwt-qt4
+	       /usr/include/qwt-qt4
 # for Arch:
-	       /usr/include/qwt
+#	       /usr/include/qwt
 
 # for Ubuntu:
-#LIBS += -lqwt-qt4
+LIBS += -lqwt-qt4
 # for Arch:
-LIBS += -lqwt
+#LIBS += -lqwt
 
 
 # Input
