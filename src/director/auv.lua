@@ -6,14 +6,14 @@ state =
 	{
 		count = 2;
 		
-		o1_label = "Target.DesiredHeading";
-		o1_value = 5;
+		o1_label = "Position.Depth";
+		o1_value = 333;
 		
 		o2_label = "Target.Type";
 		o2_value = "Buoy";
 	};
 	
-	Transitions =
+	TriggerTransitions =
 	{
 		count = 2;
 		
@@ -27,6 +27,17 @@ state =
 		t2_value = 55;
 		t2_to = "STOP";
 	};
+
+	TimerTransitions =
+	{
+		count = 1;
+		
+		t1_to = "SomeOtherState";
+		t1_time = 13200; -- 13.2 seconds
+		
+--		t2_to = "STOP";
+--		t2_time = 10422;	-- 10.422 seconds
+	};
 };
 addState(state);
 
@@ -36,31 +47,37 @@ state =
 	Command = "Target";
 	Options =
 	{
-		count = 3;
+		count = 2;
 		
-		o1_label = "Target.DesiredHeading22222";
-		o1_value = 2.3;
+		o1_label = "Position.Depth";
+		o1_value = 999;
 		
 		o2_label = "Target.Type";
 		o2_value = "Buoy";
-		
-		o3_label = "Position.Depth";
-		o3_value = 996;
 	};
 	
-	Transitions =
+	TriggerTransitions =
 	{
 		count = 2;
 		
-		t1_label = "Target.LOL";
-		t1_operator = "<";
-		t1_value = 5;
+		t1_label = "Orientation.Heading";
+		t1_operator = ">";
+		t1_value = 100;
 		t1_to = "DriveForward";
+		t1_timeEnable = 5000;	-- 5 seconds
 		
 		t2_label = "Target.IDK";
 		t2_operator = "<";
 		t2_value = 3;
 		t2_to = "STOP";
+	};
+	
+	TimerTransitions =
+	{
+		count = 1;
+		
+		t1_to = "DriveForward";
+		t1_time = "3300";
 	};
 };
 addState(state);

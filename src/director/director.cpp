@@ -5,21 +5,145 @@
 #include <iostream>
 #include <QVector4D>
 #include <QVariant>
+#include <QFile>
+#include <QDir>
+#include <QStringList>
+#include <QColorDialog>
 
 director::director(QMap<QString, QString> *configIn, AUVC_State_Data *stateIn, QObject *parent)
 		: Module(configIn, stateIn, parent)
 {
     loadStateFile();
     if (!states.isEmpty())
+    {
         currentState = states.at(0).stateName;   // set the current state to the first entry
+        updateEnableList(currentState);
+        startTriggerTimers(currentState);
+        startAutoTimers(currentState);
+    }
+
+    connect (&signalMapper, SIGNAL(mapped(int)), this, SLOT(enableTransition(int)));
+    connect (&signalMapper, SIGNAL(mapped(QString)), this, SLOT(setStateData(QString)));
+//    QTimer *myT = new QTimer(this);
+//    connect(myT, SIGNAL(timeout()), this, SLOT(debug()));
+//    myT->start(2000);
 }
 
-// Loads the states from filename, auv.lua in present working directory
+//void director::debug()
+//{
+//    if (!enableList.isEmpty())
+//        qDebug() << "enableList[0] for currState: " << enableList[0];
+//}
+
+// @param int t     the index of the currentState's transition object.
+void director::enableTransition(int t)
+{
+    if (t > enableList.size() - 1)
+        return;
+    enableList[t] = true;
+}
+
+director::~director()
+{
+    // delete pending timers
+    for (int i = 0; i < triggerTimers.size(); ++i)
+        delete triggerTimers[i];
+
+    for (int i = 0; i < autoTimers.size(); ++i)
+        delete autoTimers[i];
+}
+
+void director::updateEnableList(QString stateName)
+{
+    enableList.clear();
+    QList<TriggerTransition> transition = getTriggerTransitions(stateName);
+    for (int i = 0; i < transition.size(); ++i)
+    {
+        int timeEnable = transition[i].timeEnable;
+        if (timeEnable != 0)
+            enableList.append(false);
+        enableList.append(true);
+    }
+}
+
+// After timeEnable seconds, a TriggerTransition becomes legal.
+// QTimers are created dynamically to determine which TriggerTransition objects are legal
+//      A TriggerTransition object is legal if timeEnable seconds have elapsed where t = 0
+//      corresponds to the time the state was set.
+void director::startTriggerTimers(QString stateName)
+{
+    // delete all timers
+    for (int i = 0; i < triggerTimers.size(); ++i)
+        delete triggerTimers[i];
+    triggerTimers.clear();
+
+    QList<TriggerTransition> transition = getTriggerTransitions(stateName);
+    for (int i = 0; i < transition.size(); ++i)
+    {
+        int timeEnable = transition[i].timeEnable;
+
+        if (timeEnable != 0)
+        {
+            QTimer *timer = new QTimer(this);
+            timer->setSingleShot(true);
+            timer->start(transition[i].timeEnable);
+            triggerTimers.append(timer);   // add to the list of timers
+
+            connect(timer, SIGNAL(timeout()), &signalMapper, SLOT(map()));
+            signalMapper.setMapping(timer, i);  // associate this timer to the index value
+            qDebug() << "       Started a Timer with time: " << transition[i].timeEnable;
+        }
+    }
+}
+
+// TimerTransition objects automatically transitions to a new state after time seconds
+void director::startAutoTimers(QString stateName)
+{
+    // delete old timers
+    for (int i = 0; i < autoTimers.size(); ++i)
+        delete autoTimers[i];
+    autoTimers.clear();
+
+    QList<TimerTransition> autoTransition = getTimerTransitions(stateName);
+    for (int j = 0; j < autoTransition.size(); ++j)
+    {
+        int time = autoTransition[j].time;
+        QString toState = autoTransition[j].to;
+
+        QTimer *timer = new QTimer(this);
+        timer->setSingleShot(true);
+        timer->start(time);
+        autoTimers.append(timer);   // add to the list of timers
+        connect(timer, SIGNAL(timeout()), &signalMapper, SLOT(map()));
+        signalMapper.setMapping(timer, toState);
+        qDebug() << "       Started an AutoTimer with time: " << time;
+    }
+}
+
+// Attempts to load the file from a variety of locations
 void director::loadStateFile()
 {
     QueryLua *l = new QueryLua();
-    char filename[256] = "auv.lua";
-    l->init(filename);
+    QStringList candidates;
+    QFile f;
+    QString match = "";
+
+    candidates << "../src/director/auv.lua"
+            << "src/director/auv.lua"
+            << "../auv.lua"
+            << "auv.lua";
+    for (int i = 0; i < candidates.size(); ++i)
+    {
+        if (f.exists(candidates[i]))
+        {
+            match = candidates[i];
+            break;
+        }
+    }
+    qDebug() <<  "director::director.cpp PWD: " << QDir::currentPath();
+    qDebug() <<  "director::director.cpp Attempting to load lua file in " << match;
+    l->init(qPrintable(match));
+
     states = l->queryStates();
     delete l;
 }
@@ -33,6 +157,8 @@ void director::dataIn(VDatum datum)
     if (datum.id == "Thrusters")
         return;
 
+    qDebug() << "Datum came in: " << datum.id << "  " << datum.value;
+    qDebug() << "Current State: " << currentState;
     if (hasTransition(datum))
         setStateData(nextTransition());
 }
@@ -41,18 +167,24 @@ void director::dataIn(VDatum datum)
 // Calls setData, the parameters in setData are a state's Option objects
 void director::setStateData(QString stateName)
 {
-    qDebug() << "Transition to State: " << stateName;
+    currentState = stateName;
+    qDebug() << "Transition to State: " << currentState;
+    qDebug() << "Max Time Enable: " << determineLongestTimeEnable(currentState);
 
     // TODO: undo previous values of currentState
 
-    QList<Option> opts = getOptions(stateName);
+    QList<Option> opts = getOptions(currentState);
     for (int i = 0; i < opts.size(); ++i)
     {
-        qDebug() << "Attempting to Set: " << opts[i].label << " with " << opts[i].value;
+        qDebug() << "director:: Attempting to Set: " << opts[i].label << " with " << opts[i].value;
         QString label = opts[i].label;
         QVariant value = opts[i].value;
         setData(label, value);
     }
+
+    updateEnableList(currentState);
+    startTriggerTimers(currentState);
+    startAutoTimers(currentState);
 }
 
 //  Retrieves the reference variable given QString stateName
@@ -72,7 +204,7 @@ const State& director::getState(QString stateName)
         switch (i)
         {
         case 0:
-            qDebug() << "ERROR. Could not find a state with name: " + stateName;
+            qDebug() << "director:: ERROR. Could not find a state with name: " + stateName;
             exit(1);
             break;
         default:
@@ -81,10 +213,30 @@ const State& director::getState(QString stateName)
     }
 }
 
-const QList<Transition>& director::getTransitions(QString stateName)
+const QList<TriggerTransition>& director::getTriggerTransitions(QString stateName)
 {
     State currState = getState(stateName);
-    return currState.transitions;
+    return currState.triggerTransitions;
+}
+
+const QList<TimerTransition>& director::getTimerTransitions(QString stateName)
+{
+    State currState = getState(stateName);
+    return currState.timerTransitions;
+}
+
+// Determines the longest "timeEnable" value in all Transition objects of the given state
+const int director::determineLongestTimeEnable(QString stateName)
+{
+    QList<TriggerTransition> list = getTriggerTransitions(stateName);
+    int max = 0;
+    for (int i = 0; i < list.size(); ++i)
+    {
+        if (max < list[i].timeEnable)
+            max = list[i].timeEnable;
+    }
+
+    return max;
 }
 
 const QList<Option>& director::getOptions(QString stateName)
@@ -99,17 +251,22 @@ const QList<Option>& director::getOptions(QString stateName)
  */
 bool director::hasTransition(VDatum datum)
 {
-    QString transitionID = datum.id;
-    QList<Transition> tList = getTransitions(currentState);
+    QList<TriggerTransition> tList = getTriggerTransitions(currentState);
 
     for (int i = 0; i < tList.size(); ++i)
     {
-        if (transitionID == tList[i].label) // match, now test if the condition has been triggered
-            if (isConditionTriggered(datum, tList[i]))  // static function in TransitionComparator
+        if (datum.id == tList[i].label) // match, now test if the condition has been triggered
+        {
+            // timeEnable == 0 is a check to see if this Transition is enabled
+            if (tList[i].timeEnable != 0 && !enableList[i])
+                qDebug() << "       Time enable " << tList[i].timeEnable << " for : " << tList[i].label;
+
+            if (enableList[i] && isConditionTriggered(datum, tList[i]))  // static function in TransitionComparator
             {
                 transitionTo = tList[i].to;
                 return true;
             }
+        }
     }
     return false;
 }

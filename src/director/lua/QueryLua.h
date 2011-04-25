@@ -4,13 +4,40 @@
 #include <QChar>
 #include <QVariant>
 
-// defines a Transition object
-struct Transition
+// defines a TriggerTransition object
+struct TriggerTransition
 {
         QString label;          // e.g.:    "Orientation.Heading"
 	QString	cOperator;	// comparison operator
         QVariant value;         // e.g.:    3, 2.3, "Buoy"
         QString to;             // e.g.:    "STOPState"
+
+        int timeEnable;         //  the time (in milliseconds) it takes for this Transition object to be valid.
+                                    // 0 - the Transition object is valid for all t
+                                    // e.g.: if timeEnable = 5000, for t > 5 seconds, the Transition Object
+                                    // is legal (and therefore, we may transition if the condition is triggered)
+
+        TriggerTransition()    // default constructor
+        {
+            label = "";
+            cOperator = "";
+            value = "";
+            to = "";
+            timeEnable = 0;
+        }
+};
+
+// defines a TimerTransition object
+struct TimerTransition
+{
+        QString to;             // e.g.:    "STOPState"
+        int time;
+
+        TimerTransition()
+        {
+            to = "";
+            time = 0;
+        }
 };
 
 // defines an Options object
@@ -25,7 +52,8 @@ struct State
         QString stateName;      // e.g.:    "STOPState"
         QString command;        // e.g.:    "Target"
 	QList<Option>	options;
-	QList<Transition> transitions;
+	QList<TriggerTransition> triggerTransitions;
+	QList<TimerTransition> timerTransitions;
 };
 
 /*  QueryLua
@@ -41,12 +69,13 @@ class QueryLua
 		~QueryLua();
 		void loadFile();
 		bool loadBuffer(char *);
-		bool init(char *);
-		QList<Transition> getTransition(int index);
+		bool init(const char *);
+		QList<TriggerTransition> getTriggerTransition(int index);
+                QList<TimerTransition> getTimerTransition(int index);
 		QList<Option> getOption(int index);
 		State getState(int index);
 		QList<State> queryStates();
-
+		void printStack();
 	protected:
 		lua_State *pmLuaState;
 };
