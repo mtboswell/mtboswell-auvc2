@@ -50,6 +50,7 @@ Controllers::Controllers(QMap<QString, QString>* configIn, AUVC_State_Data* stat
 
 }
 void Controllers::init(){
+	stopped = false;
 	qDebug("Controllers thread id: %d", (int) QThread::currentThreadId());
 	stepTimer->start(20);
 }
@@ -102,21 +103,34 @@ void Controllers::step(){
 
 	MotionController_U.MaintainHeading = boolValue("TargetOptions.MaintainHeading");             
 
-	// step model
-	MotionController_step();
-
-	// set outputs
-
-	// vim cmd (as above)
-	// :s/  .*_T \(.*\);/state-> = MotionController_Y.\1;/
-
 	QVector4D thrusters;
-	thrusters.setW(MotionController_Y.LeftFwd);
-	thrusters.setX(MotionController_Y.LeftAngled);
-	thrusters.setY(MotionController_Y.RightAngled);
-	thrusters.setZ(MotionController_Y.RightFwd);
+	thrusters.setW(0);
+	thrusters.setX(0);
+	thrusters.setY(0);
+	thrusters.setZ(0);
+	
+	// step model
+	if (!stopped) {
+		MotionController_step();
+
+		// set outputs
+
+		// vim cmd (as above)
+		// :s/  .*_T \(.*\);/state-> = MotionController_Y.\1;/
+
+		thrusters.setW(MotionController_Y.LeftFwd);
+		thrusters.setX(MotionController_Y.LeftAngled);
+		thrusters.setY(MotionController_Y.RightAngled);
+		thrusters.setZ(MotionController_Y.RightFwd);
+	}
 
 	setData("Thrusters", thrusters);                      
+}
+
+void Controllers::dataIn(VDatum datum){
+	if(datum.id != "Mode") return;	
+	if(datum.value == "Stop") stopped = true;
+	else stopped = false;
 }
 
 
