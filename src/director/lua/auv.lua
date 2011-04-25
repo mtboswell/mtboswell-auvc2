@@ -7,17 +7,17 @@ state =
 		count = 2;
 		
 		o1_label = "Target.DesiredHeading";
-		o1_value = 5;
+		o1_value = 333;
 		
 		o2_label = "Target.Type";
 		o2_value = "Buoy";
 	};
 	
-	Transitions =
+	TriggerTransitions =
 	{
 		count = 2;
 		
-		t1_label = "Target.Hit";
+		t1_label = "Orientation.Heading";
 		t1_operator = "<";
 		t1_value = 23;
 		t1_to = "SomeOtherState";
@@ -26,6 +26,17 @@ state =
 		t2_operator = ">=";
 		t2_value = 55;
 		t2_to = "STOP";
+	};
+
+	TimerTransitions =
+	{
+		count = 2;
+		
+		t1_to = "SomeOtherState";
+		t1_time = 3200;
+		
+		t2_to = "STOP";
+		t2_time = 1422;
 	};
 };
 addState(state);
@@ -38,21 +49,22 @@ state =
 	{
 		count = 2;
 		
-		o1_label = "Target.DesiredHeading22222";
-		o1_value = 2.3;
+		o1_label = "Targed.DesiredHeading";
+		o1_value = 999;
 		
 		o2_label = "Target.Type";
 		o2_value = "Buoy";
 	};
 	
-	Transitions =
+	TriggerTransitions =
 	{
 		count = 2;
 		
-		t1_label = "Target.LOL";
+		t1_label = "Orientation.Heading";
 		t1_operator = "<";
 		t1_value = 5;
 		t1_to = "DriveForward";
+		t1_timeEnable = 10000;	-- 10 seconds
 		
 		t2_label = "Target.IDK";
 		t2_operator = "<";

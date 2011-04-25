@@ -27,18 +27,29 @@ int main ()
 		
 		for (int j = 0; j < s.options.size(); ++j)
 		{
-			Option o = s.options.at(j);			
+			Option o = s.options.at(j);
+			qDebug() << "\t" << "#" << j;			
 			qDebug() << "Option Label" << o.label;
 			qDebug() << "Option Value" << o.value;
 		}
 		
-		for (int k = 0; k < s.transitions.size(); ++k)
+		for (int k = 0; k < s.triggerTransitions.size(); ++k)
 		{
-			Transition t = s.transitions.at(k);
-			qDebug() << "Trans. Label" << t.label;
-			qDebug() << "Trans. Operator" << t.cOperator;
-			qDebug() << "Trans. Value" << t.value;
-			qDebug() << "Trans. To" << t.to;
+			TriggerTransition t = s.triggerTransitions.at(k);
+			qDebug() << "\t" << "#" << k;
+			qDebug() << "Trigger Trans. Label" << t.label;
+			qDebug() << "Trigger Trans. Operator" << t.cOperator;
+			qDebug() << "Trigger Trans. Value" << t.value;
+			qDebug() << "Trigger Trans. To" << t.to;
+			qDebug() << "Trigger Trans. timeEnable" << t.timeEnable;
+		}
+	
+		for (int l = 0; l < s.timerTransitions.size(); ++l)
+		{
+			qDebug() << "\t" << "#" << l;
+			TimerTransition t = s.timerTransitions.at(l);
+			qDebug() << "Timer Trans. To" << t.to;
+			qDebug() << "Timer Trans. Time" << t.time;
 		}
 		
 		qDebug();

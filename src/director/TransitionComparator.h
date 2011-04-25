@@ -13,9 +13,9 @@
  *
  *  There might be a more elegant way to do this.
  */
-bool static isConditionTriggered(VDatum, Transition);   // function header
+bool static isConditionTriggered(VDatum, TriggerTransition);   // function header
 
-bool static isConditionTriggered(VDatum datum, Transition t)
+bool static isConditionTriggered(VDatum datum, TriggerTransition t)
 {
     QVariant::Type tType = t.value.type();
 
