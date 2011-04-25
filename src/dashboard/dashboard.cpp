@@ -57,10 +57,10 @@ Dashboard::Dashboard(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn,
 	//connect(this, SIGNAL(setAddress(QString)), m_DS, SLOT(setRemoteAddr(QString)));
 
 	// video sockets setup
-	videoSocket = new VideoSocket((config)["Server.IP"], (config)["Server.Port.Video1"].toUInt(), (config)["Client.Port.Video1"].toUInt(), this);
-	bitmapSocket = new VideoSocket((config)["Server.IP"], (config)["Server.Port.Video2"].toUInt(), (config)["Client.Port.Video2"].toUInt(), this);
-	connect(videoSocket, SIGNAL(frameReady(QImage*)), this, SLOT(HandleVideoFrame(QImage*)));
-	connect(bitmapSocket, SIGNAL(frameReady(QImage*)), this, SLOT(HandleBitmapFrame(QImage*)));
+	//videoSocket = new VideoSocket((config)["Server.IP"], (config)["Server.Port.Video1"].toUInt(), (config)["Client.Port.Video1"].toUInt(), this);
+	//bitmapSocket = new VideoSocket((config)["Server.IP"], (config)["Server.Port.Video2"].toUInt(), (config)["Client.Port.Video2"].toUInt(), this);
+	//connect(videoSocket, SIGNAL(frameReady(QImage*)), this, SLOT(HandleVideoFrame(QImage*)));
+	//connect(bitmapSocket, SIGNAL(frameReady(QImage*)), this, SLOT(HandleBitmapFrame(QImage*)));
  	
 	// Populate State Combo Box
 	states << "Autonomous";
@@ -129,8 +129,8 @@ Dashboard::Dashboard(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn,
 	reconnectAction();
 
 	// start receiveing video
-	videoSocket->start();
-	bitmapSocket->start();
+	//videoSocket->start();
+	//bitmapSocket->start();
 
 	// setup idle timer for detection lost connections
 	timeSinceLastDataReceived = new QTime();
@@ -144,8 +144,8 @@ Dashboard::Dashboard(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn,
 
 Dashboard::~Dashboard(){
 	stopAction();
-	delete videoSocket;
-	delete bitmapSocket;
+	//delete videoSocket;
+	//delete bitmapSocket;
 	//delete m_DS;
 }
 
