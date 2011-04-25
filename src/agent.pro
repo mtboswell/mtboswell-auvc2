@@ -7,7 +7,7 @@ OBJECTS_DIR = tmp
 UI_DIR = tmp
 
 #LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
-LIBS +=  -lueye_api -llua
+LIBS +=  -lueye_api #-llua
 
 DEPENDPATH += . \
 
@@ -161,10 +161,10 @@ SOURCES += \
 
 # director ################################################
 HEADERS +=  \
-            director/director.h \
-            director/TransitionComparator.h \
-            director/lua/QueryLua.h
+#            director/director.h \
+#            director/TransitionComparator.h \
+#           director/lua/QueryLua.h
 
 SOURCES +=  \
-            director/director.cpp \
-            director/lua/QueryLua.cpp
+#            director/director.cpp \
+#            director/lua/QueryLua.cpp

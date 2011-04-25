@@ -20,7 +20,7 @@
 #include "controllers/controllers.h"
 #include "sal/sal.h"
 #include "actuators/actuators.h"
-#include "director/director.h"
+//#include "director/director.h"
 
 #include <QTreeView>
 
@@ -78,9 +78,9 @@ int main(int argc, char *argv[]){
 	Actuators* actuators = new Actuators(&config, &stateData);
 	hub.addModule(actuators);
 
-        qDebug() << "Creating Director";    // Must have Lua 5.1+ libs installed for director
-        director* dir = new director(&config, &stateData);
-        hub.addModule(dir);
+    //qDebug() << "Creating Director";    // Must have Lua 5.1+ libs installed for director
+    //director* dir = new director(&config, &stateData);
+    //hub.addModule(dir);
 
 	/* Start everything */
 	hub.initializeAndLaunchAllModules();

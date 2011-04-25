@@ -31,7 +31,7 @@ Camera::Camera(CameraParams* paramsIn, QObject* parent)
 	videoSocket = new QUdpSocket();
 	videoSocket->connectToHost(QHostAddress(params->address), params->port);
 	videoOut = new QImageWriter(videoSocket, "jpeg");
-	videoOut->setQuality(70);
+	videoOut->setQuality(params->quality);
 	
 	//This is the extention of the image file that is saved on the hard drive so you can always access the last
 	//taken image by the camera on the last exection.  A juvinille way to write a string I know but what the hell.
