@@ -20,6 +20,7 @@ director::director(QMap<QString, QString> *configIn, AUVC_State_Data *stateIn, Q
         updateEnableList(currentState);
         startTriggerTimers(currentState);
         startAutoTimers(currentState);
+        setData("Director.State", currentState);    // might want to just call setState(currentState) instead of these
     }
 
     connect (&signalMapper, SIGNAL(mapped(int)), this, SLOT(enableTransition(int)));
@@ -168,6 +169,10 @@ void director::dataIn(VDatum datum)
 void director::setStateData(QString stateName)
 {
     currentState = stateName;
+
+    setData("Director.State", currentState);
+    setData("Command", getState(currentState).command);
+
     qDebug() << "Transition to State: " << currentState;
     qDebug() << "Max Time Enable: " << determineLongestTimeEnable(currentState);
 
