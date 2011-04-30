@@ -37,7 +37,7 @@
  #include "maestro.h"
  #include "os5000.h"
  #include "camera.h"
-
+ #include <QTime>
 
 class SAL: public Module
 {
@@ -53,12 +53,16 @@ class SAL: public Module
 			QStringList sub;
 			//sub << "Command";
 			//sub << "TargetOptions";
+			sub << "DeadReckon.Heading";
+			sub << "Orientation.Heading";
 			return sub;
 		}
-//		void dataIn(VDatum datum);
+
 	private slots:
 		void step();	//calls setData(id string, driver->getData());
 		void init();
+		void dataIn(VDatum datum);
+		
 	private:
 		OS5000* os5000;		//connect in constructor
 		Maestro* maestro;	//this too
@@ -67,7 +71,12 @@ class SAL: public Module
 		Camera* downCamera;
 		CameraParams* forwardParams;
 		CameraParams* downParams;
-		
+		bool headingStable;
+		bool atHeading;
+		bool prevAtHeading;
+		int desiredHeading;
+		void checkStability(VDatum datum);
+		QTime headingTime;
 
 		// for sim
 		int heading;

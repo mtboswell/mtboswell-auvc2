@@ -62,6 +62,13 @@ void SAL::init(){
 		stepTimer->start(500);
 		heading = 0;
 	}else{
+		//these variables insist in helping the SAL determine if the robots heading is stable
+		headingStable = false;
+		atHeading = false;
+		prevAtHeading = false;
+		desiredHeading = intValue("Orientation.Heading");
+		setData("Orientation.Stable", false);
+		
 	
 		//Connect the microstrain and the os5000 to the system
 
@@ -117,5 +124,37 @@ void SAL::init(){
 	}
 
 }
+
+void SAL::dataIn(VDatum datum) {
+	if(datum.id == "DeadReckon.Heading"){
+		desiredHeading = datum.value.toInt();
+	}
+	else if( datum.id == "Orientation.Heading") {
+		checkStability(datum);
+	}
+}
+
+void SAL::checkStability(VDatum datum) {
+	//check if we are at heading
+	int heading = datum.value.toInt();
+	if (heading <= (desiredHeading + 2) && heading >= (desiredHeading - 2)) atHeading = true;
+	if (atHeading && !prevAtHeading) {
+		headingTime = datum.timestamp;
+		headingTime = headingTime.addSecs(2);
+	}
+	else if(atHeading && prevAtHeading) {
+		if (datum.timestamp > headingTime) {
+			setData("Orientation.Stable", true);
+			headingStable = true;
+		}
+	}
+	else if (!atHeading && headingStable) {
+			setData("Orientation.Stable", false);
+			headingStable = false;
+	}
+	prevAtHeading = atHeading;
+}
+
+
 
 #endif

@@ -7,7 +7,8 @@ OBJECTS_DIR = tmp
 UI_DIR = tmp
 
 #LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
-LIBS +=  -lueye_api -llua
+# llua-5.1
+LIBS +=  -lueye_api -llua5.1
 
 DEPENDPATH += . \
 
@@ -17,7 +18,8 @@ INCLUDEPATH += . \
 	     misc \
 	     sal/drivers \
 	     sal/drivers/qextserialport \
-	     controllers/src 
+	     controllers/src \
+	     /usr/include/lua5.1
 
 # Main ####################################################
 HEADERS += \
