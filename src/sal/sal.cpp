@@ -85,8 +85,8 @@ void SAL::init(){
 		//Both take a VDatum which is what needs to go to StateData but the Maestro actually outputs a list of
 		//VDatums instead of a single one.  Thats because there are lots of things plugged into the maestro so
 		//there is a seperate VDatum in the list for each one. :) random right?
-		//maestro = new Maestro(this);
-		//QObject::connect(maestro, SIGNAL(dataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
+		maestro = new Maestro(this);
+		QObject::connect(maestro, SIGNAL(dataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
 		
 		//initiate forward camera
 		//forwardParams is a CameraParams struct (defined in camera.h) and btw if you don't know what a struct

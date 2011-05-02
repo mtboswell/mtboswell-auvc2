@@ -22,16 +22,16 @@ void Maestro::step() {
 
 		QList<VDatum> list;
 		qDebug("Maestro capturing data in thread (SAL mode): %d", (int) QThread::currentThreadId());
-		//Querry channel 10....//
-		outData[1] = 0x0A;
+		//Querry channel 1....//
+		outData[1] = 0x01;
 		inData = device->sendQuery(outData, 2);
 		//convert maestro output and write to stateData
 		int dataValue = byteArrayToInt(inData);
 		VDatum element;
 		list.append(element);
-		list.last().id = "Channel 10";
+		list.last().id = "Position.Depth";
 		list.last().value = dataValue;
-		//End of channel 10 query...//
+		//End of channel 1 query...//
 		
 		//This debug line is part on an ongoing investigation into why the
 		//GUI hangs waiting for the query to return fron device->sendQuery.
