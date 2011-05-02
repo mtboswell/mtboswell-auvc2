@@ -1,5 +1,5 @@
 
-#define GUI
+//#define GUI
 
 #ifdef GUI
 #include <QApplication>
@@ -26,6 +26,8 @@
 
 
 static bool simulate = false;
+static bool thrustersON = true;
+static bool directorON = true;
 
 int main(int argc, char *argv[]){
 
@@ -41,6 +43,10 @@ int main(int argc, char *argv[]){
 		if(arg == "-s" || arg == "--simulate") simulate = true;
 		// -c triggers servo calibration mode.  See docs in auv/calibrateservos.h.
 //		else if(arg == "-c" || arg == "--calibrate-servos") return calibrateServos();
+		// if --no-thrusters in on then do not start actuator module
+		else if(arg == "--no-thrusters" || arg == "-T") thrustersON = false;
+		///if --no-director is on then do not start director module
+		else if (arg == "--no-director" || arg == "-D") directorON = false;
 		else if(arg == "-h"){
 			qDebug() << "Available Arguments:";
 			qDebug() << "\t-s or --simulate : disable hardware";
@@ -74,13 +80,16 @@ int main(int argc, char *argv[]){
 	SAL* sal = new SAL(&config, &stateData);
 	hub.addModule(sal);
 
-	qDebug() << "Creating Actuators";
-	Actuators* actuators = new Actuators(&config, &stateData);
-	hub.addModule(actuators);
-
-    qDebug() << "Creating Director";    // Must have Lua 5.1+ libs installed for director
-    director* dir = new director(&config, &stateData);
-    hub.addModule(dir);
+	if (thrustersON) {
+		qDebug() << "Creating Actuators";
+		Actuators* actuators = new Actuators(&config, &stateData);
+		hub.addModule(actuators);
+	}
+	if (directorON) {
+    		qDebug() << "Creating Director";    // Must have Lua 5.1+ libs installed for director
+    		director* dir = new director(&config, &stateData);
+ 	   	hub.addModule(dir);
+	}
 
 	/* Start everything */
 	hub.initializeAndLaunchAllModules();
