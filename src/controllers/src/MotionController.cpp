@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model MotionController.
  *
- * Model version                        : 1.79
+ * Model version                        : 1.82
  * Real-Time Workshop file version      : 7.6.1  (R2010bSP1)  28-Jan-2011
- * Real-Time Workshop file generated on : Sat Apr  2 13:41:47 2011
+ * Real-Time Workshop file generated on : Wed May 18 14:32:40 2011
  * TLC version                          : 7.6 (Jul 13 2010)
- * C/C++ source code generated on       : Sat Apr  2 13:41:47 2011
+ * C/C++ source code generated on       : Wed May 18 14:32:41 2011
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic
@@ -574,14 +574,14 @@ void MotionController_step(void)
   rtb_Error = MotionController_U.DesiredYaw - MotionController_U.MeasuredYaw;
 
   /* If: '<S5>/If' incorporates:
-   *  Abs: '<S5>/Abs'
    *  ActionPort: '<S7>/Action Port'
    *  ActionPort: '<S8>/Action Port'
+   *  Inport: '<Root>/MaintainHeading'
    *  SubSystem: '<S5>/Maintain Desired Yaw'
    *  SubSystem: '<S5>/Maintain Zero YawRate and Zero YVelocity'
    */
   rtPrevAction = MotionController_DWork.If_ActiveSubsystem;
-  if (fabs(rtb_Error) > 3.0) {
+  if (MotionController_U.MaintainHeading == 0) {
     rtAction = 0;
   } else {
     rtAction = 1;
