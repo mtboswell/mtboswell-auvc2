@@ -113,7 +113,7 @@ Model {
       Name		      "RightAngled"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.79"
+    ComputedModelVersion    "1.82"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -133,9 +133,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "boswell"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Apr  2 13:41:34 2011"
-  RTWModifiedTimeStamp	  223652430
-  ModelVersionFormat	  "1.%<AutoIncrement:79>"
+  LastModifiedDate	  "Wed May 18 14:32:19 2011"
+  RTWModifiedTimeStamp	  227629780
+  ModelVersionFormat	  "1.%<AutoIncrement:82>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -736,17 +736,6 @@ Model {
   }
   BlockParameterDefaults {
     Block {
-      BlockType		      Abs
-      ZeroCross		      on
-      SampleTime	      "-1"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: Same as input"
-      LockScale		      off
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	on
-    }
-    Block {
       BlockType		      ActionPort
       InitializeStates	      "held"
       PropagateVarSize	      "Only when execution is resumed"
@@ -968,7 +957,7 @@ Model {
   }
   System {
     Name		    "MotionController"
-    Location		    [760, 110, 1971, 955]
+    Location		    [17, 107, 1228, 952]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -982,7 +971,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "692"
+    SIDHighWatermark	    "694"
     Block {
       BlockType		      Inport
       Name		      "TargetSelect"
@@ -1327,7 +1316,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nboswell\\n02-Apr-2011 13:40:44"
+      "nboswell\\n18-May-2011 14:30:23"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -1337,7 +1326,7 @@ Model {
       BlockType		      SubSystem
       Name		      "Non-Targeting Controllers"
       SID		      "236"
-      Ports		      [3, 4]
+      Ports		      [4, 4]
       Position		      [435, 525, 625, 725]
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -1348,7 +1337,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Non-Targeting Controllers"
-	Location		[641, 148, 1743, 800]
+	Location		[1355, 210, 2457, 862]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1382,6 +1371,14 @@ Model {
 	  SID			  "326"
 	  Position		  [20, 418, 50, 432]
 	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Maintain Heading"
+	  SID			  "694"
+	  Position		  [40, 158, 70, 172]
+	  Port			  "4"
 	  IconDisplay		  "Port number"
 	}
 	Block {
@@ -1482,8 +1479,8 @@ Model {
 	  BlockType		  SubSystem
 	  Name			  "Heading and Straight Line\nController"
 	  SID			  "459"
-	  Ports			  [4, 2]
-	  Position		  [300, 147, 440, 258]
+	  Ports			  [5, 2]
+	  Position		  [300, 149, 440, 261]
 	  MinAlgLoopOccurrences	  off
 	  PropExecContextOutsideSubsystem off
 	  RTWSystemCode		  "Auto"
@@ -1493,7 +1490,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Heading and Straight Line\nController"
-	    Location		    [1103, 205, 1812, 680]
+	    Location		    [1786, 375, 2495, 850]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1510,14 +1507,14 @@ Model {
 	      BlockType		      Inport
 	      Name		      "DesiredYaw"
 	      SID		      "460"
-	      Position		      [30, 68, 60, 82]
+	      Position		      [30, 193, 60, 207]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "Yaw"
 	      SID		      "461"
-	      Position		      [30, 113, 60, 127]
+	      Position		      [30, 238, 60, 252]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
@@ -1538,19 +1535,20 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
-	      BlockType		      Abs
-	      Name		      "Abs"
-	      SID		      "150"
-	      Position		      [190, 70, 220, 100]
-	      SaturateOnIntegerOverflow	off
+	      BlockType		      Inport
+	      Name		      "MaintainHeading"
+	      SID		      "693"
+	      Position		      [30, 78, 60, 92]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      If
 	      Name		      "If"
 	      SID		      "96"
 	      Ports		      [1, 2]
-	      Position		      [240, 66, 340, 104]
-	      IfExpression	      "u1 > 3"
+	      Position		      [220, 66, 320, 104]
+	      IfExpression	      "u1 == 0"
 	    }
 	    Block {
 	      BlockType		      SubSystem
@@ -2903,7 +2901,7 @@ Model {
 	      Name		      "Subtract"
 	      SID		      "151"
 	      Ports		      [2, 1]
-	      Position		      [105, 67, 135, 98]
+	      Position		      [105, 192, 135, 223]
 	      Inputs		      "+-"
 	      InputSameDT	      off
 	      OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -2927,25 +2925,18 @@ Model {
 	    Line {
 	      SrcBlock		      "If"
 	      SrcPort		      1
-	      Points		      [35, 0; 0, 61]
+	      Points		      [55, 0; 0, 61]
 	      DstBlock		      "Maintain Desired Yaw"
 	      DstPort		      ifaction
 	    }
 	    Line {
 	      SrcBlock		      "Subtract"
 	      SrcPort		      1
-	      Points		      [10, 0]
-	      Branch {
-		DstBlock		"Abs"
-		DstPort			1
-	      }
-	      Branch {
-		DstBlock		"Maintain Desired Yaw"
-		DstPort			1
-	      }
+	      DstBlock		      "Maintain Desired Yaw"
+	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "Abs"
+	      SrcBlock		      "MaintainHeading"
 	      SrcPort		      1
 	      DstBlock		      "If"
 	      DstPort		      1
@@ -2978,7 +2969,7 @@ Model {
 	    Line {
 	      SrcBlock		      "If"
 	      SrcPort		      2
-	      Points		      [50, 0; 0, 193]
+	      Points		      [70, 0; 0, 193]
 	      DstBlock		      "Maintain Zero YawRate and Zero YVelocity"
 	      DstPort		      ifaction
 	    }
@@ -3363,7 +3354,7 @@ Model {
 	Line {
 	  SrcBlock		  "Heading and Straight Line\nController"
 	  SrcPort		  1
-	  Points		  [0, 30; 205, 0]
+	  Points		  [0, 25; 205, 0]
 	  Branch {
 	    Points		    [0, 50]
 	    DstBlock		    "Switch"
@@ -3390,7 +3381,7 @@ Model {
 	Line {
 	  SrcBlock		  "Heading and Straight Line\nController"
 	  SrcPort		  2
-	  Points		  [110, 0; 0, 155; 270, 0]
+	  Points		  [110, 0; 0, 150; 270, 0]
 	  DstBlock		  "Add"
 	  DstPort		  2
 	}
@@ -3439,7 +3430,7 @@ Model {
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  "Bus\nSelector"
 	  SrcPort		  1
-	  Points		  [135, 0; 0, -60]
+	  Points		  [135, 0; 0, -65]
 	  DstBlock		  "Heading and Straight Line\nController"
 	  DstPort		  2
 	}
@@ -3448,7 +3439,7 @@ Model {
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  "Bus\nSelector"
 	  SrcPort		  2
-	  Points		  [145, 0; 0, -65]
+	  Points		  [145, 0; 0, -75]
 	  DstBlock		  "Heading and Straight Line\nController"
 	  DstPort		  3
 	}
@@ -3457,7 +3448,7 @@ Model {
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  "Bus\nSelector"
 	  SrcPort		  3
-	  Points		  [170, 0; 0, -70]
+	  Points		  [170, 0; 0, -85]
 	  DstBlock		  "Heading and Straight Line\nController"
 	  DstPort		  4
 	}
@@ -3514,6 +3505,13 @@ Model {
 	  Points		  [80, 0; 0, 170; 775, 0]
 	  DstBlock		  "DesiredXVelocity"
 	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Maintain Heading"
+	  SrcPort		  1
+	  Points		  [140, 0; 0, 80]
+	  DstBlock		  "Heading and Straight Line\nController"
+	  DstPort		  5
 	}
 	Annotation {
 	  Name			  "Z is global coords \n(depth under surface)"
@@ -5638,7 +5636,7 @@ Model {
       Branch {
 	Points			[0, 160]
 	Branch {
-	  Points		  [0, 355]
+	  Points		  [0, 345]
 	  DstBlock		  "Non-Targeting Controllers"
 	  DstPort		  1
 	}
@@ -5818,7 +5816,7 @@ Model {
     Line {
       SrcBlock		      "Bus\nCreator3"
       SrcPort		      1
-      Points		      [50, 0; 0, -70]
+      Points		      [50, 0; 0, -110]
       DstBlock		      "Non-Targeting Controllers"
       DstPort		      3
     }
@@ -5888,7 +5886,7 @@ Model {
 	DstPort			6
       }
       Branch {
-	Points			[0, 35]
+	Points			[0, 10]
 	DstBlock		"Non-Targeting Controllers"
 	DstPort			2
       }
@@ -5896,9 +5894,16 @@ Model {
     Line {
       SrcBlock		      "MaintainHeading"
       SrcPort		      1
-      Points		      [200, 0; 0, 140]
-      DstBlock		      "Targeting Controllers"
-      DstPort		      2
+      Points		      [175, 0; 0, 140]
+      Branch {
+	DstBlock		"Targeting Controllers"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, 450]
+	DstBlock		"Non-Targeting Controllers"
+	DstPort			4
+      }
     }
     Annotation {
       Name		      "We have three modes:\n 0: not targeting\n1: targeting forward\n2: targeting down"
@@ -5956,6 +5961,10 @@ Model {
       "disabled."
       Position		      [544, 140]
       HorizontalAlignment     "left"
+    }
+    Annotation {
+      Name		      "When MaintainHeading is active,\nDesiredYaw is ignored"
+      Position		      [90, 115]
     }
   }
 }
