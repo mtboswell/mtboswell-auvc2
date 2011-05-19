@@ -21,7 +21,7 @@ void Maestro::step() {
 	
 
 		QList<VDatum> list;
-		qDebug("Maestro capturing data in thread (SAL mode): %d", (int) QThread::currentThreadId());
+		//qDebug("Maestro capturing data in thread (SAL mode): %d", (int) QThread::currentThreadId());
 		VDatum element;
 		int dataValue;
 		//Querry channel 0....//
