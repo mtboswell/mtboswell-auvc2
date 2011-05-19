@@ -22,12 +22,13 @@ void Maestro::step() {
 
 		QList<VDatum> list;
 		qDebug("Maestro capturing data in thread (SAL mode): %d", (int) QThread::currentThreadId());
+		VDatum element;
+		int dataValue;
 		//Querry channel 0....//
 		outData[1] = 0x00;
 		inData = device->sendQuery(outData, 2);
 		//convert maestro output and write to stateData
-		int dataValue = byteArrayToInt(inData);
-		VDatum element;
+		dataValue = byteArrayToInt(inData);
 		list.append(element);
 		list.last().id = "Position.Depth";
 		list.last().value = dataValue;
@@ -36,8 +37,7 @@ void Maestro::step() {
 		outData[1] = 0x04;
 		inData = device->sendQuery(outData, 2);
 		//convert maestro output and write to stateData
-		int dataValue = byteArrayToInt(inData);
-		VDatum element;
+		dataValue = byteArrayToInt(inData);
 		list.append(element);
 		list.last().id = "Power.Thruster.Current";
 		list.last().value = dataValue;
@@ -46,8 +46,7 @@ void Maestro::step() {
 		outData[1] = 0x05;
 		inData = device->sendQuery(outData, 2);
 		//convert maestro output and write to stateData
-		int dataValue = byteArrayToInt(inData);
-		VDatum element;
+		dataValue = byteArrayToInt(inData);
 		list.append(element);
 		list.last().id = "Power.Thruster.Voltage";
 		list.last().value = dataValue;
@@ -56,8 +55,7 @@ void Maestro::step() {
 		outData[1] = 0x06;
 		inData = device->sendQuery(outData, 2);
 		//convert maestro output and write to stateData
-		int dataValue = byteArrayToInt(inData);
-		VDatum element;
+		dataValue = byteArrayToInt(inData);
 		list.append(element);
 		list.last().id = "Power.Computer.Current";
 		list.last().value = dataValue;
@@ -66,8 +64,7 @@ void Maestro::step() {
 		outData[1] = 0x07;
 		inData = device->sendQuery(outData, 2);
 		//convert maestro output and write to stateData
-		int dataValue = byteArrayToInt(inData);
-		VDatum element;
+		dataValue = byteArrayToInt(inData);
 		list.append(element);
 		list.last().id = "Power.Computer.Voltage";
 		list.last().value = dataValue;
@@ -76,8 +73,7 @@ void Maestro::step() {
 		outData[1] = 0x09;
 		inData = device->sendQuery(outData, 2);
 		//convert maestro output and write to stateData
-		int dataValue = byteArrayToInt(inData);
-		VDatum element;
+		dataValue = byteArrayToInt(inData);
 		list.append(element);
 		list.last().id = "Acceleration.X";
 		list.last().value = dataValue;
@@ -86,8 +82,7 @@ void Maestro::step() {
 		outData[1] = 0x0A;
 		inData = device->sendQuery(outData, 2);
 		//convert maestro output and write to stateData
-		int dataValue = byteArrayToInt(inData);
-		VDatum element;
+		dataValue = byteArrayToInt(inData);
 		list.append(element);
 		list.last().id = "Acceleration.Y";
 		list.last().value = dataValue;
