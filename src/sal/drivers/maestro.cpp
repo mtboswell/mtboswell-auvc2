@@ -22,8 +22,8 @@ void Maestro::step() {
 
 		QList<VDatum> list;
 		qDebug("Maestro capturing data in thread (SAL mode): %d", (int) QThread::currentThreadId());
-		//Querry channel 1....//
-		outData[1] = 0x01;
+		//Querry channel 0....//
+		outData[1] = 0x00;
 		inData = device->sendQuery(outData, 2);
 		//convert maestro output and write to stateData
 		int dataValue = byteArrayToInt(inData);
@@ -31,7 +31,67 @@ void Maestro::step() {
 		list.append(element);
 		list.last().id = "Position.Depth";
 		list.last().value = dataValue;
-		//End of channel 1 query...//
+		//End of channel 0 query...//
+		//Querry channel 4....//
+		outData[1] = 0x04;
+		inData = device->sendQuery(outData, 2);
+		//convert maestro output and write to stateData
+		int dataValue = byteArrayToInt(inData);
+		VDatum element;
+		list.append(element);
+		list.last().id = "Power.Thruster.Current";
+		list.last().value = dataValue;
+		//End of channel 4 query...//
+		//Querry channel 5....//
+		outData[1] = 0x05;
+		inData = device->sendQuery(outData, 2);
+		//convert maestro output and write to stateData
+		int dataValue = byteArrayToInt(inData);
+		VDatum element;
+		list.append(element);
+		list.last().id = "Power.Thruster.Voltage";
+		list.last().value = dataValue;
+		//End of channel 5 query...//
+		//Querry channel 6....//
+		outData[1] = 0x06;
+		inData = device->sendQuery(outData, 2);
+		//convert maestro output and write to stateData
+		int dataValue = byteArrayToInt(inData);
+		VDatum element;
+		list.append(element);
+		list.last().id = "Power.Computer.Current";
+		list.last().value = dataValue;
+		//End of channel 6 query...//
+		//Querry channel 7....//
+		outData[1] = 0x07;
+		inData = device->sendQuery(outData, 2);
+		//convert maestro output and write to stateData
+		int dataValue = byteArrayToInt(inData);
+		VDatum element;
+		list.append(element);
+		list.last().id = "Power.Computer.Voltage";
+		list.last().value = dataValue;
+		//End of channel 7 query...//
+		//Querry channel 9....//
+		outData[1] = 0x09;
+		inData = device->sendQuery(outData, 2);
+		//convert maestro output and write to stateData
+		int dataValue = byteArrayToInt(inData);
+		VDatum element;
+		list.append(element);
+		list.last().id = "Acceleration.X";
+		list.last().value = dataValue;
+		//End of channel 9 query...//
+		//Querry channel 10....//
+		outData[1] = 0x0A;
+		inData = device->sendQuery(outData, 2);
+		//convert maestro output and write to stateData
+		int dataValue = byteArrayToInt(inData);
+		VDatum element;
+		list.append(element);
+		list.last().id = "Acceleration.Y";
+		list.last().value = dataValue;
+		//End of channel 10 query...//
 		
 		//This debug line is part on an ongoing investigation into why the
 		//GUI hangs waiting for the query to return fron device->sendQuery.
