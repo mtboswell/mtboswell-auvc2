@@ -57,6 +57,7 @@ int main(int argc, char *argv[]){
 
 	// Required for using VDatums in signals and slots
 	qRegisterMetaType<VDatum>("VDatum");
+	qRegisterMetaType<QList<VDatum> >("QList<VDatum>");
 
 	// should we use QSettings?
 	QMap<QString, QString> config;

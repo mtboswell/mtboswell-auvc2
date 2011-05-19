@@ -87,7 +87,7 @@ QByteArray SerialDevice::sendQuery(QByteArray data, int responseLength){
 	}
 	inData.resize(responseLength);
 	port->read(inData.data(), inData.size());
-	qDebug() << responseLength << " bytes read";
+	//qDebug() << responseLength << " bytes read";
 	return inData;
 }
 QByteArray SerialDevice::sendQuery(QByteArray data, QByteArray endOfResponseMarker){
