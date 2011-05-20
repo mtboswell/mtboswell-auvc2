@@ -10,7 +10,7 @@ state =
 	Command = "DeadReckon";
 	Options =
 	{
-		count = 41;
+		count = 44;
 		o1_label = "Parameter.Compass.Yaw.Kp";
 		o1_value = 1;
 
@@ -133,6 +133,15 @@ state =
 		
 		o41_label = "TargetData.Found";
 		o41_value = 1;
+
+		o42_label = "TargetOptions.MaintainHeading";
+		o42_value = 1;
+
+		o43_label = "DeadReckon.Depth";
+		o43_value = 1;
+
+		o44_label = "TargetData.Position.Bearing";
+		o44_value = 20;
 	};
 };
 addState(state);
