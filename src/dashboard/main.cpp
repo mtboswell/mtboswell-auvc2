@@ -14,6 +14,8 @@ Q_IMPORT_PLUGIN(qjpeg)
 Q_IMPORT_PLUGIN(qpng)
 #endif
 
+static QStringList debug;
+
 int main(int argc, char *argv[]){
 
 	QApplication app(argc, argv);
@@ -27,8 +29,7 @@ int main(int argc, char *argv[]){
 
 	AUVC_State_Data stateData;
 
-	QMap<QString, bool> debug;
-	debug["Dashboard"] = true;
+	debug.append("Dashboard");
 
 	ModuleHub hub(&stateData, &config, &debug, false, 5743, 5325);
 
