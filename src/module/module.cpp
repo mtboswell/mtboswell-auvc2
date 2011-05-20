@@ -4,13 +4,13 @@
 
  #include "module.h"
 
- Module::Module(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent):QThread(parent){
- 	state = stateIn;
-	config = *configIn;
-	//stepTimer = new QTimer();
- 	//connect(stepTimer, SIGNAL(timeout()), this, SLOT(step()));
-	//stepTimer->start(20);
- }
+ Module::Module():QThread(){}
+
+void Module::setLinks(AUVC_State_Data* stateIn, QMap<QString, QString>* configIn, bool debugIn){
+	state = stateIn;
+	configuration = configIn;
+	debug = debugIn;
+}
 
  void Module::recvDatum(QString module, VDatum datum){
  	if(module == this->metaObject()->className()){
@@ -58,12 +58,9 @@ QTime Module::timestamp(QString ID){return state->timestamp(ID);}
  */
 
 
- GuiModule::GuiModule(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QWidget* parent):QMainWindow(parent){
- 	state = stateIn;
-	config = *configIn;
+ GuiModule::GuiModule():QMainWindow(){
 	stepTimer = new QTimer(this);
  	connect(stepTimer, SIGNAL(timeout()), this, SLOT(step()));
-	//stepTimer->start(20);
  }
 
  void GuiModule::recvDatum(QString module, VDatum datum){
@@ -95,3 +92,9 @@ bool GuiModule::boolValue(QString ID){return state->value(ID).toBool();}
 int GuiModule::intValue(QString ID){return state->value(ID).toInt();}
 double GuiModule::doubleValue(QString ID){return state->value(ID).toDouble();}
 QString GuiModule::stringValue(QString ID){return state->value(ID).toString();}
+
+void GuiModule::setLinks(AUVC_State_Data* stateIn, QMap<QString, QString>* configIn, bool debugIn){
+	state = stateIn;
+	configuration = configIn;
+	debug = debugIn;
+}

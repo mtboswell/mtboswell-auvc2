@@ -43,7 +43,7 @@ class SAL: public Module
 {
 	Q_OBJECT
 	public:
-		SAL(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
+		SAL();
 		/**
 		 * This module subscribes to:.
 		 * Command - Not needed?

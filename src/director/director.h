@@ -22,7 +22,7 @@ class director : public Module
 {
 	Q_OBJECT
 	public:
-                director(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
+                director();
                 ~director();
                 QStringList subscriptions() // add entries here depending on what values you want to listen to
                 {

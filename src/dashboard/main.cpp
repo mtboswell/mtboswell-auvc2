@@ -27,15 +27,19 @@ int main(int argc, char *argv[]){
 
 	AUVC_State_Data stateData;
 
-	ModuleHub hub(&stateData, false, 5743, 5325);
+	QMap<QString, bool> debug;
+	debug["Dashboard"] = true;
+
+	ModuleHub hub(&stateData, &config, &debug, false, 5743, 5325);
 
 	/* Initialize Dashboard */
 	qDebug("Initializing Dashboard");
-	GuiModule* gui = new Dashboard(&config, &stateData);
+	GuiModule* gui = new Dashboard();
 	hub.addModule(gui);
 
 //	QObject::connect(gui, SIGNAL(setData(VDatum)), hub, SLOT(messageIn(VDatum)));
-	QObject::connect(gui, SIGNAL(reconnect()), &hub, SLOT(reconnect()));
+	QObject::connect(gui, SIGNAL(sync()), &hub, SLOT(sync()));
+	QObject::connect(gui, SIGNAL(setAddress(QString)), &hub, SLOT(setRemoteAddr(QString)));
 
 
 	hub.initializeAndLaunchAllModules();

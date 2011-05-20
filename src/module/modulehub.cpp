@@ -1,14 +1,16 @@
 #include "modulehub.h"
 
 
-ModuleHub::ModuleHub(AUVC_State_Data* stateIn, bool server, quint16 listenPort, quint16 remotePort){
+ModuleHub::ModuleHub(AUVC_State_Data* stateIn, QMap<QString, QString>* configIn, QStringList* debugIn, bool server, quint16 listenPort, quint16 remotePort){
 	state = stateIn;
+	config = configIn;
+	debug = debugIn;
 	// connect up server to state data
 	if(server){
-		srv = new VDataSocket(listenPort, remotePort, server, QHostAddress("192.168.3.2"));
+		srv = new VDataSocket(listenPort, remotePort, server);//, QHostAddress("192.168.3.2"));
 	}
 	else{
-		srv = new VDataSocket(listenPort, remotePort, server, QHostAddress("192.168.3.5"));
+		srv = new VDataSocket(listenPort, remotePort, server, QHostAddress::Broadcast); // QHostAddress("192.168.3.5"));
 	}
 	connect(srv, SIGNAL(datumReceived(VDatum, QHostAddress)), this, SLOT(messageIn(VDatum)));
 	connect(this, SIGNAL(messageBroadcast(VDatum)), srv, SLOT(sendVDatum(VDatum)));
@@ -27,6 +29,10 @@ void ModuleHub::addModule(Module* module){
 	const QMetaObject* metaMod = module->metaObject();
 	qDebug() << "Initializing Module:" << metaMod->className();
 
+	bool thisDebug = (*debug).contains(metaMod->className());
+	module->setLinks(state, config, thisDebug);
+	if(thisDebug) qDebug() << "Activiating debugging for " << metaMod->className();
+
 	connect(this, SIGNAL(subOut(QString, VDatum)), module, SLOT(recvDatum(QString, VDatum)));
 	addSubscriptions(metaMod->className(), module->subscriptions());
 
@@ -36,6 +42,8 @@ void ModuleHub::addModule(Module* module){
 
 }
 void ModuleHub::addModule(GuiModule* module){
+	addModule((Module*) module);
+/*
 	const QMetaObject* metaMod = module->metaObject();
 	qDebug() << "Initializing Module:" << metaMod->className();
 
@@ -45,6 +53,7 @@ void ModuleHub::addModule(GuiModule* module){
 	connect(module, SIGNAL(sendData(VDatum)), this, SLOT(moduleIn(VDatum)));
 	if(module->inherits("SimulinkModule")) ((SimulinkModule*)module)->initializeParameters();
 	if(module->isThread()) connect(this, SIGNAL(go()), module, SLOT(start()));
+	*/
 }
 /**
  * As an alternative to the addModule function, you can set this module as the parent of your modules, then call this function.
@@ -104,7 +113,7 @@ void ModuleHub::editIn(VDatum msg){
 	messageBroadcast(msg);
 }
 
-void ModuleHub::reconnect(){
+void ModuleHub::sync(){
 	//srv->sync(QTime::currentTime().addSecs(-300));
 	srv->sync();
 }

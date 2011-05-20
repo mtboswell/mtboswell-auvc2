@@ -28,6 +28,7 @@
 static bool simulate = false;
 static bool thrustersON = true;
 static bool directorON = true;
+static QStringList debug;
 
 int main(int argc, char *argv[]){
 
@@ -47,9 +48,15 @@ int main(int argc, char *argv[]){
 		else if(arg == "--no-thrusters" || arg == "-T") thrustersON = false;
 		///if --no-director is on then do not start director module
 		else if (arg == "--no-director" || arg == "-D") directorON = false;
+		else if(arg.startsWith("-d:") || arg.startsWith("--debug:")){
+			debug.append(arg.right(arg.size() - arg.indexOf(":") - 1));
+		}
 		else if(arg == "-h"){
 			qDebug() << "Available Arguments:";
 			qDebug() << "\t-s or --simulate : disable hardware";
+			qDebug() << "\t-d:[ModuleName] or --debug:[ModuleName] : enable debugging for module [ModuleName]";
+			qDebug() << "\t--no-thrusters : disable actuators module";
+			qDebug() << "\t--no-director : disable director module";
 		//	qDebug() << "\t-c or --calibrate-servos : enter servo calibration mode instead of running normally";
 			return 0;
 		}
@@ -66,30 +73,21 @@ int main(int argc, char *argv[]){
 	AUVC_State_Data stateData;
 	stateData.setData("Simulate", simulate);
 
-	ModuleHub hub(&stateData, true, 5325, 5743);
-
-	/* Create Module objects and set hub as parent */
-	//Module* samp = new Sample(&config, &stateData, &hub);
-	// OR	
-	//Sample2 samp2(&config, &stateData, &hub);
+	ModuleHub hub(&stateData, &config, &debug, true, 5325, 5743);
 
 	qDebug() << "Creating Controllers";
-	Controllers* controllers = new Controllers(&config, &stateData);
-	hub.addModule(controllers);
+	hub.addModule(new Controllers());
 
 	qDebug() << "Creating SAL";
-	SAL* sal = new SAL(&config, &stateData);
-	hub.addModule(sal);
+	hub.addModule(new SAL());
 
 	if (thrustersON) {
 		qDebug() << "Creating Actuators";
-		Actuators* actuators = new Actuators(&config, &stateData);
-		hub.addModule(actuators);
+		hub.addModule(new Actuators());
 	}
 	if (directorON) {
     		qDebug() << "Creating Director";    // Must have Lua 5.1+ libs installed for director
-    		director* dir = new director(&config, &stateData);
- 	   	hub.addModule(dir);
+ 	   	hub.addModule(new director());
 	}
 
 	/* Start everything */

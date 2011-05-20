@@ -1,6 +1,6 @@
 #include "controllers.h"
 
-Controllers::Controllers(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent):SimulinkModule(configIn, stateIn, parent){
+Controllers::Controllers():SimulinkModule(){
 
 	// vim cmd to generate below code from generated list in MotionController.h: 
 	// :s/\/\*.*\*\///

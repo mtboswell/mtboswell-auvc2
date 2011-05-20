@@ -5,6 +5,7 @@ VDataSocket::VDataSocket(quint16 bindPort, quint16 remotePort, bool server,
 		     QHostAddress remoteAddr, 
 		     QHostAddress bindAddr){
 	if(!m_Sock.bind(bindAddr, bindPort, QUdpSocket::ShareAddress)) qDebug() << "Failed to bind to port" << bindPort;
+	else  qDebug() << "Sucessful bind to port" << bindAddr.toString() << ":" << bindPort;
 	m_remoteAddr = remoteAddr;
 	m_remotePort = remotePort;
 	m_Server = server;
@@ -15,8 +16,9 @@ VDataSocket::VDataSocket(quint16 bindPort, quint16 remotePort, bool server,
 	m_AckTimeout = 2000;
 
 //	if(config.isEmpty()) loadConfigFile(config);
-	if(!m_Server)
+	if(!m_Server){
 		sendDatagram("Connect", true);
+	}
 }
 
 VDataSocket::~VDataSocket() {
@@ -42,8 +44,12 @@ void VDataSocket::sendVDatum(VDatum message, bool critical) {
 
 // sends data and checks for acks
 void VDataSocket::sendDatagram(QByteArray out, bool force) {
+
+	if(m_remoteAddr.isNull()) return;
+
 	if(force || m_Server){
 		// skip error checking
+		if(out == "Connect") qDebug() << "Connecting...";
 	}else if(m_outQueue.size() > 10){
 		qDebug() << "Queue Overflow";
 		emit remoteNotResponding();
@@ -65,7 +71,12 @@ void VDataSocket::sendDatagram(QByteArray out, bool force) {
 	}
 
 	m_Sock.writeDatagram(out, m_remoteAddr, m_remotePort);
-	if(config["Debug"] == "true") qDebug() << "Sent" << "to " + m_remoteAddr.toString() + ":" + QString::number(m_remotePort);
+	//if(config["Debug"] == "true") 
+	if(out.startsWith("VDatum")){
+		//qDebug() << "Sent VDatum to " + m_remoteAddr.toString() + ":" + QString::number(m_remotePort);
+	}else{
+		qDebug() << "Sent " << out << " to " + m_remoteAddr.toString() + ":" + QString::number(m_remotePort);
+	}
 
 	if(!m_Server){
 		m_Acks.insert(out, QTime::currentTime());
@@ -117,6 +128,8 @@ void VDataSocket::handlePendingDatagrams() {
 
 		if(!m_Server && m_Acks.contains(datagram)){ // check to see if incoming is an acknowledgement
 			if(datagram == "Connect") {
+				m_remoteAddr = sender;
+				qDebug() << "Connected to " << sender;
 				m_flaky = false;
 				while(!m_outQueue.isEmpty()) sendDatagram();
 				QByteArray updateDat = "Update:";
@@ -128,8 +141,13 @@ void VDataSocket::handlePendingDatagrams() {
 			if(m_Server) {
 				// server echos to acknowledge received
 				//if(m_Server) m_Sock.writeDatagram(datagram, sender, senderPort);
-				m_Sock.writeDatagram(datagram, m_remoteAddr, senderPort);
+				m_Sock.writeDatagram(datagram, sender, senderPort);
+				if(datagram == "Connect") {
+					qDebug() << "Connected to " << sender;
+					m_remoteAddr = sender;
+				}
 				if(datagram.startsWith("Update:")){
+					qDebug() << "Synchronizing";
 					datagram = datagram.right(datagram.size()-7);
 					if(datagram == "All"){
 						emit syncData();

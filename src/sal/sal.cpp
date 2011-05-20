@@ -9,7 +9,7 @@ The SAL (Software Abstraction Layer) is a module.  It is created and launched by
 Basically it creates all the devices in init() and then waits for them to emit DataReady(VDatum) signals, which means
 that they have input that the SAL needs to put in the stateData.  This is the middle man.
 **/
-SAL::SAL(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent):Module(configIn, stateIn, parent)
+SAL::SAL():Module()
 {
 	
 	//All of this should be commented out.  Drivers for the various devices that run for the SAL must be created in the
@@ -18,7 +18,6 @@ SAL::SAL(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* pa
 	//thread, such as the GUI.
 	
 	
-	//config = configIn;
 	//os5000 = new OS5000("");			//takes in serial port name as a string
 	//microstrain = new Microstrain("/dev/ttyS0");	//takes in dev
 
@@ -31,7 +30,7 @@ SAL::SAL(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* pa
 
 //This function is implemented on a timer that is created in the Module parent class.
 //It doesn't really need to do anything right now but it updates the compass values so the
-//robot things its spinning in circles.
+//robot thinks its spinning in circles.
 void SAL::step()
 {
 	//	setData(string id, driver->getData());
@@ -92,15 +91,15 @@ void SAL::init(){
 		//forwardParams is a CameraParams struct (defined in camera.h) and btw if you don't know what a struct
 		//is you should probably go google it.  The struct is filled with the parameters defined in .auvrc file.
 		forwardParams = new CameraParams;
-		forwardParams->x = (config)["Camera.Forward.x"].toInt();
-		forwardParams->y = (config)["Camera.Forward.y"].toInt();
-		forwardParams->fps = (config)["Camera.Forward.fps"].toInt();
-		forwardParams->pixelclock = (config)["Camera.Forward.pixelclock"].toInt();
-		forwardParams->identity = (config)["Camera.Forward.identity"].toInt();
-		forwardParams->serial = (config)["Camera.Forward.serial"];
-		forwardParams->port = (config)["Camera.Forward.port"].toInt();
-		forwardParams->address = (config)["Camera.Forward.address"];
-		forwardParams->quality = (config)["Camera.Forward.quality"].toInt();
+		forwardParams->x = config("Camera.Forward.x").toInt();
+		forwardParams->y = config("Camera.Forward.y").toInt();
+		forwardParams->fps = config("Camera.Forward.fps").toInt();
+		forwardParams->pixelclock = config("Camera.Forward.pixelclock").toInt();
+		forwardParams->identity = config("Camera.Forward.identity").toInt();
+		forwardParams->serial = config("Camera.Forward.serial");
+		forwardParams->port = config("Camera.Forward.port").toInt();
+		forwardParams->address = config("Camera.Forward.address");
+		forwardParams->quality = config("Camera.Forward.quality").toInt();
 		
 		//here the camera is created and passed the paramaters and is connected up
 		forwardCamera = new Camera(forwardParams, this);
@@ -109,15 +108,15 @@ void SAL::init(){
 		//now we do the same for camera number 2!
 		//initiate downward camera
 		downParams = new CameraParams;
-		downParams->x = (config)["Camera.Down.x"].toInt();
-		downParams->y = (config)["Camera.Down.y"].toInt();
-		downParams->fps = (config)["Camera.Down.fps"].toInt();
-		downParams->pixelclock = (config)["Camera.Down.pixelclock"].toInt();
-		downParams->identity = (config)["Camera.Down.identity"].toInt();
-		downParams->serial = (config)["Camera.Down.serial"];
-		downParams->port = (config)["Camera.Down.port"].toInt();
-		downParams->address = (config)["Camera.Down.address"];
-		downParams->quality = (config)["Camera.Down.quality"].toInt();
+		downParams->x = config("Camera.Down.x").toInt();
+		downParams->y = config("Camera.Down.y").toInt();
+		downParams->fps = config("Camera.Down.fps").toInt();
+		downParams->pixelclock = config("Camera.Down.pixelclock").toInt();
+		downParams->identity = config("Camera.Down.identity").toInt();
+		downParams->serial = config("Camera.Down.serial");
+		downParams->port = config("Camera.Down.port").toInt();
+		downParams->address = config("Camera.Down.address");
+		downParams->quality = config("Camera.Down.quality").toInt();
 
 		downCamera = new Camera(downParams, this);
 		QObject::connect(downCamera, SIGNAL(dataReady(VDatum)), this, SLOT(setData(VDatum)));
