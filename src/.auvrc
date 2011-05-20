@@ -65,8 +65,8 @@ Camera.Down.address=192.168.3.104;
 #Camera.Down.address=127.0.0.1;
 
 #Depth
-Depth.Baseline=95;
-Depth.Multiplier=4;
+Depth.Baseline=102;
+Depth.Multiplier=2.6;
 Depth.ArraySize=50;
 
 #Vision

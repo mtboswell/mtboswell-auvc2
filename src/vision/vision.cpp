@@ -134,6 +134,8 @@ void Vision::step()
                 VisionModel_U.B_down_in[index] = downward_rgb.blue();
             }
         }
+
+	qDebug() << "Vision:: Success";
     }
     else if (debug) std::cerr << "Vision::step(): Could not populate Simulink Camera parameters" << std::endl;
 
@@ -141,9 +143,12 @@ void Vision::step()
     VisionModel_step();
 
     // set the outputs of the function
-    setData("TargetOptions.TargetSelect", VisionModel_Y.TargetSelect);
-    setData("TargetData.Found", VisionModel_Y.TargetFound);
-    setData("TargetOptions.MaintainHeading", VisionModel_Y.MaintainHeading);
+    //setData("TargetOptions.TargetSelect", VisionModel_Y.TargetSelect);
+    setData("Vision.Output.TargetSelect", VisionModel_Y.TargetSelect);
+    setData("Vision.Output.MaintainHeading", VisionModel_Y.MaintainHeading);
+    setData("Vision.Output.TargetData.Found", VisionModel_Y.TargetFound);
+    //setData("TargetData.Found", VisionModel_Y.TargetFound);
+    //setData("TargetOptions.MaintainHeading", VisionModel_Y.MaintainHeading);
     setData("TargetData.Position.X", VisionModel_Y.TargetX);
     setData("TargetData.Position.Y", VisionModel_Y.TargetY);
     setData("TargetData.Position.Z", VisionModel_Y.TargetZ);

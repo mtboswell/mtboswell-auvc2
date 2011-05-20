@@ -150,10 +150,10 @@ void SAL::dataIn(VDatum datum) {
 void SAL::checkStability(VDatum datum) {
 	//check if we are at heading
 	int heading = datum.value.toInt();
-	if (heading <= (desiredHeading + 2) && heading >= (desiredHeading - 2)) atHeading = true;
+	if (heading <= (desiredHeading + 3) && heading >= (desiredHeading - 3)) atHeading = true;
 	if (atHeading && !prevAtHeading) {
 		headingTime = datum.timestamp;
-		headingTime = headingTime.addSecs(2);
+		headingTime = headingTime.addSecs(3);
 	}
 	else if(atHeading && prevAtHeading) {
 		if (datum.timestamp > headingTime) {
