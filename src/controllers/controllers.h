@@ -14,7 +14,7 @@ class Controllers : public SimulinkModule
 {
 	Q_OBJECT;
 	public:
-		Controllers(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
+		Controllers();
 		QStringList subscriptions(){
 			QStringList sub;
 			//sub << ""; // subscribe to all

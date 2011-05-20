@@ -24,7 +24,7 @@ class VDataSocket : public QObject {
 		 * @param remoteAddr remote host
 		 * @param bindAddr local address to bind to
 		 */
-		VDataSocket(quint16 bindPort, quint16 remotePort, bool server = false, QHostAddress remoteAddr = QHostAddress::Broadcast, QHostAddress bindAddr = QHostAddress::Any);
+		VDataSocket(quint16 bindPort, quint16 remotePort, bool server = false, QHostAddress remoteAddr = QHostAddress::Null, QHostAddress bindAddr = QHostAddress::Any);
 		virtual ~VDataSocket();
 
 	signals:

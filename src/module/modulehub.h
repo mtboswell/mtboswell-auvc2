@@ -18,7 +18,7 @@ class ModuleHub : public QObject
 {
 	Q_OBJECT
 	public:
-		ModuleHub(AUVC_State_Data* stateIn, bool server = true, quint16 listenPort = 5325, quint16 remotePort = 5743);
+		ModuleHub(AUVC_State_Data* stateIn, QMap<QString, QString>* configIn, QStringList* debugIn, bool server = true, quint16 listenPort = 5325, quint16 remotePort = 5743);
 		/**
 		 * addModule adds a module object to the message broadcasting system.
 		 * The module object should have a signal messageOut(QString), and a slot
@@ -46,11 +46,14 @@ class ModuleHub : public QObject
 		void moduleIn(VDatum msg);
 		void editIn(VDatum msg);
 		void startAll(){emit go();}
-		void reconnect();
+		void sync();
+		void setRemoteAddr(QString addr){srv->setRemoteAddr(addr);}
 
 	private:
 		VDataSocket* srv;
 		AUVC_State_Data* state;
+		QMap<QString, QString>* config;
+		QStringList* debug;
 		QMap<QString, QStringList> subscriptions;
 		void notify(VDatum msg);
 };

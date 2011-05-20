@@ -26,7 +26,7 @@ class Pololu : public QThread
 		/**
 		 * @param portName Serial port for pololu devices.
 		 */
-		Pololu(const QString & portName = "");
+		Pololu(const QString & portName = "", bool debugIn = false);
 		~Pololu();
 		bool setTrexConfig(char device, char param, char value);
 
@@ -95,6 +95,7 @@ class Pololu : public QThread
 		void sendTrexCmd(char command, char motorNum, QByteArray data);
 		QByteArray sendTrexQuery(char device, char command, int responseLength, QByteArray data);
 
+		bool debug;
 
 };
 

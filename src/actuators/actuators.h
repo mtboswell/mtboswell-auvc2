@@ -18,7 +18,7 @@ class Actuators: public Module
 {
 	Q_OBJECT
 	public:
-		Actuators(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
+		Actuators();
 		QStringList subscriptions(){
 			QStringList sub;
 			sub << "Thrusters";

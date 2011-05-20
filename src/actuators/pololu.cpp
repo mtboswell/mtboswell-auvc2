@@ -9,8 +9,11 @@
 #include "pololu.h"
 #include <QDebug>
 
-Pololu::Pololu(const QString & portName)
+Pololu::Pololu(const QString & portName, bool debugIn)
 {
+
+	debug = debugIn;
+
 	port = new QextSerialPort(portName);
 	port->setBaudRate(BAUD19200);
 	port->setStopBits(STOP_1);
@@ -75,7 +78,7 @@ void Pololu::sendServoCmd(char command, char servoNum, char data1, char data2, b
 
 }
 void Pololu::sendTrexCmd(char device, char command, QByteArray data){
-	qDebug("Sending command 0x%02X to device 0x%02X with data 0x%02X", command, device, data.at(0));
+	if(debug) qDebug("Sending command 0x%02X to device 0x%02X with data 0x%02X", command, device, data.at(0));
 	QByteArray cmd;
 	cmd.append(0x80);
 	cmd.append(device & 0x7F);
@@ -83,10 +86,12 @@ void Pololu::sendTrexCmd(char device, char command, QByteArray data){
 	// clear MSBs here?
 	cmd.append(data);
 	port->write(cmd);
-	char* charData = cmd.data();
-	qDebug() << "Sending:";
-	for(int count = 0; count < cmd.size(); count ++ ) {
-		qDebug("0x%02X ", charData[count]);
+	if(debug){
+		char* charData = cmd.data();
+		qDebug() << "Sending:";
+		for(int count = 0; count < cmd.size(); count ++ ) {
+			qDebug("0x%02X ", charData[count]);
+		}
 	}
 }
 QByteArray Pololu::sendTrexQuery(char device, char command, int responseLength, QByteArray data){
@@ -161,7 +166,7 @@ void setSaneTrexParams(char device){
 
 void Pololu::setMotorSpeed(int motorNum, int motorSpeed){
 	//if(config["Debug"]=="true") qDebug() << "Setting motor " + QString::number(motorNum) + " to " + QString::number(motorSpeed);
-qDebug() << "setting motor" << motorNum << "to" << motorSpeed;
+	if(debug) qDebug() << "setting motor" << motorNum << "to" << motorSpeed;
 	if(motorSpeed > 127) motorSpeed = 127;
 	else if(motorSpeed < -127) motorSpeed = -127;
 

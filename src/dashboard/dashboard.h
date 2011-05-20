@@ -27,7 +27,7 @@ class Dashboard : public GuiModule, private Ui::DashboardWindow
 	Q_OBJECT
 
 	public:
-		Dashboard(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QWidget* parent = 0);
+		Dashboard();
 		QStringList subscriptions(){
 			QStringList sub;
 			sub << ""; // subscribe to all

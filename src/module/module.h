@@ -19,10 +19,10 @@ class Module : public QThread
 	public:
 		/**
 		 * Module constructor.
-		 * When you implement a constructor in your Module, you must call the parent constructor in the initialization list, passing all three arguments.
-		 * That is, your constructor implementation should look like: MyModule(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent):Module(configIn, stateIn, parent){
+		 * When you implement a constructor in your Module, you must call the parent constructor in the initialization list.
+		 * That is, your constructor implementation should look like: MyModule():Module(){
 		 */
-		Module(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0);
+		Module();
 		/**
 		 * Subscribe to data updates from the state database by returning
 		 * a QStringList with the data IDs you want from here.
@@ -113,17 +113,26 @@ class Module : public QThread
 		QTime timestamp(QString ID);
 
 		// config variable 
-		QMap<QString, QString> config;
+		/**
+		 * Read value from configuration file.
+		 */
+		QString config(QString ID){return (*configuration)[ID];}
+
 		// timer for step function
 		QTimer* stepTimer;
+
+		bool debug;
 
 
 
 	/* Ignore everything below this line ******************************************************************/
+	public:
+		void setLinks(AUVC_State_Data* state, QMap<QString, QString>* config, bool debug);
 	private slots:
 		void run();
 	private:
 		AUVC_State_Data* state;
+		QMap<QString, QString>* configuration;
 	public slots:
 		// internally converted to dataIn(VDatum)
 		void recvDatum(QString module, VDatum datum);
@@ -146,7 +155,7 @@ class GuiModule : public QMainWindow
 		 * \param config pointer to the config data from configloader
 		 * \param stateIn pointer to the shared state data
 		 */
-		GuiModule(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QWidget* parent = 0);
+		GuiModule();
 		/**
 		 * Subscribe to data updates from the state database by returning
 		 * a QStringList with the data IDs you want from here.
@@ -198,11 +207,23 @@ class GuiModule : public QMainWindow
 		QString stringValue(QString ID);
 
 		/// config variable 
-		QMap<QString, QString> config;
+		QString config(QString ID){return (*configuration)[ID];}
+
+		AUVC_State_Data* state;
+
+	private:
+		QMap<QString, QString>* configuration;
+
 		/// timer for step function
 		QTimer* stepTimer;
 
-		AUVC_State_Data* state;
+		
+		bool debug;
+
+	public:
+		void setLinks(AUVC_State_Data* stateIn,
+			QMap<QString, QString>* configIn,
+			bool debugIn);
 };
 
 #endif

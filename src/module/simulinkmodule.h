@@ -10,7 +10,7 @@ class SimulinkModule : public Module
 	Q_OBJECT
 	public:
 		// what does the constructor need to do different from Module?	
-		SimulinkModule(QMap<QString, QString>* configIn, AUVC_State_Data* stateIn, QObject* parent = 0):Module(configIn, stateIn, parent){}
+		SimulinkModule():Module(){}
 	public slots:
 		/// set Simulink params by using paramList
 		void setParameter(QString name, double value){}

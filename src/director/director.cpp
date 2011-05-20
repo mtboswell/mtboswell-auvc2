@@ -10,8 +10,8 @@
 #include <QStringList>
 #include <QColorDialog>
 
-director::director(QMap<QString, QString> *configIn, AUVC_State_Data *stateIn, QObject *parent)
-		: Module(configIn, stateIn, parent)
+director::director()
+		: Module()
 {
     loadStateFile();
     if (!states.isEmpty())
