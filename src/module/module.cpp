@@ -4,8 +4,10 @@
 
  #include "module.h"
 
- Module::Module():QThread(){}
-
+ //Module::Module(AUVC_State_Data* stateIn):QThread(){ state = stateIn; }
+  Module::Module():QThread(){}
+	
+	
 void Module::setLinks(AUVC_State_Data* stateIn, QMap<QString, QString>* configIn, bool debugIn){
 	state = stateIn;
 	configuration = configIn;
@@ -58,7 +60,8 @@ QTime Module::timestamp(QString ID){return state->timestamp(ID);}
  */
 
 
- GuiModule::GuiModule():QMainWindow(){
+ GuiModule::GuiModule(AUVC_State_Data* stateIn):QMainWindow(){
+ 	state = stateIn;
 	stepTimer = new QTimer(this);
  	connect(stepTimer, SIGNAL(timeout()), this, SLOT(step()));
  }

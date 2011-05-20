@@ -35,8 +35,10 @@ int main(int argc, char *argv[]){
 
 	/* Initialize Dashboard */
 	qDebug("Initializing Dashboard");
-	GuiModule* gui = new Dashboard();
+	GuiModule* gui = new Dashboard(&stateData);
+	qDebug("Dashboard Initalized");
 	hub.addModule(gui);
+	qDebug("Passed the Mess");
 
 //	QObject::connect(gui, SIGNAL(setData(VDatum)), hub, SLOT(messageIn(VDatum)));
 	QObject::connect(gui, SIGNAL(sync()), &hub, SLOT(sync()));
