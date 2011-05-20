@@ -33,7 +33,7 @@ director::director()
 //void director::debug()
 //{
 //    if (!enableList.isEmpty())
-//        qDebug() << "enableList[0] for currState: " << enableList[0];
+//        if(debug) qDebug() << "enableList[0] for currState: " << enableList[0];
 //}
 
 // @param int t     the index of the currentState's transition object.
@@ -92,7 +92,7 @@ void director::startTriggerTimers(QString stateName)
 
             connect(timer, SIGNAL(timeout()), &signalMapper, SLOT(map()));
             signalMapper.setMapping(timer, i);  // associate this timer to the index value
-            qDebug() << "       Started a Timer with time: " << transition[i].timeEnable;
+            if(debug) qDebug() << "       Started a Timer with time: " << transition[i].timeEnable;
         }
     }
 }
@@ -117,7 +117,7 @@ void director::startAutoTimers(QString stateName)
         autoTimers.append(timer);   // add to the list of timers
         connect(timer, SIGNAL(timeout()), &signalMapper, SLOT(map()));
         signalMapper.setMapping(timer, toState);
-        qDebug() << "       Started an AutoTimer with time: " << time;
+        if(debug) qDebug() << "       Started an AutoTimer with time: " << time;
     }
 }
 
@@ -158,8 +158,8 @@ void director::dataIn(VDatum datum)
     if (datum.id == "Thrusters")
         return;
 
-    qDebug() << "Datum came in: " << datum.id << "  " << datum.value;
-    qDebug() << "Current State: " << currentState;
+    if(debug) qDebug() << "Datum came in: " << datum.id << "  " << datum.value;
+    if(debug) qDebug() << "Current State: " << currentState;
     if (hasTransition(datum))
         setStateData(nextTransition());
 }
@@ -173,15 +173,15 @@ void director::setStateData(QString stateName)
     setData("Director.State", currentState);
     setData("Command", getState(currentState).command);
 
-    qDebug() << "Transition to State: " << currentState;
-    qDebug() << "Max Time Enable: " << determineLongestTimeEnable(currentState);
+    if(debug) qDebug() << "Transition to State: " << currentState;
+    if(debug) qDebug() << "Max Time Enable: " << determineLongestTimeEnable(currentState);
 
     // TODO: undo previous values of currentState
 
     QList<Option> opts = getOptions(currentState);
     for (int i = 0; i < opts.size(); ++i)
     {
-        qDebug() << "director:: Attempting to Set: " << opts[i].label << " with " << opts[i].value;
+        if(debug) qDebug() << "director:: Attempting to Set: " << opts[i].label << " with " << opts[i].value;
         QString label = opts[i].label;
         QVariant value = opts[i].value;
         setData(label, value);
@@ -264,7 +264,7 @@ bool director::hasTransition(VDatum datum)
         {
             // timeEnable == 0 is a check to see if this Transition is enabled
             if (tList[i].timeEnable != 0 && !enableList[i])
-                qDebug() << "       Time enable " << tList[i].timeEnable << " for : " << tList[i].label;
+                if(debug) qDebug() << "       Time enable " << tList[i].timeEnable << " for : " << tList[i].label;
 
             if (enableList[i] && isConditionTriggered(datum, tList[i]))  // static function in TransitionComparator
             {
