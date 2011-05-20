@@ -22,6 +22,7 @@ class Module : public QThread
 		 * When you implement a constructor in your Module, you must call the parent constructor in the initialization list.
 		 * That is, your constructor implementation should look like: MyModule():Module(){
 		 */
+		//Module(AUVC_State_Data* stateIn = 0);
 		Module();
 		/**
 		 * Subscribe to data updates from the state database by returning
@@ -155,7 +156,7 @@ class GuiModule : public QMainWindow
 		 * \param config pointer to the config data from configloader
 		 * \param stateIn pointer to the shared state data
 		 */
-		GuiModule();
+		GuiModule(AUVC_State_Data* stateIn = 0);
 		/**
 		 * Subscribe to data updates from the state database by returning
 		 * a QStringList with the data IDs you want from here.
@@ -224,6 +225,7 @@ class GuiModule : public QMainWindow
 		void setLinks(AUVC_State_Data* stateIn,
 			QMap<QString, QString>* configIn,
 			bool debugIn);
+		virtual void setupParamEdit(){}
 };
 
 #endif
