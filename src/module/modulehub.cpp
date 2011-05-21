@@ -42,18 +42,22 @@ void ModuleHub::addModule(Module* module){
 
 }
 void ModuleHub::addModule(GuiModule* module){
-	addModule((Module*) module);
-/*
-	const QMetaObject* metaMod = module->metaObject();
-	qDebug() << "Initializing Module:" << metaMod->className();
+	//addModule((Module*) module);
 
+	const QMetaObject* metaMod = module->metaObject();
+	qDebug() << "Initializing GuiModule:" << metaMod->className();
+
+	bool thisDebug = (*debug).contains(metaMod->className());
+	module->setLinks(state, config, thisDebug);
+	if(thisDebug) qDebug() << "Activiating debugging for " << metaMod->className();
+	
 	connect(this, SIGNAL(subOut(QString, VDatum)), module, SLOT(recvDatum(QString, VDatum)));
 	addSubscriptions(metaMod->className(), module->subscriptions());
 
 	connect(module, SIGNAL(sendData(VDatum)), this, SLOT(moduleIn(VDatum)));
 	if(module->inherits("SimulinkModule")) ((SimulinkModule*)module)->initializeParameters();
 	if(module->isThread()) connect(this, SIGNAL(go()), module, SLOT(start()));
-	*/
+	
 }
 /**
  * As an alternative to the addModule function, you can set this module as the parent of your modules, then call this function.
