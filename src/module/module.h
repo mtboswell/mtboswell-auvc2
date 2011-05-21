@@ -225,7 +225,6 @@ class GuiModule : public QMainWindow
 		void setLinks(AUVC_State_Data* stateIn,
 			QMap<QString, QString>* configIn,
 			bool debugIn);
-		virtual void setupParamEdit(){}
 };
 
 #endif
