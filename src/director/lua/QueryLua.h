@@ -59,7 +59,7 @@ struct State
 /*  QueryLua
  *
  *  The QueryLua class parses the .lua file into a readable form in C++.
- *  This ensures 'compile-once' capabilities.  You are free to edit the auv.lua
+ *  This ensures 'compile-once' capabilities, load many.  You are free to edit the auv.lua
  *  and the changes will be reflected when you run the program again.
  */
 class QueryLua

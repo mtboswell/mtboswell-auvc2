@@ -11,30 +11,44 @@
 #include <QColorDialog>
 
 director::director()
-		: Module()
+    : Module()
 {
     loadStateFile();
     if (!states.isEmpty())
-    {
-        currentState = states.at(0).stateName;   // set the current state to the first entry
-        updateEnableList(currentState);
-        startTriggerTimers(currentState);
-        startAutoTimers(currentState);
-        setData("Director.State", currentState);    // might want to just call setState(currentState) instead of these
-    }
-
+        setInitialState();
     connect (&signalMapper, SIGNAL(mapped(int)), this, SLOT(enableTransition(int)));
     connect (&signalMapper, SIGNAL(mapped(QString)), this, SLOT(setStateData(QString)));
-//    QTimer *myT = new QTimer(this);
-//    connect(myT, SIGNAL(timeout()), this, SLOT(debug()));
-//    myT->start(2000);
+
+    // debug
+    canLoad = true; // for dynamically loading script files
+    debugTimer = new QTimer(this);
+    connect (debugTimer, SIGNAL(timeout()), this, SLOT(debugToStateData()));
+
+    // for some reason,  I can't put stateData variables during initilization...
+    //  I created a timer to do that after 2 seconds
+    debugTimer->setSingleShot(true);
+    debugTimer->setInterval(2000);    // after two seconds
+    debugTimer->start();
 }
 
-//void director::debug()
-//{
-//    if (!enableList.isEmpty())
-//        if(debug) qDebug() << "enableList[0] for currState: " << enableList[0];
-//}
+void director::setInitialState()
+{
+    currentState = states.at(0).stateName;   // set the current state to the first entry
+    updateEnableList(currentState);
+    startTriggerTimers(currentState);
+    startAutoTimers(currentState);
+    setData("Director.Debug.State", currentState);    // might want to just call setState(currentState) instead of these
+}
+
+// prints out debug data in the state data
+void director::debugToStateData()
+{
+    setData("Director.Debug.State", currentState);    // might want to just call setState(currentState) instead of these
+    canLoad = false;
+    setData("Director.scriptFile", lastScriptLoaded);
+    canLoad = true;
+    delete debugTimer;
+}
 
 // @param int t     the index of the currentState's transition object.
 void director::enableTransition(int t)
@@ -54,6 +68,9 @@ director::~director()
         delete autoTimers[i];
 }
 
+/* The enableList is a parallel boolean array to determine if
+   a triggerTransition object is valid
+   */
 void director::updateEnableList(QString stateName)
 {
     enableList.clear();
@@ -124,7 +141,6 @@ void director::startAutoTimers(QString stateName)
 // Attempts to load the file from a variety of locations
 void director::loadStateFile()
 {
-    QueryLua *l = new QueryLua();
     QStringList candidates;
     QFile f;
     QString match = "";
@@ -141,10 +157,19 @@ void director::loadStateFile()
             break;
         }
     }
-    qDebug() <<  "director::director.cpp PWD: " << QDir::currentPath();
-    qDebug() <<  "director::director.cpp Attempting to load lua file in " << match;
-    l->init(qPrintable(match));
 
+    load(match);
+}
+
+// actually performs the load from .lua file to C++ objects (see QueryLua.h)
+void director::load(QString filename)
+{
+    QueryLua *l = new QueryLua();
+    qDebug() <<  "director::director.cpp PWD: " << QDir::currentPath();
+    qDebug() <<  "director::director.cpp Attempting to load lua file in " << filename;
+    l->init(qPrintable(filename));
+
+    lastScriptLoaded = filename;
     states = l->queryStates();
     delete l;
 }
@@ -158,6 +183,24 @@ void director::dataIn(VDatum datum)
     if (datum.id == "Thrusters")
         return;
 
+    // Determine if we need to reload a script file
+    if (datum.id == "Director.scriptFile" && canLoad)
+    {
+        QString filename = datum.value.toString();
+        QFile file;
+
+        if (file.exists(filename))
+        {
+            director::load(filename);
+            setInitialState();
+        }
+        else
+            std::cerr << "director::director.cpp Cannot load Lua file (does not exist): " << qPrintable(filename) << std::endl;
+
+        return;
+    }
+
+    // Determines if this datum causes a transition
     if(debug) qDebug() << "Datum came in: " << datum.id << "  " << datum.value;
     if(debug) qDebug() << "Current State: " << currentState;
     if (hasTransition(datum))
@@ -170,14 +213,13 @@ void director::setStateData(QString stateName)
 {
     currentState = stateName;
 
-    setData("Director.State", currentState);
+    setData("Director.Debug.State", currentState);
     setData("Command", getState(currentState).command);
 
     if(debug) qDebug() << "Transition to State: " << currentState;
     if(debug) qDebug() << "Max Time Enable: " << determineLongestTimeEnable(currentState);
 
-    // TODO: undo previous values of currentState
-
+    // TODO: undo previous values of currentState --- 5-21-11 -- THIS MAY NOT BE GOOD TO DO AFTER ALL
     QList<Option> opts = getOptions(currentState);
     for (int i = 0; i < opts.size(); ++i)
     {
