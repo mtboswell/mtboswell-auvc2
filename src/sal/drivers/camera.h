@@ -25,7 +25,8 @@
   **/
  struct CameraParams {
 	int x, y, pixelclock, fps, port, quality, identity; // identity: 0 for forward camera, 1 for downward camera
-	QString serial, address; // camera serial number to connect to 
+	QString serial, address; // camera serial number to connect to
+	bool debug; 
  };
 
 /**
@@ -62,6 +63,7 @@ class Camera : public QObject
 		QTimer* timer;
 		CameraParams* params;
 		char saveName[6];
+		bool debug;
 		
 
 

@@ -100,6 +100,7 @@ void SAL::init(){
 		forwardParams->port = config("Camera.Forward.port").toInt();
 		forwardParams->address = config("Camera.Forward.address");
 		forwardParams->quality = config("Camera.Forward.quality").toInt();
+		forwardParams->debug = debug;
 		
 		//here the camera is created and passed the paramaters and is connected up
 		forwardCamera = new Camera(forwardParams, this);
@@ -117,6 +118,7 @@ void SAL::init(){
 		downParams->port = config("Camera.Down.port").toInt();
 		downParams->address = config("Camera.Down.address");
 		downParams->quality = config("Camera.Down.quality").toInt();
+		downParams->debug = debug;
 
 		downCamera = new Camera(downParams, this);
 		QObject::connect(downCamera, SIGNAL(dataReady(VDatum)), this, SLOT(setData(VDatum)));

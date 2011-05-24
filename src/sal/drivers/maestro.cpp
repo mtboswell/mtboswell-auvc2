@@ -30,8 +30,12 @@ void Maestro::step() {
 		//convert maestro output and write to stateData
 		dataValue = byteArrayToInt(inData);
 		list.append(element);
-		list.last().id = "Position.Depth";
+		list.last().id = "Maestro.Depth_Raw";
 		list.last().value = dataValue;
+		list.append(element);
+		list.last().id = "Position.Depth";
+		float val = (dataValue - 95) / 4.0;
+		list.last().value = val;
 		//End of channel 0 query...//
 		//Querry channel 4....//
 		outData[1] = 0x04;
