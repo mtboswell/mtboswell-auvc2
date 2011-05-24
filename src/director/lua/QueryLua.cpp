@@ -40,7 +40,7 @@ bool QueryLua::loadBuffer(char * buffer)
 	if (luaL_loadbuffer(pmLuaState, buffer, strlen(buffer), "buffer") || lua_pcall(pmLuaState, 0, 0, 0))
 	{
 		// Error
-		std::cerr << "ERROR" << lua_tostring(pmLuaState, -1);
+                std::cerr << "ERROR" << lua_tostring(pmLuaState, -1);
 		return false;
 	}
 }
@@ -57,7 +57,8 @@ bool QueryLua::init (const char *filename)
 		switch(i)
 		{
 			case 0:
-				std::cerr << "Error: " << lua_tostring(pmLuaState, -1) << std::endl;
+                                std::cerr << "\tQueryLua::QueryLua.cpp ERROR. Could not load lua file: " << lua_tostring(pmLuaState, -1) << std::endl;
+                                exit(1);
 				return false;
 		}
 	}
