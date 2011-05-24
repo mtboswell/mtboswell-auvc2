@@ -8,7 +8,7 @@ UI_DIR = tmp
 
 #LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
 # llua-5.1
-LIBS +=  -lueye_api -llua5.1
+LIBS +=  -lueye_api -llua
 
 DEPENDPATH += . \
 

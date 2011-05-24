@@ -25,6 +25,7 @@ Camera::Camera(CameraParams* paramsIn, QObject* parent)
 	params = paramsIn;
 	//An array of bytes to store the image.  Size is determined by picture x * y and 32 bits per pixel
 	byteStorage = (char*) malloc((params->x) * (params->y) * 32);
+	debug = params->debug;
 	
 	//Create a qudpsocket videosocket.  Images are sent out over this socket by the QImageWriter to 
 	//be read by the dashboard on another computer (if params.address is that computers ip) or localhost
@@ -68,7 +69,7 @@ Camera::Camera(CameraParams* paramsIn, QObject* parent)
 // it updates StateData with the latest camera image.
 void Camera::step()
 {
-	qDebug() << "capturing frame";
+	if(debug) qDebug() << "capturing frame";
 	//this function captures the frame and stores it onto the active memory created in init()
 	if( is_FreezeVideo( m_hCam, IS_WAIT ) != IS_SUCCESS )
 	{	
@@ -83,7 +84,7 @@ void Camera::step()
 		else 
 		{
 			//if we have gotten this far now we make the QImage.
-			qDebug("Image Captured in with camID %d", params->identity);
+			if(debug) qDebug("Image Captured in with camID %d", params->identity);
 			
 		}
 		// moves the image from the active camera memory to the array made in the constructor.
