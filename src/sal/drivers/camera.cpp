@@ -106,6 +106,13 @@ void Camera::step()
 				qDebug() << "image failed to load";
 			}
 			
+			//Transform the if it is from the forward camera
+			if (params->identity == 2) {
+				QTransform transform;
+				transform.rotate(90);
+				*qimage = qimage->transformed(transform);
+			}
+			
 			//this creates a VDatum (a struct defined somewhere just search for it.  Its what things are stored
 			//as in stateData). The VDatum is emitted with the DataReady signal which the SAL hears and updates stateData.
 			//So basically this part down here is just filling a VDatum struct with all the info it needs.
