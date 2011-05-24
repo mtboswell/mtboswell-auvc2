@@ -341,6 +341,11 @@ void Dashboard::dataIn(VDatum datum) {
 			headingDial->setValue(datum.value.toDouble());
 		}
 	}
+	else if(type == "Position" && name == "Depth") {
+		depthLcdNumber->display(daum.value.toDouble());
+		depthBar->setValue(daum.value.toDouble());
+	}
+	
 	/*
 	// set dashboard mode to match vehicle mode
 	else if (type == "Mode") {

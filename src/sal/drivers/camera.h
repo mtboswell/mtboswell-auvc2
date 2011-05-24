@@ -15,6 +15,7 @@
 #include <QHostAddress>
 #include <QUdpSocket>
 #include <QImageWriter>
+#include <QTransform>
 //#include "../../state/vdatum.h" out for testing
 
 
