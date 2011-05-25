@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QTime>
 #include <QDir>
+#include <QColorGroup>
 
 //QMap<QString, QString> config;
 
@@ -344,6 +345,30 @@ void Dashboard::dataIn(VDatum datum) {
 	else if(type == "Position" && name == "Depth") {
 		depthLcdNumber->display(datum.value.toDouble());
 		depthBar->setValue(datum.value.toDouble());
+	}
+	else if(type == "ThrustersON") {
+		QColor * c;
+		if (datum.value.toBool()) c = new QColor(Qt::blue);
+			else c = new QColor(Qt::red);
+		QPalette pal0;
+		QPalette pal1;
+		QProgressBar * bar0;
+		QProgressBar * bar1;
+		if (name == "Angled") {
+			bar0 = strafeThrusterProgressBar;
+			bar1 = vertThrusterProgressBar;
+		}
+		else if(name == "Forward") {
+			bar0 = leftThrusterProgressBar;
+			bar1 = rightThrusterProgressBar;
+		}
+		pal0 = bar0->palette();
+		pal1 = bar1->palette();
+		pal0.setColor(QPalette::Highlight, *c);
+		pal1.setColor(QPalette::Highlight, *c);
+		bar0->setPalette(pal0);
+		bar1->setPalette(pal1);
+		
 	}
 	
 	/*
