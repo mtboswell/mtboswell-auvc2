@@ -34,9 +34,11 @@ void Actuators::dataIn(VDatum datum){
 		thrusters[3] = datum.value.value<QVector4D>().z();
 		setThrusters(thrusters);
 	}
-	else if (datum.id == "ThrustersON.Forward") {
+	if (datum.id == "ThrustersON.Forward") {
+		if (debug) qDebug() << "ThrustersON.Forward is set to " << datum.value.toBool();
 		forwardON = datum.value.toBool();
 		if(!forwardON) {
+			if (debug) qDebug() << "Setting forward Thrusters to 0";
 			pololu->setMotorSpeed(0, 0);
 			pololu->setMotorSpeed(3, 0);
 		}
