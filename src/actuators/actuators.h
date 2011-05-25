@@ -22,6 +22,7 @@ class Actuators: public Module
 		QStringList subscriptions(){
 			QStringList sub;
 			sub << "Thrusters";
+			sub << "ThrustersON";
 			return sub;
 		}
 	private slots:
@@ -32,6 +33,8 @@ class Actuators: public Module
 	private:
 		Pololu* pololu;
 		VDatum oldData;
+		bool forwardON = true;
+		bool angledON = true;
 };
 
 

@@ -15,22 +15,37 @@ void Actuators::init(){
 	setData("Module.Actuators", 1);
 	if(debug) qDebug("Actuators thread id: %d", (int) QThread::currentThreadId());
 	if(debug) qDebug() << "Set motor 1 to 64";
-	pololu->setMotorSpeed(1, 64);
+	if(debug) pololu->setMotorSpeed(1, 64);
 }
 
 void Actuators::dataIn(VDatum datum){
-	if(datum.id != "Thrusters") return;	
-	if(datum.value == oldData.value) return;
-	oldData = datum;
+	if(datum.id == "Thrusters") {	
+		if(datum.value == oldData.value) return;
+		oldData = datum;
 
-	if(debug) qDebug() << "Actuators got data:" << datum.id;
+		if(debug) qDebug() << "Actuators got data:" << datum.id;
 
-	double thrusters[4];
-	thrusters[0] = datum.value.value<QVector4D>().w();
-	thrusters[1] = datum.value.value<QVector4D>().x();
-	thrusters[2] = datum.value.value<QVector4D>().y();
-	thrusters[3] = datum.value.value<QVector4D>().z();
-	setThrusters(thrusters);
+		double thrusters[4];
+		thrusters[0] = datum.value.value<QVector4D>().w();
+		thrusters[1] = datum.value.value<QVector4D>().x();
+		thrusters[2] = datum.value.value<QVector4D>().y();
+		thrusters[3] = datum.value.value<QVector4D>().z();
+		setThrusters(thrusters);
+	}
+	else if (datum.id == ThrustersON.Forward) {
+		forwardON = datum.value;
+		if(!forwardON) {
+			pololu->setMotorSpeed(0, 0);
+			pololu->setMotorSpeed(3, 0);
+		}
+	}
+	else if (datum.id == ThrustersON.Angled) {
+		angledON = datum.value;
+		if(!forwardON) {
+			pololu->setMotorSpeed(1, 0);
+			pololu->setMotorSpeed(2, 0);
+		}
+	}
 }
 
 
@@ -41,8 +56,10 @@ void Actuators::setThrusters(double thrusterSpeeds[4]){
 
 	if(debug) qDebug("Conversing with TReXs");
 	for(int i = 0; i < 4; i++){
-		if(debug) qDebug() << "Setting Thruster" << i << "to" << thrusterSpeeds[i];
-		pololu->setMotorSpeed(i, thrusterSpeeds[i]*127);
+		if (((i == 0 || i == 3) && forwardON) || ((i == 1 || i == 2) && angledON)) {
+			if(debug) qDebug() << "Setting Thruster" << i << "to" << thrusterSpeeds[i];
+			pololu->setMotorSpeed(i, thrusterSpeeds[i]*127);
+		}
 	}
 }
 
