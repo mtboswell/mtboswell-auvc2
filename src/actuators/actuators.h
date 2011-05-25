@@ -33,8 +33,8 @@ class Actuators: public Module
 	private:
 		Pololu* pololu;
 		VDatum oldData;
-		bool forwardON = true;
-		bool angledON = true;
+		bool forwardON;
+		bool angledON;
 };
 
 
