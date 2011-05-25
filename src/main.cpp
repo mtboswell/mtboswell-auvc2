@@ -75,8 +75,8 @@ int main(int argc, char *argv[]){
 
 	//Set inital Data
 	stateData.setData("Simulate", simulate);
-	stateData.setData("Thrusters.ForwardON", true);
-	stateData.setData("Thrusters.AngledON", true);
+	stateData.setData("ThrustersON.Forward", true);
+	stateData.setData("ThrustersON.Angled", true);
 
 	ModuleHub hub(&stateData, &config, &debug, true, 5325, 5743);
 

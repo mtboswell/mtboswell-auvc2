@@ -16,6 +16,8 @@ void Actuators::init(){
 	if(debug) qDebug("Actuators thread id: %d", (int) QThread::currentThreadId());
 	if(debug) qDebug() << "Set motor 1 to 64";
 	if(debug) pololu->setMotorSpeed(1, 64);
+	forwardON = true;
+	angledON = true;
 }
 
 void Actuators::dataIn(VDatum datum){
@@ -32,15 +34,15 @@ void Actuators::dataIn(VDatum datum){
 		thrusters[3] = datum.value.value<QVector4D>().z();
 		setThrusters(thrusters);
 	}
-	else if (datum.id == ThrustersON.Forward) {
-		forwardON = datum.value;
+	else if (datum.id == "ThrustersON.Forward") {
+		forwardON = datum.value.toBool();
 		if(!forwardON) {
 			pololu->setMotorSpeed(0, 0);
 			pololu->setMotorSpeed(3, 0);
 		}
 	}
-	else if (datum.id == ThrustersON.Angled) {
-		angledON = datum.value;
+	else if (datum.id == "ThrustersON.Angled") {
+		angledON = datum.value.toBool();
 		if(!forwardON) {
 			pololu->setMotorSpeed(1, 0);
 			pololu->setMotorSpeed(2, 0);
