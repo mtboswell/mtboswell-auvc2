@@ -342,8 +342,8 @@ void Dashboard::dataIn(VDatum datum) {
 		}
 	}
 	else if(type == "Position" && name == "Depth") {
-		depthLcdNumber->display(daum.value.toDouble());
-		depthBar->setValue(daum.value.toDouble());
+		depthLcdNumber->display(datum.value.toDouble());
+		depthBar->setValue(datum.value.toDouble());
 	}
 	
 	/*
