@@ -22,7 +22,8 @@ class Actuators: public Module
 		QStringList subscriptions(){
 			QStringList sub;
 			sub << "Thrusters";
-			sub << "ThrustersON";
+			sub << "ThrustersON.Forward";
+			sub << "ThrustersON.Angled";
 			return sub;
 		}
 	private slots:
