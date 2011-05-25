@@ -86,7 +86,7 @@ void SAL::init(){
 		//there is a seperate VDatum in the list for each one. :) random right?
 		maestro = new Maestro(this);
 		QObject::connect(maestro, SIGNAL(dataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
-		
+		/*
 		//initiate forward camera
 		//forwardParams is a CameraParams struct (defined in camera.h) and btw if you don't know what a struct
 		//is you should probably go google it.  The struct is filled with the parameters defined in .auvrc file.
@@ -122,6 +122,7 @@ void SAL::init(){
 
 		downCamera = new Camera(downParams, this);
 		QObject::connect(downCamera, SIGNAL(dataReady(VDatum)), this, SLOT(setData(VDatum)));
+		*/
 	}
 
 }

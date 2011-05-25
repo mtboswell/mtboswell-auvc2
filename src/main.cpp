@@ -21,6 +21,7 @@
 #include "sal/sal.h"
 #include "actuators/actuators.h"
 #include "director/director.h"
+#include "cameraSAL/cameraSAL.h"
 
 #include <QTreeView>
 
@@ -80,6 +81,9 @@ int main(int argc, char *argv[]){
 
 	qDebug() << "Creating SAL";
 	hub.addModule(new SAL());
+	
+	qDebug() << "Creating CameraSAL";
+	hub.addModule(new CameraSAL());
 
 	if (thrustersON) {
 		qDebug() << "Creating Actuators";

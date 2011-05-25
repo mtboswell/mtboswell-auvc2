@@ -8,7 +8,7 @@ UI_DIR = tmp
 
 #LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
 # llua-5.1
-LIBS +=  -lueye_api -llua
+LIBS +=  -lueye_api -llua5.1
 
 DEPENDPATH += . \
 
@@ -19,6 +19,7 @@ INCLUDEPATH += . \
 	     sal/drivers \
 	     sal/drivers/qextserialport \
 	     controllers/src \
+	     cameraSAL \
 	     /usr/include/lua5.1
 
 # Main ####################################################
@@ -129,13 +130,15 @@ HEADERS += \
 	   sal/drivers/microstrain.h \
 	   sal/drivers/camera.h \
 	   sal/drivers/os5000.h \
-	   sal/drivers/maestro.h
+	   sal/drivers/maestro.h \
+	   cameraSAL/cameraSAL.h
 SOURCES += \
            sal/sal.cpp \
 	   sal/drivers/microstrain.cpp \
 	   sal/drivers/camera.cpp \
 	   sal/drivers/os5000.cpp \
-	   sal/drivers/maestro.cpp
+	   sal/drivers/maestro.cpp \
+	   cameraSAL/cameraSAL.cpp
 
 
 # QExtSerialPort ###############################################
