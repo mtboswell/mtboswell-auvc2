@@ -45,7 +45,7 @@ void Actuators::dataIn(VDatum datum){
 	}
 	else if (datum.id == "ThrustersON.Angled") {
 		angledON = datum.value.toBool();
-		if(!forwardON) {
+		if(!angledON) {
 			pololu->setMotorSpeed(1, 0);
 			pololu->setMotorSpeed(2, 0);
 		}
