@@ -40,11 +40,39 @@ struct TimerTransition
         }
 };
 
+// Enumerations for Option object
+enum
+{
+    RELATIVE = 1,
+    ABSOLUTE = 0
+};
+
 // defines an Options object
 struct Option
 {
         QString label;          // e.g.:    "Target.DesiredHeading"
         QVariant value;         // e.g.:    3, 2.3, "Buoy"
+
+        /**
+         *  Determines whether this option will have an absolute or relative effect on state data.
+         *  For example, suppose, we want to increment Orientation.Heading by 60 degrees.
+         *  An option object would have the value:
+         *      label = "Orientation.Heading";
+         *      value = "60";
+         *      mode = RELATIVE;   // constant
+         *
+         *  The above settings will add 60 to the Orientation.Heading state variable.
+         *  Conversely, if SELECTED_MODE == 0 (absolute), Orientation.Heading would be set to 60 degrees.
+         */
+        int mode;
+
+        // default constructor
+        Option()
+        {
+            label = "";
+            value = "";
+            mode = ABSOLUTE;
+        }
 };
 
 struct State

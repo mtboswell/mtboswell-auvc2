@@ -234,12 +234,13 @@ QList<Option> QueryLua::getOption(int index)
 
 	for (int i = 1; i <= count; ++i)
 	{
-		Option o;
+                Option o;   // invoke default constructor
 		
 		std::stringstream ss;
 		ss << "o" << i << "_label";
 		lua_pushstring(pmLuaState, ss.str().c_str()); 		// after: states[Index].Options.o<index>_label
 		lua_gettable(pmLuaState, -2);
+
 		if (!lua_isstring(pmLuaState, -1))
                     std::cerr << "ERROR. A string was not returned from the states[Index].Options.o<index>_label" << std::endl;
 		else
@@ -259,7 +260,18 @@ QList<Option> QueryLua::getOption(int index)
 		else if (lua_isstring(pmLuaState, -1))
 			o.value = lua_tostring(pmLuaState, -1);
 		lua_pop(pmLuaState, 1);
-		
+
+                std::stringstream ss3;
+                ss3 << "o" << i << "_mode"; // see docs @ QueryLua.h under Options
+                lua_pushstring(pmLuaState, ss3.str().c_str()); 		// after: states[Index].Options.o<index>_value
+                lua_gettable(pmLuaState, -2);
+
+                if (!lua_isnumber(pmLuaState, -1))
+                    std::cerr << "WARNING. A number was not returned from the states[Index].Options.o<index>_mode" << std::endl;
+                else
+                    o.mode = lua_tonumber(pmLuaState, -1);
+                lua_pop(pmLuaState, 1);
+
 		list.push_back(o);
 	}
 	

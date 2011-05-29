@@ -66,6 +66,7 @@ class director : public Module
                 // QTimer signals connect to this slot
                 void enableTransition(int t);
                 void setStateData(QString stateName);    // calls setData() with parameters based on stateName's Option objects
+                void setOptions();
                 void debugToStateData();
 	private slots:
 
