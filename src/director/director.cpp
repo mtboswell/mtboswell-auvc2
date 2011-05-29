@@ -219,19 +219,36 @@ void director::setStateData(QString stateName)
     if(debug) qDebug() << "Transition to State: " << currentState;
     if(debug) qDebug() << "Max Time Enable: " << determineLongestTimeEnable(currentState);
 
-    // TODO: undo previous values of currentState --- 5-21-11 -- THIS MAY NOT BE GOOD TO DO AFTER ALL
+    director::setOptions();
+
+    updateEnableList(currentState);
+    startTriggerTimers(currentState);
+    startAutoTimers(currentState);
+}
+
+/**
+ *  Sets the current state's options into the AUVT state data
+ *  Called by: setStateData(QString stateName)
+ */
+void director::setOptions()
+{
     QList<Option> opts = getOptions(currentState);
     for (int i = 0; i < opts.size(); ++i)
     {
         if(debug) qDebug() << "director:: Attempting to Set: " << opts[i].label << " with " << opts[i].value;
         QString label = opts[i].label;
         QVariant value = opts[i].value;
-        setData(label, value);
-    }
+        int mode = opts[i].mode;
 
-    updateEnableList(currentState);
-    startTriggerTimers(currentState);
-    startAutoTimers(currentState);
+        if (mode == ABSOLUTE)   // see QueryLua.h for enumerations
+            setData(label, value);
+        else    // relative mode
+        {   // most likely this will be Orientation.Heading or some periodic variable
+            double curValue = doubleValue(label);   // might want to do type-checking here
+            curValue += value.toDouble();   // add "value" to the current value in AUVT state data
+            setData(label, curValue);   // set the incremented value
+        }
+    }
 }
 
 //  Retrieves the reference variable given QString stateName
@@ -307,7 +324,6 @@ bool director::hasTransition(VDatum datum)
             // timeEnable == 0 is a check to see if this Transition is enabled
             if (tList[i].timeEnable != 0 && !enableList[i])
                 if(debug) qDebug() << "       Time enable " << tList[i].timeEnable << " for : " << tList[i].label;
-
             if (enableList[i] && isConditionTriggered(datum, tList[i]))  // static function in TransitionComparator
             {
                 transitionTo = tList[i].to;
