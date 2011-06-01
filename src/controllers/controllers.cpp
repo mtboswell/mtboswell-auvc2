@@ -6,7 +6,7 @@ Controllers::Controllers():SimulinkModule(){
 	// :s/\/\*.*\*\///
 	// :s/  real_T \(.*\);/paramList["\1"] = \&MotionController_P.\1;/
 
-	paramList["Compass_Yaw_Kp"] = &MotionController_P.Compass_Yaw_Kp;
+        paramList["Compass_Yaw_Kp"] = &MotionController_P.Compass_Yaw_Kp;
 	paramList["Compass_Yaw_Ki"] = &MotionController_P.Compass_Yaw_Ki;
 	paramList["Compass_Yaw_Kd"] = &MotionController_P.Compass_Yaw_Kd;
 	paramList["Depth_Kd"] = &MotionController_P.Depth_Kd;
