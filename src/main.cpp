@@ -1,5 +1,5 @@
 
-#define GUI
+//#define GUI
 
 #ifdef GUI
 #include <QApplication>

@@ -108,6 +108,7 @@ void Camera::step()
 			
 			//Transform the if it is from the forward camera
 			if (params->identity == 2) {
+				qDebug() << "TRANSFORMING FORWARD CAMERA!" ;
 				QTransform transform;
 				transform.rotate(90);
 				*qimage = qimage->transformed(transform);
