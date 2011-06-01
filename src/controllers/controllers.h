@@ -14,7 +14,7 @@ class Controllers : public SimulinkModule
 {
 	Q_OBJECT;
 	public:
-		Controllers();
+                Controllers();
 		QStringList subscriptions(){
 			QStringList sub;
 			//sub << ""; // subscribe to all
