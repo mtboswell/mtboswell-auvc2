@@ -34,6 +34,7 @@ director::director()
 void director::setInitialState()
 {
     currentState = states.at(0).stateName;   // set the current state to the first entry
+    setOptions();       // set the current state options
     updateEnableList(currentState);
     startTriggerTimers(currentState);
     startAutoTimers(currentState);
