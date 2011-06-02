@@ -1,3 +1,8 @@
+--	incrementMode.lua
+
+--	@author Carlo del Mundo
+--	@date 6-2-2011
+
 --	This lua file demonstrates how one can increment an AUVT state variable such as Orientation.Heading
 -- This script will transition between State1 and State2 every 5 seconds.  For every transition to State1, 
 -- 	the Orientation.Heading state variable is incremented by 60 degrees.

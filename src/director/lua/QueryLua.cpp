@@ -253,12 +253,14 @@ QList<Option> QueryLua::getOption(int index)
 		lua_gettable(pmLuaState, -2);
 		
 		// the return can be either a number, or String
-		if (!(lua_isstring(pmLuaState, -1) || lua_isnumber(pmLuaState, -1)))
-			std::cerr << "ERROR. Expecting a number or string, but did not get it for states[Index].Options.o<index>_value" << std::endl;
+                if (!(lua_isstring(pmLuaState, -1) || lua_isnumber(pmLuaState, -1) || lua_isboolean(pmLuaState, -1)))
+                        std::cerr << "ERROR. Expecting a number, string, or boolean but did not get it for states[Index].Options.o<index>_value" << std::endl;
 		else if (lua_isnumber(pmLuaState, -1))
 			o.value = lua_tonumber(pmLuaState, -1);
 		else if (lua_isstring(pmLuaState, -1))
 			o.value = lua_tostring(pmLuaState, -1);
+                else if (lua_isboolean(pmLuaState, -1))
+                        o.value = lua_toboolean(pmLuaState, -1);
 		lua_pop(pmLuaState, 1);
 
                 std::stringstream ss3;
