@@ -26,9 +26,9 @@ state =
 
 	Options =
 	{
-		count = 7;
+		count = 15;
 		o1_label = "TargetData.Found";
-		o1_value = False;		-- ERROR... can't handle booleans yet
+		o1_value = true;	
 
 		o2_label = "TargetData.Position.X";
 		o2_value = 1;
@@ -47,6 +47,30 @@ state =
 
 		o7_label = "TargetOptions.MaintainHeading";
 		o7_value = 180;
+		
+		o8_label = "TargetOptions.Approach";
+		o8_value = true;
+		
+		o9_label = "Orientation.Heading";
+		o9_value = 90;
+		
+		o10_label = "Motion.YawRate";
+		o10_value = 0;
+		
+		o11_label = "Position.Depth";
+		o11_value = 0;
+		
+		o12_label = "Motion.Accel.Y";
+		o12_value = 0;
+		
+		o13_label = "DeadReckon.Depth";
+		o13_value = 0;
+		
+		o14_label = "DeadReckon.ForwardSpeed";
+		o14_value = 0;
+		
+		o15_label = "DeadReckon.Heading";
+		o15_value = 10;	
 	};
 	
 	TimerTransitions =
