@@ -1,0 +1,238 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <title>lookForPath_v3_test/Embedded MATLAB Function</title></head><link rel="StyleSheet" href="slwebview.css" type="text/css"><script type="text/javascript" src="id_mapping.js"></script><script type="text/javascript" src="slwebview.js"></script><script type="text/javascript" src="slwebview_utils.js"></script><script type="text/javascript" src="slhtmltoolbar.js"></script><body onload="addToolbar('toolbarDiv');"><table><tr><td><div id="toolbarDiv" style="display:inline"></div></td><td class="content" style="vertical-align:middle">Embedded
+MATLAB Function</td></tr></table><pre xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+<span style="color:blue">function</span> [centroid_x, centroid_y] = CentroidVertScan(bwMatrix)
+
+centroid_x = 0;
+centroid_y = 0;
+
+<span style="color:green">%{
+</span><span style="color:green">%Author: Yama Habib
+</span><span style="color:green">%Revision: 10/27/2010
+</span><span style="color:green">%CentroidVertScan takes a black and white matrix (the expected output of
+</span><span style="color:green">%the blob detection algorithm) with a single (rectangular) object detected,
+</span><span style="color:green">%and returns the raw matrix coordinate of the centroid of the object. To
+</span><span style="color:green">%convert to an angular heading, use the Centroid2Heading function.
+</span><span style="color:green">
+</span><span style="color:green">%Should these be parameters? I think they're fine as constants.
+</span><span style="color:green">WIDTH = size(bwMatrix, 2);
+</span><span style="color:green">HEIGHT = size(bwMatrix, 1);
+</span><span style="color:green">
+</span><span style="color:green">%increase the x step to increase efficiency. The further this
+</span><span style="color:green">%number is from 1, the closer the object will have to be to be detected
+</span><span style="color:green">%NOTE: find the max distance the hedge will be from the AUV, then find the
+</span><span style="color:green">%optimal (lowest working) x step for that distance!
+</span><span style="color:green">X_STEP = 1;
+</span><span style="color:green">Y_STEP = 1;
+</span><span style="color:green">
+</span><span style="color:green">%Don't detect lines unless they are longer than HEIGHT*THRESHOLD
+</span><span style="color:green">THRESHOLD = 0.1;
+</span><span style="color:green">
+</span><span style="color:green">%Allocate arrays...allocate more or less memory depending on how many lines
+</span><span style="color:green">%are found in the average case
+</span><span style="color:green">lineLengths = zeros(WIDTH,1);
+</span><span style="color:green">lineMidpts_y = zeros(WIDTH,1);
+</span><span style="color:green">lineMidpts_x = zeros(WIDTH,1);
+</span><span style="color:green">
+</span><span style="color:green">%Find vertical lines
+</span><span style="color:green">index = 1;
+</span><span style="color:green">i = 1;
+</span><span style="color:green">while(i &lt;= WIDTH)
+</span><span style="color:green">    j = 1;
+</span><span style="color:green">    while(j &lt;= HEIGHT)
+</span><span style="color:green">        %skip whitespace
+</span><span style="color:green">        while(bwMatrix(j,floor(i)) == 0)
+</span><span style="color:green">%        while(bwMatrix(floor(i),j) == 0)
+</span><span style="color:green">            j = j+1;
+</span><span style="color:green">            if(j &gt; HEIGHT)
+</span><span style="color:green">                break;
+</span><span style="color:green">            end
+</span><span style="color:green">        end
+</span><span style="color:green">        %count contiguous blackspace
+</span><span style="color:green">        if(j &lt;= HEIGHT)
+</span><span style="color:green">            length = 0;
+</span><span style="color:green">            midpt = j;
+</span><span style="color:green">            while(bwMatrix(floor(i),j) ~= 0)
+</span><span style="color:green">                length = length+1;
+</span><span style="color:green">                j = j+1;
+</span><span style="color:green">                if(j &gt; HEIGHT)
+</span><span style="color:green">                    break;
+</span><span style="color:green">                end
+</span><span style="color:green">            end
+</span><span style="color:green">            midpt = midpt + length/2;
+</span><span style="color:green">            %only register as a line if longer than HEIGHT*THRESHOLD
+</span><span style="color:green">            if(length &gt; HEIGHT*THRESHOLD)
+</span><span style="color:green">                lineLengths(index) = length;
+</span><span style="color:green">                lineMidpts_y(index) = midpt;
+</span><span style="color:green">                lineMidpts_x(index) = floor(i);
+</span><span style="color:green">                index = index+1;
+</span><span style="color:green">            end
+</span><span style="color:green">        end
+</span><span style="color:green">        %rinse, repeat
+</span><span style="color:green">    end
+</span><span style="color:green">    i = i+X_STEP;
+</span><span style="color:green">end
+</span><span style="color:green">
+</span><span style="color:green">%Find maximum (longest rightmost) and minimum (longest leftmost) vertical
+</span><span style="color:green">%lines
+</span><span style="color:green">i = 1;
+</span><span style="color:green">min = 1;
+</span><span style="color:green">max = 1;
+</span><span style="color:green">while(i &lt;= index);
+</span><span style="color:green">    
+</span><span style="color:green">    % The following comparisons seek to minimize and maximize the metric
+</span><span style="color:green">    %   " length*( width - x_midpt ) ". This effectively finds the largest
+</span><span style="color:green">    %   leftmost and rightmost vertical lines.
+</span><span style="color:green">    
+</span><span style="color:green">    % This if statement should be "&lt;" instead of "&gt;" ??
+</span><span style="color:green">    if(lineLengths(i)*(WIDTH-lineMidpts_x(i)) &gt; lineLengths(min)*(WIDTH-lineMidpts_x(min)))
+</span><span style="color:green">        min = i;
+</span><span style="color:green">    end
+</span><span style="color:green">    % This if statement should be correct
+</span><span style="color:green">    if(lineLengths(i)*(lineMidpts_x(i)) &gt;= lineLengths(max)*(lineMidpts_x(max)))
+</span><span style="color:green">        max = i;
+</span><span style="color:green">    end
+</span><span style="color:green">    i = i+1;
+</span><span style="color:green">end
+</span><span style="color:green">
+</span><span style="color:green">%The centroid is (should be) the midpoint between the max's midpoint and
+</span><span style="color:green">%the min's midpoint
+</span><span style="color:green">% The assumption made is that the rightmost and leftmost lines bound a
+</span><span style="color:green">% vertically-oriented rectangular path
+</span><span style="color:green">centroid_x = (lineMidpts_x(min) + lineMidpts_x(max))/2;
+</span><span style="color:green">centroid_y = (lineMidpts_y(min) + lineMidpts_y(max))/2;
+</span><span style="color:green">end
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">%}
+</span>
+
+
+
+
+
+
+
+
+
+<span style="color:green">%{
+</span><span style="color:green">
+</span><span style="color:green">% The following is the old code:
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">
+</span><span style="color:green">function [centroid_x, centroid_y] = CentroidVertScan(bwMatrix)
+</span><span style="color:green">%Author: Yama Habib
+</span><span style="color:green">%Revision: 10/27/2010
+</span><span style="color:green">%CentroidVertScan takes a black and white matrix (the expected output of
+</span><span style="color:green">%the blob detection algorithm) with a single (rectangular) object detected,
+</span><span style="color:green">%and returns the raw matrix coordinate of the centroid of the object. To
+</span><span style="color:green">%convert to an angular heading, use the Centroid2Heading function.
+</span><span style="color:green">
+</span><span style="color:green">%Should these be parameters? I think they're fine as constants.
+</span><span style="color:green">WIDTH = size(bwMatrix, 2);
+</span><span style="color:green">HEIGHT = size(bwMatrix, 1);
+</span><span style="color:green">%WIDTH = 160;
+</span><span style="color:green">%HEIGHT = 120;
+</span><span style="color:green">
+</span><span style="color:green">%increase the x step to increase efficiency. The further this
+</span><span style="color:green">%number is from 1, the closer the object will have to be to be detected
+</span><span style="color:green">%NOTE: find the max distance the hedge will be from the AUV, then find the
+</span><span style="color:green">%optimal (lowest working) x step for that distance!
+</span><span style="color:green">X_STEP = 1;
+</span><span style="color:green">
+</span><span style="color:green">%Don't detect lines unless they are longer than HEIGHT*THRESHOLD
+</span><span style="color:green">THRESHOLD = 0.1;
+</span><span style="color:green">
+</span><span style="color:green">%Allocate arrays...allocate more or less memory depending on how many lines
+</span><span style="color:green">%are found in the average case
+</span><span style="color:green">lineLengths = zeros(WIDTH,1);
+</span><span style="color:green">lineMidpts_y = zeros(WIDTH,1);
+</span><span style="color:green">lineMidpts_x = zeros(WIDTH,1);
+</span><span style="color:green">
+</span><span style="color:green">%Find vertical lines
+</span><span style="color:green">index = 1;
+</span><span style="color:green">i = 1;
+</span><span style="color:green">while(i &lt;= WIDTH)
+</span><span style="color:green">    j = 1;
+</span><span style="color:green">    while(j &lt;= HEIGHT)
+</span><span style="color:green">        %skip whitespace
+</span><span style="color:green">        while(bwMatrix(j,floor(i)) == 0)
+</span><span style="color:green">%        while(bwMatrix(floor(i),j) == 0)
+</span><span style="color:green">            j = j+1;
+</span><span style="color:green">            if(j &gt; HEIGHT)
+</span><span style="color:green">                break;
+</span><span style="color:green">            end
+</span><span style="color:green">        end
+</span><span style="color:green">        %count contiguous blackspace
+</span><span style="color:green">        if(j &lt;= HEIGHT)
+</span><span style="color:green">            length = 0;
+</span><span style="color:green">            midpt = j;
+</span><span style="color:green">            while(bwMatrix(floor(i),j) ~= 0)
+</span><span style="color:green">                length = length+1;
+</span><span style="color:green">                j = j+1;
+</span><span style="color:green">                if(j &gt; HEIGHT)
+</span><span style="color:green">                    break;
+</span><span style="color:green">                end
+</span><span style="color:green">            end
+</span><span style="color:green">            midpt = midpt + length/2;
+</span><span style="color:green">            %only register as a line if longer than HEIGHT*THRESHOLD
+</span><span style="color:green">            if(length &gt; HEIGHT*THRESHOLD)
+</span><span style="color:green">                lineLengths(index) = length;
+</span><span style="color:green">                lineMidpts_y(index) = midpt;
+</span><span style="color:green">                lineMidpts_x(index) = floor(i);
+</span><span style="color:green">                index = index+1;
+</span><span style="color:green">            end
+</span><span style="color:green">        end
+</span><span style="color:green">        %rinse, repeat
+</span><span style="color:green">    end
+</span><span style="color:green">    i = i+X_STEP;
+</span><span style="color:green">end
+</span><span style="color:green">
+</span><span style="color:green">%Find maximum (longest rightmost) and minimum (longest leftmost) vertical
+</span><span style="color:green">%lines
+</span><span style="color:green">i = 1;
+</span><span style="color:green">min = 1;
+</span><span style="color:green">max = 1;
+</span><span style="color:green">while(i &lt;= index);
+</span><span style="color:green">    
+</span><span style="color:green">    % The following comparisons seek to minimize and maximize the metric
+</span><span style="color:green">    %   " length*( width - x_midpt ) ". This effectively finds the largest
+</span><span style="color:green">    %   leftmost and rightmost vertical lines.
+</span><span style="color:green">    
+</span><span style="color:green">    % This if statement should be "&lt;" instead of "&gt;" ??
+</span><span style="color:green">    if(lineLengths(i)*(WIDTH-lineMidpts_x(i)) &gt; lineLengths(min)*(WIDTH-lineMidpts_x(min)))
+</span><span style="color:green">        min = i;
+</span><span style="color:green">    end
+</span><span style="color:green">    % This if statement should be correct
+</span><span style="color:green">    if(lineLengths(i)*(lineMidpts_x(i)) &gt;= lineLengths(max)*(lineMidpts_x(max)))
+</span><span style="color:green">        max = i;
+</span><span style="color:green">    end
+</span><span style="color:green">    i = i+1;
+</span><span style="color:green">end
+</span><span style="color:green">
+</span><span style="color:green">%The centroid is (should be) the midpoint between the max's midpoint and
+</span><span style="color:green">%the min's midpoint
+</span><span style="color:green">% The assumption made is that the rightmost and leftmost lines bound a
+</span><span style="color:green">% vertically-oriented rectangular path
+</span><span style="color:green">centroid_x = (lineMidpts_x(min) + lineMidpts_x(max))/2;
+</span><span style="color:green">centroid_y = (lineMidpts_y(min) + lineMidpts_y(max))/2;
+</span><span style="color:green">end
+</span><span style="color:green">
+</span><span style="color:green">%}
+</span>
+</pre></body></html>
