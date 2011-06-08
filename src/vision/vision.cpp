@@ -59,12 +59,26 @@ Vision::Vision() : SimulinkModule()
 //    paramList["RC_Source"] = &VisionModel_P.RC_Source;
 //    paramList["MissionPlan"] = &VisionModel_P.MissionPlan;
 
+//    real_T R_forward_in[19200];          /* '<Root>/R_forward_in' */
+//    real_T G_forward_in[19200];          /* '<Root>/G_forward_in' */
+//    real_T B_forward_in[19200];          /* '<Root>/B_forward_in' */
+//    real_T R_down_in[19200];             /* '<Root>/R_down_in' */
+//    real_T G_down_in[19200];             /* '<Root>/G_down_in' */
+//    real_T B_down_in[19200];             /* '<Root>/B_down_in' */
+
+    paramList["Vision_ModeSelect"] = &VisionModel_U.ModeSelect;
+    paramList["Vision_DesiredPathDirection"] = &VisionModel_U.DesiredPathDirection;
+    paramList["Vision_DesiredBuoyColor"] = &VisionModel_U.DesiredBuoyColor;
+    paramList["Vision_DesiredTorpedoColor"] = &VisionModel_U.DesiredTorpedoColor;
+    paramList["Vision_ProceedToSecondTarget"] = &VisionModel_U.ProceedToSecondTarget;
+    paramList["Vision_DefaultTaretShape"] = &VisionModel_U.DefaultTaretShape;
+    paramList["Vision_DefaultTargetColor"] = &VisionModel_U.DefaultTargetColor;
 }
 
 /**
  *  Quit running this module if we receive a VDatum.value of "STOP"
  */
-void Vision::dataIn(VDatum message)
+void Vision::dataIn(VDatum datum)
 {
     if(datum.id != "Mode") return;
     if(datum.value == "Stop") stopped = true;
@@ -92,5 +106,26 @@ void Vision::step()
      */
     updateParameters();
 
-    // do stuff with the vision params
+    // call the function
+    VisionModel_step();
+
+    // set the outputs of the function
+    setData("Vision.Output.TargetSelect", VisionModel_Y.TargetSelect);
+    setData("Vision.Output.TargetFound", VisionModel_Y.TargetFound);
+    setData("Vision.Output.MaintainHeading", VisionModel_Y.MaintainHeading);
+    setData("Vision.Output.TargetX", VisionModel_Y.TargetX);
+    setData("Vision.Output.TargetY", VisionModel_Y.TargetY);
+    setData("Vision.Output.TargetZ", VisionModel_Y.TargetZ);
+    setData("Vision.Output.TargetYaw", VisionModel_Y.TargetYaw);
+    setData("Vision.Output.DesiredTargetX", VisionModel_Y.DesiredTargetX);
+    setData("Vision.Output.DesiredTargetY", VisionModel_Y.DesiredTargetY);
+    setData("Vision.Output.DesiredTargetZ", VisionModel_Y.DesiredTargetZ);
+    setData("Vision.Output.DesiredTargetYaw", VisionModel_Y.DesiredTargetYaw);
+    setData("Vision.Output.MeasuredZ", VisionModel_Y.MeasuredZ);
+    setData("Vision.Output.MeasuredYAccel", VisionModel_Y.MeasuredYAccel);
+    setData("Vision.Output.MeasuredYaw", VisionModel_Y.MeasuredYaw);
+    setData("Vision.Output.MeasuredYawRate", VisionModel_Y.MeasuredYawRate);
+    setData("Vision.Output.DesiredZ", VisionModel_Y.DesiredZ);
+    setData("Vision.Output.DesiredXVelocity", VisionModel_Y.DesiredXVelocity);
+    setData("Vision.Output.DesiredYaw", VisionModel_Y.DesiredYaw);
 }

@@ -32,7 +32,8 @@ HEADERS += \
            state/vdatum.h \
            state/vdatasocket.h \
            state/treemodel/treeitem.h \
-           state/treemodel/treemodel.h 
+           state/treemodel/treemodel.h \ 
+
 
 SOURCES += \
 	   misc/configloader.cpp \
@@ -44,7 +45,6 @@ SOURCES += \
            state/vdatasocket.cpp \
            state/treemodel/treeitem.cpp \
            state/treemodel/treemodel.cpp \
-
 
 # Controllers ###############################################
 HEADERS += \
@@ -101,7 +101,7 @@ HEADERS += \
            controllers/src/sfcn_bridge.h \
            controllers/src/sigmapdef_sfcn.h \
            controllers/src/sigregdef.h \
-           controllers/src/simstruc.h \
+           #controllers/src/simstruc.h \
            controllers/src/simstruc_types.h \
            controllers/src/simulink.h \
            controllers/src/simulink2.h \
@@ -173,3 +173,186 @@ HEADERS +=  \
 SOURCES +=  \
             director/director.cpp \
             director/lua/QueryLua.cpp
+
+# vision ################################################
+HEADERS +=  \
+    vision/src/VisionModel_types.h \
+    vision/src/VisionModel_private.h \
+    vision/src/VisionModel.h \
+    vision/src/vip_sim.h \
+    vision/src/vipprojective_rt.h \
+    vision/src/vipprojective.h \
+    vision/src/vipopticalflow_rt.h \
+    vision/src/vipmdnfilter_rt.h \
+    vision/src/vip_imgcomplement_sim.h \
+    vision/src/viphough_rt.h \
+    vision/src/vip_fourcclist_sim.h \
+    vision/src/vipfilewrite_rt.h \
+    vision/src/vipfileread_rt.h \
+    vision/src/vipedge_rt.h \
+    vision/src/vipdrawtext_rt.h \
+    vision/src/vipblockmatch_rt.h \
+    vision/src/vipblob_rt.h \
+    vision/src/vip_2dpad_sim.h \
+    vision/src/VideoDefs.h \
+    vision/src/validation_gate_types.h \
+    vision/src/validation_gate_private.h \
+    vision/src/validation_gate.h \
+    vision/src/upsup_public.h \
+    vision/src/updown_util.h \
+    vision/src/updown.h \
+    vision/src/towavefile_win32.h \
+    vision/src/towavefile_ex_win32.h \
+    vision/src/towavedevice_win32.h \
+    vision/src/towavedevice_ex_win32.h \
+    vision/src/torpedo_types.h \
+    vision/src/torpedo_private.h \
+    vision/src/torpedo.h \
+    vision/src/tmwtypes.h \
+    vision/src/sysran_types.h \
+    vision/src/solver_zc.h \
+    vision/src/sl_types_def.h \
+    vision/src/sl_solver_rtw.h \
+    vision/src/sl_prodhwdevicetype.h \
+    vision/src/sl_fixpt.h \
+    vision/src/sl_fileio_rtw.h \
+    vision/src/sl_datatype_access.h \
+    vision/src/simulink2.h \
+    vision/src/simulink.h \
+    vision/src/simstruc_types.h \
+    vision/src/simstruc.h \
+    vision/src/sigregdef.h \
+    vision/src/sigmapdef_sfcn.h \
+    vision/src/sfcn_bridge.h \
+    vision/src/rtwtypes.h \
+    vision/src/rtw_solver.h \
+    vision/src/rtw_shared_utils.h \
+    vision/src/rtw_modelmap_logging.h \
+    vision/src/rtw_modelmap.h \
+    vision/src/rtw_matlogging.h \
+    vision/src/rtw_extmode.h \
+    vision/src/rtw_continuous.h \
+    vision/src/rtw_capi_examples.h \
+    vision/src/rtw_capi.h \
+    vision/src/rtsplntypes.h \
+    vision/src/rt_sim.h \
+    vision/src/rt_pow_snf.h \
+    vision/src/rt_nonfinite.h \
+    vision/src/rt_mxclassid.h \
+    vision/src/rtmmacros.h \
+    vision/src/rtmcmacros.h \
+    vision/src/rt_matrx.h \
+    vision/src/rt_math.h \
+    vision/src/rt_logging_mmi.h \
+    vision/src/rt_logging.h \
+    vision/src/rtiostream.h \
+    vision/src/rtGetNaN.h \
+    vision/src/rtGetInf.h \
+    vision/src/pt_info.h \
+    vision/src/path_detector_types.h \
+    vision/src/path_detector_private.h \
+    vision/src/path_detector.h \
+    vision/src/odesup.h \
+    vision/src/mwutil.h \
+    vision/src/mwmathutil.h \
+    vision/src/moppaaaadjecnopp_refp1_round.h \
+    vision/src/mex.h \
+    vision/src/mem_mgr.h \
+    vision/src/mdl_info.h \
+    vision/src/matrix.h \
+    vision/src/mat.h \
+    vision/src/lexicmp.h \
+    vision/src/lapack.h \
+    vision/src/io64.h \
+    vision/src/HostLib_Video.h \
+    vision/src/HostLib_Multimedia.h \
+    vision/src/HostLib_MMFile.h \
+    vision/src/HostLib_Audio.h \
+    vision/src/fromwavefile_win32.h \
+    vision/src/fromwavefile_ex_win32.h \
+    vision/src/fromwavedevice_win32.h \
+    vision/src/fromwavedevice_ex_win32.h \
+    vision/src/fixedpoint.h \
+    vision/src/fintrf.h \
+    vision/src/fcjmfkngfcbidjmo_conv2.h \
+    vision/src/ext_work.h \
+    vision/src/ext_types.h \
+    vision/src/ext_test.h \
+    vision/src/ext_svr_transport.h \
+    vision/src/ext_svr.h \
+    vision/src/ext_share.h \
+    vision/src/engine.h \
+    vision/src/emlrt.h \
+    vision/src/dt_info.h \
+    vision/src/dsp_vqdesign.h \
+    vision/src/dspsvd_rt.h \
+    vision/src/dsp_srt_sim.h \
+    vision/src/dspsrt_rt.h \
+    vision/src/dsp_sqdesign.h \
+    vision/src/dspsizeof_rt.h \
+    vision/src/dsp_rt.h \
+    vision/src/dsp_rebuff_sim.h \
+    vision/src/dsprebuff_rt.h \
+    vision/src/dsp_randsrc_sim.h \
+    vision/src/dsprandsrc_rt.h \
+    vision/src/dsprandsrc64bit_rt.h \
+    vision/src/dsprandsrc32bit_rt.h \
+    vision/src/dspqrdc_rt.h \
+    vision/src/dsp_offset_sim.h \
+    vision/src/dspmmutils_rt.h \
+    vision/src/dsp_iso_math_rt.h \
+    vision/src/dsp_interp_sim.h \
+    vision/src/dspiir_rt.h \
+    vision/src/dsp_ic_rt.h \
+    vision/src/dspfir_rt.h \
+    vision/src/dsp_filtstruct_sim.h \
+    vision/src/dspfilterbank_rt.h \
+    vision/src/dsp_fft_sim.h \
+    vision/src/dsp_fft_common_sim.h \
+    vision/src/dspeph_rt.h \
+    vision/src/dspendian_rt.h \
+    vision/src/dsp_dlyerr_sim.h \
+    vision/src/dsp_chol_sim.h \
+    vision/src/dsp_blms_sim.h \
+    vision/src/dspblms_rt.h \
+    vision/src/dspbiquad_rt.h \
+    vision/src/dspallpole_rt.h \
+    vision/src/drop_mech_types.h \
+    vision/src/drop_mech_private.h \
+    vision/src/drop_mech.h \
+    vision/src/dll_utils_win.h \
+    vision/src/compare_fcn.h \
+    vision/src/cg_sfun.h \
+    vision/src/cg_matrx.h \
+    vision/src/buoy_detector_types.h \
+    vision/src/buoy_detector_private.h \
+    vision/src/buoy_detector.h \
+    vision/src/blascompat32.h \
+    vision/src/blas.h \
+    vision/src/bio_sig.h \
+    vision/src/AudioDefs.h \
+    vision/vision.h
+
+
+SOURCES +=  \
+    vision/src/VisionModel_data.cpp \
+    vision/src/VisionModel.cpp \
+    vision/src/validation_gate_data.cpp \
+    vision/src/validation_gate.cpp \
+    vision/src/torpedo_data.cpp \
+    vision/src/torpedo.cpp \
+    vision/src/rt_pow_snf.cpp \
+    vision/src/rt_nonfinite.cpp \
+    vision/src/rtGetNaN.cpp \
+    vision/src/rtGetInf.cpp \
+    vision/src/path_detector_data.cpp \
+    vision/src/path_detector.cpp \
+    vision/src/moppaaaadjecnopp_refp1_round.cpp \
+    vision/src/hough_r_rt.c \
+    vision/src/hough_d_rt.c \
+    vision/src/fcjmfkngfcbidjmo_conv2.cpp \
+    vision/src/ert_main.cpp \
+    vision/src/drop_mech.cpp \
+    vision/src/buoy_detector_data.cpp \
+    vision/src/buoy_detector.cpp \
+    vision/vision.cpp
