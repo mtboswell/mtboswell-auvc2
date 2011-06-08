@@ -1,14 +1,36 @@
+# comment out this line to enable warnings
+CONFIG += warn_off
+
+# determine distro
+ISSUE = $$system(cat /etc/issue)
+contains( ISSUE, [uU]buntu ) {
+	CONFIG += ubuntu
+}
+contains( ISSUE, [aA]rch ){
+	CONFIG += arch
+}
+contains( ISSUE, [fF]edora ){
+	CONFIG += fedora
+}
+
 TEMPLATE = app
 TARGET = ../agent
-CONFIG += qt gui debug warn_off
+CONFIG += debug
 QT += network 
 MOC_DIR = tmp
 OBJECTS_DIR = tmp
 UI_DIR = tmp
 
-#LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
 # llua-5.1
-LIBS +=  -lueye_api -llua5.1
+ubuntu {
+	LIBS +=  -llua5.1
+} else {
+	LIBS +=  -llua
+}
+# camera driver 
+LIBS +=  -lueye_api
+# old libs
+#LIBS += -Lserver-jaus -ljauscore -ljausmobility -ltinyxml -lcxutils
 
 DEPENDPATH += . \
 
