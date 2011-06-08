@@ -22,6 +22,7 @@
 #include "actuators/actuators.h"
 #include "director/director.h"
 #include "cameraSAL/cameraSAL.h"
+#include "vision/vision.h"
 
 #include <QTreeView>
 
@@ -29,6 +30,7 @@
 static bool simulate = false;
 static bool thrustersON = true;
 static bool directorON = true;
+static bool visionON = false;
 static QStringList debug;
 
 int main(int argc, char *argv[]){
@@ -49,6 +51,7 @@ int main(int argc, char *argv[]){
 		else if(arg == "--no-thrusters" || arg == "-T") thrustersON = false;
 		///if --no-director is on then do not start director module
 		else if (arg == "--no-director" || arg == "-D") directorON = false;
+                else if (arg == "--no-vision" || arg == "-V") visionON = false;
 		else if(arg.startsWith("-d:") || arg.startsWith("--debug:")){
 			debug.append(arg.right(arg.size() - arg.indexOf(":") - 1));
 		}
@@ -97,6 +100,10 @@ int main(int argc, char *argv[]){
     		qDebug() << "Creating Director";    // Must have Lua 5.1+ libs installed for director
  	   	hub.addModule(new director());
 	}
+        if (visionON)   {
+            qDebug() << "Creating Vision";
+            hub.addModule(new Vision());
+        }
 
 	/* Start everything */
 	hub.initializeAndLaunchAllModules();

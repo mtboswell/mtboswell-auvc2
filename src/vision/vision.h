@@ -36,6 +36,7 @@ class Vision : public SimulinkModule
 
     private:
         bool stopped;
+        QTimer *timer;  // work around to initialize values for statedata
 };
 
 #endif // VISION_H
