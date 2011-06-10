@@ -112,8 +112,7 @@ void Vision::step()
             }
         }
     }
-    else
-        std::cerr << "Vision::step(): Could not populate Simulink Camera parameters" << std::endl;
+    else if (debug) std::cerr << "Vision::step(): Could not populate Simulink Camera parameters" << std::endl;
 
     // call the function
     VisionModel_step();
