@@ -136,4 +136,8 @@ void Vision::step()
     setData("Vision.Output.DesiredZ", VisionModel_Y.DesiredZ);
     setData("Vision.Output.DesiredXVelocity", VisionModel_Y.DesiredXVelocity);
     setData("Vision.Output.DesiredYaw", VisionModel_Y.DesiredYaw);
+    setData("Vision.Output.TargetDetected", VisionModel_Y.TargetDetected);
+    setData("Vision.Output.PathState", VisionModel_Y.PathState);
+//    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
+    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
 }
