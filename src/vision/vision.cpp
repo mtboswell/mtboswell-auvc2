@@ -1,77 +1,32 @@
 #include "vision.h"
+#include <iostream>
+
+// These are the desired MAX values for (width, height) for both cameras.
+// These are a poor man's error checking test so we don't write past array bounds
+// Technically, these values are set in the Simulink module: VisionModel.mdl.
+// Consult your Vision guru (David as of this writing)
+const int FORWARD_CAM_MAX_WIDTH = 120;
+const int FORWARD_CAM_MAX_HEIGHT = 160;
+const int DOWNWARD_CAM_MAX_WIDTH = 160;
+const int DOWNWARD_CAM_MAX_HEIGHT = 120;
 
 Vision::Vision() : SimulinkModule()
 {
-// TODO --- place correct inputs into paramList
-//    paramList["Depth_Kp"] = &VisionModel_P.Depth_Kp;
-//    paramList["Depth_Kd"] = &VisionModel_P.Depth_Kd;
-//    paramList["Depth_Ki"] = &VisionModel_P.Depth_Ki;
-//    paramList["Heading_Kp"] = &VisionModel_P.Heading_Kp;
-//    paramList["Heading_Kd"] = &VisionModel_P.Heading_Kd;
-//    paramList["Heading_Ki"] = &VisionModel_P.Heading_Ki;
-//    paramList["Track_HueHigher"] = &VisionModel_P.Track_HueHigher;
-//    paramList["Track_HueLower"] = &VisionModel_P.Track_HueLower;
-//    paramList["Track_Saturation"] = &VisionModel_P.Track_Saturation;
-//    paramList["Min_Blob_Size"] = &VisionModel_P.Min_Blob_Size;
-//    paramList["Max_Blob_Size"] = &VisionModel_P.Max_Blob_Size;
-//    paramList["Max_Num_Blobs"] = &VisionModel_P.Max_Num_Blobs;
-//    paramList["Track_Min_Eccentricity"] = &VisionModel_P.Track_Min_Eccentricity;
-//    paramList["Track_Desired_Depth"] = &VisionModel_P.Track_Desired_Depth;
-//    paramList["Cam_Down_Yaw_XPos_Kp"] = &VisionModel_P.Cam_Down_Yaw_XPos_Kp;
-//    paramList["Cam_Down_Yaw_XPos_Kd"] = &VisionModel_P.Cam_Down_Yaw_XPos_Kd;
-//    paramList["Cam_Down_Yaw_XPos_Ki"] = &VisionModel_P.Cam_Down_Yaw_XPos_Ki;
-//    paramList["Cam_Down_Strafe_XPos_Kp"] = &VisionModel_P.Cam_Down_Strafe_XPos_Kp;
-//    paramList["Cam_Down_Strafe_XPos_Kd"] = &VisionModel_P.Cam_Down_Strafe_XPos_Kd;
-//    paramList["Cam_Down_Strafe_XPos_Ki"] = &VisionModel_P.Cam_Down_Strafe_XPos_Ki;
-//    paramList["Cam_Down_YPos_Kp"] = &VisionModel_P.Cam_Down_YPos_Kp;
-//    paramList["Cam_Down_YPos_Kd"] = &VisionModel_P.Cam_Down_YPos_Kd;
-//    paramList["Cam_Down_YPos_Ki"] = &VisionModel_P.Cam_Down_YPos_Ki;
-//    paramList["Buoy1_Hue"] = &VisionModel_P.Buoy1_Hue;
-//    paramList["Buoy1_Saturation"] = &VisionModel_P.Buoy1_Saturation;
-//    paramList["Buoy1_Value"] = &VisionModel_P.Buoy1_Value;
-//    paramList["Buoy2_Hue"] = &VisionModel_P.Buoy2_Hue;
-//    paramList["Buoy2_Saturation"] = &VisionModel_P.Buoy2_Saturation;
-//    paramList["Buoy2_Value"] = &VisionModel_P.Buoy2_Value;
-//    paramList["Iter_Segment_Thresh"] = &VisionModel_P.Iter_Segment_Thresh;
-//    paramList["Buoy_Min_Eccentricity"] = &VisionModel_P.Buoy_Min_Eccentricity;
-//    paramList["Buoy_Max_Eccentricity"] = &VisionModel_P.Buoy_Max_Eccentricity;
-//    paramList["Buoy_Min_Extent"] = &VisionModel_P.Buoy_Min_Extent;
-//    paramList["Buoy_Max_Extent"] = &VisionModel_P.Buoy_Max_Extent;
-//    paramList["Max_Num_Blobs_Buoy"] = &VisionModel_P.Max_Num_Blobs_Buoy;
-//    paramList["Cam_Forward_XPosition_Kp"] = &VisionModel_P.Cam_Forward_XPosition_Kp;
-//    paramList["Cam_Forward_XPosition_Kd"] = &VisionModel_P.Cam_Forward_XPosition_Kd;
-//    paramList["Cam_Forward_XPosition_Ki"] = &VisionModel_P.Cam_Forward_XPosition_Ki;
-//    paramList["Cam_Forward_YPosition_Kp"] = &VisionModel_P.Cam_Forward_YPosition_Kp;
-//    paramList["Cam_Forward_YPosition_Kd"] = &VisionModel_P.Cam_Forward_YPosition_Kd;
-//    paramList["Cam_Forward_YPosition_Ki"] = &VisionModel_P.Cam_Forward_YPosition_Ki;
-//    paramList["IMU_YVel_Kp"] = &VisionModel_P.IMU_YVel_Kp;
-//    paramList["IMU_YVel_Kd"] = &VisionModel_P.IMU_YVel_Kd;
-//    paramList["IMU_YVel_Ki"] = &VisionModel_P.IMU_YVel_Ki;
-//    paramList["IMU_YawRate_Kp"] = &VisionModel_P.IMU_YawRate_Kp;
-//    paramList["IMU_YawRate_Kd"] = &VisionModel_P.IMU_YawRate_Kd;
-//    paramList["IMU_YawRate_Ki"] = &VisionModel_P.IMU_YawRate_Ki;
-//    paramList["Heading_Forward_Velocity"] = &VisionModel_P.Heading_Forward_Velocity;
-//    paramList["Vision_Forward_Velocity"] = &VisionModel_P.Vision_Forward_Velocity;
-//    paramList["Buoy_Strafe"] = &VisionModel_P.Buoy_Strafe;
-//    paramList["Hedge_Hue"] = &VisionModel_P.Hedge_Hue;
-//    paramList["Hedge_Saturation"] = &VisionModel_P.Hedge_Saturation;
-//    paramList["Hedge_Value"] = &VisionModel_P.Hedge_Value;
-//    paramList["RC_Source"] = &VisionModel_P.RC_Source;
-//    paramList["MissionPlan"] = &VisionModel_P.MissionPlan;
+    // Updated manually from files: 2.bmp, 3.bmp, see step() function below
+//    paramList["Vision_R_forward_in"] = &VisionModel_U.R_forward_in;
+//    paramList["Vision_G_forward_in"] = &VisionModel_U.G_forward_in;
+//    paramList["Vision_B_forward_in"] = &VisionModel_U.B_forward_in;
 
-//    real_T R_forward_in[19200];          /* '<Root>/R_forward_in' */
-//    real_T G_forward_in[19200];          /* '<Root>/G_forward_in' */
-//    real_T B_forward_in[19200];          /* '<Root>/B_forward_in' */
-//    real_T R_down_in[19200];             /* '<Root>/R_down_in' */
-//    real_T G_down_in[19200];             /* '<Root>/G_down_in' */
-//    real_T B_down_in[19200];             /* '<Root>/B_down_in' */
+//    paramList["Vision_R_down_in"] = &VisionModel_U.R_down_in;
+//    paramList["Vision_G_down_in"] = &VisionModel_U.G_down_in;
+//    paramList["Vision_B_down_in"] = &VisionModel_U.B_down_in;
 
     paramList["Vision_ModeSelect"] = &VisionModel_U.ModeSelect;
     paramList["Vision_DesiredPathDirection"] = &VisionModel_U.DesiredPathDirection;
     paramList["Vision_DesiredBuoyColor"] = &VisionModel_U.DesiredBuoyColor;
     paramList["Vision_DesiredTorpedoColor"] = &VisionModel_U.DesiredTorpedoColor;
     paramList["Vision_ProceedToSecondTarget"] = &VisionModel_U.ProceedToSecondTarget;
-    paramList["Vision_DefaultTaretShape"] = &VisionModel_U.DefaultTaretShape;
+    paramList["Vision_DefaultTargetShape"] = &VisionModel_U.DefaultTargetShape;
     paramList["Vision_DefaultTargetColor"] = &VisionModel_U.DefaultTargetColor;
 }
 
@@ -93,11 +48,17 @@ void Vision::dataIn(VDatum datum)
  */
 void Vision::init()
 {
+    const int UPDATE_RATE = 20;    // num updates per seconds
     stopped = false;
     qDebug("Vision thread id: %d", (int) QThread::currentThreadId());
-    stepTimer->start(20);   // execute the step() function 100 times per second (100 Hz)
+    stepTimer->start(1000 / UPDATE_RATE);
 }
 
+/**
+ *  Called a set number of times every UPDATE_RATE seconds (see init()).
+ *  WARNING: this is where we populate the Simulink inputs ... IT IS POSSIBLE to
+ *  write past the VisionModel_U.R_forward_in (and other flavors) arrays.
+ */
 void Vision::step()
 {
     /**
@@ -105,6 +66,53 @@ void Vision::step()
      *  before executing the Simulink function
      */
     updateParameters();
+
+    // pull latest image from hard drive
+    QImage *forwardCam = new QImage("2.bmp");
+    QImage *downwardCam = new QImage("3.bmp");
+    if (forwardCam != NULL || downwardCam != NULL)
+        return;
+
+    int f_width = forwardCam->width();
+    int f_height = forwardCam->height();
+    int d_width = downwardCam->width();
+    int d_height = downwardCam->height();
+
+    if (f_width > FORWARD_CAM_MAX_WIDTH || f_height > FORWARD_CAM_MAX_HEIGHT || d_width > DOWNWARD_CAM_MAX_WIDTH || d_height > DOWNWARD_CAM_MAX_HEIGHT)
+    {
+        std::cerr << "Vision::step(): ERROR! Forward and/or Downward Camera Width/Height mismatch.  Expected a certain width/height, but got something greater.";
+        return;
+    }
+
+    if (f_width > 0 && f_height > 0 && d_width > 0 && d_height > 0)
+    {
+        // populate image arrays for Simulink VisionModel.mdl
+        for (int i = 0; i < f_height; ++i)
+        {
+            for (int j = 0; j < f_width; ++j)
+            {
+                int index = j*(forwardCam->height())+i;
+                QColor forward_rgb = forwardCam->pixel(j, i);
+                VisionModel_U.R_forward_in[index] = forward_rgb.red();
+                VisionModel_U.G_forward_in[index] = forward_rgb.green();
+                VisionModel_U.B_forward_in[index] = forward_rgb.blue();
+            }
+        }
+
+        for (int i = 0; i < d_height; ++i)
+        {
+            for (int j = 0; j < d_width; ++j)
+            {
+                int index = j*(forwardCam->height())+i;
+                QColor downward_rgb = downwardCam->pixel(j, i);
+                VisionModel_U.R_down_in[index] = downward_rgb.red();
+                VisionModel_U.G_down_in[index] = downward_rgb.green();
+                VisionModel_U.B_down_in[index] = downward_rgb.blue();
+            }
+        }
+    }
+    else
+        std::cerr << "Vision::step(): Could not populate Simulink Camera parameters" << std::endl;
 
     // call the function
     VisionModel_step();
