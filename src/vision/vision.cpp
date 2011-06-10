@@ -68,9 +68,10 @@ void Vision::step()
     updateParameters();
 
     // pull latest image from hard drive
-    QImage *forwardCam = new QImage("2.bmp");
-    QImage *downwardCam = new QImage("3.bmp");
-    if (forwardCam != NULL || downwardCam != NULL)
+    QImage *forwardCam = &(value("Camera.Forward.Frame").value<QImage>());
+    QImage *downwardCam = &(value("Camera.Forward.Frame").value<QImage>());
+
+    if (forwardCam == NULL || downwardCam == NULL)
         return;
 
     int f_width = forwardCam->width();
@@ -80,7 +81,7 @@ void Vision::step()
 
     if (f_width > FORWARD_CAM_MAX_WIDTH || f_height > FORWARD_CAM_MAX_HEIGHT || d_width > DOWNWARD_CAM_MAX_WIDTH || d_height > DOWNWARD_CAM_MAX_HEIGHT)
     {
-        std::cerr << "Vision::step(): ERROR! Forward and/or Downward Camera Width/Height mismatch.  Expected a certain width/height, but got something greater.";
+        std::cerr << "Vision::step(): ERROR! Forward/Downward Camera Width/Height mismatch (got something larger)" << std::endl;
         return;
     }
 
