@@ -1,0 +1,972 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<?xml-stylesheet href='./slwebview.css' type='text/css' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' onload='initialize(evt)' zoomAndPan='disable' id='canvas.validation_gate_test/IterativeSegmentation' class='canvas' display='inline' x='0' y='0' height='95%' width='100%' preserveAspectRatio='xMinYMin meet' original_viewBox='25 83 988 293' viewBox='25 83 988 293'> 
+<script type='text/javascript' xlink:href='./slwebview.js' />
+<script type='text/javascript' xlink:href='./id_mapping.js' />
+  <title id='title.validation_gate_test/IterativeSegmentation'>IterativeSegmentation</title>
+<rect id='background.validation_gate_test/IterativeSegmentation' x='-4066' y='-4008' width='9140' height='8387' pointer-events='none' fill='rgb(100%,100%,100%) ' />
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/RGB_LowPass' class='proptable' pointer-events='none' extent_Height='131' extent_Width='133' preferred_X='874' preferred_Y='308'>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='77' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>4</text>
+  <rect x='0' y='19' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='77' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='77' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='77' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='77' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='77' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='77' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='77' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='77' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='77' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='77' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/RGB_LowPass' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.validation_gate_test/IterativeSegmentation/RGB_LowPass'>RGB_LowPass</title>
+<g><rect x='820' y='303' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='820' y='303' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='801' y='329' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>RGB_LowPass</text>
+</g>
+</g>
+<g><g><text stroke='none' x='832' y='314.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_514)' font-family='Helvetica'>4</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/ref_colors' class='proptable' pointer-events='none' extent_Height='131' extent_Width='133' preferred_X='1007.5' preferred_Y='173'>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='77' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>3</text>
+  <rect x='0' y='19' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='77' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='77' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='77' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='77' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='77' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='77' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='77' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='77' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='77' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='77' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/ref_colors' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.validation_gate_test/IterativeSegmentation/ref_colors'>ref_colors</title>
+<g><rect x='965' y='168' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='965' y='168' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='957.5' y='194' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ref_colors</text>
+</g>
+</g>
+<g><g><text stroke='none' x='977' y='179.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_515)' font-family='Helvetica'>3</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/num_colors' class='proptable' pointer-events='none' extent_Height='131' extent_Width='133' preferred_X='1012' preferred_Y='133'>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='77' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='19' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='77' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='77' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='77' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='77' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='77' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='77' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='77' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='77' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='77' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='77' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/num_colors' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.validation_gate_test/IterativeSegmentation/num_colors'>num_colors</title>
+<g><rect x='965' y='128' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='965' y='128' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='953' y='154' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>num_colors</text>
+</g>
+</g>
+<g><g><text stroke='none' x='977' y='139.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_516)' font-family='Helvetica'>2</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/LabelMatrix' class='proptable' pointer-events='none' extent_Height='131' extent_Width='133' preferred_X='1013' preferred_Y='93'>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='77' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='19' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='77' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='77' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='77' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='77' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='77' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='77' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='77' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='77' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='77' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='77' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/LabelMatrix' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.validation_gate_test/IterativeSegmentation/LabelMatrix'>LabelMatrix</title>
+<g><rect x='965' y='88' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='965' y='88' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='952' y='114' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LabelMatrix</text>
+</g>
+</g>
+<g><g><text stroke='none' x='977' y='99.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_517)' font-family='Helvetica'>1</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/Segmentation' class='proptable' pointer-events='none' extent_Height='54' extent_Width='192' preferred_X='745' preferred_Y='109'>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ShowPortLabels</text>
+  <text stroke='none' x='130' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>FromPortIcon</text>
+  <rect x='0' y='19' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Permissions</text>
+  <text stroke='none' x='130' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ReadWrite</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PermitHierarchicalResolution</text>
+  <text stroke='none' x='130' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>All</text>
+  <rect x='0' y='41' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TreatAsAtomicUnit</text>
+  <text stroke='none' x='130' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/Segmentation' linkid='validation_gate_test/IterativeSegmentation/Segmentation' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.validation_gate_test/IterativeSegmentation/Segmentation'>Segmentation</title>
+<g><rect x='630' y='104' width='110' height='62' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='651.5' y='178' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Segmentation</text>
+</g>
+</g>
+<g><g><text stroke='none' x='633' y='119' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_518)' font-family='Helvetica'>L</text>
+</g>
+<g><text stroke='none' x='633' y='139' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_518)' font-family='Helvetica'>a</text>
+</g>
+<g><text stroke='none' x='633' y='159' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_518)' font-family='Helvetica'>b</text>
+</g>
+<g><text stroke='none' x='690' y='119' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_518)' font-family='Helvetica'>LabelMatrix</text>
+</g>
+<g><text stroke='none' x='689' y='139' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_518)' font-family='Helvetica'>num_colors</text>
+</g>
+<g><text stroke='none' x='695' y='159' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_518)' font-family='Helvetica'>ref_colors</text>
+</g>
+</g>
+<g><rect x='630' y='104' width='110' height='62' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/Low Pass Filter' class='proptable' pointer-events='none' extent_Height='54' extent_Width='192' preferred_X='330' preferred_Y='112'>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ShowPortLabels</text>
+  <text stroke='none' x='130' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>FromPortIcon</text>
+  <rect x='0' y='19' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Permissions</text>
+  <text stroke='none' x='130' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ReadWrite</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PermitHierarchicalResolution</text>
+  <text stroke='none' x='130' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>All</text>
+  <rect x='0' y='41' width='192' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TreatAsAtomicUnit</text>
+  <text stroke='none' x='130' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='192' height='54' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/Low Pass Filter' linkid='validation_gate_test/IterativeSegmentation/Low Pass Filter' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.validation_gate_test/IterativeSegmentation/Low Pass Filter'>Low Pass Filter</title>
+<g><rect x='250' y='107' width='75' height='56' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='252' y='175' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Low Pass Filter</text>
+</g>
+</g>
+<g><g><text stroke='none' x='253' y='119' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_519)' font-family='Helvetica'>R</text>
+</g>
+<g><text stroke='none' x='253' y='139' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_519)' font-family='Helvetica'>G</text>
+</g>
+<g><text stroke='none' x='253' y='159' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_519)' font-family='Helvetica'>B</text>
+</g>
+<g><text stroke='none' x='313' y='119' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_519)' font-family='Helvetica'>R&apos;</text>
+</g>
+<g><text stroke='none' x='313' y='139' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_519)' font-family='Helvetica'>G&apos;</text>
+</g>
+<g><text stroke='none' x='314' y='159' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_519)' font-family='Helvetica'>B&apos;</text>
+</g>
+</g>
+<g><rect x='250' y='107' width='75' height='56' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g id='validation_gate_test/IterativeSegmentation/Embedded MATLAB Function1' linkid='validation_gate_test/IterativeSegmentation/Embedded MATLAB Function1' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.validation_gate_test/IterativeSegmentation/Embedded MATLAB Function1'>Embedded MATLAB Function1</title>
+<g><rect x='445' y='274' width='180' height='72' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='509' y='358' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Embedded</text>
+</g>
+<g><text stroke='none' x='489' y='371' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MATLAB Function1</text>
+</g>
+</g>
+<g><g><text stroke='none' x='448' y='289' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_520)' font-family='Helvetica'>R</text>
+</g>
+<g><text stroke='none' x='448' y='314' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_520)' font-family='Helvetica'>G</text>
+</g>
+<g><text stroke='none' x='448' y='339' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_520)' font-family='Helvetica'>B</text>
+</g>
+<g><text stroke='none' x='602' y='314' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_520)' font-family='Helvetica'>RGB</text>
+</g>
+<g><text stroke='none' x='476' y='314.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_520)' font-family='Helvetica'>SeparatetoSingleSignals</text>
+</g>
+</g>
+<g><rect x='445.5' y='274.5' width='179' height='71' stroke='rgb(0%,0%,0%)' stroke-width='2' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/Color Space  Conversion1' class='proptable' pointer-events='none' extent_Height='43' extent_Width='180' preferred_X='580' preferred_Y='111'>
+  <rect x='0' y='0' width='180' height='43' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>conversionActive</text>
+  <text stroke='none' x='83' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>sR&apos;G&apos;B&apos; to L*a*b*</text>
+  <rect x='0' y='19' width='180' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>rec</text>
+  <text stroke='none' x='83' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Rec. 601 (SDTV)</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>imagePorts</text>
+  <text stroke='none' x='83' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Separate color signals</text>
+  <rect x='0' y='0' width='180' height='43' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/Color Space  Conversion1' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.validation_gate_test/IterativeSegmentation/Color Space  Conversion1'>Color Space  Conversion1</title>
+<g><rect x='475' y='106' width='100' height='58' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='496' y='176' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Color Space</text>
+</g>
+<g><text stroke='none' x='494.5' y='189' xml:space='preserve' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'> Conversion1</text>
+</g>
+</g>
+<g><g><text stroke='none' x='503' y='133.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_521)' font-family='Helvetica'>sR&apos;G&apos;B&apos; to</text>
+</g>
+<g><text stroke='none' x='510' y='146.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_521)' font-family='Helvetica'>L*a*b*</text>
+</g>
+<g><text stroke='none' x='478' y='119.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_521)' font-family='Helvetica'>R&apos;</text>
+</g>
+<g><text stroke='none' x='478' y='139.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_521)' font-family='Helvetica'>G&apos;</text>
+</g>
+<g><text stroke='none' x='478' y='159.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_521)' font-family='Helvetica'>B&apos;</text>
+</g>
+<g><text stroke='none' x='562' y='119.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_521)' font-family='Helvetica'>L*</text>
+</g>
+<g><text stroke='none' x='562' y='139.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_521)' font-family='Helvetica'>a*</text>
+</g>
+<g><text stroke='none' x='562' y='159.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_521)' font-family='Helvetica'>b*</text>
+</g>
+</g>
+<g><rect x='475' y='106' width='100' height='58' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/B' class='proptable' pointer-events='none' extent_Height='153' extent_Width='195' preferred_X='65' preferred_Y='163'>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>3</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/B' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.validation_gate_test/IterativeSegmentation/B'>B</title>
+<g><rect x='30' y='158' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='30' y='158' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='41.5' y='184' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>B</text>
+</g>
+</g>
+<g><g><text stroke='none' x='42' y='169.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_522)' font-family='Helvetica'>3</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/G' class='proptable' pointer-events='none' extent_Height='153' extent_Width='195' preferred_X='65' preferred_Y='133'>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/G' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.validation_gate_test/IterativeSegmentation/G'>G</title>
+<g><rect x='30' y='128' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='30' y='128' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='41' y='154' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>G</text>
+</g>
+</g>
+<g><g><text stroke='none' x='42' y='139.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_523)' font-family='Helvetica'>2</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/R' class='proptable' pointer-events='none' extent_Height='153' extent_Width='195' preferred_X='65' preferred_Y='103'>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/R' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.validation_gate_test/IterativeSegmentation/R'>R</title>
+<g><rect x='30' y='98' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='30' y='98' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='41.5' y='124' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>R</text>
+</g>
+</g>
+<g><g><text stroke='none' x='42' y='109.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_524)' font-family='Helvetica'>1</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/_uniq_id_409' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='970' preferred_Y='160'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/_uniq_id_409' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='740' y1='155' x2='745' y2='155' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='960' y1='175' x2='950' y2='175' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='955,170 955,180 965,175 955,170 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='743,155 745,155 840,155 840,175 950,175 952,175 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/_uniq_id_410' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='970' preferred_Y='135'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/_uniq_id_410' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='740' y1='135' x2='745' y2='135' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='960' y1='135' x2='950' y2='135' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='955,130 955,140 965,135 955,130 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='743,135 745,135 950,135 952,135 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/_uniq_id_411' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='970' preferred_Y='95'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/_uniq_id_411' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='740' y1='115' x2='745' y2='115' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='960' y1='95' x2='950' y2='95' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='955,90 955,100 965,95 955,90 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='743,115 745,115 840,115 840,95 950,95 952,95 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/_uniq_id_412' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='480' preferred_Y='155'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/_uniq_id_412' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='440' y1='335' x2='430' y2='335' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='435,330 435,340 445,335 435,330 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='390,155 390,335 430,335 432,335 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='470' y1='155' x2='460' y2='155' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='465,150 465,160 475,155 465,150 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='390,155 460,155 462,155 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='325' y1='155' x2='330' y2='155' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<polyline points='328,155 330,155 390,155 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='389' y='154' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='389' y='154' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/_uniq_id_413' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='480' preferred_Y='135'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/_uniq_id_413' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='440' y1='310' x2='430' y2='310' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='435,305 435,315 445,310 435,305 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='405,135 405,310 430,310 432,310 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='470' y1='135' x2='460' y2='135' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='465,130 465,140 475,135 465,130 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='405,135 460,135 462,135 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='325' y1='135' x2='330' y2='135' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<polyline points='328,135 330,135 405,135 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='404' y='134' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='404' y='134' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/_uniq_id_414' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='480' preferred_Y='115'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/_uniq_id_414' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='440' y1='285' x2='430' y2='285' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='435,280 435,290 445,285 435,280 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='420,115 420,285 430,285 432,285 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='470' y1='115' x2='460' y2='115' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='465,110 465,120 475,115 465,110 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='420,115 460,115 462,115 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='325' y1='115' x2='330' y2='115' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<polyline points='328,115 330,115 420,115 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='419' y='114' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='419' y='114' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/_uniq_id_415' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='635' preferred_Y='155'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/_uniq_id_415' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='575' y1='155' x2='580' y2='155' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='625' y1='155' x2='615' y2='155' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='620,150 620,160 630,155 620,150 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='578,155 580,155 615,155 617,155 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/_uniq_id_416' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='635' preferred_Y='135'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/_uniq_id_416' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='575' y1='135' x2='580' y2='135' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='625' y1='135' x2='615' y2='135' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='620,130 620,140 630,135 620,130 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='578,135 580,135 615,135 617,135 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/_uniq_id_417' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='635' preferred_Y='115'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/_uniq_id_417' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='575' y1='115' x2='580' y2='115' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='625' y1='115' x2='615' y2='115' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='620,110 620,120 630,115 620,110 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='578,115 580,115 615,115 617,115 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/_uniq_id_418' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='825' preferred_Y='310'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/_uniq_id_418' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='625' y1='310' x2='630' y2='310' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='815' y1='310' x2='805' y2='310' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='810,305 810,315 820,310 810,305 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='628,310 630,310 805,310 807,310 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/_uniq_id_419' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='255' preferred_Y='110'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/_uniq_id_419' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='60' y1='105' x2='65' y2='105' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='245' y1='115' x2='235' y2='115' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='240,110 240,120 250,115 240,110 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='63,105 65,105 155,105 155,115 235,115 237,115 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/_uniq_id_420' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='255' preferred_Y='135'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/_uniq_id_420' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='60' y1='135' x2='65' y2='135' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='245' y1='135' x2='235' y2='135' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='240,130 240,140 250,135 240,130 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='63,135 65,135 235,135 237,135 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.validation_gate_test/IterativeSegmentation/_uniq_id_421' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='255' preferred_Y='155'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='validation_gate_test/IterativeSegmentation/_uniq_id_421' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='60' y1='165' x2='65' y2='165' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='245' y1='155' x2='235' y2='155' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='240,150 240,160 250,155 240,150 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='63,165 65,165 155,165 155,155 235,155 237,155 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<defs>
+  <clipPath id='clip_rect_514'><rect x='820' y='303' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_515'><rect x='965' y='168' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_516'><rect x='965' y='128' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_517'><rect x='965' y='88' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_518'><rect x='630' y='104' width='110' height='62' /></clipPath>
+  <clipPath id='clip_rect_519'><rect x='250' y='107' width='75' height='56' /></clipPath>
+  <clipPath id='clip_rect_520'><rect x='445' y='274' width='180' height='72' /></clipPath>
+  <clipPath id='clip_rect_521'><rect x='475' y='106' width='100' height='58' /></clipPath>
+  <clipPath id='clip_rect_522'><rect x='30' y='158' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_523'><rect x='30' y='128' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_524'><rect x='30' y='98' width='30' height='14' /></clipPath>
+</defs>
+</svg>

@@ -1,0 +1,1286 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<?xml-stylesheet href='./slwebview.css' type='text/css' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' onload='initialize(evt)' zoomAndPan='disable' id='canvas.torpedo_test/Look for Targets' class='canvas' display='inline' x='0' y='0' height='95%' width='100%' preserveAspectRatio='xMinYMin meet' original_viewBox='50 30 922 891' viewBox='50 30 922 891'> 
+<script type='text/javascript' xlink:href='./slwebview.js' />
+<script type='text/javascript' xlink:href='./id_mapping.js' />
+  <title id='title.torpedo_test/Look for Targets'>Look for Targets</title>
+<rect id='background.torpedo_test/Look for Targets' x='-4041' y='-4061' width='9049' height='9038' pointer-events='none' fill='rgb(100%,100%,100%) ' />
+<g display='none' id='prop.torpedo_test/Look for Targets/ID' class='proptable' pointer-events='none' extent_Height='131' extent_Width='133' preferred_X='965' preferred_Y='548'>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='77' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='19' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='77' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='77' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='77' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='77' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='77' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='77' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='77' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='77' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='77' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='77' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/ID' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/ID'>ID</title>
+<g><rect x='930' y='543' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='930' y='543' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='940' y='569' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ID</text>
+</g>
+</g>
+<g><g><text stroke='none' x='942' y='554.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_444)' font-family='Helvetica'>2</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/Centroids' class='proptable' pointer-events='none' extent_Height='131' extent_Width='133' preferred_X='972' preferred_Y='348'>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='77' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='19' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='77' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='77' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='77' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='77' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='77' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='77' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='77' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='77' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='77' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='77' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/Centroids' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/Centroids'>Centroids</title>
+<g><rect x='930' y='343' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='930' y='343' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='923' y='369' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Centroids</text>
+</g>
+</g>
+<g><g><text stroke='none' x='942' y='354.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_445)' font-family='Helvetica'>1</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/To Workspace4' class='proptable' pointer-events='none' extent_Height='76' extent_Width='126' preferred_X='725' preferred_Y='40'>
+  <rect x='0' y='0' width='126' height='76' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VariableName</text>
+  <text stroke='none' x='73' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>blob_extent</text>
+  <rect x='0' y='19' width='126' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MaxDataPoints</text>
+  <text stroke='none' x='73' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>inf</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Decimation</text>
+  <text stroke='none' x='73' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='41' width='126' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='73' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SaveFormat</text>
+  <text stroke='none' x='73' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Array</text>
+  <rect x='0' y='63' width='126' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>FixptAsFi</text>
+  <text stroke='none' x='73' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='126' height='76' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/To Workspace4' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/To Workspace4'>To Workspace4</title>
+<g><rect x='615' y='35' width='105' height='30' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='632' y='77' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>To Workspace4</text>
+</g>
+</g>
+<g><g><text stroke='none' x='639' y='54.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_446)' font-family='Helvetica'>blob_extent</text>
+</g>
+</g>
+<g><rect x='615' y='35' width='105' height='30' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/To Workspace3' class='proptable' pointer-events='none' extent_Height='76' extent_Width='149' preferred_X='725' preferred_Y='90'>
+  <rect x='0' y='0' width='149' height='76' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VariableName</text>
+  <text stroke='none' x='73' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>blob_eccentricity</text>
+  <rect x='0' y='19' width='149' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MaxDataPoints</text>
+  <text stroke='none' x='73' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>inf</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Decimation</text>
+  <text stroke='none' x='73' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='41' width='149' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='73' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SaveFormat</text>
+  <text stroke='none' x='73' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Array</text>
+  <rect x='0' y='63' width='149' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>FixptAsFi</text>
+  <text stroke='none' x='73' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='149' height='76' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/To Workspace3' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/To Workspace3'>To Workspace3</title>
+<g><rect x='615' y='85' width='105' height='30' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='632' y='127' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>To Workspace3</text>
+</g>
+</g>
+<g><g><text stroke='none' x='627' y='104.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_447)' font-family='Helvetica'>blob_eccentricity</text>
+</g>
+</g>
+<g><rect x='615' y='85' width='105' height='30' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/To Workspace2' class='proptable' pointer-events='none' extent_Height='76' extent_Width='138' preferred_X='725' preferred_Y='144'>
+  <rect x='0' y='0' width='138' height='76' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VariableName</text>
+  <text stroke='none' x='73' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>blob_centroids</text>
+  <rect x='0' y='19' width='138' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MaxDataPoints</text>
+  <text stroke='none' x='73' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>inf</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Decimation</text>
+  <text stroke='none' x='73' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='41' width='138' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='73' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SaveFormat</text>
+  <text stroke='none' x='73' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Array</text>
+  <rect x='0' y='63' width='138' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>FixptAsFi</text>
+  <text stroke='none' x='73' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='138' height='76' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/To Workspace2' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/To Workspace2'>To Workspace2</title>
+<g><rect x='615' y='139' width='105' height='32' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='632' y='183' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>To Workspace2</text>
+</g>
+</g>
+<g><g><text stroke='none' x='632.5' y='159.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_448)' font-family='Helvetica'>blob_centroids</text>
+</g>
+</g>
+<g><rect x='615' y='139' width='105' height='32' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/To Workspace1' class='proptable' pointer-events='none' extent_Height='76' extent_Width='120' preferred_X='725' preferred_Y='200'>
+  <rect x='0' y='0' width='120' height='76' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VariableName</text>
+  <text stroke='none' x='73' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>blob_hues</text>
+  <rect x='0' y='19' width='120' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MaxDataPoints</text>
+  <text stroke='none' x='73' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>inf</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Decimation</text>
+  <text stroke='none' x='73' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='41' width='120' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='73' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SaveFormat</text>
+  <text stroke='none' x='73' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Array</text>
+  <rect x='0' y='63' width='120' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>FixptAsFi</text>
+  <text stroke='none' x='73' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='120' height='76' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/To Workspace1' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/To Workspace1'>To Workspace1</title>
+<g><rect x='615' y='195' width='105' height='30' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='632' y='237' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>To Workspace1</text>
+</g>
+</g>
+<g><g><text stroke='none' x='642.5' y='214.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_449)' font-family='Helvetica'>blob_hues</text>
+</g>
+</g>
+<g><rect x='615' y='195' width='105' height='30' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/Constant5' class='proptable' pointer-events='none' extent_Height='98' extent_Width='237' preferred_X='215' preferred_Y='861'>
+  <rect x='0' y='0' width='237' height='98' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Value</text>
+  <text stroke='none' x='80' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Buoy_Count_Max</text>
+  <rect x='0' y='19' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VectorParams1D</text>
+  <text stroke='none' x='80' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>on</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='80' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Sample based</text>
+  <rect x='0' y='41' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='80' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='80' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='63' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='80' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: Inherit from &apos;Constant value&apos;</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='80' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='85' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='80' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='0' width='237' height='98' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/Constant5' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/Constant5'>Constant5</title>
+<g><rect x='55' y='856' width='155' height='48' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='108.5' y='916' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Constant5</text>
+</g>
+</g>
+<g><g><text stroke='none' x='90' y='884.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_450)' font-family='Helvetica'>Buoy_Count_Max</text>
+</g>
+</g>
+<g><rect x='55' y='856' width='155' height='48' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/Constant4' class='proptable' pointer-events='none' extent_Height='98' extent_Width='237' preferred_X='215' preferred_Y='786'>
+  <rect x='0' y='0' width='237' height='98' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Value</text>
+  <text stroke='none' x='80' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Buoy_Count_Min</text>
+  <rect x='0' y='19' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VectorParams1D</text>
+  <text stroke='none' x='80' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>on</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='80' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Sample based</text>
+  <rect x='0' y='41' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='80' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='80' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='63' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='80' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: Inherit from &apos;Constant value&apos;</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='80' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='85' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='80' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='0' width='237' height='98' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/Constant4' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/Constant4'>Constant4</title>
+<g><rect x='55' y='781' width='155' height='48' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='108.5' y='841' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Constant4</text>
+</g>
+</g>
+<g><g><text stroke='none' x='91' y='809.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_451)' font-family='Helvetica'>Buoy_Count_Min</text>
+</g>
+</g>
+<g><rect x='55' y='781' width='155' height='48' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/Constant3' class='proptable' pointer-events='none' extent_Height='98' extent_Width='237' preferred_X='215' preferred_Y='711'>
+  <rect x='0' y='0' width='237' height='98' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Value</text>
+  <text stroke='none' x='80' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Buoy_Max_Extent</text>
+  <rect x='0' y='19' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VectorParams1D</text>
+  <text stroke='none' x='80' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>on</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='80' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Sample based</text>
+  <rect x='0' y='41' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='80' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='80' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='63' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='80' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: Inherit from &apos;Constant value&apos;</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='80' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='85' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='80' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='0' width='237' height='98' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/Constant3' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/Constant3'>Constant3</title>
+<g><rect x='55' y='706' width='155' height='48' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='108.5' y='766' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Constant3</text>
+</g>
+</g>
+<g><g><text stroke='none' x='89' y='734.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_452)' font-family='Helvetica'>Buoy_Max_Extent</text>
+</g>
+</g>
+<g><rect x='55' y='706' width='155' height='48' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/Constant2' class='proptable' pointer-events='none' extent_Height='98' extent_Width='237' preferred_X='215' preferred_Y='636'>
+  <rect x='0' y='0' width='237' height='98' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Value</text>
+  <text stroke='none' x='80' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Buoy_Min_Extent</text>
+  <rect x='0' y='19' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VectorParams1D</text>
+  <text stroke='none' x='80' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>on</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='80' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Sample based</text>
+  <rect x='0' y='41' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='80' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='80' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='63' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='80' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: Inherit from &apos;Constant value&apos;</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='80' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='85' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='80' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='0' width='237' height='98' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/Constant2' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/Constant2'>Constant2</title>
+<g><rect x='55' y='631' width='155' height='48' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='108.5' y='691' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Constant2</text>
+</g>
+</g>
+<g><g><text stroke='none' x='90' y='659.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_453)' font-family='Helvetica'>Buoy_Min_Extent</text>
+</g>
+</g>
+<g><rect x='55' y='631' width='155' height='48' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/Constant1' class='proptable' pointer-events='none' extent_Height='98' extent_Width='237' preferred_X='215' preferred_Y='556'>
+  <rect x='0' y='0' width='237' height='98' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Value</text>
+  <text stroke='none' x='80' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Buoy_Max_Eccentricity</text>
+  <rect x='0' y='19' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VectorParams1D</text>
+  <text stroke='none' x='80' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>on</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='80' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Sample based</text>
+  <rect x='0' y='41' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='80' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='80' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='63' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='80' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: Inherit from &apos;Constant value&apos;</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='80' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='85' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='80' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='0' width='237' height='98' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/Constant1' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/Constant1'>Constant1</title>
+<g><rect x='55' y='551' width='155' height='48' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='108.5' y='611' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Constant1</text>
+</g>
+</g>
+<g><g><text stroke='none' x='77' y='579.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_454)' font-family='Helvetica'>Buoy_Max_Eccentricity</text>
+</g>
+</g>
+<g><rect x='55' y='551' width='155' height='48' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/Constant' class='proptable' pointer-events='none' extent_Height='98' extent_Width='237' preferred_X='215' preferred_Y='481'>
+  <rect x='0' y='0' width='237' height='98' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Value</text>
+  <text stroke='none' x='80' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Buoy_Min_Eccentricity</text>
+  <rect x='0' y='19' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VectorParams1D</text>
+  <text stroke='none' x='80' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>on</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='80' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Sample based</text>
+  <rect x='0' y='41' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='80' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='80' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='63' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='80' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: Inherit from &apos;Constant value&apos;</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='80' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='85' width='237' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='80' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='0' width='237' height='98' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/Constant' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/Constant'>Constant</title>
+<g><rect x='55' y='476' width='155' height='48' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='111.5' y='536' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Constant</text>
+</g>
+</g>
+<g><g><text stroke='none' x='78' y='504.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_455)' font-family='Helvetica'>Buoy_Min_Eccentricity</text>
+</g>
+</g>
+<g><rect x='55' y='476' width='155' height='48' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g id='torpedo_test/Look for Targets/Blob Extraction' linkid='torpedo_test/Look for Targets/Blob Extraction' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/Blob Extraction'>Blob Extraction</title>
+<g><rect x='220' y='267' width='245' height='186' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='306' y='465' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Blob Extraction</text>
+</g>
+</g>
+<g><g><text stroke='none' x='223' y='304' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_456)' font-family='Helvetica'>LabelMatrix</text>
+</g>
+<g><text stroke='none' x='223' y='364' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_456)' font-family='Helvetica'>ref_colors</text>
+</g>
+<g><text stroke='none' x='223' y='424' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_456)' font-family='Helvetica'>num_colors</text>
+</g>
+<g><text stroke='none' x='417' y='294' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_456)' font-family='Helvetica'>blob_count</text>
+</g>
+<g><text stroke='none' x='420' y='329' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_456)' font-family='Helvetica'>blob_hues</text>
+</g>
+<g><text stroke='none' x='402' y='364' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_456)' font-family='Helvetica'>blob_centroids</text>
+</g>
+<g><text stroke='none' x='391' y='399' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_456)' font-family='Helvetica'>blob_eccentricity</text>
+</g>
+<g><text stroke='none' x='414' y='434' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_456)' font-family='Helvetica'>blob_extent</text>
+</g>
+<g><text stroke='none' x='313.5' y='364.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_456)' font-family='Helvetica'>GetBlobInfo</text>
+</g>
+</g>
+<g><rect x='220.5' y='267.5' width='244' height='185' stroke='rgb(0%,0%,0%)' stroke-width='2' fill='none' />
+</g>
+</g>
+<g id='torpedo_test/Look for Targets/Analyze LabelMatrix for Targets' linkid='torpedo_test/Look for Targets/Analyze LabelMatrix for Targets' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/Analyze LabelMatrix for Targets'>Analyze LabelMatrix for Targets</title>
+<g><rect x='545' y='245' width='305' height='405' stroke='none' fill='rgb(100%,100%,100%)' />
+<polyline points='541,252 544,255 541,258 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='622.5' y='662' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Analyze LabelMatrix for Targets</text>
+</g>
+</g>
+<g><g><text stroke='none' x='548' y='259' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>successive_valid_image_count_in</text>
+</g>
+<g><text stroke='none' x='548' y='294' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>blob_count</text>
+</g>
+<g><text stroke='none' x='548' y='329' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>blob_hues</text>
+</g>
+<g><text stroke='none' x='548' y='364' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>blob_centroids</text>
+</g>
+<g><text stroke='none' x='548' y='399' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>blob_eccentricity</text>
+</g>
+<g><text stroke='none' x='548' y='434' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>blob_extent</text>
+</g>
+<g><text stroke='none' x='548' y='469' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>Min_Eccent</text>
+</g>
+<g><text stroke='none' x='548' y='504' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>Max_Eccent</text>
+</g>
+<g><text stroke='none' x='548' y='539' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>Min_Extent</text>
+</g>
+<g><text stroke='none' x='548' y='574' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>Max_Extent</text>
+</g>
+<g><text stroke='none' x='548' y='609' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>Buoy_Count_Min</text>
+</g>
+<g><text stroke='none' x='548' y='644' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>Buoy_Count_Max</text>
+</g>
+<g><text stroke='none' x='809' y='354' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>centroids</text>
+</g>
+<g><text stroke='none' x='840' y='554' font-size='9' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>id</text>
+</g>
+<g><text stroke='none' x='655.5' y='451.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_457)' font-family='Helvetica'>Target_Extraction</text>
+</g>
+</g>
+<g><rect x='545.5' y='245.5' width='304' height='404' stroke='rgb(0%,0%,0%)' stroke-width='2' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/ref_colors' class='proptable' pointer-events='none' extent_Height='153' extent_Width='195' preferred_X='157.5' preferred_Y='418'>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>3</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/ref_colors' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/ref_colors'>ref_colors</title>
+<g><rect x='115' y='413' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='115' y='413' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='107.5' y='439' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ref_colors</text>
+</g>
+</g>
+<g><g><text stroke='none' x='127' y='424.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_458)' font-family='Helvetica'>3</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/num_colors' class='proptable' pointer-events='none' extent_Height='153' extent_Width='195' preferred_X='162' preferred_Y='358'>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/num_colors' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/num_colors'>num_colors</title>
+<g><rect x='115' y='353' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='115' y='353' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='103' y='379' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>num_colors</text>
+</g>
+</g>
+<g><g><text stroke='none' x='127' y='364.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_459)' font-family='Helvetica'>2</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/LabMatrix' class='proptable' pointer-events='none' extent_Height='153' extent_Width='195' preferred_X='158.5' preferred_Y='298'>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/LabMatrix' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.torpedo_test/Look for Targets/LabMatrix'>LabMatrix</title>
+<g><rect x='115' y='293' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='115' y='293' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='106.5' y='319' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LabMatrix</text>
+</g>
+</g>
+<g><g><text stroke='none' x='127' y='304.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_460)' font-family='Helvetica'>1</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_351' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='225' preferred_Y='300'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_351' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='145' y1='300' x2='150' y2='300' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='215' y1='300' x2='205' y2='300' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='210,295 210,305 220,300 210,295 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='148,300 150,300 205,300 207,300 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_352' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='550' preferred_Y='290'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_352' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='465' y1='290' x2='470' y2='290' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='540' y1='290' x2='530' y2='290' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='535,285 535,295 545,290 535,285 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='468,290 470,290 530,290 532,290 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_353' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='620' preferred_Y='210'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_353' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='610' y1='210' x2='600' y2='210' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='605,205 605,215 615,210 605,205 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='510,325 510,210 600,210 602,210 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='540' y1='325' x2='530' y2='325' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='535,320 535,330 545,325 535,320 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='510,325 530,325 532,325 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='465' y1='325' x2='470' y2='325' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<polyline points='468,325 470,325 510,325 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='509' y='324' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='509' y='324' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_354' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='620' preferred_Y='155'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_354' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='610' y1='155' x2='600' y2='155' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='605,150 605,160 615,155 605,150 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='505,360 505,155 600,155 602,155 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='540' y1='360' x2='530' y2='360' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='535,355 535,365 545,360 535,355 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='505,360 530,360 532,360 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='465' y1='360' x2='470' y2='360' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<polyline points='468,360 470,360 505,360 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='504' y='359' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='504' y='359' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_355' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='620' preferred_Y='100'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_355' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='610' y1='100' x2='600' y2='100' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='605,95 605,105 615,100 605,95 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='500,395 500,100 600,100 602,100 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='540' y1='395' x2='530' y2='395' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='535,390 535,400 545,395 535,390 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='500,395 530,395 532,395 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='465' y1='395' x2='470' y2='395' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<polyline points='468,395 470,395 500,395 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='499' y='394' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='499' y='394' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_356' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='620' preferred_Y='50'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_356' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='610' y1='50' x2='600' y2='50' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='605,45 605,55 615,50 605,45 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='495,430 495,50 600,50 602,50 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='540' y1='430' x2='530' y2='430' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='535,425 535,435 545,430 535,425 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='495,430 530,430 532,430 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<line x1='465' y1='430' x2='470' y2='430' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<polyline points='468,430 470,430 495,430 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<rect x='494' y='429' width='2' height='2' stroke='none' fill='rgb(0%,0%,0%)' />
+<rect x='494' y='429' width='2' height='2' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_357' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='550' preferred_Y='465'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_357' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='210' y1='500' x2='215' y2='500' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='540' y1='465' x2='530' y2='465' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='535,460 535,470 545,465 535,460 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='213,500 215,500 420,500 420,465 530,465 532,465 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_358' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='550' preferred_Y='500'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_358' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='210' y1='575' x2='215' y2='575' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='540' y1='500' x2='530' y2='500' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='535,495 535,505 545,500 535,495 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='213,575 215,575 430,575 430,500 530,500 532,500 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_359' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='550' preferred_Y='535'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_359' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='210' y1='655' x2='215' y2='655' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='540' y1='535' x2='530' y2='535' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='535,530 535,540 545,535 535,530 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='213,655 215,655 445,655 445,535 530,535 532,535 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_360' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='550' preferred_Y='570'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_360' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='210' y1='730' x2='215' y2='730' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='540' y1='570' x2='530' y2='570' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='535,565 535,575 545,570 535,565 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='213,730 215,730 460,730 460,570 530,570 532,570 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_361' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='550' preferred_Y='605'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_361' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='210' y1='805' x2='215' y2='805' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='540' y1='605' x2='530' y2='605' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='535,600 535,610 545,605 535,600 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='213,805 215,805 470,805 470,605 530,605 532,605 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_362' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='550' preferred_Y='640'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_362' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='210' y1='880' x2='215' y2='880' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='540' y1='640' x2='530' y2='640' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='535,635 535,645 545,640 535,635 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='213,880 215,880 480,880 480,640 530,640 532,640 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_363' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='935' preferred_Y='550'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_363' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='850' y1='550' x2='855' y2='550' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='925' y1='550' x2='915' y2='550' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='920,545 920,555 930,550 920,545 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='853,550 855,550 915,550 917,550 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_364' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='935' preferred_Y='350'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_364' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='850' y1='350' x2='855' y2='350' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='925' y1='350' x2='915' y2='350' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='920,345 920,355 930,350 920,345 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='853,350 855,350 915,350 917,350 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_365' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='225' preferred_Y='365'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_365' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='145' y1='360' x2='150' y2='360' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='215' y1='420' x2='205' y2='420' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='210,415 210,425 220,420 210,415 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='148,360 150,360 175,360 175,420 205,420 207,420 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.torpedo_test/Look for Targets/_uniq_id_366' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='225' preferred_Y='360'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='torpedo_test/Look for Targets/_uniq_id_366' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='145' y1='420' x2='150' y2='420' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='215' y1='360' x2='205' y2='360' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='210,355 210,365 220,360 210,355 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='148,420 150,420 150,390 200,390 200,360 205,360 207,360 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<defs>
+  <clipPath id='clip_rect_444'><rect x='930' y='543' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_445'><rect x='930' y='343' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_446'><rect x='615' y='35' width='105' height='30' /></clipPath>
+  <clipPath id='clip_rect_447'><rect x='615' y='85' width='105' height='30' /></clipPath>
+  <clipPath id='clip_rect_448'><rect x='615' y='139' width='105' height='32' /></clipPath>
+  <clipPath id='clip_rect_449'><rect x='615' y='195' width='105' height='30' /></clipPath>
+  <clipPath id='clip_rect_450'><rect x='55' y='856' width='155' height='48' /></clipPath>
+  <clipPath id='clip_rect_451'><rect x='55' y='781' width='155' height='48' /></clipPath>
+  <clipPath id='clip_rect_452'><rect x='55' y='706' width='155' height='48' /></clipPath>
+  <clipPath id='clip_rect_453'><rect x='55' y='631' width='155' height='48' /></clipPath>
+  <clipPath id='clip_rect_454'><rect x='55' y='551' width='155' height='48' /></clipPath>
+  <clipPath id='clip_rect_455'><rect x='55' y='476' width='155' height='48' /></clipPath>
+  <clipPath id='clip_rect_456'><rect x='220' y='267' width='245' height='186' /></clipPath>
+  <clipPath id='clip_rect_457'><rect x='545' y='245' width='305' height='405' /></clipPath>
+  <clipPath id='clip_rect_458'><rect x='115' y='413' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_459'><rect x='115' y='353' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_460'><rect x='115' y='293' width='30' height='14' /></clipPath>
+</defs>
+</svg>

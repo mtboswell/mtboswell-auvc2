@@ -1,0 +1,891 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<?xml-stylesheet href='./slwebview.css' type='text/css' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' onload='initialize(evt)' zoomAndPan='disable' id='canvas.VisionModel_test/Torpedo Target Detection' class='canvas' display='inline' x='0' y='0' height='95%' width='100%' preserveAspectRatio='xMinYMin meet' original_viewBox='18.5 10 812.5 562' viewBox='18.5 10 812.5 562'> 
+<script type='text/javascript' xlink:href='./slwebview.js' />
+<script type='text/javascript' xlink:href='./id_mapping.js' />
+  <title id='title.VisionModel_test/Torpedo Target Detection'>Torpedo Target Detection</title>
+<rect id='background.VisionModel_test/Torpedo Target Detection' x='-4072.5' y='-4081' width='8971' height='8729' pointer-events='none' fill='rgb(100%,100%,100%) ' />
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/FireAuthorization' class='proptable' pointer-events='none' extent_Height='164' extent_Width='178' preferred_X='830.5' preferred_Y='368'>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='122' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>11</text>
+  <rect x='0' y='19' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='122' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='122' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='122' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='122' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>double</text>
+  <rect x='0' y='63' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='122' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='122' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='122' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='122' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='122' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='122' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SourceOfInitialOutputValue</text>
+  <text stroke='none' x='122' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Dialog</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutputWhenDisabled</text>
+  <text stroke='none' x='122' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>held</text>
+  <rect x='0' y='151' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>InitialOutput</text>
+  <text stroke='none' x='122' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/FireAuthorization' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/FireAuthorization'>FireAuthorization</title>
+<g><rect x='770' y='363' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='770' y='363' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='766,367 769,370 766,373 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='744.5' y='389' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>FireAuthorization</text>
+</g>
+</g>
+<g><g><text stroke='none' x='779.5' y='374.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_300)' font-family='Helvetica'>11</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/B_forward_out' class='proptable' pointer-events='none' extent_Height='164' extent_Width='178' preferred_X='824' preferred_Y='533'>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='122' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>10</text>
+  <rect x='0' y='19' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='122' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='122' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='122' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='122' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>double</text>
+  <rect x='0' y='63' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='122' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='122' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='122' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='122' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='122' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='122' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SourceOfInitialOutputValue</text>
+  <text stroke='none' x='122' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Dialog</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutputWhenDisabled</text>
+  <text stroke='none' x='122' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>held</text>
+  <rect x='0' y='151' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>InitialOutput</text>
+  <text stroke='none' x='122' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/B_forward_out' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/B_forward_out'>B_forward_out</title>
+<g><rect x='770' y='528' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='770' y='528' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='766,532 769,535 766,538 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='751' y='554' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>B_forward_out</text>
+</g>
+</g>
+<g><g><text stroke='none' x='779' y='539.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_301)' font-family='Helvetica'>10</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/G_forward_out' class='proptable' pointer-events='none' extent_Height='164' extent_Width='178' preferred_X='824.5' preferred_Y='498'>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='122' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>9</text>
+  <rect x='0' y='19' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='122' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='122' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='122' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='122' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>double</text>
+  <rect x='0' y='63' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='122' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='122' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='122' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='122' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='122' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='122' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SourceOfInitialOutputValue</text>
+  <text stroke='none' x='122' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Dialog</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutputWhenDisabled</text>
+  <text stroke='none' x='122' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>held</text>
+  <rect x='0' y='151' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>InitialOutput</text>
+  <text stroke='none' x='122' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/G_forward_out' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/G_forward_out'>G_forward_out</title>
+<g><rect x='770' y='493' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='770' y='493' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='766,497 769,500 766,503 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='750.5' y='519' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>G_forward_out</text>
+</g>
+</g>
+<g><g><text stroke='none' x='782' y='504.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_302)' font-family='Helvetica'>9</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/R_forward_out' class='proptable' pointer-events='none' extent_Height='164' extent_Width='178' preferred_X='824' preferred_Y='463'>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='122' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>8</text>
+  <rect x='0' y='19' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='122' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='122' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='122' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='122' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>double</text>
+  <rect x='0' y='63' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='122' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='122' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='122' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='122' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='122' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='122' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SourceOfInitialOutputValue</text>
+  <text stroke='none' x='122' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Dialog</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutputWhenDisabled</text>
+  <text stroke='none' x='122' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>held</text>
+  <rect x='0' y='151' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>InitialOutput</text>
+  <text stroke='none' x='122' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/R_forward_out' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/R_forward_out'>R_forward_out</title>
+<g><rect x='770' y='458' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='770' y='458' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='766,462 769,465 766,468 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='751' y='484' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>R_forward_out</text>
+</g>
+</g>
+<g><g><text stroke='none' x='782' y='469.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_303)' font-family='Helvetica'>8</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/TargetDetected' class='proptable' pointer-events='none' extent_Height='164' extent_Width='178' preferred_X='826' preferred_Y='333'>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='122' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>7</text>
+  <rect x='0' y='19' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='122' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='122' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='122' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='122' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>double</text>
+  <rect x='0' y='63' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='122' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='122' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='122' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='122' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='122' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='122' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SourceOfInitialOutputValue</text>
+  <text stroke='none' x='122' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Dialog</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutputWhenDisabled</text>
+  <text stroke='none' x='122' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>held</text>
+  <rect x='0' y='151' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>InitialOutput</text>
+  <text stroke='none' x='122' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/TargetDetected' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/TargetDetected'>TargetDetected</title>
+<g><rect x='770' y='328' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='770' y='328' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='766,332 769,335 766,338 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='749' y='354' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TargetDetected</text>
+</g>
+</g>
+<g><g><text stroke='none' x='782' y='339.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_304)' font-family='Helvetica'>7</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/TargetYaw' class='proptable' pointer-events='none' extent_Height='164' extent_Width='178' preferred_X='814.5' preferred_Y='258'>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='122' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>6</text>
+  <rect x='0' y='19' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='122' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='122' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='122' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='122' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>double</text>
+  <rect x='0' y='63' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='122' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='122' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='122' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='122' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='122' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='122' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SourceOfInitialOutputValue</text>
+  <text stroke='none' x='122' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Dialog</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutputWhenDisabled</text>
+  <text stroke='none' x='122' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>held</text>
+  <rect x='0' y='151' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>InitialOutput</text>
+  <text stroke='none' x='122' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/TargetYaw' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/TargetYaw'>TargetYaw</title>
+<g><rect x='770' y='253' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='770' y='253' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='766,257 769,260 766,263 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='760.5' y='279' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TargetYaw</text>
+</g>
+</g>
+<g><g><text stroke='none' x='782' y='264.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_305)' font-family='Helvetica'>6</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/TargetZ' class='proptable' pointer-events='none' extent_Height='164' extent_Width='178' preferred_X='808' preferred_Y='223'>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='122' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5</text>
+  <rect x='0' y='19' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='122' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='122' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='122' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='122' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>double</text>
+  <rect x='0' y='63' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='122' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='122' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='122' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='122' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='122' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='122' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SourceOfInitialOutputValue</text>
+  <text stroke='none' x='122' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Dialog</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutputWhenDisabled</text>
+  <text stroke='none' x='122' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>held</text>
+  <rect x='0' y='151' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>InitialOutput</text>
+  <text stroke='none' x='122' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/TargetZ' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/TargetZ'>TargetZ</title>
+<g><rect x='770' y='218' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='770' y='218' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='766,222 769,225 766,228 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='767' y='244' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TargetZ</text>
+</g>
+</g>
+<g><g><text stroke='none' x='782' y='229.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_306)' font-family='Helvetica'>5</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/TargetY' class='proptable' pointer-events='none' extent_Height='164' extent_Width='178' preferred_X='808.5' preferred_Y='188'>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='122' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>4</text>
+  <rect x='0' y='19' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='122' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='122' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='122' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='122' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>double</text>
+  <rect x='0' y='63' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='122' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='122' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='122' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='122' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='122' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='122' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SourceOfInitialOutputValue</text>
+  <text stroke='none' x='122' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Dialog</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutputWhenDisabled</text>
+  <text stroke='none' x='122' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>held</text>
+  <rect x='0' y='151' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>InitialOutput</text>
+  <text stroke='none' x='122' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/TargetY' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/TargetY'>TargetY</title>
+<g><rect x='770' y='183' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='770' y='183' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='766,187 769,190 766,193 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='766.5' y='209' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TargetY</text>
+</g>
+</g>
+<g><g><text stroke='none' x='782' y='194.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_307)' font-family='Helvetica'>4</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/MaintainHeading' class='proptable' pointer-events='none' extent_Height='164' extent_Width='178' preferred_X='831' preferred_Y='153'>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='122' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>3</text>
+  <rect x='0' y='19' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='122' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='122' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='122' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='122' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>double</text>
+  <rect x='0' y='63' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='122' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='122' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='122' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='122' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='122' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='122' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SourceOfInitialOutputValue</text>
+  <text stroke='none' x='122' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Dialog</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutputWhenDisabled</text>
+  <text stroke='none' x='122' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>held</text>
+  <rect x='0' y='151' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>InitialOutput</text>
+  <text stroke='none' x='122' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/MaintainHeading' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/MaintainHeading'>MaintainHeading</title>
+<g><rect x='770' y='148' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='770' y='148' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='766,152 769,155 766,158 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='744' y='174' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MaintainHeading</text>
+</g>
+</g>
+<g><g><text stroke='none' x='782' y='159.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_308)' font-family='Helvetica'>3</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/TargetFound' class='proptable' pointer-events='none' extent_Height='164' extent_Width='178' preferred_X='820' preferred_Y='118'>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='122' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='19' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='122' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='122' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='122' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='122' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>double</text>
+  <rect x='0' y='63' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='122' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='122' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='122' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='122' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='122' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='122' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SourceOfInitialOutputValue</text>
+  <text stroke='none' x='122' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Dialog</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutputWhenDisabled</text>
+  <text stroke='none' x='122' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>held</text>
+  <rect x='0' y='151' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>InitialOutput</text>
+  <text stroke='none' x='122' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/TargetFound' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/TargetFound'>TargetFound</title>
+<g><rect x='770' y='113' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='770' y='113' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='766,117 769,120 766,123 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='755' y='139' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TargetFound</text>
+</g>
+</g>
+<g><g><text stroke='none' x='782' y='124.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_309)' font-family='Helvetica'>2</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/TargetSelect' class='proptable' pointer-events='none' extent_Height='164' extent_Width='178' preferred_X='820' preferred_Y='83'>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='122' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='19' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='122' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='122' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='122' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='122' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>double</text>
+  <rect x='0' y='63' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='122' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='122' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='122' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='122' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='122' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='122' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SourceOfInitialOutputValue</text>
+  <text stroke='none' x='122' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Dialog</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutputWhenDisabled</text>
+  <text stroke='none' x='122' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>held</text>
+  <rect x='0' y='151' width='178' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>InitialOutput</text>
+  <text stroke='none' x='122' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='0' width='178' height='164' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/TargetSelect' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/TargetSelect'>TargetSelect</title>
+<g><rect x='770' y='78' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='770' y='78' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='766,82 769,85 766,88 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='755' y='104' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TargetSelect</text>
+</g>
+</g>
+<g><g><text stroke='none' x='782' y='89.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_310)' font-family='Helvetica'>1</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/torpedo.mdl' class='proptable' pointer-events='none' extent_Height='54' extent_Width='211' preferred_X='604' preferred_Y='100'>
+  <rect x='0' y='0' width='211' height='54' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>ModelNameDialog</text>
+  <text stroke='none' x='154' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>torpedo_test</text>
+  <rect x='0' y='19' width='211' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SimulationMode</text>
+  <text stroke='none' x='154' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Accelerator</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Variant</text>
+  <text stroke='none' x='154' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='41' width='211' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>GeneratePreprocessorConditionals</text>
+  <text stroke='none' x='154' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='211' height='54' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/torpedo.mdl' linkid='torpedo_test' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/torpedo.mdl'>torpedo.mdl (torpedo_test)</title>
+<g><rect x='280' y='95' width='315' height='460' stroke='none' fill='rgb(100%,100%,100%)' />
+<polygon points='290,95 280,105 280,95 290,95 290,95 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<polygon points='585,95 595,105 595,95 585,95 585,95 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<polygon points='290,555 280,545 280,555 290,555 290,555 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<polygon points='585,555 595,545 595,555 585,555 585,555 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<polyline points='276,152 279,155 276,158 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='276,267 279,270 276,273 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='276,382 279,385 276,388 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='276,497 279,500 276,503 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='595,122 599,125 595,128 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='595,162 599,165 595,168 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='595,202 599,205 595,208 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='595,242 599,245 595,248 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='595,282 599,285 595,288 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='595,322 599,325 595,328 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='595,362 599,365 595,368 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='595,402 599,405 595,408 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='595,442 599,445 595,448 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='595,482 599,485 595,488 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<polyline points='595,522 599,525 595,528 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='408.5' y='567' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>torpedo.mdl</text>
+</g>
+</g>
+<g><g><text stroke='none' x='408' y='109.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>torpedo_test</text>
+</g>
+<g><text stroke='none' x='283' y='159.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>R_forward_in</text>
+</g>
+<g><text stroke='none' x='283' y='274.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>G_forward_in</text>
+</g>
+<g><text stroke='none' x='283' y='389.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>B_forward_in</text>
+</g>
+<g><text stroke='none' x='283' y='504.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>WhichColor</text>
+</g>
+<g><text stroke='none' x='532' y='129.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>TargetSelect</text>
+</g>
+<g><text stroke='none' x='532' y='169.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>TargetFound</text>
+</g>
+<g><text stroke='none' x='510' y='209.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>MaintainHeading</text>
+</g>
+<g><text stroke='none' x='555' y='249.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>TargetY</text>
+</g>
+<g><text stroke='none' x='556' y='289.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>TargetZ</text>
+</g>
+<g><text stroke='none' x='543' y='329.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>TargetYaw</text>
+</g>
+<g><text stroke='none' x='520' y='369.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>TargetDetected</text>
+</g>
+<g><text stroke='none' x='524' y='409.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>R_forward_out</text>
+</g>
+<g><text stroke='none' x='523' y='449.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>G_forward_out</text>
+</g>
+<g><text stroke='none' x='524' y='489.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>B_forward_out</text>
+</g>
+<g><text stroke='none' x='511' y='529.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_311)' font-family='Helvetica'>FireAuthorization</text>
+</g>
+</g>
+<g><rect x='280.5' y='95.5' width='314' height='459' stroke='rgb(0%,0%,0%)' stroke-width='2' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/Action Port' class='proptable' pointer-events='none' extent_Height='32' extent_Width='223' preferred_X='234' preferred_Y='20'>
+  <rect x='0' y='0' width='223' height='32' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>InitializeStates</text>
+  <text stroke='none' x='82' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>held</text>
+  <rect x='0' y='19' width='223' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PropagateVarSize</text>
+  <text stroke='none' x='82' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Only when execution is resumed</text>
+  <rect x='0' y='0' width='223' height='32' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/Action Port' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/Action Port'>Action Port</title>
+<g><rect x='170' y='15' width='59' height='28' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='173' y='55' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Action Port</text>
+</g>
+</g>
+<g><g><text stroke='none' x='180.5' y='33.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_312)' font-family='Helvetica'>elseif { }</text>
+</g>
+</g>
+<g><rect x='170' y='15' width='59' height='28' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/WhichColor' class='proptable' pointer-events='none' extent_Height='153' extent_Width='195' preferred_X='87' preferred_Y='223'>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>4</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/WhichColor' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/WhichColor'>WhichColor</title>
+<g><rect x='40' y='218' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='40' y='218' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='70,222 74,225 70,228 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='28' y='244' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>WhichColor</text>
+</g>
+</g>
+<g><g><text stroke='none' x='52' y='229.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_313)' font-family='Helvetica'>4</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/B_forward_in' class='proptable' pointer-events='none' extent_Height='153' extent_Width='195' preferred_X='91' preferred_Y='153'>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>3</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/B_forward_in' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/B_forward_in'>B_forward_in</title>
+<g><rect x='40' y='148' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='40' y='148' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='70,152 74,155 70,158 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='24' y='174' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>B_forward_in</text>
+</g>
+</g>
+<g><g><text stroke='none' x='52' y='159.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_314)' font-family='Helvetica'>3</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/G_forward_in' class='proptable' pointer-events='none' extent_Height='153' extent_Width='195' preferred_X='91.5' preferred_Y='118'>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/G_forward_in' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/G_forward_in'>G_forward_in</title>
+<g><rect x='40' y='113' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='40' y='113' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='70,117 74,120 70,123 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='23.5' y='139' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>G_forward_in</text>
+</g>
+</g>
+<g><g><text stroke='none' x='52' y='124.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_315)' font-family='Helvetica'>2</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.VisionModel_test/Torpedo Target Detection/R_forward_in' class='proptable' pointer-events='none' extent_Height='153' extent_Width='195' preferred_X='91' preferred_Y='83'>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='VisionModel_test/Torpedo Target Detection/R_forward_in' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.VisionModel_test/Torpedo Target Detection/R_forward_in'>R_forward_in</title>
+<g><rect x='40' y='78' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='40' y='78' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<polyline points='70,82 74,85 70,88 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+<g><text stroke='none' x='24' y='104' font-size='10' fill='rgb(0%,0%,0%)' font-family='Helvetica'>R_forward_in</text>
+</g>
+</g>
+<g><g><text stroke='none' x='52' y='89.5' font-size='10' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_316)' font-family='Helvetica'>1</text>
+</g>
+</g>
+<g></g>
+</g>
+<defs>
+  <clipPath id='clip_rect_300'><rect x='770' y='363' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_301'><rect x='770' y='528' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_302'><rect x='770' y='493' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_303'><rect x='770' y='458' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_304'><rect x='770' y='328' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_305'><rect x='770' y='253' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_306'><rect x='770' y='218' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_307'><rect x='770' y='183' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_308'><rect x='770' y='148' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_309'><rect x='770' y='113' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_310'><rect x='770' y='78' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_311'><rect x='280' y='95' width='315' height='460' /></clipPath>
+  <clipPath id='clip_rect_312'><rect x='170' y='15' width='59' height='28' /></clipPath>
+  <clipPath id='clip_rect_313'><rect x='40' y='218' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_314'><rect x='40' y='148' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_315'><rect x='40' y='113' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_316'><rect x='40' y='78' width='30' height='14' /></clipPath>
+</defs>
+</svg>
