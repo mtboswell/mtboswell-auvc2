@@ -198,6 +198,7 @@ SOURCES +=  \
 
 # vision ################################################
 HEADERS +=  \
+    vision/vision.h \
     vision/src/VisionModel_types.h \
     vision/src/VisionModel_private.h \
     vision/src/VisionModel.h \
@@ -217,9 +218,9 @@ HEADERS +=  \
     vision/src/vipblob_rt.h \
     vision/src/vip_2dpad_sim.h \
     vision/src/VideoDefs.h \
-    vision/src/validation_gate_types.h \
-    vision/src/validation_gate_private.h \
-    vision/src/validation_gate.h \
+    vision/src/validation_gate_v4_types.h \
+    vision/src/validation_gate_v4_private.h \
+    vision/src/validation_gate_v4.h \
     vision/src/upsup_public.h \
     vision/src/updown_util.h \
     vision/src/updown.h \
@@ -274,15 +275,19 @@ HEADERS +=  \
     vision/src/path_detector_types.h \
     vision/src/path_detector_private.h \
     vision/src/path_detector.h \
+    vision/src/opphmoppiecjmglf_norm.h \
     vision/src/odesup.h \
+    vision/src/nglnaimoglfkkfkf_power.h \
     vision/src/mwutil.h \
     vision/src/mwmathutil.h \
+    vision/src/moppcbimnohdlfcb_min.h \
     vision/src/moppaaaadjecnopp_refp1_round.h \
     vision/src/mex.h \
     vision/src/mem_mgr.h \
     vision/src/mdl_info.h \
     vision/src/matrix.h \
     vision/src/mat.h \
+    vision/src/lfcbdbaaaaimmohl_max.h \
     vision/src/lexicmp.h \
     vision/src/lapack.h \
     vision/src/io64.h \
@@ -294,6 +299,7 @@ HEADERS +=  \
     vision/src/fromwavefile_ex_win32.h \
     vision/src/fromwavedevice_win32.h \
     vision/src/fromwavedevice_ex_win32.h \
+    vision/src/fknoophdhdjeohdj_conv2.h \
     vision/src/fixedpoint.h \
     vision/src/fintrf.h \
     vision/src/fcjmfkngfcbidjmo_conv2.h \
@@ -305,6 +311,7 @@ HEADERS +=  \
     vision/src/ext_share.h \
     vision/src/engine.h \
     vision/src/emlrt.h \
+    vision/src/eknobiekkfcbppph_max.h \
     vision/src/dt_info.h \
     vision/src/dsp_vqdesign.h \
     vision/src/dspsvd_rt.h \
@@ -343,6 +350,7 @@ HEADERS +=  \
     vision/src/drop_mech_private.h \
     vision/src/drop_mech.h \
     vision/src/dll_utils_win.h \
+    vision/src/dbaidbaafkfkbimo_abs.h \
     vision/src/compare_fcn.h \
     vision/src/cg_sfun.h \
     vision/src/cg_matrx.h \
@@ -353,14 +361,15 @@ HEADERS +=  \
     vision/src/blas.h \
     vision/src/bio_sig.h \
     vision/src/AudioDefs.h \
-    vision/vision.h
+    vision/src/aaieaaiejmopnglf_sum.h
 
 
 SOURCES +=  \
+    vision/vision.cpp \
     vision/src/VisionModel_data.cpp \
     vision/src/VisionModel.cpp \
-    vision/src/validation_gate_data.cpp \
-    vision/src/validation_gate.cpp \
+    vision/src/validation_gate_v4_data.cpp \
+    vision/src/validation_gate_v4.cpp \
     vision/src/torpedo_data.cpp \
     vision/src/torpedo.cpp \
     vision/src/rt_pow_snf.cpp \
@@ -369,12 +378,19 @@ SOURCES +=  \
     vision/src/rtGetInf.cpp \
     vision/src/path_detector_data.cpp \
     vision/src/path_detector.cpp \
+    vision/src/opphmoppiecjmglf_norm.cpp \
+    vision/src/nglnaimoglfkkfkf_power.cpp \
+    vision/src/moppcbimnohdlfcb_min.cpp \
     vision/src/moppaaaadjecnopp_refp1_round.cpp \
+    vision/src/lfcbdbaaaaimmohl_max.cpp \
     vision/src/hough_r_rt.c \
     vision/src/hough_d_rt.c \
+    vision/src/fknoophdhdjeohdj_conv2.cpp \
     vision/src/fcjmfkngfcbidjmo_conv2.cpp \
     vision/src/ert_main.cpp \
+    vision/src/eknobiekkfcbppph_max.cpp \
     vision/src/drop_mech.cpp \
+    vision/src/dbaidbaafkfkbimo_abs.cpp \
     vision/src/buoy_detector_data.cpp \
     vision/src/buoy_detector.cpp \
-    vision/vision.cpp
+    vision/src/aaieaaiejmopnglf_sum.cpp
