@@ -168,6 +168,18 @@ bool Camera::init()
 		//allocate memory for a single image and activate that memory
 		is_AllocImageMem(m_hCam, m_nSizeX, m_nSizeY, m_nBitsPerPixel, &m_pcImageMemory, &m_lMemoryID);
 		is_SetImageMem(m_hCam, m_pcImageMemory, m_lMemoryID);
+
+		//When the image is resized in config file, the AOI is set to the middle of the image in that size
+		int pWidth = m_nSizeX;
+		int pHeight = m_nSizeY;
+		int pXpos = (752 - pWidth) / 2;
+		int pYpos = (480 - pHeight) / 2;
+		is_SetAOI(m_hCam, IS_SET_IMAGE_AOI, &pXpos, &pYpos, &pWidth, &pHeight);
+		pXpos = pYpos = pWidth = pHeight = -1;
+		is_SetAOI(m_hCam, IS_GET_IMAGE_AOI, &pXpos, &pYpos, &pWidth, &pHeight);
+		qDebug() << "The AOI values were set to " << pXpos << pYpos << pWidth << pHeight;
+		
+		
 		//the pixelclock is realated to some complex usb transfer rate thing. Basically if it is too high
 		//(which it is by default) then the camera fails to take every picture in the is_FreezeFrame method.
 		is_SetPixelClock(m_hCam, params->pixelclock);
