@@ -42,10 +42,8 @@ SerialPort.LCD=/dev/ttyUSB2;
 
 # Cameras
 
-Camera.Forward.x=120;
-Camera.Forward.y=160;
-#Camera.Forward.x=752;
-#Camera.Forward.y=480;
+Camera.Forward.x=640;
+Camera.Forward.y=480;
 Camera.Forward.fps=10;
 Camera.Forward.pixelclock=12;
 Camera.Forward.identity=2;
@@ -55,10 +53,8 @@ Camera.Forward.port=5566;
 Camera.Forward.address=192.168.3.2;
 #Camera.Forward.address=127.0.0.1;
 
-Camera.Down.x=160;
-Camera.Down.y=120;
-#Camera.Down.x=752;
-#Camera.Down.y=480;
+Camera.Down.x=640;
+Camera.Down.y=480;
 Camera.Down.fps=10;
 Camera.Down.pixelclock=12;
 Camera.Down.identity=3;
