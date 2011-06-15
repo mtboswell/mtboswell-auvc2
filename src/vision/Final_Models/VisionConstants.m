@@ -3,8 +3,27 @@
 %   generating code for the overall stateflow chart
 %
 
-ForwardImageDimensions = uint8([120 160]);
-DownImageDimensions = uint8([120 160]);
+%Forward_Camera_Dimensions = [160 120];
+%Down_Camera_Dimensions = [120 160];
+Forward_Camera_Dimensions = [752 480];
+Down_Camera_Dimensions = [480 752];
+
+% The following configuration has been tested with a high success rate on
+% static images for the validation gate:
+Scale_Forward_R = 0;
+Scale_Forward_G = 1;
+Scale_Forward_B = 0;
+Scale_Forward_H = 1;
+Scale_Forward_S = 1;
+Scale_Forward_V = 5;
+
+% The following has not been tested:
+Scale_Down_R = 1;
+Scale_Down_G = 1;
+Scale_Down_B = 1;
+Scale_Down_H = 1;
+Scale_Down_S = 1;
+Scale_Down_V = 5;
 
 
 Depth_Kp = 75;
@@ -53,7 +72,7 @@ Buoy2_Hue = 0.0;
 Buoy2_Saturation = 1.0;
 Buoy2_Value = 0.75;
 
-Iter_Segment_Thresh = 25;
+Iter_Segment_Thresh = 60;
 
 % Minimum/maximum limits on buoy eccentricity and extent
 Buoy_Min_Eccentricity = 0;
@@ -149,8 +168,7 @@ Buoy3_Hue = 15;
 Buoy3_Saturation = 1.0;
 Buoy3_Value = 0.45;
 
-%Iter_Segment_Thresh = 60;
-Iter_Segment_Thresh = 20;
+Iter_Segment_Thresh = 60;
 
 Buoy_Min_Eccentricity = 0;
 Buoy_Max_Eccentricity = 1.2;
