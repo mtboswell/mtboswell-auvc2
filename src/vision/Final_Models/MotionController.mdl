@@ -113,7 +113,7 @@ Model {
       Name		      "RightAngled"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.105"
+    ComputedModelVersion    "1.104"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -131,11 +131,11 @@ Model {
   Creator		  "auvt"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "auvt"
+  LastModifiedBy	  "Administrator"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun  7 22:26:15 2011"
-  RTWModifiedTimeStamp	  229385775
-  ModelVersionFormat	  "1.%<AutoIncrement:105>"
+  LastModifiedDate	  "Fri Jun 03 08:15:38 2011"
+  RTWModifiedTimeStamp	  228989594
+  ModelVersionFormat	  "1.%<AutoIncrement:104>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -506,7 +506,7 @@ Model {
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
 	  TemplateMakefile	  "ert_default_tmf"
-	  PostCodeGenCommand	  "packNGo(buildInfo, {'packType' 'flat'})"
+	  PostCodeGenCommand	  "packNGo(buildInfo);"
 	  Description		  "Real-Time Workshop Embedded Coder"
 	  GenerateReport	  on
 	  SaveLog		  off
@@ -695,7 +695,7 @@ Model {
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
       CurrentDlgPage	      "Real-Time Workshop"
-      ConfigPrmDlgPosition    " [ 1767, 203, 2668, 797 ] "
+      ConfigPrmDlgPosition    " [ 87, 62, 988, 656 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -968,7 +968,7 @@ Model {
   }
   System {
     Name		    "MotionController"
-    Location		    [1493, 147, 2745, 802]
+    Location		    [2, 76, 1254, 731]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1322,7 +1322,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nAdministrator\\n03-Jun-2011 08:15:40"
+      "nAdministrator\\n03-Jun-2011 00:16:52"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -1565,7 +1565,7 @@ Model {
 	      System {
 		Name			"Maintain Desired Yaw (uses compass)"
 		Location		[108, 181, 891, 414]
-		Open			off
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -2152,7 +2152,7 @@ Model {
 		  System {
 		    Name		    "PID Controller\nHeading"
 		    Location		    [768, 96, 1254, 387]
-		    Open		    off
+		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -4022,7 +4022,7 @@ Model {
 	      System {
 		Name			"Down Target"
 		Location		[386, 102, 715, 507]
-		Open			off
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -4119,7 +4119,7 @@ Model {
 		  Position		  [110, 56, 225, 114]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4141,7 +4141,7 @@ Model {
 		  Position		  [105, 181, 225, 239]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4163,7 +4163,7 @@ Model {
 		  Position		  [105, 306, 225, 364]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4298,7 +4298,7 @@ Model {
 	      System {
 		Name			"Forward Target"
 		Location		[38, 103, 367, 550]
-		Open			off
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -4395,7 +4395,7 @@ Model {
 		  Position		  [110, 65, 215, 120]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4417,7 +4417,7 @@ Model {
 		  Position		  [110, 200, 220, 255]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4439,7 +4439,7 @@ Model {
 		  Position		  [110, 342, 220, 398]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
