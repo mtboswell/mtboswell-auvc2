@@ -111,6 +111,12 @@ void Camera::step()
 				QTransform transform;
 				transform.rotate(270);	// 270 degrees instead of 90
 				*qimage = qimage->transformed(transform);
+				newimage = new QImage(120, 160, QImage::Format_RGB32);
+				*newimage = qimage->scaledToHeight(160);
+			}
+			else {
+				newimage = new QImage(160, 120, QImage::Format_RGB32);
+				*newimage = qimage->scaledToHeight(120);
 			}
 			
 			//this creates a VDatum (a struct defined somewhere just search for it.  Its what things are stored
@@ -123,7 +129,7 @@ void Camera::step()
 			else {
 				datum.id = "Camera.Downward.Frame";
 			}
-			datum.value = *qimage;
+			datum.value = *newimage;
 			datum.timestamp = QTime::currentTime();
 			
 			emit dataReady(datum);
@@ -131,6 +137,7 @@ void Camera::step()
 			//write out to the UDP port
 			videoOut->write(*qimage);
 			qimage->~QImage();
+			newimage->~QImage();
 
 		}
 	}
