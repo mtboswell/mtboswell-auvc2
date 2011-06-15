@@ -30,7 +30,7 @@
 static bool simulate = false;
 static bool thrustersON = true;
 static bool directorON = true;
-static bool visionON = false;
+static bool visionON = true;
 static QStringList debug;
 
 int main(int argc, char *argv[]){

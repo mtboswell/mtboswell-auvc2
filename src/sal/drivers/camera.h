@@ -57,6 +57,7 @@ class Camera : public QObject
 		// localx etc. for testing purposes only (see is_SetAOI())
 		INT localx, localy, localx2, localy2;
 		QImage* qimage;
+		QImage* newimage;
 		//QPixmap qpixmap;
 		QByteArray imageArray;
 		QUdpSocket* videoSocket;
