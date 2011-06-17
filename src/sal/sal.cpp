@@ -24,7 +24,7 @@ SAL::SAL():Module()
 
 	//QObject::connect(os5000, SIGNAL(compassDataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
 	//QObject::connect(microstrain, SIGNAL(dataReady(VDatum)), this, SLOT(setData(VDatum)));
-
+	
 
 }
 
@@ -52,6 +52,13 @@ void SAL::init(){
 	//camera->start();
 	qDebug("SAL thread id: %d", (int) QThread::currentThreadId());
 	
+	//initialize stuff for the array of depths and calulations of the depth from raw values
+	depthBaseline = config("Depth.Baseline").toFloat();
+	depthMultiplier = config("Depth.Multiplier").toFloat();
+	depthArraySize = config("Depth.ArraySize").toInt();
+	depthTracker = 0;
+	for (int x = 0; x < 50; x++)
+		depthArray[x] = 0;
 
 
 	//only acutally do this stuff if ../agent -s was not called with the "-s" being key
@@ -134,6 +141,9 @@ void SAL::dataIn(VDatum datum) {
 	else if( datum.id == "Orientation.Heading") {
 		checkStability(datum);
 	}
+	else if( datum.id == "Maestro.Depth_Raw") {
+		updateDepth(datum);
+	}
 }
 
 void SAL::checkStability(VDatum datum) {
@@ -157,6 +167,23 @@ void SAL::checkStability(VDatum datum) {
 	prevAtHeading = atHeading;
 }
 
+//This function updates the array of the last X rawDepth values and returns the Position.Depth field in an attempt
+//to reduce depth noise.
+void SAL::updateDepth(VDatum datum) {
+	depthArray[depthTracker] = datum.value.toInt();
+	depthTracker++;
+	if (depthTracker >= depthArraySize) depthTracker = 0;
+	//Update Position.Depth
+	float depth = 0;
+	for (int h = 0; h < depthArraySize; h++) {
+		depth += depthArray[h];
+	}
+	depth = depth / (depthArraySize * 1.0);
+	depth = (depth - depthBaseline) / depthMultiplier;
+	int tempDepth = depth * 10;
+	depth = tempDepth / 10.0;
+	setData("Position.Depth", depth);
 
+}
 
 #endif

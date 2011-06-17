@@ -17,17 +17,16 @@ int main(int argc, char *argv[]){
 	
 	Maestro* maestro = new Maestro();
 	for (i = 0; i < 11; i++) {
-		std::cout << "Please move the AUV to a stable depth of " << i << " feet.\nPress any key when ready\n";
-		std::cin.get();
-		std::cout << "Gathering data";
+		std::cout << "Please move the AUV to a stable depth of " << i << " feet.\nPress return key when ready\n";
+		std::getchar();
+		qDebug() << "Gathering data";
 		depths[i] = 0;
-		for (k = 0; i < 100; i++) {
+		for (k = 0; k < 2500; k++) {
 			depths[i] += maestro->getDepth();
-			depths[i] = depths[i] / 100.0;
-			std::cout << ".";
 		}
-		output << i << " feet :\t" << depths[i]; 
-		std::cout << " Done!\n";
+		depths[i] = depths[i] / 2500.0;
+		output << i << " feet :\t" << depths[i] << "\n"; 
+		qDebug() << " Done!\n";
 	}
 	output.close();
 	std::cout << "Test Completed\n";
