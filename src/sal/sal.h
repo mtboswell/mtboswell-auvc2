@@ -55,6 +55,7 @@ class SAL: public Module
 			//sub << "TargetOptions";
 			sub << "DeadReckon.Heading";
 			sub << "Orientation.Heading";
+			sub << "Maestro.Depth_Raw";
 			return sub;
 		}
 
@@ -76,7 +77,13 @@ class SAL: public Module
 		bool prevAtHeading;
 		int desiredHeading;
 		void checkStability(VDatum datum);
+		void updateDepth(VDatum datum);
 		QTime headingTime;
+		int depthArray[50];		//Stores the last fify rawDepths. Done as an atempt to remove some noise *exparimental*
+		int depthTracker;
+		float depthBaseline;
+		float depthMultiplier;
+		int depthArraySize;
 
 		// for sim
 		int heading;
