@@ -1,3 +1,6 @@
+#ifndef DASHBOARD_H_
+#define DASHBOARD_H_
+
 #include "ui_dashboard.h"
 #include "../module/module.h"
 #include "../src/misc/version.h"
@@ -18,6 +21,7 @@
 
 #include "qwt_compass_rose.h"
 #include "qwt_dial_needle.h"
+#include "joystick/joystick.h"
 
 static QHash<QString,QString> AUVState;
 
@@ -34,7 +38,7 @@ class Dashboard : public GuiModule, private Ui::DashboardWindow
 			return sub;
 		}
 		~Dashboard();
-		bool isThread(){return false;}
+		bool isThread(){return false;}                
 
 	signals:
 		void setAddress(QString);
@@ -69,6 +73,7 @@ class Dashboard : public GuiModule, private Ui::DashboardWindow
 		void disableDashboard(QString,QString);
 		void enableDashboard();
 		void checkForDataTimeout();
+        void updateJoystick();
 
 		void saveParameters();
 		void loadParameters();
@@ -146,4 +151,10 @@ class Dashboard : public GuiModule, private Ui::DashboardWindow
 		TreeModel *paramModel;
 		void setupParamEdit();
 
+                // Joystick
+                QTimer *joystickTimer;
+                joystick *js;
+
 };
+
+#endif

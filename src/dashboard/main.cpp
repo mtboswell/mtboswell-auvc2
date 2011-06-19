@@ -4,6 +4,7 @@
 #include "../module/modulehub.h"
 #include "../misc/configloader.h"
 #include "../state/state.h"
+#include "joystick/joystick.h"
 
 #include "dashboard.h"
 
