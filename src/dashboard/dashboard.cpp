@@ -140,10 +140,66 @@ Dashboard::Dashboard(AUVC_State_Data* stateIn)
 	connect(dataTimeoutTimer, SIGNAL(timeout()), this, SLOT(checkForDataTimeout()));
 	dataTimeoutTimer->start(100);
 
+        js = new joystick();
+        joystickTimer = new QTimer();
+        connect(joystickTimer, SIGNAL(timeout()), this, SLOT(updateJoystick()));
+//        joystickTimer->start(100);    enables joystick
 }
 
+/**
+ *  JOYSTICK UPDATES HAPPEN HERE; THE JOYSTICK OBJECT HANDLES ALL UPDATES TO THESE VALUES
+ *      - Dashboard simply grabs those values, and calls setData()
+ *  Note: Disable the joystickTimer Object in order to stop these updates; it overrides
+ *      GUI controls that are associated with: depth, heading, strafe, and forwardspeed
+ */
+void Dashboard::updateJoystick()
+{
+    int fwdSpeed = (int)js->forwardSpeed;
+    if(fwdSpeed != desiredSpeed)
+    {
+        desiredSpeed = fwdSpeed;
+        if (fwdSpeed <= 1 && fwdSpeed >= -1)
+            setData("DeadReckon.ForwardSpeed", 0);
+        else
+            setData("DeadReckon.ForwardSpeed", fwdSpeed);
+    }
+
+    int depth = (int)js->depth;
+    if (depth != desiredDepth)
+    {
+        desiredDepth = depth;
+        if (desiredDepth <= 1 && desiredDepth >= -1)
+            setData("DeadReckon.Depth", 0);
+        else
+            setData("DeadReckon.Depth", depth);
+    }
+
+    int strafe = (int)js->strafe;
+    if (strafe != desiredStrafe)
+    {
+        desiredStrafe = strafe;
+        if (desiredStrafe <= 1 && desiredStrafe >= -1)
+            setData("RC.desiredStrafe", 0);
+        else
+            setData("RC.desiredStrafe", strafe);
+    }
+
+    int headingIncrement = (int)js->heading;
+    if (headingIncrement <= 5 && headingIncrement >= -5)
+    {
+        // do nothing
+    }
+    else
+    {
+        int currentHeading = intValue("DeadReckon.Heading");
+        int adjustedHeading = currentHeading + headingIncrement;
+        setData("DeadReckon.Heading", adjustedHeading % 360);
+    }
+}
 
 Dashboard::~Dashboard(){
+    delete joystickTimer;
+    delete js;
 	stopAction();
 	//delete videoSocket;
 	//delete bitmapSocket;
@@ -742,6 +798,7 @@ void Dashboard::on_desiredDepthSpinBox_editingFinished(){
 	setData("DeadReckon.Depth", QString::number(desiredDepthSpinBox->value()));
 }
 void Dashboard::on_desiredSpeedSpinBox_editingFinished(){
+
 	setData("DeadReckon.ForwardSpeed", QString::number(desiredSpeedSpinBox->value()));
 }
 void Dashboard::on_desiredStrafeSpinBox_editingFinished(){
@@ -847,5 +904,3 @@ void Dashboard::loadParameter(QString param){
 
 	}
 }
-
-
