@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.860"
+    ComputedModelVersion    "1.861"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "vision_test/Model|VisionModel"
@@ -27,11 +27,11 @@ Model {
   Creator		  "Thing 1"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Administrator"
+  LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 14 22:51:21 2011"
-  RTWModifiedTimeStamp	  229990724
-  ModelVersionFormat	  "1.%<AutoIncrement:860>"
+  LastModifiedDate	  "Mon Jun 20 08:24:32 2011"
+  RTWModifiedTimeStamp	  230459061
+  ModelVersionFormat	  "1.%<AutoIncrement:861>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -743,7 +743,7 @@ Model {
   }
   System {
     Name		    "vision_test"
-    Location		    [2, 72, 1006, 704]
+    Location		    [1440, 50, 3120, 1050]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1216,8 +1216,7 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      FileName		      "C:\\Documents and Settings\\Administrator\\My Documents\\Academics\\Summer 2011\\AUVT\\Models\\"
-      "Test_Models\\Images\\path10.bmp"
+      FileName		      "/home/auvt/auvc/src/vision/Test_Images/path9.bmp"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
@@ -1283,7 +1282,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[692 290 275 171]"
+      FigPos		      "[1065 354 275 171]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -1584,8 +1583,7 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      FileName		      "C:\\Documents and Settings\\Administrator\\My Documents\\Academics\\Summer 2011\\AUVT\\Models\\"
-      "Test_Models\\Images\\gate10.bmp"
+      FileName		      "/home/auvt/auvc/src/vision/Test_Images/gate10.bmp"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
@@ -1611,7 +1609,7 @@ Model {
       Position		      [655, 541, 1145, 1334]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.363"
+      ModelReferenceVersion   "1.364"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1670,7 +1668,39 @@ Model {
 	port16			"off"
 	port17			"off"
       }
+      List {
+	ListType		InputPortLatchByCopyingInsideSignal
+	port0			"off"
+	port1			"off"
+	port2			"off"
+	port3			"off"
+	port4			"off"
+	port5			"off"
+	port6			"off"
+	port7			"off"
+	port8			"off"
+	port9			"off"
+	port10			"off"
+	port11			"off"
+	port12			"off"
+      }
       CopyOfModelName	      "VisionModel"
+      List {
+	ListType		InputPortLatchByDelayingOutsideSignal
+	port0			"off"
+	port1			"off"
+	port2			"off"
+	port3			"off"
+	port4			"off"
+	port5			"off"
+	port6			"off"
+	port7			"off"
+	port8			"off"
+	port9			"off"
+	port10			"off"
+	port11			"off"
+	port12			"off"
+      }
     }
     Block {
       BlockType		      SubSystem
@@ -1687,11 +1717,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -2182,7 +2207,7 @@ MatData {
     "                5VEN9&]W4W1Y;&4                .    ,     8    (    !@         %    \"                0         ) "
     "         X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8       "
     "  !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )  "
-    "        X   !0    !@    @    &          4    (     0    0    !          D    @           P<T       $!M0       H'E "
+    "        X   !0    !@    @    &          4    (     0    0    !          D    @           LE4       '!W0       H'E "
     "      # <D .    .     8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ,@!   &    "
     "\"     (         !0    @    !     0    $         !0 $ \"H    !    J    $%L;&]W4V-O<&5#:&%N9V5S                    "
     "             $%L;&]W0FQO8VM#:&%N9V5S                                 $ES4V-O<&5#9F=/;&0                           "
@@ -2207,7 +2232,7 @@ MatData {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Jul 24 2010, 07:30:36
+#    Stateflow Version 7.5 (R2010a) dated Aug  8 2010, 22:51:52
 #
 #
 
@@ -2232,8 +2257,6 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    25
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
