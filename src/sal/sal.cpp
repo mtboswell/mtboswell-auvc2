@@ -56,8 +56,9 @@ void SAL::init(){
 	depthBaseline = config("Depth.Baseline").toFloat();
 	depthMultiplier = config("Depth.Multiplier").toFloat();
 	depthArraySize = config("Depth.ArraySize").toInt();
+	depthArray = malloc(depthArraySize * (sizeof int));
 	depthTracker = 0;
-	for (int x = 0; x < 50; x++)
+	for (int x = 0; x < depthArraySize; x++)
 		depthArray[x] = 0;
 
 

@@ -79,7 +79,7 @@ class SAL: public Module
 		void checkStability(VDatum datum);
 		void updateDepth(VDatum datum);
 		QTime headingTime;
-		int depthArray[50];		//Stores the last fify rawDepths. Done as an atempt to remove some noise *exparimental*
+		int* depthArray;
 		int depthTracker;
 		float depthBaseline;
 		float depthMultiplier;
