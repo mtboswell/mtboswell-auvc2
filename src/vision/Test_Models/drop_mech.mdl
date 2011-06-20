@@ -1,22 +1,80 @@
 Model {
-  Name			  "pathtest_mod"
+  Name			  "drop_mech"
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
-    NumRootInports	    0
-    NumRootOutports	    0
+    NumRootInports	    6
+    Inport {
+      BusObject		      ""
+      Name		      "R_down_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "G_down_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "B_down_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "KillTarget2"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "DefaultShape"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "DefaultSide"
+    }
+    NumRootOutports	    8
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetSelect"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetFound"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "MaintainHeading"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetX"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetY"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetYaw"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetDetected"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "FireAuthorization"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.6"
-    NumModelReferences	    2
-    ModelReference {
-      ModelRefBlockPath	      "pathtest_mod/Model|lookForPath"
-    }
-    ModelReference {
-      ModelRefBlockPath	      "pathtest_mod/Model1|lookForPath_function"
-    }
+    ComputedModelVersion    "1.5"
+    NumModelReferences	    0
     NumTestPointedSignals   0
   }
-  SavedCharacterEncoding  "UTF-8"
+  SavedCharacterEncoding  "windows-1252"
   SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
@@ -26,16 +84,16 @@ Model {
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
   MaxMDLFileLineLength	  120
-  Created		  "Tue Oct 12 18:09:40 2010"
-  Creator		  "auvt"
+  Created		  "Sat May 28 21:01:32 2011"
+  Creator		  "Administrator"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Administrator"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed May 25 18:20:04 2011"
-  RTWModifiedTimeStamp	  228245173
-  ModelVersionFormat	  "1.%<AutoIncrement:6>"
-  ConfigurationManager	  "customverctrl"
+  LastModifiedDate	  "Mon Jun 20 12:40:10 2011"
+  RTWModifiedTimeStamp	  230474404
+  ModelVersionFormat	  "1.%<AutoIncrement:5>"
+  ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
@@ -117,7 +175,7 @@ Model {
 	  $ObjectID		  2
 	  Version		  "1.10.0"
 	  StartTime		  "0.0"
-	  StopTime		  "1"
+	  StopTime		  "0"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -134,8 +192,8 @@ Model {
 	  RelTol		  "1e-3"
 	  SolverMode		  "Auto"
 	  ConcurrentTasks	  off
-	  Solver		  "ode45"
-	  SolverName		  "ode45"
+	  Solver		  "FixedStepDiscrete"
+	  SolverName		  "FixedStepDiscrete"
 	  SolverJacobianMethodControl "auto"
 	  ShapePreserveControl	  "DisableAll"
 	  ZeroCrossControl	  "UseLocalSettings"
@@ -419,7 +477,7 @@ Model {
 	  RTWUseSimCustomCode	  off
 	  IncludeHyperlinkInReport off
 	  LaunchReport		  off
-	  TargetLang		  "C"
+	  TargetLang		  "C++"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
 	  IncludeERTFirstTime	  off
 	  GenerateTraceInfo	  off
@@ -583,8 +641,8 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 1112, 166, 2008, 848 ] "
+      CurrentDlgPage	      "Real-Time Workshop"
+      ConfigPrmDlgPosition    " [ 200, 85, 1080, 715 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -597,8 +655,8 @@ Model {
     BackgroundColor	    "white"
     DropShadow		    off
     NamePlacement	    "normal"
-    FontName		    "FreeSans"
-    FontSize		    12
+    FontName		    "Helvetica"
+    FontSize		    10
     FontWeight		    "normal"
     FontAngle		    "normal"
     ShowName		    on
@@ -611,37 +669,57 @@ Model {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
     DropShadow		    off
-    FontName		    "FreeSans"
-    FontSize		    12
+    FontName		    "Helvetica"
+    FontSize		    10
     FontWeight		    "normal"
     FontAngle		    "normal"
     UseDisplayTextAsClickCallback off
   }
   LineDefaults {
-    FontName		    "FreeSans"
-    FontSize		    12
+    FontName		    "Helvetica"
+    FontSize		    9
     FontWeight		    "normal"
     FontAngle		    "normal"
   }
   BlockParameterDefaults {
     Block {
-      BlockType		      Display
-      Format		      "short"
-      Decimation	      "10"
-      Floating		      off
+      BlockType		      Inport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
       SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
     }
     Block {
-      BlockType		      ModelReference
-      Variant		      off
-      GeneratePreprocessorConditionals off
-      CopyOfModelProtected    off
-      DefaultDataLogging      off
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
     }
   }
   System {
-    Name		    "pathtest_mod"
-    Location		    [2, 72, 1278, 727]
+    Name		    "drop_mech"
+    Location		    [2, 76, 1270, 731]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -655,244 +733,124 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "11"
+    SIDHighWatermark	    "14"
     Block {
-      BlockType		      Reference
-      Name		      "Color Space\n Conversion"
-      SID		      "2"
-      Ports		      [3, 3]
-      Position		      [250, 66, 350, 124]
-      LibraryVersion	      "1.328"
-      SourceBlock	      "vipconversions/Color Space\n Conversion"
-      SourceType	      "Color Space Conversion"
-      conversion	      "Obsolete"
-      conversionActive	      "R'G'B' to HSV"
-      wp_str		      "D65"
-      rec		      "Rec. 601 (SDTV)"
-      sys		      "1125/60/2:1"
-      imagePorts	      "Separate color signals"
-    }
-    Block {
-      BlockType		      Display
-      Name		      "Display"
-      SID		      "9"
-      Ports		      [1]
-      Position		      [700, 120, 790, 150]
-      Decimation	      "1"
-      Lockdown		      off
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Image From File"
+      BlockType		      Inport
+      Name		      "R_down_in"
       SID		      "1"
-      Tag		      "vipblks_nd"
-      Ports		      [0, 3]
-      Position		      [15, 64, 180, 126]
-      LibraryVersion	      "1.308"
-      DialogController	      "vipDDGCreate"
-      DialogControllerArgs    "DataTag0"
-      SourceBlock	      "vipsrcs/Image From File"
-      SourceType	      "Image From File"
-      ShowPortLabels	      "FromPortIcon"
-      SystemSampleTime	      "-1"
-      FunctionWithSeparateData off
-      RTWMemSecFuncInitTerm   "Inherit from model"
-      RTWMemSecFuncExecute    "Inherit from model"
-      RTWMemSecDataConstants  "Inherit from model"
-      RTWMemSecDataInternal   "Inherit from model"
-      RTWMemSecDataParameters "Inherit from model"
-      GeneratePreprocessorConditionals off
-      FileName		      "/home/auvt/auvc/tests/paths/control.png"
-      imagePorts	      "Separate color signals"
-      Ts		      "inf"
-      ImageDataType	      "double"
-      Signed		      on
-      WordLength	      "16"
-      sdImageDataType	      "uint(8)"
-      FractionLengthMode      "User-defined"
-      FractionLength	      "15"
-      OutPortLabels	      "R|G|B"
+      Position		      [100, 143, 130, 157]
+      IconDisplay	      "Port number"
     }
     Block {
-      BlockType		      ModelReference
-      Name		      "Model"
+      BlockType		      Inport
+      Name		      "G_down_in"
+      SID		      "2"
+      Position		      [100, 178, 130, 192]
+      Port		      "2"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "B_down_in"
+      SID		      "3"
+      Position		      [100, 213, 130, 227]
+      Port		      "3"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "KillTarget2"
+      SID		      "4"
+      Position		      [100, 283, 130, 297]
+      Port		      "4"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "DefaultShape"
+      SID		      "5"
+      Position		      [100, 318, 130, 332]
+      Port		      "5"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "DefaultSide"
       SID		      "6"
-      Ports		      [0, 1]
-      Position		      [680, 307, 830, 383]
-      ModelNameDialog	      "lookForPath"
-      SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.10"
-      List {
-	ListType		OutputPortNames
-	port0			"BWout"
-      }
-      List {
-	ListType		OutputPortOutputBusAsStructs
-	port0			"off"
-      }
-      List {
-	ListType		OutputPortSignalNames
-	port0			"BW"
-      }
-      CopyOfModelName	      "lookForPath"
+      Position		      [100, 353, 130, 367]
+      Port		      "6"
+      IconDisplay	      "Port number"
     }
     Block {
-      BlockType		      ModelReference
-      Name		      "Model1"
-      SID		      "11"
-      Ports		      [3, 1]
-      Position		      [420, 67, 560, 113]
-      ModelNameDialog	      "lookForPath_function"
-      SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.11"
-      List {
-	ListType		InputPortNames
-	port0			"H"
-	port1			"S"
-	port2			"V"
-      }
-      List {
-	ListType		OutputPortNames
-	port0			"BWout"
-      }
-      List {
-	ListType		OutputPortOutputBusAsStructs
-	port0			"off"
-      }
-      List {
-	ListType		OutputPortSignalNames
-	port0			"BW"
-      }
-      CopyOfModelName	      "lookForPath_function"
+      BlockType		      Outport
+      Name		      "TargetSelect"
+      SID		      "7"
+      Position		      [585, 143, 615, 157]
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
     }
     Block {
-      BlockType		      Reference
-      Name		      "Video Viewer"
+      BlockType		      Outport
+      Name		      "TargetFound"
+      SID		      "8"
+      Position		      [585, 178, 615, 192]
+      Port		      "2"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "MaintainHeading"
+      SID		      "9"
+      Position		      [585, 213, 615, 227]
+      Port		      "3"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetX"
       SID		      "10"
-      Ports		      [1]
-      Position		      [705, 15, 820, 85]
-      LibraryVersion	      "1.251"
-      UserDataPersistent      on
-      UserData		      "DataTag1"
-      DialogControllerArgs    "DataTag2"
-      SourceBlock	      "vipsnks/Video Viewer"
-      SourceType	      "Video Viewer"
-      inputType		      "Obsolete7b"
-      imagePorts	      "One multidimensional signal"
-      useColorMap	      off
-      colormapValue	      "jet(256)"
-      specRange		      off
-      minInputVal	      "0"
-      maxInputVal	      "255"
-      FigPos		      "[325 553 632 272]"
-      AxisZoom		      on
-      trueSizedOnce	      off
-      OpenAtMdlStart	      on
+      Position		      [585, 248, 615, 262]
+      Port		      "4"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
     }
-    Line {
-      SrcBlock		      "Image From File"
-      SrcPort		      1
-      DstBlock		      "Color Space\n Conversion"
-      DstPort		      1
+    Block {
+      BlockType		      Outport
+      Name		      "TargetY"
+      SID		      "11"
+      Position		      [585, 283, 615, 297]
+      Port		      "5"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
     }
-    Line {
-      SrcBlock		      "Color Space\n Conversion"
-      SrcPort		      1
-      DstBlock		      "Model1"
-      DstPort		      1
+    Block {
+      BlockType		      Outport
+      Name		      "TargetYaw"
+      SID		      "12"
+      Position		      [585, 318, 615, 332]
+      Port		      "6"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
     }
-    Line {
-      SrcBlock		      "Color Space\n Conversion"
-      SrcPort		      2
-      Points		      [50, 0]
-      DstBlock		      "Model1"
-      DstPort		      2
+    Block {
+      BlockType		      Outport
+      Name		      "TargetDetected"
+      SID		      "13"
+      Position		      [585, 388, 615, 402]
+      Port		      "7"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
     }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      1
-      Points		      [-200, 0; 0, -295]
-      DstBlock		      "Video Viewer"
-      DstPort		      1
+    Block {
+      BlockType		      Outport
+      Name		      "FireAuthorization"
+      SID		      "14"
+      Position		      [585, 423, 615, 437]
+      Port		      "8"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
     }
-    Line {
-      Points		      [590, 115; 0, 20]
-      DstBlock		      "Display"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Image From File"
-      SrcPort		      2
-      DstBlock		      "Color Space\n Conversion"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Image From File"
-      SrcPort		      3
-      DstBlock		      "Color Space\n Conversion"
-      DstPort		      3
-    }
-  }
-}
-MatData {
-  NumRecords		  3
-  DataRecord {
-    Tag			    DataTag2
-    Data		    "  %)30     .    ,     8    (    !          %    \"                0         0          "
-  }
-  DataRecord {
-    Tag			    DataTag1
-    Data		    "  %)30     .    4 $   8    (     @         %    \"     $    !     0         %  0 #0    $    :    4V-O<&"
-    "5#9F=.86UE %-C;W!E                   .    4     8    (    !          %    \"     $    =     0         0    '0   '9"
-    "I<'-C;W!E<RY6:61E;U9I97=E<E-C;W!E0V9G    #@   )@    &    \"    !$          0         !  0 34-/4P$    :    <V-O<&5E"
-    ">'1E;G-I;VYS+E=I<F5D4V-O<&4        .    2     8    (    #0         %    \"     8    !     0         &    &        "
-    "-T\"     0    $    !     P    X   !P#0  !@    @    )          4    (     0   $ -   !          (   ! #0    %)30    "
-    " .    H P   8    (     @         %    \"     $    !     0         %  0 !0    $    %    34-/4P     .    6 P   8    "
-    "(    $0         !          $ ! !-0T]3 0    T   !&:6QE5W)A<'!E<E]?    #@   !@,   &    \"     $         !0    @    &"
-    "     0    $         #@   %@\"   &    \"     D         !0    @    H @   0    $          @   \"@\"   \"    %    \"@!"
-    "  !H 0  D $  / !   ( @  * (             86YY %!A<G-E9$%R9W, 4V-O<&5#3$D =6ES8V]P97, 3F%M90!!<F=S $%R9TYA;65S %9I9&"
-    "5O5FEE=V5R4V-O<&5#9F< =FEP<V-O<&5S $)L;V-K %-C;W!E $-U<G)E;G1#;VYF:6=U<F%T:6]N %!O<VET:6]N %=I;F1O=U-T>6QE %=I<F5D"
-    "4V-O<&4 <V-O<&5E>'1E;G-I;VYS $%L;&]W4V-O<&5#:&%N9V5S $%L;&]W0FQO8VM#:&%N9V5S $ES4V-O<&5#9F=/;&0 <VEG=71I;',N07!P;&"
-    "EC871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\                        $     P              \"0    @              !     /  "
-    "                        $    !     0    (    !     0    $    !                                     P              "
-    " 0         #     @               @         \"     0                    $    !               !     @    $          "
-    "                                          .          X    P    !@    @    $          4    (               !       "
-    "  !          #@   \" \"   &    \"     (         !0    @    !     0    $         !0 $ !4    !    :0   &-L87-S      "
-    "               $-U<G)E;G1#;VYF:6=U<F%T:6]N %-C;W!E0TQ)                 %!O<VET:6]N                 %=I;F1O=U-T>6QE"
-    "                       .    4     8    (    !          %    \"     $    =     0         0    '0   '9I<'-C;W!E<RY6:"
-    "61E;U9I97=E<E-C;W!E0V9G    #@   #     &    \"     8         !0    @               $         \"0         .    2    "
-    " 8    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    #     0    X   !0    !@   "
-    " @    &          4    (     0    0    !          D    @           LE4       '!W0       H'E       # <D .    .     8"
-    "    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ' !   &    \"     (         !0    "
-    "@    !     0    $         !0 $  H    !    *    %-C;W!E0V9G  !\";&]C:TYA;64 5FES:6)L90   %9E<G-I;VX    .    2     8"
-    "    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    \"     @    X   !     !@    "
-    "@    $          4    (     0    T    !         !     -    +U9I9&5O(%9I97=E<@    X    P    !@    @    $          4 "
-    "   (     0    (    !         !   @!O;@  #@   #@    &    \"     8         !0    @    !     0    $         \"0    @ "
-    "          #P/PX   \"H!0  !@    @    !          4    (    !     $    !          X    X    !@    @    \"          4 "
-    "   (     0         !          4 !  !     0         .    , $   8    (     @         %    \"     $    !     0       "
-    "  %  0 \"P    $    L    3F%M90        !!<F=S         %!A<G-E9$%R9W, 07)G3F%M97,         #@   #     &    \"     0  "
-    "       !0    @               $         $          .    *     8    (     0         %    \"                0        "
-    " .    *     8    (     0         %    \"                0         .    *     8    (     0         %    \"         "
-    "       0         .    , (   8    (     @         %    \"     $    !     0         %  0 %0    $   !^    0FQO8VL    "
-    "                 4V-O<&4                     0W5R<F5N=$-O;F9I9W5R871I;VX 4V-O<&5#3$D                 4&]S:71I;VX  "
-    "               5VEN9&]W4W1Y;&4                .    ,     8    (    !@         %    \"                0         )  "
-    "        X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8        "
-    " !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )   "
-    "       X   !0    !@    @    &          4    (     0    0    !          D    @           P>T       $!O0       H'E  "
-    "     # <D .    .     8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ,@!   &    \""
-    "     (         !0    @    !     0    $         !0 $ \"H    !    J    $%L;&]W4V-O<&5#:&%N9V5S                      "
-    "           $%L;&]W0FQO8VM#:&%N9V5S                                 $ES4V-O<&5#9F=/;&0                             "
-    "         '-I9W5T:6QS+D%P<&QI8V%T:6]N1&%T82Y!<'!L:6-A=&EO;D1A=&%?  X    P    !@    @    ) @        4    (     0    "
-    "$    !          (  0 !    #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    .    ,     "
-    "8    (    \"0(        %    \"     $    !     0         \"  $       X    X    !@    @    \"          4    (     0  "
-    "  $    !          4 !  !     0         .    B     8    (    \"0         %    \"     $   !8     0         \"    6  "
-    "    !24T     #@   $@    &    \"     (         !0    @    !     0    $         !0 $  4    !    !0   $U#3U,     #@  "
-    "       "
-  }
-  DataRecord {
-    Tag			    DataTag0
-    Data		    "  %)30     .    N     8    (     0         %    \"     $    \"     0         .    0     8    (    !    "
-    "      %    \"     $    -     0         0    #0   $EM86=E1G)O;49I;&4    .    0     8    (    !          %    \"    "
-    " $    )     0         0    \"0   '9I<&1I86QO9P         "
   }
 }
