@@ -1,15 +1,15 @@
 Model {
-  Name			  "vision_test_SUBSET1"
+  Name			  "test_VisionModel_v2"
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.235"
+    ComputedModelVersion    "1.236"
     NumModelReferences	    1
     ModelReference {
-      ModelRefBlockPath	      "vision_test_SUBSET1/vision_model.mdl|VisionModel"
+      ModelRefBlockPath	      "test_VisionModel_v2/vision_model.mdl|VisionModel"
     }
     NumTestPointedSignals   0
   }
@@ -27,11 +27,11 @@ Model {
   Creator		  "Administrator"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "auvt"
+  LastModifiedBy	  "Administrator"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jun  9 05:40:00 2011"
-  RTWModifiedTimeStamp	  229474362
-  ModelVersionFormat	  "1.%<AutoIncrement:235>"
+  LastModifiedDate	  "Mon Jun 20 12:06:38 2011"
+  RTWModifiedTimeStamp	  230472385
+  ModelVersionFormat	  "1.%<AutoIncrement:236>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -743,8 +743,8 @@ Model {
     }
   }
   System {
-    Name		    "vision_test_SUBSET1"
-    Location		    [1440, 50, 3120, 1050]
+    Name		    "test_VisionModel_v2"
+    Location		    [2, 72, 1262, 711]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1253,11 +1253,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1328,7 +1323,7 @@ Model {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
 	  SID			  "39::14"
-	  Tag			  "Stateflow S-Function vision_test_SUBSET1 1"
+	  Tag			  "Stateflow S-Function test_VisionModel_v2 1"
 	  Ports			  [4, 4]
 	  Position		  [180, 100, 230, 220]
 	  FunctionName		  "sf_sfun"
@@ -1458,11 +1453,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1533,7 +1523,7 @@ Model {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
 	  SID			  "60::14"
-	  Tag			  "Stateflow S-Function vision_test_SUBSET1 4"
+	  Tag			  "Stateflow S-Function test_VisionModel_v2 4"
 	  Ports			  [4, 4]
 	  Position		  [180, 100, 230, 220]
 	  FunctionName		  "sf_sfun"
@@ -1664,11 +1654,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1731,7 +1716,7 @@ Model {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
 	  SID			  "48::22"
-	  Tag			  "Stateflow S-Function vision_test_SUBSET1 2"
+	  Tag			  "Stateflow S-Function test_VisionModel_v2 2"
 	  Ports			  [3, 3]
 	  Position		  [180, 108, 230, 272]
 	  FunctionName		  "sf_sfun"
@@ -1834,11 +1819,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1901,7 +1881,7 @@ Model {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
 	  SID			  "56::22"
-	  Tag			  "Stateflow S-Function vision_test_SUBSET1 3"
+	  Tag			  "Stateflow S-Function test_VisionModel_v2 3"
 	  Ports			  [3, 3]
 	  Position		  [180, 108, 230, 272]
 	  FunctionName		  "sf_sfun"
@@ -2041,11 +2021,11 @@ Model {
       BlockType		      ModelReference
       Name		      "vision_model.mdl"
       SID		      "2"
-      Ports		      [13, 22]
+      Ports		      [13, 18]
       Position		      [1075, 554, 1590, 1866]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.399"
+      ModelReferenceVersion   "1.366"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -2059,7 +2039,7 @@ Model {
 	port8			"DesiredBuoyColor"
 	port9			"DesiredTorpedoColor"
 	port10			"ProceedToSecondTarget"
-	port11			"DefaultTargetShape"
+	port11			"DefaultTaretShape"
 	port12			"DefaultTargetColor"
       }
       List {
@@ -2082,10 +2062,6 @@ Model {
 	port15			"DesiredZ"
 	port16			"DesiredXVelocity"
 	port17			"DesiredYaw"
-	port18			"TargetDetected"
-	port19			"PathState"
-	port20			"BuoyColors"
-	port21			"FireAuthorization"
       }
       List {
 	ListType		OutputPortOutputBusAsStructs
@@ -2107,10 +2083,6 @@ Model {
 	port15			"off"
 	port16			"off"
 	port17			"off"
-	port18			"off"
-	port19			"off"
-	port20			"off"
-	port21			"off"
       }
       CopyOfModelName	      "VisionModel"
     }
@@ -2123,25 +2095,28 @@ Model {
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      1
+      Points		      [0, -35]
       DstBlock		      "Display"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      2
+      Points		      [0, -45]
       DstBlock		      "Display1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      3
+      Points		      [0, -55]
       DstBlock		      "Display2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      5
-      Points		      [90, 0; 0, -20]
+      Points		      [90, 0; 0, -95]
       Branch {
 	Points			[0, -670]
 	DstBlock		"Transform Coordinates"
@@ -2155,7 +2130,7 @@ Model {
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      6
-      Points		      [95, 0]
+      Points		      [0, -85; 95, 0]
       Branch {
 	DstBlock		"Display5"
 	DstPort			1
@@ -2169,72 +2144,84 @@ Model {
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      7
+      Points		      [0, -95]
       DstBlock		      "Display6"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      8
+      Points		      [0, -105]
       DstBlock		      "Display7"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      9
+      Points		      [0, -115]
       DstBlock		      "Display8"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      10
+      Points		      [0, -125]
       DstBlock		      "Display9"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      11
+      Points		      [0, -135]
       DstBlock		      "Display10"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      12
+      Points		      [0, -145]
       DstBlock		      "Display11"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      13
+      Points		      [0, -155]
       DstBlock		      "Display12"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      14
+      Points		      [0, -165]
       DstBlock		      "Display13"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      15
+      Points		      [0, -175]
       DstBlock		      "Display14"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      16
+      Points		      [0, -185]
       DstBlock		      "Display15"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      17
+      Points		      [0, -195]
       DstBlock		      "Display16"
       DstPort		      1
     }
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      18
+      Points		      [0, -205]
       DstBlock		      "Display17"
       DstPort		      1
     }
@@ -2367,14 +2354,12 @@ Model {
       DstPort		      9
     }
     Line {
-      SrcBlock		      "vision_model.mdl"
-      SrcPort		      19
+      Points		      [1595, 1660]
       DstBlock		      "Display18"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "vision_model.mdl"
-      SrcPort		      20
+      Points		      [1595, 1720]
       DstBlock		      "Display19"
       DstPort		      1
     }
@@ -2405,14 +2390,12 @@ Model {
       DstPort		      3
     }
     Line {
-      SrcBlock		      "vision_model.mdl"
-      SrcPort		      21
+      Points		      [1595, 1780]
       DstBlock		      "Display20"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "vision_model.mdl"
-      SrcPort		      22
+      Points		      [1595, 1840]
       DstBlock		      "Display21"
       DstPort		      1
     }
@@ -2603,7 +2586,7 @@ Model {
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      4
-      Points		      [0, -5]
+      Points		      [5, 0; 0, -70]
       DstBlock		      "Add"
       DstPort		      1
     }
@@ -3207,16 +3190,16 @@ MatData {
     "       !0;W-I=&EO;@                !7:6YD;W=3='EL90                X    P    !@    @    &          4    (         "
     "      !          D         #@   #     &    \"     8         !0    @               $         \"0         .    ,    "
     " 8    (    !@         %    \"                0         )          X    P    !@    @    &          4    (          "
-    "     !          D         #@   %     &    \"     8         !0    @    !    !     $         \"0   \"           \"R5"
-    "0       <'=       \"@>4       ,!R0 X    X    !@    @    $          4    (     0    @    !         !     (    =6YD;"
-    "V-K960.    R $   8    (     @         %    \"     $    !     0         %  0 *@    $   \"H    06QL;W=38V]P94-H86YG9"
-    "7,                                 06QL;W=\";&]C:T-H86YG97,                                 27-38V]P94-F9T]L9     "
-    "                                  <VEG=71I;',N07!P;&EC871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\ #@   #     &    \"     "
-    "D\"        !0    @    !     0    $          @ !  $    .    ,     8    (    \"0(        %    \"     $    !     0   "
-    "      \"  $  0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &    \"    "
-    " (         !0    @    !     0    $         !0 $  $    !          X   \"8    !@    @    )          4    (     0   &"
-    "@    !          (   !H      %)30     .    6     8    (     @         %    \"     $    !     0         %  0 !P    $"
-    "    .    34-/4P   &AA;F1L90    X         #@         "
+    "     !          D         #@   %     &    \"     8         !0    @    !    !     $         \"0   \"           #![0"
+    "       0&]       \"@>4       ,!R0 X    X    !@    @    $          4    (     0    @    !         !     (    =6YD;V"
+    "-K960.    R $   8    (     @         %    \"     $    !     0         %  0 *@    $   \"H    06QL;W=38V]P94-H86YG97"
+    ",                                 06QL;W=\";&]C:T-H86YG97,                                 27-38V]P94-F9T]L9      "
+    "                                 <VEG=71I;',N07!P;&EC871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\ #@   #     &    \"     D"
+    "\"        !0    @    !     0    $          @ !  $    .    ,     8    (    \"0(        %    \"     $    !     0    "
+    "     \"  $  0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &    \"     "
+    "(         !0    @    !     0    $         !0 $  $    !          X   \"8    !@    @    )          4    (     0   &@"
+    "    !          (   !H      %)30     .    6     8    (     @         %    \"     $    !     0         %  0 !P    $ "
+    "   .    34-/4P   &AA;F1L90    X         #@         "
   }
   DataRecord {
     Tag			    DataTag4
@@ -3790,11 +3773,11 @@ MatData {
     "     !0;W-I=&EO;@                !7:6YD;W=3='EL90                X    P    !@    @    &          4    (           "
     "    !          D         #@   #     &    \"     8         !0    @               $         \"0         .    ,     8"
     "    (    !@         %    \"                0         )          X    P    !@    @    &          4    (            "
-    "   !          D         #@   %     &    \"     8         !0    @    !    !     $         \"0   \"           \"R50 "
-    "      <'=       \"@>4       ,!R0 X    X    !@    @    $          4    (     0    @    !         !     (    =6YD;V-"
-    "K960.    R $   8    (     @         %    \"     $    !     0         %  0 *@    $   \"H    06QL;W=38V]P94-H86YG97,"
-    "                                 06QL;W=\";&]C:T-H86YG97,                                 27-38V]P94-F9T]L9       "
-    "                                <VEG=71I;',N07!P;&EC871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\ #@   #     &    \"     D\""
+    "   !          D         #@   %     &    \"     8         !0    @    !    !     $         \"0   \"           #![0  "
+    "     0&]       \"@>4       ,!R0 X    X    !@    @    $          4    (     0    @    !         !     (    =6YD;V-K"
+    "960.    R $   8    (     @         %    \"     $    !     0         %  0 *@    $   \"H    06QL;W=38V]P94-H86YG97, "
+    "                                06QL;W=\";&]C:T-H86YG97,                                 27-38V]P94-F9T]L9        "
+    "                               <VEG=71I;',N07!P;&EC871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\ #@   #     &    \"     D\""
     "        !0    @    !     0    $          @ !  $    .    ,     8    (    \"0(        %    \"     $    !     0      "
     "   \"  $  0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &    \"     ( "
     "        !0    @    !     0    $         !0 $  $    !          X   \"8    !@    @    )          4    (     0   &@  "
@@ -3804,7 +3787,7 @@ MatData {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Aug  8 2010, 22:51:52
+#    Stateflow Version 7.5 (R2010a) dated Jul 24 2010, 07:30:36
 #
 #
 
@@ -3812,7 +3795,7 @@ MatData {
 Stateflow {
   machine {
     id			    1
-    name		    "vision_test_SUBSET1"
+    name		    "test_VisionModel_v2"
     created		    "31-May-2011 11:28:47"
     isLibrary		    0
     firstTarget		    46
@@ -4240,8 +4223,6 @@ Stateflow {
     firstJunction	    26
     viewObj		    24
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    25
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -4428,8 +4409,6 @@ Stateflow {
     firstJunction	    36
     viewObj		    34
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    13
     decomposition	    CLUSTER_CHART
     type		    EML_CHART

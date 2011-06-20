@@ -1,13 +1,16 @@
 Model {
-  Name			  "image_analysis_blob_v1"
+  Name			  "test_buoy_detector"
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.68"
-    NumModelReferences	    0
+    ComputedModelVersion    "1.917"
+    NumModelReferences	    1
+    ModelReference {
+      ModelRefBlockPath	      "test_buoy_detector/buoy_detector.mdl|buoy_detector"
+    }
     NumTestPointedSignals   0
   }
   SavedCharacterEncoding  "windows-1252"
@@ -20,15 +23,15 @@ Model {
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
   MaxMDLFileLineLength	  120
-  Created		  "Mon May 30 16:47:44 2011"
-  Creator		  "Administrator"
+  Created		  "Fri Feb 11 11:52:30 2011"
+  Creator		  "Thing 1"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Administrator"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 12:08:32 2011"
-  RTWModifiedTimeStamp	  230470051
-  ModelVersionFormat	  "1.%<AutoIncrement:68>"
+  LastModifiedDate	  "Mon Jun 20 12:32:21 2011"
+  RTWModifiedTimeStamp	  230473731
+  ModelVersionFormat	  "1.%<AutoIncrement:917>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -413,7 +416,7 @@ Model {
 	  RTWUseSimCustomCode	  off
 	  IncludeHyperlinkInReport off
 	  LaunchReport		  off
-	  TargetLang		  "C"
+	  TargetLang		  "C++"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
 	  IncludeERTFirstTime	  off
 	  GenerateTraceInfo	  off
@@ -577,8 +580,8 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 200, 85, 1080, 715 ] "
+      CurrentDlgPage	      "Real-Time Workshop"
+      ConfigPrmDlgPosition    " [ 215, 98, 1095, 728 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -619,6 +622,11 @@ Model {
   }
   BlockParameterDefaults {
     Block {
+      BlockType		      Concatenate
+      NumInputs		      "2"
+      ConcatenateDimension    "1"
+    }
+    Block {
       BlockType		      Constant
       Value		      "1"
       VectorParams1D	      on
@@ -638,6 +646,28 @@ Model {
       BusSelectionMode	      off
     }
     Block {
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParamDataTypeStr	      "Inherit: Same as input"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      Inport
       Port		      "1"
       OutMin		      "[]"
@@ -653,6 +683,13 @@ Model {
       LatchByDelayingOutsideSignal off
       LatchInputForFeedbackSignals off
       Interpolate	      on
+    }
+    Block {
+      BlockType		      ModelReference
+      Variant		      off
+      GeneratePreprocessorConditionals off
+      CopyOfModelProtected    off
+      DefaultDataLogging      off
     }
     Block {
       BlockType		      Outport
@@ -703,18 +740,10 @@ Model {
     Block {
       BlockType		      Terminator
     }
-    Block {
-      BlockType		      ToWorkspace
-      VariableName	      "simulink_output"
-      MaxDataPoints	      "1000"
-      Decimation	      "1"
-      SampleTime	      "0"
-      FixptAsFi		      off
-    }
   }
   System {
-    Name		    "image_analysis_blob_v1"
-    Location		    [2, 72, 1278, 727]
+    Name		    "test_buoy_detector"
+    Location		    [2, 72, 1262, 711]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -728,33 +757,424 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "18"
+    SIDHighWatermark	    "620"
     Block {
-      BlockType		      Reference
-      Name		      "Color Space\n Conversion1"
-      SID		      "3"
-      Ports		      [3, 3]
-      Position		      [275, 186, 375, 244]
-      LibraryVersion	      "1.328"
-      SourceBlock	      "vipconversions/Color Space\n Conversion"
-      SourceType	      "Color Space Conversion"
-      conversion	      "Obsolete"
-      conversionActive	      "R'G'B' to HSV"
-      wp_str		      "D65"
-      rec		      "Rec. 601 (SDTV)"
-      sys		      "1125/60/2:1"
-      imagePorts	      "Separate color signals"
+      BlockType		      Display
+      Name		      "Display"
+      SID		      "455"
+      Ports		      [1]
+      Position		      [1075, 565, 1165, 595]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display1"
+      SID		      "456"
+      Ports		      [1]
+      Position		      [1075, 610, 1165, 640]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display2"
+      SID		      "465"
+      Ports		      [1]
+      Position		      [1075, 655, 1165, 685]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display3"
+      SID		      "466"
+      Ports		      [1]
+      Position		      [1075, 705, 1165, 735]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display4"
+      SID		      "467"
+      Ports		      [1]
+      Position		      [1075, 760, 1165, 790]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display5"
+      SID		      "468"
+      Ports		      [1]
+      Position		      [1075, 820, 1165, 850]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display6"
+      SID		      "469"
+      Ports		      [1]
+      Position		      [1075, 865, 1165, 895]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display7"
+      SID		      "470"
+      Ports		      [1]
+      Position		      [1075, 915, 1165, 945]
+      Decimation	      "1"
+      Lockdown		      off
     }
     Block {
       BlockType		      Reference
-      Name		      "Down Test Image"
-      SID		      "1"
-      Tag		      "vipblks_nd"
-      Ports		      [0, 3]
-      Position		      [85, 159, 210, 271]
-      LibraryVersion	      "1.308"
+      Name		      "Draw Target"
+      SID		      "495"
+      Ports		      [4, 3]
+      Position		      [995, 341, 1145, 404]
+      LibraryVersion	      "1.183"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag0"
+      SourceBlock	      "viptextngfix/Draw Markers"
+      SourceType	      "Draw Markers"
+      shape		      "X-mark"
+      size		      "7"
+      fill		      off
+      fillClrSource	      "Specify via dialog"
+      display		      "User-specified value"
+      intensity		      "200"
+      color		      "[0 0 0]"
+      opacity		      "0.6"
+      viewport		      "Entire image"
+      antialiasing	      off
+      inType		      "Obsolete"
+      imagePorts	      "Separate color signals"
+      accumMode		      "Same as product output"
+      accumWordLength	      "32"
+      accumFracLength	      "14"
+      prodOutputMode	      "Binary point scaling"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "14"
+      memoryMode	      "Specify word length"
+      memoryWordLength	      "16"
+      memoryFracLength	      "15"
+      roundingMode	      "Floor"
+      overflowMode	      off
+      LockScale		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Forward Camera"
+      SID		      "454"
+      Ports		      [3]
+      Position		      [1215, 340, 1330, 410]
+      LibraryVersion	      "1.251"
+      UserDataPersistent      on
+      UserData		      "DataTag1"
+      DialogControllerArgs    "DataTag2"
+      SourceBlock	      "vipsnks/Video Viewer"
+      SourceType	      "Video Viewer"
+      inputType		      "Obsolete7b"
+      imagePorts	      "Separate color signals"
+      useColorMap	      off
+      colormapValue	      "jet(256)"
+      specRange		      off
+      minInputVal	      "0"
+      maxInputVal	      "255"
+      FigPos		      "[964 370 268 224]"
+      AxisZoom		      on
+      trueSizedOnce	      off
+      OpenAtMdlStart	      on
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Forward Filter"
+      SID		      "597"
+      Ports		      [3, 3]
+      Position		      [435, 344, 535, 386]
+      LibraryVersion	      "1.225"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Forward Filter"
+	Location		[2, 76, 1014, 724]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "R_in"
+	  SID			  "598"
+	  Position		  [45, 78, 75, 92]
+	  IconDisplay		  "Port number"
+	  PortDimensions	  "Forward_Camera_Dimensions"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "G_in"
+	  SID			  "599"
+	  Position		  [45, 118, 75, 132]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  PortDimensions	  "Forward_Camera_Dimensions"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "B_in"
+	  SID			  "600"
+	  Position		  [45, 158, 75, 172]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  PortDimensions	  "Forward_Camera_Dimensions"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Color Space\n Conversion1"
+	  SID			  "601"
+	  Ports			  [3, 3]
+	  Position		  [180, 96, 280, 154]
+	  LibraryVersion	  "1.328"
+	  SourceBlock		  "vipconversions/Color Space\n Conversion"
+	  SourceType		  "Color Space Conversion"
+	  conversion		  "Obsolete"
+	  conversionActive	  "R'G'B' to HSV"
+	  wp_str		  "D50"
+	  rec			  "Rec. 601 (SDTV)"
+	  sys			  "1125/60/2:1"
+	  imagePorts		  "Separate color signals"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Color Space\n Conversion2"
+	  SID			  "602"
+	  Ports			  [3, 3]
+	  Position		  [385, 96, 485, 154]
+	  LibraryVersion	  "1.328"
+	  SourceBlock		  "vipconversions/Color Space\n Conversion"
+	  SourceType		  "Color Space Conversion"
+	  conversion		  "Obsolete"
+	  conversionActive	  "HSV to R'G'B'"
+	  wp_str		  "D50"
+	  rec			  "Rec. 601 (SDTV)"
+	  sys			  "1125/60/2:1"
+	  imagePorts		  "Separate color signals"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain"
+	  SID			  "603"
+	  Position		  [125, 60, 155, 90]
+	  Gain			  "Scale_Forward_R"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain1"
+	  SID			  "604"
+	  Position		  [125, 110, 155, 140]
+	  Gain			  "Scale_Forward_G"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain2"
+	  SID			  "605"
+	  Position		  [125, 160, 155, 190]
+	  Gain			  "Scale_Forward_B"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain3"
+	  SID			  "606"
+	  Position		  [320, 60, 350, 90]
+	  Gain			  "Scale_Forward_H"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain4"
+	  SID			  "607"
+	  Position		  [320, 110, 350, 140]
+	  Gain			  "Scale_Forward_S"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain5"
+	  SID			  "608"
+	  Position		  [320, 160, 350, 190]
+	  Gain			  "Scale_Forward_V"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "R_out"
+	  SID			  "609"
+	  Position		  [555, 78, 585, 92]
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "G_out"
+	  SID			  "610"
+	  Position		  [555, 118, 585, 132]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "B_out"
+	  SID			  "611"
+	  Position		  [555, 153, 585, 167]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Line {
+	  SrcBlock		  "R_in"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, -10]
+	  DstBlock		  "Gain"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "G_in"
+	  SrcPort		  1
+	  DstBlock		  "Gain1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "B_in"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, 10]
+	  DstBlock		  "Gain2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain"
+	  SrcPort		  1
+	  Points		  [0, 30]
+	  DstBlock		  "Color Space\n Conversion1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain1"
+	  SrcPort		  1
+	  DstBlock		  "Color Space\n Conversion1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Gain2"
+	  SrcPort		  1
+	  Points		  [0, -30]
+	  DstBlock		  "Color Space\n Conversion1"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, -30]
+	  DstBlock		  "Gain3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcPort		  2
+	  DstBlock		  "Gain4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcPort		  3
+	  Points		  [10, 0; 0, 30]
+	  DstBlock		  "Gain5"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain3"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, 30]
+	  DstBlock		  "Color Space\n Conversion2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain4"
+	  SrcPort		  1
+	  DstBlock		  "Color Space\n Conversion2"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Gain5"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, -30]
+	  DstBlock		  "Color Space\n Conversion2"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion2"
+	  SrcPort		  1
+	  Points		  [25, 0; 0, -20]
+	  DstBlock		  "R_out"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion2"
+	  SrcPort		  2
+	  DstBlock		  "G_out"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion2"
+	  SrcPort		  3
+	  Points		  [25, 0; 0, 15]
+	  DstBlock		  "B_out"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Forward Test Image"
+      SID		      "438"
+      Tag		      "vipblks_nd"
+      Ports		      [0, 3]
+      Position		      [95, 584, 220, 696]
+      LibraryVersion	      "1.308"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag3"
       SourceBlock	      "vipsrcs/Image From File"
       SourceType	      "Image From File"
       ShowPortLabels	      "FromPortIcon"
@@ -767,7 +1187,7 @@ Model {
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
       FileName		      "C:\\Documents and Settings\\Administrator\\My Documents\\Academics\\Summer 2011\\Newest Reposit"
-      "ory 6\\src\\vision\\Test_Images\\gate7.PNG"
+      "ory 6\\src\\vision\\Test_Images\\gate10.bmp"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
@@ -779,36 +1199,41 @@ Model {
       OutPortLabels	      "R|G|B"
     }
     Block {
+      BlockType		      Constant
+      Name		      "ModeSelect1"
+      SID		      "615"
+      Position		      [585, 430, 615, 460]
+      Value		      "0"
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      SubSystem
-      Name		      "Filter"
-      SID		      "2"
-      Ports		      [4, 2]
-      Position		      [445, 183, 590, 282]
+      Name		      "Transform Coordinates3"
+      SID		      "613"
+      Ports		      [5, 2]
+      Position		      [670, 415, 920, 515]
+      LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
+      SystemSampleTime	      "[1/30 0]"
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
       MaskDescription	      "Embedded MATLAB block"
       MaskSelfModifiable      on
-      MaskDisplay	      "disp('path_filter');"
+      MaskDisplay	      "disp('transform_G2L');"
       MaskIconFrame	      on
       MaskIconOpaque	      off
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
       System {
-	Name			"Filter"
+	Name			"Transform Coordinates3"
 	Location		[257, 457, 812, 717]
 	Open			off
 	ModelBrowserVisibility	off
@@ -822,65 +1247,73 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"23"
+	SIDHighWatermark	"47"
 	Block {
 	  BlockType		  Inport
-	  Name			  "H_in"
-	  SID			  "2::16"
+	  Name			  "bw_image_in"
+	  SID			  "613::44"
 	  Position		  [20, 101, 40, 119]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "S_in"
-	  SID			  "2::22"
+	  Name			  "which_camera"
+	  SID			  "613::47"
 	  Position		  [20, 136, 40, 154]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "H_value"
-	  SID			  "2::18"
+	  Name			  "x_in"
+	  SID			  "613::46"
 	  Position		  [20, 171, 40, 189]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "H_range"
-	  SID			  "2::19"
+	  Name			  "y_in"
+	  SID			  "613::41"
 	  Position		  [20, 206, 40, 224]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
 	}
 	Block {
+	  BlockType		  Inport
+	  Name			  "z_in"
+	  SID			  "613::45"
+	  Position		  [20, 246, 40, 264]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "2::12"
+	  SID			  "613::23"
 	  Ports			  [1, 1]
-	  Position		  [270, 220, 320, 260]
+	  Position		  [270, 270, 320, 310]
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
-	  SID			  "2::11"
-	  Tag			  "Stateflow S-Function image_analysis_blob_v1 7"
-	  Ports			  [4, 3]
-	  Position		  [180, 100, 230, 220]
+	  SID			  "613::22"
+	  Tag			  "Stateflow S-Function test_buoy_detector 1"
+	  Ports			  [5, 3]
+	  Position		  [180, 108, 230, 272]
 	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[4 3]"
+	  PortCounts		  "[5 3]"
 	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
-	    Name		    "H_out"
+	    Name		    "r_out"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    3
-	    Name		    "S_out"
+	    Name		    "c_out"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -888,20 +1321,20 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "2::14"
-	  Position		  [460, 231, 480, 249]
+	  SID			  "613::25"
+	  Position		  [460, 281, 480, 299]
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "H_out"
-	  SID			  "2::20"
+	  Name			  "r_out"
+	  SID			  "613::36"
 	  Position		  [460, 101, 480, 119]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "S_out"
-	  SID			  "2::23"
+	  Name			  "c_out"
+	  SID			  "613::38"
 	  Position		  [460, 136, 480, 154]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -913,43 +1346,49 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "H_in"
+	  SrcBlock		  "bw_image_in"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "S_in"
+	  SrcBlock		  "which_camera"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "H_value"
+	  SrcBlock		  "x_in"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  3
 	}
 	Line {
-	  SrcBlock		  "H_range"
+	  SrcBlock		  "y_in"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  4
 	}
 	Line {
-	  Name			  "H_out"
+	  SrcBlock		  "z_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "r_out"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
-	  DstBlock		  "H_out"
+	  DstBlock		  "r_out"
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "S_out"
+	  Name			  "c_out"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  3
-	  DstBlock		  "S_out"
+	  DstBlock		  "c_out"
 	  DstPort		  1
 	}
 	Line {
@@ -961,205 +1400,250 @@ Model {
       }
     }
     Block {
-      BlockType		      ToWorkspace
-      Name		      "To Workspace"
-      SID		      "7"
-      Ports		      [1]
-      Position		      [685, 300, 745, 330]
-      VariableName	      "H"
-      MaxDataPoints	      "inf"
-      SampleTime	      "-1"
-      SaveFormat	      "Array"
+      BlockType		      Concatenate
+      Name		      "Vector\nConcatenate"
+      SID		      "497"
+      Ports		      [2, 1]
+      Position		      [955, 446, 960, 484]
+      Mode		      "Multidimensional array"
     }
     Block {
-      BlockType		      Constant
-      Name		      "range"
-      SID		      "6"
-      Position		      [335, 355, 365, 385]
-      Value		      ".11"
-      SampleTime	      "-1"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "test image"
-      SID		      "4"
-      Ports		      [1]
-      Position		      [775, 175, 890, 245]
-      LibraryVersion	      "1.251"
-      UserDataPersistent      on
-      UserData		      "DataTag1"
-      DialogControllerArgs    "DataTag2"
-      SourceBlock	      "vipsnks/Video Viewer"
-      SourceType	      "Video Viewer"
-      inputType		      "Obsolete7b"
-      imagePorts	      "One multidimensional signal"
-      useColorMap	      off
-      colormapValue	      "jet(256)"
-      specRange		      off
-      minInputVal	      "0"
-      maxInputVal	      "255"
-      FigPos		      "[974 421 253 210]"
-      AxisZoom		      on
-      trueSizedOnce	      off
-      OpenAtMdlStart	      on
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "test image1"
-      SID		      "8"
-      Ports		      [1]
-      Position		      [510, 65, 625, 135]
-      LibraryVersion	      "1.251"
-      UserDataPersistent      on
-      UserData		      "DataTag3"
-      DialogControllerArgs    "DataTag4"
-      SourceBlock	      "vipsnks/Video Viewer"
-      SourceType	      "Video Viewer"
-      inputType		      "Obsolete7b"
-      imagePorts	      "One multidimensional signal"
-      useColorMap	      off
-      colormapValue	      "jet(256)"
-      specRange		      off
-      minInputVal	      "0"
-      maxInputVal	      "255"
-      FigPos		      "[969 690 269 154]"
-      AxisZoom		      on
-      trueSizedOnce	      off
-      OpenAtMdlStart	      on
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "value"
-      SID		      "5"
-      Position		      [335, 300, 365, 330]
-      Value		      ".195"
-      SampleTime	      "-1"
+      BlockType		      ModelReference
+      Name		      "buoy_detector.mdl"
+      SID		      "620"
+      Ports		      [4, 8]
+      Position		      [315, 572, 565, 798]
+      ModelNameDialog	      "buoy_detector"
+      SimulationMode	      "Accelerator"
+      ModelReferenceVersion   "1.648"
+      List {
+	ListType		InputPortNames
+	port0			"R_forward_in"
+	port1			"G_forward_in"
+	port2			"B_forward_in"
+	port3			"WhichColor"
+      }
+      List {
+	ListType		OutputPortNames
+	port0			"TargetSelect"
+	port1			"TargetFound"
+	port2			"MaintainHeading"
+	port3			"TargetY"
+	port4			"TargetZ"
+	port5			"TargetYaw"
+	port6			"TargetDetected"
+	port7			"BuoyColors"
+      }
+      List {
+	ListType		OutputPortOutputBusAsStructs
+	port0			"off"
+	port1			"off"
+	port2			"off"
+	port3			"off"
+	port4			"off"
+	port5			"off"
+	port6			"off"
+	port7			"off"
+      }
+      CopyOfModelName	      "buoy_detector"
     }
     Line {
-      SrcBlock		      "Down Test Image"
+      SrcBlock		      "Forward Test Image"
       SrcPort		      1
-      Points		      [20, 0; 0, 15]
-      DstBlock		      "Color Space\n Conversion1"
+      Points		      [10, 0]
+      Branch {
+	Points			[0, -255]
+	DstBlock		"Forward Filter"
+	DstPort			1
+      }
+      Branch {
+	DstBlock		"buoy_detector.mdl"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Forward Test Image"
+      SrcPort		      3
+      Points		      [20, 0]
+      Branch {
+	Points			[0, -295]
+	DstBlock		"Forward Filter"
+	DstPort			3
+      }
+      Branch {
+	Points			[55, 0]
+	DstBlock		"buoy_detector.mdl"
+	DstPort			3
+      }
+    }
+    Line {
+      SrcBlock		      "Vector\nConcatenate"
+      SrcPort		      1
+      Points		      [15, 0]
+      DstBlock		      "Draw Target"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Draw Target"
+      SrcPort		      2
+      DstBlock		      "Forward Camera"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Draw Target"
+      SrcPort		      1
+      Points		      [50, 0]
+      DstBlock		      "Forward Camera"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Down Test Image"
-      SrcPort		      2
-      DstBlock		      "Color Space\n Conversion1"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Down Test Image"
+      SrcBlock		      "Draw Target"
       SrcPort		      3
-      Points		      [20, 0; 0, -15]
-      DstBlock		      "Color Space\n Conversion1"
+      Points		      [50, 0]
+      DstBlock		      "Forward Camera"
       DstPort		      3
     }
     Line {
-      SrcBlock		      "Color Space\n Conversion1"
-      SrcPort		      1
-      Points		      [5, 0]
-      Branch {
-	DstBlock		"Filter"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, -95]
-	DstBlock		"test image1"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Color Space\n Conversion1"
+      SrcBlock		      "Forward Filter"
       SrcPort		      2
-      Points		      [25, 0; 0, 5]
-      DstBlock		      "Filter"
+      DstBlock		      "Draw Target"
       DstPort		      2
     }
     Line {
-      SrcBlock		      "Filter"
-      SrcPort		      1
-      Points		      [25, 0]
-      Branch {
-	DstBlock		"test image"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, -5; 40, 0; 0, 110]
-	DstBlock		"To Workspace"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "value"
-      SrcPort		      1
-      Points		      [30, 0; 0, -70]
-      DstBlock		      "Filter"
+      SrcBlock		      "Forward Filter"
+      SrcPort		      3
+      DstBlock		      "Draw Target"
       DstPort		      3
     }
     Line {
-      SrcBlock		      "range"
+      SrcBlock		      "Forward Test Image"
+      SrcPort		      2
+      Points		      [15, 0]
+      Branch {
+	Points			[0, -275]
+	DstBlock		"Forward Filter"
+	DstPort			2
+      }
+      Branch {
+	Points			[60, 0]
+	DstBlock		"buoy_detector.mdl"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "ModeSelect1"
       SrcPort		      1
+      DstBlock		      "Transform Coordinates3"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Transform Coordinates3"
+      SrcPort		      1
+      Points		      [15, 0]
+      DstBlock		      "Vector\nConcatenate"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Transform Coordinates3"
+      SrcPort		      2
+      Points		      [15, 0]
+      DstBlock		      "Vector\nConcatenate"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "buoy_detector.mdl"
+      SrcPort		      1
+      DstBlock		      "Display"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "buoy_detector.mdl"
+      SrcPort		      2
+      Points		      [280, 0; 0, 15]
+      DstBlock		      "Display1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "buoy_detector.mdl"
+      SrcPort		      3
+      Points		      [280, 0; 0, 30]
+      DstBlock		      "Display2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "buoy_detector.mdl"
+      SrcPort		      4
+      Points		      [55, 0]
+      Branch {
+	Points			[215, 0; 0, 50]
+	DstBlock		"Display3"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -185]
+	DstBlock		"Transform Coordinates3"
+	DstPort			4
+      }
+    }
+    Line {
+      SrcBlock		      "buoy_detector.mdl"
+      SrcPort		      5
       Points		      [60, 0]
-      DstBlock		      "Filter"
-      DstPort		      4
+      Branch {
+	Points			[200, 0; 0, 75]
+	DstBlock		"Display4"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -195]
+	DstBlock		"Transform Coordinates3"
+	DstPort			5
+      }
+    }
+    Line {
+      SrcBlock		      "buoy_detector.mdl"
+      SrcPort		      6
+      Points		      [250, 0; 0, 105]
+      DstBlock		      "Display5"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "buoy_detector.mdl"
+      SrcPort		      7
+      Points		      [240, 0; 0, 120]
+      DstBlock		      "Display6"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "buoy_detector.mdl"
+      SrcPort		      8
+      Points		      [230, 0; 0, 140]
+      DstBlock		      "Display7"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Forward Filter"
+      SrcPort		      1
+      Points		      [105, 0]
+      Branch {
+	DstBlock		"Draw Target"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 75]
+	DstBlock		"Transform Coordinates3"
+	DstPort			1
+      }
     }
   }
 }
 MatData {
-  NumRecords		  5
-  DataRecord {
-    Tag			    DataTag4
-    Data		    "  %)30     .    ,     8    (    !          %    \"                0         0          "
-  }
+  NumRecords		  4
   DataRecord {
     Tag			    DataTag3
-    Data		    "  %)30     .    4 $   8    (     @         %    \"     $    !     0         %  0 #0    $    :    4V-O<&"
-    "5#9F=.86UE %-C;W!E                   .    4     8    (    !          %    \"     $    =     0         0    '0   '9"
-    "I<'-C;W!E<RY6:61E;U9I97=E<E-C;W!E0V9G    #@   )@    &    \"    !$          0         !  0 34-/4P$    :    <V-O<&5E"
-    ">'1E;G-I;VYS+E=I<F5D4V-O<&4        .    2     8    (    #0         %    \"     8    !     0         &    &        "
-    "-T\"     0    $    !     P    X   !P#0  !@    @    )          4    (     0   $ -   !          (   ! #0    %)30    "
-    " .    H P   8    (     @         %    \"     $    !     0         %  0 !0    $    %    34-/4P     .    6 P   8    "
-    "(    $0         !          $ ! !-0T]3 0    T   !&:6QE5W)A<'!E<E]?    #@   !@,   &    \"     $         !0    @    &"
-    "     0    $         #@   %@\"   &    \"     D         !0    @    H @   0    $          @   \"@\"   \"    %    \"@!"
-    "  !H 0  D $  / !   ( @  * (             86YY %!A<G-E9$%R9W, 4V-O<&5#3$D =6ES8V]P97, 3F%M90!!<F=S $%R9TYA;65S %9I9&"
-    "5O5FEE=V5R4V-O<&5#9F< =FEP<V-O<&5S $)L;V-K %-C;W!E $-U<G)E;G1#;VYF:6=U<F%T:6]N %!O<VET:6]N %=I;F1O=U-T>6QE %=I<F5D"
-    "4V-O<&4 <V-O<&5E>'1E;G-I;VYS $%L;&]W4V-O<&5#:&%N9V5S $%L;&]W0FQO8VM#:&%N9V5S $ES4V-O<&5#9F=/;&0 <VEG=71I;',N07!P;&"
-    "EC871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\                        $     P              \"0    @              !     /  "
-    "                        $    !     0    (    !     0    $    !                                     P              "
-    " 0         #     @               @         \"     0                    $    !               !     @    $          "
-    "                                          .          X    P    !@    @    $          4    (               !       "
-    "  !          #@   \" \"   &    \"     (         !0    @    !     0    $         !0 $ !4    !    :0   &-L87-S      "
-    "               $-U<G)E;G1#;VYF:6=U<F%T:6]N %-C;W!E0TQ)                 %!O<VET:6]N                 %=I;F1O=U-T>6QE"
-    "                       .    4     8    (    !          %    \"     $    =     0         0    '0   '9I<'-C;W!E<RY6:"
-    "61E;U9I97=E<E-C;W!E0V9G    #@   #     &    \"     8         !0    @               $         \"0         .    2    "
-    " 8    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    #     0    X   !0    !@   "
-    " @    &          4    (     0    0    !          D    @           LE4       '!W0       H'E       # <D .    .     8"
-    "    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ' !   &    \"     (         !0    "
-    "@    !     0    $         !0 $  H    !    *    %-C;W!E0V9G  !\";&]C:TYA;64 5FES:6)L90   %9E<G-I;VX    .    2     8"
-    "    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    \"     @    X   !     !@    "
-    "@    $          4    (     0    P    !         !     ,    +W1E<W0@:6UA9V4Q      X    P    !@    @    $          4 "
-    "   (     0    (    !         !   @!O;@  #@   #@    &    \"     8         !0    @    !     0    $         \"0    @ "
-    "          #P/PX   \"H!0  !@    @    !          4    (    !     $    !          X    X    !@    @    \"          4 "
-    "   (     0         !          4 !  !     0         .    , $   8    (     @         %    \"     $    !     0       "
-    "  %  0 \"P    $    L    3F%M90        !!<F=S         %!A<G-E9$%R9W, 07)G3F%M97,         #@   #     &    \"     0  "
-    "       !0    @               $         $          .    *     8    (     0         %    \"                0        "
-    " .    *     8    (     0         %    \"                0         .    *     8    (     0         %    \"         "
-    "       0         .    , (   8    (     @         %    \"     $    !     0         %  0 %0    $   !^    0FQO8VL    "
-    "                 4V-O<&4                     0W5R<F5N=$-O;F9I9W5R871I;VX 4V-O<&5#3$D                 4&]S:71I;VX  "
-    "               5VEN9&]W4W1Y;&4                .    ,     8    (    !@         %    \"                0         )  "
-    "        X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8        "
-    " !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )   "
-    "       X   !0    !@    @    &          4    (     0    0    !          D    @           P>T       $!O0       H'E  "
-    "     # <D .    .     8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ,@!   &    \""
-    "     (         !0    @    !     0    $         !0 $ \"H    !    J    $%L;&]W4V-O<&5#:&%N9V5S                      "
-    "           $%L;&]W0FQO8VM#:&%N9V5S                                 $ES4V-O<&5#9F=/;&0                             "
-    "         '-I9W5T:6QS+D%P<&QI8V%T:6]N1&%T82Y!<'!L:6-A=&EO;D1A=&%?  X    P    !@    @    ) @        4    (     0    "
-    "$    !          (  0 !    #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    .    ,     "
-    "8    (    \"0(        %    \"     $    !     0         \"  $       X    X    !@    @    \"          4    (     0  "
-    "  $    !          4 !  !     0         .    B     8    (    \"0         %    \"     $   !8     0         \"    6  "
-    "    !24T     #@   $@    &    \"     (         !0    @    !     0    $         !0 $  4    !    !0   $U#3U,     #@  "
-    "       "
+    Data		    "  %)30     .    N     8    (     0         %    \"     $    \"     0         .    0     8    (    !    "
+    "      %    \"     $    -     0         0    #0   $EM86=E1G)O;49I;&4    .    0     8    (    !          %    \"    "
+    " $    )     0         0    \"0   '9I<&1I86QO9P         "
   }
   DataRecord {
     Tag			    DataTag2
@@ -1187,38 +1671,37 @@ MatData {
     "                       .    4     8    (    !          %    \"     $    =     0         0    '0   '9I<'-C;W!E<RY6:"
     "61E;U9I97=E<E-C;W!E0V9G    #@   #     &    \"     8         !0    @               $         \"0         .    2    "
     " 8    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    #     0    X   !0    !@   "
-    " @    &          4    (     0    0    !          D    @           LE4       '!W0       H'E       # <D .    .     8"
+    " @    &          4    (     0    0    !          D    @           P<T       $!M0       H'E       # <D .    .     8"
     "    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ' !   &    \"     (         !0    "
     "@    !     0    $         !0 $  H    !    *    %-C;W!E0V9G  !\";&]C:TYA;64 5FES:6)L90   %9E<G-I;VX    .    2     8"
     "    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    \"     @    X   !     !@    "
-    "@    $          4    (     0    L    !         !     +    +W1E<W0@:6UA9V4       X    P    !@    @    $          4 "
-    "   (     0    (    !         !   @!O;@  #@   #@    &    \"     8         !0    @    !     0    $         \"0    @ "
-    "          #P/PX   \"H!0  !@    @    !          4    (    !     $    !          X    X    !@    @    \"          4 "
-    "   (     0         !          4 !  !     0         .    , $   8    (     @         %    \"     $    !     0       "
-    "  %  0 \"P    $    L    3F%M90        !!<F=S         %!A<G-E9$%R9W, 07)G3F%M97,         #@   #     &    \"     0  "
-    "       !0    @               $         $          .    *     8    (     0         %    \"                0        "
-    " .    *     8    (     0         %    \"                0         .    *     8    (     0         %    \"         "
-    "       0         .    , (   8    (     @         %    \"     $    !     0         %  0 %0    $   !^    0FQO8VL    "
-    "                 4V-O<&4                     0W5R<F5N=$-O;F9I9W5R871I;VX 4V-O<&5#3$D                 4&]S:71I;VX  "
-    "               5VEN9&]W4W1Y;&4                .    ,     8    (    !@         %    \"                0         )  "
-    "        X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8        "
-    " !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )   "
-    "       X   !0    !@    @    &          4    (     0    0    !          D    @           P>T       $!O0       H'E  "
-    "     # <D .    .     8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ,@!   &    \""
-    "     (         !0    @    !     0    $         !0 $ \"H    !    J    $%L;&]W4V-O<&5#:&%N9V5S                      "
-    "           $%L;&]W0FQO8VM#:&%N9V5S                                 $ES4V-O<&5#9F=/;&0                             "
-    "         '-I9W5T:6QS+D%P<&QI8V%T:6]N1&%T82Y!<'!L:6-A=&EO;D1A=&%?  X    P    !@    @    ) @        4    (     0    "
-    "$    !          (  0 !    #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    .    ,     "
-    "8    (    \"0(        %    \"     $    !     0         \"  $       X    X    !@    @    \"          4    (     0  "
-    "  $    !          4 !  !     0         .    B     8    (    \"0         %    \"     $   !8     0         \"    6  "
-    "    !24T     #@   $@    &    \"     (         !0    @    !     0    $         !0 $  4    !    !0   $U#3U,     #@  "
-    "       "
+    "@    $          4    (     0    \\    !         !     /    +T9O<G=A<F0@0V%M97)A  X    P    !@    @    $          4"
+    "    (     0    (    !         !   @!O;@  #@   #@    &    \"     8         !0    @    !     0    $         \"0    @"
+    "           #P/PX   \"H!0  !@    @    !          4    (    !     $    !          X    X    !@    @    \"          4"
+    "    (     0         !          4 !  !     0         .    , $   8    (     @         %    \"     $    !     0      "
+    "   %  0 \"P    $    L    3F%M90        !!<F=S         %!A<G-E9$%R9W, 07)G3F%M97,         #@   #     &    \"     0 "
+    "        !0    @               $         $          .    *     8    (     0         %    \"                0       "
+    "  .    *     8    (     0         %    \"                0         .    *     8    (     0         %    \"        "
+    "        0         .    , (   8    (     @         %    \"     $    !     0         %  0 %0    $   !^    0FQO8VL   "
+    "                  4V-O<&4                     0W5R<F5N=$-O;F9I9W5R871I;VX 4V-O<&5#3$D                 4&]S:71I;VX "
+    "                5VEN9&]W4W1Y;&4                .    ,     8    (    !@         %    \"                0         ) "
+    "         X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8       "
+    "  !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )  "
+    "        X   !0    !@    @    &          4    (     0    0    !          D    @           P>T       $!O0       H'E "
+    "      # <D .    .     8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ,@!   &    "
+    "\"     (         !0    @    !     0    $         !0 $ \"H    !    J    $%L;&]W4V-O<&5#:&%N9V5S                    "
+    "             $%L;&]W0FQO8VM#:&%N9V5S                                 $ES4V-O<&5#9F=/;&0                           "
+    "           '-I9W5T:6QS+D%P<&QI8V%T:6]N1&%T82Y!<'!L:6-A=&EO;D1A=&%?  X    P    !@    @    ) @        4    (     0  "
+    "  $    !          (  0 !    #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    .    ,   "
+    "  8    (    \"0(        %    \"     $    !     0         \"  $       X    X    !@    @    \"          4    (     0"
+    "    $    !          4 !  !     0         .    B     8    (    \"0         %    \"     $   !8     0         \"    6"
+    "      !24T     #@   $@    &    \"     (         !0    @    !     0    $         !0 $  4    !    !0   $U#3U,     #@"
+    "         "
   }
   DataRecord {
     Tag			    DataTag0
-    Data		    "  %)30     .    N     8    (     0         %    \"     $    \"     0         .    0     8    (    !    "
-    "      %    \"     $    -     0         0    #0   $EM86=E1G)O;49I;&4    .    0     8    (    !          %    \"    "
-    " $    )     0         0    \"0   '9I<&1I86QO9P         "
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    +     0         0    \"P   $1R87=-87)K97)S       "
   }
 }
 # Finite State Machines
@@ -1231,16 +1714,16 @@ MatData {
 Stateflow {
   machine {
     id			    1
-    name		    "image_analysis_blob_v1"
-    created		    "30-May-2011 16:48:11"
+    name		    "test_buoy_detector"
+    created		    "11-Feb-2011 11:53:00"
     isLibrary		    0
-    firstTarget		    13
+    firstTarget		    14
     sfVersion		    75014000.000003
   }
   chart {
     id			    2
-    name		    "Filter"
-    windowPosition	    [188.201 290.835 200.25 189.75]
+    name		    "Transform Coordinates3"
+    windowPosition	    [382.184 139.12 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
     treeNode		    [0 3 0 0]
@@ -1248,16 +1731,15 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    ssIdHighWaterMark	    13
+    ssIdHighWaterMark	    27
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    6
-    chartFileNumber	    7
+    chartFileNumber	    1
     disableImplicitCasting  1
     eml {
-      name		      "path_filter"
+      name		      "transform_G2L"
     }
-    supportVariableSizing   0
   }
   state {
     id			    3
@@ -1273,16 +1755,16 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [H_out, S_out] = path_filter(H_in, S_in, H_value, H_range)  %H_lower, H_upper)\n% This f"
-      "unction extracts the pixels containing hues that path elements are\n%   expected to have\n\n\n% Initialize\nH_ou"
-      "t = double(H_in);\nS_out = double(S_in);\n\nH_lower = H_value - H_range/2;\nH_upper = H_value + H_range/2;\n\n\n"
-      "% Set values outside valid ranges to zero\nfor i = 1:size(H_in,1)\n    for j = 1:size(H_in,2)\n        \n       "
-      " if( H_in(i,j) >= H_lower && H_in(i,j) <= H_upper )\n            H_out(i,j) = 1;\n        else\n            H_ou"
-      "t(i,j) = 0;\n        end\n        \n    end\nend\n\n\n\nreturn\n"
-      editorLayout	      "100 M4x1[25 25 720 466]"
-      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
-      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
-      emlDefaultFimath	      FimathUserSpecified
+      script		      "function [r_out, c_out] = transform_G2L(bw_image_in, which_camera, x_in, y_in, z_in)\n% This func"
+      "tion, \"transform Global to Local coordinates,\" transforms\n%   global coordinates that are sent to the control"
+      "ler into local\n%   coordinates that can be displayed over images.\n%\n% 5-29-11\n%\n% Input\n%   x_in, y_in, z_"
+      "in = vectors of points in global (vehicle-centered)\n%     coordinate system\n%   bw_image_in = a 2-D array of p"
+      "ixel values (used only to extract image\n%     size)\n%   which_camera = selects which camera for relative coord"
+      "inates\n%                = 0 -> Forward camera\n%                = 1 -> Down camera\n%\n% Output\n%   r_out, c_o"
+      "ut = row, column pairs in local coordinate system\n\n[rows, cols] = size(bw_image_in);\nif( which_camera == 0 )\n"
+      "    r_out = z_in + floor(rows/2);\n    c_out = y_in + floor(cols/2);\nelse\n    r_out = floor(rows/2) - x_in;\n "
+      "   c_out = y_in + floor(cols/2);\nend\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
     }
   }
   junction {
@@ -1317,8 +1799,8 @@ Stateflow {
   }
   data {
     id			    6
-    ssIdNumber		    7
-    name		    "H_in"
+    ssIdNumber		    24
+    name		    "bw_image_in"
     linkNode		    [2 0 7]
     scope		    INPUT_DATA
     machine		    1
@@ -1339,8 +1821,8 @@ Stateflow {
   }
   data {
     id			    7
-    ssIdNumber		    13
-    name		    "S_in"
+    ssIdNumber		    27
+    name		    "which_camera"
     linkNode		    [2 6 8]
     scope		    INPUT_DATA
     machine		    1
@@ -1361,8 +1843,8 @@ Stateflow {
   }
   data {
     id			    8
-    ssIdNumber		    9
-    name		    "H_value"
+    ssIdNumber		    26
+    name		    "x_in"
     linkNode		    [2 7 9]
     scope		    INPUT_DATA
     machine		    1
@@ -1383,8 +1865,8 @@ Stateflow {
   }
   data {
     id			    9
-    ssIdNumber		    10
-    name		    "H_range"
+    ssIdNumber		    21
+    name		    "y_in"
     linkNode		    [2 8 10]
     scope		    INPUT_DATA
     machine		    1
@@ -1405,9 +1887,29 @@ Stateflow {
   }
   data {
     id			    10
-    ssIdNumber		    11
-    name		    "H_out"
+    ssIdNumber		    5
+    name		    "r_out"
     linkNode		    [2 9 11]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    11
+    ssIdNumber		    18
+    name		    "c_out"
+    linkNode		    [2 10 12]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -1426,11 +1928,11 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    11
-    ssIdNumber		    8
-    name		    "S_out"
-    linkNode		    [2 10 0]
-    scope		    OUTPUT_DATA
+    id			    12
+    ssIdNumber		    25
+    name		    "z_in"
+    linkNode		    [2 11 0]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -1443,21 +1945,27 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    12
-    name		    "Filter"
+    id			    13
+    name		    "Transform Coordinates3"
     machine		    1
     chart		    2
   }
   target {
-    id			    13
+    id			    14
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 0]
+    linkNode		    [1 0 15]
+  }
+  target {
+    id			    15
+    name		    "rtw"
+    machine		    1
+    linkNode		    [1 14 0]
   }
 }

@@ -1,12 +1,59 @@
 Model {
-  Name			  "image_analysis_blob_v1"
+  Name			  "L_detector"
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
-    NumRootInports	    0
-    NumRootOutports	    0
+    NumRootInports	    3
+    Inport {
+      BusObject		      ""
+      Name		      "R_forward_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "G_forward_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "B_forward_in"
+    }
+    NumRootOutports	    7
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetSelect"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetFound"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "MaintainHeading"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetY"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetZ"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetYaw"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetDetected"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.68"
+    ComputedModelVersion    "1.145"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -20,15 +67,15 @@ Model {
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
   MaxMDLFileLineLength	  120
-  Created		  "Mon May 30 16:47:44 2011"
-  Creator		  "Administrator"
+  Created		  "Fri Feb 11 11:52:30 2011"
+  Creator		  "Thing 1"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Administrator"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 12:08:32 2011"
-  RTWModifiedTimeStamp	  230470051
-  ModelVersionFormat	  "1.%<AutoIncrement:68>"
+  LastModifiedDate	  "Fri Jun 03 08:23:37 2011"
+  RTWModifiedTimeStamp	  228990045
+  ModelVersionFormat	  "1.%<AutoIncrement:145>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -413,7 +460,7 @@ Model {
 	  RTWUseSimCustomCode	  off
 	  IncludeHyperlinkInReport off
 	  LaunchReport		  off
-	  TargetLang		  "C"
+	  TargetLang		  "C++"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
 	  IncludeERTFirstTime	  off
 	  GenerateTraceInfo	  off
@@ -577,8 +624,9 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 200, 85, 1080, 715 ] "
+      ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
+      CurrentDlgPage	      "Real-Time Workshop"
+      ConfigPrmDlgPosition    " [ 215, 98, 1095, 728 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -618,19 +666,6 @@ Model {
     FontAngle		    "normal"
   }
   BlockParameterDefaults {
-    Block {
-      BlockType		      Constant
-      Value		      "1"
-      VectorParams1D	      on
-      SamplingMode	      "Sample based"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
-      LockScale		      off
-      SampleTime	      "inf"
-      FramePeriod	      "inf"
-      PreserveConstantTs      off
-    }
     Block {
       BlockType		      Demux
       Outputs		      "4"
@@ -703,18 +738,10 @@ Model {
     Block {
       BlockType		      Terminator
     }
-    Block {
-      BlockType		      ToWorkspace
-      VariableName	      "simulink_output"
-      MaxDataPoints	      "1000"
-      Decimation	      "1"
-      SampleTime	      "0"
-      FixptAsFi		      off
-    }
   }
   System {
-    Name		    "image_analysis_blob_v1"
-    Location		    [2, 72, 1278, 727]
+    Name		    "L_detector"
+    Location		    [2, 72, 1278, 711]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -728,87 +755,61 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "18"
+    SIDHighWatermark	    "343"
     Block {
-      BlockType		      Reference
-      Name		      "Color Space\n Conversion1"
-      SID		      "3"
-      Ports		      [3, 3]
-      Position		      [275, 186, 375, 244]
-      LibraryVersion	      "1.328"
-      SourceBlock	      "vipconversions/Color Space\n Conversion"
-      SourceType	      "Color Space Conversion"
-      conversion	      "Obsolete"
-      conversionActive	      "R'G'B' to HSV"
-      wp_str		      "D65"
-      rec		      "Rec. 601 (SDTV)"
-      sys		      "1125/60/2:1"
-      imagePorts	      "Separate color signals"
+      BlockType		      Inport
+      Name		      "R_forward_in"
+      SID		      "323"
+      Position		      [70, 163, 100, 177]
+      IconDisplay	      "Port number"
+      PortDimensions	      "[120 160]"
     }
     Block {
-      BlockType		      Reference
-      Name		      "Down Test Image"
-      SID		      "1"
-      Tag		      "vipblks_nd"
-      Ports		      [0, 3]
-      Position		      [85, 159, 210, 271]
-      LibraryVersion	      "1.308"
-      DialogController	      "vipDDGCreate"
-      DialogControllerArgs    "DataTag0"
-      SourceBlock	      "vipsrcs/Image From File"
-      SourceType	      "Image From File"
-      ShowPortLabels	      "FromPortIcon"
-      SystemSampleTime	      "-1"
-      FunctionWithSeparateData off
-      RTWMemSecFuncInitTerm   "Inherit from model"
-      RTWMemSecFuncExecute    "Inherit from model"
-      RTWMemSecDataConstants  "Inherit from model"
-      RTWMemSecDataInternal   "Inherit from model"
-      RTWMemSecDataParameters "Inherit from model"
-      GeneratePreprocessorConditionals off
-      FileName		      "C:\\Documents and Settings\\Administrator\\My Documents\\Academics\\Summer 2011\\Newest Reposit"
-      "ory 6\\src\\vision\\Test_Images\\gate7.PNG"
-      imagePorts	      "Separate color signals"
-      Ts		      "-1"
-      ImageDataType	      "double"
-      Signed		      on
-      WordLength	      "16"
-      sdImageDataType	      "uint(8)"
-      FractionLengthMode      "User-defined"
-      FractionLength	      "15"
-      OutPortLabels	      "R|G|B"
+      BlockType		      Inport
+      Name		      "G_forward_in"
+      SID		      "324"
+      Position		      [70, 198, 100, 212]
+      Port		      "2"
+      IconDisplay	      "Port number"
+      PortDimensions	      "[120 160]"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "B_forward_in"
+      SID		      "325"
+      Position		      [70, 233, 100, 247]
+      Port		      "3"
+      IconDisplay	      "Port number"
+      PortDimensions	      "[120 160]"
     }
     Block {
       BlockType		      SubSystem
-      Name		      "Filter"
-      SID		      "2"
-      Ports		      [4, 2]
-      Position		      [445, 183, 590, 282]
+      Name		      "Are 3 Lines Present1"
+      SID		      "321"
+      Ports		      [3, 3]
+      Position		      [845, 156, 1020, 224]
+      LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
+      SystemSampleTime	      "[1/30 0]"
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
       MaskDescription	      "Embedded MATLAB block"
       MaskSelfModifiable      on
-      MaskDisplay	      "disp('path_filter');"
+      MaskDisplay	      "disp('AreLinesPresent');"
       MaskIconFrame	      on
       MaskIconOpaque	      off
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
       System {
-	Name			"Filter"
+	Name			"Are 3 Lines Present1"
 	Location		[257, 457, 812, 717]
 	Open			off
 	ModelBrowserVisibility	off
@@ -822,42 +823,34 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"23"
+	SIDHighWatermark	"28"
 	Block {
 	  BlockType		  Inport
-	  Name			  "H_in"
-	  SID			  "2::16"
+	  Name			  "HoughTable"
+	  SID			  "321::1"
 	  Position		  [20, 101, 40, 119]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "S_in"
-	  SID			  "2::22"
+	  Name			  "Theta"
+	  SID			  "321::18"
 	  Position		  [20, 136, 40, 154]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "H_value"
-	  SID			  "2::18"
+	  Name			  "Rho"
+	  SID			  "321::19"
 	  Position		  [20, 171, 40, 189]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Block {
-	  BlockType		  Inport
-	  Name			  "H_range"
-	  SID			  "2::19"
-	  Position		  [20, 206, 40, 224]
-	  Port			  "4"
-	  IconDisplay		  "Port number"
-	}
-	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "2::12"
+	  SID			  "321::23"
 	  Ports			  [1, 1]
 	  Position		  [270, 220, 320, 260]
 	  Outputs		  "1"
@@ -865,22 +858,28 @@ Model {
 	Block {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
-	  SID			  "2::11"
-	  Tag			  "Stateflow S-Function image_analysis_blob_v1 7"
-	  Ports			  [4, 3]
+	  SID			  "321::22"
+	  Tag			  "Stateflow S-Function L_detector 1"
+	  Ports			  [3, 4]
 	  Position		  [180, 100, 230, 220]
 	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[4 3]"
+	  PortCounts		  "[3 4]"
 	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
-	    Name		    "H_out"
+	    Name		    "Image"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    3
-	    Name		    "S_out"
+	    Name		    "T"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "R"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -888,22 +887,30 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "2::14"
+	  SID			  "321::25"
 	  Position		  [460, 231, 480, 249]
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "H_out"
-	  SID			  "2::20"
+	  Name			  "Image"
+	  SID			  "321::5"
 	  Position		  [460, 101, 480, 119]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "S_out"
-	  SID			  "2::23"
+	  Name			  "T"
+	  SID			  "321::21"
 	  Position		  [460, 136, 480, 154]
 	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "R"
+	  SID			  "321::20"
+	  Position		  [460, 171, 480, 189]
+	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Line {
@@ -913,43 +920,46 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "H_in"
+	  SrcBlock		  "HoughTable"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "S_in"
+	  SrcBlock		  "Theta"
 	  SrcPort		  1
+	  Points		  [120, 0]
 	  DstBlock		  " SFunction "
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "H_value"
+	  SrcBlock		  "Rho"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  3
 	}
 	Line {
-	  SrcBlock		  "H_range"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  4
-	}
-	Line {
-	  Name			  "H_out"
+	  Name			  "Image"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
-	  DstBlock		  "H_out"
+	  DstBlock		  "Image"
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "S_out"
+	  Name			  "T"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  3
-	  DstBlock		  "S_out"
+	  DstBlock		  "T"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "R"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  4
+	  DstBlock		  "R"
 	  DstPort		  1
 	}
 	Line {
@@ -961,264 +971,316 @@ Model {
       }
     }
     Block {
-      BlockType		      ToWorkspace
-      Name		      "To Workspace"
-      SID		      "7"
-      Ports		      [1]
-      Position		      [685, 300, 745, 330]
-      VariableName	      "H"
-      MaxDataPoints	      "inf"
-      SampleTime	      "-1"
-      SaveFormat	      "Array"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "range"
-      SID		      "6"
-      Position		      [335, 355, 365, 385]
-      Value		      ".11"
-      SampleTime	      "-1"
+      BlockType		      SubSystem
+      Name		      "Convert to BW"
+      SID		      "186"
+      Ports		      [3, 1]
+      Position		      [350, 162, 450, 218]
+      LibraryVersion	      "1.225"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Convert to BW"
+	Location		[2, 76, 1270, 731]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "R"
+	  SID			  "187"
+	  Position		  [65, 208, 95, 222]
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "G"
+	  SID			  "188"
+	  Position		  [65, 243, 95, 257]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "B"
+	  SID			  "189"
+	  Position		  [65, 278, 95, 292]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Color Space\n Conversion"
+	  SID			  "208"
+	  Ports			  [3, 1]
+	  Position		  [455, 221, 555, 279]
+	  LibraryVersion	  "1.328"
+	  SourceBlock		  "vipconversions/Color Space\n Conversion"
+	  SourceType		  "Color Space Conversion"
+	  conversion		  "Obsolete"
+	  conversionActive	  "R'G'B' to intensity"
+	  wp_str		  "D65"
+	  rec			  "Rec. 601 (SDTV)"
+	  sys			  "1125/60/2:1"
+	  imagePorts		  "Separate color signals"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "BW"
+	  SID			  "204"
+	  Position		  [1180, 243, 1210, 257]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "R"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, 15]
+	  DstBlock		  "Color Space\n Conversion"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "G"
+	  SrcPort		  1
+	  DstBlock		  "Color Space\n Conversion"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "B"
+	  SrcPort		  1
+	  Points		  [20, 0; 0, -15]
+	  DstBlock		  "Color Space\n Conversion"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion"
+	  SrcPort		  1
+	  DstBlock		  "BW"
+	  DstPort		  1
+	}
+      }
     }
     Block {
       BlockType		      Reference
-      Name		      "test image"
-      SID		      "4"
-      Ports		      [1]
-      Position		      [775, 175, 890, 245]
-      LibraryVersion	      "1.251"
-      UserDataPersistent      on
-      UserData		      "DataTag1"
-      DialogControllerArgs    "DataTag2"
-      SourceBlock	      "vipsnks/Video Viewer"
-      SourceType	      "Video Viewer"
-      inputType		      "Obsolete7b"
-      imagePorts	      "One multidimensional signal"
-      useColorMap	      off
-      colormapValue	      "jet(256)"
-      specRange		      off
-      minInputVal	      "0"
-      maxInputVal	      "255"
-      FigPos		      "[974 421 253 210]"
-      AxisZoom		      on
-      trueSizedOnce	      off
-      OpenAtMdlStart	      on
+      Name		      "Edge Detection"
+      SID		      "33"
+      Ports		      [1, 1]
+      Position		      [500, 160, 600, 220]
+      LibraryVersion	      "1.378"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag0"
+      SourceBlock	      "vipanalysis/Edge Detection"
+      SourceType	      "Edge Detection"
+      method		      "Sobel"
+      outputType	      "Binary image"
+      userDefinedThreshold    off
+      thresholdSource	      "Specify via dialog"
+      threshold		      "20"
+      thresholdTuning	      "3"
+      edgeThinning	      on
+      threshold_canny	      "[0.25 0.60]"
+      autoPercent	      "70"
+      sigma		      "1"
+      outputMode	      "Same as first input"
+      outputWordLength	      "16"
+      outputFracLength	      "4"
+      accumMode		      "Same as product output"
+      accumWordLength	      "32"
+      accumFracLength	      "8"
+      prodOutputMode	      "Same as first input"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "8"
+      roundingMode	      "Floor"
+      overflowMode	      off
+      LockScale		      off
     }
     Block {
       BlockType		      Reference
-      Name		      "test image1"
-      SID		      "8"
-      Ports		      [1]
-      Position		      [510, 65, 625, 135]
-      LibraryVersion	      "1.251"
-      UserDataPersistent      on
-      UserData		      "DataTag3"
-      DialogControllerArgs    "DataTag4"
-      SourceBlock	      "vipsnks/Video Viewer"
-      SourceType	      "Video Viewer"
-      inputType		      "Obsolete7b"
-      imagePorts	      "One multidimensional signal"
-      useColorMap	      off
-      colormapValue	      "jet(256)"
-      specRange		      off
-      minInputVal	      "0"
-      maxInputVal	      "255"
-      FigPos		      "[969 690 269 154]"
-      AxisZoom		      on
-      trueSizedOnce	      off
-      OpenAtMdlStart	      on
+      Name		      "Hough Transform1"
+      SID		      "341"
+      Ports		      [1, 3]
+      Position		      [635, 161, 740, 219]
+      LibraryVersion	      "1.273"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag1"
+      SourceBlock	      "viptransforms/Hough Transform"
+      SourceType	      "Hough Transform"
+      theta_res		      "pi/180"
+      rho_res		      "1"
+      out_theta_rho	      on
+      outdtmode		      "double"
+      firstCoeffMode	      "Binary point scaling"
+      firstCoeffWordLength    "16"
+      firstCoeffFracLength    "14"
+      secondCoeffMode	      "Binary point scaling"
+      secondCoeffWordLength   "32"
+      secondCoeffFracLength   "16"
+      outputMode	      "Binary point scaling"
+      outputWordLength	      "16"
+      outputFracLength	      "0"
+      accumMode		      "Binary point scaling"
+      accumWordLength	      "32"
+      accumFracLength	      "20"
+      prodOutputMode	      "Binary point scaling"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "20"
+      memoryMode	      "Binary point scaling"
+      memoryWordLength	      "32"
+      memoryFracLength	      "16"
+      roundingMode	      "Nearest"
+      overflowMode	      on
+      LockScale		      off
     }
     Block {
-      BlockType		      Constant
-      Name		      "value"
-      SID		      "5"
-      Position		      [335, 300, 365, 330]
-      Value		      ".195"
-      SampleTime	      "-1"
+      BlockType		      Outport
+      Name		      "TargetSelect"
+      SID		      "330"
+      Position		      [1485, 108, 1515, 122]
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetFound"
+      SID		      "331"
+      Position		      [1485, 143, 1515, 157]
+      Port		      "2"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "MaintainHeading"
+      SID		      "332"
+      Position		      [1485, 178, 1515, 192]
+      Port		      "3"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetY"
+      SID		      "333"
+      Position		      [1485, 213, 1515, 227]
+      Port		      "4"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetZ"
+      SID		      "334"
+      Position		      [1485, 248, 1515, 262]
+      Port		      "5"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetYaw"
+      SID		      "335"
+      Position		      [1485, 283, 1515, 297]
+      Port		      "6"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetDetected"
+      SID		      "336"
+      Position		      [1485, 358, 1515, 372]
+      Port		      "7"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
     }
     Line {
-      SrcBlock		      "Down Test Image"
+      SrcBlock		      "Convert to BW"
       SrcPort		      1
-      Points		      [20, 0; 0, 15]
-      DstBlock		      "Color Space\n Conversion1"
+      DstBlock		      "Edge Detection"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Down Test Image"
+      SrcBlock		      "Hough Transform1"
+      SrcPort		      1
+      DstBlock		      "Are 3 Lines Present1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Hough Transform1"
       SrcPort		      2
-      DstBlock		      "Color Space\n Conversion1"
+      DstBlock		      "Are 3 Lines Present1"
       DstPort		      2
     }
     Line {
-      SrcBlock		      "Down Test Image"
+      SrcBlock		      "Hough Transform1"
       SrcPort		      3
-      Points		      [20, 0; 0, -15]
-      DstBlock		      "Color Space\n Conversion1"
+      DstBlock		      "Are 3 Lines Present1"
       DstPort		      3
     }
     Line {
-      SrcBlock		      "Color Space\n Conversion1"
+      SrcBlock		      "Edge Detection"
       SrcPort		      1
-      Points		      [5, 0]
-      Branch {
-	DstBlock		"Filter"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, -95]
-	DstBlock		"test image1"
-	DstPort			1
-      }
+      DstBlock		      "Hough Transform1"
+      DstPort		      1
     }
     Line {
-      SrcBlock		      "Color Space\n Conversion1"
-      SrcPort		      2
-      Points		      [25, 0; 0, 5]
-      DstBlock		      "Filter"
+      SrcBlock		      "G_forward_in"
+      SrcPort		      1
+      Points		      [195, 0; 0, -15]
+      DstBlock		      "Convert to BW"
       DstPort		      2
     }
     Line {
-      SrcBlock		      "Filter"
+      SrcBlock		      "R_forward_in"
       SrcPort		      1
-      Points		      [25, 0]
-      Branch {
-	DstBlock		"test image"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, -5; 40, 0; 0, 110]
-	DstBlock		"To Workspace"
-	DstPort			1
-      }
+      DstBlock		      "Convert to BW"
+      DstPort		      1
     }
     Line {
-      SrcBlock		      "value"
+      SrcBlock		      "B_forward_in"
       SrcPort		      1
-      Points		      [30, 0; 0, -70]
-      DstBlock		      "Filter"
+      Points		      [215, 0; 0, -30]
+      DstBlock		      "Convert to BW"
       DstPort		      3
     }
-    Line {
-      SrcBlock		      "range"
-      SrcPort		      1
-      Points		      [60, 0]
-      DstBlock		      "Filter"
-      DstPort		      4
+    Annotation {
+      Position		      [275, 468]
+    }
+    Annotation {
+      Position		      [317, 437]
+    }
+    Annotation {
+      Position		      [308, 439]
     }
   }
 }
 MatData {
-  NumRecords		  5
-  DataRecord {
-    Tag			    DataTag4
-    Data		    "  %)30     .    ,     8    (    !          %    \"                0         0          "
-  }
-  DataRecord {
-    Tag			    DataTag3
-    Data		    "  %)30     .    4 $   8    (     @         %    \"     $    !     0         %  0 #0    $    :    4V-O<&"
-    "5#9F=.86UE %-C;W!E                   .    4     8    (    !          %    \"     $    =     0         0    '0   '9"
-    "I<'-C;W!E<RY6:61E;U9I97=E<E-C;W!E0V9G    #@   )@    &    \"    !$          0         !  0 34-/4P$    :    <V-O<&5E"
-    ">'1E;G-I;VYS+E=I<F5D4V-O<&4        .    2     8    (    #0         %    \"     8    !     0         &    &        "
-    "-T\"     0    $    !     P    X   !P#0  !@    @    )          4    (     0   $ -   !          (   ! #0    %)30    "
-    " .    H P   8    (     @         %    \"     $    !     0         %  0 !0    $    %    34-/4P     .    6 P   8    "
-    "(    $0         !          $ ! !-0T]3 0    T   !&:6QE5W)A<'!E<E]?    #@   !@,   &    \"     $         !0    @    &"
-    "     0    $         #@   %@\"   &    \"     D         !0    @    H @   0    $          @   \"@\"   \"    %    \"@!"
-    "  !H 0  D $  / !   ( @  * (             86YY %!A<G-E9$%R9W, 4V-O<&5#3$D =6ES8V]P97, 3F%M90!!<F=S $%R9TYA;65S %9I9&"
-    "5O5FEE=V5R4V-O<&5#9F< =FEP<V-O<&5S $)L;V-K %-C;W!E $-U<G)E;G1#;VYF:6=U<F%T:6]N %!O<VET:6]N %=I;F1O=U-T>6QE %=I<F5D"
-    "4V-O<&4 <V-O<&5E>'1E;G-I;VYS $%L;&]W4V-O<&5#:&%N9V5S $%L;&]W0FQO8VM#:&%N9V5S $ES4V-O<&5#9F=/;&0 <VEG=71I;',N07!P;&"
-    "EC871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\                        $     P              \"0    @              !     /  "
-    "                        $    !     0    (    !     0    $    !                                     P              "
-    " 0         #     @               @         \"     0                    $    !               !     @    $          "
-    "                                          .          X    P    !@    @    $          4    (               !       "
-    "  !          #@   \" \"   &    \"     (         !0    @    !     0    $         !0 $ !4    !    :0   &-L87-S      "
-    "               $-U<G)E;G1#;VYF:6=U<F%T:6]N %-C;W!E0TQ)                 %!O<VET:6]N                 %=I;F1O=U-T>6QE"
-    "                       .    4     8    (    !          %    \"     $    =     0         0    '0   '9I<'-C;W!E<RY6:"
-    "61E;U9I97=E<E-C;W!E0V9G    #@   #     &    \"     8         !0    @               $         \"0         .    2    "
-    " 8    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    #     0    X   !0    !@   "
-    " @    &          4    (     0    0    !          D    @           LE4       '!W0       H'E       # <D .    .     8"
-    "    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ' !   &    \"     (         !0    "
-    "@    !     0    $         !0 $  H    !    *    %-C;W!E0V9G  !\";&]C:TYA;64 5FES:6)L90   %9E<G-I;VX    .    2     8"
-    "    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    \"     @    X   !     !@    "
-    "@    $          4    (     0    P    !         !     ,    +W1E<W0@:6UA9V4Q      X    P    !@    @    $          4 "
-    "   (     0    (    !         !   @!O;@  #@   #@    &    \"     8         !0    @    !     0    $         \"0    @ "
-    "          #P/PX   \"H!0  !@    @    !          4    (    !     $    !          X    X    !@    @    \"          4 "
-    "   (     0         !          4 !  !     0         .    , $   8    (     @         %    \"     $    !     0       "
-    "  %  0 \"P    $    L    3F%M90        !!<F=S         %!A<G-E9$%R9W, 07)G3F%M97,         #@   #     &    \"     0  "
-    "       !0    @               $         $          .    *     8    (     0         %    \"                0        "
-    " .    *     8    (     0         %    \"                0         .    *     8    (     0         %    \"         "
-    "       0         .    , (   8    (     @         %    \"     $    !     0         %  0 %0    $   !^    0FQO8VL    "
-    "                 4V-O<&4                     0W5R<F5N=$-O;F9I9W5R871I;VX 4V-O<&5#3$D                 4&]S:71I;VX  "
-    "               5VEN9&]W4W1Y;&4                .    ,     8    (    !@         %    \"                0         )  "
-    "        X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8        "
-    " !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )   "
-    "       X   !0    !@    @    &          4    (     0    0    !          D    @           P>T       $!O0       H'E  "
-    "     # <D .    .     8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ,@!   &    \""
-    "     (         !0    @    !     0    $         !0 $ \"H    !    J    $%L;&]W4V-O<&5#:&%N9V5S                      "
-    "           $%L;&]W0FQO8VM#:&%N9V5S                                 $ES4V-O<&5#9F=/;&0                             "
-    "         '-I9W5T:6QS+D%P<&QI8V%T:6]N1&%T82Y!<'!L:6-A=&EO;D1A=&%?  X    P    !@    @    ) @        4    (     0    "
-    "$    !          (  0 !    #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    .    ,     "
-    "8    (    \"0(        %    \"     $    !     0         \"  $       X    X    !@    @    \"          4    (     0  "
-    "  $    !          4 !  !     0         .    B     8    (    \"0         %    \"     $   !8     0         \"    6  "
-    "    !24T     #@   $@    &    \"     (         !0    @    !     0    $         !0 $  4    !    !0   $U#3U,     #@  "
-    "       "
-  }
-  DataRecord {
-    Tag			    DataTag2
-    Data		    "  %)30     .    ,     8    (    !          %    \"                0         0          "
-  }
+  NumRecords		  2
   DataRecord {
     Tag			    DataTag1
-    Data		    "  %)30     .    4 $   8    (     @         %    \"     $    !     0         %  0 #0    $    :    4V-O<&"
-    "5#9F=.86UE %-C;W!E                   .    4     8    (    !          %    \"     $    =     0         0    '0   '9"
-    "I<'-C;W!E<RY6:61E;U9I97=E<E-C;W!E0V9G    #@   )@    &    \"    !$          0         !  0 34-/4P$    :    <V-O<&5E"
-    ">'1E;G-I;VYS+E=I<F5D4V-O<&4        .    2     8    (    #0         %    \"     8    !     0         &    &        "
-    "-T\"     0    $    !     P    X   !P#0  !@    @    )          4    (     0   $ -   !          (   ! #0    %)30    "
-    " .    H P   8    (     @         %    \"     $    !     0         %  0 !0    $    %    34-/4P     .    6 P   8    "
-    "(    $0         !          $ ! !-0T]3 0    T   !&:6QE5W)A<'!E<E]?    #@   !@,   &    \"     $         !0    @    &"
-    "     0    $         #@   %@\"   &    \"     D         !0    @    H @   0    $          @   \"@\"   \"    %    \"@!"
-    "  !H 0  D $  / !   ( @  * (             86YY %!A<G-E9$%R9W, 4V-O<&5#3$D =6ES8V]P97, 3F%M90!!<F=S $%R9TYA;65S %9I9&"
-    "5O5FEE=V5R4V-O<&5#9F< =FEP<V-O<&5S $)L;V-K %-C;W!E $-U<G)E;G1#;VYF:6=U<F%T:6]N %!O<VET:6]N %=I;F1O=U-T>6QE %=I<F5D"
-    "4V-O<&4 <V-O<&5E>'1E;G-I;VYS $%L;&]W4V-O<&5#:&%N9V5S $%L;&]W0FQO8VM#:&%N9V5S $ES4V-O<&5#9F=/;&0 <VEG=71I;',N07!P;&"
-    "EC871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\                        $     P              \"0    @              !     /  "
-    "                        $    !     0    (    !     0    $    !                                     P              "
-    " 0         #     @               @         \"     0                    $    !               !     @    $          "
-    "                                          .          X    P    !@    @    $          4    (               !       "
-    "  !          #@   \" \"   &    \"     (         !0    @    !     0    $         !0 $ !4    !    :0   &-L87-S      "
-    "               $-U<G)E;G1#;VYF:6=U<F%T:6]N %-C;W!E0TQ)                 %!O<VET:6]N                 %=I;F1O=U-T>6QE"
-    "                       .    4     8    (    !          %    \"     $    =     0         0    '0   '9I<'-C;W!E<RY6:"
-    "61E;U9I97=E<E-C;W!E0V9G    #@   #     &    \"     8         !0    @               $         \"0         .    2    "
-    " 8    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    #     0    X   !0    !@   "
-    " @    &          4    (     0    0    !          D    @           LE4       '!W0       H'E       # <D .    .     8"
-    "    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ' !   &    \"     (         !0    "
-    "@    !     0    $         !0 $  H    !    *    %-C;W!E0V9G  !\";&]C:TYA;64 5FES:6)L90   %9E<G-I;VX    .    2     8"
-    "    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    \"     @    X   !     !@    "
-    "@    $          4    (     0    L    !         !     +    +W1E<W0@:6UA9V4       X    P    !@    @    $          4 "
-    "   (     0    (    !         !   @!O;@  #@   #@    &    \"     8         !0    @    !     0    $         \"0    @ "
-    "          #P/PX   \"H!0  !@    @    !          4    (    !     $    !          X    X    !@    @    \"          4 "
-    "   (     0         !          4 !  !     0         .    , $   8    (     @         %    \"     $    !     0       "
-    "  %  0 \"P    $    L    3F%M90        !!<F=S         %!A<G-E9$%R9W, 07)G3F%M97,         #@   #     &    \"     0  "
-    "       !0    @               $         $          .    *     8    (     0         %    \"                0        "
-    " .    *     8    (     0         %    \"                0         .    *     8    (     0         %    \"         "
-    "       0         .    , (   8    (     @         %    \"     $    !     0         %  0 %0    $   !^    0FQO8VL    "
-    "                 4V-O<&4                     0W5R<F5N=$-O;F9I9W5R871I;VX 4V-O<&5#3$D                 4&]S:71I;VX  "
-    "               5VEN9&]W4W1Y;&4                .    ,     8    (    !@         %    \"                0         )  "
-    "        X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8        "
-    " !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )   "
-    "       X   !0    !@    @    &          4    (     0    0    !          D    @           P>T       $!O0       H'E  "
-    "     # <D .    .     8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ,@!   &    \""
-    "     (         !0    @    !     0    $         !0 $ \"H    !    J    $%L;&]W4V-O<&5#:&%N9V5S                      "
-    "           $%L;&]W0FQO8VM#:&%N9V5S                                 $ES4V-O<&5#9F=/;&0                             "
-    "         '-I9W5T:6QS+D%P<&QI8V%T:6]N1&%T82Y!<'!L:6-A=&EO;D1A=&%?  X    P    !@    @    ) @        4    (     0    "
-    "$    !          (  0 !    #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    .    ,     "
-    "8    (    \"0(        %    \"     $    !     0         \"  $       X    X    !@    @    \"          4    (     0  "
-    "  $    !          4 !  !     0         .    B     8    (    \"0         %    \"     $   !8     0         \"    6  "
-    "    !24T     #@   $@    &    \"     (         !0    @    !     0    $         !0 $  4    !    !0   $U#3U,     #@  "
-    "       "
+    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
+    "     %    \"     $    %     0         0    !0   $A/54=(    "
   }
   DataRecord {
     Tag			    DataTag0
-    Data		    "  %)30     .    N     8    (     0         %    \"     $    \"     0         .    0     8    (    !    "
-    "      %    \"     $    -     0         0    #0   $EM86=E1G)O;49I;&4    .    0     8    (    !          %    \"    "
-    " $    )     0         0    \"0   '9I<&1I86QO9P         "
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    -     0         0    #0   $5D9V5$971E8W1I;VX    "
   }
 }
 # Finite State Machines
@@ -1231,16 +1293,16 @@ MatData {
 Stateflow {
   machine {
     id			    1
-    name		    "image_analysis_blob_v1"
-    created		    "30-May-2011 16:48:11"
+    name		    "L_detector"
+    created		    "11-Feb-2011 11:53:00"
     isLibrary		    0
     firstTarget		    13
     sfVersion		    75014000.000003
   }
   chart {
     id			    2
-    name		    "Filter"
-    windowPosition	    [188.201 290.835 200.25 189.75]
+    name		    "Are 3 Lines Present1"
+    windowPosition	    [428.98 166.448 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
     treeNode		    [0 3 0 0]
@@ -1248,16 +1310,15 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    ssIdHighWaterMark	    13
+    ssIdHighWaterMark	    12
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    6
-    chartFileNumber	    7
+    chartFileNumber	    1
     disableImplicitCasting  1
     eml {
-      name		      "path_filter"
+      name		      "AreLinesPresent"
     }
-    supportVariableSizing   0
   }
   state {
     id			    3
@@ -1273,16 +1334,27 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [H_out, S_out] = path_filter(H_in, S_in, H_value, H_range)  %H_lower, H_upper)\n% This f"
-      "unction extracts the pixels containing hues that path elements are\n%   expected to have\n\n\n% Initialize\nH_ou"
-      "t = double(H_in);\nS_out = double(S_in);\n\nH_lower = H_value - H_range/2;\nH_upper = H_value + H_range/2;\n\n\n"
-      "% Set values outside valid ranges to zero\nfor i = 1:size(H_in,1)\n    for j = 1:size(H_in,2)\n        \n       "
-      " if( H_in(i,j) >= H_lower && H_in(i,j) <= H_upper )\n            H_out(i,j) = 1;\n        else\n            H_ou"
-      "t(i,j) = 0;\n        end\n        \n    end\nend\n\n\n\nreturn\n"
-      editorLayout	      "100 M4x1[25 25 720 466]"
-      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
-      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
-      emlDefaultFimath	      FimathUserSpecified
+      script		      "function [Image,T,R] = AreLinesPresent(HoughTable,Theta,Rho)\n% This function is meant to see if "
+      "there are 3 lines which approximate a\n% 'hedge' in the current frame\n\nR = zeros(1,2);\nT = zeros(1,2);\n[rhos"
+      ", thetas] = size(HoughTable);\n\n% Find the two vetical lines\ntheta_0_col = floor(thetas/2);\n\nmost_votes = 0;"
+      "\nsecond_most = 0;\nindexi1 = 1;\nindexi2 = 1;\nindexj1 = 1;\nindexj2 = 1;\n\n\nfor i = 1:rhos\n    for j = thet"
+      "a_0_col-5:theta_0_col+5\n        if(HoughTable(i,j) > most_votes)\n            %{\n            if(abs(Rho(indexi"
+      "1)-Rho(i)) > 20)\n                second_most = HoughTable(indexi1,indexj2);\n                indexi2 = indexi1;"
+      "\n                indexj2 = indexj1;\n                R(2) = R(1);\n                T(2) = T(1);\n            en"
+      "d\n            %}\n            most_votes = HoughTable(i,j);\n            indexi1 = i;\n            indexj1 = j;"
+      "\n            R(1) = Rho(i);\n            T(1) = Theta(j);\n        %{\nelseif(HoughTable(i,j) > second_most && "
+      "abs(Rho(indexi1)-Rho(i)) > 20)\n            second_most = HoughTable(i,j);\n            indexi2 = i;\n          "
+      "  indexj2 = j;\n            R(2) = Rho(i);\n            T(2) = Theta(j);\n%}\n        end\n    end\nend\n\n% Fin"
+      "d the horizontal line\nmax_votes = 0;\nindex = [0 0];\nfor i = 1:rhos\n    for j = 1:10\n        if(HoughTable(i"
+      ",j) > max_votes)\n            max_votes = HoughTable(i,j);\n            index = [i,j];\n            R(2) = Rho(i"
+      ");\n            T(2) = Theta(j);\n        end\n    end\n    for j = thetas-10:thetas\n        if(HoughTable(i,j)"
+      " > max_votes)\n            max_votes = HoughTable(i,j);\n            index = [i,j];\n            R(2) = Rho(i);\n"
+      "            T(2) = Theta(j);\n        end\n    end\nend\n\n% Find the most prominent line\ntop_vote = 0;\nt = 0;"
+      "\nr = 0;\nfor i = 1:rhos\n    for j = 1:thetas\n        if(HoughTable(i,j) > top_vote)\n            top_vote = H"
+      "oughTable(i,j);\n            t = j;\n            r = i;\n        end\n    end\nend\n\nImage = 0;\nif(top_vote*.7"
+      "5 < max_votes && top_vote*.3 < most_votes && top_vote*.3 < second_most)\n    Image = 1;\nend\n\ncow = 1;\n\nretu"
+      "rn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
     }
   }
   junction {
@@ -1317,8 +1389,8 @@ Stateflow {
   }
   data {
     id			    6
-    ssIdNumber		    7
-    name		    "H_in"
+    ssIdNumber		    4
+    name		    "HoughTable"
     linkNode		    [2 0 7]
     scope		    INPUT_DATA
     machine		    1
@@ -1329,20 +1401,17 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    7
-    ssIdNumber		    13
-    name		    "S_in"
+    ssIdNumber		    5
+    name		    "Image"
     linkNode		    [2 6 8]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -1351,20 +1420,18 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    8
     ssIdNumber		    9
-    name		    "H_value"
+    name		    "T"
     linkNode		    [2 7 9]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -1377,14 +1444,14 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    9
-    ssIdNumber		    10
-    name		    "H_range"
+    ssIdNumber		    6
+    name		    "Theta"
     linkNode		    [2 8 10]
     scope		    INPUT_DATA
     machine		    1
@@ -1405,10 +1472,10 @@ Stateflow {
   }
   data {
     id			    10
-    ssIdNumber		    11
-    name		    "H_out"
+    ssIdNumber		    7
+    name		    "Rho"
     linkNode		    [2 9 11]
-    scope		    OUTPUT_DATA
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -1421,14 +1488,14 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    11
     ssIdNumber		    8
-    name		    "S_out"
+    name		    "R"
     linkNode		    [2 10 0]
     scope		    OUTPUT_DATA
     machine		    1
@@ -1449,7 +1516,7 @@ Stateflow {
   }
   instance {
     id			    12
-    name		    "Filter"
+    name		    "Are 3 Lines Present1"
     machine		    1
     chart		    2
   }
@@ -1458,6 +1525,12 @@ Stateflow {
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 0]
+    linkNode		    [1 0 14]
+  }
+  target {
+    id			    14
+    name		    "rtw"
+    machine		    1
+    linkNode		    [1 13 0]
   }
 }

@@ -1,0 +1,5389 @@
+Model {
+  Name			  "buoy_detector"
+  Version		  7.6
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    4
+    Inport {
+      BusObject		      ""
+      Name		      "R_forward_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "G_forward_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "B_forward_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "WhichColor"
+    }
+    NumRootOutports	    8
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetSelect"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetFound"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "MaintainHeading"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetY"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetZ"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetYaw"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetDetected"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "BuoyColors"
+    }
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.648"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "UTF-8"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  MaxMDLFileLineLength	  120
+  Created		  "Tue Sep 28 17:18:47 2010"
+  Creator		  "auvt"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "Administrator"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Mon Jun 20 12:30:19 2011"
+  RTWModifiedTimeStamp	  230473817
+  ModelVersionFormat	  "1.%<AutoIncrement:648>"
+  ConfigurationManager	  "customverctrl"
+  SampleTimeColors	  off
+  SampleTimeAnnotations	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  on
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      1
+      Version		      "1.10.0"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  2
+	  Version		  "1.10.0"
+	  StartTime		  "0.0"
+	  StopTime		  "0"
+	  AbsTol		  "auto"
+	  FixedStep		  "1/30"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  ConcurrentTasks	  off
+	  Solver		  "FixedStepDiscrete"
+	  SolverName		  "FixedStepDiscrete"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  3
+	  Version		  "1.10.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  4
+	  Version		  "1.10.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    8
+	    Cell		    "BooleansAsBitfields"
+	    Cell		    "PassReuseOutputArgsAs"
+	    Cell		    "PassReuseOutputArgsThreshold"
+	    Cell		    "ZeroExternalMemoryAtStartup"
+	    Cell		    "ZeroInternalMemoryAtStartup"
+	    Cell		    "OptimizeModelRefInitCode"
+	    Cell		    "NoFixptDivByZeroProtection"
+	    Cell		    "UseSpecifiedMinMax"
+	    PropName		    "DisabledProps"
+	  }
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  UseIntDivNetSlope	  off
+	  UseSpecifiedMinMax	  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  ExpressionFolding	  on
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode off
+	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  5
+	  Version		  "1.10.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  InitInArrayFormatMsg	  "warning"
+	  StrictBusMsg		  "ErrorLevel1"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  6
+	  Version		  "1.10.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  7
+	  Version		  "1.10.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  8
+	  Version		  "1.10.0"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  9
+	  Version		  "1.10.0"
+	  Array {
+	    Type		    "Cell"
+	    Dimension		    7
+	    Cell		    "IncludeHyperlinkInReport"
+	    Cell		    "GenerateTraceInfo"
+	    Cell		    "GenerateTraceReport"
+	    Cell		    "GenerateTraceReportSl"
+	    Cell		    "GenerateTraceReportSf"
+	    Cell		    "GenerateTraceReportEml"
+	    Cell		    "GenerateSLWebview"
+	    PropName		    "DisabledProps"
+	  }
+	  SystemTargetFile	  "grt.tlc"
+	  GenCodeOnly		  off
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "grt_default_tmf"
+	  GenerateReport	  off
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport off
+	  LaunchReport		  off
+	  TargetLang		  "C++"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  GenerateSLWebview	  off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      10
+	      Version		      "1.10.0"
+	      Array {
+		Type			"Cell"
+		Dimension		21
+		Cell			"IgnoreCustomStorageClasses"
+		Cell			"IgnoreTestpoints"
+		Cell			"InsertBlockDesc"
+		Cell			"InsertPolySpaceComments"
+		Cell			"SFDataObjDesc"
+		Cell			"MATLABFcnDesc"
+		Cell			"SimulinkDataObjDesc"
+		Cell			"DefineNamingRule"
+		Cell			"SignalNamingRule"
+		Cell			"ParamNamingRule"
+		Cell			"InlinedPrmAccess"
+		Cell			"CustomSymbolStr"
+		Cell			"CustomSymbolStrGlobalVar"
+		Cell			"CustomSymbolStrType"
+		Cell			"CustomSymbolStrField"
+		Cell			"CustomSymbolStrFcn"
+		Cell			"CustomSymbolStrFcnArg"
+		Cell			"CustomSymbolStrBlkIO"
+		Cell			"CustomSymbolStrTmpVar"
+		Cell			"CustomSymbolStrMacro"
+		Cell			"ReqsInCode"
+		PropName		"DisabledProps"
+	      }
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses on
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcnArg   "rt$I$N$M"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
+	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.GRTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      11
+	      Version		      "1.10.0"
+	      Array {
+		Type			"Cell"
+		Dimension		16
+		Cell			"GeneratePreprocessorConditionals"
+		Cell			"IncludeMdlTerminateFcn"
+		Cell			"CombineOutputUpdateFcns"
+		Cell			"SuppressErrorStatus"
+		Cell			"ERTCustomFileBanners"
+		Cell			"GenerateSampleERTMain"
+		Cell			"GenerateTestInterfaces"
+		Cell			"ModelStepFunctionPrototypeControlCompliant"
+		Cell			"CPPClassGenCompliant"
+		Cell			"MultiInstanceERTCode"
+		Cell			"PurelyIntegerCode"
+		Cell			"SupportComplex"
+		Cell			"SupportAbsoluteTime"
+		Cell			"SupportContinuousTime"
+		Cell			"SupportNonInlinedSFcns"
+		Cell			"PortableWordSizes"
+		PropName		"DisabledProps"
+	      }
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      TargetFunctionLibrary   "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      ERTCodeCoverageTool     "None"
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   off
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant on
+	      CompOptLevelCompliant   on
+	      IncludeMdlTerminateFcn  on
+	      GeneratePreprocessorConditionals "Disable all"
+	      CombineOutputUpdateFcns off
+	      CombineSignalStateStructs	off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   off
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    off
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      on
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   on
+	      SupportNonInlinedSFcns  on
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant off
+	      CPPClassGenCompliant    off
+	      AutosarCompliant	      off
+	      UseMalloc		      off
+	      ExtMode		      off
+	      ExtModeStaticAlloc      off
+	      ExtModeTesting	      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTransport	      0
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      GenerateASAP2	      off
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      CurrentDlgPage	      "Real-Time Workshop"
+      ConfigPrmDlgPosition    " [ 356, 60, 1244, 716 ] "
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    1
+  }
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "FreeSans"
+    FontSize		    12
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "FreeSans"
+    FontSize		    12
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "FreeSans"
+    FontSize		    12
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Memory
+      X0		      "0"
+      InheritSampleTime	      off
+      LinearizeMemory	      off
+      LinearizeAsDelay	      off
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+      SFunctionDeploymentMode off
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
+      MinMaxOverflowLogging   "UseLocalSettings"
+      Variant		      off
+      GeneratePreprocessorConditionals off
+    }
+    Block {
+      BlockType		      Terminator
+    }
+    Block {
+      BlockType		      ToWorkspace
+      VariableName	      "simulink_output"
+      MaxDataPoints	      "1000"
+      Decimation	      "1"
+      SampleTime	      "0"
+      FixptAsFi		      off
+    }
+  }
+  System {
+    Name		    "buoy_detector"
+    Location		    [2, 76, 1014, 715]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "200"
+    Block {
+      BlockType		      Inport
+      Name		      "R_forward_in"
+      SID		      "179"
+      Position		      [80, 218, 110, 232]
+      IconDisplay	      "Port number"
+      PortDimensions	      "Forward_Camera_Dimensions"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "G_forward_in"
+      SID		      "180"
+      Position		      [80, 253, 110, 267]
+      Port		      "2"
+      IconDisplay	      "Port number"
+      PortDimensions	      "Forward_Camera_Dimensions"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "B_forward_in"
+      SID		      "181"
+      Position		      [80, 288, 110, 302]
+      Port		      "3"
+      IconDisplay	      "Port number"
+      PortDimensions	      "Forward_Camera_Dimensions"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "WhichColor"
+      SID		      "182"
+      Position		      [80, 358, 110, 372]
+      Port		      "4"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "IterativeSegmentation"
+      SID		      "1"
+      Ports		      [3, 4]
+      Position		      [535, 232, 810, 358]
+      UndoDeleteFcn	      "Stateflow.SLINSF.SimulinkMan.restorePreDeleteFcn"
+      PreDeleteFcn	      "Stateflow.SLINSF.SimulinkMan.removePreDeleteFcn"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"IterativeSegmentation"
+	Location		[2, 76, 1270, 731]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "R"
+	  SID			  "2"
+	  Position		  [30, 98, 60, 112]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "G"
+	  SID			  "3"
+	  Position		  [30, 128, 60, 142]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "B"
+	  SID			  "4"
+	  Position		  [30, 158, 60, 172]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Color Space\n Conversion1"
+	  SID			  "7"
+	  Ports			  [3, 3]
+	  Position		  [470, 106, 570, 164]
+	  LibraryVersion	  "1.328"
+	  SourceBlock		  "vipconversions/Color Space\n Conversion"
+	  SourceType		  "Color Space Conversion"
+	  conversion		  "Obsolete"
+	  conversionActive	  "sR'G'B' to L*a*b*"
+	  wp_str		  "D50"
+	  rec			  "Rec. 601 (SDTV)"
+	  sys			  "1125/60/2:1"
+	  imagePorts		  "Separate color signals"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Embedded\nMATLAB Function1"
+	  SID			  "100"
+	  Ports			  [3, 1]
+	  Position		  [445, 274, 625, 346]
+	  LibraryVersion	  "1.31"
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Embedded MATLAB block"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "disp('SeparatetoSingleSignals');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "autoscale"
+	  System {
+	    Name		    "Embedded\nMATLAB Function1"
+	    Location		    [257, 457, 812, 717]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "23"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "R"
+	      SID		      "100::1"
+	      Position		      [20, 101, 40, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "G"
+	      SID		      "100::18"
+	      Position		      [20, 136, 40, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "B"
+	      SID		      "100::19"
+	      Position		      [20, 171, 40, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      SID		      "100::21"
+	      Ports		      [1, 1]
+	      Position		      [270, 180, 320, 220]
+	      Outputs		      "1"
+	    }
+	    Block {
+	      BlockType		      "S-Function"
+	      Name		      " SFunction "
+	      SID		      "100::20"
+	      Tag		      "Stateflow S-Function buoy_detector 9"
+	      Ports		      [3, 2]
+	      Position		      [180, 100, 230, 180]
+	      FunctionName	      "sf_sfun"
+	      PortCounts	      "[3 2]"
+	      EnableBusSupport	      on
+	      Port {
+		PortNumber		2
+		Name			"RGB"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      " Terminator "
+	      SID		      "100::23"
+	      Position		      [460, 191, 480, 209]
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "RGB"
+	      SID		      "100::5"
+	      Position		      [460, 101, 480, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      " Terminator "
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "RGB"
+	      Labels		      [0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      2
+	      DstBlock		      "RGB"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "B"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "G"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "R"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Low Pass Filter"
+	  SID			  "8"
+	  Ports			  [3, 3]
+	  Position		  [250, 107, 325, 163]
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Low Pass Filter"
+	    Location		    [2, 76, 1270, 731]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "R"
+	      SID		      "9"
+	      Position		      [25, 38, 55, 52]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "G"
+	      SID		      "10"
+	      Position		      [25, 103, 55, 117]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "B"
+	      SID		      "11"
+	      Position		      [25, 173, 55, 187]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Low Pass Filter"
+	      SID		      "12"
+	      Ports		      [1, 1]
+	      Position		      [100, 23, 210, 67]
+	      PermitHierarchicalResolution "ExplicitOnly"
+	      TreatAsAtomicUnit	      on
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      MaskType		      "Stateflow"
+	      MaskDescription	      "Embedded MATLAB block"
+	      MaskSelfModifiable      on
+	      MaskDisplay	      "disp('GaussianBlurr');"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      off
+	      MaskIconRotate	      "none"
+	      MaskPortRotate	      "default"
+	      MaskIconUnits	      "autoscale"
+	      System {
+		Name			"Low Pass Filter"
+		Location		[257, 457, 812, 717]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		SIDHighWatermark	"13"
+		Block {
+		  BlockType		  Inport
+		  Name			  "I"
+		  SID			  "12::1"
+		  Position		  [20, 101, 40, 119]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  " Demux "
+		  SID			  "12::11"
+		  Ports			  [1, 1]
+		  Position		  [270, 160, 320, 200]
+		  Outputs		  "1"
+		}
+		Block {
+		  BlockType		  "S-Function"
+		  Name			  " SFunction "
+		  SID			  "12::10"
+		  Tag			  "Stateflow S-Function buoy_detector 45"
+		  Ports			  [1, 2]
+		  Position		  [180, 100, 230, 160]
+		  FunctionName		  "sf_sfun"
+		  PortCounts		  "[1 2]"
+		  EnableBusSupport	  on
+		  Port {
+		    PortNumber		    2
+		    Name		    "Iout"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Terminator
+		  Name			  " Terminator "
+		  SID			  "12::13"
+		  Position		  [460, 171, 480, 189]
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Iout"
+		  SID			  "12::5"
+		  Position		  [460, 101, 480, 119]
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  " Demux "
+		  SrcPort		  1
+		  DstBlock		  " Terminator "
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "Iout"
+		  Labels		  [0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  2
+		  DstBlock		  "Iout"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "I"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  " SFunction "
+		  SrcPort		  1
+		  DstBlock		  " Demux "
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Low Pass Filter1"
+	      SID		      "13"
+	      Ports		      [1, 1]
+	      Position		      [100, 88, 210, 132]
+	      PermitHierarchicalResolution "ExplicitOnly"
+	      TreatAsAtomicUnit	      on
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      MaskType		      "Stateflow"
+	      MaskDescription	      "Embedded MATLAB block"
+	      MaskSelfModifiable      on
+	      MaskDisplay	      "disp('GaussianBlurr');"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      off
+	      MaskIconRotate	      "none"
+	      MaskPortRotate	      "default"
+	      MaskIconUnits	      "autoscale"
+	      System {
+		Name			"Low Pass Filter1"
+		Location		[257, 457, 812, 717]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		SIDHighWatermark	"13"
+		Block {
+		  BlockType		  Inport
+		  Name			  "I"
+		  SID			  "13::1"
+		  Position		  [20, 101, 40, 119]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  " Demux "
+		  SID			  "13::11"
+		  Ports			  [1, 1]
+		  Position		  [270, 160, 320, 200]
+		  Outputs		  "1"
+		}
+		Block {
+		  BlockType		  "S-Function"
+		  Name			  " SFunction "
+		  SID			  "13::10"
+		  Tag			  "Stateflow S-Function buoy_detector 46"
+		  Ports			  [1, 2]
+		  Position		  [180, 100, 230, 160]
+		  FunctionName		  "sf_sfun"
+		  PortCounts		  "[1 2]"
+		  EnableBusSupport	  on
+		  Port {
+		    PortNumber		    2
+		    Name		    "Iout"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Terminator
+		  Name			  " Terminator "
+		  SID			  "13::13"
+		  Position		  [460, 171, 480, 189]
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Iout"
+		  SID			  "13::5"
+		  Position		  [460, 101, 480, 119]
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  " Demux "
+		  SrcPort		  1
+		  DstBlock		  " Terminator "
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "Iout"
+		  Labels		  [0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  2
+		  DstBlock		  "Iout"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "I"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  " SFunction "
+		  SrcPort		  1
+		  DstBlock		  " Demux "
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Low Pass Filter2"
+	      SID		      "14"
+	      Ports		      [1, 1]
+	      Position		      [100, 158, 210, 202]
+	      PermitHierarchicalResolution "ExplicitOnly"
+	      TreatAsAtomicUnit	      on
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      MaskType		      "Stateflow"
+	      MaskDescription	      "Embedded MATLAB block"
+	      MaskSelfModifiable      on
+	      MaskDisplay	      "disp('GaussianBlurr');"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      off
+	      MaskIconRotate	      "none"
+	      MaskPortRotate	      "default"
+	      MaskIconUnits	      "autoscale"
+	      System {
+		Name			"Low Pass Filter2"
+		Location		[257, 457, 812, 717]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		SIDHighWatermark	"13"
+		Block {
+		  BlockType		  Inport
+		  Name			  "I"
+		  SID			  "14::1"
+		  Position		  [20, 101, 40, 119]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  " Demux "
+		  SID			  "14::11"
+		  Ports			  [1, 1]
+		  Position		  [270, 160, 320, 200]
+		  Outputs		  "1"
+		}
+		Block {
+		  BlockType		  "S-Function"
+		  Name			  " SFunction "
+		  SID			  "14::10"
+		  Tag			  "Stateflow S-Function buoy_detector 47"
+		  Ports			  [1, 2]
+		  Position		  [180, 100, 230, 160]
+		  FunctionName		  "sf_sfun"
+		  PortCounts		  "[1 2]"
+		  EnableBusSupport	  on
+		  Port {
+		    PortNumber		    2
+		    Name		    "Iout"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Terminator
+		  Name			  " Terminator "
+		  SID			  "14::13"
+		  Position		  [460, 171, 480, 189]
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Iout"
+		  SID			  "14::5"
+		  Position		  [460, 101, 480, 119]
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  " Demux "
+		  SrcPort		  1
+		  DstBlock		  " Terminator "
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "Iout"
+		  Labels		  [0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  2
+		  DstBlock		  "Iout"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "I"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  " SFunction "
+		  SrcPort		  1
+		  DstBlock		  " Demux "
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "R'"
+	      SID		      "15"
+	      Position		      [235, 38, 265, 52]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "G'"
+	      SID		      "16"
+	      Position		      [235, 103, 265, 117]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "B'"
+	      SID		      "17"
+	      Position		      [235, 173, 265, 187]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Low Pass Filter"
+	      SrcPort		      1
+	      DstBlock		      "R'"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Low Pass Filter2"
+	      SrcPort		      1
+	      DstBlock		      "B'"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Low Pass Filter1"
+	      SrcPort		      1
+	      DstBlock		      "G'"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "B"
+	      SrcPort		      1
+	      DstBlock		      "Low Pass Filter2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "G"
+	      SrcPort		      1
+	      DstBlock		      "Low Pass Filter1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "R"
+	      SrcPort		      1
+	      DstBlock		      "Low Pass Filter"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Segmentation"
+	  SID			  "18"
+	  Ports			  [3, 3]
+	  Position		  [680, 104, 790, 166]
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Segmentation"
+	    Location		    [2, 76, 1270, 731]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "L"
+	      SID		      "19"
+	      Position		      [35, 63, 65, 77]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "a"
+	      SID		      "20"
+	      Position		      [35, 123, 65, 137]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "b"
+	      SID		      "21"
+	      Position		      [35, 173, 65, 187]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Dist_Thresh"
+	      SID		      "22"
+	      Position		      [35, 233, 160, 257]
+	      Value		      "Iter_Segment_Thresh"
+	      SampleTime	      "-1"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "LabSegmentation"
+	      SID		      "23"
+	      Ports		      [5, 1]
+	      Position		      [675, 33, 920, 157]
+	      PermitHierarchicalResolution "ExplicitOnly"
+	      TreatAsAtomicUnit	      on
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      MaskType		      "Stateflow"
+	      MaskDescription	      "Embedded MATLAB block"
+	      MaskSelfModifiable      on
+	      MaskDisplay	      "disp('LabSegmentation');"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      off
+	      MaskIconRotate	      "none"
+	      MaskPortRotate	      "default"
+	      MaskIconUnits	      "autoscale"
+	      System {
+		Name			"LabSegmentation"
+		Location		[257, 457, 812, 717]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		SIDHighWatermark	"19"
+		Block {
+		  BlockType		  Inport
+		  Name			  "L"
+		  SID			  "23::1"
+		  Position		  [20, 101, 40, 119]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "a"
+		  SID			  "23::2"
+		  Position		  [20, 136, 40, 154]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "b"
+		  SID			  "23::3"
+		  Position		  [20, 171, 40, 189]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "ref_colors"
+		  SID			  "23::4"
+		  Position		  [20, 206, 40, 224]
+		  Port			  "4"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "num_colors"
+		  SID			  "23::5"
+		  Position		  [20, 246, 40, 264]
+		  Port			  "5"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  " Demux "
+		  SID			  "23::17"
+		  Ports			  [1, 1]
+		  Position		  [270, 220, 320, 260]
+		  Outputs		  "1"
+		}
+		Block {
+		  BlockType		  "S-Function"
+		  Name			  " SFunction "
+		  SID			  "23::16"
+		  Tag			  "Stateflow S-Function buoy_detector 48"
+		  Ports			  [5, 2]
+		  Position		  [180, 100, 230, 220]
+		  FunctionName		  "sf_sfun"
+		  PortCounts		  "[5 2]"
+		  EnableBusSupport	  on
+		  Port {
+		    PortNumber		    2
+		    Name		    "LabelMatrix"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Terminator
+		  Name			  " Terminator "
+		  SID			  "23::19"
+		  Position		  [460, 231, 480, 249]
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "LabelMatrix"
+		  SID			  "23::9"
+		  Position		  [460, 101, 480, 119]
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  " Demux "
+		  SrcPort		  1
+		  DstBlock		  " Terminator "
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "LabelMatrix"
+		  Labels		  [0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  2
+		  DstBlock		  "LabelMatrix"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "num_colors"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  5
+		}
+		Line {
+		  SrcBlock		  "ref_colors"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  4
+		}
+		Line {
+		  SrcBlock		  "b"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "a"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "L"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  " SFunction "
+		  SrcPort		  1
+		  DstBlock		  " Demux "
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Reference Color Selection"
+	      SID		      "24"
+	      Ports		      [4, 2]
+	      Position		      [335, 128, 475, 197]
+	      PermitHierarchicalResolution "ExplicitOnly"
+	      TreatAsAtomicUnit	      on
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      MaskType		      "Stateflow"
+	      MaskDescription	      "Embedded MATLAB block"
+	      MaskSelfModifiable      on
+	      MaskDisplay	      "disp('Segmentation');"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      off
+	      MaskIconRotate	      "none"
+	      MaskPortRotate	      "default"
+	      MaskIconUnits	      "autoscale"
+	      System {
+		Name			"Reference Color Selection"
+		Location		[257, 457, 812, 717]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		SIDHighWatermark	"17"
+		Block {
+		  BlockType		  Inport
+		  Name			  "L"
+		  SID			  "24::1"
+		  Position		  [20, 101, 40, 119]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "a"
+		  SID			  "24::2"
+		  Position		  [20, 136, 40, 154]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "b"
+		  SID			  "24::3"
+		  Position		  [20, 171, 40, 189]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Dist_Thresh"
+		  SID			  "24::13"
+		  Position		  [20, 206, 40, 224]
+		  Port			  "4"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  " Demux "
+		  SID			  "24::15"
+		  Ports			  [1, 1]
+		  Position		  [270, 205, 320, 245]
+		  Outputs		  "1"
+		}
+		Block {
+		  BlockType		  "S-Function"
+		  Name			  " SFunction "
+		  SID			  "24::14"
+		  Tag			  "Stateflow S-Function buoy_detector 49"
+		  Ports			  [4, 3]
+		  Position		  [180, 102, 230, 203]
+		  FunctionName		  "sf_sfun"
+		  PortCounts		  "[4 3]"
+		  EnableBusSupport	  on
+		  Port {
+		    PortNumber		    2
+		    Name		    "ref_colors"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		  Port {
+		    PortNumber		    3
+		    Name		    "num_colors"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Terminator
+		  Name			  " Terminator "
+		  SID			  "24::17"
+		  Position		  [460, 216, 480, 234]
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "ref_colors"
+		  SID			  "24::7"
+		  Position		  [460, 101, 480, 119]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "num_colors"
+		  SID			  "24::8"
+		  Position		  [460, 136, 480, 154]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  " Demux "
+		  SrcPort		  1
+		  DstBlock		  " Terminator "
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "num_colors"
+		  Labels		  [0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  3
+		  DstBlock		  "num_colors"
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "ref_colors"
+		  Labels		  [0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  2
+		  DstBlock		  "ref_colors"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Dist_Thresh"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  4
+		}
+		Line {
+		  SrcBlock		  "b"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "a"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "L"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  " SFunction "
+		  SrcPort		  1
+		  DstBlock		  " Demux "
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Resize"
+	      SID		      "25"
+	      Ports		      [3, 3]
+	      Position		      [210, 130, 250, 190]
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      System {
+		Name			"Resize"
+		Location		[209, 82, 608, 456]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "In1"
+		  SID			  "26"
+		  Position		  [55, 68, 85, 82]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "In2"
+		  SID			  "27"
+		  Position		  [60, 133, 90, 147]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "In3"
+		  SID			  "28"
+		  Position		  [65, 213, 95, 227]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Reference
+		  Name			  "Resize"
+		  SID			  "29"
+		  Ports			  [1, 1]
+		  Position		  [110, 55, 175, 95]
+		  LibraryVersion	  "1.236"
+		  DialogController	  "vipDDGCreate"
+		  DialogControllerArgs	  "DataTag0"
+		  SourceBlock		  "vipgeotforms/Resize"
+		  SourceType		  "Resize"
+		  specify		  "Number of output rows and columns"
+		  rfactor		  "[]"
+		  outCols		  "25"
+		  outRows		  "25"
+		  outRowsCols		  "[60 80]"
+		  interp_method		  "Bilinear"
+		  antialias		  on
+		  useROI		  off
+		  roiFlag		  off
+		  firstCoeffMode	  "Same word length as input"
+		  firstCoeffWordLength	  "32"
+		  firstCoeffFracLength	  "31"
+		  outputMode		  "Same as input"
+		  outputWordLength	  "32"
+		  outputFracLength	  "10"
+		  accumMode		  "Same as product output"
+		  accumWordLength	  "32"
+		  accumFracLength	  "10"
+		  prodOutputMode	  "Binary point scaling"
+		  prodOutputWordLength	  "32"
+		  prodOutputFracLength	  "10"
+		  roundingMode		  "Nearest"
+		  overflowMode		  on
+		  LockScale		  off
+		}
+		Block {
+		  BlockType		  Reference
+		  Name			  "Resize1"
+		  SID			  "30"
+		  Ports			  [1, 1]
+		  Position		  [115, 120, 170, 160]
+		  LibraryVersion	  "1.236"
+		  DialogController	  "vipDDGCreate"
+		  DialogControllerArgs	  "DataTag1"
+		  SourceBlock		  "vipgeotforms/Resize"
+		  SourceType		  "Resize"
+		  specify		  "Number of output rows and columns"
+		  rfactor		  "[200 150]"
+		  outCols		  "25"
+		  outRows		  "25"
+		  outRowsCols		  "[60 80]"
+		  interp_method		  "Bilinear"
+		  antialias		  on
+		  useROI		  off
+		  roiFlag		  off
+		  firstCoeffMode	  "Same word length as input"
+		  firstCoeffWordLength	  "32"
+		  firstCoeffFracLength	  "31"
+		  outputMode		  "Same as input"
+		  outputWordLength	  "32"
+		  outputFracLength	  "10"
+		  accumMode		  "Same as product output"
+		  accumWordLength	  "32"
+		  accumFracLength	  "10"
+		  prodOutputMode	  "Binary point scaling"
+		  prodOutputWordLength	  "32"
+		  prodOutputFracLength	  "10"
+		  roundingMode		  "Nearest"
+		  overflowMode		  on
+		  LockScale		  off
+		}
+		Block {
+		  BlockType		  Reference
+		  Name			  "Resize2"
+		  SID			  "31"
+		  Ports			  [1, 1]
+		  Position		  [120, 200, 170, 240]
+		  LibraryVersion	  "1.236"
+		  DialogController	  "vipDDGCreate"
+		  DialogControllerArgs	  "DataTag2"
+		  SourceBlock		  "vipgeotforms/Resize"
+		  SourceType		  "Resize"
+		  specify		  "Number of output rows and columns"
+		  rfactor		  "[200 150]"
+		  outCols		  "25"
+		  outRows		  "25"
+		  outRowsCols		  "[60 80]"
+		  interp_method		  "Bilinear"
+		  antialias		  on
+		  useROI		  off
+		  roiFlag		  off
+		  firstCoeffMode	  "Same word length as input"
+		  firstCoeffWordLength	  "32"
+		  firstCoeffFracLength	  "31"
+		  outputMode		  "Same as input"
+		  outputWordLength	  "32"
+		  outputFracLength	  "10"
+		  accumMode		  "Same as product output"
+		  accumWordLength	  "32"
+		  accumFracLength	  "10"
+		  prodOutputMode	  "Binary point scaling"
+		  prodOutputWordLength	  "32"
+		  prodOutputFracLength	  "10"
+		  roundingMode		  "Nearest"
+		  overflowMode		  on
+		  LockScale		  off
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out1"
+		  SID			  "32"
+		  Position		  [200, 68, 230, 82]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out2"
+		  SID			  "33"
+		  Position		  [195, 133, 225, 147]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Out3"
+		  SID			  "34"
+		  Position		  [195, 213, 225, 227]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  "Resize2"
+		  SrcPort		  1
+		  DstBlock		  "Out3"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "In3"
+		  SrcPort		  1
+		  DstBlock		  "Resize2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Resize1"
+		  SrcPort		  1
+		  DstBlock		  "Out2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "In2"
+		  SrcPort		  1
+		  DstBlock		  "Resize1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Resize"
+		  SrcPort		  1
+		  DstBlock		  "Out1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "In1"
+		  SrcPort		  1
+		  DstBlock		  "Resize"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "LabelMatrix"
+	      SID		      "35"
+	      Position		      [1015, 88, 1045, 102]
+	      NamePlacement	      "alternate"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "num_colors"
+	      SID		      "36"
+	      Position		      [540, 208, 570, 222]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "ref_colors"
+	      SID		      "37"
+	      Position		      [540, 263, 570, 277]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Dist_Thresh"
+	      SrcPort		      1
+	      Points		      [155, 0]
+	      DstBlock		      "Reference Color Selection"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "LabSegmentation"
+	      SrcPort		      1
+	      DstBlock		      "LabelMatrix"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Reference Color Selection"
+	      SrcPort		      2
+	      Points		      [0, -10; 35, 0]
+	      Branch {
+		Points			[0, -25]
+		DstBlock		"LabSegmentation"
+		DstPort			5
+	      }
+	      Branch {
+		Points			[0, 45]
+		DstBlock		"num_colors"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Reference Color Selection"
+	      SrcPort		      1
+	      Points		      [0, -5; 15, 0]
+	      Branch {
+		Points			[0, 130]
+		DstBlock		"ref_colors"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -20]
+		DstBlock		"LabSegmentation"
+		DstPort			4
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Resize"
+	      SrcPort		      3
+	      Points		      [65, 0]
+	      DstBlock		      "Reference Color Selection"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Resize"
+	      SrcPort		      2
+	      Points		      [65, 0]
+	      DstBlock		      "Reference Color Selection"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Resize"
+	      SrcPort		      1
+	      DstBlock		      "Reference Color Selection"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "b"
+	      SrcPort		      1
+	      Points		      [0, -30; 15, 0]
+	      Branch {
+		Points			[0, 350; 575, 0]
+		DstBlock		"LabSegmentation"
+		DstPort			3
+	      }
+	      Branch {
+		Points			[110, 0]
+		DstBlock		"Resize"
+		DstPort			3
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "a"
+	      SrcPort		      1
+	      Points		      [10, 0]
+	      Branch {
+		Points			[0, -60]
+		DstBlock		"LabSegmentation"
+		DstPort			2
+	      }
+	      Branch {
+		Points			[115, 0]
+		DstBlock		"Resize"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "L"
+	      SrcPort		      1
+	      Points		      [5, 0]
+	      Branch {
+		Points			[0, -25]
+		DstBlock		"LabSegmentation"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 70]
+		DstBlock		"Resize"
+		DstPort			1
+	      }
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "LabelMatrix"
+	  SID			  "38"
+	  Position		  [965, 88, 995, 102]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "num_colors"
+	  SID			  "39"
+	  Position		  [965, 128, 995, 142]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ref_colors"
+	  SID			  "40"
+	  Position		  [965, 168, 995, 182]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "RGB_LowPass"
+	  SID			  "96"
+	  Position		  [820, 303, 850, 317]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Segmentation"
+	  SrcPort		  3
+	  Points		  [45, 0; 0, 20]
+	  DstBlock		  "ref_colors"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Segmentation"
+	  SrcPort		  2
+	  DstBlock		  "num_colors"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Segmentation"
+	  SrcPort		  1
+	  Points		  [45, 0; 0, -20]
+	  DstBlock		  "LabelMatrix"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Low Pass Filter"
+	  SrcPort		  3
+	  Points		  [60, 0]
+	  Branch {
+	    DstBlock		    "Color Space\n Conversion1"
+	    DstPort		    3
+	  }
+	  Branch {
+	    Points		    [0, 180]
+	    DstBlock		    "Embedded\nMATLAB Function1"
+	    DstPort		    3
+	  }
+	}
+	Line {
+	  SrcBlock		  "Low Pass Filter"
+	  SrcPort		  2
+	  Points		  [75, 0]
+	  Branch {
+	    DstBlock		    "Color Space\n Conversion1"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 175]
+	    DstBlock		    "Embedded\nMATLAB Function1"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "Low Pass Filter"
+	  SrcPort		  1
+	  Points		  [90, 0]
+	  Branch {
+	    DstBlock		    "Color Space\n Conversion1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 170]
+	    DstBlock		    "Embedded\nMATLAB Function1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcPort		  3
+	  DstBlock		  "Segmentation"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcPort		  2
+	  DstBlock		  "Segmentation"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcPort		  1
+	  DstBlock		  "Segmentation"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Embedded\nMATLAB Function1"
+	  SrcPort		  1
+	  DstBlock		  "RGB_LowPass"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "R"
+	  SrcPort		  1
+	  Points		  [90, 0; 0, 10]
+	  DstBlock		  "Low Pass Filter"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "G"
+	  SrcPort		  1
+	  DstBlock		  "Low Pass Filter"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "B"
+	  SrcPort		  1
+	  Points		  [90, 0; 0, -10]
+	  DstBlock		  "Low Pass Filter"
+	  DstPort		  3
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Look for Buoys"
+      SID		      "49"
+      Ports		      [5, 7]
+      Position		      [1105, 216, 1500, 374]
+      UndoDeleteFcn	      "Stateflow.SLINSF.SimulinkMan.restorePreDeleteFcn"
+      PreDeleteFcn	      "Stateflow.SLINSF.SimulinkMan.removePreDeleteFcn"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Look for Buoys"
+	Location		[2, 76, 1254, 731]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Successive Valid\nImage Count In"
+	  SID			  "128"
+	  Position		  [115, 213, 145, 227]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "LabMatrix"
+	  SID			  "50"
+	  Position		  [115, 293, 145, 307]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "ref_colors"
+	  SID			  "131"
+	  Position		  [115, 353, 145, 367]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "num_colors"
+	  SID			  "51"
+	  Position		  [115, 413, 145, 427]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Record"
+	  SID			  "145"
+	  Position		  [115, 148, 145, 162]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Analyze LabelMatrix for Buoys"
+	  SID			  "60"
+	  Ports			  [12, 5]
+	  Position		  [545, 245, 850, 650]
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Embedded MATLAB block"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "disp('Buoy_Extraction');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "autoscale"
+	  System {
+	    Name		    "Analyze LabelMatrix for Buoys"
+	    Location		    [257, 457, 812, 717]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "49"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "successive_valid_image_count_in"
+	      SID		      "60::47"
+	      Position		      [20, 101, 40, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "blob_count"
+	      SID		      "60::38"
+	      Position		      [20, 136, 40, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "blob_hues"
+	      SID		      "60::40"
+	      Position		      [20, 171, 40, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "blob_centroids"
+	      SID		      "60::39"
+	      Position		      [20, 206, 40, 224]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "blob_eccentricity"
+	      SID		      "60::36"
+	      Position		      [20, 246, 40, 264]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "blob_extent"
+	      SID		      "60::37"
+	      Position		      [20, 281, 40, 299]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Min_Eccent"
+	      SID		      "60::41"
+	      Position		      [20, 316, 40, 334]
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Max_Eccent"
+	      SID		      "60::42"
+	      Position		      [20, 351, 40, 369]
+	      Port		      "8"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Min_Extent"
+	      SID		      "60::43"
+	      Position		      [20, 386, 40, 404]
+	      Port		      "9"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Max_Extent"
+	      SID		      "60::44"
+	      Position		      [20, 426, 40, 444]
+	      Port		      "10"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Buoy_Count_Min"
+	      SID		      "60::45"
+	      Position		      [20, 461, 40, 479]
+	      Port		      "11"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Buoy_Count_Max"
+	      SID		      "60::46"
+	      Position		      [20, 496, 40, 514]
+	      Port		      "12"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      SID		      "60::19"
+	      Ports		      [1, 1]
+	      Position		      [270, 510, 320, 550]
+	      Outputs		      "1"
+	    }
+	    Block {
+	      BlockType		      "S-Function"
+	      Name		      " SFunction "
+	      SID		      "60::18"
+	      Tag		      "Stateflow S-Function buoy_detector 4"
+	      Ports		      [12, 6]
+	      Position		      [180, 140, 230, 510]
+	      FunctionName	      "sf_sfun"
+	      PortCounts	      "[12 6]"
+	      EnableBusSupport	      on
+	      Port {
+		PortNumber		2
+		Name			"successive_valid_image_count_out"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"buoy_id"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		4
+		Name			"buoy_count"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		5
+		Name			"buoy_hues"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		6
+		Name			"buoy_centroids"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      " Terminator "
+	      SID		      "60::21"
+	      Position		      [460, 521, 480, 539]
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "successive_valid_image_count_out"
+	      SID		      "60::48"
+	      Position		      [460, 101, 480, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "buoy_id"
+	      SID		      "60::49"
+	      Position		      [460, 136, 480, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "buoy_count"
+	      SID		      "60::32"
+	      Position		      [460, 171, 480, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "buoy_hues"
+	      SID		      "60::34"
+	      Position		      [460, 206, 480, 224]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "buoy_centroids"
+	      SID		      "60::17"
+	      Position		      [460, 246, 480, 264]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "successive_valid_image_count_in"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "blob_count"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "blob_hues"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "blob_centroids"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "blob_eccentricity"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "blob_extent"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "Min_Eccent"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      7
+	    }
+	    Line {
+	      SrcBlock		      "Max_Eccent"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      8
+	    }
+	    Line {
+	      SrcBlock		      "Min_Extent"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      9
+	    }
+	    Line {
+	      SrcBlock		      "Max_Extent"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      10
+	    }
+	    Line {
+	      SrcBlock		      "Buoy_Count_Min"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      11
+	    }
+	    Line {
+	      SrcBlock		      "Buoy_Count_Max"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      12
+	    }
+	    Line {
+	      Name		      "successive_valid_image_count_out"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      2
+	      DstBlock		      "successive_valid_image_count_out"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "buoy_id"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      3
+	      DstBlock		      "buoy_id"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "buoy_count"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      4
+	      DstBlock		      "buoy_count"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "buoy_hues"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      5
+	      DstBlock		      "buoy_hues"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "buoy_centroids"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      6
+	      DstBlock		      "buoy_centroids"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      " Terminator "
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Blob Extraction"
+	  SID			  "54"
+	  Ports			  [3, 5]
+	  Position		  [220, 267, 465, 453]
+	  LibraryVersion	  "1.31"
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Embedded MATLAB block"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "disp('GetBlobInfo');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "autoscale"
+	  System {
+	    Name		    "Blob Extraction"
+	    Location		    [257, 457, 812, 717]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "27"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "LabelMatrix"
+	      SID		      "54::1"
+	      Position		      [20, 101, 40, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "ref_colors"
+	      SID		      "54::27"
+	      Position		      [20, 136, 40, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "num_colors"
+	      SID		      "54::18"
+	      Position		      [20, 171, 40, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      SID		      "54::23"
+	      Ports		      [1, 1]
+	      Position		      [270, 280, 320, 320]
+	      Outputs		      "1"
+	    }
+	    Block {
+	      BlockType		      "S-Function"
+	      Name		      " SFunction "
+	      SID		      "54::22"
+	      Tag		      "Stateflow S-Function buoy_detector 3"
+	      Ports		      [3, 6]
+	      Position		      [180, 102, 230, 243]
+	      FunctionName	      "sf_sfun"
+	      PortCounts	      "[3 6]"
+	      EnableBusSupport	      on
+	      Port {
+		PortNumber		2
+		Name			"blob_count"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"blob_hues"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		4
+		Name			"blob_centroids"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		5
+		Name			"blob_eccentricity"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		6
+		Name			"blob_extent"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      " Terminator "
+	      SID		      "54::25"
+	      Position		      [460, 291, 480, 309]
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "blob_count"
+	      SID		      "54::20"
+	      Position		      [460, 101, 480, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "blob_hues"
+	      SID		      "54::26"
+	      Position		      [460, 136, 480, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "blob_centroids"
+	      SID		      "54::21"
+	      Position		      [460, 171, 480, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "blob_eccentricity"
+	      SID		      "54::5"
+	      Position		      [460, 206, 480, 224]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "blob_extent"
+	      SID		      "54::19"
+	      Position		      [460, 246, 480, 264]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "LabelMatrix"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "ref_colors"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "num_colors"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "blob_count"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      2
+	      DstBlock		      "blob_count"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "blob_hues"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      3
+	      DstBlock		      "blob_hues"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "blob_centroids"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      4
+	      DstBlock		      "blob_centroids"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "blob_eccentricity"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      5
+	      DstBlock		      "blob_eccentricity"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "blob_extent"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      6
+	      DstBlock		      "blob_extent"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      " Terminator "
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  SID			  "55"
+	  Position		  [55, 476, 210, 524]
+	  Value			  "Buoy_Min_Eccentricity"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "56"
+	  Position		  [55, 551, 210, 599]
+	  Value			  "Buoy_Max_Eccentricity"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  SID			  "57"
+	  Position		  [55, 631, 210, 679]
+	  Value			  "Buoy_Min_Extent"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant3"
+	  SID			  "58"
+	  Position		  [55, 706, 210, 754]
+	  Value			  "Buoy_Max_Extent"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant4"
+	  SID			  "106"
+	  Position		  [55, 781, 210, 829]
+	  Value			  "Buoy_Count_Min"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant5"
+	  SID			  "107"
+	  Position		  [55, 856, 210, 904]
+	  Value			  "Buoy_Count_Max"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace1"
+	  SID			  "95"
+	  Ports			  [1]
+	  Position		  [615, 195, 720, 225]
+	  VariableName		  "blob_hues"
+	  MaxDataPoints		  "inf"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace2"
+	  SID			  "101"
+	  Ports			  [1]
+	  Position		  [615, 139, 720, 171]
+	  VariableName		  "blob_centroids"
+	  MaxDataPoints		  "inf"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace3"
+	  SID			  "102"
+	  Ports			  [1]
+	  Position		  [615, 85, 720, 115]
+	  VariableName		  "blob_eccentricity"
+	  MaxDataPoints		  "inf"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace4"
+	  SID			  "103"
+	  Ports			  [1]
+	  Position		  [615, 35, 720, 65]
+	  VariableName		  "blob_extent"
+	  MaxDataPoints		  "inf"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Successive Valid\nImage Count Out"
+	  SID			  "61"
+	  Position		  [940, 283, 970, 297]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Buoy ID"
+	  SID			  "140"
+	  Position		  [940, 363, 970, 377]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Buoy Count"
+	  SID			  "108"
+	  Position		  [940, 443, 970, 457]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Buoy Hues"
+	  SID			  "109"
+	  Position		  [940, 523, 970, 537]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Buoy Centroids"
+	  SID			  "110"
+	  Position		  [940, 603, 970, 617]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Blob Eccentricities"
+	  SID			  "189"
+	  Position		  [1045, 113, 1075, 127]
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Blob Extents"
+	  SID			  "191"
+	  Position		  [1045, 158, 1075, 172]
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "num_colors"
+	  SrcPort		  1
+	  DstBlock		  "Blob Extraction"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "LabMatrix"
+	  SrcPort		  1
+	  DstBlock		  "Blob Extraction"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Blob Extraction"
+	  SrcPort		  1
+	  DstBlock		  "Analyze LabelMatrix for Buoys"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Blob Extraction"
+	  SrcPort		  2
+	  Points		  [40, 0]
+	  Branch {
+	    DstBlock		    "Analyze LabelMatrix for Buoys"
+	    DstPort		    3
+	  }
+	  Branch {
+	    Points		    [0, -115]
+	    DstBlock		    "To Workspace1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Blob Extraction"
+	  SrcPort		  3
+	  Points		  [35, 0]
+	  Branch {
+	    DstBlock		    "Analyze LabelMatrix for Buoys"
+	    DstPort		    4
+	  }
+	  Branch {
+	    Points		    [0, -205]
+	    DstBlock		    "To Workspace2"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Blob Extraction"
+	  SrcPort		  4
+	  Points		  [10, 0]
+	  Branch {
+	    Points		    [20, 0]
+	    Branch {
+	      DstBlock		      "Analyze LabelMatrix for Buoys"
+	      DstPort		      5
+	    }
+	    Branch {
+	      Points		      [0, -295]
+	      DstBlock		      "To Workspace3"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    Points		    [0, -275]
+	    DstBlock		    "Blob Eccentricities"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Blob Extraction"
+	  SrcPort		  5
+	  Points		  [25, 0]
+	  Branch {
+	    Points		    [0, -380]
+	    DstBlock		    "To Workspace4"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [25, 0]
+	    Branch {
+	      DstBlock		      "Analyze LabelMatrix for Buoys"
+	      DstPort		      6
+	    }
+	    Branch {
+	      Points		      [0, -265]
+	      DstBlock		      "Blob Extents"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  Points		  [205, 0; 0, -35]
+	  DstBlock		  "Analyze LabelMatrix for Buoys"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  Points		  [215, 0; 0, -75]
+	  DstBlock		  "Analyze LabelMatrix for Buoys"
+	  DstPort		  8
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  Points		  [230, 0; 0, -120]
+	  DstBlock		  "Analyze LabelMatrix for Buoys"
+	  DstPort		  9
+	}
+	Line {
+	  SrcBlock		  "Constant3"
+	  SrcPort		  1
+	  Points		  [245, 0; 0, -160]
+	  DstBlock		  "Analyze LabelMatrix for Buoys"
+	  DstPort		  10
+	}
+	Line {
+	  SrcBlock		  "Constant4"
+	  SrcPort		  1
+	  Points		  [255, 0; 0, -200]
+	  DstBlock		  "Analyze LabelMatrix for Buoys"
+	  DstPort		  11
+	}
+	Line {
+	  SrcBlock		  "Constant5"
+	  SrcPort		  1
+	  Points		  [265, 0; 0, -240]
+	  DstBlock		  "Analyze LabelMatrix for Buoys"
+	  DstPort		  12
+	}
+	Line {
+	  SrcBlock		  "Analyze LabelMatrix for Buoys"
+	  SrcPort		  1
+	  DstBlock		  "Successive Valid\nImage Count Out"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Analyze LabelMatrix for Buoys"
+	  SrcPort		  3
+	  DstBlock		  "Buoy Count"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Analyze LabelMatrix for Buoys"
+	  SrcPort		  4
+	  DstBlock		  "Buoy Hues"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Analyze LabelMatrix for Buoys"
+	  SrcPort		  5
+	  DstBlock		  "Buoy Centroids"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Successive Valid\nImage Count In"
+	  SrcPort		  1
+	  Points		  [95, 0; 0, 35]
+	  DstBlock		  "Analyze LabelMatrix for Buoys"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "ref_colors"
+	  SrcPort		  1
+	  DstBlock		  "Blob Extraction"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Analyze LabelMatrix for Buoys"
+	  SrcPort		  2
+	  DstBlock		  "Buoy ID"
+	  DstPort		  1
+	}
+	Annotation {
+	  Name			  "Temporary outputs"
+	  Position		  [1133, 142]
+	}
+      }
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Succesive Valid Image Count"
+      SID		      "111"
+      Ports		      [1]
+      Position		      [1660, 400, 1750, 430]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Succesive Valid Image Count1"
+      SID		      "130"
+      Ports		      [1]
+      Position		      [1660, 290, 1750, 320]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Memory
+      Name		      "Successive Valid\nImage Count"
+      SID		      "127"
+      Position		      [1290, 115, 1320, 145]
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetSelect"
+      SID		      "193"
+      Position		      [2035, 258, 2065, 272]
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetFound"
+      SID		      "194"
+      Position		      [2035, 293, 2065, 307]
+      Port		      "2"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "MaintainHeading"
+      SID		      "195"
+      Position		      [2035, 328, 2065, 342]
+      Port		      "3"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetY"
+      SID		      "196"
+      Position		      [2035, 363, 2065, 377]
+      Port		      "4"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetZ"
+      SID		      "197"
+      Position		      [2035, 398, 2065, 412]
+      Port		      "5"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetYaw"
+      SID		      "198"
+      Position		      [2035, 433, 2065, 447]
+      Port		      "6"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetDetected"
+      SID		      "199"
+      Position		      [2035, 508, 2065, 522]
+      Port		      "7"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "BuoyColors"
+      SID		      "200"
+      Position		      [2035, 543, 2065, 557]
+      Port		      "8"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Line {
+      SrcBlock		      "IterativeSegmentation"
+      SrcPort		      1
+      Points		      [275, 0]
+      DstBlock		      "Look for Buoys"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "IterativeSegmentation"
+      SrcPort		      3
+      Points		      [85, 0; 0, -5; 190, 0]
+      DstBlock		      "Look for Buoys"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "IterativeSegmentation"
+      SrcPort		      2
+      Points		      [210, 0; 0, 50]
+      DstBlock		      "Look for Buoys"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Look for Buoys"
+      SrcPort		      1
+      Points		      [0, -10; 10, 0]
+      Branch {
+	Points			[105, 0; 0, 190]
+	DstBlock		"Succesive Valid Image Count"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -30; -240, 0]
+	DstBlock		"Successive Valid\nImage Count"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Look for Buoys"
+      SrcPort		      4
+      Points		      [0, 10]
+      DstBlock		      "Succesive Valid Image Count1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Successive Valid\nImage Count"
+      SrcPort		      1
+      Points		      [0, -20; -235, 0]
+      DstBlock		      "Look for Buoys"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "R_forward_in"
+      SrcPort		      1
+      Points		      [200, 0; 0, 30]
+      DstBlock		      "IterativeSegmentation"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "G_forward_in"
+      SrcPort		      1
+      Points		      [190, 0; 0, 35]
+      DstBlock		      "IterativeSegmentation"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "B_forward_in"
+      SrcPort		      1
+      Points		      [180, 0; 0, 40]
+      DstBlock		      "IterativeSegmentation"
+      DstPort		      3
+    }
+    Annotation {
+      Position		      [207, 170]
+    }
+  }
+}
+MatData {
+  NumRecords		  3
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
+    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
+  }
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
+    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
+  }
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
+    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
+  }
+}
+# Finite State Machines
+#
+#    Stateflow Version 7.5 (R2010a) dated Jul 24 2010, 07:30:36
+#
+#
+
+
+Stateflow {
+  machine {
+    id			    1
+    name		    "buoy_detector"
+    created		    "28-Sep-2010 17:20:00"
+    isLibrary		    0
+    firstTarget		    89
+    sfVersion		    75014000.000003
+  }
+  chart {
+    id			    2
+    name		    "Look for Buoys/Blob Extraction"
+    windowPosition	    [390.747 240 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 3 0 0]
+    firstTransition	    5
+    firstJunction	    4
+    viewObj		    2
+    machine		    1
+    ssIdHighWaterMark	    12
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    6
+    chartFileNumber	    3
+    disableImplicitCasting  1
+    eml {
+      name		      "GetBlobInfo"
+    }
+  }
+  state {
+    id			    3
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 0 0]
+    superState		    SUBCHART
+    subviewer		    2
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [blob_count, blob_hues, blob_centroids, blob_eccentricity, blob_extent] = GetBlobInfo(La"
+      "belMatrix, ref_colors, num_colors)\n% This function will determine the characteristics of the blobs in an image\n"
+      "% given a label matrix defining the different binary images contained in a\n% that label matrix\n%\n% Input\n%  "
+      " LabelMatrix = 2-D matrix of integer values, each of which represents a\n%     color; location in matrix corresp"
+      "onds to pixel location in image\n%   num_colors = integer number of colors present in LabelMatrix\n%\n% Output\n"
+      "%   blob_count = integer number of blobs in image\n%   blob_hues = Nx1 vector of hues of blobs in image\n%   blo"
+      "b_centroids = Nx2 matrix of x-y pairs of blob centroid locations\n%   blob_eccentricity = Nx1 vector of blob ecc"
+      "entricites\n%   blob_extent = Nx1 vector of blob extents\n\n\n% Initialize\n[rows, cols] = size(LabelMatrix);\nL"
+      "ogicMatrix = false(rows,cols);\n\nmax_num_blobs = 50;\nmin_blob_area = 5;\n\nblob_hues = double(zeros(max_num_bl"
+      "obs,3));\nblob_centroids = double(zeros(max_num_blobs,2));\nblob_eccentricity = double(zeros(max_num_blobs,1));\n"
+      "blob_extent = double(zeros(max_num_blobs,1));\n\nblob_count = double(0);%uint8(0);\n\n% Input hblob, a matrix co"
+      "ntaining [Area, blob_centroids, Eccentricity] for each\n% identified blob\npersistent hblob\nif isempty(hblob)\n"
+      "    hblob = video.BlobAnalysis('AreaOutputPort',false,'BoundingBoxOutputPort',false,...\n        'CentroidOutput"
+      "Port',true,'EccentricityOutputPort',true,'ExtentOutputPort',true,...\n        'NumBlobsOutputPort',true,'Minimum"
+      "BlobAreaSource','Property',...\n        'MinimumBlobArea', min_blob_area);\nend\n\n%% Calculate geometric inform"
+      "ation about the blobs\n%\n% LogicMatrix is a binary version of LabelMatrix, with ones at all\n%   locations for "
+      "which color values are k, and zeros everywhere else\nfor k = 1:num_colors\n    for i = 1:rows\n        for j = 1"
+      ":cols\n            if(LabelMatrix(i,j) ~= k)\n                LogicMatrix(i,j) = false;\n            else\n     "
+      "           LogicMatrix(i,j) = true;\n            end\n        end\n    end\n    [TCentroid,TEccent,TExtent,TNumB"
+      "lobs] = step(hblob,LogicMatrix);\n    \n    if(blob_count+TNumBlobs < max_num_blobs)\n        for i = 1:TNumBlob"
+      "s\n            \n            blob_centroids(blob_count+i,1) = TCentroid(1,i);\n            blob_centroids(blob_c"
+      "ount+i,2) = TCentroid(2,i);\n            blob_eccentricity(blob_count+i) = TEccent(i);\n            blob_extent("
+      "blob_count+i) = TExtent(i);\n            \n            ii = round(blob_centroids(blob_count+i,1));\n            "
+      "jj = round(blob_centroids(blob_count+i,2));\n            blob_hues(blob_count+i,1) = ref_colors( LabelMatrix(ii,"
+      "jj) );\n            \n        end\n        blob_count = blob_count + 1;%TNumBlobs;\n    end\nend\n\nreturn"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+    }
+  }
+  junction {
+    id			    4
+    position		    [23.5747 49.5747 7]
+    chart		    2
+    linkNode		    [2 0 0]
+    subviewer		    2
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    5
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      4
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    2
+    linkNode		    [2 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    2
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    6
+    ssIdNumber		    9
+    name		    "blob_count"
+    linkNode		    [2 0 7]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    7
+    ssIdNumber		    11
+    name		    "blob_hues"
+    linkNode		    [2 6 8]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    8
+    ssIdNumber		    10
+    name		    "blob_centroids"
+    linkNode		    [2 7 9]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    9
+    ssIdNumber		    4
+    name		    "LabelMatrix"
+    linkNode		    [2 8 10]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    10
+    ssIdNumber		    12
+    name		    "ref_colors"
+    linkNode		    [2 9 11]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    11
+    ssIdNumber		    5
+    name		    "blob_eccentricity"
+    linkNode		    [2 10 12]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    12
+    ssIdNumber		    7
+    name		    "num_colors"
+    linkNode		    [2 11 13]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    13
+    ssIdNumber		    8
+    name		    "blob_extent"
+    linkNode		    [2 12 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    14
+    name		    "Look for Buoys/Blob Extraction"
+    machine		    1
+    chart		    2
+  }
+  chart {
+    id			    15
+    name		    "Look for Buoys/Analyze LabelMatrix for Buoys"
+    windowPosition	    [261.939 205.567 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 16 0 0]
+    firstTransition	    18
+    firstJunction	    17
+    viewObj		    15
+    machine		    1
+    ssIdHighWaterMark	    40
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    19
+    chartFileNumber	    4
+    disableImplicitCasting  1
+    eml {
+      name		      "Buoy_Extraction"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    16
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    15
+    treeNode		    [15 0 0 0]
+    superState		    SUBCHART
+    subviewer		    15
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [successive_valid_image_count_out, buoy_id, buoy_count, buoy_hues, buoy_centroids] = Buo"
+      "y_Extraction(successive_valid_image_count_in, blob_count, blob_hues, blob_centroids, blob_eccentricity, blob_ext"
+      "ent, Min_Eccent, Max_Eccent, Min_Extent, Max_Extent, Buoy_Count_Min, Buoy_Count_Max)\n% This function takes in v"
+      "ectors representing blobs present in the image,\n%   and returns information about how many and what kind of buo"
+      "ys are\n%   present.\n%\n% Input\n%   blob_count = integer number of blobs in image\n%   blob_hues = Nx1 vector "
+      "of hues of blobs in image\n%   blob_centroids = Nx2 matrix of x-y pairs of blob centroid locations\n%   blob_ecc"
+      "entricity = Nx1 vector of blob eccentricites\n%   blob_extent = Nx1 vector of blob extents\n%\n%   Buoy_Count_Mi"
+      "n = integer; minimum number of buoys searched for in an\n%     image (mission/controls needs requires this optio"
+      "n)\n%   Buoy_Count_Max = maximum number of buoys allowed per image; arbitrary\n%     limit\n%   Min_Hue,Max_Hue "
+      "= Nx1 limits on valid buoy hues; hue is between 0 and 1\n%   Min_Eccent,Max_Eccent = scalar limits on buoy eccen"
+      "tricity\n%   Min_Extent,Max_Extent = scalar limits on buoy extent\n%\n% Output\n%   successive_valid_image_count"
+      " = integer value of the number of times an\n%     image with more than Min_Num_Buoys is processed; persistant be"
+      "tween\n%     function calls, so that the number of successive images containing\n%     at least Min_Num_Buoys bu"
+      "oys is tracked\n%   buoy_count = integer number of buoys in image\n%   buoy_hues = Nx1 vector of buoy colors\n% "
+      "  buoy_centroids = Nx2 matrix of x-y pairs of buoy centroid locations\n\n\n% Initialize\n%persistent successive_"
+      "valid_image_count;\nbuoy_count = double(0);\n\n%debug\n%successive_valid_image_count = 0;\nBuoy_Count_Max = 50;\n"
+      "\n\n%/debug\nbuoy_hues = double(zeros(Buoy_Count_Max,1));\nbuoy_centroids = double(-500.*ones(Buoy_Count_Max,2))"
+      ";  % Initialize to points clearly not located in image\n\nbuoy_id = double(-1.*ones(Buoy_Count_Max,1));\nBuoy_Hu"
+      "e_HalfRange = 10;\nBuoy1_Hue = 30;\nBuoy2_Hue = 80;\nBuoy3_Hue = 15;\n\n% Loop through blobs, and analyze and ex"
+      "tract buoy information\nfor i = 1:blob_count\n    \n    % Convert Lab to XYZ\n%    R = buoy_hues(i);\n%    G = b"
+      "uoy_hues(i);\n%    B = buoy_hues(i);\n    \n    L = blob_hues(:,1); %refcolors(LabelMatrix(1,1,1));\n    a = blo"
+      "b_hues(:,2);\n    b = blob_hues(:,3);\n    \n    var_Y = L./10;\n    var_X = ( a./17.5 ).*( L./10 );\n    var_Z "
+      "= ( b./7 ).*( L./10 );\n    \n    Y = var_Y.^2;\n    X = ( var_X + Y )./1.02;\n    Z = -( var_Z - Y )./0.847;\n "
+      "   \n    % Convert XYZ to RGB\n    var_X = X./100;        %X from 0 to  95.047      (Observer = 2 degrees, Illum"
+      "inant = D65)\n    var_Y = Y./100;        %Y from 0 to 100.000\n    var_Z = Z./100;        %Z from 0 to 108.883\n"
+      "    \n    var_R = var_X.*3.2406 + var_Y.*(-1.5372) + var_Z.* -0.4986;\n    var_G = var_X .* -0.9689 + var_Y .*  "
+      "1.8758 + var_Z.*  0.0415;\n    var_B = var_X .*  0.0557 + var_Y .* -0.2040 + var_Z .*  1.0570;\n    \n    var_R "
+      "= ( var_R > 0.0031308 ).*( 1.055.*( var_R.^( 1./2.4 ) ) - 0.055 ) + ( var_R <= 0.0031308 ).*(12.92.*var_R);\n   "
+      " var_G = ( var_G > 0.0031308 ).*( 1.055.*( var_G.^( 1./2.4 ) ) - 0.055 ) + ( var_G <= 0.0031308 ).*( var_G <= 12"
+      ".92.*var_G );\n    var_B = ( var_B > 0.0031308 ).*( 1.055 .* ( var_B .^ ( 1 ./ 2.4 ) ) - 0.055 ) + ( var_B <= 0."
+      "0031308 ).*( 12.92 .* var_B );\n    \n    R = var_R .* 255;\n    G = var_G .* 255;\n    B = var_B .* 255;\n    \n"
+      "    % Convert RGB to HSV\n    var_R = ( R ./ 255 );  % RGB from 0 to 255\n    var_G = ( G ./ 255 );\n    var_B ="
+      " ( B ./ 255 );\n    \n    var_Min = min( [var_R, var_G, var_B], [], 2 );  % Min. value of RGB\n    var_Max = max"
+      "( [var_R, var_G, var_B], [], 2 );  % Max. value of RGB\n    del_Max = var_Max - var_Min;  % Delta RGB value\n   "
+      " \n    V = var_Max;\n    \n%    H = (del_Max != 0).*(  );\n%    S = (del_Max != 0).*( del_Max./var_Max );\n    i"
+      "f ( max(abs(del_Max == 0)) );  % This is a gray, no chroma...\n        H = zeros(size(var_R));  % HSV results fr"
+      "om 0 to 1\n        S = zeros(size(var_R));\n    else  % Chromatic data...\n        \n        S = del_Max ./ var_"
+      "Max;\n        \n        del_R = ( ( ( var_Max - var_R ) ./ 6 ) + ( del_Max ./ 2 ) ) ./ del_Max;\n        del_G ="
+      " ( ( ( var_Max - var_G ) ./ 6 ) + ( del_Max ./ 2 ) ) ./ del_Max;\n        del_B = ( ( ( var_Max - var_B ) ./ 6 )"
+      " + ( del_Max ./ 2 ) ) ./ del_Max;\n        \n        \n        H = ( var_R == var_Max ).*( del_B - del_G ) + ( v"
+      "ar_G == var_Max ).*( ( 1 ./ 3 ) + del_R - del_B ) + ( var_B == var_Max ).*( ( 2 ./ 3 ) + del_G - del_R );\n     "
+      "   H = ( H < 0 ).*( H + 1 ) + ( H > 1 ).*( H - 1 );\n        \n        \n%{        \n        if( var_R == var_Ma"
+      "x )\n            H = del_B - del_G;\n        elseif( var_G == var_Max )\n            H = ( 1 ./ 3 ) + del_R - de"
+      "l_B;\n        elseif( var_B == var_Max )\n            H = ( 2 ./ 3 ) + del_G - del_R;\n        else\n           "
+      " H = 0;\n        end\n        \n        if( H < 0 )\n            H = H + 1;\n        end\n        if( H > 1 )\n "
+      "           H = H - 1;\n        end\n%}        \n    end\n    \n    \n    \n    \n    \n    \n    \n    \n    \n "
+      "   % Store buoy information if blob conditions are met\n    %   Conditions: 1) Blob eccentricity is within speci"
+      "fied range\n    %               2) Blob extent is within specified range\n    %               3) Blob hue is wit"
+      "hin specified range for several buoy\n    %                 types\n    if( (blob_eccentricity(i)>=Min_Eccent) &&"
+      " (blob_eccentricity(i)<=Max_Eccent) && (blob_extent(i)>=Min_Extent) && (blob_extent(i)<=Max_Extent) )\n        \n"
+      "        %if( (blob_hues(i)>=Buoy1_Hue-Buoy_Hue_HalfRange) && (blob_hues(i)<=Buoy1_Hue+Buoy_Hue_HalfRange) )\n   "
+      "         buoy_count = buoy_count + 1;\n            buoy_hues(buoy_count) = blob_hues(i);\n            buoy_id(bu"
+      "oy_count) = 1;\n            buoy_centroids(buoy_count,1) = blob_centroids(i,1);\n            buoy_centroids(buoy"
+      "_count,2) = blob_centroids(i,2);\n        %end\n        if( (blob_hues(i)>=Buoy2_Hue-Buoy_Hue_HalfRange) && (blo"
+      "b_hues(i)<=Buoy2_Hue+Buoy_Hue_HalfRange) )\n            buoy_count = buoy_count + 1;\n            buoy_hues(buoy"
+      "_count) = blob_hues(i);\n            buoy_id(buoy_count) = 2;\n            buoy_centroids(buoy_count,1) = blob_c"
+      "entroids(i,1);\n            buoy_centroids(buoy_count,2) = blob_centroids(i,2);\n        end\n        if( (blob_"
+      "hues(i)>=Buoy3_Hue-Buoy_Hue_HalfRange) && (blob_hues(i)<=Buoy3_Hue+Buoy_Hue_HalfRange) )\n            buoy_count"
+      " = buoy_count + 1;\n            buoy_hues(buoy_count) = blob_hues(i);\n            buoy_id(buoy_count) = 3;\n   "
+      "         buoy_centroids(buoy_count,1) = blob_centroids(i,1);\n            buoy_centroids(buoy_count,2) = blob_ce"
+      "ntroids(i,2);\n        end\n    end\n    \nend\n\nif( buoy_count >= Buoy_Count_Min )\n    successive_valid_image"
+      "_count_out = double(successive_valid_image_count_in + 1);\nelse\n    successive_valid_image_count_out = double(0"
+      ");\nend\n\n\n% Resize output arrays\n%buoy_hues = buoy_hues(1:buoy_count);\n%buoy_centroids = buoy_centroids(1:b"
+      "uoy_count,:);\n%buoy_id = ;\n\nreturn"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    17
+    position		    [23.5747 49.5747 7]
+    chart		    15
+    linkNode		    [15 0 0]
+    subviewer		    15
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    18
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      17
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    15
+    linkNode		    [15 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    15
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    19
+    ssIdNumber		    38
+    name		    "successive_valid_image_count_in"
+    linkNode		    [15 0 20]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    20
+    ssIdNumber		    39
+    name		    "successive_valid_image_count_out"
+    linkNode		    [15 19 21]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    21
+    ssIdNumber		    40
+    name		    "buoy_id"
+    linkNode		    [15 20 22]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    22
+    ssIdNumber		    29
+    name		    "blob_count"
+    linkNode		    [15 21 23]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    23
+    ssIdNumber		    31
+    name		    "blob_hues"
+    linkNode		    [15 22 24]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    24
+    ssIdNumber		    30
+    name		    "blob_centroids"
+    linkNode		    [15 23 25]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    25
+    ssIdNumber		    24
+    name		    "buoy_count"
+    linkNode		    [15 24 26]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    26
+    ssIdNumber		    26
+    name		    "buoy_hues"
+    linkNode		    [15 25 27]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    27
+    ssIdNumber		    13
+    name		    "buoy_centroids"
+    linkNode		    [15 26 28]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    28
+    ssIdNumber		    27
+    name		    "blob_eccentricity"
+    linkNode		    [15 27 29]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    29
+    ssIdNumber		    28
+    name		    "blob_extent"
+    linkNode		    [15 28 30]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    30
+    ssIdNumber		    32
+    name		    "Min_Eccent"
+    linkNode		    [15 29 31]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    31
+    ssIdNumber		    33
+    name		    "Max_Eccent"
+    linkNode		    [15 30 32]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    32
+    ssIdNumber		    34
+    name		    "Min_Extent"
+    linkNode		    [15 31 33]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    33
+    ssIdNumber		    35
+    name		    "Max_Extent"
+    linkNode		    [15 32 34]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    34
+    ssIdNumber		    36
+    name		    "Buoy_Count_Min"
+    linkNode		    [15 33 35]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    35
+    ssIdNumber		    37
+    name		    "Buoy_Count_Max"
+    linkNode		    [15 34 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    36
+    name		    "Look for Buoys/Analyze LabelMatrix for Buoys"
+    machine		    1
+    chart		    15
+  }
+  chart {
+    id			    37
+    name		    "IterativeSegmentation/Embedded\nMATLAB Function1"
+    windowPosition	    [136.489 354 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1280 800 1.333333333333333]
+    treeNode		    [0 38 0 0]
+    firstTransition	    40
+    firstJunction	    39
+    viewObj		    37
+    machine		    1
+    ssIdHighWaterMark	    7
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    41
+    chartFileNumber	    9
+    disableImplicitCasting  1
+    eml {
+      name		      "SeparatetoSingleSignals"
+    }
+  }
+  state {
+    id			    38
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    37
+    treeNode		    [37 0 0 0]
+    superState		    SUBCHART
+    subviewer		    37
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function RGB = SeparatetoSingleSignals(R,G,B)\n% This function combines the separate color signal"
+      "s into a single 3-D signal\n\n[rows, cols] = size(R);\n\nRGB = zeros(rows,cols,3);\n\nfor i = 1:rows\n    for j "
+      "= 1:cols\n        RGB(i,j,1) = R(i,j);\n        RGB(i,j,2) = G(i,j);\n        RGB(i,j,3) = B(i,j);\n    end\nend"
+      "\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+    }
+  }
+  junction {
+    id			    39
+    position		    [23.5747 49.5747 7]
+    chart		    37
+    linkNode		    [37 0 0]
+    subviewer		    37
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    40
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      39
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    37
+    linkNode		    [37 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    37
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    41
+    ssIdNumber		    4
+    name		    "R"
+    linkNode		    [37 0 42]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    42
+    ssIdNumber		    5
+    name		    "RGB"
+    linkNode		    [37 41 43]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    43
+    ssIdNumber		    6
+    name		    "G"
+    linkNode		    [37 42 44]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    44
+    ssIdNumber		    7
+    name		    "B"
+    linkNode		    [37 43 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    45
+    name		    "IterativeSegmentation/Embedded\nMATLAB Function1"
+    machine		    1
+    chart		    37
+  }
+  chart {
+    id			    46
+    name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter"
+    windowPosition	    [446.813 189 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 47 0 0]
+    firstTransition	    49
+    firstJunction	    48
+    viewObj		    46
+    machine		    1
+    ssIdHighWaterMark	    7
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    50
+    chartFileNumber	    45
+    disableImplicitCasting  1
+    eml {
+      name		      "GaussianBlurr"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    47
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    46
+    treeNode		    [46 0 0 0]
+    superState		    SUBCHART
+    subviewer		    46
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function Iout = GaussianBlurr(I)\n% This function calculates the gaussian blur of an intensity im"
+      "age\n\nsigma = sqrt(2);\n\nGrows = 3;    % Gaussian matrix rows\nGcols = 3;    % Gaussian matrix columns\n\n[Iro"
+      "ws Icols] = size(I);\n\nIout = double(zeros(Irows,Icols));\n\nTrows = Irows - Grows + 1;\nTcols = Icols - Gcols "
+      "+ 1;\nItemp = double(zeros(Trows,Tcols));\n\nG = zeros(Grows,Gcols);\n\nFirstRow = ceil(-Grows/2);\nLastRow = fl"
+      "oor(Grows/2);\nFirstCol = ceil(-Gcols/2);\nLastCol = floor(Gcols/2);\nGsum = 0;\nfor i=FirstRow:LastRow\n    for"
+      " j = FirstCol:LastCol\n        G(i-FirstRow+1,j-FirstCol+1) = exp(-(j*j+i*i)/(2*sigma*sigma));\n        Gsum = G"
+      "sum + G(i-FirstRow+1,j-FirstCol+1);\n    end\nend\n\nG = G./Gsum;\n\nItemp = conv2(double(I),double(G),'valid');"
+      "\n\n% reflect boundaries to keep image the same size\n% top\nIout((1:LastRow),(LastCol+1:Icols-LastCol)) = Itemp"
+      "((1:LastRow),(1:Tcols));\n% bottom\nIout((Irows-LastRow+1:Irows),(LastCol+1:Icols-LastCol)) = Itemp((Trows-LastR"
+      "ow+1:Trows),(1:Tcols));\n% left\nIout((1+LastRow:Irows-LastRow),(1:LastCol)) = Itemp((1:Trows),(1:LastCol));\n% "
+      "right\nIout((1+LastRow:Irows-LastRow),(Icols-LastCol+1:Icols)) = Itemp((1:Trows),(Tcols-LastCol+1:Tcols));\n% ce"
+      "nter\nIout((1+LastRow:Irows-LastRow),(1+LastCol:Icols-LastCol)) = Itemp;\n% top left corner\nIout(1:LastRow,1:La"
+      "stCol) = Itemp(1:LastRow,1:LastCol);\n% top right corner\nIout(1:LastRow,Icols-LastCol:Icols) = Itemp(1:LastRow,"
+      "Tcols-LastCol:Tcols);\n% bottom left corner\nIout(Irows-LastRow:Irows,1:LastCol) = Itemp(Trows-LastRow:Trows,1:L"
+      "astCol);\n% bottom right corner\nIout(Irows-LastRow:Irows,Icols-LastCol:Icols) = Itemp(Trows-LastRow:Trows,Tcols"
+      "-LastCol:Tcols);\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    48
+    position		    [23.5747 49.5747 7]
+    chart		    46
+    linkNode		    [46 0 0]
+    subviewer		    46
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    49
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      48
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    46
+    linkNode		    [46 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    46
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    50
+    ssIdNumber		    4
+    name		    "I"
+    linkNode		    [46 0 51]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    51
+    ssIdNumber		    5
+    name		    "Iout"
+    linkNode		    [46 50 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    52
+    name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter"
+    machine		    1
+    chart		    46
+  }
+  chart {
+    id			    53
+    name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
+    windowPosition	    [431.813 204 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 54 0 0]
+    firstTransition	    56
+    firstJunction	    55
+    viewObj		    53
+    machine		    1
+    ssIdHighWaterMark	    7
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    57
+    chartFileNumber	    46
+    disableImplicitCasting  1
+    eml {
+      name		      "GaussianBlurr"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    54
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    53
+    treeNode		    [53 0 0 0]
+    superState		    SUBCHART
+    subviewer		    53
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function Iout = GaussianBlurr(I)\n% This function calculates the gaussian blur of an intensity im"
+      "age\n\nsigma = sqrt(2);\n\nGrows = 3;    % Gaussian matrix rows\nGcols = 3;    % Gaussian matrix columns\n\n[Iro"
+      "ws Icols] = size(I);\n\nIout = double(zeros(Irows,Icols));\n\nTrows = Irows - Grows + 1;\nTcols = Icols - Gcols "
+      "+ 1;\nItemp = double(zeros(Trows,Tcols));\n\nG = zeros(Grows,Gcols);\n\nFirstRow = ceil(-Grows/2);\nLastRow = fl"
+      "oor(Grows/2);\nFirstCol = ceil(-Gcols/2);\nLastCol = floor(Gcols/2);\nGsum = 0;\nfor i=FirstRow:LastRow\n    for"
+      " j = FirstCol:LastCol\n        G(i-FirstRow+1,j-FirstCol+1) = exp(-(j*j+i*i)/(2*sigma*sigma));\n        Gsum = G"
+      "sum + G(i-FirstRow+1,j-FirstCol+1);\n    end\nend\n\nG = G./Gsum;\n\nItemp = conv2(double(I),double(G),'valid');"
+      "\n\n% reflect boundaries to keep image the same size\n% top\nIout((1:LastRow),(LastCol+1:Icols-LastCol)) = Itemp"
+      "((1:LastRow),(1:Tcols));\n% bottom\nIout((Irows-LastRow+1:Irows),(LastCol+1:Icols-LastCol)) = Itemp((Trows-LastR"
+      "ow+1:Trows),(1:Tcols));\n% left\nIout((1+LastRow:Irows-LastRow),(1:LastCol)) = Itemp((1:Trows),(1:LastCol));\n% "
+      "right\nIout((1+LastRow:Irows-LastRow),(Icols-LastCol+1:Icols)) = Itemp((1:Trows),(Tcols-LastCol+1:Tcols));\n% ce"
+      "nter\nIout((1+LastRow:Irows-LastRow),(1+LastCol:Icols-LastCol)) = Itemp;\n% top left corner\nIout(1:LastRow,1:La"
+      "stCol) = Itemp(1:LastRow,1:LastCol);\n% top right corner\nIout(1:LastRow,Icols-LastCol:Icols) = Itemp(1:LastRow,"
+      "Tcols-LastCol:Tcols);\n% bottom left corner\nIout(Irows-LastRow:Irows,1:LastCol) = Itemp(Trows-LastRow:Trows,1:L"
+      "astCol);\n% bottom right corner\nIout(Irows-LastRow:Irows,Icols-LastCol:Icols) = Itemp(Trows-LastRow:Trows,Tcols"
+      "-LastCol:Tcols);\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    55
+    position		    [23.5747 49.5747 7]
+    chart		    53
+    linkNode		    [53 0 0]
+    subviewer		    53
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    56
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      55
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    53
+    linkNode		    [53 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    53
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    57
+    ssIdNumber		    4
+    name		    "I"
+    linkNode		    [53 0 58]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    58
+    ssIdNumber		    5
+    name		    "Iout"
+    linkNode		    [53 57 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    59
+    name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
+    machine		    1
+    chart		    53
+  }
+  chart {
+    id			    60
+    name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
+    windowPosition	    [431.813 204 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 61 0 0]
+    firstTransition	    63
+    firstJunction	    62
+    viewObj		    60
+    machine		    1
+    ssIdHighWaterMark	    7
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    64
+    chartFileNumber	    47
+    disableImplicitCasting  1
+    eml {
+      name		      "GaussianBlurr"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    61
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    60
+    treeNode		    [60 0 0 0]
+    superState		    SUBCHART
+    subviewer		    60
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function Iout = GaussianBlurr(I)\n% This function calculates the gaussian blur of an intensity im"
+      "age\n\nsigma = sqrt(2);\n\nGrows = 3;    % Gaussian matrix rows\nGcols = 3;    % Gaussian matrix columns\n\n[Iro"
+      "ws Icols] = size(I);\n\nIout = double(zeros(Irows,Icols));\n\nTrows = Irows - Grows + 1;\nTcols = Icols - Gcols "
+      "+ 1;\nItemp = double(zeros(Trows,Tcols));\n\nG = zeros(Grows,Gcols);\n\nFirstRow = ceil(-Grows/2);\nLastRow = fl"
+      "oor(Grows/2);\nFirstCol = ceil(-Gcols/2);\nLastCol = floor(Gcols/2);\nGsum = 0;\nfor i=FirstRow:LastRow\n    for"
+      " j = FirstCol:LastCol\n        G(i-FirstRow+1,j-FirstCol+1) = exp(-(j*j+i*i)/(2*sigma*sigma));\n        Gsum = G"
+      "sum + G(i-FirstRow+1,j-FirstCol+1);\n    end\nend\n\nG = G./Gsum;\n\nItemp = conv2(double(I),double(G),'valid');"
+      "\n\n% reflect boundaries to keep image the same size\n% top\nIout((1:LastRow),(LastCol+1:Icols-LastCol)) = Itemp"
+      "((1:LastRow),(1:Tcols));\n% bottom\nIout((Irows-LastRow+1:Irows),(LastCol+1:Icols-LastCol)) = Itemp((Trows-LastR"
+      "ow+1:Trows),(1:Tcols));\n% left\nIout((1+LastRow:Irows-LastRow),(1:LastCol)) = Itemp((1:Trows),(1:LastCol));\n% "
+      "right\nIout((1+LastRow:Irows-LastRow),(Icols-LastCol+1:Icols)) = Itemp((1:Trows),(Tcols-LastCol+1:Tcols));\n% ce"
+      "nter\nIout((1+LastRow:Irows-LastRow),(1+LastCol:Icols-LastCol)) = Itemp;\n% top left corner\nIout(1:LastRow,1:La"
+      "stCol) = Itemp(1:LastRow,1:LastCol);\n% top right corner\nIout(1:LastRow,Icols-LastCol:Icols) = Itemp(1:LastRow,"
+      "Tcols-LastCol:Tcols);\n% bottom left corner\nIout(Irows-LastRow:Irows,1:LastCol) = Itemp(Trows-LastRow:Trows,1:L"
+      "astCol);\n% bottom right corner\nIout(Irows-LastRow:Irows,Icols-LastCol:Icols) = Itemp(Trows-LastRow:Trows,Tcols"
+      "-LastCol:Tcols);\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    62
+    position		    [23.5747 49.5747 7]
+    chart		    60
+    linkNode		    [60 0 0]
+    subviewer		    60
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    63
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      62
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    60
+    linkNode		    [60 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    60
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    64
+    ssIdNumber		    4
+    name		    "I"
+    linkNode		    [60 0 65]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    65
+    ssIdNumber		    5
+    name		    "Iout"
+    linkNode		    [60 64 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    66
+    name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
+    machine		    1
+    chart		    60
+  }
+  chart {
+    id			    67
+    name		    "IterativeSegmentation/Segmentation/LabSegmentation"
+    windowPosition	    [401.813 225 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 68 0 0]
+    firstTransition	    70
+    firstJunction	    69
+    viewObj		    67
+    machine		    1
+    ssIdHighWaterMark	    11
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    71
+    chartFileNumber	    48
+    disableImplicitCasting  1
+    eml {
+      name		      "LabSegmentation"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    68
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    67
+    treeNode		    [67 0 0 0]
+    superState		    SUBCHART
+    subviewer		    67
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function LabelMatrix  = LabSegmentation(L,a,b,ref_colors,num_colors)\n% This function generates t"
+      "he label matrix\n\n[rows cols] = size(L);\n\nLout = zeros(rows,cols);\naout = zeros(rows,cols);\nbout = zeros(ro"
+      "ws,cols);\n\nLabelMatrix = zeros(rows,cols);\n\nfor i = 1:rows\n    for j = 1:cols\n        min_dist = 1000;\n  "
+      "      index = 1;\n        for k = 1:num_colors\n            dist = sqrt((ref_colors(k,1) - L(i,j))^2 + (ref_colo"
+      "rs(k,2) - a(i,j))^2 + (ref_colors(k,3) - b(i,j))^2);\n            if(dist < min_dist)\n                min_dist "
+      "= double(dist);\n                index = k;\n            end\n        end\n        LabelMatrix(i,j) = index;\n  "
+      "  end\nend\n\nfor i = 1:rows\n    for j = 1:cols\n        Lout(i,j) = ref_colors(LabelMatrix(i,j),1);\n        a"
+      "out(i,j) = ref_colors(LabelMatrix(i,j),2);\n        bout(i,j) = ref_colors(LabelMatrix(i,j),3);\n    end\nend\n\n"
+      "cow = 1;\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    69
+    position		    [23.5747 49.5747 7]
+    chart		    67
+    linkNode		    [67 0 0]
+    subviewer		    67
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    70
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      69
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    67
+    linkNode		    [67 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    67
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    71
+    ssIdNumber		    4
+    name		    "L"
+    linkNode		    [67 0 72]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    72
+    ssIdNumber		    5
+    name		    "LabelMatrix"
+    linkNode		    [67 71 73]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    73
+    ssIdNumber		    6
+    name		    "a"
+    linkNode		    [67 72 74]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    74
+    ssIdNumber		    7
+    name		    "b"
+    linkNode		    [67 73 75]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    75
+    ssIdNumber		    8
+    name		    "ref_colors"
+    linkNode		    [67 74 76]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    76
+    ssIdNumber		    9
+    name		    "num_colors"
+    linkNode		    [67 75 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    77
+    name		    "IterativeSegmentation/Segmentation/LabSegmentation"
+    machine		    1
+    chart		    67
+  }
+  chart {
+    id			    78
+    name		    "IterativeSegmentation/Segmentation/Reference Color Selection"
+    windowPosition	    [401.813 225 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 79 0 0]
+    firstTransition	    81
+    firstJunction	    80
+    viewObj		    78
+    machine		    1
+    ssIdHighWaterMark	    10
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    82
+    chartFileNumber	    49
+    disableImplicitCasting  1
+    eml {
+      name		      "Segmentation"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    79
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    78
+    treeNode		    [78 0 0 0]
+    superState		    SUBCHART
+    subviewer		    78
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [ref_colors, num_colors] = Segmentation(L,a,b,Dist_Thresh)\n% This function tries segmen"
+      "tation by adding new reference colors everytime\n% a pixel is found with a distance greater than a certain amoun"
+      "t from\n% every other reference color\n\n[rows cols] = size(L);\n\nDist_Threshold = Dist_Thresh;% L = 0 to 100, "
+      "a = -100 to 100, b = -100 to 100\n                    % max dist = 300 -> 60/300 is 20%\nx = 1;  % coefficients "
+      "determining distance calculation\ny = 1.5;\nz = 1.5;\n\nmax_num_colors = 50;\nref_colors = zeros(max_num_colors,"
+      "3);   % At most 50 different reference colors\nLabelMatrix = zeros(rows,cols);\nnum_colors = 1;\n\ncenter_row = "
+      "floor(rows/2);\ncenter_col = floor(cols/2);\n\n% Define first reference color to be colr\nref_colors(1,:) = [L(c"
+      "enter_row,center_col) a(center_row,center_col) b(center_row,center_col)];\n\nflag = 0;\ni = 1;\nj = 1;\nwhile(i "
+      "<= rows)        % perform initial segmentation\n    while(i <= rows && flag == 0)\n        while(j <= cols && fl"
+      "ag == 0)\n            k = 1;\n            min_dist = 1000;\n            index = 1;\n            while(k <= num_c"
+      "olors)\n                dist = sqrt(x*(ref_colors(k,1) - L(i,j))^2 + y*(ref_colors(k,2) - a(i,j))^2 + z*(ref_col"
+      "ors(k,3) - b(i,j))^2);\n                if(min_dist > dist)\n                    min_dist = double(dist);\n     "
+      "               index = k;\n                end\n                k = k + 1;\n            end\n            if(j =="
+      " 117)\n                cow = 1;\n            end\n            if(min_dist > Dist_Threshold && num_colors < max_n"
+      "um_colors)\n                ref_colors(num_colors+1,:) = [L(i,j) a(i,j) b(i,j)];\n                num_colors = n"
+      "um_colors + 1;\n                flag = 1;\n                i = 0;\n                j = 0;\n            else\n   "
+      "             LabelMatrix(i,j) = index;\n            end\n            j = j + 1;\n        end\n        j = 1;\n  "
+      "      i = i + 1;\n    end\n    flag = 0;\nend\n\n% Go through image once more to get more accurate values for th"
+      "e different regions\nref_color_L_avg = zeros(50,1);\nref_color_a_avg = zeros(50,1);\nref_color_b_avg = zeros(50,"
+      "1);\ncolor_count = zeros(50,1);\nfor i = 1:rows\n    for j = 1:cols\n        index = LabelMatrix(i,j);\n        "
+      "ref_color_L_avg(index) = ref_color_L_avg(index) + L(i,j);\n        ref_color_a_avg(index) = ref_color_a_avg(inde"
+      "x) + a(i,j);\n        ref_color_b_avg(index) = ref_color_b_avg(index) + b(i,j);\n        color_count(index) = co"
+      "lor_count(index) + 1;\n    end\nend\nref_color_L_avg = ref_color_L_avg ./ color_count;\nref_color_a_avg = ref_co"
+      "lor_a_avg ./ color_count;\nref_color_b_avg = ref_color_b_avg ./ color_count;\n\nfor i = 1:num_colors\n    ref_co"
+      "lors(i,1) = ref_color_L_avg(i);\n    ref_colors(i,2) = ref_color_a_avg(i);\n    ref_colors(i,3) = ref_color_b_av"
+      "g(i);\nend\n\nreturn\n"
+      editorLayout	      "100 M4x1[1646 122 744 728]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    80
+    position		    [23.5747 49.5747 7]
+    chart		    78
+    linkNode		    [78 0 0]
+    subviewer		    78
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    81
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      80
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    78
+    linkNode		    [78 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    78
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    82
+    ssIdNumber		    4
+    name		    "L"
+    linkNode		    [78 0 83]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    83
+    ssIdNumber		    5
+    name		    "ref_colors"
+    linkNode		    [78 82 84]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    84
+    ssIdNumber		    6
+    name		    "a"
+    linkNode		    [78 83 85]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    85
+    ssIdNumber		    7
+    name		    "b"
+    linkNode		    [78 84 86]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    86
+    ssIdNumber		    8
+    name		    "num_colors"
+    linkNode		    [78 85 87]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    87
+    ssIdNumber		    10
+    name		    "Dist_Thresh"
+    linkNode		    [78 86 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    88
+    name		    "IterativeSegmentation/Segmentation/Reference Color Selection"
+    machine		    1
+    chart		    78
+  }
+  target {
+    id			    89
+    name		    "sfun"
+    description		    "Default Simulink S-Function Target."
+    machine		    1
+    linkNode		    [1 0 90]
+  }
+  target {
+    id			    90
+    name		    "rtw"
+    machine		    1
+    linkNode		    [1 89 0]
+  }
+}
