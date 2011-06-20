@@ -3,10 +3,10 @@
 %   generating code for the overall stateflow chart
 %
 
-%Forward_Camera_Dimensions = [160 120];
-%Down_Camera_Dimensions = [120 160];
-Forward_Camera_Dimensions = [752 480];
-Down_Camera_Dimensions = [480 752];
+Forward_Camera_Dimensions = [160 120];
+Down_Camera_Dimensions = [120 160];
+%Forward_Camera_Dimensions = [752 480];
+%Down_Camera_Dimensions = [480 752];
 
 % The following configuration has been tested with a high success rate on
 % static images for the validation gate:
