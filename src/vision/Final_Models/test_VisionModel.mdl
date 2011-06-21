@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.867"
+    ComputedModelVersion    "1.868"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 21:16:37 2011"
-  RTWModifiedTimeStamp	  230504626
-  ModelVersionFormat	  "1.%<AutoIncrement:867>"
+  LastModifiedDate	  "Mon Jun 20 23:24:16 2011"
+  RTWModifiedTimeStamp	  230512673
+  ModelVersionFormat	  "1.%<AutoIncrement:868>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1565,7 +1565,7 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      FileName		      "/home/auvt/auvc/src/vision/Test_Images/gate10.bmp"
+      FileName		      "/home/auvt/Desktop/scrnshot1.png"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
@@ -1587,11 +1587,11 @@ Model {
       BlockType		      ModelReference
       Name		      "Model"
       SID		      "491"
-      Ports		      [13, 19]
-      Position		      [655, 543, 1145, 1337]
+      Ports		      [13, 22]
+      Position		      [655, 545, 1145, 1340]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.378"
+      ModelReferenceVersion   "1.381"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1605,7 +1605,7 @@ Model {
 	port8			"DesiredBuoyColor"
 	port9			"DesiredTorpedoColor"
 	port10			"ProceedToSecondTarget"
-	port11			"DefaultTaretShape"
+	port11			"DefaultTargetShape"
 	port12			"DefaultTargetColor"
       }
       List {
@@ -1629,6 +1629,9 @@ Model {
 	port16			"DesiredXVelocity"
 	port17			"DesiredYaw"
 	port18			"TargetDetected"
+	port19			"PathState"
+	port20			"BuoyColors"
+	port21			"FireAuthorization"
       }
       List {
 	ListType		OutputPortOutputBusAsStructs
@@ -1651,6 +1654,9 @@ Model {
 	port16			"off"
 	port17			"off"
 	port18			"off"
+	port19			"off"
+	port20			"off"
+	port21			"off"
       }
       CopyOfModelName	      "VisionModel"
     }
@@ -1669,11 +1675,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1906,35 +1907,34 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      1
-      Points		      [0, -25]
+      Points		      [0, -20]
       DstBlock		      "Display"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      2
-      Points		      [0, -20]
+      Points		      [0, -10]
       DstBlock		      "Display1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      3
-      Points		      [0, -15]
       DstBlock		      "Display2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      4
-      Points		      [145, 0; 0, -5]
+      Points		      [145, 0; 0, 15]
       DstBlock		      "Display3"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      5
-      Points		      [0, -5; 15, 0]
+      Points		      [0, 20; 15, 0]
       Branch {
 	Points			[130, 0; 0, 15]
 	DstBlock		"Display4"
@@ -1949,7 +1949,7 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      6
-      Points		      [20, 0]
+      Points		      [0, 30; 20, 0]
       Branch {
 	Points			[125, 0; 0, 30]
 	DstBlock		"Display5"
@@ -1964,84 +1964,84 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      7
-      Points		      [145, 0; 0, 35]
+      Points		      [145, 0; 0, 70]
       DstBlock		      "Display6"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      8
-      Points		      [145, 0; 0, 45]
+      Points		      [145, 0; 0, 85]
       DstBlock		      "Display7"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      9
-      Points		      [145, 0; 0, 55]
+      Points		      [145, 0; 0, 100]
       DstBlock		      "Display8"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      10
-      Points		      [135, 0; 0, 65]
+      Points		      [135, 0; 0, 115]
       DstBlock		      "Display9"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      11
-      Points		      [125, 0; 0, 80]
+      Points		      [125, 0; 0, 135]
       DstBlock		      "Display10"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      12
-      Points		      [115, 0; 0, 90]
+      Points		      [115, 0; 0, 150]
       DstBlock		      "Display11"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      13
-      Points		      [105, 0; 0, 105]
+      Points		      [105, 0; 0, 170]
       DstBlock		      "Display12"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      14
-      Points		      [95, 0; 0, 120]
+      Points		      [95, 0; 0, 190]
       DstBlock		      "Display13"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      15
-      Points		      [85, 0; 0, 130]
+      Points		      [85, 0; 0, 205]
       DstBlock		      "Display14"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      16
-      Points		      [75, 0; 0, 140]
+      Points		      [75, 0; 0, 220]
       DstBlock		      "Display15"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      17
-      Points		      [65, 0; 0, 155]
+      Points		      [65, 0; 0, 240]
       DstBlock		      "Display16"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      18
-      Points		      [55, 0; 0, 170]
+      Points		      [55, 0; 0, 260]
       DstBlock		      "Display17"
       DstPort		      1
     }

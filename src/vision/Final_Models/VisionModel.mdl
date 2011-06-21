@@ -168,11 +168,8 @@ Model {
       Name		      "FireAuthorization"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.381"
-    NumModelReferences	    6
-    ModelReference {
-      ModelRefBlockPath	      "VisionModel/Buoy Detection/buoy_detector.mdl|buoy_detector"
-    }
+    ComputedModelVersion    "1.383"
+    NumModelReferences	    5
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Drop Mechanism Target/drop_mech.mdl|drop_mech"
     }
@@ -206,9 +203,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 21:33:58 2011"
-  RTWModifiedTimeStamp	  230504209
-  ModelVersionFormat	  "1.%<AutoIncrement:381>"
+  LastModifiedDate	  "Mon Jun 20 23:30:47 2011"
+  RTWModifiedTimeStamp	  230512677
+  ModelVersionFormat	  "1.%<AutoIncrement:383>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -741,8 +738,8 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Optimization"
-      ConfigPrmDlgPosition    " [ 1440, 0, 3120, 1050 ] "
+      CurrentDlgPage	      "Real-Time Workshop/Interface"
+      ConfigPrmDlgPosition    " [ 1440, 78, 2425, 804 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -893,7 +890,7 @@ Model {
   }
   System {
     Name		    "VisionModel"
-    Location		    [0, 102, 1407, 852]
+    Location		    [0, 83, 1440, 867]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1295,32 +1292,6 @@ Model {
 	  ActionType		  "elseif"
 	}
 	Block {
-	  BlockType		  ModelReference
-	  Name			  "buoy_detector.mdl"
-	  SID			  "111"
-	  Ports			  [4, 1]
-	  Position		  [150, 135, 400, 360]
-	  ModelNameDialog	  "buoy_detector"
-	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.650"
-	  List {
-	    ListType		    InputPortNames
-	    port0		    "R_forward_in"
-	    port1		    "G_forward_in"
-	    port2		    "B_forward_in"
-	    port3		    "WhichColor"
-	  }
-	  List {
-	    ListType		    OutputPortNames
-	    port0		    "Number of Buoys"
-	  }
-	  List {
-	    ListType		    OutputPortOutputBusAsStructs
-	    port0		    "off"
-	  }
-	  CopyOfModelName	  "buoy_detector"
-	}
-	Block {
 	  BlockType		  Outport
 	  Name			  "TargetSelect"
 	  SID			  "177"
@@ -1390,34 +1361,6 @@ Model {
 	  Port			  "8"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
-	}
-	Line {
-	  SrcBlock		  "R_forward_in"
-	  SrcPort		  1
-	  Points		  [30, 0; 0, 75]
-	  DstBlock		  "buoy_detector.mdl"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "G_forward_in"
-	  SrcPort		  1
-	  Points		  [20, 0; 0, 95]
-	  DstBlock		  "buoy_detector.mdl"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "B_forward_in"
-	  SrcPort		  1
-	  Points		  [55, 0; 0, 115]
-	  DstBlock		  "buoy_detector.mdl"
-	  DstPort		  3
-	}
-	Line {
-	  SrcBlock		  "WhichColor"
-	  SrcPort		  1
-	  Points		  [30, 0; 0, 100]
-	  DstBlock		  "buoy_detector.mdl"
-	  DstPort		  4
 	}
       }
     }
@@ -2381,7 +2324,21 @@ Model {
 	    port2		    "off"
 	    port3		    "off"
 	  }
+	  List {
+	    ListType		    InputPortLatchByCopyingInsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	    port3		    "off"
+	  }
 	  CopyOfModelName	  "path_detector"
+	  List {
+	    ListType		    InputPortLatchByDelayingOutsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	    port3		    "off"
+	  }
 	}
 	Block {
 	  BlockType		  Outport
@@ -2590,7 +2547,21 @@ Model {
 	    port6		    "off"
 	    port7		    "off"
 	  }
+	  List {
+	    ListType		    InputPortLatchByCopyingInsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	    port3		    "off"
+	  }
 	  CopyOfModelName	  "torpedo"
+	  List {
+	    ListType		    InputPortLatchByDelayingOutsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	    port3		    "off"
+	  }
 	}
 	Block {
 	  BlockType		  Outport
@@ -2682,8 +2653,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Validation Gate"
-	Location		[4, 83, 1016, 738]
-	Open			off
+	Location		[47, 289, 1059, 944]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2733,7 +2704,7 @@ Model {
 	  Position		  [205, 111, 450, 409]
 	  ModelNameDialog	  "validation_gate"
 	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.1149"
+	  ModelReferenceVersion	  "1.1169"
 	  List {
 	    ListType		    InputPortNames
 	    port0		    "R_forward_in"
