@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.917"
+    ComputedModelVersion    "1.921"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_buoy_detector/buoy_detector.mdl|buoy_detector"
@@ -27,11 +27,11 @@ Model {
   Creator		  "Thing 1"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Administrator"
+  LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 12:32:21 2011"
-  RTWModifiedTimeStamp	  230473731
-  ModelVersionFormat	  "1.%<AutoIncrement:917>"
+  LastModifiedDate	  "Mon Jun 20 13:49:54 2011"
+  RTWModifiedTimeStamp	  230476455
+  ModelVersionFormat	  "1.%<AutoIncrement:921>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -743,7 +743,7 @@ Model {
   }
   System {
     Name		    "test_buoy_detector"
-    Location		    [2, 72, 1262, 711]
+    Location		    [1440, 50, 3120, 1050]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -757,13 +757,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "620"
+    SIDHighWatermark	    "636"
     Block {
       BlockType		      Display
       Name		      "Display"
       SID		      "455"
       Ports		      [1]
-      Position		      [1075, 565, 1165, 595]
+      Position		      [1025, 250, 1115, 280]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -772,7 +772,7 @@ Model {
       Name		      "Display1"
       SID		      "456"
       Ports		      [1]
-      Position		      [1075, 610, 1165, 640]
+      Position		      [1025, 295, 1115, 325]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -781,7 +781,7 @@ Model {
       Name		      "Display2"
       SID		      "465"
       Ports		      [1]
-      Position		      [1075, 655, 1165, 685]
+      Position		      [1025, 340, 1115, 370]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -790,7 +790,7 @@ Model {
       Name		      "Display3"
       SID		      "466"
       Ports		      [1]
-      Position		      [1075, 705, 1165, 735]
+      Position		      [1025, 390, 1115, 420]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -799,7 +799,7 @@ Model {
       Name		      "Display4"
       SID		      "467"
       Ports		      [1]
-      Position		      [1075, 760, 1165, 790]
+      Position		      [1025, 445, 1115, 475]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -808,7 +808,7 @@ Model {
       Name		      "Display5"
       SID		      "468"
       Ports		      [1]
-      Position		      [1075, 820, 1165, 850]
+      Position		      [1025, 505, 1115, 535]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -817,7 +817,7 @@ Model {
       Name		      "Display6"
       SID		      "469"
       Ports		      [1]
-      Position		      [1075, 865, 1165, 895]
+      Position		      [1025, 550, 1115, 580]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -826,7 +826,7 @@ Model {
       Name		      "Display7"
       SID		      "470"
       Ports		      [1]
-      Position		      [1075, 915, 1165, 945]
+      Position		      [1025, 600, 1115, 630]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -835,7 +835,7 @@ Model {
       Name		      "Draw Target"
       SID		      "495"
       Ports		      [4, 3]
-      Position		      [995, 341, 1145, 404]
+      Position		      [945, 26, 1095, 89]
       LibraryVersion	      "1.183"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag0"
@@ -871,7 +871,7 @@ Model {
       Name		      "Forward Camera"
       SID		      "454"
       Ports		      [3]
-      Position		      [1215, 340, 1330, 410]
+      Position		      [1165, 25, 1280, 95]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag1"
@@ -885,7 +885,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[964 370 268 224]"
+      FigPos		      "[1095 381 268 224]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -893,9 +893,9 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "Forward Filter"
-      SID		      "597"
+      SID		      "622"
       Ports		      [3, 3]
-      Position		      [435, 344, 535, 386]
+      Position		      [380, 29, 480, 71]
       LibraryVersion	      "1.225"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -906,7 +906,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Forward Filter"
-	Location		[2, 76, 1014, 724]
+	Location		[4, 83, 1016, 731]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -922,7 +922,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "R_in"
-	  SID			  "598"
+	  SID			  "623"
 	  Position		  [45, 78, 75, 92]
 	  IconDisplay		  "Port number"
 	  PortDimensions	  "Forward_Camera_Dimensions"
@@ -930,7 +930,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "G_in"
-	  SID			  "599"
+	  SID			  "624"
 	  Position		  [45, 118, 75, 132]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -939,7 +939,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "B_in"
-	  SID			  "600"
+	  SID			  "625"
 	  Position		  [45, 158, 75, 172]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -948,7 +948,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Color Space\n Conversion1"
-	  SID			  "601"
+	  SID			  "626"
 	  Ports			  [3, 3]
 	  Position		  [180, 96, 280, 154]
 	  LibraryVersion	  "1.328"
@@ -964,7 +964,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Color Space\n Conversion2"
-	  SID			  "602"
+	  SID			  "627"
 	  Ports			  [3, 3]
 	  Position		  [385, 96, 485, 154]
 	  LibraryVersion	  "1.328"
@@ -980,7 +980,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain"
-	  SID			  "603"
+	  SID			  "628"
 	  Position		  [125, 60, 155, 90]
 	  Gain			  "Scale_Forward_R"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -990,7 +990,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain1"
-	  SID			  "604"
+	  SID			  "629"
 	  Position		  [125, 110, 155, 140]
 	  Gain			  "Scale_Forward_G"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -1000,7 +1000,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain2"
-	  SID			  "605"
+	  SID			  "630"
 	  Position		  [125, 160, 155, 190]
 	  Gain			  "Scale_Forward_B"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -1010,7 +1010,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain3"
-	  SID			  "606"
+	  SID			  "631"
 	  Position		  [320, 60, 350, 90]
 	  Gain			  "Scale_Forward_H"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -1020,7 +1020,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain4"
-	  SID			  "607"
+	  SID			  "632"
 	  Position		  [320, 110, 350, 140]
 	  Gain			  "Scale_Forward_S"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -1030,7 +1030,7 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain5"
-	  SID			  "608"
+	  SID			  "633"
 	  Position		  [320, 160, 350, 190]
 	  Gain			  "Scale_Forward_V"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -1040,7 +1040,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "R_out"
-	  SID			  "609"
+	  SID			  "634"
 	  Position		  [555, 78, 585, 92]
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -1048,7 +1048,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "G_out"
-	  SID			  "610"
+	  SID			  "635"
 	  Position		  [555, 118, 585, 132]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -1057,7 +1057,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "B_out"
-	  SID			  "611"
+	  SID			  "636"
 	  Position		  [555, 153, 585, 167]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -1171,7 +1171,7 @@ Model {
       SID		      "438"
       Tag		      "vipblks_nd"
       Ports		      [0, 3]
-      Position		      [95, 584, 220, 696]
+      Position		      [45, 269, 170, 381]
       LibraryVersion	      "1.308"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag3"
@@ -1186,8 +1186,7 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      FileName		      "C:\\Documents and Settings\\Administrator\\My Documents\\Academics\\Summer 2011\\Newest Reposit"
-      "ory 6\\src\\vision\\Test_Images\\gate10.bmp"
+      FileName		      "/home/auvt/auvc/src/vision/Test_Images/buoy6.PNG"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
@@ -1202,7 +1201,15 @@ Model {
       BlockType		      Constant
       Name		      "ModeSelect1"
       SID		      "615"
-      Position		      [585, 430, 615, 460]
+      Position		      [535, 115, 565, 145]
+      Value		      "0"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "ModeSelect2"
+      SID		      "621"
+      Position		      [205, 440, 235, 470]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -1211,7 +1218,7 @@ Model {
       Name		      "Transform Coordinates3"
       SID		      "613"
       Ports		      [5, 2]
-      Position		      [670, 415, 920, 515]
+      Position		      [620, 100, 870, 200]
       LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
@@ -1221,6 +1228,11 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
+      Array {
+	Type			"Handle"
+	Dimension		0
+	PropName		"AvailSigsLoadSave"
+      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1404,7 +1416,7 @@ Model {
       Name		      "Vector\nConcatenate"
       SID		      "497"
       Ports		      [2, 1]
-      Position		      [955, 446, 960, 484]
+      Position		      [905, 131, 910, 169]
       Mode		      "Multidimensional array"
     }
     Block {
@@ -1412,10 +1424,10 @@ Model {
       Name		      "buoy_detector.mdl"
       SID		      "620"
       Ports		      [4, 8]
-      Position		      [315, 572, 565, 798]
+      Position		      [265, 257, 515, 483]
       ModelNameDialog	      "buoy_detector"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.648"
+      ModelReferenceVersion   "1.650"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1445,19 +1457,33 @@ Model {
 	port6			"off"
 	port7			"off"
       }
+      List {
+	ListType		InputPortLatchByCopyingInsideSignal
+	port0			"off"
+	port1			"off"
+	port2			"off"
+	port3			"off"
+      }
       CopyOfModelName	      "buoy_detector"
+      List {
+	ListType		InputPortLatchByDelayingOutsideSignal
+	port0			"off"
+	port1			"off"
+	port2			"off"
+	port3			"off"
+      }
     }
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      1
       Points		      [10, 0]
       Branch {
-	Points			[0, -255]
-	DstBlock		"Forward Filter"
+	DstBlock		"buoy_detector.mdl"
 	DstPort			1
       }
       Branch {
-	DstBlock		"buoy_detector.mdl"
+	Points			[0, -255]
+	DstBlock		"Forward Filter"
 	DstPort			1
       }
     }
@@ -1466,13 +1492,13 @@ Model {
       SrcPort		      3
       Points		      [20, 0]
       Branch {
-	Points			[0, -295]
-	DstBlock		"Forward Filter"
+	Points			[55, 0]
+	DstBlock		"buoy_detector.mdl"
 	DstPort			3
       }
       Branch {
-	Points			[55, 0]
-	DstBlock		"buoy_detector.mdl"
+	Points			[0, -295]
+	DstBlock		"Forward Filter"
 	DstPort			3
       }
     }
@@ -1520,13 +1546,13 @@ Model {
       SrcPort		      2
       Points		      [15, 0]
       Branch {
-	Points			[0, -275]
-	DstBlock		"Forward Filter"
+	Points			[60, 0]
+	DstBlock		"buoy_detector.mdl"
 	DstPort			2
       }
       Branch {
-	Points			[60, 0]
-	DstBlock		"buoy_detector.mdl"
+	Points			[0, -275]
+	DstBlock		"Forward Filter"
 	DstPort			2
       }
     }
@@ -1624,7 +1650,7 @@ Model {
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      1
-      Points		      [105, 0]
+      Points		      [110, 0]
       Branch {
 	DstBlock		"Draw Target"
 	DstPort			1
@@ -1634,6 +1660,12 @@ Model {
 	DstBlock		"Transform Coordinates3"
 	DstPort			1
       }
+    }
+    Line {
+      SrcBlock		      "ModeSelect2"
+      SrcPort		      1
+      DstBlock		      "buoy_detector.mdl"
+      DstPort		      4
     }
   }
 }
@@ -1687,7 +1719,7 @@ MatData {
     "                5VEN9&]W4W1Y;&4                .    ,     8    (    !@         %    \"                0         ) "
     "         X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8       "
     "  !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )  "
-    "        X   !0    !@    @    &          4    (     0    0    !          D    @           P>T       $!O0       H'E "
+    "        X   !0    !@    @    &          4    (     0    0    !          D    @           LE4       '!W0       H'E "
     "      # <D .    .     8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ,@!   &    "
     "\"     (         !0    @    !     0    $         !0 $ \"H    !    J    $%L;&]W4V-O<&5#:&%N9V5S                    "
     "             $%L;&]W0FQO8VM#:&%N9V5S                                 $ES4V-O<&5#9F=/;&0                           "
@@ -1706,7 +1738,7 @@ MatData {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Jul 24 2010, 07:30:36
+#    Stateflow Version 7.5 (R2010a) dated Aug  8 2010, 22:51:52
 #
 #
 

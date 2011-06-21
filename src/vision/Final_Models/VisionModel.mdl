@@ -148,7 +148,7 @@ Model {
       Name		      "DesiredYaw"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.364"
+    ComputedModelVersion    "1.366"
     NumModelReferences	    6
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Buoy Detection/buoy_detector.mdl|buoy_detector"
@@ -166,7 +166,7 @@ Model {
       ModelRefBlockPath	      "VisionModel/Torpedo Target Detection/torpedo.mdl|torpedo"
     }
     ModelReference {
-      ModelRefBlockPath	      "VisionModel/Validation Gate/validation_gate.mdl|validation_gate_v5"
+      ModelRefBlockPath	      "VisionModel/Validation Gate/validation_gate.mdl|validation_gate"
     }
     NumTestPointedSignals   0
   }
@@ -184,11 +184,11 @@ Model {
   Creator		  "Administrator"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Administrator"
+  LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 15 16:14:57 2011"
-  RTWModifiedTimeStamp	  230055243
-  ModelVersionFormat	  "1.%<AutoIncrement:364>"
+  LastModifiedDate	  "Mon Jun 20 12:49:57 2011"
+  RTWModifiedTimeStamp	  230469004
+  ModelVersionFormat	  "1.%<AutoIncrement:366>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -890,7 +890,7 @@ Model {
   }
   System {
     Name		    "VisionModel"
-    Location		    [2, 72, 1006, 704]
+    Location		    [1440, 50, 3120, 1050]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -2710,8 +2710,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Validation Gate"
-	Location		[2, 76, 1014, 731]
-	Open			off
+	Location		[4, 83, 1016, 738]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2759,7 +2759,7 @@ Model {
 	  SID			  "109"
 	  Ports			  [3, 7]
 	  Position		  [220, 136, 465, 434]
-	  ModelNameDialog	  "validation_gate_v5"
+	  ModelNameDialog	  "validation_gate"
 	  SimulationMode	  "Accelerator"
 	  ModelReferenceVersion	  "1.1144"
 	  List {
@@ -2794,7 +2794,7 @@ Model {
 	    port1		    "off"
 	    port2		    "off"
 	  }
-	  CopyOfModelName	  "validation_gate_v5"
+	  CopyOfModelName	  "validation_gate"
 	  List {
 	    ListType		    InputPortLatchByDelayingOutsideSignal
 	    port0		    "off"
@@ -3454,7 +3454,7 @@ Model {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Jul 24 2010, 07:30:36
+#    Stateflow Version 7.5 (R2010a) dated Aug  8 2010, 22:51:52
 #
 #
 

@@ -1,15 +1,15 @@
 Model {
-  Name			  "vision_test"
+  Name			  "test_VisionModel"
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.861"
+    ComputedModelVersion    "1.863"
     NumModelReferences	    1
     ModelReference {
-      ModelRefBlockPath	      "vision_test/Model|VisionModel"
+      ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
     }
     NumTestPointedSignals   0
   }
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 08:24:32 2011"
-  RTWModifiedTimeStamp	  230459061
-  ModelVersionFormat	  "1.%<AutoIncrement:861>"
+  LastModifiedDate	  "Mon Jun 20 12:50:01 2011"
+  RTWModifiedTimeStamp	  230468987
+  ModelVersionFormat	  "1.%<AutoIncrement:863>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -742,7 +742,7 @@ Model {
     }
   }
   System {
-    Name		    "vision_test"
+    Name		    "test_VisionModel"
     Location		    [1440, 50, 3120, 1050]
     Open		    on
     ModelBrowserVisibility  off
@@ -1568,7 +1568,7 @@ Model {
       SID		      "438"
       Tag		      "vipblks_nd"
       Ports		      [0, 3]
-      Position		      [450, 574, 575, 686]
+      Position		      [400, 584, 525, 696]
       LibraryVersion	      "1.308"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag4"
@@ -1609,7 +1609,7 @@ Model {
       Position		      [655, 541, 1145, 1334]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.364"
+      ModelReferenceVersion   "1.365"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1668,39 +1668,7 @@ Model {
 	port16			"off"
 	port17			"off"
       }
-      List {
-	ListType		InputPortLatchByCopyingInsideSignal
-	port0			"off"
-	port1			"off"
-	port2			"off"
-	port3			"off"
-	port4			"off"
-	port5			"off"
-	port6			"off"
-	port7			"off"
-	port8			"off"
-	port9			"off"
-	port10			"off"
-	port11			"off"
-	port12			"off"
-      }
       CopyOfModelName	      "VisionModel"
-      List {
-	ListType		InputPortLatchByDelayingOutsideSignal
-	port0			"off"
-	port1			"off"
-	port2			"off"
-	port3			"off"
-	port4			"off"
-	port5			"off"
-	port6			"off"
-	port7			"off"
-	port8			"off"
-	port9			"off"
-	port10			"off"
-	port11			"off"
-	port12			"off"
-      }
     }
     Block {
       BlockType		      SubSystem
@@ -1717,6 +1685,11 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
+      Array {
+	Type			"Handle"
+	Dimension		0
+	PropName		"AvailSigsLoadSave"
+      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1779,7 +1752,7 @@ Model {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
 	  SID			  "496::22"
-	  Tag			  "Stateflow S-Function vision_test 2"
+	  Tag			  "Stateflow S-Function test_VisionModel 2"
 	  Ports			  [3, 3]
 	  Position		  [180, 108, 230, 272]
 	  FunctionName		  "sf_sfun"
@@ -1878,7 +1851,7 @@ Model {
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      2
-      Points		      [0, 5; 15, 0]
+      Points		      [0, -5; 65, 0]
       Branch {
 	DstBlock		"Model"
 	DstPort			2
@@ -1892,7 +1865,7 @@ Model {
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      1
-      Points		      [0, 20; 10, 0]
+      Points		      [0, 10; 60, 0]
       Branch {
 	Points			[20, 0; 0, -40]
 	DstBlock		"Model"
@@ -1907,7 +1880,7 @@ Model {
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      3
-      Points		      [0, -10; 20, 0]
+      Points		      [0, -20; 70, 0]
       Branch {
 	Points			[10, 0; 0, 40]
 	DstBlock		"Model"
@@ -2240,7 +2213,7 @@ MatData {
 Stateflow {
   machine {
     id			    1
-    name		    "vision_test"
+    name		    "test_VisionModel"
     created		    "11-Feb-2011 11:53:00"
     isLibrary		    0
     firstTarget		    12
