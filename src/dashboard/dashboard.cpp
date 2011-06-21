@@ -200,12 +200,12 @@ void Dashboard::on_activate_joystick_clicked(bool checkbox_activated)
 {
     if (checkbox_activated)
     {
-        if (debug) qDebug() << "JOYSTICK ACTIVATED";
+//        if (debug) qDebug() << "JOYSTICK ACTIVATED";
         joystickTimer->start(100);  // 100 ms
     }
     else
     {
-        if (debug)  qDebug() << "JOYSTICK DISABLED";
+//        if (debug)  qDebug() << "JOYSTICK DISABLED";
         joystickTimer->stop();
     }
 }

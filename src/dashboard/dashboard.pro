@@ -1,3 +1,15 @@
+ISSUE = $$system(cat /etc/issue)
+contains( ISSUE, [uU]buntu ) 
+{
+	CONFIG += ubuntu
+}
+contains( ISSUE, [aA]rch ){
+	CONFIG += arch
+}
+contains( ISSUE, [fF]edora ){
+	CONFIG += fedora
+}      
+
 TEMPLATE = app
 TARGET = ../../dashboard
 CONFIG += qt \
@@ -26,12 +38,20 @@ INCLUDEPATH += . \
     .. \
     /usr/include/qt4 \ # for Ubuntu:
     /usr/include/qwt-qt4
+fedora {
+	INCLUDEPATH += /usr/local/qwt-5.2.2-svn/include/ \
+}
 
 # for Arch:
 # /usr/include/qwt
 # for Ubuntu:
-LIBS += -lqwt-qt4 -lSDL
 
+fedora  {
+	LIBS += -L/usr/local/qwt-5.2.2-svn/lib/ -lqwt -lSDL
+}
+else {
+	LIBS += -lqwt-qt4 -lSDL
+}
 # for Arch:
 # LIBS += -lqwt
 # Input

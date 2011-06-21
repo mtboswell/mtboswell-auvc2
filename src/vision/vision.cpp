@@ -21,6 +21,15 @@ Vision::Vision() : SimulinkModule()
 //    paramList["Vision_G_down_in"] = &VisionModel_U.G_down_in;
 //    paramList["Vision_B_down_in"] = &VisionModel_U.B_down_in;
 
+
+    real_T ModeSelect;                   /* '<Root>/ModeSelect' */
+    real_T DesiredPathDirection;         /* '<Root>/DesiredPathDirection' */
+    real_T DesiredBuoyColor;             /* '<Root>/DesiredBuoyColor' */
+    real_T DesiredTorpedoColor;          /* '<Root>/DesiredTorpedoColor' */
+    real_T ProceedToSecondTarget;        /* '<Root>/ProceedToSecondTarget' */
+    real_T DefaultTaretShape;            /* '<Root>/DefaultTaretShape' */
+    real_T DefaultTargetColor;           /* '<Root>/DefaultTargetColor' */
+
     paramList["Vision_ModeSelect"] = &VisionModel_U.ModeSelect;
     paramList["Vision_DesiredPathDirection"] = &VisionModel_U.DesiredPathDirection;
     paramList["Vision_DesiredBuoyColor"] = &VisionModel_U.DesiredBuoyColor;
@@ -117,6 +126,7 @@ void Vision::step()
 
     // call the function
     VisionModel_step();
+
 
     // set the outputs of the function
     setData("Vision.Output.TargetSelect", VisionModel_Y.TargetSelect);
