@@ -53,7 +53,7 @@ Model {
       Name		      "TargetDetected"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.145"
+    ComputedModelVersion    "1.146"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -73,9 +73,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Administrator"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jun 03 08:23:37 2011"
-  RTWModifiedTimeStamp	  228990045
-  ModelVersionFormat	  "1.%<AutoIncrement:145>"
+  LastModifiedDate	  "Mon Jun 20 20:39:00 2011"
+  RTWModifiedTimeStamp	  230503139
+  ModelVersionFormat	  "1.%<AutoIncrement:146>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -741,7 +741,7 @@ Model {
   }
   System {
     Name		    "L_detector"
-    Location		    [2, 72, 1278, 711]
+    Location		    [2, 76, 1270, 715]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -787,7 +787,7 @@ Model {
       Name		      "Are 3 Lines Present1"
       SID		      "321"
       Ports		      [3, 3]
-      Position		      [845, 156, 1020, 224]
+      Position		      [810, 156, 985, 224]
       LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on

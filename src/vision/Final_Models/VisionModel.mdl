@@ -56,7 +56,7 @@ Model {
       BusObject		      ""
       Name		      "DefaultTargetColor"
     }
-    NumRootOutports	    18
+    NumRootOutports	    19
     Outport {
       BusObject		      ""
       BusOutputAsStruct	      "off"
@@ -147,8 +147,13 @@ Model {
       BusOutputAsStruct	      "off"
       Name		      "DesiredYaw"
     }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetDetected"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.366"
+    ComputedModelVersion    "1.372"
     NumModelReferences	    6
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Buoy Detection/buoy_detector.mdl|buoy_detector"
@@ -184,11 +189,11 @@ Model {
   Creator		  "Administrator"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "auvt"
+  LastModifiedBy	  "Administrator"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 12:49:57 2011"
-  RTWModifiedTimeStamp	  230469004
-  ModelVersionFormat	  "1.%<AutoIncrement:366>"
+  LastModifiedDate	  "Mon Jun 20 20:43:22 2011"
+  RTWModifiedTimeStamp	  230503286
+  ModelVersionFormat	  "1.%<AutoIncrement:372>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -890,7 +895,7 @@ Model {
   }
   System {
     Name		    "VisionModel"
-    Location		    [1440, 50, 3120, 1050]
+    Location		    [2, 72, 1262, 711]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -904,7 +909,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "338"
+    SIDHighWatermark	    "340"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -1119,6 +1124,17 @@ Model {
       SID		      "272"
       Ports		      [6, 1]
       Position		      [2365, 1346, 2420, 1389]
+      Inputs		      "++++++"
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Add18"
+      SID		      "339"
+      Ports		      [6, 1]
+      Position		      [2365, 1416, 2420, 1459]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -2711,7 +2727,7 @@ Model {
       System {
 	Name			"Validation Gate"
 	Location		[4, 83, 1016, 738]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2727,14 +2743,14 @@ Model {
 	  BlockType		  Inport
 	  Name			  "R_forward_in"
 	  SID			  "146"
-	  Position		  [60, 83, 90, 97]
+	  Position		  [50, 153, 80, 167]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "G_forward_in"
 	  SID			  "148"
-	  Position		  [60, 118, 90, 132]
+	  Position		  [50, 188, 80, 202]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
@@ -2742,7 +2758,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "B_forward_in"
 	  SID			  "149"
-	  Position		  [60, 153, 90, 167]
+	  Position		  [50, 223, 80, 237]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
@@ -2758,7 +2774,7 @@ Model {
 	  Name			  "validation_gate.mdl"
 	  SID			  "109"
 	  Ports			  [3, 7]
-	  Position		  [220, 136, 465, 434]
+	  Position		  [205, 111, 450, 409]
 	  ModelNameDialog	  "validation_gate"
 	  SimulationMode	  "Accelerator"
 	  ModelReferenceVersion	  "1.1144"
@@ -2867,43 +2883,70 @@ Model {
 	Line {
 	  SrcBlock		  "R_forward_in"
 	  SrcPort		  1
-	  Points		  [65, 0; 0, 95]
 	  DstBlock		  "validation_gate.mdl"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "G_forward_in"
 	  SrcPort		  1
-	  Points		  [55, 0; 0, 160]
+	  Points		  [65, 0; 0, 65]
 	  DstBlock		  "validation_gate.mdl"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "B_forward_in"
 	  SrcPort		  1
-	  Points		  [45, 0; 0, 225]
+	  Points		  [55, 0; 0, 130]
 	  DstBlock		  "validation_gate.mdl"
 	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  7
-	  Points		  [70, 0; 0, -65]
+	  Points		  [100, 0; 0, -40]
 	  DstBlock		  "TargetDetected"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  4
-	  Points		  [70, 0; 0, -90]
+	  Points		  [60, 0; 0, -65]
 	  DstBlock		  "TargetY"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  5
-	  Points		  [120, 0]
+	  Points		  [70, 0; 0, -70]
 	  DstBlock		  "TargetZ"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  1
+	  Points		  [35, 0; 0, -50]
+	  DstBlock		  "TargetSelect"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  2
+	  Points		  [45, 0; 0, -55]
+	  DstBlock		  "TargetFound"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  3
+	  Points		  [50, 0; 0, -70; 85, 0]
+	  DstBlock		  "MaintainHeading"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  6
+	  Points		  [90, 0; 0, -75]
+	  DstBlock		  "TargetYaw"
 	  DstPort		  1
 	}
       }
@@ -3066,6 +3109,15 @@ Model {
       SID		      "22"
       Position		      [2480, 1363, 2510, 1377]
       Port		      "18"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetDetected"
+      SID		      "340"
+      Position		      [2480, 1433, 2510, 1447]
+      Port		      "19"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
@@ -3384,15 +3436,56 @@ Model {
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      5
-      Points		      [755, 0]
+      Points		      [160, 0; 0, -180]
       DstBlock		      "Add5"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      4
-      Points		      [740, 0; 0, -175]
+      Points		      [155, 0; 0, -175]
       DstBlock		      "Add4"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      1
+      Points		      [140, 0; 0, -210]
+      DstBlock		      "Add"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      2
+      Points		      [145, 0; 0, -220]
+      DstBlock		      "Add1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      3
+      Points		      [150, 0; 0, -230]
+      DstBlock		      "Add2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      6
+      Points		      [165, 0; 0, -185]
+      DstBlock		      "Add6"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      7
+      Points		      [170, 0; 0, 510]
+      DstBlock		      "Add18"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Add18"
+      SrcPort		      1
+      DstBlock		      "TargetDetected"
       DstPort		      1
     }
     Annotation {
@@ -3454,7 +3547,7 @@ Model {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Aug  8 2010, 22:51:52
+#    Stateflow Version 7.5 (R2010a) dated Jul 24 2010, 07:30:36
 #
 #
 
