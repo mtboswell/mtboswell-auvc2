@@ -218,9 +218,9 @@ HEADERS +=  \
     vision/src/vipblob_rt.h \
     vision/src/vip_2dpad_sim.h \
     vision/src/VideoDefs.h \
-    vision/src/validation_gate_v4_types.h \
-    vision/src/validation_gate_v4_private.h \
-    vision/src/validation_gate_v4.h \
+    vision/src/validation_gate_types.h \
+    vision/src/validation_gate_private.h \
+    vision/src/validation_gate.h \
     vision/src/upsup_public.h \
     vision/src/updown_util.h \
     vision/src/updown.h \
@@ -368,8 +368,8 @@ SOURCES +=  \
     vision/vision.cpp \
     vision/src/VisionModel_data.cpp \
     vision/src/VisionModel.cpp \
-    vision/src/validation_gate_v4_data.cpp \
-    vision/src/validation_gate_v4.cpp \
+    vision/src/validation_gate_data.cpp \
+    vision/src/validation_gate.cpp \
     vision/src/torpedo_data.cpp \
     vision/src/torpedo.cpp \
     vision/src/rt_pow_snf.cpp \

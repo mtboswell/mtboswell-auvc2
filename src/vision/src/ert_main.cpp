@@ -68,29 +68,29 @@ void rt_OneStep(void)
  * Attaching rt_OneStep to a real-time clock is target specific.  This example
  * illustates how you do this relative to initializing the model.
  */
-int_T main(int_T argc, const char_T *argv[]);
-int_T main(int_T argc, const char_T *argv[])
-{
-  /* Initialize model */
-  VisionModel_initialize();
+//int_T main(int_T argc, const char_T *argv[]);
+//int_T main(int_T argc, const char_T *argv[])
+//{
+//  /* Initialize model */
+//  VisionModel_initialize();
 
-  /* Attach rt_OneStep to a timer or interrupt service routine with
-   * period 0.033333333333333333 seconds (the model's base sample time) here.  The
-   * call syntax for rt_OneStep is
-   *
-   *  rt_OneStep();
-   */
-  printf("Warning: The simulation will run forever. "
-         "Generated ERT main won't simulate model step behavior. "
-         "To change this behavior select the 'MAT-file logging' option.\n");
-  fflush((NULL));
-  while (rtmGetErrorStatus(VisionModel_M) == (NULL)) {
-    /*  Perform other application tasks here */
-  }
+//  /* Attach rt_OneStep to a timer or interrupt service routine with
+//   * period 0.033333333333333333 seconds (the model's base sample time) here.  The
+//   * call syntax for rt_OneStep is
+//   *
+//   *  rt_OneStep();
+//   */
+//  printf("Warning: The simulation will run forever. "
+//         "Generated ERT main won't simulate model step behavior. "
+//         "To change this behavior select the 'MAT-file logging' option.\n");
+//  fflush((NULL));
+//  while (rtmGetErrorStatus(VisionModel_M) == (NULL)) {
+//    /*  Perform other application tasks here */
+//  }
 
-  /* Disable rt_OneStep() here */
-  return 0;
-}
+//  /* Disable rt_OneStep() here */
+//  return 0;
+//}
 
 /*
  * File trailer for Real-Time Workshop generated code.

@@ -26,7 +26,7 @@ Vision::Vision() : SimulinkModule()
     paramList["Vision_DesiredBuoyColor"] = &VisionModel_U.DesiredBuoyColor;
     paramList["Vision_DesiredTorpedoColor"] = &VisionModel_U.DesiredTorpedoColor;
     paramList["Vision_ProceedToSecondTarget"] = &VisionModel_U.ProceedToSecondTarget;
-    paramList["Vision_DefaultTargetShape"] = &VisionModel_U.DefaultTargetShape;
+    paramList["Vision_DefaultTaretShape"] = &VisionModel_U.DefaultTaretShape;
     paramList["Vision_DefaultTargetColor"] = &VisionModel_U.DefaultTargetColor;
 }
 
@@ -79,7 +79,7 @@ void Vision::step()
     int d_width = downwardCam->width();
     int d_height = downwardCam->height();
 
-	std::cerr << "forward [w,h]" << f_width << " " << f_height << "  --- downward [w,h]" << d_width << " " << d_height << std::endl; 
+//	std::cerr << "forward [w,h]" << f_width << " " << f_height << "  --- downward [w,h]" << d_width << " " << d_height << std::endl;
     if (f_width > FORWARD_CAM_MAX_WIDTH || f_height > FORWARD_CAM_MAX_HEIGHT || d_width > DOWNWARD_CAM_MAX_WIDTH || d_height > DOWNWARD_CAM_MAX_HEIGHT)
     {
         std::cerr << "Vision::step(): ERROR! Forward/Downward Camera Width/Height mismatch (got something larger)" << std::endl;
@@ -138,7 +138,7 @@ void Vision::step()
     setData("Vision.Output.DesiredXVelocity", VisionModel_Y.DesiredXVelocity);
     setData("Vision.Output.DesiredYaw", VisionModel_Y.DesiredYaw);
     setData("Vision.Output.TargetDetected", VisionModel_Y.TargetDetected);
-    setData("Vision.Output.PathState", VisionModel_Y.PathState);
+//    setData("Vision.Output.PathState", VisionModel_Y.PathState);
 //    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
-    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
+//    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
 }
