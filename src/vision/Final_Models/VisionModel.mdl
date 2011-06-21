@@ -168,7 +168,7 @@ Model {
       Name		      "FireAuthorization"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.385"
+    ComputedModelVersion    "1.389"
     NumModelReferences	    5
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Drop Mechanism Target/drop_mech.mdl|drop_mech"
@@ -203,9 +203,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 21 01:39:39 2011"
+  LastModifiedDate	  "Tue Jun 21 02:38:56 2011"
   RTWModifiedTimeStamp	  230520983
-  ModelVersionFormat	  "1.%<AutoIncrement:385>"
+  ModelVersionFormat	  "1.%<AutoIncrement:389>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -786,6 +786,12 @@ Model {
       ActionType	      "unset"
     }
     Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
       BlockType		      Gain
       Gain		      "1"
       Multiplication	      "Element-wise(K.*u)"
@@ -850,6 +856,13 @@ Model {
       InitialOutput	      "[]"
     }
     Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+      SFunctionDeploymentMode off
+    }
+    Block {
       BlockType		      SubSystem
       ShowPortLabels	      "FromPortIcon"
       Permissions	      "ReadWrite"
@@ -887,10 +900,13 @@ Model {
       SaturateOnIntegerOverflow	on
       SampleTime	      "-1"
     }
+    Block {
+      BlockType		      Terminator
+    }
   }
   System {
     Name		    "VisionModel"
-    Location		    [0, 83, 1440, 867]
+    Location		    [1440, 50, 3120, 1050]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -904,7 +920,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "343"
+    SIDHighWatermark	    "344"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -2083,6 +2099,149 @@ Model {
       }
     }
     Block {
+      BlockType		      SubSystem
+      Name		      "Identify Validation Gate"
+      SID		      "344"
+      Ports		      [3, 1]
+      Position		      [1905, 728, 2185, 892]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      SystemSampleTime	      "[1/30 0]"
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('dummie_function');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Identify Validation Gate"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"54"
+	Block {
+	  BlockType		  Inport
+	  Name			  "r"
+	  SID			  "344::41"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "g"
+	  SID			  "344::1"
+	  Position		  [20, 136, 40, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "b"
+	  SID			  "344::34"
+	  Position		  [20, 171, 40, 189]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "344::23"
+	  Ports			  [1, 1]
+	  Position		  [270, 365, 320, 405]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "344::22"
+	  Tag			  "Stateflow S-Function VisionModel 1"
+	  Ports			  [3, 2]
+	  Position		  [180, 123, 230, 367]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[3 2]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "debugging_output"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "344::25"
+	  Position		  [460, 376, 480, 394]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "debugging_output"
+	  SID			  "344::39"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "r"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "g"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "b"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "debugging_output"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "debugging_output"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
       BlockType		      If
       Name		      "If"
       SID		      "96"
@@ -2654,7 +2813,7 @@ Model {
       System {
 	Name			"Validation Gate"
 	Location		[47, 208, 1059, 863]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2704,7 +2863,7 @@ Model {
 	  Position		  [205, 111, 450, 409]
 	  ModelNameDialog	  "validation_gate"
 	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.1174"
+	  ModelReferenceVersion	  "1.1175"
 	  List {
 	    ListType		    InputPortNames
 	    port0		    "R_forward_in"
@@ -3251,88 +3410,112 @@ Model {
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      2
-      Points		      [410, 0; 0, 530]
+      Points		      [410, 0]
       Branch {
-	DstBlock		"Validation Gate"
-	DstPort			2
-      }
-      Branch {
-	Points			[0, 785]
+	Points			[0, 530]
 	Branch {
-	  Points		  [455, 0]
-	  DstBlock		  "Buoy Detection"
+	  DstBlock		  "Validation Gate"
 	  DstPort		  2
 	}
 	Branch {
-	  Points		  [0, 455]
+	  Points		  [0, 785]
 	  Branch {
-	    DstBlock		    "Torpedo Target Detection"
+	    Points		    [455, 0]
+	    DstBlock		    "Buoy Detection"
 	    DstPort		    2
 	  }
 	  Branch {
-	    Points		    [0, 385]
-	    DstBlock		    "L-Obstacle Detection"
-	    DstPort		    2
+	    Points		    [0, 455]
+	    Branch {
+	      DstBlock		      "Torpedo Target Detection"
+	      DstPort		      2
+	    }
+	    Branch {
+	      Points		      [0, 385]
+	      DstBlock		      "L-Obstacle Detection"
+	      DstPort		      2
+	    }
 	  }
 	}
+      }
+      Branch {
+	Points			[1015, 0; 0, 635]
+	DstBlock		"Identify Validation Gate"
+	DstPort			2
       }
     }
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      3
-      Points		      [405, 0; 0, 680]
+      Points		      [405, 0]
       Branch {
-	DstBlock		"Validation Gate"
-	DstPort			3
-      }
-      Branch {
-	Points			[0, 725]
+	Points			[0, 680]
 	Branch {
-	  Points		  [460, 0]
-	  DstBlock		  "Buoy Detection"
+	  DstBlock		  "Validation Gate"
 	  DstPort		  3
 	}
 	Branch {
-	  Points		  [0, 430]
+	  Points		  [0, 725]
 	  Branch {
-	    DstBlock		    "Torpedo Target Detection"
+	    Points		    [460, 0]
+	    DstBlock		    "Buoy Detection"
 	    DstPort		    3
 	  }
 	  Branch {
-	    Points		    [0, 390]
-	    DstBlock		    "L-Obstacle Detection"
-	    DstPort		    3
+	    Points		    [0, 430]
+	    Branch {
+	      DstBlock		      "Torpedo Target Detection"
+	      DstPort		      3
+	    }
+	    Branch {
+	      Points		      [0, 390]
+	      DstBlock		      "L-Obstacle Detection"
+	      DstPort		      3
+	    }
 	  }
 	}
+      }
+      Branch {
+	Points			[990, 0; 0, 675]
+	DstBlock		"Identify Validation Gate"
+	DstPort			3
       }
     }
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      1
-      Points		      [415, 0; 0, 380]
+      Points		      [415, 0]
       Branch {
-	DstBlock		"Validation Gate"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 845]
+	Points			[0, 380]
 	Branch {
-	  Points		  [450, 0]
-	  DstBlock		  "Buoy Detection"
+	  DstBlock		  "Validation Gate"
 	  DstPort		  1
 	}
 	Branch {
-	  Points		  [0, 480]
+	  Points		  [0, 845]
 	  Branch {
-	    DstBlock		    "Torpedo Target Detection"
+	    Points		    [450, 0]
+	    DstBlock		    "Buoy Detection"
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, 380]
-	    DstBlock		    "L-Obstacle Detection"
-	    DstPort		    1
+	    Points		    [0, 480]
+	    Branch {
+	      DstBlock		      "Torpedo Target Detection"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [0, 380]
+	      DstBlock		      "L-Obstacle Detection"
+	      DstPort		      1
+	    }
 	  }
 	}
+      }
+      Branch {
+	Points			[1045, 0; 0, 595]
+	DstBlock		"Identify Validation Gate"
+	DstPort			1
       }
     }
     Line {
@@ -3430,6 +3613,13 @@ Model {
       DstBlock		      "TargetDetected"
       DstPort		      1
     }
+    Line {
+      SrcBlock		      "Identify Validation Gate"
+      SrcPort		      1
+      Points		      [155, 0; 0, -345]
+      DstBlock		      "Add3"
+      DstPort		      1
+    }
     Annotation {
       Name		      "Current target information"
       Position		      [2699, 483]
@@ -3500,20 +3690,183 @@ Stateflow {
     name		    "VisionModel"
     created		    "30-May-2011 12:35:50"
     isLibrary		    0
-    firstTarget		    2
+    firstTarget		    11
     sfVersion		    75014000.000003
   }
-  target {
+  chart {
     id			    2
+    name		    "Identify Validation Gate"
+    windowPosition	    [443.98 151.448 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 3 0 0]
+    firstTransition	    5
+    firstJunction	    4
+    viewObj		    2
+    machine		    1
+    subviewS {
+    }
+    ssIdHighWaterMark	    34
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    6
+    chartFileNumber	    1
+    disableImplicitCasting  1
+    eml {
+      name		      "dummie_function"
+    }
+  }
+  state {
+    id			    3
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 0 0]
+    superState		    SUBCHART
+    subviewer		    2
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function debugging_output = dummie_function(r, g, b)\n%#eml\n\n\ndebugging_output = sqrt(r(50,50)"
+      "^2 + g(50,50)^2 + b(50,50)^2);\n\n%debugging_output = max(max(max(g)));\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
+    }
+  }
+  junction {
+    id			    4
+    position		    [23.5747 49.5747 7]
+    chart		    2
+    linkNode		    [2 0 0]
+    subviewer		    2
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    5
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      4
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    2
+    linkNode		    [2 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    2
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    6
+    ssIdNumber		    21
+    name		    "r"
+    linkNode		    [2 0 7]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    7
+    ssIdNumber		    4
+    name		    "g"
+    linkNode		    [2 6 8]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    8
+    ssIdNumber		    19
+    name		    "debugging_output"
+    linkNode		    [2 7 9]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    9
+    ssIdNumber		    16
+    name		    "b"
+    linkNode		    [2 8 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    10
+    name		    "Identify Validation Gate"
+    machine		    1
+    chart		    2
+  }
+  target {
+    id			    11
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 3]
+    linkNode		    [1 0 12]
   }
   target {
-    id			    3
+    id			    12
     name		    "rtw"
     machine		    1
-    linkNode		    [1 2 0]
+    linkNode		    [1 11 0]
   }
 }
