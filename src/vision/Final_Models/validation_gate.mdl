@@ -53,7 +53,7 @@ Model {
       Name		      "TargetDetected"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1174"
+    ComputedModelVersion    "1.1175"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -73,9 +73,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 21 01:39:39 2011"
-  RTWModifiedTimeStamp	  230520947
-  ModelVersionFormat	  "1.%<AutoIncrement:1174>"
+  LastModifiedDate	  "Tue Jun 21 02:30:33 2011"
+  RTWModifiedTimeStamp	  230524213
+  ModelVersionFormat	  "1.%<AutoIncrement:1175>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -736,7 +736,7 @@ Model {
   }
   System {
     Name		    "validation_gate"
-    Location		    [4, 83, 1000, 715]
+    Location		    [0, 83, 1440, 867]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -3096,7 +3096,7 @@ Stateflow {
       "ery simple, potentially inaccurate)\nif( sum( (rho_gate == 0) + (theta_gate == 0) ) > 0 )\n    \n    gate_found "
       "= 0;\n    target_z = 0;\n    target_y = 0;\n    \nelse\n    \n    gate_found = 1;\n    \n    % Transform target "
       "r, c to global coordinate system\n    target_z = r_t - floor(rows/2);\n    target_y = c_t - floor(cols/2);\n    "
-      "\nend\n\n\nreturn\n"
+      "\nend\n\n\n\ntarget_y = rho(1)*180/pi;\n\nreturn\n"
       editorLayout	      "100 M4x1[101 68 1056 606]"
     }
   }
