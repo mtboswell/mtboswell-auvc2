@@ -29,8 +29,8 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 23:16:26 2011"
-  RTWModifiedTimeStamp	  230510114
+  LastModifiedDate	  "Tue Jun 21 00:25:42 2011"
+  RTWModifiedTimeStamp	  230516720
   ModelVersionFormat	  "1.%<AutoIncrement:912>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
@@ -1745,39 +1745,7 @@ Model {
 	port16			"off"
 	port17			"off"
       }
-      List {
-	ListType		InputPortLatchByCopyingInsideSignal
-	port0			"off"
-	port1			"off"
-	port2			"off"
-	port3			"off"
-	port4			"off"
-	port5			"off"
-	port6			"off"
-	port7			"off"
-	port8			"off"
-	port9			"off"
-	port10			"off"
-	port11			"off"
-	port12			"off"
-      }
       CopyOfModelName	      "VisionModel"
-      List {
-	ListType		InputPortLatchByDelayingOutsideSignal
-	port0			"off"
-	port1			"off"
-	port2			"off"
-	port3			"off"
-	port4			"off"
-	port5			"off"
-	port6			"off"
-	port7			"off"
-	port8			"off"
-	port9			"off"
-	port10			"off"
-	port11			"off"
-	port12			"off"
-      }
     }
     Block {
       BlockType		      SubSystem

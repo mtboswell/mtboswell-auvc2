@@ -6,7 +6,7 @@
 Forward_Camera_Dimensions = [640 480];
 Down_Camera_Dimensions = [480 640];
 %Forward_Camera_Dimensions = [752 480];
-%Down_Camera_Dimensions = [480 752];
+%Down_Camera_Dimensions = [120 160];
 
 % The following configuration has been tested with a high success rate on
 % static images for the validation gate:

@@ -16,7 +16,7 @@ Model {
       BusObject		      ""
       Name		      "B_forward_in"
     }
-    NumRootOutports	    10
+    NumRootOutports	    13
     Outport {
       BusObject		      ""
       BusOutputAsStruct	      "off"
@@ -67,8 +67,23 @@ Model {
       BusOutputAsStruct	      "off"
       Name		      "Edge"
     }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "Hough"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "Theta"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "Rho"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1165"
+    ComputedModelVersion    "1.1169"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -88,9 +103,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 23:07:40 2011"
-  RTWModifiedTimeStamp	  230511101
-  ModelVersionFormat	  "1.%<AutoIncrement:1165>"
+  LastModifiedDate	  "Tue Jun 21 01:23:07 2011"
+  RTWModifiedTimeStamp	  230520185
+  ModelVersionFormat	  "1.%<AutoIncrement:1169>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -765,7 +780,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "523"
+    SIDHighWatermark	    "526"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -907,11 +922,6 @@ Model {
 	  RTWSystemCode		  "Auto"
 	  FunctionWithSeparateData off
 	  Opaque		  off
-	  Array {
-	    Type		    "Handle"
-	    Dimension		    0
-	    PropName		    "AvailSigsLoadSave"
-	  }
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  MaskType		  "Stateflow"
@@ -1195,11 +1205,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -1313,11 +1318,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -1431,11 +1431,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -1669,11 +1664,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -1843,11 +1833,6 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
-		  Array {
-		    Type		    "Handle"
-		    Dimension		    0
-		    PropName		    "AvailSigsLoadSave"
-		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -2627,11 +2612,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -2932,25 +2912,76 @@ Model {
       Port		      "10"
       IconDisplay	      "Port number"
     }
+    Block {
+      BlockType		      Outport
+      Name		      "Hough"
+      SID		      "524"
+      Position		      [670, 38, 700, 52]
+      Port		      "11"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "Theta"
+      SID		      "525"
+      Position		      [670, 83, 700, 97]
+      Port		      "12"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "Rho"
+      SID		      "526"
+      Position		      [670, 123, 700, 137]
+      Port		      "13"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
     Line {
       SrcBlock		      "Hough Transform1"
       SrcPort		      1
-      Points		      [75, 0]
-      DstBlock		      "Identify Validation Gate"
-      DstPort		      2
+      Points		      [10, 0]
+      Branch {
+	Points			[65, 0]
+	DstBlock		"Identify Validation Gate"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, -205]
+	DstBlock		"Hough"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "Hough Transform1"
       SrcPort		      2
-      DstBlock		      "Identify Validation Gate"
-      DstPort		      3
+      Points		      [15, 0]
+      Branch {
+	DstBlock		"Identify Validation Gate"
+	DstPort			3
+      }
+      Branch {
+	Points			[0, -180]
+	DstBlock		"Theta"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "Hough Transform1"
       SrcPort		      3
-      Points		      [75, 0]
-      DstBlock		      "Identify Validation Gate"
-      DstPort		      4
+      Points		      [20, 0]
+      Branch {
+	Points			[55, 0]
+	DstBlock		"Identify Validation Gate"
+	DstPort			4
+      }
+      Branch {
+	Points			[0, -160]
+	DstBlock		"Rho"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "Edge Detection"
@@ -3496,7 +3527,7 @@ Stateflow {
     eml {
       isEML		      1
       script		      "function [intensity_image, segmented_image]  = makeIntensityImage(LabelMatrix, num_colors, ref_co"
-      "lors)\n%#eml\n\n\n% Initialize\nmax_num_cols = 1;\n[rows, cols] = size(LabelMatrix);\nintensity_image = zeros(ro"
+      "lors)\n%#eml\n\n\n% Initialize\nmax_num_cols = 2;\n[rows, cols] = size(LabelMatrix);\nintensity_image = zeros(ro"
       "ws, cols);\nmaxL = zeros(1, max_num_cols);\ngate_i = ones(1, max_num_cols);\n\n\n% Form a simple intensity image"
       " showing segmented color regions\nsegmented_image = LabelMatrix./max(max(max(abs(LabelMatrix))));\n\n\n% Identif"
       "y max_num_cols colors with the brightest L color components\nfor n = 1:max_num_cols\n    \n    for i = 1:num_col"
