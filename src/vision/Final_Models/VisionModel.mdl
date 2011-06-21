@@ -50,13 +50,13 @@ Model {
     }
     Inport {
       BusObject		      ""
-      Name		      "DefaultTaretShape"
+      Name		      "DefaultTargetShape"
     }
     Inport {
       BusObject		      ""
       Name		      "DefaultTargetColor"
     }
-    NumRootOutports	    19
+    NumRootOutports	    22
     Outport {
       BusObject		      ""
       BusOutputAsStruct	      "off"
@@ -152,8 +152,23 @@ Model {
       BusOutputAsStruct	      "off"
       Name		      "TargetDetected"
     }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "PathState"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "BuoyColors"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "FireAuthorization"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.378"
+    ComputedModelVersion    "1.381"
     NumModelReferences	    6
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Buoy Detection/buoy_detector.mdl|buoy_detector"
@@ -191,9 +206,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 21:16:37 2011"
+  LastModifiedDate	  "Mon Jun 20 21:33:58 2011"
   RTWModifiedTimeStamp	  230504209
-  ModelVersionFormat	  "1.%<AutoIncrement:378>"
+  ModelVersionFormat	  "1.%<AutoIncrement:381>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -725,6 +740,7 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
+      ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
       CurrentDlgPage	      "Optimization"
       ConfigPrmDlgPosition    " [ 1440, 0, 3120, 1050 ] "
     }
@@ -877,7 +893,7 @@ Model {
   }
   System {
     Name		    "VisionModel"
-    Location		    [0, 83, 1440, 867]
+    Location		    [0, 102, 1407, 852]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -891,7 +907,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "340"
+    SIDHighWatermark	    "343"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -987,7 +1003,7 @@ Model {
     }
     Block {
       BlockType		      Inport
-      Name		      "DefaultTaretShape"
+      Name		      "DefaultTargetShape"
       SID		      "37"
       Position		      [1035, 2543, 1065, 2557]
       Port		      "12"
@@ -3046,6 +3062,33 @@ Model {
       SID		      "340"
       Position		      [2480, 1433, 2510, 1447]
       Port		      "19"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "PathState"
+      SID		      "341"
+      Position		      [2480, 1588, 2510, 1602]
+      Port		      "20"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "BuoyColors"
+      SID		      "342"
+      Position		      [2480, 1628, 2510, 1642]
+      Port		      "21"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "FireAuthorization"
+      SID		      "343"
+      Position		      [2480, 1668, 2510, 1682]
+      Port		      "22"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
