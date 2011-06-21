@@ -180,3 +180,7 @@ void Pololu::setMotorSpeed(int motorNum, int motorSpeed){
 
 	sendTrexCmd(device, command, data);
 }
+
+void Pololu::writeSolCmd(QByteArray data) {
+	port->write(data);
+}
