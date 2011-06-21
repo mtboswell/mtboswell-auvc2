@@ -53,7 +53,7 @@ Model {
       Name		      "TargetDetected"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1147"
+    ComputedModelVersion    "1.1149"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -71,11 +71,11 @@ Model {
   Creator		  "Thing 1"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Administrator"
+  LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 20:44:37 2011"
-  RTWModifiedTimeStamp	  230503411
-  ModelVersionFormat	  "1.%<AutoIncrement:1147>"
+  LastModifiedDate	  "Mon Jun 20 21:11:05 2011"
+  RTWModifiedTimeStamp	  230504702
+  ModelVersionFormat	  "1.%<AutoIncrement:1149>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -225,7 +225,7 @@ Model {
 	  BlockReduction	  on
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
-	  InlineParams		  off
+	  InlineParams		  on
 	  UseIntDivNetSlope	  off
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
@@ -511,7 +511,7 @@ Model {
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant on
 	      CompOptLevelCompliant   on
-	      IncludeMdlTerminateFcn  on
+	      IncludeMdlTerminateFcn  off
 	      GeneratePreprocessorConditionals "Use local settings"
 	      CombineOutputUpdateFcns on
 	      CombineSignalStateStructs	off
@@ -606,9 +606,8 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
-      ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 1863, 46, 2767, 754 ] "
+      CurrentDlgPage	      "Optimization"
+      ConfigPrmDlgPosition    " [ 177, 18, 1105, 804 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -736,7 +735,7 @@ Model {
   }
   System {
     Name		    "validation_gate"
-    Location		    [2, 76, 1014, 708]
+    Location		    [4, 83, 1016, 715]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -838,7 +837,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Convert to BW"
-	Location		[2, 76, 998, 708]
+	Location		[4, 83, 1000, 715]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2944,7 +2943,7 @@ MatData {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Jul 24 2010, 07:30:36
+#    Stateflow Version 7.5 (R2010a) dated Aug  8 2010, 22:51:52
 #
 #
 
