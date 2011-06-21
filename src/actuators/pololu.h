@@ -84,6 +84,8 @@ class Pololu : public QThread
 		 */
 		void setMotorSpeed(int motorNum, int motorSpeed);
 
+		void writeSolCmd(QByteArray data);
+
 		//void setOutput(char outputNum, int output);
 
 	private:

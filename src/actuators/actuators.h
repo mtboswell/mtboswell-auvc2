@@ -26,6 +26,7 @@ class Actuators: public Module
 			sub << "ThrustersON.Angled";
 			return sub;
 		}
+		void fireTorpedo(int torp, bool fire);
 	private slots:
 		void dataIn(VDatum datum);
 		void step();

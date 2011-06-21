@@ -67,4 +67,24 @@ void Actuators::setThrusters(double thrusterSpeeds[4]){
 	}
 }
 
+void Actuators::fireTorpedo(int torp, bool fire) {
+	QByteArray data;
+	data.append(0x80);
+	data.append(0x01);
+	data.append(0x02);
+
+	if (torp = 1) {
+		data.append(0x03);
+	}
+	else {
+		data.append(0x07);
+	}
+	if (fire) {
+		data.append(0x7F);
+	}
+	else {
+		data.append(0x01);
+	}
+	pololu->writeSolCmd(data);
+}
 #endif
