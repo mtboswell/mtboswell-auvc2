@@ -27,7 +27,7 @@ Model {
       Name		      "Number of Buoys"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.650"
+    ComputedModelVersion    "1.652"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -47,9 +47,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 21:11:25 2011"
-  RTWModifiedTimeStamp	  230504814
-  ModelVersionFormat	  "1.%<AutoIncrement:650>"
+  LastModifiedDate	  "Mon Jun 20 23:23:58 2011"
+  RTWModifiedTimeStamp	  230512997
+  ModelVersionFormat	  "1.%<AutoIncrement:652>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -786,7 +786,7 @@ Model {
       BlockType		      SubSystem
       Name		      "IterativeSegmentation"
       SID		      "1"
-      Ports		      [3, 4]
+      Ports		      [3, 3]
       Position		      [535, 232, 810, 358]
       UndoDeleteFcn	      "Stateflow.SLINSF.SimulinkMan.restorePreDeleteFcn"
       PreDeleteFcn	      "Stateflow.SLINSF.SimulinkMan.removePreDeleteFcn"
@@ -799,7 +799,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"IterativeSegmentation"
-	Location		[2, 76, 1270, 731]
+	Location		[4, 83, 1272, 738]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -850,148 +850,6 @@ Model {
 	  rec			  "Rec. 601 (SDTV)"
 	  sys			  "1125/60/2:1"
 	  imagePorts		  "Separate color signals"
-	}
-	Block {
-	  BlockType		  SubSystem
-	  Name			  "Embedded\nMATLAB Function1"
-	  SID			  "100"
-	  Ports			  [3, 1]
-	  Position		  [445, 274, 625, 346]
-	  LibraryVersion	  "1.31"
-	  PermitHierarchicalResolution "ExplicitOnly"
-	  TreatAsAtomicUnit	  on
-	  MinAlgLoopOccurrences	  off
-	  PropExecContextOutsideSubsystem off
-	  RTWSystemCode		  "Auto"
-	  FunctionWithSeparateData off
-	  Opaque		  off
-	  RequestExecContextInheritance	off
-	  MaskHideContents	  off
-	  MaskType		  "Stateflow"
-	  MaskDescription	  "Embedded MATLAB block"
-	  MaskSelfModifiable	  on
-	  MaskDisplay		  "disp('SeparatetoSingleSignals');"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  off
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "autoscale"
-	  System {
-	    Name		    "Embedded\nMATLAB Function1"
-	    Location		    [257, 457, 812, 717]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "usletter"
-	    PaperUnits		    "inches"
-	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "23"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "R"
-	      SID		      "100::1"
-	      Position		      [20, 101, 40, 119]
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "G"
-	      SID		      "100::18"
-	      Position		      [20, 136, 40, 154]
-	      Port		      "2"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "B"
-	      SID		      "100::19"
-	      Position		      [20, 171, 40, 189]
-	      Port		      "3"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Demux
-	      Name		      " Demux "
-	      SID		      "100::21"
-	      Ports		      [1, 1]
-	      Position		      [270, 180, 320, 220]
-	      Outputs		      "1"
-	    }
-	    Block {
-	      BlockType		      "S-Function"
-	      Name		      " SFunction "
-	      SID		      "100::20"
-	      Tag		      "Stateflow S-Function buoy_detector 9"
-	      Ports		      [3, 2]
-	      Position		      [180, 100, 230, 180]
-	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[3 2]"
-	      EnableBusSupport	      on
-	      Port {
-		PortNumber		2
-		Name			"RGB"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
-	      BlockType		      Terminator
-	      Name		      " Terminator "
-	      SID		      "100::23"
-	      Position		      [460, 191, 480, 209]
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "RGB"
-	      SID		      "100::5"
-	      Position		      [460, 101, 480, 119]
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      SrcBlock		      " Demux "
-	      SrcPort		      1
-	      DstBlock		      " Terminator "
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "RGB"
-	      Labels		      [0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      2
-	      DstBlock		      "RGB"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "B"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      3
-	    }
-	    Line {
-	      SrcBlock		      "G"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "R"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      " SFunction "
-	      SrcPort		      1
-	      DstBlock		      " Demux "
-	      DstPort		      1
-	    }
-	  }
 	}
 	Block {
 	  BlockType		  SubSystem
@@ -2226,14 +2084,6 @@ Model {
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "RGB_LowPass"
-	  SID			  "96"
-	  Position		  [820, 303, 850, 317]
-	  Port			  "4"
-	  IconDisplay		  "Port number"
-	}
 	Line {
 	  SrcBlock		  "Segmentation"
 	  SrcPort		  3
@@ -2257,44 +2107,20 @@ Model {
 	Line {
 	  SrcBlock		  "Low Pass Filter"
 	  SrcPort		  3
-	  Points		  [60, 0]
-	  Branch {
-	    DstBlock		    "Color Space\n Conversion1"
-	    DstPort		    3
-	  }
-	  Branch {
-	    Points		    [0, 180]
-	    DstBlock		    "Embedded\nMATLAB Function1"
-	    DstPort		    3
-	  }
+	  DstBlock		  "Color Space\n Conversion1"
+	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "Low Pass Filter"
 	  SrcPort		  2
-	  Points		  [75, 0]
-	  Branch {
-	    DstBlock		    "Color Space\n Conversion1"
-	    DstPort		    2
-	  }
-	  Branch {
-	    Points		    [0, 175]
-	    DstBlock		    "Embedded\nMATLAB Function1"
-	    DstPort		    2
-	  }
+	  DstBlock		  "Color Space\n Conversion1"
+	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "Low Pass Filter"
 	  SrcPort		  1
-	  Points		  [90, 0]
-	  Branch {
-	    DstBlock		    "Color Space\n Conversion1"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, 170]
-	    DstBlock		    "Embedded\nMATLAB Function1"
-	    DstPort		    1
-	  }
+	  DstBlock		  "Color Space\n Conversion1"
+	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Color Space\n Conversion1"
@@ -2312,12 +2138,6 @@ Model {
 	  SrcBlock		  "Color Space\n Conversion1"
 	  SrcPort		  1
 	  DstBlock		  "Segmentation"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Embedded\nMATLAB Function1"
-	  SrcPort		  1
-	  DstBlock		  "RGB_LowPass"
 	  DstPort		  1
 	}
 	Line {
@@ -3365,14 +3185,14 @@ Model {
     Line {
       SrcBlock		      "IterativeSegmentation"
       SrcPort		      3
-      Points		      [85, 0; 0, -5; 190, 0]
+      Points		      [85, 0; 0, -30; 190, 0]
       DstBlock		      "Look for Buoys"
       DstPort		      3
     }
     Line {
       SrcBlock		      "IterativeSegmentation"
       SrcPort		      2
-      Points		      [210, 0; 0, 50]
+      Points		      [210, 0; 0, 35]
       DstBlock		      "Look for Buoys"
       DstPort		      4
     }
@@ -3469,7 +3289,7 @@ Stateflow {
     name		    "buoy_detector"
     created		    "28-Sep-2010 17:20:00"
     isLibrary		    0
-    firstTarget		    89
+    firstTarget		    80
     sfVersion		    75014000.000003
   }
   chart {
@@ -4260,10 +4080,10 @@ Stateflow {
   }
   chart {
     id			    37
-    name		    "IterativeSegmentation/Embedded\nMATLAB Function1"
-    windowPosition	    [136.489 354 200.25 189.75]
+    name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter"
+    windowPosition	    [446.813 189 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 1280 800 1.333333333333333]
+    screen		    [1 1 3120 1050 1.180555555555556]
     treeNode		    [0 38 0 0]
     firstTransition	    40
     firstJunction	    39
@@ -4273,11 +4093,12 @@ Stateflow {
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    41
-    chartFileNumber	    9
+    chartFileNumber	    45
     disableImplicitCasting  1
     eml {
-      name		      "SeparatetoSingleSignals"
+      name		      "GaussianBlurr"
     }
+    supportVariableSizing   0
   }
   state {
     id			    38
@@ -4293,11 +4114,26 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function RGB = SeparatetoSingleSignals(R,G,B)\n% This function combines the separate color signal"
-      "s into a single 3-D signal\n\n[rows, cols] = size(R);\n\nRGB = zeros(rows,cols,3);\n\nfor i = 1:rows\n    for j "
-      "= 1:cols\n        RGB(i,j,1) = R(i,j);\n        RGB(i,j,2) = G(i,j);\n        RGB(i,j,3) = B(i,j);\n    end\nend"
-      "\n\nreturn\n"
-      editorLayout	      "100 M4x1[205 227 1080 733]"
+      script		      "function Iout = GaussianBlurr(I)\n% This function calculates the gaussian blur of an intensity im"
+      "age\n\nsigma = sqrt(2);\n\nGrows = 3;    % Gaussian matrix rows\nGcols = 3;    % Gaussian matrix columns\n\n[Iro"
+      "ws Icols] = size(I);\n\nIout = double(zeros(Irows,Icols));\n\nTrows = Irows - Grows + 1;\nTcols = Icols - Gcols "
+      "+ 1;\nItemp = double(zeros(Trows,Tcols));\n\nG = zeros(Grows,Gcols);\n\nFirstRow = ceil(-Grows/2);\nLastRow = fl"
+      "oor(Grows/2);\nFirstCol = ceil(-Gcols/2);\nLastCol = floor(Gcols/2);\nGsum = 0;\nfor i=FirstRow:LastRow\n    for"
+      " j = FirstCol:LastCol\n        G(i-FirstRow+1,j-FirstCol+1) = exp(-(j*j+i*i)/(2*sigma*sigma));\n        Gsum = G"
+      "sum + G(i-FirstRow+1,j-FirstCol+1);\n    end\nend\n\nG = G./Gsum;\n\nItemp = conv2(double(I),double(G),'valid');"
+      "\n\n% reflect boundaries to keep image the same size\n% top\nIout((1:LastRow),(LastCol+1:Icols-LastCol)) = Itemp"
+      "((1:LastRow),(1:Tcols));\n% bottom\nIout((Irows-LastRow+1:Irows),(LastCol+1:Icols-LastCol)) = Itemp((Trows-LastR"
+      "ow+1:Trows),(1:Tcols));\n% left\nIout((1+LastRow:Irows-LastRow),(1:LastCol)) = Itemp((1:Trows),(1:LastCol));\n% "
+      "right\nIout((1+LastRow:Irows-LastRow),(Icols-LastCol+1:Icols)) = Itemp((1:Trows),(Tcols-LastCol+1:Tcols));\n% ce"
+      "nter\nIout((1+LastRow:Irows-LastRow),(1+LastCol:Icols-LastCol)) = Itemp;\n% top left corner\nIout(1:LastRow,1:La"
+      "stCol) = Itemp(1:LastRow,1:LastCol);\n% top right corner\nIout(1:LastRow,Icols-LastCol:Icols) = Itemp(1:LastRow,"
+      "Tcols-LastCol:Tcols);\n% bottom left corner\nIout(Irows-LastRow:Irows,1:LastCol) = Itemp(Trows-LastRow:Trows,1:L"
+      "astCol);\n% bottom right corner\nIout(Irows-LastRow:Irows,Icols-LastCol:Icols) = Itemp(Trows-LastRow:Trows,Tcols"
+      "-LastCol:Tcols);\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
     }
   }
   junction {
@@ -4333,7 +4169,7 @@ Stateflow {
   data {
     id			    41
     ssIdNumber		    4
-    name		    "R"
+    name		    "I"
     linkNode		    [37 0 42]
     scope		    INPUT_DATA
     machine		    1
@@ -4352,8 +4188,8 @@ Stateflow {
   data {
     id			    42
     ssIdNumber		    5
-    name		    "RGB"
-    linkNode		    [37 41 43]
+    name		    "Iout"
+    linkNode		    [37 41 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4369,204 +4205,27 @@ Stateflow {
     }
     dataType		    "Inherit: Same as Simulink"
   }
-  data {
-    id			    43
-    ssIdNumber		    6
-    name		    "G"
-    linkNode		    [37 42 44]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    44
-    ssIdNumber		    7
-    name		    "B"
-    linkNode		    [37 43 0]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
   instance {
-    id			    45
-    name		    "IterativeSegmentation/Embedded\nMATLAB Function1"
+    id			    43
+    name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter"
     machine		    1
     chart		    37
   }
   chart {
-    id			    46
-    name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter"
-    windowPosition	    [446.813 189 200.25 189.75]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 47 0 0]
-    firstTransition	    49
-    firstJunction	    48
-    viewObj		    46
-    machine		    1
-    ssIdHighWaterMark	    7
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    50
-    chartFileNumber	    45
-    disableImplicitCasting  1
-    eml {
-      name		      "GaussianBlurr"
-    }
-    supportVariableSizing   0
-  }
-  state {
-    id			    47
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    46
-    treeNode		    [46 0 0 0]
-    superState		    SUBCHART
-    subviewer		    46
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function Iout = GaussianBlurr(I)\n% This function calculates the gaussian blur of an intensity im"
-      "age\n\nsigma = sqrt(2);\n\nGrows = 3;    % Gaussian matrix rows\nGcols = 3;    % Gaussian matrix columns\n\n[Iro"
-      "ws Icols] = size(I);\n\nIout = double(zeros(Irows,Icols));\n\nTrows = Irows - Grows + 1;\nTcols = Icols - Gcols "
-      "+ 1;\nItemp = double(zeros(Trows,Tcols));\n\nG = zeros(Grows,Gcols);\n\nFirstRow = ceil(-Grows/2);\nLastRow = fl"
-      "oor(Grows/2);\nFirstCol = ceil(-Gcols/2);\nLastCol = floor(Gcols/2);\nGsum = 0;\nfor i=FirstRow:LastRow\n    for"
-      " j = FirstCol:LastCol\n        G(i-FirstRow+1,j-FirstCol+1) = exp(-(j*j+i*i)/(2*sigma*sigma));\n        Gsum = G"
-      "sum + G(i-FirstRow+1,j-FirstCol+1);\n    end\nend\n\nG = G./Gsum;\n\nItemp = conv2(double(I),double(G),'valid');"
-      "\n\n% reflect boundaries to keep image the same size\n% top\nIout((1:LastRow),(LastCol+1:Icols-LastCol)) = Itemp"
-      "((1:LastRow),(1:Tcols));\n% bottom\nIout((Irows-LastRow+1:Irows),(LastCol+1:Icols-LastCol)) = Itemp((Trows-LastR"
-      "ow+1:Trows),(1:Tcols));\n% left\nIout((1+LastRow:Irows-LastRow),(1:LastCol)) = Itemp((1:Trows),(1:LastCol));\n% "
-      "right\nIout((1+LastRow:Irows-LastRow),(Icols-LastCol+1:Icols)) = Itemp((1:Trows),(Tcols-LastCol+1:Tcols));\n% ce"
-      "nter\nIout((1+LastRow:Irows-LastRow),(1+LastCol:Icols-LastCol)) = Itemp;\n% top left corner\nIout(1:LastRow,1:La"
-      "stCol) = Itemp(1:LastRow,1:LastCol);\n% top right corner\nIout(1:LastRow,Icols-LastCol:Icols) = Itemp(1:LastRow,"
-      "Tcols-LastCol:Tcols);\n% bottom left corner\nIout(Irows-LastRow:Irows,1:LastCol) = Itemp(Trows-LastRow:Trows,1:L"
-      "astCol);\n% bottom right corner\nIout(Irows-LastRow:Irows,Icols-LastCol:Icols) = Itemp(Trows-LastRow:Trows,Tcols"
-      "-LastCol:Tcols);\n\nreturn\n"
-      editorLayout	      "100 M4x1[101 68 1056 606]"
-      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
-      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
-      emlDefaultFimath	      FimathUserSpecified
-    }
-  }
-  junction {
-    id			    48
-    position		    [23.5747 49.5747 7]
-    chart		    46
-    linkNode		    [46 0 0]
-    subviewer		    46
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    49
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      48
-      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    46
-    linkNode		    [46 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    46
-    drawStyle		    SMART
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  data {
-    id			    50
-    ssIdNumber		    4
-    name		    "I"
-    linkNode		    [46 0 51]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    51
-    ssIdNumber		    5
-    name		    "Iout"
-    linkNode		    [46 50 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  instance {
-    id			    52
-    name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter"
-    machine		    1
-    chart		    46
-  }
-  chart {
-    id			    53
+    id			    44
     name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
     windowPosition	    [431.813 204 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 54 0 0]
-    firstTransition	    56
-    firstJunction	    55
-    viewObj		    53
+    treeNode		    [0 45 0 0]
+    firstTransition	    47
+    firstJunction	    46
+    viewObj		    44
     machine		    1
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    57
+    firstData		    48
     chartFileNumber	    46
     disableImplicitCasting  1
     eml {
@@ -4575,14 +4234,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    54
+    id			    45
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    53
-    treeNode		    [53 0 0 0]
+    chart		    44
+    treeNode		    [44 0 0 0]
     superState		    SUBCHART
-    subviewer		    53
+    subviewer		    44
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4611,16 +4270,16 @@ Stateflow {
     }
   }
   junction {
-    id			    55
+    id			    46
     position		    [23.5747 49.5747 7]
-    chart		    53
-    linkNode		    [53 0 0]
-    subviewer		    53
+    chart		    44
+    linkNode		    [44 0 0]
+    subviewer		    44
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    56
+    id			    47
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4628,23 +4287,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      55
+      id		      46
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    53
-    linkNode		    [53 0 0]
+    chart		    44
+    linkNode		    [44 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    53
+    subviewer		    44
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    57
+    id			    48
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [53 0 58]
+    linkNode		    [44 0 49]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4660,10 +4319,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    58
+    id			    49
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [53 57 0]
+    linkNode		    [44 48 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4680,26 +4339,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    59
+    id			    50
     name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
     machine		    1
-    chart		    53
+    chart		    44
   }
   chart {
-    id			    60
+    id			    51
     name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
     windowPosition	    [431.813 204 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 61 0 0]
-    firstTransition	    63
-    firstJunction	    62
-    viewObj		    60
+    treeNode		    [0 52 0 0]
+    firstTransition	    54
+    firstJunction	    53
+    viewObj		    51
     machine		    1
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    64
+    firstData		    55
     chartFileNumber	    47
     disableImplicitCasting  1
     eml {
@@ -4708,14 +4367,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    61
+    id			    52
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    60
-    treeNode		    [60 0 0 0]
+    chart		    51
+    treeNode		    [51 0 0 0]
     superState		    SUBCHART
-    subviewer		    60
+    subviewer		    51
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4744,16 +4403,16 @@ Stateflow {
     }
   }
   junction {
-    id			    62
+    id			    53
     position		    [23.5747 49.5747 7]
-    chart		    60
-    linkNode		    [60 0 0]
-    subviewer		    60
+    chart		    51
+    linkNode		    [51 0 0]
+    subviewer		    51
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    63
+    id			    54
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4761,23 +4420,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      62
+      id		      53
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    60
-    linkNode		    [60 0 0]
+    chart		    51
+    linkNode		    [51 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    60
+    subviewer		    51
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    64
+    id			    55
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [60 0 65]
+    linkNode		    [51 0 56]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4793,10 +4452,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    65
+    id			    56
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [60 64 0]
+    linkNode		    [51 55 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4813,26 +4472,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    66
+    id			    57
     name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
     machine		    1
-    chart		    60
+    chart		    51
   }
   chart {
-    id			    67
+    id			    58
     name		    "IterativeSegmentation/Segmentation/LabSegmentation"
     windowPosition	    [401.813 225 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 68 0 0]
-    firstTransition	    70
-    firstJunction	    69
-    viewObj		    67
+    treeNode		    [0 59 0 0]
+    firstTransition	    61
+    firstJunction	    60
+    viewObj		    58
     machine		    1
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    71
+    firstData		    62
     chartFileNumber	    48
     disableImplicitCasting  1
     eml {
@@ -4841,14 +4500,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    68
+    id			    59
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    67
-    treeNode		    [67 0 0 0]
+    chart		    58
+    treeNode		    [58 0 0 0]
     superState		    SUBCHART
-    subviewer		    67
+    subviewer		    58
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4870,16 +4529,16 @@ Stateflow {
     }
   }
   junction {
-    id			    69
+    id			    60
     position		    [23.5747 49.5747 7]
-    chart		    67
-    linkNode		    [67 0 0]
-    subviewer		    67
+    chart		    58
+    linkNode		    [58 0 0]
+    subviewer		    58
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    70
+    id			    61
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4887,23 +4546,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      69
+      id		      60
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    67
-    linkNode		    [67 0 0]
+    chart		    58
+    linkNode		    [58 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    67
+    subviewer		    58
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    71
+    id			    62
     ssIdNumber		    4
     name		    "L"
-    linkNode		    [67 0 72]
+    linkNode		    [58 0 63]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4919,10 +4578,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    72
+    id			    63
     ssIdNumber		    5
     name		    "LabelMatrix"
-    linkNode		    [67 71 73]
+    linkNode		    [58 62 64]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4939,10 +4598,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    73
+    id			    64
     ssIdNumber		    6
     name		    "a"
-    linkNode		    [67 72 74]
+    linkNode		    [58 63 65]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4961,10 +4620,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    74
+    id			    65
     ssIdNumber		    7
     name		    "b"
-    linkNode		    [67 73 75]
+    linkNode		    [58 64 66]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4983,10 +4642,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    75
+    id			    66
     ssIdNumber		    8
     name		    "ref_colors"
-    linkNode		    [67 74 76]
+    linkNode		    [58 65 67]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5005,10 +4664,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    76
+    id			    67
     ssIdNumber		    9
     name		    "num_colors"
-    linkNode		    [67 75 0]
+    linkNode		    [58 66 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5027,26 +4686,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    77
+    id			    68
     name		    "IterativeSegmentation/Segmentation/LabSegmentation"
     machine		    1
-    chart		    67
+    chart		    58
   }
   chart {
-    id			    78
+    id			    69
     name		    "IterativeSegmentation/Segmentation/Reference Color Selection"
     windowPosition	    [401.813 225 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 79 0 0]
-    firstTransition	    81
-    firstJunction	    80
-    viewObj		    78
+    treeNode		    [0 70 0 0]
+    firstTransition	    72
+    firstJunction	    71
+    viewObj		    69
     machine		    1
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    82
+    firstData		    73
     chartFileNumber	    49
     disableImplicitCasting  1
     eml {
@@ -5055,14 +4714,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    79
+    id			    70
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    78
-    treeNode		    [78 0 0 0]
+    chart		    69
+    treeNode		    [69 0 0 0]
     superState		    SUBCHART
-    subviewer		    78
+    subviewer		    69
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -5101,16 +4760,16 @@ Stateflow {
     }
   }
   junction {
-    id			    80
+    id			    71
     position		    [23.5747 49.5747 7]
-    chart		    78
-    linkNode		    [78 0 0]
-    subviewer		    78
+    chart		    69
+    linkNode		    [69 0 0]
+    subviewer		    69
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    81
+    id			    72
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -5118,23 +4777,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      80
+      id		      71
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    78
-    linkNode		    [78 0 0]
+    chart		    69
+    linkNode		    [69 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    78
+    subviewer		    69
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    82
+    id			    73
     ssIdNumber		    4
     name		    "L"
-    linkNode		    [78 0 83]
+    linkNode		    [69 0 74]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5150,10 +4809,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    83
+    id			    74
     ssIdNumber		    5
     name		    "ref_colors"
-    linkNode		    [78 82 84]
+    linkNode		    [69 73 75]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5170,10 +4829,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    84
+    id			    75
     ssIdNumber		    6
     name		    "a"
-    linkNode		    [78 83 85]
+    linkNode		    [69 74 76]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5192,10 +4851,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    85
+    id			    76
     ssIdNumber		    7
     name		    "b"
-    linkNode		    [78 84 86]
+    linkNode		    [69 75 77]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5214,10 +4873,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    86
+    id			    77
     ssIdNumber		    8
     name		    "num_colors"
-    linkNode		    [78 85 87]
+    linkNode		    [69 76 78]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5236,10 +4895,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    87
+    id			    78
     ssIdNumber		    10
     name		    "Dist_Thresh"
-    linkNode		    [78 86 0]
+    linkNode		    [69 77 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5258,22 +4917,22 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    88
+    id			    79
     name		    "IterativeSegmentation/Segmentation/Reference Color Selection"
     machine		    1
-    chart		    78
+    chart		    69
   }
   target {
-    id			    89
+    id			    80
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 90]
+    linkNode		    [1 0 81]
   }
   target {
-    id			    90
+    id			    81
     name		    "rtw"
     machine		    1
-    linkNode		    [1 89 0]
+    linkNode		    [1 80 0]
   }
 }
