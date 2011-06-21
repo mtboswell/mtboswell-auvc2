@@ -21,21 +21,12 @@ Vision::Vision() : SimulinkModule()
 //    paramList["Vision_G_down_in"] = &VisionModel_U.G_down_in;
 //    paramList["Vision_B_down_in"] = &VisionModel_U.B_down_in;
 
-
-    real_T ModeSelect;                   /* '<Root>/ModeSelect' */
-    real_T DesiredPathDirection;         /* '<Root>/DesiredPathDirection' */
-    real_T DesiredBuoyColor;             /* '<Root>/DesiredBuoyColor' */
-    real_T DesiredTorpedoColor;          /* '<Root>/DesiredTorpedoColor' */
-    real_T ProceedToSecondTarget;        /* '<Root>/ProceedToSecondTarget' */
-    real_T DefaultTaretShape;            /* '<Root>/DefaultTaretShape' */
-    real_T DefaultTargetColor;           /* '<Root>/DefaultTargetColor' */
-
     paramList["Vision_ModeSelect"] = &VisionModel_U.ModeSelect;
     paramList["Vision_DesiredPathDirection"] = &VisionModel_U.DesiredPathDirection;
     paramList["Vision_DesiredBuoyColor"] = &VisionModel_U.DesiredBuoyColor;
     paramList["Vision_DesiredTorpedoColor"] = &VisionModel_U.DesiredTorpedoColor;
     paramList["Vision_ProceedToSecondTarget"] = &VisionModel_U.ProceedToSecondTarget;
-    paramList["Vision_DefaultTaretShape"] = &VisionModel_U.DefaultTaretShape;
+    paramList["Vision_DefaultTargetShape"] = &VisionModel_U.DefaultTargetShape;
     paramList["Vision_DefaultTargetColor"] = &VisionModel_U.DefaultTargetColor;
 }
 
@@ -127,7 +118,6 @@ void Vision::step()
     // call the function
     VisionModel_step();
 
-
     // set the outputs of the function
     setData("Vision.Output.TargetSelect", VisionModel_Y.TargetSelect);
     setData("Vision.Output.TargetFound", VisionModel_Y.TargetFound);
@@ -148,7 +138,7 @@ void Vision::step()
     setData("Vision.Output.DesiredXVelocity", VisionModel_Y.DesiredXVelocity);
     setData("Vision.Output.DesiredYaw", VisionModel_Y.DesiredYaw);
     setData("Vision.Output.TargetDetected", VisionModel_Y.TargetDetected);
-//    setData("Vision.Output.PathState", VisionModel_Y.PathState);
-//    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
-//    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
+    setData("Vision.Output.PathState", VisionModel_Y.PathState);
+    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
+    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
 }
