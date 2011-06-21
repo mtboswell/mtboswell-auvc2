@@ -354,15 +354,15 @@ HEADERS +=  \
     vision/src/compare_fcn.h \
     vision/src/cg_sfun.h \
     vision/src/cg_matrx.h \
-    vision/src/buoy_detector_types.h \
-    vision/src/buoy_detector_private.h \
-    vision/src/buoy_detector.h \
+#    vision/src/buoy_detector_types.h \
+#    vision/src/buoy_detector_private.h \
+#    vision/src/buoy_detector.h \
     vision/src/blascompat32.h \
     vision/src/blas.h \
     vision/src/bio_sig.h \
     vision/src/AudioDefs.h \
-    vision/src/aaieaaiejmopnglf_sum.h
-
+    vision/src/aaieaaiejmopnglf_sum.h \
+    vision/src/kfknaaaaecjemohd_conv2.h
 
 SOURCES +=  \
     vision/vision.cpp \
@@ -391,6 +391,7 @@ SOURCES +=  \
     vision/src/eknobiekkfcbppph_max.cpp \
     vision/src/drop_mech.cpp \
     vision/src/dbaidbaafkfkbimo_abs.cpp \
-    vision/src/buoy_detector_data.cpp \
-    vision/src/buoy_detector.cpp \
-    vision/src/aaieaaiejmopnglf_sum.cpp
+#    vision/src/buoy_detector_data.cpp \
+#    vision/src/buoy_detector.cpp \
+    vision/src/aaieaaiejmopnglf_sum.cpp \
+    vision/src/kfknaaaaecjemohd_conv2.cpp
