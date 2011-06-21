@@ -143,7 +143,6 @@ Dashboard::Dashboard(AUVC_State_Data* stateIn)
         js = new joystick();
         joystickTimer = new QTimer();
         connect(joystickTimer, SIGNAL(timeout()), this, SLOT(updateJoystick()));
-//        joystickTimer->start(100);    enables joystick
 }
 
 /**
@@ -194,6 +193,20 @@ void Dashboard::updateJoystick()
         int currentHeading = intValue("DeadReckon.Heading");
         int adjustedHeading = currentHeading + headingIncrement;
         setData("DeadReckon.Heading", adjustedHeading % 360);
+    }
+}
+
+void Dashboard::on_activate_joystick_clicked(bool checkbox_activated)
+{
+    if (checkbox_activated)
+    {
+        if (debug) qDebug() << "JOYSTICK ACTIVATED";
+        joystickTimer->start(100);  // 100 ms
+    }
+    else
+    {
+        if (debug)  qDebug() << "JOYSTICK DISABLED";
+        joystickTimer->stop();
     }
 }
 

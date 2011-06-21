@@ -89,6 +89,7 @@ class Dashboard : public GuiModule, private Ui::DashboardWindow
 		void on_goRCButton_clicked();
 		void on_stopButton_clicked();
 
+
 		void on_syncButton_clicked();
 
 		// Calibration
@@ -100,6 +101,8 @@ class Dashboard : public GuiModule, private Ui::DashboardWindow
 
 		// Tare state vectors
 		void on_tareAccelPushButton_clicked();
+                \
+                void on_activate_joystick_clicked(bool);
 
 		// RC
 		//void on_goRCButton_toggled(bool rc);

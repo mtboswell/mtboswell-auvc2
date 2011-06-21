@@ -3,7 +3,8 @@
 %   generating code for the overall stateflow chart
 %
 
-Forward_Camera_Dimensions = [160 120];
+%Forward_Camera_Dimensions = [160 120];
+Forward_Camera_Dimensions = [120 160];
 Down_Camera_Dimensions = [120 160];
 %Forward_Camera_Dimensions = [752 480];
 %Down_Camera_Dimensions = [480 752];
