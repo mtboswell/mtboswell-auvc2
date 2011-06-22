@@ -56,7 +56,7 @@ Model {
       BusObject		      ""
       Name		      "DefaultTargetColor"
     }
-    NumRootOutports	    28
+    NumRootOutports	    33
     Outport {
       BusObject		      ""
       BusOutputAsStruct	      "off"
@@ -197,8 +197,33 @@ Model {
       BusOutputAsStruct	      "off"
       Name		      "theta"
     }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "LabelMatrix"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "num_colors"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "ref_colors"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "bw_image"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "edge_image"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.405"
+    ComputedModelVersion    "1.412"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Validation Gate/validation_gate.mdl|validation_gate"
@@ -221,9 +246,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 02:16:57 2011"
-  RTWModifiedTimeStamp	  230604771
-  ModelVersionFormat	  "1.%<AutoIncrement:405>"
+  LastModifiedDate	  "Wed Jun 22 17:57:37 2011"
+  RTWModifiedTimeStamp	  230665396
+  ModelVersionFormat	  "1.%<AutoIncrement:412>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -951,7 +976,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "368"
+    SIDHighWatermark	    "376"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -2024,7 +2049,7 @@ Model {
       Name		      "Forward Filter"
       SID		      "318"
       Ports		      [3, 3]
-      Position		      [300, 154, 400, 196]
+      Position		      [590, 154, 690, 196]
       LibraryVersion	      "1.225"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -2874,10 +2899,197 @@ Model {
     }
     Block {
       BlockType		      SubSystem
+      Name		      "Transform Coordinates1"
+      SID		      "369"
+      Ports		      [3, 3]
+      Position		      [275, 126, 525, 224]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      SystemSampleTime	      "[1/30 0]"
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('rangeImage');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Transform Coordinates1"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"46"
+	Block {
+	  BlockType		  Inport
+	  Name			  "R_in"
+	  SID			  "369::44"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "G_in"
+	  SID			  "369::41"
+	  Position		  [20, 136, 40, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "B_in"
+	  SID			  "369::45"
+	  Position		  [20, 171, 40, 189]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "369::23"
+	  Ports			  [1, 1]
+	  Position		  [270, 270, 320, 310]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "369::22"
+	  Tag			  "Stateflow S-Function VisionModel 2"
+	  Ports			  [3, 4]
+	  Position		  [180, 108, 230, 272]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[3 4]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "R_out"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "G_out"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "B_out"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "369::25"
+	  Position		  [460, 281, 480, 299]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "R_out"
+	  SID			  "369::36"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "G_out"
+	  SID			  "369::38"
+	  Position		  [460, 136, 480, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "B_out"
+	  SID			  "369::46"
+	  Position		  [460, 171, 480, 189]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "R_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "G_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "B_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "R_out"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "R_out"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "G_out"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "G_out"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "B_out"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  4
+	  DstBlock		  "B_out"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
       Name		      "Validation Gate"
       SID		      "68"
-      Ports		      [3, 14, 0, 0, 0, 0, 0, 1]
-      Position		      [1330, 457, 1590, 958]
+      Ports		      [3, 16, 0, 0, 0, 0, 0, 1]
+      Position		      [1330, 459, 1590, 961]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -2889,8 +3101,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Validation Gate"
-	Location		[47, 208, 1059, 863]
-	Open			on
+	Location		[1560, 147, 3000, 931]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2936,11 +3148,11 @@ Model {
 	  BlockType		  ModelReference
 	  Name			  "validation_gate.mdl"
 	  SID			  "109"
-	  Ports			  [3, 14]
-	  Position		  [205, 117, 440, 563]
+	  Ports			  [3, 16]
+	  Position		  [205, 119, 440, 566]
 	  ModelNameDialog	  "validation_gate"
 	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.1202"
+	  ModelReferenceVersion	  "1.1217"
 	  List {
 	    ListType		    InputPortNames
 	    port0		    "R_forward_in"
@@ -2963,6 +3175,8 @@ Model {
 	    port11		    "LabelMatrix"
 	    port12		    "num_colors"
 	    port13		    "ref_colors"
+	    port14		    "bw_image"
+	    port15		    "edge_image"
 	  }
 	  List {
 	    ListType		    OutputPortOutputBusAsStructs
@@ -2980,6 +3194,8 @@ Model {
 	    port11		    "off"
 	    port12		    "off"
 	    port13		    "off"
+	    port14		    "off"
+	    port15		    "off"
 	  }
 	  CopyOfModelName	  "validation_gate"
 	}
@@ -3105,6 +3321,22 @@ Model {
 	  Port			  "14"
 	  IconDisplay		  "Port number"
 	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "bw_image"
+	  SID			  "370"
+	  Position		  [605, 683, 635, 697]
+	  Port			  "15"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "edge_image"
+	  SID			  "371"
+	  Position		  [605, 718, 635, 732]
+	  Port			  "16"
+	  IconDisplay		  "Port number"
+	}
 	Line {
 	  SrcBlock		  "R_forward_in"
 	  SrcPort		  1
@@ -3115,49 +3347,49 @@ Model {
 	Line {
 	  SrcBlock		  "G_forward_in"
 	  SrcPort		  1
-	  Points		  [65, 0; 0, 145]
+	  Points		  [65, 0; 0, 150]
 	  DstBlock		  "validation_gate.mdl"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "B_forward_in"
 	  SrcPort		  1
-	  Points		  [55, 0; 0, 260]
+	  Points		  [55, 0; 0, 265]
 	  DstBlock		  "validation_gate.mdl"
 	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  7
-	  Points		  [110, 0; 0, 15]
+	  Points		  [110, 0; 0, 35]
 	  DstBlock		  "TargetDetected"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  4
-	  Points		  [0, -40]
+	  Points		  [0, -35]
 	  DstBlock		  "TargetY"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  5
-	  Points		  [80, 0; 0, -35]
+	  Points		  [80, 0; 0, -25]
 	  DstBlock		  "TargetZ"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  1
-	  Points		  [45, 0; 0, -55]
+	  Points		  [45, 0; 0, -65]
 	  DstBlock		  "TargetSelect"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  2
-	  Points		  [55, 0; 0, -50]
+	  Points		  [55, 0; 0, -55]
 	  DstBlock		  "TargetFound"
 	  DstPort		  1
 	}
@@ -3171,57 +3403,71 @@ Model {
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  6
-	  Points		  [0, -30]
+	  Points		  [0, -15]
 	  DstBlock		  "TargetYaw"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  8
-	  Points		  [75, 0; 0, 50]
+	  Points		  [75, 0; 0, 75]
 	  DstBlock		  "R"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  9
-	  Points		  [65, 0; 0, 55]
+	  Points		  [65, 0; 0, 85]
 	  DstBlock		  "G"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  10
-	  Points		  [55, 0; 0, 55]
+	  Points		  [55, 0; 0, 90]
 	  DstBlock		  "B"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  11
-	  Points		  [45, 0; 0, 90]
+	  Points		  [45, 0; 0, 130]
 	  DstBlock		  "theta"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  12
-	  Points		  [35, 0; 0, 90]
+	  Points		  [35, 0; 0, 135]
 	  DstBlock		  "LabelMatrix"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  13
-	  Points		  [25, 0; 0, 95]
+	  Points		  [25, 0; 0, 145]
 	  DstBlock		  "num_colors"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  14
-	  Points		  [15, 0; 0, 100]
+	  Points		  [15, 0; 0, 155]
 	  DstBlock		  "ref_colors"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  15
+	  Points		  [5, 0; 0, 185]
+	  DstBlock		  "bw_image"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  16
+	  Points		  [0, 150; -5, 0; 0, 45]
+	  DstBlock		  "edge_image"
 	  DstPort		  1
 	}
       }
@@ -3477,6 +3723,46 @@ Model {
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
+    Block {
+      BlockType		      Outport
+      Name		      "LabelMatrix"
+      SID		      "372"
+      Position		      [1675, 808, 1705, 822]
+      Port		      "29"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "num_colors"
+      SID		      "373"
+      Position		      [1675, 838, 1705, 852]
+      Port		      "30"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "ref_colors"
+      SID		      "374"
+      Position		      [1675, 878, 1705, 892]
+      Port		      "31"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "bw_image"
+      SID		      "375"
+      Position		      [1675, 933, 1705, 947]
+      Port		      "32"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "edge_image"
+      SID		      "376"
+      Position		      [1675, 968, 1705, 982]
+      Port		      "33"
+      IconDisplay	      "Port number"
+    }
     Line {
       SrcBlock		      "ModeSelect"
       SrcPort		      1
@@ -3665,7 +3951,7 @@ Model {
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      2
-      Points		      [410, 0]
+      Points		      [120, 0]
       Branch {
 	Points			[0, 530]
 	Branch {
@@ -3703,7 +3989,7 @@ Model {
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      3
-      Points		      [405, 0]
+      Points		      [115, 0]
       Branch {
 	Points			[0, 680]
 	Branch {
@@ -3741,7 +4027,7 @@ Model {
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      1
-      Points		      [415, 0]
+      Points		      [125, 0]
       Branch {
 	Points			[0, 380]
 	Branch {
@@ -3797,43 +4083,23 @@ Model {
       DstPort		      3
     }
     Line {
-      SrcBlock		      "G_forward_in"
-      SrcPort		      1
-      DstBlock		      "Forward Filter"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "R_forward_in"
-      SrcPort		      1
-      Points		      [20, 0; 0, 20]
-      DstBlock		      "Forward Filter"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "B_forward_in"
-      SrcPort		      1
-      Points		      [20, 0; 0, -20]
-      DstBlock		      "Forward Filter"
-      DstPort		      3
-    }
-    Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      5
-      Points		      [160, 0; 0, -25]
+      Points		      [160, 0; 0, -10]
       DstBlock		      "Add5"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      4
-      Points		      [155, 0; 0, -55]
+      Points		      [155, 0; 0, -45]
       DstBlock		      "Add4"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      1
-      Points		      [140, 0; 0, -195]
+      Points		      [140, 0; 0, -200]
       DstBlock		      "Add"
       DstPort		      1
     }
@@ -3847,21 +4113,21 @@ Model {
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      3
-      Points		      [150, 0; 0, -145]
+      Points		      [150, 0; 0, -140]
       DstBlock		      "Add2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      6
-      Points		      [165, 0; 0, 5]
+      Points		      [165, 0; 0, 25]
       DstBlock		      "Add6"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      7
-      Points		      [170, 0; 0, 735]
+      Points		      [170, 0; 0, 760]
       DstBlock		      "Add18"
       DstPort		      1
     }
@@ -3892,21 +4158,21 @@ Model {
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      8
-      Points		      [670, 0; 0, 1145]
+      Points		      [670, 0; 0, 1175]
       DstBlock		      "Add22"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      9
-      Points		      [650, 0; 0, 1180]
+      Points		      [650, 0; 0, 1215]
       DstBlock		      "Add23"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      10
-      Points		      [635, 0; 0, 1215]
+      Points		      [635, 0; 0, 1255]
       DstBlock		      "Add24"
       DstPort		      1
     }
@@ -3947,8 +4213,82 @@ Model {
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      11
-      Points		      [140, 0; 0, 275; 265, 0; 0, 1260]
+      Points		      [140, 0; 0, 320; 265, 0; 0, 1260]
       DstBlock		      "theta"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "G_forward_in"
+      SrcPort		      1
+      DstBlock		      "Transform Coordinates1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "R_forward_in"
+      SrcPort		      1
+      Points		      [5, 0; 0, 5]
+      DstBlock		      "Transform Coordinates1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "B_forward_in"
+      SrcPort		      1
+      Points		      [5, 0; 0, -5]
+      DstBlock		      "Transform Coordinates1"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Transform Coordinates1"
+      SrcPort		      1
+      Points		      [20, 0; 0, 15]
+      DstBlock		      "Forward Filter"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Transform Coordinates1"
+      SrcPort		      2
+      DstBlock		      "Forward Filter"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Transform Coordinates1"
+      SrcPort		      3
+      Points		      [20, 0; 0, -15]
+      DstBlock		      "Forward Filter"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      12
+      DstBlock		      "LabelMatrix"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      13
+      Points		      [50, 0; 0, 15; 15, 0]
+      DstBlock		      "num_colors"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      14
+      Points		      [30, 0; 0, 10]
+      DstBlock		      "ref_colors"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      15
+      Points		      [30, 0; 0, 35]
+      DstBlock		      "bw_image"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      16
+      Points		      [20, 0; 0, 40]
+      DstBlock		      "edge_image"
       DstPort		      1
     }
     Annotation {
@@ -4021,7 +4361,7 @@ Stateflow {
     name		    "VisionModel"
     created		    "30-May-2011 12:35:50"
     isLibrary		    0
-    firstTarget		    11
+    firstTarget		    22
     sfVersion		    75014000.000003
   }
   chart {
@@ -4185,17 +4525,231 @@ Stateflow {
     machine		    1
     chart		    2
   }
-  target {
+  chart {
     id			    11
+    name		    "Transform Coordinates1"
+    windowPosition	    [397.184 124.12 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 12 0 0]
+    firstTransition	    14
+    firstJunction	    13
+    viewObj		    11
+    machine		    1
+    subviewS {
+    }
+    ssIdHighWaterMark	    26
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    15
+    chartFileNumber	    2
+    disableImplicitCasting  1
+    eml {
+      name		      "rangeImage"
+    }
+  }
+  state {
+    id			    12
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    11
+    treeNode		    [11 0 0 0]
+    superState		    SUBCHART
+    subviewer		    11
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [R_out, G_out, B_out] = rangeImage(R_in, G_in, B_in)\n% Ensure the image components are "
+      "between 0 and newMax\n\nnewMax = 1;\n\nR_out = R_in;\nG_out = G_in;\nB_out = B_in;\n\nnormalizeValue = max(max(R"
+      "_in));\nif( normalizeValue <= 1 )\n    normalizeValue = 1;\nelse\n    normalizeValue = 255;\nend\n\n[rows, cols]"
+      " = size(R_in);\n\n\nfor r = 1:rows\n    for c = 1:cols\n        \n        if( R_in(r,c) == 0 )\n            R_ou"
+      "t(r,c) = 0;\n        else\n            R_out(r,c) = newMax*R_in(r,c)/normalizeValue;\n        end\n        if( G"
+      "_in(r,c) == 0 )\n            G_out(r,c) = 0;\n        else\n            G_out(r,c) = newMax*G_in(r,c)/normalizeV"
+      "alue;\n        end\n        if( B_in(r,c) == 0 )\n            B_out(r,c) = 0;\n        else\n            B_out(r"
+      ",c) = newMax*B_in(r,c)/normalizeValue;\n        end\n        \n    end\nend\n\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+    }
+  }
+  junction {
+    id			    13
+    position		    [23.5747 49.5747 7]
+    chart		    11
+    linkNode		    [11 0 0]
+    subviewer		    11
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    14
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      13
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    11
+    linkNode		    [11 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    11
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    15
+    ssIdNumber		    24
+    name		    "R_in"
+    linkNode		    [11 0 16]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    16
+    ssIdNumber		    21
+    name		    "G_in"
+    linkNode		    [11 15 17]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    17
+    ssIdNumber		    5
+    name		    "R_out"
+    linkNode		    [11 16 18]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    18
+    ssIdNumber		    18
+    name		    "G_out"
+    linkNode		    [11 17 19]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    19
+    ssIdNumber		    25
+    name		    "B_in"
+    linkNode		    [11 18 20]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    20
+    ssIdNumber		    26
+    name		    "B_out"
+    linkNode		    [11 19 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    21
+    name		    "Transform Coordinates1"
+    machine		    1
+    chart		    11
+  }
+  target {
+    id			    22
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 12]
+    linkNode		    [1 0 23]
   }
   target {
-    id			    12
+    id			    23
     name		    "rtw"
     machine		    1
-    linkNode		    [1 11 0]
+    linkNode		    [1 22 0]
   }
 }

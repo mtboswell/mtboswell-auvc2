@@ -62,6 +62,12 @@ Buoy_Max_Extent = 0.9;
 
 Max_Num_Blobs_Buoy = 10;
 
+Min_Blob_Size = 15;
+Max_Blob_Size = 19200;
+Max_Num_Blobs = 50;
+
+Track_Min_Eccentricity = 0.9;
+
 % Maximum number of buoys this software will detect in one image
 %   (artificial limit; may adjust)
 Buoy_Count_Max = 50;

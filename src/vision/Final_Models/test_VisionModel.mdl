@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.909"
+    ComputedModelVersion    "1.916"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 02:31:24 2011"
-  RTWModifiedTimeStamp	  230610324
-  ModelVersionFormat	  "1.%<AutoIncrement:909>"
+  LastModifiedDate	  "Wed Jun 22 18:09:14 2011"
+  RTWModifiedTimeStamp	  230666873
+  ModelVersionFormat	  "1.%<AutoIncrement:916>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -747,13 +747,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "592"
+    SIDHighWatermark	    "593"
     Block {
       BlockType		      Display
       Name		      "Display"
       SID		      "455"
       Ports		      [1]
-      Position		      [1460, 540, 1550, 570]
+      Position		      [1545, 550, 1635, 580]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -762,7 +762,7 @@ Model {
       Name		      "Display1"
       SID		      "456"
       Ports		      [1]
-      Position		      [1460, 585, 1550, 615]
+      Position		      [1545, 595, 1635, 625]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -771,7 +771,7 @@ Model {
       Name		      "Display10"
       SID		      "457"
       Ports		      [1]
-      Position		      [1460, 1045, 1550, 1075]
+      Position		      [1545, 1055, 1635, 1085]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -780,7 +780,7 @@ Model {
       Name		      "Display11"
       SID		      "458"
       Ports		      [1]
-      Position		      [1460, 1095, 1550, 1125]
+      Position		      [1545, 1105, 1635, 1135]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -789,7 +789,7 @@ Model {
       Name		      "Display12"
       SID		      "459"
       Ports		      [1]
-      Position		      [1460, 1150, 1550, 1180]
+      Position		      [1545, 1160, 1635, 1190]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -798,7 +798,7 @@ Model {
       Name		      "Display13"
       SID		      "460"
       Ports		      [1]
-      Position		      [1460, 1205, 1550, 1235]
+      Position		      [1545, 1215, 1635, 1245]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -807,7 +807,7 @@ Model {
       Name		      "Display14"
       SID		      "461"
       Ports		      [1]
-      Position		      [1460, 1255, 1550, 1285]
+      Position		      [1545, 1265, 1635, 1295]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -816,7 +816,7 @@ Model {
       Name		      "Display15"
       SID		      "462"
       Ports		      [1]
-      Position		      [1460, 1305, 1550, 1335]
+      Position		      [1545, 1315, 1635, 1345]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -825,7 +825,7 @@ Model {
       Name		      "Display16"
       SID		      "463"
       Ports		      [1]
-      Position		      [1460, 1360, 1550, 1390]
+      Position		      [1545, 1370, 1635, 1400]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -834,7 +834,7 @@ Model {
       Name		      "Display17"
       SID		      "464"
       Ports		      [1]
-      Position		      [1460, 1415, 1550, 1445]
+      Position		      [1545, 1425, 1635, 1455]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -843,7 +843,7 @@ Model {
       Name		      "Display19"
       SID		      "584"
       Ports		      [1]
-      Position		      [1460, 1515, 1550, 1545]
+      Position		      [1545, 1525, 1635, 1555]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -852,7 +852,7 @@ Model {
       Name		      "Display2"
       SID		      "465"
       Ports		      [1]
-      Position		      [1460, 630, 1550, 660]
+      Position		      [1545, 640, 1635, 670]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -861,7 +861,7 @@ Model {
       Name		      "Display3"
       SID		      "466"
       Ports		      [1]
-      Position		      [1460, 680, 1550, 710]
+      Position		      [1545, 690, 1635, 720]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -870,7 +870,7 @@ Model {
       Name		      "Display4"
       SID		      "467"
       Ports		      [1]
-      Position		      [1460, 735, 1550, 765]
+      Position		      [1545, 745, 1635, 775]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -879,7 +879,7 @@ Model {
       Name		      "Display5"
       SID		      "468"
       Ports		      [1]
-      Position		      [1460, 795, 1550, 825]
+      Position		      [1545, 805, 1635, 835]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -888,7 +888,7 @@ Model {
       Name		      "Display6"
       SID		      "469"
       Ports		      [1]
-      Position		      [1460, 840, 1550, 870]
+      Position		      [1545, 850, 1635, 880]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -897,7 +897,7 @@ Model {
       Name		      "Display7"
       SID		      "470"
       Ports		      [1]
-      Position		      [1460, 890, 1550, 920]
+      Position		      [1545, 900, 1635, 930]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -906,7 +906,7 @@ Model {
       Name		      "Display8"
       SID		      "471"
       Ports		      [1]
-      Position		      [1460, 940, 1550, 970]
+      Position		      [1545, 950, 1635, 980]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -915,7 +915,7 @@ Model {
       Name		      "Display9"
       SID		      "472"
       Ports		      [1]
-      Position		      [1460, 990, 1550, 1020]
+      Position		      [1545, 1000, 1635, 1030]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -924,7 +924,7 @@ Model {
       Name		      "Down Filter"
       SID		      "552"
       Ports		      [3, 3]
-      Position		      [465, 274, 565, 316]
+      Position		      [550, 284, 650, 326]
       LibraryVersion	      "1.225"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -1200,7 +1200,7 @@ Model {
       SID		      "447"
       Tag		      "vipblks_nd"
       Ports		      [0, 3]
-      Position		      [440, 754, 565, 866]
+      Position		      [525, 764, 650, 876]
       LibraryVersion	      "1.308"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag0"
@@ -1231,7 +1231,7 @@ Model {
       Name		      "Draw Target"
       SID		      "495"
       Ports		      [4, 3]
-      Position		      [1555, 326, 1705, 389]
+      Position		      [1640, 336, 1790, 399]
       LibraryVersion	      "1.183"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag1"
@@ -1267,7 +1267,7 @@ Model {
       Name		      "Forward Camera"
       SID		      "454"
       Ports		      [3]
-      Position		      [1730, 325, 1845, 395]
+      Position		      [1815, 335, 1930, 405]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag2"
@@ -1291,7 +1291,7 @@ Model {
       Name		      "Forward Camera1"
       SID		      "582"
       Ports		      [3]
-      Position		      [1265, 1475, 1380, 1545]
+      Position		      [1350, 1485, 1465, 1555]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag4"
@@ -1305,7 +1305,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[1090 775 275 171]"
+      FigPos		      "[1101 763 275 171]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -1315,7 +1315,7 @@ Model {
       Name		      "Forward Filter"
       SID		      "567"
       Ports		      [3, 3]
-      Position		      [630, 329, 730, 371]
+      Position		      [715, 339, 815, 381]
       LibraryVersion	      "1.225"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -1591,7 +1591,7 @@ Model {
       SID		      "438"
       Tag		      "vipblks_nd"
       Ports		      [0, 3]
-      Position		      [95, 574, 220, 686]
+      Position		      [180, 584, 305, 696]
       LibraryVersion	      "1.308"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag6"
@@ -1621,18 +1621,18 @@ Model {
       BlockType		      Constant
       Name		      "ModeSelect"
       SID		      "493"
-      Position		      [515, 920, 545, 950]
+      Position		      [600, 930, 630, 960]
       SampleTime	      "-1"
     }
     Block {
       BlockType		      ModelReference
       Name		      "Model"
       SID		      "491"
-      Ports		      [13, 28]
-      Position		      [625, 539, 1115, 1336]
+      Ports		      [13, 33]
+      Position		      [710, 551, 1200, 1349]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.405"
+      ModelReferenceVersion   "1.412"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1679,6 +1679,11 @@ Model {
 	port25			"B"
 	port26			"Iter_Segment_Thresh"
 	port27			"theta"
+	port28			"LabelMatrix"
+	port29			"num_colors"
+	port30			"ref_colors"
+	port31			"bw_image"
+	port32			"edge_image"
       }
       List {
 	ListType		OutputPortOutputBusAsStructs
@@ -1710,15 +1715,52 @@ Model {
 	port25			"off"
 	port26			"off"
 	port27			"off"
+	port28			"off"
+	port29			"off"
+	port30			"off"
+	port31			"off"
+	port32			"off"
+      }
+      List {
+	ListType		InputPortLatchByCopyingInsideSignal
+	port0			"off"
+	port1			"off"
+	port2			"off"
+	port3			"off"
+	port4			"off"
+	port5			"off"
+	port6			"off"
+	port7			"off"
+	port8			"off"
+	port9			"off"
+	port10			"off"
+	port11			"off"
+	port12			"off"
       }
       CopyOfModelName	      "VisionModel"
+      List {
+	ListType		InputPortLatchByDelayingOutsideSignal
+	port0			"off"
+	port1			"off"
+	port2			"off"
+	port3			"off"
+	port4			"off"
+	port5			"off"
+	port6			"off"
+	port7			"off"
+	port8			"off"
+	port9			"off"
+	port10			"off"
+	port11			"off"
+	port12			"off"
+      }
     }
     Block {
       BlockType		      Display
       Name		      "TargetDetected"
       SID		      "583"
       Ports		      [1]
-      Position		      [1460, 1465, 1550, 1495]
+      Position		      [1545, 1475, 1635, 1505]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -1727,7 +1769,7 @@ Model {
       Name		      "To Workspace"
       SID		      "586"
       Ports		      [1]
-      Position		      [1290, 1575, 1350, 1605]
+      Position		      [1375, 1585, 1435, 1615]
       VariableName	      "R"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1738,7 +1780,7 @@ Model {
       Name		      "To Workspace1"
       SID		      "587"
       Ports		      [1]
-      Position		      [1285, 1630, 1345, 1660]
+      Position		      [1370, 1640, 1430, 1670]
       VariableName	      "G"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1749,7 +1791,7 @@ Model {
       Name		      "To Workspace2"
       SID		      "588"
       Ports		      [1]
-      Position		      [1285, 1675, 1345, 1705]
+      Position		      [1370, 1685, 1430, 1715]
       VariableName	      "B"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1760,7 +1802,7 @@ Model {
       Name		      "To Workspace3"
       SID		      "589"
       Ports		      [1]
-      Position		      [280, 710, 340, 740]
+      Position		      [365, 720, 425, 750]
       VariableName	      "R1"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1771,7 +1813,7 @@ Model {
       Name		      "To Workspace4"
       SID		      "590"
       Ports		      [1]
-      Position		      [280, 765, 340, 795]
+      Position		      [365, 775, 425, 805]
       VariableName	      "G1"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1782,7 +1824,7 @@ Model {
       Name		      "To Workspace5"
       SID		      "591"
       Ports		      [1]
-      Position		      [280, 810, 340, 840]
+      Position		      [365, 820, 425, 850]
       VariableName	      "B1"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1793,7 +1835,7 @@ Model {
       Name		      "Transform Coordinates"
       SID		      "496"
       Ports		      [3, 2]
-      Position		      [1225, 411, 1475, 509]
+      Position		      [1310, 421, 1560, 519]
       LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
@@ -1963,14 +2005,14 @@ Model {
       Name		      "Vector\nConcatenate"
       SID		      "497"
       Ports		      [2, 1]
-      Position		      [1525, 441, 1530, 479]
+      Position		      [1610, 451, 1615, 489]
       Mode		      "Multidimensional array"
     }
     Block {
       BlockType		      Constant
       Name		      "WhichColor"
       SID		      "585"
-      Position		      [515, 1035, 545, 1065]
+      Position		      [600, 1045, 630, 1075]
       Value		      "4"
       SampleTime	      "-1"
     }
@@ -1979,87 +2021,11 @@ Model {
       Name		      "theta"
       SID		      "592"
       Ports		      [1]
-      Position		      [1285, 1770, 1345, 1800]
+      Position		      [1370, 1780, 1430, 1810]
       VariableName	      "theta"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
       SaveFormat	      "Array"
-    }
-    Line {
-      SrcBlock		      "Forward Test Image"
-      SrcPort		      2
-      Points		      [25, 0]
-      Branch {
-	Points			[345, 0]
-	Branch {
-	  Points		  [15, 0]
-	  DstBlock		  "Model"
-	  DstPort		  2
-	}
-	Branch {
-	  Points		  [0, -280]
-	  DstBlock		  "Forward Filter"
-	  DstPort		  2
-	}
-      }
-      Branch {
-	Points			[0, 150]
-	DstBlock		"To Workspace4"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Forward Test Image"
-      SrcPort		      1
-      Points		      [35, 0]
-      Branch {
-	Points			[330, 0]
-	Branch {
-	  Points		  [30, 0; 0, -15]
-	  DstBlock		  "Model"
-	  DstPort		  1
-	}
-	Branch {
-	  Points		  [0, -260]
-	  DstBlock		  "Forward Filter"
-	  DstPort		  1
-	}
-      }
-      Branch {
-	Points			[0, 130]
-	DstBlock		"To Workspace3"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Forward Test Image"
-      SrcPort		      3
-      Points		      [15, 0]
-      Branch {
-	Points			[360, 0]
-	Branch {
-	  Points		  [20, 0; 0, 35]
-	  DstBlock		  "Model"
-	  DstPort		  3
-	}
-	Branch {
-	  Points		  [0, -235]
-	  Branch {
-	    DstBlock		    "Transform Coordinates"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, -65]
-	    DstBlock		    "Forward Filter"
-	    DstPort		    3
-	  }
-	}
-      }
-      Branch {
-	Points			[0, 160]
-	DstBlock		"To Workspace5"
-	DstPort			1
-      }
     }
     Line {
       SrcBlock		      "Down Test Image"
@@ -2085,7 +2051,7 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      1
-      Points		      [0, -45]
+      Points		      [0, -65]
       DstBlock		      "Display"
       DstPort		      1
     }
@@ -2099,98 +2065,98 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      3
-      Points		      [0, -5]
+      Points		      [0, -15]
       DstBlock		      "Display2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      4
-      Points		      [215, 0; 0, 20]
+      Points		      [215, 0; 0, 15]
       DstBlock		      "Display3"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      7
-      Points		      [180, 0; 0, 105]
+      Points		      [180, 0; 0, 115]
       DstBlock		      "Display6"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      8
-      Points		      [175, 0; 0, 130]
+      Points		      [175, 0; 0, 145]
       DstBlock		      "Display7"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      9
-      Points		      [170, 0; 0, 155]
+      Points		      [170, 0; 0, 175]
       DstBlock		      "Display8"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      10
-      Points		      [165, 0; 0, 180]
+      Points		      [165, 0; 0, 205]
       DstBlock		      "Display9"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      11
-      Points		      [155, 0; 0, 210]
+      Points		      [155, 0; 0, 240]
       DstBlock		      "Display10"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      12
-      Points		      [145, 0; 0, 235]
+      Points		      [145, 0; 0, 270]
       DstBlock		      "Display11"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      13
-      Points		      [135, 0; 0, 265]
+      Points		      [135, 0; 0, 305]
       DstBlock		      "Display12"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      14
-      Points		      [125, 0; 0, 295]
+      Points		      [125, 0; 0, 340]
       DstBlock		      "Display13"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      15
-      Points		      [115, 0; 0, 320]
+      Points		      [115, 0; 0, 370]
       DstBlock		      "Display14"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      16
-      Points		      [105, 0; 0, 345]
+      Points		      [105, 0; 0, 400]
       DstBlock		      "Display15"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      17
-      Points		      [95, 0; 0, 375]
+      Points		      [95, 0; 0, 435]
       DstBlock		      "Display16"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      18
-      Points		      [85, 0; 0, 405]
+      Points		      [85, 0; 0, 470]
       DstBlock		      "Display17"
       DstPort		      1
     }
@@ -2245,8 +2211,16 @@ Model {
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      1
-      DstBlock		      "Draw Target"
-      DstPort		      1
+      Points		      [460, 0]
+      Branch {
+	DstBlock		"Draw Target"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 95]
+	DstBlock		"Transform Coordinates"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "Forward Filter"
@@ -2263,7 +2237,7 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      24
-      Points		      [30, 0; 0, 55; 15, 0]
+      Points		      [30, 0; 0, 150; 15, 0]
       Branch {
 	Points			[30, 0; 0, 255]
 	DstBlock		"Forward Camera1"
@@ -2278,7 +2252,7 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      25
-      Points		      [20, 0; 0, 60; 25, 0]
+      Points		      [20, 0; 0, 160; 25, 0]
       Branch {
 	Points			[20, 0; 0, 250]
 	DstBlock		"Forward Camera1"
@@ -2293,7 +2267,7 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      26
-      Points		      [10, 0; 0, 65; 35, 0]
+      Points		      [10, 0; 0, 170; 35, 0]
       Branch {
 	Points			[10, 0; 0, 245]
 	DstBlock		"Forward Camera1"
@@ -2308,14 +2282,14 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      19
-      Points		      [80, 0; 0, 430]
+      Points		      [80, 0; 0, 500]
       DstBlock		      "TargetDetected"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      23
-      Points		      [320, 0; 0, 380]
+      Points		      [320, 0; 0, 470]
       DstBlock		      "Display19"
       DstPort		      1
     }
@@ -2337,7 +2311,7 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      6
-      Points		      [0, -20; 50, 0]
+      Points		      [0, -15; 50, 0]
       Branch {
 	Points			[150, 0; 0, 105]
 	DstBlock		"Display5"
@@ -2359,14 +2333,83 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      28
-      Points		      [5, 0; 0, 510]
+      Points		      [5, 0; 0, 625]
       DstBlock		      "theta"
       DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Forward Test Image"
+      SrcPort		      1
+      Points		      [25, 0]
+      Branch {
+	Points			[0, 130]
+	DstBlock		"To Workspace3"
+	DstPort			1
+      }
+      Branch {
+	Points			[60, 0]
+	Branch {
+	  Points		  [105, 0; 0, -10]
+	  DstBlock		  "Model"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, -260]
+	  DstBlock		  "Forward Filter"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Forward Test Image"
+      SrcPort		      2
+      Points		      [20, 0]
+      Branch {
+	Points			[0, 150]
+	DstBlock		"To Workspace4"
+	DstPort			1
+      }
+      Branch {
+	Points			[70, 0]
+	Branch {
+	  Points		  [100, 0; 0, 15]
+	  DstBlock		  "Model"
+	  DstPort		  2
+	}
+	Branch {
+	  Points		  [0, -280]
+	  DstBlock		  "Forward Filter"
+	  DstPort		  2
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Forward Test Image"
+      SrcPort		      3
+      Points		      [15, 0]
+      Branch {
+	Points			[0, 160]
+	DstBlock		"To Workspace5"
+	DstPort			1
+      }
+      Branch {
+	Points			[80, 0]
+	Branch {
+	  Points		  [95, 0; 0, 40]
+	  DstBlock		  "Model"
+	  DstPort		  3
+	}
+	Branch {
+	  Points		  [0, -300]
+	  DstBlock		  "Forward Filter"
+	  DstPort		  3
+	}
+      }
     }
     Annotation {
       Name		      "Modes:\n0 = Do not execute any tasks\n1 = Validation gate\n2 = Follow path\n3 = Buoy\n4 = Torpedo\n"
       "5 = L-obstacle\n6 = Drop mecahnism"
-      Position		      [391, 1009]
+      Position		      [476, 1019]
     }
   }
 }
