@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.894"
+    ComputedModelVersion    "1.895"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 21 23:56:50 2011"
+  LastModifiedDate	  "Wed Jun 22 00:19:33 2011"
   RTWModifiedTimeStamp	  230598086
-  ModelVersionFormat	  "1.%<AutoIncrement:894>"
+  ModelVersionFormat	  "1.%<AutoIncrement:895>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1598,7 +1598,7 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      FileName		      "/home/auvt/auvc/src/vision/Test_Images/gate11.bmp"
+      FileName		      "/home/auvt/auvc/src/vision/Test_Images/gate10.bmp"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
