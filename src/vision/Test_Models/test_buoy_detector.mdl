@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.954"
+    ComputedModelVersion    "1.957"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_buoy_detector/buoy_detector.mdl|buoy_detector"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 21 20:59:58 2011"
-  RTWModifiedTimeStamp	  230588268
-  ModelVersionFormat	  "1.%<AutoIncrement:954>"
+  LastModifiedDate	  "Wed Jun 22 00:51:40 2011"
+  RTWModifiedTimeStamp	  230604202
+  ModelVersionFormat	  "1.%<AutoIncrement:957>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -969,7 +969,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[206 582 574 303]"
+      FigPos		      "[1124 448 285 279]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -1520,7 +1520,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[957 848 410 300]"
+      FigPos		      "[1103 861 266 280]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
