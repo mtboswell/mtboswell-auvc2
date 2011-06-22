@@ -193,23 +193,8 @@ Model {
       Name		      "Iter_Segment_Thresh"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.401"
-    NumModelReferences	    6
-    ModelReference {
-      ModelRefBlockPath	      "VisionModel/Buoy Detection/validation_gate.mdl|buoy_detector"
-    }
-    ModelReference {
-      ModelRefBlockPath	      "VisionModel/Drop Mechanism Target/drop_mech.mdl|drop_mech"
-    }
-    ModelReference {
-      ModelRefBlockPath	      "VisionModel/L-Obstacle Detection/L_detector.mdl|drop_mech"
-    }
-    ModelReference {
-      ModelRefBlockPath	      "VisionModel/Path Following/path_detector.mdl|path_detector"
-    }
-    ModelReference {
-      ModelRefBlockPath	      "VisionModel/Torpedo Target Detection/torpedo.mdl|torpedo"
-    }
+    ComputedModelVersion    "1.402"
+    NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Validation Gate/validation_gate.mdl|validation_gate"
     }
@@ -231,9 +216,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 00:55:09 2011"
+  LastModifiedDate	  "Wed Jun 22 01:03:35 2011"
   RTWModifiedTimeStamp	  230604771
-  ModelVersionFormat	  "1.%<AutoIncrement:401>"
+  ModelVersionFormat	  "1.%<AutoIncrement:402>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1415,66 +1400,6 @@ Model {
 	  ActionType		  "elseif"
 	}
 	Block {
-	  BlockType		  ModelReference
-	  Name			  "validation_gate.mdl"
-	  SID			  "358"
-	  Ports			  [4, 11]
-	  Position		  [170, 94, 430, 596]
-	  ModelNameDialog	  "buoy_detector"
-	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.1194"
-	  List {
-	    ListType		    InputPortNames
-	    port0		    "R_forward_in"
-	    port1		    "G_forward_in"
-	    port2		    "B_forward_in"
-	    port3		    "WhichColor"
-	  }
-	  List {
-	    ListType		    OutputPortNames
-	    port0		    "TargetSelect"
-	    port1		    "TargetFound"
-	    port2		    "MaintainHeading"
-	    port3		    "TargetY"
-	    port4		    "TargetZ"
-	    port5		    "TargetYaw"
-	    port6		    "TargetDetected"
-	    port7		    "BuoyColors"
-	    port8		    "R"
-	    port9		    "G"
-	    port10		    "B"
-	  }
-	  List {
-	    ListType		    OutputPortOutputBusAsStructs
-	    port0		    "off"
-	    port1		    "off"
-	    port2		    "off"
-	    port3		    "off"
-	    port4		    "off"
-	    port5		    "off"
-	    port6		    "off"
-	    port7		    "off"
-	    port8		    "off"
-	    port9		    "off"
-	    port10		    "off"
-	  }
-	  List {
-	    ListType		    InputPortLatchByCopyingInsideSignal
-	    port0		    "off"
-	    port1		    "off"
-	    port2		    "off"
-	    port3		    "off"
-	  }
-	  CopyOfModelName	  "buoy_detector"
-	  List {
-	    ListType		    InputPortLatchByDelayingOutsideSignal
-	    port0		    "off"
-	    port1		    "off"
-	    port2		    "off"
-	    port3		    "off"
-	  }
-	}
-	Block {
 	  BlockType		  Outport
 	  Name			  "TargetSelect"
 	  SID			  "177"
@@ -1575,104 +1500,75 @@ Model {
 	Line {
 	  SrcBlock		  "R_forward_in"
 	  SrcPort		  1
-	  Points		  [80, 0]
-	  DstBlock		  "validation_gate.mdl"
-	  DstPort		  1
+	  Points		  [80, 0; 0, 5; 10, 0]
 	}
 	Line {
 	  SrcBlock		  "G_forward_in"
 	  SrcPort		  1
-	  Points		  [40, 0; 0, 95]
-	  DstBlock		  "validation_gate.mdl"
-	  DstPort		  2
+	  Points		  [40, 0; 0, 95; 50, 0]
 	}
 	Line {
 	  SrcBlock		  "B_forward_in"
 	  SrcPort		  1
-	  Points		  [30, 0; 0, 185]
-	  DstBlock		  "validation_gate.mdl"
-	  DstPort		  3
+	  Points		  [30, 0; 0, 185; 60, 0]
 	}
 	Line {
 	  SrcBlock		  "WhichColor"
 	  SrcPort		  1
-	  Points		  [20, 0; 0, 240]
-	  DstBlock		  "validation_gate.mdl"
-	  DstPort		  4
+	  Points		  [20, 0; 0, 240; 70, 0]
 	}
 	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  1
-	  Points		  [0, -15]
+	  Points		  [435, 120; 0, -15]
 	  DstBlock		  "TargetSelect"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  2
-	  Points		  [155, 0; 0, -25]
+	  Points		  [435, 165; 155, 0; 0, -25]
 	  DstBlock		  "TargetFound"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  3
-	  Points		  [155, 0; 0, -35]
+	  Points		  [435, 210; 155, 0; 0, -35]
 	  DstBlock		  "MaintainHeading"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  4
-	  Points		  [155, 0; 0, -45]
+	  Points		  [435, 255; 155, 0; 0, -45]
 	  DstBlock		  "TargetY"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  5
-	  Points		  [155, 0; 0, -55]
+	  Points		  [435, 300; 155, 0; 0, -55]
 	  DstBlock		  "TargetZ"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  6
-	  Points		  [155, 0; 0, -65]
+	  Points		  [435, 345; 155, 0; 0, -65]
 	  DstBlock		  "TargetYaw"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  7
-	  Points		  [155, 0; 0, -35]
+	  Points		  [435, 390; 155, 0; 0, -35]
 	  DstBlock		  "TargetDetected"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  8
-	  Points		  [155, 0; 0, -45]
+	  Points		  [435, 435; 155, 0; 0, -45]
 	  DstBlock		  "BuoyColors"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  9
+	  Points		  [435, 480]
 	  DstBlock		  "R"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  10
-	  Points		  [155, 0; 0, -5]
+	  Points		  [435, 525; 155, 0; 0, -5]
 	  DstBlock		  "G"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  11
-	  Points		  [155, 0; 0, -10]
+	  Points		  [435, 570; 155, 0; 0, -10]
 	  DstBlock		  "B"
 	  DstPort		  1
 	}
@@ -1979,7 +1875,7 @@ Model {
       System {
 	Name			"Drop Mechanism Target"
 	Location		[4, 83, 1016, 731]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2044,17 +1940,6 @@ Model {
 	  SID			  "90"
 	  Position		  [170, 15, 229, 43]
 	  ActionType		  "elseif"
-	}
-	Block {
-	  BlockType		  ModelReference
-	  Name			  "drop_mech.mdl"
-	  SID			  "114"
-	  Ports			  []
-	  Position		  [170, 113, 312, 158]
-	  ModelNameDialog	  "drop_mech"
-	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.6"
-	  CopyOfModelName	  "drop_mech"
 	}
 	Block {
 	  BlockType		  Outport
@@ -2574,7 +2459,7 @@ Model {
       System {
 	Name			"L-Obstacle Detection"
 	Location		[4, 83, 1016, 738]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2615,17 +2500,6 @@ Model {
 	  SID			  "86"
 	  Position		  [170, 15, 229, 43]
 	  ActionType		  "elseif"
-	}
-	Block {
-	  BlockType		  ModelReference
-	  Name			  "L_detector.mdl"
-	  SID			  "113"
-	  Ports			  []
-	  Position		  [205, 146, 385, 444]
-	  ModelNameDialog	  "drop_mech"
-	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.6"
-	  CopyOfModelName	  "drop_mech"
 	}
 	Block {
 	  BlockType		  Outport
@@ -2709,7 +2583,7 @@ Model {
       System {
 	Name			"Path Following"
 	Location		[4, 83, 1016, 738]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2758,52 +2632,6 @@ Model {
 	  SID			  "74"
 	  Position		  [170, 15, 229, 43]
 	  ActionType		  "elseif"
-	}
-	Block {
-	  BlockType		  ModelReference
-	  Name			  "path_detector.mdl"
-	  SID			  "110"
-	  Ports			  [4, 4]
-	  Position		  [225, 109, 505, 351]
-	  ModelNameDialog	  "path_detector"
-	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.1186"
-	  List {
-	    ListType		    InputPortNames
-	    port0		    "R_in"
-	    port1		    "G_in"
-	    port2		    "B_in"
-	    port3		    "WhichPath"
-	  }
-	  List {
-	    ListType		    OutputPortNames
-	    port0		    "DesiredTargetY"
-	    port1		    "DesiredTargetYaw"
-	    port2		    "PathDetected"
-	    port3		    "PathState"
-	  }
-	  List {
-	    ListType		    OutputPortOutputBusAsStructs
-	    port0		    "off"
-	    port1		    "off"
-	    port2		    "off"
-	    port3		    "off"
-	  }
-	  List {
-	    ListType		    InputPortLatchByCopyingInsideSignal
-	    port0		    "off"
-	    port1		    "off"
-	    port2		    "off"
-	    port3		    "off"
-	  }
-	  CopyOfModelName	  "path_detector"
-	  List {
-	    ListType		    InputPortLatchByDelayingOutsideSignal
-	    port0		    "off"
-	    port1		    "off"
-	    port2		    "off"
-	    port3		    "off"
-	  }
 	}
 	Block {
 	  BlockType		  Outport
@@ -2879,30 +2707,22 @@ Model {
 	Line {
 	  SrcBlock		  "R_down_in"
 	  SrcPort		  1
-	  Points		  [100, 0]
-	  DstBlock		  "path_detector.mdl"
-	  DstPort		  1
+	  Points		  [100, 0; 0, 50; 10, 0]
 	}
 	Line {
 	  SrcBlock		  "G_down_in"
 	  SrcPort		  1
-	  Points		  [80, 0; 0, 75]
-	  DstBlock		  "path_detector.mdl"
-	  DstPort		  2
+	  Points		  [80, 0; 0, 75; 30, 0]
 	}
 	Line {
 	  SrcBlock		  "B_down_in"
 	  SrcPort		  1
-	  Points		  [0, -10; 70, 0; 0, 110]
-	  DstBlock		  "path_detector.mdl"
-	  DstPort		  3
+	  Points		  [0, -10; 70, 0; 0, 110; 40, 0]
 	}
 	Line {
 	  SrcBlock		  "DesiredPathDirection"
 	  SrcPort		  1
-	  Points		  [60, 0; 0, 120]
-	  DstBlock		  "path_detector.mdl"
-	  DstPort		  4
+	  Points		  [60, 0; 0, 120; 50, 0]
 	}
       }
     }
@@ -2924,7 +2744,7 @@ Model {
       System {
 	Name			"Torpedo Target Detection"
 	Location		[4, 83, 1016, 738]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2973,60 +2793,6 @@ Model {
 	  SID			  "82"
 	  Position		  [170, 15, 229, 43]
 	  ActionType		  "elseif"
-	}
-	Block {
-	  BlockType		  ModelReference
-	  Name			  "torpedo.mdl"
-	  SID			  "112"
-	  Ports			  [4, 8]
-	  Position		  [280, 97, 595, 558]
-	  ModelNameDialog	  "torpedo"
-	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.63"
-	  List {
-	    ListType		    InputPortNames
-	    port0		    "R_forward_in"
-	    port1		    "G_forward_in"
-	    port2		    "B_forward_in"
-	    port3		    "WhichColor"
-	  }
-	  List {
-	    ListType		    OutputPortNames
-	    port0		    "TargetSelect"
-	    port1		    "TargetFound"
-	    port2		    "MaintainHeading"
-	    port3		    "TargetY"
-	    port4		    "TargetZ"
-	    port5		    "TargetYaw"
-	    port6		    "TargetDetected"
-	    port7		    "FireAuthorization"
-	  }
-	  List {
-	    ListType		    OutputPortOutputBusAsStructs
-	    port0		    "off"
-	    port1		    "off"
-	    port2		    "off"
-	    port3		    "off"
-	    port4		    "off"
-	    port5		    "off"
-	    port6		    "off"
-	    port7		    "off"
-	  }
-	  List {
-	    ListType		    InputPortLatchByCopyingInsideSignal
-	    port0		    "off"
-	    port1		    "off"
-	    port2		    "off"
-	    port3		    "off"
-	  }
-	  CopyOfModelName	  "torpedo"
-	  List {
-	    ListType		    InputPortLatchByDelayingOutsideSignal
-	    port0		    "off"
-	    port1		    "off"
-	    port2		    "off"
-	    port3		    "off"
-	  }
 	}
 	Block {
 	  BlockType		  Outport
@@ -3169,7 +2935,7 @@ Model {
 	  Position		  [205, 115, 450, 415]
 	  ModelNameDialog	  "validation_gate"
 	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.1185"
+	  ModelReferenceVersion	  "1.1188"
 	  List {
 	    ListType		    InputPortNames
 	    port0		    "R_forward_in"
@@ -3202,19 +2968,7 @@ Model {
 	    port8		    "off"
 	    port9		    "off"
 	  }
-	  List {
-	    ListType		    InputPortLatchByCopyingInsideSignal
-	    port0		    "off"
-	    port1		    "off"
-	    port2		    "off"
-	  }
 	  CopyOfModelName	  "validation_gate"
-	  List {
-	    ListType		    InputPortLatchByDelayingOutsideSignal
-	    port0		    "off"
-	    port1		    "off"
-	    port2		    "off"
-	  }
 	}
 	Block {
 	  BlockType		  Outport

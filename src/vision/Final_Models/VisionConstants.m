@@ -11,9 +11,9 @@ Down_Camera_Dimensions = [120 160];
 Scale_Forward_R = 1;
 Scale_Forward_G = 1;
 Scale_Forward_B = 1;
-Scale_Forward_H = 1;
+Scale_Forward_H = .8;
 Scale_Forward_S = 1;
-Scale_Forward_V = 1;
+Scale_Forward_V = 2;
 
 Scale_Down_R = 1;
 Scale_Down_G = 1;
@@ -24,7 +24,7 @@ Scale_Down_V = 5;
 
 
 %% Iterative segmentation default value
-Iter_Segment_Thresh = 30;
+Iter_Segment_Thresh = 20;
 
 
 %% Hedge constants

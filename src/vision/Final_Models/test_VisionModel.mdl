@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.902"
+    ComputedModelVersion    "1.903"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 00:56:08 2011"
+  LastModifiedDate	  "Wed Jun 22 01:04:34 2011"
   RTWModifiedTimeStamp	  230604769
-  ModelVersionFormat	  "1.%<AutoIncrement:902>"
+  ModelVersionFormat	  "1.%<AutoIncrement:903>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1614,7 +1614,6 @@ Model {
       Name		      "ModeSelect"
       SID		      "493"
       Position		      [515, 920, 545, 950]
-      Value		      "3"
       SampleTime	      "-1"
     }
     Block {
@@ -1625,7 +1624,7 @@ Model {
       Position		      [650, 532, 1140, 1328]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.401"
+      ModelReferenceVersion   "1.402"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1702,39 +1701,7 @@ Model {
 	port25			"off"
 	port26			"off"
       }
-      List {
-	ListType		InputPortLatchByCopyingInsideSignal
-	port0			"off"
-	port1			"off"
-	port2			"off"
-	port3			"off"
-	port4			"off"
-	port5			"off"
-	port6			"off"
-	port7			"off"
-	port8			"off"
-	port9			"off"
-	port10			"off"
-	port11			"off"
-	port12			"off"
-      }
       CopyOfModelName	      "VisionModel"
-      List {
-	ListType		InputPortLatchByDelayingOutsideSignal
-	port0			"off"
-	port1			"off"
-	port2			"off"
-	port3			"off"
-	port4			"off"
-	port5			"off"
-	port6			"off"
-	port7			"off"
-	port8			"off"
-	port9			"off"
-	port10			"off"
-	port11			"off"
-	port12			"off"
-      }
     }
     Block {
       BlockType		      Display
@@ -1760,6 +1727,11 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
+      Array {
+	Type			"Handle"
+	Dimension		0
+	PropName		"AvailSigsLoadSave"
+      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
