@@ -113,7 +113,7 @@ Model {
       Name		      "RightAngled"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.82"
+    ComputedModelVersion    "1.84"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -131,11 +131,11 @@ Model {
   Creator		  "auvt"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "boswell"
+  LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed May 18 14:32:19 2011"
-  RTWModifiedTimeStamp	  227629780
-  ModelVersionFormat	  "1.%<AutoIncrement:82>"
+  LastModifiedDate	  "Tue Jun 21 21:54:49 2011"
+  RTWModifiedTimeStamp	  230593805
+  ModelVersionFormat	  "1.%<AutoIncrement:84>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -957,7 +957,7 @@ Model {
   }
   System {
     Name		    "MotionController"
-    Location		    [17, 107, 1228, 952]
+    Location		    [17, 83, 1228, 863]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1316,7 +1316,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nboswell\\n18-May-2011 14:30:23"
+      "nauvt\\n21-Jun-2011 21:50:07"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -3540,7 +3540,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Targeting Controllers"
-	Location		[307, 49, 1023, 595]
+	Location		[307, 83, 1023, 629]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -3751,6 +3751,13 @@ Model {
 	      IconDisplay	      "Port number"
 	      OutDataTypeStr	      "double"
 	    }
+	    Annotation {
+	      Name		      "Switch TargetSelect\n  Case 1 // Tracking forward target\n    Stop forward motion, and spin around"
+	      " in a circle\n    until a forward target is acquired\n  Case 2 // Tracking down target\n    Possibly travel aro"
+	      "und in a cirle or spiral,\n    searching for a new path"
+	      Position		      [123, 230]
+	      HorizontalAlignment     "left"
+	    }
 	  }
 	}
 	Block {
@@ -3770,7 +3777,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Track Target"
-	    Location		    [102, 97, 944, 620]
+	    Location		    [426, 255, 1268, 778]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200

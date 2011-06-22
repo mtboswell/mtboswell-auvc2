@@ -56,7 +56,7 @@ Model {
       BusObject		      ""
       Name		      "DefaultTargetColor"
     }
-    NumRootOutports	    22
+    NumRootOutports	    26
     Outport {
       BusObject		      ""
       BusOutputAsStruct	      "off"
@@ -167,8 +167,28 @@ Model {
       BusOutputAsStruct	      "off"
       Name		      "FireAuthorization"
     }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "DummieVariable"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "R"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "G"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "B"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.389"
+    ComputedModelVersion    "1.395"
     NumModelReferences	    5
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Drop Mechanism Target/drop_mech.mdl|drop_mech"
@@ -203,9 +223,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 21 02:38:56 2011"
-  RTWModifiedTimeStamp	  230520983
-  ModelVersionFormat	  "1.%<AutoIncrement:389>"
+  LastModifiedDate	  "Tue Jun 21 22:21:11 2011"
+  RTWModifiedTimeStamp	  230595258
+  ModelVersionFormat	  "1.%<AutoIncrement:395>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -920,7 +940,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "344"
+    SIDHighWatermark	    "357"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -1153,10 +1173,76 @@ Model {
     }
     Block {
       BlockType		      Sum
+      Name		      "Add19"
+      SID		      "351"
+      Ports		      [6, 1]
+      Position		      [2365, 1571, 2420, 1614]
+      Inputs		      "++++++"
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Sum
       Name		      "Add2"
       SID		      "257"
       Ports		      [6, 1]
       Position		      [2365, 396, 2420, 439]
+      Inputs		      "++++++"
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Add20"
+      SID		      "352"
+      Ports		      [6, 1]
+      Position		      [2365, 1641, 2420, 1684]
+      Inputs		      "++++++"
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Add21"
+      SID		      "353"
+      Ports		      [6, 1]
+      Position		      [2365, 1716, 2420, 1759]
+      Inputs		      "++++++"
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Add22"
+      SID		      "354"
+      Ports		      [6, 1]
+      Position		      [2365, 1861, 2420, 1904]
+      Inputs		      "++++++"
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Add23"
+      SID		      "355"
+      Ports		      [6, 1]
+      Position		      [2365, 1931, 2420, 1974]
+      Inputs		      "++++++"
+      InputSameDT	      off
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Sum
+      Name		      "Add24"
+      SID		      "356"
+      Ports		      [6, 1]
+      Position		      [2365, 2001, 2420, 2044]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -2799,7 +2885,7 @@ Model {
       BlockType		      SubSystem
       Name		      "Validation Gate"
       SID		      "68"
-      Ports		      [3, 7, 0, 0, 0, 0, 0, 1]
+      Ports		      [3, 10, 0, 0, 0, 0, 0, 1]
       Position		      [1330, 455, 1590, 955]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
@@ -2859,11 +2945,11 @@ Model {
 	  BlockType		  ModelReference
 	  Name			  "validation_gate.mdl"
 	  SID			  "109"
-	  Ports			  [3, 7]
-	  Position		  [205, 111, 450, 409]
+	  Ports			  [3, 10]
+	  Position		  [205, 115, 450, 415]
 	  ModelNameDialog	  "validation_gate"
 	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.1175"
+	  ModelReferenceVersion	  "1.1176"
 	  List {
 	    ListType		    InputPortNames
 	    port0		    "R_forward_in"
@@ -2879,6 +2965,9 @@ Model {
 	    port4		    "TargetZ"
 	    port5		    "TargetYaw"
 	    port6		    "TargetDetected"
+	    port7		    "R"
+	    port8		    "G"
+	    port9		    "B"
 	  }
 	  List {
 	    ListType		    OutputPortOutputBusAsStructs
@@ -2889,6 +2978,9 @@ Model {
 	    port4		    "off"
 	    port5		    "off"
 	    port6		    "off"
+	    port7		    "off"
+	    port8		    "off"
+	    port9		    "off"
 	  }
 	  CopyOfModelName	  "validation_gate"
 	}
@@ -2954,73 +3046,122 @@ Model {
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
 	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "R"
+	  SID			  "345"
+	  Position		  [605, 398, 635, 412]
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "G"
+	  SID			  "346"
+	  Position		  [605, 433, 635, 447]
+	  Port			  "9"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "B"
+	  SID			  "347"
+	  Position		  [605, 463, 635, 477]
+	  Port			  "10"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
 	Line {
 	  SrcBlock		  "R_forward_in"
 	  SrcPort		  1
+	  Points		  [105, 0]
 	  DstBlock		  "validation_gate.mdl"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "G_forward_in"
 	  SrcPort		  1
-	  Points		  [65, 0; 0, 65]
+	  Points		  [65, 0; 0, 70]
 	  DstBlock		  "validation_gate.mdl"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "B_forward_in"
 	  SrcPort		  1
-	  Points		  [55, 0; 0, 130]
+	  Points		  [55, 0; 0, 135]
 	  DstBlock		  "validation_gate.mdl"
 	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  7
-	  Points		  [100, 0; 0, -40]
+	  Points		  [100, 0; 0, 30]
 	  DstBlock		  "TargetDetected"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  4
-	  Points		  [60, 0; 0, -65]
+	  Points		  [0, -25]
 	  DstBlock		  "TargetY"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  5
-	  Points		  [70, 0; 0, -70]
+	  Points		  [70, 0; 0, -20]
 	  DstBlock		  "TargetZ"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  1
-	  Points		  [35, 0; 0, -50]
+	  Points		  [35, 0; 0, -40]
 	  DstBlock		  "TargetSelect"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  2
-	  Points		  [45, 0; 0, -55]
+	  Points		  [45, 0; 0, -35]
 	  DstBlock		  "TargetFound"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  3
-	  Points		  [50, 0; 0, -70; 85, 0]
+	  Points		  [50, 0; 0, -40; 85, 0]
 	  DstBlock		  "MaintainHeading"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  6
-	  Points		  [90, 0; 0, -75]
+	  Points		  [90, 0; 0, -15]
 	  DstBlock		  "TargetYaw"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  8
+	  Points		  [65, 0; 0, 65]
+	  DstBlock		  "R"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  9
+	  Points		  [55, 0; 0, 70]
+	  DstBlock		  "G"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  10
+	  Points		  [45, 0; 0, 70]
+	  DstBlock		  "B"
 	  DstPort		  1
 	}
       }
@@ -3208,7 +3349,7 @@ Model {
       BlockType		      Outport
       Name		      "BuoyColors"
       SID		      "342"
-      Position		      [2480, 1628, 2510, 1642]
+      Position		      [2480, 1658, 2510, 1672]
       Port		      "21"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -3217,8 +3358,44 @@ Model {
       BlockType		      Outport
       Name		      "FireAuthorization"
       SID		      "343"
-      Position		      [2480, 1668, 2510, 1682]
+      Position		      [2480, 1733, 2510, 1747]
       Port		      "22"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "DummieVariable"
+      SID		      "357"
+      Position		      [2480, 1793, 2510, 1807]
+      Port		      "23"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "R"
+      SID		      "348"
+      Position		      [2480, 1878, 2510, 1892]
+      Port		      "24"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "G"
+      SID		      "349"
+      Position		      [2480, 1948, 2510, 1962]
+      Port		      "25"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "B"
+      SID		      "350"
+      Position		      [2480, 2018, 2510, 2032]
+      Port		      "26"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
@@ -3561,49 +3738,49 @@ Model {
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      5
-      Points		      [160, 0; 0, -180]
+      Points		      [160, 0; 0, -85]
       DstBlock		      "Add5"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      4
-      Points		      [155, 0; 0, -175]
+      Points		      [155, 0; 0, -100]
       DstBlock		      "Add4"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      1
-      Points		      [140, 0; 0, -210]
+      Points		      [140, 0; 0, -195]
       DstBlock		      "Add"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      2
-      Points		      [145, 0; 0, -220]
+      Points		      [145, 0; 0, -185]
       DstBlock		      "Add1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      3
-      Points		      [150, 0; 0, -230]
+      Points		      [150, 0; 0, -175]
       DstBlock		      "Add2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      6
-      Points		      [165, 0; 0, -185]
+      Points		      [165, 0; 0, -70]
       DstBlock		      "Add6"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      7
-      Points		      [170, 0; 0, 510]
+      Points		      [170, 0; 0, 645]
       DstBlock		      "Add18"
       DstPort		      1
     }
@@ -3614,10 +3791,49 @@ Model {
       DstPort		      1
     }
     Line {
+      SrcBlock		      "Add22"
+      SrcPort		      1
+      DstBlock		      "R"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Add23"
+      SrcPort		      1
+      DstBlock		      "G"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Add24"
+      SrcPort		      1
+      DstBlock		      "B"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      8
+      Points		      [670, 0; 0, 1040]
+      DstBlock		      "Add22"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      9
+      Points		      [650, 0; 0, 1060]
+      DstBlock		      "Add23"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      10
+      Points		      [635, 0; 0, 1080]
+      DstBlock		      "Add24"
+      DstPort		      1
+    }
+    Line {
       SrcBlock		      "Identify Validation Gate"
       SrcPort		      1
-      Points		      [155, 0; 0, -345]
-      DstBlock		      "Add3"
+      Points		      [105, 0; 0, 990]
+      DstBlock		      "DummieVariable"
       DstPort		      1
     }
     Annotation {
@@ -3704,8 +3920,6 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    34
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
