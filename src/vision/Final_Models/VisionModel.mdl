@@ -56,7 +56,7 @@ Model {
       BusObject		      ""
       Name		      "DefaultTargetColor"
     }
-    NumRootOutports	    26
+    NumRootOutports	    27
     Outport {
       BusObject		      ""
       BusOutputAsStruct	      "off"
@@ -187,8 +187,13 @@ Model {
       BusOutputAsStruct	      "off"
       Name		      "B"
     }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "Iter_Segment_Thresh"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.400"
+    ComputedModelVersion    "1.401"
     NumModelReferences	    6
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Buoy Detection/validation_gate.mdl|buoy_detector"
@@ -226,9 +231,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 21 23:55:03 2011"
+  LastModifiedDate	  "Wed Jun 22 00:19:24 2011"
   RTWModifiedTimeStamp	  230600904
-  ModelVersionFormat	  "1.%<AutoIncrement:400>"
+  ModelVersionFormat	  "1.%<AutoIncrement:401>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -809,6 +814,19 @@ Model {
       ActionType	      "unset"
     }
     Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
       BlockType		      Demux
       Outputs		      "4"
       DisplayOption	      "none"
@@ -943,7 +961,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "361"
+    SIDHighWatermark	    "363"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -1645,6 +1663,14 @@ Model {
 	  DstPort		  1
 	}
       }
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant2"
+      SID		      "363"
+      Position		      [2205, 2181, 2360, 2229]
+      Value		      "Iter_Segment_Thresh"
+      SampleTime	      "-1"
     }
     Block {
       BlockType		      SubSystem
@@ -2727,7 +2753,7 @@ Model {
 	  Position		  [225, 109, 505, 351]
 	  ModelNameDialog	  "path_detector"
 	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.220"
+	  ModelReferenceVersion	  "1.1186"
 	  List {
 	    ListType		    InputPortNames
 	    port0		    "R_in"
@@ -3579,6 +3605,15 @@ Model {
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
+    Block {
+      BlockType		      Outport
+      Name		      "Iter_Segment_Thresh"
+      SID		      "362"
+      Position		      [2480, 2198, 2510, 2212]
+      Port		      "27"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
     Line {
       SrcBlock		      "ModeSelect"
       SrcPort		      1
@@ -4036,6 +4071,12 @@ Model {
       Points		      [705, 0; 0, 235]
       DstBlock		      "Add23"
       DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Constant2"
+      SrcPort		      1
+      DstBlock		      "Iter_Segment_Thresh"
+      DstPort		      1
     }
     Annotation {
       Name		      "Current target information"
