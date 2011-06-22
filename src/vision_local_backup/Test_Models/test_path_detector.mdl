@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.932"
+    ComputedModelVersion    "1.934"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_path_detector/path_detector.mdl|path_detector"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 21 22:09:02 2011"
-  RTWModifiedTimeStamp	  230590677
-  ModelVersionFormat	  "1.%<AutoIncrement:932>"
+  LastModifiedDate	  "Tue Jun 21 22:38:06 2011"
+  RTWModifiedTimeStamp	  230596349
+  ModelVersionFormat	  "1.%<AutoIncrement:934>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -751,7 +751,7 @@ Model {
   }
   System {
     Name		    "test_path_detector"
-    Location		    [1440, 50, 3120, 1050]
+    Location		    [0, 83, 1440, 867]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1947,11 +1947,11 @@ Model {
       BlockType		      ModelReference
       Name		      "path_detector.mdl"
       SID		      "620"
-      Ports		      [4, 13]
-      Position		      [470, 263, 745, 617]
+      Ports		      [4, 4]
+      Position		      [465, 253, 740, 607]
       ModelNameDialog	      "path_detector"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.223"
+      ModelReferenceVersion   "1.220"
       List {
 	ListType		InputPortNames
 	port0			"R_in"
@@ -1961,19 +1961,10 @@ Model {
       }
       List {
 	ListType		OutputPortNames
-	port0			"TargetSelect"
-	port1			"TargetFound"
-	port2			"MaintainHeading"
-	port3			"TargetX"
-	port4			"TargetY"
-	port5			"TargetYaw"
-	port6			"TargetDetected"
-	port7			"BW"
-	port8			"SegmentedImage"
-	port9			"Edge"
-	port10			"Hough"
-	port11			"Theta"
-	port12			"Rho"
+	port0			"DesiredTargetY"
+	port1			"DesiredTargetYaw"
+	port2			"PathDetected"
+	port3			"PathState"
       }
       List {
 	ListType		OutputPortOutputBusAsStructs
@@ -1981,15 +1972,6 @@ Model {
 	port1			"off"
 	port2			"off"
 	port3			"off"
-	port4			"off"
-	port5			"off"
-	port6			"off"
-	port7			"off"
-	port8			"off"
-	port9			"off"
-	port10			"off"
-	port11			"off"
-	port12			"off"
       }
       List {
 	ListType		InputPortLatchByCopyingInsideSignal
@@ -2044,7 +2026,6 @@ Model {
 	}
       }
       Branch {
-	Points			[100, 0]
 	DstBlock		"path_detector.mdl"
 	DstPort			1
       }
@@ -2059,7 +2040,7 @@ Model {
 	DstPort			2
       }
       Branch {
-	Points			[80, 0; 0, 85]
+	Points			[80, 0; 0, 75]
 	DstBlock		"path_detector.mdl"
 	DstPort			2
       }
@@ -2074,7 +2055,7 @@ Model {
 	DstPort			3
       }
       Branch {
-	Points			[60, 0; 0, 160]
+	Points			[60, 0; 0, 150]
 	DstBlock		"path_detector.mdl"
 	DstPort			3
       }
@@ -2129,28 +2110,28 @@ Model {
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      1
-      Points		      [0, -30]
+      Points		      [0, -35]
       DstBlock		      "Display"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      2
-      Points		      [250, 0; 0, -5]
+      Points		      [255, 0; 0, -75]
       DstBlock		      "Display1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      3
-      Points		      [250, 0; 0, 20]
+      Points		      [255, 0; 0, -115]
       DstBlock		      "Display2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      4
-      Points		      [70, 0]
+      Points		      [0, -200; 75, 0]
       Branch {
 	Points			[180, 0; 0, 45]
 	DstBlock		"Display3"
@@ -2163,37 +2144,9 @@ Model {
       }
     }
     Line {
-      SrcBlock		      "path_detector.mdl"
-      SrcPort		      5
-      Points		      [0, 10; 75, 0]
-      Branch {
-	Points			[165, 0; 0, 60]
-	DstBlock		"Display4"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, -225]
-	DstBlock		"Transform Coordinates2"
-	DstPort			4
-      }
-    }
-    Line {
-      SrcBlock		      "path_detector.mdl"
-      SrcPort		      6
-      Points		      [230, 0; 0, 95]
-      DstBlock		      "Display5"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "path_detector.mdl"
-      SrcPort		      7
-      Points		      [220, 0; 0, 125]
-      DstBlock		      "Display6"
-      DstPort		      1
-    }
-    Line {
       SrcBlock		      "ModeSelect1"
       SrcPort		      1
+      Points		      [40, 0]
       DstBlock		      "path_detector.mdl"
       DstPort		      4
     }

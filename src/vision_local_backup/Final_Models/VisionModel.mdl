@@ -188,8 +188,11 @@ Model {
       Name		      "B"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.395"
-    NumModelReferences	    5
+    ComputedModelVersion    "1.400"
+    NumModelReferences	    6
+    ModelReference {
+      ModelRefBlockPath	      "VisionModel/Buoy Detection/validation_gate.mdl|buoy_detector"
+    }
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Drop Mechanism Target/drop_mech.mdl|drop_mech"
     }
@@ -223,9 +226,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 21 22:21:11 2011"
-  RTWModifiedTimeStamp	  230595258
-  ModelVersionFormat	  "1.%<AutoIncrement:395>"
+  LastModifiedDate	  "Tue Jun 21 23:55:03 2011"
+  RTWModifiedTimeStamp	  230600904
+  ModelVersionFormat	  "1.%<AutoIncrement:400>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -940,7 +943,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "357"
+    SIDHighWatermark	    "361"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -1329,7 +1332,7 @@ Model {
       BlockType		      SubSystem
       Name		      "Buoy Detection"
       SID		      "76"
-      Ports		      [4, 8, 0, 0, 0, 0, 0, 1]
+      Ports		      [4, 11, 0, 0, 0, 0, 0, 1]
       Position		      [1285, 1339, 1635, 1761]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
@@ -1342,7 +1345,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Buoy Detection"
-	Location		[4, 83, 1016, 738]
+	Location		[1816, 218, 2828, 873]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1359,14 +1362,14 @@ Model {
 	  BlockType		  Inport
 	  Name			  "R_forward_in"
 	  SID			  "174"
-	  Position		  [40, 88, 70, 102]
+	  Position		  [40, 148, 70, 162]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "G_forward_in"
 	  SID			  "175"
-	  Position		  [40, 123, 70, 137]
+	  Position		  [40, 183, 70, 197]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
@@ -1374,7 +1377,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "B_forward_in"
 	  SID			  "176"
-	  Position		  [40, 158, 70, 172]
+	  Position		  [40, 218, 70, 232]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
@@ -1382,7 +1385,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "WhichColor"
 	  SID			  "187"
-	  Position		  [40, 228, 70, 242]
+	  Position		  [40, 288, 70, 302]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
 	}
@@ -1394,10 +1397,56 @@ Model {
 	  ActionType		  "elseif"
 	}
 	Block {
+	  BlockType		  ModelReference
+	  Name			  "validation_gate.mdl"
+	  SID			  "358"
+	  Ports			  [4, 11]
+	  Position		  [170, 94, 430, 596]
+	  ModelNameDialog	  "buoy_detector"
+	  SimulationMode	  "Accelerator"
+	  ModelReferenceVersion	  "1.1193"
+	  List {
+	    ListType		    InputPortNames
+	    port0		    "R_forward_in"
+	    port1		    "G_forward_in"
+	    port2		    "B_forward_in"
+	    port3		    "WhichColor"
+	  }
+	  List {
+	    ListType		    OutputPortNames
+	    port0		    "TargetSelect"
+	    port1		    "TargetFound"
+	    port2		    "MaintainHeading"
+	    port3		    "TargetY"
+	    port4		    "TargetZ"
+	    port5		    "TargetYaw"
+	    port6		    "TargetDetected"
+	    port7		    "BuoyColors"
+	    port8		    "R"
+	    port9		    "G"
+	    port10		    "B"
+	  }
+	  List {
+	    ListType		    OutputPortOutputBusAsStructs
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	    port3		    "off"
+	    port4		    "off"
+	    port5		    "off"
+	    port6		    "off"
+	    port7		    "off"
+	    port8		    "off"
+	    port9		    "off"
+	    port10		    "off"
+	  }
+	  CopyOfModelName	  "buoy_detector"
+	}
+	Block {
 	  BlockType		  Outport
 	  Name			  "TargetSelect"
 	  SID			  "177"
-	  Position		  [460, 88, 490, 102]
+	  Position		  [760, 98, 790, 112]
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
 	}
@@ -1405,7 +1454,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "TargetFound"
 	  SID			  "178"
-	  Position		  [460, 123, 490, 137]
+	  Position		  [760, 133, 790, 147]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -1414,7 +1463,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "MaintainHeading"
 	  SID			  "179"
-	  Position		  [460, 158, 490, 172]
+	  Position		  [760, 168, 790, 182]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -1423,7 +1472,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "TargetY"
 	  SID			  "180"
-	  Position		  [460, 193, 490, 207]
+	  Position		  [760, 203, 790, 217]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -1432,7 +1481,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "TargetZ"
 	  SID			  "181"
-	  Position		  [460, 228, 490, 242]
+	  Position		  [760, 238, 790, 252]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -1441,7 +1490,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "TargetYaw"
 	  SID			  "182"
-	  Position		  [460, 263, 490, 277]
+	  Position		  [760, 273, 790, 287]
 	  Port			  "6"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -1450,7 +1499,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "TargetDetected"
 	  SID			  "183"
-	  Position		  [460, 338, 490, 352]
+	  Position		  [760, 348, 790, 362]
 	  Port			  "7"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -1459,10 +1508,141 @@ Model {
 	  BlockType		  Outport
 	  Name			  "BuoyColors"
 	  SID			  "188"
-	  Position		  [460, 373, 490, 387]
+	  Position		  [760, 383, 790, 397]
 	  Port			  "8"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "R"
+	  SID			  "359"
+	  Position		  [760, 473, 790, 487]
+	  Port			  "9"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "G"
+	  SID			  "360"
+	  Position		  [760, 513, 790, 527]
+	  Port			  "10"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "B"
+	  SID			  "361"
+	  Position		  [760, 553, 790, 567]
+	  Port			  "11"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Line {
+	  SrcBlock		  "R_forward_in"
+	  SrcPort		  1
+	  Points		  [80, 0]
+	  DstBlock		  "validation_gate.mdl"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "G_forward_in"
+	  SrcPort		  1
+	  Points		  [40, 0; 0, 95]
+	  DstBlock		  "validation_gate.mdl"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "B_forward_in"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, 185]
+	  DstBlock		  "validation_gate.mdl"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "WhichColor"
+	  SrcPort		  1
+	  Points		  [20, 0; 0, 240]
+	  DstBlock		  "validation_gate.mdl"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  1
+	  Points		  [0, -15]
+	  DstBlock		  "TargetSelect"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  2
+	  Points		  [155, 0; 0, -25]
+	  DstBlock		  "TargetFound"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  3
+	  Points		  [155, 0; 0, -35]
+	  DstBlock		  "MaintainHeading"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  4
+	  Points		  [155, 0; 0, -45]
+	  DstBlock		  "TargetY"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  5
+	  Points		  [155, 0; 0, -55]
+	  DstBlock		  "TargetZ"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  6
+	  Points		  [155, 0; 0, -65]
+	  DstBlock		  "TargetYaw"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  7
+	  Points		  [155, 0; 0, -35]
+	  DstBlock		  "TargetDetected"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  8
+	  Points		  [155, 0; 0, -45]
+	  DstBlock		  "BuoyColors"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  9
+	  DstBlock		  "R"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  10
+	  Points		  [155, 0; 0, -5]
+	  DstBlock		  "G"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  11
+	  Points		  [155, 0; 0, -10]
+	  DstBlock		  "B"
+	  DstPort		  1
 	}
       }
     }
@@ -1925,8 +2105,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Forward Filter"
-	Location		[2, 76, 1014, 724]
-	Open			off
+	Location		[4, 83, 1016, 731]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2949,7 +3129,7 @@ Model {
 	  Position		  [205, 115, 450, 415]
 	  ModelNameDialog	  "validation_gate"
 	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.1176"
+	  ModelReferenceVersion	  "1.1185"
 	  List {
 	    ListType		    InputPortNames
 	    port0		    "R_forward_in"
@@ -3835,6 +4015,27 @@ Model {
       Points		      [105, 0; 0, 990]
       DstBlock		      "DummieVariable"
       DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Buoy Detection"
+      SrcPort		      9
+      Points		      [705, 0; 0, 205]
+      DstBlock		      "Add22"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Buoy Detection"
+      SrcPort		      11
+      Points		      [580, 0; 0, 270; 130, 0]
+      DstBlock		      "Add24"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Buoy Detection"
+      SrcPort		      10
+      Points		      [705, 0; 0, 235]
+      DstBlock		      "Add23"
+      DstPort		      2
     }
     Annotation {
       Name		      "Current target information"
