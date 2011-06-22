@@ -216,7 +216,7 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 01:03:35 2011"
+  LastModifiedDate	  "Wed Jun 22 01:41:37 2011"
   RTWModifiedTimeStamp	  230604771
   ModelVersionFormat	  "1.%<AutoIncrement:402>"
   ConfigurationManager	  "None"
@@ -2968,7 +2968,19 @@ Model {
 	    port8		    "off"
 	    port9		    "off"
 	  }
+	  List {
+	    ListType		    InputPortLatchByCopyingInsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	  }
 	  CopyOfModelName	  "validation_gate"
+	  List {
+	    ListType		    InputPortLatchByDelayingOutsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	  }
 	}
 	Block {
 	  BlockType		  Outport

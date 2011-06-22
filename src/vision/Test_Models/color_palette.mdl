@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.811"
+    ComputedModelVersion    "1.812"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 21 16:52:46 2011"
-  RTWModifiedTimeStamp	  230571920
-  ModelVersionFormat	  "1.%<AutoIncrement:811>"
+  LastModifiedDate	  "Wed Jun 22 01:17:57 2011"
+  RTWModifiedTimeStamp	  230606275
+  ModelVersionFormat	  "1.%<AutoIncrement:812>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1003,7 +1003,7 @@ Model {
       Name		      "a_range1"
       SID		      "244"
       Position		      [100, 155, 130, 185]
-      Value		      "[25 127]"
+      Value		      "[-60 -40]"
       SampleTime	      "-1"
     }
     Block {
@@ -1020,7 +1020,7 @@ Model {
       Name		      "b_range1"
       SID		      "245"
       Position		      [100, 205, 130, 235]
-      Value		      "[0 127]"
+      Value		      "[-30 -26]"
       SampleTime	      "-1"
     }
     Block {

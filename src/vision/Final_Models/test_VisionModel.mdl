@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.903"
+    ComputedModelVersion    "1.907"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 01:04:34 2011"
-  RTWModifiedTimeStamp	  230604769
-  ModelVersionFormat	  "1.%<AutoIncrement:903>"
+  LastModifiedDate	  "Wed Jun 22 01:45:01 2011"
+  RTWModifiedTimeStamp	  230607058
+  ModelVersionFormat	  "1.%<AutoIncrement:907>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -722,6 +722,14 @@ Model {
     Block {
       BlockType		      Terminator
     }
+    Block {
+      BlockType		      ToWorkspace
+      VariableName	      "simulink_output"
+      MaxDataPoints	      "1000"
+      Decimation	      "1"
+      SampleTime	      "0"
+      FixptAsFi		      off
+    }
   }
   System {
     Name		    "test_VisionModel"
@@ -739,7 +747,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "585"
+    SIDHighWatermark	    "591"
     Block {
       BlockType		      Display
       Name		      "Display"
@@ -1297,7 +1305,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[1472 809 275 171]"
+      FigPos		      "[1090 775 275 171]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -1583,7 +1591,7 @@ Model {
       SID		      "438"
       Tag		      "vipblks_nd"
       Ports		      [0, 3]
-      Position		      [405, 574, 530, 686]
+      Position		      [95, 574, 220, 686]
       LibraryVersion	      "1.308"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag6"
@@ -1711,6 +1719,72 @@ Model {
       Position		      [1460, 1465, 1550, 1495]
       Decimation	      "1"
       Lockdown		      off
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace"
+      SID		      "586"
+      Ports		      [1]
+      Position		      [1020, 1440, 1080, 1470]
+      VariableName	      "R"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Array"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace1"
+      SID		      "587"
+      Ports		      [1]
+      Position		      [1015, 1495, 1075, 1525]
+      VariableName	      "G"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Array"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace2"
+      SID		      "588"
+      Ports		      [1]
+      Position		      [1015, 1540, 1075, 1570]
+      VariableName	      "B"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Array"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace3"
+      SID		      "589"
+      Ports		      [1]
+      Position		      [280, 710, 340, 740]
+      VariableName	      "R1"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Array"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace4"
+      SID		      "590"
+      Ports		      [1]
+      Position		      [280, 765, 340, 795]
+      VariableName	      "G1"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Array"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace5"
+      SID		      "591"
+      Ports		      [1]
+      Position		      [280, 810, 340, 840]
+      VariableName	      "B1"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Array"
     }
     Block {
       BlockType		      SubSystem
@@ -1901,52 +1975,76 @@ Model {
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      2
-      Points		      [60, 0]
+      Points		      [25, 0]
       Branch {
-	DstBlock		"Model"
-	DstPort			2
+	Points			[345, 0]
+	Branch {
+	  DstBlock		  "Model"
+	  DstPort		  2
+	}
+	Branch {
+	  Points		  [0, -280]
+	  DstBlock		  "Forward Filter"
+	  DstPort		  2
+	}
       }
       Branch {
-	Points			[0, -280]
-	DstBlock		"Forward Filter"
-	DstPort			2
+	Points			[0, 150]
+	DstBlock		"To Workspace4"
+	DstPort			1
       }
     }
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      1
-      Points		      [55, 0]
+      Points		      [35, 0]
       Branch {
-	Points			[30, 0; 0, -25]
-	DstBlock		"Model"
-	DstPort			1
+	Points			[330, 0]
+	Branch {
+	  Points		  [30, 0; 0, -25]
+	  DstBlock		  "Model"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, -260]
+	  DstBlock		  "Forward Filter"
+	  DstPort		  1
+	}
       }
       Branch {
-	Points			[0, -260]
-	DstBlock		"Forward Filter"
+	Points			[0, 130]
+	DstBlock		"To Workspace3"
 	DstPort			1
       }
     }
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      3
-      Points		      [65, 0]
+      Points		      [15, 0]
       Branch {
-	Points			[20, 0; 0, 25]
-	DstBlock		"Model"
-	DstPort			3
-      }
-      Branch {
-	Points			[0, -235]
+	Points			[360, 0]
 	Branch {
-	  DstBlock		  "Transform Coordinates"
-	  DstPort		  1
-	}
-	Branch {
-	  Points		  [0, -65]
-	  DstBlock		  "Forward Filter"
+	  Points		  [20, 0; 0, 25]
+	  DstBlock		  "Model"
 	  DstPort		  3
 	}
+	Branch {
+	  Points		  [0, -235]
+	  Branch {
+	    DstBlock		    "Transform Coordinates"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -65]
+	    DstBlock		    "Forward Filter"
+	    DstPort		    3
+	  }
+	}
+      }
+      Branch {
+	Points			[0, 160]
+	DstBlock		"To Workspace5"
+	DstPort			1
       }
     }
     Line {
@@ -2150,23 +2248,47 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      24
-      Points		      [50, 0; 0, 255]
-      DstBlock		      "Forward Camera1"
-      DstPort		      1
+      Points		      [20, 0]
+      Branch {
+	Points			[30, 0; 0, 255]
+	DstBlock		"Forward Camera1"
+	DstPort			1
+      }
+      Branch {
+	Points			[-160, 0]
+	DstBlock		"To Workspace"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      25
-      Points		      [40, 0; 0, 250]
-      DstBlock		      "Forward Camera1"
-      DstPort		      2
+      Points		      [20, 0]
+      Branch {
+	Points			[20, 0; 0, 250]
+	DstBlock		"Forward Camera1"
+	DstPort			2
+      }
+      Branch {
+	Points			[-165, 0]
+	DstBlock		"To Workspace1"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      26
-      Points		      [30, 0; 0, 245]
-      DstBlock		      "Forward Camera1"
-      DstPort		      3
+      Points		      [20, 0]
+      Branch {
+	Points			[10, 0; 0, 245]
+	DstBlock		"Forward Camera1"
+	DstPort			3
+      }
+      Branch {
+	Points			[-165, 0]
+	DstBlock		"To Workspace2"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "Model"

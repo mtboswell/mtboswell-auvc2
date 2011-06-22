@@ -68,7 +68,7 @@ Model {
       Name		      "B"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1188"
+    ComputedModelVersion    "1.1191"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -88,9 +88,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 00:56:05 2011"
-  RTWModifiedTimeStamp	  230604839
-  ModelVersionFormat	  "1.%<AutoIncrement:1188>"
+  LastModifiedDate	  "Wed Jun 22 01:44:59 2011"
+  RTWModifiedTimeStamp	  230607716
+  ModelVersionFormat	  "1.%<AutoIncrement:1191>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -928,6 +928,11 @@ Model {
 	  RTWSystemCode		  "Auto"
 	  FunctionWithSeparateData off
 	  Opaque		  off
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    0
+	    PropName		    "AvailSigsLoadSave"
+	  }
 	  RequestExecContextInheritance	off
 	  MaskHideContents	  off
 	  MaskType		  "Stateflow"
@@ -1189,6 +1194,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -1302,6 +1312,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -1415,6 +1430,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -1648,6 +1668,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -1817,6 +1842,11 @@ Model {
 		  RTWSystemCode		  "Auto"
 		  FunctionWithSeparateData off
 		  Opaque		  off
+		  Array {
+		    Type		    "Handle"
+		    Dimension		    0
+		    PropName		    "AvailSigsLoadSave"
+		  }
 		  RequestExecContextInheritance	off
 		  MaskHideContents	  off
 		  MaskType		  "Stateflow"
@@ -2667,6 +2697,11 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
+      Array {
+	Type			"Handle"
+	Dimension		0
+	PropName		"AvailSigsLoadSave"
+      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -2904,6 +2939,11 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
+      Array {
+	Type			"Handle"
+	Dimension		0
+	PropName		"AvailSigsLoadSave"
+      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -3091,6 +3131,11 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
+      Array {
+	Type			"Handle"
+	Dimension		0
+	PropName		"AvailSigsLoadSave"
+      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -3776,7 +3821,7 @@ Stateflow {
       "ery simple, potentially inaccurate)\nif( sum( (rho_gate == 0) + (theta_gate == 0) ) > 0 )\n    \n    gate_found "
       "= 0;\n    target_z = 0;\n    target_y = 0;\n    \nelse\n    \n    gate_found = 1;\n    \n    % Transform target "
       "r, c to global coordinate system\n    target_z = r_t - floor(rows/2);\n    target_y = c_t - floor(cols/2);\n    "
-      "\nend\n\n\nreturn\n"
+      "\nend\n\ntarget_y = 180*theta(1)/pi;\ntarget_z = 180*theta(2)/pi;\n\nreturn\n"
       editorLayout	      "100 M4x1[101 68 1056 606]"
     }
   }
@@ -4427,8 +4472,6 @@ Stateflow {
     firstJunction	    39
     viewObj		    37
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    32
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
