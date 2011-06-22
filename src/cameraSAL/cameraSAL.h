@@ -33,6 +33,7 @@
  */
 
  #include "module.h"
+ #include "vdatum.h"
  #include "camera.h"
  #include <QTime>
 
