@@ -3,7 +3,7 @@ Model {
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
-    NumRootInports	    6
+    NumRootInports	    7
     Inport {
       BusObject		      ""
       Name		      "R_forward_in"
@@ -27,6 +27,10 @@ Model {
     Inport {
       BusObject		      ""
       Name		      "B_down_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "ModeSelect"
     }
     NumRootOutports	    33
     Outport {
@@ -195,8 +199,11 @@ Model {
       Name		      "edge_image"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.430"
-    NumModelReferences	    0
+    ComputedModelVersion    "1.436"
+    NumModelReferences	    1
+    ModelReference {
+      ModelRefBlockPath	      "VisionModel/Validation Gate/validation_gate.mdl|validation_gate"
+    }
     NumTestPointedSignals   0
   }
   SavedCharacterEncoding  "windows-1252"
@@ -215,9 +222,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 18:44:03 2011"
-  RTWModifiedTimeStamp	  230667457
-  ModelVersionFormat	  "1.%<AutoIncrement:430>"
+  LastModifiedDate	  "Wed Jun 22 19:27:23 2011"
+  RTWModifiedTimeStamp	  230671633
+  ModelVersionFormat	  "1.%<AutoIncrement:436>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -792,10 +799,24 @@ Model {
   }
   BlockParameterDefaults {
     Block {
+      BlockType		      ActionPort
+      InitializeStates	      "held"
+      PropagateVarSize	      "Only when execution is resumed"
+      ActionType	      "unset"
+    }
+    Block {
       BlockType		      Demux
       Outputs		      "4"
       DisplayOption	      "none"
       BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      If
+      NumInputs		      "1"
+      IfExpression	      "u1 > 0"
+      ShowElse		      on
+      ZeroCross		      on
+      SampleTime	      "-1"
     }
     Block {
       BlockType		      Inport
@@ -813,6 +834,13 @@ Model {
       LatchByDelayingOutsideSignal off
       LatchInputForFeedbackSignals off
       Interpolate	      on
+    }
+    Block {
+      BlockType		      ModelReference
+      Variant		      off
+      GeneratePreprocessorConditionals off
+      CopyOfModelProtected    off
+      DefaultDataLogging      off
     }
     Block {
       BlockType		      Outport
@@ -866,7 +894,7 @@ Model {
   }
   System {
     Name		    "VisionModel"
-    Location		    [1440, 50, 3120, 1050]
+    Location		    [0, 83, 1440, 867]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -880,7 +908,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "391"
+    SIDHighWatermark	    "416"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -935,45 +963,28 @@ Model {
       PortDimensions	      "Down_Camera_Dimensions"
     }
     Block {
-      BlockType		      Reference
-      Name		      "Edge Detection"
-      SID		      "390"
-      Ports		      [1, 1]
-      Position		      [855, 145, 955, 205]
-      LibraryVersion	      "1.378"
-      DialogController	      "vipDDGCreate"
-      DialogControllerArgs    "DataTag0"
-      SourceBlock	      "vipanalysis/Edge Detection"
-      SourceType	      "Edge Detection"
-      method		      "Sobel"
-      outputType	      "Binary image"
-      userDefinedThreshold    off
-      thresholdSource	      "Specify via dialog"
-      threshold		      "20"
-      thresholdTuning	      "3"
-      edgeThinning	      on
-      threshold_canny	      "[0.25 0.60]"
-      autoPercent	      "70"
-      sigma		      "1"
-      outputMode	      "Same as first input"
-      outputWordLength	      "16"
-      outputFracLength	      "4"
-      accumMode		      "Same as product output"
-      accumWordLength	      "32"
-      accumFracLength	      "8"
-      prodOutputMode	      "Same as first input"
-      prodOutputWordLength    "32"
-      prodOutputFracLength    "8"
-      roundingMode	      "Floor"
-      overflowMode	      off
-      LockScale		      off
+      BlockType		      Inport
+      Name		      "ModeSelect"
+      SID		      "393"
+      Position		      [395, 213, 425, 227]
+      Port		      "7"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      If
+      Name		      "If"
+      SID		      "394"
+      Ports		      [1, 7]
+      Position		      [480, 122, 575, 318]
+      IfExpression	      "u1 == 1"
+      ElseIfExpressions	      "u1 == 2, u1 == 3, u1 == 4, u1 == 5, u1 == 6"
     }
     Block {
       BlockType		      SubSystem
       Name		      "Transform Coordinates1"
       SID		      "369"
       Ports		      [3, 3]
-      Position		      [385, 451, 635, 549]
+      Position		      [120, 446, 370, 544]
       LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
@@ -983,11 +994,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1162,39 +1168,23 @@ Model {
     }
     Block {
       BlockType		      SubSystem
-      Name		      "Transform Coordinates2"
-      SID		      "391"
-      Ports		      [3, 1]
-      Position		      [575, 121, 825, 219]
-      LibraryVersion	      "1.31"
-      PermitHierarchicalResolution "ExplicitOnly"
+      Name		      "Validation Gate"
+      SID		      "395"
+      Ports		      [3, 16, 0, 0, 0, 0, 0, 1]
+      Position		      [630, 354, 890, 856]
+      LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
-      SystemSampleTime	      "[1/30 0]"
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
-      MaskType		      "Stateflow"
-      MaskDescription	      "Embedded MATLAB block"
-      MaskSelfModifiable      on
-      MaskDisplay	      "disp('makeIntensity');"
-      MaskIconFrame	      on
-      MaskIconOpaque	      off
-      MaskIconRotate	      "none"
-      MaskPortRotate	      "default"
-      MaskIconUnits	      "autoscale"
       System {
-	Name			"Transform Coordinates2"
-	Location		[257, 457, 812, 717]
-	Open			off
+	Name			"Validation Gate"
+	Location		[1440, 50, 3120, 1050]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1206,104 +1196,237 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"46"
 	Block {
 	  BlockType		  Inport
-	  Name			  "R"
-	  SID			  "391::44"
-	  Position		  [20, 101, 40, 119]
+	  Name			  "R_forward_in"
+	  SID			  "396"
+	  Position		  [50, 153, 80, 167]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "G"
-	  SID			  "391::41"
-	  Position		  [20, 136, 40, 154]
+	  Name			  "G_forward_in"
+	  SID			  "397"
+	  Position		  [50, 188, 80, 202]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "B"
-	  SID			  "391::45"
-	  Position		  [20, 171, 40, 189]
+	  Name			  "B_forward_in"
+	  SID			  "398"
+	  Position		  [50, 223, 80, 237]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Block {
-	  BlockType		  Demux
-	  Name			  " Demux "
-	  SID			  "391::23"
-	  Ports			  [1, 1]
-	  Position		  [270, 270, 320, 310]
-	  Outputs		  "1"
+	  BlockType		  ActionPort
+	  Name			  "Action Port"
+	  SID			  "399"
+	  Position		  [170, 15, 229, 43]
+	  ActionType		  "then"
 	}
 	Block {
-	  BlockType		  "S-Function"
-	  Name			  " SFunction "
-	  SID			  "391::22"
-	  Tag			  "Stateflow S-Function VisionModel 1"
-	  Ports			  [3, 2]
-	  Position		  [180, 108, 230, 272]
-	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[3 2]"
-	  EnableBusSupport	  on
-	  Port {
-	    PortNumber		    2
-	    Name		    "intensityImageOut"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
+	  BlockType		  ModelReference
+	  Name			  "validation_gate.mdl"
+	  SID			  "400"
+	  Ports			  [3, 1]
+	  Position		  [205, 121, 440, 569]
+	  ModelNameDialog	  "validation_gate"
+	  SimulationMode	  "Accelerator"
+	  ModelReferenceVersion	  "1.1219"
+	  List {
+	    ListType		    InputPortNames
+	    port0		    "R_forward_in"
+	    port1		    "G_forward_in"
+	    port2		    "B_forward_in"
+	  }
+	  List {
+	    ListType		    OutputPortNames
+	    port0		    "edge_image"
+	  }
+	  List {
+	    ListType		    OutputPortOutputBusAsStructs
+	    port0		    "off"
+	  }
+	  List {
+	    ListType		    InputPortLatchByCopyingInsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	  }
+	  CopyOfModelName	  "validation_gate"
+	  List {
+	    ListType		    InputPortLatchByDelayingOutsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
 	  }
 	}
 	Block {
-	  BlockType		  Terminator
-	  Name			  " Terminator "
-	  SID			  "391::25"
-	  Position		  [460, 281, 480, 299]
+	  BlockType		  Outport
+	  Name			  "TargetSelect"
+	  SID			  "401"
+	  Position		  [605, 83, 635, 97]
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "intensityImageOut"
-	  SID			  "391::36"
-	  Position		  [460, 101, 480, 119]
+	  Name			  "TargetFound"
+	  SID			  "402"
+	  Position		  [605, 118, 635, 132]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "MaintainHeading"
+	  SID			  "403"
+	  Position		  [605, 153, 635, 167]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TargetY"
+	  SID			  "404"
+	  Position		  [605, 188, 635, 202]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TargetZ"
+	  SID			  "405"
+	  Position		  [605, 223, 635, 237]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TargetYaw"
+	  SID			  "406"
+	  Position		  [605, 258, 635, 272]
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TargetDetected"
+	  SID			  "407"
+	  Position		  [605, 333, 635, 347]
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "R"
+	  SID			  "408"
+	  Position		  [605, 398, 635, 412]
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "G"
+	  SID			  "409"
+	  Position		  [605, 433, 635, 447]
+	  Port			  "9"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "B"
+	  SID			  "410"
+	  Position		  [605, 463, 635, 477]
+	  Port			  "10"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "theta"
+	  SID			  "411"
+	  Position		  [605, 528, 635, 542]
+	  Port			  "11"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "LabelMatrix"
+	  SID			  "412"
+	  Position		  [605, 558, 635, 572]
+	  Port			  "12"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "num_colors"
+	  SID			  "413"
+	  Position		  [605, 593, 635, 607]
+	  Port			  "13"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ref_colors"
+	  SID			  "414"
+	  Position		  [605, 628, 635, 642]
+	  Port			  "14"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "bw_image"
+	  SID			  "415"
+	  Position		  [605, 683, 635, 697]
+	  Port			  "15"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "edge_image"
+	  SID			  "416"
+	  Position		  [605, 718, 635, 732]
+	  Port			  "16"
 	  IconDisplay		  "Port number"
 	}
 	Line {
-	  SrcBlock		  " SFunction "
+	  SrcBlock		  "R_forward_in"
 	  SrcPort		  1
-	  DstBlock		  " Demux "
+	  Points		  [105, 0]
+	  DstBlock		  "validation_gate.mdl"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "R"
+	  SrcBlock		  "G_forward_in"
 	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "G"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
+	  Points		  [65, 0; 0, 150]
+	  DstBlock		  "validation_gate.mdl"
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "B"
+	  SrcBlock		  "B_forward_in"
 	  SrcPort		  1
-	  DstBlock		  " SFunction "
+	  Points		  [55, 0; 0, 265]
+	  DstBlock		  "validation_gate.mdl"
 	  DstPort		  3
 	}
 	Line {
-	  Name			  "intensityImageOut"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  2
-	  DstBlock		  "intensityImageOut"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  " Demux "
+	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  1
-	  DstBlock		  " Terminator "
+	  Points		  [70, 0; 0, 375]
+	  DstBlock		  "edge_image"
 	  DstPort		  1
 	}
       }
@@ -1600,38 +1723,45 @@ Model {
       IconDisplay	      "Port number"
     }
     Line {
+      SrcBlock		      "ModeSelect"
+      SrcPort		      1
+      DstBlock		      "If"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "If"
+      SrcPort		      1
+      Points		      [180, 0]
+      DstBlock		      "Validation Gate"
+      DstPort		      ifaction
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      16
+      Points		      [125, 0; 0, -495]
+      DstBlock		      "edge_image"
+      DstPort		      1
+    }
+    Line {
       SrcBlock		      "R_forward_in"
       SrcPort		      1
-      DstBlock		      "Transform Coordinates2"
+      Points		      [135, 0; 0, 300]
+      DstBlock		      "Validation Gate"
       DstPort		      1
     }
     Line {
       SrcBlock		      "G_forward_in"
       SrcPort		      1
-      Points		      [315, 0]
-      DstBlock		      "Transform Coordinates2"
+      Points		      [215, 0; 0, 430]
+      DstBlock		      "Validation Gate"
       DstPort		      2
     }
     Line {
       SrcBlock		      "B_forward_in"
       SrcPort		      1
-      Points		      [155, 0; 0, -10]
-      DstBlock		      "Transform Coordinates2"
+      Points		      [215, 0; 0, 560]
+      DstBlock		      "Validation Gate"
       DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Transform Coordinates2"
-      SrcPort		      1
-      Points		      [5, 0; 0, 5]
-      DstBlock		      "Edge Detection"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Edge Detection"
-      SrcPort		      1
-      Points		      [95, 0; 0, 160]
-      DstBlock		      "edge_image"
-      DstPort		      1
     }
     Annotation {
       Name		      "Current target information"
@@ -1663,14 +1793,6 @@ Model {
     }
   }
 }
-MatData {
-  NumRecords		  1
-  DataRecord {
-    Tag			    DataTag0
-    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
-    "     %    \"     $    -     0         0    #0   $5D9V5$971E8W1I;VX    "
-  }
-}
 # Finite State Machines
 #
 #    Stateflow Version 7.5 (R2010a) dated Aug  8 2010, 22:51:52
@@ -1684,13 +1806,13 @@ Stateflow {
     name		    "VisionModel"
     created		    "30-May-2011 12:35:50"
     isLibrary		    0
-    firstTarget		    22
+    firstTarget		    13
     sfVersion		    75014000.000003
   }
   chart {
     id			    2
-    name		    "Transform Coordinates2"
-    windowPosition	    [412.184 109.12 200.25 189.75]
+    name		    "Transform Coordinates1"
+    windowPosition	    [397.184 124.12 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
     treeNode		    [0 3 0 0]
@@ -1698,16 +1820,14 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    26
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    6
-    chartFileNumber	    1
+    chartFileNumber	    2
     disableImplicitCasting  1
     eml {
-      name		      "makeIntensity"
+      name		      "rangeImage"
     }
   }
   state {
@@ -1724,11 +1844,14 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function intensityImageOut  = makeIntensity(R, G, B)\n\nintensityImageOut = R + G + B;\nintensity"
-      "ImageOut = intensityImageOut/max(max(max(intensityImageOut)));\n\n%{\n\n[rows, cols] = size(R);\n\nfor r = 1:row"
-      "s\n    for c = 1:cols\n        \n        if( intensityImageOut(r,c) == 0 )\n            intensityImageOut(r,c) ="
-      " 0;\n        else\n            intensityImageOut(r,c) = intensityImageOut(r,c)/max(max(intensityImageOut));\n   "
-      "     end\n    end\nend\n\nreturn\n\n\n\n\n%}"
+      script		      "function [R_out, G_out, B_out] = rangeImage(R_in, G_in, B_in)\n% Ensure the image components are "
+      "between 0 and newMax\n\nnewMax = 1;\n\nR_out = R_in;\nG_out = G_in;\nB_out = B_in;\n\nnormalizeValue = max(max(R"
+      "_in));\nif( normalizeValue <= 1 )\n    normalizeValue = 1;\nelse\n    normalizeValue = 255;\nend\n\n[rows, cols]"
+      " = size(R_in);\n\n\nfor r = 1:rows\n    for c = 1:cols\n        \n        if( R_in(r,c) == 0 )\n            R_ou"
+      "t(r,c) = 0;\n        else\n            R_out(r,c) = newMax*R_in(r,c)/normalizeValue;\n        end\n        if( G"
+      "_in(r,c) == 0 )\n            G_out(r,c) = 0;\n        else\n            G_out(r,c) = newMax*G_in(r,c)/normalizeV"
+      "alue;\n        end\n        if( B_in(r,c) == 0 )\n            B_out(r,c) = 0;\n        else\n            B_out(r"
+      ",c) = newMax*B_in(r,c)/normalizeValue;\n        end\n        \n    end\nend\n\n\nreturn\n"
       editorLayout	      "100 M4x1[205 227 1080 733]"
     }
   }
@@ -1765,7 +1888,7 @@ Stateflow {
   data {
     id			    6
     ssIdNumber		    24
-    name		    "R"
+    name		    "R_in"
     linkNode		    [2 0 7]
     scope		    INPUT_DATA
     machine		    1
@@ -1787,7 +1910,7 @@ Stateflow {
   data {
     id			    7
     ssIdNumber		    21
-    name		    "G"
+    name		    "G_in"
     linkNode		    [2 6 8]
     scope		    INPUT_DATA
     machine		    1
@@ -1809,7 +1932,7 @@ Stateflow {
   data {
     id			    8
     ssIdNumber		    5
-    name		    "intensityImageOut"
+    name		    "R_out"
     linkNode		    [2 7 9]
     scope		    OUTPUT_DATA
     machine		    1
@@ -1828,9 +1951,31 @@ Stateflow {
   }
   data {
     id			    9
+    ssIdNumber		    18
+    name		    "G_out"
+    linkNode		    [2 8 10]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    10
     ssIdNumber		    25
-    name		    "B"
-    linkNode		    [2 8 0]
+    name		    "B_in"
+    linkNode		    [2 9 11]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -1848,235 +1993,45 @@ Stateflow {
     }
     dataType		    "Inherit: Same as Simulink"
   }
+  data {
+    id			    11
+    ssIdNumber		    26
+    name		    "B_out"
+    linkNode		    [2 10 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
   instance {
-    id			    10
-    name		    "Transform Coordinates2"
+    id			    12
+    name		    "Transform Coordinates1"
     machine		    1
     chart		    2
   }
-  chart {
-    id			    11
-    name		    "Transform Coordinates1"
-    windowPosition	    [397.184 124.12 200.25 189.75]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 12 0 0]
-    firstTransition	    14
-    firstJunction	    13
-    viewObj		    11
-    machine		    1
-    ssIdHighWaterMark	    26
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    15
-    chartFileNumber	    2
-    disableImplicitCasting  1
-    eml {
-      name		      "rangeImage"
-    }
-  }
-  state {
-    id			    12
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    11
-    treeNode		    [11 0 0 0]
-    superState		    SUBCHART
-    subviewer		    11
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function [R_out, G_out, B_out] = rangeImage(R_in, G_in, B_in)\n% Ensure the image components are "
-      "between 0 and newMax\n\nnewMax = 1;\n\nR_out = R_in;\nG_out = G_in;\nB_out = B_in;\n\nnormalizeValue = max(max(R"
-      "_in));\nif( normalizeValue <= 1 )\n    normalizeValue = 1;\nelse\n    normalizeValue = 255;\nend\n\n[rows, cols]"
-      " = size(R_in);\n\n\nfor r = 1:rows\n    for c = 1:cols\n        \n        if( R_in(r,c) == 0 )\n            R_ou"
-      "t(r,c) = 0;\n        else\n            R_out(r,c) = newMax*R_in(r,c)/normalizeValue;\n        end\n        if( G"
-      "_in(r,c) == 0 )\n            G_out(r,c) = 0;\n        else\n            G_out(r,c) = newMax*G_in(r,c)/normalizeV"
-      "alue;\n        end\n        if( B_in(r,c) == 0 )\n            B_out(r,c) = 0;\n        else\n            B_out(r"
-      ",c) = newMax*B_in(r,c)/normalizeValue;\n        end\n        \n    end\nend\n\n\nreturn\n"
-      editorLayout	      "100 M4x1[205 227 1080 733]"
-    }
-  }
-  junction {
-    id			    13
-    position		    [23.5747 49.5747 7]
-    chart		    11
-    linkNode		    [11 0 0]
-    subviewer		    11
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    14
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      13
-      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    11
-    linkNode		    [11 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    11
-    drawStyle		    SMART
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  data {
-    id			    15
-    ssIdNumber		    24
-    name		    "R_in"
-    linkNode		    [11 0 16]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    16
-    ssIdNumber		    21
-    name		    "G_in"
-    linkNode		    [11 15 17]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    17
-    ssIdNumber		    5
-    name		    "R_out"
-    linkNode		    [11 16 18]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    18
-    ssIdNumber		    18
-    name		    "G_out"
-    linkNode		    [11 17 19]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    19
-    ssIdNumber		    25
-    name		    "B_in"
-    linkNode		    [11 18 20]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    20
-    ssIdNumber		    26
-    name		    "B_out"
-    linkNode		    [11 19 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  instance {
-    id			    21
-    name		    "Transform Coordinates1"
-    machine		    1
-    chart		    11
-  }
   target {
-    id			    22
+    id			    13
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 23]
+    linkNode		    [1 0 14]
   }
   target {
-    id			    23
+    id			    14
     name		    "rtw"
     machine		    1
-    linkNode		    [1 22 0]
+    linkNode		    [1 13 0]
   }
 }
