@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.924"
+    ComputedModelVersion    "1.927"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 18:44:16 2011"
-  RTWModifiedTimeStamp	  230666873
-  ModelVersionFormat	  "1.%<AutoIncrement:924>"
+  LastModifiedDate	  "Wed Jun 22 19:28:28 2011"
+  RTWModifiedTimeStamp	  230671660
+  ModelVersionFormat	  "1.%<AutoIncrement:927>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1630,7 +1630,7 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      FileName		      "/home/auvt/auvc/src/vision/Test_Images/gate2.PNG"
+      FileName		      "/home/auvt/auvc/src/vision/Test_Images/gate10.bmp"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
@@ -1663,11 +1663,11 @@ Model {
       BlockType		      ModelReference
       Name		      "Model"
       SID		      "491"
-      Ports		      [6, 33]
+      Ports		      [7, 33]
       Position		      [710, 551, 1200, 1349]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.430"
+      ModelReferenceVersion   "1.436"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1676,6 +1676,7 @@ Model {
 	port3			"R_down_in"
 	port4			"G_down_in"
 	port5			"B_down_in"
+	port6			"ModeSelect"
       }
       List {
 	ListType		OutputPortNames
@@ -2201,11 +2202,6 @@ Model {
       DstPort		      1
     }
     Line {
-      SrcBlock		      "ModeSelect"
-      SrcPort		      1
-      Points		      [60, 0; 0, 5; 10, 0]
-    }
-    Line {
       SrcBlock		      "Transform Coordinates"
       SrcPort		      1
       Points		      [15, 0; 0, 15]
@@ -2483,6 +2479,13 @@ Model {
 	DstBlock		"Edge"
 	DstPort			1
       }
+    }
+    Line {
+      SrcBlock		      "ModeSelect"
+      SrcPort		      1
+      Points		      [10, 0; 0, 95; -60, 0; 0, 255]
+      DstBlock		      "Model"
+      DstPort		      7
     }
     Annotation {
       Name		      "Modes:\n0 = Do not execute any tasks\n1 = Validation gate\n2 = Follow path\n3 = Buoy\n4 = Torpedo\n"
