@@ -3,7 +3,7 @@
 
 
 %% Camera dimensions
-Forward_Camera_Dimensions = [160 120];
+Forward_Camera_Dimensions = [120 160];
 Down_Camera_Dimensions = [120 160];
 
 
