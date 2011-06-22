@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.907"
+    ComputedModelVersion    "1.909"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 01:45:01 2011"
-  RTWModifiedTimeStamp	  230607058
-  ModelVersionFormat	  "1.%<AutoIncrement:907>"
+  LastModifiedDate	  "Wed Jun 22 02:31:24 2011"
+  RTWModifiedTimeStamp	  230610324
+  ModelVersionFormat	  "1.%<AutoIncrement:909>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -747,7 +747,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "591"
+    SIDHighWatermark	    "592"
     Block {
       BlockType		      Display
       Name		      "Display"
@@ -1628,11 +1628,11 @@ Model {
       BlockType		      ModelReference
       Name		      "Model"
       SID		      "491"
-      Ports		      [13, 27]
-      Position		      [650, 532, 1140, 1328]
+      Ports		      [13, 28]
+      Position		      [625, 539, 1115, 1336]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.402"
+      ModelReferenceVersion   "1.405"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1678,6 +1678,7 @@ Model {
 	port24			"G"
 	port25			"B"
 	port26			"Iter_Segment_Thresh"
+	port27			"theta"
       }
       List {
 	ListType		OutputPortOutputBusAsStructs
@@ -1708,6 +1709,7 @@ Model {
 	port24			"off"
 	port25			"off"
 	port26			"off"
+	port27			"off"
       }
       CopyOfModelName	      "VisionModel"
     }
@@ -1725,7 +1727,7 @@ Model {
       Name		      "To Workspace"
       SID		      "586"
       Ports		      [1]
-      Position		      [1020, 1440, 1080, 1470]
+      Position		      [1290, 1575, 1350, 1605]
       VariableName	      "R"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1736,7 +1738,7 @@ Model {
       Name		      "To Workspace1"
       SID		      "587"
       Ports		      [1]
-      Position		      [1015, 1495, 1075, 1525]
+      Position		      [1285, 1630, 1345, 1660]
       VariableName	      "G"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1747,7 +1749,7 @@ Model {
       Name		      "To Workspace2"
       SID		      "588"
       Ports		      [1]
-      Position		      [1015, 1540, 1075, 1570]
+      Position		      [1285, 1675, 1345, 1705]
       VariableName	      "B"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1972,6 +1974,17 @@ Model {
       Value		      "4"
       SampleTime	      "-1"
     }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "theta"
+      SID		      "592"
+      Ports		      [1]
+      Position		      [1285, 1770, 1345, 1800]
+      VariableName	      "theta"
+      MaxDataPoints	      "inf"
+      SampleTime	      "-1"
+      SaveFormat	      "Array"
+    }
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      2
@@ -1979,6 +1992,7 @@ Model {
       Branch {
 	Points			[345, 0]
 	Branch {
+	  Points		  [15, 0]
 	  DstBlock		  "Model"
 	  DstPort		  2
 	}
@@ -2001,7 +2015,7 @@ Model {
       Branch {
 	Points			[330, 0]
 	Branch {
-	  Points		  [30, 0; 0, -25]
+	  Points		  [30, 0; 0, -15]
 	  DstBlock		  "Model"
 	  DstPort		  1
 	}
@@ -2024,7 +2038,7 @@ Model {
       Branch {
 	Points			[360, 0]
 	Branch {
-	  Points		  [20, 0; 0, 25]
+	  Points		  [20, 0; 0, 35]
 	  DstBlock		  "Model"
 	  DstPort		  3
 	}
@@ -2050,139 +2064,140 @@ Model {
     Line {
       SrcBlock		      "Down Test Image"
       SrcPort		      1
-      Points		      [40, 0; 0, -25]
+      Points		      [40, 0]
       DstBlock		      "Model"
       DstPort		      4
     }
     Line {
       SrcBlock		      "Down Test Image"
       SrcPort		      2
+      Points		      [40, 0]
       DstBlock		      "Model"
       DstPort		      5
     }
     Line {
       SrcBlock		      "Down Test Image"
       SrcPort		      3
-      Points		      [40, 0; 0, 25]
+      Points		      [40, 0]
       DstBlock		      "Model"
       DstPort		      6
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      1
-      Points		      [0, 15]
+      Points		      [0, -45]
       DstBlock		      "Display"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      2
-      Points		      [300, 0]
+      Points		      [325, 0]
       DstBlock		      "Display1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      3
-      Points		      [300, 0]
+      Points		      [0, -5]
       DstBlock		      "Display2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      4
-      Points		      [190, 0; 0, 65]
+      Points		      [215, 0; 0, 20]
       DstBlock		      "Display3"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      7
-      Points		      [155, 0; 0, 135]
+      Points		      [180, 0; 0, 105]
       DstBlock		      "Display6"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      8
-      Points		      [150, 0; 0, 155]
+      Points		      [175, 0; 0, 130]
       DstBlock		      "Display7"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      9
-      Points		      [145, 0; 0, 175]
+      Points		      [170, 0; 0, 155]
       DstBlock		      "Display8"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      10
-      Points		      [140, 0; 0, 195]
+      Points		      [165, 0; 0, 180]
       DstBlock		      "Display9"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      11
-      Points		      [130, 0; 0, 220]
+      Points		      [155, 0; 0, 210]
       DstBlock		      "Display10"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      12
-      Points		      [120, 0; 0, 240]
+      Points		      [145, 0; 0, 235]
       DstBlock		      "Display11"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      13
-      Points		      [110, 0; 0, 265]
+      Points		      [135, 0; 0, 265]
       DstBlock		      "Display12"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      14
-      Points		      [100, 0; 0, 290]
+      Points		      [125, 0; 0, 295]
       DstBlock		      "Display13"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      15
-      Points		      [90, 0; 0, 310]
+      Points		      [115, 0; 0, 320]
       DstBlock		      "Display14"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      16
-      Points		      [80, 0; 0, 330]
+      Points		      [105, 0; 0, 345]
       DstBlock		      "Display15"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      17
-      Points		      [70, 0; 0, 355]
+      Points		      [95, 0; 0, 375]
       DstBlock		      "Display16"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      18
-      Points		      [60, 0; 0, 380]
+      Points		      [85, 0; 0, 405]
       DstBlock		      "Display17"
       DstPort		      1
     }
     Line {
       SrcBlock		      "ModeSelect"
       SrcPort		      1
-      Points		      [85, 0]
+      Points		      [60, 0]
       DstBlock		      "Model"
       DstPort		      7
     }
@@ -2248,14 +2263,14 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      24
-      Points		      [20, 0]
+      Points		      [30, 0; 0, 55; 15, 0]
       Branch {
 	Points			[30, 0; 0, 255]
 	DstBlock		"Forward Camera1"
 	DstPort			1
       }
       Branch {
-	Points			[-160, 0]
+	Points			[110, 0]
 	DstBlock		"To Workspace"
 	DstPort			1
       }
@@ -2263,14 +2278,14 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      25
-      Points		      [20, 0]
+      Points		      [20, 0; 0, 60; 25, 0]
       Branch {
 	Points			[20, 0; 0, 250]
 	DstBlock		"Forward Camera1"
 	DstPort			2
       }
       Branch {
-	Points			[-165, 0]
+	Points			[105, 0]
 	DstBlock		"To Workspace1"
 	DstPort			1
       }
@@ -2278,14 +2293,14 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      26
-      Points		      [20, 0]
+      Points		      [10, 0; 0, 65; 35, 0]
       Branch {
 	Points			[10, 0; 0, 245]
 	DstBlock		"Forward Camera1"
 	DstPort			3
       }
       Branch {
-	Points			[-165, 0]
+	Points			[105, 0]
 	DstBlock		"To Workspace2"
 	DstPort			1
       }
@@ -2293,21 +2308,21 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      19
-      Points		      [55, 0; 0, 400]
+      Points		      [80, 0; 0, 430]
       DstBlock		      "TargetDetected"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      23
-      Points		      [295, 0; 0, 330]
+      Points		      [320, 0; 0, 380]
       DstBlock		      "Display19"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      5
-      Points		      [0, 15; 20, 0]
+      Points		      [0, -25; 45, 0]
       Branch {
 	Points			[160, 0; 0, 55; 120, 0]
 	DstBlock		"Display4"
@@ -2322,7 +2337,7 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      6
-      Points		      [0, 15; 25, 0]
+      Points		      [0, -20; 50, 0]
       Branch {
 	Points			[150, 0; 0, 105]
 	DstBlock		"Display5"
@@ -2337,8 +2352,16 @@ Model {
     Line {
       SrcBlock		      "WhichColor"
       SrcPort		      1
+      Points		      [60, 0]
       DstBlock		      "Model"
       DstPort		      9
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      28
+      Points		      [5, 0; 0, 510]
+      DstBlock		      "theta"
+      DstPort		      1
     }
     Annotation {
       Name		      "Modes:\n0 = Do not execute any tasks\n1 = Validation gate\n2 = Follow path\n3 = Buoy\n4 = Torpedo\n"
