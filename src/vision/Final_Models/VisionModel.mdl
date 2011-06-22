@@ -223,7 +223,7 @@ Model {
       Name		      "edge_image"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.418"
+    ComputedModelVersion    "1.420"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Validation Gate/validation_gate.mdl|validation_gate"
@@ -246,9 +246,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 19:41:40 2011"
+  LastModifiedDate	  "Wed Jun 22 19:52:58 2011"
   RTWModifiedTimeStamp	  230672497
-  ModelVersionFormat	  "1.%<AutoIncrement:418>"
+  ModelVersionFormat	  "1.%<AutoIncrement:420>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -3102,7 +3102,7 @@ Model {
       System {
 	Name			"Validation Gate"
 	Location		[1440, 50, 3120, 1050]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3256,7 +3256,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "TargetDetected"
 	  SID			  "160"
-	  Position		  [605, 333, 635, 347]
+	  Position		  [605, 323, 635, 337]
 	  Port			  "7"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -3370,6 +3370,104 @@ Model {
 	  SrcPort		  16
 	  Points		  [0, 150; -5, 0; 0, 45]
 	  DstBlock		  "edge_image"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  1
+	  Points		  [70, 0; 0, -65]
+	  DstBlock		  "TargetSelect"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  2
+	  Points		  [130, 0; 0, -55]
+	  DstBlock		  "TargetFound"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  3
+	  Points		  [130, 0; 0, -45]
+	  DstBlock		  "MaintainHeading"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  4
+	  Points		  [145, 0]
+	  DstBlock		  "TargetY"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  5
+	  Points		  [145, 0]
+	  DstBlock		  "TargetZ"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  6
+	  Points		  [70, 0; 0, -15]
+	  DstBlock		  "TargetYaw"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  7
+	  Points		  [170, 0; 0, 25]
+	  DstBlock		  "TargetDetected"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  8
+	  Points		  [70, 0; 0, 75]
+	  DstBlock		  "R"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  9
+	  Points		  [60, 0; 0, 85]
+	  DstBlock		  "G"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  10
+	  Points		  [50, 0; 0, 90]
+	  DstBlock		  "B"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  11
+	  Points		  [40, 0; 0, 130]
+	  DstBlock		  "theta"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  12
+	  Points		  [30, 0; 0, 135]
+	  DstBlock		  "LabelMatrix"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  13
+	  Points		  [20, 0; 0, 145]
+	  DstBlock		  "num_colors"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  14
+	  Points		  [10, 0; 0, 155]
+	  DstBlock		  "ref_colors"
 	  DstPort		  1
 	}
       }
