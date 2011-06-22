@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.895"
+    ComputedModelVersion    "1.902"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 00:19:33 2011"
-  RTWModifiedTimeStamp	  230598086
-  ModelVersionFormat	  "1.%<AutoIncrement:895>"
+  LastModifiedDate	  "Wed Jun 22 00:56:08 2011"
+  RTWModifiedTimeStamp	  230604769
+  ModelVersionFormat	  "1.%<AutoIncrement:902>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -725,7 +725,7 @@ Model {
   }
   System {
     Name		    "test_VisionModel"
-    Location		    [0, 83, 1440, 867]
+    Location		    [1440, 50, 3120, 1050]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1192,7 +1192,7 @@ Model {
       SID		      "447"
       Tag		      "vipblks_nd"
       Ports		      [0, 3]
-      Position		      [440, 749, 565, 861]
+      Position		      [440, 754, 565, 866]
       LibraryVersion	      "1.308"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag0"
@@ -1297,7 +1297,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[1530 670 275 171]"
+      FigPos		      "[1472 809 275 171]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -1583,7 +1583,7 @@ Model {
       SID		      "438"
       Tag		      "vipblks_nd"
       Ports		      [0, 3]
-      Position		      [400, 584, 525, 696]
+      Position		      [405, 574, 530, 686]
       LibraryVersion	      "1.308"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag6"
@@ -1614,17 +1614,18 @@ Model {
       Name		      "ModeSelect"
       SID		      "493"
       Position		      [515, 920, 545, 950]
+      Value		      "3"
       SampleTime	      "-1"
     }
     Block {
       BlockType		      ModelReference
       Name		      "Model"
       SID		      "491"
-      Ports		      [13, 26]
-      Position		      [655, 532, 1145, 1328]
+      Ports		      [13, 27]
+      Position		      [650, 532, 1140, 1328]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.400"
+      ModelReferenceVersion   "1.401"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1669,6 +1670,7 @@ Model {
 	port23			"R"
 	port24			"G"
 	port25			"B"
+	port26			"Iter_Segment_Thresh"
       }
       List {
 	ListType		OutputPortOutputBusAsStructs
@@ -1698,8 +1700,41 @@ Model {
 	port23			"off"
 	port24			"off"
 	port25			"off"
+	port26			"off"
+      }
+      List {
+	ListType		InputPortLatchByCopyingInsideSignal
+	port0			"off"
+	port1			"off"
+	port2			"off"
+	port3			"off"
+	port4			"off"
+	port5			"off"
+	port6			"off"
+	port7			"off"
+	port8			"off"
+	port9			"off"
+	port10			"off"
+	port11			"off"
+	port12			"off"
       }
       CopyOfModelName	      "VisionModel"
+      List {
+	ListType		InputPortLatchByDelayingOutsideSignal
+	port0			"off"
+	port1			"off"
+	port2			"off"
+	port3			"off"
+	port4			"off"
+	port5			"off"
+	port6			"off"
+	port7			"off"
+	port8			"off"
+	port9			"off"
+	port10			"off"
+	port11			"off"
+	port12			"off"
+      }
     }
     Block {
       BlockType		      Display
@@ -1725,11 +1760,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1899,14 +1929,13 @@ Model {
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      2
-      Points		      [0, -5; 65, 0]
+      Points		      [60, 0]
       Branch {
-	Points			[45, 0]
 	DstBlock		"Model"
 	DstPort			2
       }
       Branch {
-	Points			[0, -285]
+	Points			[0, -280]
 	DstBlock		"Forward Filter"
 	DstPort			2
       }
@@ -1914,14 +1943,14 @@ Model {
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      1
-      Points		      [0, 10; 60, 0]
+      Points		      [55, 0]
       Branch {
-	Points			[20, 0; 0, -45]
+	Points			[30, 0; 0, -25]
 	DstBlock		"Model"
 	DstPort			1
       }
       Branch {
-	Points			[0, -280]
+	Points			[0, -260]
 	DstBlock		"Forward Filter"
 	DstPort			1
       }
@@ -1929,14 +1958,14 @@ Model {
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      3
-      Points		      [0, -20; 70, 0]
+      Points		      [65, 0]
       Branch {
-	Points			[10, 0; 0, 35]
+	Points			[20, 0; 0, 25]
 	DstBlock		"Model"
 	DstPort			3
       }
       Branch {
-	Points			[0, -225]
+	Points			[0, -235]
 	Branch {
 	  DstBlock		  "Transform Coordinates"
 	  DstPort		  1
@@ -1951,7 +1980,7 @@ Model {
     Line {
       SrcBlock		      "Down Test Image"
       SrcPort		      1
-      Points		      [40, 0; 0, -20]
+      Points		      [40, 0; 0, -25]
       DstBlock		      "Model"
       DstPort		      4
     }
@@ -1964,125 +1993,126 @@ Model {
     Line {
       SrcBlock		      "Down Test Image"
       SrcPort		      3
-      Points		      [0, -5; 40, 0; 0, 35]
+      Points		      [40, 0; 0, 25]
       DstBlock		      "Model"
       DstPort		      6
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      1
+      Points		      [0, 15]
       DstBlock		      "Display"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      2
-      Points		      [295, 0]
+      Points		      [300, 0]
       DstBlock		      "Display1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      3
-      Points		      [295, 0]
+      Points		      [300, 0]
       DstBlock		      "Display2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      4
-      Points		      [185, 0; 0, 50]
+      Points		      [190, 0; 0, 65]
       DstBlock		      "Display3"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      7
-      Points		      [150, 0; 0, 120]
+      Points		      [155, 0; 0, 135]
       DstBlock		      "Display6"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      8
-      Points		      [145, 0; 0, 140]
+      Points		      [150, 0; 0, 155]
       DstBlock		      "Display7"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      9
-      Points		      [140, 0; 0, 160]
+      Points		      [145, 0; 0, 175]
       DstBlock		      "Display8"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      10
-      Points		      [135, 0; 0, 180]
+      Points		      [140, 0; 0, 195]
       DstBlock		      "Display9"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      11
-      Points		      [125, 0; 0, 205]
+      Points		      [130, 0; 0, 220]
       DstBlock		      "Display10"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      12
-      Points		      [115, 0; 0, 225]
+      Points		      [120, 0; 0, 240]
       DstBlock		      "Display11"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      13
-      Points		      [105, 0; 0, 250]
+      Points		      [110, 0; 0, 265]
       DstBlock		      "Display12"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      14
-      Points		      [95, 0; 0, 275]
+      Points		      [100, 0; 0, 290]
       DstBlock		      "Display13"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      15
-      Points		      [85, 0; 0, 295]
+      Points		      [90, 0; 0, 310]
       DstBlock		      "Display14"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      16
-      Points		      [75, 0; 0, 315]
+      Points		      [80, 0; 0, 330]
       DstBlock		      "Display15"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      17
-      Points		      [65, 0; 0, 340]
+      Points		      [70, 0; 0, 355]
       DstBlock		      "Display16"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      18
-      Points		      [55, 0; 0, 365]
+      Points		      [60, 0; 0, 380]
       DstBlock		      "Display17"
       DstPort		      1
     }
     Line {
       SrcBlock		      "ModeSelect"
       SrcPort		      1
-      Points		      [90, 0]
+      Points		      [85, 0]
       DstBlock		      "Model"
       DstPort		      7
     }
@@ -2148,42 +2178,42 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      24
-      Points		      [45, 0; 0, 240]
+      Points		      [50, 0; 0, 255]
       DstBlock		      "Forward Camera1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      25
-      Points		      [35, 0; 0, 235]
+      Points		      [40, 0; 0, 250]
       DstBlock		      "Forward Camera1"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      26
-      Points		      [25, 0; 0, 230]
+      Points		      [30, 0; 0, 245]
       DstBlock		      "Forward Camera1"
       DstPort		      3
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      19
-      Points		      [50, 0; 0, 385]
+      Points		      [55, 0; 0, 400]
       DstBlock		      "TargetDetected"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      23
-      Points		      [290, 0; 0, 315]
+      Points		      [295, 0; 0, 330]
       DstBlock		      "Display19"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      5
-      Points		      [15, 0]
+      Points		      [0, 15; 20, 0]
       Branch {
 	Points			[160, 0; 0, 55; 120, 0]
 	DstBlock		"Display4"
@@ -2198,7 +2228,7 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      6
-      Points		      [20, 0]
+      Points		      [0, 15; 25, 0]
       Branch {
 	Points			[150, 0; 0, 105]
 	DstBlock		"Display5"

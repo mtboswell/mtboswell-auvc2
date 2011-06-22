@@ -68,7 +68,7 @@ Model {
       Name		      "B"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1185"
+    ComputedModelVersion    "1.1188"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -88,9 +88,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 21 23:47:15 2011"
-  RTWModifiedTimeStamp	  230600797
-  ModelVersionFormat	  "1.%<AutoIncrement:1185>"
+  LastModifiedDate	  "Wed Jun 22 00:56:05 2011"
+  RTWModifiedTimeStamp	  230604839
+  ModelVersionFormat	  "1.%<AutoIncrement:1188>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -770,12 +770,12 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "533"
+    SIDHighWatermark	    "538"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
       SID		      "500"
-      Position		      [80, 228, 110, 242]
+      Position		      [35, 228, 65, 242]
       IconDisplay	      "Port number"
       PortDimensions	      "Forward_Camera_Dimensions"
     }
@@ -783,7 +783,7 @@ Model {
       BlockType		      Inport
       Name		      "G_forward_in"
       SID		      "501"
-      Position		      [80, 263, 110, 277]
+      Position		      [35, 263, 65, 277]
       Port		      "2"
       IconDisplay	      "Port number"
       PortDimensions	      "Forward_Camera_Dimensions"
@@ -792,10 +792,26 @@ Model {
       BlockType		      Inport
       Name		      "B_forward_in"
       SID		      "502"
-      Position		      [80, 298, 110, 312]
+      Position		      [35, 298, 65, 312]
       Port		      "3"
       IconDisplay	      "Port number"
       PortDimensions	      "Forward_Camera_Dimensions"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Color Space\n Conversion1"
+      SID		      "534"
+      Ports		      [3, 3]
+      Position		      [815, 586, 915, 644]
+      LibraryVersion	      "1.328"
+      SourceBlock	      "vipconversions/Color Space\n Conversion"
+      SourceType	      "Color Space Conversion"
+      conversion	      "Obsolete"
+      conversionActive	      "L*a*b* to sR'G'B'"
+      wp_str		      "D50"
+      rec		      "Rec. 601 (SDTV)"
+      sys		      "1125/60/2:1"
+      imagePorts	      "Separate color signals"
     }
     Block {
       BlockType		      Constant
@@ -846,8 +862,8 @@ Model {
       BlockType		      SubSystem
       Name		      "Convert to BW"
       SID		      "186"
-      Ports		      [3, 1]
-      Position		      [205, 242, 305, 298]
+      Ports		      [3, 4]
+      Position		      [140, 238, 285, 432]
       LibraryVersion	      "1.225"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -859,7 +875,7 @@ Model {
       System {
 	Name			"Convert to BW"
 	Location		[4, 83, 1000, 715]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2427,6 +2443,30 @@ Model {
 	  Position		  [830, 213, 860, 227]
 	  IconDisplay		  "Port number"
 	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "L"
+	  SID			  "536"
+	  Position		  [830, 393, 860, 407]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "num_colors"
+	  SID			  "537"
+	  Position		  [830, 428, 860, 442]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ref_colors"
+	  SID			  "538"
+	  Position		  [830, 463, 860, 477]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
 	Line {
 	  SrcBlock		  "R"
 	  SrcPort		  1
@@ -2457,22 +2497,46 @@ Model {
 	Line {
 	  SrcBlock		  "IterativeSegmentation"
 	  SrcPort		  1
-	  Points		  [20, 0; 0, -5]
-	  DstBlock		  "Identify Validation Gate2"
-	  DstPort		  1
+	  Points		  [5, 0]
+	  Branch {
+	    Points		    [15, 0; 0, -5]
+	    DstBlock		    "Identify Validation Gate2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 185]
+	    DstBlock		    "L"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  SrcBlock		  "IterativeSegmentation"
 	  SrcPort		  2
-	  DstBlock		  "Identify Validation Gate2"
-	  DstPort		  2
+	  Points		  [10, 0]
+	  Branch {
+	    DstBlock		    "Identify Validation Gate2"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 180]
+	    DstBlock		    "num_colors"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  SrcBlock		  "IterativeSegmentation"
 	  SrcPort		  3
-	  Points		  [20, 0; 0, 5]
-	  DstBlock		  "Identify Validation Gate2"
-	  DstPort		  3
+	  Points		  [15, 0]
+	  Branch {
+	    Points		    [5, 0; 0, 5]
+	    DstBlock		    "Identify Validation Gate2"
+	    DstPort		    3
+	  }
+	  Branch {
+	    Points		    [0, 175]
+	    DstBlock		    "ref_colors"
+	    DstPort		    1
+	  }
 	}
 	Annotation {
 	  Name			  "Debugging note: Consider identifying the gate Lab set that is unique to the gate.\nThen set all pixels in"
@@ -2827,6 +2891,193 @@ Model {
     }
     Block {
       BlockType		      SubSystem
+      Name		      "Transform Coordinates1"
+      SID		      "535"
+      Ports		      [3, 3]
+      Position		      [515, 564, 785, 666]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      SystemSampleTime	      "[1/30 0]"
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('displaySegmentedImage');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Transform Coordinates1"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"52"
+	Block {
+	  BlockType		  Inport
+	  Name			  "LabelMatrix"
+	  SID			  "535::44"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "num_colors"
+	  SID			  "535::48"
+	  Position		  [20, 136, 40, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "ref_colors"
+	  SID			  "535::49"
+	  Position		  [20, 171, 40, 189]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "535::23"
+	  Ports			  [1, 1]
+	  Position		  [270, 270, 320, 310]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "535::22"
+	  Tag			  "Stateflow S-Function validation_gate 7"
+	  Ports			  [3, 4]
+	  Position		  [180, 108, 230, 272]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[3 4]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "L"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "a"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "b"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "535::25"
+	  Position		  [460, 281, 480, 299]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "L"
+	  SID			  "535::50"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "a"
+	  SID			  "535::51"
+	  Position		  [460, 136, 480, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "b"
+	  SID			  "535::52"
+	  Position		  [460, 171, 480, 189]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "LabelMatrix"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "num_colors"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "ref_colors"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  3
+	}
+	Line {
+	  Name			  "L"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "L"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "a"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "a"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "b"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  4
+	  DstBlock		  "b"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
       Name		      "Transform Coordinates3"
       SID		      "532"
       Ports		      [5, 2]
@@ -3158,7 +3409,7 @@ Model {
     Line {
       SrcBlock		      "Convert to BW"
       SrcPort		      1
-      Points		      [10, 0]
+      Points		      [0, 10; 30, 0]
       Branch {
 	DstBlock		"Edge Detection"
 	DstPort			1
@@ -3172,53 +3423,23 @@ Model {
     Line {
       SrcBlock		      "R_forward_in"
       SrcPort		      1
-      Points		      [15, 0]
-      Branch {
-	Points			[20, 0; 0, 15]
-	DstBlock		"Convert to BW"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 365; 895, 0]
-	Branch {
-	  DstBlock		  "Draw Target"
-	  DstPort		  1
-	}
-	Branch {
-	  Points		  [0, 65]
-	  DstBlock		  "Transform Coordinates3"
-	  DstPort		  1
-	}
-      }
+      Points		      [55, 0]
+      DstBlock		      "Convert to BW"
+      DstPort		      1
     }
     Line {
       SrcBlock		      "G_forward_in"
       SrcPort		      1
-      Points		      [30, 0]
-      Branch {
-	DstBlock		"Convert to BW"
-	DstPort			2
-      }
-      Branch {
-	Points			[0, 5; 370, 0; 0, 340]
-	DstBlock		"Draw Target"
-	DstPort			2
-      }
+      Points		      [55, 0]
+      DstBlock		      "Convert to BW"
+      DstPort		      2
     }
     Line {
       SrcBlock		      "B_forward_in"
       SrcPort		      1
-      Points		      [25, 0]
-      Branch {
-	Points			[10, 0; 0, -15]
-	DstBlock		"Convert to BW"
-	DstPort			3
-      }
-      Branch {
-	Points			[0, 325]
-	DstBlock		"Draw Target"
-	DstPort			3
-      }
+      Points		      [55, 0]
+      DstBlock		      "Convert to BW"
+      DstPort		      3
     }
     Line {
       SrcBlock		      "Identify Validation Gate"
@@ -3331,6 +3552,74 @@ Model {
       DstBlock		      "B"
       DstPort		      1
     }
+    Line {
+      SrcBlock		      "Transform Coordinates1"
+      SrcPort		      1
+      Points		      [0, 15]
+      DstBlock		      "Color Space\n Conversion1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Transform Coordinates1"
+      SrcPort		      2
+      DstBlock		      "Color Space\n Conversion1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Transform Coordinates1"
+      SrcPort		      3
+      Points		      [0, -15]
+      DstBlock		      "Color Space\n Conversion1"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Color Space\n Conversion1"
+      SrcPort		      1
+      Points		      [0, 5; 100, 0]
+      Branch {
+	DstBlock		"Draw Target"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 65]
+	DstBlock		"Transform Coordinates3"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Color Space\n Conversion1"
+      SrcPort		      2
+      DstBlock		      "Draw Target"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Color Space\n Conversion1"
+      SrcPort		      3
+      Points		      [425, 0; 0, -5]
+      DstBlock		      "Draw Target"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Convert to BW"
+      SrcPort		      2
+      Points		      [150, 0; 0, 270]
+      DstBlock		      "Transform Coordinates1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Convert to BW"
+      SrcPort		      3
+      Points		      [105, 0; 0, 255]
+      DstBlock		      "Transform Coordinates1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Convert to BW"
+      SrcPort		      4
+      Points		      [95, 0; 0, 240]
+      DstBlock		      "Transform Coordinates1"
+      DstPort		      3
+    }
     Annotation {
       Name		      "Notes:\n1. The validation_gate function outputs target\ninformation using a potentially dangerous\n"
       "assumption, that the target points \"up\". May\nwant to add a safeguard."
@@ -3384,7 +3673,7 @@ Stateflow {
     name		    "validation_gate"
     created		    "11-Feb-2011 11:53:00"
     isLibrary		    0
-    firstTarget		    80
+    firstTarget		    91
     sfVersion		    75014000.000003
   }
   chart {
@@ -4129,8 +4418,8 @@ Stateflow {
   }
   chart {
     id			    37
-    name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter"
-    windowPosition	    [476.813 159 200.25 189.75]
+    name		    "Transform Coordinates1"
+    windowPosition	    [427.184 94.12 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
     treeNode		    [0 38 0 0]
@@ -4138,16 +4427,17 @@ Stateflow {
     firstJunction	    39
     viewObj		    37
     machine		    1
-    ssIdHighWaterMark	    7
+    subviewS {
+    }
+    ssIdHighWaterMark	    32
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    41
-    chartFileNumber	    45
+    chartFileNumber	    7
     disableImplicitCasting  1
     eml {
-      name		      "GaussianBlurr"
+      name		      "displaySegmentedImage"
     }
-    supportVariableSizing   0
   }
   state {
     id			    38
@@ -4163,26 +4453,12 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function Iout = GaussianBlurr(I)\n% This function calculates the gaussian blur of an intensity im"
-      "age\n\nsigma = sqrt(2);\n\nGrows = 3;    % Gaussian matrix rows\nGcols = 3;    % Gaussian matrix columns\n\n[Iro"
-      "ws Icols] = size(I);\n\nIout = double(zeros(Irows,Icols));\n\nTrows = Irows - Grows + 1;\nTcols = Icols - Gcols "
-      "+ 1;\nItemp = double(zeros(Trows,Tcols));\n\nG = zeros(Grows,Gcols);\n\nFirstRow = ceil(-Grows/2);\nLastRow = fl"
-      "oor(Grows/2);\nFirstCol = ceil(-Gcols/2);\nLastCol = floor(Gcols/2);\nGsum = 0;\nfor i=FirstRow:LastRow\n    for"
-      " j = FirstCol:LastCol\n        G(i-FirstRow+1,j-FirstCol+1) = exp(-(j*j+i*i)/(2*sigma*sigma));\n        Gsum = G"
-      "sum + G(i-FirstRow+1,j-FirstCol+1);\n    end\nend\n\nG = G./Gsum;\n\nItemp = conv2(double(I),double(G),'valid');"
-      "\n\n% reflect boundaries to keep image the same size\n% top\nIout((1:LastRow),(LastCol+1:Icols-LastCol)) = Itemp"
-      "((1:LastRow),(1:Tcols));\n% bottom\nIout((Irows-LastRow+1:Irows),(LastCol+1:Icols-LastCol)) = Itemp((Trows-LastR"
-      "ow+1:Trows),(1:Tcols));\n% left\nIout((1+LastRow:Irows-LastRow),(1:LastCol)) = Itemp((1:Trows),(1:LastCol));\n% "
-      "right\nIout((1+LastRow:Irows-LastRow),(Icols-LastCol+1:Icols)) = Itemp((1:Trows),(Tcols-LastCol+1:Tcols));\n% ce"
-      "nter\nIout((1+LastRow:Irows-LastRow),(1+LastCol:Icols-LastCol)) = Itemp;\n% top left corner\nIout(1:LastRow,1:La"
-      "stCol) = Itemp(1:LastRow,1:LastCol);\n% top right corner\nIout(1:LastRow,Icols-LastCol:Icols) = Itemp(1:LastRow,"
-      "Tcols-LastCol:Tcols);\n% bottom left corner\nIout(Irows-LastRow:Irows,1:LastCol) = Itemp(Trows-LastRow:Trows,1:L"
-      "astCol);\n% bottom right corner\nIout(Irows-LastRow:Irows,Icols-LastCol:Icols) = Itemp(Trows-LastRow:Trows,Tcols"
-      "-LastCol:Tcols);\n\nreturn\n"
-      editorLayout	      "100 M4x1[101 68 1056 606]"
-      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
-      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
-      emlDefaultFimath	      FimathUserSpecified
+      script		      "function [L, a, b] = displaySegmentedImage(LabelMatrix, num_colors, ref_colors)\n\n\nintensity_im"
+      "age = LabelMatrix./max(max(max(abs(LabelMatrix))));\n\n\n[rows, cols] = size(LabelMatrix);\n\nL = zeros(rows, co"
+      "ls);\na = zeros(rows, cols);\nb = zeros(rows, cols);\n\nfor r = 1:rows\n    for c = 1:cols\n        L(r,c) = ref"
+      "_colors(LabelMatrix(r,c), 1);\n        a(r,c) = ref_colors(LabelMatrix(r,c), 2);\n        b(r,c) = ref_colors(La"
+      "belMatrix(r,c), 3);\n    end\nend\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
     }
   }
   junction {
@@ -4217,8 +4493,8 @@ Stateflow {
   }
   data {
     id			    41
-    ssIdNumber		    4
-    name		    "I"
+    ssIdNumber		    24
+    name		    "LabelMatrix"
     linkNode		    [37 0 42]
     scope		    INPUT_DATA
     machine		    1
@@ -4229,16 +4505,242 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    42
+    ssIdNumber		    28
+    name		    "num_colors"
+    linkNode		    [37 41 43]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    43
+    ssIdNumber		    29
+    name		    "ref_colors"
+    linkNode		    [37 42 44]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    44
+    ssIdNumber		    30
+    name		    "L"
+    linkNode		    [37 43 45]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    45
+    ssIdNumber		    31
+    name		    "a"
+    linkNode		    [37 44 46]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    46
+    ssIdNumber		    32
+    name		    "b"
+    linkNode		    [37 45 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    47
+    name		    "Transform Coordinates1"
+    machine		    1
+    chart		    37
+  }
+  chart {
+    id			    48
+    name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter"
+    windowPosition	    [476.813 159 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 49 0 0]
+    firstTransition	    51
+    firstJunction	    50
+    viewObj		    48
+    machine		    1
+    ssIdHighWaterMark	    7
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    52
+    chartFileNumber	    45
+    disableImplicitCasting  1
+    eml {
+      name		      "GaussianBlurr"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    49
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    48
+    treeNode		    [48 0 0 0]
+    superState		    SUBCHART
+    subviewer		    48
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function Iout = GaussianBlurr(I)\n% This function calculates the gaussian blur of an intensity im"
+      "age\n\nsigma = sqrt(2);\n\nGrows = 3;    % Gaussian matrix rows\nGcols = 3;    % Gaussian matrix columns\n\n[Iro"
+      "ws Icols] = size(I);\n\nIout = double(zeros(Irows,Icols));\n\nTrows = Irows - Grows + 1;\nTcols = Icols - Gcols "
+      "+ 1;\nItemp = double(zeros(Trows,Tcols));\n\nG = zeros(Grows,Gcols);\n\nFirstRow = ceil(-Grows/2);\nLastRow = fl"
+      "oor(Grows/2);\nFirstCol = ceil(-Gcols/2);\nLastCol = floor(Gcols/2);\nGsum = 0;\nfor i=FirstRow:LastRow\n    for"
+      " j = FirstCol:LastCol\n        G(i-FirstRow+1,j-FirstCol+1) = exp(-(j*j+i*i)/(2*sigma*sigma));\n        Gsum = G"
+      "sum + G(i-FirstRow+1,j-FirstCol+1);\n    end\nend\n\nG = G./Gsum;\n\nItemp = conv2(double(I),double(G),'valid');"
+      "\n\n% reflect boundaries to keep image the same size\n% top\nIout((1:LastRow),(LastCol+1:Icols-LastCol)) = Itemp"
+      "((1:LastRow),(1:Tcols));\n% bottom\nIout((Irows-LastRow+1:Irows),(LastCol+1:Icols-LastCol)) = Itemp((Trows-LastR"
+      "ow+1:Trows),(1:Tcols));\n% left\nIout((1+LastRow:Irows-LastRow),(1:LastCol)) = Itemp((1:Trows),(1:LastCol));\n% "
+      "right\nIout((1+LastRow:Irows-LastRow),(Icols-LastCol+1:Icols)) = Itemp((1:Trows),(Tcols-LastCol+1:Tcols));\n% ce"
+      "nter\nIout((1+LastRow:Irows-LastRow),(1+LastCol:Icols-LastCol)) = Itemp;\n% top left corner\nIout(1:LastRow,1:La"
+      "stCol) = Itemp(1:LastRow,1:LastCol);\n% top right corner\nIout(1:LastRow,Icols-LastCol:Icols) = Itemp(1:LastRow,"
+      "Tcols-LastCol:Tcols);\n% bottom left corner\nIout(Irows-LastRow:Irows,1:LastCol) = Itemp(Trows-LastRow:Trows,1:L"
+      "astCol);\n% bottom right corner\nIout(Irows-LastRow:Irows,Icols-LastCol:Icols) = Itemp(Trows-LastRow:Trows,Tcols"
+      "-LastCol:Tcols);\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    50
+    position		    [23.5747 49.5747 7]
+    chart		    48
+    linkNode		    [48 0 0]
+    subviewer		    48
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    51
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      50
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    48
+    linkNode		    [48 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    48
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    52
+    ssIdNumber		    4
+    name		    "I"
+    linkNode		    [48 0 53]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
       }
       complexity	      SF_COMPLEX_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    42
+    id			    53
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [37 41 0]
+    linkNode		    [48 52 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4255,26 +4757,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    43
+    id			    54
     name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter"
     machine		    1
-    chart		    37
+    chart		    48
   }
   chart {
-    id			    44
+    id			    55
     name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
     windowPosition	    [461.813 174 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 45 0 0]
-    firstTransition	    47
-    firstJunction	    46
-    viewObj		    44
+    treeNode		    [0 56 0 0]
+    firstTransition	    58
+    firstJunction	    57
+    viewObj		    55
     machine		    1
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    48
+    firstData		    59
     chartFileNumber	    46
     disableImplicitCasting  1
     eml {
@@ -4283,14 +4785,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    45
+    id			    56
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    44
-    treeNode		    [44 0 0 0]
+    chart		    55
+    treeNode		    [55 0 0 0]
     superState		    SUBCHART
-    subviewer		    44
+    subviewer		    55
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4319,16 +4821,16 @@ Stateflow {
     }
   }
   junction {
-    id			    46
+    id			    57
     position		    [23.5747 49.5747 7]
-    chart		    44
-    linkNode		    [44 0 0]
-    subviewer		    44
+    chart		    55
+    linkNode		    [55 0 0]
+    subviewer		    55
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    47
+    id			    58
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4336,23 +4838,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      46
+      id		      57
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    44
-    linkNode		    [44 0 0]
+    chart		    55
+    linkNode		    [55 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    44
+    subviewer		    55
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    48
+    id			    59
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [44 0 49]
+    linkNode		    [55 0 60]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4368,10 +4870,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    49
+    id			    60
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [44 48 0]
+    linkNode		    [55 59 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4388,26 +4890,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    50
+    id			    61
     name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
     machine		    1
-    chart		    44
+    chart		    55
   }
   chart {
-    id			    51
+    id			    62
     name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
     windowPosition	    [461.813 174 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 52 0 0]
-    firstTransition	    54
-    firstJunction	    53
-    viewObj		    51
+    treeNode		    [0 63 0 0]
+    firstTransition	    65
+    firstJunction	    64
+    viewObj		    62
     machine		    1
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    55
+    firstData		    66
     chartFileNumber	    47
     disableImplicitCasting  1
     eml {
@@ -4416,14 +4918,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    52
+    id			    63
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    51
-    treeNode		    [51 0 0 0]
+    chart		    62
+    treeNode		    [62 0 0 0]
     superState		    SUBCHART
-    subviewer		    51
+    subviewer		    62
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4452,249 +4954,40 @@ Stateflow {
     }
   }
   junction {
-    id			    53
-    position		    [23.5747 49.5747 7]
-    chart		    51
-    linkNode		    [51 0 0]
-    subviewer		    51
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    54
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      53
-      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    51
-    linkNode		    [51 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    51
-    drawStyle		    SMART
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  data {
-    id			    55
-    ssIdNumber		    4
-    name		    "I"
-    linkNode		    [51 0 56]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    56
-    ssIdNumber		    5
-    name		    "Iout"
-    linkNode		    [51 55 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  instance {
-    id			    57
-    name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
-    machine		    1
-    chart		    51
-  }
-  chart {
-    id			    58
-    name		    "Convert to BW/IterativeSegmentation/Segmentation/LabSegmentation"
-    windowPosition	    [431.813 195 200.25 189.75]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 59 0 0]
-    firstTransition	    61
-    firstJunction	    60
-    viewObj		    58
-    machine		    1
-    ssIdHighWaterMark	    11
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    62
-    chartFileNumber	    48
-    disableImplicitCasting  1
-    eml {
-      name		      "LabSegmentation"
-    }
-    supportVariableSizing   0
-  }
-  state {
-    id			    59
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    58
-    treeNode		    [58 0 0 0]
-    superState		    SUBCHART
-    subviewer		    58
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function LabelMatrix  = LabSegmentation(L,a,b,ref_colors,num_colors)\n% This function generates t"
-      "he label matrix\n\n[rows cols] = size(L);\n\nLout = zeros(rows,cols);\naout = zeros(rows,cols);\nbout = zeros(ro"
-      "ws,cols);\n\nLabelMatrix = zeros(rows,cols);\n\nfor i = 1:rows\n    for j = 1:cols\n        min_dist = 1000;\n  "
-      "      index = 1;\n        for k = 1:num_colors\n            dist = sqrt((ref_colors(k,1) - L(i,j))^2 + (ref_colo"
-      "rs(k,2) - a(i,j))^2 + (ref_colors(k,3) - b(i,j))^2);\n            if(dist < min_dist)\n                min_dist "
-      "= double(dist);\n                index = k;\n            end\n        end\n        LabelMatrix(i,j) = index;\n  "
-      "  end\nend\n\nfor i = 1:rows\n    for j = 1:cols\n        Lout(i,j) = ref_colors(LabelMatrix(i,j),1);\n        a"
-      "out(i,j) = ref_colors(LabelMatrix(i,j),2);\n        bout(i,j) = ref_colors(LabelMatrix(i,j),3);\n    end\nend\n\n"
-      "cow = 1;\n\nreturn\n"
-      editorLayout	      "100 M4x1[101 68 1056 606]"
-      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
-      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
-      emlDefaultFimath	      FimathUserSpecified
-    }
-  }
-  junction {
-    id			    60
-    position		    [23.5747 49.5747 7]
-    chart		    58
-    linkNode		    [58 0 0]
-    subviewer		    58
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    61
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      60
-      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    58
-    linkNode		    [58 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    58
-    drawStyle		    SMART
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  data {
-    id			    62
-    ssIdNumber		    4
-    name		    "L"
-    linkNode		    [58 0 63]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    63
-    ssIdNumber		    5
-    name		    "LabelMatrix"
-    linkNode		    [58 62 64]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
     id			    64
-    ssIdNumber		    6
-    name		    "a"
-    linkNode		    [58 63 65]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
+    position		    [23.5747 49.5747 7]
+    chart		    62
+    linkNode		    [62 0 0]
+    subviewer		    62
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
   }
-  data {
+  transition {
     id			    65
-    ssIdNumber		    7
-    name		    "b"
-    linkNode		    [58 64 66]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
-    dataType		    "Inherit: Same as Simulink"
+    dst {
+      id		      64
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    62
+    linkNode		    [62 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    62
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
   }
   data {
     id			    66
-    ssIdNumber		    8
-    name		    "ref_colors"
-    linkNode		    [58 65 67]
+    ssIdNumber		    4
+    name		    "I"
+    linkNode		    [62 0 67]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4704,20 +4997,17 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    67
-    ssIdNumber		    9
-    name		    "num_colors"
-    linkNode		    [58 66 0]
-    scope		    INPUT_DATA
+    ssIdNumber		    5
+    name		    "Iout"
+    linkNode		    [62 66 0]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -4726,23 +5016,21 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
     id			    68
-    name		    "Convert to BW/IterativeSegmentation/Segmentation/LabSegmentation"
+    name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
     machine		    1
-    chart		    58
+    chart		    62
   }
   chart {
     id			    69
-    name		    "Convert to BW/IterativeSegmentation/Segmentation/Reference Color Selection"
+    name		    "Convert to BW/IterativeSegmentation/Segmentation/LabSegmentation"
     windowPosition	    [431.813 195 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
@@ -4751,14 +5039,14 @@ Stateflow {
     firstJunction	    71
     viewObj		    69
     machine		    1
-    ssIdHighWaterMark	    10
+    ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    73
-    chartFileNumber	    49
+    chartFileNumber	    48
     disableImplicitCasting  1
     eml {
-      name		      "Segmentation"
+      name		      "LabSegmentation"
     }
     supportVariableSizing   0
   }
@@ -4776,33 +5064,16 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [ref_colors, num_colors] = Segmentation(L,a,b,Dist_Thresh)\n% This function tries segmen"
-      "tation by adding new reference colors everytime\n% a pixel is found with a distance greater than a certain amoun"
-      "t from\n% every other reference color\n\n[rows cols] = size(L);\n\nDist_Threshold = Dist_Thresh;% L = 0 to 100, "
-      "a = -100 to 100, b = -100 to 100\n                    % max dist = 300 -> 60/300 is 20%\nx = 1;  % coefficients "
-      "determining distance calculation\ny = 1.5;\nz = 1.5;\n\nmax_num_colors = 50;\nref_colors = zeros(max_num_colors,"
-      "3);   % At most 50 different reference colors\nLabelMatrix = zeros(rows,cols);\nnum_colors = 1;\n\ncenter_row = "
-      "floor(rows/2);\ncenter_col = floor(cols/2);\n\n% Define first reference color to be colr\nref_colors(1,:) = [L(c"
-      "enter_row,center_col) a(center_row,center_col) b(center_row,center_col)];\n\nflag = 0;\ni = 1;\nj = 1;\nwhile(i "
-      "<= rows)        % perform initial segmentation\n    while(i <= rows && flag == 0)\n        while(j <= cols && fl"
-      "ag == 0)\n            k = 1;\n            min_dist = 1000;\n            index = 1;\n            while(k <= num_c"
-      "olors)\n                dist = sqrt(x*(ref_colors(k,1) - L(i,j))^2 + y*(ref_colors(k,2) - a(i,j))^2 + z*(ref_col"
-      "ors(k,3) - b(i,j))^2);\n                if(min_dist > dist)\n                    min_dist = double(dist);\n     "
-      "               index = k;\n                end\n                k = k + 1;\n            end\n            if(j =="
-      " 117)\n                cow = 1;\n            end\n            if(min_dist > Dist_Threshold && num_colors < max_n"
-      "um_colors)\n                ref_colors(num_colors+1,:) = [L(i,j) a(i,j) b(i,j)];\n                num_colors = n"
-      "um_colors + 1;\n                flag = 1;\n                i = 0;\n                j = 0;\n            else\n   "
-      "             LabelMatrix(i,j) = index;\n            end\n            j = j + 1;\n        end\n        j = 1;\n  "
-      "      i = i + 1;\n    end\n    flag = 0;\nend\n\n% Go through image once more to get more accurate values for th"
-      "e different regions\nref_color_L_avg = zeros(50,1);\nref_color_a_avg = zeros(50,1);\nref_color_b_avg = zeros(50,"
-      "1);\ncolor_count = zeros(50,1);\nfor i = 1:rows\n    for j = 1:cols\n        index = LabelMatrix(i,j);\n        "
-      "ref_color_L_avg(index) = ref_color_L_avg(index) + L(i,j);\n        ref_color_a_avg(index) = ref_color_a_avg(inde"
-      "x) + a(i,j);\n        ref_color_b_avg(index) = ref_color_b_avg(index) + b(i,j);\n        color_count(index) = co"
-      "lor_count(index) + 1;\n    end\nend\nref_color_L_avg = ref_color_L_avg ./ color_count;\nref_color_a_avg = ref_co"
-      "lor_a_avg ./ color_count;\nref_color_b_avg = ref_color_b_avg ./ color_count;\n\nfor i = 1:num_colors\n    ref_co"
-      "lors(i,1) = ref_color_L_avg(i);\n    ref_colors(i,2) = ref_color_a_avg(i);\n    ref_colors(i,3) = ref_color_b_av"
-      "g(i);\nend\n\nreturn\n"
-      editorLayout	      "100 M4x1[1646 122 744 728]"
+      script		      "function LabelMatrix  = LabSegmentation(L,a,b,ref_colors,num_colors)\n% This function generates t"
+      "he label matrix\n\n[rows cols] = size(L);\n\nLout = zeros(rows,cols);\naout = zeros(rows,cols);\nbout = zeros(ro"
+      "ws,cols);\n\nLabelMatrix = zeros(rows,cols);\n\nfor i = 1:rows\n    for j = 1:cols\n        min_dist = 1000;\n  "
+      "      index = 1;\n        for k = 1:num_colors\n            dist = sqrt((ref_colors(k,1) - L(i,j))^2 + (ref_colo"
+      "rs(k,2) - a(i,j))^2 + (ref_colors(k,3) - b(i,j))^2);\n            if(dist < min_dist)\n                min_dist "
+      "= double(dist);\n                index = k;\n            end\n        end\n        LabelMatrix(i,j) = index;\n  "
+      "  end\nend\n\nfor i = 1:rows\n    for j = 1:cols\n        Lout(i,j) = ref_colors(LabelMatrix(i,j),1);\n        a"
+      "out(i,j) = ref_colors(LabelMatrix(i,j),2);\n        bout(i,j) = ref_colors(LabelMatrix(i,j),3);\n    end\nend\n\n"
+      "cow = 1;\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
       fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
       "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
       emlDefaultFimath	      FimathUserSpecified
@@ -4860,7 +5131,7 @@ Stateflow {
   data {
     id			    74
     ssIdNumber		    5
-    name		    "ref_colors"
+    name		    "LabelMatrix"
     linkNode		    [69 73 75]
     scope		    OUTPUT_DATA
     machine		    1
@@ -4924,9 +5195,9 @@ Stateflow {
   data {
     id			    77
     ssIdNumber		    8
-    name		    "num_colors"
+    name		    "ref_colors"
     linkNode		    [69 76 78]
-    scope		    OUTPUT_DATA
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -4939,14 +5210,14 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    78
-    ssIdNumber		    10
-    name		    "Dist_Thresh"
+    ssIdNumber		    9
+    name		    "num_colors"
     linkNode		    [69 77 0]
     scope		    INPUT_DATA
     machine		    1
@@ -4967,21 +5238,252 @@ Stateflow {
   }
   instance {
     id			    79
-    name		    "Convert to BW/IterativeSegmentation/Segmentation/Reference Color Selection"
+    name		    "Convert to BW/IterativeSegmentation/Segmentation/LabSegmentation"
     machine		    1
     chart		    69
   }
-  target {
+  chart {
     id			    80
+    name		    "Convert to BW/IterativeSegmentation/Segmentation/Reference Color Selection"
+    windowPosition	    [431.813 195 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 81 0 0]
+    firstTransition	    83
+    firstJunction	    82
+    viewObj		    80
+    machine		    1
+    ssIdHighWaterMark	    10
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    84
+    chartFileNumber	    49
+    disableImplicitCasting  1
+    eml {
+      name		      "Segmentation"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    81
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    80
+    treeNode		    [80 0 0 0]
+    superState		    SUBCHART
+    subviewer		    80
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [ref_colors, num_colors] = Segmentation(L,a,b,Dist_Thresh)\n% This function tries segmen"
+      "tation by adding new reference colors everytime\n% a pixel is found with a distance greater than a certain amoun"
+      "t from\n% every other reference color\n\n[rows cols] = size(L);\n\nDist_Threshold = Dist_Thresh;% L = 0 to 100, "
+      "a = -100 to 100, b = -100 to 100\n                    % max dist = 300 -> 60/300 is 20%\nx = 1;  % coefficients "
+      "determining distance calculation\ny = 1.5;\nz = 1.5;\n\nmax_num_colors = 50;\nref_colors = zeros(max_num_colors,"
+      "3);   % At most 50 different reference colors\nLabelMatrix = zeros(rows,cols);\nnum_colors = 1;\n\ncenter_row = "
+      "floor(rows/2);\ncenter_col = floor(cols/2);\n\n% Define first reference color to be colr\nref_colors(1,:) = [L(c"
+      "enter_row,center_col) a(center_row,center_col) b(center_row,center_col)];\n\nflag = 0;\ni = 1;\nj = 1;\nwhile(i "
+      "<= rows)        % perform initial segmentation\n    while(i <= rows && flag == 0)\n        while(j <= cols && fl"
+      "ag == 0)\n            k = 1;\n            min_dist = 1000;\n            index = 1;\n            while(k <= num_c"
+      "olors)\n                dist = sqrt(x*(ref_colors(k,1) - L(i,j))^2 + y*(ref_colors(k,2) - a(i,j))^2 + z*(ref_col"
+      "ors(k,3) - b(i,j))^2);\n                if(min_dist > dist)\n                    min_dist = double(dist);\n     "
+      "               index = k;\n                end\n                k = k + 1;\n            end\n            if(j =="
+      " 117)\n                cow = 1;\n            end\n            if(min_dist > Dist_Threshold && num_colors < max_n"
+      "um_colors)\n                ref_colors(num_colors+1,:) = [L(i,j) a(i,j) b(i,j)];\n                num_colors = n"
+      "um_colors + 1;\n                flag = 1;\n                i = 0;\n                j = 0;\n            else\n   "
+      "             LabelMatrix(i,j) = index;\n            end\n            j = j + 1;\n        end\n        j = 1;\n  "
+      "      i = i + 1;\n    end\n    flag = 0;\nend\n\n% Go through image once more to get more accurate values for th"
+      "e different regions\nref_color_L_avg = zeros(50,1);\nref_color_a_avg = zeros(50,1);\nref_color_b_avg = zeros(50,"
+      "1);\ncolor_count = zeros(50,1);\nfor i = 1:rows\n    for j = 1:cols\n        index = LabelMatrix(i,j);\n        "
+      "ref_color_L_avg(index) = ref_color_L_avg(index) + L(i,j);\n        ref_color_a_avg(index) = ref_color_a_avg(inde"
+      "x) + a(i,j);\n        ref_color_b_avg(index) = ref_color_b_avg(index) + b(i,j);\n        color_count(index) = co"
+      "lor_count(index) + 1;\n    end\nend\nref_color_L_avg = ref_color_L_avg ./ color_count;\nref_color_a_avg = ref_co"
+      "lor_a_avg ./ color_count;\nref_color_b_avg = ref_color_b_avg ./ color_count;\n\nfor i = 1:num_colors\n    ref_co"
+      "lors(i,1) = ref_color_L_avg(i);\n    ref_colors(i,2) = ref_color_a_avg(i);\n    ref_colors(i,3) = ref_color_b_av"
+      "g(i);\nend\n\nreturn\n"
+      editorLayout	      "100 M4x1[1646 122 744 728]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    82
+    position		    [23.5747 49.5747 7]
+    chart		    80
+    linkNode		    [80 0 0]
+    subviewer		    80
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    83
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      82
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    80
+    linkNode		    [80 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    80
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    84
+    ssIdNumber		    4
+    name		    "L"
+    linkNode		    [80 0 85]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    85
+    ssIdNumber		    5
+    name		    "ref_colors"
+    linkNode		    [80 84 86]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    86
+    ssIdNumber		    6
+    name		    "a"
+    linkNode		    [80 85 87]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    87
+    ssIdNumber		    7
+    name		    "b"
+    linkNode		    [80 86 88]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    88
+    ssIdNumber		    8
+    name		    "num_colors"
+    linkNode		    [80 87 89]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    89
+    ssIdNumber		    10
+    name		    "Dist_Thresh"
+    linkNode		    [80 88 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    90
+    name		    "Convert to BW/IterativeSegmentation/Segmentation/Reference Color Selection"
+    machine		    1
+    chart		    80
+  }
+  target {
+    id			    91
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 81]
+    linkNode		    [1 0 92]
   }
   target {
-    id			    81
+    id			    92
     name		    "rtw"
     machine		    1
-    linkNode		    [1 80 0]
+    linkNode		    [1 91 0]
   }
 }
