@@ -28,6 +28,14 @@ Vision::Vision() : SimulinkModule()
     paramList["Vision_ProceedToSecondTarget"] = &VisionModel_U.ProceedToSecondTarget;
     paramList["Vision_DefaultTargetShape"] = &VisionModel_U.DefaultTargetShape;
     paramList["Vision_DefaultTargetColor"] = &VisionModel_U.DefaultTargetColor;
+    paramList["Vision_ScaleForwardR"] = &VisionModel_P.Gain_Gain;
+    paramList["Vision_ScaleForwardG"] = &VisionModel_P.Gain1_Gain;
+    paramList["Vision_ScaleForwardB"] = &VisionModel_P.Gain2_Gain;
+    paramList["Vision_ScaleForwardH"] = &VisionModel_P.Gain3_Gain;
+    paramList["Vision_ScaleForwardS"] = &VisionModel_P.Gain4_Gain;
+    paramList["Vision_ScaleForwardV"] = &VisionModel_P.Gain5_Gain;
+    paramList["Vision_IterSegmentThresh"] = &VisionModel_P.Constant2_Value;
+    VisionModel_initialize();
 }
 
 /**
@@ -48,7 +56,7 @@ void Vision::dataIn(VDatum datum)
  */
 void Vision::init()
 {
-    const int UPDATE_RATE = 20;    // num updates per seconds
+    const int UPDATE_RATE = 1;    // num updates per seconds
     stopped = false;
     qDebug("Vision thread id: %d", (int) QThread::currentThreadId());
     stepTimer->start(1000 / UPDATE_RATE);
@@ -79,7 +87,7 @@ void Vision::step()
     int d_width = downwardCam->width();
     int d_height = downwardCam->height();
 
-//	std::cerr << "forward [w,h]" << f_width << " " << f_height << "  --- downward [w,h]" << d_width << " " << d_height << std::endl;
+//        std::cerr << "forward [w,h]" << f_width << " " << f_height << "  --- downward [w,h]" << d_width << " " << d_height << std::endl;
     if (f_width > FORWARD_CAM_MAX_WIDTH || f_height > FORWARD_CAM_MAX_HEIGHT || d_width > DOWNWARD_CAM_MAX_WIDTH || d_height > DOWNWARD_CAM_MAX_HEIGHT)
     {
         std::cerr << "Vision::step(): ERROR! Forward/Downward Camera Width/Height mismatch (got something larger)" << std::endl;
