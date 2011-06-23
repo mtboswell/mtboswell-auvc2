@@ -29,8 +29,8 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Administrator"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 12:35:23 2011"
-  RTWModifiedTimeStamp	  230473954
+  LastModifiedDate	  "Wed Jun 22 20:39:00 2011"
+  RTWModifiedTimeStamp	  230664097
   ModelVersionFormat	  "1.%<AutoIncrement:916>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
@@ -743,7 +743,7 @@ Model {
   }
   System {
     Name		    "test_torpedo"
-    Location		    [2, 76, 1254, 715]
+    Location		    [2, 72, 1262, 711]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
