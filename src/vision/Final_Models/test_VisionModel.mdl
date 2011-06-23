@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.930"
+    ComputedModelVersion    "1.931"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 19:54:54 2011"
-  RTWModifiedTimeStamp	  230671660
-  ModelVersionFormat	  "1.%<AutoIncrement:930>"
+  LastModifiedDate	  "Wed Jun 22 20:42:30 2011"
+  RTWModifiedTimeStamp	  230675989
+  ModelVersionFormat	  "1.%<AutoIncrement:931>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1667,7 +1667,7 @@ Model {
       Position		      [715, 551, 1205, 1349]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.420"
+      ModelReferenceVersion   "1.417"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1892,11 +1892,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
