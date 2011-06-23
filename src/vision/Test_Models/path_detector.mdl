@@ -20,7 +20,7 @@ Model {
       BusObject		      ""
       Name		      "WhichPath"
     }
-    NumRootOutports	    5
+    NumRootOutports	    11
     Outport {
       BusObject		      ""
       BusOutputAsStruct	      "off"
@@ -46,8 +46,38 @@ Model {
       BusOutputAsStruct	      "off"
       Name		      "PathState"
     }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "R"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "G"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "B"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "bw_image"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "edge_image"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "line_image"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1187"
+    ComputedModelVersion    "1.1200"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -67,9 +97,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 17:23:29 2011"
-  RTWModifiedTimeStamp	  230601380
-  ModelVersionFormat	  "1.%<AutoIncrement:1187>"
+  LastModifiedDate	  "Thu Jun 23 13:42:07 2011"
+  RTWModifiedTimeStamp	  230736411
+  ModelVersionFormat	  "1.%<AutoIncrement:1200>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -746,7 +776,7 @@ Model {
   }
   System {
     Name		    "path_detector"
-    Location		    [1560, 147, 3000, 931]
+    Location		    [1440, 50, 3120, 1050]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -760,7 +790,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "557"
+    SIDHighWatermark	    "573"
     Block {
       BlockType		      Inport
       Name		      "R_in"
@@ -1015,13 +1045,84 @@ Model {
     }
     Block {
       BlockType		      Reference
+      Name		      "Draw Shapes1"
+      SID		      "572"
+      Ports		      [2, 1]
+      Position		      [1690, 1147, 1795, 1223]
+      LibraryVersion	      "1.183"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag1"
+      SourceBlock	      "viptextngfix/Draw Shapes"
+      SourceType	      "Draw Shapes"
+      shape		      "Lines"
+      fill		      off
+      fillClrSource	      "Specify via dialog"
+      display		      "User-specified value"
+      intensity		      "200"
+      color		      ".8"
+      opacity		      "0.6"
+      viewport		      "Entire image"
+      antialiasing	      off
+      inType		      "Obsolete"
+      imagePorts	      "One multidimensional signal"
+      accumMode		      "Same as product output"
+      accumWordLength	      "32"
+      accumFracLength	      "14"
+      prodOutputMode	      "Binary point scaling"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "14"
+      memoryMode	      "Specify word length"
+      memoryWordLength	      "16"
+      memoryFracLength	      "15"
+      roundingMode	      "Floor"
+      overflowMode	      off
+      LockScale		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Draw Target1"
+      SID		      "563"
+      Ports		      [4, 3]
+      Position		      [1805, 916, 1955, 979]
+      LibraryVersion	      "1.183"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag2"
+      SourceBlock	      "viptextngfix/Draw Markers"
+      SourceType	      "Draw Markers"
+      shape		      "X-mark"
+      size		      "7"
+      fill		      off
+      fillClrSource	      "Specify via dialog"
+      display		      "User-specified value"
+      intensity		      "200"
+      color		      "[0 0 0]"
+      opacity		      "0.6"
+      viewport		      "Entire image"
+      antialiasing	      off
+      inType		      "Obsolete"
+      imagePorts	      "Separate color signals"
+      accumMode		      "Same as product output"
+      accumWordLength	      "32"
+      accumFracLength	      "14"
+      prodOutputMode	      "Binary point scaling"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "14"
+      memoryMode	      "Specify word length"
+      memoryWordLength	      "16"
+      memoryFracLength	      "15"
+      roundingMode	      "Floor"
+      overflowMode	      off
+      LockScale		      off
+    }
+    Block {
+      BlockType		      Reference
       Name		      "Edge Detection"
       SID		      "543"
       Ports		      [1, 1]
       Position		      [540, 980, 640, 1040]
       LibraryVersion	      "1.378"
       DialogController	      "vipDDGCreate"
-      DialogControllerArgs    "DataTag1"
+      DialogControllerArgs    "DataTag3"
       SourceBlock	      "vipanalysis/Edge Detection"
       SourceType	      "Edge Detection"
       method		      "Sobel"
@@ -1699,13 +1800,39 @@ Model {
     }
     Block {
       BlockType		      Reference
+      Name		      "Hough Lines2"
+      SID		      "573"
+      Ports		      [3, 1]
+      Position		      [1370, 1135, 1475, 1195]
+      LibraryVersion	      "1.273"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag4"
+      SourceBlock	      "viptransforms/Hough Lines"
+      SourceType	      "Hough Lines"
+      sineCompMethod	      "Trigonometric function"
+      thetaRes		      "pi/180"
+      firstCoeffMode	      "Specify word length"
+      firstCoeffWordLength    "16"
+      firstCoeffFracLength    "15"
+      accumMode		      "Same as product output"
+      accumWordLength	      "32"
+      accumFracLength	      "16"
+      prodOutputMode	      "Binary point scaling"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "16"
+      roundingMode	      "Nearest"
+      overflowMode	      on
+      LockScale		      off
+    }
+    Block {
+      BlockType		      Reference
       Name		      "Hough Transform1"
       SID		      "549"
       Ports		      [1, 3]
-      Position		      [660, 981, 765, 1039]
+      Position		      [675, 981, 780, 1039]
       LibraryVersion	      "1.273"
       DialogController	      "vipDDGCreate"
-      DialogControllerArgs    "DataTag2"
+      DialogControllerArgs    "DataTag5"
       SourceBlock	      "viptransforms/Hough Transform"
       SourceType	      "Hough Transform"
       theta_res		      "pi/180"
@@ -1739,7 +1866,7 @@ Model {
       Name		      "Identify Path Elements"
       SID		      "550"
       Ports		      [5, 5]
-      Position		      [835, 962, 1115, 1098]
+      Position		      [1005, 947, 1285, 1083]
       LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
@@ -2004,9 +2131,217 @@ Model {
     }
     Block {
       BlockType		      Constant
+      Name		      "ModeSelect2"
+      SID		      "564"
+      Position		      [1420, 960, 1450, 990]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Transform Coordinates2"
+      SID		      "565"
+      Ports		      [5, 2]
+      Position		      [1500, 965, 1750, 1065]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      SystemSampleTime	      "[1/30 0]"
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('transform_G2L');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Transform Coordinates2"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"47"
+	Block {
+	  BlockType		  Inport
+	  Name			  "bw_image_in"
+	  SID			  "565::44"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "which_camera"
+	  SID			  "565::47"
+	  Position		  [20, 136, 40, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "x_in"
+	  SID			  "565::46"
+	  Position		  [20, 171, 40, 189]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "y_in"
+	  SID			  "565::41"
+	  Position		  [20, 206, 40, 224]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "z_in"
+	  SID			  "565::45"
+	  Position		  [20, 246, 40, 264]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "565::23"
+	  Ports			  [1, 1]
+	  Position		  [270, 270, 320, 310]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "565::22"
+	  Tag			  "Stateflow S-Function path_detector 8"
+	  Ports			  [5, 3]
+	  Position		  [180, 108, 230, 272]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[5 3]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "r_out"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "c_out"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "565::25"
+	  Position		  [460, 281, 480, 299]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "r_out"
+	  SID			  "565::36"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "c_out"
+	  SID			  "565::38"
+	  Position		  [460, 136, 480, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "c_out"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "c_out"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "r_out"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "r_out"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "z_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "y_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "x_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "which_camera"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "bw_image_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Concatenate
+      Name		      "Vector\nConcatenate1"
+      SID		      "566"
+      Ports		      [2, 1]
+      Position		      [1775, 1001, 1780, 1039]
+      Mode		      "Multidimensional array"
+    }
+    Block {
+      BlockType		      Constant
       Name		      "Voting Threshold"
       SID		      "552"
-      Position		      [715, 1070, 745, 1100]
+      Position		      [750, 1070, 780, 1100]
       Value		      "25"
       SampleTime	      "-1"
     }
@@ -2014,7 +2349,7 @@ Model {
       BlockType		      Outport
       Name		      "DesiredTargetX"
       SID		      "557"
-      Position		      [1545, 13, 1575, 27]
+      Position		      [2060, 573, 2090, 587]
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
@@ -2022,7 +2357,7 @@ Model {
       BlockType		      Outport
       Name		      "DesiredTargetY"
       SID		      "553"
-      Position		      [1545, 58, 1575, 72]
+      Position		      [2060, 618, 2090, 632]
       Port		      "2"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -2031,7 +2366,7 @@ Model {
       BlockType		      Outport
       Name		      "DesiredTargetYaw"
       SID		      "554"
-      Position		      [1545, 98, 1575, 112]
+      Position		      [2060, 658, 2090, 672]
       Port		      "3"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -2040,7 +2375,7 @@ Model {
       BlockType		      Outport
       Name		      "PathDetected"
       SID		      "555"
-      Position		      [1545, 143, 1575, 157]
+      Position		      [2060, 703, 2090, 717]
       Port		      "4"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -2049,8 +2384,62 @@ Model {
       BlockType		      Outport
       Name		      "PathState"
       SID		      "556"
-      Position		      [1545, 193, 1575, 207]
+      Position		      [2060, 753, 2090, 767]
       Port		      "5"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "R"
+      SID		      "558"
+      Position		      [2060, 883, 2090, 897]
+      Port		      "6"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "G"
+      SID		      "559"
+      Position		      [2060, 923, 2090, 937]
+      Port		      "7"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "B"
+      SID		      "560"
+      Position		      [2060, 963, 2090, 977]
+      Port		      "8"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "bw_image"
+      SID		      "561"
+      Position		      [575, 1123, 605, 1137]
+      Port		      "9"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "edge_image"
+      SID		      "562"
+      Position		      [700, 1123, 730, 1137]
+      Port		      "10"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "line_image"
+      SID		      "567"
+      Position		      [2060, 1153, 2090, 1167]
+      Port		      "11"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
@@ -2158,50 +2547,151 @@ Model {
       Branch {
 	Points			[0, 275]
 	Branch {
-	  Points		  [0, 235]
-	  DstBlock		  "Edge Detection"
+	  Points		  [445, 0; 0, 190]
+	  DstBlock		  "Identify Path Elements"
 	  DstPort		  1
 	}
 	Branch {
-	  Points		  [300, 0]
-	  DstBlock		  "Identify Path Elements"
-	  DstPort		  1
+	  Points		  [0, 235]
+	  Branch {
+	    DstBlock		    "Edge Detection"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 120]
+	    DstBlock		    "bw_image"
+	    DstPort		    1
+	  }
 	}
       }
     }
     Line {
       SrcBlock		      "Edge Detection"
       SrcPort		      1
-      DstBlock		      "Hough Transform1"
-      DstPort		      1
+      Points		      [5, 0]
+      Branch {
+	DstBlock		"Hough Transform1"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -85; 1120, 0]
+	Branch {
+	  DstBlock		  "Draw Target1"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 15]
+	  Branch {
+	    DstBlock		    "Draw Target1"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 15]
+	    DstBlock		    "Draw Target1"
+	    DstPort		    3
+	  }
+	}
+      }
+      Branch {
+	Points			[0, 120]
+	DstBlock		"edge_image"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "Hough Transform1"
       SrcPort		      1
-      Points		      [50, 0]
       DstBlock		      "Identify Path Elements"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Hough Transform1"
       SrcPort		      2
-      Points		      [50, 0]
+      Points		      [205, 0]
       DstBlock		      "Identify Path Elements"
       DstPort		      3
     }
     Line {
       SrcBlock		      "Hough Transform1"
       SrcPort		      3
-      Points		      [50, 0]
+      Points		      [145, 0; 0, 10]
       DstBlock		      "Identify Path Elements"
       DstPort		      4
     }
     Line {
       SrcBlock		      "Voting Threshold"
       SrcPort		      1
-      Points		      [35, 0; 0, -5]
+      Points		      [0, -20]
       DstBlock		      "Identify Path Elements"
       DstPort		      5
+    }
+    Line {
+      SrcBlock		      "ModeSelect2"
+      SrcPort		      1
+      Points		      [30, 0]
+      DstBlock		      "Transform Coordinates2"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Transform Coordinates2"
+      SrcPort		      1
+      Points		      [5, 0]
+      DstBlock		      "Vector\nConcatenate1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Transform Coordinates2"
+      SrcPort		      2
+      Points		      [5, 0]
+      DstBlock		      "Vector\nConcatenate1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Vector\nConcatenate1"
+      SrcPort		      1
+      Points		      [5, 0]
+      DstBlock		      "Draw Target1"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Draw Target1"
+      SrcPort		      1
+      Points		      [0, -40]
+      DstBlock		      "R"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Draw Target1"
+      SrcPort		      2
+      Points		      [40, 0; 0, -20]
+      DstBlock		      "G"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Draw Target1"
+      SrcPort		      3
+      DstBlock		      "B"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Identify Path Elements"
+      SrcPort		      3
+      DstBlock		      "Transform Coordinates2"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Identify Path Elements"
+      SrcPort		      4
+      Points		      [95, 0; 0, -5]
+      DstBlock		      "Transform Coordinates2"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Hough Lines2"
+      SrcPort		      1
+      Points		      [185, 0; 0, 40]
+      DstBlock		      "Draw Shapes1"
+      DstPort		      2
     }
     Annotation {
       Position		      [758, 264]
@@ -2223,16 +2713,31 @@ Model {
   }
 }
 MatData {
-  NumRecords		  3
+  NumRecords		  6
   DataRecord {
-    Tag			    DataTag2
+    Tag			    DataTag5
     Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
     "     %    \"     $    %     0         0    !0   $A/54=(    "
   }
   DataRecord {
-    Tag			    DataTag1
+    Tag			    DataTag4
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    *     0         0    \"@   $AO=6=H3&EN97,        "
+  }
+  DataRecord {
+    Tag			    DataTag3
     Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
     "     %    \"     $    -     0         0    #0   $5D9V5$971E8W1I;VX    "
+  }
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    +     0         0    \"P   $1R87=-87)K97)S       "
+  }
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    *     0         0    \"@   $1R87=3:&%P97,        "
   }
   DataRecord {
     Tag			    DataTag0
@@ -2253,7 +2758,7 @@ Stateflow {
     name		    "path_detector"
     created		    "11-Feb-2011 11:53:00"
     isLibrary		    0
-    firstTarget		    64
+    firstTarget		    76
     sfVersion		    75014000.000003
   }
   chart {
@@ -3447,17 +3952,254 @@ Stateflow {
     machine		    1
     chart		    49
   }
-  target {
+  chart {
     id			    64
+    name		    "Transform Coordinates2"
+    windowPosition	    [412.184 109.12 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 65 0 0]
+    firstTransition	    67
+    firstJunction	    66
+    viewObj		    64
+    machine		    1
+    subviewS {
+    }
+    ssIdHighWaterMark	    27
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    68
+    chartFileNumber	    8
+    disableImplicitCasting  1
+    eml {
+      name		      "transform_G2L"
+    }
+  }
+  state {
+    id			    65
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    64
+    treeNode		    [64 0 0 0]
+    superState		    SUBCHART
+    subviewer		    64
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [r_out, c_out] = transform_G2L(bw_image_in, which_camera, x_in, y_in, z_in)\n% This func"
+      "tion, \"transform Global to Local coordinates,\" transforms\n%   global coordinates that are sent to the control"
+      "ler into local\n%   coordinates that can be displayed over images.\n%\n% 5-29-11\n%\n% Input\n%   x_in, y_in, z_"
+      "in = vectors of points in global (vehicle-centered)\n%     coordinate system\n%   bw_image_in = a 2-D array of p"
+      "ixel values (used only to extract image\n%     size)\n%   which_camera = selects which camera for relative coord"
+      "inates\n%                = 0 -> Forward camera\n%                = 1 -> Down camera\n%\n% Output\n%   r_out, c_o"
+      "ut = row, column pairs in local coordinate system\n\n[rows, cols] = size(bw_image_in);\nif( which_camera == 0 )\n"
+      "    r_out = z_in + floor(rows/2);\n    c_out = y_in + floor(cols/2);\nelse\n    r_out = floor(rows/2) - x_in;\n "
+      "   c_out = y_in + floor(cols/2);\nend\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1288 755]"
+    }
+  }
+  junction {
+    id			    66
+    position		    [23.5747 49.5747 7]
+    chart		    64
+    linkNode		    [64 0 0]
+    subviewer		    64
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    67
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      66
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    64
+    linkNode		    [64 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    64
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    68
+    ssIdNumber		    24
+    name		    "bw_image_in"
+    linkNode		    [64 0 69]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    69
+    ssIdNumber		    27
+    name		    "which_camera"
+    linkNode		    [64 68 70]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    70
+    ssIdNumber		    26
+    name		    "x_in"
+    linkNode		    [64 69 71]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    71
+    ssIdNumber		    21
+    name		    "y_in"
+    linkNode		    [64 70 72]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    72
+    ssIdNumber		    5
+    name		    "r_out"
+    linkNode		    [64 71 73]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    73
+    ssIdNumber		    18
+    name		    "c_out"
+    linkNode		    [64 72 74]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    74
+    ssIdNumber		    25
+    name		    "z_in"
+    linkNode		    [64 73 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    75
+    name		    "Transform Coordinates2"
+    machine		    1
+    chart		    64
+  }
+  target {
+    id			    76
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 65]
+    linkNode		    [1 0 77]
   }
   target {
-    id			    65
+    id			    77
     name		    "rtw"
     machine		    1
-    linkNode		    [1 64 0]
+    linkNode		    [1 76 0]
   }
 }

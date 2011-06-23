@@ -113,7 +113,7 @@ Model {
       Name		      "RightAngled"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.91"
+    ComputedModelVersion    "1.112"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -133,9 +133,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 16:46:04 2011"
-  RTWModifiedTimeStamp	  230658852
-  ModelVersionFormat	  "1.%<AutoIncrement:91>"
+  LastModifiedDate	  "Thu Jun 23 15:28:18 2011"
+  RTWModifiedTimeStamp	  230737444
+  ModelVersionFormat	  "1.%<AutoIncrement:112>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -229,7 +229,7 @@ Model {
       Version		      "1.10.0"
       Array {
 	Type			"Handle"
-	Dimension		8
+	Dimension		9
 	Simulink.SolverCC {
 	  $ObjectID		  3
 	  Version		  "1.10.0"
@@ -690,6 +690,23 @@ Model {
 	    PropName		    "Components"
 	  }
 	}
+	DES.SimEventsCC {
+	  $BackupClass		  "Simulink.CustomCC"
+	  $ObjectID		  13
+	  Version		  "1.10.0"
+	  Name			  "SimEvents"
+	  SimEventsActiveTab	  "0"
+	  propIdentEvents	  "0"
+	  propIdentEventSeed	  "123456789"
+	  propUnconnectedPorts	  "0"
+	  propMaxDesBlkSimulEvents "1000"
+	  propMaxDesMdlSimulEvents "100000"
+	  propDiagAttribOutput	  "1"
+	  propDiagFcnCallOutput	  "1"
+	  propDiagStatOutput	  "0"
+	  propDiagChangeAttrib	  "2"
+	  propRNGIdenticalSeeds	  "1"
+	}
 	PropName		"Components"
       }
       Name		      "Configuration"
@@ -764,6 +781,45 @@ Model {
       SampleTime	      "inf"
       FramePeriod	      "inf"
       PreserveConstantTs      off
+    }
+    Block {
+      BlockType		      DataStoreMemory
+      DataStoreName	      "A"
+      ReadBeforeWriteMsg      "none"
+      WriteAfterWriteMsg      "none"
+      WriteAfterReadMsg	      "none"
+      InitialValue	      "0"
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+      VectorParams1D	      on
+      ShowAdditionalParam     off
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      SignalType	      "auto"
+      DataLogging	      off
+      DataLoggingLimitDataPoints off
+      DataLoggingMaxPoints    "5000"
+      DataLoggingDecimateData off
+      DataLoggingDecimation   "2"
+      DataLoggingNameMode     "SignalName"
+    }
+    Block {
+      BlockType		      DataStoreRead
+      DataStoreName	      "A"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      DataStoreWrite
+      DataStoreName	      "A"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
     }
     Block {
       BlockType		      DiscreteIntegrator
@@ -846,6 +902,15 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      Memory
+      X0		      "0"
+      InheritSampleTime	      off
+      LinearizeMemory	      off
+      LinearizeAsDelay	      off
+      StateMustResolveToSignalObject off
+      RTWStateStorageClass    "Auto"
+    }
+    Block {
       BlockType		      Merge
       Inputs		      "2"
       InitialOutput	      "[]"
@@ -885,6 +950,13 @@ Model {
       SourceOfInitialOutputValue "Dialog"
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+      SFunctionDeploymentMode off
     }
     Block {
       BlockType		      Saturate
@@ -954,6 +1026,9 @@ Model {
       SampleTime	      "-1"
       AllowDiffInputSizes     off
     }
+    Block {
+      BlockType		      Terminator
+    }
   }
   System {
     Name		    "MotionController"
@@ -971,7 +1046,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "716"
+    SIDHighWatermark	    "795"
     Block {
       BlockType		      Inport
       Name		      "TargetSelect"
@@ -1316,7 +1391,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nauvt\\n22-Jun-2011 16:19:07"
+      "nauvt\\n23-Jun-2011 15:27:52"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -3528,7 +3603,7 @@ Model {
       Name		      "Targeting Controllers"
       SID		      "262"
       Ports		      [6, 4, 1]
-      Position		      [435, 181, 630, 454]
+      Position		      [435, 185, 630, 460]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -3540,7 +3615,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Targeting Controllers"
-	Location		[1827, 254, 2543, 800]
+	Location		[2199, 299, 3024, 845]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -3557,14 +3632,14 @@ Model {
 	  BlockType		  Inport
 	  Name			  "TargetSelect"
 	  SID			  "453"
-	  Position		  [50, 83, 80, 97]
+	  Position		  [165, 83, 195, 97]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "MaintainHeading"
 	  SID			  "671"
-	  Position		  [50, 193, 80, 207]
+	  Position		  [165, 193, 195, 207]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
@@ -3572,7 +3647,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "TargetFound"
 	  SID			  "295"
-	  Position		  [50, 148, 80, 162]
+	  Position		  [40, 148, 70, 162]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
@@ -3580,7 +3655,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "TargetPos"
 	  SID			  "267"
-	  Position		  [50, 238, 80, 252]
+	  Position		  [165, 238, 195, 252]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
 	}
@@ -3588,7 +3663,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "DesiredTargetPos"
 	  SID			  "268"
-	  Position		  [50, 278, 80, 292]
+	  Position		  [165, 278, 195, 292]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
 	}
@@ -3596,7 +3671,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "VehicleState"
 	  SID			  "323"
-	  Position		  [50, 443, 80, 457]
+	  Position		  [165, 443, 195, 457]
 	  Port			  "6"
 	  IconDisplay		  "Port number"
 	}
@@ -3605,7 +3680,7 @@ Model {
 	  Name			  "Enable"
 	  SID			  "394"
 	  Ports			  []
-	  Position		  [55, 25, 75, 45]
+	  Position		  [170, 25, 190, 45]
 	  StatesWhenEnabling	  "reset"
 	}
 	Block {
@@ -3613,42 +3688,48 @@ Model {
 	  Name			  "If"
 	  SID			  "304"
 	  Ports			  [1, 2]
-	  Position		  [110, 136, 210, 174]
+	  Position		  [225, 136, 325, 174]
+	}
+	Block {
+	  BlockType		  Memory
+	  Name			  "Memory"
+	  SID			  "779"
+	  Position		  [125, 480, 155, 510]
 	}
 	Block {
 	  BlockType		  Merge
 	  Name			  "Merge"
 	  SID			  "408"
 	  Ports			  [2, 1]
-	  Position		  [555, 230, 595, 270]
+	  Position		  [670, 230, 710, 270]
 	}
 	Block {
 	  BlockType		  Merge
 	  Name			  "Merge1"
 	  SID			  "409"
 	  Ports			  [2, 1]
-	  Position		  [555, 290, 595, 330]
+	  Position		  [670, 290, 710, 330]
 	}
 	Block {
 	  BlockType		  Merge
 	  Name			  "Merge2"
 	  SID			  "410"
 	  Ports			  [2, 1]
-	  Position		  [555, 355, 595, 395]
+	  Position		  [670, 355, 710, 395]
 	}
 	Block {
 	  BlockType		  Merge
 	  Name			  "Merge3"
 	  SID			  "411"
 	  Ports			  [2, 1]
-	  Position		  [555, 420, 595, 460]
+	  Position		  [670, 420, 710, 460]
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Search for \nTarget"
 	  SID			  "305"
-	  Ports			  [5, 4, 0, 0, 0, 0, 0, 1]
-	  Position		  [275, 374, 450, 486]
+	  Ports			  [6, 4, 0, 0, 0, 0, 0, 1]
+	  Position		  [390, 374, 565, 486]
 	  LibraryVersion	  "1.225"
 	  TreatAsAtomicUnit	  on
 	  MinAlgLoopOccurrences	  off
@@ -3661,7 +3742,7 @@ Model {
 	  System {
 	    Name		    "Search for \nTarget"
 	    Location		    [378, 196, 1308, 793]
-	    Open		    on
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -3713,6 +3794,14 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
+	      BlockType		      Inport
+	      Name		      "Targetfound_memory"
+	      SID		      "781"
+	      Position		      [45, 488, 75, 502]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
 	      SID		      "307"
@@ -3756,7 +3845,7 @@ Model {
 	      BlockType		      SubSystem
 	      Name		      "Find Downward Target"
 	      SID		      "706"
-	      Ports		      [1, 1, 0, 0, 0, 0, 0, 1]
+	      Ports		      [1, 2, 0, 0, 0, 0, 0, 1]
 	      Position		      [340, 139, 535, 241]
 	      LibraryVersion	      "1.225"
 	      TreatAsAtomicUnit	      on
@@ -3769,7 +3858,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Find Downward Target"
-		Location		[342, 471, 840, 771]
+		Location		[1942, 278, 2807, 631]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -3784,9 +3873,9 @@ Model {
 		ZoomFactor		"100"
 		Block {
 		  BlockType		  Inport
-		  Name			  "In1"
-		  SID			  "707"
-		  Position		  [75, 78, 105, 92]
+		  Name			  "TargetSelect"
+		  SID			  "778"
+		  Position		  [65, 173, 95, 187]
 		  IconDisplay		  "Port number"
 		}
 		Block {
@@ -3797,16 +3886,404 @@ Model {
 		  ActionType		  "else"
 		}
 		Block {
+		  BlockType		  SubSystem
+		  Name			  "Embedded\nMATLAB Function"
+		  SID			  "762"
+		  Ports			  [1, 2]
+		  Position		  [395, 130, 550, 230]
+		  LibraryVersion	  "1.31"
+		  PermitHierarchicalResolution "ExplicitOnly"
+		  TreatAsAtomicUnit	  on
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  MaskType		  "Stateflow"
+		  MaskDescription	  "Embedded MATLAB block"
+		  MaskSelfModifiable	  on
+		  MaskDisplay		  "disp('fcn');"
+		  MaskIconFrame		  on
+		  MaskIconOpaque	  off
+		  MaskIconRotate	  "none"
+		  MaskPortRotate	  "default"
+		  MaskIconUnits		  "autoscale"
+		  System {
+		    Name		    "Embedded\nMATLAB Function"
+		    Location		    [257, 457, 812, 717]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    SIDHighWatermark	    "21"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "count"
+		    SID			    "762::20"
+		    Position		    [20, 101, 40, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Demux
+		    Name		    " Demux "
+		    SID			    "762::15"
+		    Ports		    [1, 1]
+		    Position		    [270, 205, 320, 245]
+		    Outputs		    "1"
+		    }
+		    Block {
+		    BlockType		    "S-Function"
+		    Name		    " SFunction "
+		    SID			    "762::14"
+		    Tag			    "Stateflow S-Function MotionController 1"
+		    Ports		    [1, 3]
+		    Position		    [180, 104, 230, 206]
+		    FunctionName	    "sf_sfun"
+		    PortCounts		    "[1 3]"
+		    EnableBusSupport	    off
+		    Port {
+		    PortNumber		    2
+		    Name		    "DesiredXVelocity"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    Port {
+		    PortNumber		    3
+		    Name		    "DesiredYVelocity"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    }
+		    Block {
+		    BlockType		    Terminator
+		    Name		    " Terminator "
+		    SID			    "762::17"
+		    Position		    [460, 216, 480, 234]
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "DesiredXVelocity"
+		    SID			    "762::5"
+		    Position		    [460, 101, 480, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "DesiredYVelocity"
+		    SID			    "762::19"
+		    Position		    [460, 136, 480, 154]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    " SFunction "
+		    SrcPort		    1
+		    DstBlock		    " Demux "
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "count"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    1
+		    }
+		    Line {
+		    Name		    "DesiredXVelocity"
+		    Labels		    [0, 0; 0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    2
+		    DstBlock		    "DesiredXVelocity"
+		    DstPort		    1
+		    }
+		    Line {
+		    Name		    "DesiredYVelocity"
+		    Labels		    [0, 0; 0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    3
+		    DstBlock		    "DesiredYVelocity"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    " Demux "
+		    SrcPort		    1
+		    DstBlock		    " Terminator "
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Subsystem"
+		  SID			  "763"
+		  Ports			  [1, 1]
+		  Position		  [150, 159, 250, 201]
+		  LibraryVersion	  "1.225"
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  System {
+		    Name		    "Subsystem"
+		    Location		    [2112, 198, 2610, 498]
+		    Open		    on
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In1"
+		    SID			    "764"
+		    Position		    [45, 123, 75, 137]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    DataStoreMemory
+		    Name		    "Data Store\nMemory"
+		    SID			    "765"
+		    Position		    [115, 15, 147, 45]
+		    ReadBeforeWriteMsg	    "warning"
+		    WriteAfterWriteMsg	    "warning"
+		    WriteAfterReadMsg	    "warning"
+		    }
+		    Block {
+		    BlockType		    DataStoreRead
+		    Name		    "Data Store\nRead"
+		    SID			    "766"
+		    Position		    [295, 95, 325, 125]
+		    }
+		    Block {
+		    BlockType		    SubSystem
+		    Name		    "Subsystem"
+		    SID			    "767"
+		    Ports		    [1]
+		    Position		    [115, 109, 215, 151]
+		    LibraryVersion	    "1.225"
+		    MinAlgLoopOccurrences   off
+		    PropExecContextOutsideSubsystem off
+		    RTWSystemCode	    "Auto"
+		    FunctionWithSeparateData off
+		    Opaque		    off
+		    RequestExecContextInheritance off
+		    MaskHideContents	    off
+		    System {
+		    Name		    "Subsystem"
+		    Location		    [2281, 349, 2779, 649]
+		    Open		    on
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In1"
+		    SID			    "768"
+		    Position		    [25, 143, 55, 157]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    If
+		    Name		    "If"
+		    SID			    "769"
+		    Ports		    [1, 2]
+		    Position		    [240, 51, 340, 89]
+		    IfExpression	    "u1 == 1"
+		    }
+		    Block {
+		    BlockType		    SubSystem
+		    Name		    "If Action\nSubsystem"
+		    SID			    "770"
+		    Ports		    [0, 0, 0, 0, 0, 0, 0, 1]
+		    Position		    [340, 132, 410, 168]
+		    LibraryVersion	    "1.225"
+		    TreatAsAtomicUnit	    on
+		    MinAlgLoopOccurrences   off
+		    PropExecContextOutsideSubsystem off
+		    RTWSystemCode	    "Auto"
+		    FunctionWithSeparateData off
+		    Opaque		    off
+		    RequestExecContextInheritance off
+		    MaskHideContents	    off
+		    System {
+		    Name		    "If Action\nSubsystem"
+		    Location		    [2284, 669, 2782, 969]
+		    Open		    on
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    ActionPort
+		    Name		    "Action Port"
+		    SID			    "772"
+		    Position		    [170, 15, 229, 43]
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Constant"
+		    SID			    "777"
+		    Position		    [170, 85, 200, 115]
+		    Value		    "0"
+		    }
+		    Block {
+		    BlockType		    DataStoreWrite
+		    Name		    "Data Store\nWrite"
+		    SID			    "773"
+		    Position		    [340, 85, 370, 115]
+		    }
+		    Line {
+		    SrcBlock		    "Constant"
+		    SrcPort		    1
+		    DstBlock		    "Data Store\nWrite"
+		    DstPort		    1
+		    }
+		    }
+		    }
+		    Block {
+		    BlockType		    Logic
+		    Name		    "Logical\nOperator"
+		    SID			    "774"
+		    Ports		    [2, 1]
+		    Position		    [140, 52, 170, 83]
+		    Operator		    "XOR"
+		    AllPortsSameDT	    off
+		    OutDataTypeStr	    "boolean"
+		    }
+		    Block {
+		    BlockType		    Memory
+		    Name		    "Memory"
+		    SID			    "775"
+		    Position		    [240, 215, 270, 245]
+		    }
+		    Line {
+		    SrcBlock		    "In1"
+		    SrcPort		    1
+		    Points		    [55, 0]
+		    Branch {
+		    Points		    [0, 80]
+		    DstBlock		    "Memory"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, -75]
+		    DstBlock		    "Logical\nOperator"
+		    DstPort		    2
+		    }
+		    }
+		    Line {
+		    SrcBlock		    "Logical\nOperator"
+		    SrcPort		    1
+		    DstBlock		    "If"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "If"
+		    SrcPort		    1
+		    Points		    [30, 0]
+		    DstBlock		    "If Action\nSubsystem"
+		    DstPort		    ifaction
+		    }
+		    Line {
+		    SrcBlock		    "Memory"
+		    SrcPort		    1
+		    Points		    [155, 0; 0, -190; -305, 0]
+		    DstBlock		    "Logical\nOperator"
+		    DstPort		    1
+		    }
+		    }
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Out1"
+		    SID			    "776"
+		    Position		    [400, 103, 430, 117]
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "Data Store\nRead"
+		    SrcPort		    1
+		    DstBlock		    "Out1"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "In1"
+		    SrcPort		    1
+		    DstBlock		    "Subsystem"
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
 		  BlockType		  Outport
-		  Name			  "Out1"
+		  Name			  "DesiredXVelocity"
 		  SID			  "709"
-		  Position		  [325, 78, 355, 92]
+		  Position		  [665, 148, 695, 162]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "DesiredYVelocity"
+		  SID			  "737"
+		  Position		  [665, 198, 695, 212]
+		  Port			  "2"
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  SrcBlock		  "In1"
+		  SrcBlock		  "Embedded\nMATLAB Function"
 		  SrcPort		  1
-		  DstBlock		  "Out1"
+		  DstBlock		  "DesiredXVelocity"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Embedded\nMATLAB Function"
+		  SrcPort		  2
+		  DstBlock		  "DesiredYVelocity"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Subsystem"
+		  SrcPort		  1
+		  DstBlock		  "Embedded\nMATLAB Function"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "TargetSelect"
+		  SrcPort		  1
+		  DstBlock		  "Subsystem"
 		  DstPort		  1
 		}
 	      }
@@ -3815,7 +4292,7 @@ Model {
 	      BlockType		      SubSystem
 	      Name		      "Find Forward Target"
 	      SID		      "702"
-	      Ports		      [0, 1, 0, 0, 0, 0, 0, 1]
+	      Ports		      [2, 1, 0, 0, 0, 0, 0, 1]
 	      Position		      [340, 353, 530, 477]
 	      LibraryVersion	      "1.225"
 	      TreatAsAtomicUnit	      on
@@ -3828,8 +4305,8 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Find Forward Target"
-		Location		[601, 326, 1099, 626]
-		Open			on
+		Location		[1803, 156, 2772, 897]
+		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -3842,6 +4319,21 @@ Model {
 		ShowPageBoundaries	off
 		ZoomFactor		"100"
 		Block {
+		  BlockType		  Inport
+		  Name			  "MeasuredYaw"
+		  SID			  "719"
+		  Position		  [30, 113, 60, 127]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Targetfound_memory"
+		  SID			  "782"
+		  Position		  [45, 408, 75, 422]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
 		  BlockType		  ActionPort
 		  Name			  "Action Port"
 		  SID			  "704"
@@ -3849,11 +4341,607 @@ Model {
 		  ActionType		  "then"
 		}
 		Block {
+		  BlockType		  SubSystem
+		  Name			  "Embedded\nMATLAB Function"
+		  SID			  "720"
+		  Ports			  [2, 1]
+		  Position		  [455, 185, 695, 360]
+		  LibraryVersion	  "1.31"
+		  PermitHierarchicalResolution "ExplicitOnly"
+		  TreatAsAtomicUnit	  on
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  MaskType		  "Stateflow"
+		  MaskDescription	  "Embedded MATLAB block"
+		  MaskSelfModifiable	  on
+		  MaskDisplay		  "disp('fcn');"
+		  MaskIconFrame		  on
+		  MaskIconOpaque	  off
+		  MaskIconRotate	  "none"
+		  MaskPortRotate	  "default"
+		  MaskIconUnits		  "autoscale"
+		  System {
+		    Name		    "Embedded\nMATLAB Function"
+		    Location		    [257, 457, 812, 717]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    SIDHighWatermark	    "18"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "MeasuredYaw"
+		    SID			    "720::1"
+		    Position		    [20, 101, 40, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "InitialYaw"
+		    SID			    "720::18"
+		    Position		    [20, 136, 40, 154]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Demux
+		    Name		    " Demux "
+		    SID			    "720::15"
+		    Ports		    [1, 1]
+		    Position		    [270, 160, 320, 200]
+		    Outputs		    "1"
+		    }
+		    Block {
+		    BlockType		    "S-Function"
+		    Name		    " SFunction "
+		    SID			    "720::14"
+		    Tag			    "Stateflow S-Function MotionController 2"
+		    Ports		    [2, 2]
+		    Position		    [180, 100, 230, 160]
+		    FunctionName	    "sf_sfun"
+		    PortCounts		    "[2 2]"
+		    EnableBusSupport	    off
+		    Port {
+		    PortNumber		    2
+		    Name		    "DesiredYawRate"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    }
+		    Block {
+		    BlockType		    Terminator
+		    Name		    " Terminator "
+		    SID			    "720::17"
+		    Position		    [460, 171, 480, 189]
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "DesiredYawRate"
+		    SID			    "720::5"
+		    Position		    [460, 101, 480, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    " SFunction "
+		    SrcPort		    1
+		    DstBlock		    " Demux "
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "MeasuredYaw"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "InitialYaw"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    2
+		    }
+		    Line {
+		    Name		    "DesiredYawRate"
+		    Labels		    [0, 0; 0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    2
+		    DstBlock		    "DesiredYawRate"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    " Demux "
+		    SrcPort		    1
+		    DstBlock		    " Terminator "
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Subsystem"
+		  SID			  "721"
+		  Ports			  [2, 1]
+		  Position		  [170, 294, 270, 336]
+		  LibraryVersion	  "1.225"
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  System {
+		    Name		    "Subsystem"
+		    Location		    [2218, 89, 2716, 440]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In1"
+		    SID			    "722"
+		    Position		    [45, 123, 75, 137]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Targetfound_memory"
+		    SID			    "783"
+		    Position		    [65, 248, 95, 262]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    DataStoreMemory
+		    Name		    "Data Store\nMemory"
+		    SID			    "724"
+		    Position		    [115, 15, 147, 45]
+		    ReadBeforeWriteMsg	    "warning"
+		    WriteAfterWriteMsg	    "warning"
+		    WriteAfterReadMsg	    "warning"
+		    }
+		    Block {
+		    BlockType		    DataStoreRead
+		    Name		    "Data Store\nRead"
+		    SID			    "725"
+		    Position		    [295, 95, 325, 125]
+		    }
+		    Block {
+		    BlockType		    SubSystem
+		    Name		    "Subsystem"
+		    SID			    "726"
+		    Ports		    [2]
+		    Position		    [115, 109, 215, 151]
+		    LibraryVersion	    "1.225"
+		    MinAlgLoopOccurrences   off
+		    PropExecContextOutsideSubsystem off
+		    RTWSystemCode	    "Auto"
+		    FunctionWithSeparateData off
+		    Opaque		    off
+		    RequestExecContextInheritance off
+		    MaskHideContents	    off
+		    System {
+		    Name		    "Subsystem"
+		    Location		    [2218, 233, 2940, 1004]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In1"
+		    SID			    "727"
+		    Position		    [40, 373, 70, 387]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Targetfound_memory"
+		    SID			    "784"
+		    Position		    [70, 113, 100, 127]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    If
+		    Name		    "If"
+		    SID			    "728"
+		    Ports		    [1, 2]
+		    Position		    [255, 281, 355, 319]
+		    IfExpression	    "u1 == 1"
+		    }
+		    Block {
+		    BlockType		    SubSystem
+		    Name		    "If Action\nSubsystem"
+		    SID			    "729"
+		    Ports		    [1, 0, 0, 0, 0, 0, 0, 1]
+		    Position		    [355, 362, 425, 398]
+		    LibraryVersion	    "1.225"
+		    TreatAsAtomicUnit	    on
+		    MinAlgLoopOccurrences   off
+		    PropExecContextOutsideSubsystem off
+		    RTWSystemCode	    "Auto"
+		    FunctionWithSeparateData off
+		    Opaque		    off
+		    RequestExecContextInheritance off
+		    MaskHideContents	    off
+		    System {
+		    Name		    "If Action\nSubsystem"
+		    Location		    [255, 344, 753, 644]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In1"
+		    SID			    "730"
+		    Position		    [75, 78, 105, 92]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    ActionPort
+		    Name		    "Action Port"
+		    SID			    "731"
+		    Position		    [170, 15, 229, 43]
+		    }
+		    Block {
+		    BlockType		    DataStoreWrite
+		    Name		    "Data Store\nWrite"
+		    SID			    "732"
+		    Position		    [170, 70, 200, 100]
+		    }
+		    Line {
+		    SrcBlock		    "In1"
+		    SrcPort		    1
+		    DstBlock		    "Data Store\nWrite"
+		    DstPort		    1
+		    }
+		    }
+		    }
+		    Block {
+		    BlockType		    SubSystem
+		    Name		    "If Action\nSubsystem1"
+		    SID			    "786"
+		    Ports		    [0, 1, 0, 0, 0, 0, 0, 1]
+		    Position		    [335, 47, 405, 83]
+		    LibraryVersion	    "1.225"
+		    TreatAsAtomicUnit	    on
+		    MinAlgLoopOccurrences   off
+		    PropExecContextOutsideSubsystem off
+		    RTWSystemCode	    "Auto"
+		    FunctionWithSeparateData off
+		    Opaque		    off
+		    RequestExecContextInheritance off
+		    MaskHideContents	    off
+		    System {
+		    Name		    "If Action\nSubsystem1"
+		    Location		    [342, 471, 840, 771]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    ActionPort
+		    Name		    "Action Port"
+		    SID			    "788"
+		    Position		    [170, 15, 229, 43]
+		    ActionType		    "then"
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Constant"
+		    SID			    "794"
+		    Position		    [75, 100, 105, 130]
+		    Value		    "0"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Out1"
+		    SID			    "789"
+		    Position		    [325, 108, 355, 122]
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "Constant"
+		    SrcPort		    1
+		    DstBlock		    "Out1"
+		    DstPort		    1
+		    }
+		    }
+		    }
+		    Block {
+		    BlockType		    SubSystem
+		    Name		    "If Action\nSubsystem2"
+		    SID			    "790"
+		    Ports		    [1, 1, 0, 0, 0, 0, 0, 1]
+		    Position		    [460, 167, 530, 203]
+		    LibraryVersion	    "1.225"
+		    TreatAsAtomicUnit	    on
+		    MinAlgLoopOccurrences   off
+		    PropExecContextOutsideSubsystem off
+		    RTWSystemCode	    "Auto"
+		    FunctionWithSeparateData off
+		    Opaque		    off
+		    RequestExecContextInheritance off
+		    MaskHideContents	    off
+		    System {
+		    Name		    "If Action\nSubsystem2"
+		    Location		    [342, 471, 840, 771]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In1"
+		    SID			    "791"
+		    Position		    [75, 78, 105, 92]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    ActionPort
+		    Name		    "Action Port"
+		    SID			    "792"
+		    Position		    [170, 15, 229, 43]
+		    ActionType		    "else"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Out1"
+		    SID			    "793"
+		    Position		    [325, 78, 355, 92]
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "In1"
+		    SrcPort		    1
+		    DstBlock		    "Out1"
+		    DstPort		    1
+		    }
+		    }
+		    }
+		    Block {
+		    BlockType		    If
+		    Name		    "If1"
+		    SID			    "785"
+		    Ports		    [1, 2]
+		    Position		    [155, 101, 255, 139]
+		    }
+		    Block {
+		    BlockType		    Logic
+		    Name		    "Logical\nOperator"
+		    SID			    "733"
+		    Ports		    [2, 1]
+		    Position		    [155, 282, 185, 313]
+		    Operator		    "XOR"
+		    AllPortsSameDT	    off
+		    OutDataTypeStr	    "boolean"
+		    }
+		    Block {
+		    BlockType		    Memory
+		    Name		    "Memory"
+		    SID			    "734"
+		    Position		    [255, 445, 285, 475]
+		    }
+		    Block {
+		    BlockType		    Merge
+		    Name		    "Merge"
+		    SID			    "795"
+		    Ports		    [2, 1]
+		    Position		    [580, 220, 620, 260]
+		    }
+		    Line {
+		    SrcBlock		    "In1"
+		    SrcPort		    1
+		    Points		    [55, 0]
+		    Branch {
+		    DstBlock		    "If Action\nSubsystem"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 80]
+		    DstBlock		    "Memory"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, -75]
+		    DstBlock		    "Logical\nOperator"
+		    DstPort		    2
+		    }
+		    }
+		    Line {
+		    SrcBlock		    "Logical\nOperator"
+		    SrcPort		    1
+		    DstBlock		    "If"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "If"
+		    SrcPort		    1
+		    Points		    [30, 0]
+		    DstBlock		    "If Action\nSubsystem"
+		    DstPort		    ifaction
+		    }
+		    Line {
+		    SrcBlock		    "Targetfound_memory"
+		    SrcPort		    1
+		    DstBlock		    "If1"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "If1"
+		    SrcPort		    1
+		    Points		    [65, 0; 0, -78]
+		    DstBlock		    "If Action\nSubsystem1"
+		    DstPort		    ifaction
+		    }
+		    Line {
+		    SrcBlock		    "If1"
+		    SrcPort		    2
+		    Points		    [235, 0]
+		    DstBlock		    "If Action\nSubsystem2"
+		    DstPort		    ifaction
+		    }
+		    Line {
+		    SrcBlock		    "Memory"
+		    SrcPort		    1
+		    Points		    [145, 0; 0, -275]
+		    DstBlock		    "If Action\nSubsystem2"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "If Action\nSubsystem1"
+		    SrcPort		    1
+		    Points		    [155, 0]
+		    DstBlock		    "Merge"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "If Action\nSubsystem2"
+		    SrcPort		    1
+		    Points		    [0, 65]
+		    DstBlock		    "Merge"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "Merge"
+		    SrcPort		    1
+		    Points		    [0, 40; -265, 0; 0, -10; -220, 0]
+		    DstBlock		    "Logical\nOperator"
+		    DstPort		    1
+		    }
+		    Annotation {
+		    Name		    "Resetting the Initial Yaw value each time the target is found."
+		    Position		    [169, 69]
+		    }
+		    Annotation {
+		    Name		    "Allows for only taking the initial value ONCE"
+		    Position		    [133, 491]
+		    }
+		    }
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Out1"
+		    SID			    "723"
+		    Position		    [400, 103, 430, 117]
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "Data Store\nRead"
+		    SrcPort		    1
+		    DstBlock		    "Out1"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "In1"
+		    SrcPort		    1
+		    Points		    [20, 0]
+		    DstBlock		    "Subsystem"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Targetfound_memory"
+		    SrcPort		    1
+		    DstBlock		    "Subsystem"
+		    DstPort		    2
+		    }
+		  }
+		}
+		Block {
 		  BlockType		  Outport
 		  Name			  "DesiredYawRate"
 		  SID			  "705"
-		  Position		  [405, 118, 435, 132]
+		  Position		  [790, 268, 820, 282]
 		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  "MeasuredYaw"
+		  SrcPort		  1
+		  Points		  [50, 0]
+		  Branch {
+		    Points		    [150, 0; 0, 110]
+		    DstBlock		    "Embedded\nMATLAB Function"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 185]
+		    DstBlock		    "Subsystem"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Embedded\nMATLAB Function"
+		  SrcPort		  1
+		  DstBlock		  "DesiredYawRate"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Subsystem"
+		  SrcPort		  1
+		  DstBlock		  "Embedded\nMATLAB Function"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Targetfound_memory"
+		  SrcPort		  1
+		  Points		  [35, 0; 0, -90]
+		  DstBlock		  "Subsystem"
+		  DstPort		  2
 		}
 	      }
 	    }
@@ -3869,7 +4957,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "DesiredXVelocity"
 	      SID		      "404"
-	      Position		      [740, 113, 770, 127]
+	      Position		      [740, 158, 770, 172]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
@@ -3884,7 +4972,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "DesiredYVelocity"
 	      SID		      "406"
-	      Position		      [740, 213, 770, 227]
+	      Position		      [740, 208, 770, 222]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
 	    }
@@ -3892,7 +4980,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "DesiredZVelocity"
 	      SID		      "407"
-	      Position		      [740, 313, 770, 327]
+	      Position		      [740, 298, 770, 312]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
 	      OutDataTypeStr	      "double"
@@ -3913,7 +5001,7 @@ Model {
 	    Line {
 	      SrcBlock		      "If"
 	      SrcPort		      2
-	      Points		      [65, 0; 0, -1; 130, 0]
+	      Points		      [65, 0; 0, 4; 130, 0]
 	      DstBlock		      "Find Downward Target"
 	      DstPort		      ifaction
 	    }
@@ -3930,6 +5018,27 @@ Model {
 	      DstBlock		      "Bus\nSelector"
 	      DstPort		      1
 	    }
+	    Line {
+	      Name		      "<MeasuredYaw>"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      "Bus\nSelector"
+	      SrcPort		      1
+	      Points		      [75, 0; 0, 15]
+	      DstBlock		      "Find Forward Target"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Find Downward Target"
+	      SrcPort		      1
+	      DstBlock		      "DesiredXVelocity"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Find Downward Target"
+	      SrcPort		      2
+	      DstBlock		      "DesiredYVelocity"
+	      DstPort		      1
+	    }
 	    Annotation {
 	      Name		      "Switch TargetSelect\n  Case 1 // Tracking forward target\n    Stop forward motion, and spin around"
 	      " in a circle\n    until a forward target is acquired\n  Case 2 // Tracking down target\n    Possibly travel aro"
@@ -3944,7 +5053,7 @@ Model {
 	  Name			  "Track Target"
 	  SID			  "296"
 	  Ports			  [4, 4, 0, 0, 0, 0, 0, 1]
-	  Position		  [275, 188, 455, 302]
+	  Position		  [390, 188, 570, 302]
 	  LibraryVersion	  "1.225"
 	  TreatAsAtomicUnit	  on
 	  MinAlgLoopOccurrences	  off
@@ -4299,7 +5408,7 @@ Model {
 		  Position		  [110, 56, 225, 114]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4321,7 +5430,7 @@ Model {
 		  Position		  [105, 181, 225, 239]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4343,7 +5452,7 @@ Model {
 		  Position		  [105, 306, 225, 364]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -5104,7 +6213,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "DesiredXVelocity"
 	  SID			  "278"
-	  Position		  [640, 243, 670, 257]
+	  Position		  [755, 243, 785, 257]
 	  IconDisplay		  "Port number"
 	  OutputWhenDisabled	  "reset"
 	  InitialOutput		  "0"
@@ -5113,7 +6222,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "DesiredYVelocity"
 	  SID			  "276"
-	  Position		  [640, 368, 670, 382]
+	  Position		  [755, 368, 785, 382]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	  OutputWhenDisabled	  "reset"
@@ -5123,7 +6232,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "DesiredZVelocity"
 	  SID			  "277"
-	  Position		  [640, 433, 670, 447]
+	  Position		  [755, 433, 785, 447]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -5134,7 +6243,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "DesiredYawRate"
 	  SID			  "275"
-	  Position		  [640, 303, 670, 317]
+	  Position		  [755, 303, 785, 317]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
 	  OutputWhenDisabled	  "reset"
@@ -5143,8 +6252,16 @@ Model {
 	Line {
 	  SrcBlock		  "TargetFound"
 	  SrcPort		  1
-	  DstBlock		  "If"
-	  DstPort		  1
+	  Points		  [20, 0]
+	  Branch {
+	    DstBlock		    "If"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [15, 0]
+	    DstBlock		    "Memory"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  SrcBlock		  "If"
@@ -5163,7 +6280,7 @@ Model {
 	    DstPort		    3
 	  }
 	  Branch {
-	    Points		    [0, 165]
+	    Points		    [0, 155]
 	    DstBlock		    "Search for \nTarget"
 	    DstPort		    2
 	  }
@@ -5178,7 +6295,7 @@ Model {
 	    DstPort		    4
 	  }
 	  Branch {
-	    Points		    [0, 145]
+	    Points		    [0, 135]
 	    DstBlock		    "Search for \nTarget"
 	    DstPort		    3
 	  }
@@ -5193,6 +6310,7 @@ Model {
 	Line {
 	  SrcBlock		  "VehicleState"
 	  SrcPort		  1
+	  Points		  [175, 0]
 	  DstBlock		  "Search for \nTarget"
 	  DstPort		  4
 	}
@@ -5286,7 +6404,7 @@ Model {
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, 185]
+	    Points		    [0, 175]
 	    DstBlock		    "Search for \nTarget"
 	    DstPort		    1
 	  }
@@ -5297,6 +6415,13 @@ Model {
 	  Points		  [120, 0; 0, 30]
 	  DstBlock		  "Track Target"
 	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Memory"
+	  SrcPort		  1
+	  Points		  [95, 0; 0, -15]
+	  DstBlock		  "Search for \nTarget"
+	  DstPort		  6
 	}
       }
     }
@@ -5827,6 +6952,7 @@ Model {
 	  DstPort		  1
 	}
 	Branch {
+	  Points		  [90, 0]
 	  DstBlock		  "Targeting Controllers"
 	  DstPort		  1
 	}
@@ -5835,7 +6961,7 @@ Model {
     Line {
       SrcBlock		      "TargetFound"
       SrcPort		      1
-      Points		      [190, 0; 0, 220]
+      Points		      [190, 0; 0, 225]
       DstBlock		      "Targeting Controllers"
       DstPort		      3
     }
@@ -5869,27 +6995,28 @@ Model {
     Line {
       SrcBlock		      "Targeting Controllers"
       SrcPort		      1
+      Points		      [0, -5]
       DstBlock		      "Add"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Targeting Controllers"
       SrcPort		      4
-      Points		      [0, -15]
+      Points		      [0, -20]
       DstBlock		      "Add1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Targeting Controllers"
       SrcPort		      2
-      Points		      [0, -5]
+      Points		      [0, -10]
       DstBlock		      "Add2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Targeting Controllers"
       SrcPort		      3
-      Points		      [0, -10]
+      Points		      [0, -15]
       DstBlock		      "Add3"
       DstPort		      1
     }
@@ -5981,14 +7108,14 @@ Model {
     Line {
       SrcBlock		      "Bus\nCreator1"
       SrcPort		      1
-      Points		      [85, 0; 0, 125]
+      Points		      [85, 0; 0, 130]
       DstBlock		      "Targeting Controllers"
       DstPort		      4
     }
     Line {
       SrcBlock		      "Bus\nCreator"
       SrcPort		      1
-      Points		      [20, 0; 0, -20]
+      Points		      [20, 0; 0, -15]
       DstBlock		      "Targeting Controllers"
       DstPort		      5
     }
@@ -6067,7 +7194,7 @@ Model {
       SrcPort		      1
       Points		      [65, 0]
       Branch {
-	Points			[0, -160]
+	Points			[0, -155]
 	DstBlock		"Targeting Controllers"
 	DstPort			6
       }
@@ -6082,6 +7209,7 @@ Model {
       SrcPort		      1
       Points		      [175, 0; 0, 140]
       Branch {
+	Points			[30, 0]
 	DstBlock		"Targeting Controllers"
 	DstPort			2
       }
@@ -6179,11 +7307,300 @@ Stateflow {
     name		    "MotionController"
     created		    "22-Jun-2011 15:52:52"
     isLibrary		    0
-    firstTarget		    2
+    firstTarget		    18
     sfVersion		    75014000.000003
   }
-  target {
+  chart {
     id			    2
+    name		    "Targeting Controllers/Search for \nTarget/Find Downward Target/Embedded\nMATLAB Function"
+    windowPosition	    [375.75 203.25 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 3 0 0]
+    firstTransition	    5
+    firstJunction	    4
+    viewObj		    2
+    machine		    1
+    toolbarMode		    LIBRARY_TOOLBAR
+    subviewS {
+    }
+    ssIdHighWaterMark	    8
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    6
+    chartFileNumber	    1
+    disableImplicitCasting  1
+    eml {
+      name		      "fcn"
+    }
+  }
+  state {
+    id			    3
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 0 0]
+    superState		    SUBCHART
+    subviewer		    2
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [DesiredXVelocity, DesiredYVelocity] = fcn(count)\n%#eml\n\n%first move right, then back"
+      ", then left, then forward\n%hoping to complete a square\n\n%intentions are to not turn the vehicle around (spinn"
+      "ing in a \n%  circle could cause the vehicle to follow a path in the wrong\n%  direction)\n\nif count <=4\n    D"
+      "esiredXVelocity= 0;\n    DesiredYVelocity= 25; %units? assuming percent power\nelse if count <=9\n        Desire"
+      "dXVelocity=-25;\n        DesiredYVelocity= 0;\n    else if count <= 14\n            DesiredXVelocity= 0;\n      "
+      "      DesiredYVelocity= -25;\n        else if count <= 19\n                DesiredXVelocity= 25;\n              "
+      "  DesiredYVelocity= 0;\n                count = count +1;\n            else\n                count = 0;\n       "
+      "         DesiredXVelocity=0;\n                DesiredYVelocity=0;\n            end\n        end\n    end\nend\n\n"
+      "\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+    }
+  }
+  junction {
+    id			    4
+    position		    [23.5747 49.5747 7]
+    chart		    2
+    linkNode		    [2 0 0]
+    subviewer		    2
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    5
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      4
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    2
+    linkNode		    [2 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    2
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    6
+    ssIdNumber		    5
+    name		    "DesiredXVelocity"
+    linkNode		    [2 0 7]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    7
+    ssIdNumber		    6
+    name		    "DesiredYVelocity"
+    linkNode		    [2 6 8]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    8
+    ssIdNumber		    7
+    name		    "count"
+    linkNode		    [2 7 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    9
+    name		    "Targeting Controllers/Search for \nTarget/Find Downward Target/Embedded\nMATLAB Function"
+    machine		    1
+    chart		    2
+  }
+  chart {
+    id			    10
+    name		    "Targeting Controllers/Search for \nTarget/Find Forward Target/Embedded\nMATLAB Function"
+    windowPosition	    [375.75 203.25 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 11 0 0]
+    firstTransition	    13
+    firstJunction	    12
+    viewObj		    10
+    machine		    1
+    toolbarMode		    LIBRARY_TOOLBAR
+    ssIdHighWaterMark	    6
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    14
+    chartFileNumber	    2
+    disableImplicitCasting  1
+    eml {
+      name		      "fcn"
+    }
+  }
+  state {
+    id			    11
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    10
+    treeNode		    [10 0 0 0]
+    superState		    SUBCHART
+    subviewer		    10
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function DesiredYawRate = fcn(MeasuredYaw, InitialYaw)\n%#eml\n\ndifference= abs(MeasuredYaw- Ini"
+      "tialYaw);\n\n%limit how far it turns to 45 degrees\n\nif difference <= 45\n    DesiredYawRate=5; % assuming degr"
+      "ees per second\nelse\n    DesiredYawRate=-5;\nend\n\n"
+      editorLayout	      "100 M4x1[377 201 810 562]"
+    }
+  }
+  junction {
+    id			    12
+    position		    [23.5747 49.5747 7]
+    chart		    10
+    linkNode		    [10 0 0]
+    subviewer		    10
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    13
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      12
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    10
+    linkNode		    [10 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    10
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    14
+    ssIdNumber		    4
+    name		    "MeasuredYaw"
+    linkNode		    [10 0 15]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    15
+    ssIdNumber		    5
+    name		    "DesiredYawRate"
+    linkNode		    [10 14 16]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    16
+    ssIdNumber		    6
+    name		    "InitialYaw"
+    linkNode		    [10 15 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    17
+    name		    "Targeting Controllers/Search for \nTarget/Find Forward Target/Embedded\nMATLAB Function"
+    machine		    1
+    chart		    10
+  }
+  target {
+    id			    18
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
