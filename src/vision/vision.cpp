@@ -38,6 +38,8 @@ Vision::Vision() : SimulinkModule()
     paramList["Vision_ProceedToSecondTarget"] = &VisionModel_U.ProceedToSecondTarget;
     paramList["Vision_DefaultTargetShape"] = &VisionModel_U.DefaultTargetShape;
     paramList["Vision_DefaultTargetColor"] = &VisionModel_U.DefaultTargetColor;
+
+    VisionModel_initialize();
 }
 
 /**
@@ -154,11 +156,6 @@ void Vision::step()
     setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
     setData("Vision.Output.DummieVariable", VisionModel_Y.DummieVariable);
     setData("Vision.Output.Iter_Segment_Thresh", VisionModel_Y.Iter_Segment_Thresh);
-//    real_T LabelMatrix[19200];           /* '<Root>/LabelMatrix' */
-//    real_T num_colors;                   /* '<Root>/num_colors' */
-//    real_T ref_colors[150];              /* '<Root>/ref_colors' */
-//    real_T bw_image[19200];              /* '<Root>/bw_image' */
-//    boolean_T edge_image[19200];         /* '<Root>/edge_image' */
 
 //     qDebug() << "BW IMAGE" << VisionModel_Y.bw_image;
     int total = 0;
