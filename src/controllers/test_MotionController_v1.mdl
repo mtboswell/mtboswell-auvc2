@@ -1,15 +1,15 @@
 Model {
-  Name			  "MotionController_test"
+  Name			  "test_MotionController_v1"
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.63"
+    ComputedModelVersion    "1.77"
     NumModelReferences	    1
     ModelReference {
-      ModelRefBlockPath	      "MotionController_test/vision_model.mdl|MotionController_mod"
+      ModelRefBlockPath	      "test_MotionController_v1/vision_model.mdl|MotionController"
     }
     NumTestPointedSignals   0
   }
@@ -27,11 +27,11 @@ Model {
   Creator		  "Administrator"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Administrator"
+  LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jun 03 04:58:35 2011"
-  RTWModifiedTimeStamp	  228964342
-  ModelVersionFormat	  "1.%<AutoIncrement:63>"
+  LastModifiedDate	  "Thu Jun 23 16:38:41 2011"
+  RTWModifiedTimeStamp	  230744004
+  ModelVersionFormat	  "1.%<AutoIncrement:77>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -178,23 +178,10 @@ Model {
 	Simulink.OptimizationCC {
 	  $ObjectID		  4
 	  Version		  "1.10.0"
-	  Array {
-	    Type		    "Cell"
-	    Dimension		    8
-	    Cell		    "BooleansAsBitfields"
-	    Cell		    "PassReuseOutputArgsAs"
-	    Cell		    "PassReuseOutputArgsThreshold"
-	    Cell		    "ZeroExternalMemoryAtStartup"
-	    Cell		    "ZeroInternalMemoryAtStartup"
-	    Cell		    "OptimizeModelRefInitCode"
-	    Cell		    "NoFixptDivByZeroProtection"
-	    Cell		    "UseSpecifiedMinMax"
-	    PropName		    "DisabledProps"
-	  }
 	  BlockReduction	  on
 	  BooleanDataType	  on
 	  ConditionallyExecuteInputs on
-	  InlineParams		  off
+	  InlineParams		  on
 	  UseIntDivNetSlope	  off
 	  UseSpecifiedMinMax	  off
 	  InlineInvariantSignals  off
@@ -222,8 +209,8 @@ Model {
 	  NoFixptDivByZeroProtection off
 	  EfficientFloat2IntCast  off
 	  EfficientMapNaN2IntZero on
-	  OptimizeModelRefInitCode off
-	  LifeSpan		  "inf"
+	  OptimizeModelRefInitCode on
+	  LifeSpan		  "1"
 	  MaxStackSize		  "Inherit from target"
 	  BufferReusableBoundary  on
 	  SimCompilerOptimization "Off"
@@ -384,24 +371,13 @@ Model {
 	  $BackupClass		  "Simulink.RTWCC"
 	  $ObjectID		  9
 	  Version		  "1.10.0"
-	  Array {
-	    Type		    "Cell"
-	    Dimension		    7
-	    Cell		    "IncludeHyperlinkInReport"
-	    Cell		    "GenerateTraceInfo"
-	    Cell		    "GenerateTraceReport"
-	    Cell		    "GenerateTraceReportSl"
-	    Cell		    "GenerateTraceReportSf"
-	    Cell		    "GenerateTraceReportEml"
-	    Cell		    "GenerateSLWebview"
-	    PropName		    "DisabledProps"
-	  }
-	  SystemTargetFile	  "grt.tlc"
-	  GenCodeOnly		  off
+	  SystemTargetFile	  "ert.tlc"
+	  GenCodeOnly		  on
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
-	  TemplateMakefile	  "grt_default_tmf"
-	  GenerateReport	  off
+	  TemplateMakefile	  "ert_default_tmf"
+	  Description		  "Real-Time Workshop Embedded Coder"
+	  GenerateReport	  on
 	  SaveLog		  off
 	  RTWVerbose		  on
 	  RetainRTWFile		  off
@@ -411,11 +387,12 @@ Model {
 	  TLCAssert		  off
 	  ProcessScriptMode	  "Default"
 	  ConfigurationMode	  "Optimized"
+	  ProcessScript		  "ert_make_rtw_hook"
 	  ConfigAtBuild		  off
 	  RTWUseLocalCustomCode	  off
 	  RTWUseSimCustomCode	  off
-	  IncludeHyperlinkInReport off
-	  LaunchReport		  off
+	  IncludeHyperlinkInReport on
+	  LaunchReport		  on
 	  TargetLang		  "C"
 	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
 	  IncludeERTFirstTime	  off
@@ -435,35 +412,9 @@ Model {
 	    Simulink.CodeAppCC {
 	      $ObjectID		      10
 	      Version		      "1.10.0"
-	      Array {
-		Type			"Cell"
-		Dimension		21
-		Cell			"IgnoreCustomStorageClasses"
-		Cell			"IgnoreTestpoints"
-		Cell			"InsertBlockDesc"
-		Cell			"InsertPolySpaceComments"
-		Cell			"SFDataObjDesc"
-		Cell			"MATLABFcnDesc"
-		Cell			"SimulinkDataObjDesc"
-		Cell			"DefineNamingRule"
-		Cell			"SignalNamingRule"
-		Cell			"ParamNamingRule"
-		Cell			"InlinedPrmAccess"
-		Cell			"CustomSymbolStr"
-		Cell			"CustomSymbolStrGlobalVar"
-		Cell			"CustomSymbolStrType"
-		Cell			"CustomSymbolStrField"
-		Cell			"CustomSymbolStrFcn"
-		Cell			"CustomSymbolStrFcnArg"
-		Cell			"CustomSymbolStrBlkIO"
-		Cell			"CustomSymbolStrTmpVar"
-		Cell			"CustomSymbolStrMacro"
-		Cell			"ReqsInCode"
-		PropName		"DisabledProps"
-	      }
 	      ForceParamTrailComments off
 	      GenerateComments	      on
-	      IgnoreCustomStorageClasses on
+	      IgnoreCustomStorageClasses off
 	      IgnoreTestpoints	      off
 	      IncHierarchyInIds	      off
 	      MaxIdLength	      31
@@ -496,31 +447,10 @@ Model {
 	      ReqsInCode	      off
 	      UseSimReservedNames     off
 	    }
-	    Simulink.GRTTargetCC {
+	    Simulink.ERTTargetCC {
 	      $BackupClass	      "Simulink.TargetCC"
 	      $ObjectID		      11
 	      Version		      "1.10.0"
-	      Array {
-		Type			"Cell"
-		Dimension		16
-		Cell			"GeneratePreprocessorConditionals"
-		Cell			"IncludeMdlTerminateFcn"
-		Cell			"CombineOutputUpdateFcns"
-		Cell			"SuppressErrorStatus"
-		Cell			"ERTCustomFileBanners"
-		Cell			"GenerateSampleERTMain"
-		Cell			"GenerateTestInterfaces"
-		Cell			"ModelStepFunctionPrototypeControlCompliant"
-		Cell			"CPPClassGenCompliant"
-		Cell			"MultiInstanceERTCode"
-		Cell			"PurelyIntegerCode"
-		Cell			"SupportComplex"
-		Cell			"SupportAbsoluteTime"
-		Cell			"SupportContinuousTime"
-		Cell			"SupportNonInlinedSFcns"
-		Cell			"PortableWordSizes"
-		PropName		"DisabledProps"
-	      }
 	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
 	      TargetLibSuffix	      ""
 	      TargetPreCompLibLocation ""
@@ -531,48 +461,100 @@ Model {
 	      ERTMultiwordLength      256
 	      MultiwordLength	      2048
 	      GenerateFullHeader      on
-	      GenerateSampleERTMain   off
+	      GenerateSampleERTMain   on
 	      GenerateTestInterfaces  off
 	      IsPILTarget	      off
 	      ModelReferenceCompliant on
 	      ParMdlRefBuildCompliant on
 	      CompOptLevelCompliant   on
-	      IncludeMdlTerminateFcn  on
-	      GeneratePreprocessorConditionals "Disable all"
-	      CombineOutputUpdateFcns off
+	      IncludeMdlTerminateFcn  off
+	      GeneratePreprocessorConditionals "Use local settings"
+	      CombineOutputUpdateFcns on
 	      CombineSignalStateStructs	off
 	      SuppressErrorStatus     off
-	      ERTFirstTimeCompliant   off
+	      ERTFirstTimeCompliant   on
 	      IncludeFileDelimiter    "Auto"
-	      ERTCustomFileBanners    off
+	      ERTCustomFileBanners    on
 	      SupportAbsoluteTime     on
 	      LogVarNameModifier      "rt_"
-	      MatFileLogging	      on
+	      MatFileLogging	      off
 	      MultiInstanceERTCode    off
 	      SupportNonFinite	      on
 	      SupportComplex	      on
 	      PurelyIntegerCode	      off
-	      SupportContinuousTime   on
-	      SupportNonInlinedSFcns  on
+	      SupportContinuousTime   off
+	      SupportNonInlinedSFcns  off
 	      SupportVariableSizeSignals off
 	      EnableShiftOperators    on
 	      ParenthesesLevel	      "Nominal"
 	      PortableWordSizes	      off
-	      ModelStepFunctionPrototypeControlCompliant off
-	      CPPClassGenCompliant    off
+	      ModelStepFunctionPrototypeControlCompliant on
+	      CPPClassGenCompliant    on
 	      AutosarCompliant	      off
-	      UseMalloc		      off
+	      GenerateErtSFunction    off
+	      CreateSILPILBlock	      "None"
+	      GenerateASAP2	      off
 	      ExtMode		      off
-	      ExtModeStaticAlloc      off
-	      ExtModeTesting	      off
-	      ExtModeStaticAllocSize  1000000
 	      ExtModeTransport	      0
+	      ExtModeStaticAlloc      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTesting	      off
 	      ExtModeMexFile	      "ext_comm"
 	      ExtModeIntrfLevel	      "Level1"
+	      InlinedParameterPlacement	"Hierarchical"
+	      TargetOS		      "BareBoardExample"
+	      MultiInstanceErrorCode  "Error"
+	      RateGroupingCode	      on
+	      RootIOFormat	      "Individual arguments"
 	      RTWCAPISignals	      off
 	      RTWCAPIParams	      off
 	      RTWCAPIStates	      off
-	      GenerateASAP2	      off
+	      ERTSrcFileBannerTemplate "ert_code_template.cgt"
+	      ERTHdrFileBannerTemplate "ert_code_template.cgt"
+	      ERTDataSrcFileTemplate  "ert_code_template.cgt"
+	      ERTDataHdrFileTemplate  "ert_code_template.cgt"
+	      ERTCustomFileTemplate   "example_file_process.tlc"
+	      CoverageDialogOpen      "off"
+	      ModuleNamingRule	      "Unspecified"
+	      SignalDisplayLevel      10
+	      ParamTuneLevel	      10
+	      GlobalDataDefinition    "Auto"
+	      DataDefinitionFile      "global.c"
+	      GlobalDataReference     "Auto"
+	      ERTFilePackagingFormat  "Modular"
+	      DataReferenceFile	      "global.h"
+	      GRTInterface	      off
+	      PreserveExpressionOrder off
+	      PreserveIfCondition     off
+	      ConvertIfToSwitch	      off
+	      PreserveExternInFcnDecls on
+	      EnableUserReplacementTypes off
+	      Array {
+		Type			"Struct"
+		Dimension		1
+		MATStruct {
+		  double		  ""
+		  single		  ""
+		  int32			  ""
+		  int16			  ""
+		  int8			  ""
+		  uint32		  ""
+		  uint16		  ""
+		  uint8			  ""
+		  boolean		  ""
+		  int			  ""
+		  uint			  ""
+		  char			  ""
+		}
+		PropName		"ReplacementTypes"
+	      }
+	      MemSecPackage	      "--- None ---"
+	      MemSecDataConstants     "Default"
+	      MemSecDataIO	      "Default"
+	      MemSecDataInternal      "Default"
+	      MemSecDataParameters    "Default"
+	      MemSecFuncInitTerm      "Default"
+	      MemSecFuncExecute	      "Default"
 	    }
 	    PropName		    "Components"
 	  }
@@ -581,7 +563,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 200, 85, 1080, 715 ] "
+      ConfigPrmDlgPosition    " [ 1064, 56, 2049, 782 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -686,8 +668,8 @@ Model {
     }
   }
   System {
-    Name		    "MotionController_test"
-    Location		    [646, 76, 1258, 707]
+    Name		    "test_MotionController_v1"
+    Location		    [0, 83, 1440, 867]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -701,7 +683,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "35"
+    SIDHighWatermark	    "36"
     Block {
       BlockType		      Clock
       Name		      "Clock"
@@ -754,7 +736,7 @@ Model {
       Name		      "DesiredYaw"
       SID		      "19"
       Position		      [430, 1220, 460, 1250]
-      Value		      "190"
+      Value		      "336"
       SampleTime	      "-1"
     }
     Block {
@@ -907,6 +889,15 @@ Model {
     }
     Block {
       BlockType		      Display
+      Name		      "RightAngled1"
+      SID		      "36"
+      Ports		      [1]
+      Position		      [1070, 1220, 1160, 1250]
+      Decimation	      "5"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Display
       Name		      "RightFwd"
       SID		      "26"
       Ports		      [1]
@@ -937,6 +928,7 @@ Model {
       Name		      "TargetFound"
       SID		      "3"
       Position		      [430, 260, 460, 290]
+      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
@@ -944,7 +936,6 @@ Model {
       Name		      "TargetSelect"
       SID		      "2"
       Position		      [430, 200, 460, 230]
-      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
@@ -983,11 +974,11 @@ Model {
       BlockType		      ModelReference
       Name		      "vision_model.mdl"
       SID		      "1"
-      Ports		      [18, 4]
+      Ports		      [18, 5]
       Position		      [545, 191, 970, 1259]
-      ModelNameDialog	      "MotionController_mod"
+      ModelNameDialog	      "MotionController"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.104"
+      ModelReferenceVersion   "1.124"
       List {
 	ListType		InputPortNames
 	port0			"TargetSelect"
@@ -1015,6 +1006,7 @@ Model {
 	port1			"RightFwd"
 	port2			"LeftAngled"
 	port3			"RightAngled"
+	port4			"RightAngled1"
       }
       List {
 	ListType		OutputPortOutputBusAsStructs
@@ -1022,6 +1014,7 @@ Model {
 	port1			"off"
 	port2			"off"
 	port3			"off"
+	port4			"off"
       }
       List {
 	ListType		InputPortSignalNames
@@ -1044,49 +1037,7 @@ Model {
 	port16			"DesiredXVelocity"
 	port17			"DesiredYaw"
       }
-      List {
-	ListType		InputPortLatchByCopyingInsideSignal
-	port0			"off"
-	port1			"off"
-	port2			"off"
-	port3			"off"
-	port4			"off"
-	port5			"off"
-	port6			"off"
-	port7			"off"
-	port8			"off"
-	port9			"off"
-	port10			"off"
-	port11			"off"
-	port12			"off"
-	port13			"off"
-	port14			"off"
-	port15			"off"
-	port16			"off"
-	port17			"off"
-      }
-      CopyOfModelName	      "MotionController_mod"
-      List {
-	ListType		InputPortLatchByDelayingOutsideSignal
-	port0			"off"
-	port1			"off"
-	port2			"off"
-	port3			"off"
-	port4			"off"
-	port5			"off"
-	port6			"off"
-	port7			"off"
-	port8			"off"
-	port9			"off"
-	port10			"off"
-	port11			"off"
-	port12			"off"
-	port13			"off"
-	port14			"off"
-	port15			"off"
-	port16			"off"
-	port17			"off"
-      }
+      CopyOfModelName	      "MotionController"
     }
     Line {
       SrcBlock		      "TargetSelect"
@@ -1193,7 +1144,7 @@ Model {
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      1
-      Points		      [50, 0]
+      Points		      [0, 35; 50, 0]
       Branch {
 	DstBlock		"LeftFwd Scope"
 	DstPort			1
@@ -1207,7 +1158,7 @@ Model {
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      2
-      Points		      [50, 0]
+      Points		      [0, 85; 50, 0]
       Branch {
 	DstBlock		"RightFwd Scope"
 	DstPort			1
@@ -1221,7 +1172,7 @@ Model {
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      3
-      Points		      [55, 0]
+      Points		      [0, 135; 55, 0]
       Branch {
 	DstBlock		"LeftAngled Scope"
 	DstPort			1
@@ -1234,7 +1185,7 @@ Model {
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      4
-      Points		      [50, 0]
+      Points		      [0, 185; 50, 0]
       Branch {
 	DstBlock		"RightAngled Scope"
 	DstPort			1
@@ -1263,6 +1214,13 @@ Model {
       SrcPort		      1
       DstBlock		      "vision_model.mdl"
       DstPort		      14
+    }
+    Line {
+      SrcBlock		      "vision_model.mdl"
+      SrcPort		      5
+      Points		      [40, 0; 0, 80]
+      DstBlock		      "RightAngled1"
+      DstPort		      1
     }
     Annotation {
       Name		      "TargetSelect:\n 0: not targeting\n1: targeting forward\n2: targeting down\n\nTargetFound:\n0: Searc"
