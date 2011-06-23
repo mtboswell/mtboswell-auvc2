@@ -91,7 +91,7 @@ Model {
       SignalName	      "DesiredYaw"
       Name		      "DesiredYaw"
     }
-    NumRootOutports	    4
+    NumRootOutports	    5
     Outport {
       BusObject		      ""
       BusOutputAsStruct	      "off"
@@ -112,8 +112,13 @@ Model {
       BusOutputAsStruct	      "off"
       Name		      "RightAngled"
     }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "RightAngled1"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.112"
+    ComputedModelVersion    "1.124"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -133,9 +138,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jun 23 15:28:18 2011"
-  RTWModifiedTimeStamp	  230737444
-  ModelVersionFormat	  "1.%<AutoIncrement:112>"
+  LastModifiedDate	  "Thu Jun 23 18:06:59 2011"
+  RTWModifiedTimeStamp	  230753211
+  ModelVersionFormat	  "1.%<AutoIncrement:124>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -234,9 +239,9 @@ Model {
 	  $ObjectID		  3
 	  Version		  "1.10.0"
 	  StartTime		  "0.0"
-	  StopTime		  "inf"
+	  StopTime		  "0"
 	  AbsTol		  "auto"
-	  FixedStep		  "0.02"
+	  FixedStep		  "auto"
 	  InitialStep		  "auto"
 	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
@@ -261,7 +266,7 @@ Model {
 	  SolverResetMethod	  "Fast"
 	  PositivePriorityOrder	  off
 	  AutoInsertRateTranBlk	  off
-	  SampleTimeConstraint	  "Specified"
+	  SampleTimeConstraint	  "Unconstrained"
 	  InsertRTBMode		  "Whenever possible"
 	  Array {
 	    Type		    "Struct"
@@ -711,8 +716,8 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Real-Time Workshop/Interface"
-      ConfigPrmDlgPosition    " [ 123, 6, 1024, 600 ] "
+      CurrentDlgPage	      "Solver"
+      ConfigPrmDlgPosition    " [ 1486, 75, 2471, 801 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -1046,7 +1051,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "795"
+    SIDHighWatermark	    "805"
     Block {
       BlockType		      Inport
       Name		      "TargetSelect"
@@ -1391,7 +1396,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nauvt\\n23-Jun-2011 15:27:52"
+      "nauvt\\n23-Jun-2011 16:19:11"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -3615,7 +3620,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Targeting Controllers"
-	Location		[2199, 299, 3024, 845]
+	Location		[1840, 252, 2665, 798]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -3741,8 +3746,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Search for \nTarget"
-	    Location		    [378, 196, 1308, 793]
-	    Open		    off
+	    Location		    [292, 207, 1222, 804]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -3842,10 +3847,17 @@ Model {
 	      }
 	    }
 	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant"
+	      SID		      "803"
+	      Position		      [720, 285, 750, 315]
+	      Value		      "0"
+	    }
+	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Find Downward Target"
 	      SID		      "706"
-	      Ports		      [1, 2, 0, 0, 0, 0, 0, 1]
+	      Ports		      [1, 3, 0, 0, 0, 0, 0, 1]
 	      Position		      [340, 139, 535, 241]
 	      LibraryVersion	      "1.225"
 	      TreatAsAtomicUnit	      on
@@ -3858,7 +3870,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Find Downward Target"
-		Location		[1942, 278, 2807, 631]
+		Location		[1942, 278, 2807, 732]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -3884,6 +3896,13 @@ Model {
 		  SID			  "708"
 		  Position		  [170, 15, 229, 43]
 		  ActionType		  "else"
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "Constant"
+		  SID			  "802"
+		  Position		  [530, 275, 560, 305]
+		  Value			  "0"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -3950,7 +3969,7 @@ Model {
 		    Position		    [180, 104, 230, 206]
 		    FunctionName	    "sf_sfun"
 		    PortCounts		    "[1 3]"
-		    EnableBusSupport	    off
+		    EnableBusSupport	    on
 		    Port {
 		    PortNumber		    2
 		    Name		    "DesiredXVelocity"
@@ -4151,6 +4170,7 @@ Model {
 		    Name		    "Action Port"
 		    SID			    "772"
 		    Position		    [170, 15, 229, 43]
+		    ActionType		    "then"
 		    }
 		    Block {
 		    BlockType		    Constant
@@ -4188,6 +4208,7 @@ Model {
 		    Name		    "Memory"
 		    SID			    "775"
 		    Position		    [240, 215, 270, 245]
+		    InheritSampleTime	    on
 		    }
 		    Line {
 		    SrcBlock		    "In1"
@@ -4262,6 +4283,14 @@ Model {
 		  Port			  "2"
 		  IconDisplay		  "Port number"
 		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "DesiredYawRate"
+		  SID			  "801"
+		  Position		  [665, 278, 695, 292]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
 		Line {
 		  SrcBlock		  "Embedded\nMATLAB Function"
 		  SrcPort		  1
@@ -4286,13 +4315,20 @@ Model {
 		  DstBlock		  "Subsystem"
 		  DstPort		  1
 		}
+		Line {
+		  SrcBlock		  "Constant"
+		  SrcPort		  1
+		  Points		  [40, 0; 0, -5]
+		  DstBlock		  "DesiredYawRate"
+		  DstPort		  1
+		}
 	      }
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Find Forward Target"
 	      SID		      "702"
-	      Ports		      [2, 1, 0, 0, 0, 0, 0, 1]
+	      Ports		      [2, 3, 0, 0, 0, 0, 0, 1]
 	      Position		      [340, 353, 530, 477]
 	      LibraryVersion	      "1.225"
 	      TreatAsAtomicUnit	      on
@@ -4305,7 +4341,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Find Forward Target"
-		Location		[1803, 156, 2772, 897]
+		Location		[1803, 156, 2953, 897]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -4344,8 +4380,8 @@ Model {
 		  BlockType		  SubSystem
 		  Name			  "Embedded\nMATLAB Function"
 		  SID			  "720"
-		  Ports			  [2, 1]
-		  Position		  [455, 185, 695, 360]
+		  Ports			  [2, 3]
+		  Position		  [455, 187, 695, 363]
 		  LibraryVersion	  "1.31"
 		  PermitHierarchicalResolution "ExplicitOnly"
 		  TreatAsAtomicUnit	  on
@@ -4380,7 +4416,7 @@ Model {
 		    TiledPageScale	    1
 		    ShowPageBoundaries	    off
 		    ZoomFactor		    "100"
-		    SIDHighWatermark	    "18"
+		    SIDHighWatermark	    "20"
 		    Block {
 		    BlockType		    Inport
 		    Name		    "MeasuredYaw"
@@ -4401,7 +4437,7 @@ Model {
 		    Name		    " Demux "
 		    SID			    "720::15"
 		    Ports		    [1, 1]
-		    Position		    [270, 160, 320, 200]
+		    Position		    [270, 205, 320, 245]
 		    Outputs		    "1"
 		    }
 		    Block {
@@ -4409,14 +4445,26 @@ Model {
 		    Name		    " SFunction "
 		    SID			    "720::14"
 		    Tag			    "Stateflow S-Function MotionController 2"
-		    Ports		    [2, 2]
-		    Position		    [180, 100, 230, 160]
+		    Ports		    [2, 4]
+		    Position		    [180, 102, 230, 203]
 		    FunctionName	    "sf_sfun"
-		    PortCounts		    "[2 2]"
-		    EnableBusSupport	    off
+		    PortCounts		    "[2 4]"
+		    EnableBusSupport	    on
 		    Port {
 		    PortNumber		    2
 		    Name		    "DesiredYawRate"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    Port {
+		    PortNumber		    3
+		    Name		    "DesiredXVelocity"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    Port {
+		    PortNumber		    4
+		    Name		    "DesiredYVelocity"
 		    RTWStorageClass	    "Auto"
 		    DataLoggingNameMode	    "SignalName"
 		    }
@@ -4425,13 +4473,29 @@ Model {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
 		    SID			    "720::17"
-		    Position		    [460, 171, 480, 189]
+		    Position		    [460, 216, 480, 234]
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "DesiredYawRate"
 		    SID			    "720::5"
 		    Position		    [460, 101, 480, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "DesiredXVelocity"
+		    SID			    "720::19"
+		    Position		    [460, 136, 480, 154]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "DesiredYVelocity"
+		    SID			    "720::20"
+		    Position		    [460, 171, 480, 189]
+		    Port		    "3"
 		    IconDisplay		    "Port number"
 		    }
 		    Line {
@@ -4461,6 +4525,22 @@ Model {
 		    DstPort		    1
 		    }
 		    Line {
+		    Name		    "DesiredXVelocity"
+		    Labels		    [0, 0; 0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    3
+		    DstBlock		    "DesiredXVelocity"
+		    DstPort		    1
+		    }
+		    Line {
+		    Name		    "DesiredYVelocity"
+		    Labels		    [0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    4
+		    DstBlock		    "DesiredYVelocity"
+		    DstPort		    1
+		    }
+		    Line {
 		    SrcBlock		    " Demux "
 		    SrcPort		    1
 		    DstBlock		    " Terminator "
@@ -4485,7 +4565,7 @@ Model {
 		  System {
 		    Name		    "Subsystem"
 		    Location		    [2218, 89, 2716, 440]
-		    Open		    off
+		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -4543,8 +4623,8 @@ Model {
 		    MaskHideContents	    off
 		    System {
 		    Name		    "Subsystem"
-		    Location		    [2218, 233, 2940, 1004]
-		    Open		    off
+		    Location		    [2394, 275, 3116, 1046]
+		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -4621,6 +4701,7 @@ Model {
 		    Name		    "Action Port"
 		    SID			    "731"
 		    Position		    [170, 15, 229, 43]
+		    ActionType		    "then"
 		    }
 		    Block {
 		    BlockType		    DataStoreWrite
@@ -4776,6 +4857,7 @@ Model {
 		    Name		    "Memory"
 		    SID			    "734"
 		    Position		    [255, 445, 285, 475]
+		    InheritSampleTime	    on
 		    }
 		    Block {
 		    BlockType		    Merge
@@ -4906,7 +4988,23 @@ Model {
 		  BlockType		  Outport
 		  Name			  "DesiredYawRate"
 		  SID			  "705"
-		  Position		  [790, 268, 820, 282]
+		  Position		  [835, 208, 865, 222]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "DesiredXVelocity"
+		  SID			  "796"
+		  Position		  [825, 268, 855, 282]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "DesiredYVelocity"
+		  SID			  "797"
+		  Position		  [825, 328, 855, 342]
+		  Port			  "3"
 		  IconDisplay		  "Port number"
 		}
 		Line {
@@ -4914,7 +5012,7 @@ Model {
 		  SrcPort		  1
 		  Points		  [50, 0]
 		  Branch {
-		    Points		    [150, 0; 0, 110]
+		    Points		    [150, 0; 0, 115]
 		    DstBlock		    "Embedded\nMATLAB Function"
 		    DstPort		    1
 		  }
@@ -4933,6 +5031,7 @@ Model {
 		Line {
 		  SrcBlock		  "Subsystem"
 		  SrcPort		  1
+		  Points		  [165, 0]
 		  DstBlock		  "Embedded\nMATLAB Function"
 		  DstPort		  2
 		}
@@ -4942,6 +5041,18 @@ Model {
 		  Points		  [35, 0; 0, -90]
 		  DstBlock		  "Subsystem"
 		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Embedded\nMATLAB Function"
+		  SrcPort		  3
+		  DstBlock		  "DesiredYVelocity"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Embedded\nMATLAB Function"
+		  SrcPort		  2
+		  DstBlock		  "DesiredXVelocity"
+		  DstPort		  1
 		}
 	      }
 	    }
@@ -4954,6 +5065,27 @@ Model {
 	      IfExpression	      "u1 == 1"
 	    }
 	    Block {
+	      BlockType		      Merge
+	      Name		      "Merge"
+	      SID		      "798"
+	      Ports		      [2, 1]
+	      Position		      [630, 235, 670, 275]
+	    }
+	    Block {
+	      BlockType		      Merge
+	      Name		      "Merge1"
+	      SID		      "799"
+	      Ports		      [2, 1]
+	      Position		      [630, 355, 670, 395]
+	    }
+	    Block {
+	      BlockType		      Merge
+	      Name		      "Merge2"
+	      SID		      "800"
+	      Ports		      [2, 1]
+	      Position		      [630, 135, 670, 175]
+	    }
+	    Block {
 	      BlockType		      Outport
 	      Name		      "DesiredXVelocity"
 	      SID		      "404"
@@ -4964,7 +5096,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "DesiredYawRate"
 	      SID		      "405"
-	      Position		      [740, 408, 770, 422]
+	      Position		      [750, 368, 780, 382]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
@@ -4980,7 +5112,7 @@ Model {
 	      BlockType		      Outport
 	      Name		      "DesiredZVelocity"
 	      SID		      "407"
-	      Position		      [740, 298, 770, 312]
+	      Position		      [805, 293, 835, 307]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
 	      OutDataTypeStr	      "double"
@@ -5006,12 +5138,6 @@ Model {
 	      DstPort		      ifaction
 	    }
 	    Line {
-	      SrcBlock		      "Find Forward Target"
-	      SrcPort		      1
-	      DstBlock		      "DesiredYawRate"
-	      DstPort		      1
-	    }
-	    Line {
 	      SrcBlock		      "VehicleState"
 	      SrcPort		      1
 	      Points		      [40, 0]
@@ -5028,15 +5154,71 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "Find Downward Target"
+	      SrcBlock		      "Find Forward Target"
 	      SrcPort		      1
+	      Points		      [40, 0; 0, 10]
+	      DstBlock		      "Merge1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Merge1"
+	      SrcPort		      1
+	      DstBlock		      "DesiredYawRate"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Merge"
+	      SrcPort		      1
+	      Points		      [25, 0; 0, -40]
+	      DstBlock		      "DesiredYVelocity"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Merge2"
+	      SrcPort		      1
+	      Points		      [25, 0; 0, 10]
 	      DstBlock		      "DesiredXVelocity"
 	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "Find Downward Target"
+	      SrcPort		      1
+	      Points		      [20, 0; 0, -10]
+	      DstBlock		      "Merge2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Find Downward Target"
 	      SrcPort		      2
-	      DstBlock		      "DesiredYVelocity"
+	      Points		      [15, 0; 0, 55]
+	      DstBlock		      "Merge"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Find Forward Target"
+	      SrcPort		      2
+	      Points		      [35, 0; 0, -250]
+	      DstBlock		      "Merge2"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Find Forward Target"
+	      SrcPort		      3
+	      Points		      [50, 0; 0, -190]
+	      DstBlock		      "Merge"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Find Downward Target"
+	      SrcPort		      3
+	      Points		      [70, 0; 0, 140]
+	      DstBlock		      "Merge1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Constant"
+	      SrcPort		      1
+	      DstBlock		      "DesiredZVelocity"
 	      DstPort		      1
 	    }
 	    Annotation {
@@ -6440,8 +6622,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Thruster Arrangement"
-	Location		[1031, 199, 1802, 672]
-	Open			off
+	Location		[458, 143, 1229, 616]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -6547,8 +6729,8 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain1"
-	  SID			  "331"
-	  Position		  [285, 315, 315, 345]
+	  SID			  "805"
+	  Position		  [275, 235, 305, 265]
 	  Gain			  "-1"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -6837,23 +7019,17 @@ Model {
 	Line {
 	  SrcBlock		  "YAxis Drag\nCompensation\nLimiter"
 	  SrcPort		  1
-	  Points		  [45, 0]
+	  Points		  [5, 0]
 	  Branch {
-	    DstBlock		    "Add2"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, 70]
+	    Points		    [80, 0]
 	    DstBlock		    "Gain1"
 	    DstPort		    1
 	  }
-	}
-	Line {
-	  SrcBlock		  "Gain1"
-	  SrcPort		  1
-	  Points		  [20, 0; 0, 20]
-	  DstBlock		  "Add3"
-	  DstPort		  1
+	  Branch {
+	    Points		    [40, 0; 0, 90]
+	    DstBlock		    "Add3"
+	    DstPort		    1
+	  }
 	}
 	Line {
 	  SrcBlock		  "Buoyancy \nCompensation\nLimiter"
@@ -6874,6 +7050,13 @@ Model {
 	  SrcPort		  1
 	  DstBlock		  "Add1"
 	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Gain1"
+	  SrcPort		  1
+	  Points		  [0, 10]
+	  DstBlock		  "Add2"
+	  DstPort		  1
 	}
       }
     }
@@ -6906,6 +7089,14 @@ Model {
       SID		      "155"
       Position		      [1140, 328, 1170, 342]
       Port		      "4"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "RightAngled1"
+      SID		      "804"
+      Position		      [1165, 408, 1195, 422]
+      Port		      "5"
       IconDisplay	      "Port number"
     }
     Line {
@@ -6981,9 +7172,16 @@ Model {
     Line {
       SrcBlock		      "Add2"
       SrcPort		      1
-      Points		      [20, 0; 0, -40]
-      DstBlock		      "Thruster Arrangement"
-      DstPort		      2
+      Points		      [20, 0; 0, -40; 50, 0]
+      Branch {
+	DstBlock		"Thruster Arrangement"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, 165]
+	DstBlock		"RightAngled1"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "Add3"
@@ -7307,7 +7505,7 @@ Stateflow {
     name		    "MotionController"
     created		    "22-Jun-2011 15:52:52"
     isLibrary		    0
-    firstTarget		    18
+    firstTarget		    20
     sfVersion		    75014000.000003
   }
   chart {
@@ -7322,8 +7520,6 @@ Stateflow {
     viewObj		    2
     machine		    1
     toolbarMode		    LIBRARY_TOOLBAR
-    subviewS {
-    }
     ssIdHighWaterMark	    8
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -7472,7 +7668,7 @@ Stateflow {
     viewObj		    10
     machine		    1
     toolbarMode		    LIBRARY_TOOLBAR
-    ssIdHighWaterMark	    6
+    ssIdHighWaterMark	    8
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    14
@@ -7496,10 +7692,11 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function DesiredYawRate = fcn(MeasuredYaw, InitialYaw)\n%#eml\n\ndifference= abs(MeasuredYaw- Ini"
-      "tialYaw);\n\n%limit how far it turns to 45 degrees\n\nif difference <= 45\n    DesiredYawRate=5; % assuming degr"
-      "ees per second\nelse\n    DesiredYawRate=-5;\nend\n\n"
-      editorLayout	      "100 M4x1[377 201 810 562]"
+      script		      "function [DesiredYawRate, DesiredXVelocity, DesiredYVelocity] = fcn(MeasuredYaw, InitialYaw)\n%#e"
+      "ml\n\ndifference= abs(MeasuredYaw- InitialYaw);\n\n%limit how far it turns to 45 degrees\n\nif difference <= 45\n"
+      "    DesiredYawRate=5; % assuming degrees per second\nelse\n    DesiredYawRate=-5;\nend\n\nDesiredXVelocity=0;\nD"
+      "esiredYVelocity=0;\n\n\n"
+      editorLayout	      "100 M4x1[1799 623 810 562]"
     }
   }
   junction {
@@ -7575,7 +7772,7 @@ Stateflow {
     id			    16
     ssIdNumber		    6
     name		    "InitialYaw"
-    linkNode		    [10 15 0]
+    linkNode		    [10 15 17]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -7593,17 +7790,67 @@ Stateflow {
     }
     dataType		    "Inherit: Same as Simulink"
   }
-  instance {
+  data {
     id			    17
+    ssIdNumber		    7
+    name		    "DesiredXVelocity"
+    linkNode		    [10 16 18]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    18
+    ssIdNumber		    8
+    name		    "DesiredYVelocity"
+    linkNode		    [10 17 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    19
     name		    "Targeting Controllers/Search for \nTarget/Find Forward Target/Embedded\nMATLAB Function"
     machine		    1
     chart		    10
   }
   target {
-    id			    18
+    id			    20
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 0]
+    linkNode		    [1 0 21]
+  }
+  target {
+    id			    21
+    name		    "rtw"
+    machine		    1
+    linkNode		    [1 20 0]
   }
 }
