@@ -56,7 +56,6 @@ HEADERS += \
            state/treemodel/treeitem.h \
            state/treemodel/treemodel.h \ 
 
-
 SOURCES += \
 	   misc/configloader.cpp \
            main.cpp \
@@ -228,9 +227,6 @@ HEADERS +=  \
     vision/src/towavefile_ex_win32.h \
     vision/src/towavedevice_win32.h \
     vision/src/towavedevice_ex_win32.h \
-    vision/src/torpedo_types.h \
-    vision/src/torpedo_private.h \
-    vision/src/torpedo.h \
     vision/src/tmwtypes.h \
     vision/src/sysran_types.h \
     vision/src/solver_zc.h \
@@ -272,9 +268,6 @@ HEADERS +=  \
     vision/src/rtGetNaN.h \
     vision/src/rtGetInf.h \
     vision/src/pt_info.h \
-    vision/src/path_detector_types.h \
-    vision/src/path_detector_private.h \
-    vision/src/path_detector.h \
     vision/src/opphmoppiecjmglf_norm.h \
     vision/src/odesup.h \
     vision/src/nglnaimoglfkkfkf_power.h \
@@ -290,6 +283,7 @@ HEADERS +=  \
     vision/src/lfcbdbaaaaimmohl_max.h \
     vision/src/lexicmp.h \
     vision/src/lapack.h \
+    vision/src/kfknaaaaecjemohd_conv2.h \
     vision/src/io64.h \
     vision/src/HostLib_Video.h \
     vision/src/HostLib_Multimedia.h \
@@ -346,17 +340,12 @@ HEADERS +=  \
     vision/src/dspblms_rt.h \
     vision/src/dspbiquad_rt.h \
     vision/src/dspallpole_rt.h \
-    vision/src/drop_mech_types.h \
-    vision/src/drop_mech_private.h \
-    vision/src/drop_mech.h \
     vision/src/dll_utils_win.h \
+    vision/src/div_s32_floor.h \
     vision/src/dbaidbaafkfkbimo_abs.h \
     vision/src/compare_fcn.h \
     vision/src/cg_sfun.h \
     vision/src/cg_matrx.h \
-    vision/src/buoy_detector_types.h \
-    vision/src/buoy_detector_private.h \
-    vision/src/buoy_detector.h \
     vision/src/blascompat32.h \
     vision/src/blas.h \
     vision/src/bio_sig.h \
@@ -370,27 +359,22 @@ SOURCES +=  \
     vision/src/VisionModel.cpp \
     vision/src/validation_gate_data.cpp \
     vision/src/validation_gate.cpp \
-    vision/src/torpedo_data.cpp \
-    vision/src/torpedo.cpp \
     vision/src/rt_pow_snf.cpp \
     vision/src/rt_nonfinite.cpp \
     vision/src/rtGetNaN.cpp \
     vision/src/rtGetInf.cpp \
-    vision/src/path_detector_data.cpp \
-    vision/src/path_detector.cpp \
     vision/src/opphmoppiecjmglf_norm.cpp \
     vision/src/nglnaimoglfkkfkf_power.cpp \
     vision/src/moppcbimnohdlfcb_min.cpp \
     vision/src/moppaaaadjecnopp_refp1_round.cpp \
     vision/src/lfcbdbaaaaimmohl_max.cpp \
+    vision/src/kfknaaaaecjemohd_conv2.cpp \
     vision/src/hough_r_rt.c \
     vision/src/hough_d_rt.c \
     vision/src/fknoophdhdjeohdj_conv2.cpp \
     vision/src/fcjmfkngfcbidjmo_conv2.cpp \
     vision/src/ert_main.cpp \
     vision/src/eknobiekkfcbppph_max.cpp \
-    vision/src/drop_mech.cpp \
+    vision/src/div_s32_floor.cpp \
     vision/src/dbaidbaafkfkbimo_abs.cpp \
-    vision/src/buoy_detector_data.cpp \
-    vision/src/buoy_detector.cpp \
     vision/src/aaieaaiejmopnglf_sum.cpp
