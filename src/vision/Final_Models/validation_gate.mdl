@@ -98,7 +98,7 @@ Model {
       Name		      "edge_image"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1222"
+    ComputedModelVersion    "1.1251"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -118,9 +118,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 20:42:15 2011"
-  RTWModifiedTimeStamp	  230676102
-  ModelVersionFormat	  "1.%<AutoIncrement:1222>"
+  LastModifiedDate	  "Wed Jun 22 23:42:34 2011"
+  RTWModifiedTimeStamp	  230686841
+  ModelVersionFormat	  "1.%<AutoIncrement:1251>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -905,7 +905,7 @@ Model {
       System {
 	Name			"Convert to BW"
 	Location		[1440, 50, 3120, 1050]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -944,19 +944,11 @@ Model {
 	  OutDataTypeStr	  "double"
 	}
 	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh"
-	  SID			  "547"
-	  Position		  [320, 373, 445, 397]
-	  Value			  "Forward_Camera_Dimensions"
-	  SampleTime		  "-1"
-	}
-	Block {
 	  BlockType		  SubSystem
 	  Name			  "Identify Validation Gate2"
 	  SID			  "488"
-	  Ports			  [4, 1]
-	  Position		  [520, 188, 800, 327]
+	  Ports			  [3, 1]
+	  Position		  [520, 190, 800, 330]
 	  LibraryVersion	  "1.31"
 	  PermitHierarchicalResolution "ExplicitOnly"
 	  TreatAsAtomicUnit	  on
@@ -1017,19 +1009,11 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
-	      BlockType		      Inport
-	      Name		      "Forward_Camera_Dimensions"
-	      SID		      "488::51"
-	      Position		      [20, 206, 40, 224]
-	      Port		      "4"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
 	      SID		      "488::23"
 	      Ports		      [1, 1]
-	      Position		      [270, 355, 320, 395]
+	      Position		      [270, 360, 320, 400]
 	      Outputs		      "1"
 	    }
 	    Block {
@@ -1037,10 +1021,10 @@ Model {
 	      Name		      " SFunction "
 	      SID		      "488::22"
 	      Tag		      "Stateflow S-Function validation_gate 4"
-	      Ports		      [4, 2]
-	      Position		      [180, 128, 230, 357]
+	      Ports		      [3, 2]
+	      Position		      [180, 130, 230, 360]
 	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[4 2]"
+	      PortCounts	      "[3 2]"
 	      EnableBusSupport	      on
 	      Port {
 		PortNumber		2
@@ -1053,7 +1037,7 @@ Model {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
 	      SID		      "488::25"
-	      Position		      [460, 366, 480, 384]
+	      Position		      [460, 371, 480, 389]
 	    }
 	    Block {
 	      BlockType		      Outport
@@ -1085,12 +1069,6 @@ Model {
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      3
-	    }
-	    Line {
-	      SrcBlock		      "Forward_Camera_Dimensions"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      4
 	    }
 	    Line {
 	      Name		      "intensity_image"
@@ -1125,8 +1103,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "IterativeSegmentation"
-	    Location		    [-25, 411, 987, 1059]
-	    Open		    off
+	    Location		    [4, 215, 1016, 863]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1643,8 +1621,8 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Segmentation"
-		Location		[-145, 336, 1295, 1120]
-		Open			off
+		Location		[1560, 147, 3000, 931]
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -2492,7 +2470,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "BW"
 	  SID			  "204"
-	  Position		  [830, 248, 860, 262]
+	  Position		  [830, 253, 860, 267]
 	  IconDisplay		  "Port number"
 	}
 	Block {
@@ -2551,7 +2529,6 @@ Model {
 	  SrcPort		  1
 	  Points		  [5, 0]
 	  Branch {
-	    Points		    [15, 0; 0, -10]
 	    DstBlock		    "Identify Validation Gate2"
 	    DstPort		    1
 	  }
@@ -2581,7 +2558,7 @@ Model {
 	  SrcPort		  3
 	  Points		  [15, 0]
 	  Branch {
-	    Points		    [5, 0; 0, -20]
+	    Points		    [5, 0; 0, 10]
 	    DstBlock		    "Identify Validation Gate2"
 	    DstPort		    3
 	  }
@@ -2590,13 +2567,6 @@ Model {
 	    DstBlock		    "ref_colors"
 	    DstPort		    1
 	  }
-	}
-	Line {
-	  SrcBlock		  "Dist_Thresh"
-	  SrcPort		  1
-	  Points		  [55, 0]
-	  DstBlock		  "Identify Validation Gate2"
-	  DstPort		  4
 	}
 	Annotation {
 	  Name			  "Debugging note: Consider identifying the gate Lab set that is unique to the gate.\nThen set all pixels in"
@@ -2664,7 +2634,7 @@ Model {
       outputType	      "Binary image"
       userDefinedThreshold    off
       thresholdSource	      "Specify via dialog"
-      threshold		      "20"
+      threshold		      "0"
       thresholdTuning	      "3"
       edgeThinning	      on
       threshold_canny	      "[0.25 0.60]"
@@ -3880,7 +3850,7 @@ Stateflow {
     name		    "validation_gate"
     created		    "11-Feb-2011 11:53:00"
     isLibrary		    0
-    firstTarget		    94
+    firstTarget		    93
     sfVersion		    75014000.000003
   }
   chart {
@@ -3985,7 +3955,7 @@ Stateflow {
       " == 0) ) > 0 )\n    \n    gate_found = 0;\n    target_z = 0;\n    target_y = 0;\n    \nelse\n    \n    gate_foun"
       "d = 1;\n    \n    % Transform target r, c to global coordinate system\n    target_z = r_t - floor(rows/2);\n    "
       "target_y = c_t - floor(cols/2);\n    \nend\n\nhough_table_debug = hough_table;\n\nreturn\n"
-      editorLayout	      "100 M4x1[205 227 1080 733]"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
     }
   }
   junction {
@@ -4535,16 +4505,18 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function intensity_image  = makeIntensityImage(LabelMatrix, num_colors, ref_colors, Forward_Camer"
-      "a_Dimensions)\n%#eml\n\n\n% Initialize\nmax_num_cols = 2;\n%[rows, cols] = size(LabelMatrix);\n%rows = Forward_C"
-      "amera_Dimensions(1);\n%cols = Forward_Camera_Dimensions(2);\n\nrows = 160;\ncols = 120;\nintensity_image = zeros"
-      "(rows, cols);\n%intensity_image = zeros(160 120);\n\n\nmaxL = zeros(1, max_num_cols);\ngate_i = ones(1, max_num_"
-      "cols);\n\n\n% Identify max_num_cols colors with the brightest L color components\nfor n = 1:max_num_cols\n    \n"
-      "    for i = 1:num_colors\n        if( ref_colors(i,1) > maxL(n) )\n            gate_i(n) = i;\n            maxL("
-      "n) = ref_colors(i,1);\n        end\n    end\n    \n    ref_colors(gate_i(n),1) = -1;\n    \nend\n\n\n% Ignore al"
-      "l non-white values\nfor r = 1:rows\n    for c = 1:cols\n        \n        for n = 1:max_num_cols\n            if"
-      "( LabelMatrix(r,c) == gate_i(n) )\n                intensity_image(r,c) = 1;\n            end\n        end\n    "
-      "    \n    end\nend\n\n\nreturn\n"
+      script		      "function intensity_image  = makeIntensityImage(LabelMatrix, num_colors, ref_colors)\n%#eml\n\n\n%"
+      " Initialize\neps_b = 50;  % Used to help eliminate background noise\n\nmax_num_cols = 5;\n[rows, cols] = size(La"
+      "belMatrix);\nintensity_image = zeros(rows, cols);\nmaxL = zeros(1, max_num_cols);\ngate_i = ones(1, max_num_cols"
+      ");\n\n\n% Identify max_num_cols colors with the brightest L color components\nfor n = 1:max_num_cols\n    \n    "
+      "for i = 1:num_colors\n        if( ref_colors(i,1) > maxL(n) )\n            gate_i(n) = i;\n            maxL(n) ="
+      " ref_colors(i,1);\n        end\n    end\n    \n    ref_colors(gate_i(n),1) = -1;\n    \nend\n\n\n% Ignore all no"
+      "n-white values\nfor r = 1:rows\n    for c = 1:cols\n        \n        for n = 1:max_num_cols\n            \n    "
+      "        % Allow only the brightest max_num_cols colors\n            if( LabelMatrix(r,c) == gate_i(n) )\n       "
+      "         \n                % Check a, b values to ensure only white colors pass\n                % through\n    "
+      "            if( abs(ref_colors(LabelMatrix(r,c), 3) + 2.7) <= eps_b )\n                    intensity_image(r,c) "
+      "= 1;\n                end\n                \n            end\n            \n        end\n        \n    end\nend\n"
+      "\n\nreturn\n"
       editorLayout	      "100 M4x1[101 68 1056 606]"
     }
   }
@@ -4646,29 +4618,7 @@ Stateflow {
     id			    37
     ssIdNumber		    30
     name		    "ref_colors"
-    linkNode		    [30 36 38]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    38
-    ssIdNumber		    31
-    name		    "Forward_Camera_Dimensions"
-    linkNode		    [30 37 0]
+    linkNode		    [30 36 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4687,26 +4637,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    39
+    id			    38
     name		    "Convert to BW/Identify Validation Gate2"
     machine		    1
     chart		    30
   }
   chart {
-    id			    40
+    id			    39
     name		    "Transform Coordinates1"
     windowPosition	    [427.184 94.12 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 41 0 0]
-    firstTransition	    43
-    firstJunction	    42
-    viewObj		    40
+    treeNode		    [0 40 0 0]
+    firstTransition	    42
+    firstJunction	    41
+    viewObj		    39
     machine		    1
     ssIdHighWaterMark	    32
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    44
+    firstData		    43
     chartFileNumber	    7
     disableImplicitCasting  1
     eml {
@@ -4714,14 +4664,14 @@ Stateflow {
     }
   }
   state {
-    id			    41
+    id			    40
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    40
-    treeNode		    [40 0 0 0]
+    chart		    39
+    treeNode		    [39 0 0 0]
     superState		    SUBCHART
-    subviewer		    40
+    subviewer		    39
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4736,16 +4686,16 @@ Stateflow {
     }
   }
   junction {
-    id			    42
+    id			    41
     position		    [23.5747 49.5747 7]
-    chart		    40
-    linkNode		    [40 0 0]
-    subviewer		    40
+    chart		    39
+    linkNode		    [39 0 0]
+    subviewer		    39
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    43
+    id			    42
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4753,23 +4703,45 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      42
+      id		      41
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    40
-    linkNode		    [40 0 0]
+    chart		    39
+    linkNode		    [39 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    40
+    subviewer		    39
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    44
+    id			    43
     ssIdNumber		    24
     name		    "LabelMatrix"
-    linkNode		    [40 0 45]
+    linkNode		    [39 0 44]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    44
+    ssIdNumber		    28
+    name		    "num_colors"
+    linkNode		    [39 43 45]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4789,9 +4761,9 @@ Stateflow {
   }
   data {
     id			    45
-    ssIdNumber		    28
-    name		    "num_colors"
-    linkNode		    [40 44 46]
+    ssIdNumber		    29
+    name		    "ref_colors"
+    linkNode		    [39 44 46]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4811,10 +4783,10 @@ Stateflow {
   }
   data {
     id			    46
-    ssIdNumber		    29
-    name		    "ref_colors"
-    linkNode		    [40 45 47]
-    scope		    INPUT_DATA
+    ssIdNumber		    30
+    name		    "L"
+    linkNode		    [39 45 47]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -4827,15 +4799,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    47
-    ssIdNumber		    30
-    name		    "L"
-    linkNode		    [40 46 48]
+    ssIdNumber		    31
+    name		    "a"
+    linkNode		    [39 46 48]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4855,31 +4827,9 @@ Stateflow {
   }
   data {
     id			    48
-    ssIdNumber		    31
-    name		    "a"
-    linkNode		    [40 47 49]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    49
     ssIdNumber		    32
     name		    "b"
-    linkNode		    [40 48 0]
+    linkNode		    [39 47 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4898,26 +4848,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    50
+    id			    49
     name		    "Transform Coordinates1"
     machine		    1
-    chart		    40
+    chart		    39
   }
   chart {
-    id			    51
+    id			    50
     name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter"
     windowPosition	    [476.813 159 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 52 0 0]
-    firstTransition	    54
-    firstJunction	    53
-    viewObj		    51
+    treeNode		    [0 51 0 0]
+    firstTransition	    53
+    firstJunction	    52
+    viewObj		    50
     machine		    1
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    55
+    firstData		    54
     chartFileNumber	    45
     disableImplicitCasting  1
     eml {
@@ -4926,14 +4876,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    52
+    id			    51
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    51
-    treeNode		    [51 0 0 0]
+    chart		    50
+    treeNode		    [50 0 0 0]
     superState		    SUBCHART
-    subviewer		    51
+    subviewer		    50
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4962,16 +4912,16 @@ Stateflow {
     }
   }
   junction {
-    id			    53
+    id			    52
     position		    [23.5747 49.5747 7]
-    chart		    51
-    linkNode		    [51 0 0]
-    subviewer		    51
+    chart		    50
+    linkNode		    [50 0 0]
+    subviewer		    50
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    54
+    id			    53
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4979,23 +4929,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      53
+      id		      52
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    51
-    linkNode		    [51 0 0]
+    chart		    50
+    linkNode		    [50 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    51
+    subviewer		    50
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    55
+    id			    54
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [51 0 56]
+    linkNode		    [50 0 55]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5011,10 +4961,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    56
+    id			    55
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [51 55 0]
+    linkNode		    [50 54 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5031,26 +4981,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    57
+    id			    56
     name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter"
     machine		    1
-    chart		    51
+    chart		    50
   }
   chart {
-    id			    58
+    id			    57
     name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
     windowPosition	    [461.813 174 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 59 0 0]
-    firstTransition	    61
-    firstJunction	    60
-    viewObj		    58
+    treeNode		    [0 58 0 0]
+    firstTransition	    60
+    firstJunction	    59
+    viewObj		    57
     machine		    1
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    62
+    firstData		    61
     chartFileNumber	    46
     disableImplicitCasting  1
     eml {
@@ -5059,14 +5009,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    59
+    id			    58
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    58
-    treeNode		    [58 0 0 0]
+    chart		    57
+    treeNode		    [57 0 0 0]
     superState		    SUBCHART
-    subviewer		    58
+    subviewer		    57
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -5095,16 +5045,16 @@ Stateflow {
     }
   }
   junction {
-    id			    60
+    id			    59
     position		    [23.5747 49.5747 7]
-    chart		    58
-    linkNode		    [58 0 0]
-    subviewer		    58
+    chart		    57
+    linkNode		    [57 0 0]
+    subviewer		    57
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    61
+    id			    60
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -5112,23 +5062,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      60
+      id		      59
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    58
-    linkNode		    [58 0 0]
+    chart		    57
+    linkNode		    [57 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    58
+    subviewer		    57
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    62
+    id			    61
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [58 0 63]
+    linkNode		    [57 0 62]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5144,10 +5094,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    63
+    id			    62
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [58 62 0]
+    linkNode		    [57 61 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5164,26 +5114,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    64
+    id			    63
     name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
     machine		    1
-    chart		    58
+    chart		    57
   }
   chart {
-    id			    65
+    id			    64
     name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
     windowPosition	    [461.813 174 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 66 0 0]
-    firstTransition	    68
-    firstJunction	    67
-    viewObj		    65
+    treeNode		    [0 65 0 0]
+    firstTransition	    67
+    firstJunction	    66
+    viewObj		    64
     machine		    1
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    69
+    firstData		    68
     chartFileNumber	    47
     disableImplicitCasting  1
     eml {
@@ -5192,14 +5142,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    66
+    id			    65
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    65
-    treeNode		    [65 0 0 0]
+    chart		    64
+    treeNode		    [64 0 0 0]
     superState		    SUBCHART
-    subviewer		    65
+    subviewer		    64
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -5228,16 +5178,16 @@ Stateflow {
     }
   }
   junction {
-    id			    67
+    id			    66
     position		    [23.5747 49.5747 7]
-    chart		    65
-    linkNode		    [65 0 0]
-    subviewer		    65
+    chart		    64
+    linkNode		    [64 0 0]
+    subviewer		    64
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    68
+    id			    67
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -5245,23 +5195,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      67
+      id		      66
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    65
-    linkNode		    [65 0 0]
+    chart		    64
+    linkNode		    [64 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    65
+    subviewer		    64
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    69
+    id			    68
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [65 0 70]
+    linkNode		    [64 0 69]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5277,10 +5227,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    70
+    id			    69
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [65 69 0]
+    linkNode		    [64 68 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5297,26 +5247,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    71
+    id			    70
     name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
     machine		    1
-    chart		    65
+    chart		    64
   }
   chart {
-    id			    72
+    id			    71
     name		    "Convert to BW/IterativeSegmentation/Segmentation/LabSegmentation"
     windowPosition	    [431.813 195 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 73 0 0]
-    firstTransition	    75
-    firstJunction	    74
-    viewObj		    72
+    treeNode		    [0 72 0 0]
+    firstTransition	    74
+    firstJunction	    73
+    viewObj		    71
     machine		    1
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    76
+    firstData		    75
     chartFileNumber	    48
     disableImplicitCasting  1
     eml {
@@ -5325,14 +5275,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    73
+    id			    72
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    72
-    treeNode		    [72 0 0 0]
+    chart		    71
+    treeNode		    [71 0 0 0]
     superState		    SUBCHART
-    subviewer		    72
+    subviewer		    71
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -5354,16 +5304,16 @@ Stateflow {
     }
   }
   junction {
-    id			    74
+    id			    73
     position		    [23.5747 49.5747 7]
-    chart		    72
-    linkNode		    [72 0 0]
-    subviewer		    72
+    chart		    71
+    linkNode		    [71 0 0]
+    subviewer		    71
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    75
+    id			    74
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -5371,23 +5321,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      74
+      id		      73
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    72
-    linkNode		    [72 0 0]
+    chart		    71
+    linkNode		    [71 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    72
+    subviewer		    71
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    76
+    id			    75
     ssIdNumber		    4
     name		    "L"
-    linkNode		    [72 0 77]
+    linkNode		    [71 0 76]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5403,10 +5353,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    77
+    id			    76
     ssIdNumber		    5
     name		    "LabelMatrix"
-    linkNode		    [72 76 78]
+    linkNode		    [71 75 77]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5423,10 +5373,32 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    78
+    id			    77
     ssIdNumber		    6
     name		    "a"
-    linkNode		    [72 77 79]
+    linkNode		    [71 76 78]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    78
+    ssIdNumber		    7
+    name		    "b"
+    linkNode		    [71 77 79]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5446,9 +5418,9 @@ Stateflow {
   }
   data {
     id			    79
-    ssIdNumber		    7
-    name		    "b"
-    linkNode		    [72 78 80]
+    ssIdNumber		    8
+    name		    "ref_colors"
+    linkNode		    [71 78 80]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5468,31 +5440,9 @@ Stateflow {
   }
   data {
     id			    80
-    ssIdNumber		    8
-    name		    "ref_colors"
-    linkNode		    [72 79 81]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    81
     ssIdNumber		    9
     name		    "num_colors"
-    linkNode		    [72 80 0]
+    linkNode		    [71 79 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5511,26 +5461,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    82
+    id			    81
     name		    "Convert to BW/IterativeSegmentation/Segmentation/LabSegmentation"
     machine		    1
-    chart		    72
+    chart		    71
   }
   chart {
-    id			    83
+    id			    82
     name		    "Convert to BW/IterativeSegmentation/Segmentation/Reference Color Selection"
     windowPosition	    [431.813 195 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 84 0 0]
-    firstTransition	    86
-    firstJunction	    85
-    viewObj		    83
+    treeNode		    [0 83 0 0]
+    firstTransition	    85
+    firstJunction	    84
+    viewObj		    82
     machine		    1
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    87
+    firstData		    86
     chartFileNumber	    49
     disableImplicitCasting  1
     eml {
@@ -5539,14 +5489,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    84
+    id			    83
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    83
-    treeNode		    [83 0 0 0]
+    chart		    82
+    treeNode		    [82 0 0 0]
     superState		    SUBCHART
-    subviewer		    83
+    subviewer		    82
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -5585,16 +5535,16 @@ Stateflow {
     }
   }
   junction {
-    id			    85
+    id			    84
     position		    [23.5747 49.5747 7]
-    chart		    83
-    linkNode		    [83 0 0]
-    subviewer		    83
+    chart		    82
+    linkNode		    [82 0 0]
+    subviewer		    82
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    86
+    id			    85
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -5602,23 +5552,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      85
+      id		      84
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    83
-    linkNode		    [83 0 0]
+    chart		    82
+    linkNode		    [82 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    83
+    subviewer		    82
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    87
+    id			    86
     ssIdNumber		    4
     name		    "L"
-    linkNode		    [83 0 88]
+    linkNode		    [82 0 87]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5634,10 +5584,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    88
+    id			    87
     ssIdNumber		    5
     name		    "ref_colors"
-    linkNode		    [83 87 89]
+    linkNode		    [82 86 88]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5654,10 +5604,32 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    89
+    id			    88
     ssIdNumber		    6
     name		    "a"
-    linkNode		    [83 88 90]
+    linkNode		    [82 87 89]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    89
+    ssIdNumber		    7
+    name		    "b"
+    linkNode		    [82 88 90]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5677,31 +5649,9 @@ Stateflow {
   }
   data {
     id			    90
-    ssIdNumber		    7
-    name		    "b"
-    linkNode		    [83 89 91]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    91
     ssIdNumber		    8
     name		    "num_colors"
-    linkNode		    [83 90 92]
+    linkNode		    [82 89 91]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5720,10 +5670,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    92
+    id			    91
     ssIdNumber		    10
     name		    "Dist_Thresh"
-    linkNode		    [83 91 0]
+    linkNode		    [82 90 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5742,22 +5692,22 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    93
+    id			    92
     name		    "Convert to BW/IterativeSegmentation/Segmentation/Reference Color Selection"
     machine		    1
-    chart		    83
+    chart		    82
   }
   target {
-    id			    94
+    id			    93
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 95]
+    linkNode		    [1 0 94]
   }
   target {
-    id			    95
+    id			    94
     name		    "rtw"
     machine		    1
-    linkNode		    [1 94 0]
+    linkNode		    [1 93 0]
   }
 }
