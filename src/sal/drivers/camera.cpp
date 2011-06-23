@@ -135,7 +135,7 @@ void Camera::step()
 			emit dataReady(datum);
 
 			//write out to the UDP port
-			videoOut->write(*qimage);
+			if (networkStreams) videoOut->write(*qimage);
 			qimage->~QImage();
 			newimage->~QImage();
 

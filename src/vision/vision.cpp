@@ -60,6 +60,14 @@ void Vision::init()
     stopped = false;
     qDebug("Vision thread id: %d", (int) QThread::currentThreadId());
     stepTimer->start(1000 / UPDATE_RATE);
+
+	//sets up the network stream if required
+	if(networkStreams) {
+		videoSocket = new QUdpSocket();
+		videoSocket->connectToHost(QHostAddress(config("TargetedImage.address")), config("TargetedImage.port").toInt());
+		videoOut = new QImageWriter(videoSocket, "jpeg");
+		videoOut->setQuality(config("TargetedImage.quality").toInt());
+	}
 }
 
 /**
@@ -149,4 +157,23 @@ void Vision::step()
     setData("Vision.Output.PathState", VisionModel_Y.PathState);
     setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
     setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
+
+	if (networkStreams) {
+		targetedImage = new QImage(120, 160, QImage::Format_RGB32);
+		
+		
+		//used for streaming the targeted image
+		for (int i = 0; i < f_height; ++i)
+		{
+			for (int j = 0; j < f_width; ++j)
+		    {
+				int index = j*(f_height)+i;
+				QRgb col;
+				col = qRgb(VisionModel_Y.R[index] * 255.0, VisionModel_Y.G[index] * 255.0, VisionModel_Y.B[index] * 255.0);
+				targetedImage->setPixel(j, i, col);
+			}
+		}
+		videoOut->write(*targetedImage);
+		targetedImage->~QImage();
+	}
 }

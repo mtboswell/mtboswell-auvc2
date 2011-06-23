@@ -5,6 +5,8 @@
 #include "simulinkmodule.h"
 #include <QDebug>
 #include <QVector4D>
+#include <QUdpSocket>
+#include <QImageWriter>
 #include "src/VisionModel.h"
 
 /** @author Shawn Furrow, Carlo del Mundo
@@ -14,6 +16,8 @@
  *      2.) Run the block diagram
  *      3.) Extract the outputs and place it onto state data
  */
+
+extern bool networkStreams;
 class Vision : public SimulinkModule
 {
     Q_OBJECT;
@@ -37,6 +41,10 @@ class Vision : public SimulinkModule
     private:
         bool stopped;
         QTimer *timer;  // work around to initialize values for statedata
+		QImage *targetedImage;
+		QImageWriter *videoOut;
+		QUdpSocket *videoSocket;
+
 };
 
 #endif // VISION_H
