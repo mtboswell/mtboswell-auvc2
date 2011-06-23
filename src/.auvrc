@@ -69,6 +69,11 @@ Depth.Baseline=95;
 Depth.Multiplier=4;
 Depth.ArraySize=50;
 
+#Vision
+TargetedImage.address=192.168.3.102;
+TargetedImage.port=5568;
+TargetedImage.quality=30;
+
 # Mechanisms
 Mechanism.DropLeft.Servo=7;
 Mechanism.DropLeft.Motion=0:4000,2000:2800;

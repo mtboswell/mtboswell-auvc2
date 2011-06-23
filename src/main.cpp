@@ -31,6 +31,7 @@ static bool simulate = false;
 static bool thrustersON = true;
 static bool directorON = true;
 static bool visionON = true;
+bool networkStreams = true;
 static QStringList debug;
 
 int main(int argc, char *argv[]){
@@ -51,7 +52,8 @@ int main(int argc, char *argv[]){
 		else if(arg == "--no-thrusters" || arg == "-T") thrustersON = false;
 		///if --no-director is on then do not start director module
 		else if (arg == "--no-director" || arg == "-D") directorON = false;
-                else if (arg == "--no-vision" || arg == "-V") visionON = false;
+        else if (arg == "--no-vision" || arg == "-V") visionON = false;
+		else if (arg == "--no-stream" || arg == "-n" || arg == "-N") networkStreams = false;
 		else if(arg.startsWith("-d:") || arg.startsWith("--debug:")){
 			debug.append(arg.right(arg.size() - arg.indexOf(":") - 1));
 		}
@@ -61,6 +63,7 @@ int main(int argc, char *argv[]){
 			qDebug() << "\t-d:[ModuleName] or --debug:[ModuleName] : enable debugging for module [ModuleName]";
 			qDebug() << "\t--no-thrusters : disable actuators module";
 			qDebug() << "\t--no-director : disable director module";
+			qDebug() << "\t--no-stream : disable stream of images over network";
 		//	qDebug() << "\t-c or --calibrate-servos : enter servo calibration mode instead of running normally";
 			return 0;
 		}
@@ -75,7 +78,6 @@ int main(int argc, char *argv[]){
 	loadConfigFile(config);
 
 	AUVC_State_Data stateData;
-
 	//Set inital Data
 	stateData.setData("Simulate", simulate);
 	stateData.setData("ThrustersON.Forward", true);

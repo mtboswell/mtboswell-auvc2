@@ -30,6 +30,8 @@
 	bool debug; 
  };
 
+extern bool networkStreams;
+
 /**
  * Camera Driver.
  */
