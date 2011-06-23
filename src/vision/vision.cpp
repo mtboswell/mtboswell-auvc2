@@ -5,10 +5,20 @@
 // These are a poor man's error checking test so we don't write past array bounds
 // Technically, these values are set in the Simulink module: VisionModel.mdl.
 // Consult your Vision guru (David as of this writing)
+//const int FORWARD_CAM_MAX_WIDTH = 120;
+//const int FORWARD_CAM_MAX_HEIGHT = 160;
+//const int DOWNWARD_CAM_MAX_WIDTH = 160;
+//const int DOWNWARD_CAM_MAX_HEIGHT = 120;
+
+//const int FORWARD_CAM_MAX_WIDTH = 160;
+//const int FORWARD_CAM_MAX_HEIGHT = 120;
+//const int DOWNWARD_CAM_MAX_WIDTH = 160;
+//const int DOWNWARD_CAM_MAX_HEIGHT = 120;
+
 const int FORWARD_CAM_MAX_WIDTH = 120;
 const int FORWARD_CAM_MAX_HEIGHT = 160;
-const int DOWNWARD_CAM_MAX_WIDTH = 160;
-const int DOWNWARD_CAM_MAX_HEIGHT = 120;
+const int DOWNWARD_CAM_MAX_WIDTH = 120;
+const int DOWNWARD_CAM_MAX_HEIGHT = 160;
 
 Vision::Vision() : SimulinkModule()
 {
@@ -48,10 +58,10 @@ void Vision::dataIn(VDatum datum)
  */
 void Vision::init()
 {
-    const int UPDATE_RATE = 20;    // num updates per seconds
+    const int UPDATE_RATE = 1;    // num updates per seconds
     stopped = false;
     qDebug("Vision thread id: %d", (int) QThread::currentThreadId());
-    stepTimer->start(1000 / UPDATE_RATE);
+    stepTimer->start(2000);
 }
 
 /**
@@ -73,13 +83,12 @@ void Vision::step()
 
     if (forwardCam == NULL || downwardCam == NULL)
         return;
-
     int f_width = forwardCam->width();
     int f_height = forwardCam->height();
     int d_width = downwardCam->width();
     int d_height = downwardCam->height();
 
-//	std::cerr << "forward [w,h]" << f_width << " " << f_height << "  --- downward [w,h]" << d_width << " " << d_height << std::endl;
+//        std::cerr << "forward [w,h]" << f_width << " " << f_height << "  --- downward [w,h]" << d_width << " " << d_height << std::endl;
     if (f_width > FORWARD_CAM_MAX_WIDTH || f_height > FORWARD_CAM_MAX_HEIGHT || d_width > DOWNWARD_CAM_MAX_WIDTH || d_height > DOWNWARD_CAM_MAX_HEIGHT)
     {
         std::cerr << "Vision::step(): ERROR! Forward/Downward Camera Width/Height mismatch (got something larger)" << std::endl;
@@ -95,9 +104,11 @@ void Vision::step()
             {
                 int index = j*(forwardCam->height())+i;
                 QColor forward_rgb = forwardCam->pixel(j, i);
-                VisionModel_U.R_forward_in[index] = forward_rgb.red();
-                VisionModel_U.G_forward_in[index] = forward_rgb.green();
-                VisionModel_U.B_forward_in[index] = forward_rgb.blue();
+                VisionModel_U.R_forward_in[index] = forward_rgb.red() / 255.0;
+                VisionModel_U.G_forward_in[index] = forward_rgb.green() / 255.0;
+                VisionModel_U.B_forward_in[index] = forward_rgb.blue() / 255.0;
+//                qDebug() << "In " << VisionModel_U.R_forward_in[index] << " "<< VisionModel_U.G_forward_in[index] << " " << VisionModel_U.B_forward_in[index];
+//                qDebug () << forward_rgb;
             }
         }
 
@@ -141,4 +152,36 @@ void Vision::step()
     setData("Vision.Output.PathState", VisionModel_Y.PathState);
     setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
     setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
+    setData("Vision.Output.DummieVariable", VisionModel_Y.DummieVariable);
+    setData("Vision.Output.Iter_Segment_Thresh", VisionModel_Y.Iter_Segment_Thresh);
+//    real_T LabelMatrix[19200];           /* '<Root>/LabelMatrix' */
+//    real_T num_colors;                   /* '<Root>/num_colors' */
+//    real_T ref_colors[150];              /* '<Root>/ref_colors' */
+//    real_T bw_image[19200];              /* '<Root>/bw_image' */
+//    boolean_T edge_image[19200];         /* '<Root>/edge_image' */
+
+//     qDebug() << "BW IMAGE" << VisionModel_Y.bw_image;
+    int total = 0;
+    for (int i = 0; i < 19200; i++)
+    {
+        qDebug() << i << " " << VisionModel_Y.LabelMatrix[i];
+    }
+//    qDebug() << "Total: " << total;
+//    qDebug () << "Target Det" << VisionModel_Y.TargetDetected;
+//    QImage *save = new QImage(120, 160, QImage::Format_RGB32);
+
+
+
+//    for (int i = 0; i < f_height; ++i)
+//    {
+//        for (int j = 0; j < f_width; ++j)
+//        {
+//            int index = j*(f_height)+i;
+//            QRgb col;
+//            col = qRgb(VisionModel_Y.R[index] * 255.0, VisionModel_Y.G[index] * 255.0, VisionModel_Y.B[index] * 255.0);
+//            save->setPixel(j, i, col);
+////            qDebug() << VisionModel_Y.R[index] << " "<< VisionModel_Y.G[index] << " " << VisionModel_Y.B[index];
+//        }
+//    }
+//    qDebug() << save->save("hithere.bmp");
 }

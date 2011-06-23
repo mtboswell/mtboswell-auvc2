@@ -55,7 +55,8 @@ Camera::Camera(CameraParams* paramsIn, QObject* parent)
 	// returns true and the timer is started.  The timer is set to go off at a rate based on the fps in the params
 	// struct.  The connect makes it so each time the timer expires it emits the timeout signal and the step function
 	// is called.
-	if (init()) {
+//	if (init()) {
+        if (true) {
 		//start the timer to capture frames
 		timer = new QTimer(this);
 		timer->start(1000/(params->fps));
@@ -64,84 +65,101 @@ Camera::Camera(CameraParams* paramsIn, QObject* parent)
 	
 }
 
+void Camera::step()
+{
+    QImage *newimage = new QImage("gate10.bmp");
+//    newimage->save("david.bmp");
+    VDatum datum;
+    if (params->identity == 2) {
+        datum.id = "Camera.Forward.Frame";
+    }
+    else {
+        datum.id = "Camera.Downward.Frame";
+    }
+    datum.value = *newimage;
+    datum.timestamp = QTime::currentTime();
+    emit dataReady(datum);
+
+}
+
 // This function captures a single frame of the camera.  It writes the image to the udp socket from the constructor which
 // sends it to the dashboard and emits a dataReady signal which the SAL is connected too.  When the SAL picks up the signal
 // it updates StateData with the latest camera image.
-void Camera::step()
-{
-	if(debug) qDebug() << "capturing frame";
-	//this function captures the frame and stores it onto the active memory created in init()
-	if( is_FreezeVideo( m_hCam, IS_WAIT ) != IS_SUCCESS )
-	{	
-		qDebug() << "ERROR: is_FreezeVideo on camera" << params->identity;
-	}
-	else {
-		// This image saves the image to the harddrive under the name *.bmp
-		if( is_SaveImage(m_hCam, saveName) != IS_SUCCESS)
-		{
-			qDebug() << "ERROR: is_SaveImage(...) in fucntion UEyeDriver::getImage()";
-		}
-		else 
-		{
-			//if we have gotten this far now we make the QImage.
-			if(debug) qDebug("Image Captured in with camID %d", params->identity);
+//void Camera::step()
+//{
+//	if(debug) qDebug() << "capturing frame";
+//	//this function captures the frame and stores it onto the active memory created in init()
+//	if( is_FreezeVideo( m_hCam, IS_WAIT ) != IS_SUCCESS )
+//	{
+//		qDebug() << "ERROR: is_FreezeVideo on camera" << params->identity;
+//	}
+//	else {
+//		// This image saves the image to the harddrive under the name *.bmp
+//		if( is_SaveImage(m_hCam, saveName) != IS_SUCCESS)
+//		{
+//			qDebug() << "ERROR: is_SaveImage(...) in fucntion UEyeDriver::getImage()";
+//		}
+//		else
+//		{
+//			//if we have gotten this far now we make the QImage.
+//			if(debug) qDebug("Image Captured in with camID %d", params->identity);
 			
-		}
-		// moves the image from the active camera memory to the array made in the constructor.
-		// this actually may not be neccessay anymore but I'm leaving it in for now just so
-		// I dont have to fuck with it and because I am going to try to use it later for more
-		// efficient cameras.
-		if ( is_CopyImageMem(m_hCam, m_pcImageMemory, m_lMemoryID, byteStorage) != IS_SUCCESS) {
-			qDebug() << "ERROR: is_CopyImageMem in function UEyeDriver::getImage()";
-		}
-		else {
-			//also possibly not neccessary
-			imageArray = QByteArray(byteStorage);
-			//creates a QImage by reading the image saved on the hard drive. I am super not proud
-			//of this one but I was having a shit ton of problems doing it properly so I hacked this
-			//method together out of frustration and it works fine.  May change in the future (hopefully) 
-			qimage = new QImage(saveName);
-			//check to see if image loaded
-			if (qimage->isNull()) {
-				qDebug() << "image failed to load";
-			}
+//		}
+//		// moves the image from the active camera memory to the array made in the constructor.
+//		// this actually may not be neccessay anymore but I'm leaving it in for now just so
+//		// I dont have to fuck with it and because I am going to try to use it later for more
+//		// efficient cameras.
+//		if ( is_CopyImageMem(m_hCam, m_pcImageMemory, m_lMemoryID, byteStorage) != IS_SUCCESS) {
+//			qDebug() << "ERROR: is_CopyImageMem in function UEyeDriver::getImage()";
+//		}
+//		else {
+//			//also possibly not neccessary
+//			imageArray = QByteArray(byteStorage);
+//			//creates a QImage by reading the image saved on the hard drive. I am super not proud
+//			//of this one but I was having a shit ton of problems doing it properly so I hacked this
+//			//method together out of frustration and it works fine.  May change in the future (hopefully)
+//			qimage = new QImage(saveName);
+//			//check to see if image loaded
+//			if (qimage->isNull()) {
+//				qDebug() << "image failed to load";
+//			}
 			
-			//Transform the if it is from the forward camera
-			if (params->identity == 2) {
-				QTransform transform;
-				transform.rotate(270);	// 270 degrees instead of 90
-				*qimage = qimage->transformed(transform);
-				newimage = new QImage(120, 160, QImage::Format_RGB32);
-				*newimage = qimage->scaledToHeight(160);
-			}
-			else {
-				newimage = new QImage(160, 120, QImage::Format_RGB32);
-				*newimage = qimage->scaledToHeight(120);
-			}
+//			//Transform the if it is from the forward camera
+//			if (params->identity == 2) {
+//				QTransform transform;
+//				transform.rotate(270);	// 270 degrees instead of 90
+//				*qimage = qimage->transformed(transform);
+//				newimage = new QImage(120, 160, QImage::Format_RGB32);
+//				*newimage = qimage->scaledToHeight(160);
+//			}
+//			else {
+//				newimage = new QImage(160, 120, QImage::Format_RGB32);
+//				*newimage = qimage->scaledToHeight(120);
+//			}
 			
-			//this creates a VDatum (a struct defined somewhere just search for it.  Its what things are stored
-			//as in stateData). The VDatum is emitted with the DataReady signal which the SAL hears and updates stateData.
-			//So basically this part down here is just filling a VDatum struct with all the info it needs.
-			VDatum datum;
-			if (params->identity == 2) {
-				datum.id = "Camera.Forward.Frame";
-			}
-			else {
-				datum.id = "Camera.Downward.Frame";
-			}
-			datum.value = *newimage;
-			datum.timestamp = QTime::currentTime();
+//			//this creates a VDatum (a struct defined somewhere just search for it.  Its what things are stored
+//			//as in stateData). The VDatum is emitted with the DataReady signal which the SAL hears and updates stateData.
+//			//So basically this part down here is just filling a VDatum struct with all the info it needs.
+//			VDatum datum;
+//			if (params->identity == 2) {
+//				datum.id = "Camera.Forward.Frame";
+//			}
+//			else {
+//				datum.id = "Camera.Downward.Frame";
+//			}
+//			datum.value = *newimage;
+//			datum.timestamp = QTime::currentTime();
 			
-			emit dataReady(datum);
+//			emit dataReady(datum);
 
-			//write out to the UDP port
-			videoOut->write(*qimage);
-			qimage->~QImage();
-			newimage->~QImage();
+//			//write out to the UDP port
+//			videoOut->write(*qimage);
+//			qimage->~QImage();
+//			newimage->~QImage();
 
-		}
-	}
-}
+//		}
+//	}
+//}
 
 // Initializes the camera so it can take stills.  Most of this I took from example code provided 
 // by the uEye people so see their fairly awesome implementation if you want to learn more.
