@@ -50,6 +50,10 @@ void Actuators::dataIn(VDatum datum){
 			pololu->setMotorSpeed(2, 0);
 		}
 	}
+	else if (datum.id == "FireAuthorization") {
+		qDebug() << "FIRE!";
+		firetorpedos(datum.value.toInt(), true);
+	}
 }
 
 

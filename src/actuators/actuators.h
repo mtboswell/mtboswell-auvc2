@@ -24,6 +24,7 @@ class Actuators: public Module
 			sub << "Thrusters";
 			sub << "ThrustersON.Forward";
 			sub << "ThrustersON.Angled";
+			sub << "FireAuthorization";
 			return sub;
 		}
 		void fireTorpedo(int torp, bool fire);
