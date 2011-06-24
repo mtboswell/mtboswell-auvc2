@@ -30,6 +30,9 @@ class Vision : public SimulinkModule
                 sub << "Mode";
                 return sub;
         }
+	signals:
+		void processVision();
+
     public slots:
 
         void dataIn(VDatum message);

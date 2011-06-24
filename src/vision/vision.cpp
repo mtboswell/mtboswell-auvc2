@@ -59,7 +59,7 @@ void Vision::init()
     const int UPDATE_RATE = 1;    // num updates per seconds
     stopped = false;
     qDebug("Vision thread id: %d", (int) QThread::currentThreadId());
-    stepTimer->start(1000 / UPDATE_RATE);
+    //stepTimer->start(1000 / UPDATE_RATE);
 
 	//sets up the network stream if required
 	if(networkStreams) {
@@ -68,6 +68,10 @@ void Vision::init()
 		videoOut = new QImageWriter(videoSocket, "jpeg");
 		videoOut->setQuality(config("TargetedImage.quality").toInt());
 	}
+
+	//Have vision run as fast as possible instead of on a timer
+	QObject::connect(this, SIGNAL(processVision()), this, SLOT(step()));
+	emit processVision();
 }
 
 /**
@@ -176,4 +180,5 @@ void Vision::step()
 		videoOut->write(*targetedImage);
 		targetedImage->~QImage();
 	}
+	emit processVision();
 }
