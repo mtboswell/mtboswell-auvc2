@@ -394,40 +394,37 @@
            </widget>
           </item>
           <item>
-           <widget class="QwtThermo" name="depthBar">
+           <widget class="QwtThermo" name="depthBar" native="true">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-            <property name="alarmColor">
+            <property name="alarmColor" stdset="0">
              <color>
               <red>0</red>
               <green>0</green>
               <blue>255</blue>
              </color>
             </property>
-            <property name="alarmEnabled">
+            <property name="alarmEnabled" stdset="0">
              <bool>true</bool>
             </property>
-            <property name="alarmLevel">
+            <property name="alarmLevel" stdset="0">
              <double>1.000000000000000</double>
             </property>
-            <property name="scalePosition">
-             <enum>QwtThermo::LeftScale</enum>
-            </property>
-            <property name="fillColor">
+            <property name="fillColor" stdset="0">
              <color>
               <red>170</red>
               <green>0</green>
               <blue>0</blue>
              </color>
             </property>
-            <property name="maxValue">
+            <property name="maxValue" stdset="0">
              <double>-1.000000000000000</double>
             </property>
-            <property name="minValue">
+            <property name="minValue" stdset="0">
              <double>18.000000000000000</double>
             </property>
            </widget>
@@ -440,27 +437,18 @@
            </widget>
           </item>
           <item>
-           <widget class="QwtCompass" name="headingDial">
-            <property name="readOnly">
+           <widget class="QwtCompass" name="headingDial" native="true">
+            <property name="readOnly" stdset="0">
              <bool>true</bool>
             </property>
-            <property name="mass">
+            <property name="mass" stdset="0">
              <double>0.500000000000000</double>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
             </property>
             <property name="visibleBackground" stdset="0">
              <bool>true</bool>
             </property>
-            <property name="lineWidth">
+            <property name="lineWidth" stdset="0">
              <number>4</number>
-            </property>
-            <property name="frameShadow">
-             <enum>QwtDial::Plain</enum>
-            </property>
-            <property name="mode">
-             <enum>QwtDial::RotateNeedle</enum>
             </property>
            </widget>
           </item>
@@ -1068,6 +1056,29 @@
          </widget>
         </item>
         <item>
+         <widget class="QLineEdit" name="stateLine">
+          <property name="maximumSize">
+           <size>
+            <width>1000</width>
+            <height>16777215</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="add_to_state_data">
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Add to StateData</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <spacer name="verticalSpacer_5">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
@@ -1294,6 +1305,9 @@
            <string>Mission Control</string>
           </property>
           <layout class="QFormLayout" name="formLayout">
+           <property name="fieldGrowthPolicy">
+            <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+           </property>
            <item row="0" column="0">
             <widget class="QLabel" name="label_4">
              <property name="text">
@@ -1758,21 +1772,18 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_17">
               <item>
-               <widget class="QwtCompass" name="desiredHeadingDial">
+               <widget class="QwtCompass" name="desiredHeadingDial" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="mass">
+                <property name="mass" stdset="0">
                  <double>0.000000000000000</double>
                 </property>
-                <property name="lineWidth">
+                <property name="lineWidth" stdset="0">
                  <number>4</number>
-                </property>
-                <property name="frameShadow">
-                 <enum>QwtDial::Plain</enum>
                 </property>
                </widget>
               </item>
@@ -2099,23 +2110,14 @@
              </widget>
             </item>
             <item>
-             <widget class="QwtSlider" name="desiredDepthSlider">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="scalePosition">
-               <enum>QwtSlider::RightScale</enum>
-              </property>
-              <property name="bgStyle">
-               <enum>QwtSlider::BgSlot</enum>
-              </property>
-              <property name="thumbLength">
+             <widget class="QwtSlider" name="desiredDepthSlider" native="true">
+              <property name="thumbLength" stdset="0">
                <number>20</number>
               </property>
-              <property name="thumbWidth">
+              <property name="thumbWidth" stdset="0">
                <number>16</number>
               </property>
-              <property name="borderWidth">
+              <property name="borderWidth" stdset="0">
                <number>2</number>
               </property>
              </widget>
@@ -2569,11 +2571,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QwtCompass</class>
-   <extends>QwtDial</extends>
-   <header>qwt_compass.h</header>
-  </customwidget>
-  <customwidget>
    <class>QwtDial</class>
    <extends>QWidget</extends>
    <header>qwt_dial.h</header>
@@ -2587,6 +2584,11 @@
    <class>QwtThermo</class>
    <extends>QWidget</extends>
    <header>qwt_thermo.h</header>
+  </customwidget>
+  <customwidget>
+   <class>QwtCompass</class>
+   <extends>QwtDial</extends>
+   <header>qwt_compass.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

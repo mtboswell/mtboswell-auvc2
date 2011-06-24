@@ -121,6 +121,9 @@ class Dashboard : public GuiModule, private Ui::DashboardWindow
 		
 		// Video Streams
 		void on_videoStreamComboBox_activated(int index);
+		
+		//
+		void updateState();
 
 	private:
 
