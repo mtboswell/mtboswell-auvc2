@@ -59,7 +59,7 @@ void Vision::init()
     const int UPDATE_RATE = 1;    // num updates per seconds
     stopped = false;
     qDebug("Vision thread id: %d", (int) QThread::currentThreadId());
-    //stepTimer->start(1000 / UPDATE_RATE);
+    stepTimer->start(1000 / UPDATE_RATE);
 
 	//sets up the network stream if required
 	if(networkStreams) {
@@ -71,7 +71,7 @@ void Vision::init()
 
 	//Have vision run as fast as possible instead of on a timer
 	QObject::connect(this, SIGNAL(processVision()), this, SLOT(step()));
-	emit processVision();
+	//emit processVision();
 }
 
 /**
@@ -81,6 +81,8 @@ void Vision::init()
  */
 void Vision::step()
 {
+	
+	//qDebug() << "Starting Vision";
     /**
      *  Queries the AUVC state data and makes sure we have the most current inputs
      *  before executing the Simulink function
@@ -180,5 +182,7 @@ void Vision::step()
 		videoOut->write(*targetedImage);
 		targetedImage->~QImage();
 	}
-	emit processVision();
+//	qDebug() << "Finished Vision";
+	//usleep(3000000);
+	//emit processVision();
 }

@@ -50,10 +50,6 @@ void Actuators::dataIn(VDatum datum){
 			pololu->setMotorSpeed(2, 0);
 		}
 	}
-	else if (datum.id == "Vision.FireAuthorization") {
-		qDebug() << "FIRE!";
-		fireTorpedo(datum.value.toInt(), true);
-	}
 }
 
 
@@ -78,10 +74,10 @@ void Actuators::fireTorpedo(int torp, bool fire) {
 	data.append(0x02);
 
 	if (torp = 1) {
-		data.append(0x00);
+		data.append(0x03);
 	}
 	else {
-		data.append(0x01);
+		data.append(0x07);
 	}
 	if (fire) {
 		data.append(0x7F);
