@@ -1,0 +1,4205 @@
+Model {
+  Name			  "path_detector"
+  Version		  7.6
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    4
+    Inport {
+      BusObject		      ""
+      Name		      "R_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "G_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "B_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "WhichPath"
+    }
+    NumRootOutports	    11
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "DesiredTargetX"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "DesiredTargetY"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "DesiredTargetYaw"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "PathDetected"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "PathState"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "R"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "G"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "B"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "bw_image"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "edge_image"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "line_image"
+    }
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.1200"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "windows-1252"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  MaxMDLFileLineLength	  120
+  Created		  "Fri Feb 11 11:52:30 2011"
+  Creator		  "Thing 1"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "auvt"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Thu Jun 23 13:42:07 2011"
+  RTWModifiedTimeStamp	  230736411
+  ModelVersionFormat	  "1.%<AutoIncrement:1200>"
+  ConfigurationManager	  "None"
+  SampleTimeColors	  off
+  SampleTimeAnnotations	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      1
+      Version		      "1.10.0"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  2
+	  Version		  "1.10.0"
+	  StartTime		  "0.0"
+	  StopTime		  "0"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  ConcurrentTasks	  off
+	  Solver		  "FixedStepDiscrete"
+	  SolverName		  "FixedStepDiscrete"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  3
+	  Version		  "1.10.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  4
+	  Version		  "1.10.0"
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  UseIntDivNetSlope	  off
+	  UseSpecifiedMinMax	  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  ExpressionFolding	  on
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode on
+	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  5
+	  Version		  "1.10.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  InitInArrayFormatMsg	  "warning"
+	  StrictBusMsg		  "ErrorLevel1"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  6
+	  Version		  "1.10.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  7
+	  Version		  "1.10.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  8
+	  Version		  "1.10.0"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  9
+	  Version		  "1.10.0"
+	  SystemTargetFile	  "ert.tlc"
+	  GenCodeOnly		  on
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "ert_default_tmf"
+	  Description		  "Real-Time Workshop Embedded Coder"
+	  GenerateReport	  on
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ProcessScript		  "ert_make_rtw_hook"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport on
+	  LaunchReport		  on
+	  TargetLang		  "C++"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  GenerateSLWebview	  off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      10
+	      Version		      "1.10.0"
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses off
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcnArg   "rt$I$N$M"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
+	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.ERTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      11
+	      Version		      "1.10.0"
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      TargetFunctionLibrary   "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      ERTCodeCoverageTool     "None"
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   on
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant on
+	      CompOptLevelCompliant   on
+	      IncludeMdlTerminateFcn  off
+	      GeneratePreprocessorConditionals "Use local settings"
+	      CombineOutputUpdateFcns on
+	      CombineSignalStateStructs	off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   on
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    on
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      off
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   off
+	      SupportNonInlinedSFcns  off
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant on
+	      CPPClassGenCompliant    on
+	      AutosarCompliant	      off
+	      GenerateErtSFunction    off
+	      CreateSILPILBlock	      "None"
+	      GenerateASAP2	      off
+	      ExtMode		      off
+	      ExtModeTransport	      0
+	      ExtModeStaticAlloc      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTesting	      off
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      InlinedParameterPlacement	"Hierarchical"
+	      TargetOS		      "BareBoardExample"
+	      MultiInstanceErrorCode  "Error"
+	      RateGroupingCode	      on
+	      RootIOFormat	      "Individual arguments"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      ERTSrcFileBannerTemplate "ert_code_template.cgt"
+	      ERTHdrFileBannerTemplate "ert_code_template.cgt"
+	      ERTDataSrcFileTemplate  "ert_code_template.cgt"
+	      ERTDataHdrFileTemplate  "ert_code_template.cgt"
+	      ERTCustomFileTemplate   "example_file_process.tlc"
+	      CoverageDialogOpen      "off"
+	      ModuleNamingRule	      "Unspecified"
+	      SignalDisplayLevel      10
+	      ParamTuneLevel	      10
+	      GlobalDataDefinition    "Auto"
+	      DataDefinitionFile      "global.c"
+	      GlobalDataReference     "Auto"
+	      ERTFilePackagingFormat  "Modular"
+	      DataReferenceFile	      "global.h"
+	      GRTInterface	      off
+	      PreserveExpressionOrder off
+	      PreserveIfCondition     off
+	      ConvertIfToSwitch	      off
+	      PreserveExternInFcnDecls on
+	      EnableUserReplacementTypes off
+	      Array {
+		Type			"Struct"
+		Dimension		1
+		MATStruct {
+		  double		  ""
+		  single		  ""
+		  int32			  ""
+		  int16			  ""
+		  int8			  ""
+		  uint32		  ""
+		  uint16		  ""
+		  uint8			  ""
+		  boolean		  ""
+		  int			  ""
+		  uint			  ""
+		  char			  ""
+		}
+		PropName		"ReplacementTypes"
+	      }
+	      MemSecPackage	      "--- None ---"
+	      MemSecDataConstants     "Default"
+	      MemSecDataIO	      "Default"
+	      MemSecDataInternal      "Default"
+	      MemSecDataParameters    "Default"
+	      MemSecFuncInitTerm      "Default"
+	      MemSecFuncExecute	      "Default"
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
+      CurrentDlgPage	      "Real-Time Workshop/Memory Sections"
+      ConfigPrmDlgPosition    " [ 1859, 24, 2771, 758 ] "
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    1
+  }
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Concatenate
+      NumInputs		      "2"
+      ConcatenateDimension    "1"
+    }
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
+      BlockType		      DataTypeConversion
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+      LockScale		      off
+      ConvertRealWorld	      "Real World Value (RWV)"
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+      SFunctionDeploymentMode off
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
+      MinMaxOverflowLogging   "UseLocalSettings"
+      Variant		      off
+      GeneratePreprocessorConditionals off
+    }
+    Block {
+      BlockType		      Terminator
+    }
+  }
+  System {
+    Name		    "path_detector"
+    Location		    [1440, 50, 3120, 1050]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "573"
+    Block {
+      BlockType		      Inport
+      Name		      "R_in"
+      SID		      "534"
+      Position		      [215, 438, 245, 452]
+      IconDisplay	      "Port number"
+      PortDimensions	      "Down_Camera_Dimensions"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "G_in"
+      SID		      "535"
+      Position		      [215, 473, 245, 487]
+      Port		      "2"
+      IconDisplay	      "Port number"
+      PortDimensions	      "Down_Camera_Dimensions"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "B_in"
+      SID		      "536"
+      Position		      [215, 508, 245, 522]
+      Port		      "3"
+      IconDisplay	      "Port number"
+      PortDimensions	      "Down_Camera_Dimensions"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "WhichPath"
+      SID		      "537"
+      Position		      [215, 598, 245, 612]
+      Port		      "4"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Blob Analysis"
+      SID		      "538"
+      Tag		      "vipblks_row_conv"
+      Ports		      [1, 4]
+      Position		      [700, 128, 875, 202]
+      LibraryVersion	      "1.582"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag0"
+      SourceBlock	      "vipstatistics/Blob Analysis"
+      SourceType	      "Blob Analysis"
+      area		      off
+      centroid		      on
+      bBox		      on
+      majorAxis		      off
+      minorAxis		      off
+      angle		      on
+      eccentricity	      on
+      equivDiameterSq	      off
+      extent		      off
+      perimeter		      off
+      maxBlobs		      "Max_Num_Blobs"
+      warnIfNumBlobsExceeded  on
+      isCount		      off
+      useMinArea	      on
+      minArea		      "Min_Blob_Size"
+      useMaxArea	      on
+      maxArea		      "Max_Blob_Size"
+      excludeBorderBlob	      off
+      outDT		      "double"
+      isOutVarDim	      off
+      isFill		      on
+      fillValues	      "-1"
+      conn		      "8"
+      isLabel		      off
+      outputMode	      "Binary point scaling"
+      outputWordLength	      "32"
+      outputFracLength	      "16"
+      memoryMode	      "Same as product output"
+      memoryWordLength	      "32"
+      memoryFracLength	      "16"
+      firstCoeffMode	      "Binary point scaling"
+      firstCoeffWordLength    "16"
+      firstCoeffFracLength    "14"
+      secondCoeffMode	      "Binary point scaling"
+      secondCoeffWordLength   "32"
+      secondCoeffFracLength   "16"
+      accumMode		      "Binary point scaling"
+      accumWordLength	      "32"
+      accumFracLength	      "0"
+      prodOutputMode	      "Binary point scaling"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "16"
+      roundingMode	      "Floor"
+      overflowMode	      off
+      LockScale		      off
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "CheckConditions"
+      SID		      "539"
+      Ports		      [2, 1]
+      Position		      [895, 227, 1040, 323]
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('CheckConditions');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"CheckConditions"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"14"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Eccent"
+	  SID			  "539::1"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Track_Min_Eccentricity"
+	  SID			  "539::2"
+	  Position		  [20, 136, 40, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "539::12"
+	  Ports			  [1, 1]
+	  Position		  [270, 160, 320, 200]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "539::11"
+	  Tag			  "Stateflow S-Function path_detector 1"
+	  Ports			  [2, 2]
+	  Position		  [180, 100, 230, 160]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[2 2]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "Image"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "539::14"
+	  Position		  [460, 171, 480, 189]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Image"
+	  SID			  "539::6"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "Image"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "Image"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Track_Min_Eccentricity"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Eccent"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Color Space\n Conversion1"
+      SID		      "540"
+      Ports		      [3, 3]
+      Position		      [400, 451, 500, 509]
+      LibraryVersion	      "1.328"
+      SourceBlock	      "vipconversions/Color Space\n Conversion"
+      SourceType	      "Color Space Conversion"
+      conversion	      "Obsolete"
+      conversionActive	      "R'G'B' to HSV"
+      wp_str		      "D65"
+      rec		      "Rec. 601 (SDTV)"
+      sys		      "1125/60/2:1"
+      imagePorts	      "Separate color signals"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant"
+      SID		      "541"
+      Position		      [720, 277, 855, 323]
+      Value		      "Track_Min_Eccentricity"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      DataTypeConversion
+      Name		      "Data Type Conversion"
+      SID		      "542"
+      Position		      [580, 148, 655, 182]
+      OutDataTypeStr	      "boolean"
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Draw Shapes1"
+      SID		      "572"
+      Ports		      [2, 1]
+      Position		      [1690, 1147, 1795, 1223]
+      LibraryVersion	      "1.183"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag1"
+      SourceBlock	      "viptextngfix/Draw Shapes"
+      SourceType	      "Draw Shapes"
+      shape		      "Lines"
+      fill		      off
+      fillClrSource	      "Specify via dialog"
+      display		      "User-specified value"
+      intensity		      "200"
+      color		      ".8"
+      opacity		      "0.6"
+      viewport		      "Entire image"
+      antialiasing	      off
+      inType		      "Obsolete"
+      imagePorts	      "One multidimensional signal"
+      accumMode		      "Same as product output"
+      accumWordLength	      "32"
+      accumFracLength	      "14"
+      prodOutputMode	      "Binary point scaling"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "14"
+      memoryMode	      "Specify word length"
+      memoryWordLength	      "16"
+      memoryFracLength	      "15"
+      roundingMode	      "Floor"
+      overflowMode	      off
+      LockScale		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Draw Target1"
+      SID		      "563"
+      Ports		      [4, 3]
+      Position		      [1805, 916, 1955, 979]
+      LibraryVersion	      "1.183"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag2"
+      SourceBlock	      "viptextngfix/Draw Markers"
+      SourceType	      "Draw Markers"
+      shape		      "X-mark"
+      size		      "7"
+      fill		      off
+      fillClrSource	      "Specify via dialog"
+      display		      "User-specified value"
+      intensity		      "200"
+      color		      "[0 0 0]"
+      opacity		      "0.6"
+      viewport		      "Entire image"
+      antialiasing	      off
+      inType		      "Obsolete"
+      imagePorts	      "Separate color signals"
+      accumMode		      "Same as product output"
+      accumWordLength	      "32"
+      accumFracLength	      "14"
+      prodOutputMode	      "Binary point scaling"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "14"
+      memoryMode	      "Specify word length"
+      memoryWordLength	      "16"
+      memoryFracLength	      "15"
+      roundingMode	      "Floor"
+      overflowMode	      off
+      LockScale		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Edge Detection"
+      SID		      "543"
+      Ports		      [1, 1]
+      Position		      [540, 980, 640, 1040]
+      LibraryVersion	      "1.378"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag3"
+      SourceBlock	      "vipanalysis/Edge Detection"
+      SourceType	      "Edge Detection"
+      method		      "Sobel"
+      outputType	      "Binary image"
+      userDefinedThreshold    off
+      thresholdSource	      "Specify via dialog"
+      threshold		      "20"
+      thresholdTuning	      "3"
+      edgeThinning	      on
+      threshold_canny	      "[0.25 0.60]"
+      autoPercent	      "70"
+      sigma		      "1"
+      outputMode	      "Same as first input"
+      outputWordLength	      "16"
+      outputFracLength	      "4"
+      accumMode		      "Same as product output"
+      accumWordLength	      "32"
+      accumFracLength	      "8"
+      prodOutputMode	      "Same as first input"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "8"
+      roundingMode	      "Floor"
+      overflowMode	      off
+      LockScale		      off
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Embedded\nMATLAB Function"
+      SID		      "544"
+      Ports		      [1, 2]
+      Position		      [570, 440, 765, 560]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('CentroidVertScan');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Embedded\nMATLAB Function"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"18"
+	Block {
+	  BlockType		  Inport
+	  Name			  "bwMatrix"
+	  SID			  "544::1"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "544::15"
+	  Ports			  [1, 1]
+	  Position		  [270, 180, 320, 220]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "544::14"
+	  Tag			  "Stateflow S-Function path_detector 2"
+	  Ports			  [1, 3]
+	  Position		  [180, 100, 230, 180]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[1 3]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "centroid_x"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "centroid_y"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "544::17"
+	  Position		  [460, 191, 480, 209]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "centroid_x"
+	  SID			  "544::5"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "centroid_y"
+	  SID			  "544::18"
+	  Position		  [460, 136, 480, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "bwMatrix"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "centroid_x"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "centroid_x"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "centroid_y"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "centroid_y"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Embedded\nMATLAB Function1"
+      SID		      "545"
+      Ports		      [2, 2]
+      Position		      [905, 434, 1100, 581]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('Centroid2Heading');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Embedded\nMATLAB Function1"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"19"
+	Block {
+	  BlockType		  Inport
+	  Name			  "centroid_x"
+	  SID			  "545::1"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "centroid_y"
+	  SID			  "545::18"
+	  Position		  [20, 136, 40, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "545::15"
+	  Ports			  [1, 1]
+	  Position		  [270, 180, 320, 220]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "545::14"
+	  Tag			  "Stateflow S-Function path_detector 3"
+	  Ports			  [2, 3]
+	  Position		  [180, 100, 230, 180]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[2 3]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "heading_y_deg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "heading_z_deg"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "545::17"
+	  Position		  [460, 191, 480, 209]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "heading_y_deg"
+	  SID			  "545::5"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "heading_z_deg"
+	  SID			  "545::19"
+	  Position		  [460, 136, 480, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "centroid_x"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "centroid_y"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "heading_y_deg"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "heading_y_deg"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "heading_z_deg"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "heading_z_deg"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Embedded\nMATLAB Function2"
+      SID		      "546"
+      Ports		      [1, 2]
+      Position		      [1110, 97, 1340, 173]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('separate_centroids');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Embedded\nMATLAB Function2"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"18"
+	Block {
+	  BlockType		  Inport
+	  Name			  "centroid"
+	  SID			  "546::1"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "546::15"
+	  Ports			  [1, 1]
+	  Position		  [270, 180, 320, 220]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "546::14"
+	  Tag			  "Stateflow S-Function path_detector 4"
+	  Ports			  [1, 3]
+	  Position		  [180, 100, 230, 180]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[1 3]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "x"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "y"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "546::17"
+	  Position		  [460, 191, 480, 209]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "x"
+	  SID			  "546::18"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "y"
+	  SID			  "546::5"
+	  Position		  [460, 136, 480, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "centroid"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "x"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "x"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "y"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "y"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Embedded\nMATLAB Function3"
+      SID		      "547"
+      Ports		      [1, 1]
+      Position		      [1455, 236, 1725, 314]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('separate_centroids');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Embedded\nMATLAB Function3"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"18"
+	Block {
+	  BlockType		  Inport
+	  Name			  "centroid"
+	  SID			  "547::1"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "547::15"
+	  Ports			  [1, 1]
+	  Position		  [270, 180, 320, 220]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "547::14"
+	  Tag			  "Stateflow S-Function path_detector 5"
+	  Ports			  [1, 2]
+	  Position		  [180, 100, 230, 180]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[1 2]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "following_path"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "547::17"
+	  Position		  [460, 191, 480, 209]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "following_path"
+	  SID			  "547::18"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "centroid"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "following_path"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "following_path"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Embedded\nMATLAB Function4"
+      SID		      "548"
+      Ports		      [1, 1]
+      Position		      [1455, 356, 1725, 434]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('separate_centroids');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Embedded\nMATLAB Function4"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"18"
+	Block {
+	  BlockType		  Inport
+	  Name			  "centroid"
+	  SID			  "548::1"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "548::15"
+	  Ports			  [1, 1]
+	  Position		  [270, 180, 320, 220]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "548::14"
+	  Tag			  "Stateflow S-Function path_detector 6"
+	  Ports			  [1, 2]
+	  Position		  [180, 100, 230, 180]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[1 2]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "following_state"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "548::17"
+	  Position		  [460, 191, 480, 209]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "following_state"
+	  SID			  "548::18"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "centroid"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "following_state"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "following_state"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Hough Lines2"
+      SID		      "573"
+      Ports		      [3, 1]
+      Position		      [1370, 1135, 1475, 1195]
+      LibraryVersion	      "1.273"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag4"
+      SourceBlock	      "viptransforms/Hough Lines"
+      SourceType	      "Hough Lines"
+      sineCompMethod	      "Trigonometric function"
+      thetaRes		      "pi/180"
+      firstCoeffMode	      "Specify word length"
+      firstCoeffWordLength    "16"
+      firstCoeffFracLength    "15"
+      accumMode		      "Same as product output"
+      accumWordLength	      "32"
+      accumFracLength	      "16"
+      prodOutputMode	      "Binary point scaling"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "16"
+      roundingMode	      "Nearest"
+      overflowMode	      on
+      LockScale		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Hough Transform1"
+      SID		      "549"
+      Ports		      [1, 3]
+      Position		      [675, 981, 780, 1039]
+      LibraryVersion	      "1.273"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag5"
+      SourceBlock	      "viptransforms/Hough Transform"
+      SourceType	      "Hough Transform"
+      theta_res		      "pi/180"
+      rho_res		      "1"
+      out_theta_rho	      on
+      outdtmode		      "double"
+      firstCoeffMode	      "Binary point scaling"
+      firstCoeffWordLength    "16"
+      firstCoeffFracLength    "14"
+      secondCoeffMode	      "Binary point scaling"
+      secondCoeffWordLength   "32"
+      secondCoeffFracLength   "16"
+      outputMode	      "Binary point scaling"
+      outputWordLength	      "16"
+      outputFracLength	      "0"
+      accumMode		      "Binary point scaling"
+      accumWordLength	      "32"
+      accumFracLength	      "20"
+      prodOutputMode	      "Binary point scaling"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "20"
+      memoryMode	      "Binary point scaling"
+      memoryWordLength	      "32"
+      memoryFracLength	      "16"
+      roundingMode	      "Nearest"
+      overflowMode	      on
+      LockScale		      off
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Identify Path Elements"
+      SID		      "550"
+      Ports		      [5, 5]
+      Position		      [1005, 947, 1285, 1083]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      SystemSampleTime	      "[1/30 0]"
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('path_detection');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Identify Path Elements"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"47"
+	Block {
+	  BlockType		  Inport
+	  Name			  "bw_image_in"
+	  SID			  "550::41"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "hough_table"
+	  SID			  "550::1"
+	  Position		  [20, 136, 40, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "theta_in"
+	  SID			  "550::34"
+	  Position		  [20, 171, 40, 189]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "rho_in"
+	  SID			  "550::35"
+	  Position		  [20, 206, 40, 224]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "threshold"
+	  SID			  "550::40"
+	  Position		  [20, 246, 40, 264]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "550::23"
+	  Ports			  [1, 1]
+	  Position		  [270, 340, 320, 380]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "550::22"
+	  Tag			  "Stateflow S-Function path_detector 7"
+	  Ports			  [5, 6]
+	  Position		  [180, 116, 230, 339]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[5 6]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "theta_out"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "rho_out"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "target_x"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "target_y"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    6
+	    Name		    "path_found"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "550::25"
+	  Position		  [460, 351, 480, 369]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "theta_out"
+	  SID			  "550::36"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "rho_out"
+	  SID			  "550::37"
+	  Position		  [460, 136, 480, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "target_x"
+	  SID			  "550::38"
+	  Position		  [460, 171, 480, 189]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "target_y"
+	  SID			  "550::39"
+	  Position		  [460, 206, 480, 224]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "path_found"
+	  SID			  "550::33"
+	  Position		  [460, 246, 480, 264]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "bw_image_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "hough_table"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "theta_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "rho_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "threshold"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  5
+	}
+	Line {
+	  Name			  "theta_out"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "theta_out"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "rho_out"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "rho_out"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "target_x"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  4
+	  DstBlock		  "target_x"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "target_y"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  5
+	  DstBlock		  "target_y"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "path_found"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  6
+	  DstBlock		  "path_found"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Concatenate
+      Name		      "Matrix\nConcatenate"
+      SID		      "551"
+      Ports		      [2, 1]
+      Position		      [805, 554, 860, 596]
+      Mode		      "Multidimensional array"
+      ConcatenateDimension    "2"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "ModeSelect2"
+      SID		      "564"
+      Position		      [1420, 960, 1450, 990]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Transform Coordinates2"
+      SID		      "565"
+      Ports		      [5, 2]
+      Position		      [1500, 965, 1750, 1065]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      SystemSampleTime	      "[1/30 0]"
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('transform_G2L');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Transform Coordinates2"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"47"
+	Block {
+	  BlockType		  Inport
+	  Name			  "bw_image_in"
+	  SID			  "565::44"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "which_camera"
+	  SID			  "565::47"
+	  Position		  [20, 136, 40, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "x_in"
+	  SID			  "565::46"
+	  Position		  [20, 171, 40, 189]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "y_in"
+	  SID			  "565::41"
+	  Position		  [20, 206, 40, 224]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "z_in"
+	  SID			  "565::45"
+	  Position		  [20, 246, 40, 264]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "565::23"
+	  Ports			  [1, 1]
+	  Position		  [270, 270, 320, 310]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "565::22"
+	  Tag			  "Stateflow S-Function path_detector 8"
+	  Ports			  [5, 3]
+	  Position		  [180, 108, 230, 272]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[5 3]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "r_out"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "c_out"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "565::25"
+	  Position		  [460, 281, 480, 299]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "r_out"
+	  SID			  "565::36"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "c_out"
+	  SID			  "565::38"
+	  Position		  [460, 136, 480, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "c_out"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "c_out"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "r_out"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "r_out"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "z_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "y_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "x_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "which_camera"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "bw_image_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Concatenate
+      Name		      "Vector\nConcatenate1"
+      SID		      "566"
+      Ports		      [2, 1]
+      Position		      [1775, 1001, 1780, 1039]
+      Mode		      "Multidimensional array"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Voting Threshold"
+      SID		      "552"
+      Position		      [750, 1070, 780, 1100]
+      Value		      "25"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "DesiredTargetX"
+      SID		      "557"
+      Position		      [2060, 573, 2090, 587]
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "DesiredTargetY"
+      SID		      "553"
+      Position		      [2060, 618, 2090, 632]
+      Port		      "2"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "DesiredTargetYaw"
+      SID		      "554"
+      Position		      [2060, 658, 2090, 672]
+      Port		      "3"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "PathDetected"
+      SID		      "555"
+      Position		      [2060, 703, 2090, 717]
+      Port		      "4"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "PathState"
+      SID		      "556"
+      Position		      [2060, 753, 2090, 767]
+      Port		      "5"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "R"
+      SID		      "558"
+      Position		      [2060, 883, 2090, 897]
+      Port		      "6"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "G"
+      SID		      "559"
+      Position		      [2060, 923, 2090, 937]
+      Port		      "7"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "B"
+      SID		      "560"
+      Position		      [2060, 963, 2090, 977]
+      Port		      "8"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "bw_image"
+      SID		      "561"
+      Position		      [575, 1123, 605, 1137]
+      Port		      "9"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "edge_image"
+      SID		      "562"
+      Position		      [700, 1123, 730, 1137]
+      Port		      "10"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "line_image"
+      SID		      "567"
+      Position		      [2060, 1153, 2090, 1167]
+      Port		      "11"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Line {
+      SrcBlock		      "Constant"
+      SrcPort		      1
+      DstBlock		      "CheckConditions"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Embedded\nMATLAB Function"
+      SrcPort		      1
+      Points		      [15, 0]
+      Branch {
+	DstBlock		"Embedded\nMATLAB Function1"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 95]
+	DstBlock		"Matrix\nConcatenate"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Embedded\nMATLAB Function"
+      SrcPort		      2
+      Points		      [10, 0]
+      Branch {
+	Points			[110, 0]
+	DstBlock		"Embedded\nMATLAB Function1"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, 55]
+	DstBlock		"Matrix\nConcatenate"
+	DstPort			2
+      }
+    }
+    Line {
+      SrcBlock		      "Blob Analysis"
+      SrcPort		      1
+      Points		      [200, 0]
+      Branch {
+	DstBlock		"Embedded\nMATLAB Function2"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 140; 315, 0]
+	Branch {
+	  DstBlock		  "Embedded\nMATLAB Function3"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 120]
+	  DstBlock		  "Embedded\nMATLAB Function4"
+	  DstPort		  1
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "R_in"
+      SrcPort		      1
+      Points		      [115, 0; 0, 15]
+      DstBlock		      "Color Space\n Conversion1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "B_in"
+      SrcPort		      1
+      Points		      [115, 0; 0, -15]
+      DstBlock		      "Color Space\n Conversion1"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "G_in"
+      SrcPort		      1
+      DstBlock		      "Color Space\n Conversion1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Data Type Conversion"
+      SrcPort		      1
+      DstBlock		      "Blob Analysis"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob Analysis"
+      SrcPort		      4
+      DstBlock		      "CheckConditions"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Color Space\n Conversion1"
+      SrcPort		      3
+      Points		      [15, 0]
+      Branch {
+	DstBlock		"Embedded\nMATLAB Function"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -335]
+	DstBlock		"Data Type Conversion"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 275]
+	Branch {
+	  Points		  [445, 0; 0, 190]
+	  DstBlock		  "Identify Path Elements"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 235]
+	  Branch {
+	    DstBlock		    "Edge Detection"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 120]
+	    DstBlock		    "bw_image"
+	    DstPort		    1
+	  }
+	}
+      }
+    }
+    Line {
+      SrcBlock		      "Edge Detection"
+      SrcPort		      1
+      Points		      [5, 0]
+      Branch {
+	DstBlock		"Hough Transform1"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -85; 1120, 0]
+	Branch {
+	  DstBlock		  "Draw Target1"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 15]
+	  Branch {
+	    DstBlock		    "Draw Target1"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 15]
+	    DstBlock		    "Draw Target1"
+	    DstPort		    3
+	  }
+	}
+      }
+      Branch {
+	Points			[0, 120]
+	DstBlock		"edge_image"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Hough Transform1"
+      SrcPort		      1
+      DstBlock		      "Identify Path Elements"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Hough Transform1"
+      SrcPort		      2
+      Points		      [205, 0]
+      DstBlock		      "Identify Path Elements"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Hough Transform1"
+      SrcPort		      3
+      Points		      [145, 0; 0, 10]
+      DstBlock		      "Identify Path Elements"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Voting Threshold"
+      SrcPort		      1
+      Points		      [0, -20]
+      DstBlock		      "Identify Path Elements"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "ModeSelect2"
+      SrcPort		      1
+      Points		      [30, 0]
+      DstBlock		      "Transform Coordinates2"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Transform Coordinates2"
+      SrcPort		      1
+      Points		      [5, 0]
+      DstBlock		      "Vector\nConcatenate1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Transform Coordinates2"
+      SrcPort		      2
+      Points		      [5, 0]
+      DstBlock		      "Vector\nConcatenate1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Vector\nConcatenate1"
+      SrcPort		      1
+      Points		      [5, 0]
+      DstBlock		      "Draw Target1"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Draw Target1"
+      SrcPort		      1
+      Points		      [0, -40]
+      DstBlock		      "R"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Draw Target1"
+      SrcPort		      2
+      Points		      [40, 0; 0, -20]
+      DstBlock		      "G"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Draw Target1"
+      SrcPort		      3
+      DstBlock		      "B"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Identify Path Elements"
+      SrcPort		      3
+      DstBlock		      "Transform Coordinates2"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Identify Path Elements"
+      SrcPort		      4
+      Points		      [95, 0; 0, -5]
+      DstBlock		      "Transform Coordinates2"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Hough Lines2"
+      SrcPort		      1
+      Points		      [185, 0; 0, 40]
+      DstBlock		      "Draw Shapes1"
+      DstPort		      2
+    }
+    Annotation {
+      Position		      [758, 264]
+    }
+    Annotation {
+      Name		      "May want to use Blob Analysis for speed.\nHowever, may want to incorporate\nadditional embedded fun"
+      "ction to\ndetermine direction path is facing,\nas well as if there are multiple paths.\n\n-5-26-11"
+      Position		      [657, 650]
+    }
+    Annotation {
+      Name		      "Down-facing camera"
+      Position		      [136, 443]
+    }
+    Annotation {
+      Name		      "WhichPath\n0 = Use internal default\n1 = Take left path when Y-split encountered\n2 = Take right pa"
+      "th"
+      Position		      [208, 681]
+    }
+  }
+}
+MatData {
+  NumRecords		  6
+  DataRecord {
+    Tag			    DataTag5
+    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
+    "     %    \"     $    %     0         0    !0   $A/54=(    "
+  }
+  DataRecord {
+    Tag			    DataTag4
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    *     0         0    \"@   $AO=6=H3&EN97,        "
+  }
+  DataRecord {
+    Tag			    DataTag3
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    -     0         0    #0   $5D9V5$971E8W1I;VX    "
+  }
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    +     0         0    \"P   $1R87=-87)K97)S       "
+  }
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    *     0         0    \"@   $1R87=3:&%P97,        "
+  }
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    8     8    (     0         %    \"     $    !     0         .    ,     8    (    !     "
+    "     %    \"     $    $     0         0  0 0FQO8@"
+  }
+}
+# Finite State Machines
+#
+#    Stateflow Version 7.5 (R2010a) dated Aug  8 2010, 22:51:52
+#
+#
+
+
+Stateflow {
+  machine {
+    id			    1
+    name		    "path_detector"
+    created		    "11-Feb-2011 11:53:00"
+    isLibrary		    0
+    firstTarget		    76
+    sfVersion		    75014000.000003
+  }
+  chart {
+    id			    2
+    name		    "CheckConditions"
+    windowPosition	    [476.813 159 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 3 0 0]
+    firstTransition	    5
+    firstJunction	    4
+    viewObj		    2
+    machine		    1
+    ssIdHighWaterMark	    6
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    6
+    chartFileNumber	    1
+    disableImplicitCasting  1
+    eml {
+      name		      "CheckConditions"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    3
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 0 0]
+    superState		    SUBCHART
+    subviewer		    2
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function Image = CheckConditions(Eccent, Track_Min_Eccentricity)\n% This function checks the cond"
+      "itions to decide if a track is present\n\nif(max(abs(Eccent)) > Track_Min_Eccentricity)\n    Image = 1;\nelse\n "
+      "   Image = 0;\nend\n\nreturn\n"
+      editorLayout	      "100 M4x1[65 65 720 466]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    4
+    position		    [23.5747 49.5747 7]
+    chart		    2
+    linkNode		    [2 0 0]
+    subviewer		    2
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    5
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      4
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    2
+    linkNode		    [2 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    2
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    6
+    ssIdNumber		    4
+    name		    "Eccent"
+    linkNode		    [2 0 7]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    7
+    ssIdNumber		    5
+    name		    "Image"
+    linkNode		    [2 6 8]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    8
+    ssIdNumber		    6
+    name		    "Track_Min_Eccentricity"
+    linkNode		    [2 7 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    9
+    name		    "CheckConditions"
+    machine		    1
+    chart		    2
+  }
+  chart {
+    id			    10
+    name		    "Embedded\nMATLAB Function"
+    windowPosition	    [330.6 308.917 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 11 0 0]
+    firstTransition	    13
+    firstJunction	    12
+    viewObj		    10
+    machine		    1
+    ssIdHighWaterMark	    6
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    14
+    chartFileNumber	    2
+    disableImplicitCasting  1
+    eml {
+      name		      "CentroidVertScan"
+    }
+  }
+  state {
+    id			    11
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    10
+    treeNode		    [10 0 0 0]
+    superState		    SUBCHART
+    subviewer		    10
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "\nfunction [centroid_x, centroid_y] = CentroidVertScan(bwMatrix)\n\ncentroid_x = 0;\ncentroid_y ="
+      " 0;\n\n%{\n%Author: Yama Habib\n%Revision: 10/27/2010\n%CentroidVertScan takes a black and white matrix (the exp"
+      "ected output of\n%the blob detection algorithm) with a single (rectangular) object detected,\n%and returns the r"
+      "aw matrix coordinate of the centroid of the object. To\n%convert to an angular heading, use the Centroid2Heading"
+      " function.\n\n%Should these be parameters? I think they're fine as constants.\nWIDTH = size(bwMatrix, 2);\nHEIGH"
+      "T = size(bwMatrix, 1);\n\n%increase the x step to increase efficiency. The further this\n%number is from 1, the "
+      "closer the object will have to be to be detected\n%NOTE: find the max distance the hedge will be from the AUV, t"
+      "hen find the\n%optimal (lowest working) x step for that distance!\nX_STEP = 1;\nY_STEP = 1;\n\n%Don't detect lin"
+      "es unless they are longer than HEIGHT*THRESHOLD\nTHRESHOLD = 0.1;\n\n%Allocate arrays...allocate more or less me"
+      "mory depending on how many lines\n%are found in the average case\nlineLengths = zeros(WIDTH,1);\nlineMidpts_y = "
+      "zeros(WIDTH,1);\nlineMidpts_x = zeros(WIDTH,1);\n\n%Find vertical lines\nindex = 1;\ni = 1;\nwhile(i <= WIDTH)\n"
+      "    j = 1;\n    while(j <= HEIGHT)\n        %skip whitespace\n        while(bwMatrix(j,floor(i)) == 0)\n%       "
+      " while(bwMatrix(floor(i),j) == 0)\n            j = j+1;\n            if(j > HEIGHT)\n                break;\n   "
+      "         end\n        end\n        %count contiguous blackspace\n        if(j <= HEIGHT)\n            length = 0"
+      ";\n            midpt = j;\n            while(bwMatrix(floor(i),j) ~= 0)\n                length = length+1;\n   "
+      "             j = j+1;\n                if(j > HEIGHT)\n                    break;\n                end\n        "
+      "    end\n            midpt = midpt + length/2;\n            %only register as a line if longer than HEIGHT*THRES"
+      "HOLD\n            if(length > HEIGHT*THRESHOLD)\n                lineLengths(index) = length;\n                l"
+      "ineMidpts_y(index) = midpt;\n                lineMidpts_x(index) = floor(i);\n                index = index+1;\n"
+      "            end\n        end\n        %rinse, repeat\n    end\n    i = i+X_STEP;\nend\n\n%Find maximum (longest "
+      "rightmost) and minimum (longest leftmost) vertical\n%lines\ni = 1;\nmin = 1;\nmax = 1;\nwhile(i <= index);\n    "
+      "\n    % The following comparisons seek to minimize and maximize the metric\n    %   \" length*( width - x_midpt "
+      ") \". This effectively finds the largest\n    %   leftmost and rightmost vertical lines.\n    \n    % This if st"
+      "atement should be \"<\" instead of \">\" ??\n    if(lineLengths(i)*(WIDTH-lineMidpts_x(i)) > lineLengths(min)*(W"
+      "IDTH-lineMidpts_x(min)))\n        min = i;\n    end\n    % This if statement should be correct\n    if(lineLengt"
+      "hs(i)*(lineMidpts_x(i)) >= lineLengths(max)*(lineMidpts_x(max)))\n        max = i;\n    end\n    i = i+1;\nend\n"
+      "\n%The centroid is (should be) the midpoint between the max's midpoint and\n%the min's midpoint\n% The assumptio"
+      "n made is that the rightmost and leftmost lines bound a\n% vertically-oriented rectangular path\ncentroid_x = (l"
+      "ineMidpts_x(min) + lineMidpts_x(max))/2;\ncentroid_y = (lineMidpts_y(min) + lineMidpts_y(max))/2;\nend\n\n\n\n\n"
+      "\n\n\n\n\n\n\n%}\n\n\n\n\n\n\n\n\n\n\n%{\n\n% The following is the old code:\n\n\n\n\n\n\n\nfunction [centroid_x"
+      ", centroid_y] = CentroidVertScan(bwMatrix)\n%Author: Yama Habib\n%Revision: 10/27/2010\n%CentroidVertScan takes "
+      "a black and white matrix (the expected output of\n%the blob detection algorithm) with a single (rectangular) obj"
+      "ect detected,\n%and returns the raw matrix coordinate of the centroid of the object. To\n%convert to an angular "
+      "heading, use the Centroid2Heading function.\n\n%Should these be parameters? I think they're fine as constants.\n"
+      "WIDTH = size(bwMatrix, 2);\nHEIGHT = size(bwMatrix, 1);\n%WIDTH = 160;\n%HEIGHT = 120;\n\n%increase the x step t"
+      "o increase efficiency. The further this\n%number is from 1, the closer the object will have to be to be detected"
+      "\n%NOTE: find the max distance the hedge will be from the AUV, then find the\n%optimal (lowest working) x step f"
+      "or that distance!\nX_STEP = 1;\n\n%Don't detect lines unless they are longer than HEIGHT*THRESHOLD\nTHRESHOLD = "
+      "0.1;\n\n%Allocate arrays...allocate more or less memory depending on how many lines\n%are found in the average c"
+      "ase\nlineLengths = zeros(WIDTH,1);\nlineMidpts_y = zeros(WIDTH,1);\nlineMidpts_x = zeros(WIDTH,1);\n\n%Find vert"
+      "ical lines\nindex = 1;\ni = 1;\nwhile(i <= WIDTH)\n    j = 1;\n    while(j <= HEIGHT)\n        %skip whitespace\n"
+      "        while(bwMatrix(j,floor(i)) == 0)\n%        while(bwMatrix(floor(i),j) == 0)\n            j = j+1;\n     "
+      "       if(j > HEIGHT)\n                break;\n            end\n        end\n        %count contiguous blackspac"
+      "e\n        if(j <= HEIGHT)\n            length = 0;\n            midpt = j;\n            while(bwMatrix(floor(i)"
+      ",j) ~= 0)\n                length = length+1;\n                j = j+1;\n                if(j > HEIGHT)\n       "
+      "             break;\n                end\n            end\n            midpt = midpt + length/2;\n            %o"
+      "nly register as a line if longer than HEIGHT*THRESHOLD\n            if(length > HEIGHT*THRESHOLD)\n             "
+      "   lineLengths(index) = length;\n                lineMidpts_y(index) = midpt;\n                lineMidpts_x(inde"
+      "x) = floor(i);\n                index = index+1;\n            end\n        end\n        %rinse, repeat\n    end\n"
+      "    i = i+X_STEP;\nend\n\n%Find maximum (longest rightmost) and minimum (longest leftmost) vertical\n%lines\ni ="
+      " 1;\nmin = 1;\nmax = 1;\nwhile(i <= index);\n    \n    % The following comparisons seek to minimize and maximize"
+      " the metric\n    %   \" length*( width - x_midpt ) \". This effectively finds the largest\n    %   leftmost and "
+      "rightmost vertical lines.\n    \n    % This if statement should be \"<\" instead of \">\" ??\n    if(lineLengths"
+      "(i)*(WIDTH-lineMidpts_x(i)) > lineLengths(min)*(WIDTH-lineMidpts_x(min)))\n        min = i;\n    end\n    % This"
+      " if statement should be correct\n    if(lineLengths(i)*(lineMidpts_x(i)) >= lineLengths(max)*(lineMidpts_x(max))"
+      ")\n        max = i;\n    end\n    i = i+1;\nend\n\n%The centroid is (should be) the midpoint between the max's m"
+      "idpoint and\n%the min's midpoint\n% The assumption made is that the rightmost and leftmost lines bound a\n% vert"
+      "ically-oriented rectangular path\ncentroid_x = (lineMidpts_x(min) + lineMidpts_x(max))/2;\ncentroid_y = (lineMid"
+      "pts_y(min) + lineMidpts_y(max))/2;\nend\n\n%}\n\n"
+      editorLayout	      "100 M4x1[146 214 1288 755]"
+    }
+  }
+  junction {
+    id			    12
+    position		    [23.5747 49.5747 7]
+    chart		    10
+    linkNode		    [10 0 0]
+    subviewer		    10
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    13
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      12
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    10
+    linkNode		    [10 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    10
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    14
+    ssIdNumber		    4
+    name		    "bwMatrix"
+    linkNode		    [10 0 15]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    15
+    ssIdNumber		    5
+    name		    "centroid_x"
+    linkNode		    [10 14 16]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    16
+    ssIdNumber		    6
+    name		    "centroid_y"
+    linkNode		    [10 15 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    17
+    name		    "Embedded\nMATLAB Function"
+    machine		    1
+    chart		    10
+  }
+  chart {
+    id			    18
+    name		    "Embedded\nMATLAB Function1"
+    windowPosition	    [330.6 308.917 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 19 0 0]
+    firstTransition	    21
+    firstJunction	    20
+    viewObj		    18
+    machine		    1
+    toolbarMode		    LIBRARY_TOOLBAR
+    ssIdHighWaterMark	    7
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    22
+    chartFileNumber	    3
+    disableImplicitCasting  1
+    eml {
+      name		      "Centroid2Heading"
+    }
+  }
+  state {
+    id			    19
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    18
+    treeNode		    [18 0 0 0]
+    superState		    SUBCHART
+    subviewer		    18
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [heading_y_deg, heading_z_deg] = Centroid2Heading(centroid_x, centroid_y)\n%Author: Yama"
+      " Habib\n%Revision: 10/27/2010\n%Centroid2Heading takes a raw matrix centroid coordinate and converts\n%it into a"
+      " correction heading, in degrees (i.e. heading_y_deg = -30,\n%heading_z_deg = 45 means that in order to orient yo"
+      "urself so that the\n%object in question is centered in the video feed, you need to turn 30\n%degrees to the left"
+      " and 45 degrees upwards, assuming the camera is mounted\n%on the front) The probability that this function will "
+      "return exactly 0\n%degrees is laughably low, so applying a reasonable threshold to the\n%result is strongly reco"
+      "mmended.\n\n%Should these be parameters? I think they're fine as constants.\nWIDTH = 160;\nHEIGHT = 120;\nMAXANG"
+      "LE = 130;\n\nheading_y_deg = ((centroid_x-(WIDTH/2)) / (WIDTH/2)) * (MAXANGLE/2);\nheading_z_deg = ((centroid_y-"
+      "(HEIGHT/2)) / (HEIGHT/2)) * (MAXANGLE/2);\nend\n"
+      editorLayout	      "100 M4x1[146 214 1288 755]"
+    }
+  }
+  junction {
+    id			    20
+    position		    [23.5747 49.5747 7]
+    chart		    18
+    linkNode		    [18 0 0]
+    subviewer		    18
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    21
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      20
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    18
+    linkNode		    [18 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    18
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    22
+    ssIdNumber		    4
+    name		    "centroid_x"
+    linkNode		    [18 0 23]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    23
+    ssIdNumber		    5
+    name		    "heading_y_deg"
+    linkNode		    [18 22 24]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    24
+    ssIdNumber		    6
+    name		    "centroid_y"
+    linkNode		    [18 23 25]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    25
+    ssIdNumber		    7
+    name		    "heading_z_deg"
+    linkNode		    [18 24 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    26
+    name		    "Embedded\nMATLAB Function1"
+    machine		    1
+    chart		    18
+  }
+  chart {
+    id			    27
+    name		    "Embedded\nMATLAB Function2"
+    windowPosition	    [296.813 339 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 28 0 0]
+    firstTransition	    30
+    firstJunction	    29
+    viewObj		    27
+    machine		    1
+    toolbarMode		    LIBRARY_TOOLBAR
+    ssIdHighWaterMark	    6
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    31
+    chartFileNumber	    4
+    disableImplicitCasting  1
+    eml {
+      name		      "separate_centroids"
+    }
+  }
+  state {
+    id			    28
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    27
+    treeNode		    [27 0 0 0]
+    superState		    SUBCHART
+    subviewer		    27
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [x, y] = separate_centroids(centroid)\n\nx = centroid(1);\ny = centroid(2);\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+    }
+  }
+  junction {
+    id			    29
+    position		    [23.5747 49.5747 7]
+    chart		    27
+    linkNode		    [27 0 0]
+    subviewer		    27
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    30
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      29
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    27
+    linkNode		    [27 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    27
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    31
+    ssIdNumber		    6
+    name		    "x"
+    linkNode		    [27 0 32]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    32
+    ssIdNumber		    4
+    name		    "centroid"
+    linkNode		    [27 31 33]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    33
+    ssIdNumber		    5
+    name		    "y"
+    linkNode		    [27 32 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    34
+    name		    "Embedded\nMATLAB Function2"
+    machine		    1
+    chart		    27
+  }
+  chart {
+    id			    35
+    name		    "Embedded\nMATLAB Function3"
+    windowPosition	    [311.813 324 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 36 0 0]
+    firstTransition	    38
+    firstJunction	    37
+    viewObj		    35
+    machine		    1
+    toolbarMode		    LIBRARY_TOOLBAR
+    ssIdHighWaterMark	    6
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    39
+    chartFileNumber	    5
+    disableImplicitCasting  1
+    eml {
+      name		      "separate_centroids"
+    }
+  }
+  state {
+    id			    36
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    35
+    treeNode		    [35 0 0 0]
+    superState		    SUBCHART
+    subviewer		    35
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function following_path = separate_centroids(centroid)\n\n% If at least one path element is found"
+      ", then report that the path is being\n% followed\nif(size(centroid,1) ~= 0)\n    following_path = 1;\nelse\n    "
+      "following_path = 0;\nend\n"
+      editorLayout	      "100 M4x1[25 25 720 466]"
+    }
+  }
+  junction {
+    id			    37
+    position		    [23.5747 49.5747 7]
+    chart		    35
+    linkNode		    [35 0 0]
+    subviewer		    35
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    38
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      37
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    35
+    linkNode		    [35 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    35
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    39
+    ssIdNumber		    6
+    name		    "following_path"
+    linkNode		    [35 0 40]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    40
+    ssIdNumber		    4
+    name		    "centroid"
+    linkNode		    [35 39 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    41
+    name		    "Embedded\nMATLAB Function3"
+    machine		    1
+    chart		    35
+  }
+  chart {
+    id			    42
+    name		    "Embedded\nMATLAB Function4"
+    windowPosition	    [326.813 309 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 43 0 0]
+    firstTransition	    45
+    firstJunction	    44
+    viewObj		    42
+    machine		    1
+    toolbarMode		    LIBRARY_TOOLBAR
+    ssIdHighWaterMark	    6
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    46
+    chartFileNumber	    6
+    disableImplicitCasting  1
+    eml {
+      name		      "separate_centroids"
+    }
+  }
+  state {
+    id			    43
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    42
+    treeNode		    [42 0 0 0]
+    superState		    SUBCHART
+    subviewer		    42
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function following_state = separate_centroids(centroid)\n\n% Editing note:\n%   -centroid is not "
+      "a useful input. This function has yet to be written.\n%      -5-27-11\n\n\n% Determine whether:\n%   0 = No path"
+      " is being followed\n%   1 = A single path (can be made up of n path elements along one line)\n%         is being"
+      " followed\n%   2 = A Y-split is being encountered\n%   3 = A Y-join is being encountered\n\nfollowing_state = 1;"
+      "\n"
+      editorLayout	      "100 M4x1[65 65 720 466]"
+    }
+  }
+  junction {
+    id			    44
+    position		    [23.5747 49.5747 7]
+    chart		    42
+    linkNode		    [42 0 0]
+    subviewer		    42
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    45
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      44
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    42
+    linkNode		    [42 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    42
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    46
+    ssIdNumber		    6
+    name		    "following_state"
+    linkNode		    [42 0 47]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    47
+    ssIdNumber		    4
+    name		    "centroid"
+    linkNode		    [42 46 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    48
+    name		    "Embedded\nMATLAB Function4"
+    machine		    1
+    chart		    42
+  }
+  chart {
+    id			    49
+    name		    "Identify Path Elements"
+    windowPosition	    [458.98 136.448 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 50 0 0]
+    firstTransition	    52
+    firstJunction	    51
+    viewObj		    49
+    machine		    1
+    ssIdHighWaterMark	    27
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    53
+    chartFileNumber	    7
+    disableImplicitCasting  1
+    eml {
+      name		      "path_detection"
+    }
+  }
+  state {
+    id			    50
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    49
+    treeNode		    [49 0 0 0]
+    superState		    SUBCHART
+    subviewer		    49
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [theta_out, rho_out, target_x, target_y, path_found] = path_detection(bw_image_in, hough"
+      "_table, theta_in, rho_in, threshold)\n%#eml\n\n% This function attempts to identfiy path elements, and returns l"
+      "ines,\n%   targeting information, and a true/false path_found parameter.\n%\n% 5-30-11\n%\n% Input\n%\n% Output\n"
+      "%\n% Notes:\n%   The hough_table is destroyed in this function (acceptable if\n%     hough_table is not an outpu"
+      "t)\n\n\n% Initialize\npeak_tol_ratio = .1;  % Fraction of max(rows,cols) of image within which a\n%             "
+      "            peak is assumed to reside; this helps reduce\n%                         incorrect line extraction\nm"
+      "ax_num_lines = 10;  % Considers this many popular lines as candidates\n\n[rho_length, theta_length] = size(hough"
+      "_table);\n[rows, cols] = size(bw_image_in);\nrho_tol = .1*max(rows,cols);\ntheta_tol = 10*pi/180;  % Tolerence w"
+      "ithin which two slopes are equal (radians)\n\n%rho_out = zeros(1,3);\n%theta_out = zeros(1,3);\nrho = zeros(1,ma"
+      "x_num_lines);\ntheta = zeros(1,max_num_lines);\n\n\n% Apply appropriate threshold\nhough_table = hough_table.*( "
+      "hough_table > threshold );\n\n\n% Identify the most likely max_num_lines lines\ni_index = ones(1,max_num_lines);"
+      "\nj_index = ones(1,max_num_lines);\n\nm = 1;\nwhile( m <= max_num_lines )\n    \n    max_votes = 0;\n    for i ="
+      " 1:rho_length\n        for j = 1:theta_length\n            if( hough_table(i,j) > max_votes )\n                i"
+      "_index(m) = i;\n                j_index(m) = j;\n                max_votes = hough_table(i,j);\n            end\n"
+      "        end\n    end\n    \n    rho(m) = rho_in(i_index(m));\n    theta(m) = theta_in(j_index(m));\n    hough_ta"
+      "ble(i_index(m),j_index(m)) = 0;\n    m = m + 1;\n    \nend\n\n\n\n\n\n% debug\nrho_out = rho;\ntheta_out = theta"
+      ";\n\n\n\n\n% Extract the three most popular lines that fit the geometric criteria for\n%   the goalpost\nrho_out"
+      "(1) = rho(1);\ntheta_out(1) = theta(1);\n\nm = 2;\nfor i = 2:max_num_lines\n    \n    % If rho, theta do not mat"
+      "ch within tolerance, then store as the next\n    %   line\n    if( abs(rho(i) - rho(i-1)) >= 30 )\n        rho_o"
+      "ut(m) = rho(i);\n        theta_out(m) = theta(i);\n        m = m + 1;\n        if( m > 3 )\n            break;\n"
+      "        end\n    end\n    \nend\n\n\n\n% debug\nrho_out = rho;\ntheta_out = theta;\ntarget_x = 0;\ntarget_y = 0;"
+      "\npath_found = 0;\n\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+    }
+  }
+  junction {
+    id			    51
+    position		    [23.5747 49.5747 7]
+    chart		    49
+    linkNode		    [49 0 0]
+    subviewer		    49
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    52
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      51
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    49
+    linkNode		    [49 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    49
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    53
+    ssIdNumber		    21
+    name		    "bw_image_in"
+    linkNode		    [49 0 54]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    54
+    ssIdNumber		    4
+    name		    "hough_table"
+    linkNode		    [49 53 55]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    55
+    ssIdNumber		    5
+    name		    "theta_out"
+    linkNode		    [49 54 56]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    56
+    ssIdNumber		    9
+    name		    "rho_out"
+    linkNode		    [49 55 57]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    57
+    ssIdNumber		    18
+    name		    "target_x"
+    linkNode		    [49 56 58]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    58
+    ssIdNumber		    19
+    name		    "target_y"
+    linkNode		    [49 57 59]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    59
+    ssIdNumber		    15
+    name		    "path_found"
+    linkNode		    [49 58 60]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    60
+    ssIdNumber		    16
+    name		    "theta_in"
+    linkNode		    [49 59 61]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    61
+    ssIdNumber		    17
+    name		    "rho_in"
+    linkNode		    [49 60 62]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    62
+    ssIdNumber		    20
+    name		    "threshold"
+    linkNode		    [49 61 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    63
+    name		    "Identify Path Elements"
+    machine		    1
+    chart		    49
+  }
+  chart {
+    id			    64
+    name		    "Transform Coordinates2"
+    windowPosition	    [412.184 109.12 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 65 0 0]
+    firstTransition	    67
+    firstJunction	    66
+    viewObj		    64
+    machine		    1
+    subviewS {
+    }
+    ssIdHighWaterMark	    27
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    68
+    chartFileNumber	    8
+    disableImplicitCasting  1
+    eml {
+      name		      "transform_G2L"
+    }
+  }
+  state {
+    id			    65
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    64
+    treeNode		    [64 0 0 0]
+    superState		    SUBCHART
+    subviewer		    64
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [r_out, c_out] = transform_G2L(bw_image_in, which_camera, x_in, y_in, z_in)\n% This func"
+      "tion, \"transform Global to Local coordinates,\" transforms\n%   global coordinates that are sent to the control"
+      "ler into local\n%   coordinates that can be displayed over images.\n%\n% 5-29-11\n%\n% Input\n%   x_in, y_in, z_"
+      "in = vectors of points in global (vehicle-centered)\n%     coordinate system\n%   bw_image_in = a 2-D array of p"
+      "ixel values (used only to extract image\n%     size)\n%   which_camera = selects which camera for relative coord"
+      "inates\n%                = 0 -> Forward camera\n%                = 1 -> Down camera\n%\n% Output\n%   r_out, c_o"
+      "ut = row, column pairs in local coordinate system\n\n[rows, cols] = size(bw_image_in);\nif( which_camera == 0 )\n"
+      "    r_out = z_in + floor(rows/2);\n    c_out = y_in + floor(cols/2);\nelse\n    r_out = floor(rows/2) - x_in;\n "
+      "   c_out = y_in + floor(cols/2);\nend\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1288 755]"
+    }
+  }
+  junction {
+    id			    66
+    position		    [23.5747 49.5747 7]
+    chart		    64
+    linkNode		    [64 0 0]
+    subviewer		    64
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    67
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      66
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    64
+    linkNode		    [64 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    64
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    68
+    ssIdNumber		    24
+    name		    "bw_image_in"
+    linkNode		    [64 0 69]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    69
+    ssIdNumber		    27
+    name		    "which_camera"
+    linkNode		    [64 68 70]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    70
+    ssIdNumber		    26
+    name		    "x_in"
+    linkNode		    [64 69 71]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    71
+    ssIdNumber		    21
+    name		    "y_in"
+    linkNode		    [64 70 72]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    72
+    ssIdNumber		    5
+    name		    "r_out"
+    linkNode		    [64 71 73]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    73
+    ssIdNumber		    18
+    name		    "c_out"
+    linkNode		    [64 72 74]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    74
+    ssIdNumber		    25
+    name		    "z_in"
+    linkNode		    [64 73 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    75
+    name		    "Transform Coordinates2"
+    machine		    1
+    chart		    64
+  }
+  target {
+    id			    76
+    name		    "sfun"
+    description		    "Default Simulink S-Function Target."
+    machine		    1
+    linkNode		    [1 0 77]
+  }
+  target {
+    id			    77
+    name		    "rtw"
+    machine		    1
+    linkNode		    [1 76 0]
+  }
+}
