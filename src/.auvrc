@@ -50,7 +50,7 @@ Camera.Forward.identity=2;
 Camera.Forward.serial=4002761437;
 Camera.Forward.quality=55;
 Camera.Forward.port=5566;
-Camera.Forward.address=192.168.3.102;
+Camera.Forward.address=192.168.3.104;
 #Camera.Forward.address=127.0.0.1;
 
 Camera.Down.x=640;
@@ -61,7 +61,7 @@ Camera.Down.identity=3;
 Camera.Down.serial=4002761434;
 Camera.Down.quality=55;
 Camera.Down.port=5567;
-Camera.Down.address=192.168.3.102;
+Camera.Down.address=192.168.3.104;
 #Camera.Down.address=127.0.0.1;
 
 #Depth
@@ -70,7 +70,7 @@ Depth.Multiplier=4;
 Depth.ArraySize=50;
 
 #Vision
-TargetedImage.address=192.168.3.102;
+TargetedImage.address=192.168.3.104;
 TargetedImage.port=5568;
 TargetedImage.quality=30;
 

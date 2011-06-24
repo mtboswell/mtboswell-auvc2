@@ -44,7 +44,6 @@ class Dashboard : public GuiModule, private Ui::DashboardWindow
 		void setAddress(QString);
 		void reconnect();
 		//void receivedParam(QString, QString);
-		void sync();
 
 	public slots:
 		// Receieve UDP Data

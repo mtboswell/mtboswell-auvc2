@@ -166,7 +166,7 @@ void VDataSocket::handlePendingDatagrams() {
 }
 
 void VDataSocket::processDatagram(QByteArray datagram, QHostAddress fromAddr, quint16 fromPort){
-	//qDebug() << "Got Datagram:" << datagram;
+	qDebug() << "Got Datagram:" << datagram;
 
 	if(!datagram.startsWith("VDatum")) return;
 	datagram = datagram.right(datagram.size()-6);
