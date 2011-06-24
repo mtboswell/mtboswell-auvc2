@@ -47,6 +47,7 @@ Dashboard::Dashboard(AUVC_State_Data* stateIn)
 	connect(actionLoad_Parameters, SIGNAL(triggered()), this, SLOT(loadParameters()));
 	connect(actionSave_Parameters, SIGNAL(triggered()), this, SLOT(saveParameters()));
 	connect(actionLoad_Script, SIGNAL(triggered()), this, SLOT(sendScript()));
+	connect(add_to_state_data, SIGNAL(released()), this, SLOT(updateState()));
 
 	// Connect to Network Sockets 	
  	//connect(m_DS, SIGNAL(tmfReceived(VDatum,QHostAddress)), this, SLOT(handleAUVParam(VDatum)));
@@ -916,4 +917,40 @@ void Dashboard::loadParameter(QString param){
 		}
 
 	}
+}
+
+//adds whatever is in stateData label to state data
+void Dashboard::updateState() {
+	qDebug() << "Updating State";
+	QString input = stateLine->text();
+	QStringList list = input.split("=");
+	if (list.length() != 2) {
+		stateLine->setText("Failure");
+		return;
+	}
+	if (list[1] == "false" || list[1] == "False" || list[1] == "FALSE" || list[1] == "F" || list[1] == "f") {
+		setData(list[0], false);
+		stateLine->setText("Done (bool)");
+		return;
+	}
+	if (list[1] == "true" || list[1] == "True" || list[1] == "TRUE" || list[1] == "T" || list[1] == "t") {
+		setData(list[0], true);
+		stateLine->setText("Done (bool)");
+		return;
+	}
+	bool ok = false;
+	list[1].toInt(&ok);
+	if(ok) {
+		setData(list[0], list[1].toInt(&ok));
+		stateLine->setText("Done (int)");
+		return;
+	}
+	list[1].toFloat(&ok);
+	if(ok) {
+		setData(list[0], list[1].toFloat(&ok));
+		stateLine->setText("Done (float)");
+		return;
+	}
+	setData(list[0], list[1]);
+	stateLine->setText("Done (string)");
 }

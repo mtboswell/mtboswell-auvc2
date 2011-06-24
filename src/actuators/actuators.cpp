@@ -52,7 +52,7 @@ void Actuators::dataIn(VDatum datum){
 	}
 	else if (datum.id == "FireAuthorization") {
 		qDebug() << "FIRE!";
-		firetorpedos(datum.value.toInt(), true);
+		fireTorpedo(datum.value.toInt(), true);
 	}
 }
 
