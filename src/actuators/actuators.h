@@ -24,7 +24,7 @@ class Actuators: public Module
 			sub << "Thrusters";
 			sub << "ThrustersON.Forward";
 			sub << "ThrustersON.Angled";
-			sub << "FireAuthorization";
+			sub << "FireTorp";
 			return sub;
 		}
 		void fireTorpedo(int torp, bool fire);
@@ -33,6 +33,7 @@ class Actuators: public Module
 		void step();
 		void init();
 		void setThrusters(double[4]);
+		void retractTorpedos();
 	private:
 		Pololu* pololu;
 		VDatum oldData;

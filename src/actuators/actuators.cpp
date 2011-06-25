@@ -52,10 +52,10 @@ void Actuators::dataIn(VDatum datum){
 			pololu->setMotorSpeed(2, 0);
 		}
 	}
-	else if (datum.id == "FireAuthorization") {
-		//if (datum.id.toInt() == 1 && fired1) return;
-		//if (datum.id.toInt() == 2 && fired2) return;
-		if (datum.id.toInt() != 0) {
+	else if (datum.id == "FireTorp") {
+		if (datum.value.toInt() == 1 && fired1) return;
+		if (datum.value.toInt() == 2 && fired2) return;
+		if (datum.value.toInt() != 0) {
 			qDebug() << "FIRE!";
 			fireTorpedo(datum.value.toInt(), true);
 		}
@@ -94,7 +94,7 @@ void Actuators::fireTorpedo(int torp, bool fire) {
 		
 	}
 	else if (torp = 2) {
-		data.append(0x07);
+		data.append(0x06);
 		fired2 = true;
 	}
 	if (fire) {
@@ -104,5 +104,10 @@ void Actuators::fireTorpedo(int torp, bool fire) {
 		data.append(0x01);
 	}
 	pololu->writeSolCmd(data);
+	if (fire) QTimer::singleShot(3000, this, SLOT(retractTorpedos()));
+}
+
+void Actuators::retractTorpedos() {
+	setData("FireTorp", 0);
 }
 #endif
