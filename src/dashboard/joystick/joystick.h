@@ -20,6 +20,8 @@ public:
     double depth;
     double strafe;
     double heading;
+    bool but_2;
+    bool but_3;
 
     joystick();
 

@@ -17,6 +17,8 @@ joystick::joystick()
     depth = 0;
     strafe = 0;
     heading = 0;
+    but_2 = false;
+    but_3 = false;
     this->init();
     this->start();
 }
@@ -109,7 +111,15 @@ void joystick::run()
                 case SDL_JOYBUTTONDOWN:  /* Handle Joystick Button Presses */
                 if ( event.jbutton.button == 0 )
                 {
-                    /* code goes here */
+                    // main trigger
+                }
+                if ( event.jbutton.button == 2 )
+                {
+                    but_2 = true;
+                }
+                if ( event.jbutton.button == 3 )
+                {
+                    but_3 = true;
                 }
                 break;
 

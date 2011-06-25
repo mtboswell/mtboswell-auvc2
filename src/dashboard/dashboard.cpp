@@ -195,6 +195,18 @@ void Dashboard::updateJoystick()
         int adjustedHeading = currentHeading + headingIncrement;
         setData("DeadReckon.Heading", adjustedHeading % 360);
     }
+
+    if (js->but_2)
+    {
+        js->but_2 = false;
+        setData("FireAuthorization", 1);
+    }
+
+    if (js->but_3)
+    {
+        js->but_3 = false;
+        setData("FireAuthorization", 2);
+    }
 }
 
 void Dashboard::on_activate_joystick_clicked(bool checkbox_activated)
