@@ -78,9 +78,9 @@ void Actuators::fireTorpedo(int torp, bool fire) {
 	data.append(0x02);
 
 	if (torp = 1) {
-		data.append(0x03);
+		data.append(0x04);
 	}
-	else {
+	else if (torp = 2) {
 		data.append(0x07);
 	}
 	if (fire) {
