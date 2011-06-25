@@ -38,6 +38,8 @@ class Actuators: public Module
 		VDatum oldData;
 		bool forwardON;
 		bool angledON;
+		bool fired1;
+		bool fired2;
 };
 
 

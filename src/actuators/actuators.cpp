@@ -18,6 +18,8 @@ void Actuators::init(){
 	if(debug) pololu->setMotorSpeed(1, 64);
 	forwardON = true;
 	angledON = true;
+	fired1 = false;
+	fired2 = false;
 }
 
 void Actuators::dataIn(VDatum datum){
@@ -51,8 +53,17 @@ void Actuators::dataIn(VDatum datum){
 		}
 	}
 	else if (datum.id == "FireAuthorization") {
-		qDebug() << "FIRE!";
-		fireTorpedo(datum.value.toInt(), true);
+		//if (datum.id.toInt() == 1 && fired1) return;
+		//if (datum.id.toInt() == 2 && fired2) return;
+		if (datum.id.toInt() != 0) {
+			qDebug() << "FIRE!";
+			fireTorpedo(datum.value.toInt(), true);
+		}
+		else {
+			qDebug() << "RETRACT!";
+			fireTorpedo(1, false);
+			fireTorpedo(2, false);
+		}
 	}
 }
 
@@ -79,9 +90,12 @@ void Actuators::fireTorpedo(int torp, bool fire) {
 
 	if (torp = 1) {
 		data.append(0x04);
+		fired1 = true;
+		
 	}
 	else if (torp = 2) {
 		data.append(0x07);
+		fired2 = true;
 	}
 	if (fire) {
 		data.append(0x7F);
