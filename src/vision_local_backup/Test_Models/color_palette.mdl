@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.811"
+    ComputedModelVersion    "1.813"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 21 16:52:46 2011"
-  RTWModifiedTimeStamp	  230571920
-  ModelVersionFormat	  "1.%<AutoIncrement:811>"
+  LastModifiedDate	  "Sun Jun 26 03:59:30 2011"
+  RTWModifiedTimeStamp	  230961547
+  ModelVersionFormat	  "1.%<AutoIncrement:813>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -706,7 +706,7 @@ Model {
   }
   System {
     Name		    "color_palette"
-    Location		    [1466, 569, 2065, 1006]
+    Location		    [1440, 50, 3120, 1050]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -784,11 +784,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1003,7 +998,7 @@ Model {
       Name		      "a_range1"
       SID		      "244"
       Position		      [100, 155, 130, 185]
-      Value		      "[25 127]"
+      Value		      "[-60 -40]"
       SampleTime	      "-1"
     }
     Block {
@@ -1020,7 +1015,7 @@ Model {
       Name		      "b_range1"
       SID		      "245"
       Position		      [100, 205, 130, 235]
-      Value		      "[0 127]"
+      Value		      "[-30 -26]"
       SampleTime	      "-1"
     }
     Block {

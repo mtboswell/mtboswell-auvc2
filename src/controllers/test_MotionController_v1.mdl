@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.77"
+    ComputedModelVersion    "1.81"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_MotionController_v1/vision_model.mdl|MotionController"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jun 23 16:38:41 2011"
-  RTWModifiedTimeStamp	  230744004
-  ModelVersionFormat	  "1.%<AutoIncrement:77>"
+  LastModifiedDate	  "Fri Jun 24 18:11:31 2011"
+  RTWModifiedTimeStamp	  230838463
+  ModelVersionFormat	  "1.%<AutoIncrement:81>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -669,7 +669,7 @@ Model {
   }
   System {
     Name		    "test_MotionController_v1"
-    Location		    [0, 83, 1440, 867]
+    Location		    [1440, 50, 3120, 1050]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -889,15 +889,6 @@ Model {
     }
     Block {
       BlockType		      Display
-      Name		      "RightAngled1"
-      SID		      "36"
-      Ports		      [1]
-      Position		      [1070, 1220, 1160, 1250]
-      Decimation	      "5"
-      Lockdown		      off
-    }
-    Block {
-      BlockType		      Display
       Name		      "RightFwd"
       SID		      "26"
       Ports		      [1]
@@ -928,7 +919,6 @@ Model {
       Name		      "TargetFound"
       SID		      "3"
       Position		      [430, 260, 460, 290]
-      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
@@ -943,7 +933,7 @@ Model {
       Name		      "TargetX"
       SID		      "5"
       Position		      [320, 380, 350, 410]
-      Value		      "0"
+      Value		      "100"
       SampleTime	      "-1"
     }
     Block {
@@ -951,7 +941,7 @@ Model {
       Name		      "TargetY"
       SID		      "6"
       Position		      [320, 440, 350, 470]
-      Value		      "0"
+      Value		      "100"
       SampleTime	      "-1"
     }
     Block {
@@ -959,7 +949,7 @@ Model {
       Name		      "TargetYaw"
       SID		      "8"
       Position		      [320, 560, 350, 590]
-      Value		      "0"
+      Value		      "30"
       SampleTime	      "-1"
     }
     Block {
@@ -967,18 +957,18 @@ Model {
       Name		      "TargetZ"
       SID		      "7"
       Position		      [320, 500, 350, 530]
-      Value		      "0"
+      Value		      "100"
       SampleTime	      "-1"
     }
     Block {
       BlockType		      ModelReference
       Name		      "vision_model.mdl"
       SID		      "1"
-      Ports		      [18, 5]
+      Ports		      [18, 4]
       Position		      [545, 191, 970, 1259]
       ModelNameDialog	      "MotionController"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.124"
+      ModelReferenceVersion   "1.127"
       List {
 	ListType		InputPortNames
 	port0			"TargetSelect"
@@ -1006,7 +996,6 @@ Model {
 	port1			"RightFwd"
 	port2			"LeftAngled"
 	port3			"RightAngled"
-	port4			"RightAngled1"
       }
       List {
 	ListType		OutputPortOutputBusAsStructs
@@ -1014,7 +1003,6 @@ Model {
 	port1			"off"
 	port2			"off"
 	port3			"off"
-	port4			"off"
       }
       List {
 	ListType		InputPortSignalNames
@@ -1144,7 +1132,7 @@ Model {
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      1
-      Points		      [0, 35; 50, 0]
+      Points		      [50, 0]
       Branch {
 	DstBlock		"LeftFwd Scope"
 	DstPort			1
@@ -1158,7 +1146,7 @@ Model {
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      2
-      Points		      [0, 85; 50, 0]
+      Points		      [50, 0]
       Branch {
 	DstBlock		"RightFwd Scope"
 	DstPort			1
@@ -1172,7 +1160,7 @@ Model {
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      3
-      Points		      [0, 135; 55, 0]
+      Points		      [55, 0]
       Branch {
 	DstBlock		"LeftAngled Scope"
 	DstPort			1
@@ -1185,7 +1173,7 @@ Model {
     Line {
       SrcBlock		      "vision_model.mdl"
       SrcPort		      4
-      Points		      [0, 185; 50, 0]
+      Points		      [50, 0]
       Branch {
 	DstBlock		"RightAngled Scope"
 	DstPort			1
@@ -1214,13 +1202,6 @@ Model {
       SrcPort		      1
       DstBlock		      "vision_model.mdl"
       DstPort		      14
-    }
-    Line {
-      SrcBlock		      "vision_model.mdl"
-      SrcPort		      5
-      Points		      [40, 0; 0, 80]
-      DstBlock		      "RightAngled1"
-      DstPort		      1
     }
     Annotation {
       Name		      "TargetSelect:\n 0: not targeting\n1: targeting forward\n2: targeting down\n\nTargetFound:\n0: Searc"

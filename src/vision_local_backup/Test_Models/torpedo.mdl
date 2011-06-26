@@ -20,7 +20,7 @@ Model {
       BusObject		      ""
       Name		      "WhichColor"
     }
-    NumRootOutports	    8
+    NumRootOutports	    13
     Outport {
       BusObject		      ""
       BusOutputAsStruct	      "off"
@@ -61,12 +61,37 @@ Model {
       BusOutputAsStruct	      "off"
       Name		      "FireAuthorization"
     }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "LabelMatrix"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "BuoyHues"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "BuoyCentroids"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "num_colors"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "ref_colors"
+    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.61"
+    ComputedModelVersion    "1.839"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
-  SavedCharacterEncoding  "windows-1252"
+  SavedCharacterEncoding  "UTF-8"
   SaveDefaultBlockParams  on
   ScopeRefreshTime	  0.035000
   OverrideScopeRefreshTime on
@@ -76,21 +101,21 @@ Model {
   MinMaxOverflowLogging	  "UseLocalSettings"
   MinMaxOverflowArchiveMode "Overwrite"
   MaxMDLFileLineLength	  120
-  Created		  "Sat May 28 21:00:31 2011"
-  Creator		  "Administrator"
+  Created		  "Tue Sep 28 17:18:47 2010"
+  Creator		  "auvt"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "Administrator"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 14 19:51:19 2011"
-  RTWModifiedTimeStamp	  229978906
-  ModelVersionFormat	  "1.%<AutoIncrement:61>"
-  ConfigurationManager	  "None"
+  LastModifiedDate	  "Wed Jun 22 20:55:06 2011"
+  RTWModifiedTimeStamp	  230606053
+  ModelVersionFormat	  "1.%<AutoIncrement:839>"
+  ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
   LibraryLinkDisplay	  "none"
   WideLines		  off
-  ShowLineDimensions	  off
+  ShowLineDimensions	  on
   ShowPortDataTypes	  off
   ShowLoopsOnError	  on
   IgnoreBidirectionalLines off
@@ -169,7 +194,7 @@ Model {
 	  StartTime		  "0.0"
 	  StopTime		  "0"
 	  AbsTol		  "auto"
-	  FixedStep		  "auto"
+	  FixedStep		  "1/30"
 	  InitialStep		  "auto"
 	  MaxNumMinSteps	  "-1"
 	  MaxOrder		  5
@@ -634,7 +659,7 @@ Model {
       }
       Name		      "Configuration"
       CurrentDlgPage	      "Real-Time Workshop"
-      ConfigPrmDlgPosition    " [ 200, 85, 1080, 715 ] "
+      ConfigPrmDlgPosition    " [ 356, 60, 1244, 716 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -647,8 +672,8 @@ Model {
     BackgroundColor	    "white"
     DropShadow		    off
     NamePlacement	    "normal"
-    FontName		    "Helvetica"
-    FontSize		    10
+    FontName		    "FreeSans"
+    FontSize		    12
     FontWeight		    "normal"
     FontAngle		    "normal"
     ShowName		    on
@@ -661,15 +686,15 @@ Model {
     ForegroundColor	    "black"
     BackgroundColor	    "white"
     DropShadow		    off
-    FontName		    "Helvetica"
-    FontSize		    10
+    FontName		    "FreeSans"
+    FontSize		    12
     FontWeight		    "normal"
     FontAngle		    "normal"
     UseDisplayTextAsClickCallback off
   }
   LineDefaults {
-    FontName		    "Helvetica"
-    FontSize		    9
+    FontName		    "FreeSans"
+    FontSize		    12
     FontWeight		    "normal"
     FontAngle		    "normal"
   }
@@ -692,6 +717,9 @@ Model {
       Outputs		      "4"
       DisplayOption	      "none"
       BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      Ground
     }
     Block {
       BlockType		      Inport
@@ -759,18 +787,10 @@ Model {
     Block {
       BlockType		      Terminator
     }
-    Block {
-      BlockType		      ToWorkspace
-      VariableName	      "simulink_output"
-      MaxDataPoints	      "1000"
-      Decimation	      "1"
-      SampleTime	      "0"
-      FixptAsFi		      off
-    }
   }
   System {
     Name		    "torpedo"
-    Location		    [2, 76, 1014, 715]
+    Location		    [2, 72, 1278, 711]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -784,20 +804,20 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "94"
+    SIDHighWatermark	    "252"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
-      SID		      "1"
-      Position		      [65, 203, 95, 217]
+      SID		      "179"
+      Position		      [160, 223, 190, 237]
       IconDisplay	      "Port number"
       PortDimensions	      "Forward_Camera_Dimensions"
     }
     Block {
       BlockType		      Inport
       Name		      "G_forward_in"
-      SID		      "2"
-      Position		      [65, 238, 95, 252]
+      SID		      "180"
+      Position		      [160, 258, 190, 272]
       Port		      "2"
       IconDisplay	      "Port number"
       PortDimensions	      "Forward_Camera_Dimensions"
@@ -805,8 +825,8 @@ Model {
     Block {
       BlockType		      Inport
       Name		      "B_forward_in"
-      SID		      "3"
-      Position		      [65, 273, 95, 287]
+      SID		      "181"
+      Position		      [160, 293, 190, 307]
       Port		      "3"
       IconDisplay	      "Port number"
       PortDimensions	      "Forward_Camera_Dimensions"
@@ -814,18 +834,17 @@ Model {
     Block {
       BlockType		      Inport
       Name		      "WhichColor"
-      SID		      "4"
-      Position		      [65, 343, 95, 357]
+      SID		      "182"
+      Position		      [160, 363, 190, 377]
       Port		      "4"
       IconDisplay	      "Port number"
     }
     Block {
       BlockType		      SubSystem
-      Name		      "Decide which target to follow"
-      SID		      "94"
-      Ports		      [3, 5]
-      Position		      [1085, 190, 1325, 340]
-      LibraryVersion	      "1.31"
+      Name		      "Choose Buoy"
+      SID		      "224"
+      Ports		      [7, 8]
+      Position		      [1385, 160, 1690, 570]
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -838,14 +857,14 @@ Model {
       MaskType		      "Stateflow"
       MaskDescription	      "Embedded MATLAB block"
       MaskSelfModifiable      on
-      MaskDisplay	      "disp('determine_target');"
+      MaskDisplay	      "disp('Choose_Buoy');"
       MaskIconFrame	      on
       MaskIconOpaque	      off
       MaskIconRotate	      "none"
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
       System {
-	Name			"Decide which target to follow"
+	Name			"Choose Buoy"
 	Location		[257, 457, 812, 717]
 	Open			off
 	ModelBrowserVisibility	off
@@ -859,75 +878,125 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"27"
+	SIDHighWatermark	"67"
 	Block {
 	  BlockType		  Inport
-	  Name			  "centroids"
-	  SID			  "94::21"
+	  Name			  "buoy_count"
+	  SID			  "224::52"
 	  Position		  [20, 101, 40, 119]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "id"
-	  SID			  "94::22"
+	  Name			  "buoy_hues"
+	  SID			  "224::53"
 	  Position		  [20, 136, 40, 154]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "which_color"
-	  SID			  "94::23"
+	  Name			  "buoy_centroids"
+	  SID			  "224::54"
 	  Position		  [20, 171, 40, 189]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Block {
+	  BlockType		  Inport
+	  Name			  "a_range"
+	  SID			  "224::65"
+	  Position		  [20, 206, 40, 224]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "b_range"
+	  SID			  "224::66"
+	  Position		  [20, 246, 40, 264]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "which_color"
+	  SID			  "224::64"
+	  Position		  [20, 281, 40, 299]
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Forward_Camera_Dimensions"
+	  SID			  "224::67"
+	  Position		  [20, 316, 40, 334]
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Block {
 	  BlockType		  Demux
 	  Name			  " Demux "
-	  SID			  "94::15"
+	  SID			  "224::19"
 	  Ports			  [1, 1]
-	  Position		  [270, 245, 320, 285]
+	  Position		  [270, 545, 320, 585]
 	  Outputs		  "1"
 	}
 	Block {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
-	  SID			  "94::14"
-	  Tag			  "Stateflow S-Function torpedo 2"
-	  Ports			  [3, 6]
-	  Position		  [180, 102, 230, 243]
+	  SID			  "224::18"
+	  Tag			  "Stateflow S-Function torpedo 6"
+	  Ports			  [7, 9]
+	  Position		  [180, 164, 230, 546]
 	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[3 6]"
+	  PortCounts		  "[7 9]"
 	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
-	    Name		    "target_y"
+	    Name		    "target_select"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    3
-	    Name		    "target_z"
+	    Name		    "target_found"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    4
-	    Name		    "target_yaw"
+	    Name		    "maintain_heading"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    5
-	    Name		    "target_detected"
+	    Name		    "targetY"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
 	    PortNumber		    6
-	    Name		    "fire_authorization"
+	    Name		    "targetZ"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    7
+	    Name		    "targetYaw"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    8
+	    Name		    "target_detected"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    9
+	    Name		    "buoy_colors"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
@@ -935,46 +1004,70 @@ Model {
 	Block {
 	  BlockType		  Terminator
 	  Name			  " Terminator "
-	  SID			  "94::17"
-	  Position		  [460, 256, 480, 274]
+	  SID			  "224::21"
+	  Position		  [460, 556, 480, 574]
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "target_y"
-	  SID			  "94::5"
+	  Name			  "target_select"
+	  SID			  "224::55"
 	  Position		  [460, 101, 480, 119]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "target_z"
-	  SID			  "94::24"
+	  Name			  "target_found"
+	  SID			  "224::56"
 	  Position		  [460, 136, 480, 154]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "target_yaw"
-	  SID			  "94::26"
+	  Name			  "maintain_heading"
+	  SID			  "224::57"
 	  Position		  [460, 171, 480, 189]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "target_detected"
-	  SID			  "94::27"
+	  Name			  "targetY"
+	  SID			  "224::58"
 	  Position		  [460, 206, 480, 224]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "fire_authorization"
-	  SID			  "94::25"
+	  Name			  "targetZ"
+	  SID			  "224::59"
 	  Position		  [460, 246, 480, 264]
 	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "targetYaw"
+	  SID			  "224::60"
+	  Position		  [460, 281, 480, 299]
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "target_detected"
+	  SID			  "224::61"
+	  Position		  [460, 316, 480, 334]
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "buoy_colors"
+	  SID			  "224::62"
+	  Position		  [460, 351, 480, 369]
+	  Port			  "8"
 	  IconDisplay		  "Port number"
 	}
 	Line {
@@ -984,61 +1077,109 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "centroids"
+	  SrcBlock		  "buoy_count"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "id"
+	  SrcBlock		  "buoy_hues"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  2
 	}
 	Line {
-	  SrcBlock		  "which_color"
+	  SrcBlock		  "buoy_centroids"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  3
 	}
 	Line {
-	  Name			  "target_y"
+	  SrcBlock		  "a_range"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "b_range"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "which_color"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "Forward_Camera_Dimensions"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  7
+	}
+	Line {
+	  Name			  "target_select"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  2
-	  DstBlock		  "target_y"
+	  DstBlock		  "target_select"
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "target_z"
+	  Name			  "target_found"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  3
-	  DstBlock		  "target_z"
+	  DstBlock		  "target_found"
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "target_yaw"
+	  Name			  "maintain_heading"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
 	  SrcPort		  4
-	  DstBlock		  "target_yaw"
+	  DstBlock		  "maintain_heading"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "targetY"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  5
+	  DstBlock		  "targetY"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "targetZ"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  6
+	  DstBlock		  "targetZ"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "targetYaw"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  7
+	  DstBlock		  "targetYaw"
 	  DstPort		  1
 	}
 	Line {
 	  Name			  "target_detected"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
-	  SrcPort		  5
+	  SrcPort		  8
 	  DstBlock		  "target_detected"
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "fire_authorization"
+	  Name			  "buoy_colors"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
-	  SrcPort		  6
-	  DstBlock		  "fire_authorization"
+	  SrcPort		  9
+	  DstBlock		  "buoy_colors"
 	  DstPort		  1
 	}
 	Line {
@@ -1050,11 +1191,35 @@ Model {
       }
     }
     Block {
+      BlockType		      Constant
+      Name		      "Constant"
+      SID		      "227"
+      Position		      [1045, 401, 1200, 449]
+      Value		      "a_range"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant1"
+      SID		      "228"
+      Position		      [1045, 476, 1200, 524]
+      Value		      "b_range"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant2"
+      SID		      "229"
+      Position		      [1045, 561, 1200, 609]
+      Value		      "Forward_Camera_Dimensions"
+      SampleTime	      "-1"
+    }
+    Block {
       BlockType		      SubSystem
       Name		      "IterativeSegmentation"
-      SID		      "19"
+      SID		      "1"
       Ports		      [3, 3]
-      Position		      [190, 187, 465, 313]
+      Position		      [340, 212, 615, 338]
       UndoDeleteFcn	      "Stateflow.SLINSF.SimulinkMan.restorePreDeleteFcn"
       PreDeleteFcn	      "Stateflow.SLINSF.SimulinkMan.removePreDeleteFcn"
       MinAlgLoopOccurrences   off
@@ -1066,8 +1231,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"IterativeSegmentation"
-	Location		[2, 76, 1270, 731]
-	Open			off
+	Location		[2, 51, 1274, 758]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1082,14 +1247,14 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "R"
-	  SID			  "20"
+	  SID			  "2"
 	  Position		  [30, 98, 60, 112]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "G"
-	  SID			  "21"
+	  SID			  "3"
 	  Position		  [30, 128, 60, 142]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -1097,7 +1262,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "B"
-	  SID			  "22"
+	  SID			  "4"
 	  Position		  [30, 158, 60, 172]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -1105,7 +1270,7 @@ Model {
 	Block {
 	  BlockType		  Reference
 	  Name			  "Color Space\n Conversion1"
-	  SID			  "23"
+	  SID			  "7"
 	  Ports			  [3, 3]
 	  Position		  [470, 106, 570, 164]
 	  LibraryVersion	  "1.328"
@@ -1121,7 +1286,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Low Pass Filter"
-	  SID			  "25"
+	  SID			  "8"
 	  Ports			  [3, 3]
 	  Position		  [250, 107, 325, 163]
 	  MinAlgLoopOccurrences	  off
@@ -1133,7 +1298,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Low Pass Filter"
-	    Location		    [2, 76, 1270, 731]
+	    Location		    [4, 83, 1272, 738]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1149,14 +1314,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "R"
-	      SID		      "26"
+	      SID		      "9"
 	      Position		      [25, 38, 55, 52]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "G"
-	      SID		      "27"
+	      SID		      "10"
 	      Position		      [25, 103, 55, 117]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1164,7 +1329,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "B"
-	      SID		      "28"
+	      SID		      "11"
 	      Position		      [25, 173, 55, 187]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -1172,7 +1337,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Low Pass Filter"
-	      SID		      "29"
+	      SID		      "12"
 	      Ports		      [1, 1]
 	      Position		      [100, 23, 210, 67]
 	      PermitHierarchicalResolution "ExplicitOnly"
@@ -1212,14 +1377,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "I"
-		  SID			  "29::1"
+		  SID			  "12::1"
 		  Position		  [20, 101, 40, 119]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "29::11"
+		  SID			  "12::11"
 		  Ports			  [1, 1]
 		  Position		  [270, 160, 320, 200]
 		  Outputs		  "1"
@@ -1227,7 +1392,7 @@ Model {
 		Block {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
-		  SID			  "29::10"
+		  SID			  "12::10"
 		  Tag			  "Stateflow S-Function torpedo 45"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
@@ -1244,13 +1409,13 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "29::13"
+		  SID			  "12::13"
 		  Position		  [460, 171, 480, 189]
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "Iout"
-		  SID			  "29::5"
+		  SID			  "12::5"
 		  Position		  [460, 101, 480, 119]
 		  IconDisplay		  "Port number"
 		}
@@ -1285,7 +1450,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Low Pass Filter1"
-	      SID		      "30"
+	      SID		      "13"
 	      Ports		      [1, 1]
 	      Position		      [100, 88, 210, 132]
 	      PermitHierarchicalResolution "ExplicitOnly"
@@ -1325,14 +1490,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "I"
-		  SID			  "30::1"
+		  SID			  "13::1"
 		  Position		  [20, 101, 40, 119]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "30::11"
+		  SID			  "13::11"
 		  Ports			  [1, 1]
 		  Position		  [270, 160, 320, 200]
 		  Outputs		  "1"
@@ -1340,7 +1505,7 @@ Model {
 		Block {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
-		  SID			  "30::10"
+		  SID			  "13::10"
 		  Tag			  "Stateflow S-Function torpedo 46"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
@@ -1357,13 +1522,13 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "30::13"
+		  SID			  "13::13"
 		  Position		  [460, 171, 480, 189]
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "Iout"
-		  SID			  "30::5"
+		  SID			  "13::5"
 		  Position		  [460, 101, 480, 119]
 		  IconDisplay		  "Port number"
 		}
@@ -1398,7 +1563,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Low Pass Filter2"
-	      SID		      "31"
+	      SID		      "14"
 	      Ports		      [1, 1]
 	      Position		      [100, 158, 210, 202]
 	      PermitHierarchicalResolution "ExplicitOnly"
@@ -1438,14 +1603,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "I"
-		  SID			  "31::1"
+		  SID			  "14::1"
 		  Position		  [20, 101, 40, 119]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "31::11"
+		  SID			  "14::11"
 		  Ports			  [1, 1]
 		  Position		  [270, 160, 320, 200]
 		  Outputs		  "1"
@@ -1453,7 +1618,7 @@ Model {
 		Block {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
-		  SID			  "31::10"
+		  SID			  "14::10"
 		  Tag			  "Stateflow S-Function torpedo 47"
 		  Ports			  [1, 2]
 		  Position		  [180, 100, 230, 160]
@@ -1470,13 +1635,13 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "31::13"
+		  SID			  "14::13"
 		  Position		  [460, 171, 480, 189]
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "Iout"
-		  SID			  "31::5"
+		  SID			  "14::5"
 		  Position		  [460, 101, 480, 119]
 		  IconDisplay		  "Port number"
 		}
@@ -1511,14 +1676,14 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "R'"
-	      SID		      "32"
+	      SID		      "15"
 	      Position		      [235, 38, 265, 52]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "G'"
-	      SID		      "33"
+	      SID		      "16"
 	      Position		      [235, 103, 265, 117]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1526,7 +1691,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "B'"
-	      SID		      "34"
+	      SID		      "17"
 	      Position		      [235, 173, 265, 187]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -1572,7 +1737,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Segmentation"
-	  SID			  "35"
+	  SID			  "18"
 	  Ports			  [3, 3]
 	  Position		  [680, 104, 790, 166]
 	  MinAlgLoopOccurrences	  off
@@ -1584,8 +1749,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Segmentation"
-	    Location		    [2, 76, 1270, 731]
-	    Open		    off
+	    Location		    [21, 51, 1293, 758]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1600,14 +1765,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "L"
-	      SID		      "36"
+	      SID		      "19"
 	      Position		      [35, 63, 65, 77]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "a"
-	      SID		      "37"
+	      SID		      "20"
 	      Position		      [35, 123, 65, 137]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1615,7 +1780,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "b"
-	      SID		      "38"
+	      SID		      "21"
 	      Position		      [35, 173, 65, 187]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -1623,15 +1788,15 @@ Model {
 	    Block {
 	      BlockType		      Constant
 	      Name		      "Dist_Thresh"
-	      SID		      "39"
-	      Position		      [130, 233, 255, 257]
+	      SID		      "22"
+	      Position		      [160, 253, 285, 277]
 	      Value		      "Iter_Segment_Thresh"
 	      SampleTime	      "-1"
 	    }
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "LabSegmentation"
-	      SID		      "40"
+	      SID		      "23"
 	      Ports		      [5, 1]
 	      Position		      [675, 33, 920, 157]
 	      PermitHierarchicalResolution "ExplicitOnly"
@@ -1671,14 +1836,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "L"
-		  SID			  "40::1"
+		  SID			  "23::1"
 		  Position		  [20, 101, 40, 119]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "a"
-		  SID			  "40::2"
+		  SID			  "23::2"
 		  Position		  [20, 136, 40, 154]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -1686,7 +1851,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "b"
-		  SID			  "40::3"
+		  SID			  "23::3"
 		  Position		  [20, 171, 40, 189]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -1694,7 +1859,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "ref_colors"
-		  SID			  "40::4"
+		  SID			  "23::4"
 		  Position		  [20, 206, 40, 224]
 		  Port			  "4"
 		  IconDisplay		  "Port number"
@@ -1702,7 +1867,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "num_colors"
-		  SID			  "40::5"
+		  SID			  "23::5"
 		  Position		  [20, 246, 40, 264]
 		  Port			  "5"
 		  IconDisplay		  "Port number"
@@ -1710,7 +1875,7 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "40::17"
+		  SID			  "23::17"
 		  Ports			  [1, 1]
 		  Position		  [270, 220, 320, 260]
 		  Outputs		  "1"
@@ -1718,7 +1883,7 @@ Model {
 		Block {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
-		  SID			  "40::16"
+		  SID			  "23::16"
 		  Tag			  "Stateflow S-Function torpedo 48"
 		  Ports			  [5, 2]
 		  Position		  [180, 100, 230, 220]
@@ -1735,13 +1900,13 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "40::19"
+		  SID			  "23::19"
 		  Position		  [460, 231, 480, 249]
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "LabelMatrix"
-		  SID			  "40::9"
+		  SID			  "23::9"
 		  Position		  [460, 101, 480, 119]
 		  IconDisplay		  "Port number"
 		}
@@ -1800,7 +1965,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Reference Color Selection"
-	      SID		      "41"
+	      SID		      "24"
 	      Ports		      [4, 2]
 	      Position		      [335, 128, 475, 197]
 	      PermitHierarchicalResolution "ExplicitOnly"
@@ -1840,14 +2005,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "L"
-		  SID			  "41::1"
+		  SID			  "24::1"
 		  Position		  [20, 101, 40, 119]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "a"
-		  SID			  "41::2"
+		  SID			  "24::2"
 		  Position		  [20, 136, 40, 154]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -1855,7 +2020,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "b"
-		  SID			  "41::3"
+		  SID			  "24::3"
 		  Position		  [20, 171, 40, 189]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -1863,7 +2028,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "Dist_Thresh"
-		  SID			  "41::13"
+		  SID			  "24::13"
 		  Position		  [20, 206, 40, 224]
 		  Port			  "4"
 		  IconDisplay		  "Port number"
@@ -1871,7 +2036,7 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "41::15"
+		  SID			  "24::15"
 		  Ports			  [1, 1]
 		  Position		  [270, 205, 320, 245]
 		  Outputs		  "1"
@@ -1879,7 +2044,7 @@ Model {
 		Block {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
-		  SID			  "41::14"
+		  SID			  "24::14"
 		  Tag			  "Stateflow S-Function torpedo 49"
 		  Ports			  [4, 3]
 		  Position		  [180, 102, 230, 203]
@@ -1902,20 +2067,20 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "41::17"
+		  SID			  "24::17"
 		  Position		  [460, 216, 480, 234]
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "ref_colors"
-		  SID			  "41::7"
+		  SID			  "24::7"
 		  Position		  [460, 101, 480, 119]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "num_colors"
-		  SID			  "41::8"
+		  SID			  "24::8"
 		  Position		  [460, 136, 480, 154]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -1977,7 +2142,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Resize"
-	      SID		      "42"
+	      SID		      "25"
 	      Ports		      [3, 3]
 	      Position		      [210, 130, 250, 190]
 	      MinAlgLoopOccurrences   off
@@ -1989,7 +2154,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Resize"
-		Location		[209, 82, 608, 456]
+		Location		[209, 83, 608, 457]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -2005,14 +2170,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "In1"
-		  SID			  "43"
+		  SID			  "26"
 		  Position		  [55, 68, 85, 82]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "In2"
-		  SID			  "44"
+		  SID			  "27"
 		  Position		  [60, 133, 90, 147]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2020,7 +2185,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "In3"
-		  SID			  "45"
+		  SID			  "28"
 		  Position		  [65, 213, 95, 227]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2028,7 +2193,7 @@ Model {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Resize"
-		  SID			  "46"
+		  SID			  "29"
 		  Ports			  [1, 1]
 		  Position		  [110, 55, 175, 95]
 		  LibraryVersion	  "1.236"
@@ -2064,7 +2229,7 @@ Model {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Resize1"
-		  SID			  "47"
+		  SID			  "30"
 		  Ports			  [1, 1]
 		  Position		  [115, 120, 170, 160]
 		  LibraryVersion	  "1.236"
@@ -2100,7 +2265,7 @@ Model {
 		Block {
 		  BlockType		  Reference
 		  Name			  "Resize2"
-		  SID			  "48"
+		  SID			  "31"
 		  Ports			  [1, 1]
 		  Position		  [120, 200, 170, 240]
 		  LibraryVersion	  "1.236"
@@ -2136,14 +2301,14 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "Out1"
-		  SID			  "49"
+		  SID			  "32"
 		  Position		  [200, 68, 230, 82]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "Out2"
-		  SID			  "50"
+		  SID			  "33"
 		  Position		  [195, 133, 225, 147]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2151,7 +2316,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "Out3"
-		  SID			  "51"
+		  SID			  "34"
 		  Position		  [195, 213, 225, 227]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2197,7 +2362,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "LabelMatrix"
-	      SID		      "52"
+	      SID		      "35"
 	      Position		      [1015, 88, 1045, 102]
 	      NamePlacement	      "alternate"
 	      IconDisplay	      "Port number"
@@ -2205,7 +2370,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "num_colors"
-	      SID		      "53"
+	      SID		      "36"
 	      Position		      [540, 208, 570, 222]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2213,7 +2378,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "ref_colors"
-	      SID		      "54"
+	      SID		      "37"
 	      Position		      [540, 263, 570, 277]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2221,7 +2386,7 @@ Model {
 	    Line {
 	      SrcBlock		      "Dist_Thresh"
 	      SrcPort		      1
-	      Points		      [60, 0]
+	      Points		      [30, 0]
 	      DstBlock		      "Reference Color Selection"
 	      DstPort		      4
 	    }
@@ -2331,14 +2496,14 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "LabelMatrix"
-	  SID			  "55"
+	  SID			  "38"
 	  Position		  [965, 88, 995, 102]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "num_colors"
-	  SID			  "56"
+	  SID			  "39"
 	  Position		  [965, 128, 995, 142]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -2346,7 +2511,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "ref_colors"
-	  SID			  "57"
+	  SID			  "40"
 	  Position		  [965, 168, 995, 182]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -2431,10 +2596,10 @@ Model {
     }
     Block {
       BlockType		      SubSystem
-      Name		      "Look for Targets"
-      SID		      "59"
-      Ports		      [3, 2]
-      Position		      [595, 172, 990, 328]
+      Name		      "Look for Heart Targets"
+      SID		      "49"
+      Ports		      [3, 3]
+      Position		      [750, 195, 1145, 355]
       UndoDeleteFcn	      "Stateflow.SLINSF.SimulinkMan.restorePreDeleteFcn"
       PreDeleteFcn	      "Stateflow.SLINSF.SimulinkMan.removePreDeleteFcn"
       MinAlgLoopOccurrences   off
@@ -2445,8 +2610,8 @@ Model {
       RequestExecContextInheritance off
       MaskHideContents	      off
       System {
-	Name			"Look for Targets"
-	Location		[6, 76, 618, 707]
+	Name			"Look for Heart Targets"
+	Location		[2, 76, 1254, 715]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -2462,321 +2627,32 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "LabMatrix"
-	  SID			  "61"
-	  Position		  [115, 293, 145, 307]
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "num_colors"
-	  SID			  "63"
-	  Position		  [115, 353, 145, 367]
-	  Port			  "2"
+	  SID			  "50"
+	  Position		  [120, 118, 150, 132]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "ref_colors"
-	  SID			  "62"
-	  Position		  [115, 413, 145, 427]
+	  SID			  "131"
+	  Position		  [120, 178, 150, 192]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "num_colors"
+	  SID			  "51"
+	  Position		  [120, 238, 150, 252]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  SubSystem
-	  Name			  "Analyze LabelMatrix for Targets"
-	  SID			  "65"
-	  Ports			  [12, 2]
-	  Position		  [545, 245, 850, 650]
-	  PermitHierarchicalResolution "ExplicitOnly"
-	  TreatAsAtomicUnit	  on
-	  MinAlgLoopOccurrences	  off
-	  PropExecContextOutsideSubsystem off
-	  RTWSystemCode		  "Auto"
-	  FunctionWithSeparateData off
-	  Opaque		  off
-	  RequestExecContextInheritance	off
-	  MaskHideContents	  off
-	  MaskType		  "Stateflow"
-	  MaskDescription	  "Embedded MATLAB block"
-	  MaskSelfModifiable	  on
-	  MaskDisplay		  "disp('Target_Extraction');"
-	  MaskIconFrame		  on
-	  MaskIconOpaque	  off
-	  MaskIconRotate	  "none"
-	  MaskPortRotate	  "default"
-	  MaskIconUnits		  "autoscale"
-	  System {
-	    Name		    "Analyze LabelMatrix for Targets"
-	    Location		    [257, 457, 812, 717]
-	    Open		    off
-	    ModelBrowserVisibility  off
-	    ModelBrowserWidth	    200
-	    ScreenColor		    "white"
-	    PaperOrientation	    "landscape"
-	    PaperPositionMode	    "auto"
-	    PaperType		    "usletter"
-	    PaperUnits		    "inches"
-	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
-	    TiledPageScale	    1
-	    ShowPageBoundaries	    off
-	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "50"
-	    Block {
-	      BlockType		      Inport
-	      Name		      "successive_valid_image_count_in"
-	      SID		      "65::47"
-	      Position		      [20, 101, 40, 119]
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "blob_count"
-	      SID		      "65::38"
-	      Position		      [20, 136, 40, 154]
-	      Port		      "2"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "blob_hues"
-	      SID		      "65::40"
-	      Position		      [20, 171, 40, 189]
-	      Port		      "3"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "blob_centroids"
-	      SID		      "65::39"
-	      Position		      [20, 206, 40, 224]
-	      Port		      "4"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "blob_eccentricity"
-	      SID		      "65::36"
-	      Position		      [20, 246, 40, 264]
-	      Port		      "5"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "blob_extent"
-	      SID		      "65::37"
-	      Position		      [20, 281, 40, 299]
-	      Port		      "6"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Min_Eccent"
-	      SID		      "65::41"
-	      Position		      [20, 316, 40, 334]
-	      Port		      "7"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Max_Eccent"
-	      SID		      "65::42"
-	      Position		      [20, 351, 40, 369]
-	      Port		      "8"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Min_Extent"
-	      SID		      "65::43"
-	      Position		      [20, 386, 40, 404]
-	      Port		      "9"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Max_Extent"
-	      SID		      "65::44"
-	      Position		      [20, 426, 40, 444]
-	      Port		      "10"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Buoy_Count_Min"
-	      SID		      "65::45"
-	      Position		      [20, 461, 40, 479]
-	      Port		      "11"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Buoy_Count_Max"
-	      SID		      "65::46"
-	      Position		      [20, 496, 40, 514]
-	      Port		      "12"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Demux
-	      Name		      " Demux "
-	      SID		      "65::19"
-	      Ports		      [1, 1]
-	      Position		      [270, 510, 320, 550]
-	      Outputs		      "1"
-	    }
-	    Block {
-	      BlockType		      "S-Function"
-	      Name		      " SFunction "
-	      SID		      "65::18"
-	      Tag		      "Stateflow S-Function torpedo 4"
-	      Ports		      [12, 3]
-	      Position		      [180, 140, 230, 510]
-	      FunctionName	      "sf_sfun"
-	      PortCounts	      "[12 3]"
-	      EnableBusSupport	      on
-	      Port {
-		PortNumber		2
-		Name			"centroids"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	      Port {
-		PortNumber		3
-		Name			"id"
-		RTWStorageClass		"Auto"
-		DataLoggingNameMode	"SignalName"
-	      }
-	    }
-	    Block {
-	      BlockType		      Terminator
-	      Name		      " Terminator "
-	      SID		      "65::21"
-	      Position		      [460, 521, 480, 539]
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "centroids"
-	      SID		      "65::48"
-	      Position		      [460, 101, 480, 119]
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Outport
-	      Name		      "id"
-	      SID		      "65::50"
-	      Position		      [460, 136, 480, 154]
-	      Port		      "2"
-	      IconDisplay	      "Port number"
-	    }
-	    Line {
-	      SrcBlock		      " SFunction "
-	      SrcPort		      1
-	      DstBlock		      " Demux "
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "successive_valid_image_count_in"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "blob_count"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      2
-	    }
-	    Line {
-	      SrcBlock		      "blob_hues"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      3
-	    }
-	    Line {
-	      SrcBlock		      "blob_centroids"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      4
-	    }
-	    Line {
-	      SrcBlock		      "blob_eccentricity"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      5
-	    }
-	    Line {
-	      SrcBlock		      "blob_extent"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      6
-	    }
-	    Line {
-	      SrcBlock		      "Min_Eccent"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      7
-	    }
-	    Line {
-	      SrcBlock		      "Max_Eccent"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      8
-	    }
-	    Line {
-	      SrcBlock		      "Min_Extent"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      9
-	    }
-	    Line {
-	      SrcBlock		      "Max_Extent"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      10
-	    }
-	    Line {
-	      SrcBlock		      "Buoy_Count_Min"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      11
-	    }
-	    Line {
-	      SrcBlock		      "Buoy_Count_Max"
-	      SrcPort		      1
-	      DstBlock		      " SFunction "
-	      DstPort		      12
-	    }
-	    Line {
-	      Name		      "centroids"
-	      Labels		      [0, 0; 0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      2
-	      DstBlock		      "centroids"
-	      DstPort		      1
-	    }
-	    Line {
-	      Name		      "id"
-	      Labels		      [0, 0]
-	      SrcBlock		      " SFunction "
-	      SrcPort		      3
-	      DstBlock		      "id"
-	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      " Demux "
-	      SrcPort		      1
-	      DstBlock		      " Terminator "
-	      DstPort		      1
-	    }
-	  }
-	}
-	Block {
-	  BlockType		  SubSystem
 	  Name			  "Blob Extraction"
-	  SID			  "66"
+	  SID			  "54"
 	  Ports			  [3, 5]
-	  Position		  [220, 267, 465, 453]
+	  Position		  [260, 89, 540, 291]
 	  LibraryVersion	  "1.31"
 	  PermitHierarchicalResolution "ExplicitOnly"
 	  TreatAsAtomicUnit	  on
@@ -2811,18 +2687,18 @@ Model {
 	    TiledPageScale	    1
 	    ShowPageBoundaries	    off
 	    ZoomFactor		    "100"
-	    SIDHighWatermark	    "27"
+	    SIDHighWatermark	    "28"
 	    Block {
 	      BlockType		      Inport
 	      Name		      "LabelMatrix"
-	      SID		      "66::1"
+	      SID		      "54::1"
 	      Position		      [20, 101, 40, 119]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "ref_colors"
-	      SID		      "66::27"
+	      SID		      "54::27"
 	      Position		      [20, 136, 40, 154]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2830,7 +2706,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "num_colors"
-	      SID		      "66::18"
+	      SID		      "54::18"
 	      Position		      [20, 171, 40, 189]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2838,7 +2714,7 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "66::23"
+	      SID		      "54::23"
 	      Ports		      [1, 1]
 	      Position		      [270, 280, 320, 320]
 	      Outputs		      "1"
@@ -2846,7 +2722,7 @@ Model {
 	    Block {
 	      BlockType		      "S-Function"
 	      Name		      " SFunction "
-	      SID		      "66::22"
+	      SID		      "54::22"
 	      Tag		      "Stateflow S-Function torpedo 3"
 	      Ports		      [3, 6]
 	      Position		      [180, 102, 230, 243]
@@ -2887,20 +2763,20 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "66::25"
+	      SID		      "54::25"
 	      Position		      [460, 291, 480, 309]
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_count"
-	      SID		      "66::20"
+	      SID		      "54::20"
 	      Position		      [460, 101, 480, 119]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_hues"
-	      SID		      "66::26"
+	      SID		      "54::26"
 	      Position		      [460, 136, 480, 154]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2908,7 +2784,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_centroids"
-	      SID		      "66::21"
+	      SID		      "54::21"
 	      Position		      [460, 171, 480, 189]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2916,7 +2792,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_eccentricity"
-	      SID		      "66::5"
+	      SID		      "54::5"
 	      Position		      [460, 206, 480, 224]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -2924,7 +2800,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_extent"
-	      SID		      "66::19"
+	      SID		      "54::19"
 	      Position		      [460, 246, 480, 264]
 	      Port		      "5"
 	      IconDisplay	      "Port number"
@@ -3002,111 +2878,398 @@ Model {
 	  }
 	}
 	Block {
+	  BlockType		  SubSystem
+	  Name			  "Color Analysis"
+	  SID			  "223"
+	  Ports			  []
+	  Position		  [935, 560, 1240, 970]
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Embedded MATLAB block"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "disp('Color_Analysis');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "autoscale"
+	  System {
+	    Name		    "Color Analysis"
+	    Location		    [257, 457, 812, 717]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "50"
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      SID		      "223::19"
+	      Ports		      [1, 1]
+	      Position		      [270, 100, 320, 140]
+	      Outputs		      "1"
+	    }
+	    Block {
+	      BlockType		      Ground
+	      Name		      " Ground "
+	      SID		      "223::50"
+	      Position		      [20, 331, 40, 349]
+	    }
+	    Block {
+	      BlockType		      "S-Function"
+	      Name		      " SFunction "
+	      SID		      "223::18"
+	      Tag		      "Stateflow S-Function torpedo 5"
+	      Ports		      [1, 1]
+	      Position		      [180, 152, 230, 528]
+	      FunctionName	      "sf_sfun"
+	      PortCounts	      "[1 1]"
+	      EnableBusSupport	      on
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      " Terminator "
+	      SID		      "223::21"
+	      Position		      [460, 111, 480, 129]
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " Ground "
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      " Terminator "
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
 	  BlockType		  Constant
 	  Name			  "Constant"
-	  SID			  "67"
-	  Position		  [55, 476, 210, 524]
+	  SID			  "55"
+	  Position		  [60, 306, 215, 354]
 	  Value			  "Buoy_Min_Eccentricity"
 	  SampleTime		  "-1"
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "Constant1"
-	  SID			  "68"
-	  Position		  [55, 551, 210, 599]
+	  SID			  "56"
+	  Position		  [60, 381, 215, 429]
 	  Value			  "Buoy_Max_Eccentricity"
 	  SampleTime		  "-1"
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "Constant2"
-	  SID			  "69"
-	  Position		  [55, 631, 210, 679]
+	  SID			  "57"
+	  Position		  [60, 461, 215, 509]
 	  Value			  "Buoy_Min_Extent"
 	  SampleTime		  "-1"
 	}
 	Block {
 	  BlockType		  Constant
 	  Name			  "Constant3"
-	  SID			  "70"
-	  Position		  [55, 706, 210, 754]
+	  SID			  "58"
+	  Position		  [60, 536, 215, 584]
 	  Value			  "Buoy_Max_Extent"
 	  SampleTime		  "-1"
 	}
 	Block {
-	  BlockType		  Constant
-	  Name			  "Constant4"
-	  SID			  "71"
-	  Position		  [55, 781, 210, 829]
-	  Value			  "Buoy_Count_Min"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Constant5"
-	  SID			  "72"
-	  Position		  [55, 856, 210, 904]
-	  Value			  "Buoy_Count_Max"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace1"
-	  SID			  "73"
-	  Ports			  [1]
-	  Position		  [615, 195, 720, 225]
-	  VariableName		  "blob_hues"
-	  MaxDataPoints		  "inf"
-	  SampleTime		  "-1"
-	  SaveFormat		  "Array"
-	}
-	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace2"
-	  SID			  "74"
-	  Ports			  [1]
-	  Position		  [615, 139, 720, 171]
-	  VariableName		  "blob_centroids"
-	  MaxDataPoints		  "inf"
-	  SampleTime		  "-1"
-	  SaveFormat		  "Array"
-	}
-	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace3"
-	  SID			  "75"
-	  Ports			  [1]
-	  Position		  [615, 85, 720, 115]
-	  VariableName		  "blob_eccentricity"
-	  MaxDataPoints		  "inf"
-	  SampleTime		  "-1"
-	  SaveFormat		  "Array"
-	}
-	Block {
-	  BlockType		  ToWorkspace
-	  Name			  "To Workspace4"
-	  SID			  "76"
-	  Ports			  [1]
-	  Position		  [615, 35, 720, 65]
-	  VariableName		  "blob_extent"
-	  MaxDataPoints		  "inf"
-	  SampleTime		  "-1"
-	  SaveFormat		  "Array"
+	  BlockType		  SubSystem
+	  Name			  "Shape Analysis"
+	  SID			  "60"
+	  Ports			  [7, 3]
+	  Position		  [660, 87, 965, 493]
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Embedded MATLAB block"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "disp('Extract_Buoys');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "autoscale"
+	  System {
+	    Name		    "Shape Analysis"
+	    Location		    [257, 457, 812, 717]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "53"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "blob_count"
+	      SID		      "60::38"
+	      Position		      [20, 101, 40, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "blob_hues"
+	      SID		      "60::50"
+	      Position		      [20, 136, 40, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "blob_centroids"
+	      SID		      "60::39"
+	      Position		      [20, 171, 40, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "blob_eccentricity"
+	      SID		      "60::36"
+	      Position		      [20, 206, 40, 224]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "blob_extent"
+	      SID		      "60::37"
+	      Position		      [20, 246, 40, 264]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Torpedo_Eccentricity_Range"
+	      SID		      "60::41"
+	      Position		      [20, 281, 40, 299]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Torpedo_Extent_Range"
+	      SID		      "60::42"
+	      Position		      [20, 316, 40, 334]
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      SID		      "60::19"
+	      Ports		      [1, 1]
+	      Position		      [270, 540, 320, 580]
+	      Outputs		      "1"
+	    }
+	    Block {
+	      BlockType		      "S-Function"
+	      Name		      " SFunction "
+	      SID		      "60::18"
+	      Tag		      "Stateflow S-Function torpedo 4"
+	      Ports		      [7, 4]
+	      Position		      [180, 160, 230, 540]
+	      FunctionName	      "sf_sfun"
+	      PortCounts	      "[7 4]"
+	      EnableBusSupport	      on
+	      Port {
+		PortNumber		2
+		Name			"target_count"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"target_type"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		4
+		Name			"target_centroids"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      " Terminator "
+	      SID		      "60::21"
+	      Position		      [460, 551, 480, 569]
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "target_count"
+	      SID		      "60::32"
+	      Position		      [460, 101, 480, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "target_type"
+	      SID		      "60::34"
+	      Position		      [460, 136, 480, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "target_centroids"
+	      SID		      "60::17"
+	      Position		      [460, 171, 480, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "blob_count"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "blob_hues"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "blob_centroids"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "blob_eccentricity"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "blob_extent"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "Torpedo_Eccentricity_Range"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "Torpedo_Extent_Range"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      7
+	    }
+	    Line {
+	      Name		      "target_count"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      2
+	      DstBlock		      "target_count"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "target_type"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      3
+	      DstBlock		      "target_type"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "target_centroids"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      4
+	      DstBlock		      "target_centroids"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      " Terminator "
+	      DstPort		      1
+	    }
+	  }
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "Centroids"
-	  SID			  "78"
-	  Position		  [930, 343, 960, 357]
+	  Name			  "TargetCount"
+	  SID			  "108"
+	  Position		  [1465, 128, 1495, 142]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "ID"
-	  SID			  "79"
-	  Position		  [930, 543, 960, 557]
+	  Name			  "TargetType"
+	  SID			  "109"
+	  Position		  [1465, 208, 1495, 222]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TargetCentroids"
+	  SID			  "110"
+	  Position		  [1465, 418, 1495, 432]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "num_colors"
+	  SrcPort		  1
+	  Points		  [90, 0]
+	  DstBlock		  "Blob Extraction"
+	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "LabMatrix"
@@ -3117,148 +3280,104 @@ Model {
 	Line {
 	  SrcBlock		  "Blob Extraction"
 	  SrcPort		  1
-	  DstBlock		  "Analyze LabelMatrix for Targets"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Blob Extraction"
-	  SrcPort		  2
-	  Points		  [40, 0]
-	  Branch {
-	    DstBlock		    "Analyze LabelMatrix for Targets"
-	    DstPort		    3
-	  }
-	  Branch {
-	    Points		    [0, -115]
-	    DstBlock		    "To Workspace1"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  SrcBlock		  "Blob Extraction"
-	  SrcPort		  3
-	  Points		  [35, 0]
-	  Branch {
-	    DstBlock		    "Analyze LabelMatrix for Targets"
-	    DstPort		    4
-	  }
-	  Branch {
-	    Points		    [0, -205]
-	    DstBlock		    "To Workspace2"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  SrcBlock		  "Blob Extraction"
-	  SrcPort		  4
-	  Points		  [30, 0]
-	  Branch {
-	    DstBlock		    "Analyze LabelMatrix for Targets"
-	    DstPort		    5
-	  }
-	  Branch {
-	    Points		    [0, -295]
-	    DstBlock		    "To Workspace3"
-	    DstPort		    1
-	  }
-	}
-	Line {
-	  SrcBlock		  "Blob Extraction"
-	  SrcPort		  5
-	  Points		  [25, 0]
-	  Branch {
-	    DstBlock		    "Analyze LabelMatrix for Targets"
-	    DstPort		    6
-	  }
-	  Branch {
-	    Points		    [0, -380]
-	    DstBlock		    "To Workspace4"
-	    DstPort		    1
-	  }
+	  DstBlock		  "Shape Analysis"
+	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Constant"
 	  SrcPort		  1
-	  Points		  [205, 0; 0, -35]
-	  DstBlock		  "Analyze LabelMatrix for Targets"
-	  DstPort		  7
+	  Points		  [425, 0]
+	  DstBlock		  "Shape Analysis"
+	  DstPort		  6
 	}
 	Line {
 	  SrcBlock		  "Constant1"
 	  SrcPort		  1
-	  Points		  [215, 0; 0, -75]
-	  DstBlock		  "Analyze LabelMatrix for Targets"
-	  DstPort		  8
+	  Points		  [215, 0; 0, 65]
+	  DstBlock		  "Shape Analysis"
+	  DstPort		  7
 	}
 	Line {
 	  SrcBlock		  "Constant2"
 	  SrcPort		  1
-	  Points		  [230, 0; 0, -120]
-	  DstBlock		  "Analyze LabelMatrix for Targets"
-	  DstPort		  9
+	  Points		  [230, 0; 0, -15; 205, 0]
 	}
 	Line {
 	  SrcBlock		  "Constant3"
 	  SrcPort		  1
-	  Points		  [245, 0; 0, -160]
-	  DstBlock		  "Analyze LabelMatrix for Targets"
-	  DstPort		  10
-	}
-	Line {
-	  SrcBlock		  "Constant4"
-	  SrcPort		  1
-	  Points		  [255, 0; 0, -200]
-	  DstBlock		  "Analyze LabelMatrix for Targets"
-	  DstPort		  11
-	}
-	Line {
-	  SrcBlock		  "Constant5"
-	  SrcPort		  1
-	  Points		  [265, 0; 0, -240]
-	  DstBlock		  "Analyze LabelMatrix for Targets"
-	  DstPort		  12
-	}
-	Line {
-	  SrcBlock		  "Analyze LabelMatrix for Targets"
-	  SrcPort		  2
-	  DstBlock		  "ID"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Analyze LabelMatrix for Targets"
-	  SrcPort		  1
-	  DstBlock		  "Centroids"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "num_colors"
-	  SrcPort		  1
-	  Points		  [25, 0; 0, 60]
-	  DstBlock		  "Blob Extraction"
-	  DstPort		  3
+	  Points		  [245, 0; 0, -95; 190, 0]
 	}
 	Line {
 	  SrcBlock		  "ref_colors"
 	  SrcPort		  1
-	  Points		  [0, -30; 50, 0; 0, -30]
+	  Points		  [90, 0]
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Blob Extraction"
+	  SrcPort		  2
+	  Points		  [100, 0]
+	  DstBlock		  "Shape Analysis"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Blob Extraction"
+	  SrcPort		  3
+	  Points		  [100, 0]
+	  DstBlock		  "Shape Analysis"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Blob Extraction"
+	  SrcPort		  4
+	  Points		  [100, 0]
+	  DstBlock		  "Shape Analysis"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Blob Extraction"
+	  SrcPort		  5
+	  Points		  [100, 0]
+	  DstBlock		  "Shape Analysis"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Shape Analysis"
+	  SrcPort		  1
+	  Points		  [235, 0; 0, -20]
+	  DstBlock		  "TargetCount"
+	  DstPort		  1
+	}
+	Line {
+	  Labels		  [0, 0]
+	  SrcBlock		  "Shape Analysis"
+	  SrcPort		  2
+	  Points		  [240, 0; 0, -75]
+	  DstBlock		  "TargetType"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Shape Analysis"
+	  SrcPort		  3
+	  DstBlock		  "TargetCentroids"
+	  DstPort		  1
 	}
       }
     }
     Block {
       BlockType		      Outport
       Name		      "TargetSelect"
-      SID		      "8"
-      Position		      [1520, 113, 1550, 127]
+      SID		      "245"
+      Position		      [1835, 183, 1865, 197]
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
     Block {
       BlockType		      Outport
       Name		      "TargetFound"
-      SID		      "9"
-      Position		      [1520, 148, 1550, 162]
+      SID		      "246"
+      Position		      [1835, 218, 1865, 232]
       Port		      "2"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -3266,8 +3385,8 @@ Model {
     Block {
       BlockType		      Outport
       Name		      "MaintainHeading"
-      SID		      "10"
-      Position		      [1520, 183, 1550, 197]
+      SID		      "247"
+      Position		      [1835, 253, 1865, 267]
       Port		      "3"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -3275,8 +3394,8 @@ Model {
     Block {
       BlockType		      Outport
       Name		      "TargetY"
-      SID		      "11"
-      Position		      [1520, 218, 1550, 232]
+      SID		      "248"
+      Position		      [1835, 288, 1865, 302]
       Port		      "4"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -3284,8 +3403,8 @@ Model {
     Block {
       BlockType		      Outport
       Name		      "TargetZ"
-      SID		      "12"
-      Position		      [1520, 253, 1550, 267]
+      SID		      "249"
+      Position		      [1835, 323, 1865, 337]
       Port		      "5"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -3293,8 +3412,8 @@ Model {
     Block {
       BlockType		      Outport
       Name		      "TargetYaw"
-      SID		      "13"
-      Position		      [1520, 288, 1550, 302]
+      SID		      "250"
+      Position		      [1835, 358, 1865, 372]
       Port		      "6"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -3302,8 +3421,8 @@ Model {
     Block {
       BlockType		      Outport
       Name		      "TargetDetected"
-      SID		      "14"
-      Position		      [1520, 363, 1550, 377]
+      SID		      "251"
+      Position		      [1835, 433, 1865, 447]
       Port		      "7"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -3311,100 +3430,189 @@ Model {
     Block {
       BlockType		      Outport
       Name		      "FireAuthorization"
-      SID		      "18"
-      Position		      [1520, 398, 1550, 412]
+      SID		      "252"
+      Position		      [1835, 468, 1865, 482]
       Port		      "8"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "LabelMatrix"
+      SID		      "230"
+      Position		      [765, 38, 795, 52]
+      Port		      "9"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "BuoyHues"
+      SID		      "231"
+      Position		      [1280, 38, 1310, 52]
+      Port		      "10"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "BuoyCentroids"
+      SID		      "233"
+      Position		      [1280, 118, 1310, 132]
+      Port		      "11"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "num_colors"
+      SID		      "234"
+      Position		      [765, 78, 795, 92]
+      Port		      "12"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "ref_colors"
+      SID		      "235"
+      Position		      [765, 118, 795, 132]
+      Port		      "13"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
     Line {
       SrcBlock		      "R_forward_in"
       SrcPort		      1
+      Points		      [130, 0]
       DstBlock		      "IterativeSegmentation"
       DstPort		      1
     }
     Line {
       SrcBlock		      "G_forward_in"
       SrcPort		      1
-      Points		      [35, 0; 0, 5]
+      Points		      [0, 10]
       DstBlock		      "IterativeSegmentation"
       DstPort		      2
     }
     Line {
       SrcBlock		      "B_forward_in"
       SrcPort		      1
-      Points		      [35, 0; 0, 10]
+      Points		      [0, 15]
       DstBlock		      "IterativeSegmentation"
       DstPort		      3
     }
     Line {
       SrcBlock		      "IterativeSegmentation"
       SrcPort		      1
-      Points		      [55, 0; 0, -10]
-      DstBlock		      "Look for Targets"
-      DstPort		      1
+      Points		      [0, -15; 35, 0]
+      Branch {
+	DstBlock		"Look for Heart Targets"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -175]
+	DstBlock		"LabelMatrix"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "IterativeSegmentation"
       SrcPort		      2
-      DstBlock		      "Look for Targets"
-      DstPort		      2
+      Points		      [40, 0]
+      Branch {
+	Points			[45, 0; 0, 55]
+	DstBlock		"Look for Heart Targets"
+	DstPort			3
+      }
+      Branch {
+	Points			[0, -190]
+	DstBlock		"num_colors"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "IterativeSegmentation"
       SrcPort		      3
-      Points		      [110, 0]
-      DstBlock		      "Look for Targets"
-      DstPort		      3
+      Points		      [45, 0]
+      Branch {
+	Points			[70, 0]
+	DstBlock		"Look for Heart Targets"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, -190]
+	DstBlock		"ref_colors"
+	DstPort			1
+      }
     }
     Line {
-      SrcBlock		      "Decide which target to follow"
+      SrcBlock		      "Look for Heart Targets"
       SrcPort		      1
-      Points		      [0, 20]
-      DstBlock		      "TargetY"
+      Points		      [110, 0; 0, -35]
+      DstBlock		      "Choose Buoy"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Decide which target to follow"
+      SrcBlock		      "Look for Heart Targets"
       SrcPort		      2
-      Points		      [125, 0; 0, 25]
-      DstBlock		      "TargetZ"
-      DstPort		      1
+      Points		      [40, 0]
+      Branch {
+	Points			[70, 0; 0, -30]
+	DstBlock		"Choose Buoy"
+	DstPort			2
+      }
+      Branch {
+	Points			[0, -230]
+	DstBlock		"BuoyHues"
+	DstPort			1
+      }
     }
     Line {
-      SrcBlock		      "Decide which target to follow"
+      SrcBlock		      "Look for Heart Targets"
       SrcPort		      3
-      Points		      [85, 0; 0, 30]
-      DstBlock		      "TargetYaw"
-      DstPort		      1
+      Points		      [45, 0]
+      Branch {
+	Points			[65, 0; 0, -25]
+	DstBlock		"Choose Buoy"
+	DstPort			3
+      }
+      Branch {
+	Points			[0, -205]
+	DstBlock		"BuoyCentroids"
+	DstPort			1
+      }
     }
     Line {
-      SrcBlock		      "Decide which target to follow"
-      SrcPort		      4
-      Points		      [75, 0; 0, 75]
-      DstBlock		      "TargetDetected"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Decide which target to follow"
-      SrcPort		      5
-      Points		      [65, 0; 0, 80]
-      DstBlock		      "FireAuthorization"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Look for Targets"
+      SrcBlock		      "Constant"
       SrcPort		      1
-      Points		      [35, 0; 0, 5]
-      DstBlock		      "Decide which target to follow"
-      DstPort		      1
+      Points		      [80, 0; 0, -60]
+      DstBlock		      "Choose Buoy"
+      DstPort		      4
     }
     Line {
-      SrcBlock		      "Look for Targets"
-      SrcPort		      2
-      Points		      [35, 0; 0, -25]
-      DstBlock		      "Decide which target to follow"
-      DstPort		      2
+      SrcBlock		      "Constant1"
+      SrcPort		      1
+      Points		      [165, 0]
+      DstBlock		      "Choose Buoy"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "Constant2"
+      SrcPort		      1
+      Points		      [80, 0; 0, -40]
+      DstBlock		      "Choose Buoy"
+      DstPort		      7
+    }
+    Line {
+      SrcBlock		      "WhichColor"
+      SrcPort		      1
+      Points		      [385, 0; 0, 115]
+      DstBlock		      "Choose Buoy"
+      DstPort		      6
+    }
+    Annotation {
+      Position		      [287, 175]
     }
   }
 }
@@ -3437,17 +3645,17 @@ Stateflow {
   machine {
     id			    1
     name		    "torpedo"
-    created		    "02-Jun-2011 00:54:16"
+    created		    "28-Sep-2010 17:20:00"
     isLibrary		    0
-    firstTarget		    90
+    firstTarget		    98
     sfVersion		    75014000.000003
   }
   chart {
     id			    2
-    name		    "Decide which target to follow"
-    windowPosition	    [311.813 324 200.25 189.75]
+    name		    "Look for Heart Targets/Blob Extraction"
+    windowPosition	    [390.747 240 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 1280 800 1.333333333333333]
+    screen		    [1 1 3120 1050 1.180555555555556]
     treeNode		    [0 3 0 0]
     firstTransition	    5
     firstJunction	    4
@@ -3457,10 +3665,10 @@ Stateflow {
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    6
-    chartFileNumber	    2
+    chartFileNumber	    3
     disableImplicitCasting  1
     eml {
-      name		      "determine_target"
+      name		      "GetBlobInfo"
     }
   }
   state {
@@ -3477,10 +3685,34 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [target_y, target_z, target_yaw, target_detected, fire_authorization]= determine_target("
-      "centroids, id, which_color)\n% Decide which target to shoot at, based on which color is wanted.\n%\n% Input\n%\n"
-      "% Output\n%\n\n\n% Initialize\n\n\n%\ntarget_y = 0;\ntarget_z = 0;\ntarget_yaw = 0;\ntarget_detected = 0;\nfire_"
-      "authorization = 0;\n\n"
+      script		      "function [blob_count, blob_hues, blob_centroids, blob_eccentricity, blob_extent] = GetBlobInfo(La"
+      "belMatrix, ref_colors, num_colors)\n% This function will determine the characteristics of the blobs in an image\n"
+      "% given a label matrix defining the different binary images contained in a\n% that label matrix\n%\n% Input\n%  "
+      " LabelMatrix = 2-D matrix of integer values, each of which represents a\n%     color; location in matrix corresp"
+      "onds to pixel location in image\n%   ref_colors = Nx3 color table containing Lab components\n%   num_colors = in"
+      "teger number of colors present in LabelMatrix\n%   Buoy_Count_Max = maximum number of blobs that will be analyze"
+      "d\n%\n% Output\n%   blob_count = integer number of blobs in image\n%   blob_hues = Nx3 vector of hues of blobs i"
+      "n image\n%   blob_centroids = Nx2 matrix of x-y pairs of blob centroid locations\n%   blob_eccentricity = Nx1 ve"
+      "ctor of blob eccentricites\n%   blob_extent = Nx1 vector of blob extents\n\n\n% Initialize\nBuoy_Count_Max = 50;"
+      "\n[rows, cols] = size(LabelMatrix);\nLogicMatrix = false(rows,cols);\n\nmin_blob_area = 5;\n\nblob_hues = double"
+      "(zeros(Buoy_Count_Max,3));\nblob_centroids = double(zeros(Buoy_Count_Max,2));\nblob_eccentricity = double(zeros("
+      "Buoy_Count_Max,1));\nblob_extent = double(zeros(Buoy_Count_Max,1));\n\nblob_count = double(0);%uint8(0);\n\n% In"
+      "put hblob, a matrix containing [Area, blob_centroids, Eccentricity] for each\n% identified blob\npersistent hblo"
+      "b\nif isempty(hblob)\n    hblob = video.BlobAnalysis('AreaOutputPort',false,'BoundingBoxOutputPort',false,...\n "
+      "       'CentroidOutputPort',true,'EccentricityOutputPort',true,'ExtentOutputPort',true,...\n        'NumBlobsOut"
+      "putPort',true,'MinimumBlobAreaSource','Property',...\n        'MinimumBlobArea', min_blob_area);\nend\n\n%% Calc"
+      "ulate geometric information about the blobs\n%\n% LogicMatrix is a binary version of LabelMatrix, with ones at a"
+      "ll\n%   locations for which color values are k, and zeros everywhere else\nfor k = 1:num_colors\n    for i = 1:r"
+      "ows\n        for j = 1:cols\n            if(LabelMatrix(i,j) ~= k)\n                LogicMatrix(i,j) = false;\n "
+      "           else\n                LogicMatrix(i,j) = true;\n            end\n        end\n    end\n    [TCentroid"
+      ",TEccent,TExtent,TNumBlobs] = step(hblob,LogicMatrix);\n    \n    if(blob_count+TNumBlobs < Buoy_Count_Max)\n   "
+      "     for i = 1:TNumBlobs\n            \n            blob_centroids(blob_count+i,1) = TCentroid(1,i);\n          "
+      "  blob_centroids(blob_count+i,2) = TCentroid(2,i);\n            blob_eccentricity(blob_count+i) = TEccent(i);\n "
+      "           blob_extent(blob_count+i) = TExtent(i);\n            \n            ii = round(blob_centroids(blob_cou"
+      "nt+i,1));\n            jj = round(blob_centroids(blob_count+i,2));\n            blob_hues(blob_count+i,1) = ref_"
+      "colors( LabelMatrix(ii,jj), 1 );\n            blob_hues(blob_count+i,2) = ref_colors( LabelMatrix(ii,jj), 2 );\n"
+      "            blob_hues(blob_count+i,3) = ref_colors( LabelMatrix(ii,jj), 3 );\n            \n        end\n       "
+      " blob_count = blob_count + 1;%TNumBlobs;\n    end\nend\n\nreturn"
       editorLayout	      "100 M4x1[205 227 1080 733]"
     }
   }
@@ -3516,8 +3748,8 @@ Stateflow {
   }
   data {
     id			    6
-    ssIdNumber		    5
-    name		    "target_y"
+    ssIdNumber		    9
+    name		    "blob_count"
     linkNode		    [2 0 7]
     scope		    OUTPUT_DATA
     machine		    1
@@ -3528,6 +3760,8 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
       frame		      SF_FRAME_NO
@@ -3536,10 +3770,10 @@ Stateflow {
   }
   data {
     id			    7
-    ssIdNumber		    7
-    name		    "centroids"
+    ssIdNumber		    11
+    name		    "blob_hues"
     linkNode		    [2 6 8]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -3552,16 +3786,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    8
-    ssIdNumber		    8
-    name		    "id"
+    ssIdNumber		    10
+    name		    "blob_centroids"
     linkNode		    [2 7 9]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -3574,14 +3808,14 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    9
-    ssIdNumber		    9
-    name		    "which_color"
+    ssIdNumber		    4
+    name		    "LabelMatrix"
     linkNode		    [2 8 10]
     scope		    INPUT_DATA
     machine		    1
@@ -3592,20 +3826,17 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    10
-    ssIdNumber		    10
-    name		    "target_z"
+    ssIdNumber		    12
+    name		    "ref_colors"
     linkNode		    [2 9 11]
-    scope		    OUTPUT_DATA
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -3618,14 +3849,14 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    11
-    ssIdNumber		    12
-    name		    "target_yaw"
+    ssIdNumber		    5
+    name		    "blob_eccentricity"
     linkNode		    [2 10 12]
     scope		    OUTPUT_DATA
     machine		    1
@@ -3636,8 +3867,6 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
       frame		      SF_FRAME_NO
@@ -3646,10 +3875,10 @@ Stateflow {
   }
   data {
     id			    12
-    ssIdNumber		    13
-    name		    "target_detected"
+    ssIdNumber		    7
+    name		    "num_colors"
     linkNode		    [2 11 13]
-    scope		    OUTPUT_DATA
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -3662,14 +3891,14 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    13
-    ssIdNumber		    11
-    name		    "fire_authorization"
+    ssIdNumber		    8
+    name		    "blob_extent"
     linkNode		    [2 12 0]
     scope		    OUTPUT_DATA
     machine		    1
@@ -3690,30 +3919,31 @@ Stateflow {
   }
   instance {
     id			    14
-    name		    "Decide which target to follow"
+    name		    "Look for Heart Targets/Blob Extraction"
     machine		    1
     chart		    2
   }
   chart {
     id			    15
-    name		    "Look for Targets/Blob Extraction"
-    windowPosition	    [147.387 350.359 200.25 189.75]
+    name		    "Look for Heart Targets/Shape Analysis"
+    windowPosition	    [261.939 205.567 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 1280 800 1.333333333333333]
+    screen		    [1 1 3120 1050 1.180555555555556]
     treeNode		    [0 16 0 0]
     firstTransition	    18
     firstJunction	    17
     viewObj		    15
     machine		    1
-    ssIdHighWaterMark	    12
+    ssIdHighWaterMark	    43
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    19
-    chartFileNumber	    3
+    chartFileNumber	    4
     disableImplicitCasting  1
     eml {
-      name		      "GetBlobInfo"
+      name		      "Extract_Buoys"
     }
+    supportVariableSizing   0
   }
   state {
     id			    16
@@ -3729,32 +3959,38 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [blob_count, blob_hues, blob_centroids, blob_eccentricity, blob_extent] = GetBlobInfo(La"
-      "belMatrix, ref_colors, num_colors)\n% This function will determine the characteristics of the blobs in an image\n"
-      "% given a label matrix defining the different binary images contained in a\n% that label matrix\n%\n% Input\n%  "
-      " LabelMatrix = 2-D matrix of integer values, each of which represents a\n%     color; location in matrix corresp"
-      "onds to pixel location in image\n%   num_colors = integer number of colors present in LabelMatrix\n%\n% Output\n"
-      "%   blob_count = integer number of blobs in image\n%   blob_hues = Nx1 vector of hues of blobs in image\n%   blo"
-      "b_centroids = Nx2 matrix of x-y pairs of blob centroid locations\n%   blob_eccentricity = Nx1 vector of blob ecc"
-      "entricites\n%   blob_extent = Nx1 vector of blob extents\n\n\n% Initialize\n[rows, cols] = size(LabelMatrix);\nL"
-      "ogicMatrix = false(rows,cols);\n\nmax_num_blobs = 50;\nmin_blob_area = 5;\n\nblob_hues = double(zeros(max_num_bl"
-      "obs,3));\nblob_centroids = double(zeros(max_num_blobs,2));\nblob_eccentricity = double(zeros(max_num_blobs,1));\n"
-      "blob_extent = double(zeros(max_num_blobs,1));\n\nblob_count = double(0);%uint8(0);\n\n% Input hblob, a matrix co"
-      "ntaining [Area, blob_centroids, Eccentricity] for each\n% identified blob\npersistent hblob\nif isempty(hblob)\n"
-      "    hblob = video.BlobAnalysis('AreaOutputPort',false,'BoundingBoxOutputPort',false,...\n        'CentroidOutput"
-      "Port',true,'EccentricityOutputPort',true,'ExtentOutputPort',true,...\n        'NumBlobsOutputPort',true,'Minimum"
-      "BlobAreaSource','Property',...\n        'MinimumBlobArea', min_blob_area);\nend\n\n%% Calculate geometric inform"
-      "ation about the blobs\n%\n% LogicMatrix is a binary version of LabelMatrix, with ones at all\n%   locations for "
-      "which color values are k, and zeros everywhere else\nfor k = 1:num_colors\n    for i = 1:rows\n        for j = 1"
-      ":cols\n            if(LabelMatrix(i,j) ~= k)\n                LogicMatrix(i,j) = false;\n            else\n     "
-      "           LogicMatrix(i,j) = true;\n            end\n        end\n    end\n    [TCentroid,TEccent,TExtent,TNumB"
-      "lobs] = step(hblob,LogicMatrix);\n    \n    if(blob_count+TNumBlobs < max_num_blobs)\n        for i = 1:TNumBlob"
-      "s\n            \n            blob_centroids(blob_count+i,1) = TCentroid(1,i);\n            blob_centroids(blob_c"
-      "ount+i,2) = TCentroid(2,i);\n            blob_eccentricity(blob_count+i) = TEccent(i);\n            blob_extent("
-      "blob_count+i) = TExtent(i);\n            \n            ii = round(blob_centroids(blob_count+i,1));\n            "
-      "jj = round(blob_centroids(blob_count+i,2));\n            blob_hues(blob_count+i,1) = ref_colors( LabelMatrix(ii,"
-      "jj) );\n            \n        end\n        blob_count = blob_count + 1;%TNumBlobs;\n    end\nend\n\nreturn"
+      script		      "function [target_count, target_type, target_centroids] = Extract_Buoys(blob_count, blob_hues, blo"
+      "b_centroids, blob_eccentricity, blob_extent, Torpedo_Eccentricity_Range, Torpedo_Extent_Range)\n% This function "
+      "takes in vectors representing blobs present in the image,\n%   and returns information about how many and what k"
+      "ind of targets related\n%   to the torpedo are present.\n%\n% Input\n%   ref_colors = Nx3 color table containing"
+      " Lab components\n%   blob_count = integer number of blobs in image\n%   blob_hues = Nx3 vector of hues of blobs "
+      "in image (values are Lab\n%     components)\n%   blob_centroids = Nx2 matrix of x-y pairs of blob centroid locat"
+      "ions\n%   blob_eccentricity = Nx1 vector of blob eccentricites\n%   blob_extent = Nx1 vector of blob extents\n%\n"
+      "%   Torpedo_Eccentricity_Range = 2xN matrix of ranges for each target type\n%   Torpedo_Extent_Range = 2xN matri"
+      "x of ranges for each target type\n%\n% Output\n%   target_count = integer number of buoys found in image\n%   ta"
+      "rget_type = 2xN vector of target type pairs, unordered. The first of\n%     each pair indicates which type of ta"
+      "rget:\n%               = 0 -> No target\n%               = 1 -> Backdrop of targets (i.e., the colored board tha"
+      "t\n%                 contains the hearts)\n%               = 2 -> Large heart\n%               = 3 -> Small hear"
+      "t\n%     The second of each pair represents which color:\n%               = 0 -> No target\n%               = 1 "
+      "-> White\n%               = 2 -> Black\n%               = 3 -> Blue\n%               = 4 -> Red\n%              "
+      " = 5 -> Orange\n%               = 6 -> Yellow\n%               = 7 -> Green\n%   target_centroids = Nx2 matrix o"
+      "f x-y pairs of buoy centroid locations\n\n\n% Initialize\ntarget_count = double(0);\nTarget_Count_Max = 50;\ntar"
+      "get_type = double(zeros(Target_Count_Max,3));\ntarget_centroids = double(-500.*ones(Target_Count_Max,2));  % Ini"
+      "tialize to points clearly not located in image\n\n\n% Loop through blobs, and extract information about blobs sh"
+      "aped like buoys\nfor i = 1:blob_count\n    \n    % Store target information if geometric conditions are met\n   "
+      " %   Conditions: 1) Blob eccentricity is within specified range\n    %               2) Blob extent is within sp"
+      "ecified range\n    for t = 1:max_target_types\n    if( (blob_eccentricity(i) >= Torpedo_Eccentricity_Range(1,t))"
+      " && (blob_eccentricity(i) <= Torpedo_Eccentricity_Range(2,t))  &&  (blob_extent(i) >= Torpedo_Extent_Range(1,t))"
+      " && (blob_extent(i) <= Torpedo_Extent_Range(2,t)) )\n        target_count = target_count + 1;\n        target_ty"
+      "pe(1, target_count) = t;\n        \n        % need to write a bunch of stuff\n        target_type(2, target_coun"
+      "t) = %identify color from Lab components in blob_hues;\n        \n        target_centroids(target_count, 1) = bl"
+      "ob_centroids(i, 1);\n        target_centroids(target_count, 2) = blob_centroids(i, 2);\n        \n    end\n    \n"
+      "end\n\n\n\n\n\n\n\n\n\n% Resize output arrays\n%buoy_hues = buoy_hues(1:buoy_count);\n%buoy_centroids = buoy_cen"
+      "troids(1:buoy_count,:);\n%buoy_id = ;\n\nreturn\n"
       editorLayout	      "100 M4x1[205 227 1080 733]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
     }
   }
   junction {
@@ -3789,94 +4025,9 @@ Stateflow {
   }
   data {
     id			    19
-    ssIdNumber		    9
+    ssIdNumber		    29
     name		    "blob_count"
     linkNode		    [15 0 20]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    20
-    ssIdNumber		    11
-    name		    "blob_hues"
-    linkNode		    [15 19 21]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    21
-    ssIdNumber		    10
-    name		    "blob_centroids"
-    linkNode		    [15 20 22]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    22
-    ssIdNumber		    4
-    name		    "LabelMatrix"
-    linkNode		    [15 21 23]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    23
-    ssIdNumber		    12
-    name		    "ref_colors"
-    linkNode		    [15 22 24]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -3895,9 +4046,97 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
+    id			    20
+    ssIdNumber		    41
+    name		    "blob_hues"
+    linkNode		    [15 19 21]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    21
+    ssIdNumber		    30
+    name		    "blob_centroids"
+    linkNode		    [15 20 22]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    22
+    ssIdNumber		    24
+    name		    "target_count"
+    linkNode		    [15 21 23]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    23
+    ssIdNumber		    26
+    name		    "target_type"
+    linkNode		    [15 22 24]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
     id			    24
-    ssIdNumber		    5
-    name		    "blob_eccentricity"
+    ssIdNumber		    13
+    name		    "target_centroids"
     linkNode		    [15 23 25]
     scope		    OUTPUT_DATA
     machine		    1
@@ -3908,6 +4147,8 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
       frame		      SF_FRAME_NO
@@ -3916,8 +4157,8 @@ Stateflow {
   }
   data {
     id			    25
-    ssIdNumber		    7
-    name		    "num_colors"
+    ssIdNumber		    27
+    name		    "blob_eccentricity"
     linkNode		    [15 24 26]
     scope		    INPUT_DATA
     machine		    1
@@ -3938,10 +4179,10 @@ Stateflow {
   }
   data {
     id			    26
-    ssIdNumber		    8
+    ssIdNumber		    28
     name		    "blob_extent"
-    linkNode		    [15 25 0]
-    scope		    OUTPUT_DATA
+    linkNode		    [15 25 27]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -3954,116 +4195,157 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    27
+    ssIdNumber		    32
+    name		    "Torpedo_Eccentricity_Range"
+    linkNode		    [15 26 28]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    28
+    ssIdNumber		    33
+    name		    "Torpedo_Extent_Range"
+    linkNode		    [15 27 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    27
-    name		    "Look for Targets/Blob Extraction"
+    id			    29
+    name		    "Look for Heart Targets/Shape Analysis"
     machine		    1
     chart		    15
   }
   chart {
-    id			    28
-    name		    "Look for Targets/Analyze LabelMatrix for Targets"
-    windowPosition	    [100.598 327.131 200.25 189.75]
+    id			    30
+    name		    "Look for Heart Targets/Color Analysis"
+    windowPosition	    [276.939 190.567 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 29 0 0]
-    firstTransition	    31
-    firstJunction	    30
-    viewObj		    28
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 31 0 0]
+    firstTransition	    33
+    firstJunction	    32
+    viewObj		    30
     machine		    1
-    ssIdHighWaterMark	    41
+    ssIdHighWaterMark	    40
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    32
-    chartFileNumber	    4
+    chartFileNumber	    5
     disableImplicitCasting  1
     eml {
-      name		      "Target_Extraction"
+      name		      "Color_Analysis"
     }
     supportVariableSizing   0
   }
   state {
-    id			    29
+    id			    31
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    28
-    treeNode		    [28 0 0 0]
+    chart		    30
+    treeNode		    [30 0 0 0]
     superState		    SUBCHART
-    subviewer		    28
+    subviewer		    30
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [centroids, id]  = Target_Extraction(successive_valid_image_count_in, blob_count, blob_h"
-      "ues, blob_centroids, blob_eccentricity, blob_extent, Min_Eccent, Max_Eccent, Min_Extent, Max_Extent, Buoy_Count_"
-      "Min, Buoy_Count_Max)\n% This function takes in vectors representing blobs present in the image,\n%   and returns"
-      " information about how many and what kind of buoys are\n%   present.\n%\n% Input\n%   blob_count = integer numbe"
-      "r of blobs in image\n%   blob_hues = Nx1 vector of hues of blobs in image\n%   blob_centroids = Nx2 matrix of x-"
-      "y pairs of blob centroid locations\n%   blob_eccentricity = Nx1 vector of blob eccentricites\n%   blob_extent = "
-      "Nx1 vector of blob extents\n%\n%   Buoy_Count_Min = integer; minimum number of buoys searched for in an\n%     i"
-      "mage (mission/controls needs requires this option)\n%   Buoy_Count_Max = maximum number of buoys allowed per ima"
-      "ge; arbitrary\n%     limit\n%   Min_Hue,Max_Hue = Nx1 limits on valid buoy hues; hue is between 0 and 1\n%   Min"
-      "_Eccent,Max_Eccent = scalar limits on buoy eccentricity\n%   Min_Extent,Max_Extent = scalar limits on buoy exten"
-      "t\n%\n% Output\n%   successive_valid_image_count = integer value of the number of times an\n%     image with mor"
-      "e than Min_Num_Buoys is processed; persistant between\n%     function calls, so that the number of successive im"
-      "ages containing\n%     at least Min_Num_Buoys buoys is tracked\n%   buoy_count = integer number of buoys in imag"
-      "e\n%   buoy_hues = Nx1 vector of buoy colors\n%   buoy_centroids = Nx2 matrix of x-y pairs of buoy centroid loca"
-      "tions\n\ncentroids = 0;\nid = 0;\n\n\n\n%{\n% Initialize\n%persistent successive_valid_image_count;\nbuoy_count "
-      "= double(0);\n\n%debug\n%successive_valid_image_count = 0;\nBuoy_Count_Max = 50;\n\n\n%/debug\nbuoy_hues = doubl"
-      "e(zeros(Buoy_Count_Max,1));\nbuoy_centroids = double(-500.*ones(Buoy_Count_Max,2));  % Initialize to points clea"
-      "rly not located in image\n\nbuoy_id = double(-1.*ones(Buoy_Count_Max,1));\nBuoy_Hue_HalfRange = 10;\nBuoy1_Hue ="
-      " 30;\nBuoy2_Hue = 80;\nBuoy3_Hue = 15;\n\n% Loop through blobs, and analyze and extract buoy information\nfor i "
-      "= 1:blob_count\n    \n    % Convert Lab to XYZ\n%    R = buoy_hues(i);\n%    G = buoy_hues(i);\n%    B = buoy_hu"
-      "es(i);\n    \n    L = blob_hues(:,1); %refcolors(LabelMatrix(1,1,1));\n    a = blob_hues(:,2);\n    b = blob_hue"
-      "s(:,3);\n    \n    var_Y = L./10;\n    var_X = ( a./17.5 ).*( L./10 );\n    var_Z = ( b./7 ).*( L./10 );\n    \n"
-      "    Y = var_Y.^2;\n    X = ( var_X + Y )./1.02;\n    Z = -( var_Z - Y )./0.847;\n    \n    % Convert XYZ to RGB\n"
-      "    var_X = X./100;        %X from 0 to  95.047      (Observer = 2 degrees, Illuminant = D65)\n    var_Y = Y./10"
-      "0;        %Y from 0 to 100.000\n    var_Z = Z./100;        %Z from 0 to 108.883\n    \n    var_R = var_X.*3.2406"
-      " + var_Y.*(-1.5372) + var_Z.* -0.4986;\n    var_G = var_X .* -0.9689 + var_Y .*  1.8758 + var_Z.*  0.0415;\n    "
-      "var_B = var_X .*  0.0557 + var_Y .* -0.2040 + var_Z .*  1.0570;\n    \n    var_R = ( var_R > 0.0031308 ).*( 1.05"
-      "5.*( var_R.^( 1./2.4 ) ) - 0.055 ) + ( var_R <= 0.0031308 ).*(12.92.*var_R);\n    var_G = ( var_G > 0.0031308 )."
-      "*( 1.055.*( var_G.^( 1./2.4 ) ) - 0.055 ) + ( var_G <= 0.0031308 ).*( var_G <= 12.92.*var_G );\n    var_B = ( va"
-      "r_B > 0.0031308 ).*( 1.055 .* ( var_B .^ ( 1 ./ 2.4 ) ) - 0.055 ) + ( var_B <= 0.0031308 ).*( 12.92 .* var_B );\n"
-      "    \n    R = var_R .* 255;\n    G = var_G .* 255;\n    B = var_B .* 255;\n    \n    % Convert RGB to HSV\n    v"
-      "ar_R = ( R ./ 255 );  % RGB from 0 to 255\n    var_G = ( G ./ 255 );\n    var_B = ( B ./ 255 );\n    \n    var_M"
-      "in = min( [var_R, var_G, var_B], [], 2 );  % Min. value of RGB\n    var_Max = max( [var_R, var_G, var_B], [], 2 "
-      ");  % Max. value of RGB\n    del_Max = var_Max - var_Min;  % Delta RGB value\n    \n    V = var_Max;\n    \n%   "
-      " H = (del_Max != 0).*(  );\n%    S = (del_Max != 0).*( del_Max./var_Max );\n    if ( max(abs(del_Max == 0)) );  "
-      "% This is a gray, no chroma...\n        H = zeros(size(var_R));  % HSV results from 0 to 1\n        S = zeros(si"
-      "ze(var_R));\n    else  % Chromatic data...\n        \n        S = del_Max ./ var_Max;\n        \n        del_R ="
-      " ( ( ( var_Max - var_R ) ./ 6 ) + ( del_Max ./ 2 ) ) ./ del_Max;\n        del_G = ( ( ( var_Max - var_G ) ./ 6 )"
-      " + ( del_Max ./ 2 ) ) ./ del_Max;\n        del_B = ( ( ( var_Max - var_B ) ./ 6 ) + ( del_Max ./ 2 ) ) ./ del_Ma"
-      "x;\n        \n        \n        H = ( var_R == var_Max ).*( del_B - del_G ) + ( var_G == var_Max ).*( ( 1 ./ 3 )"
-      " + del_R - del_B ) + ( var_B == var_Max ).*( ( 2 ./ 3 ) + del_G - del_R );\n        H = ( H < 0 ).*( H + 1 ) + ("
-      " H > 1 ).*( H - 1 );\n        \n        \n%{        \n        if( var_R == var_Max )\n            H = del_B - de"
-      "l_G;\n        elseif( var_G == var_Max )\n            H = ( 1 ./ 3 ) + del_R - del_B;\n        elseif( var_B == "
-      "var_Max )\n            H = ( 2 ./ 3 ) + del_G - del_R;\n        else\n            H = 0;\n        end\n        \n"
-      "        if( H < 0 )\n            H = H + 1;\n        end\n        if( H > 1 )\n            H = H - 1;\n        e"
-      "nd\n%}        \n    end\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    % Store buoy information if b"
-      "lob conditions are met\n    %   Conditions: 1) Blob eccentricity is within specified range\n    %               "
-      "2) Blob extent is within specified range\n    %               3) Blob hue is within specified range for several "
-      "buoy\n    %                 types\n    if( (blob_eccentricity(i)>=Min_Eccent) && (blob_eccentricity(i)<=Max_Ecce"
-      "nt) && (blob_extent(i)>=Min_Extent) && (blob_extent(i)<=Max_Extent) )\n        \n        %if( (blob_hues(i)>=Buo"
-      "y1_Hue-Buoy_Hue_HalfRange) && (blob_hues(i)<=Buoy1_Hue+Buoy_Hue_HalfRange) )\n            buoy_count = buoy_coun"
-      "t + 1;\n            buoy_hues(buoy_count) = blob_hues(i);\n            buoy_id(buoy_count) = 1;\n            buo"
-      "y_centroids(buoy_count,1) = blob_centroids(i,1);\n            buoy_centroids(buoy_count,2) = blob_centroids(i,2)"
-      ";\n        %end\n        if( (blob_hues(i)>=Buoy2_Hue-Buoy_Hue_HalfRange) && (blob_hues(i)<=Buoy2_Hue+Buoy_Hue_H"
-      "alfRange) )\n            buoy_count = buoy_count + 1;\n            buoy_hues(buoy_count) = blob_hues(i);\n      "
-      "      buoy_id(buoy_count) = 2;\n            buoy_centroids(buoy_count,1) = blob_centroids(i,1);\n            buo"
-      "y_centroids(buoy_count,2) = blob_centroids(i,2);\n        end\n        if( (blob_hues(i)>=Buoy3_Hue-Buoy_Hue_Hal"
-      "fRange) && (blob_hues(i)<=Buoy3_Hue+Buoy_Hue_HalfRange) )\n            buoy_count = buoy_count + 1;\n           "
-      " buoy_hues(buoy_count) = blob_hues(i);\n            buoy_id(buoy_count) = 3;\n            buoy_centroids(buoy_co"
-      "unt,1) = blob_centroids(i,1);\n            buoy_centroids(buoy_count,2) = blob_centroids(i,2);\n        end\n   "
-      " end\n    \nend\n\nif( buoy_count >= Buoy_Count_Min )\n    successive_valid_image_count_out = double(successive_"
-      "valid_image_count_in + 1);\nelse\n    successive_valid_image_count_out = double(0);\nend\n\n\n% Resize output ar"
-      "rays\n%buoy_hues = buoy_hues(1:buoy_count);\n%buoy_centroids = buoy_centroids(1:buoy_count,:);\n%buoy_id = ;\n\n"
-      "\n\n\n%}\n\n\n\nreturn\n\n\n"
+      script		      "function Color_Analysis\n%function [buoy_id, buoy_count, buoy_hues, buoy_centroids] = Color_Analy"
+      "sis(blob_count, blob_hues, blob_centroids, blob_eccentricity, blob_extent, Min_Eccent, Max_Eccent, Min_Extent, M"
+      "ax_Extent)\n\n\n%{\n\n\n% This function takes in vectors representing blobs present in the image,\n%   and retur"
+      "ns information about how many and what kind of buoys are\n%   present.\n%\n% Input\n%   blob_count = integer num"
+      "ber of blobs in image\n%   blob_hues = Nx1 vector of hues of blobs in image (values are indices\n%     referring"
+      " to colors in the ref_colors matrix\n%   blob_centroids = Nx2 matrix of x-y pairs of blob centroid locations\n% "
+      "  blob_eccentricity = Nx1 vector of blob eccentricites\n%   blob_extent = Nx1 vector of blob extents\n%\n%   Buo"
+      "y_Count_Min = integer; minimum number of buoys searched for in an\n%     image (mission/controls needs requires "
+      "this option)\n%   Buoy_Count_Max = maximum number of buoys allowed per image; arbitrary\n%     limit\n%   Min_Hu"
+      "e,Max_Hue = Nx1 limits on valid buoy hues; hue is between 0 and 1\n%   Min_Eccent,Max_Eccent = scalar limits on "
+      "buoy eccentricity\n%   Min_Extent,Max_Extent = scalar limits on buoy extent\n%\n% Output\n%   successive_valid_i"
+      "mage_count = integer value of the number of times an\n%     image with more than Min_Num_Buoys is processed; per"
+      "sistant between\n%     function calls, so that the number of successive images containing\n%     at least Min_Nu"
+      "m_Buoys buoys is tracked\n%   buoy_count = integer number of buoys in image\n%   buoy_hues = Nx1 vector of buoy "
+      "colors\n%   buoy_centroids = Nx2 matrix of x-y pairs of buoy centroid locations\n\n\n% Initialize\n%persistent s"
+      "uccessive_valid_image_count;\nbuoy_count = double(0);\n\n%debug\n%successive_valid_image_count = 0;\nBuoy_Count_"
+      "Max = 50;\n\n\n%/debug\nbuoy_hues = double(zeros(Buoy_Count_Max,1));\nbuoy_centroids = double(-500.*ones(Buoy_Co"
+      "unt_Max,2));  % Initialize to points clearly not located in image\n\nbuoy_id = double(-1.*ones(Buoy_Count_Max,1)"
+      ");\nBuoy_Hue_HalfRange = 10;\nBuoy1_Hue = 30;\nBuoy2_Hue = 80;\nBuoy3_Hue = 15;\n\n% Loop through blobs, and ana"
+      "lyze and extract buoy information\nfor i = 1:blob_count\n    \n    % Convert Lab to XYZ\n%    R = buoy_hues(i);\n"
+      "%    G = buoy_hues(i);\n%    B = buoy_hues(i);\n    \n    L = blob_hues(:,1); %refcolors(LabelMatrix(1,1,1));\n "
+      "   a = blob_hues(:,2);\n    b = blob_hues(:,3);\n    \n    var_Y = L./10;\n    var_X = ( a./17.5 ).*( L./10 );\n"
+      "    var_Z = ( b./7 ).*( L./10 );\n    \n    Y = var_Y.^2;\n    X = ( var_X + Y )./1.02;\n    Z = -( var_Z - Y )."
+      "/0.847;\n    \n    % Convert XYZ to RGB\n    var_X = X./100;        %X from 0 to  95.047      (Observer = 2 degr"
+      "ees, Illuminant = D65)\n    var_Y = Y./100;        %Y from 0 to 100.000\n    var_Z = Z./100;        %Z from 0 to"
+      " 108.883\n    \n    var_R = var_X.*3.2406 + var_Y.*(-1.5372) + var_Z.* -0.4986;\n    var_G = var_X .* -0.9689 + "
+      "var_Y .*  1.8758 + var_Z.*  0.0415;\n    var_B = var_X .*  0.0557 + var_Y .* -0.2040 + var_Z .*  1.0570;\n    \n"
+      "    var_R = ( var_R > 0.0031308 ).*( 1.055.*( var_R.^( 1./2.4 ) ) - 0.055 ) + ( var_R <= 0.0031308 ).*(12.92.*va"
+      "r_R);\n    var_G = ( var_G > 0.0031308 ).*( 1.055.*( var_G.^( 1./2.4 ) ) - 0.055 ) + ( var_G <= 0.0031308 ).*( v"
+      "ar_G <= 12.92.*var_G );\n    var_B = ( var_B > 0.0031308 ).*( 1.055 .* ( var_B .^ ( 1 ./ 2.4 ) ) - 0.055 ) + ( v"
+      "ar_B <= 0.0031308 ).*( 12.92 .* var_B );\n    \n    R = var_R .* 255;\n    G = var_G .* 255;\n    B = var_B .* 2"
+      "55;\n    \n    % Convert RGB to HSV\n    var_R = ( R ./ 255 );  % RGB from 0 to 255\n    var_G = ( G ./ 255 );\n"
+      "    var_B = ( B ./ 255 );\n    \n    var_Min = min( [var_R, var_G, var_B], [], 2 );  % Min. value of RGB\n    va"
+      "r_Max = max( [var_R, var_G, var_B], [], 2 );  % Max. value of RGB\n    del_Max = var_Max - var_Min;  % Delta RGB"
+      " value\n    \n    V = var_Max;\n    \n%    H = (del_Max != 0).*(  );\n%    S = (del_Max != 0).*( del_Max./var_Ma"
+      "x );\n    if ( max(abs(del_Max == 0)) );  % This is a gray, no chroma...\n        H = zeros(size(var_R));  % HSV"
+      " results from 0 to 1\n        S = zeros(size(var_R));\n    else  % Chromatic data...\n        \n        S = del_"
+      "Max ./ var_Max;\n        \n        del_R = ( ( ( var_Max - var_R ) ./ 6 ) + ( del_Max ./ 2 ) ) ./ del_Max;\n    "
+      "    del_G = ( ( ( var_Max - var_G ) ./ 6 ) + ( del_Max ./ 2 ) ) ./ del_Max;\n        del_B = ( ( ( var_Max - var"
+      "_B ) ./ 6 ) + ( del_Max ./ 2 ) ) ./ del_Max;\n        \n        \n        H = ( var_R == var_Max ).*( del_B - de"
+      "l_G ) + ( var_G == var_Max ).*( ( 1 ./ 3 ) + del_R - del_B ) + ( var_B == var_Max ).*( ( 2 ./ 3 ) + del_G - del_"
+      "R );\n        H = ( H < 0 ).*( H + 1 ) + ( H > 1 ).*( H - 1 );\n        \n        \n%{        \n        if( var_"
+      "R == var_Max )\n            H = del_B - del_G;\n        elseif( var_G == var_Max )\n            H = ( 1 ./ 3 ) +"
+      " del_R - del_B;\n        elseif( var_B == var_Max )\n            H = ( 2 ./ 3 ) + del_G - del_R;\n        else\n"
+      "            H = 0;\n        end\n        \n        if( H < 0 )\n            H = H + 1;\n        end\n        if("
+      " H > 1 )\n            H = H - 1;\n        end\n%}        \n    end\n    \n    \n    \n    \n    \n    \n    \n  "
+      "  \n    \n    % Store buoy information if blob conditions are met\n    %   Conditions: 1) Blob eccentricity is w"
+      "ithin specified range\n    %               2) Blob extent is within specified range\n    %               3) Blob"
+      " hue is within specified range for several buoy\n    %                 types\n    if( (blob_eccentricity(i)>=Min"
+      "_Eccent) && (blob_eccentricity(i)<=Max_Eccent) && (blob_extent(i)>=Min_Extent) && (blob_extent(i)<=Max_Extent) )"
+      "\n        \n        %if( (blob_hues(i)>=Buoy1_Hue-Buoy_Hue_HalfRange) && (blob_hues(i)<=Buoy1_Hue+Buoy_Hue_HalfR"
+      "ange) )\n            buoy_count = buoy_count + 1;\n            buoy_hues(buoy_count) = blob_hues(i);\n          "
+      "  buoy_id(buoy_count) = 1;\n            buoy_centroids(buoy_count,1) = blob_centroids(i,1);\n            buoy_ce"
+      "ntroids(buoy_count,2) = blob_centroids(i,2);\n        %end\n        if( (blob_hues(i)>=Buoy2_Hue-Buoy_Hue_HalfRa"
+      "nge) && (blob_hues(i)<=Buoy2_Hue+Buoy_Hue_HalfRange) )\n            buoy_count = buoy_count + 1;\n            bu"
+      "oy_hues(buoy_count) = blob_hues(i);\n            buoy_id(buoy_count) = 2;\n            buoy_centroids(buoy_count"
+      ",1) = blob_centroids(i,1);\n            buoy_centroids(buoy_count,2) = blob_centroids(i,2);\n        end\n      "
+      "  if( (blob_hues(i)>=Buoy3_Hue-Buoy_Hue_HalfRange) && (blob_hues(i)<=Buoy3_Hue+Buoy_Hue_HalfRange) )\n          "
+      "  buoy_count = buoy_count + 1;\n            buoy_hues(buoy_count) = blob_hues(i);\n            buoy_id(buoy_coun"
+      "t) = 3;\n            buoy_centroids(buoy_count,1) = blob_centroids(i,1);\n            buoy_centroids(buoy_count,"
+      "2) = blob_centroids(i,2);\n        end\n    end\n    \nend\n\n% Resize output arrays\n%buoy_hues = buoy_hues(1:b"
+      "uoy_count);\n%buoy_centroids = buoy_centroids(1:buoy_count,:);\n%buoy_id = ;\n\n\n%}\n\n\nreturn"
       editorLayout	      "100 M4x1[205 227 1080 733]"
       fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
       "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
@@ -4071,16 +4353,16 @@ Stateflow {
     }
   }
   junction {
-    id			    30
+    id			    32
     position		    [23.5747 49.5747 7]
-    chart		    28
-    linkNode		    [28 0 0]
-    subviewer		    28
+    chart		    30
+    linkNode		    [30 0 0]
+    subviewer		    30
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    31
+    id			    33
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4088,46 +4370,173 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      30
+      id		      32
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    28
-    linkNode		    [28 0 0]
+    chart		    30
+    linkNode		    [30 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    28
+    subviewer		    30
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  instance {
+    id			    34
+    name		    "Look for Heart Targets/Color Analysis"
+    machine		    1
+    chart		    30
+  }
+  chart {
+    id			    35
+    name		    "Choose Buoy"
+    windowPosition	    [291.939 175.567 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 36 0 0]
+    firstTransition	    38
+    firstJunction	    37
+    viewObj		    35
+    machine		    1
+    ssIdHighWaterMark	    53
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    39
+    chartFileNumber	    6
+    disableImplicitCasting  1
+    eml {
+      name		      "Choose_Buoy"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    36
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    35
+    treeNode		    [35 0 0 0]
+    superState		    SUBCHART
+    subviewer		    35
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [target_select, target_found, maintain_heading, targetY, targetZ, targetYaw, target_dete"
+      "cted, buoy_colors] = Choose_Buoy(buoy_count, buoy_hues, buoy_centroids, a_range, b_range, which_color, Forward_C"
+      "amera_Dimensions)\n% This function takes in vectors representing buoys present in the image,\n%   and decides wh"
+      "ich buoy to target.\n%\n% Input\n%   buoy_count = number of buoys identified in the image\n%   buoy_hues = Nx3 m"
+      "atrix of Lab components for each buoy\n%   buoy_centroids = Nx2 matrix of x-y pairs of buoy centroids\n%   ref_c"
+      "olors = Nx3 color table containing Lab components\n%   a_range, b_range = 2xN matrix of lower/upper bounds on a,"
+      " b for each\n%     color\n%   which_color = which buoy color should be targeted; integer value\n%     represents"
+      ":\n%               1 -> White\n%               2 -> Black\n%               3 -> Blue\n%               4 -> Red\n"
+      "%               5 -> Orange\n%               6 -> Yellow\n%               7 -> Green\n%\n% Output\n%   target_se"
+      "lect = input to MotionController.mdl, which selects which\n%     camera to use\n%   target_found = informs Motio"
+      "nController that a target is being tracked\n%   maintain_heading = instructs MotionController to strafe xor turn"
+      ":\n%                    = 0 -> Turn toward target (use targetYaw)\n%                    = 1 -> Strafe to target "
+      "(use targetY)\n%   targetY, targetZ = position of buoy in absolute coordinates\n%   targetYaw = relative, latera"
+      "l angular displacement of buoy from\n%     straight ahead (in degrees)\n%   target_detected = informs the script"
+      " that a buoy is being tracked\n%   buoy_colors = vector of integers representing which color each buoy is,\n%   "
+      "  from left to right (same color scheme as which_color)\n\n\n% Initialize\nBuoy_Count_Max = 50;\nmax_num_colors "
+      "= size(a_range, 2);\ntarget_select = 1;\ntarget_found = 1;\nmaintain_heading = 0;\ntargetY = 0;\ntargetZ = 0;\nt"
+      "argetYaw = 0;\ntarget_detected = 0;\nbuoy_colors = zeros(1, Buoy_Count_Max);\nrows = Forward_Camera_Dimensions(1"
+      ");\ncols = Forward_Camera_Dimensions(2);\n\n\n% Classify each buoy by color\nfor i = 1:buoy_count\n    \n    a ="
+      " buoy_hues(i, 2);\n    b = buoy_hues(i, 3);\n    \n    for col = 1:max_num_colors\n        if( a >= a_range(1,co"
+      "l) && a <= a_range(2,col) && b >= b_range(1,col) && b <= b_range(2,col) )\n            buoy_colors(i) = col;\n  "
+      "          break;\n        end\n    end\n    \nend\n\n\n% Examine buoys from left to right; if one has the correc"
+      "t color, then\n%   target it; else do not recognize a target\nfor i = 1:buoy_count\n    if( buoy_colors(i) == wh"
+      "ich_color )\n        targetY = buoy_centroids(i, 2) - floor(cols/2);\n        targetZ = buoy_centroids(i, 1) - f"
+      "loor(rows/2);\n        targetYaw = 0;\n        target_detected = 0;\n        break;\n    else\n    end\nend\n\n%"
+      "{\n\n\nbuoy_hues = double(zeros(Buoy_Count_Max,1));\nbuoy_centroids = double(-500.*ones(Buoy_Count_Max,2));  % I"
+      "nitialize to points clearly not located in image\n\nbuoy_id = double(-1.*ones(Buoy_Count_Max,1));\nBuoy_Hue_Half"
+      "Range = 10;\nBuoy1_Hue = 30;\nBuoy2_Hue = 80;\nBuoy3_Hue = 15;\n\n% Loop through blobs, and analyze and extract "
+      "buoy information\nfor i = 1:blob_count\n    \n    % Convert Lab to XYZ\n%    R = buoy_hues(i);\n%    G = buoy_hu"
+      "es(i);\n%    B = buoy_hues(i);\n    \n    L = blob_hues(:,1); %refcolors(LabelMatrix(1,1,1));\n    a = blob_hues"
+      "(:,2);\n    b = blob_hues(:,3);\n    \n    var_Y = L./10;\n    var_X = ( a./17.5 ).*( L./10 );\n    var_Z = ( b."
+      "/7 ).*( L./10 );\n    \n    Y = var_Y.^2;\n    X = ( var_X + Y )./1.02;\n    Z = -( var_Z - Y )./0.847;\n    \n "
+      "   % Convert XYZ to RGB\n    var_X = X./100;        %X from 0 to  95.047      (Observer = 2 degrees, Illuminant "
+      "= D65)\n    var_Y = Y./100;        %Y from 0 to 100.000\n    var_Z = Z./100;        %Z from 0 to 108.883\n    \n"
+      "    var_R = var_X.*3.2406 + var_Y.*(-1.5372) + var_Z.* -0.4986;\n    var_G = var_X .* -0.9689 + var_Y .*  1.8758"
+      " + var_Z.*  0.0415;\n    var_B = var_X .*  0.0557 + var_Y .* -0.2040 + var_Z .*  1.0570;\n    \n    var_R = ( va"
+      "r_R > 0.0031308 ).*( 1.055.*( var_R.^( 1./2.4 ) ) - 0.055 ) + ( var_R <= 0.0031308 ).*(12.92.*var_R);\n    var_G"
+      " = ( var_G > 0.0031308 ).*( 1.055.*( var_G.^( 1./2.4 ) ) - 0.055 ) + ( var_G <= 0.0031308 ).*( var_G <= 12.92.*v"
+      "ar_G );\n    var_B = ( var_B > 0.0031308 ).*( 1.055 .* ( var_B .^ ( 1 ./ 2.4 ) ) - 0.055 ) + ( var_B <= 0.003130"
+      "8 ).*( 12.92 .* var_B );\n    \n    R = var_R .* 255;\n    G = var_G .* 255;\n    B = var_B .* 255;\n    \n    %"
+      " Convert RGB to HSV\n    var_R = ( R ./ 255 );  % RGB from 0 to 255\n    var_G = ( G ./ 255 );\n    var_B = ( B "
+      "./ 255 );\n    \n    var_Min = min( [var_R, var_G, var_B], [], 2 );  % Min. value of RGB\n    var_Max = max( [va"
+      "r_R, var_G, var_B], [], 2 );  % Max. value of RGB\n    del_Max = var_Max - var_Min;  % Delta RGB value\n    \n  "
+      "  V = var_Max;\n    \n%    H = (del_Max != 0).*(  );\n%    S = (del_Max != 0).*( del_Max./var_Max );\n    if ( m"
+      "ax(abs(del_Max == 0)) );  % This is a gray, no chroma...\n        H = zeros(size(var_R));  % HSV results from 0 "
+      "to 1\n        S = zeros(size(var_R));\n    else  % Chromatic data...\n        \n        S = del_Max ./ var_Max;\n"
+      "        \n        del_R = ( ( ( var_Max - var_R ) ./ 6 ) + ( del_Max ./ 2 ) ) ./ del_Max;\n        del_G = ( ( ("
+      " var_Max - var_G ) ./ 6 ) + ( del_Max ./ 2 ) ) ./ del_Max;\n        del_B = ( ( ( var_Max - var_B ) ./ 6 ) + ( d"
+      "el_Max ./ 2 ) ) ./ del_Max;\n        \n        \n        H = ( var_R == var_Max ).*( del_B - del_G ) + ( var_G ="
+      "= var_Max ).*( ( 1 ./ 3 ) + del_R - del_B ) + ( var_B == var_Max ).*( ( 2 ./ 3 ) + del_G - del_R );\n        H ="
+      " ( H < 0 ).*( H + 1 ) + ( H > 1 ).*( H - 1 );\n        \n        \n%{        \n        if( var_R == var_Max )\n "
+      "           H = del_B - del_G;\n        elseif( var_G == var_Max )\n            H = ( 1 ./ 3 ) + del_R - del_B;\n"
+      "        elseif( var_B == var_Max )\n            H = ( 2 ./ 3 ) + del_G - del_R;\n        else\n            H = 0"
+      ";\n        end\n        \n        if( H < 0 )\n            H = H + 1;\n        end\n        if( H > 1 )\n       "
+      "     H = H - 1;\n        end\n%}        \n    end\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    % S"
+      "tore buoy information if blob conditions are met\n    %   Conditions: 1) Blob eccentricity is within specified r"
+      "ange\n    %               2) Blob extent is within specified range\n    %               3) Blob hue is within sp"
+      "ecified range for several buoy\n    %                 types\n    if( (blob_eccentricity(i)>=Min_Eccent) && (blob"
+      "_eccentricity(i)<=Max_Eccent) && (blob_extent(i)>=Min_Extent) && (blob_extent(i)<=Max_Extent) )\n        \n     "
+      "   %if( (blob_hues(i)>=Buoy1_Hue-Buoy_Hue_HalfRange) && (blob_hues(i)<=Buoy1_Hue+Buoy_Hue_HalfRange) )\n        "
+      "    buoy_count = buoy_count + 1;\n            buoy_hues(buoy_count) = blob_hues(i);\n            buoy_id(buoy_co"
+      "unt) = 1;\n            buoy_centroids(buoy_count,1) = blob_centroids(i,1);\n            buoy_centroids(buoy_coun"
+      "t,2) = blob_centroids(i,2);\n        %end\n        if( (blob_hues(i)>=Buoy2_Hue-Buoy_Hue_HalfRange) && (blob_hue"
+      "s(i)<=Buoy2_Hue+Buoy_Hue_HalfRange) )\n            buoy_count = buoy_count + 1;\n            buoy_hues(buoy_coun"
+      "t) = blob_hues(i);\n            buoy_id(buoy_count) = 2;\n            buoy_centroids(buoy_count,1) = blob_centro"
+      "ids(i,1);\n            buoy_centroids(buoy_count,2) = blob_centroids(i,2);\n        end\n        if( (blob_hues("
+      "i)>=Buoy3_Hue-Buoy_Hue_HalfRange) && (blob_hues(i)<=Buoy3_Hue+Buoy_Hue_HalfRange) )\n            buoy_count = bu"
+      "oy_count + 1;\n            buoy_hues(buoy_count) = blob_hues(i);\n            buoy_id(buoy_count) = 3;\n        "
+      "    buoy_centroids(buoy_count,1) = blob_centroids(i,1);\n            buoy_centroids(buoy_count,2) = blob_centroi"
+      "ds(i,2);\n        end\n    end\n    \nend\n\n% Resize output arrays\n%buoy_hues = buoy_hues(1:buoy_count);\n%buo"
+      "y_centroids = buoy_centroids(1:buoy_count,:);\n%buoy_id = ;\n\n%}\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    37
+    position		    [23.5747 49.5747 7]
+    chart		    35
+    linkNode		    [35 0 0]
+    subviewer		    35
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    38
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      37
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    35
+    linkNode		    [35 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    35
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    32
-    ssIdNumber		    38
-    name		    "successive_valid_image_count_in"
-    linkNode		    [28 0 33]
+    id			    39
+    ssIdNumber		    24
+    name		    "buoy_count"
+    linkNode		    [35 0 40]
     scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    33
-    ssIdNumber		    39
-    name		    "centroids"
-    linkNode		    [28 32 34]
-    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -4141,146 +4550,14 @@ Stateflow {
       }
       complexity	      SF_COMPLEX_INHERITED
       frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    34
-    ssIdNumber		    29
-    name		    "blob_count"
-    linkNode		    [28 33 35]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    35
-    ssIdNumber		    31
-    name		    "blob_hues"
-    linkNode		    [28 34 36]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    36
-    ssIdNumber		    30
-    name		    "blob_centroids"
-    linkNode		    [28 35 37]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    37
-    ssIdNumber		    27
-    name		    "blob_eccentricity"
-    linkNode		    [28 36 38]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    38
-    ssIdNumber		    28
-    name		    "blob_extent"
-    linkNode		    [28 37 39]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    39
-    ssIdNumber		    32
-    name		    "Min_Eccent"
-    linkNode		    [28 38 40]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    40
-    ssIdNumber		    33
-    name		    "Max_Eccent"
-    linkNode		    [28 39 41]
+    ssIdNumber		    26
+    name		    "buoy_hues"
+    linkNode		    [35 39 41]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4294,15 +4571,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    41
-    ssIdNumber		    34
-    name		    "Min_Extent"
-    linkNode		    [28 40 42]
+    ssIdNumber		    13
+    name		    "buoy_centroids"
+    linkNode		    [35 40 42]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4316,81 +4593,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    42
-    ssIdNumber		    35
-    name		    "Max_Extent"
-    linkNode		    [28 41 43]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    43
-    ssIdNumber		    36
-    name		    "Buoy_Count_Min"
-    linkNode		    [28 42 44]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    44
-    ssIdNumber		    37
-    name		    "Buoy_Count_Max"
-    linkNode		    [28 43 45]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    45
     ssIdNumber		    41
-    name		    "id"
-    linkNode		    [28 44 0]
+    name		    "target_select"
+    linkNode		    [35 41 43]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4408,27 +4619,269 @@ Stateflow {
     }
     dataType		    "Inherit: Same as Simulink"
   }
-  instance {
-    id			    46
-    name		    "Look for Targets/Analyze LabelMatrix for Targets"
+  data {
+    id			    43
+    ssIdNumber		    42
+    name		    "target_found"
+    linkNode		    [35 42 44]
+    scope		    OUTPUT_DATA
     machine		    1
-    chart		    28
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    44
+    ssIdNumber		    43
+    name		    "maintain_heading"
+    linkNode		    [35 43 45]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    45
+    ssIdNumber		    44
+    name		    "targetY"
+    linkNode		    [35 44 46]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    46
+    ssIdNumber		    45
+    name		    "targetZ"
+    linkNode		    [35 45 47]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    47
+    ssIdNumber		    46
+    name		    "targetYaw"
+    linkNode		    [35 46 48]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    48
+    ssIdNumber		    47
+    name		    "target_detected"
+    linkNode		    [35 47 49]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    49
+    ssIdNumber		    48
+    name		    "buoy_colors"
+    linkNode		    [35 48 50]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    50
+    ssIdNumber		    51
+    name		    "a_range"
+    linkNode		    [35 49 51]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    51
+    ssIdNumber		    52
+    name		    "b_range"
+    linkNode		    [35 50 52]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    52
+    ssIdNumber		    50
+    name		    "which_color"
+    linkNode		    [35 51 53]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    53
+    ssIdNumber		    53
+    name		    "Forward_Camera_Dimensions"
+    linkNode		    [35 52 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    54
+    name		    "Choose Buoy"
+    machine		    1
+    chart		    35
   }
   chart {
-    id			    47
+    id			    55
     name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter"
-    windowPosition	    [167.753 315.954 200.25 189.75]
+    windowPosition	    [446.813 189 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 48 0 0]
-    firstTransition	    50
-    firstJunction	    49
-    viewObj		    47
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 56 0 0]
+    firstTransition	    58
+    firstJunction	    57
+    viewObj		    55
     machine		    1
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    51
+    firstData		    59
     chartFileNumber	    45
     disableImplicitCasting  1
     eml {
@@ -4437,14 +4890,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    48
+    id			    56
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    47
-    treeNode		    [47 0 0 0]
+    chart		    55
+    treeNode		    [55 0 0 0]
     superState		    SUBCHART
-    subviewer		    47
+    subviewer		    55
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4473,16 +4926,16 @@ Stateflow {
     }
   }
   junction {
-    id			    49
+    id			    57
     position		    [23.5747 49.5747 7]
-    chart		    47
-    linkNode		    [47 0 0]
-    subviewer		    47
+    chart		    55
+    linkNode		    [55 0 0]
+    subviewer		    55
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    50
+    id			    58
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4490,23 +4943,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      49
+      id		      57
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    47
-    linkNode		    [47 0 0]
+    chart		    55
+    linkNode		    [55 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    47
+    subviewer		    55
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    51
+    id			    59
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [47 0 52]
+    linkNode		    [55 0 60]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4522,10 +4975,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    52
+    id			    60
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [47 51 0]
+    linkNode		    [55 59 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4542,26 +4995,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    53
+    id			    61
     name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter"
     machine		    1
-    chart		    47
+    chart		    55
   }
   chart {
-    id			    54
+    id			    62
     name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
-    windowPosition	    [162.304 326.073 200.25 189.75]
+    windowPosition	    [431.813 204 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 55 0 0]
-    firstTransition	    57
-    firstJunction	    56
-    viewObj		    54
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 63 0 0]
+    firstTransition	    65
+    firstJunction	    64
+    viewObj		    62
     machine		    1
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    58
+    firstData		    66
     chartFileNumber	    46
     disableImplicitCasting  1
     eml {
@@ -4570,14 +5023,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    55
+    id			    63
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    54
-    treeNode		    [54 0 0 0]
+    chart		    62
+    treeNode		    [62 0 0 0]
     superState		    SUBCHART
-    subviewer		    54
+    subviewer		    62
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4606,16 +5059,16 @@ Stateflow {
     }
   }
   junction {
-    id			    56
+    id			    64
     position		    [23.5747 49.5747 7]
-    chart		    54
-    linkNode		    [54 0 0]
-    subviewer		    54
+    chart		    62
+    linkNode		    [62 0 0]
+    subviewer		    62
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    57
+    id			    65
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4623,23 +5076,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      56
+      id		      64
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    54
-    linkNode		    [54 0 0]
+    chart		    62
+    linkNode		    [62 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    54
+    subviewer		    62
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    58
+    id			    66
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [54 0 59]
+    linkNode		    [62 0 67]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4655,10 +5108,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    59
+    id			    67
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [54 58 0]
+    linkNode		    [62 66 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4675,26 +5128,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    60
+    id			    68
     name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
     machine		    1
-    chart		    54
+    chart		    62
   }
   chart {
-    id			    61
+    id			    69
     name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
-    windowPosition	    [162.304 326.073 200.25 189.75]
+    windowPosition	    [431.813 204 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 62 0 0]
-    firstTransition	    64
-    firstJunction	    63
-    viewObj		    61
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 70 0 0]
+    firstTransition	    72
+    firstJunction	    71
+    viewObj		    69
     machine		    1
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    65
+    firstData		    73
     chartFileNumber	    47
     disableImplicitCasting  1
     eml {
@@ -4703,14 +5156,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    62
+    id			    70
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    61
-    treeNode		    [61 0 0 0]
+    chart		    69
+    treeNode		    [69 0 0 0]
     superState		    SUBCHART
-    subviewer		    61
+    subviewer		    69
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4739,16 +5192,16 @@ Stateflow {
     }
   }
   junction {
-    id			    63
+    id			    71
     position		    [23.5747 49.5747 7]
-    chart		    61
-    linkNode		    [61 0 0]
-    subviewer		    61
+    chart		    69
+    linkNode		    [69 0 0]
+    subviewer		    69
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    64
+    id			    72
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4756,23 +5209,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      63
+      id		      71
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    61
-    linkNode		    [61 0 0]
+    chart		    69
+    linkNode		    [69 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    61
+    subviewer		    69
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    65
+    id			    73
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [61 0 66]
+    linkNode		    [69 0 74]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4788,10 +5241,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    66
+    id			    74
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [61 65 0]
+    linkNode		    [69 73 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4808,26 +5261,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    67
+    id			    75
     name		    "IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
     machine		    1
-    chart		    61
+    chart		    69
   }
   chart {
-    id			    68
+    id			    76
     name		    "IterativeSegmentation/Segmentation/LabSegmentation"
-    windowPosition	    [151.406 340.24 200.25 189.75]
+    windowPosition	    [401.813 225 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 69 0 0]
-    firstTransition	    71
-    firstJunction	    70
-    viewObj		    68
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 77 0 0]
+    firstTransition	    79
+    firstJunction	    78
+    viewObj		    76
     machine		    1
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    72
+    firstData		    80
     chartFileNumber	    48
     disableImplicitCasting  1
     eml {
@@ -4836,14 +5289,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    69
+    id			    77
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    68
-    treeNode		    [68 0 0 0]
+    chart		    76
+    treeNode		    [76 0 0 0]
     superState		    SUBCHART
-    subviewer		    68
+    subviewer		    76
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4865,16 +5318,16 @@ Stateflow {
     }
   }
   junction {
-    id			    70
+    id			    78
     position		    [23.5747 49.5747 7]
-    chart		    68
-    linkNode		    [68 0 0]
-    subviewer		    68
+    chart		    76
+    linkNode		    [76 0 0]
+    subviewer		    76
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    71
+    id			    79
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4882,23 +5335,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      70
+      id		      78
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    68
-    linkNode		    [68 0 0]
+    chart		    76
+    linkNode		    [76 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    68
+    subviewer		    76
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    72
+    id			    80
     ssIdNumber		    4
     name		    "L"
-    linkNode		    [68 0 73]
+    linkNode		    [76 0 81]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4914,10 +5367,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    73
+    id			    81
     ssIdNumber		    5
     name		    "LabelMatrix"
-    linkNode		    [68 72 74]
+    linkNode		    [76 80 82]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4934,10 +5387,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    74
+    id			    82
     ssIdNumber		    6
     name		    "a"
-    linkNode		    [68 73 75]
+    linkNode		    [76 81 83]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4956,10 +5409,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    75
+    id			    83
     ssIdNumber		    7
     name		    "b"
-    linkNode		    [68 74 76]
+    linkNode		    [76 82 84]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -4978,10 +5431,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    76
+    id			    84
     ssIdNumber		    8
     name		    "ref_colors"
-    linkNode		    [68 75 77]
+    linkNode		    [76 83 85]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5000,10 +5453,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    77
+    id			    85
     ssIdNumber		    9
     name		    "num_colors"
-    linkNode		    [68 76 0]
+    linkNode		    [76 84 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5022,26 +5475,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    78
+    id			    86
     name		    "IterativeSegmentation/Segmentation/LabSegmentation"
     machine		    1
-    chart		    68
+    chart		    76
   }
   chart {
-    id			    79
+    id			    87
     name		    "IterativeSegmentation/Segmentation/Reference Color Selection"
-    windowPosition	    [151.406 340.24 200.25 189.75]
+    windowPosition	    [401.813 225 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 1280 800 1.333333333333333]
-    treeNode		    [0 80 0 0]
-    firstTransition	    82
-    firstJunction	    81
-    viewObj		    79
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 88 0 0]
+    firstTransition	    90
+    firstJunction	    89
+    viewObj		    87
     machine		    1
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    83
+    firstData		    91
     chartFileNumber	    49
     disableImplicitCasting  1
     eml {
@@ -5050,14 +5503,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    80
+    id			    88
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    79
-    treeNode		    [79 0 0 0]
+    chart		    87
+    treeNode		    [87 0 0 0]
     superState		    SUBCHART
-    subviewer		    79
+    subviewer		    87
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -5096,16 +5549,16 @@ Stateflow {
     }
   }
   junction {
-    id			    81
+    id			    89
     position		    [23.5747 49.5747 7]
-    chart		    79
-    linkNode		    [79 0 0]
-    subviewer		    79
+    chart		    87
+    linkNode		    [87 0 0]
+    subviewer		    87
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    82
+    id			    90
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -5113,23 +5566,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      81
+      id		      89
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    79
-    linkNode		    [79 0 0]
+    chart		    87
+    linkNode		    [87 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    79
+    subviewer		    87
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    83
+    id			    91
     ssIdNumber		    4
     name		    "L"
-    linkNode		    [79 0 84]
+    linkNode		    [87 0 92]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5145,10 +5598,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    84
+    id			    92
     ssIdNumber		    5
     name		    "ref_colors"
-    linkNode		    [79 83 85]
+    linkNode		    [87 91 93]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5165,10 +5618,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    85
+    id			    93
     ssIdNumber		    6
     name		    "a"
-    linkNode		    [79 84 86]
+    linkNode		    [87 92 94]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5187,10 +5640,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    86
+    id			    94
     ssIdNumber		    7
     name		    "b"
-    linkNode		    [79 85 87]
+    linkNode		    [87 93 95]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5209,10 +5662,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    87
+    id			    95
     ssIdNumber		    8
     name		    "num_colors"
-    linkNode		    [79 86 88]
+    linkNode		    [87 94 96]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5231,10 +5684,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    88
+    id			    96
     ssIdNumber		    10
     name		    "Dist_Thresh"
-    linkNode		    [79 87 0]
+    linkNode		    [87 95 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5253,22 +5706,22 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    89
+    id			    97
     name		    "IterativeSegmentation/Segmentation/Reference Color Selection"
     machine		    1
-    chart		    79
+    chart		    87
   }
   target {
-    id			    90
+    id			    98
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 91]
+    linkNode		    [1 0 99]
   }
   target {
-    id			    91
+    id			    99
     name		    "rtw"
     machine		    1
-    linkNode		    [1 90 0]
+    linkNode		    [1 98 0]
   }
 }

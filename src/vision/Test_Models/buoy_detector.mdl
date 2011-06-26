@@ -87,7 +87,7 @@ Model {
       Name		      "ref_colors"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.788"
+    ComputedModelVersion    "1.789"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -107,9 +107,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 01:14:15 2011"
-  RTWModifiedTimeStamp	  230606053
-  ModelVersionFormat	  "1.%<AutoIncrement:788>"
+  LastModifiedDate	  "Sun Jun 26 03:04:08 2011"
+  RTWModifiedTimeStamp	  230957785
+  ModelVersionFormat	  "1.%<AutoIncrement:789>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -790,7 +790,7 @@ Model {
   }
   System {
     Name		    "buoy_detector"
-    Location		    [1440, 50, 3120, 1050]
+    Location		    [0, 83, 1440, 867]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1749,7 +1749,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Segmentation"
-	    Location		    [23, 83, 1291, 738]
+	    Location		    [0, 83, 1440, 867]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -4621,7 +4621,7 @@ Stateflow {
       "    buoy_centroids(buoy_count,1) = blob_centroids(i,1);\n            buoy_centroids(buoy_count,2) = blob_centroi"
       "ds(i,2);\n        end\n    end\n    \nend\n\n% Resize output arrays\n%buoy_hues = buoy_hues(1:buoy_count);\n%buo"
       "y_centroids = buoy_centroids(1:buoy_count,:);\n%buoy_id = ;\n\n%}\n\nreturn\n"
-      editorLayout	      "100 M4x1[205 227 1080 733]"
+      editorLayout	      "100 M4x1[146 214 1288 755]"
       fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
       "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
       emlDefaultFimath	      FimathUserSpecified
