@@ -29,12 +29,16 @@ double bw[wsub][hsub] = {{0}};  // Binary (black/white) matrix
 
 double RGB_max = 0;  // Maximum value in R, G, or B color components
 
+
+//note: to account for the maximum number of ranges, only store the previous line.
+//max # of ranges  == ceil(imageWidth/2)
+
 int num_blobs = 0;  // Variables for blob analysis
-const int max_num_blobs = 60;
+const int max_num_blobs = 1000;
 int blob_bound[3][max_num_blobs];
 int blob_area[max_num_blobs];
 double blob_eccentricity[max_num_blobs];
-int blob_centroid[2][max_num_blobs];
+double blob_centroid[2][max_num_blobs];
 int found = 0;
 
 
@@ -87,37 +91,6 @@ int main(int argc, char *argv[])
     // Subset image to examine region of interest (ROI)
     subsetImage();
 
-
-
-/*
-    // Determine maximum value present in R, G, and B coponents
-    RGB_max = 0;
-    for(int i = 0; i < wsub; i++)
-    {
-        for(int j = 0; j < hsub; j++)
-        {
-
-            if(c1[i][j] > RGB_max)
-            {
-                RGB_max = c1[i][j];
-            }
-
-            if(c2[i][j] > RGB_max)
-            {
-                RGB_max = c2[i][j];
-            }
-
-            if(c3[i][j] > RGB_max)
-            {
-                RGB_max = c3[i][j];
-            }
-
-        }
-    }
-    std::cout << RGB_max << endl;
-*/
-
-
     // Ignore pixels with color components not expected for markers
     filterImage();
 
@@ -150,84 +123,13 @@ int main(int argc, char *argv[])
         }
     }
 
-
     // Perform naive blob analysis
     blobAnalysis1();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-      //debugging; proof that conversion is working
-    // Transform image to HSV color space
-    transform(0);
-
-    // Transform image to RGB color space
-    QColor value;
-    for(int i = 0; i < wsub; i++)
-    {
-        for(int j = 0; j < hsub; j++)
-        {
-            value.setHsv(c1[i][j], c2[i][j], c3[i][j]);
-            c1[i][j] = qRed(value.rgb());
-            c2[i][j] = qGreen(value.rgb());
-            c3[i][j] = qBlue(value.rgb());
-        }
-    }
-*/
-
-
-
-
-
-
-
-
-
-
-
-    // Save image
-    //bool success = im.save("/home/auvt/auvc/src/vision/Modified_Files_for_Testing/temp_qtproject/temp_qtproject/image1", "JPG", 100);
-
-
-//    std::cout << "Save was succesful: " << success << endl;
-
-
-
-    //double R[im.size().height()][im.size().width()];
-    //double G[im.size().height()][im.size().width()];
-    //double B[im.size().height()][im.size().width()];
-
-
-
-
-//    std::cout << inputImage("fakeFile.txt") << endl;
-
-    //QRgb var1 = im.pixel(1,1);
-    //std::cout << qRed(var1) << endl;
-
-
     // Debugging output
-
     // Save RGB arrays to an image file
     fileOutput("/home/auvt/auvc/src/vision/Modified_Files_for_Testing/temp_qtproject/temp_qtproject/outputImage.jpg");
-
-
-    //std::cout << h << " " << w << endl;
-    //std::cout << "Depth: " << im.depth() << endl;
     std::cout << "Program finished." << endl;
 
 
@@ -349,19 +251,19 @@ void transform(int transformType)
     if(transformType == 0)
     {
 
-    }
-
-    // Change each pixel color
-    QColor value;
-    for(int i = 0; i < wsub; i++)
-    {
-        for(int j = 0; j < hsub; j++)
+        // Change each pixel color
+        QColor value;
+        for(int i = 0; i < wsub; i++)
         {
-            value = QColor(c1[i][j], c2[i][j], c3[i][j]);
-            c1[i][j] = value.hue();
-            c2[i][j] = value.saturation();
-            c1[i][j] = value.value();
+            for(int j = 0; j < hsub; j++)
+            {
+                value = QColor(c1[i][j], c2[i][j], c3[i][j]);
+                c1[i][j] = value.hue();
+                c2[i][j] = value.saturation();
+                c1[i][j] = value.value();
+            }
         }
+
     }
 
     return;
@@ -370,6 +272,7 @@ void transform(int transformType)
 
 void blobAnalysis1()
 {
+
     // Initialize all arrays to zeros
     for(int b = 0; b < max_num_blobs; b++)
     {
@@ -384,23 +287,24 @@ void blobAnalysis1()
 
     // Loop through bw image line-by-line
     int blob_track = -1;
-    for(int r = 0; r < hsub; r++)
+    for(int r = 0; r < hsub; r++)  // Iterate over rows
     {
-        for(int c = 0; c < wsub; c++)
+        for(int c = 0; c < wsub; c++)  // Iterate over columns
         {
 
-            // If a true pixel is encountered, then start or continue tracking a blob
-            if(bw[c][r] == 1)
+            if(bw[c][r] == 1)  // Handle "true" pixel
             {
 
-                // Do different things for the cases of "previously tracking" and "not previously tracking"
-                if(blob_track == -1)
+                if(blob_track == -1)  // Case "not previously tracking"
                 {
-                    // "Not previously tracking"
 
-                    if(r == 0)
+                    // Determine which blob from the previous line the current pixel belongs to
+                    blob_track = matchBlob(r, c, 0);
+
+                    if(blob_track == -1)  // No matching blob is identified
                     {
-                        // Identify which uninitialized blob to begin adding values to
+
+                        // Find first zero value in blob_area
                         for(int b = 0; b < max_num_blobs; b++)
                         {
                             if(blob_area[b] == 0)
@@ -409,140 +313,92 @@ void blobAnalysis1()
                                 break;
                             }
                         }
-                    }
-                    else
-                    {
-                        // Determine which blob from the previous line the current pixel belongs to
-                        blob_track = matchBlob(r, c, 0);
-
-                        // If no matching blob is identified then find first zero value in blob_area
                         if(blob_track == -1)
                         {
-                            for(int b = 0; b < max_num_blobs; b++)
-                            {
-                                if(blob_area[b] == 0)
-                                {
-                                    blob_track = b;
-                                    break;
-                                }
-                            }
+                            blob_track = max_num_blobs;
                         }
 
+                        // A new blob is being tracked
+                        num_blobs++;
 
+                        blob_bound[0][blob_track] = c;
+                        blob_bound[1][blob_track] = c;
+                        blob_bound[2][blob_track] = r;
 
+                        blob_area[blob_track] = 1;
 
+                        blob_eccentricity[blob_track] = 0;
 
+                        blob_centroid[0][blob_track] = r;
+                        blob_centroid[1][blob_track] = c;
 
+                    }
+                    else  // Matching blob is identified
+                    {
 
+                        // An old blob is being tracked
+                        blob_bound[1][blob_track] = c;
+                        blob_bound[2][blob_track] = r;
 
-/*
-                        for(int b = 0; b < max_num_blobs; b++)
-                        {
-                            // Compare current column position with column-bounds of previous row
+                        blob_eccentricity[blob_track] = 0;
 
+                        blob_centroid[0][blob_track] = (  ( ( (double)blob_area[blob_track]/((double)blob_area[blob_track] + 1) )*(double)blob_centroid[0][blob_track] ) + ( (double)r/((double)blob_area[blob_track] + 1) )  );
+                        blob_centroid[1][blob_track] = (  ( ( (double)blob_area[blob_track]/((double)blob_area[blob_track] + 1) )*(double)blob_centroid[1][blob_track] ) + ( (double)c/((double)blob_area[blob_track] + 1) )  );
 
-
-
-
-                            //found = isInRange(r, i, 0);
-
-
-                            if( r-1 >= blob_bound[1][b] && r+1 <= blob_bound[2][b] )
-                            {
-                                blob_track = b;
-                                found = 1;
-                                break;
-                            }
-
-                            if(!isInRange(r, i, 0))
-                            {
-                                // Start tracking a new blob
-                                for(int b = 0; b < max_num_blobs; b++)
-                                {
-                                    if(blob_area[b] == 0)
-                                    {
-                                        blob_track = b;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-
-    */
+                        blob_area[blob_track]++;
 
                     }
 
-                    // Tally area, centroid, etc.
-                    //blob_track = 0;
-                    //
 
-                    num_blobs++;
-                    blob_area[blob_track] = 1;
-                    blob_bound[0][blob_track] = c;
-                    blob_bound[1][blob_track] = c;
-                    blob_bound[2][blob_track] = r;
-                    //blob_eccentricity[blob_track] = ?;
-                    //blob_centroid[1][blob_track] = ?;
-                    //blob_centroid[2][blob_track] = ?;
-
-                    //debug
-                    c1[c][r] = 0;
-                    c2[c][r] = 255;
-                    c3[c][r] = 0;
                 }
-                else
+                else  // Case "previously tracking"
                 {
-                    // "Previously tracking"
 
                     // Tally area, centroid, etc.
-                    blob_area[blob_track]++;
                     blob_bound[1][blob_track] = c;
                     blob_bound[2][blob_track] = r;
-                    //blob_eccentricity[blob_track] = ?;
-                    //blob_centroid[1][blob_track] = ?;
-                    //blob_centroid[2][blob_track] = ?;
 
-                    // If bounds of a blob are encountered, then merge the two blobs
+                    blob_eccentricity[blob_track] = 0;
+
+                    blob_centroid[0][blob_track] = (  ( ( (double)blob_area[blob_track]/((double)blob_area[blob_track] + 1) )*(double)blob_centroid[0][blob_track] ) + ( (double)r/((double)blob_area[blob_track] + 1) )  );
+                    blob_centroid[1][blob_track] = (  ( ( (double)blob_area[blob_track]/((double)blob_area[blob_track] + 1) )*(double)blob_centroid[1][blob_track] ) + ( (double)c/((double)blob_area[blob_track] + 1) )  );
+
+                    blob_area[blob_track]++;
+
+                    // If bounds of an existing blob are encountered, then merge the two blobs
                     found = matchBlob(r, c, 0);
-
-
-
-
                     if(found != -1)
                     {
+//                        c1[c][r] = 255;
+    //                    c2[c][r] = 0;
+  //                      c3[c][r] = 0;
                         mergeBlobs(blob_track, found);
                         blob_track = found;
-
-
-
-
-
-
                     }
 
                     // Possibly other logic
+
+                }
+
+
+
+                //debug
+                if(bw[c][r] == 1)
+                {
                     //debug
                     c1[c][r] = 0;
                     c2[c][r] = 0;
-                    c3[c][r] = 255;
+                    c3[c][r] = 128;
 
-                    //debug simply eliminate the previous green pixel for debuggin visualization
-                    for(int cc = c; cc >= 0; cc--)
-                    {
-
-                        if(c2[cc][r] == 255)
-                        {
-                            c1[cc][r] = 255;
-                            c2[cc][r] = 0;
-                            c3[cc][r] = 0;
-                            break;
-                        }
-                    }
-                    // /debug
+                    //c1[ (int)blob_centroid[1][blob_track] ][ (int)blob_centroid[0][blob_track] ] = 128;
+                    //c2[ (int)blob_centroid[1][blob_track] ][ (int)blob_centroid[0][blob_track] ] = 128;
+                    //c3[ (int)blob_centroid[1][blob_track] ][ (int)blob_centroid[0][blob_track] ] = 128;
                 }
 
+
+
             }
-            else
+            else  // Handle "false" pixel
             {
                 blob_track = -1;
             }
@@ -550,14 +406,16 @@ void blobAnalysis1()
         }
     }
 
+    int area_threshold = 50;
     for(int b = 0; b < max_num_blobs; b++)
     {
-        std::cout << "Area: " << blob_area[b] << endl;
+        if(blob_area[b] > area_threshold)
+        {
+            c1[ (int)blob_centroid[1][b] ][ (int)blob_centroid[0][b] ] = 255;
+            c2[ (int)blob_centroid[1][b] ][ (int)blob_centroid[0][b] ] = 255;
+            c3[ (int)blob_centroid[1][b] ][ (int)blob_centroid[0][b] ] = 255;
+        }
     }
-
-
-
-
 
 
     return;
@@ -567,32 +425,30 @@ void blobAnalysis1()
 int matchBlob(int r, int c, int criteria)
 {
 
-
-    int returnInt = -1;
-
-    if(criteria == 0)
+    // The first row can only contain new blobs
+    if(r == 0)
     {
-
-        // Matching algorithm 0
-        for(int b = 0; b < max_num_blobs; b++)
-        {
-
-            // Check that the blob range is valid for the current row
-//            if( blob_bound[2][b] + 1 == r )
-//            {
-                // Allow only pixels that touch or are diagonal
-                if( c-1 >= blob_bound[0][b] && c+1 <= blob_bound[1][b] )
-                {
-                    returnInt = b;
-                    break;
-//                    return b;
-                }
-            }
-
-//        }
-
+        return -1;
     }
 
+    // Return -1 if no match is found; else, return the index of the match
+    int returnInt = -1;
+
+    if(criteria == 0)  // Matching algorithm 0
+    {
+        for(int b = 0; b < max_num_blobs; b++)
+        {
+            // Allow only pixels that touch or are diagonal
+            if( c+1 >= blob_bound[0][b] && c-1 <= blob_bound[1][b] && r == blob_bound[2][b] + 1)
+//                if( c-1 >= blob_bound[0][b] && c+1 <= blob_bound[1][b] )
+            {
+                returnInt = b;
+                break;
+            }
+        }
+    }
+
+    // Return value
     return returnInt;
 
 }
@@ -600,15 +456,20 @@ int matchBlob(int r, int c, int criteria)
 
 void mergeBlobs(int fromBlob, int toBlob)
 {
+
     // Update information for the toBlob
     num_blobs--;
+
     blob_bound[0][toBlob] = blob_bound[0][fromBlob];
     blob_bound[1][toBlob] = blob_bound[1][fromBlob];
     blob_bound[2][toBlob] = blob_bound[2][fromBlob];
+
+    blob_eccentricity[toBlob] += blob_eccentricity[fromBlob];
+
+    blob_centroid[0][toBlob] = ( (double)blob_centroid[0][fromBlob] * (double)blob_area[fromBlob] + (double)blob_centroid[0][toBlob] * (double)blob_area[toBlob] ) / ( (double)blob_area[fromBlob] + (double)blob_area[toBlob] );
+    blob_centroid[1][toBlob] = ( (double)blob_centroid[1][fromBlob] * (double)blob_area[fromBlob] + (double)blob_centroid[1][toBlob] * (double)blob_area[toBlob] ) / ( (double)blob_area[fromBlob] + (double)blob_area[toBlob] );
+
     blob_area[toBlob] += blob_area[fromBlob];
-    //blob_eccentricity[toBlob] += blob_eccentricity[fromBlob];
-    //blob_centroid[0][toBlob] = blob_centroid[fromBlob];
-    //blob_centroid[1][toBlob] = blob_centroid[fromBlob];
 
     // Set information for fromBlob to zero
     blob_bound[0][fromBlob] = 0;

@@ -91,7 +91,7 @@ Model {
       SignalName	      "DesiredYaw"
       Name		      "DesiredYaw"
     }
-    NumRootOutports	    5
+    NumRootOutports	    4
     Outport {
       BusObject		      ""
       BusOutputAsStruct	      "off"
@@ -112,13 +112,8 @@ Model {
       BusOutputAsStruct	      "off"
       Name		      "RightAngled"
     }
-    Outport {
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "RightAngled1"
-    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.124"
+    ComputedModelVersion    "1.127"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -138,9 +133,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jun 23 18:06:59 2011"
-  RTWModifiedTimeStamp	  230753211
-  ModelVersionFormat	  "1.%<AutoIncrement:124>"
+  LastModifiedDate	  "Fri Jun 24 02:32:03 2011"
+  RTWModifiedTimeStamp	  230778408
+  ModelVersionFormat	  "1.%<AutoIncrement:127>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -1396,7 +1391,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nauvt\\n23-Jun-2011 16:19:11"
+      "nauvt\\n24-Jun-2011 01:49:19"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -1417,7 +1412,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Non-Targeting Controllers"
-	Location		[1606, 197, 2708, 849]
+	Location		[1763, 248, 2865, 900]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1570,8 +1565,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Heading and Straight Line\nController"
-	    Location		    [1786, 375, 2495, 850]
-	    Open		    off
+	    Location		    [2407, 472, 3116, 947]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -1647,8 +1642,8 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Maintain Desired Yaw"
-		Location		[778, 381, 1561, 614]
-		Open			off
+		Location		[653, 381, 1436, 614]
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -2234,8 +2229,8 @@ Model {
 		  MaskHideContents	  off
 		  System {
 		    Name		    "PID Controller\nHeading"
-		    Location		    [1010, 241, 1496, 532]
-		    Open		    off
+		    Location		    [950, 241, 1436, 532]
+		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -2477,7 +2472,7 @@ Model {
 	      System {
 		Name			"Maintain Zero YawRate and Zero YVelocity"
 		Location		[261, 92, 763, 510]
-		Open			off
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -2545,8 +2540,8 @@ Model {
 		  MaskHideContents	  off
 		  System {
 		    Name		    "PID Controller\nRelative Heading"
-		    Location		    [144, 156, 898, 563]
-		    Open		    off
+		    Location		    [-27, 514, 727, 921]
+		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -2734,8 +2729,8 @@ Model {
 		  MaskHideContents	  off
 		  System {
 		    Name		    "PID Controller\nYawRate"
-		    Location		    [139, 157, 897, 616]
-		    Open		    off
+		    Location		    [387, 375, 1145, 834]
+		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -3113,8 +3108,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Maintain Desired Z "
-	    Location		    [350, 164, 761, 312]
-	    Open		    off
+	    Location		    [293, 124, 957, 377]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -3171,7 +3166,7 @@ Model {
 	      System {
 		Name			"PID Controller\nDepth S3"
 		Location		[135, 97, 889, 504]
-		Open			off
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -5492,8 +5487,8 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Down Target"
-		Location		[1685, 500, 2014, 905]
-		Open			off
+		Location		[1690, 153, 2019, 558]
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -5590,7 +5585,7 @@ Model {
 		  Position		  [110, 56, 225, 114]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  "Unknown"
+		  SourceType		  ""
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -5612,7 +5607,7 @@ Model {
 		  Position		  [105, 181, 225, 239]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  "Unknown"
+		  SourceType		  ""
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -5634,7 +5629,7 @@ Model {
 		  Position		  [105, 306, 225, 364]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  "Unknown"
+		  SourceType		  ""
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -5768,8 +5763,8 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Forward Target"
-		Location		[1867, 156, 2196, 603]
-		Open			off
+		Location		[1710, 587, 2039, 1034]
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -5866,7 +5861,7 @@ Model {
 		  Position		  [110, 65, 215, 120]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  "Unknown"
+		  SourceType		  ""
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -5888,7 +5883,7 @@ Model {
 		  Position		  [110, 200, 220, 255]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  "Unknown"
+		  SourceType		  ""
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -5910,7 +5905,7 @@ Model {
 		  Position		  [110, 342, 220, 398]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  "Unknown"
+		  SourceType		  ""
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -7091,14 +7086,6 @@ Model {
       Port		      "4"
       IconDisplay	      "Port number"
     }
-    Block {
-      BlockType		      Outport
-      Name		      "RightAngled1"
-      SID		      "804"
-      Position		      [1165, 408, 1195, 422]
-      Port		      "5"
-      IconDisplay	      "Port number"
-    }
     Line {
       SrcBlock		      "Thruster Arrangement"
       SrcPort		      1
@@ -7172,16 +7159,9 @@ Model {
     Line {
       SrcBlock		      "Add2"
       SrcPort		      1
-      Points		      [20, 0; 0, -40; 50, 0]
-      Branch {
-	DstBlock		"Thruster Arrangement"
-	DstPort			2
-      }
-      Branch {
-	Points			[0, 165]
-	DstBlock		"RightAngled1"
-	DstPort			1
-      }
+      Points		      [20, 0; 0, -40]
+      DstBlock		      "Thruster Arrangement"
+      DstPort		      2
     }
     Line {
       SrcBlock		      "Add3"

@@ -13,7 +13,7 @@ Scale_Forward_G = 1;
 Scale_Forward_B = 1;
 Scale_Forward_H = .8;
 Scale_Forward_S = 1;
-Scale_Forward_V = 2;
+Scale_Forward_V = 1;
 
 Scale_Down_R = 1;
 Scale_Down_G = 1;
