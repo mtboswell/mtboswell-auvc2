@@ -98,7 +98,7 @@ Model {
       Name		      "edge_image"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1251"
+    ComputedModelVersion    "1.1253"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -118,9 +118,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 23:42:34 2011"
-  RTWModifiedTimeStamp	  230686841
-  ModelVersionFormat	  "1.%<AutoIncrement:1251>"
+  LastModifiedDate	  "Mon Jun 27 18:14:46 2011"
+  RTWModifiedTimeStamp	  231098869
+  ModelVersionFormat	  "1.%<AutoIncrement:1253>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -905,7 +905,7 @@ Model {
       System {
 	Name			"Convert to BW"
 	Location		[1440, 50, 3120, 1050]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3614,7 +3614,7 @@ Model {
     Line {
       SrcBlock		      "Identify Validation Gate"
       SrcPort		      3
-      Points		      [5, 0; 0, 170]
+      Points		      [10, 0; 0, 170]
       DstBlock		      "TargetDetected"
       DstPort		      1
     }
@@ -3754,6 +3754,7 @@ Model {
       }
     }
     Line {
+      Labels		      [0, 0]
       SrcBlock		      "Convert to BW"
       SrcPort		      3
       Points		      [105, 0; 0, 120]

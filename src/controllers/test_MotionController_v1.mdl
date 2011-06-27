@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.88"
+    ComputedModelVersion    "1.106"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_MotionController_v1/vision_model.mdl|MotionController"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 03:32:31 2011"
-  RTWModifiedTimeStamp	  230838463
-  ModelVersionFormat	  "1.%<AutoIncrement:88>"
+  LastModifiedDate	  "Mon Jun 27 18:01:42 2011"
+  RTWModifiedTimeStamp	  231096137
+  ModelVersionFormat	  "1.%<AutoIncrement:106>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -744,7 +744,7 @@ Model {
       Name		      "DesiredZ"
       SID		      "17"
       Position		      [430, 1100, 460, 1130]
-      Value		      "0"
+      Value		      "5"
       SampleTime	      "-1"
     }
     Block {
@@ -811,20 +811,10 @@ Model {
       SampleTime	      "0"
     }
     Block {
-      BlockType		      Display
-      Name		      "LeftFwd1"
-      SID		      "35"
-      Ports		      [1]
-      Position		      [280, 280, 370, 310]
-      Decimation	      "1"
-      Lockdown		      off
-    }
-    Block {
       BlockType		      Constant
       Name		      "MaintainHeading"
       SID		      "4"
       Position		      [430, 320, 460, 350]
-      Value		      "0"
       OutDataTypeStr	      "uint8"
       SampleTime	      "-1"
     }
@@ -841,7 +831,7 @@ Model {
       Name		      "MeasuredYaw"
       SID		      "15"
       Position		      [320, 980, 350, 1010]
-      Value		      "0"
+      Value		      "325"
       SampleTime	      "-1"
     }
     Block {
@@ -857,7 +847,7 @@ Model {
       Name		      "MeasuredZ"
       SID		      "13"
       Position		      [320, 860, 350, 890]
-      Value		      "0"
+      Value		      "5"
       SampleTime	      "-1"
     }
     Block {
@@ -941,7 +931,7 @@ Model {
       Name		      "TargetY"
       SID		      "6"
       Position		      [320, 440, 350, 470]
-      Value		      "100"
+      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
@@ -949,7 +939,7 @@ Model {
       Name		      "TargetYaw"
       SID		      "8"
       Position		      [320, 560, 350, 590]
-      Value		      "30"
+      Value		      "-20"
       SampleTime	      "-1"
     }
     Block {
@@ -959,6 +949,15 @@ Model {
       Position		      [320, 500, 350, 530]
       Value		      "0"
       SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Time"
+      SID		      "35"
+      Ports		      [1]
+      Position		      [280, 280, 370, 310]
+      Decimation	      "1"
+      Lockdown		      off
     }
     Block {
       BlockType		      ModelReference
@@ -1188,7 +1187,7 @@ Model {
       SrcBlock		      "Gain"
       SrcPort		      1
       Points		      [15, 0; 0, -100]
-      DstBlock		      "LeftFwd1"
+      DstBlock		      "Time"
       DstPort		      1
     }
     Line {

@@ -29,8 +29,8 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 17:14:47 2011"
-  RTWModifiedTimeStamp	  231076657
+  LastModifiedDate	  "Mon Jun 27 17:39:24 2011"
+  RTWModifiedTimeStamp	  231097160
   ModelVersionFormat	  "1.%<AutoIncrement:941>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
@@ -1276,11 +1276,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1410,11 +1405,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1609,7 +1599,7 @@ Model {
       Position		      [355, 554, 675, 1061]
       ModelNameDialog	      "torpedo"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.1046"
+      ModelReferenceVersion   "1.1048"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1651,7 +1641,21 @@ Model {
 	port12			"off"
 	port13			"off"
       }
+      List {
+	ListType		InputPortLatchByCopyingInsideSignal
+	port0			"off"
+	port1			"off"
+	port2			"off"
+	port3			"off"
+      }
       CopyOfModelName	      "torpedo"
+      List {
+	ListType		InputPortLatchByDelayingOutsideSignal
+	port0			"off"
+	port1			"off"
+	port2			"off"
+	port3			"off"
+      }
     }
     Line {
       SrcBlock		      "Forward Test Image"
@@ -2282,8 +2286,6 @@ Stateflow {
     firstJunction	    16
     viewObj		    14
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    27
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
