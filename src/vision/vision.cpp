@@ -141,28 +141,51 @@ void Vision::step()
     VisionModel_step();
 
     // set the outputs of the function
-    setData("Vision.Output.TargetSelect", VisionModel_Y.TargetSelect);
-    setData("Vision.Output.TargetFound", VisionModel_Y.TargetFound);
-    setData("Vision.Output.MaintainHeading", VisionModel_Y.MaintainHeading);
-    setData("Vision.Output.TargetX", VisionModel_Y.TargetX);
-    setData("Vision.Output.TargetY", VisionModel_Y.TargetY);
-    setData("Vision.Output.TargetZ", VisionModel_Y.TargetZ);
-    setData("Vision.Output.TargetYaw", VisionModel_Y.TargetYaw);
-    setData("Vision.Output.DesiredTargetX", VisionModel_Y.DesiredTargetX);
-    setData("Vision.Output.DesiredTargetY", VisionModel_Y.DesiredTargetY);
-    setData("Vision.Output.DesiredTargetZ", VisionModel_Y.DesiredTargetZ);
-    setData("Vision.Output.DesiredTargetYaw", VisionModel_Y.DesiredTargetYaw);
-    setData("Vision.Output.MeasuredZ", VisionModel_Y.MeasuredZ);
-    setData("Vision.Output.MeasuredYAccel", VisionModel_Y.MeasuredYAccel);
-    setData("Vision.Output.MeasuredYaw", VisionModel_Y.MeasuredYaw);
-    setData("Vision.Output.MeasuredYawRate", VisionModel_Y.MeasuredYawRate);
-    setData("Vision.Output.DesiredZ", VisionModel_Y.DesiredZ);
-    setData("Vision.Output.DesiredXVelocity", VisionModel_Y.DesiredXVelocity);
-    setData("Vision.Output.DesiredYaw", VisionModel_Y.DesiredYaw);
-    setData("Vision.Output.TargetDetected", VisionModel_Y.TargetDetected);
-    setData("Vision.Output.PathState", VisionModel_Y.PathState);
-    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
-    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
+    setData("TargetOptions.TargetSelect", VisionModel_Y.TargetSelect);
+    setData("TargetData.Found", VisionModel_Y.TargetFound);
+    setData("TargetOptions.MaintainHeading", VisionModel_Y.MaintainHeading);
+    setData("TargetData.Position.X", VisionModel_Y.TargetX);
+    setData("TargetData.Position.Y", VisionModel_Y.TargetY);
+    setData("TargetData.Position.Z", VisionModel_Y.TargetZ);
+    setData("TargetData.Position.Bearing", VisionModel_Y.TargetYaw);
+    setData("Vision.Output.DesiredTargetX", VisionModel_Y.DesiredTargetX);      // redundant
+    setData("Vision.Output.DesiredTargetY", VisionModel_Y.DesiredTargetY);      // redundant
+    setData("Vision.Output.DesiredTargetZ", VisionModel_Y.DesiredTargetZ);      // redundant
+    setData("Vision.Output.DesiredTargetYaw", VisionModel_Y.DesiredTargetYaw);  // redundant
+    setData("Vision.Output.MeasuredZ", VisionModel_Y.MeasuredZ);                // sensor
+    setData("Vision.Output.MeasuredYAccel", VisionModel_Y.MeasuredYAccel);      // sensor
+    setData("Vision.Output.MeasuredYaw", VisionModel_Y.MeasuredYaw);            // sensor
+    setData("Vision.Output.MeasuredYawRate", VisionModel_Y.MeasuredYawRate);    // sensor
+    setData("DeadReckon.Depth", VisionModel_Y.DesiredZ);
+    setData("DeadReckon.ForwardSpeed", VisionModel_Y.DesiredXVelocity);
+    setData("DeadReckon.Heading", VisionModel_Y.DesiredYaw);
+    setData("Vision.Output.TargetDetected", VisionModel_Y.TargetDetected);      //custom output
+    setData("Vision.Output.PathState", VisionModel_Y.PathState);                //custom output
+    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);              //custom output
+    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);//custom output
+
+    //    setData("TargetOptions.TargetSelect", VisionModel_Y.TargetSelect);
+    //    setData("TargetData.Found", VisionModel_Y.TargetFound);
+    //    setData("TargetOptions.MaintainHeading", VisionModel_Y.MaintainHeading);
+    //    setData("TargetData.Position.X", VisionModel_Y.TargetX);
+    //    setData("TargetData.Position.Y", VisionModel_Y.TargetY);
+    //    setData("TargetData.Position.Z", VisionModel_Y.TargetZ);
+    //    setData("TargetData.Position.Bearing", VisionModel_Y.TargetYaw);
+    //    setData("Vision.Output.DesiredTargetX", VisionModel_Y.DesiredTargetX);
+    //    setData("Vision.Output.DesiredTargetY", VisionModel_Y.DesiredTargetY);
+    //    setData("Vision.Output.DesiredTargetZ", VisionModel_Y.DesiredTargetZ);
+    //    setData("Vision.Output.DesiredTargetYaw", VisionModel_Y.DesiredTargetYaw);
+    //    setData("Vision.Output.MeasuredZ", VisionModel_Y.MeasuredZ);
+    //    setData("Vision.Output.MeasuredYAccel", VisionModel_Y.MeasuredYAccel);
+    //    setData("Vision.Output.MeasuredYaw", VisionModel_Y.MeasuredYaw);
+    //    setData("Vision.Output.MeasuredYawRate", VisionModel_Y.MeasuredYawRate);
+    //    setData("Vision.Output.DesiredZ", VisionModel_Y.DesiredZ);
+    //    setData("Vision.Output.DesiredXVelocity", VisionModel_Y.DesiredXVelocity);
+    //    setData("Vision.Output.DesiredYaw", VisionModel_Y.DesiredYaw);
+    //    setData("Vision.Output.TargetDetected", VisionModel_Y.TargetDetected);
+    //    setData("Vision.Output.PathState", VisionModel_Y.PathState);
+    //    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
+    //    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
 
 	if (networkStreams) {
 		targetedImage = new QImage(120, 160, QImage::Format_RGB32);

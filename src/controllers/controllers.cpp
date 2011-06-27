@@ -52,7 +52,7 @@ Controllers::Controllers():SimulinkModule(){
 void Controllers::init(){
 	stopped = false;
 	qDebug("Controllers thread id: %d", (int) QThread::currentThreadId());
-        stepTimer->start(2500);
+        stepTimer->start(20);
 }
 
 void Controllers::printVars()
