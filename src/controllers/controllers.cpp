@@ -52,8 +52,32 @@ Controllers::Controllers():SimulinkModule(){
 void Controllers::init(){
 	stopped = false;
 	qDebug("Controllers thread id: %d", (int) QThread::currentThreadId());
-	stepTimer->start(20);
+        stepTimer->start(2500);
 }
+
+void Controllers::printVars()
+{
+        qDebug() << "MotionController_U.DesiredTargetX" << MotionController_U.DesiredTargetX;
+        qDebug() << "MotionController_U.DesiredTargetY" << MotionController_U.DesiredTargetY;
+        qDebug() << "MotionController_U.DesiredTargetZ" << MotionController_U.DesiredTargetZ;
+        qDebug() << "MotionController_U.DesiredTargetYaw" << MotionController_U.DesiredTargetYaw;
+        qDebug() << "MotionController_U.DesiredTargetXVelocity" << MotionController_U.DesiredXVelocity;
+        qDebug() << "MotionController_U.DesiredTargetYaw" << MotionController_U.DesiredYaw;
+        qDebug() << "MotionController_U.DesiredZ" << MotionController_U.DesiredZ;
+        qDebug() << "MotionController_U.MaintainHeading" << MotionController_U.MaintainHeading;
+        qDebug() << "MotionController_U.MeasuredYAccel" << MotionController_U.MeasuredYAccel;
+        qDebug() << "MotionController_U.MeasuredYaw" << MotionController_U.MeasuredYaw;
+        qDebug() << "MotionController_U.MeasuredYawRate" << MotionController_U.MeasuredYawRate;
+        qDebug() << "MotionController_U.MeasuredZ" << MotionController_U.MeasuredZ;
+        qDebug() << "MotionController_U.TargetFound" << MotionController_U.TargetFound;
+        qDebug() << "MotionController_U.TargetSelect" << MotionController_U.TargetSelect;
+        qDebug() << "MotionController_U.TargetX" << MotionController_U.TargetX;
+        qDebug() << "MotionController_U.TargetY" << MotionController_U.TargetY;
+        qDebug() << "MotionController_U.TargetYaw" << MotionController_U.TargetYaw;
+        qDebug() << "MotionController_U.TargetZ" << MotionController_U.TargetZ;
+
+}
+
 void Controllers::step(){
 	//qDebug() << "Stepping Controllers";
 
@@ -65,7 +89,7 @@ void Controllers::step(){
 	// :s/\/\*.*\*\///
 	// :s/  .*_T \(.*\);/MotionController_U.\1 = state->;/
 
-	MotionController_U.TargetSelect = (value("TargetOptions.TargetSelect")=="Forward"); 
+        MotionController_U.TargetSelect = doubleValue("TargetOptions.TargetSelect");
 
 	MotionController_U.TargetFound = boolValue("TargetData.Found");
 	MotionController_U.TargetX = doubleValue("TargetData.Position.X");
@@ -109,8 +133,10 @@ void Controllers::step(){
 	thrusters.setY(0);
 	thrusters.setZ(0);
 	
+//        printVars();
 	// step model
 	if (!stopped) {
+//                qDebug() << "STEP";
 		MotionController_step();
 
 		// set outputs
@@ -122,6 +148,10 @@ void Controllers::step(){
 		thrusters.setX(MotionController_Y.LeftAngled);
 		thrusters.setY(MotionController_Y.RightAngled);
 		thrusters.setZ(MotionController_Y.RightFwd);
+
+//                qDebug() << "LEFTFWD, LEFT ANGLED, RIGHTANGLED, RIGHTFWD" << MotionController_Y.LeftFwd
+//                        << " " << MotionController_Y.LeftAngled << " " << MotionController_Y.RightAngled
+//                        << " " << MotionController_Y.RightFwd;
 	}
 
 	setData("Thrusters", thrusters);                      
