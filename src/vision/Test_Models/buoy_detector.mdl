@@ -87,7 +87,7 @@ Model {
       Name		      "ref_colors"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.789"
+    ComputedModelVersion    "1.790"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -107,9 +107,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jun 26 03:04:08 2011"
-  RTWModifiedTimeStamp	  230957785
-  ModelVersionFormat	  "1.%<AutoIncrement:789>"
+  LastModifiedDate	  "Mon Jun 27 12:26:10 2011"
+  RTWModifiedTimeStamp	  231078366
+  ModelVersionFormat	  "1.%<AutoIncrement:790>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -790,7 +790,7 @@ Model {
   }
   System {
     Name		    "buoy_detector"
-    Location		    [0, 83, 1440, 867]
+    Location		    [1560, 147, 3000, 931]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1232,7 +1232,7 @@ Model {
       System {
 	Name			"IterativeSegmentation"
 	Location		[4, 83, 1272, 738]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1749,7 +1749,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Segmentation"
-	    Location		    [0, 83, 1440, 867]
+	    Location		    [1560, 147, 3000, 931]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -4574,7 +4574,7 @@ Stateflow {
       "          break;\n        end\n    end\n    \nend\n\n\n% Examine buoys from left to right; if one has the correc"
       "t color, then\n%   target it; else do not recognize a target\nfor i = 1:buoy_count\n    if( buoy_colors(i) == wh"
       "ich_color )\n        targetY = buoy_centroids(i, 2) - floor(cols/2);\n        targetZ = buoy_centroids(i, 1) - f"
-      "loor(rows/2);\n        targetYaw = 0;\n        target_detected = 0;\n        break;\n    else\n    end\nend\n\n%"
+      "loor(rows/2);\n        targetYaw = 0;\n        target_detected = 1;\n        break;\n    else\n    end\nend\n\n%"
       "{\n\n\nbuoy_hues = double(zeros(Buoy_Count_Max,1));\nbuoy_centroids = double(-500.*ones(Buoy_Count_Max,2));  % I"
       "nitialize to points clearly not located in image\n\nbuoy_id = double(-1.*ones(Buoy_Count_Max,1));\nBuoy_Hue_Half"
       "Range = 10;\nBuoy1_Hue = 30;\nBuoy2_Hue = 80;\nBuoy3_Hue = 15;\n\n% Loop through blobs, and analyze and extract "

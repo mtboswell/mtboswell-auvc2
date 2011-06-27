@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.821"
+    ComputedModelVersion    "1.823"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jun 26 05:15:45 2011"
-  RTWModifiedTimeStamp	  230961547
-  ModelVersionFormat	  "1.%<AutoIncrement:821>"
+  LastModifiedDate	  "Mon Jun 27 12:09:38 2011"
+  RTWModifiedTimeStamp	  231077352
+  ModelVersionFormat	  "1.%<AutoIncrement:823>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -706,7 +706,7 @@ Model {
   }
   System {
     Name		    "color_palette_v2"
-    Location		    [709, 123, 1308, 560]
+    Location		    [0, 83, 1440, 867]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -720,7 +720,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "245"
+    SIDHighWatermark	    "306"
     Block {
       BlockType		      Reference
       Name		      "Color Space\n Conversion1"
@@ -776,11 +776,6 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -996,18 +991,18 @@ Model {
       DstPort		      3
     }
     Line {
-      SrcBlock		      "ref_colors"
-      SrcPort		      1
-      Points		      [40, 0; 0, -120]
-      DstBlock		      "Transform Coordinates1"
-      DstPort		      1
-    }
-    Line {
       SrcBlock		      "refColorSelect"
       SrcPort		      1
       Points		      [80, 0]
       DstBlock		      "Transform Coordinates1"
       DstPort		      2
+    }
+    Line {
+      SrcBlock		      "ref_colors"
+      SrcPort		      1
+      Points		      [40, 0; 0, -120]
+      DstBlock		      "Transform Coordinates1"
+      DstPort		      1
     }
   }
 }

@@ -113,7 +113,7 @@ Model {
       Name		      "RightAngled"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.129"
+    ComputedModelVersion    "1.130"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -133,9 +133,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 03:16:38 2011"
+  LastModifiedDate	  "Mon Jun 27 03:25:33 2011"
   RTWModifiedTimeStamp	  231043421
-  ModelVersionFormat	  "1.%<AutoIncrement:129>"
+  ModelVersionFormat	  "1.%<AutoIncrement:130>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -1391,7 +1391,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nauvt\\n27-Jun-2011 03:12:45"
+      "nauvt\\n27-Jun-2011 03:22:02"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -3615,8 +3615,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Targeting Controllers"
-	Location		[1840, 252, 2665, 798]
-	Open			off
+	Location		[1867, 266, 2692, 812]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3742,7 +3742,7 @@ Model {
 	  System {
 	    Name		    "Search for \nTarget"
 	    Location		    [292, 207, 1222, 804]
-	    Open		    on
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -4560,7 +4560,7 @@ Model {
 		  System {
 		    Name		    "Subsystem"
 		    Location		    [2218, 89, 2716, 440]
-		    Open		    on
+		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -4619,7 +4619,7 @@ Model {
 		    System {
 		    Name		    "Subsystem"
 		    Location		    [2394, 275, 3116, 1046]
-		    Open		    on
+		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -5242,8 +5242,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Track Target"
-	    Location		    [2004, 197, 2846, 720]
-	    Open		    off
+	    Location		    [2470, 225, 3312, 748]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -5488,7 +5488,7 @@ Model {
 	      System {
 		Name			"Down Target"
 		Location		[1690, 153, 2019, 558]
-		Open			off
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -6618,7 +6618,7 @@ Model {
       System {
 	Name			"Thruster Arrangement"
 	Location		[458, 143, 1229, 616]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
