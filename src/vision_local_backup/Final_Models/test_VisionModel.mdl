@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.976"
+    ComputedModelVersion    "1.984"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 18:22:14 2011"
+  LastModifiedDate	  "Mon Jun 27 18:57:34 2011"
   RTWModifiedTimeStamp	  231098710
-  ModelVersionFormat	  "1.%<AutoIncrement:976>"
+  ModelVersionFormat	  "1.%<AutoIncrement:984>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -747,7 +747,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "650"
+    SIDHighWatermark	    "651"
     Block {
       BlockType		      Reference
       Name		      "BW"
@@ -1655,6 +1655,7 @@ Model {
       Name		      "ModeSelect"
       SID		      "493"
       Position		      [600, 930, 630, 960]
+      Value		      "2"
       SampleTime	      "-1"
     }
     Block {
@@ -1665,7 +1666,7 @@ Model {
       Position		      [715, 545, 1205, 1345]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.421"
+      ModelReferenceVersion   "1.440"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1799,39 +1800,6 @@ Model {
       Position		      [1935, 700, 2025, 730]
       Decimation	      "1"
       Lockdown		      off
-    }
-    Block {
-      BlockType		      ToWorkspace
-      Name		      "To Workspace1"
-      SID		      "647"
-      Ports		      [1]
-      Position		      [1650, 1565, 1710, 1595]
-      VariableName	      "R"
-      MaxDataPoints	      "inf"
-      SampleTime	      "-1"
-      SaveFormat	      "Array"
-    }
-    Block {
-      BlockType		      ToWorkspace
-      Name		      "To Workspace2"
-      SID		      "648"
-      Ports		      [1]
-      Position		      [1650, 1620, 1710, 1650]
-      VariableName	      "G"
-      MaxDataPoints	      "inf"
-      SampleTime	      "-1"
-      SaveFormat	      "Array"
-    }
-    Block {
-      BlockType		      ToWorkspace
-      Name		      "To Workspace3"
-      SID		      "649"
-      Ports		      [1]
-      Position		      [1650, 1695, 1710, 1725]
-      VariableName	      "B"
-      MaxDataPoints	      "inf"
-      SampleTime	      "-1"
-      SaveFormat	      "Array"
     }
     Block {
       BlockType		      ToWorkspace
@@ -2048,198 +2016,6 @@ Model {
       }
     }
     Block {
-      BlockType		      SubSystem
-      Name		      "Transform Coordinates1"
-      SID		      "646"
-      Ports		      [3, 3]
-      Position		      [1285, 1604, 1555, 1706]
-      LibraryVersion	      "1.31"
-      PermitHierarchicalResolution "ExplicitOnly"
-      TreatAsAtomicUnit	      on
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      SystemSampleTime	      "[1/30 0]"
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
-      Array {
-	Type			"Handle"
-	Dimension		0
-	PropName		"AvailSigsLoadSave"
-      }
-      RequestExecContextInheritance off
-      MaskHideContents	      off
-      MaskType		      "Stateflow"
-      MaskDescription	      "Embedded MATLAB block"
-      MaskSelfModifiable      on
-      MaskDisplay	      "disp('displaySegmentedImage');"
-      MaskIconFrame	      on
-      MaskIconOpaque	      off
-      MaskIconRotate	      "none"
-      MaskPortRotate	      "default"
-      MaskIconUnits	      "autoscale"
-      System {
-	Name			"Transform Coordinates1"
-	Location		[257, 457, 812, 717]
-	Open			off
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SIDHighWatermark	"52"
-	Block {
-	  BlockType		  Inport
-	  Name			  "LabelMatrix"
-	  SID			  "646::44"
-	  Position		  [20, 101, 40, 119]
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "num_colors"
-	  SID			  "646::48"
-	  Position		  [20, 136, 40, 154]
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "ref_colors"
-	  SID			  "646::49"
-	  Position		  [20, 171, 40, 189]
-	  Port			  "3"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Demux
-	  Name			  " Demux "
-	  SID			  "646::23"
-	  Ports			  [1, 1]
-	  Position		  [270, 270, 320, 310]
-	  Outputs		  "1"
-	}
-	Block {
-	  BlockType		  "S-Function"
-	  Name			  " SFunction "
-	  SID			  "646::22"
-	  Tag			  "Stateflow S-Function test_VisionModel 7"
-	  Ports			  [3, 4]
-	  Position		  [180, 108, 230, 272]
-	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[3 4]"
-	  EnableBusSupport	  on
-	  Port {
-	    PortNumber		    2
-	    Name		    "L"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    3
-	    Name		    "a"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    4
-	    Name		    "b"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  " Terminator "
-	  SID			  "646::25"
-	  Position		  [460, 281, 480, 299]
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "L"
-	  SID			  "646::50"
-	  Position		  [460, 101, 480, 119]
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "a"
-	  SID			  "646::51"
-	  Position		  [460, 136, 480, 154]
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "b"
-	  SID			  "646::52"
-	  Position		  [460, 171, 480, 189]
-	  Port			  "3"
-	  IconDisplay		  "Port number"
-	}
-	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  1
-	  DstBlock		  " Demux "
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "LabelMatrix"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "num_colors"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "ref_colors"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  3
-	}
-	Line {
-	  Name			  "L"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  2
-	  DstBlock		  "L"
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "a"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  3
-	  DstBlock		  "a"
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "b"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  4
-	  DstBlock		  "b"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  " Demux "
-	  SrcPort		  1
-	  DstBlock		  " Terminator "
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
       BlockType		      Concatenate
       Name		      "Vector\nConcatenate"
       SID		      "497"
@@ -2249,10 +2025,10 @@ Model {
     }
     Block {
       BlockType		      Constant
-      Name		      "WhichColor"
-      SID		      "585"
-      Position		      [600, 1045, 630, 1075]
-      Value		      "4"
+      Name		      "WhichColor1"
+      SID		      "651"
+      Position		      [600, 995, 630, 1025]
+      Value		      "2"
       SampleTime	      "-1"
     }
     Block {
@@ -2263,17 +2039,6 @@ Model {
       Position		      [1935, 1495, 2025, 1525]
       Decimation	      "1"
       Lockdown		      off
-    }
-    Block {
-      BlockType		      ToWorkspace
-      Name		      "theta"
-      SID		      "592"
-      Ports		      [1]
-      Position		      [1765, 1810, 1825, 1840]
-      VariableName	      "theta"
-      MaxDataPoints	      "inf"
-      SampleTime	      "-1"
-      SaveFormat	      "Array"
     }
     Line {
       SrcBlock		      "Down Test Image"
@@ -2565,13 +2330,6 @@ Model {
       }
     }
     Line {
-      SrcBlock		      "WhichColor"
-      SrcPort		      1
-      Points		      [60, 0; 0, 10]
-      DstBlock		      "Model"
-      DstPort		      9
-    }
-    Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      1
       Points		      [85, 0]
@@ -2652,46 +2410,10 @@ Model {
       DstPort		      7
     }
     Line {
-      SrcBlock		      "Model"
-      SrcPort		      29
-      Points		      [30, 0; 0, 435]
-      DstBlock		      "Transform Coordinates1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      30
-      Points		      [20, 0; 0, 450]
-      DstBlock		      "Transform Coordinates1"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      31
-      Points		      [10, 0; 0, 465]
-      DstBlock		      "Transform Coordinates1"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Transform Coordinates1"
+      SrcBlock		      "WhichColor1"
       SrcPort		      1
-      Points		      [35, 0; 0, -40]
-      DstBlock		      "To Workspace1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Transform Coordinates1"
-      SrcPort		      2
-      Points		      [35, 0; 0, -20]
-      DstBlock		      "To Workspace2"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Transform Coordinates1"
-      SrcPort		      3
-      Points		      [35, 0; 0, 20]
-      DstBlock		      "To Workspace3"
-      DstPort		      1
+      DstBlock		      "Model"
+      DstPort		      8
     }
     Annotation {
       Name		      "Modes:\n0 = Do not execute any tasks\n1 = Validation gate\n2 = Follow path\n3 = Buoy\n4 = Torpedo\n"
@@ -4487,7 +4209,9 @@ Stateflow {
     name		    "test_VisionModel"
     created		    "11-Feb-2011 11:53:00"
     isLibrary		    0
-    firstTarget		    23
+    firstTarget		    12
+    debug {
+    }
     sfVersion		    75014000.000003
   }
   chart {
@@ -4676,228 +4400,17 @@ Stateflow {
     machine		    1
     chart		    2
   }
-  chart {
-    id			    12
-    name		    "Transform Coordinates1"
-    windowPosition	    [442.184 79.12 200.25 189.75]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 13 0 0]
-    firstTransition	    15
-    firstJunction	    14
-    viewObj		    12
-    machine		    1
-    ssIdHighWaterMark	    32
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    16
-    chartFileNumber	    7
-    disableImplicitCasting  1
-    eml {
-      name		      "displaySegmentedImage"
-    }
-  }
-  state {
-    id			    13
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    12
-    treeNode		    [12 0 0 0]
-    superState		    SUBCHART
-    subviewer		    12
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function [L, a, b] = displaySegmentedImage(LabelMatrix, num_colors, ref_colors)\n\n\nintensity_im"
-      "age = LabelMatrix./max(max(max(abs(LabelMatrix))));\n\n\n[rows, cols] = size(LabelMatrix);\n\nL = zeros(rows, co"
-      "ls);\na = zeros(rows, cols);\nb = zeros(rows, cols);\n\nfor r = 1:rows\n    for c = 1:cols\n        L(r,c) = ref"
-      "_colors(LabelMatrix(r,c), 1);\n        a(r,c) = ref_colors(LabelMatrix(r,c), 2);\n        b(r,c) = ref_colors(La"
-      "belMatrix(r,c), 3);\n    end\nend\n\nreturn\n"
-      editorLayout	      "100 M4x1[205 227 1080 733]"
-    }
-  }
-  junction {
-    id			    14
-    position		    [23.5747 49.5747 7]
-    chart		    12
-    linkNode		    [12 0 0]
-    subviewer		    12
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    15
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      14
-      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    12
-    linkNode		    [12 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    12
-    drawStyle		    SMART
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  data {
-    id			    16
-    ssIdNumber		    24
-    name		    "LabelMatrix"
-    linkNode		    [12 0 17]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    17
-    ssIdNumber		    28
-    name		    "num_colors"
-    linkNode		    [12 16 18]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    18
-    ssIdNumber		    29
-    name		    "ref_colors"
-    linkNode		    [12 17 19]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    19
-    ssIdNumber		    30
-    name		    "L"
-    linkNode		    [12 18 20]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    20
-    ssIdNumber		    31
-    name		    "a"
-    linkNode		    [12 19 21]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    21
-    ssIdNumber		    32
-    name		    "b"
-    linkNode		    [12 20 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  instance {
-    id			    22
-    name		    "Transform Coordinates1"
-    machine		    1
-    chart		    12
-  }
   target {
-    id			    23
+    id			    12
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 24]
+    linkNode		    [1 0 13]
   }
   target {
-    id			    24
+    id			    13
     name		    "rtw"
     machine		    1
-    linkNode		    [1 23 0]
+    linkNode		    [1 12 0]
   }
 }

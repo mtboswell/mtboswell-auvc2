@@ -223,8 +223,11 @@ Model {
       Name		      "edge_image"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.421"
-    NumModelReferences	    1
+    ComputedModelVersion    "1.440"
+    NumModelReferences	    2
+    ModelReference {
+      ModelRefBlockPath	      "VisionModel/Path Following/validation_gate.mdl|path_detector"
+    }
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Validation Gate/validation_gate.mdl|validation_gate"
     }
@@ -246,9 +249,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 18:14:46 2011"
+  LastModifiedDate	  "Mon Jun 27 18:55:04 2011"
   RTWModifiedTimeStamp	  231098745
-  ModelVersionFormat	  "1.%<AutoIncrement:421>"
+  ModelVersionFormat	  "1.%<AutoIncrement:440>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -976,7 +979,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "376"
+    SIDHighWatermark	    "396"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -1042,7 +1045,7 @@ Model {
       BlockType		      Inport
       Name		      "DesiredPathDirection"
       SID		      "33"
-      Position		      [1025, 998, 1055, 1012]
+      Position		      [1025, 1263, 1055, 1277]
       Port		      "8"
       IconDisplay	      "Port number"
     }
@@ -1254,9 +1257,9 @@ Model {
     Block {
       BlockType		      Sum
       Name		      "Add22"
-      SID		      "354"
+      SID		      "394"
       Ports		      [6, 1]
-      Position		      [2365, 1861, 2420, 1904]
+      Position		      [2635, 1861, 2690, 1904]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1265,9 +1268,9 @@ Model {
     Block {
       BlockType		      Sum
       Name		      "Add23"
-      SID		      "355"
+      SID		      "395"
       Ports		      [6, 1]
-      Position		      [2365, 1931, 2420, 1974]
+      Position		      [2635, 1931, 2690, 1974]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1276,9 +1279,9 @@ Model {
     Block {
       BlockType		      Sum
       Name		      "Add24"
-      SID		      "356"
+      SID		      "396"
       Ports		      [6, 1]
-      Position		      [2365, 2001, 2420, 2044]
+      Position		      [2635, 2001, 2690, 2044]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1905,7 +1908,7 @@ Model {
       System {
 	Name			"Drop Mechanism Target"
 	Location		[4, 83, 1016, 731]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2489,7 +2492,7 @@ Model {
       System {
 	Name			"L-Obstacle Detection"
 	Location		[4, 83, 1016, 738]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2599,8 +2602,8 @@ Model {
       BlockType		      SubSystem
       Name		      "Path Following"
       SID		      "72"
-      Ports		      [4, 8, 0, 0, 0, 0, 0, 1]
-      Position		      [1315, 1006, 1635, 1289]
+      Ports		      [4, 17, 0, 0, 0, 0, 0, 1]
+      Position		      [1315, 1016, 1635, 1304]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -2613,7 +2616,7 @@ Model {
       System {
 	Name			"Path Following"
 	Location		[4, 83, 1016, 738]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2664,10 +2667,98 @@ Model {
 	  ActionType		  "elseif"
 	}
 	Block {
+	  BlockType		  ModelReference
+	  Name			  "validation_gate.mdl"
+	  SID			  "377"
+	  Ports			  [4, 32]
+	  Position		  [270, 79, 505, 531]
+	  ModelNameDialog	  "path_detector"
+	  SimulationMode	  "Accelerator"
+	  ModelReferenceVersion	  "1.316"
+	  List {
+	    ListType		    InputPortNames
+	    port0		    "R_in"
+	    port1		    "G_in"
+	    port2		    "B_in"
+	    port3		    "WhichPath"
+	  }
+	  List {
+	    ListType		    OutputPortNames
+	    port0		    "TargetSelect"
+	    port1		    "TargetFound"
+	    port2		    "MaintainHeading"
+	    port3		    "TargetX"
+	    port4		    "TargetY"
+	    port5		    "TargetYaw"
+	    port6		    "TargetDetected"
+	    port7		    "PathState"
+	    port8		    "R"
+	    port9		    "G"
+	    port10		    "B"
+	    port11		    "bw_image"
+	    port12		    "edge_image"
+	    port13		    "line_image"
+	    port14		    "hough_table"
+	    port15		    "BlobCount"
+	    port16		    "BlobHues"
+	    port17		    "Area"
+	    port18		    "BBox"
+	    port19		    "Centroid"
+	    port20		    "Eccentricity"
+	    port21		    "Extent"
+	    port22		    "Orientation"
+	    port23		    "path_headings"
+	    port24		    "MajorAxis"
+	    port25		    "MinorAxis"
+	    port26		    "ref_colors"
+	    port27		    "theta"
+	    port28		    "rho"
+	    port29		    "debug_orientation"
+	    port30		    "LabelMatrix"
+	    port31		    "num_colors"
+	  }
+	  List {
+	    ListType		    OutputPortOutputBusAsStructs
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	    port3		    "off"
+	    port4		    "off"
+	    port5		    "off"
+	    port6		    "off"
+	    port7		    "off"
+	    port8		    "off"
+	    port9		    "off"
+	    port10		    "off"
+	    port11		    "off"
+	    port12		    "off"
+	    port13		    "off"
+	    port14		    "off"
+	    port15		    "off"
+	    port16		    "off"
+	    port17		    "off"
+	    port18		    "off"
+	    port19		    "off"
+	    port20		    "off"
+	    port21		    "off"
+	    port22		    "off"
+	    port23		    "off"
+	    port24		    "off"
+	    port25		    "off"
+	    port26		    "off"
+	    port27		    "off"
+	    port28		    "off"
+	    port29		    "off"
+	    port30		    "off"
+	    port31		    "off"
+	  }
+	  CopyOfModelName	  "path_detector"
+	}
+	Block {
 	  BlockType		  Outport
 	  Name			  "TargetSelect"
 	  SID			  "125"
-	  Position		  [565, 83, 595, 97]
+	  Position		  [785, 63, 815, 77]
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
 	}
@@ -2675,7 +2766,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "TargetFound"
 	  SID			  "127"
-	  Position		  [565, 118, 595, 132]
+	  Position		  [785, 98, 815, 112]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -2684,7 +2775,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "MaintainHeading"
 	  SID			  "122"
-	  Position		  [565, 153, 595, 167]
+	  Position		  [785, 133, 815, 147]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -2693,7 +2784,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "TargetX"
 	  SID			  "123"
-	  Position		  [565, 188, 595, 202]
+	  Position		  [785, 168, 815, 182]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -2702,7 +2793,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "TargetY"
 	  SID			  "138"
-	  Position		  [565, 223, 595, 237]
+	  Position		  [785, 203, 815, 217]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -2711,7 +2802,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "TargetYaw"
 	  SID			  "161"
-	  Position		  [565, 258, 595, 272]
+	  Position		  [785, 238, 815, 252]
 	  Port			  "6"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -2720,7 +2811,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "TargetDetected"
 	  SID			  "163"
-	  Position		  [565, 293, 595, 307]
+	  Position		  [785, 273, 815, 287]
 	  Port			  "7"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -2729,30 +2820,233 @@ Model {
 	  BlockType		  Outport
 	  Name			  "PathState"
 	  SID			  "189"
-	  Position		  [565, 328, 595, 342]
+	  Position		  [785, 308, 815, 322]
 	  Port			  "8"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "theta"
+	  SID			  "385"
+	  Position		  [785, 378, 815, 392]
+	  Port			  "9"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "LabelMatrix"
+	  SID			  "386"
+	  Position		  [785, 408, 815, 422]
+	  Port			  "10"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "num_colors"
+	  SID			  "387"
+	  Position		  [785, 443, 815, 457]
+	  Port			  "11"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "ref_colors"
+	  SID			  "388"
+	  Position		  [785, 478, 815, 492]
+	  Port			  "12"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "bw_image"
+	  SID			  "389"
+	  Position		  [785, 533, 815, 547]
+	  Port			  "13"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "edge_image"
+	  SID			  "390"
+	  Position		  [785, 568, 815, 582]
+	  Port			  "14"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "R"
+	  SID			  "391"
+	  Position		  [785, 628, 815, 642]
+	  Port			  "15"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "G"
+	  SID			  "392"
+	  Position		  [785, 663, 815, 677]
+	  Port			  "16"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "B"
+	  SID			  "393"
+	  Position		  [785, 693, 815, 707]
+	  Port			  "17"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
 	}
 	Line {
 	  SrcBlock		  "R_down_in"
 	  SrcPort		  1
-	  Points		  [100, 0; 0, 50; 10, 0]
+	  Points		  [100, 0; 0, 55]
+	  DstBlock		  "validation_gate.mdl"
+	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "G_down_in"
 	  SrcPort		  1
-	  Points		  [80, 0; 0, 75; 30, 0]
+	  Points		  [80, 0; 0, 75; 65, 0]
+	  DstBlock		  "validation_gate.mdl"
+	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "B_down_in"
 	  SrcPort		  1
-	  Points		  [0, -10; 70, 0; 0, 110; 40, 0]
+	  Points		  [0, -10; 70, 0; 0, 110; 75, 0]
+	  DstBlock		  "validation_gate.mdl"
+	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "DesiredPathDirection"
 	  SrcPort		  1
-	  Points		  [60, 0; 0, 120; 50, 0]
+	  Points		  [60, 0; 0, 225; 85, 0]
+	  DstBlock		  "validation_gate.mdl"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  6
+	  Points		  [260, 0]
+	  DstBlock		  "TargetYaw"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  28
+	  Points		  [130, 0; 0, -35]
+	  DstBlock		  "theta"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  12
+	  Points		  [225, 0; 0, 115; 95, 0; 0, 150; -60, 0]
+	  DstBlock		  "bw_image"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  13
+	  Points		  [250, 0; 0, 305]
+	  DstBlock		  "edge_image"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  31
+	  Points		  [260, 0]
+	  DstBlock		  "LabelMatrix"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  32
+	  Points		  [260, 0]
+	  DstBlock		  "num_colors"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  27
+	  Points		  [255, 0; 0, 75]
+	  DstBlock		  "ref_colors"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  3
+	  Points		  [130, 0; 0, -30]
+	  DstBlock		  "MaintainHeading"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  1
+	  Points		  [120, 0; 0, -80]
+	  DstBlock		  "TargetSelect"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  2
+	  Points		  [245, 0; 0, -55]
+	  DstBlock		  "TargetFound"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  4
+	  Points		  [130, 0; 0, -5]
+	  DstBlock		  "TargetX"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  5
+	  Points		  [130, 0; 0, 20]
+	  DstBlock		  "TargetY"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  7
+	  Points		  [120, 0; 0, 45; 140, 0]
+	  DstBlock		  "TargetDetected"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  8
+	  Points		  [250, 0; 0, 95]
+	  DstBlock		  "PathState"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  9
+	  Points		  [250, 0; 0, 405]
+	  DstBlock		  "R"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  10
+	  Points		  [165, 0; 0, 430]
+	  DstBlock		  "G"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "validation_gate.mdl"
+	  SrcPort		  11
+	  Points		  [250, 0; 0, 450]
+	  DstBlock		  "B"
+	  DstPort		  1
 	}
       }
     }
@@ -2774,7 +3068,7 @@ Model {
       System {
 	Name			"Torpedo Target Detection"
 	Location		[4, 83, 1016, 738]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3727,7 +4021,7 @@ Model {
       BlockType		      Outport
       Name		      "LabelMatrix"
       SID		      "372"
-      Position		      [1675, 808, 1705, 822]
+      Position		      [1840, 1143, 1870, 1157]
       Port		      "29"
       IconDisplay	      "Port number"
     }
@@ -3735,7 +4029,7 @@ Model {
       BlockType		      Outport
       Name		      "num_colors"
       SID		      "373"
-      Position		      [1675, 838, 1705, 852]
+      Position		      [1840, 1213, 1870, 1227]
       Port		      "30"
       IconDisplay	      "Port number"
     }
@@ -3743,7 +4037,7 @@ Model {
       BlockType		      Outport
       Name		      "ref_colors"
       SID		      "374"
-      Position		      [1675, 878, 1705, 892]
+      Position		      [1840, 1278, 1870, 1292]
       Port		      "31"
       IconDisplay	      "Port number"
     }
@@ -3751,7 +4045,7 @@ Model {
       BlockType		      Outport
       Name		      "bw_image"
       SID		      "375"
-      Position		      [1675, 933, 1705, 947]
+      Position		      [1840, 1343, 1870, 1357]
       Port		      "32"
       IconDisplay	      "Port number"
     }
@@ -3759,7 +4053,7 @@ Model {
       BlockType		      Outport
       Name		      "edge_image"
       SID		      "376"
-      Position		      [1675, 968, 1705, 982]
+      Position		      [1840, 1438, 1870, 1452]
       Port		      "33"
       IconDisplay	      "Port number"
     }
@@ -3821,21 +4115,21 @@ Model {
     Line {
       SrcBlock		      "Down Filter"
       SrcPort		      1
-      Points		      [365, 0; 0, 740]
+      Points		      [365, 0; 0, 755]
       DstBlock		      "Path Following"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Down Filter"
       SrcPort		      2
-      Points		      [360, 0; 0, 795]
+      Points		      [360, 0; 0, 810]
       DstBlock		      "Path Following"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Down Filter"
       SrcPort		      3
-      Points		      [355, 0; 0, 850]
+      Points		      [355, 0; 0, 865]
       DstBlock		      "Path Following"
       DstPort		      3
     }
@@ -4138,43 +4432,33 @@ Model {
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Add22"
-      SrcPort		      1
+      SrcBlock		      "Path Following"
+      SrcPort		      15
+      Points		      [40, 0; 0, 635]
       DstBlock		      "R"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Add23"
-      SrcPort		      1
+      SrcBlock		      "Path Following"
+      SrcPort		      16
+      Points		      [785, 0; 0, 690]
       DstBlock		      "G"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Add24"
-      SrcPort		      1
-      DstBlock		      "B"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      8
-      Points		      [670, 0; 0, 1175]
-      DstBlock		      "Add22"
-      DstPort		      1
+      Points		      [670, 0; 0, 1175; 95, 0]
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      9
-      Points		      [650, 0; 0, 1215]
-      DstBlock		      "Add23"
-      DstPort		      1
+      Points		      [650, 0; 0, 1215; 115, 0]
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      10
-      Points		      [635, 0; 0, 1255]
-      DstBlock		      "Add24"
-      DstPort		      1
+      Points		      [635, 0; 0, 1255; 130, 0]
     }
     Line {
       SrcBlock		      "Identify Validation Gate"
@@ -4186,23 +4470,17 @@ Model {
     Line {
       SrcBlock		      "Buoy Detection"
       SrcPort		      9
-      Points		      [705, 0; 0, 205]
-      DstBlock		      "Add22"
-      DstPort		      2
+      Points		      [705, 0; 0, 205; 15, 0]
     }
     Line {
       SrcBlock		      "Buoy Detection"
       SrcPort		      11
-      Points		      [580, 0; 0, 270; 130, 0]
-      DstBlock		      "Add24"
-      DstPort		      2
+      Points		      [580, 0; 0, 270; 130, 0; 0, -5; 10, 0]
     }
     Line {
       SrcBlock		      "Buoy Detection"
       SrcPort		      10
-      Points		      [705, 0; 0, 235]
-      DstBlock		      "Add23"
-      DstPort		      2
+      Points		      [705, 0; 0, 235; 15, 0]
     }
     Line {
       SrcBlock		      "Constant2"
@@ -4258,38 +4536,154 @@ Model {
       DstPort		      3
     }
     Line {
-      SrcBlock		      "Validation Gate"
-      SrcPort		      12
+      Points		      [1825, 1150]
       DstBlock		      "LabelMatrix"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Validation Gate"
-      SrcPort		      13
-      Points		      [50, 0; 0, 15; 15, 0]
+      Points		      [1825, 1220]
       DstBlock		      "num_colors"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Validation Gate"
-      SrcPort		      14
-      Points		      [30, 0; 0, 10]
+      Points		      [1825, 1285]
       DstBlock		      "ref_colors"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Validation Gate"
-      SrcPort		      15
-      Points		      [30, 0; 0, 35]
+      Points		      [1825, 1350]
       DstBlock		      "bw_image"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Validation Gate"
-      SrcPort		      16
-      Points		      [20, 0; 0, 40]
+      Points		      [1825, 1445]
       DstBlock		      "edge_image"
       DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      10
+      Points		      [120, 0; 0, -15; 15, 0]
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      11
+      Points		      [120, 0; 0, 40; 15, 0]
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      12
+      Points		      [110, 0; 0, 90; 25, 0]
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      13
+      Points		      [100, 0; 0, 140; 35, 0]
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      14
+      Points		      [60, 0; 0, 220; 75, 0]
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      16
+      Points		      [165, 0; 0, 500; 15, 0]
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      12
+      Points		      [135, 0; 0, 325; 45, 0]
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      13
+      Points		      [165, 0; 0, 365; 15, 0]
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      14
+      Points		      [165, 0; 0, 400; 15, 0]
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      15
+      Points		      [165, 0; 0, 435; 15, 0]
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      1
+      Points		      [560, 0; 0, -750]
+      DstBlock		      "Add"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      2
+      Points		      [705, 0; 0, -705]
+      DstBlock		      "Add1"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      3
+      Points		      [705, 0; 0, -660]
+      DstBlock		      "Add2"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      4
+      Points		      [705, 0; 0, -620]
+      DstBlock		      "Add3"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      5
+      Points		      [705, 0; 0, -565]
+      DstBlock		      "Add4"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      6
+      Points		      [710, 0]
+      DstBlock		      "Add6"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      7
+      Points		      [710, 0]
+      DstBlock		      "Add18"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      8
+      Points		      [120, 0; 0, 435]
+      DstBlock		      "Add19"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Add19"
+      SrcPort		      1
+      DstBlock		      "PathState"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Path Following"
+      SrcPort		      17
+      Points		      [770, 0; 0, 745]
+      DstBlock		      "B"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "DesiredPathDirection"
+      SrcPort		      1
+      DstBlock		      "Path Following"
+      DstPort		      4
     }
     Annotation {
       Name		      "Current target information"
@@ -4323,7 +4717,7 @@ Model {
     Annotation {
       Name		      "Path-following variables\nDesiredPathDirection:\n0 = Use internal default\n1 = Take left path\n2 = "
       "Take right path"
-      Position		      [903, 1041]
+      Position		      [908, 1261]
     }
     Annotation {
       Name		      "Buoy color"
