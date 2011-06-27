@@ -156,9 +156,12 @@ void Vision::step()
     setData("Vision.Output.MeasuredYAccel", VisionModel_Y.MeasuredYAccel);      // sensor
     setData("Vision.Output.MeasuredYaw", VisionModel_Y.MeasuredYaw);            // sensor
     setData("Vision.Output.MeasuredYawRate", VisionModel_Y.MeasuredYawRate);    // sensor
-    setData("DeadReckon.Depth", VisionModel_Y.DesiredZ);
-    setData("DeadReckon.ForwardSpeed", VisionModel_Y.DesiredXVelocity);
-    setData("DeadReckon.Heading", VisionModel_Y.DesiredYaw);
+    if (value("Command")=="DeadReckon")
+    {
+        setData("DeadReckon.Depth", VisionModel_Y.DesiredZ);
+        setData("DeadReckon.ForwardSpeed", VisionModel_Y.DesiredXVelocity);
+        setData("DeadReckon.Heading", VisionModel_Y.DesiredYaw);
+    }
     setData("Vision.Output.TargetDetected", VisionModel_Y.TargetDetected);      //custom output
     setData("Vision.Output.PathState", VisionModel_Y.PathState);                //custom output
     setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);              //custom output
