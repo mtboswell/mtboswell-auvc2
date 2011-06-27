@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1092"
+    ComputedModelVersion    "1.1102"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_path_detector/path_detector.mdl|path_detector"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 00:36:22 2011"
+  LastModifiedDate	  "Mon Jun 27 02:36:35 2011"
   RTWModifiedTimeStamp	  231022541
-  ModelVersionFormat	  "1.%<AutoIncrement:1092>"
+  ModelVersionFormat	  "1.%<AutoIncrement:1102>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1332,7 +1332,7 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      FileName		      "/home/auvt/auvc/src/vision/Test_Images/path5.PNG"
+      FileName		      "/home/auvt/auvc/src/vision/Test_Images/path9.bmp"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
@@ -1967,7 +1967,7 @@ Model {
       Position		      [410, 258, 695, 737]
       ModelNameDialog	      "path_detector"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.234"
+      ModelReferenceVersion   "1.273"
       List {
 	ListType		InputPortNames
 	port0			"R_in"

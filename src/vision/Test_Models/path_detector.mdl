@@ -162,7 +162,7 @@ Model {
       Name		      "y_heading"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.234"
+    ComputedModelVersion    "1.275"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -182,9 +182,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 00:32:12 2011"
+  LastModifiedDate	  "Mon Jun 27 02:38:58 2011"
   RTWModifiedTimeStamp	  231025249
-  ModelVersionFormat	  "1.%<AutoIncrement:234>"
+  ModelVersionFormat	  "1.%<AutoIncrement:275>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -815,6 +815,9 @@ Model {
       BusSelectionMode	      off
     }
     Block {
+      BlockType		      Ground
+    }
+    Block {
       BlockType		      Inport
       Port		      "1"
       OutMin		      "[]"
@@ -897,7 +900,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "932"
+    SIDHighWatermark	    "934"
     Block {
       BlockType		      Inport
       Name		      "R_in"
@@ -3207,9 +3210,9 @@ Model {
     Block {
       BlockType		      Reference
       Name		      "Color Space\n Conversion3"
-      SID		      "868"
+      SID		      "933"
       Ports		      [3, 3]
-      Position		      [150, 686, 250, 744]
+      Position		      [215, 881, 315, 939]
       LibraryVersion	      "1.328"
       SourceBlock	      "vipconversions/Color Space\n Conversion"
       SourceType	      "Color Space Conversion"
@@ -3273,7 +3276,7 @@ Model {
       Name		      "Draw Shapes1"
       SID		      "803"
       Ports		      [2, 1]
-      Position		      [1730, 527, 1835, 603]
+      Position		      [1785, 832, 1890, 908]
       LibraryVersion	      "1.183"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag3"
@@ -3378,7 +3381,7 @@ Model {
       Name		      "Hough Lines2"
       SID		      "804"
       Ports		      [3, 1]
-      Position		      [1575, 555, 1680, 615]
+      Position		      [1605, 860, 1710, 920]
       LibraryVersion	      "1.273"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag6"
@@ -3440,7 +3443,7 @@ Model {
       BlockType		      SubSystem
       Name		      "Identify Path Elements"
       SID		      "802"
-      Ports		      [7, 8]
+      Ports		      [8, 7]
       Position		      [1165, 556, 1445, 704]
       LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
@@ -3477,7 +3480,7 @@ Model {
 	TiledPageScale		1
 	ShowPageBoundaries	off
 	ZoomFactor		"100"
-	SIDHighWatermark	"58"
+	SIDHighWatermark	"59"
 	Block {
 	  BlockType		  Inport
 	  Name			  "hough_table"
@@ -3519,18 +3522,26 @@ Model {
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "blob_orientation"
-	  SID			  "802::48"
+	  Name			  "blob_centroids"
+	  SID			  "802::59"
 	  Position		  [20, 281, 40, 299]
 	  Port			  "6"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "Down_Camera_Dimensions"
-	  SID			  "802::41"
+	  Name			  "blob_orientation"
+	  SID			  "802::48"
 	  Position		  [20, 316, 40, 334]
 	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Down_Camera_Dimensions"
+	  SID			  "802::41"
+	  Position		  [20, 351, 40, 369]
+	  Port			  "8"
 	  IconDisplay		  "Port number"
 	}
 	Block {
@@ -3546,10 +3557,10 @@ Model {
 	  Name			  " SFunction "
 	  SID			  "802::22"
 	  Tag			  "Stateflow S-Function path_detector 7"
-	  Ports			  [7, 9]
+	  Ports			  [8, 8]
 	  Position		  [180, 126, 230, 354]
 	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[7 9]"
+	  PortCounts		  "[8 8]"
 	  EnableBusSupport	  on
 	  Port {
 	    PortNumber		    2
@@ -3571,30 +3582,24 @@ Model {
 	  }
 	  Port {
 	    PortNumber		    5
-	    Name		    "y_heading"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    6
 	    Name		    "path_found"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
-	    PortNumber		    7
+	    PortNumber		    6
 	    Name		    "rho_out"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
-	    PortNumber		    8
+	    PortNumber		    7
 	    Name		    "theta_out"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
 	  }
 	  Port {
-	    PortNumber		    9
+	    PortNumber		    8
 	    Name		    "orientation"
 	    RTWStorageClass	    "Auto"
 	    DataLoggingNameMode	    "SignalName"
@@ -3631,42 +3636,34 @@ Model {
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "y_heading"
-	  SID			  "802::58"
+	  Name			  "path_found"
+	  SID			  "802::33"
 	  Position		  [460, 206, 480, 224]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "path_found"
-	  SID			  "802::33"
+	  Name			  "rho_out"
+	  SID			  "802::53"
 	  Position		  [460, 246, 480, 264]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "rho_out"
-	  SID			  "802::53"
+	  Name			  "theta_out"
+	  SID			  "802::54"
 	  Position		  [460, 281, 480, 299]
 	  Port			  "6"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
-	  Name			  "theta_out"
-	  SID			  "802::54"
-	  Position		  [460, 316, 480, 334]
-	  Port			  "7"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
 	  Name			  "orientation"
 	  SID			  "802::57"
-	  Position		  [460, 351, 480, 369]
-	  Port			  "8"
+	  Position		  [460, 316, 480, 334]
+	  Port			  "7"
 	  IconDisplay		  "Port number"
 	}
 	Line {
@@ -3706,16 +3703,22 @@ Model {
 	  DstPort		  5
 	}
 	Line {
-	  SrcBlock		  "blob_orientation"
+	  SrcBlock		  "blob_centroids"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  6
 	}
 	Line {
-	  SrcBlock		  "Down_Camera_Dimensions"
+	  SrcBlock		  "blob_orientation"
 	  SrcPort		  1
 	  DstBlock		  " SFunction "
 	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "Down_Camera_Dimensions"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  8
 	}
 	Line {
 	  Name			  "theta"
@@ -3742,18 +3745,10 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  Name			  "y_heading"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  5
-	  DstBlock		  "y_heading"
-	  DstPort		  1
-	}
-	Line {
 	  Name			  "path_found"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
-	  SrcPort		  6
+	  SrcPort		  5
 	  DstBlock		  "path_found"
 	  DstPort		  1
 	}
@@ -3761,7 +3756,7 @@ Model {
 	  Name			  "rho_out"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
-	  SrcPort		  7
+	  SrcPort		  6
 	  DstBlock		  "rho_out"
 	  DstPort		  1
 	}
@@ -3769,7 +3764,7 @@ Model {
 	  Name			  "theta_out"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
-	  SrcPort		  8
+	  SrcPort		  7
 	  DstBlock		  "theta_out"
 	  DstPort		  1
 	}
@@ -3777,8 +3772,188 @@ Model {
 	  Name			  "orientation"
 	  Labels		  [0, 0; 0, 0]
 	  SrcBlock		  " SFunction "
-	  SrcPort		  9
+	  SrcPort		  8
 	  DstBlock		  "orientation"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Identify Path Elements1"
+      SID		      "934"
+      Ports		      [0, 4]
+      Position		      [1610, 437, 1890, 593]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      SystemSampleTime	      "[1/30 0]"
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('choose_path');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Identify Path Elements1"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"64"
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "934::23"
+	  Ports			  [1, 1]
+	  Position		  [270, 370, 320, 410]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  Ground
+	  Name			  " Ground "
+	  SID			  "934::60"
+	  Position		  [20, 246, 40, 264]
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "934::22"
+	  Tag			  "Stateflow S-Function path_detector 1"
+	  Ports			  [1, 5]
+	  Position		  [180, 138, 230, 372]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[1 5]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "target_x"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "target_y"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "target_yaw"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    5
+	    Name		    "path_state"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "934::25"
+	  Position		  [460, 381, 480, 399]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "target_x"
+	  SID			  "934::61"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "target_y"
+	  SID			  "934::62"
+	  Position		  [460, 136, 480, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "target_yaw"
+	  SID			  "934::63"
+	  Position		  [460, 171, 480, 189]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "path_state"
+	  SID			  "934::64"
+	  Position		  [460, 206, 480, 224]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "target_x"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "target_x"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "target_y"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "target_y"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "target_yaw"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  4
+	  DstBlock		  "target_yaw"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "path_state"
+	  Labels		  [0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  5
+	  DstBlock		  "path_state"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Ground "
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
 	  DstPort		  1
 	}
 	Line {
@@ -3882,7 +4057,7 @@ Model {
       BlockType		      Outport
       Name		      "line_image"
       SID		      "779"
-      Position		      [1875, 558, 1905, 572]
+      Position		      [1925, 863, 1955, 877]
       Port		      "11"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -4070,14 +4245,23 @@ Model {
     Line {
       SrcBlock		      "Blob Analysis"
       SrcPort		      5
-      Points		      [130, 0]
+      Points		      [10, 0]
       Branch {
-	DstBlock		"Centroid"
-	DstPort			1
+	Points			[120, 0; 0, -10]
+	Branch {
+	  DstBlock		  "Centroid"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [945, 0]
+	  DstBlock		  "Data Type Conversion5"
+	  DstPort		  1
+	}
       }
       Branch {
-	DstBlock		"Data Type Conversion5"
-	DstPort			1
+	Points			[690, 0; 0, 385]
+	DstBlock		"Identify Path Elements"
+	DstPort			6
       }
     }
     Line {
@@ -4103,9 +4287,9 @@ Model {
 	DstPort			1
       }
       Branch {
-	Points			[0, -10; 605, 0; 0, 315]
+	Points			[0, -10; 605, 0; 0, 325]
 	DstBlock		"Identify Path Elements"
-	DstPort			6
+	DstPort			7
       }
     }
     Line {
@@ -4138,9 +4322,7 @@ Model {
 	DstPort			1
       }
       Branch {
-	Points			[-130, 0]
-	DstBlock		"Color Space\n Conversion3"
-	DstPort			1
+	Points			[-130, 0; 0, 460; 10, 0]
       }
     }
     Line {
@@ -4153,9 +4335,7 @@ Model {
 	DstPort			2
       }
       Branch {
-	Points			[-120, 0]
-	DstBlock		"Color Space\n Conversion3"
-	DstPort			2
+	Points			[-120, 0; 0, 445; 10, 0]
       }
     }
     Line {
@@ -4168,59 +4348,7 @@ Model {
 	DstPort			3
       }
       Branch {
-	Points			[-115, 0]
-	DstBlock		"Color Space\n Conversion3"
-	DstPort			3
-      }
-    }
-    Line {
-      SrcBlock		      "Color Space\n Conversion3"
-      SrcPort		      3
-      Points		      [160, 0; 0, -150]
-      Branch {
-	DstBlock		"Data Type Conversion2"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 105]
-	Branch {
-	  DstBlock		  "Data Type Conversion3"
-	  DstPort		  1
-	}
-	Branch {
-	  Points		  [0, 55; 1145, 0]
-	  Branch {
-	    DstBlock		    "Hough Lines2"
-	    DstPort		    3
-	  }
-	  Branch {
-	    Points		    [135, 0]
-	    Branch {
-	      Points		      [0, -200]
-	      DstBlock		      "Draw Shapes1"
-	      DstPort		      1
-	    }
-	    Branch {
-	      Points		      [235, 0; 0, -325]
-	      Branch {
-		Points			[0, -15]
-		Branch {
-		  Points		  [0, -15]
-		  DstBlock		  "Draw Target1"
-		  DstPort		  1
-		}
-		Branch {
-		  DstBlock		  "Draw Target1"
-		  DstPort		  2
-		}
-	      }
-	      Branch {
-		DstBlock		"Draw Target1"
-		DstPort			3
-	      }
-	    }
-	  }
-	}
+	Points			[-115, 0; 0, 430; 10, 0]
       }
     }
     Line {
@@ -4279,23 +4407,22 @@ Model {
     Line {
       SrcBlock		      "Hough Transform1"
       SrcPort		      2
-      Points		      [30, 0; 0, 5]
+      Points		      [30, 0; 0, -5]
       DstBlock		      "Identify Path Elements"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Hough Transform1"
       SrcPort		      3
-      Points		      [30, 0; 0, 5]
+      Points		      [30, 0; 0, -5]
       DstBlock		      "Identify Path Elements"
       DstPort		      3
     }
     Line {
       SrcBlock		      "Down_Camera_Dimensions"
       SrcPort		      1
-      Points		      [0, -10]
       DstBlock		      "Identify Path Elements"
-      DstPort		      7
+      DstPort		      8
     }
     Line {
       Labels		      [0, 0]
@@ -4347,51 +4474,100 @@ Model {
     Line {
       Labels		      [0, 0]
       SrcBlock		      "Identify Path Elements"
-      SrcPort		      5
-      Points		      [680, 0; 0, -425]
+      SrcPort		      4
+      Points		      [680, 0; 0, -415]
       DstBlock		      "PathDetected"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Identify Path Elements"
       SrcPort		      1
-      Points		      [5, 0; 0, -65]
+      Points		      [5, 0; 0, -75]
       DstBlock		      "theta"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Identify Path Elements"
       SrcPort		      2
-      Points		      [0, 15; 10, 0; 0, -60]
+      Points		      [0, 5; 10, 0; 0, -60]
       DstBlock		      "rho"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Identify Path Elements"
-      SrcPort		      8
-      Points		      [0, -10]
+      SrcPort		      7
       DstBlock		      "debug_orientation"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Identify Path Elements"
-      SrcPort		      6
-      Points		      [105, 0; 0, -75]
+      SrcPort		      5
+      Points		      [105, 0; 0, 240]
       DstBlock		      "Hough Lines2"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Identify Path Elements"
-      SrcPort		      7
-      Points		      [100, 0; 0, -115]
+      SrcPort		      6
+      Points		      [100, 0; 0, 200]
       DstBlock		      "Hough Lines2"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Identify Path Elements"
-      SrcPort		      4
+      Points		      [1450, 620]
       DstBlock		      "y_heading"
       DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob Analysis"
+      SrcPort		      11
+      Points		      [0, 370; 5, 0; 0, -150]
+      Branch {
+	DstBlock		"Data Type Conversion2"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 105]
+	Branch {
+	  DstBlock		  "Data Type Conversion3"
+	  DstPort		  1
+	}
+	Branch {
+	  Points		  [0, 55; 1145, 0]
+	  Branch {
+	    Points		    [0, 165]
+	    DstBlock		    "Hough Lines2"
+	    DstPort		    3
+	  }
+	  Branch {
+	    Points		    [135, 0]
+	    Branch {
+	      Points		      [0, 105]
+	      DstBlock		      "Draw Shapes1"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [235, 0; 0, -325]
+	      Branch {
+		Points			[0, -15]
+		Branch {
+		  Points		  [0, -15]
+		  DstBlock		  "Draw Target1"
+		  DstPort		  1
+		}
+		Branch {
+		  DstBlock		  "Draw Target1"
+		  DstPort		  2
+		}
+	      }
+	      Branch {
+		DstBlock		"Draw Target1"
+		DstPort			3
+	      }
+	    }
+	  }
+	}
+      }
     }
     Annotation {
       Name		      "Down-facing camera"
@@ -4460,13 +4636,13 @@ Stateflow {
     name		    "path_detector"
     created		    "26-Jun-2011 05:43:17"
     isLibrary		    0
-    firstTarget		    96
+    firstTarget		    105
     sfVersion		    75014000.000003
   }
   chart {
     id			    2
-    name		    "Identify Path Elements"
-    windowPosition	    [473.98 121.448 200.25 189.75]
+    name		    "Identify Path Elements1"
+    windowPosition	    [488.98 106.448 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
     treeNode		    [0 3 0 0]
@@ -4474,14 +4650,16 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    ssIdHighWaterMark	    38
+    subviewS {
+    }
+    ssIdHighWaterMark	    43
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    6
-    chartFileNumber	    7
+    chartFileNumber	    1
     disableImplicitCasting  1
     eml {
-      name		      "path_detection"
+      name		      "choose_path"
     }
   }
   state {
@@ -4498,52 +4676,7 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [theta, rho, path_headings, y_heading, path_found, rho_out, theta_out, orientation] = pa"
-      "th_detection(hough_table, theta_in, rho_in, blob_count, blob_area, blob_orientation, Down_Camera_Dimensions)\n%#"
-      "eml\n\n% This function attempts to identfiy path elements, and returns lines,\n%   information about the paths t"
-      "hat are present, and a true/false\n%   path_found parameter.\n%\n% 5-30-11\n%\n% Input\n%\n% Output\n%  path_hea"
-      "dings = vector of path orientations in terms of headings\n%    relative to the auv (degrees)\n%  rho, theta = ve"
-      "ctors containing lines determined by Hough Transform,\n%    ordered by number of votes\n%\n% Notes:\n%   The hou"
-      "gh_table is destroyed in this function (acceptable if\n%     hough_table is not an output)\n%   blob_orientation"
-      " is destroyed\n\n\n% Initialize\nmax_num_lines = 200;  % Considers this many popular lines as candidates\nmax_nu"
-      "m_paths = 3;\n\n[rho_length, theta_length] = size(hough_table);\nrows = Down_Camera_Dimensions(1);\ncols = Down_"
-      "Camera_Dimensions(2);\nimage_area = rows*cols;\n\nrho_tol = .1*max(rows,cols);  % Tolerance within which two lin"
-      "es are coincident\ntheta_tol = 10*pi/180;  % Tolerence within which two slopes are equal (radians)\narea_thresh "
-      "= 0.8;  % Ratio of blob area to image area considered to imply the blob is actually background noise\n\nrho = ze"
-      "ros(1,max_num_lines);\ntheta = zeros(1,max_num_lines);\ntheta_hold = zeros(1,max_num_lines);  % theta_hold is a "
-      "copy of theta which gets destroyed\n\nrho_out = zeros(1,max_num_lines);\ntheta_out = zeros(1,max_num_lines);\n\n"
-      "path_headings = zeros(1,max_num_paths);\npath_found = 0;\n\n% Identify the most likely max_num_lines lines\nfor("
-      " m = 1:max_num_lines )\n    \n    max_votes = 0;\n    i_index = 1;\n    j_index = 1;\n    for i = 1:rho_length\n"
-      "        for j = 1:theta_length\n            if( hough_table(i,j) > max_votes )\n                i_index = i;\n  "
-      "              j_index = j;\n                max_votes = hough_table(i,j);\n            end\n        end\n    end"
-      "\n    \n    if(max_votes == 0)\n        break;\n    end\n    \n    rho(m) = rho_in(i_index);\n    theta(m) = the"
-      "ta_in(j_index);\n    theta_hold(m) = theta_in(j_index);\n    hough_table(i_index,j_index) = 0;\n    \nend    \n\n"
-      "\n% Correct orientations to vehicle coordinates\nfor j = 1:blob_count\n    % theta_hold:\n    %   -is between [-"
-      "pi/2, +pi/2]\n    % blob_orientation:\n    %   -is potentially outside this range\n    %   -needs to be correcte"
-      "d by pi/2 to get relative heading\n%    blob_orientation(j) = (pi/2) - blob_orientation(j);\n\n    blob_orientat"
-      "ion(j) = mod(pi - blob_orientation(j), pi) - pi/2;\n%    if(blob_orientation(j) > pi/2)\n%        blob_orientati"
-      "on(j) = blob_orientation(j) - pi;\n%    elseif(blob_orientation(j) < -pi/2)\n%        blob_orientation(j) = blob"
-      "_orientation(j) + pi;\n%    end\nend\n\n\n% Compare most popular lines with blob orientations\nc = 1;\nfor p = 1"
-      ":max_num_paths\n    \n    found = 0;\n    for i = 1:max_num_lines\n        for j = 1:blob_count\n            \n "
-      "           % Search for a match between one blob and one line\n            if( abs(theta_hold(i) - blob_orientat"
-      "ion(j)) <= theta_tol  &&  blob_area(j)/image_area <= area_thresh  &&  (theta_hold(i) ~= 1000 && blob_orientation"
-      "(j) ~= 1000) )\n                path_headings(p) = theta_hold(i);\n                \n                \n         "
-      "       \n                %\n                rho_out(c) = rho(i);\n                theta_out(c) = theta(i);\n    "
-      "            c = c + 1;\n                %/\n                \n                \n                theta_hold(i) = "
-      "1000;  % Invalid angle; do not want this line to be selected again\n                blob_orientation(j) = 1000;\n"
-      "                found = 1;\n                break;\n            end\n            \n        end\n        \n      "
-      "  if(found == 1)\n            break;\n        end\n    end\n    \nend\n\n\n% Determine which way the 'Y' shape i"
-      "s pointing\npath_headings = sort(path_headings, 2, 'ascend');\nheading_diff = abs([ path_headings(2) - path_head"
-      "ings(1), path_headings(3) - path_headings(2), path_headings(1) - path_headings(3)]);\nif(heading_diff(1) < headi"
-      "ng_diff(2) && heading_diff(1) < heading_diff(3))\n    y_heading = path_headings(3);\nelseif(heading_diff(2) < he"
-      "ading_diff(1) && heading_diff(2) < heading_diff(3))\n    y_heading = path_headings(1);\nelseif(heading_diff(3) <"
-      " heading_diff(1) && heading_diff(3) < heading_diff(2))\n    y_heading = path_headings(2);\nelse\n    y_heading ="
-      " 0;\nend\n\n\n\n\n% Determine a good approximation of the median lines (ignore effectively\n%   duplicate lines)"
-      "\n%{\nrho(1) = rho(1);\ntheta(1) = theta(1);\n\nm = 2;\nfor i = 2:max_num_lines\n    \n    % If rho, theta do no"
-      "t match within tolerance, then store as the next\n    %   line\n    if( abs(rho(i) - rho(i-1)) >= 30 )\n        "
-      "rho_out(m) = rho(i);\n        theta_out(m) = theta(i);\n        m = m + 1;\n        if( m > 3 )\n            bre"
-      "ak;\n        end\n    end\n    \nend\n\n\n\n\n% Select the most popular lines assuming that they correspond to t"
-      "he path\n%   edges\n%}\n\n\n\n\ntheta = theta_hold;\norientation = blob_orientation;\n\nreturn\n"
+      script		      "function [target_x, target_y, target_yaw, path_state] =  choose_path\n%#eml\n\nreturn\n"
       editorLayout	      "100 M4x1[101 68 1056 606]"
     }
   }
@@ -4579,10 +4712,10 @@ Stateflow {
   }
   data {
     id			    6
-    ssIdNumber		    4
-    name		    "hough_table"
+    ssIdNumber		    40
+    name		    "target_x"
     linkNode		    [2 0 7]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -4591,17 +4724,20 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    7
-    ssIdNumber		    16
-    name		    "theta_in"
+    ssIdNumber		    41
+    name		    "target_y"
     linkNode		    [2 6 8]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -4614,16 +4750,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    8
-    ssIdNumber		    17
-    name		    "rho_in"
+    ssIdNumber		    42
+    name		    "target_yaw"
     linkNode		    [2 7 9]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -4636,255 +4772,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    9
-    ssIdNumber		    36
-    name		    "blob_count"
-    linkNode		    [2 8 10]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    10
-    ssIdNumber		    35
-    name		    "blob_area"
-    linkNode		    [2 9 11]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    11
-    ssIdNumber		    28
-    name		    "blob_orientation"
-    linkNode		    [2 10 12]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    12
-    ssIdNumber		    21
-    name		    "Down_Camera_Dimensions"
-    linkNode		    [2 11 13]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    13
-    ssIdNumber		    5
-    name		    "theta"
-    linkNode		    [2 12 14]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    14
-    ssIdNumber		    9
-    name		    "rho"
-    linkNode		    [2 13 15]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    15
-    ssIdNumber		    18
-    name		    "path_headings"
-    linkNode		    [2 14 16]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    16
-    ssIdNumber		    38
-    name		    "y_heading"
-    linkNode		    [2 15 17]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    17
-    ssIdNumber		    15
-    name		    "path_found"
-    linkNode		    [2 16 18]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    18
-    ssIdNumber		    33
-    name		    "rho_out"
-    linkNode		    [2 17 19]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    19
-    ssIdNumber		    34
-    name		    "theta_out"
-    linkNode		    [2 18 20]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    20
-    ssIdNumber		    37
-    name		    "orientation"
-    linkNode		    [2 19 0]
+    ssIdNumber		    43
+    name		    "path_state"
+    linkNode		    [2 8 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -4903,26 +4799,479 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    21
-    name		    "Identify Path Elements"
+    id			    10
+    name		    "Identify Path Elements1"
     machine		    1
     chart		    2
   }
   chart {
+    id			    11
+    name		    "Identify Path Elements"
+    windowPosition	    [473.98 121.448 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 12 0 0]
+    firstTransition	    14
+    firstJunction	    13
+    viewObj		    11
+    machine		    1
+    ssIdHighWaterMark	    39
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    15
+    chartFileNumber	    7
+    disableImplicitCasting  1
+    eml {
+      name		      "path_detection"
+    }
+  }
+  state {
+    id			    12
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    11
+    treeNode		    [11 0 0 0]
+    superState		    SUBCHART
+    subviewer		    11
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [theta, rho, path_headings, path_found, rho_out, theta_out, orientation] = path_detectio"
+      "n(hough_table, theta_in, rho_in, blob_count, blob_area, blob_centroids, blob_orientation, Down_Camera_Dimensions"
+      ")\n%#eml\n\n% This function attempts to identfiy path elements, and returns lines,\n%   information about the pa"
+      "ths that are present, and a true/false\n%   path_found parameter.\n%\n% 5-30-11\n%\n% Input\n%\n% Output\n%  pat"
+      "h_headings = vector of path orientations in terms of headings\n%    relative to the auv (degrees)\n%  rho, theta"
+      " = vectors containing lines determined by Hough Transform,\n%    ordered by number of votes\n%\n% Notes:\n%   Th"
+      "e hough_table is destroyed in this function (acceptable if\n%     hough_table is not an output)\n%   blob_orient"
+      "ation is destroyed\n\n\n% Initialize\nmax_num_lines = 200;  % Considers this many popular lines as candidates\nm"
+      "ax_num_paths = 3;\n\n[rho_length, theta_length] = size(hough_table);\nrows = Down_Camera_Dimensions(1);\ncols = "
+      "Down_Camera_Dimensions(2);\nimage_area = rows*cols;\n\nrho_tol = .1*max(rows,cols);  % Tolerance within which tw"
+      "o lines are coincident\ntheta_tol = 10*pi/180;  % Tolerence within which two slopes are equal (radians)\narea_th"
+      "resh = 0.8;  % Ratio of blob area to image area considered to imply the blob is actually background noise\n\nrho"
+      " = zeros(1,max_num_lines);\ntheta = zeros(1,max_num_lines);\ntheta_hold = zeros(1,max_num_lines);  % theta_hold "
+      "is a copy of theta which gets destroyed\n\nrho_out = zeros(1,max_num_lines);\ntheta_out = zeros(1,max_num_lines)"
+      ";\n\npath_headings = zeros(1,max_num_paths);\npath_locations = zeros(2,max_num_paths);\npath_found = 0;\n\n% Ide"
+      "ntify the most likely max_num_lines lines\nfor( m = 1:max_num_lines )\n    \n    max_votes = 0;\n    i_index = 1"
+      ";\n    j_index = 1;\n    for i = 1:rho_length\n        for j = 1:theta_length\n            if( hough_table(i,j) "
+      "> max_votes )\n                i_index = i;\n                j_index = j;\n                max_votes = hough_tab"
+      "le(i,j);\n            end\n        end\n    end\n    \n    if(max_votes == 0)\n        break;\n    end\n    \n  "
+      "  rho(m) = rho_in(i_index);\n    theta(m) = theta_in(j_index);\n    theta_hold(m) = theta_in(j_index);\n    houg"
+      "h_table(i_index,j_index) = 0;\n    \nend    \n\n\n% Correct orientations to vehicle coordinates\nfor j = 1:blob_"
+      "count\n    % theta_hold:\n    %   -is between [-pi/2, +pi/2]\n    % blob_orientation:\n    %   -is potentially o"
+      "utside this range\n    %   -needs to be corrected by pi/2 to get relative heading\n%    blob_orientation(j) = (p"
+      "i/2) - blob_orientation(j);\n\n    blob_orientation(j) = mod(pi - blob_orientation(j), pi) - pi/2;\n%    if(blob"
+      "_orientation(j) > pi/2)\n%        blob_orientation(j) = blob_orientation(j) - pi;\n%    elseif(blob_orientation("
+      "j) < -pi/2)\n%        blob_orientation(j) = blob_orientation(j) + pi;\n%    end\nend\n\n\n% Compare most popular"
+      " lines with blob orientations\nc = 1;\nfor p = 1:max_num_paths\n    \n    found = 0;\n    for i = 1:max_num_line"
+      "s\n        for j = 1:blob_count\n            \n            % Search for a match between one blob and one line\n "
+      "           if( abs(theta_hold(i) - blob_orientation(j)) <= theta_tol  &&  blob_area(j)/image_area <= area_thresh"
+      "  &&  (theta_hold(i) ~= 1000 && blob_orientation(j) ~= 1000) )\n                path_headings(p) = theta_hold(i)"
+      ";\n                path_locations(1,p) = blob_centroids(1,j);\n                path_locations(2,p) = blob_centro"
+      "ids(2,j);\n                \n                \n                \n                %\n                rho_out(c) ="
+      " rho(i);\n                theta_out(c) = theta(i);\n                c = c + 1;\n                %/\n            "
+      "    \n                \n                theta_hold(i) = 1000;  % Invalid angle; do not want this line to be sele"
+      "cted again\n                blob_orientation(j) = 1000;\n                found = 1;\n                break;\n   "
+      "         end\n            \n        end\n        \n        if(found == 1)\n            break;\n        end\n    "
+      "end\n    \nend\n\n\n% Order path_headings to reflect actual path locations (left to right in\n%   image)\nvalue "
+      "= Down_Camera_Dimensions(2).*ones(1,max_num_paths);\nj_index = ones(1,max_num_paths);\nfound = zeros(1,max_num_p"
+      "aths);\n\nfor p = 1:max_num_paths\n    for j = 1:max_num_paths\n        if(path_locations(2,j) < value(p) && fou"
+      "nd(j) == 0)\n            value(p) = path_locations(2,j);\n            j_index(p) = j;\n        end\n    end\n   "
+      " found(j_index(p)) = 1;\nend\n\nmatr = [path_headings; path_locations];\nfor p = 1:max_num_paths\n    path_headi"
+      "ngs(p) = matr(1,j_index(p));\n    path_locations(1,p) = matr(2,j_index(p));\n    path_locations(2,p) = matr(3,j_"
+      "index(p));\nend\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n% old code \\/ \\/\n\n% Determine which way the 'Y' shape i"
+      "s pointing\n%path_headings = sort(path_headings, 2, 'ascend');\n%heading_diff = abs([ path_headings(2) - path_he"
+      "adings(1), path_headings(3) - path_headings(2), path_headings(1) - path_headings(3)]);\n%if(heading_diff(1) < he"
+      "ading_diff(2) && heading_diff(1) < heading_diff(3))\n%    y_heading = path_headings(3);\n%elseif(heading_diff(2)"
+      " < heading_diff(1) && heading_diff(2) < heading_diff(3))\n%    y_heading = path_headings(1);\n%elseif(heading_di"
+      "ff(3) < heading_diff(1) && heading_diff(3) < heading_diff(2))\n%    y_heading = path_headings(2);\n%else\n%    y"
+      "_heading = 0;\n%end\n\n\n\n\n% Determine a good approximation of the median lines (ignore effectively\n%   dupli"
+      "cate lines)\n%{\nrho(1) = rho(1);\ntheta(1) = theta(1);\n\nm = 2;\nfor i = 2:max_num_lines\n    \n    % If rho, "
+      "theta do not match within tolerance, then store as the next\n    %   line\n    if( abs(rho(i) - rho(i-1)) >= 30 "
+      ")\n        rho_out(m) = rho(i);\n        theta_out(m) = theta(i);\n        m = m + 1;\n        if( m > 3 )\n    "
+      "        break;\n        end\n    end\n    \nend\n\n\n\n\n% Select the most popular lines assuming that they corr"
+      "espond to the path\n%   edges\n%}\n\n\n\n\ntheta = theta_hold;\norientation = blob_orientation;\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
+    }
+  }
+  junction {
+    id			    13
+    position		    [23.5747 49.5747 7]
+    chart		    11
+    linkNode		    [11 0 0]
+    subviewer		    11
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    14
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      13
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    11
+    linkNode		    [11 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    11
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    15
+    ssIdNumber		    4
+    name		    "hough_table"
+    linkNode		    [11 0 16]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    16
+    ssIdNumber		    16
+    name		    "theta_in"
+    linkNode		    [11 15 17]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    17
+    ssIdNumber		    17
+    name		    "rho_in"
+    linkNode		    [11 16 18]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    18
+    ssIdNumber		    36
+    name		    "blob_count"
+    linkNode		    [11 17 19]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    19
+    ssIdNumber		    35
+    name		    "blob_area"
+    linkNode		    [11 18 20]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    20
+    ssIdNumber		    39
+    name		    "blob_centroids"
+    linkNode		    [11 19 21]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    21
+    ssIdNumber		    28
+    name		    "blob_orientation"
+    linkNode		    [11 20 22]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
     id			    22
+    ssIdNumber		    21
+    name		    "Down_Camera_Dimensions"
+    linkNode		    [11 21 23]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    23
+    ssIdNumber		    5
+    name		    "theta"
+    linkNode		    [11 22 24]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    24
+    ssIdNumber		    9
+    name		    "rho"
+    linkNode		    [11 23 25]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    25
+    ssIdNumber		    18
+    name		    "path_headings"
+    linkNode		    [11 24 26]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    26
+    ssIdNumber		    15
+    name		    "path_found"
+    linkNode		    [11 25 27]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    27
+    ssIdNumber		    33
+    name		    "rho_out"
+    linkNode		    [11 26 28]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    28
+    ssIdNumber		    34
+    name		    "theta_out"
+    linkNode		    [11 27 29]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    29
+    ssIdNumber		    37
+    name		    "orientation"
+    linkNode		    [11 28 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    30
+    name		    "Identify Path Elements"
+    machine		    1
+    chart		    11
+  }
+  chart {
+    id			    31
     name		    "Blob Analysis/Blob Extraction"
     windowPosition	    [495.747 135 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 23 0 0]
-    firstTransition	    25
-    firstJunction	    24
-    viewObj		    22
+    treeNode		    [0 32 0 0]
+    firstTransition	    34
+    firstJunction	    33
+    viewObj		    31
     machine		    1
     ssIdHighWaterMark	    29
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    26
+    firstData		    35
     chartFileNumber	    9
     disableImplicitCasting  1
     eml {
@@ -4930,14 +5279,14 @@ Stateflow {
     }
   }
   state {
-    id			    23
+    id			    32
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    22
-    treeNode		    [22 0 0 0]
+    chart		    31
+    treeNode		    [31 0 0 0]
     superState		    SUBCHART
-    subviewer		    22
+    subviewer		    31
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -4976,16 +5325,16 @@ Stateflow {
     }
   }
   junction {
-    id			    24
+    id			    33
     position		    [23.5747 49.5747 7]
-    chart		    22
-    linkNode		    [22 0 0]
-    subviewer		    22
+    chart		    31
+    linkNode		    [31 0 0]
+    subviewer		    31
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    25
+    id			    34
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -4993,23 +5342,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      24
+      id		      33
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    22
-    linkNode		    [22 0 0]
+    chart		    31
+    linkNode		    [31 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    22
+    subviewer		    31
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    26
+    id			    35
     ssIdNumber		    16
     name		    "LabelMatrix"
-    linkNode		    [22 0 27]
+    linkNode		    [31 0 36]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5024,213 +5373,15 @@ Stateflow {
       }
       complexity	      SF_COMPLEX_INHERITED
       frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    27
-    ssIdNumber		    17
-    name		    "ref_colors"
-    linkNode		    [22 26 28]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    28
-    ssIdNumber		    18
-    name		    "num_colors"
-    linkNode		    [22 27 29]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    29
-    ssIdNumber		    19
-    name		    "blob_count"
-    linkNode		    [22 28 30]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    30
-    ssIdNumber		    11
-    name		    "blob_hues"
-    linkNode		    [22 29 31]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    31
-    ssIdNumber		    20
-    name		    "blob_area"
-    linkNode		    [22 30 32]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    32
-    ssIdNumber		    21
-    name		    "blob_bbox"
-    linkNode		    [22 31 33]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    33
-    ssIdNumber		    26
-    name		    "blob_major_axis"
-    linkNode		    [22 32 34]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    34
-    ssIdNumber		    27
-    name		    "blob_minor_axis"
-    linkNode		    [22 33 35]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    35
-    ssIdNumber		    22
-    name		    "blob_centroids"
-    linkNode		    [22 34 36]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    36
-    ssIdNumber		    23
-    name		    "blob_eccentricity"
-    linkNode		    [22 35 37]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    17
+    name		    "ref_colors"
+    linkNode		    [31 35 37]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -5243,16 +5394,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    37
-    ssIdNumber		    24
-    name		    "blob_extent"
-    linkNode		    [22 36 38]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    18
+    name		    "num_colors"
+    linkNode		    [31 36 38]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -5265,15 +5416,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    38
-    ssIdNumber		    25
-    name		    "blob_orientation"
-    linkNode		    [22 37 39]
+    ssIdNumber		    19
+    name		    "blob_count"
+    linkNode		    [31 37 39]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5293,10 +5444,10 @@ Stateflow {
   }
   data {
     id			    39
-    ssIdNumber		    28
-    name		    "a_range"
-    linkNode		    [22 38 40]
-    scope		    INPUT_DATA
+    ssIdNumber		    11
+    name		    "blob_hues"
+    linkNode		    [31 38 40]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -5309,16 +5460,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    40
-    ssIdNumber		    29
-    name		    "b_range"
-    linkNode		    [22 39 0]
-    scope		    INPUT_DATA
+    ssIdNumber		    20
+    name		    "blob_area"
+    linkNode		    [31 39 41]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -5331,99 +5482,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
-  instance {
-    id			    41
-    name		    "Blob Analysis/Blob Extraction"
-    machine		    1
-    chart		    22
-  }
-  chart {
-    id			    42
-    name		    "Blob Analysis/Filter Image"
-    windowPosition	    [351.939 115.567 200.25 189.75]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 43 0 0]
-    firstTransition	    45
-    firstJunction	    44
-    viewObj		    42
-    machine		    1
-    ssIdHighWaterMark	    56
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    46
-    chartFileNumber	    10
-    disableImplicitCasting  1
-    eml {
-      name		      "Filter_Image"
-    }
-    supportVariableSizing   0
-  }
-  state {
-    id			    43
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    42
-    treeNode		    [42 0 0 0]
-    superState		    SUBCHART
-    subviewer		    42
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function bw_image = Filter_Image(LabelMatrix, num_colors, ref_colors, a_range, b_range)\n\n\n% In"
-      "itialize\n[rows,cols] = size(LabelMatrix);\nbw_image = zeros(rows,cols);\n\n\n% Allow only colors in specified r"
-      "ange\nfor r = 1:rows\n    for c = 1:cols\n        \n        a = ref_colors(LabelMatrix(r,c), 2);\n        b = re"
-      "f_colors(LabelMatrix(r,c), 3);\n        \n        if( a >= a_range(1,5) && a <= a_range(2,5) && b >= b_range(1,5"
-      ") && b <= b_range(2,5) )\n            bw_image(r,c) = 1;\n        end\n        \n    end\nend\n\n\nreturn\n"
-      editorLayout	      "100 M4x1[101 68 1056 606]"
-      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
-      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
-      emlDefaultFimath	      FimathUserSpecified
-    }
-  }
-  junction {
-    id			    44
-    position		    [23.5747 49.5747 7]
-    chart		    42
-    linkNode		    [42 0 0]
-    subviewer		    42
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    45
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      44
-      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    42
-    linkNode		    [42 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    42
-    drawStyle		    SMART
-    executionOrder	    1
-    ssIdNumber		    2
-  }
   data {
-    id			    46
-    ssIdNumber		    54
-    name		    "LabelMatrix"
-    linkNode		    [42 0 47]
-    scope		    INPUT_DATA
+    id			    41
+    ssIdNumber		    21
+    name		    "blob_bbox"
+    linkNode		    [31 40 42]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -5436,16 +5504,126 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    42
+    ssIdNumber		    26
+    name		    "blob_major_axis"
+    linkNode		    [31 41 43]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    43
+    ssIdNumber		    27
+    name		    "blob_minor_axis"
+    linkNode		    [31 42 44]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    44
+    ssIdNumber		    22
+    name		    "blob_centroids"
+    linkNode		    [31 43 45]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    45
+    ssIdNumber		    23
+    name		    "blob_eccentricity"
+    linkNode		    [31 44 46]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    46
+    ssIdNumber		    24
+    name		    "blob_extent"
+    linkNode		    [31 45 47]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    47
-    ssIdNumber		    55
-    name		    "num_colors"
-    linkNode		    [42 46 48]
-    scope		    INPUT_DATA
+    ssIdNumber		    25
+    name		    "blob_orientation"
+    linkNode		    [31 46 48]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -5458,15 +5636,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    48
-    ssIdNumber		    56
-    name		    "ref_colors"
-    linkNode		    [42 47 49]
+    ssIdNumber		    28
+    name		    "a_range"
+    linkNode		    [31 47 49]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5486,53 +5664,9 @@ Stateflow {
   }
   data {
     id			    49
-    ssIdNumber		    41
-    name		    "bw_image"
-    linkNode		    [42 48 50]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    50
-    ssIdNumber		    51
-    name		    "a_range"
-    linkNode		    [42 49 51]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    51
-    ssIdNumber		    52
+    ssIdNumber		    29
     name		    "b_range"
-    linkNode		    [42 50 0]
+    linkNode		    [31 48 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5551,26 +5685,241 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    52
-    name		    "Blob Analysis/Filter Image"
+    id			    50
+    name		    "Blob Analysis/Blob Extraction"
     machine		    1
-    chart		    42
+    chart		    31
   }
   chart {
+    id			    51
+    name		    "Blob Analysis/Filter Image"
+    windowPosition	    [351.939 115.567 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 52 0 0]
+    firstTransition	    54
+    firstJunction	    53
+    viewObj		    51
+    machine		    1
+    ssIdHighWaterMark	    56
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    55
+    chartFileNumber	    10
+    disableImplicitCasting  1
+    eml {
+      name		      "Filter_Image"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    52
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    51
+    treeNode		    [51 0 0 0]
+    superState		    SUBCHART
+    subviewer		    51
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function bw_image = Filter_Image(LabelMatrix, num_colors, ref_colors, a_range, b_range)\n\n\n% In"
+      "itialize\n[rows,cols] = size(LabelMatrix);\nbw_image = zeros(rows,cols);\n\n\n% Allow only colors in specified r"
+      "ange\nfor r = 1:rows\n    for c = 1:cols\n        \n        a = ref_colors(LabelMatrix(r,c), 2);\n        b = re"
+      "f_colors(LabelMatrix(r,c), 3);\n        \n        if( a >= a_range(1,5) && a <= a_range(2,5) && b >= b_range(1,5"
+      ") && b <= b_range(2,5) )\n            bw_image(r,c) = 1;\n        end\n        \n    end\nend\n\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
     id			    53
+    position		    [23.5747 49.5747 7]
+    chart		    51
+    linkNode		    [51 0 0]
+    subviewer		    51
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    54
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      53
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    51
+    linkNode		    [51 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    51
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    55
+    ssIdNumber		    54
+    name		    "LabelMatrix"
+    linkNode		    [51 0 56]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    56
+    ssIdNumber		    55
+    name		    "num_colors"
+    linkNode		    [51 55 57]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    57
+    ssIdNumber		    56
+    name		    "ref_colors"
+    linkNode		    [51 56 58]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    58
+    ssIdNumber		    41
+    name		    "bw_image"
+    linkNode		    [51 57 59]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    59
+    ssIdNumber		    51
+    name		    "a_range"
+    linkNode		    [51 58 60]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    60
+    ssIdNumber		    52
+    name		    "b_range"
+    linkNode		    [51 59 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    61
+    name		    "Blob Analysis/Filter Image"
+    machine		    1
+    chart		    51
+  }
+  chart {
+    id			    62
     name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter"
     windowPosition	    [536.813 99 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 54 0 0]
-    firstTransition	    56
-    firstJunction	    55
-    viewObj		    53
+    treeNode		    [0 63 0 0]
+    firstTransition	    65
+    firstJunction	    64
+    viewObj		    62
     machine		    1
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    57
+    firstData		    66
     chartFileNumber	    45
     disableImplicitCasting  1
     eml {
@@ -5579,14 +5928,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    54
+    id			    63
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    53
-    treeNode		    [53 0 0 0]
+    chart		    62
+    treeNode		    [62 0 0 0]
     superState		    SUBCHART
-    subviewer		    53
+    subviewer		    62
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -5615,16 +5964,16 @@ Stateflow {
     }
   }
   junction {
-    id			    55
+    id			    64
     position		    [23.5747 49.5747 7]
-    chart		    53
-    linkNode		    [53 0 0]
-    subviewer		    53
+    chart		    62
+    linkNode		    [62 0 0]
+    subviewer		    62
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    56
+    id			    65
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -5632,23 +5981,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      55
+      id		      64
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    53
-    linkNode		    [53 0 0]
+    chart		    62
+    linkNode		    [62 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    53
+    subviewer		    62
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    57
+    id			    66
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [53 0 58]
+    linkNode		    [62 0 67]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5664,10 +6013,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    58
+    id			    67
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [53 57 0]
+    linkNode		    [62 66 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5684,26 +6033,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    59
+    id			    68
     name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter"
     machine		    1
-    chart		    53
+    chart		    62
   }
   chart {
-    id			    60
+    id			    69
     name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
     windowPosition	    [521.813 114 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 61 0 0]
-    firstTransition	    63
-    firstJunction	    62
-    viewObj		    60
+    treeNode		    [0 70 0 0]
+    firstTransition	    72
+    firstJunction	    71
+    viewObj		    69
     machine		    1
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    64
+    firstData		    73
     chartFileNumber	    46
     disableImplicitCasting  1
     eml {
@@ -5712,14 +6061,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    61
+    id			    70
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    60
-    treeNode		    [60 0 0 0]
+    chart		    69
+    treeNode		    [69 0 0 0]
     superState		    SUBCHART
-    subviewer		    60
+    subviewer		    69
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -5748,16 +6097,16 @@ Stateflow {
     }
   }
   junction {
-    id			    62
+    id			    71
     position		    [23.5747 49.5747 7]
-    chart		    60
-    linkNode		    [60 0 0]
-    subviewer		    60
+    chart		    69
+    linkNode		    [69 0 0]
+    subviewer		    69
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    63
+    id			    72
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -5765,23 +6114,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      62
+      id		      71
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    60
-    linkNode		    [60 0 0]
+    chart		    69
+    linkNode		    [69 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    60
+    subviewer		    69
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    64
+    id			    73
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [60 0 65]
+    linkNode		    [69 0 74]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5797,10 +6146,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    65
+    id			    74
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [60 64 0]
+    linkNode		    [69 73 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5817,26 +6166,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    66
+    id			    75
     name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
     machine		    1
-    chart		    60
+    chart		    69
   }
   chart {
-    id			    67
+    id			    76
     name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
     windowPosition	    [521.813 114 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 68 0 0]
-    firstTransition	    70
-    firstJunction	    69
-    viewObj		    67
+    treeNode		    [0 77 0 0]
+    firstTransition	    79
+    firstJunction	    78
+    viewObj		    76
     machine		    1
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    71
+    firstData		    80
     chartFileNumber	    47
     disableImplicitCasting  1
     eml {
@@ -5845,14 +6194,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    68
+    id			    77
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    67
-    treeNode		    [67 0 0 0]
+    chart		    76
+    treeNode		    [76 0 0 0]
     superState		    SUBCHART
-    subviewer		    67
+    subviewer		    76
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -5881,16 +6230,16 @@ Stateflow {
     }
   }
   junction {
-    id			    69
+    id			    78
     position		    [23.5747 49.5747 7]
-    chart		    67
-    linkNode		    [67 0 0]
-    subviewer		    67
+    chart		    76
+    linkNode		    [76 0 0]
+    subviewer		    76
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    70
+    id			    79
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -5898,23 +6247,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      69
+      id		      78
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    67
-    linkNode		    [67 0 0]
+    chart		    76
+    linkNode		    [76 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    67
+    subviewer		    76
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    71
+    id			    80
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [67 0 72]
+    linkNode		    [76 0 81]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -5930,10 +6279,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    72
+    id			    81
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [67 71 0]
+    linkNode		    [76 80 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5950,26 +6299,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    73
+    id			    82
     name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
     machine		    1
-    chart		    67
+    chart		    76
   }
   chart {
-    id			    74
+    id			    83
     name		    "Blob Analysis/IterativeSegmentation/Segmentation/LabSegmentation"
     windowPosition	    [491.813 135 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 75 0 0]
-    firstTransition	    77
-    firstJunction	    76
-    viewObj		    74
+    treeNode		    [0 84 0 0]
+    firstTransition	    86
+    firstJunction	    85
+    viewObj		    83
     machine		    1
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    78
+    firstData		    87
     chartFileNumber	    48
     disableImplicitCasting  1
     eml {
@@ -5978,14 +6327,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    75
+    id			    84
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    74
-    treeNode		    [74 0 0 0]
+    chart		    83
+    treeNode		    [83 0 0 0]
     superState		    SUBCHART
-    subviewer		    74
+    subviewer		    83
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -6007,16 +6356,16 @@ Stateflow {
     }
   }
   junction {
-    id			    76
+    id			    85
     position		    [23.5747 49.5747 7]
-    chart		    74
-    linkNode		    [74 0 0]
-    subviewer		    74
+    chart		    83
+    linkNode		    [83 0 0]
+    subviewer		    83
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    77
+    id			    86
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -6024,23 +6373,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      76
+      id		      85
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    74
-    linkNode		    [74 0 0]
+    chart		    83
+    linkNode		    [83 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    74
+    subviewer		    83
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    78
+    id			    87
     ssIdNumber		    4
     name		    "L"
-    linkNode		    [74 0 79]
+    linkNode		    [83 0 88]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6056,10 +6405,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    79
+    id			    88
     ssIdNumber		    5
     name		    "LabelMatrix"
-    linkNode		    [74 78 80]
+    linkNode		    [83 87 89]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -6076,10 +6425,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    80
+    id			    89
     ssIdNumber		    6
     name		    "a"
-    linkNode		    [74 79 81]
+    linkNode		    [83 88 90]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6098,10 +6447,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    81
+    id			    90
     ssIdNumber		    7
     name		    "b"
-    linkNode		    [74 80 82]
+    linkNode		    [83 89 91]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6120,10 +6469,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    82
+    id			    91
     ssIdNumber		    8
     name		    "ref_colors"
-    linkNode		    [74 81 83]
+    linkNode		    [83 90 92]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6142,10 +6491,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    83
+    id			    92
     ssIdNumber		    9
     name		    "num_colors"
-    linkNode		    [74 82 0]
+    linkNode		    [83 91 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6164,26 +6513,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    84
+    id			    93
     name		    "Blob Analysis/IterativeSegmentation/Segmentation/LabSegmentation"
     machine		    1
-    chart		    74
+    chart		    83
   }
   chart {
-    id			    85
+    id			    94
     name		    "Blob Analysis/IterativeSegmentation/Segmentation/Reference Color Selection"
     windowPosition	    [491.813 135 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 86 0 0]
-    firstTransition	    88
-    firstJunction	    87
-    viewObj		    85
+    treeNode		    [0 95 0 0]
+    firstTransition	    97
+    firstJunction	    96
+    viewObj		    94
     machine		    1
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    89
+    firstData		    98
     chartFileNumber	    49
     disableImplicitCasting  1
     eml {
@@ -6192,14 +6541,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    86
+    id			    95
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    85
-    treeNode		    [85 0 0 0]
+    chart		    94
+    treeNode		    [94 0 0 0]
     superState		    SUBCHART
-    subviewer		    85
+    subviewer		    94
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -6238,16 +6587,16 @@ Stateflow {
     }
   }
   junction {
-    id			    87
+    id			    96
     position		    [23.5747 49.5747 7]
-    chart		    85
-    linkNode		    [85 0 0]
-    subviewer		    85
+    chart		    94
+    linkNode		    [94 0 0]
+    subviewer		    94
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    88
+    id			    97
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -6255,23 +6604,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      87
+      id		      96
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    85
-    linkNode		    [85 0 0]
+    chart		    94
+    linkNode		    [94 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    85
+    subviewer		    94
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    89
+    id			    98
     ssIdNumber		    4
     name		    "L"
-    linkNode		    [85 0 90]
+    linkNode		    [94 0 99]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6287,10 +6636,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    90
+    id			    99
     ssIdNumber		    5
     name		    "ref_colors"
-    linkNode		    [85 89 91]
+    linkNode		    [94 98 100]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -6307,10 +6656,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    91
+    id			    100
     ssIdNumber		    6
     name		    "a"
-    linkNode		    [85 90 92]
+    linkNode		    [94 99 101]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6329,10 +6678,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    92
+    id			    101
     ssIdNumber		    7
     name		    "b"
-    linkNode		    [85 91 93]
+    linkNode		    [94 100 102]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6351,10 +6700,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    93
+    id			    102
     ssIdNumber		    8
     name		    "num_colors"
-    linkNode		    [85 92 94]
+    linkNode		    [94 101 103]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -6373,10 +6722,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    94
+    id			    103
     ssIdNumber		    10
     name		    "Dist_Thresh"
-    linkNode		    [85 93 0]
+    linkNode		    [94 102 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6395,22 +6744,22 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    95
+    id			    104
     name		    "Blob Analysis/IterativeSegmentation/Segmentation/Reference Color Selection"
     machine		    1
-    chart		    85
+    chart		    94
   }
   target {
-    id			    96
+    id			    105
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 97]
+    linkNode		    [1 0 106]
   }
   target {
-    id			    97
+    id			    106
     name		    "rtw"
     machine		    1
-    linkNode		    [1 96 0]
+    linkNode		    [1 105 0]
   }
 }

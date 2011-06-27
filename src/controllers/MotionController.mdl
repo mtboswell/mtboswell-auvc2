@@ -133,8 +133,8 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jun 24 02:32:03 2011"
-  RTWModifiedTimeStamp	  230778408
+  LastModifiedDate	  "Mon Jun 27 02:43:50 2011"
+  RTWModifiedTimeStamp	  231043421
   ModelVersionFormat	  "1.%<AutoIncrement:127>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
@@ -1391,7 +1391,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nauvt\\n24-Jun-2011 01:49:19"
+      "nauvt\\n24-Jun-2011 02:32:03"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -2540,7 +2540,7 @@ Model {
 		  MaskHideContents	  off
 		  System {
 		    Name		    "PID Controller\nRelative Heading"
-		    Location		    [-27, 514, 727, 921]
+		    Location		    [4, 456, 758, 863]
 		    Open		    on
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
