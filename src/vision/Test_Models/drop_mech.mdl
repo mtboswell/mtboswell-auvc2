@@ -70,7 +70,7 @@ Model {
       Name		      "FireAuthorization"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.15"
+    ComputedModelVersion    "1.17"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -90,9 +90,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 01:04:47 2011"
-  RTWModifiedTimeStamp	  231037035
-  ModelVersionFormat	  "1.%<AutoIncrement:15>"
+  LastModifiedDate	  "Mon Jun 27 02:52:02 2011"
+  RTWModifiedTimeStamp	  231043864
+  ModelVersionFormat	  "1.%<AutoIncrement:17>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1015,8 +1015,6 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    38
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -1040,7 +1038,8 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function notes\n%#eml\n\n% Method 1\n%  Scan all four bins left to right\n%  Rely on well-balance"
+      script		      "function notes\n%#eml\n\n% Method 1\n%  Scan all four bins left to right\n%    could be as simple"
+      " as progressive targeting; target one until over top\n%      then target the next, etc.\n%  Rely on well-balance"
       "d segmentation for black, white, and red\n%  Classify each bin by:\n%    shape\n%      test center region for pr"
       "esence of true pixels\n%      hough transform consider geometry of top 200 lines (\"are there 4\n%        lines "
       "that could constitute a box and an x?\")\n%      border energy analysis\n%    blob (bbox xor area) determines re"

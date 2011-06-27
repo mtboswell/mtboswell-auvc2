@@ -113,7 +113,7 @@ Model {
       Name		      "RightAngled"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.127"
+    ComputedModelVersion    "1.129"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -133,9 +133,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 02:43:50 2011"
+  LastModifiedDate	  "Mon Jun 27 03:16:38 2011"
   RTWModifiedTimeStamp	  231043421
-  ModelVersionFormat	  "1.%<AutoIncrement:127>"
+  ModelVersionFormat	  "1.%<AutoIncrement:129>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -506,7 +506,7 @@ Model {
 	  MakeCommand		  "make_rtw"
 	  GenerateMakefile	  on
 	  TemplateMakefile	  "ert_default_tmf"
-	  PostCodeGenCommand	  "packNGo(buildInfo);"
+	  PostCodeGenCommand	  "packNGo(buildInfo, {'packType' 'flat'})"
 	  Description		  "Real-Time Workshop Embedded Coder"
 	  GenerateReport	  on
 	  SaveLog		  off
@@ -1046,7 +1046,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "805"
+    SIDHighWatermark	    "806"
     Block {
       BlockType		      Inport
       Name		      "TargetSelect"
@@ -1391,7 +1391,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nauvt\\n24-Jun-2011 02:32:03"
+      "nauvt\\n27-Jun-2011 03:12:45"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -3616,7 +3616,7 @@ Model {
       System {
 	Name			"Targeting Controllers"
 	Location		[1840, 252, 2665, 798]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -5243,7 +5243,7 @@ Model {
 	  System {
 	    Name		    "Track Target"
 	    Location		    [2004, 197, 2846, 720]
-	    Open		    on
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -5488,7 +5488,7 @@ Model {
 	      System {
 		Name			"Down Target"
 		Location		[1690, 153, 2019, 558]
-		Open			on
+		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -6724,8 +6724,8 @@ Model {
 	Block {
 	  BlockType		  Gain
 	  Name			  "Gain1"
-	  SID			  "805"
-	  Position		  [275, 235, 305, 265]
+	  SID			  "806"
+	  Position		  [285, 335, 315, 365]
 	  Gain			  "-1"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
@@ -7016,13 +7016,12 @@ Model {
 	  SrcPort		  1
 	  Points		  [5, 0]
 	  Branch {
-	    Points		    [80, 0]
+	    Points		    [40, 0; 0, 90]
 	    DstBlock		    "Gain1"
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [40, 0; 0, 90]
-	    DstBlock		    "Add3"
+	    DstBlock		    "Add2"
 	    DstPort		    1
 	  }
 	}
@@ -7049,8 +7048,7 @@ Model {
 	Line {
 	  SrcBlock		  "Gain1"
 	  SrcPort		  1
-	  Points		  [0, 10]
-	  DstBlock		  "Add2"
+	  DstBlock		  "Add3"
 	  DstPort		  1
 	}
       }
