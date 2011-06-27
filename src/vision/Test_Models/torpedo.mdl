@@ -87,7 +87,7 @@ Model {
       Name		      "ref_colors"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.839"
+    ComputedModelVersion    "1.841"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -105,11 +105,11 @@ Model {
   Creator		  "auvt"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Administrator"
+  LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 20:55:06 2011"
-  RTWModifiedTimeStamp	  230606053
-  ModelVersionFormat	  "1.%<AutoIncrement:839>"
+  LastModifiedDate	  "Mon Jun 27 01:07:53 2011"
+  RTWModifiedTimeStamp	  231037633
+  ModelVersionFormat	  "1.%<AutoIncrement:841>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -790,7 +790,7 @@ Model {
   }
   System {
     Name		    "torpedo"
-    Location		    [2, 72, 1278, 711]
+    Location		    [4, 83, 1280, 722]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1231,7 +1231,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"IterativeSegmentation"
-	Location		[2, 51, 1274, 758]
+	Location		[4, 83, 1276, 790]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1749,7 +1749,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Segmentation"
-	    Location		    [21, 51, 1293, 758]
+	    Location		    [21, 83, 1293, 790]
 	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -2611,7 +2611,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Look for Heart Targets"
-	Location		[2, 76, 1254, 715]
+	Location		[4, 83, 1256, 722]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -3636,7 +3636,7 @@ MatData {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Jul 24 2010, 07:30:36
+#    Stateflow Version 7.5 (R2010a) dated Aug  8 2010, 22:51:52
 #
 #
 
@@ -4426,50 +4426,51 @@ Stateflow {
       isEML		      1
       script		      "function [target_select, target_found, maintain_heading, targetY, targetZ, targetYaw, target_dete"
       "cted, buoy_colors] = Choose_Buoy(buoy_count, buoy_hues, buoy_centroids, a_range, b_range, which_color, Forward_C"
-      "amera_Dimensions)\n% This function takes in vectors representing buoys present in the image,\n%   and decides wh"
-      "ich buoy to target.\n%\n% Input\n%   buoy_count = number of buoys identified in the image\n%   buoy_hues = Nx3 m"
-      "atrix of Lab components for each buoy\n%   buoy_centroids = Nx2 matrix of x-y pairs of buoy centroids\n%   ref_c"
-      "olors = Nx3 color table containing Lab components\n%   a_range, b_range = 2xN matrix of lower/upper bounds on a,"
-      " b for each\n%     color\n%   which_color = which buoy color should be targeted; integer value\n%     represents"
-      ":\n%               1 -> White\n%               2 -> Black\n%               3 -> Blue\n%               4 -> Red\n"
-      "%               5 -> Orange\n%               6 -> Yellow\n%               7 -> Green\n%\n% Output\n%   target_se"
-      "lect = input to MotionController.mdl, which selects which\n%     camera to use\n%   target_found = informs Motio"
-      "nController that a target is being tracked\n%   maintain_heading = instructs MotionController to strafe xor turn"
-      ":\n%                    = 0 -> Turn toward target (use targetYaw)\n%                    = 1 -> Strafe to target "
-      "(use targetY)\n%   targetY, targetZ = position of buoy in absolute coordinates\n%   targetYaw = relative, latera"
-      "l angular displacement of buoy from\n%     straight ahead (in degrees)\n%   target_detected = informs the script"
-      " that a buoy is being tracked\n%   buoy_colors = vector of integers representing which color each buoy is,\n%   "
-      "  from left to right (same color scheme as which_color)\n\n\n% Initialize\nBuoy_Count_Max = 50;\nmax_num_colors "
-      "= size(a_range, 2);\ntarget_select = 1;\ntarget_found = 1;\nmaintain_heading = 0;\ntargetY = 0;\ntargetZ = 0;\nt"
-      "argetYaw = 0;\ntarget_detected = 0;\nbuoy_colors = zeros(1, Buoy_Count_Max);\nrows = Forward_Camera_Dimensions(1"
-      ");\ncols = Forward_Camera_Dimensions(2);\n\n\n% Classify each buoy by color\nfor i = 1:buoy_count\n    \n    a ="
-      " buoy_hues(i, 2);\n    b = buoy_hues(i, 3);\n    \n    for col = 1:max_num_colors\n        if( a >= a_range(1,co"
-      "l) && a <= a_range(2,col) && b >= b_range(1,col) && b <= b_range(2,col) )\n            buoy_colors(i) = col;\n  "
-      "          break;\n        end\n    end\n    \nend\n\n\n% Examine buoys from left to right; if one has the correc"
-      "t color, then\n%   target it; else do not recognize a target\nfor i = 1:buoy_count\n    if( buoy_colors(i) == wh"
-      "ich_color )\n        targetY = buoy_centroids(i, 2) - floor(cols/2);\n        targetZ = buoy_centroids(i, 1) - f"
-      "loor(rows/2);\n        targetYaw = 0;\n        target_detected = 0;\n        break;\n    else\n    end\nend\n\n%"
-      "{\n\n\nbuoy_hues = double(zeros(Buoy_Count_Max,1));\nbuoy_centroids = double(-500.*ones(Buoy_Count_Max,2));  % I"
-      "nitialize to points clearly not located in image\n\nbuoy_id = double(-1.*ones(Buoy_Count_Max,1));\nBuoy_Hue_Half"
-      "Range = 10;\nBuoy1_Hue = 30;\nBuoy2_Hue = 80;\nBuoy3_Hue = 15;\n\n% Loop through blobs, and analyze and extract "
-      "buoy information\nfor i = 1:blob_count\n    \n    % Convert Lab to XYZ\n%    R = buoy_hues(i);\n%    G = buoy_hu"
-      "es(i);\n%    B = buoy_hues(i);\n    \n    L = blob_hues(:,1); %refcolors(LabelMatrix(1,1,1));\n    a = blob_hues"
-      "(:,2);\n    b = blob_hues(:,3);\n    \n    var_Y = L./10;\n    var_X = ( a./17.5 ).*( L./10 );\n    var_Z = ( b."
-      "/7 ).*( L./10 );\n    \n    Y = var_Y.^2;\n    X = ( var_X + Y )./1.02;\n    Z = -( var_Z - Y )./0.847;\n    \n "
-      "   % Convert XYZ to RGB\n    var_X = X./100;        %X from 0 to  95.047      (Observer = 2 degrees, Illuminant "
-      "= D65)\n    var_Y = Y./100;        %Y from 0 to 100.000\n    var_Z = Z./100;        %Z from 0 to 108.883\n    \n"
-      "    var_R = var_X.*3.2406 + var_Y.*(-1.5372) + var_Z.* -0.4986;\n    var_G = var_X .* -0.9689 + var_Y .*  1.8758"
-      " + var_Z.*  0.0415;\n    var_B = var_X .*  0.0557 + var_Y .* -0.2040 + var_Z .*  1.0570;\n    \n    var_R = ( va"
-      "r_R > 0.0031308 ).*( 1.055.*( var_R.^( 1./2.4 ) ) - 0.055 ) + ( var_R <= 0.0031308 ).*(12.92.*var_R);\n    var_G"
-      " = ( var_G > 0.0031308 ).*( 1.055.*( var_G.^( 1./2.4 ) ) - 0.055 ) + ( var_G <= 0.0031308 ).*( var_G <= 12.92.*v"
-      "ar_G );\n    var_B = ( var_B > 0.0031308 ).*( 1.055 .* ( var_B .^ ( 1 ./ 2.4 ) ) - 0.055 ) + ( var_B <= 0.003130"
-      "8 ).*( 12.92 .* var_B );\n    \n    R = var_R .* 255;\n    G = var_G .* 255;\n    B = var_B .* 255;\n    \n    %"
-      " Convert RGB to HSV\n    var_R = ( R ./ 255 );  % RGB from 0 to 255\n    var_G = ( G ./ 255 );\n    var_B = ( B "
-      "./ 255 );\n    \n    var_Min = min( [var_R, var_G, var_B], [], 2 );  % Min. value of RGB\n    var_Max = max( [va"
-      "r_R, var_G, var_B], [], 2 );  % Max. value of RGB\n    del_Max = var_Max - var_Min;  % Delta RGB value\n    \n  "
-      "  V = var_Max;\n    \n%    H = (del_Max != 0).*(  );\n%    S = (del_Max != 0).*( del_Max./var_Max );\n    if ( m"
-      "ax(abs(del_Max == 0)) );  % This is a gray, no chroma...\n        H = zeros(size(var_R));  % HSV results from 0 "
-      "to 1\n        S = zeros(size(var_R));\n    else  % Chromatic data...\n        \n        S = del_Max ./ var_Max;\n"
+      "amera_Dimensions)\n% NOTES FOR TORPEDO:\n%\n% Need a \"circling\" strafe mode, ideally (possibly in controllers)"
+      "\n\n\n\n\n\n\n\n\n% This function takes in vectors representing buoys present in the image,\n%   and decides whi"
+      "ch buoy to target.\n%\n% Input\n%   buoy_count = number of buoys identified in the image\n%   buoy_hues = Nx3 ma"
+      "trix of Lab components for each buoy\n%   buoy_centroids = Nx2 matrix of x-y pairs of buoy centroids\n%   ref_co"
+      "lors = Nx3 color table containing Lab components\n%   a_range, b_range = 2xN matrix of lower/upper bounds on a, "
+      "b for each\n%     color\n%   which_color = which buoy color should be targeted; integer value\n%     represents:"
+      "\n%               1 -> White\n%               2 -> Black\n%               3 -> Blue\n%               4 -> Red\n%"
+      "               5 -> Orange\n%               6 -> Yellow\n%               7 -> Green\n%\n% Output\n%   target_sel"
+      "ect = input to MotionController.mdl, which selects which\n%     camera to use\n%   target_found = informs Motion"
+      "Controller that a target is being tracked\n%   maintain_heading = instructs MotionController to strafe xor turn:"
+      "\n%                    = 0 -> Turn toward target (use targetYaw)\n%                    = 1 -> Strafe to target ("
+      "use targetY)\n%   targetY, targetZ = position of buoy in absolute coordinates\n%   targetYaw = relative, lateral"
+      " angular displacement of buoy from\n%     straight ahead (in degrees)\n%   target_detected = informs the script "
+      "that a buoy is being tracked\n%   buoy_colors = vector of integers representing which color each buoy is,\n%    "
+      " from left to right (same color scheme as which_color)\n\n\n% Initialize\nBuoy_Count_Max = 50;\nmax_num_colors ="
+      " size(a_range, 2);\ntarget_select = 1;\ntarget_found = 1;\nmaintain_heading = 0;\ntargetY = 0;\ntargetZ = 0;\nta"
+      "rgetYaw = 0;\ntarget_detected = 0;\nbuoy_colors = zeros(1, Buoy_Count_Max);\nrows = Forward_Camera_Dimensions(1)"
+      ";\ncols = Forward_Camera_Dimensions(2);\n\n\n% Classify each buoy by color\nfor i = 1:buoy_count\n    \n    a = "
+      "buoy_hues(i, 2);\n    b = buoy_hues(i, 3);\n    \n    for col = 1:max_num_colors\n        if( a >= a_range(1,col"
+      ") && a <= a_range(2,col) && b >= b_range(1,col) && b <= b_range(2,col) )\n            buoy_colors(i) = col;\n   "
+      "         break;\n        end\n    end\n    \nend\n\n\n% Examine buoys from left to right; if one has the correct"
+      " color, then\n%   target it; else do not recognize a target\nfor i = 1:buoy_count\n    if( buoy_colors(i) == whi"
+      "ch_color )\n        targetY = buoy_centroids(i, 2) - floor(cols/2);\n        targetZ = buoy_centroids(i, 1) - fl"
+      "oor(rows/2);\n        targetYaw = 0;\n        target_detected = 0;\n        break;\n    else\n    end\nend\n\n%{"
+      "\n\n\nbuoy_hues = double(zeros(Buoy_Count_Max,1));\nbuoy_centroids = double(-500.*ones(Buoy_Count_Max,2));  % In"
+      "itialize to points clearly not located in image\n\nbuoy_id = double(-1.*ones(Buoy_Count_Max,1));\nBuoy_Hue_HalfR"
+      "ange = 10;\nBuoy1_Hue = 30;\nBuoy2_Hue = 80;\nBuoy3_Hue = 15;\n\n% Loop through blobs, and analyze and extract b"
+      "uoy information\nfor i = 1:blob_count\n    \n    % Convert Lab to XYZ\n%    R = buoy_hues(i);\n%    G = buoy_hue"
+      "s(i);\n%    B = buoy_hues(i);\n    \n    L = blob_hues(:,1); %refcolors(LabelMatrix(1,1,1));\n    a = blob_hues("
+      ":,2);\n    b = blob_hues(:,3);\n    \n    var_Y = L./10;\n    var_X = ( a./17.5 ).*( L./10 );\n    var_Z = ( b./"
+      "7 ).*( L./10 );\n    \n    Y = var_Y.^2;\n    X = ( var_X + Y )./1.02;\n    Z = -( var_Z - Y )./0.847;\n    \n  "
+      "  % Convert XYZ to RGB\n    var_X = X./100;        %X from 0 to  95.047      (Observer = 2 degrees, Illuminant ="
+      " D65)\n    var_Y = Y./100;        %Y from 0 to 100.000\n    var_Z = Z./100;        %Z from 0 to 108.883\n    \n "
+      "   var_R = var_X.*3.2406 + var_Y.*(-1.5372) + var_Z.* -0.4986;\n    var_G = var_X .* -0.9689 + var_Y .*  1.8758 "
+      "+ var_Z.*  0.0415;\n    var_B = var_X .*  0.0557 + var_Y .* -0.2040 + var_Z .*  1.0570;\n    \n    var_R = ( var"
+      "_R > 0.0031308 ).*( 1.055.*( var_R.^( 1./2.4 ) ) - 0.055 ) + ( var_R <= 0.0031308 ).*(12.92.*var_R);\n    var_G "
+      "= ( var_G > 0.0031308 ).*( 1.055.*( var_G.^( 1./2.4 ) ) - 0.055 ) + ( var_G <= 0.0031308 ).*( var_G <= 12.92.*va"
+      "r_G );\n    var_B = ( var_B > 0.0031308 ).*( 1.055 .* ( var_B .^ ( 1 ./ 2.4 ) ) - 0.055 ) + ( var_B <= 0.0031308"
+      " ).*( 12.92 .* var_B );\n    \n    R = var_R .* 255;\n    G = var_G .* 255;\n    B = var_B .* 255;\n    \n    % "
+      "Convert RGB to HSV\n    var_R = ( R ./ 255 );  % RGB from 0 to 255\n    var_G = ( G ./ 255 );\n    var_B = ( B ."
+      "/ 255 );\n    \n    var_Min = min( [var_R, var_G, var_B], [], 2 );  % Min. value of RGB\n    var_Max = max( [var"
+      "_R, var_G, var_B], [], 2 );  % Max. value of RGB\n    del_Max = var_Max - var_Min;  % Delta RGB value\n    \n   "
+      " V = var_Max;\n    \n%    H = (del_Max != 0).*(  );\n%    S = (del_Max != 0).*( del_Max./var_Max );\n    if ( ma"
+      "x(abs(del_Max == 0)) );  % This is a gray, no chroma...\n        H = zeros(size(var_R));  % HSV results from 0 t"
+      "o 1\n        S = zeros(size(var_R));\n    else  % Chromatic data...\n        \n        S = del_Max ./ var_Max;\n"
       "        \n        del_R = ( ( ( var_Max - var_R ) ./ 6 ) + ( del_Max ./ 2 ) ) ./ del_Max;\n        del_G = ( ( ("
       " var_Max - var_G ) ./ 6 ) + ( del_Max ./ 2 ) ) ./ del_Max;\n        del_B = ( ( ( var_Max - var_B ) ./ 6 ) + ( d"
       "el_Max ./ 2 ) ) ./ del_Max;\n        \n        \n        H = ( var_R == var_Max ).*( del_B - del_G ) + ( var_G ="
