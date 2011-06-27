@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.876"
+    ComputedModelVersion    "1.880"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 12:55:35 2011"
+  LastModifiedDate	  "Mon Jun 27 17:14:08 2011"
   RTWModifiedTimeStamp	  231077352
-  ModelVersionFormat	  "1.%<AutoIncrement:876>"
+  ModelVersionFormat	  "1.%<AutoIncrement:880>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -737,7 +737,7 @@ Model {
   }
   System {
     Name		    "color_palette_v3"
-    Location		    [0, 83, 1440, 867]
+    Location		    [1440, 50, 3120, 1050]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -3429,7 +3429,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[1526 467 410 300]"
+      FigPos		      "[738 474 410 300]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -3438,7 +3438,7 @@ Model {
       BlockType		      Constant
       Name		      "ColorFilter"
       SID		      "370"
-      Position		      [365, 250, 395, 280]
+      Position		      [365, 300, 395, 330]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -3804,7 +3804,7 @@ Model {
       System {
 	Name			"Forward Filter"
 	Location		[4, 83, 1016, 731]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -4067,7 +4067,7 @@ Model {
       Name		      "Iter_Segment_Thresh"
       SID		      "390"
       Position		      [110, 365, 140, 395]
-      Value		      "50"
+      Value		      "30"
       SampleTime	      "-1"
     }
     Block {
@@ -4075,7 +4075,7 @@ Model {
       Name		      "L"
       SID		      "374"
       Position		      [1120, 70, 1150, 100]
-      Value		      "200"
+      Value		      "50"
       SampleTime	      "-1"
     }
     Block {
@@ -4113,6 +4113,7 @@ Model {
       Name		      "Scale_Forward_R"
       SID		      "418"
       Position		      [115, 465, 145, 495]
+      Value		      "1.2"
       SampleTime	      "-1"
     }
     Block {
@@ -4149,7 +4150,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[1521 919 410 300]"
+      FigPos		      "[762 817 410 300]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -4236,7 +4237,7 @@ Model {
       Name		      "a_range"
       SID		      "375"
       Position		      [1120, 150, 1150, 180]
-      Value		      "[100 200]"
+      Value		      "[-50 50]"
       SampleTime	      "-1"
     }
     Block {
@@ -4244,7 +4245,7 @@ Model {
       Name		      "b_range"
       SID		      "376"
       Position		      [1120, 210, 1150, 240]
-      Value		      "[100 200]"
+      Value		      "[-50 50]"
       SampleTime	      "-1"
     }
     Block {
@@ -4252,6 +4253,7 @@ Model {
       Name		      "refColorSelect"
       SID		      "243"
       Position		      [1115, 350, 1145, 380]
+      Value		      "3"
       SampleTime	      "-1"
     }
     Line {
@@ -4284,7 +4286,6 @@ Model {
     Line {
       SrcBlock		      "ColorFilter"
       SrcPort		      1
-      Points		      [80, 0]
       DstBlock		      "Blob Analysis"
       DstPort		      4
     }
