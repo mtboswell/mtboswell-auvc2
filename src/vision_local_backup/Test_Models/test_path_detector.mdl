@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1060"
+    ComputedModelVersion    "1.1092"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_path_detector/path_detector.mdl|path_detector"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jun 26 08:41:57 2011"
-  RTWModifiedTimeStamp	  230967511
-  ModelVersionFormat	  "1.%<AutoIncrement:1060>"
+  LastModifiedDate	  "Mon Jun 27 00:36:22 2011"
+  RTWModifiedTimeStamp	  231022541
+  ModelVersionFormat	  "1.%<AutoIncrement:1092>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -760,13 +760,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "685"
+    SIDHighWatermark	    "688"
     Block {
       BlockType		      Reference
       Name		      "BW Image"
       SID		      "631"
       Ports		      [1]
-      Position		      [950, 530, 1065, 600]
+      Position		      [1295, 525, 1410, 595]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag0"
@@ -790,7 +790,7 @@ Model {
       Name		      "Display"
       SID		      "455"
       Ports		      [1]
-      Position		      [1260, 265, 1350, 295]
+      Position		      [1625, 260, 1715, 290]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -799,7 +799,7 @@ Model {
       Name		      "Display1"
       SID		      "456"
       Ports		      [1]
-      Position		      [1260, 315, 1350, 345]
+      Position		      [1625, 310, 1715, 340]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -808,7 +808,7 @@ Model {
       Name		      "Display2"
       SID		      "465"
       Ports		      [1]
-      Position		      [1260, 365, 1350, 395]
+      Position		      [1625, 360, 1715, 390]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -817,7 +817,7 @@ Model {
       Name		      "Display3"
       SID		      "466"
       Ports		      [1]
-      Position		      [1260, 415, 1350, 445]
+      Position		      [1625, 410, 1715, 440]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -826,7 +826,25 @@ Model {
       Name		      "Display4"
       SID		      "621"
       Ports		      [1]
-      Position		      [1260, 465, 1350, 495]
+      Position		      [1625, 460, 1715, 490]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display5"
+      SID		      "687"
+      Ports		      [1]
+      Position		      [875, 830, 965, 860]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "Display6"
+      SID		      "688"
+      Ports		      [1]
+      Position		      [875, 885, 965, 915]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -1314,7 +1332,7 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      FileName		      "/home/auvt/auvc/src/vision/Test_Images/path4.PNG"
+      FileName		      "/home/auvt/auvc/src/vision/Test_Images/path5.PNG"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
@@ -1330,7 +1348,7 @@ Model {
       Name		      "Draw Target1"
       SID		      "674"
       Ports		      [2, 1]
-      Position		      [1315, 978, 1465, 1042]
+      Position		      [1565, 978, 1715, 1042]
       LibraryVersion	      "1.183"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag15"
@@ -1366,7 +1384,7 @@ Model {
       Name		      "Edge Image"
       SID		      "633"
       Ports		      [1]
-      Position		      [950, 640, 1065, 710]
+      Position		      [1295, 635, 1410, 705]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag16"
@@ -1390,7 +1408,7 @@ Model {
       Name		      "Line Image"
       SID		      "636"
       Ports		      [1]
-      Position		      [950, 745, 1065, 815]
+      Position		      [1295, 740, 1410, 810]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag18"
@@ -1404,7 +1422,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[808 631 418 354]"
+      FigPos		      "[745 490 418 354]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -1414,7 +1432,7 @@ Model {
       Name		      "Markers"
       SID		      "675"
       Ports		      [1]
-      Position		      [1510, 975, 1625, 1045]
+      Position		      [1760, 975, 1875, 1045]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag20"
@@ -1445,7 +1463,7 @@ Model {
       Name		      "Output Image"
       SID		      "662"
       Ports		      [3]
-      Position		      [960, 355, 1075, 425]
+      Position		      [1610, 530, 1725, 600]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag22"
@@ -1493,7 +1511,7 @@ Model {
       Name		      "Pre-filter image1"
       SID		      "676"
       Ports		      [6, 5]
-      Position		      [840, 1245, 1270, 1615]
+      Position		      [1105, 1265, 1535, 1635]
       LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
@@ -1770,7 +1788,7 @@ Model {
       Name		      "To Workspace1"
       SID		      "678"
       Ports		      [1]
-      Position		      [820, 1015, 880, 1045]
+      Position		      [1145, 1005, 1205, 1035]
       VariableName	      "major_axis"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1781,7 +1799,7 @@ Model {
       Name		      "To Workspace10"
       SID		      "671"
       Ports		      [1]
-      Position		      [820, 530, 880, 560]
+      Position		      [1145, 520, 1205, 550]
       VariableName	      "blob_count"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1792,7 +1810,7 @@ Model {
       Name		      "To Workspace11"
       SID		      "672"
       Ports		      [1]
-      Position		      [820, 965, 880, 995]
+      Position		      [1145, 955, 1205, 985]
       VariableName	      "path_headings"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1803,7 +1821,7 @@ Model {
       Name		      "To Workspace12"
       SID		      "679"
       Ports		      [1]
-      Position		      [820, 1070, 880, 1100]
+      Position		      [1145, 1060, 1205, 1090]
       VariableName	      "minor_axis"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1814,7 +1832,7 @@ Model {
       Name		      "To Workspace13"
       SID		      "680"
       Ports		      [1]
-      Position		      [820, 1120, 880, 1150]
+      Position		      [1145, 1110, 1205, 1140]
       VariableName	      "ref_colors"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1825,7 +1843,7 @@ Model {
       Name		      "To Workspace14"
       SID		      "682"
       Ports		      [1]
-      Position		      [580, 775, 640, 805]
+      Position		      [890, 655, 950, 685]
       VariableName	      "theta"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1836,7 +1854,7 @@ Model {
       Name		      "To Workspace15"
       SID		      "683"
       Ports		      [1]
-      Position		      [565, 830, 625, 860]
+      Position		      [890, 710, 950, 740]
       VariableName	      "rho"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1847,7 +1865,7 @@ Model {
       Name		      "To Workspace16"
       SID		      "685"
       Ports		      [1]
-      Position		      [530, 1015, 590, 1045]
+      Position		      [890, 775, 950, 805]
       VariableName	      "debug_orientation"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1858,7 +1876,7 @@ Model {
       Name		      "To Workspace2"
       SID		      "663"
       Ports		      [1]
-      Position		      [820, 470, 880, 500]
+      Position		      [1145, 460, 1205, 490]
       VariableName	      "hough_table"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1869,7 +1887,7 @@ Model {
       Name		      "To Workspace3"
       SID		      "664"
       Ports		      [1]
-      Position		      [820, 650, 880, 680]
+      Position		      [1145, 640, 1205, 670]
       VariableName	      "area"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1880,7 +1898,7 @@ Model {
       Name		      "To Workspace4"
       SID		      "665"
       Ports		      [1]
-      Position		      [820, 765, 880, 795]
+      Position		      [1145, 755, 1205, 785]
       VariableName	      "centroid"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1891,7 +1909,7 @@ Model {
       Name		      "To Workspace5"
       SID		      "666"
       Ports		      [1]
-      Position		      [820, 710, 880, 740]
+      Position		      [1145, 700, 1205, 730]
       VariableName	      "bbox"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1902,7 +1920,7 @@ Model {
       Name		      "To Workspace6"
       SID		      "667"
       Ports		      [1]
-      Position		      [820, 915, 880, 945]
+      Position		      [1145, 905, 1205, 935]
       VariableName	      "orientation"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1913,7 +1931,7 @@ Model {
       Name		      "To Workspace7"
       SID		      "668"
       Ports		      [1]
-      Position		      [820, 870, 880, 900]
+      Position		      [1145, 860, 1205, 890]
       VariableName	      "extent"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1924,7 +1942,7 @@ Model {
       Name		      "To Workspace8"
       SID		      "669"
       Ports		      [1]
-      Position		      [820, 815, 880, 845]
+      Position		      [1145, 805, 1205, 835]
       VariableName	      "eccentricity"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1935,7 +1953,7 @@ Model {
       Name		      "To Workspace9"
       SID		      "670"
       Ports		      [1]
-      Position		      [820, 590, 880, 620]
+      Position		      [1145, 580, 1205, 610]
       VariableName	      "hues"
       MaxDataPoints	      "inf"
       SampleTime	      "-1"
@@ -1945,11 +1963,11 @@ Model {
       BlockType		      ModelReference
       Name		      "path_detector.mdl"
       SID		      "620"
-      Ports		      [4, 27]
-      Position		      [410, 256, 695, 734]
+      Ports		      [4, 28]
+      Position		      [410, 258, 695, 737]
       ModelNameDialog	      "path_detector"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.185"
+      ModelReferenceVersion   "1.234"
       List {
 	ListType		InputPortNames
 	port0			"R_in"
@@ -1986,6 +2004,7 @@ Model {
 	port24			"theta"
 	port25			"rho"
 	port26			"debug_orientation"
+	port27			"y_heading"
       }
       List {
 	ListType		OutputPortOutputBusAsStructs
@@ -2016,6 +2035,7 @@ Model {
 	port24			"off"
 	port25			"off"
 	port26			"off"
+	port27			"off"
       }
       CopyOfModelName	      "path_detector"
     }
@@ -2023,7 +2043,7 @@ Model {
       BlockType		      Constant
       Name		      "which_blob"
       SID		      "677"
-      Position		      [780, 1265, 810, 1295]
+      Position		      [925, 1285, 955, 1315]
       Value		      "18"
       SampleTime	      "-1"
     }
@@ -2082,21 +2102,21 @@ Model {
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      2
-      Points		      [545, 0]
+      Points		      [910, 0]
       DstBlock		      "Display1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      3
-      Points		      [500, 0; 0, 50]
+      Points		      [890, 0; 0, 50]
       DstBlock		      "Display2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      4
-      Points		      [415, 0; 0, 85]
+      Points		      [880, 0; 0, 85]
       DstBlock		      "Display3"
       DstPort		      1
     }
@@ -2110,34 +2130,35 @@ Model {
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      6
-      Points		      [0, -10]
+      Points		      [855, 0; 0, 170]
       DstBlock		      "Output Image"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      7
+      Points		      [835, 0; 0, 180]
       DstBlock		      "Output Image"
       DstPort		      2
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      8
-      Points		      [0, 10]
+      Points		      [765, 0; 0, 190]
       DstBlock		      "Output Image"
       DstPort		      3
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      9
-      Points		      [220, 0; 0, 65]
+      Points		      [0, 10; 635, 0; 0, 60]
       Branch {
-	Points			[0, 80]
+	Points			[-60, 0; 0, 75]
 	DstBlock		"BW Image"
 	DstPort			1
       }
       Branch {
-	Points			[170, 0; 0, 510]
+	Points			[110, 0; 0, 510]
 	DstBlock		"Draw Target1"
 	DstPort			1
       }
@@ -2145,7 +2166,7 @@ Model {
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      10
-      Points		      [215, 0; 0, 240]
+      Points		      [570, 0; 0, 240]
       DstBlock		      "Edge Image"
       DstPort		      1
     }
@@ -2153,34 +2174,35 @@ Model {
       Labels		      [0, 0]
       SrcBlock		      "path_detector.mdl"
       SrcPort		      11
-      Points		      [205, 0; 0, 330]
+      Points		      [545, 0; 0, 330]
       DstBlock		      "Line Image"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      5
-      Points		      [405, 0; 0, 120]
+      Points		      [860, 0; 0, 120]
       DstBlock		      "Display4"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      12
-      Points		      [95, 0; 0, 20]
+      Points		      [405, 0; 0, 15]
       DstBlock		      "To Workspace2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      20
-      Points		      [20, 0; 0, 345]
+      Points		      [295, 0; 0, 350]
       Branch {
+	Points			[135, 0]
 	DstBlock		"To Workspace6"
 	DstPort			1
       }
       Branch {
-	Points			[0, 650]
+	Points			[0, 670]
 	DstBlock		"Pre-filter image1"
 	DstPort			6
       }
@@ -2188,13 +2210,14 @@ Model {
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      19
-      Points		      [35, 0; 0, 315]
+      Points		      [310, 0; 0, 320]
       Branch {
+	Points			[120, 0]
 	DstBlock		"To Workspace7"
 	DstPort			1
       }
       Branch {
-	Points			[0, 635]
+	Points			[0, 655]
 	DstBlock		"Pre-filter image1"
 	DstPort			5
       }
@@ -2202,13 +2225,14 @@ Model {
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      18
-      Points		      [40, 0; 0, 275]
+      Points		      [325, 0; 0, 280]
       Branch {
+	Points			[105, 0]
 	DstBlock		"To Workspace8"
 	DstPort			1
       }
       Branch {
-	Points			[0, 630]
+	Points			[0, 650]
 	DstBlock		"Pre-filter image1"
 	DstPort			4
       }
@@ -2216,13 +2240,14 @@ Model {
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      17
-      Points		      [0, -20; 45, 0; 0, 260]
+      Points		      [0, -15; 370, 0; 0, 260]
       Branch {
+	Points			[60, 0]
 	DstBlock		"To Workspace4"
 	DstPort			1
       }
       Branch {
-	Points			[0, 620]
+	Points			[0, 640]
 	DstBlock		"Pre-filter image1"
 	DstPort			3
       }
@@ -2230,20 +2255,21 @@ Model {
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      16
-      Points		      [50, 0; 0, 200]
+      Points		      [375, 0; 0, 190; 55, 0]
       DstBlock		      "To Workspace5"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      15
-      Points		      [55, 0; 0, 155]
+      Points		      [385, 0; 0, 160]
       Branch {
+	Points			[45, 0]
 	DstBlock		"To Workspace3"
 	DstPort			1
       }
       Branch {
-	Points			[0, 675]
+	Points			[0, 695]
 	DstBlock		"Pre-filter image1"
 	DstPort			2
       }
@@ -2251,23 +2277,31 @@ Model {
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      13
-      Points		      [85, 0; 0, 65]
+      Points		      [400, 0; 0, 60]
       DstBlock		      "To Workspace10"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      14
-      Points		      [75, 0; 0, 110]
+      Points		      [395, 0; 0, 105]
       DstBlock		      "To Workspace9"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      21
-      Points		      [15, 0; 0, 380]
-      DstBlock		      "To Workspace11"
-      DstPort		      1
+      Points		      [145, 0]
+      Branch {
+	Points			[135, 0; 0, 375]
+	DstBlock		"To Workspace11"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, 250]
+	DstBlock		"Display5"
+	DstPort			1
+      }
     }
     Line {
       SrcBlock		      "Draw Target1"
@@ -2284,28 +2318,28 @@ Model {
     Line {
       SrcBlock		      "Pre-filter image1"
       SrcPort		      2
-      Points		      [25, 0]
+      Points		      [10, 0]
       DstBlock		      "Draw Target1"
       DstPort		      2
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      22
-      Points		      [100, 0; 0, 415]
+      Points		      [365, 0; 0, 410]
       DstBlock		      "To Workspace1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      23
-      Points		      [100, 0; 0, 455]
+      Points		      [355, 0; 0, 450]
       DstBlock		      "To Workspace12"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      24
-      Points		      [100, 0; 0, 490]
+      Points		      [345, 0; 0, 485]
       DstBlock		      "To Workspace13"
       DstPort		      1
     }
@@ -2332,22 +2366,29 @@ Model {
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      25
-      Points		      [10, 0; 0, 110; -145, 0]
+      Points		      [175, 0]
       DstBlock		      "To Workspace14"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      26
-      Points		      [10, 0; 0, 75; -160, 0]
+      Points		      [170, 0; 0, 55]
       DstBlock		      "To Workspace15"
       DstPort		      1
     }
     Line {
       SrcBlock		      "path_detector.mdl"
       SrcPort		      27
-      Points		      [0, 310; -185, 0]
+      Points		      [160, 0; 0, 105]
       DstBlock		      "To Workspace16"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "path_detector.mdl"
+      SrcPort		      28
+      Points		      [130, 0; 0, 200]
+      DstBlock		      "Display6"
       DstPort		      1
     }
   }
