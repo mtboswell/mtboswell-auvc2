@@ -87,7 +87,7 @@ Model {
       Name		      "ref_colors"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.790"
+    ComputedModelVersion    "1.791"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -107,9 +107,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 12:26:10 2011"
-  RTWModifiedTimeStamp	  231078366
-  ModelVersionFormat	  "1.%<AutoIncrement:790>"
+  LastModifiedDate	  "Mon Jun 27 14:58:32 2011"
+  RTWModifiedTimeStamp	  231087504
+  ModelVersionFormat	  "1.%<AutoIncrement:791>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -4566,7 +4566,7 @@ Stateflow {
       "l angular displacement of buoy from\n%     straight ahead (in degrees)\n%   target_detected = informs the script"
       " that a buoy is being tracked\n%   buoy_colors = vector of integers representing which color each buoy is,\n%   "
       "  from left to right (same color scheme as which_color)\n\n\n% Initialize\nBuoy_Count_Max = 50;\nmax_num_colors "
-      "= size(a_range, 2);\ntarget_select = 1;\ntarget_found = 1;\nmaintain_heading = 0;\ntargetY = 0;\ntargetZ = 0;\nt"
+      "= size(a_range, 2);\ntarget_select = 1;\ntarget_found = 1;\nmaintain_heading = 1;\ntargetY = 0;\ntargetZ = 0;\nt"
       "argetYaw = 0;\ntarget_detected = 0;\nbuoy_colors = zeros(1, Buoy_Count_Max);\nrows = Forward_Camera_Dimensions(1"
       ");\ncols = Forward_Camera_Dimensions(2);\n\n\n% Classify each buoy by color\nfor i = 1:buoy_count\n    \n    a ="
       " buoy_hues(i, 2);\n    b = buoy_hues(i, 3);\n    \n    for col = 1:max_num_colors\n        if( a >= a_range(1,co"

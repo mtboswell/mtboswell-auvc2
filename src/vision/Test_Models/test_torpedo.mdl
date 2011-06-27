@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.917"
+    ComputedModelVersion    "1.941"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_torpedo/torpedo.mdl|torpedo"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 13:09:09 2011"
+  LastModifiedDate	  "Mon Jun 27 17:14:47 2011"
   RTWModifiedTimeStamp	  231076657
-  ModelVersionFormat	  "1.%<AutoIncrement:917>"
+  ModelVersionFormat	  "1.%<AutoIncrement:941>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -757,7 +757,23 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "620"
+    SIDHighWatermark	    "624"
+    Block {
+      BlockType		      Reference
+      Name		      "Color Space\n Conversion2"
+      SID		      "623"
+      Ports		      [3, 3]
+      Position		      [765, 1051, 865, 1109]
+      LibraryVersion	      "1.328"
+      SourceBlock	      "vipconversions/Color Space\n Conversion"
+      SourceType	      "Color Space Conversion"
+      conversion	      "Obsolete"
+      conversionActive	      "L*a*b* to sR'G'B'"
+      wp_str		      "D50"
+      rec		      "Rec. 601 (SDTV)"
+      sys		      "1125/60/2:1"
+      imagePorts	      "Separate color signals"
+    }
     Block {
       BlockType		      Display
       Name		      "Display"
@@ -831,6 +847,15 @@ Model {
       Lockdown		      off
     }
     Block {
+      BlockType		      Display
+      Name		      "Display8"
+      SID		      "621"
+      Ports		      [1]
+      Position		      [860, 972, 1115, 1028]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
       BlockType		      Reference
       Name		      "Draw Target"
       SID		      "495"
@@ -885,7 +910,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[964 370 268 224]"
+      FigPos		      "[1523 382 268 224]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -906,7 +931,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Forward Filter"
-	Location		[2, 76, 1014, 724]
+	Location		[4, 83, 1016, 731]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1186,8 +1211,7 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      FileName		      "C:\\Documents and Settings\\Administrator\\My Documents\\Academics\\Summer 2011\\Newest Reposit"
-      "ory 6\\src\\vision\\Test_Images\\gate10.bmp"
+      FileName		      "/home/auvt/auvc/src/vision/Test_Images/torpedo1.PNG"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
@@ -1214,6 +1238,164 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      Reference
+      Name		      "Segmented Image"
+      SID		      "624"
+      Ports		      [3]
+      Position		      [900, 1045, 1015, 1115]
+      LibraryVersion	      "1.251"
+      UserDataPersistent      on
+      UserData		      "DataTag4"
+      DialogControllerArgs    "DataTag5"
+      SourceBlock	      "vipsnks/Video Viewer"
+      SourceType	      "Video Viewer"
+      inputType		      "Obsolete7b"
+      imagePorts	      "Separate color signals"
+      useColorMap	      off
+      colormapValue	      "jet(256)"
+      specRange		      off
+      minInputVal	      "0"
+      maxInputVal	      "255"
+      FigPos		      "[1503 759 311 250]"
+      AxisZoom		      on
+      trueSizedOnce	      off
+      OpenAtMdlStart	      on
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Transform Coordinates1"
+      SID		      "622"
+      Ports		      [2, 1]
+      Position		      [1080, 1104, 1330, 1206]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      SystemSampleTime	      "[1/30 0]"
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      Array {
+	Type			"Handle"
+	Dimension		0
+	PropName		"AvailSigsLoadSave"
+      }
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('display_target_list');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Transform Coordinates1"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"47"
+	Block {
+	  BlockType		  Inport
+	  Name			  "bw_image_in"
+	  SID			  "622::44"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "target_list"
+	  SID			  "622::47"
+	  Position		  [20, 136, 40, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "622::23"
+	  Ports			  [1, 1]
+	  Position		  [270, 270, 320, 310]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "622::22"
+	  Tag			  "Stateflow S-Function test_torpedo 2"
+	  Ports			  [2, 2]
+	  Position		  [180, 108, 230, 272]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[2 2]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "pts"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "622::25"
+	  Position		  [460, 281, 480, 299]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "pts"
+	  SID			  "622::36"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "bw_image_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "target_list"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  Name			  "pts"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "pts"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
       BlockType		      SubSystem
       Name		      "Transform Coordinates3"
       SID		      "613"
@@ -1228,6 +1410,11 @@ Model {
       RTWSystemCode	      "Auto"
       FunctionWithSeparateData off
       Opaque		      off
+      Array {
+	Type			"Handle"
+	Dimension		0
+	PropName		"AvailSigsLoadSave"
+      }
       RequestExecContextInheritance off
       MaskHideContents	      off
       MaskType		      "Stateflow"
@@ -1418,17 +1605,17 @@ Model {
       BlockType		      ModelReference
       Name		      "torpedo.mdl"
       SID		      "620"
-      Ports		      [4, 13]
-      Position		      [390, 549, 705, 1011]
+      Ports		      [4, 14]
+      Position		      [355, 554, 675, 1061]
       ModelNameDialog	      "torpedo"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.841"
+      ModelReferenceVersion   "1.1046"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
 	port1			"G_forward_in"
 	port2			"B_forward_in"
-	port3			"WhichColor"
+	port3			"WhichHeart"
       }
       List {
 	ListType		OutputPortNames
@@ -1440,11 +1627,12 @@ Model {
 	port5			"TargetYaw"
 	port6			"TargetDetected"
 	port7			"FireAuthorization"
-	port8			"LabelMatrix"
-	port9			"BuoyHues"
-	port10			"BuoyCentroids"
-	port11			"num_colors"
-	port12			"ref_colors"
+	port8			"WhichColor"
+	port9			"blob_centroids"
+	port10			"target_list"
+	port11			"L"
+	port12			"a"
+	port13			"b"
       }
       List {
 	ListType		OutputPortOutputBusAsStructs
@@ -1461,22 +1649,9 @@ Model {
 	port10			"off"
 	port11			"off"
 	port12			"off"
-      }
-      List {
-	ListType		InputPortLatchByCopyingInsideSignal
-	port0			"off"
-	port1			"off"
-	port2			"off"
-	port3			"off"
+	port13			"off"
       }
       CopyOfModelName	      "torpedo"
-      List {
-	ListType		InputPortLatchByDelayingOutsideSignal
-	port0			"off"
-	port1			"off"
-	port2			"off"
-	port3			"off"
-      }
     }
     Line {
       SrcBlock		      "Forward Test Image"
@@ -1488,7 +1663,7 @@ Model {
 	DstPort			1
       }
       Branch {
-	Points			[140, 0]
+	Points			[105, 0]
 	DstBlock		"torpedo.mdl"
 	DstPort			1
       }
@@ -1503,17 +1678,10 @@ Model {
 	DstPort			3
       }
       Branch {
-	Points			[65, 0; 0, 165]
+	Points			[65, 0; 0, 200]
 	DstBlock		"torpedo.mdl"
 	DstPort			3
       }
-    }
-    Line {
-      SrcBlock		      "Vector\nConcatenate"
-      SrcPort		      1
-      Points		      [0, -55]
-      DstBlock		      "Draw Target"
-      DstPort		      4
     }
     Line {
       SrcBlock		      "Draw Target"
@@ -1571,7 +1739,7 @@ Model {
 	DstPort			2
       }
       Branch {
-	Points			[80, 0; 0, 85]
+	Points			[80, 0; 0, 110]
 	DstBlock		"torpedo.mdl"
 	DstPort			2
       }
@@ -1592,37 +1760,37 @@ Model {
     Line {
       SrcBlock		      "ModeSelect"
       SrcPort		      1
-      Points		      [160, 0]
+      Points		      [125, 0]
       DstBlock		      "torpedo.mdl"
       DstPort		      4
     }
     Line {
       SrcBlock		      "torpedo.mdl"
       SrcPort		      1
-      Points		      [0, 15]
+      Points		      [0, 5]
       DstBlock		      "Display"
       DstPort		      1
     }
     Line {
       SrcBlock		      "torpedo.mdl"
       SrcPort		      2
-      Points		      [225, 0; 0, 25]
+      Points		      [0, 15]
       DstBlock		      "Display1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "torpedo.mdl"
       SrcPort		      3
-      Points		      [225, 0; 0, 35]
+      Points		      [255, 0; 0, 25]
       DstBlock		      "Display2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "torpedo.mdl"
       SrcPort		      4
-      Points		      [35, 0; 0, 75; 10, 0]
+      Points		      [0, 65; 70, 0]
       Branch {
-	Points			[180, 0; 0, -25]
+	Points			[185, 0; 0, -25]
 	DstBlock		"Display3"
 	DstPort			1
       }
@@ -1635,7 +1803,7 @@ Model {
     Line {
       SrcBlock		      "torpedo.mdl"
       SrcPort		      5
-      Points		      [25, 0; 0, 95; 25, 0]
+      Points		      [0, 85; 80, 0]
       Branch {
 	Points			[175, 0; 0, -25]
 	DstBlock		"Display4"
@@ -1650,21 +1818,21 @@ Model {
     Line {
       SrcBlock		      "torpedo.mdl"
       SrcPort		      6
-      Points		      [225, 0; 0, 95]
+      Points		      [255, 0; 0, 85]
       DstBlock		      "Display5"
       DstPort		      1
     }
     Line {
       SrcBlock		      "torpedo.mdl"
       SrcPort		      7
-      Points		      [225, 0; 0, 105]
+      Points		      [255, 0; 0, 95]
       DstBlock		      "Display6"
       DstPort		      1
     }
     Line {
       SrcBlock		      "torpedo.mdl"
       SrcPort		      8
-      Points		      [225, 0; 0, 120]
+      Points		      [255, 0; 0, 110]
       DstBlock		      "Display7"
       DstPort		      1
     }
@@ -1675,10 +1843,118 @@ Model {
       DstBlock		      "Vector\nConcatenate"
       DstPort		      2
     }
+    Line {
+      SrcBlock		      "torpedo.mdl"
+      SrcPort		      11
+      Points		      [120, 0; 0, 70]
+      DstBlock		      "Display8"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "torpedo.mdl"
+      SrcPort		      10
+      Points		      [360, 0; 0, -490]
+      DstBlock		      "Draw Target"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Color Space\n Conversion2"
+      SrcPort		      1
+      Points		      [5, 0; 0, -5]
+      DstBlock		      "Segmented Image"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Color Space\n Conversion2"
+      SrcPort		      2
+      DstBlock		      "Segmented Image"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Color Space\n Conversion2"
+      SrcPort		      3
+      Points		      [20, 0; 0, 5]
+      DstBlock		      "Segmented Image"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "torpedo.mdl"
+      SrcPort		      12
+      Points		      [40, 0; 0, 95]
+      DstBlock		      "Color Space\n Conversion2"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "torpedo.mdl"
+      SrcPort		      13
+      Points		      [30, 0; 0, 80]
+      DstBlock		      "Color Space\n Conversion2"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "torpedo.mdl"
+      SrcPort		      14
+      Points		      [20, 0; 0, 65]
+      DstBlock		      "Color Space\n Conversion2"
+      DstPort		      3
+    }
   }
 }
 MatData {
-  NumRecords		  4
+  NumRecords		  6
+  DataRecord {
+    Tag			    DataTag5
+    Data		    "  %)30     .    ,     8    (    !          %    \"                0         0          "
+  }
+  DataRecord {
+    Tag			    DataTag4
+    Data		    "  %)30     .    4 $   8    (     @         %    \"     $    !     0         %  0 #0    $    :    4V-O<&"
+    "5#9F=.86UE %-C;W!E                   .    4     8    (    !          %    \"     $    =     0         0    '0   '9"
+    "I<'-C;W!E<RY6:61E;U9I97=E<E-C;W!E0V9G    #@   )@    &    \"    !$          0         !  0 34-/4P$    :    <V-O<&5E"
+    ">'1E;G-I;VYS+E=I<F5D4V-O<&4        .    2     8    (    #0         %    \"     8    !     0         &    &        "
+    "-T\"     0    $    !     P    X   !P#0  !@    @    )          4    (     0   $ -   !          (   ! #0    %)30    "
+    " .    H P   8    (     @         %    \"     $    !     0         %  0 !0    $    %    34-/4P     .    6 P   8    "
+    "(    $0         !          $ ! !-0T]3 0    T   !&:6QE5W)A<'!E<E]?    #@   !@,   &    \"     $         !0    @    &"
+    "     0    $         #@   %@\"   &    \"     D         !0    @    H @   0    $          @   \"@\"   \"    %    \"@!"
+    "  !H 0  D $  / !   ( @  * (             86YY %!A<G-E9$%R9W, 4V-O<&5#3$D =6ES8V]P97, 3F%M90!!<F=S $%R9TYA;65S %9I9&"
+    "5O5FEE=V5R4V-O<&5#9F< =FEP<V-O<&5S $)L;V-K %-C;W!E $-U<G)E;G1#;VYF:6=U<F%T:6]N %!O<VET:6]N %=I;F1O=U-T>6QE %=I<F5D"
+    "4V-O<&4 <V-O<&5E>'1E;G-I;VYS $%L;&]W4V-O<&5#:&%N9V5S $%L;&]W0FQO8VM#:&%N9V5S $ES4V-O<&5#9F=/;&0 <VEG=71I;',N07!P;&"
+    "EC871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\                        $     P              \"0    @              !     /  "
+    "                        $    !     0    (    !     0    $    !                                     P              "
+    " 0         #     @               @         \"     0                    $    !               !     @    $          "
+    "                                          .          X    P    !@    @    $          4    (               !       "
+    "  !          #@   \" \"   &    \"     (         !0    @    !     0    $         !0 $ !4    !    :0   &-L87-S      "
+    "               $-U<G)E;G1#;VYF:6=U<F%T:6]N %-C;W!E0TQ)                 %!O<VET:6]N                 %=I;F1O=U-T>6QE"
+    "                       .    4     8    (    !          %    \"     $    =     0         0    '0   '9I<'-C;W!E<RY6:"
+    "61E;U9I97=E<E-C;W!E0V9G    #@   #     &    \"     8         !0    @               $         \"0         .    2    "
+    " 8    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    #     0    X   !0    !@   "
+    " @    &          4    (     0    0    !          D    @           P<T       $!M0       H'E       # <D .    .     8"
+    "    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ' !   &    \"     (         !0    "
+    "@    !     0    $         !0 $  H    !    *    %-C;W!E0V9G  !\";&]C:TYA;64 5FES:6)L90   %9E<G-I;VX    .    2     8"
+    "    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    \"     @    X   !     !@    "
+    "@    $          4    (     0   !     !         !     0    +U-E9VUE;G1E9\"!);6%G90X    P    !@    @    $          4"
+    "    (     0    ,    !         !   P!O9F8 #@   #@    &    \"     8         !0    @    !     0    $         \"0    @"
+    "           #P/PX   \"H!0  !@    @    !          4    (    !     $    !          X    X    !@    @    \"          4"
+    "    (     0         !          4 !  !     0         .    , $   8    (     @         %    \"     $    !     0      "
+    "   %  0 \"P    $    L    3F%M90        !!<F=S         %!A<G-E9$%R9W, 07)G3F%M97,         #@   #     &    \"     0 "
+    "        !0    @               $         $          .    *     8    (     0         %    \"                0       "
+    "  .    *     8    (     0         %    \"                0         .    *     8    (     0         %    \"        "
+    "        0         .    , (   8    (     @         %    \"     $    !     0         %  0 %0    $   !^    0FQO8VL   "
+    "                  4V-O<&4                     0W5R<F5N=$-O;F9I9W5R871I;VX 4V-O<&5#3$D                 4&]S:71I;VX "
+    "                5VEN9&]W4W1Y;&4                .    ,     8    (    !@         %    \"                0         ) "
+    "         X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8       "
+    "  !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )  "
+    "        X   !0    !@    @    &          4    (     0    0    !          D    @           LE4       '!W0       H'E "
+    "      # <D .    .     8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ,@!   &    "
+    "\"     (         !0    @    !     0    $         !0 $ \"H    !    J    $%L;&]W4V-O<&5#:&%N9V5S                    "
+    "             $%L;&]W0FQO8VM#:&%N9V5S                                 $ES4V-O<&5#9F=/;&0                           "
+    "           '-I9W5T:6QS+D%P<&QI8V%T:6]N1&%T82Y!<'!L:6-A=&EO;D1A=&%?  X    P    !@    @    ) @        4    (     0  "
+    "  $    !          (  0 !    #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    .    ,   "
+    "  8    (    \"0(        %    \"     $    !     0         \"  $       X    X    !@    @    \"          4    (     0"
+    "    $    !          4 !  !     0         .    B     8    (    \"0         %    \"     $   !8     0         \"    6"
+    "      !24T     #@   $@    &    \"     (         !0    @    !     0    $         !0 $  4    !    !0   $U#3U,     #@"
+    "         "
+  }
   DataRecord {
     Tag			    DataTag3
     Data		    "  %)30     .    N     8    (     0         %    \"     $    \"     0         .    0     8    (    !    "
@@ -1716,7 +1992,7 @@ MatData {
     "@    !     0    $         !0 $  H    !    *    %-C;W!E0V9G  !\";&]C:TYA;64 5FES:6)L90   %9E<G-I;VX    .    2     8"
     "    (    #0         %    \"     8    !     0         &    &        -T\"     0    $    \"     @    X   !     !@    "
     "@    $          4    (     0    \\    !         !     /    +T9O<G=A<F0@0V%M97)A  X    P    !@    @    $          4"
-    "    (     0    (    !         !   @!O;@  #@   #@    &    \"     8         !0    @    !     0    $         \"0    @"
+    "    (     0    ,    !         !   P!O9F8 #@   #@    &    \"     8         !0    @    !     0    $         \"0    @"
     "           #P/PX   \"H!0  !@    @    !          4    (    !     $    !          X    X    !@    @    \"          4"
     "    (     0         !          4 !  !     0         .    , $   8    (     @         %    \"     $    !     0      "
     "   %  0 \"P    $    L    3F%M90        !!<F=S         %!A<G-E9$%R9W, 07)G3F%M97,         #@   #     &    \"     0 "
@@ -1757,7 +2033,7 @@ Stateflow {
     name		    "test_torpedo"
     created		    "11-Feb-2011 11:53:00"
     isLibrary		    0
-    firstTarget		    14
+    firstTarget		    22
     sfVersion		    75014000.000003
   }
   chart {
@@ -1995,17 +2271,159 @@ Stateflow {
     machine		    1
     chart		    2
   }
-  target {
+  chart {
     id			    14
+    name		    "Transform Coordinates1"
+    windowPosition	    [397.184 124.12 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 15 0 0]
+    firstTransition	    17
+    firstJunction	    16
+    viewObj		    14
+    machine		    1
+    subviewS {
+    }
+    ssIdHighWaterMark	    27
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    18
+    chartFileNumber	    2
+    disableImplicitCasting  1
+    eml {
+      name		      "display_target_list"
+    }
+  }
+  state {
+    id			    15
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    14
+    treeNode		    [14 0 0 0]
+    superState		    SUBCHART
+    subviewer		    14
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function pts  = display_target_list(bw_image_in, target_list)\n[rows, cols] = size(bw_image_in);\n"
+      "pts = zeros(2, 50);\n%{\nfor t = 1:3\n    pts(1,t) = target_list(1,t);\n    pts(\n    %}\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+    }
+  }
+  junction {
+    id			    16
+    position		    [23.5747 49.5747 7]
+    chart		    14
+    linkNode		    [14 0 0]
+    subviewer		    14
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    17
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      16
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    14
+    linkNode		    [14 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    14
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    18
+    ssIdNumber		    24
+    name		    "bw_image_in"
+    linkNode		    [14 0 19]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    19
+    ssIdNumber		    27
+    name		    "target_list"
+    linkNode		    [14 18 20]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    20
+    ssIdNumber		    5
+    name		    "pts"
+    linkNode		    [14 19 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    21
+    name		    "Transform Coordinates1"
+    machine		    1
+    chart		    14
+  }
+  target {
+    id			    22
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 15]
+    linkNode		    [1 0 23]
   }
   target {
-    id			    15
+    id			    23
     name		    "rtw"
     machine		    1
-    linkNode		    [1 14 0]
+    linkNode		    [1 22 0]
   }
 }

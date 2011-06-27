@@ -35,6 +35,7 @@ Hedge_Value = .75;
 
 %% Buoy constants
 % Color ranges for buoys (Lab color space). Indices correspond to colors:
+%   0 -> Color not identified
 %   1 -> White
 %   2 -> Black
 %   3 -> Blue
