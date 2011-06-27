@@ -8,7 +8,7 @@ Thruster_LeftAngled_Gain = 1;
 Thruster_Friction_Zero = 15; 
 
 % Upward thrust limit (percent)
-ZVelocity_Neg_Max = -30; 
+ZVelocity_Neg_Max = -30;
 
 Compass_Yaw_Kp = 1;
 Compass_Yaw_Ki = 0;

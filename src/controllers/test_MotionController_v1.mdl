@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.82"
+    ComputedModelVersion    "1.85"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_MotionController_v1/vision_model.mdl|MotionController"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 02:44:54 2011"
+  LastModifiedDate	  "Mon Jun 27 03:20:13 2011"
   RTWModifiedTimeStamp	  230838463
-  ModelVersionFormat	  "1.%<AutoIncrement:82>"
+  ModelVersionFormat	  "1.%<AutoIncrement:85>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -736,7 +736,7 @@ Model {
       Name		      "DesiredYaw"
       SID		      "19"
       Position		      [430, 1220, 460, 1250]
-      Value		      "336"
+      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
@@ -841,7 +841,7 @@ Model {
       Name		      "MeasuredYaw"
       SID		      "15"
       Position		      [320, 980, 350, 1010]
-      Value		      "336"
+      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
@@ -919,7 +919,6 @@ Model {
       Name		      "TargetFound"
       SID		      "3"
       Position		      [430, 260, 460, 290]
-      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
@@ -934,7 +933,7 @@ Model {
       Name		      "TargetX"
       SID		      "5"
       Position		      [320, 380, 350, 410]
-      Value		      "100"
+      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
@@ -950,7 +949,7 @@ Model {
       Name		      "TargetYaw"
       SID		      "8"
       Position		      [320, 560, 350, 590]
-      Value		      "30"
+      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
@@ -958,7 +957,7 @@ Model {
       Name		      "TargetZ"
       SID		      "7"
       Position		      [320, 500, 350, 530]
-      Value		      "100"
+      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
@@ -969,7 +968,7 @@ Model {
       Position		      [545, 191, 970, 1259]
       ModelNameDialog	      "MotionController"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.127"
+      ModelReferenceVersion   "1.129"
       List {
 	ListType		InputPortNames
 	port0			"TargetSelect"
