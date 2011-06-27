@@ -39,6 +39,7 @@ int blob_bound[3][max_num_blobs];
 int blob_area[max_num_blobs];
 double blob_eccentricity[max_num_blobs];
 double blob_centroid[2][max_num_blobs];
+double bounding_box[4][max_num_blobs];
 int found = 0;
 
 
@@ -73,6 +74,8 @@ int matchBlob(int r, int c, int criteria);
 // Provide a standard function to merge information from two blobs
 void mergeBlobs(int fromBlob, int toBlob);
 
+// Determine if current row, column pair is outside bounding box and update
+void updateBoundingBox(int blob_track, int r, int c);
 
 
 
@@ -130,6 +133,12 @@ int main(int argc, char *argv[])
     // Debugging output
     // Save RGB arrays to an image file
     fileOutput("/home/auvt/auvc/src/vision/Modified_Files_for_Testing/temp_qtproject/temp_qtproject/outputImage.jpg");
+
+    for(int i = 0; i < max_num_blobs; i++)
+    {
+        std::cout << "Bounding box: " << bounding_box()
+    }
+
     std::cout << "Program finished." << endl;
 
 
@@ -283,6 +292,10 @@ void blobAnalysis1()
         blob_eccentricity[b] = 0;
         blob_centroid[0][b] = 0;
         blob_centroid[1][b] = 0;
+        bounding_box[0][b] = 0;
+        bounding_box[1][b] = 0;
+        bounding_box[2][b] = 0;
+        bounding_box[3][b] = 0;
     }
 
     // Loop through bw image line-by-line
@@ -332,6 +345,11 @@ void blobAnalysis1()
                         blob_centroid[0][blob_track] = r;
                         blob_centroid[1][blob_track] = c;
 
+                        bounding_box[0][blob_track] = r;
+                        bounding_box[1][blob_track] = r;
+                        bounding_box[2][blob_track] = c;
+                        bounding_box[3][blob_track] = c;
+
                     }
                     else  // Matching blob is identified
                     {
@@ -346,6 +364,8 @@ void blobAnalysis1()
                         blob_centroid[1][blob_track] = (  ( ( (double)blob_area[blob_track]/((double)blob_area[blob_track] + 1) )*(double)blob_centroid[1][blob_track] ) + ( (double)c/((double)blob_area[blob_track] + 1) )  );
 
                         blob_area[blob_track]++;
+
+                        updateBoundingBox(blob_track, r, c);
 
                     }
 
@@ -364,6 +384,8 @@ void blobAnalysis1()
                     blob_centroid[1][blob_track] = (  ( ( (double)blob_area[blob_track]/((double)blob_area[blob_track] + 1) )*(double)blob_centroid[1][blob_track] ) + ( (double)c/((double)blob_area[blob_track] + 1) )  );
 
                     blob_area[blob_track]++;
+
+                    updateBoundingBox(blob_track, r, c);
 
                     // If bounds of an existing blob are encountered, then merge the two blobs
                     found = matchBlob(r, c, 0);
@@ -471,6 +493,11 @@ void mergeBlobs(int fromBlob, int toBlob)
 
     blob_area[toBlob] += blob_area[fromBlob];
 
+    bounding_box[0][toBlob] = min( bounding_box[0][fromBlob], bounding_box[0][toBlob] );
+    bounding_box[1][toBlob] = max( bounding_box[1][fromBlob], bounding_box[1][toBlob] );
+    bounding_box[2][toBlob] = min( bounding_box[2][fromBlob], bounding_box[2][toBlob] );
+    bounding_box[3][toBlob] = max( bounding_box[3][fromBlob], bounding_box[3][toBlob] );
+
     // Set information for fromBlob to zero
     blob_bound[0][fromBlob] = 0;
     blob_bound[1][fromBlob] = 0;
@@ -479,6 +506,40 @@ void mergeBlobs(int fromBlob, int toBlob)
     blob_eccentricity[fromBlob] = 0;
     blob_centroid[0][fromBlob] = 0;
     blob_centroid[1][fromBlob] = 0;
+    bounding_box[0][fromBlob] = 0;
+    bounding_box[0][fromBlob] = 0;
 
+    return;
+}
+
+
+void updateBoundingBox(int blob_track, int r, int c)
+{
+
+    bounding_box[0][blob_track] = min( (double)r, bounding_box[0][blob_track] );
+    bounding_box[1][blob_track] = max( (double)r, bounding_box[1][blob_track] );
+    bounding_box[2][blob_track] = min( (double)c, bounding_box[2][blob_track] );
+    bounding_box[3][blob_track] = max( (double)c, bounding_box[3][blob_track] );
+
+/*
+
+
+    if(r < bounding_box[0][blob_track])
+    {
+        bounding_box[0][blob_track] = r;
+    }
+    if(r > bounding_box[1][blob_track])
+    {
+        bounding_box[1][blob_track] = r;
+    }
+    if(c < bounding_box[2][blob_track])
+    {
+        bounding_box[2][blob_track] = c;
+    }
+    if(c > bounding_box[3][blob_track])
+    {
+        bounding_box[3][blob_track] = c;
+    }
+*/
     return;
 }
