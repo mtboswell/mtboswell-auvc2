@@ -3,7 +3,7 @@
 #include <SDL/SDL.h>
 #include <iostream>
 
-const int UPDATES_PER_SECOND = 10;
+const int UPDATES_PER_SECOND = 15;
 const int MAXIMUM_AXIS_VALUE = 32767;
 const int MINIMUM_AXIS_VALUE = -32767;
 const int MAX_SPEED_FWD_BWD = 100;
