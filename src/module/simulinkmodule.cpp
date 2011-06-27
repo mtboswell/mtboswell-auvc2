@@ -16,5 +16,6 @@ void SimulinkModule::updateParameters(){
 		i.next();
 		QString paramID = "Parameter."+i.key();
 		*(paramList[i.key()]) = doubleValue(paramID.replace('_','.'));
+                qDebug() << paramID << *i.value();
 	}
 }

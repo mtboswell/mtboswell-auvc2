@@ -44,7 +44,6 @@ class Controllers : public SimulinkModule
 		void step();
 
 	private:
-                void printVars();
 	/*
 		ControllersMode currentCMD;
 
