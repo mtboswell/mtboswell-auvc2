@@ -3,11 +3,11 @@
 #include <SDL/SDL.h>
 #include <iostream>
 
-const int UPDATES_PER_SECOND = 20;
+const int UPDATES_PER_SECOND = 10;
 const int MAXIMUM_AXIS_VALUE = 32767;
 const int MINIMUM_AXIS_VALUE = -32767;
-const int MAX_SPEED_FWD_BWD = 15;
-const int MAX_SPEED_LEFT_RIGHT = 15;
+const int MAX_SPEED_FWD_BWD = 100;
+const int MAX_SPEED_LEFT_RIGHT = 100;
 const int MAX_DEPTH = 10;
 const int MAX_INCREMENT_HEADING = 20;
 
