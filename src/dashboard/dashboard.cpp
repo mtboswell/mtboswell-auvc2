@@ -158,7 +158,7 @@ void Dashboard::updateJoystick()
     if(fwdSpeed != desiredSpeed)
     {
         desiredSpeed = fwdSpeed;
-        if (fwdSpeed <= 1 && fwdSpeed >= -1)
+        if (fwdSpeed <= 15 && fwdSpeed >= -15)
             setData("DeadReckon.ForwardSpeed", 0);
         else
             setData("DeadReckon.ForwardSpeed", fwdSpeed);
@@ -199,13 +199,13 @@ void Dashboard::updateJoystick()
     if (js->but_2)
     {
         js->but_2 = false;
-        setData("FireAuthorization", 1);
+        setData("FireTorp", 1);
     }
 
     if (js->but_3)
     {
         js->but_3 = false;
-        setData("FireAuthorization", 2);
+        setData("FireTorp", 2);
     }
 }
 
