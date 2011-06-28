@@ -98,7 +98,7 @@ Model {
       Name		      "B"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1270"
+    ComputedModelVersion    "1.1310"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -118,9 +118,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 28 06:11:09 2011"
-  RTWModifiedTimeStamp	  231135539
-  ModelVersionFormat	  "1.%<AutoIncrement:1270>"
+  LastModifiedDate	  "Tue Jun 28 14:02:37 2011"
+  RTWModifiedTimeStamp	  231166603
+  ModelVersionFormat	  "1.%<AutoIncrement:1310>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -844,7 +844,7 @@ Model {
       System {
 	Name			"Blob Analysis"
 	Location		[1440, 50, 3120, 1050]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3533,7 +3533,7 @@ Model {
     }
     Block {
       BlockType		      SubSystem
-      Name		      "Identify Validation Gate"
+      Name		      "Identify L-Obstacle"
       SID		      "321"
       Ports		      [10, 7]
       Position		      [860, 160, 1135, 460]
@@ -3558,7 +3558,7 @@ Model {
       MaskPortRotate	      "default"
       MaskIconUnits	      "autoscale"
       System {
-	Name			"Identify Validation Gate"
+	Name			"Identify L-Obstacle"
 	Location		[257, 457, 812, 717]
 	Open			off
 	ModelBrowserVisibility	off
@@ -4259,7 +4259,7 @@ Model {
       Points		      [35, 0]
       Branch {
 	Points			[70, 0]
-	DstBlock		"Identify Validation Gate"
+	DstBlock		"Identify L-Obstacle"
 	DstPort			1
       }
       Branch {
@@ -4274,7 +4274,7 @@ Model {
       Points		      [40, 0]
       Branch {
 	Points			[65, 0]
-	DstBlock		"Identify Validation Gate"
+	DstBlock		"Identify L-Obstacle"
 	DstPort			2
       }
       Branch {
@@ -4289,7 +4289,7 @@ Model {
       Points		      [45, 0]
       Branch {
 	Points			[60, 0]
-	DstBlock		"Identify Validation Gate"
+	DstBlock		"Identify L-Obstacle"
 	DstPort			3
       }
       Branch {
@@ -4325,21 +4325,21 @@ Model {
       DstPort		      3
     }
     Line {
-      SrcBlock		      "Identify Validation Gate"
+      SrcBlock		      "Identify L-Obstacle"
       SrcPort		      4
       Points		      [100, 0; 0, -15]
       DstBlock		      "TargetY"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Identify Validation Gate"
+      SrcBlock		      "Identify L-Obstacle"
       SrcPort		      5
       Points		      [90, 0; 0, -20]
       DstBlock		      "TargetZ"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Identify Validation Gate"
+      SrcBlock		      "Identify L-Obstacle"
       SrcPort		      7
       Points		      [10, 0; 0, 10]
       DstBlock		      "TargetDetected"
@@ -4408,66 +4408,66 @@ Model {
       SrcBlock		      "Blob Analysis"
       SrcPort		      1
       Points		      [130, 0; 0, 65]
-      DstBlock		      "Identify Validation Gate"
+      DstBlock		      "Identify L-Obstacle"
       DstPort		      4
     }
     Line {
       SrcBlock		      "Blob Analysis"
       SrcPort		      2
       Points		      [145, 0; 0, 80]
-      DstBlock		      "Identify Validation Gate"
+      DstBlock		      "Identify L-Obstacle"
       DstPort		      5
     }
     Line {
       SrcBlock		      "Blob Analysis"
       SrcPort		      4
       Points		      [160, 0; 0, 80]
-      DstBlock		      "Identify Validation Gate"
+      DstBlock		      "Identify L-Obstacle"
       DstPort		      6
     }
     Line {
       SrcBlock		      "Blob Analysis"
       SrcPort		      6
       Points		      [460, 0; 0, 80]
-      DstBlock		      "Identify Validation Gate"
+      DstBlock		      "Identify L-Obstacle"
       DstPort		      7
     }
     Line {
       SrcBlock		      "Blob Analysis"
       SrcPort		      9
       Points		      [445, 0; 0, 65]
-      DstBlock		      "Identify Validation Gate"
+      DstBlock		      "Identify L-Obstacle"
       DstPort		      8
     }
     Line {
       SrcBlock		      "Constant1"
       SrcPort		      1
       Points		      [0, -35]
-      DstBlock		      "Identify Validation Gate"
+      DstBlock		      "Identify L-Obstacle"
       DstPort		      9
     }
     Line {
-      SrcBlock		      "Identify Validation Gate"
+      SrcBlock		      "Identify L-Obstacle"
       SrcPort		      1
       DstBlock		      "TargetSelect"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Identify Validation Gate"
+      SrcBlock		      "Identify L-Obstacle"
       SrcPort		      2
       Points		      [100, 0; 0, -5]
       DstBlock		      "TargetFound"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Identify Validation Gate"
+      SrcBlock		      "Identify L-Obstacle"
       SrcPort		      3
       Points		      [90, 0; 0, -10]
       DstBlock		      "MaintainHeading"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Identify Validation Gate"
+      SrcBlock		      "Identify L-Obstacle"
       SrcPort		      6
       Points		      [110, 0; 0, -25]
       DstBlock		      "TargetYaw"
@@ -4477,7 +4477,7 @@ Model {
       SrcBlock		      "Constant3"
       SrcPort		      1
       Points		      [45, 0]
-      DstBlock		      "Identify Validation Gate"
+      DstBlock		      "Identify L-Obstacle"
       DstPort		      10
     }
   }
@@ -4533,7 +4533,7 @@ Stateflow {
   }
   chart {
     id			    2
-    name		    "Identify Validation Gate"
+    name		    "Identify L-Obstacle"
     windowPosition	    [428.98 166.448 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 1280 800 1.333333333333333]
@@ -4571,46 +4571,57 @@ Stateflow {
       "ation, blob_count, target_height, Forward_Camera_Dimensions)\n%#eml\n%{\n\n1. Iteratively segment image\n2. Obta"
       "in information about all blobs in image\n3. Generate a bw image by filtering colors (thresholding)\n\n3.5. Ident"
       "ify one appropriate horizontal and one appropriate vertical blob\n\n4. Perform edge detection then Hough transfo"
-      "rm to bw image\n5. Identify the most popular horizontal and vertical lines that are closely\n   colinear to the "
-      "blobs\n\n6. Target appropriately\n\n%}\n\n\n\n\n% This function attempts to identfiy the L-shaped obstacle, and "
-      "returns\n%   targeting information, and a true/false target_detected parameter.\n\n\n% Initialize\n% Only the (m"
-      "ax_num_lines) with the most votes will be considered as\n%   candidates for the gate\nmax_num_lines = 200;\n[rho"
-      "_length, theta_length] = size(hough_table);\nrows = Forward_Camera_Dimensions(1);\ncols = Forward_Camera_Dimensi"
-      "ons(2);\n\nimage_area = rows*cols;\narea_thresh = 0.8;  % Ratio of blob area to image area considered to imply t"
-      "he blob is actually background noise\n\n% eps_rho must be at least as big as the gate leg diameter (units of\n% "
-      "  pixels)\neps_rho = .1*max(rows,cols);\n% eps_theta is used to distinguish lines as \"horizontal\" or \"vertica"
-      "l\";\n%   units are radians\neps_theta = 10*pi/180;\n\n% These vectors contain the final two lines that compose "
-      "the validation gate\nrho_gate = zeros(1,2);\ntheta_gate = zeros(1,2);\n\n% These vectors contain intermediate li"
-      "ne information; as lines are\n%   eliminated from these vectors, their values are set to zero\n% Note that rho_i"
-      "n and theta_in are referred to by hough_table; they do not\n%   constitute (rho,theta) pairs without hough_table"
-      ". rho and theta,\n%   however, do constitute (rho,theta) pairs.\nrho = zeros(1,max_num_lines);\ntheta = zeros(1,"
-      "max_num_lines);\n\n\n% Identify the most popular max_num_lines lines\ni_index = ones(1,max_num_lines);\nj_index "
-      "= ones(1,max_num_lines);\n\nfor m = 1:max_num_lines\n    \n    max_votes = 0;\n    for i = 1:rho_length\n       "
-      " for j = 1:theta_length\n            if( hough_table(i,j) > max_votes )\n                i_index(m) = i;\n      "
-      "          j_index(m) = j;\n                max_votes = hough_table(i,j);\n            end\n        end\n    end\n"
-      "    \n    rho(m) = rho_in(i_index(m));\n    theta(m) = theta_in(j_index(m));\n    hough_table(i_index(m),j_index"
-      "(m)) = 0;\n    \nend\n\n\n% Correct orientations to vehicle coordinates\nfor j = 1:blob_count\n    % theta_hold:"
-      "\n    %   -is between [-pi/2, +pi/2]\n    % blob_orientation:\n    %   -is potentially outside this range\n    %"
-      "   -needs to be corrected by pi/2 to get relative heading\n    blob_orientation(j) = mod(pi - blob_orientation(j"
-      "), pi) - pi/2;\nend\n\n\n% Determine the most popular lines which are nearly colinear to blobs\ntheta_hold = the"
-      "ta;\nfor g = 1:2\n    \n    found = 0;\n    for i = 1:max_num_lines\n        for j = 1:blob_count\n            \n"
-      "            % Search for a match between one blob and one line\n            condition1 = abs(theta_hold(i) - blo"
-      "b_orientation(j)) <= theta_tol;\n            condition2 = blob_area(j)/image_area <= area_thresh;\n            c"
-      "ondition3 = theta_hold(i) ~= 1000 && blob_orientation(j) ~= 1000;\n            c1 = blob_centroid(2,j);\n       "
-      "     r1 = blob_centroid(1,j);\n            c2 = rho(i)*cos(theta(i)) - r1 + c1*sin(theta(i));\n            r2 = "
-      "-cot(theta(i))*c2 + rho(i)/sin(theta(i));\n            d = sqrt( (c2 - c1)^2 + (r2 - r1)^2 );\n            condi"
-      "tion4 = d <= eps_rho;\n            if(condition1 && condition2 && condition3 && condition4)\n                \n "
-      "               if(g == 1)\n                    \n                    % Determine the first gate element\n       "
-      "             \n                else\n                    \n                    % Assume the first gate element w"
-      "as found correctly;\n                    %   check that all other gate elements are at right\n                  "
-      "  %   angles to the first\n                    if(abs(theta_hold(i) - theta_gate(1)) <= eps_theta)\n            "
-      "            rho_gate(g) = rho(i);\n                        theta_gate(g) = theta(i);\n                    end\n "
-      "                   \n                end\n                \n                theta_hold(i) = 1000;  % Invalid ang"
-      "le; do not want this line to be selected again\n                blob_orientation(j) = 1000;\n                fou"
-      "nd = 1;\n                break;\n            end\n            \n        end\n        \n        if(found == 1)\n "
-      "           break;\n        end\n    end\n    \nend\n\n\n% Assign appropriate gate information\nrho_gate(g) = rho"
-      "(i);\ntheta_gate(g) = theta(i);\n\n\n\n% Compute targeting information\n% Determine side lengths and distances f"
-      "or target\nlength1 = \n\n\n\n\n\n\n% Compute intersections\nr1 = (  ( rho_gate(1)/cos(theta_gate(1)) ) - ( rho_g"
+      "rm to bw image\n5. Identify the most popular lines (any orientation) that are:\n     a) Nearly colinear with blo"
+      "bs, and\n     b) At approximately 90 degrees from each other\n\n6. Target appropriately\n\n%}\n\n\n\n\n% This fu"
+      "nction attempts to identfiy the L-shaped obstacle, and returns\n%   targeting information, and a true/false targ"
+      "et_detected parameter.\n\n\n% Initialize\n% Only the (max_num_lines) with the most votes will be considered as\n"
+      "%   candidates for the gate\nmax_num_lines = 200;\n[rho_length, theta_length] = size(hough_table);\nrows = Forwa"
+      "rd_Camera_Dimensions(1);\ncols = Forward_Camera_Dimensions(2);\n\nimage_area = rows*cols;\narea_thresh = 0.8;  %"
+      " Ratio of blob area to image area considered to imply the blob is actually background noise\n\n% eps_rho must be"
+      " at least as big as the gate leg diameter (units of\n%   pixels)\neps_rho = .1*max(rows,cols);\n% eps_theta is u"
+      "sed to distinguish lines as \"horizontal\" or \"vertical\";\n%   units are radians\neps_theta = 10*pi/180;\n\n% "
+      "These vectors contain the final two lines that compose the validation gate\nrho_gate = zeros(1,2);\ntheta_gate ="
+      " zeros(1,2);\n\n% These vectors contain intermediate line information; as lines are\n%   eliminated from these v"
+      "ectors, their values are set to zero\n% Note that rho_in and theta_in are referred to by hough_table; they do no"
+      "t\n%   constitute (rho,theta) pairs without hough_table. rho and theta,\n%   however, do constitute (rho,theta) "
+      "pairs.\nrho = zeros(1,max_num_lines);\ntheta = zeros(1,max_num_lines);\n\n\n% Identify the most popular max_num_"
+      "lines lines\ni_index = ones(1,max_num_lines);\nj_index = ones(1,max_num_lines);\n\nfor m = 1:max_num_lines\n    "
+      "\n    max_votes = 0;\n    for i = 1:rho_length\n        for j = 1:theta_length\n            if( hough_table(i,j)"
+      " > max_votes )\n                i_index(m) = i;\n                j_index(m) = j;\n                max_votes = ho"
+      "ugh_table(i,j);\n            end\n        end\n    end\n    \n    rho(m) = rho_in(i_index(m));\n    theta(m) = t"
+      "heta_in(j_index(m));\n    hough_table(i_index(m),j_index(m)) = 0;\n    \nend\n\n\n% Correct orientations to vehi"
+      "cle coordinates\nfor j = 1:blob_count\n    % theta_hold:\n    %   -is between [-pi/2, +pi/2]\n    % blob_orienta"
+      "tion:\n    %   -is potentially outside this range\n    %   -needs to be corrected by pi/2 to get relative headin"
+      "g\n    blob_orientation(j) = mod(pi - blob_orientation(j), pi) - pi/2;\nend\n\n\n% Determine the most popular li"
+      "nes which are nearly colinear to blobs\ntheta_hold = theta;\ni_gate = zeros(2,2);  % Indices for line and blob, "
+      "respectively\nfor g = 1:2\n    \n    found = 0;\n    for i = 1:max_num_lines\n        for j = 1:blob_count\n    "
+      "        \n            % Search for a match between one blob and one line\n            condition1 = abs(theta_hol"
+      "d(i) - blob_orientation(j)) <= theta_tol;\n            condition2 = blob_area(j)/image_area <= area_thresh;\n   "
+      "         condition3 = theta_hold(i) ~= 1000 && blob_orientation(j) ~= 1000;\n            c1 = blob_centroid(2,j)"
+      ";\n            r1 = blob_centroid(1,j);\n            c2 = rho(i)*cos(theta(i)) - r1 + c1*sin(theta(i));\n       "
+      "     r2 = -cot(theta(i))*c2 + rho(i)/sin(theta(i));\n            d = sqrt( (c2 - c1)^2 + (r2 - r1)^2 );\n       "
+      "     condition4 = d <= eps_rho;\n            if(condition1 && condition2 && condition3 && condition4)\n         "
+      "       \n                if(g == 1)\n                    \n                    % Determine the first gate elemen"
+      "t\n                    i_gate(1,g) = i;\n                    i_gate(2,g) = j;\n                    \n           "
+      "     else\n                    \n                    % Assume the first gate element was found correctly;\n     "
+      "               %   check that all other gate elements are at right\n                    %   angles to the first\n"
+      "                    if( abs((pi/2) - abs(theta_hold(i) - theta_hold( i_gate(1,1) ))) <= eps_theta)\n            "
+      "            i_gate(1,g) = i;\n                        i_gate(2,g) = j;\n                    end\n               "
+      "     \n                end\n                \n                theta_hold(i) = 1000;  % Invalid angle; do not wan"
+      "t this line to be selected again\n                blob_orientation(j) = 1000;\n                found = 1;\n     "
+      "           break;\n            end\n            \n        end\n        \n        if(found == 1)\n            bre"
+      "ak;\n        end\n    end\n    \nend\n\n\n% Sort elements of i_gate to place the vertical element in the first\n"
+      "%   position, horizontal element in second position\nihold = i_gate(1,1);\njhold = i_gate(2,1);\nif( abs(theta( "
+      "i_gate(1,1) )) > abs(theta( i_gate(1,2) )) )\n    i_gate(1,1) = i_gate(1,2);\n    i_gate(2,1) = i_gate(2,2);\n  "
+      "  \n    i_gate(1,2) = ihold;\n    i_gate(2,2) = jhold;\nend\n\n\n% Assign appropriate gate information\nfor g = "
+      "1:2\n    rho_gate(g) = rho( i_gate(1,g) );\n    theta_gate(g) = theta( i_gate(1,g) );\nend\n\n\n% Compute target"
+      "ing information\n% Determine side lengths and distances for target\nlength1 = blob_major_axis(i_gate(2,1));\nlen"
+      "gth2 = blob_major_axis(i_gate(2,2));\nd1 = target_ratio_v*length1;\nd2 = target_ratio_h*length2;\n\nphi1 = blob_"
+      "orientation(i_gate(2,1));\nphi2 = blob_orientation(i_gate(2,2));\n\nr1 = blob_centroid(1,i_gate(2,1));\nc1 = blo"
+      "b_centroid(2,i_gate(2,1));\nr2 = blob_centroid(1,i_gate(2,2));\nc2 = blob_centroid(2,i_gate(2,2));\n\nr3 = (1/( "
+      "sin(phi1)*cos(phi2) - sin(phi2)*cos(phi1) ))*( c2 - c1 + sin(pih1)*cos(phi2)*r1 - sin(phi2)*cos(phi1)*r2 );\nc3 "
+      "= r3*tan(phi1) + c1 - r1*tan(phi1);\n\nr4 = r3 - d1*cos(phi1);\nc4 = c3 + d1*sin(phi1);\n\nr5 = r3 + d2*sin();\n"
+      "c5 = c3 + d2*cos();\n\n\n\n\n\n\n\n% Compute intersections\nr1 = (  ( rho_gate(1)/cos(theta_gate(1)) ) - ( rho_g"
       "ate(2)/cos(theta_gate(2)) )  )*(  1/( tan(theta_gate(1)) - tan(theta_gate(2)) )  );\nc1 = ( 1/cos(theta_gate(1))"
       " )*( rho_gate(1) - r1*sin(theta_gate(1)) );\n\nr3 = (  ( rho_gate(2)/cos(theta_gate(2)) ) - ( rho_gate(3)/cos(th"
       "eta_gate(3)) )  )*(  1/( tan(theta_gate(2)) - tan(theta_gate(3)) )  );\nc3 = ( 1/cos(theta_gate(2)) )*( rho_gate"
@@ -5028,7 +5039,7 @@ Stateflow {
   }
   instance {
     id			    23
-    name		    "Identify Validation Gate"
+    name		    "Identify L-Obstacle"
     machine		    1
     chart		    2
   }
@@ -5043,8 +5054,6 @@ Stateflow {
     firstJunction	    26
     viewObj		    24
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    30
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -5737,8 +5746,6 @@ Stateflow {
     firstJunction	    59
     viewObj		    57
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    57
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -5980,8 +5987,6 @@ Stateflow {
     firstJunction	    71
     viewObj		    69
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    58
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6197,8 +6202,6 @@ Stateflow {
     firstJunction	    82
     viewObj		    80
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6332,8 +6335,6 @@ Stateflow {
     firstJunction	    89
     viewObj		    87
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6467,8 +6468,6 @@ Stateflow {
     firstJunction	    96
     viewObj		    94
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6602,8 +6601,6 @@ Stateflow {
     firstJunction	    103
     viewObj		    101
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6818,8 +6815,6 @@ Stateflow {
     firstJunction	    114
     viewObj		    112
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
