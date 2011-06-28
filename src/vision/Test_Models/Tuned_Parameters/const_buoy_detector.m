@@ -26,6 +26,8 @@ Scale_Down_S = 1;
 Scale_Down_V = 5;
 
 
+
+
 %% Iterative segmentation default value
 Iter_Segment_Thresh = 40;
 
@@ -45,10 +47,10 @@ Hedge_Value = .75;
 %   5 -> Orange
 %   6 -> Yellow
 %   7 -> Green
-a_range = [0, 0, 0, 25, 0, 0, -128;
-    0, 0, 0, 127, 0, 0, -25];
-b_range = [0, 0, 0, 0, 0, 0, -5;
-    0, 0, 0, 127, 0, 0, 127];
+%a_range = [0, 0, 0, 25, 0, 0, -128;
+%    0, 0, 0, 127, 0, 0, -25];
+%b_range = [0, 0, 0, 0, 0, 0, -5;
+%    0, 0, 0, 127, 0, 0, 127];
 
 Buoy1_Hue = 0.4;
 Buoy1_Saturation = 1.0;

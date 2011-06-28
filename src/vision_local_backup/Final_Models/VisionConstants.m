@@ -23,6 +23,14 @@ Scale_Down_S = 1;
 Scale_Down_V = 5;
 
 
+
+%% Colors
+a_lower = -10;
+a_upper = 10;
+b_lower = 0;
+b_upper = 50;
+
+
 %% Iterative segmentation default value
 Iter_Segment_Thresh = 20;
 
