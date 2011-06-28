@@ -70,9 +70,13 @@ Depth.Multiplier=2.6;
 Depth.ArraySize=50;
 
 #Vision
-TargetedImage.address=192.168.3.104;
-TargetedImage.port=5568;
-TargetedImage.quality=30;
+TargetedImageFront.address=192.168.3.104;
+TargetedImageFront.port=5568;
+TargetedImageFront.quality=30;
+
+TargetedImageDown.address=192.168.3.104;
+TargetedImageDown.port=5569;
+TargetedImageDown.quality=30;
 
 # Mechanisms
 Mechanism.DropLeft.Servo=7;

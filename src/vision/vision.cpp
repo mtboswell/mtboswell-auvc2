@@ -62,11 +62,17 @@ void Vision::init()
     stepTimer->start(1000 / UPDATE_RATE);
 
 	//sets up the network stream if required
-	if(networkStreams) {
-		videoSocket = new QUdpSocket();
-		videoSocket->connectToHost(QHostAddress(config("TargetedImage.address")), config("TargetedImage.port").toInt());
-		videoOut = new QImageWriter(videoSocket, "jpeg");
-		videoOut->setQuality(config("TargetedImage.quality").toInt());
+        if(networkStreams)
+        {
+                videoSocketFront = new QUdpSocket();
+                videoSocketFront->connectToHost(QHostAddress(config("TargetedImageFront.address")), config("TargetedImageFront.port").toInt());
+                videoOutFront = new QImageWriter(videoSocketFront, "jpeg");
+                videoOutFront->setQuality(config("TargetedImageFront.quality").toInt());
+
+                videoSocketDown = new QUdpSocket();
+                videoSocketDown->connectToHost(QHostAddress(config("TargetedImageDown.address")), config("TargetedImageDown.port").toInt());
+                videoOutDown = new QImageWriter(videoSocketDown, "jpeg");
+                videoOutDown->setQuality(config("TargetedImageDown.quality").toInt());
 	}
 
 	//Have vision run as fast as possible instead of on a timer
@@ -81,11 +87,11 @@ void Vision::init()
  */
 void Vision::step()
 {
-	
-	//qDebug() << "Starting Vision";
-    /**
-     *  Queries the AUVC state data and makes sure we have the most current inputs
-     *  before executing the Simulink function
+
+    //qDebug() << "Starting Vision";
+            /**
+             *  Queries the AUVC state data and makes sure we have the most current inputs
+             *  before executin the Simulink function
      */
     updateParameters();
 
@@ -161,12 +167,12 @@ void Vision::step()
     setData("Vision.Output.MeasuredYAccel", VisionModel_Y.MeasuredYAccel);      // sensor
     setData("Vision.Output.MeasuredYaw", VisionModel_Y.MeasuredYaw);            // sensor
     setData("Vision.Output.MeasuredYawRate", VisionModel_Y.MeasuredYawRate);    // sensor
-    if (value("Command")=="DeadReckon")
-    {
-        setData("DeadReckon.Depth", VisionModel_Y.DesiredZ);
-        setData("DeadReckon.ForwardSpeed", VisionModel_Y.DesiredXVelocity);
-        setData("DeadReckon.Heading", VisionModel_Y.DesiredYaw);
-    }
+//    if (value("Command")=="DeadReckon")
+//    {
+//        setData("DeadReckon.Depth", VisionModel_Y.DesiredZ);
+//        setData("DeadReckon.ForwardSpeed", VisionModel_Y.DesiredXVelocity);
+//        setData("DeadReckon.Heading", VisionModel_Y.DesiredYaw);
+//    }
     setData("Vision.Output.TargetDetected", VisionModel_Y.TargetDetected);      //custom output
     setData("Vision.Output.PathState", VisionModel_Y.PathState);                //custom output
     setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);              //custom output
@@ -195,23 +201,38 @@ void Vision::step()
     //    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
     //    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
 
-	if (networkStreams) {
-		targetedImage = new QImage(120, 160, QImage::Format_RGB32);
-		
-		
+        if (networkStreams)
+        {
+                targetedImageFront = new QImage(120, 160, QImage::Format_RGB32);
+                targetedImageDown = new QImage(160, 120, QImage::Format_RGB32);
+				
 		//used for streaming the targeted image
 		for (int i = 0; i < f_height; ++i)
 		{
-			for (int j = 0; j < f_width; ++j)
+                    for (int j = 0; j < f_width; ++j)
 		    {
-				int index = j*(f_height)+i;
-				QRgb col;
-				col = qRgb(VisionModel_Y.R[index] * 255.0, VisionModel_Y.G[index] * 255.0, VisionModel_Y.B[index] * 255.0);
-				targetedImage->setPixel(j, i, col);
-			}
+                        int index = j*(f_height)+i;
+                        QRgb col;
+                        col = qRgb(VisionModel_Y.R_forward_out[index] * 255.0, VisionModel_Y.G_forward_out[index] * 255.0, VisionModel_Y.B_forward_out[index] * 255.0);
+                        targetedImageFront->setPixel(j, i, col);
+                    }
 		}
-		videoOut->write(*targetedImage);
-		targetedImage->~QImage();
+                videoOutFront->write(*targetedImageFront);
+                targetedImageFront->~QImage();
+
+                //used for streaming the targeted image
+                for (int i = 0; i < d_height; ++i)
+                {
+                    for (int j = 0; j < d_width; ++j)
+                    {
+                        int index = j*(d_height)+i;
+                        QRgb col;
+                        col = qRgb(VisionModel_Y.R_down_out[index] * 255.0, VisionModel_Y.G_down_out[index] * 255.0, VisionModel_Y.B_down_out[index] * 255.0);
+                        targetedImageDown->setPixel(j, i, col);
+                    }
+                }
+                videoOutDown->write(*targetedImageFront);
+                targetedImageDown->~QImage();
 	}
 //	qDebug() << "Finished Vision";
 	//usleep(3000000);
