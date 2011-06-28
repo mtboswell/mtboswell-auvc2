@@ -44,10 +44,13 @@ class Vision : public SimulinkModule
     private:
         bool stopped;
         QTimer *timer;  // work around to initialize values for statedata
-		QImage *targetedImage;
-		QImageWriter *videoOut;
-		QUdpSocket *videoSocket;
+        QImage *targetedImageFront;
+        QImage *targetedImageDown;
+        QImageWriter *videoOutFront;
+        QImageWriter *videoOutDown;
+        QUdpSocket *videoSocketFront;
+        QUdpSocket *videoSocketDown;
 
-};
+ };
 
 #endif // VISION_H
