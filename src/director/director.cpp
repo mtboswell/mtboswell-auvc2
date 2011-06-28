@@ -146,7 +146,9 @@ void director::loadStateFile()
     QFile f;
     QString match = "";
 
-    candidates << "../src/director/auv.lua"
+    candidates << "./director/sampleScripts/Controllers.lua"
+	<< "./src/director/sampleScripts/Controllers.lua"
+	<< "../src/director/auv.lua"
             << "src/director/auv.lua"
             << "../auv.lua"
             << "auv.lua";

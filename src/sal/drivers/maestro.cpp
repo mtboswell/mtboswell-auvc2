@@ -37,6 +37,15 @@ void Maestro::step() {
 		float val = (dataValue - 95) / 4.0;
 		list.last().value = val;
 		//End of channel 0 query...//
+		//Querry channel 2....//
+		outdata[1] = 0x02;
+		indata = device->sendQuery(outData, 2);
+		dataValue = byteArrayToInt(inData);
+		if (dataValue > 400) dataValue = 1;
+		else dataValue = 0;
+		list.append(element);
+		list.last().id = "Start";
+		list.last.value = dataValue;
 		//Querry channel 4....//
 		outData[1] = 0x04;
 		inData = device->sendQuery(outData, 2);

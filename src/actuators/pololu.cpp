@@ -182,6 +182,5 @@ void Pololu::setMotorSpeed(int motorNum, int motorSpeed){
 }
 
 void Pololu::writeSolCmd(QByteArray data) {
-	qDebug() << data;
 	port->write(data);
 }
