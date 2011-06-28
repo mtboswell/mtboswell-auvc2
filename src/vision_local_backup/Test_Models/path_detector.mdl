@@ -157,7 +157,7 @@ Model {
       Name		      "debug_orientation"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.303"
+    ComputedModelVersion    "1.305"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -177,9 +177,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 17:14:22 2011"
-  RTWModifiedTimeStamp	  231093485
-  ModelVersionFormat	  "1.%<AutoIncrement:303>"
+  LastModifiedDate	  "Tue Jun 28 00:03:05 2011"
+  RTWModifiedTimeStamp	  231120124
+  ModelVersionFormat	  "1.%<AutoIncrement:305>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -944,7 +944,7 @@ Model {
       System {
 	Name			"Blob Analysis"
 	Location		[1440, 50, 3120, 1050]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -5271,9 +5271,10 @@ Stateflow {
     eml {
       isEML		      1
       script		      "function [L, a, b] = Display_Image(LabelMatrix, num_colors, ref_colors)\n\n\n% Initialize\n[rows,"
-      "cols] = size(LabelMatrix);\nbw_image = zeros(rows,cols);\n\n\n% Allow only colors in specified range\nfor r = 1:"
-      "rows\n    for c = 1:cols\n        \n        L(r,c) = ref_colors(LabelMatrix(r,c), 1);\n        a(r,c) = ref_colo"
-      "rs(LabelMatrix(r,c), 2);\n        b(r,c) = ref_colors(LabelMatrix(r,c), 3);\n        \n    end\nend\n\n\nreturn\n"
+      "cols] = size(LabelMatrix);\nbw_image = zeros(rows,cols);\nL = zeros(rows,cols);\na = zeros(rows,cols);\nb = zero"
+      "s(rows,cols);\n\n\n% Allow only colors in specified range\nfor r = 1:rows\n    for c = 1:cols\n        \n       "
+      " L(r,c) = ref_colors(LabelMatrix(r,c), 1);\n        a(r,c) = ref_colors(LabelMatrix(r,c), 2);\n        b(r,c) = "
+      "ref_colors(LabelMatrix(r,c), 3);\n        \n    end\nend\n\n\nreturn\n"
       editorLayout	      "100 M4x1[101 68 1056 606]"
       fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
       "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"

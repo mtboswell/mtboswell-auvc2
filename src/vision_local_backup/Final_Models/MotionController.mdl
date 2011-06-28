@@ -131,10 +131,10 @@ Model {
   Creator		  "auvt"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Administrator"
+  LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jun 03 08:15:38 2011"
-  RTWModifiedTimeStamp	  228989594
+  LastModifiedDate	  "Tue Jun 28 00:43:19 2011"
+  RTWModifiedTimeStamp	  231122569
   ModelVersionFormat	  "1.%<AutoIncrement:104>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
@@ -968,7 +968,7 @@ Model {
   }
   System {
     Name		    "MotionController"
-    Location		    [2, 76, 1254, 731]
+    Location		    [0, 83, 1440, 867]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1322,7 +1322,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nAdministrator\\n03-Jun-2011 00:16:52"
+      "nAdministrator\\n20-Jun-2011 11:00:32"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -3540,7 +3540,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Targeting Controllers"
-	Location		[2, 76, 1270, 731]
+	Location		[4, 83, 1272, 738]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -4119,7 +4119,7 @@ Model {
 		  Position		  [110, 56, 225, 114]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  "Unknown"
+		  SourceType		  ""
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4141,7 +4141,7 @@ Model {
 		  Position		  [105, 181, 225, 239]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  "Unknown"
+		  SourceType		  ""
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4163,7 +4163,7 @@ Model {
 		  Position		  [105, 306, 225, 364]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  "Unknown"
+		  SourceType		  ""
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4395,7 +4395,7 @@ Model {
 		  Position		  [110, 65, 215, 120]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  "Unknown"
+		  SourceType		  ""
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4417,7 +4417,7 @@ Model {
 		  Position		  [110, 200, 220, 255]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  "Unknown"
+		  SourceType		  ""
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4439,7 +4439,7 @@ Model {
 		  Position		  [110, 342, 220, 398]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  "Unknown"
+		  SourceType		  ""
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off

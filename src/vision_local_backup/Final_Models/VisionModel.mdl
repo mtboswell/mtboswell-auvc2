@@ -223,7 +223,7 @@ Model {
       Name		      "edge_image"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.440"
+    ComputedModelVersion    "1.444"
     NumModelReferences	    2
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Path Following/validation_gate.mdl|path_detector"
@@ -249,9 +249,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 18:55:04 2011"
+  LastModifiedDate	  "Tue Jun 28 00:48:54 2011"
   RTWModifiedTimeStamp	  231098745
-  ModelVersionFormat	  "1.%<AutoIncrement:440>"
+  ModelVersionFormat	  "1.%<AutoIncrement:444>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1382,7 +1382,7 @@ Model {
       System {
 	Name			"Buoy Detection"
 	Location		[1816, 218, 2828, 873]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2960,7 +2960,7 @@ Model {
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  31
-	  Points		  [260, 0]
+	  Points		  [235, 0; 0, -35]
 	  DstBlock		  "LabelMatrix"
 	  DstPort		  1
 	}
@@ -3491,7 +3491,19 @@ Model {
 	    port14		    "off"
 	    port15		    "off"
 	  }
+	  List {
+	    ListType		    InputPortLatchByCopyingInsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	  }
 	  CopyOfModelName	  "validation_gate"
+	  List {
+	    ListType		    InputPortLatchByDelayingOutsideSignal
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	  }
 	}
 	Block {
 	  BlockType		  Outport
@@ -4536,54 +4548,39 @@ Model {
       DstPort		      3
     }
     Line {
-      Points		      [1825, 1150]
+      SrcBlock		      "Path Following"
+      SrcPort		      10
+      Points		      [150, 0; 0, -25]
       DstBlock		      "LabelMatrix"
       DstPort		      1
     }
     Line {
-      Points		      [1825, 1220]
+      SrcBlock		      "Path Following"
+      SrcPort		      11
+      Points		      [120, 0; 0, 30]
       DstBlock		      "num_colors"
       DstPort		      1
     }
     Line {
-      Points		      [1825, 1285]
+      SrcBlock		      "Path Following"
+      SrcPort		      12
+      Points		      [110, 0; 0, 80]
       DstBlock		      "ref_colors"
       DstPort		      1
     }
     Line {
-      Points		      [1825, 1350]
+      SrcBlock		      "Path Following"
+      SrcPort		      13
+      Points		      [100, 0; 0, 130]
       DstBlock		      "bw_image"
       DstPort		      1
     }
     Line {
-      Points		      [1825, 1445]
-      DstBlock		      "edge_image"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Path Following"
-      SrcPort		      10
-      Points		      [120, 0; 0, -15; 15, 0]
-    }
-    Line {
-      SrcBlock		      "Path Following"
-      SrcPort		      11
-      Points		      [120, 0; 0, 40; 15, 0]
-    }
-    Line {
-      SrcBlock		      "Path Following"
-      SrcPort		      12
-      Points		      [110, 0; 0, 90; 25, 0]
-    }
-    Line {
-      SrcBlock		      "Path Following"
-      SrcPort		      13
-      Points		      [100, 0; 0, 140; 35, 0]
-    }
-    Line {
       SrcBlock		      "Path Following"
       SrcPort		      14
-      Points		      [60, 0; 0, 220; 75, 0]
+      Points		      [60, 0; 0, 220; 125, 0]
+      DstBlock		      "edge_image"
+      DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
