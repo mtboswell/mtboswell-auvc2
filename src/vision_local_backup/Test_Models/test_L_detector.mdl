@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.915"
+    ComputedModelVersion    "1.917"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_L_detector/L_detector.mdl|L_detector"
@@ -27,11 +27,11 @@ Model {
   Creator		  "Thing 1"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Administrator"
+  LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 20 12:38:35 2011"
-  RTWModifiedTimeStamp	  230474196
-  ModelVersionFormat	  "1.%<AutoIncrement:915>"
+  LastModifiedDate	  "Tue Jun 28 04:22:50 2011"
+  RTWModifiedTimeStamp	  231133379
+  ModelVersionFormat	  "1.%<AutoIncrement:917>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -743,7 +743,7 @@ Model {
   }
   System {
     Name		    "test_L_detector"
-    Location		    [2, 72, 1262, 711]
+    Location		    [0, 83, 1440, 867]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -942,7 +942,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Forward Filter"
-	Location		[2, 76, 1014, 724]
+	Location		[4, 83, 1016, 731]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1222,8 +1222,7 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      FileName		      "C:\\Documents and Settings\\Administrator\\My Documents\\Academics\\Summer 2011\\Newest Reposit"
-      "ory 6\\src\\vision\\Test_Images\\gate10.bmp"
+      FileName		      "/home/auvt/auvc/src/vision/Test_Images/L1.PNG"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
@@ -1269,19 +1268,7 @@ Model {
 	port5			"off"
 	port6			"off"
       }
-      List {
-	ListType		InputPortLatchByCopyingInsideSignal
-	port0			"off"
-	port1			"off"
-	port2			"off"
-      }
       CopyOfModelName	      "L_detector"
-      List {
-	ListType		InputPortLatchByDelayingOutsideSignal
-	port0			"off"
-	port1			"off"
-	port2			"off"
-      }
     }
     Block {
       BlockType		      Constant
@@ -1709,7 +1696,7 @@ MatData {
     "                5VEN9&]W4W1Y;&4                .    ,     8    (    !@         %    \"                0         ) "
     "         X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8       "
     "  !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )  "
-    "        X   !0    !@    @    &          4    (     0    0    !          D    @           P>T       $!O0       H'E "
+    "        X   !0    !@    @    &          4    (     0    0    !          D    @           LE4       '!W0       H'E "
     "      # <D .    .     8    (    !          %    \"     $    (     0         0    \"    '5N9&]C:V5D#@   ,@!   &    "
     "\"     (         !0    @    !     0    $         !0 $ \"H    !    J    $%L;&]W4V-O<&5#:&%N9V5S                    "
     "             $%L;&]W0FQO8VM#:&%N9V5S                                 $ES4V-O<&5#9F=/;&0                           "
@@ -1728,7 +1715,7 @@ MatData {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Jul 24 2010, 07:30:36
+#    Stateflow Version 7.5 (R2010a) dated Aug  8 2010, 22:51:52
 #
 #
 
