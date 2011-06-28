@@ -157,7 +157,7 @@ Model {
       Name		      "debug_orientation"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.305"
+    ComputedModelVersion    "1.306"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -177,9 +177,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 28 00:03:05 2011"
-  RTWModifiedTimeStamp	  231120124
-  ModelVersionFormat	  "1.%<AutoIncrement:305>"
+  LastModifiedDate	  "Tue Jun 28 06:11:49 2011"
+  RTWModifiedTimeStamp	  231140299
+  ModelVersionFormat	  "1.%<AutoIncrement:306>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off

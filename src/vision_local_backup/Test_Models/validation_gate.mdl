@@ -98,7 +98,7 @@ Model {
       Name		      "B"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1174"
+    ComputedModelVersion    "1.1175"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -118,9 +118,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 21 22:08:01 2011"
+  LastModifiedDate	  "Tue Jun 28 02:57:04 2011"
   RTWModifiedTimeStamp	  230594598
-  ModelVersionFormat	  "1.%<AutoIncrement:1174>"
+  ModelVersionFormat	  "1.%<AutoIncrement:1175>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -786,7 +786,7 @@ Model {
   }
   System {
     Name		    "validation_gate"
-    Location		    [0, 83, 1440, 867]
+    Location		    [1560, 147, 3000, 931]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -889,7 +889,7 @@ Model {
       System {
 	Name			"Convert to BW"
 	Location		[4, 83, 1000, 715]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -1109,7 +1109,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "IterativeSegmentation"
-	    Location		    [2, 76, 1014, 724]
+	    Location		    [4, 83, 1016, 731]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -3891,8 +3891,6 @@ Stateflow {
     firstJunction	    18
     viewObj		    16
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    27
     decomposition	    CLUSTER_CHART
     type		    EML_CHART

@@ -3,22 +3,26 @@ Model {
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
-    NumRootInports	    4
+    NumRootInports	    5
     Inport {
       BusObject		      ""
-      Name		      "R_forward_in"
+      Name		      "R_in"
     }
     Inport {
       BusObject		      ""
-      Name		      "G_forward_in"
+      Name		      "G_in"
     }
     Inport {
       BusObject		      ""
-      Name		      "B_forward_in"
+      Name		      "B_in"
     }
     Inport {
       BusObject		      ""
       Name		      "WhichColor"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "Camera_Dimensions"
     }
     NumRootOutports	    13
     Outport {
@@ -87,7 +91,7 @@ Model {
       Name		      "ref_colors"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.791"
+    ComputedModelVersion    "1.795"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -107,9 +111,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 14:58:32 2011"
-  RTWModifiedTimeStamp	  231087504
-  ModelVersionFormat	  "1.%<AutoIncrement:791>"
+  LastModifiedDate	  "Tue Jun 28 03:01:45 2011"
+  RTWModifiedTimeStamp	  231130175
+  ModelVersionFormat	  "1.%<AutoIncrement:795>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -790,7 +794,7 @@ Model {
   }
   System {
     Name		    "buoy_detector"
-    Location		    [1560, 147, 3000, 931]
+    Location		    [0, 83, 1440, 867]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -804,10 +808,10 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "236"
+    SIDHighWatermark	    "237"
     Block {
       BlockType		      Inport
-      Name		      "R_forward_in"
+      Name		      "R_in"
       SID		      "179"
       Position		      [160, 223, 190, 237]
       IconDisplay	      "Port number"
@@ -815,7 +819,7 @@ Model {
     }
     Block {
       BlockType		      Inport
-      Name		      "G_forward_in"
+      Name		      "G_in"
       SID		      "180"
       Position		      [160, 258, 190, 272]
       Port		      "2"
@@ -824,7 +828,7 @@ Model {
     }
     Block {
       BlockType		      Inport
-      Name		      "B_forward_in"
+      Name		      "B_in"
       SID		      "181"
       Position		      [160, 293, 190, 307]
       Port		      "3"
@@ -837,6 +841,14 @@ Model {
       SID		      "182"
       Position		      [160, 363, 190, 377]
       Port		      "4"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Camera_Dimensions"
+      SID		      "237"
+      Position		      [160, 538, 190, 552]
+      Port		      "5"
       IconDisplay	      "Port number"
     }
     Block {
@@ -1194,7 +1206,7 @@ Model {
       BlockType		      Constant
       Name		      "Constant"
       SID		      "227"
-      Position		      [1045, 401, 1200, 449]
+      Position		      [1050, 381, 1205, 429]
       Value		      "a_range"
       SampleTime	      "-1"
     }
@@ -1202,16 +1214,8 @@ Model {
       BlockType		      Constant
       Name		      "Constant1"
       SID		      "228"
-      Position		      [1045, 476, 1200, 524]
+      Position		      [1050, 461, 1205, 509]
       Value		      "b_range"
-      SampleTime	      "-1"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Constant2"
-      SID		      "229"
-      Position		      [1045, 561, 1200, 609]
-      Value		      "Forward_Camera_Dimensions"
       SampleTime	      "-1"
     }
     Block {
@@ -1750,7 +1754,7 @@ Model {
 	  System {
 	    Name		    "Segmentation"
 	    Location		    [1560, 147, 3000, 931]
-	    Open		    on
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -2612,7 +2616,7 @@ Model {
       System {
 	Name			"Look for Buoys"
 	Location		[1560, 147, 3000, 931]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2633,17 +2637,17 @@ Model {
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "ref_colors"
-	  SID			  "131"
-	  Position		  [120, 178, 150, 192]
+	  Name			  "num_colors"
+	  SID			  "51"
+	  Position		  [120, 173, 150, 187]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
-	  Name			  "num_colors"
-	  SID			  "51"
-	  Position		  [120, 238, 150, 252]
+	  Name			  "ref_colors"
+	  SID			  "131"
+	  Position		  [120, 248, 150, 262]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
@@ -2697,16 +2701,16 @@ Model {
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "ref_colors"
-	      SID		      "54::27"
+	      Name		      "num_colors"
+	      SID		      "54::18"
 	      Position		      [20, 136, 40, 154]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
-	      Name		      "num_colors"
-	      SID		      "54::18"
+	      Name		      "ref_colors"
+	      SID		      "54::27"
 	      Position		      [20, 171, 40, 189]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2818,13 +2822,13 @@ Model {
 	      DstPort		      1
 	    }
 	    Line {
-	      SrcBlock		      "ref_colors"
+	      SrcBlock		      "num_colors"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      2
 	    }
 	    Line {
-	      SrcBlock		      "num_colors"
+	      SrcBlock		      "ref_colors"
 	      SrcPort		      1
 	      DstBlock		      " SFunction "
 	      DstPort		      3
@@ -3297,7 +3301,7 @@ Model {
 	  SrcPort		  1
 	  Points		  [90, 0]
 	  DstBlock		  "Blob Extraction"
-	  DstPort		  3
+	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "LabMatrix"
@@ -3342,9 +3346,8 @@ Model {
 	Line {
 	  SrcBlock		  "ref_colors"
 	  SrcPort		  1
-	  Points		  [90, 0]
 	  DstBlock		  "Blob Extraction"
-	  DstPort		  2
+	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "Blob Extraction"
@@ -3515,21 +3518,21 @@ Model {
       OutDataTypeStr	      "double"
     }
     Line {
-      SrcBlock		      "R_forward_in"
+      SrcBlock		      "R_in"
       SrcPort		      1
       Points		      [130, 0]
       DstBlock		      "IterativeSegmentation"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "G_forward_in"
+      SrcBlock		      "G_in"
       SrcPort		      1
       Points		      [0, 10]
       DstBlock		      "IterativeSegmentation"
       DstPort		      2
     }
     Line {
-      SrcBlock		      "B_forward_in"
+      SrcBlock		      "B_in"
       SrcPort		      1
       Points		      [0, 15]
       DstBlock		      "IterativeSegmentation"
@@ -3609,9 +3612,8 @@ Model {
       SrcPort		      2
       Points		      [40, 0]
       Branch {
-	Points			[45, 0; 0, 55]
 	DstBlock		"Look for Buoys"
-	DstPort			3
+	DstPort			2
       }
       Branch {
 	Points			[0, -190]
@@ -3626,7 +3628,7 @@ Model {
       Branch {
 	Points			[70, 0]
 	DstBlock		"Look for Buoys"
-	DstPort			2
+	DstPort			3
       }
       Branch {
 	Points			[0, -190]
@@ -3674,28 +3676,28 @@ Model {
     Line {
       SrcBlock		      "Constant"
       SrcPort		      1
-      Points		      [80, 0; 0, -60]
+      Points		      [75, 0; 0, -40]
       DstBlock		      "Choose Buoy"
       DstPort		      4
     }
     Line {
       SrcBlock		      "Constant1"
       SrcPort		      1
-      Points		      [165, 0]
+      Points		      [125, 0; 0, -60]
       DstBlock		      "Choose Buoy"
       DstPort		      5
     }
     Line {
-      SrcBlock		      "Constant2"
+      SrcBlock		      "Camera_Dimensions"
       SrcPort		      1
-      Points		      [80, 0; 0, -40]
+      Points		      [0, 35; 1175, 0]
       DstBlock		      "Choose Buoy"
       DstPort		      7
     }
     Line {
       SrcBlock		      "WhichColor"
       SrcPort		      1
-      Points		      [385, 0; 0, 115]
+      Points		      [385, 0; 0, 170; 790, 0]
       DstBlock		      "Choose Buoy"
       DstPort		      6
     }
@@ -3774,7 +3776,7 @@ Stateflow {
     eml {
       isEML		      1
       script		      "function [blob_count, blob_hues, blob_centroids, blob_eccentricity, blob_extent] = GetBlobInfo(La"
-      "belMatrix, ref_colors, num_colors)\n% This function will determine the characteristics of the blobs in an image\n"
+      "belMatrix, num_colors, ref_colors)\n% This function will determine the characteristics of the blobs in an image\n"
       "% given a label matrix defining the different binary images contained in a\n% that label matrix\n%\n% Input\n%  "
       " LabelMatrix = 2-D matrix of integer values, each of which represents a\n%     color; location in matrix corresp"
       "onds to pixel location in image\n%   ref_colors = Nx3 color table containing Lab components\n%   num_colors = in"
@@ -3921,8 +3923,8 @@ Stateflow {
   }
   data {
     id			    10
-    ssIdNumber		    12
-    name		    "ref_colors"
+    ssIdNumber		    7
+    name		    "num_colors"
     linkNode		    [2 9 11]
     scope		    INPUT_DATA
     machine		    1
@@ -3943,29 +3945,9 @@ Stateflow {
   }
   data {
     id			    11
-    ssIdNumber		    5
-    name		    "blob_eccentricity"
+    ssIdNumber		    12
+    name		    "ref_colors"
     linkNode		    [2 10 12]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    12
-    ssIdNumber		    7
-    name		    "num_colors"
-    linkNode		    [2 11 13]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -3980,6 +3962,26 @@ Stateflow {
       }
       complexity	      SF_COMPLEX_INHERITED
       frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    12
+    ssIdNumber		    5
+    name		    "blob_eccentricity"
+    linkNode		    [2 11 13]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }

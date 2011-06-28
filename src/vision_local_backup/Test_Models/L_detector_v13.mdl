@@ -1,5 +1,5 @@
 Model {
-  Name			  "test"
+  Name			  "L_detector_v13"
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
@@ -52,10 +52,10 @@ Model {
   Creator		  "The MathWorks Inc."
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "Administrator"
+  LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jun 03 07:35:27 2011"
-  RTWModifiedTimeStamp	  228987248
+  LastModifiedDate	  "Tue Jun 28 03:46:21 2011"
+  RTWModifiedTimeStamp	  231133567
   ModelVersionFormat	  "1.%<AutoIncrement:37>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
@@ -750,8 +750,8 @@ Model {
     }
   }
   System {
-    Name		    "test"
-    Location		    [2, 72, 1278, 711]
+    Name		    "L_detector_v13"
+    Location		    [4, 83, 1280, 722]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1479,7 +1479,7 @@ Model {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
 	  SID			  "48::14"
-	  Tag			  "Stateflow S-Function test 2"
+	  Tag			  "Stateflow S-Function L_detector_v13 2"
 	  Ports			  [1, 2]
 	  Position		  [180, 100, 230, 160]
 	  FunctionName		  "sf_sfun"
@@ -1867,7 +1867,7 @@ MatData {
 }
 # Finite State Machines
 #
-#    Stateflow Version 7.5 (R2010a) dated Jul 24 2010, 07:30:36
+#    Stateflow Version 7.5 (R2010a) dated Aug  8 2010, 22:51:52
 #
 #
 
@@ -1875,7 +1875,7 @@ MatData {
 Stateflow {
   machine {
     id			    1
-    name		    "test"
+    name		    "L_detector_v13"
     created		    "29-May-2011 02:00:37"
     isLibrary		    0
     firstTarget		    9
