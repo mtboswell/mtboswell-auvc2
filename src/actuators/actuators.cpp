@@ -53,8 +53,7 @@ void Actuators::dataIn(VDatum datum){
 		}
 	}
 	else if (datum.id == "FireTorp") {
-		if (datum.value.toInt() == 1 && fired1) return;
-		if (datum.value.toInt() == 2 && fired2) return;
+		//if ((datum.value.toInt() == 1 && fired1) || (datum.value.toInt() == 2 && fired2)) return;
 		if (datum.value.toInt() != 0) {
 			qDebug() << "FIRE!";
 			fireTorpedo(datum.value.toInt(), true);
@@ -88,12 +87,12 @@ void Actuators::fireTorpedo(int torp, bool fire) {
 	data.append(0x01);
 	data.append(0x02);
 
-	if (torp = 1) {
+	if (torp == 1) {
 		data.append(0x04);
 		fired1 = true;
 		
 	}
-	else if (torp = 2) {
+	else if (torp == 2) {
 		data.append(0x06);
 		fired2 = true;
 	}
