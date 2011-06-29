@@ -60,7 +60,7 @@ state =
 		o2_value = 0;
 		
 		o3_label = "DeadReckon.Heading";
-		o3_value = 15;	-- increment by 15 degrees
+		o3_value = 3;	-- increment by 3 degrees
 		o3_mode = 1;	-- increment mode
 		o3_timeEnable = 3000;	-- 3 seconds
 	};
