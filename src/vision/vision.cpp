@@ -50,6 +50,7 @@ void Vision::dataIn(VDatum datum)
 	}
 	else if (datum.id == "Parameter.Vision.ModeSelect") {
 		qDebug() << "Changing ModeSelect to " << datum.value.toInt();
+		count = 0;
 		switch (datum.value.toInt()) {
 			case 0: processingFrontCamera = false; processingDownCamera = false; break;
 			case 1: processingFrontCamera = true;  processingDownCamera = false; break;
@@ -67,7 +68,8 @@ void Vision::dataIn(VDatum datum)
  */
 void Vision::init()
 {
-    const int UPDATE_RATE = 1;    // num updates per seconds
+    count = 0;
+    const int UPDATE_RATE = 40;    // num updates per seconds
     stopped = false;
     qDebug("Vision thread id: %d", (int) QThread::currentThreadId());
 
@@ -90,6 +92,7 @@ void Vision::init()
 	//Have vision run as fast as possible instead of on a timer
 	//QObject::connect(this, SIGNAL(processVision()), this, SLOT(step()));
 	//emit processVision();
+    //stepTimer->start(666);
     stepTimer->start(1000 / UPDATE_RATE);  //This should be the last line in this function
 }
 
@@ -158,6 +161,7 @@ void Vision::step()
     else if (debug) std::cerr << "Vision::step(): Could not populate Simulink Camera parameters" << std::endl;
     // call the function
     VisionModel_step();
+    qDebug() << ++count;
     // set the outputs of the function
     //setData("TargetOptions.TargetSelect", VisionModel_Y.TargetSelect);
     setData("Vision.Output.TargetSelect", VisionModel_Y.TargetSelect);

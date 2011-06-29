@@ -53,6 +53,7 @@ class Vision : public SimulinkModule
         QImageWriter *videoOutDown;
         QUdpSocket *videoSocketFront;
         QUdpSocket *videoSocketDown;
+	int count;
 
  };
 
