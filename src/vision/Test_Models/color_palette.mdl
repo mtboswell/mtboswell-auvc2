@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.984"
+    ComputedModelVersion    "1.992"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 28 18:08:06 2011"
+  LastModifiedDate	  "Tue Jun 28 18:34:33 2011"
   RTWModifiedTimeStamp	  231183412
-  ModelVersionFormat	  "1.%<AutoIncrement:984>"
+  ModelVersionFormat	  "1.%<AutoIncrement:992>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -953,7 +953,7 @@ Model {
       SID		      "369"
       Tag		      "vipblks_nd"
       Ports		      [0, 3]
-      Position		      [635, 224, 760, 336]
+      Position		      [560, 264, 685, 376]
       LibraryVersion	      "1.308"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag6"
@@ -5037,6 +5037,7 @@ Model {
       Name		      "Scale_Forward_B"
       SID		      "728"
       Position		      [150, 400, 180, 430]
+      Value		      "0"
       VectorParams1D	      off
       OutDataTypeStr	      "double"
       SampleTime	      "-1"
@@ -5064,6 +5065,7 @@ Model {
       Name		      "Scale_Forward_R"
       SID		      "731"
       Position		      [150, 285, 180, 315]
+      Value		      "0"
       VectorParams1D	      off
       OutDataTypeStr	      "double"
       SampleTime	      "-1"
@@ -5172,7 +5174,7 @@ Model {
       Name		      "refColorSelect"
       SID		      "243"
       Position		      [760, 715, 790, 745]
-      Value		      "7"
+      Value		      "8"
       SampleTime	      "-1"
     }
     Line {
@@ -5198,21 +5200,21 @@ Model {
     Line {
       SrcBlock		      "Down Test Image"
       SrcPort		      1
-      Points		      [55, 0]
+      Points		      [130, 0]
       DstBlock		      "If Action\nSubsystem1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Down Test Image"
       SrcPort		      2
-      Points		      [60, 0; 0, 20]
+      Points		      [135, 0; 0, -20]
       DstBlock		      "If Action\nSubsystem1"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Down Test Image"
       SrcPort		      3
-      Points		      [50, 0; 0, 55]
+      Points		      [125, 0; 0, 15]
       DstBlock		      "If Action\nSubsystem1"
       DstPort		      3
     }
