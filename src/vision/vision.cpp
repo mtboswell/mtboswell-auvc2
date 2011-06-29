@@ -69,7 +69,7 @@ void Vision::dataIn(VDatum datum)
 void Vision::init()
 {
     count = 0;
-    const int UPDATE_RATE = 40;    // num updates per seconds
+    const int UPDATE_RATE = 1;    // num updates per seconds
     stopped = false;
     qDebug("Vision thread id: %d", (int) QThread::currentThreadId());
 
@@ -92,8 +92,8 @@ void Vision::init()
 	//Have vision run as fast as possible instead of on a timer
 	//QObject::connect(this, SIGNAL(processVision()), this, SLOT(step()));
 	//emit processVision();
-    //stepTimer->start(666);
-    stepTimer->start(1000 / UPDATE_RATE);  //This should be the last line in this function
+    stepTimer->start(666);
+    //stepTimer->start(1000 / UPDATE_RATE);  //This should be the last line in this function
 }
 
 /**
@@ -214,14 +214,13 @@ void Vision::step()
     //    setData("Vision.Output.PathState", VisionModel_Y.PathState);
     //    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
     //    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
-
-        if (networkStreams && f_height == 80 && f_width == 60 && processingFrontCamera)
+        if (networkStreams && f_height == 160 && f_width == 120 && processingFrontCamera)
         {
     		targetedImageFront = new QImage(60, 80, QImage::Format_RGB32);
 			//used for streaming the targeted image
 			for (int i = 0; i < f_height; i = i + 2)
 			{
-            	for (int j = 0; j < f_width; i = i + 2)
+            	for (int j = 0; j < f_width; j = j + 2)
 		    	{
                 	int index = j*(f_height)+i;
                     QRgb col;
@@ -232,13 +231,13 @@ void Vision::step()
             videoOutFront->write(*targetedImageFront);
             targetedImageFront->~QImage();
 		}
-		if (networkStreams && d_height == 60 && d_width == 80 && processingDownCamera)
+		if (networkStreams && d_height == 160 && d_width == 120 && processingDownCamera)
 		{
         	targetedImageDown = new QImage(80, 60, QImage::Format_RGB32);
             //used for streaming the targeted image
             for (int i = 0; i < d_height; i = i + 2)
             {
-            	for (int j = 0; j < d_width; i = i + 2)
+            	for (int j = 0; j < d_width; j = j + 2)
             	{
                     int index = j*(d_height)+i;
                     QRgb col;
