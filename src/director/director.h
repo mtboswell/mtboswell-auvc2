@@ -34,6 +34,7 @@ class director : public Module
 			QStringList sub;
                         sub << "Orientation.Heading";
                         sub << "Director.scriptFile";
+                        sub << "Vision.Output.TargetDetected";
 			return sub;
 		}
                 void process();
