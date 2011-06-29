@@ -28,6 +28,7 @@ class Vision : public SimulinkModule
                 QStringList sub;
 //                sub << ""; // subscribe to all
                 sub << "Mode";
+				sub << "Parameter.Vision.ModeSelect";
                 return sub;
         }
 	signals:
@@ -43,7 +44,9 @@ class Vision : public SimulinkModule
 
     private:
         bool stopped;
-        QTimer *timer;  // work around to initialize values for statedata
+		bool processingFrontCamera;
+		bool processingDownCamera;
+        QTimer *timer;  // work around to initialize values for statedata (possibly not used)
         QImage *targetedImageFront;
         QImage *targetedImageDown;
         QImageWriter *videoOutFront;

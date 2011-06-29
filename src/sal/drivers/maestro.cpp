@@ -36,16 +36,22 @@ void Maestro::step() {
 		list.last().id = "Position.DepthOld";
 		float val = (dataValue - 95) / 4.0;
 		list.last().value = val;
-		//End of channel 0 query...//
+		//End of channel 0 query...//	
 		//Querry channel 2....//
 		outData[1] = 0x02;
 		inData = device->sendQuery(outData, 2);
+		//convert maestro output and write to stateData
 		dataValue = byteArrayToInt(inData);
-		if (dataValue > 400) dataValue = 1;
-		else dataValue = 0;
+		if (dataValue > 900) {
+			dataValue = 1;
+		}
+		else {
+		dataValue = 0;
+		}
 		list.append(element);
-		list.last().id = "Start";
+		list.last().id = "Maestro.Start";
 		list.last().value = dataValue;
+		//End of channel 2 query...//
 		//Querry channel 4....//
 		outData[1] = 0x04;
 		inData = device->sendQuery(outData, 2);

@@ -43,9 +43,20 @@ Vision::Vision() : SimulinkModule()
  */
 void Vision::dataIn(VDatum datum)
 {
-    if(datum.id != "Mode") return;
-    if(datum.value == "Stop") stopped = true;
-    else stopped = false;
+    if(datum.id == "Mode")
+	{
+    	if(datum.value == "Stop") stopped = true;
+    	else stopped = false;
+	}
+	else if (datum.id == "Parameter.Vision.ModeSelect") {
+		qDebug() << "Changing ModeSelect to " << datum.value.toInt();
+		switch (datum.value.toInt()) {
+			case 0: processingFrontCamera = false; processingDownCamera = false; break;
+			case 1: processingFrontCamera = true;  processingDownCamera = false; break;
+			case 2: processingFrontCamera = false; processingDownCamera = true;  break;
+			default: break;
+		}
+	}
 }
 
 /**
@@ -59,7 +70,6 @@ void Vision::init()
     const int UPDATE_RATE = 1;    // num updates per seconds
     stopped = false;
     qDebug("Vision thread id: %d", (int) QThread::currentThreadId());
-    stepTimer->start(1000 / UPDATE_RATE);
 
 	//sets up the network stream if required
         if(networkStreams)
@@ -74,10 +84,13 @@ void Vision::init()
                 videoOutDown = new QImageWriter(videoSocketDown, "jpeg");
                 videoOutDown->setQuality(config("TargetedImageDown.quality").toInt());
 	}
-
+	
+	processingFrontCamera = false;
+	processingDownCamera = false;
 	//Have vision run as fast as possible instead of on a timer
-	QObject::connect(this, SIGNAL(processVision()), this, SLOT(step()));
+	//QObject::connect(this, SIGNAL(processVision()), this, SLOT(step()));
 	//emit processVision();
+    stepTimer->start(1000 / UPDATE_RATE);  //This should be the last line in this function
 }
 
 /**
@@ -106,7 +119,6 @@ void Vision::step()
     int f_height = forwardCam->height();
     int d_width = downwardCam->width();
     int d_height = downwardCam->height();
-
 //        std::cerr << "forward [w,h]" << f_width << " " << f_height << "  --- downward [w,h]" << d_width << " " << d_height << std::endl;
     if (f_width > FORWARD_CAM_MAX_WIDTH || f_height > FORWARD_CAM_MAX_HEIGHT || d_width > DOWNWARD_CAM_MAX_WIDTH || d_height > DOWNWARD_CAM_MAX_HEIGHT)
     {
@@ -144,10 +156,8 @@ void Vision::step()
 	qDebug() << "Vision:: Success";
     }
     else if (debug) std::cerr << "Vision::step(): Could not populate Simulink Camera parameters" << std::endl;
-
     // call the function
     VisionModel_step();
-
     // set the outputs of the function
     //setData("TargetOptions.TargetSelect", VisionModel_Y.TargetSelect);
     setData("Vision.Output.TargetSelect", VisionModel_Y.TargetSelect);
@@ -201,39 +211,40 @@ void Vision::step()
     //    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
     //    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
 
-        if (networkStreams)
+        if (networkStreams && f_height == 160 && f_width == 120 && processingFrontCamera)
         {
-                targetedImageFront = new QImage(120, 160, QImage::Format_RGB32);
-                targetedImageDown = new QImage(160, 120, QImage::Format_RGB32);
-				
-		//used for streaming the targeted image
-		for (int i = 0; i < f_height; ++i)
-		{
-                    for (int j = 0; j < f_width; ++j)
-		    {
-                        int index = j*(f_height)+i;
-                        QRgb col;
-                        col = qRgb(VisionModel_Y.R_forward_out[index] * 255.0, VisionModel_Y.G_forward_out[index] * 255.0, VisionModel_Y.B_forward_out[index] * 255.0);
-                        targetedImageFront->setPixel(j, i, col);
-                    }
-		}
-                videoOutFront->write(*targetedImageFront);
-                targetedImageFront->~QImage();
-
-                //used for streaming the targeted image
-                for (int i = 0; i < d_height; ++i)
-                {
-                    for (int j = 0; j < d_width; ++j)
-                    {
-                        int index = j*(d_height)+i;
-                        QRgb col;
-                        col = qRgb(VisionModel_Y.R_down_out[index] * 255.0, VisionModel_Y.G_down_out[index] * 255.0, VisionModel_Y.B_down_out[index] * 255.0);
-                        targetedImageDown->setPixel(j, i, col);
-                    }
+    		targetedImageFront = new QImage(120, 160, QImage::Format_RGB32);
+			//used for streaming the targeted image
+			for (int i = 0; i < f_height; ++i)
+			{
+            	for (int j = 0; j < f_width; ++j)
+		    	{
+                	int index = j*(f_height)+i;
+                    QRgb col;
+                    col = qRgb(VisionModel_Y.R_forward_out[index] * 255.0, VisionModel_Y.G_forward_out[index] * 255.0, VisionModel_Y.B_forward_out[index] * 255.0);
+                    targetedImageFront->setPixel(j, i, col);
                 }
-                videoOutDown->write(*targetedImageFront);
-                targetedImageDown->~QImage();
-	}
+			}
+            videoOutFront->write(*targetedImageFront);
+            targetedImageFront->~QImage();
+		}
+		if (networkStreams && d_height == 120 && d_width == 160 && processingDownCamera)
+		{
+        	targetedImageDown = new QImage(160, 120, QImage::Format_RGB32);
+            //used for streaming the targeted image
+            for (int i = 0; i < d_height; ++i)
+            {
+            	for (int j = 0; j < d_width; ++j)
+            	{
+                    int index = j*(d_height)+i;
+                    QRgb col;
+                    col = qRgb(VisionModel_Y.R_down_out[index] * 255.0, VisionModel_Y.G_down_out[index] * 255.0, VisionModel_Y.B_down_out[index] * 255.0);
+                    targetedImageDown->setPixel(j, i, col);
+                }
+            }
+            videoOutDown->write(*targetedImageFront);
+            targetedImageDown->~QImage();
+		}
 //	qDebug() << "Finished Vision";
 	//usleep(3000000);
 	//emit processVision();
