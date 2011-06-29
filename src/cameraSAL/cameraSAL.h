@@ -65,7 +65,7 @@ class CameraSAL: public Module
 		Camera* downCamera;
 		CameraParams* forwardParams;
 		CameraParams* downParams;
-		
+		bool cameraCreated;
 		//...
 };
 

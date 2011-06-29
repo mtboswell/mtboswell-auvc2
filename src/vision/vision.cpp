@@ -49,7 +49,7 @@ void Vision::dataIn(VDatum datum)
     	else stopped = false;
 	}
 	else if (datum.id == "Parameter.Vision.ModeSelect") {
-		qDebug() << "Changing ModeSelect to " << datum.value.toInt();
+		qDebug() << "Changing ModeSelect to in Vision: " << datum.value.toInt();
 		count = 0;
 		switch (datum.value.toInt()) {
 			case 0: processingFrontCamera = false; processingDownCamera = false; break;
@@ -161,7 +161,7 @@ void Vision::step()
     else if (debug) std::cerr << "Vision::step(): Could not populate Simulink Camera parameters" << std::endl;
     // call the function
     VisionModel_step();
-    qDebug() << ++count;
+    //qDebug() << ++count;
     // set the outputs of the function
     //setData("TargetOptions.TargetSelect", VisionModel_Y.TargetSelect);
     setData("Vision.Output.TargetSelect", VisionModel_Y.TargetSelect);

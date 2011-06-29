@@ -11,7 +11,7 @@ that they have input that the SAL needs to put in the stateData.  This is the mi
 **/
 CameraSAL::CameraSAL():Module()
 {
-	
+	cameraCreated = false;
 	//All of this should be commented out.  Drivers for the various devices that run for the SAL must be created in the
 	//init() function below or the SIGNALS they emit are not handled in this thread (the SALS thread) but in the main thread
 	//instead.  This makes these signals being processed interfere with things that are supposed to be being processed in the main
@@ -106,11 +106,14 @@ void CameraSAL::init(){
 	
 		downCamera = new Camera(downParams, this);
 		QObject::connect(downCamera, SIGNAL(dataReady(VDatum)), this, SLOT(setData(VDatum)));
+		cameraCreated = true;
+		qDebug() << "LOOK HERE THE CAMERA INIT FUNCTION FINISHED!";
 	}
 }
 
 void CameraSAL::dataIn(VDatum datum) {
-	if (datum.id == "Parameter.Vision.ModeSelect") {
+	qDebug() << "CameraSAL DataIn() Called";
+	if (datum.id == "Parameter.Vision.ModeSelect" && cameraCreated) {
 		qDebug() << "Camera Mode set to " << datum.value.toInt();
 		switch (datum.value.toInt()) {
 			case 0: downCamera->toggleCamera(true);  forwardCamera->toggleCamera(true); break;
@@ -121,6 +124,7 @@ void CameraSAL::dataIn(VDatum datum) {
 			default: break;
 		}
 	}
+	qDebug() << "Finished DataIn()";
 }
 
 

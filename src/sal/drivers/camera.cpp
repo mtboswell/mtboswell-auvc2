@@ -70,7 +70,7 @@ Camera::Camera(CameraParams* paramsIn, QObject* parent)
 void Camera::step()
 {
 if (cameraOn) {
-	if(debug) qDebug() << "capturing frame";
+	if (debug) qDebug() << "capturing frame";
 	//this function captures the frame and stores it onto the active memory created in init()
 	if( is_FreezeVideo( m_hCam, IS_WAIT ) != IS_SUCCESS )
 	{	
@@ -136,7 +136,10 @@ if (cameraOn) {
 			emit dataReady(datum);
 
 			//write out to the UDP port
-			if (networkStreams) videoOut->write(*qimage);
+			if (networkStreams) {
+				if (debug) qDebug() << "writing captured Image";
+				videoOut->write(*qimage);
+			}
 			qimage->~QImage();
 			newimage->~QImage();
 
