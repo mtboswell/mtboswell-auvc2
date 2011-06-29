@@ -48,10 +48,12 @@ class Camera : public QObject
 
 	public slots:
 		void step();
+		void toggleCamera(bool on);
 		
 	private:
 		
 		bool init();
+		bool cameraOn;
 		HIDS m_hCam;
 		int m_nRenderMode, m_lMemoryID, m_nSizeX, m_nSizeY, m_nBitsPerPixel;
 		char* m_pcImageMemory;

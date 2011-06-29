@@ -21,7 +21,7 @@
 **/
 Camera::Camera(CameraParams* paramsIn, QObject* parent)
 {
-	
+	cameraOn = true;
 	params = paramsIn;
 	//An array of bytes to store the image.  Size is determined by picture x * y and 32 bits per pixel
 	byteStorage = (char*) malloc((params->x) * (params->y) * 32);
@@ -69,6 +69,7 @@ Camera::Camera(CameraParams* paramsIn, QObject* parent)
 // it updates StateData with the latest camera image.
 void Camera::step()
 {
+if (cameraOn) {
 	if(debug) qDebug() << "capturing frame";
 	//this function captures the frame and stores it onto the active memory created in init()
 	if( is_FreezeVideo( m_hCam, IS_WAIT ) != IS_SUCCESS )
@@ -142,12 +143,11 @@ void Camera::step()
 		}
 	}
 }
-
+}
 // Initializes the camera so it can take stills.  Most of this I took from example code provided 
 // by the uEye people so see their fairly awesome implementation if you want to learn more.
 bool Camera::init()
 {
-		
 	// Set the size of the image in pixels
 	m_nSizeX = params->x;
 	m_nSizeY = params->y;
@@ -197,6 +197,7 @@ bool Camera::init()
 		is_SetDisplayMode (m_hCam, IS_SET_DM_DIB);
 		return true;
 	}
-	
 }
-
+void Camera::toggleCamera(bool on) {
+	cameraOn = on;
+}

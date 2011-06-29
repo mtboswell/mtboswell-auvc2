@@ -110,7 +110,17 @@ void CameraSAL::init(){
 }
 
 void CameraSAL::dataIn(VDatum datum) {
-
+	if (datum.id == "Parameter.Vision.ModeSelect") {
+		qDebug() << "Camera Mode set to " << datum.value.toInt();
+		switch (datum.value.toInt()) {
+			case 0: downCamera->toggleCamera(true);  forwardCamera->toggleCamera(true); break;
+			case 1: downCamera->toggleCamera(false); forwardCamera->toggleCamera(true); break;
+			case 2: downCamera->toggleCamera(true);  forwardCamera->toggleCamera(false);  break;
+			case 3: downCamera->toggleCamera(false); forwardCamera->toggleCamera(true); break;
+			case 4: downCamera->toggleCamera(false); forwardCamera->toggleCamera(false); break;
+			default: break;
+		}
+	}
 }
 
 
