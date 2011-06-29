@@ -218,10 +218,13 @@ Model {
       Name		      "edge_image"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.470"
-    NumModelReferences	    3
+    ComputedModelVersion    "1.478"
+    NumModelReferences	    4
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Buoy Detection/buoy_detector.mdl|buoy_detector"
+    }
+    ModelReference {
+      ModelRefBlockPath	      "VisionModel/L-Obstacle Detection/L_detector.mdl|L_detector"
     }
     ModelReference {
       ModelRefBlockPath	      "VisionModel/Path Following/validation_gate.mdl|path_detector"
@@ -247,9 +250,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Jun 28 18:08:52 2011"
-  RTWModifiedTimeStamp	  231184228
-  ModelVersionFormat	  "1.%<AutoIncrement:470>"
+  LastModifiedDate	  "Wed Jun 29 18:13:28 2011"
+  RTWModifiedTimeStamp	  231270882
+  ModelVersionFormat	  "1.%<AutoIncrement:478>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -977,7 +980,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "406"
+    SIDHighWatermark	    "410"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -1380,7 +1383,7 @@ Model {
       System {
 	Name			"Buoy Detection"
 	Location		[1816, 218, 2828, 873]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -2422,8 +2425,8 @@ Model {
       BlockType		      SubSystem
       Name		      "L-Obstacle Detection"
       SID		      "84"
-      Ports		      [3, 7, 0, 0, 0, 0, 0, 1]
-      Position		      [1360, 2200, 1550, 2460]
+      Ports		      [3, 10, 0, 0, 0, 0, 0, 1]
+      Position		      [1360, 2202, 1550, 2463]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -2477,6 +2480,55 @@ Model {
 	  SID			  "86"
 	  Position		  [170, 15, 229, 43]
 	  ActionType		  "elseif"
+	}
+	Block {
+	  BlockType		  ModelReference
+	  Name			  "L_detector.mdl"
+	  SID			  "407"
+	  Ports			  [3, 13]
+	  Position		  [155, 67, 385, 613]
+	  ModelNameDialog	  "L_detector"
+	  SimulationMode	  "Accelerator"
+	  ModelReferenceVersion	  "1.1365"
+	  List {
+	    ListType		    InputPortNames
+	    port0		    "R_forward_in"
+	    port1		    "G_forward_in"
+	    port2		    "B_forward_in"
+	  }
+	  List {
+	    ListType		    OutputPortNames
+	    port0		    "TargetSelect"
+	    port1		    "TargetFound"
+	    port2		    "MaintainHeading"
+	    port3		    "TargetY"
+	    port4		    "TargetZ"
+	    port5		    "TargetYaw"
+	    port6		    "TargetDetected"
+	    port7		    "Hough"
+	    port8		    "Theta"
+	    port9		    "Rho"
+	    port10		    "R"
+	    port11		    "G"
+	    port12		    "B"
+	  }
+	  List {
+	    ListType		    OutputPortOutputBusAsStructs
+	    port0		    "off"
+	    port1		    "off"
+	    port2		    "off"
+	    port3		    "off"
+	    port4		    "off"
+	    port5		    "off"
+	    port6		    "off"
+	    port7		    "off"
+	    port8		    "off"
+	    port9		    "off"
+	    port10		    "off"
+	    port11		    "off"
+	    port12		    "off"
+	  }
+	  CopyOfModelName	  "L_detector"
 	}
 	Block {
 	  BlockType		  Outport
@@ -2539,6 +2591,120 @@ Model {
 	  Port			  "7"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "R"
+	  SID			  "408"
+	  Position		  [530, 493, 560, 507]
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "G"
+	  SID			  "409"
+	  Position		  [530, 533, 560, 547]
+	  Port			  "9"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "B"
+	  SID			  "410"
+	  Position		  [530, 573, 560, 587]
+	  Port			  "10"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Line {
+	  SrcBlock		  "R_forward_in"
+	  SrcPort		  1
+	  Points		  [35, 0; 0, 75]
+	  DstBlock		  "L_detector.mdl"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "G_forward_in"
+	  SrcPort		  1
+	  Points		  [25, 0; 0, 220]
+	  DstBlock		  "L_detector.mdl"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "B_forward_in"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, 365]
+	  DstBlock		  "L_detector.mdl"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "L_detector.mdl"
+	  SrcPort		  1
+	  Points		  [40, 0; 0, -10]
+	  DstBlock		  "TargetSelect"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "L_detector.mdl"
+	  SrcPort		  2
+	  Points		  [40, 0; 0, -15]
+	  DstBlock		  "TargetFound"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "L_detector.mdl"
+	  SrcPort		  3
+	  Points		  [40, 0; 0, -20]
+	  DstBlock		  "MaintainHeading"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "L_detector.mdl"
+	  SrcPort		  4
+	  Points		  [40, 0; 0, -25]
+	  DstBlock		  "TargetY"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "L_detector.mdl"
+	  SrcPort		  5
+	  Points		  [40, 0; 0, -30]
+	  DstBlock		  "TargetZ"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "L_detector.mdl"
+	  SrcPort		  6
+	  Points		  [40, 0; 0, -35]
+	  DstBlock		  "TargetYaw"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "L_detector.mdl"
+	  SrcPort		  7
+	  DstBlock		  "TargetDetected"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "L_detector.mdl"
+	  SrcPort		  11
+	  DstBlock		  "R"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "L_detector.mdl"
+	  SrcPort		  12
+	  DstBlock		  "G"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "L_detector.mdl"
+	  SrcPort		  13
+	  DstBlock		  "B"
+	  DstPort		  1
 	}
       }
     }
@@ -2614,11 +2780,11 @@ Model {
 	  BlockType		  ModelReference
 	  Name			  "validation_gate.mdl"
 	  SID			  "377"
-	  Ports			  [4, 32]
+	  Ports			  [4, 31]
 	  Position		  [270, 79, 505, 531]
 	  ModelNameDialog	  "path_detector"
 	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.363"
+	  ModelReferenceVersion	  "1.385"
 	  List {
 	    ListType		    InputPortNames
 	    port0		    "R_in"
@@ -2658,8 +2824,7 @@ Model {
 	    port27		    "theta"
 	    port28		    "rho"
 	    port29		    "debug_orientation"
-	    port30		    "LabelMatrix"
-	    port31		    "num_colors"
+	    port30		    "num_colors"
 	  }
 	  List {
 	    ListType		    OutputPortOutputBusAsStructs
@@ -2694,7 +2859,6 @@ Model {
 	    port28		    "off"
 	    port29		    "off"
 	    port30		    "off"
-	    port31		    "off"
 	  }
 	  CopyOfModelName	  "path_detector"
 	}
@@ -2883,112 +3047,110 @@ Model {
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  28
-	  Points		  [130, 0; 0, -35]
+	  Points		  [130, 0; 0, -100]
 	  DstBlock		  "theta"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  12
-	  Points		  [225, 0; 0, 265; 35, 0]
+	  Points		  [225, 0; 0, 280; 35, 0]
 	  DstBlock		  "bw_image"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  13
-	  Points		  [250, 0; 0, 305]
+	  Points		  [250, 0; 0, 315]
 	  DstBlock		  "edge_image"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  31
-	  Points		  [235, 0; 0, -35]
+	  Points		  [235, 0; 0, -115]
 	  DstBlock		  "LabelMatrix"
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  32
-	  Points		  [260, 0]
+	  Points		  [510, 460; 260, 0]
 	  DstBlock		  "num_colors"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  27
-	  Points		  [255, 0; 0, 75]
+	  Points		  [255, 0; 0, 15]
 	  DstBlock		  "ref_colors"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  3
-	  Points		  [130, 0; 0, -30]
+	  Points		  [130, 0; 0, 30]
 	  DstBlock		  "MaintainHeading"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  1
-	  Points		  [120, 0; 0, -80]
+	  Points		  [120, 0; 0, -10]
 	  DstBlock		  "TargetSelect"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  2
-	  Points		  [245, 0; 0, -55]
+	  Points		  [245, 0; 0, 10]
 	  DstBlock		  "TargetFound"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  4
-	  Points		  [130, 0; 0, -5]
+	  Points		  [130, 0; 0, 50]
 	  DstBlock		  "TargetX"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  5
-	  Points		  [130, 0; 0, 20]
+	  Points		  [130, 0; 0, 70]
 	  DstBlock		  "TargetY"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  7
-	  Points		  [120, 0; 0, 45; 140, 0]
+	  Points		  [120, 0; 0, 85; 140, 0]
 	  DstBlock		  "TargetDetected"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  8
-	  Points		  [250, 0; 0, 95]
+	  Points		  [250, 0; 0, 130]
 	  DstBlock		  "PathState"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  9
-	  Points		  [250, 0; 0, 405]
+	  Points		  [250, 0; 0, 435]
 	  DstBlock		  "R"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  10
-	  Points		  [165, 0; 0, 430]
+	  Points		  [165, 0; 0, 455]
 	  DstBlock		  "G"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  11
-	  Points		  [250, 0; 0, 450]
+	  Points		  [250, 0; 0, 470]
 	  DstBlock		  "B"
 	  DstPort		  1
 	}
@@ -3326,8 +3488,8 @@ Model {
       BlockType		      SubSystem
       Name		      "Validation Gate"
       SID		      "68"
-      Ports		      [3, 16, 0, 0, 0, 0, 0, 1]
-      Position		      [1330, 459, 1590, 961]
+      Ports		      [3, 13, 0, 0, 0, 0, 0, 1]
+      Position		      [1330, 463, 1590, 967]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -3340,7 +3502,7 @@ Model {
       System {
 	Name			"Validation Gate"
 	Location		[1440, 50, 3120, 1050]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3386,11 +3548,11 @@ Model {
 	  BlockType		  ModelReference
 	  Name			  "validation_gate.mdl"
 	  SID			  "109"
-	  Ports			  [3, 16]
-	  Position		  [205, 118, 440, 567]
+	  Ports			  [3, 13]
+	  Position		  [205, 120, 440, 570]
 	  ModelNameDialog	  "validation_gate"
 	  SimulationMode	  "Accelerator"
-	  ModelReferenceVersion	  "1.1273"
+	  ModelReferenceVersion	  "1.1287"
 	  List {
 	    ListType		    InputPortNames
 	    port0		    "R_forward_in"
@@ -3410,11 +3572,8 @@ Model {
 	    port8		    "G"
 	    port9		    "B"
 	    port10		    "theta"
-	    port11		    "LabelMatrix"
-	    port12		    "num_colors"
-	    port13		    "ref_colors"
-	    port14		    "bw_image"
-	    port15		    "edge_image"
+	    port11		    "bw_image"
+	    port12		    "edge_image"
 	  }
 	  List {
 	    ListType		    OutputPortOutputBusAsStructs
@@ -3431,9 +3590,6 @@ Model {
 	    port10		    "off"
 	    port11		    "off"
 	    port12		    "off"
-	    port13		    "off"
-	    port14		    "off"
-	    port15		    "off"
 	  }
 	  CopyOfModelName	  "validation_gate"
 	}
@@ -3551,30 +3707,6 @@ Model {
 	  Port			  "13"
 	  IconDisplay		  "Port number"
 	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "ref_colors"
-	  SID			  "368"
-	  Position		  [605, 628, 635, 642]
-	  Port			  "14"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "bw_image"
-	  SID			  "370"
-	  Position		  [605, 683, 635, 697]
-	  Port			  "15"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "edge_image"
-	  SID			  "371"
-	  Position		  [605, 718, 635, 732]
-	  Port			  "16"
-	  IconDisplay		  "Port number"
-	}
 	Line {
 	  SrcBlock		  "R_forward_in"
 	  SrcPort		  1
@@ -3585,49 +3717,49 @@ Model {
 	Line {
 	  SrcBlock		  "G_forward_in"
 	  SrcPort		  1
-	  Points		  [65, 0; 0, 150]
+	  Points		  [65, 0; 0, 155]
 	  DstBlock		  "validation_gate.mdl"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "B_forward_in"
 	  SrcPort		  1
-	  Points		  [55, 0; 0, 265]
+	  Points		  [55, 0; 0, 270]
 	  DstBlock		  "validation_gate.mdl"
 	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  7
-	  Points		  [110, 0; 0, 35]
+	  Points		  [110, 0; 0, -5]
 	  DstBlock		  "TargetDetected"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  4
-	  Points		  [0, -35]
+	  Points		  [0, -45]
 	  DstBlock		  "TargetY"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  5
-	  Points		  [80, 0; 0, -25]
+	  Points		  [80, 0; 0, -45]
 	  DstBlock		  "TargetZ"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  1
-	  Points		  [45, 0; 0, -70]
+	  Points		  [45, 0; 0, -50]
 	  DstBlock		  "TargetSelect"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  2
-	  Points		  [55, 0; 0, -55]
+	  Points		  [55, 0; 0, -45]
 	  DstBlock		  "TargetFound"
 	  DstPort		  1
 	}
@@ -3641,71 +3773,50 @@ Model {
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  6
-	  Points		  [0, -15]
+	  Points		  [0, -45]
 	  DstBlock		  "TargetYaw"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  8
-	  Points		  [75, 0; 0, 75]
+	  Points		  [75, 0; 0, 25]
 	  DstBlock		  "R"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  9
-	  Points		  [65, 0; 0, 85]
+	  Points		  [65, 0; 0, 25]
 	  DstBlock		  "G"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  10
-	  Points		  [55, 0; 0, 90]
+	  Points		  [55, 0; 0, 20]
 	  DstBlock		  "B"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  11
-	  Points		  [45, 0; 0, 130]
+	  Points		  [45, 0; 0, 50]
 	  DstBlock		  "theta"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  12
-	  Points		  [35, 0; 0, 135]
+	  Points		  [35, 0; 0, 45]
 	  DstBlock		  "LabelMatrix"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "validation_gate.mdl"
 	  SrcPort		  13
-	  Points		  [25, 0; 0, 145]
+	  Points		  [25, 0; 0, 45]
 	  DstBlock		  "num_colors"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  14
-	  Points		  [15, 0; 0, 155]
-	  DstBlock		  "ref_colors"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  15
-	  Points		  [5, 0; 0, 185]
-	  DstBlock		  "bw_image"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "validation_gate.mdl"
-	  SrcPort		  16
-	  Points		  [0, 150; -5, 0; 0, 45]
-	  DstBlock		  "edge_image"
 	  DstPort		  1
 	}
       }
@@ -4182,7 +4293,7 @@ Model {
 	    DstPort		    2
 	  }
 	  Branch {
-	    Points		    [0, 385]
+	    Points		    [0, 390]
 	    DstBlock		    "L-Obstacle Detection"
 	    DstPort		    2
 	  }
@@ -4212,7 +4323,7 @@ Model {
 	    DstPort		    3
 	  }
 	  Branch {
-	    Points		    [0, 390]
+	    Points		    [0, 395]
 	    DstBlock		    "L-Obstacle Detection"
 	    DstPort		    3
 	  }
@@ -4242,7 +4353,7 @@ Model {
 	    DstPort		    1
 	  }
 	  Branch {
-	    Points		    [0, 380]
+	    Points		    [0, 385]
 	    DstBlock		    "L-Obstacle Detection"
 	    DstPort		    1
 	  }
@@ -4272,21 +4383,21 @@ Model {
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      5
-      Points		      [160, 0; 0, -10]
+      Points		      [160, 0; 0, -40]
       DstBlock		      "Add5"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      4
-      Points		      [155, 0; 0, -45]
+      Points		      [155, 0; 0, -65]
       DstBlock		      "Add4"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      1
-      Points		      [140, 0; 0, -200]
+      Points		      [140, 0; 0, -190]
       DstBlock		      "Add"
       DstPort		      1
     }
@@ -4300,21 +4411,22 @@ Model {
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      3
-      Points		      [150, 0; 0, -140]
+      Points		      [150, 0; 0, -150]
       DstBlock		      "Add2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      6
-      Points		      [165, 0; 0, 25]
+      Points		      [0, -15]
       DstBlock		      "Add6"
       DstPort		      1
     }
     Line {
+      Labels		      [3, 0]
       SrcBlock		      "Validation Gate"
       SrcPort		      7
-      Points		      [170, 0; 0, 760]
+      Points		      [170, 0; 0, 710]
       DstBlock		      "Add18"
       DstPort		      1
     }
@@ -4333,7 +4445,7 @@ Model {
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      11
-      Points		      [140, 0; 0, 320; 265, 0; 0, 1435]
+      Points		      [140, 0; 0, 230; 265, 0; 0, 1435]
       DstBlock		      "theta"
       DstPort		      1
     }
@@ -4501,21 +4613,21 @@ Model {
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      8
-      Points		      [500, 0; 0, 1175]
+      Points		      [500, 0; 0, 1115]
       DstBlock		      "Add22"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      9
-      Points		      [490, 0; 0, 1215]
+      Points		      [490, 0; 0, 1145]
       DstBlock		      "Add23"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Validation Gate"
       SrcPort		      10
-      Points		      [480, 0; 0, 1255]
+      Points		      [480, 0; 0, 1175]
       DstBlock		      "Add24"
       DstPort		      1
     }

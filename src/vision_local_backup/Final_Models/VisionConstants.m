@@ -5,6 +5,8 @@
 %% Camera dimensions
 Forward_Camera_Dimensions = [160 120];
 Down_Camera_Dimensions = [120 160];
+Forward_Fov = 120;  % Field of view in degrees
+Down_Fov = 120;
 
 
 %% Pre-filtering
@@ -23,12 +25,95 @@ Scale_Down_S = 1;
 Scale_Down_V = 5;
 
 
-
 %% Colors
-a_lower = -10;
-a_upper = 10;
-b_lower = 0;
-b_upper = 50;
+%a_lower = -10;
+%a_upper = 10;
+%b_lower = 0;
+%b_upper = 50;
+
+white_al = 0;
+white_au = 0;
+white_bl = 0;
+white_bu = 0;
+
+white_rrl = 0;
+white_rru = 0;
+white_ggl = 0;
+white_ggu = 0;
+white_bbl = 0;
+white_bbu = 0;
+
+black_al = 0;
+black_au = 0;
+black_bl = 0;
+black_bu = 0;
+
+black_rrl = 0;
+black_rru = 0;
+black_ggl = 0;
+black_ggu = 0;
+black_bbl = 0;
+black_bbu = 0;
+
+blue_al = 0;
+blue_au = 0;
+blue_bl = 0;
+blue_bu = 0;
+
+blue_rrl = 0;
+blue_rru = 0;
+blue_ggl = 0;
+blue_ggu = 0;
+blue_bbl = 0;
+blue_bbu = 0;
+
+red_al = 25;
+red_au = 127;
+red_bl = 0;
+red_bu = 127;
+
+red_rrl = 0;
+red_rru = 0;
+red_ggl = 0;
+red_ggu = 0;
+red_bbl = 0;
+red_bbu = 0;
+
+orange_al = 5;
+orange_au = 10;
+orange_bl = 30;
+orange_bu = 34;
+
+orange_rrl = 0;
+orange_rru = 0;
+orange_ggl = 0;
+orange_ggu = 0;
+orange_bbl = 0;
+orange_bbu = 0;
+
+yellow_al = 0;
+yellow_au = 0;
+yellow_bl = 0;
+yellow_bu = 0;
+
+yellow_rrl = 0;
+yellow_rru = 0;
+yellow_ggl = 0;
+yellow_ggu = 0;
+yellow_bbl = 0;
+yellow_bbu = 0;
+
+green_al = -128;
+green_au = -25;
+green_bl = -5;
+green_bu = 127;
+
+green_rrl = 0;
+green_rru = 0;
+green_ggl = 0;
+green_ggu = 0;
+green_bbl = 0;
+green_bbu = 0;
 
 
 %% Iterative segmentation default value
@@ -54,14 +139,6 @@ a_range = [0, 0, 0, 25, 0, 0, -128;
     0, 0, 0, 127, 0, 0, -25];
 b_range = [0, 0, 0, 0, 0, 0, -5;
     0, 0, 0, 127, 0, 0, 127];
-
-Buoy1_Hue = 0.4;
-Buoy1_Saturation = 1.0;
-Buoy1_Value = 0.45;
-
-Buoy2_Hue = 0.0;
-Buoy2_Saturation = 1.0;
-Buoy2_Value = 0.75;
 
 Buoy_Min_Eccentricity = 0;
 Buoy_Max_Eccentricity = 1.2;
