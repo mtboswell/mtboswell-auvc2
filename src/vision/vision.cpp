@@ -156,7 +156,7 @@ void Vision::step()
             }
         }
 
-	qDebug() << "Vision:: Success";
+	//qDebug() << "Vision:: Success";
     }
     else if (debug) std::cerr << "Vision::step(): Could not populate Simulink Camera parameters" << std::endl;
     // call the function
@@ -215,35 +215,35 @@ void Vision::step()
     //    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
     //    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
 
-        if (networkStreams && f_height == 160 && f_width == 120 && processingFrontCamera)
+        if (networkStreams && f_height == 80 && f_width == 60 && processingFrontCamera)
         {
-    		targetedImageFront = new QImage(120, 160, QImage::Format_RGB32);
+    		targetedImageFront = new QImage(60, 80, QImage::Format_RGB32);
 			//used for streaming the targeted image
-			for (int i = 0; i < f_height; ++i)
+			for (int i = 0; i < f_height; i = i + 2)
 			{
-            	for (int j = 0; j < f_width; ++j)
+            	for (int j = 0; j < f_width; i = i + 2)
 		    	{
                 	int index = j*(f_height)+i;
                     QRgb col;
                     col = qRgb(VisionModel_Y.R_forward_out[index] * 255.0, VisionModel_Y.G_forward_out[index] * 255.0, VisionModel_Y.B_forward_out[index] * 255.0);
-                    targetedImageFront->setPixel(j, i, col);
+                    targetedImageFront->setPixel(j/2, i/2, col);
                 }
 			}
             videoOutFront->write(*targetedImageFront);
             targetedImageFront->~QImage();
 		}
-		if (networkStreams && d_height == 120 && d_width == 160 && processingDownCamera)
+		if (networkStreams && d_height == 60 && d_width == 80 && processingDownCamera)
 		{
-        	targetedImageDown = new QImage(160, 120, QImage::Format_RGB32);
+        	targetedImageDown = new QImage(80, 60, QImage::Format_RGB32);
             //used for streaming the targeted image
-            for (int i = 0; i < d_height; ++i)
+            for (int i = 0; i < d_height; i = i + 2)
             {
-            	for (int j = 0; j < d_width; ++j)
+            	for (int j = 0; j < d_width; i = i + 2)
             	{
                     int index = j*(d_height)+i;
                     QRgb col;
                     col = qRgb(VisionModel_Y.R_down_out[index] * 255.0, VisionModel_Y.G_down_out[index] * 255.0, VisionModel_Y.B_down_out[index] * 255.0);
-                    targetedImageDown->setPixel(j, i, col);
+                    targetedImageDown->setPixel(j/2, i/2, col);
                 }
             }
             videoOutDown->write(*targetedImageFront);

@@ -51,6 +51,7 @@ class CameraSAL: public Module
 			QStringList sub;
 			//sub << "Command";
 			//sub << "TargetOptions";
+			sub << "Parameter.Vision.ModeSelect";
 			return sub;
 		}
 
