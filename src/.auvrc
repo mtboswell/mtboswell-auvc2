@@ -1,0 +1,86 @@
+#  Config stuff
+
+Debug=false;
+
+#  MAGNETIC_DECLINATION = local magnetic declination.  
+#  Use this webpage to calculate:
+#  http:# www.ngdc.noaa.gov/geomagmodels/Declination.jsp
+#  ' = 1/60 of a degree
+#  W = negative; E = positive;
+#  transdec zip code = 92106
+#  transdec mag. dec. = 12.23
+MagneticDeclination=-8.066;
+
+# ! BRAIN_STEP_TIME = 1/f for brain.  200 = 5Hz# /
+StepTime.Brain=200;
+# ! AUV_STEP_TIME = 1/f for hardware/sensor update# /
+StepTime.AUV=160;
+# ! DATA_LOG_STEP_TIME = time period for each log file update# /
+StepTime.DataLog=1000;
+
+#  DATA_PORT = UDP port used for data. 
+#  5233 = last 3 digits of UPC of aqua's aquarium album + track number of "Barbie Girl"
+Server.Port.Data=5233;
+Client.Port.Data=5237;
+
+#  VIDEO_PORT = UDP port used for video. 
+#  5235 = last 3 digits of UPC of aqua's aquarium album + track number of "Doctor Jones"
+Server.Port.Video1=5567;
+Server.IP=127.0.0.1;
+Client.Port.Video1=5566;
+# ! port used for second video stream:# /
+Server.Port.Video2=5239;
+Client.Port.Video2=5339;
+
+# Serial ports
+SerialPort.Compass=/dev/ttyS0;
+SerialPort.MainPower=/dev/ttyUSB3;
+SerialPort.ThrusterPower=/dev/ttyS1;
+SerialPort.Pololu=/dev/ttyUSB0;
+SerialPort.Arduino=/dev/ttyUSB1;
+SerialPort.LCD=/dev/ttyUSB2;
+
+# Cameras
+
+Camera.Forward.x=640;
+Camera.Forward.y=480;
+Camera.Forward.fps=5;
+Camera.Forward.pixelclock=12;
+Camera.Forward.identity=2;
+Camera.Forward.serial=4002761437;
+Camera.Forward.quality=55;
+Camera.Forward.port=5566;
+Camera.Forward.address=192.168.3.100;
+#Camera.Forward.address=127.0.0.1;
+
+Camera.Down.x=640;
+Camera.Down.y=480;
+Camera.Down.fps=5;
+Camera.Down.pixelclock=12;
+Camera.Down.identity=3;
+Camera.Down.serial=4002761434;
+Camera.Down.quality=55;
+Camera.Down.port=5567;
+Camera.Down.address=192.168.3.100;
+#Camera.Down.address=127.0.0.1;
+
+#Depth
+Depth.Baseline=102;
+Depth.Multiplier=2.6;
+Depth.ArraySize=50;
+
+#Vision
+TargetedImageFront.address=192.168.3.100;
+TargetedImageFront.port=5568;
+TargetedImageFront.quality=30;
+
+TargetedImageDown.address=192.168.3.100;
+TargetedImageDown.port=5569;
+TargetedImageDown.quality=30;
+
+# Mechanisms
+Mechanism.DropLeft.Servo=7;
+Mechanism.DropLeft.Motion=0:4000,2000:2800;
+
+Mechanism.DropRight.Servo=7;
+Mechanism.DropRight.Motion=0:2000,2000:2800;
