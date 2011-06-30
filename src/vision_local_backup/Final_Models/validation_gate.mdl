@@ -3,7 +3,7 @@ Model {
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
-    NumRootInports	    3
+    NumRootInports	    31
     Inport {
       BusObject		      ""
       Name		      "R_forward_in"
@@ -15,6 +15,118 @@ Model {
     Inport {
       BusObject		      ""
       Name		      "B_forward_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "white_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "white_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "white_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "white_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "black_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "black_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "black_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "black_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "blue_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "blue_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "blue_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "blue_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "red_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "red_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "red_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "red_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "orange_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "orane_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "orange_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "orange_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "yellow_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "yellow_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "yellow_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "yellow_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "green_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "green_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "breen_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "green_bu"
     }
     NumRootOutports	    13
     Outport {
@@ -83,7 +195,7 @@ Model {
       Name		      "edge_image"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1288"
+    ComputedModelVersion    "1.1298"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -103,9 +215,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 29 18:15:27 2011"
+  LastModifiedDate	  "Wed Jun 29 19:06:44 2011"
   RTWModifiedTimeStamp	  231271534
-  ModelVersionFormat	  "1.%<AutoIncrement:1288>"
+  ModelVersionFormat	  "1.%<AutoIncrement:1298>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -810,12 +922,12 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "711"
+    SIDHighWatermark	    "841"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
       SID		      "500"
-      Position		      [100, 298, 130, 312]
+      Position		      [670, 223, 700, 237]
       IconDisplay	      "Port number"
       PortDimensions	      "Forward_Camera_Dimensions"
     }
@@ -823,7 +935,7 @@ Model {
       BlockType		      Inport
       Name		      "G_forward_in"
       SID		      "501"
-      Position		      [100, 333, 130, 347]
+      Position		      [670, 258, 700, 272]
       Port		      "2"
       IconDisplay	      "Port number"
       PortDimensions	      "Forward_Camera_Dimensions"
@@ -832,17 +944,241 @@ Model {
       BlockType		      Inport
       Name		      "B_forward_in"
       SID		      "502"
-      Position		      [100, 368, 130, 382]
+      Position		      [670, 293, 700, 307]
       Port		      "3"
       IconDisplay	      "Port number"
       PortDimensions	      "Forward_Camera_Dimensions"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_al"
+      SID		      "814"
+      Position		      [790, 468, 820, 482]
+      Port		      "4"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_au"
+      SID		      "815"
+      Position		      [790, 508, 820, 522]
+      Port		      "5"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_bl"
+      SID		      "816"
+      Position		      [790, 548, 820, 562]
+      Port		      "6"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_bu"
+      SID		      "817"
+      Position		      [790, 588, 820, 602]
+      Port		      "7"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_al"
+      SID		      "818"
+      Position		      [790, 628, 820, 642]
+      Port		      "8"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_au"
+      SID		      "819"
+      Position		      [790, 668, 820, 682]
+      Port		      "9"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_bl"
+      SID		      "820"
+      Position		      [790, 708, 820, 722]
+      Port		      "10"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_bu"
+      SID		      "821"
+      Position		      [790, 748, 820, 762]
+      Port		      "11"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_al"
+      SID		      "822"
+      Position		      [790, 788, 820, 802]
+      Port		      "12"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_au"
+      SID		      "823"
+      Position		      [790, 828, 820, 842]
+      Port		      "13"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_bl"
+      SID		      "824"
+      Position		      [790, 868, 820, 882]
+      Port		      "14"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_bu"
+      SID		      "825"
+      Position		      [790, 908, 820, 922]
+      Port		      "15"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_al"
+      SID		      "826"
+      Position		      [790, 948, 820, 962]
+      Port		      "16"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_au"
+      SID		      "827"
+      Position		      [790, 988, 820, 1002]
+      Port		      "17"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_bl"
+      SID		      "828"
+      Position		      [790, 1028, 820, 1042]
+      Port		      "18"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_bu"
+      SID		      "829"
+      Position		      [790, 1068, 820, 1082]
+      Port		      "19"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orange_al"
+      SID		      "830"
+      Position		      [790, 1108, 820, 1122]
+      Port		      "20"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orane_au"
+      SID		      "831"
+      Position		      [790, 1148, 820, 1162]
+      Port		      "21"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orange_bl"
+      SID		      "832"
+      Position		      [790, 1188, 820, 1202]
+      Port		      "22"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orange_bu"
+      SID		      "833"
+      Position		      [790, 1228, 820, 1242]
+      Port		      "23"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_al"
+      SID		      "834"
+      Position		      [790, 1268, 820, 1282]
+      Port		      "24"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_au"
+      SID		      "835"
+      Position		      [790, 1308, 820, 1322]
+      Port		      "25"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_bl"
+      SID		      "836"
+      Position		      [790, 1348, 820, 1362]
+      Port		      "26"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_bu"
+      SID		      "837"
+      Position		      [790, 1388, 820, 1402]
+      Port		      "27"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "green_al"
+      SID		      "838"
+      Position		      [790, 1428, 820, 1442]
+      Port		      "28"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "green_au"
+      SID		      "839"
+      Position		      [790, 1468, 820, 1482]
+      Port		      "29"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "breen_bl"
+      SID		      "840"
+      Position		      [790, 1508, 820, 1522]
+      Port		      "30"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "green_bu"
+      SID		      "841"
+      Position		      [790, 1548, 820, 1562]
+      Port		      "31"
+      IconDisplay	      "Port number"
     }
     Block {
       BlockType		      Reference
       Name		      "Autothreshold"
       SID		      "598"
       Ports		      [1, 1]
-      Position		      [710, 290, 840, 350]
+      Position		      [1280, 180, 1410, 240]
       LibraryVersion	      "1.328"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag0"
@@ -894,9 +1230,9 @@ Model {
     Block {
       BlockType		      SubSystem
       Name		      "Blob Analysis"
-      SID		      "608"
-      Ports		      [5, 16]
-      Position		      [230, 155, 570, 760]
+      SID		      "712"
+      Ports		      [33, 16]
+      Position		      [1010, 338, 1350, 952]
       LibraryVersion	      "1.225"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -923,14 +1259,14 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "R_in"
-	  SID			  "609"
+	  SID			  "713"
 	  Position		  [80, 43, 110, 57]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "G_in"
-	  SID			  "610"
+	  SID			  "714"
 	  Position		  [80, 83, 110, 97]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -938,7 +1274,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "B_in"
-	  SID			  "611"
+	  SID			  "715"
 	  Position		  [80, 123, 110, 137]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -946,7 +1282,7 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "ColorFilter"
-	  SID			  "612"
+	  SID			  "716"
 	  Position		  [80, 203, 110, 217]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
@@ -954,15 +1290,239 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "OutputSegmentedImage"
-	  SID			  "613"
+	  SID			  "717"
 	  Position		  [80, 278, 110, 292]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
 	}
 	Block {
+	  BlockType		  Inport
+	  Name			  "white_al"
+	  SID			  "718"
+	  Position		  [820, 343, 850, 357]
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "white_au"
+	  SID			  "719"
+	  Position		  [820, 383, 850, 397]
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "white_bl"
+	  SID			  "720"
+	  Position		  [820, 423, 850, 437]
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "white_bu"
+	  SID			  "721"
+	  Position		  [820, 463, 850, 477]
+	  Port			  "9"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "black_al"
+	  SID			  "722"
+	  Position		  [820, 503, 850, 517]
+	  Port			  "10"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "black_au"
+	  SID			  "723"
+	  Position		  [820, 543, 850, 557]
+	  Port			  "11"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "black_bl"
+	  SID			  "724"
+	  Position		  [820, 583, 850, 597]
+	  Port			  "12"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "black_bu"
+	  SID			  "725"
+	  Position		  [820, 623, 850, 637]
+	  Port			  "13"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "blue_al"
+	  SID			  "726"
+	  Position		  [820, 663, 850, 677]
+	  Port			  "14"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "blue_au"
+	  SID			  "727"
+	  Position		  [820, 703, 850, 717]
+	  Port			  "15"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "blue_bl"
+	  SID			  "728"
+	  Position		  [820, 743, 850, 757]
+	  Port			  "16"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "blue_bu"
+	  SID			  "729"
+	  Position		  [820, 783, 850, 797]
+	  Port			  "17"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "red_al"
+	  SID			  "730"
+	  Position		  [820, 823, 850, 837]
+	  Port			  "18"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "red_au"
+	  SID			  "731"
+	  Position		  [820, 863, 850, 877]
+	  Port			  "19"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "red_bl"
+	  SID			  "732"
+	  Position		  [820, 903, 850, 917]
+	  Port			  "20"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "red_bu"
+	  SID			  "733"
+	  Position		  [820, 943, 850, 957]
+	  Port			  "21"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "orange_al"
+	  SID			  "734"
+	  Position		  [820, 983, 850, 997]
+	  Port			  "22"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "orane_au"
+	  SID			  "735"
+	  Position		  [820, 1023, 850, 1037]
+	  Port			  "23"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "orange_bl"
+	  SID			  "736"
+	  Position		  [820, 1063, 850, 1077]
+	  Port			  "24"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "orange_bu"
+	  SID			  "737"
+	  Position		  [820, 1103, 850, 1117]
+	  Port			  "25"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "yellow_al"
+	  SID			  "738"
+	  Position		  [820, 1143, 850, 1157]
+	  Port			  "26"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "yellow_au"
+	  SID			  "739"
+	  Position		  [820, 1183, 850, 1197]
+	  Port			  "27"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "yellow_bl"
+	  SID			  "740"
+	  Position		  [820, 1223, 850, 1237]
+	  Port			  "28"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "yellow_bu"
+	  SID			  "741"
+	  Position		  [820, 1263, 850, 1277]
+	  Port			  "29"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "green_al"
+	  SID			  "742"
+	  Position		  [820, 1303, 850, 1317]
+	  Port			  "30"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "green_au"
+	  SID			  "743"
+	  Position		  [820, 1343, 850, 1357]
+	  Port			  "31"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "breen_bl"
+	  SID			  "744"
+	  Position		  [820, 1383, 850, 1397]
+	  Port			  "32"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "green_bu"
+	  SID			  "745"
+	  Position		  [820, 1423, 850, 1437]
+	  Port			  "33"
+	  IconDisplay		  "Port number"
+	}
+	Block {
 	  BlockType		  SubSystem
 	  Name			  "Blob Extraction"
-	  SID			  "614"
+	  SID			  "746"
 	  Ports			  [32, 11]
 	  Position		  [920, 122, 1215, 1498]
 	  LibraryVersion	  "1.31"
@@ -1003,14 +1563,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "LabelMatrix"
-	      SID		      "614::32"
+	      SID		      "746::32"
 	      Position		      [20, 101, 40, 119]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "ref_colors"
-	      SID		      "614::33"
+	      SID		      "746::33"
 	      Position		      [20, 136, 40, 154]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1018,7 +1578,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "num_colors"
-	      SID		      "614::34"
+	      SID		      "746::34"
 	      Position		      [20, 171, 40, 189]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -1026,7 +1586,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "ColorFilter"
-	      SID		      "614::48"
+	      SID		      "746::48"
 	      Position		      [20, 206, 40, 224]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -1034,7 +1594,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "white_al"
-	      SID		      "614::51"
+	      SID		      "746::51"
 	      Position		      [20, 246, 40, 264]
 	      Port		      "5"
 	      IconDisplay	      "Port number"
@@ -1042,7 +1602,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "white_au"
-	      SID		      "614::52"
+	      SID		      "746::52"
 	      Position		      [20, 281, 40, 299]
 	      Port		      "6"
 	      IconDisplay	      "Port number"
@@ -1050,7 +1610,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "white_bl"
-	      SID		      "614::53"
+	      SID		      "746::53"
 	      Position		      [20, 316, 40, 334]
 	      Port		      "7"
 	      IconDisplay	      "Port number"
@@ -1058,7 +1618,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "white_bu"
-	      SID		      "614::54"
+	      SID		      "746::54"
 	      Position		      [20, 351, 40, 369]
 	      Port		      "8"
 	      IconDisplay	      "Port number"
@@ -1066,7 +1626,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "black_al"
-	      SID		      "614::55"
+	      SID		      "746::55"
 	      Position		      [20, 386, 40, 404]
 	      Port		      "9"
 	      IconDisplay	      "Port number"
@@ -1074,7 +1634,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "black_au"
-	      SID		      "614::56"
+	      SID		      "746::56"
 	      Position		      [20, 426, 40, 444]
 	      Port		      "10"
 	      IconDisplay	      "Port number"
@@ -1082,7 +1642,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "black_bl"
-	      SID		      "614::57"
+	      SID		      "746::57"
 	      Position		      [20, 461, 40, 479]
 	      Port		      "11"
 	      IconDisplay	      "Port number"
@@ -1090,7 +1650,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "black_bu"
-	      SID		      "614::58"
+	      SID		      "746::58"
 	      Position		      [20, 496, 40, 514]
 	      Port		      "12"
 	      IconDisplay	      "Port number"
@@ -1098,7 +1658,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "blue_al"
-	      SID		      "614::59"
+	      SID		      "746::59"
 	      Position		      [20, 531, 40, 549]
 	      Port		      "13"
 	      IconDisplay	      "Port number"
@@ -1106,7 +1666,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "blue_au"
-	      SID		      "614::60"
+	      SID		      "746::60"
 	      Position		      [20, 566, 40, 584]
 	      Port		      "14"
 	      IconDisplay	      "Port number"
@@ -1114,7 +1674,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "blue_bl"
-	      SID		      "614::61"
+	      SID		      "746::61"
 	      Position		      [20, 606, 40, 624]
 	      Port		      "15"
 	      IconDisplay	      "Port number"
@@ -1122,7 +1682,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "blue_bu"
-	      SID		      "614::62"
+	      SID		      "746::62"
 	      Position		      [20, 641, 40, 659]
 	      Port		      "16"
 	      IconDisplay	      "Port number"
@@ -1130,7 +1690,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "red_al"
-	      SID		      "614::63"
+	      SID		      "746::63"
 	      Position		      [20, 676, 40, 694]
 	      Port		      "17"
 	      IconDisplay	      "Port number"
@@ -1138,7 +1698,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "red_au"
-	      SID		      "614::64"
+	      SID		      "746::64"
 	      Position		      [20, 711, 40, 729]
 	      Port		      "18"
 	      IconDisplay	      "Port number"
@@ -1146,7 +1706,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "red_bl"
-	      SID		      "614::65"
+	      SID		      "746::65"
 	      Position		      [20, 746, 40, 764]
 	      Port		      "19"
 	      IconDisplay	      "Port number"
@@ -1154,7 +1714,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "red_bu"
-	      SID		      "614::66"
+	      SID		      "746::66"
 	      Position		      [20, 786, 40, 804]
 	      Port		      "20"
 	      IconDisplay	      "Port number"
@@ -1162,7 +1722,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "orange_al"
-	      SID		      "614::67"
+	      SID		      "746::67"
 	      Position		      [20, 821, 40, 839]
 	      Port		      "21"
 	      IconDisplay	      "Port number"
@@ -1170,7 +1730,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "orange_au"
-	      SID		      "614::68"
+	      SID		      "746::68"
 	      Position		      [20, 856, 40, 874]
 	      Port		      "22"
 	      IconDisplay	      "Port number"
@@ -1178,7 +1738,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "orange_bl"
-	      SID		      "614::69"
+	      SID		      "746::69"
 	      Position		      [20, 891, 40, 909]
 	      Port		      "23"
 	      IconDisplay	      "Port number"
@@ -1186,7 +1746,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "orange_bu"
-	      SID		      "614::70"
+	      SID		      "746::70"
 	      Position		      [20, 926, 40, 944]
 	      Port		      "24"
 	      IconDisplay	      "Port number"
@@ -1194,7 +1754,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "yellow_al"
-	      SID		      "614::71"
+	      SID		      "746::71"
 	      Position		      [20, 966, 40, 984]
 	      Port		      "25"
 	      IconDisplay	      "Port number"
@@ -1202,7 +1762,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "yellow_au"
-	      SID		      "614::72"
+	      SID		      "746::72"
 	      Position		      [20, 1001, 40, 1019]
 	      Port		      "26"
 	      IconDisplay	      "Port number"
@@ -1210,7 +1770,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "yellow_bl"
-	      SID		      "614::73"
+	      SID		      "746::73"
 	      Position		      [20, 1036, 40, 1054]
 	      Port		      "27"
 	      IconDisplay	      "Port number"
@@ -1218,7 +1778,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "yellow_bu"
-	      SID		      "614::74"
+	      SID		      "746::74"
 	      Position		      [20, 1071, 40, 1089]
 	      Port		      "28"
 	      IconDisplay	      "Port number"
@@ -1226,7 +1786,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "green_al"
-	      SID		      "614::75"
+	      SID		      "746::75"
 	      Position		      [20, 1106, 40, 1124]
 	      Port		      "29"
 	      IconDisplay	      "Port number"
@@ -1234,7 +1794,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "green_au"
-	      SID		      "614::76"
+	      SID		      "746::76"
 	      Position		      [20, 1146, 40, 1164]
 	      Port		      "30"
 	      IconDisplay	      "Port number"
@@ -1242,7 +1802,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "green_bl"
-	      SID		      "614::77"
+	      SID		      "746::77"
 	      Position		      [20, 1181, 40, 1199]
 	      Port		      "31"
 	      IconDisplay	      "Port number"
@@ -1250,7 +1810,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "green_bu"
-	      SID		      "614::78"
+	      SID		      "746::78"
 	      Position		      [20, 1216, 40, 1234]
 	      Port		      "32"
 	      IconDisplay	      "Port number"
@@ -1258,7 +1818,7 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "614::23"
+	      SID		      "746::23"
 	      Ports		      [1, 1]
 	      Position		      [270, 795, 320, 835]
 	      Outputs		      "1"
@@ -1266,7 +1826,7 @@ Model {
 	    Block {
 	      BlockType		      "S-Function"
 	      Name		      " SFunction "
-	      SID		      "614::22"
+	      SID		      "746::22"
 	      Tag		      "Stateflow S-Function validation_gate 3"
 	      Ports		      [32, 12]
 	      Position		      [180, 135, 230, 795]
@@ -1343,20 +1903,20 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "614::25"
+	      SID		      "746::25"
 	      Position		      [460, 806, 480, 824]
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_count"
-	      SID		      "614::35"
+	      SID		      "746::35"
 	      Position		      [460, 101, 480, 119]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_hues"
-	      SID		      "614::36"
+	      SID		      "746::36"
 	      Position		      [460, 136, 480, 154]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1364,7 +1924,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_area"
-	      SID		      "614::37"
+	      SID		      "746::37"
 	      Position		      [460, 171, 480, 189]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -1372,7 +1932,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_bbox"
-	      SID		      "614::38"
+	      SID		      "746::38"
 	      Position		      [460, 206, 480, 224]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -1380,7 +1940,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_major_axis"
-	      SID		      "614::43"
+	      SID		      "746::43"
 	      Position		      [460, 246, 480, 264]
 	      Port		      "5"
 	      IconDisplay	      "Port number"
@@ -1388,7 +1948,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_minor_axis"
-	      SID		      "614::44"
+	      SID		      "746::44"
 	      Position		      [460, 281, 480, 299]
 	      Port		      "6"
 	      IconDisplay	      "Port number"
@@ -1396,7 +1956,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_centroids"
-	      SID		      "614::39"
+	      SID		      "746::39"
 	      Position		      [460, 316, 480, 334]
 	      Port		      "7"
 	      IconDisplay	      "Port number"
@@ -1404,7 +1964,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_eccentricity"
-	      SID		      "614::40"
+	      SID		      "746::40"
 	      Position		      [460, 351, 480, 369]
 	      Port		      "8"
 	      IconDisplay	      "Port number"
@@ -1412,7 +1972,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_extent"
-	      SID		      "614::41"
+	      SID		      "746::41"
 	      Position		      [460, 386, 480, 404]
 	      Port		      "9"
 	      IconDisplay	      "Port number"
@@ -1420,7 +1980,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_orientation"
-	      SID		      "614::42"
+	      SID		      "746::42"
 	      Position		      [460, 426, 480, 444]
 	      Port		      "10"
 	      IconDisplay	      "Port number"
@@ -1428,7 +1988,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "bw_image"
-	      SID		      "614::49"
+	      SID		      "746::49"
 	      Position		      [460, 461, 480, 479]
 	      Port		      "11"
 	      IconDisplay	      "Port number"
@@ -1730,239 +2290,15 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "Dist_Thresh"
-	  SID			  "615"
+	  SID			  "747"
 	  Position		  [150, 153, 275, 177]
 	  Value			  "Iter_Segment_Thresh"
 	  SampleTime		  "-1"
 	}
 	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh1"
-	  SID			  "616"
-	  Position		  [730, 338, 855, 362]
-	  Value			  "white_al"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh10"
-	  SID			  "617"
-	  Position		  [730, 698, 855, 722]
-	  Value			  "blue_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh11"
-	  SID			  "618"
-	  Position		  [730, 738, 855, 762]
-	  Value			  "blue_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh12"
-	  SID			  "619"
-	  Position		  [730, 778, 855, 802]
-	  Value			  "blue_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh13"
-	  SID			  "620"
-	  Position		  [730, 818, 855, 842]
-	  Value			  "red_al"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh14"
-	  SID			  "621"
-	  Position		  [730, 858, 855, 882]
-	  Value			  "red_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh15"
-	  SID			  "622"
-	  Position		  [730, 898, 855, 922]
-	  Value			  "red_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh16"
-	  SID			  "623"
-	  Position		  [730, 938, 855, 962]
-	  Value			  "red_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh17"
-	  SID			  "624"
-	  Position		  [730, 1178, 855, 1202]
-	  Value			  "yellow_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh18"
-	  SID			  "625"
-	  Position		  [730, 1218, 855, 1242]
-	  Value			  "yellow_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh19"
-	  SID			  "626"
-	  Position		  [730, 1258, 855, 1282]
-	  Value			  "yellow_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh2"
-	  SID			  "627"
-	  Position		  [730, 378, 855, 402]
-	  Value			  "white_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh20"
-	  SID			  "628"
-	  Position		  [730, 1298, 855, 1322]
-	  Value			  "green_al"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh21"
-	  SID			  "629"
-	  Position		  [730, 1338, 855, 1362]
-	  Value			  "green_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh22"
-	  SID			  "630"
-	  Position		  [730, 1378, 855, 1402]
-	  Value			  "green_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh23"
-	  SID			  "631"
-	  Position		  [730, 1418, 855, 1442]
-	  Value			  "green_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh24"
-	  SID			  "632"
-	  Position		  [730, 978, 855, 1002]
-	  Value			  "orange_al"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh25"
-	  SID			  "633"
-	  Position		  [730, 1018, 855, 1042]
-	  Value			  "orange_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh26"
-	  SID			  "634"
-	  Position		  [730, 1058, 855, 1082]
-	  Value			  "orange_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh27"
-	  SID			  "635"
-	  Position		  [730, 1098, 855, 1122]
-	  Value			  "orange_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh28"
-	  SID			  "636"
-	  Position		  [730, 1138, 855, 1162]
-	  Value			  "yellow_al"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh3"
-	  SID			  "637"
-	  Position		  [730, 418, 855, 442]
-	  Value			  "white_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh4"
-	  SID			  "638"
-	  Position		  [730, 458, 855, 482]
-	  Value			  "white_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh5"
-	  SID			  "639"
-	  Position		  [730, 498, 855, 522]
-	  Value			  "black_al"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh6"
-	  SID			  "640"
-	  Position		  [730, 538, 855, 562]
-	  Value			  "black_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh7"
-	  SID			  "641"
-	  Position		  [730, 578, 855, 602]
-	  Value			  "black_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh8"
-	  SID			  "642"
-	  Position		  [730, 618, 855, 642]
-	  Value			  "black_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh9"
-	  SID			  "643"
-	  Position		  [730, 658, 855, 682]
-	  Value			  "blue_al"
-	  SampleTime		  "-1"
-	}
-	Block {
 	  BlockType		  If
 	  Name			  "If"
-	  SID			  "644"
+	  SID			  "748"
 	  Ports			  [1, 1]
 	  Position		  [165, 266, 265, 304]
 	  ShowElse		  off
@@ -1970,7 +2306,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem"
-	  SID			  "645"
+	  SID			  "749"
 	  Ports			  [3, 3, 0, 0, 0, 0, 0, 1]
 	  Position		  [970, 1642, 1165, 1838]
 	  LibraryVersion	  "1.225"
@@ -2000,14 +2336,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "LabelMatrix"
-	      SID		      "646"
+	      SID		      "750"
 	      Position		      [80, 208, 110, 222]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "num_colors"
-	      SID		      "647"
+	      SID		      "751"
 	      Position		      [80, 253, 110, 267]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2015,7 +2351,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "ref_colors"
-	      SID		      "648"
+	      SID		      "752"
 	      Position		      [80, 303, 110, 317]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2023,14 +2359,14 @@ Model {
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "649"
+	      SID		      "753"
 	      Position		      [170, 15, 229, 43]
 	      ActionType	      "then"
 	    }
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Color Space\n Conversion"
-	      SID		      "650"
+	      SID		      "754"
 	      Ports		      [3, 3]
 	      Position		      [490, 261, 590, 319]
 	      LibraryVersion	      "1.328"
@@ -2046,7 +2382,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Filter Image1"
-	      SID		      "651"
+	      SID		      "755"
 	      Ports		      [3, 3]
 	      Position		      [170, 180, 435, 400]
 	      PermitHierarchicalResolution "ExplicitOnly"
@@ -2086,14 +2422,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "LabelMatrix"
-		  SID			  "651::68"
+		  SID			  "755::68"
 		  Position		  [20, 101, 40, 119]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "num_colors"
-		  SID			  "651::69"
+		  SID			  "755::69"
 		  Position		  [20, 136, 40, 154]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2101,7 +2437,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "ref_colors"
-		  SID			  "651::70"
+		  SID			  "755::70"
 		  Position		  [20, 171, 40, 189]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2109,7 +2445,7 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "651::19"
+		  SID			  "755::19"
 		  Ports			  [1, 1]
 		  Position		  [270, 575, 320, 615]
 		  Outputs		  "1"
@@ -2117,7 +2453,7 @@ Model {
 		Block {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
-		  SID			  "651::18"
+		  SID			  "755::18"
 		  Tag			  "Stateflow S-Function validation_gate 4"
 		  Ports			  [3, 4]
 		  Position		  [180, 184, 230, 576]
@@ -2146,20 +2482,20 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "651::21"
+		  SID			  "755::21"
 		  Position		  [460, 586, 480, 604]
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "L"
-		  SID			  "651::55"
+		  SID			  "755::55"
 		  Position		  [460, 101, 480, 119]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "a"
-		  SID			  "651::71"
+		  SID			  "755::71"
 		  Position		  [460, 136, 480, 154]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2167,7 +2503,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "b"
-		  SID			  "651::72"
+		  SID			  "755::72"
 		  Position		  [460, 171, 480, 189]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2231,14 +2567,14 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "R_out"
-	      SID		      "652"
+	      SID		      "756"
 	      Position		      [725, 238, 755, 252]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "G_out"
-	      SID		      "653"
+	      SID		      "757"
 	      Position		      [725, 283, 755, 297]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2246,7 +2582,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "B_out"
-	      SID		      "654"
+	      SID		      "758"
 	      Position		      [725, 328, 755, 342]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2316,7 +2652,7 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "IterativeSegmentation"
-	  SID			  "655"
+	  SID			  "759"
 	  Ports			  [4, 3]
 	  Position		  [325, 57, 600, 183]
 	  UndoDeleteFcn		  "Stateflow.SLINSF.SimulinkMan.restorePreDeleteFcn"
@@ -2346,14 +2682,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "R"
-	      SID		      "656"
+	      SID		      "760"
 	      Position		      [30, 98, 60, 112]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "G"
-	      SID		      "657"
+	      SID		      "761"
 	      Position		      [30, 128, 60, 142]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2361,7 +2697,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "B"
-	      SID		      "658"
+	      SID		      "762"
 	      Position		      [30, 158, 60, 172]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2369,7 +2705,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "Iter_Segment_Thresh"
-	      SID		      "659"
+	      SID		      "763"
 	      Position		      [600, 213, 630, 227]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -2377,7 +2713,7 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Color Space\n Conversion1"
-	      SID		      "660"
+	      SID		      "764"
 	      Ports		      [3, 3]
 	      Position		      [470, 106, 570, 164]
 	      LibraryVersion	      "1.328"
@@ -2393,7 +2729,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Low Pass Filter"
-	      SID		      "661"
+	      SID		      "765"
 	      Ports		      [3, 3]
 	      Position		      [250, 107, 325, 163]
 	      MinAlgLoopOccurrences   off
@@ -2421,14 +2757,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "R"
-		  SID			  "662"
+		  SID			  "766"
 		  Position		  [25, 38, 55, 52]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "G"
-		  SID			  "663"
+		  SID			  "767"
 		  Position		  [25, 103, 55, 117]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2436,7 +2772,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "B"
-		  SID			  "664"
+		  SID			  "768"
 		  Position		  [25, 173, 55, 187]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2444,7 +2780,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "Low Pass Filter"
-		  SID			  "665"
+		  SID			  "769"
 		  Ports			  [1, 1]
 		  Position		  [100, 23, 210, 67]
 		  PermitHierarchicalResolution "ExplicitOnly"
@@ -2484,14 +2820,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "I"
-		    SID			    "665::1"
+		    SID			    "769::1"
 		    Position		    [20, 101, 40, 119]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "665::11"
+		    SID			    "769::11"
 		    Ports		    [1, 1]
 		    Position		    [270, 160, 320, 200]
 		    Outputs		    "1"
@@ -2499,7 +2835,7 @@ Model {
 		    Block {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
-		    SID			    "665::10"
+		    SID			    "769::10"
 		    Tag			    "Stateflow S-Function validation_gate 5"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
@@ -2516,13 +2852,13 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "665::13"
+		    SID			    "769::13"
 		    Position		    [460, 171, 480, 189]
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "Iout"
-		    SID			    "665::5"
+		    SID			    "769::5"
 		    Position		    [460, 101, 480, 119]
 		    IconDisplay		    "Port number"
 		    }
@@ -2557,7 +2893,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "Low Pass Filter1"
-		  SID			  "666"
+		  SID			  "770"
 		  Ports			  [1, 1]
 		  Position		  [100, 88, 210, 132]
 		  PermitHierarchicalResolution "ExplicitOnly"
@@ -2597,14 +2933,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "I"
-		    SID			    "666::1"
+		    SID			    "770::1"
 		    Position		    [20, 101, 40, 119]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "666::11"
+		    SID			    "770::11"
 		    Ports		    [1, 1]
 		    Position		    [270, 160, 320, 200]
 		    Outputs		    "1"
@@ -2612,7 +2948,7 @@ Model {
 		    Block {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
-		    SID			    "666::10"
+		    SID			    "770::10"
 		    Tag			    "Stateflow S-Function validation_gate 6"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
@@ -2629,13 +2965,13 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "666::13"
+		    SID			    "770::13"
 		    Position		    [460, 171, 480, 189]
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "Iout"
-		    SID			    "666::5"
+		    SID			    "770::5"
 		    Position		    [460, 101, 480, 119]
 		    IconDisplay		    "Port number"
 		    }
@@ -2670,7 +3006,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "Low Pass Filter2"
-		  SID			  "667"
+		  SID			  "771"
 		  Ports			  [1, 1]
 		  Position		  [100, 158, 210, 202]
 		  PermitHierarchicalResolution "ExplicitOnly"
@@ -2710,14 +3046,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "I"
-		    SID			    "667::1"
+		    SID			    "771::1"
 		    Position		    [20, 101, 40, 119]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "667::11"
+		    SID			    "771::11"
 		    Ports		    [1, 1]
 		    Position		    [270, 160, 320, 200]
 		    Outputs		    "1"
@@ -2725,8 +3061,8 @@ Model {
 		    Block {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
-		    SID			    "667::10"
-		    Tag			    "Stateflow S-Function validation_gate 8"
+		    SID			    "771::10"
+		    Tag			    "Stateflow S-Function validation_gate 7"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
 		    FunctionName	    "sf_sfun"
@@ -2742,13 +3078,13 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "667::13"
+		    SID			    "771::13"
 		    Position		    [460, 171, 480, 189]
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "Iout"
-		    SID			    "667::5"
+		    SID			    "771::5"
 		    Position		    [460, 101, 480, 119]
 		    IconDisplay		    "Port number"
 		    }
@@ -2783,14 +3119,14 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "R'"
-		  SID			  "668"
+		  SID			  "772"
 		  Position		  [235, 38, 265, 52]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "G'"
-		  SID			  "669"
+		  SID			  "773"
 		  Position		  [235, 103, 265, 117]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2798,7 +3134,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "B'"
-		  SID			  "670"
+		  SID			  "774"
 		  Position		  [235, 173, 265, 187]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2844,7 +3180,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Segmentation"
-	      SID		      "671"
+	      SID		      "775"
 	      Ports		      [4, 3]
 	      Position		      [680, 110, 925, 175]
 	      MinAlgLoopOccurrences   off
@@ -2872,14 +3208,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "L"
-		  SID			  "672"
+		  SID			  "776"
 		  Position		  [35, 63, 65, 77]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "a"
-		  SID			  "673"
+		  SID			  "777"
 		  Position		  [35, 123, 65, 137]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2887,7 +3223,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "b"
-		  SID			  "674"
+		  SID			  "778"
 		  Position		  [35, 173, 65, 187]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2895,7 +3231,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "Iter_Segment_Thresh"
-		  SID			  "675"
+		  SID			  "779"
 		  Position		  [35, 253, 65, 267]
 		  Port			  "4"
 		  IconDisplay		  "Port number"
@@ -2903,7 +3239,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "LabSegmentation"
-		  SID			  "676"
+		  SID			  "780"
 		  Ports			  [5, 1]
 		  Position		  [675, 33, 920, 157]
 		  PermitHierarchicalResolution "ExplicitOnly"
@@ -2943,14 +3279,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "L"
-		    SID			    "676::1"
+		    SID			    "780::1"
 		    Position		    [20, 101, 40, 119]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "a"
-		    SID			    "676::2"
+		    SID			    "780::2"
 		    Position		    [20, 136, 40, 154]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -2958,7 +3294,7 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "b"
-		    SID			    "676::3"
+		    SID			    "780::3"
 		    Position		    [20, 171, 40, 189]
 		    Port		    "3"
 		    IconDisplay		    "Port number"
@@ -2966,7 +3302,7 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "ref_colors"
-		    SID			    "676::4"
+		    SID			    "780::4"
 		    Position		    [20, 206, 40, 224]
 		    Port		    "4"
 		    IconDisplay		    "Port number"
@@ -2974,7 +3310,7 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "num_colors"
-		    SID			    "676::5"
+		    SID			    "780::5"
 		    Position		    [20, 246, 40, 264]
 		    Port		    "5"
 		    IconDisplay		    "Port number"
@@ -2982,7 +3318,7 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "676::17"
+		    SID			    "780::17"
 		    Ports		    [1, 1]
 		    Position		    [270, 220, 320, 260]
 		    Outputs		    "1"
@@ -2990,8 +3326,8 @@ Model {
 		    Block {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
-		    SID			    "676::16"
-		    Tag			    "Stateflow S-Function validation_gate 9"
+		    SID			    "780::16"
+		    Tag			    "Stateflow S-Function validation_gate 8"
 		    Ports		    [5, 2]
 		    Position		    [180, 100, 230, 220]
 		    FunctionName	    "sf_sfun"
@@ -3007,13 +3343,13 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "676::19"
+		    SID			    "780::19"
 		    Position		    [460, 231, 480, 249]
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "LabelMatrix"
-		    SID			    "676::9"
+		    SID			    "780::9"
 		    Position		    [460, 101, 480, 119]
 		    IconDisplay		    "Port number"
 		    }
@@ -3072,7 +3408,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "Reference Color Selection"
-		  SID			  "677"
+		  SID			  "781"
 		  Ports			  [4, 2]
 		  Position		  [335, 128, 475, 197]
 		  PermitHierarchicalResolution "ExplicitOnly"
@@ -3112,14 +3448,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "L"
-		    SID			    "677::1"
+		    SID			    "781::1"
 		    Position		    [20, 101, 40, 119]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "a"
-		    SID			    "677::2"
+		    SID			    "781::2"
 		    Position		    [20, 136, 40, 154]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -3127,7 +3463,7 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "b"
-		    SID			    "677::3"
+		    SID			    "781::3"
 		    Position		    [20, 171, 40, 189]
 		    Port		    "3"
 		    IconDisplay		    "Port number"
@@ -3135,7 +3471,7 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "Dist_Thresh"
-		    SID			    "677::13"
+		    SID			    "781::13"
 		    Position		    [20, 206, 40, 224]
 		    Port		    "4"
 		    IconDisplay		    "Port number"
@@ -3143,7 +3479,7 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "677::15"
+		    SID			    "781::15"
 		    Ports		    [1, 1]
 		    Position		    [270, 205, 320, 245]
 		    Outputs		    "1"
@@ -3151,7 +3487,7 @@ Model {
 		    Block {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
-		    SID			    "677::14"
+		    SID			    "781::14"
 		    Tag			    "Stateflow S-Function validation_gate 11"
 		    Ports		    [4, 3]
 		    Position		    [180, 102, 230, 203]
@@ -3174,20 +3510,20 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "677::17"
+		    SID			    "781::17"
 		    Position		    [460, 216, 480, 234]
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "ref_colors"
-		    SID			    "677::7"
+		    SID			    "781::7"
 		    Position		    [460, 101, 480, 119]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "num_colors"
-		    SID			    "677::8"
+		    SID			    "781::8"
 		    Position		    [460, 136, 480, 154]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -3249,7 +3585,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "Resize"
-		  SID			  "678"
+		  SID			  "782"
 		  Ports			  [3, 3]
 		  Position		  [210, 130, 250, 190]
 		  MinAlgLoopOccurrences	  off
@@ -3277,14 +3613,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "In1"
-		    SID			    "679"
+		    SID			    "783"
 		    Position		    [55, 68, 85, 82]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "In2"
-		    SID			    "680"
+		    SID			    "784"
 		    Position		    [60, 133, 90, 147]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -3292,7 +3628,7 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "In3"
-		    SID			    "681"
+		    SID			    "785"
 		    Position		    [65, 213, 95, 227]
 		    Port		    "3"
 		    IconDisplay		    "Port number"
@@ -3300,7 +3636,7 @@ Model {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Resize"
-		    SID			    "682"
+		    SID			    "786"
 		    Ports		    [1, 1]
 		    Position		    [110, 55, 175, 95]
 		    LibraryVersion	    "1.236"
@@ -3336,7 +3672,7 @@ Model {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Resize1"
-		    SID			    "683"
+		    SID			    "787"
 		    Ports		    [1, 1]
 		    Position		    [115, 120, 170, 160]
 		    LibraryVersion	    "1.236"
@@ -3372,7 +3708,7 @@ Model {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Resize2"
-		    SID			    "684"
+		    SID			    "788"
 		    Ports		    [1, 1]
 		    Position		    [120, 200, 170, 240]
 		    LibraryVersion	    "1.236"
@@ -3408,14 +3744,14 @@ Model {
 		    Block {
 		    BlockType		    Outport
 		    Name		    "Out1"
-		    SID			    "685"
+		    SID			    "789"
 		    Position		    [200, 68, 230, 82]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "Out2"
-		    SID			    "686"
+		    SID			    "790"
 		    Position		    [195, 133, 225, 147]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -3423,7 +3759,7 @@ Model {
 		    Block {
 		    BlockType		    Outport
 		    Name		    "Out3"
-		    SID			    "687"
+		    SID			    "791"
 		    Position		    [195, 213, 225, 227]
 		    Port		    "3"
 		    IconDisplay		    "Port number"
@@ -3469,7 +3805,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "LabelMatrix"
-		  SID			  "688"
+		  SID			  "792"
 		  Position		  [1015, 88, 1045, 102]
 		  NamePlacement		  "alternate"
 		  IconDisplay		  "Port number"
@@ -3477,7 +3813,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "num_colors"
-		  SID			  "689"
+		  SID			  "793"
 		  Position		  [540, 208, 570, 222]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -3485,7 +3821,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "ref_colors"
-		  SID			  "690"
+		  SID			  "794"
 		  Position		  [540, 263, 570, 277]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -3603,14 +3939,14 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "LabelMatrix"
-	      SID		      "691"
+	      SID		      "795"
 	      Position		      [1005, 88, 1035, 102]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "num_colors"
-	      SID		      "692"
+	      SID		      "796"
 	      Position		      [1005, 128, 1035, 142]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -3618,7 +3954,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "ref_colors"
-	      SID		      "693"
+	      SID		      "797"
 	      Position		      [1005, 168, 1035, 182]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -3714,14 +4050,14 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "Area"
-	  SID			  "694"
+	  SID			  "798"
 	  Position		  [1625, 43, 1655, 57]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "Centroid"
-	  SID			  "695"
+	  SID			  "799"
 	  Position		  [1625, 83, 1655, 97]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
@@ -3729,7 +4065,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "BBox"
-	  SID			  "696"
+	  SID			  "800"
 	  Position		  [1625, 128, 1655, 142]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
@@ -3737,7 +4073,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "MajorAxis"
-	  SID			  "697"
+	  SID			  "801"
 	  Position		  [1625, 173, 1655, 187]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
@@ -3745,7 +4081,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "MinorAxis"
-	  SID			  "698"
+	  SID			  "802"
 	  Position		  [1625, 218, 1655, 232]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
@@ -3753,7 +4089,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "Orientation"
-	  SID			  "699"
+	  SID			  "803"
 	  Position		  [1625, 263, 1655, 277]
 	  Port			  "6"
 	  IconDisplay		  "Port number"
@@ -3761,7 +4097,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "Eccentricity"
-	  SID			  "700"
+	  SID			  "804"
 	  Position		  [1625, 308, 1655, 322]
 	  Port			  "7"
 	  IconDisplay		  "Port number"
@@ -3769,7 +4105,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "Extent"
-	  SID			  "701"
+	  SID			  "805"
 	  Position		  [1625, 358, 1655, 372]
 	  Port			  "8"
 	  IconDisplay		  "Port number"
@@ -3777,7 +4113,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "BlobCount"
-	  SID			  "702"
+	  SID			  "806"
 	  Position		  [1625, 403, 1655, 417]
 	  Port			  "9"
 	  IconDisplay		  "Port number"
@@ -3785,7 +4121,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "BlobHues"
-	  SID			  "703"
+	  SID			  "807"
 	  Position		  [1625, 503, 1655, 517]
 	  Port			  "10"
 	  IconDisplay		  "Port number"
@@ -3793,7 +4129,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "num_colors"
-	  SID			  "704"
+	  SID			  "808"
 	  Position		  [1625, 1528, 1655, 1542]
 	  Port			  "11"
 	  IconDisplay		  "Port number"
@@ -3801,7 +4137,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "ref_colors"
-	  SID			  "705"
+	  SID			  "809"
 	  Position		  [1625, 1578, 1655, 1592]
 	  Port			  "12"
 	  IconDisplay		  "Port number"
@@ -3809,7 +4145,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "bw_image"
-	  SID			  "706"
+	  SID			  "810"
 	  Position		  [1625, 1428, 1655, 1442]
 	  Port			  "13"
 	  IconDisplay		  "Port number"
@@ -3817,7 +4153,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "R_out"
-	  SID			  "707"
+	  SID			  "811"
 	  Position		  [1355, 1688, 1385, 1702]
 	  Port			  "14"
 	  IconDisplay		  "Port number"
@@ -3825,7 +4161,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "G_out"
-	  SID			  "708"
+	  SID			  "812"
 	  Position		  [1355, 1733, 1385, 1747]
 	  Port			  "15"
 	  IconDisplay		  "Port number"
@@ -3833,7 +4169,7 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "B_out"
-	  SID			  "709"
+	  SID			  "813"
 	  Position		  [1355, 1778, 1385, 1792]
 	  Port			  "16"
 	  IconDisplay		  "Port number"
@@ -4003,169 +4339,169 @@ Model {
 	  DstPort		  3
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh1"
+	  SrcBlock		  "white_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  5
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh2"
+	  SrcBlock		  "white_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  6
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh3"
+	  SrcBlock		  "white_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  7
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh4"
+	  SrcBlock		  "white_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  8
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh5"
+	  SrcBlock		  "black_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  9
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh6"
+	  SrcBlock		  "black_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  10
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh7"
+	  SrcBlock		  "black_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  11
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh8"
+	  SrcBlock		  "black_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  12
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh9"
+	  SrcBlock		  "blue_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  13
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh10"
+	  SrcBlock		  "blue_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  14
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh11"
+	  SrcBlock		  "blue_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  15
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh12"
+	  SrcBlock		  "blue_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  16
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh13"
+	  SrcBlock		  "red_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  17
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh14"
+	  SrcBlock		  "red_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  18
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh15"
+	  SrcBlock		  "red_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  19
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh16"
+	  SrcBlock		  "red_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  20
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh24"
+	  SrcBlock		  "orange_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  21
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh25"
+	  SrcBlock		  "orane_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  22
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh26"
+	  SrcBlock		  "orange_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  23
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh27"
+	  SrcBlock		  "orange_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  24
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh28"
+	  SrcBlock		  "yellow_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  25
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh17"
+	  SrcBlock		  "yellow_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  26
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh18"
+	  SrcBlock		  "yellow_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  27
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh19"
+	  SrcBlock		  "yellow_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  28
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh20"
+	  SrcBlock		  "green_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  29
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh21"
+	  SrcBlock		  "green_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  30
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh22"
+	  SrcBlock		  "breen_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  31
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh23"
+	  SrcBlock		  "green_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  32
@@ -4215,7 +4551,7 @@ Model {
       BlockType		      Constant
       Name		      "Constant1"
       SID		      "358"
-      Position		      [1270, 360, 1300, 390]
+      Position		      [1840, 285, 1870, 315]
       Value		      ".6"
       SampleTime	      "-1"
     }
@@ -4223,7 +4559,7 @@ Model {
       BlockType		      Constant
       Name		      "Constant2"
       SID		      "359"
-      Position		      [1270, 420, 1300, 450]
+      Position		      [1840, 345, 1870, 375]
       Value		      ".47"
       SampleTime	      "-1"
     }
@@ -4231,28 +4567,28 @@ Model {
       BlockType		      Constant
       Name		      "Constant3"
       SID		      "510"
-      Position		      [1770, 120, 1800, 150]
+      Position		      [2340, 45, 2370, 75]
       SampleTime	      "-1"
     }
     Block {
       BlockType		      Constant
       Name		      "Constant4"
       SID		      "511"
-      Position		      [1770, 175, 1800, 205]
+      Position		      [2340, 100, 2370, 130]
       SampleTime	      "-1"
     }
     Block {
       BlockType		      Constant
       Name		      "Constant5"
       SID		      "512"
-      Position		      [1770, 230, 1800, 260]
+      Position		      [2340, 155, 2370, 185]
       SampleTime	      "-1"
     }
     Block {
       BlockType		      Constant
       Name		      "Constant6"
       SID		      "513"
-      Position		      [1770, 440, 1800, 470]
+      Position		      [2340, 365, 2370, 395]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -4260,7 +4596,7 @@ Model {
       BlockType		      Constant
       Name		      "Constant7"
       SID		      "710"
-      Position		      [125, 565, 155, 595]
+      Position		      [670, 370, 700, 400]
       Value		      "[1 5]"
       SampleTime	      "-1"
     }
@@ -4268,14 +4604,15 @@ Model {
       BlockType		      Constant
       Name		      "Constant8"
       SID		      "711"
-      Position		      [125, 685, 155, 715]
+      Position		      [670, 430, 700, 460]
+      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
       BlockType		      DataTypeConversion
       Name		      "Data Type Conversion"
       SID		      "599"
-      Position		      [865, 303, 940, 337]
+      Position		      [1435, 228, 1510, 262]
       RndMeth		      "Floor"
       SaturateOnIntegerOverflow	off
     }
@@ -4283,7 +4620,7 @@ Model {
       BlockType		      Constant
       Name		      "Dist_Thresh"
       SID		      "548"
-      Position		      [1285, 488, 1410, 512]
+      Position		      [1855, 413, 1980, 437]
       Value		      "Forward_Camera_Dimensions"
       SampleTime	      "-1"
     }
@@ -4292,7 +4629,7 @@ Model {
       Name		      "Draw Target"
       SID		      "530"
       Ports		      [4, 3]
-      Position		      [2050, 641, 2200, 704]
+      Position		      [2620, 566, 2770, 629]
       LibraryVersion	      "1.183"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag4"
@@ -4328,7 +4665,7 @@ Model {
       Name		      "Edge Detection"
       SID		      "33"
       Ports		      [1, 1]
-      Position		      [1030, 290, 1130, 350]
+      Position		      [1600, 215, 1700, 275]
       LibraryVersion	      "1.378"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag5"
@@ -4362,7 +4699,7 @@ Model {
       Name		      "Hough Transform1"
       SID		      "341"
       Ports		      [1, 3]
-      Position		      [1165, 291, 1270, 349]
+      Position		      [1735, 216, 1840, 274]
       LibraryVersion	      "1.273"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag6"
@@ -4399,7 +4736,7 @@ Model {
       Name		      "Identify Validation Gate"
       SID		      "321"
       Ports		      [7, 4]
-      Position		      [1375, 253, 1655, 417]
+      Position		      [1945, 178, 2225, 342]
       LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
@@ -4663,7 +5000,7 @@ Model {
       BlockType		      Constant
       Name		      "ModeSelect1"
       SID		      "531"
-      Position		      [1635, 720, 1665, 750]
+      Position		      [2205, 645, 2235, 675]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -4672,7 +5009,7 @@ Model {
       Name		      "Transform Coordinates3"
       SID		      "532"
       Ports		      [5, 2]
-      Position		      [1735, 705, 1985, 805]
+      Position		      [2305, 630, 2555, 730]
       LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
@@ -4865,14 +5202,14 @@ Model {
       Name		      "Vector\nConcatenate"
       SID		      "533"
       Ports		      [2, 1]
-      Position		      [2015, 736, 2020, 774]
+      Position		      [2585, 661, 2590, 699]
       Mode		      "Multidimensional array"
     }
     Block {
       BlockType		      Outport
       Name		      "TargetSelect"
       SID		      "503"
-      Position		      [1880, 273, 1910, 287]
+      Position		      [2450, 198, 2480, 212]
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
@@ -4880,7 +5217,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetFound"
       SID		      "504"
-      Position		      [1880, 308, 1910, 322]
+      Position		      [2450, 233, 2480, 247]
       Port		      "2"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -4889,7 +5226,7 @@ Model {
       BlockType		      Outport
       Name		      "MaintainHeading"
       SID		      "505"
-      Position		      [1880, 343, 1910, 357]
+      Position		      [2450, 268, 2480, 282]
       Port		      "3"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -4898,7 +5235,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetY"
       SID		      "506"
-      Position		      [1880, 378, 1910, 392]
+      Position		      [2450, 303, 2480, 317]
       Port		      "4"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -4907,7 +5244,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetZ"
       SID		      "507"
-      Position		      [1880, 413, 1910, 427]
+      Position		      [2450, 338, 2480, 352]
       Port		      "5"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -4916,7 +5253,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetYaw"
       SID		      "508"
-      Position		      [1880, 448, 1910, 462]
+      Position		      [2450, 373, 2480, 387]
       Port		      "6"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -4925,7 +5262,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetDetected"
       SID		      "509"
-      Position		      [1880, 523, 1910, 537]
+      Position		      [2450, 448, 2480, 462]
       Port		      "7"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -4934,7 +5271,7 @@ Model {
       BlockType		      Outport
       Name		      "R"
       SID		      "527"
-      Position		      [800, 748, 830, 762]
+      Position		      [2805, 543, 2835, 557]
       Port		      "8"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -4943,7 +5280,7 @@ Model {
       BlockType		      Outport
       Name		      "G"
       SID		      "528"
-      Position		      [800, 788, 830, 802]
+      Position		      [2805, 583, 2835, 597]
       Port		      "9"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -4952,7 +5289,7 @@ Model {
       BlockType		      Outport
       Name		      "B"
       SID		      "529"
-      Position		      [800, 828, 830, 842]
+      Position		      [2805, 623, 2835, 637]
       Port		      "10"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -4961,7 +5298,7 @@ Model {
       BlockType		      Outport
       Name		      "theta"
       SID		      "539"
-      Position		      [1555, 493, 1585, 507]
+      Position		      [2125, 418, 2155, 432]
       Port		      "11"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -4970,7 +5307,7 @@ Model {
       BlockType		      Outport
       Name		      "bw_image"
       SID		      "549"
-      Position		      [1085, 203, 1115, 217]
+      Position		      [1655, 128, 1685, 142]
       Port		      "12"
       IconDisplay	      "Port number"
     }
@@ -4978,7 +5315,7 @@ Model {
       BlockType		      Outport
       Name		      "edge_image"
       SID		      "550"
-      Position		      [1200, 203, 1230, 217]
+      Position		      [1770, 128, 1800, 142]
       Port		      "13"
       IconDisplay	      "Port number"
     }
@@ -5034,14 +5371,14 @@ Model {
     Line {
       SrcBlock		      "Blob Analysis"
       SrcPort		      13
-      Points		      [50, 0]
+      Points		      [60, 0; 0, -285]
       Branch {
-	Points			[0, -295]
+	Points			[25, 0; 0, -245; -175, 0]
 	DstBlock		"Autothreshold"
 	DstPort			1
       }
       Branch {
-	Points			[0, 60; 1095, 0]
+	Points			[25, 0; 0, 60; 850, 0]
 	DstBlock		"Transform Coordinates3"
 	DstPort			1
       }
@@ -5147,6 +5484,7 @@ Model {
     Line {
       SrcBlock		      "Autothreshold"
       SrcPort		      1
+      Points		      [0, 35]
       DstBlock		      "Data Type Conversion"
       DstPort		      1
     }
@@ -5192,26 +5530,6 @@ Model {
       }
     }
     Line {
-      SrcBlock		      "R_forward_in"
-      SrcPort		      1
-      Points		      [40, 0; 0, -85]
-      DstBlock		      "Blob Analysis"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "G_forward_in"
-      SrcPort		      1
-      DstBlock		      "Blob Analysis"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "B_forward_in"
-      SrcPort		      1
-      Points		      [40, 0; 0, 85]
-      DstBlock		      "Blob Analysis"
-      DstPort		      3
-    }
-    Line {
       SrcBlock		      "Identify Validation Gate"
       SrcPort		      3
       Points		      [190, 0; 0, 175]
@@ -5219,42 +5537,261 @@ Model {
       DstPort		      1
     }
     Line {
+      SrcBlock		      "Draw Target"
+      SrcPort		      1
+      Points		      [5, 0; 0, -30]
+      DstBlock		      "R"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Draw Target"
+      SrcPort		      2
+      Points		      [5, 0; 0, -10]
+      DstBlock		      "G"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Draw Target"
+      SrcPort		      3
+      Points		      [5, 0; 0, 10]
+      DstBlock		      "B"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "R_forward_in"
+      SrcPort		      1
+      Points		      [290, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "G_forward_in"
+      SrcPort		      1
+      Points		      [290, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "B_forward_in"
+      SrcPort		      1
+      Points		      [290, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      3
+    }
+    Line {
       SrcBlock		      "Constant7"
       SrcPort		      1
+      Points		      [290, 0]
       DstBlock		      "Blob Analysis"
       DstPort		      4
     }
     Line {
       SrcBlock		      "Constant8"
       SrcPort		      1
+      Points		      [80, 0; 0, 20]
       DstBlock		      "Blob Analysis"
       DstPort		      5
     }
     Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      14
-      Points		      [45, 0; 0, 105]
-      DstBlock		      "R"
-      DstPort		      1
+      SrcBlock		      "white_al"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      6
     }
     Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      15
-      Points		      [35, 0; 0, 110]
-      DstBlock		      "G"
-      DstPort		      1
+      SrcBlock		      "white_au"
+      SrcPort		      1
+      Points		      [40, 0; 0, -20]
+      DstBlock		      "Blob Analysis"
+      DstPort		      7
     }
     Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      16
-      Points		      [25, 0; 0, 115]
-      DstBlock		      "B"
-      DstPort		      1
+      SrcBlock		      "white_bl"
+      SrcPort		      1
+      Points		      [50, 0; 0, -45]
+      DstBlock		      "Blob Analysis"
+      DstPort		      8
+    }
+    Line {
+      SrcBlock		      "white_bu"
+      SrcPort		      1
+      Points		      [60, 0; 0, -70]
+      DstBlock		      "Blob Analysis"
+      DstPort		      9
+    }
+    Line {
+      SrcBlock		      "black_al"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      10
+    }
+    Line {
+      SrcBlock		      "black_au"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      11
+    }
+    Line {
+      SrcBlock		      "black_bl"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      12
+    }
+    Line {
+      SrcBlock		      "black_bu"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      13
+    }
+    Line {
+      SrcBlock		      "blue_al"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      14
+    }
+    Line {
+      SrcBlock		      "blue_au"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      15
+    }
+    Line {
+      SrcBlock		      "blue_bl"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      16
+    }
+    Line {
+      SrcBlock		      "blue_bu"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      17
+    }
+    Line {
+      SrcBlock		      "red_al"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      18
+    }
+    Line {
+      SrcBlock		      "red_au"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      19
+    }
+    Line {
+      SrcBlock		      "red_bl"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      20
+    }
+    Line {
+      SrcBlock		      "red_bu"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      21
+    }
+    Line {
+      SrcBlock		      "orange_al"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      22
+    }
+    Line {
+      SrcBlock		      "orane_au"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      23
+    }
+    Line {
+      SrcBlock		      "orange_bl"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      24
+    }
+    Line {
+      SrcBlock		      "orange_bu"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      25
+    }
+    Line {
+      SrcBlock		      "yellow_al"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      26
+    }
+    Line {
+      SrcBlock		      "yellow_au"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      27
+    }
+    Line {
+      SrcBlock		      "yellow_bl"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      28
+    }
+    Line {
+      SrcBlock		      "yellow_bu"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      29
+    }
+    Line {
+      SrcBlock		      "green_al"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      30
+    }
+    Line {
+      SrcBlock		      "green_au"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      31
+    }
+    Line {
+      SrcBlock		      "breen_bl"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      32
+    }
+    Line {
+      SrcBlock		      "green_bu"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      33
     }
     Annotation {
       Name		      "Notes:\n1. The validation_gate function outputs target\ninformation using a potentially dangerous\n"
       "assumption, that the target points \"up\". May\nwant to add a safeguard."
-      Position		      [912, 152]
+      Position		      [1482, 77]
     }
   }
 }
@@ -7506,7 +8043,7 @@ Stateflow {
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    107
-    chartFileNumber	    8
+    chartFileNumber	    7
     disableImplicitCasting  1
     eml {
       name		      "GaussianBlurr"
@@ -7641,7 +8178,7 @@ Stateflow {
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    114
-    chartFileNumber	    9
+    chartFileNumber	    8
     disableImplicitCasting  1
     eml {
       name		      "LabSegmentation"

@@ -3,7 +3,7 @@ Model {
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
-    NumRootInports	    4
+    NumRootInports	    32
     Inport {
       BusObject		      ""
       Name		      "R_forward_in"
@@ -19,6 +19,118 @@ Model {
     Inport {
       BusObject		      ""
       Name		      "WhichColor"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "white_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "white_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "white_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "white_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "black_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "black_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "black_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "black_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "blue_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "blue_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "blue_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "blue_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "red_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "red_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "red_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "red_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "orange_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "orane_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "orange_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "orange_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "yellow_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "yellow_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "yellow_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "yellow_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "green_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "green_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "breen_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "green_bu"
     }
     NumRootOutports	    11
     Outport {
@@ -77,7 +189,7 @@ Model {
       Name		      "B"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1194"
+    ComputedModelVersion    "1.1195"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -97,9 +209,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 22 00:30:39 2011"
-  RTWModifiedTimeStamp	  230595528
-  ModelVersionFormat	  "1.%<AutoIncrement:1194>"
+  LastModifiedDate	  "Wed Jun 29 18:36:05 2011"
+  RTWModifiedTimeStamp	  231273362
+  ModelVersionFormat	  "1.%<AutoIncrement:1195>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -782,7 +894,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "611"
+    SIDHighWatermark	    "639"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -815,6 +927,230 @@ Model {
       SID		      "537"
       Position		      [65, 348, 95, 362]
       Port		      "4"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_al"
+      SID		      "612"
+      Position		      [20, 518, 50, 532]
+      Port		      "5"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_au"
+      SID		      "613"
+      Position		      [20, 558, 50, 572]
+      Port		      "6"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_bl"
+      SID		      "614"
+      Position		      [20, 598, 50, 612]
+      Port		      "7"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_bu"
+      SID		      "615"
+      Position		      [20, 638, 50, 652]
+      Port		      "8"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_al"
+      SID		      "616"
+      Position		      [20, 678, 50, 692]
+      Port		      "9"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_au"
+      SID		      "617"
+      Position		      [20, 718, 50, 732]
+      Port		      "10"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_bl"
+      SID		      "618"
+      Position		      [20, 758, 50, 772]
+      Port		      "11"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_bu"
+      SID		      "619"
+      Position		      [20, 798, 50, 812]
+      Port		      "12"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_al"
+      SID		      "620"
+      Position		      [20, 838, 50, 852]
+      Port		      "13"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_au"
+      SID		      "621"
+      Position		      [20, 878, 50, 892]
+      Port		      "14"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_bl"
+      SID		      "622"
+      Position		      [20, 918, 50, 932]
+      Port		      "15"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_bu"
+      SID		      "623"
+      Position		      [20, 958, 50, 972]
+      Port		      "16"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_al"
+      SID		      "624"
+      Position		      [20, 998, 50, 1012]
+      Port		      "17"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_au"
+      SID		      "625"
+      Position		      [20, 1038, 50, 1052]
+      Port		      "18"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_bl"
+      SID		      "626"
+      Position		      [20, 1078, 50, 1092]
+      Port		      "19"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_bu"
+      SID		      "627"
+      Position		      [20, 1118, 50, 1132]
+      Port		      "20"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orange_al"
+      SID		      "628"
+      Position		      [20, 1158, 50, 1172]
+      Port		      "21"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orane_au"
+      SID		      "629"
+      Position		      [20, 1198, 50, 1212]
+      Port		      "22"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orange_bl"
+      SID		      "630"
+      Position		      [20, 1238, 50, 1252]
+      Port		      "23"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orange_bu"
+      SID		      "631"
+      Position		      [20, 1278, 50, 1292]
+      Port		      "24"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_al"
+      SID		      "632"
+      Position		      [20, 1318, 50, 1332]
+      Port		      "25"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_au"
+      SID		      "633"
+      Position		      [20, 1358, 50, 1372]
+      Port		      "26"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_bl"
+      SID		      "634"
+      Position		      [20, 1398, 50, 1412]
+      Port		      "27"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_bu"
+      SID		      "635"
+      Position		      [20, 1438, 50, 1452]
+      Port		      "28"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "green_al"
+      SID		      "636"
+      Position		      [20, 1478, 50, 1492]
+      Port		      "29"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "green_au"
+      SID		      "637"
+      Position		      [20, 1518, 50, 1532]
+      Port		      "30"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "breen_bl"
+      SID		      "638"
+      Position		      [20, 1558, 50, 1572]
+      Port		      "31"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "green_bu"
+      SID		      "639"
+      Position		      [20, 1598, 50, 1612]
+      Port		      "32"
       IconDisplay	      "Port number"
     }
     Block {
@@ -4255,8 +4591,6 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    27
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -4494,8 +4828,6 @@ Stateflow {
     firstJunction	    16
     viewObj		    14
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    13
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -4769,8 +5101,6 @@ Stateflow {
     firstJunction	    29
     viewObj		    27
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    43
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -5135,8 +5465,6 @@ Stateflow {
     firstJunction	    46
     viewObj		    44
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    40
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -5276,8 +5604,6 @@ Stateflow {
     firstJunction	    51
     viewObj		    49
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    53
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -5757,8 +6083,6 @@ Stateflow {
     firstJunction	    71
     viewObj		    69
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    32
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -5970,8 +6294,6 @@ Stateflow {
     firstJunction	    82
     viewObj		    80
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6105,8 +6427,6 @@ Stateflow {
     firstJunction	    89
     viewObj		    87
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6240,8 +6560,6 @@ Stateflow {
     firstJunction	    96
     viewObj		    94
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6375,8 +6693,6 @@ Stateflow {
     firstJunction	    103
     viewObj		    101
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6591,8 +6907,6 @@ Stateflow {
     firstJunction	    114
     viewObj		    112
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
