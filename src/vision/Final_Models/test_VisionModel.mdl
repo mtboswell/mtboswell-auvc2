@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1067"
+    ComputedModelVersion    "1.1081"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 29 19:09:28 2011"
-  RTWModifiedTimeStamp	  231269928
-  ModelVersionFormat	  "1.%<AutoIncrement:1067>"
+  LastModifiedDate	  "Thu Jun 30 15:02:20 2011"
+  RTWModifiedTimeStamp	  231342230
+  ModelVersionFormat	  "1.%<AutoIncrement:1081>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1003,7 +1003,7 @@ Model {
       Name		      "Down Camera"
       SID		      "671"
       Ports		      [3]
-      Position		      [1870, 1195, 1985, 1265]
+      Position		      [2030, 1535, 2145, 1605]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag0"
@@ -1059,7 +1059,7 @@ Model {
       Name		      "Forward Camera"
       SID		      "454"
       Ports		      [3]
-      Position		      [1870, 1100, 1985, 1170]
+      Position		      [1970, 1050, 2085, 1120]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag3"
@@ -1114,18 +1114,18 @@ Model {
       BlockType		      Constant
       Name		      "ModeSelect"
       SID		      "493"
-      Position		      [295, 890, 325, 920]
+      Position		      [865, 1750, 895, 1780]
       SampleTime	      "-1"
     }
     Block {
       BlockType		      ModelReference
       Name		      "Model"
       SID		      "491"
-      Ports		      [41, 32]
-      Position		      [1320, 808, 1815, 1822]
+      Ports		      [7, 6]
+      Position		      [1325, 833, 1820, 1847]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.504"
+      ModelReferenceVersion   "1.552"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1134,76 +1134,16 @@ Model {
 	port3			"R_down_in"
 	port4			"G_down_in"
 	port5			"B_down_in"
-	port6			"ModeSelect"
-	port7			"DesiredPathDirection"
-	port8			"DesiredBuoyColor"
-	port9			"DesiredTorpedoColor"
-	port10			"ProceedToSecondTarget"
-	port11			"DefaultTargetShape"
-	port12			"DefaultTargetColor"
-	port13			"white_al"
-	port14			"white_au"
-	port15			"white_bl"
-	port16			"white_bu"
-	port17			"black_al"
-	port18			"black_au"
-	port19			"black_bl"
-	port20			"black_bu"
-	port21			"blue_al"
-	port22			"blue_au"
-	port23			"blue_bl"
-	port24			"blue_bu"
-	port25			"red_al"
-	port26			"red_au"
-	port27			"red_bl"
-	port28			"red_bu"
-	port29			"orange_al"
-	port30			"orane_au"
-	port31			"orange_bl"
-	port32			"orange_bu"
-	port33			"yellow_al"
-	port34			"yellow_au"
-	port35			"yellow_bl"
-	port36			"yellow_bu"
-	port37			"green_al"
-	port38			"green_au"
-	port39			"breen_bl"
-	port40			"green_bu"
+	port6			"ModeSelect4"
       }
       List {
 	ListType		OutputPortNames
-	port0			"TargetSelect"
-	port1			"TargetFound"
-	port2			"MaintainHeading"
-	port3			"TargetX"
-	port4			"TargetY"
-	port5			"TargetZ"
-	port6			"TargetYaw"
-	port7			"DesiredTargetX"
-	port8			"DesiredTargetY"
-	port9			"DesiredTargetZ"
-	port10			"DesiredTargetYaw"
-	port11			"MeasuredZ"
-	port12			"MeasuredYAccel"
-	port13			"MeasuredYaw"
-	port14			"MeasuredYawRate"
-	port15			"TargetDetected"
-	port16			"PathState"
-	port17			"BuoyColors"
-	port18			"FireAuthorization"
-	port19			"R_forward_out"
-	port20			"G_forward_out"
-	port21			"B_forward_out"
-	port22			"R_down_out"
-	port23			"G_down_out"
-	port24			"B_down_out"
-	port25			"Iter_Segment_Thresh"
-	port26			"theta"
-	port27			"LabelMatrix"
-	port28			"num_colors"
-	port29			"ref_colors"
-	port30			"bw_image"
-	port31			"edge_image"
+	port0			"R_forward_out"
+	port1			"G_forward_out"
+	port2			"B_forward_out"
+	port3			"R_down_out"
+	port4			"G_down_out"
+	port5			"B_down_out"
       }
       List {
 	ListType		OutputPortOutputBusAsStructs
@@ -1213,32 +1153,6 @@ Model {
 	port3			"off"
 	port4			"off"
 	port5			"off"
-	port6			"off"
-	port7			"off"
-	port8			"off"
-	port9			"off"
-	port10			"off"
-	port11			"off"
-	port12			"off"
-	port13			"off"
-	port14			"off"
-	port15			"off"
-	port16			"off"
-	port17			"off"
-	port18			"off"
-	port19			"off"
-	port20			"off"
-	port21			"off"
-	port22			"off"
-	port23			"off"
-	port24			"off"
-	port25			"off"
-	port26			"off"
-	port27			"off"
-	port28			"off"
-	port29			"off"
-	port30			"off"
-	port31			"off"
       }
       CopyOfModelName	      "VisionModel"
     }
@@ -1325,416 +1239,223 @@ Model {
       DstPort		      6
     }
     Line {
-      SrcBlock		      "Model"
-      SrcPort		      2
-      Points		      [0, -230; 650, 0]
-      DstBlock		      "Display1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      8
-      Points		      [0, -250]
-      DstBlock		      "Display7"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      9
-      Points		      [640, 0]
-      DstBlock		      "Display8"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      10
-      Points		      [640, 0]
-      DstBlock		      "Display9"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      11
-      Points		      [480, 0; 0, -85]
-      DstBlock		      "Display10"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      12
-      Points		      [470, 0; 0, -60]
-      DstBlock		      "Display11"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      13
-      Points		      [460, 0; 0, -30]
-      DstBlock		      "Display12"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      14
-      Points		      [450, 0]
-      DstBlock		      "Display13"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      15
-      Points		      [440, 0; 0, 25]
-      DstBlock		      "Display14"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      17
-      Points		      [420, 0; 0, -80]
-      DstBlock		      "Display16"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      18
-      Points		      [410, 0; 0, -50]
-      DstBlock		      "Display17"
-      DstPort		      1
-    }
-    Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      1
-      Points		      [190, 0; 0, 255]
+      Points		      [190, 0; 0, 345]
       DstBlock		      "Model"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      2
-      Points		      [190, 0; 0, 245]
+      Points		      [190, 0; 0, 455]
       DstBlock		      "Model"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      3
-      Points		      [190, 0; 0, 235]
+      Points		      [190, 0; 0, 565]
       DstBlock		      "Model"
       DstPort		      3
-    }
-    Line {
-      SrcBlock		      "ModeSelect"
-      SrcPort		      1
-      Points		      [355, 0; 0, -220]
-      DstBlock		      "Model"
-      DstPort		      7
     }
     Line {
       SrcBlock		      "WhichPath"
       SrcPort		      1
-      Points		      [355, 0; 0, -270]
-      DstBlock		      "Model"
-      DstPort		      8
+      Points		      [355, 0; 0, -270; 630, 285]
     }
     Line {
-      SrcBlock		      "Model"
+      SrcBlock		      "WhichPath1"
       SrcPort		      1
-      Points		      [595, 0; 0, -260]
-      DstBlock		      "Display"
-      DstPort		      1
+      Points		      [355, 0; 0, -320; 630, 290]
     }
     Line {
-      SrcBlock		      "Model"
-      SrcPort		      3
-      Points		      [0, -230]
-      DstBlock		      "Display2"
-      DstPort		      1
+      SrcBlock		      "Dist_Thresh1"
+      SrcPort		      1
+      Points		      [25, 0; 0, 255; 110, 0]
     }
     Line {
-      SrcBlock		      "Model"
-      SrcPort		      20
-      Points		      [0, -310]
-      DstBlock		      "Forward Camera"
-      DstPort		      1
+      SrcBlock		      "Dist_Thresh2"
+      SrcPort		      1
+      Points		      [125, 0; 0, 240; 10, 0]
     }
     Line {
-      SrcBlock		      "Model"
-      SrcPort		      21
-      Points		      [0, -315]
-      DstBlock		      "Forward Camera"
-      DstPort		      2
+      SrcBlock		      "Dist_Thresh3"
+      SrcPort		      1
+      Points		      [25, 0; 0, 225; 110, 0]
     }
     Line {
-      SrcBlock		      "Model"
-      SrcPort		      22
-      Points		      [0, -320]
-      DstBlock		      "Forward Camera"
-      DstPort		      3
+      SrcBlock		      "Dist_Thresh4"
+      SrcPort		      1
+      Points		      [25, 0; 0, 210; 110, 0]
     }
     Line {
-      SrcBlock		      "Model"
-      SrcPort		      23
-      Points		      [-15, 0; 0, -305]
-      DstBlock		      "Down Camera"
-      DstPort		      1
+      SrcBlock		      "Dist_Thresh5"
+      SrcPort		      1
+      Points		      [125, 0; 0, 195; 10, 0]
     }
     Line {
-      SrcBlock		      "Model"
-      SrcPort		      24
-      Points		      [-25, 0; 0, -310]
-      DstBlock		      "Down Camera"
-      DstPort		      2
+      SrcBlock		      "Dist_Thresh6"
+      SrcPort		      1
+      Points		      [125, 0; 0, 180; 10, 0]
     }
     Line {
-      SrcBlock		      "Model"
-      SrcPort		      25
-      Points		      [-35, 0; 0, -315]
-      DstBlock		      "Down Camera"
-      DstPort		      3
+      SrcBlock		      "Dist_Thresh7"
+      SrcPort		      1
+      Points		      [125, 0; 0, 165; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh8"
+      SrcPort		      1
+      Points		      [125, 0; 0, 150; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh9"
+      SrcPort		      1
+      Points		      [125, 0; 0, 135; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh10"
+      SrcPort		      1
+      Points		      [125, 0; 0, 120; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh11"
+      SrcPort		      1
+      Points		      [125, 0; 0, 105; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh12"
+      SrcPort		      1
+      Points		      [125, 0; 0, 90; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh13"
+      SrcPort		      1
+      Points		      [125, 0; 0, 75; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh14"
+      SrcPort		      1
+      Points		      [125, 0; 0, 60; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh15"
+      SrcPort		      1
+      Points		      [125, 0; 0, 45; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh16"
+      SrcPort		      1
+      Points		      [125, 0; 0, 30; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh24"
+      SrcPort		      1
+      Points		      [125, 0; 0, 15; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh25"
+      SrcPort		      1
+      Points		      [135, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh26"
+      SrcPort		      1
+      Points		      [60, 0; 0, -15; 75, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh27"
+      SrcPort		      1
+      Points		      [60, 0; 0, -30; 75, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh28"
+      SrcPort		      1
+      Points		      [125, 0; 0, -45; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh17"
+      SrcPort		      1
+      Points		      [125, 0; 0, -60; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh18"
+      SrcPort		      1
+      Points		      [125, 0; 0, -75; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh19"
+      SrcPort		      1
+      Points		      [125, 0; 0, -90; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh20"
+      SrcPort		      1
+      Points		      [125, 0; 0, -105; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh21"
+      SrcPort		      1
+      Points		      [125, 0; 0, -120; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh22"
+      SrcPort		      1
+      Points		      [125, 0; 0, -135; 10, 0]
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh23"
+      SrcPort		      1
+      Points		      [125, 0; 0, -150; 10, 0]
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      4
-      Points		      [30, 0; 0, -600]
-      DstBlock		      "TargetX"
+      Points		      [195, 0; 0, 120]
+      DstBlock		      "Down Camera"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      5
-      Points		      [35, 0; 0, -575]
-      DstBlock		      "TargetY"
-      DstPort		      1
+      Points		      [0, -25]
+      DstBlock		      "Down Camera"
+      DstPort		      2
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      6
-      Points		      [40, 0; 0, -545]
-      DstBlock		      "TargetZ"
+      Points		      [90, 0; 0, -170]
+      DstBlock		      "Down Camera"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      1
+      Points		      [60, 0; 0, 145]
+      DstBlock		      "Forward Camera"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
-      SrcPort		      7
-      Points		      [45, 0]
-      DstBlock		      "TargetYaw"
-      DstPort		      1
+      SrcPort		      2
+      DstBlock		      "Forward Camera"
+      DstPort		      2
     }
     Line {
       SrcBlock		      "Model"
-      SrcPort		      16
-      Points		      [-35, 0; 0, -785]
-      DstBlock		      "TargetDetected"
-      DstPort		      1
+      SrcPort		      3
+      Points		      [60, 0; 0, -145]
+      DstBlock		      "Forward Camera"
+      DstPort		      3
     }
     Line {
-      SrcBlock		      "Model"
-      SrcPort		      19
-      Points		      [400, 0; 0, -20]
-      DstBlock		      "Display3"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "WhichPath1"
+      SrcBlock		      "ModeSelect"
       SrcPort		      1
-      Points		      [355, 0; 0, -320]
+      Points		      [45, 0; 0, 10]
       DstBlock		      "Model"
-      DstPort		      9
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh1"
-      SrcPort		      1
-      Points		      [25, 0; 0, 255]
-      DstBlock		      "Model"
-      DstPort		      14
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh2"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      15
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh3"
-      SrcPort		      1
-      Points		      [25, 0; 0, 225]
-      DstBlock		      "Model"
-      DstPort		      16
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh4"
-      SrcPort		      1
-      Points		      [25, 0; 0, 210]
-      DstBlock		      "Model"
-      DstPort		      17
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh5"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      18
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh6"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      19
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh7"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      20
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh8"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      21
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh9"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      22
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh10"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      23
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh11"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      24
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh12"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      25
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh13"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      26
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh14"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      27
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh15"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      28
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh16"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      29
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh24"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      30
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh25"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      31
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh26"
-      SrcPort		      1
-      Points		      [60, 0; 0, -15]
-      DstBlock		      "Model"
-      DstPort		      32
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh27"
-      SrcPort		      1
-      Points		      [60, 0; 0, -30]
-      DstBlock		      "Model"
-      DstPort		      33
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh28"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      34
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh17"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      35
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh18"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      36
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh19"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      37
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh20"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      38
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh21"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      39
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh22"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      40
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh23"
-      SrcPort		      1
-      Points		      [125, 0]
-      DstBlock		      "Model"
-      DstPort		      41
+      DstPort		      7
     }
     Annotation {
       Name		      "Modes:\n0 = Do not execute any tasks\n1 = Validation gate\n2 = Follow path\n3 = Buoy\n4 = Torpedo\n"
