@@ -134,7 +134,7 @@ Model {
     }
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.402"
+    ComputedModelVersion    "1.404"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -154,9 +154,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 29 18:56:59 2011"
+  LastModifiedDate	  "Thu Jun 30 14:11:31 2011"
   RTWModifiedTimeStamp	  231262575
-  ModelVersionFormat	  "1.%<AutoIncrement:402>"
+  ModelVersionFormat	  "1.%<AutoIncrement:404>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -4753,8 +4753,6 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -4888,8 +4886,6 @@ Stateflow {
     firstJunction	    11
     viewObj		    9
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    61
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -5961,8 +5957,6 @@ Stateflow {
     firstJunction	    59
     viewObj		    57
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    58
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6178,8 +6172,6 @@ Stateflow {
     firstJunction	    70
     viewObj		    68
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6313,8 +6305,6 @@ Stateflow {
     firstJunction	    77
     viewObj		    75
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6448,8 +6438,6 @@ Stateflow {
     firstJunction	    84
     viewObj		    82
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -6661,8 +6649,6 @@ Stateflow {
     firstJunction	    95
     viewObj		    93
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
