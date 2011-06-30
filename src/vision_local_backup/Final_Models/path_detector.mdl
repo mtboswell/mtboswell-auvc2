@@ -3,7 +3,7 @@ Model {
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
-    NumRootInports	    4
+    NumRootInports	    32
     Inport {
       BusObject		      ""
       Name		      "R_in"
@@ -20,164 +20,121 @@ Model {
       BusObject		      ""
       Name		      "WhichPath"
     }
-    NumRootOutports	    31
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "TargetSelect"
+      Name		      "white_al"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "TargetFound"
+      Name		      "white_au"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "MaintainHeading"
+      Name		      "white_bl"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "TargetX"
+      Name		      "white_bu"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "TargetY"
+      Name		      "black_al"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "TargetYaw"
+      Name		      "black_au"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "TargetDetected"
+      Name		      "black_bl"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "PathState"
+      Name		      "black_bu"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "R"
+      Name		      "blue_al"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "G"
+      Name		      "blue_au"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "B"
+      Name		      "blue_bl"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "bw_image"
+      Name		      "blue_bu"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "edge_image"
+      Name		      "red_al"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "line_image"
+      Name		      "red_au"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "hough_table"
+      Name		      "red_bl"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "BlobCount"
+      Name		      "red_bu"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "BlobHues"
+      Name		      "orange_al"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "Area"
+      Name		      "orane_au"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "BBox"
+      Name		      "orange_bl"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "Centroid"
+      Name		      "orange_bu"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "Eccentricity"
+      Name		      "yellow_al"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "Extent"
+      Name		      "yellow_au"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "Orientation"
+      Name		      "yellow_bl"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "path_headings"
+      Name		      "yellow_bu"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "MajorAxis"
+      Name		      "green_al"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "MinorAxis"
+      Name		      "green_au"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "ref_colors"
+      Name		      "breen_bl"
     }
-    Outport {
+    Inport {
       BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "theta"
+      Name		      "green_bu"
     }
-    Outport {
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "rho"
-    }
-    Outport {
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "debug_orientation"
-    }
-    Outport {
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "num_colors"
-    }
+    NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.385"
+    ComputedModelVersion    "1.402"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -197,9 +154,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 29 18:04:35 2011"
+  LastModifiedDate	  "Wed Jun 29 18:56:59 2011"
   RTWModifiedTimeStamp	  231262575
-  ModelVersionFormat	  "1.%<AutoIncrement:385>"
+  ModelVersionFormat	  "1.%<AutoIncrement:402>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -819,17 +776,6 @@ Model {
       PreserveConstantTs      off
     }
     Block {
-      BlockType		      DataTypeConversion
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: Inherit via back propagation"
-      LockScale		      off
-      ConvertRealWorld	      "Real World Value (RWV)"
-      RndMeth		      "Zero"
-      SaturateOnIntegerOverflow	on
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      Demux
       Outputs		      "4"
       DisplayOption	      "none"
@@ -926,12 +872,12 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "1324"
+    SIDHighWatermark	    "1820"
     Block {
       BlockType		      Inport
       Name		      "R_in"
       SID		      "693"
-      Position		      [660, 218, 690, 232]
+      Position		      [480, 233, 510, 247]
       IconDisplay	      "Port number"
       PortDimensions	      "Down_Camera_Dimensions"
     }
@@ -939,7 +885,7 @@ Model {
       BlockType		      Inport
       Name		      "G_in"
       SID		      "694"
-      Position		      [660, 253, 690, 267]
+      Position		      [480, 268, 510, 282]
       Port		      "2"
       IconDisplay	      "Port number"
       PortDimensions	      "Down_Camera_Dimensions"
@@ -948,7 +894,7 @@ Model {
       BlockType		      Inport
       Name		      "B_in"
       SID		      "695"
-      Position		      [660, 288, 690, 302]
+      Position		      [480, 303, 510, 317]
       Port		      "3"
       IconDisplay	      "Port number"
       PortDimensions	      "Down_Camera_Dimensions"
@@ -962,11 +908,235 @@ Model {
       IconDisplay	      "Port number"
     }
     Block {
+      BlockType		      Inport
+      Name		      "white_al"
+      SID		      "1691"
+      Position		      [695, 253, 725, 267]
+      Port		      "5"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_au"
+      SID		      "1692"
+      Position		      [695, 293, 725, 307]
+      Port		      "6"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_bl"
+      SID		      "1693"
+      Position		      [695, 333, 725, 347]
+      Port		      "7"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_bu"
+      SID		      "1694"
+      Position		      [695, 373, 725, 387]
+      Port		      "8"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_al"
+      SID		      "1695"
+      Position		      [695, 413, 725, 427]
+      Port		      "9"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_au"
+      SID		      "1696"
+      Position		      [695, 453, 725, 467]
+      Port		      "10"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_bl"
+      SID		      "1697"
+      Position		      [695, 493, 725, 507]
+      Port		      "11"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_bu"
+      SID		      "1698"
+      Position		      [695, 533, 725, 547]
+      Port		      "12"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_al"
+      SID		      "1699"
+      Position		      [695, 573, 725, 587]
+      Port		      "13"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_au"
+      SID		      "1700"
+      Position		      [695, 613, 725, 627]
+      Port		      "14"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_bl"
+      SID		      "1701"
+      Position		      [695, 653, 725, 667]
+      Port		      "15"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_bu"
+      SID		      "1702"
+      Position		      [695, 693, 725, 707]
+      Port		      "16"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_al"
+      SID		      "1703"
+      Position		      [695, 733, 725, 747]
+      Port		      "17"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_au"
+      SID		      "1704"
+      Position		      [695, 773, 725, 787]
+      Port		      "18"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_bl"
+      SID		      "1705"
+      Position		      [695, 813, 725, 827]
+      Port		      "19"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_bu"
+      SID		      "1706"
+      Position		      [695, 853, 725, 867]
+      Port		      "20"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orange_al"
+      SID		      "1707"
+      Position		      [695, 893, 725, 907]
+      Port		      "21"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orane_au"
+      SID		      "1708"
+      Position		      [695, 933, 725, 947]
+      Port		      "22"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orange_bl"
+      SID		      "1709"
+      Position		      [695, 973, 725, 987]
+      Port		      "23"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orange_bu"
+      SID		      "1710"
+      Position		      [695, 1013, 725, 1027]
+      Port		      "24"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_al"
+      SID		      "1711"
+      Position		      [695, 1053, 725, 1067]
+      Port		      "25"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_au"
+      SID		      "1712"
+      Position		      [695, 1093, 725, 1107]
+      Port		      "26"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_bl"
+      SID		      "1713"
+      Position		      [695, 1133, 725, 1147]
+      Port		      "27"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_bu"
+      SID		      "1714"
+      Position		      [695, 1173, 725, 1187]
+      Port		      "28"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "green_al"
+      SID		      "1715"
+      Position		      [695, 1213, 725, 1227]
+      Port		      "29"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "green_au"
+      SID		      "1716"
+      Position		      [695, 1253, 725, 1267]
+      Port		      "30"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "breen_bl"
+      SID		      "1717"
+      Position		      [695, 1293, 725, 1307]
+      Port		      "31"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "green_bu"
+      SID		      "1718"
+      Position		      [695, 1333, 725, 1347]
+      Port		      "32"
+      IconDisplay	      "Port number"
+    }
+    Block {
       BlockType		      SubSystem
       Name		      "Blob Analysis"
-      SID		      "1222"
-      Ports		      [5, 16]
-      Position		      [860, 108, 1200, 707]
+      SID		      "1719"
+      Ports		      [33, 16]
+      Position		      [830, 118, 1170, 732]
       LibraryVersion	      "1.225"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -993,48 +1163,272 @@ Model {
 	Block {
 	  BlockType		  Inport
 	  Name			  "R_in"
-	  SID			  "1223"
-	  Position		  [120, 98, 150, 112]
+	  SID			  "1720"
+	  Position		  [80, 43, 110, 57]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "G_in"
-	  SID			  "1224"
-	  Position		  [120, 138, 150, 152]
+	  SID			  "1721"
+	  Position		  [80, 83, 110, 97]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "B_in"
-	  SID			  "1225"
-	  Position		  [120, 178, 150, 192]
+	  SID			  "1722"
+	  Position		  [80, 123, 110, 137]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "ColorFilter"
-	  SID			  "1226"
-	  Position		  [120, 258, 150, 272]
+	  SID			  "1723"
+	  Position		  [80, 203, 110, 217]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Inport
 	  Name			  "OutputSegmentedImage"
-	  SID			  "1227"
-	  Position		  [120, 333, 150, 347]
+	  SID			  "1724"
+	  Position		  [80, 278, 110, 292]
 	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "white_al"
+	  SID			  "1725"
+	  Position		  [820, 343, 850, 357]
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "white_au"
+	  SID			  "1726"
+	  Position		  [820, 383, 850, 397]
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "white_bl"
+	  SID			  "1727"
+	  Position		  [820, 423, 850, 437]
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "white_bu"
+	  SID			  "1728"
+	  Position		  [820, 463, 850, 477]
+	  Port			  "9"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "black_al"
+	  SID			  "1729"
+	  Position		  [820, 503, 850, 517]
+	  Port			  "10"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "black_au"
+	  SID			  "1730"
+	  Position		  [820, 543, 850, 557]
+	  Port			  "11"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "black_bl"
+	  SID			  "1731"
+	  Position		  [820, 583, 850, 597]
+	  Port			  "12"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "black_bu"
+	  SID			  "1732"
+	  Position		  [820, 623, 850, 637]
+	  Port			  "13"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "blue_al"
+	  SID			  "1733"
+	  Position		  [820, 663, 850, 677]
+	  Port			  "14"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "blue_au"
+	  SID			  "1734"
+	  Position		  [820, 703, 850, 717]
+	  Port			  "15"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "blue_bl"
+	  SID			  "1735"
+	  Position		  [820, 743, 850, 757]
+	  Port			  "16"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "blue_bu"
+	  SID			  "1736"
+	  Position		  [820, 783, 850, 797]
+	  Port			  "17"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "red_al"
+	  SID			  "1737"
+	  Position		  [820, 823, 850, 837]
+	  Port			  "18"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "red_au"
+	  SID			  "1738"
+	  Position		  [820, 863, 850, 877]
+	  Port			  "19"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "red_bl"
+	  SID			  "1739"
+	  Position		  [820, 903, 850, 917]
+	  Port			  "20"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "red_bu"
+	  SID			  "1740"
+	  Position		  [820, 943, 850, 957]
+	  Port			  "21"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "orange_al"
+	  SID			  "1741"
+	  Position		  [820, 983, 850, 997]
+	  Port			  "22"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "orane_au"
+	  SID			  "1742"
+	  Position		  [820, 1023, 850, 1037]
+	  Port			  "23"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "orange_bl"
+	  SID			  "1743"
+	  Position		  [820, 1063, 850, 1077]
+	  Port			  "24"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "orange_bu"
+	  SID			  "1744"
+	  Position		  [820, 1103, 850, 1117]
+	  Port			  "25"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "yellow_al"
+	  SID			  "1745"
+	  Position		  [820, 1143, 850, 1157]
+	  Port			  "26"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "yellow_au"
+	  SID			  "1746"
+	  Position		  [820, 1183, 850, 1197]
+	  Port			  "27"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "yellow_bl"
+	  SID			  "1747"
+	  Position		  [820, 1223, 850, 1237]
+	  Port			  "28"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "yellow_bu"
+	  SID			  "1748"
+	  Position		  [820, 1263, 850, 1277]
+	  Port			  "29"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "green_al"
+	  SID			  "1749"
+	  Position		  [820, 1303, 850, 1317]
+	  Port			  "30"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "green_au"
+	  SID			  "1750"
+	  Position		  [820, 1343, 850, 1357]
+	  Port			  "31"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "breen_bl"
+	  SID			  "1751"
+	  Position		  [820, 1383, 850, 1397]
+	  Port			  "32"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "green_bu"
+	  SID			  "1752"
+	  Position		  [820, 1423, 850, 1437]
+	  Port			  "33"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "Blob Extraction"
-	  SID			  "1228"
+	  SID			  "1753"
 	  Ports			  [32, 11]
-	  Position		  [960, 177, 1255, 1553]
+	  Position		  [920, 122, 1215, 1498]
 	  LibraryVersion	  "1.31"
 	  PermitHierarchicalResolution "ExplicitOnly"
 	  TreatAsAtomicUnit	  on
@@ -1073,14 +1467,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "LabelMatrix"
-	      SID		      "1228::32"
+	      SID		      "1753::32"
 	      Position		      [20, 101, 40, 119]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "ref_colors"
-	      SID		      "1228::33"
+	      SID		      "1753::33"
 	      Position		      [20, 136, 40, 154]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1088,7 +1482,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "num_colors"
-	      SID		      "1228::34"
+	      SID		      "1753::34"
 	      Position		      [20, 171, 40, 189]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -1096,7 +1490,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "ColorFilter"
-	      SID		      "1228::48"
+	      SID		      "1753::48"
 	      Position		      [20, 206, 40, 224]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -1104,7 +1498,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "white_al"
-	      SID		      "1228::51"
+	      SID		      "1753::51"
 	      Position		      [20, 246, 40, 264]
 	      Port		      "5"
 	      IconDisplay	      "Port number"
@@ -1112,7 +1506,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "white_au"
-	      SID		      "1228::52"
+	      SID		      "1753::52"
 	      Position		      [20, 281, 40, 299]
 	      Port		      "6"
 	      IconDisplay	      "Port number"
@@ -1120,7 +1514,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "white_bl"
-	      SID		      "1228::53"
+	      SID		      "1753::53"
 	      Position		      [20, 316, 40, 334]
 	      Port		      "7"
 	      IconDisplay	      "Port number"
@@ -1128,7 +1522,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "white_bu"
-	      SID		      "1228::54"
+	      SID		      "1753::54"
 	      Position		      [20, 351, 40, 369]
 	      Port		      "8"
 	      IconDisplay	      "Port number"
@@ -1136,7 +1530,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "black_al"
-	      SID		      "1228::55"
+	      SID		      "1753::55"
 	      Position		      [20, 386, 40, 404]
 	      Port		      "9"
 	      IconDisplay	      "Port number"
@@ -1144,7 +1538,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "black_au"
-	      SID		      "1228::56"
+	      SID		      "1753::56"
 	      Position		      [20, 426, 40, 444]
 	      Port		      "10"
 	      IconDisplay	      "Port number"
@@ -1152,7 +1546,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "black_bl"
-	      SID		      "1228::57"
+	      SID		      "1753::57"
 	      Position		      [20, 461, 40, 479]
 	      Port		      "11"
 	      IconDisplay	      "Port number"
@@ -1160,7 +1554,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "black_bu"
-	      SID		      "1228::58"
+	      SID		      "1753::58"
 	      Position		      [20, 496, 40, 514]
 	      Port		      "12"
 	      IconDisplay	      "Port number"
@@ -1168,7 +1562,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "blue_al"
-	      SID		      "1228::59"
+	      SID		      "1753::59"
 	      Position		      [20, 531, 40, 549]
 	      Port		      "13"
 	      IconDisplay	      "Port number"
@@ -1176,7 +1570,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "blue_au"
-	      SID		      "1228::60"
+	      SID		      "1753::60"
 	      Position		      [20, 566, 40, 584]
 	      Port		      "14"
 	      IconDisplay	      "Port number"
@@ -1184,7 +1578,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "blue_bl"
-	      SID		      "1228::61"
+	      SID		      "1753::61"
 	      Position		      [20, 606, 40, 624]
 	      Port		      "15"
 	      IconDisplay	      "Port number"
@@ -1192,7 +1586,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "blue_bu"
-	      SID		      "1228::62"
+	      SID		      "1753::62"
 	      Position		      [20, 641, 40, 659]
 	      Port		      "16"
 	      IconDisplay	      "Port number"
@@ -1200,7 +1594,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "red_al"
-	      SID		      "1228::63"
+	      SID		      "1753::63"
 	      Position		      [20, 676, 40, 694]
 	      Port		      "17"
 	      IconDisplay	      "Port number"
@@ -1208,7 +1602,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "red_au"
-	      SID		      "1228::64"
+	      SID		      "1753::64"
 	      Position		      [20, 711, 40, 729]
 	      Port		      "18"
 	      IconDisplay	      "Port number"
@@ -1216,7 +1610,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "red_bl"
-	      SID		      "1228::65"
+	      SID		      "1753::65"
 	      Position		      [20, 746, 40, 764]
 	      Port		      "19"
 	      IconDisplay	      "Port number"
@@ -1224,7 +1618,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "red_bu"
-	      SID		      "1228::66"
+	      SID		      "1753::66"
 	      Position		      [20, 786, 40, 804]
 	      Port		      "20"
 	      IconDisplay	      "Port number"
@@ -1232,7 +1626,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "orange_al"
-	      SID		      "1228::67"
+	      SID		      "1753::67"
 	      Position		      [20, 821, 40, 839]
 	      Port		      "21"
 	      IconDisplay	      "Port number"
@@ -1240,7 +1634,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "orange_au"
-	      SID		      "1228::68"
+	      SID		      "1753::68"
 	      Position		      [20, 856, 40, 874]
 	      Port		      "22"
 	      IconDisplay	      "Port number"
@@ -1248,7 +1642,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "orange_bl"
-	      SID		      "1228::69"
+	      SID		      "1753::69"
 	      Position		      [20, 891, 40, 909]
 	      Port		      "23"
 	      IconDisplay	      "Port number"
@@ -1256,7 +1650,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "orange_bu"
-	      SID		      "1228::70"
+	      SID		      "1753::70"
 	      Position		      [20, 926, 40, 944]
 	      Port		      "24"
 	      IconDisplay	      "Port number"
@@ -1264,7 +1658,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "yellow_al"
-	      SID		      "1228::71"
+	      SID		      "1753::71"
 	      Position		      [20, 966, 40, 984]
 	      Port		      "25"
 	      IconDisplay	      "Port number"
@@ -1272,7 +1666,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "yellow_au"
-	      SID		      "1228::72"
+	      SID		      "1753::72"
 	      Position		      [20, 1001, 40, 1019]
 	      Port		      "26"
 	      IconDisplay	      "Port number"
@@ -1280,7 +1674,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "yellow_bl"
-	      SID		      "1228::73"
+	      SID		      "1753::73"
 	      Position		      [20, 1036, 40, 1054]
 	      Port		      "27"
 	      IconDisplay	      "Port number"
@@ -1288,7 +1682,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "yellow_bu"
-	      SID		      "1228::74"
+	      SID		      "1753::74"
 	      Position		      [20, 1071, 40, 1089]
 	      Port		      "28"
 	      IconDisplay	      "Port number"
@@ -1296,7 +1690,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "green_al"
-	      SID		      "1228::75"
+	      SID		      "1753::75"
 	      Position		      [20, 1106, 40, 1124]
 	      Port		      "29"
 	      IconDisplay	      "Port number"
@@ -1304,7 +1698,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "green_au"
-	      SID		      "1228::76"
+	      SID		      "1753::76"
 	      Position		      [20, 1146, 40, 1164]
 	      Port		      "30"
 	      IconDisplay	      "Port number"
@@ -1312,7 +1706,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "green_bl"
-	      SID		      "1228::77"
+	      SID		      "1753::77"
 	      Position		      [20, 1181, 40, 1199]
 	      Port		      "31"
 	      IconDisplay	      "Port number"
@@ -1320,7 +1714,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "green_bu"
-	      SID		      "1228::78"
+	      SID		      "1753::78"
 	      Position		      [20, 1216, 40, 1234]
 	      Port		      "32"
 	      IconDisplay	      "Port number"
@@ -1328,7 +1722,7 @@ Model {
 	    Block {
 	      BlockType		      Demux
 	      Name		      " Demux "
-	      SID		      "1228::23"
+	      SID		      "1753::23"
 	      Ports		      [1, 1]
 	      Position		      [270, 795, 320, 835]
 	      Outputs		      "1"
@@ -1336,8 +1730,8 @@ Model {
 	    Block {
 	      BlockType		      "S-Function"
 	      Name		      " SFunction "
-	      SID		      "1228::22"
-	      Tag		      "Stateflow S-Function path_detector 2"
+	      SID		      "1753::22"
+	      Tag		      "Stateflow S-Function path_detector 3"
 	      Ports		      [32, 12]
 	      Position		      [180, 135, 230, 795]
 	      FunctionName	      "sf_sfun"
@@ -1413,20 +1807,20 @@ Model {
 	    Block {
 	      BlockType		      Terminator
 	      Name		      " Terminator "
-	      SID		      "1228::25"
+	      SID		      "1753::25"
 	      Position		      [460, 806, 480, 824]
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_count"
-	      SID		      "1228::35"
+	      SID		      "1753::35"
 	      Position		      [460, 101, 480, 119]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_hues"
-	      SID		      "1228::36"
+	      SID		      "1753::36"
 	      Position		      [460, 136, 480, 154]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -1434,7 +1828,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_area"
-	      SID		      "1228::37"
+	      SID		      "1753::37"
 	      Position		      [460, 171, 480, 189]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -1442,7 +1836,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_bbox"
-	      SID		      "1228::38"
+	      SID		      "1753::38"
 	      Position		      [460, 206, 480, 224]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -1450,7 +1844,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_major_axis"
-	      SID		      "1228::43"
+	      SID		      "1753::43"
 	      Position		      [460, 246, 480, 264]
 	      Port		      "5"
 	      IconDisplay	      "Port number"
@@ -1458,7 +1852,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_minor_axis"
-	      SID		      "1228::44"
+	      SID		      "1753::44"
 	      Position		      [460, 281, 480, 299]
 	      Port		      "6"
 	      IconDisplay	      "Port number"
@@ -1466,7 +1860,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_centroids"
-	      SID		      "1228::39"
+	      SID		      "1753::39"
 	      Position		      [460, 316, 480, 334]
 	      Port		      "7"
 	      IconDisplay	      "Port number"
@@ -1474,7 +1868,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_eccentricity"
-	      SID		      "1228::40"
+	      SID		      "1753::40"
 	      Position		      [460, 351, 480, 369]
 	      Port		      "8"
 	      IconDisplay	      "Port number"
@@ -1482,7 +1876,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_extent"
-	      SID		      "1228::41"
+	      SID		      "1753::41"
 	      Position		      [460, 386, 480, 404]
 	      Port		      "9"
 	      IconDisplay	      "Port number"
@@ -1490,7 +1884,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "blob_orientation"
-	      SID		      "1228::42"
+	      SID		      "1753::42"
 	      Position		      [460, 426, 480, 444]
 	      Port		      "10"
 	      IconDisplay	      "Port number"
@@ -1498,7 +1892,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "bw_image"
-	      SID		      "1228::49"
+	      SID		      "1753::49"
 	      Position		      [460, 461, 480, 479]
 	      Port		      "11"
 	      IconDisplay	      "Port number"
@@ -1800,249 +2194,25 @@ Model {
 	Block {
 	  BlockType		  Constant
 	  Name			  "Dist_Thresh"
-	  SID			  "1229"
-	  Position		  [190, 208, 315, 232]
+	  SID			  "1754"
+	  Position		  [150, 153, 275, 177]
 	  Value			  "Iter_Segment_Thresh"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh1"
-	  SID			  "1230"
-	  Position		  [770, 393, 895, 417]
-	  Value			  "white_al"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh10"
-	  SID			  "1231"
-	  Position		  [770, 753, 895, 777]
-	  Value			  "blue_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh11"
-	  SID			  "1232"
-	  Position		  [770, 793, 895, 817]
-	  Value			  "blue_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh12"
-	  SID			  "1233"
-	  Position		  [770, 833, 895, 857]
-	  Value			  "blue_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh13"
-	  SID			  "1234"
-	  Position		  [770, 873, 895, 897]
-	  Value			  "red_al"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh14"
-	  SID			  "1235"
-	  Position		  [770, 913, 895, 937]
-	  Value			  "red_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh15"
-	  SID			  "1236"
-	  Position		  [770, 953, 895, 977]
-	  Value			  "red_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh16"
-	  SID			  "1237"
-	  Position		  [770, 993, 895, 1017]
-	  Value			  "red_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh17"
-	  SID			  "1238"
-	  Position		  [770, 1233, 895, 1257]
-	  Value			  "yellow_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh18"
-	  SID			  "1239"
-	  Position		  [770, 1273, 895, 1297]
-	  Value			  "yellow_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh19"
-	  SID			  "1240"
-	  Position		  [770, 1313, 895, 1337]
-	  Value			  "yellow_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh2"
-	  SID			  "1241"
-	  Position		  [770, 433, 895, 457]
-	  Value			  "white_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh20"
-	  SID			  "1242"
-	  Position		  [770, 1353, 895, 1377]
-	  Value			  "green_al"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh21"
-	  SID			  "1243"
-	  Position		  [770, 1393, 895, 1417]
-	  Value			  "green_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh22"
-	  SID			  "1244"
-	  Position		  [770, 1433, 895, 1457]
-	  Value			  "green_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh23"
-	  SID			  "1245"
-	  Position		  [770, 1473, 895, 1497]
-	  Value			  "green_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh24"
-	  SID			  "1246"
-	  Position		  [770, 1033, 895, 1057]
-	  Value			  "orange_al"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh25"
-	  SID			  "1247"
-	  Position		  [770, 1073, 895, 1097]
-	  Value			  "orange_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh26"
-	  SID			  "1248"
-	  Position		  [770, 1113, 895, 1137]
-	  Value			  "orange_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh27"
-	  SID			  "1249"
-	  Position		  [770, 1153, 895, 1177]
-	  Value			  "orange_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh28"
-	  SID			  "1250"
-	  Position		  [770, 1193, 895, 1217]
-	  Value			  "yellow_al"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh3"
-	  SID			  "1251"
-	  Position		  [770, 473, 895, 497]
-	  Value			  "white_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh4"
-	  SID			  "1252"
-	  Position		  [770, 513, 895, 537]
-	  Value			  "white_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh5"
-	  SID			  "1253"
-	  Position		  [770, 553, 895, 577]
-	  Value			  "black_al"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh6"
-	  SID			  "1254"
-	  Position		  [770, 593, 895, 617]
-	  Value			  "black_au"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh7"
-	  SID			  "1255"
-	  Position		  [770, 633, 895, 657]
-	  Value			  "black_bl"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh8"
-	  SID			  "1256"
-	  Position		  [770, 673, 895, 697]
-	  Value			  "black_bu"
-	  SampleTime		  "-1"
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh9"
-	  SID			  "1257"
-	  Position		  [770, 713, 895, 737]
-	  Value			  "blue_al"
 	  SampleTime		  "-1"
 	}
 	Block {
 	  BlockType		  If
 	  Name			  "If"
-	  SID			  "1258"
+	  SID			  "1755"
 	  Ports			  [1, 1]
-	  Position		  [205, 321, 305, 359]
+	  Position		  [165, 266, 265, 304]
 	  ShowElse		  off
 	}
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "If Action\nSubsystem"
-	  SID			  "1259"
+	  SID			  "1756"
 	  Ports			  [3, 3, 0, 0, 0, 0, 0, 1]
-	  Position		  [1010, 1697, 1205, 1893]
+	  Position		  [970, 1642, 1165, 1838]
 	  LibraryVersion	  "1.225"
 	  TreatAsAtomicUnit	  on
 	  MinAlgLoopOccurrences	  off
@@ -2070,14 +2240,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "LabelMatrix"
-	      SID		      "1260"
+	      SID		      "1757"
 	      Position		      [80, 208, 110, 222]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "num_colors"
-	      SID		      "1261"
+	      SID		      "1758"
 	      Position		      [80, 253, 110, 267]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2085,7 +2255,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "ref_colors"
-	      SID		      "1262"
+	      SID		      "1759"
 	      Position		      [80, 303, 110, 317]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2093,13 +2263,14 @@ Model {
 	    Block {
 	      BlockType		      ActionPort
 	      Name		      "Action Port"
-	      SID		      "1263"
+	      SID		      "1760"
 	      Position		      [170, 15, 229, 43]
+	      ActionType	      "then"
 	    }
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Color Space\n Conversion"
-	      SID		      "1264"
+	      SID		      "1761"
 	      Ports		      [3, 3]
 	      Position		      [490, 261, 590, 319]
 	      LibraryVersion	      "1.328"
@@ -2115,7 +2286,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Filter Image1"
-	      SID		      "1265"
+	      SID		      "1762"
 	      Ports		      [3, 3]
 	      Position		      [170, 180, 435, 400]
 	      PermitHierarchicalResolution "ExplicitOnly"
@@ -2155,14 +2326,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "LabelMatrix"
-		  SID			  "1265::68"
+		  SID			  "1762::68"
 		  Position		  [20, 101, 40, 119]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "num_colors"
-		  SID			  "1265::69"
+		  SID			  "1762::69"
 		  Position		  [20, 136, 40, 154]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2170,7 +2341,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "ref_colors"
-		  SID			  "1265::70"
+		  SID			  "1762::70"
 		  Position		  [20, 171, 40, 189]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2178,7 +2349,7 @@ Model {
 		Block {
 		  BlockType		  Demux
 		  Name			  " Demux "
-		  SID			  "1265::19"
+		  SID			  "1762::19"
 		  Ports			  [1, 1]
 		  Position		  [270, 575, 320, 615]
 		  Outputs		  "1"
@@ -2186,7 +2357,7 @@ Model {
 		Block {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
-		  SID			  "1265::18"
+		  SID			  "1762::18"
 		  Tag			  "Stateflow S-Function path_detector 4"
 		  Ports			  [3, 4]
 		  Position		  [180, 184, 230, 576]
@@ -2215,20 +2386,20 @@ Model {
 		Block {
 		  BlockType		  Terminator
 		  Name			  " Terminator "
-		  SID			  "1265::21"
+		  SID			  "1762::21"
 		  Position		  [460, 586, 480, 604]
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "L"
-		  SID			  "1265::55"
+		  SID			  "1762::55"
 		  Position		  [460, 101, 480, 119]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "a"
-		  SID			  "1265::71"
+		  SID			  "1762::71"
 		  Position		  [460, 136, 480, 154]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2236,7 +2407,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "b"
-		  SID			  "1265::72"
+		  SID			  "1762::72"
 		  Position		  [460, 171, 480, 189]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2300,14 +2471,14 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "R_out"
-	      SID		      "1266"
+	      SID		      "1763"
 	      Position		      [725, 238, 755, 252]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "G_out"
-	      SID		      "1267"
+	      SID		      "1764"
 	      Position		      [725, 283, 755, 297]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2315,7 +2486,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "B_out"
-	      SID		      "1268"
+	      SID		      "1765"
 	      Position		      [725, 328, 755, 342]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2385,9 +2556,9 @@ Model {
 	Block {
 	  BlockType		  SubSystem
 	  Name			  "IterativeSegmentation"
-	  SID			  "1269"
+	  SID			  "1766"
 	  Ports			  [4, 3]
-	  Position		  [365, 112, 640, 238]
+	  Position		  [325, 57, 600, 183]
 	  UndoDeleteFcn		  "Stateflow.SLINSF.SimulinkMan.restorePreDeleteFcn"
 	  PreDeleteFcn		  "Stateflow.SLINSF.SimulinkMan.removePreDeleteFcn"
 	  MinAlgLoopOccurrences	  off
@@ -2415,14 +2586,14 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "R"
-	      SID		      "1270"
+	      SID		      "1767"
 	      Position		      [30, 98, 60, 112]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Inport
 	      Name		      "G"
-	      SID		      "1271"
+	      SID		      "1768"
 	      Position		      [30, 128, 60, 142]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -2430,7 +2601,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "B"
-	      SID		      "1272"
+	      SID		      "1769"
 	      Position		      [30, 158, 60, 172]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -2438,7 +2609,7 @@ Model {
 	    Block {
 	      BlockType		      Inport
 	      Name		      "Iter_Segment_Thresh"
-	      SID		      "1273"
+	      SID		      "1770"
 	      Position		      [600, 213, 630, 227]
 	      Port		      "4"
 	      IconDisplay	      "Port number"
@@ -2446,7 +2617,7 @@ Model {
 	    Block {
 	      BlockType		      Reference
 	      Name		      "Color Space\n Conversion1"
-	      SID		      "1274"
+	      SID		      "1771"
 	      Ports		      [3, 3]
 	      Position		      [470, 106, 570, 164]
 	      LibraryVersion	      "1.328"
@@ -2462,7 +2633,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Low Pass Filter"
-	      SID		      "1275"
+	      SID		      "1772"
 	      Ports		      [3, 3]
 	      Position		      [250, 107, 325, 163]
 	      MinAlgLoopOccurrences   off
@@ -2490,14 +2661,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "R"
-		  SID			  "1276"
+		  SID			  "1773"
 		  Position		  [25, 38, 55, 52]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "G"
-		  SID			  "1277"
+		  SID			  "1774"
 		  Position		  [25, 103, 55, 117]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2505,7 +2676,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "B"
-		  SID			  "1278"
+		  SID			  "1775"
 		  Position		  [25, 173, 55, 187]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2513,7 +2684,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "Low Pass Filter"
-		  SID			  "1279"
+		  SID			  "1776"
 		  Ports			  [1, 1]
 		  Position		  [100, 23, 210, 67]
 		  PermitHierarchicalResolution "ExplicitOnly"
@@ -2553,14 +2724,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "I"
-		    SID			    "1279::1"
+		    SID			    "1776::1"
 		    Position		    [20, 101, 40, 119]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "1279::11"
+		    SID			    "1776::11"
 		    Ports		    [1, 1]
 		    Position		    [270, 160, 320, 200]
 		    Outputs		    "1"
@@ -2568,7 +2739,7 @@ Model {
 		    Block {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
-		    SID			    "1279::10"
+		    SID			    "1776::10"
 		    Tag			    "Stateflow S-Function path_detector 5"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
@@ -2585,13 +2756,13 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "1279::13"
+		    SID			    "1776::13"
 		    Position		    [460, 171, 480, 189]
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "Iout"
-		    SID			    "1279::5"
+		    SID			    "1776::5"
 		    Position		    [460, 101, 480, 119]
 		    IconDisplay		    "Port number"
 		    }
@@ -2626,7 +2797,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "Low Pass Filter1"
-		  SID			  "1280"
+		  SID			  "1777"
 		  Ports			  [1, 1]
 		  Position		  [100, 88, 210, 132]
 		  PermitHierarchicalResolution "ExplicitOnly"
@@ -2666,14 +2837,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "I"
-		    SID			    "1280::1"
+		    SID			    "1777::1"
 		    Position		    [20, 101, 40, 119]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "1280::11"
+		    SID			    "1777::11"
 		    Ports		    [1, 1]
 		    Position		    [270, 160, 320, 200]
 		    Outputs		    "1"
@@ -2681,7 +2852,7 @@ Model {
 		    Block {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
-		    SID			    "1280::10"
+		    SID			    "1777::10"
 		    Tag			    "Stateflow S-Function path_detector 6"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
@@ -2698,13 +2869,13 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "1280::13"
+		    SID			    "1777::13"
 		    Position		    [460, 171, 480, 189]
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "Iout"
-		    SID			    "1280::5"
+		    SID			    "1777::5"
 		    Position		    [460, 101, 480, 119]
 		    IconDisplay		    "Port number"
 		    }
@@ -2739,7 +2910,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "Low Pass Filter2"
-		  SID			  "1281"
+		  SID			  "1778"
 		  Ports			  [1, 1]
 		  Position		  [100, 158, 210, 202]
 		  PermitHierarchicalResolution "ExplicitOnly"
@@ -2779,14 +2950,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "I"
-		    SID			    "1281::1"
+		    SID			    "1778::1"
 		    Position		    [20, 101, 40, 119]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "1281::11"
+		    SID			    "1778::11"
 		    Ports		    [1, 1]
 		    Position		    [270, 160, 320, 200]
 		    Outputs		    "1"
@@ -2794,8 +2965,8 @@ Model {
 		    Block {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
-		    SID			    "1281::10"
-		    Tag			    "Stateflow S-Function path_detector 3"
+		    SID			    "1778::10"
+		    Tag			    "Stateflow S-Function path_detector 2"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
 		    FunctionName	    "sf_sfun"
@@ -2811,13 +2982,13 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "1281::13"
+		    SID			    "1778::13"
 		    Position		    [460, 171, 480, 189]
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "Iout"
-		    SID			    "1281::5"
+		    SID			    "1778::5"
 		    Position		    [460, 101, 480, 119]
 		    IconDisplay		    "Port number"
 		    }
@@ -2852,14 +3023,14 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "R'"
-		  SID			  "1282"
+		  SID			  "1779"
 		  Position		  [235, 38, 265, 52]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Outport
 		  Name			  "G'"
-		  SID			  "1283"
+		  SID			  "1780"
 		  Position		  [235, 103, 265, 117]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2867,7 +3038,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "B'"
-		  SID			  "1284"
+		  SID			  "1781"
 		  Position		  [235, 173, 265, 187]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2913,7 +3084,7 @@ Model {
 	    Block {
 	      BlockType		      SubSystem
 	      Name		      "Segmentation"
-	      SID		      "1285"
+	      SID		      "1782"
 	      Ports		      [4, 3]
 	      Position		      [680, 110, 925, 175]
 	      MinAlgLoopOccurrences   off
@@ -2941,14 +3112,14 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "L"
-		  SID			  "1286"
+		  SID			  "1783"
 		  Position		  [35, 63, 65, 77]
 		  IconDisplay		  "Port number"
 		}
 		Block {
 		  BlockType		  Inport
 		  Name			  "a"
-		  SID			  "1287"
+		  SID			  "1784"
 		  Position		  [35, 123, 65, 137]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -2956,7 +3127,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "b"
-		  SID			  "1288"
+		  SID			  "1785"
 		  Position		  [35, 173, 65, 187]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -2964,7 +3135,7 @@ Model {
 		Block {
 		  BlockType		  Inport
 		  Name			  "Iter_Segment_Thresh"
-		  SID			  "1289"
+		  SID			  "1786"
 		  Position		  [35, 253, 65, 267]
 		  Port			  "4"
 		  IconDisplay		  "Port number"
@@ -2972,7 +3143,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "LabSegmentation"
-		  SID			  "1290"
+		  SID			  "1787"
 		  Ports			  [5, 1]
 		  Position		  [675, 33, 920, 157]
 		  PermitHierarchicalResolution "ExplicitOnly"
@@ -3012,14 +3183,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "L"
-		    SID			    "1290::1"
+		    SID			    "1787::1"
 		    Position		    [20, 101, 40, 119]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "a"
-		    SID			    "1290::2"
+		    SID			    "1787::2"
 		    Position		    [20, 136, 40, 154]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -3027,7 +3198,7 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "b"
-		    SID			    "1290::3"
+		    SID			    "1787::3"
 		    Position		    [20, 171, 40, 189]
 		    Port		    "3"
 		    IconDisplay		    "Port number"
@@ -3035,7 +3206,7 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "ref_colors"
-		    SID			    "1290::4"
+		    SID			    "1787::4"
 		    Position		    [20, 206, 40, 224]
 		    Port		    "4"
 		    IconDisplay		    "Port number"
@@ -3043,7 +3214,7 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "num_colors"
-		    SID			    "1290::5"
+		    SID			    "1787::5"
 		    Position		    [20, 246, 40, 264]
 		    Port		    "5"
 		    IconDisplay		    "Port number"
@@ -3051,7 +3222,7 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "1290::17"
+		    SID			    "1787::17"
 		    Ports		    [1, 1]
 		    Position		    [270, 220, 320, 260]
 		    Outputs		    "1"
@@ -3059,7 +3230,7 @@ Model {
 		    Block {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
-		    SID			    "1290::16"
+		    SID			    "1787::16"
 		    Tag			    "Stateflow S-Function path_detector 8"
 		    Ports		    [5, 2]
 		    Position		    [180, 100, 230, 220]
@@ -3076,13 +3247,13 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "1290::19"
+		    SID			    "1787::19"
 		    Position		    [460, 231, 480, 249]
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "LabelMatrix"
-		    SID			    "1290::9"
+		    SID			    "1787::9"
 		    Position		    [460, 101, 480, 119]
 		    IconDisplay		    "Port number"
 		    }
@@ -3141,7 +3312,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "Reference Color Selection"
-		  SID			  "1291"
+		  SID			  "1788"
 		  Ports			  [4, 2]
 		  Position		  [335, 128, 475, 197]
 		  PermitHierarchicalResolution "ExplicitOnly"
@@ -3181,14 +3352,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "L"
-		    SID			    "1291::1"
+		    SID			    "1788::1"
 		    Position		    [20, 101, 40, 119]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "a"
-		    SID			    "1291::2"
+		    SID			    "1788::2"
 		    Position		    [20, 136, 40, 154]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -3196,7 +3367,7 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "b"
-		    SID			    "1291::3"
+		    SID			    "1788::3"
 		    Position		    [20, 171, 40, 189]
 		    Port		    "3"
 		    IconDisplay		    "Port number"
@@ -3204,7 +3375,7 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "Dist_Thresh"
-		    SID			    "1291::13"
+		    SID			    "1788::13"
 		    Position		    [20, 206, 40, 224]
 		    Port		    "4"
 		    IconDisplay		    "Port number"
@@ -3212,7 +3383,7 @@ Model {
 		    Block {
 		    BlockType		    Demux
 		    Name		    " Demux "
-		    SID			    "1291::15"
+		    SID			    "1788::15"
 		    Ports		    [1, 1]
 		    Position		    [270, 205, 320, 245]
 		    Outputs		    "1"
@@ -3220,7 +3391,7 @@ Model {
 		    Block {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
-		    SID			    "1291::14"
+		    SID			    "1788::14"
 		    Tag			    "Stateflow S-Function path_detector 11"
 		    Ports		    [4, 3]
 		    Position		    [180, 102, 230, 203]
@@ -3243,20 +3414,20 @@ Model {
 		    Block {
 		    BlockType		    Terminator
 		    Name		    " Terminator "
-		    SID			    "1291::17"
+		    SID			    "1788::17"
 		    Position		    [460, 216, 480, 234]
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "ref_colors"
-		    SID			    "1291::7"
+		    SID			    "1788::7"
 		    Position		    [460, 101, 480, 119]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "num_colors"
-		    SID			    "1291::8"
+		    SID			    "1788::8"
 		    Position		    [460, 136, 480, 154]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -3318,7 +3489,7 @@ Model {
 		Block {
 		  BlockType		  SubSystem
 		  Name			  "Resize"
-		  SID			  "1292"
+		  SID			  "1789"
 		  Ports			  [3, 3]
 		  Position		  [210, 130, 250, 190]
 		  MinAlgLoopOccurrences	  off
@@ -3346,14 +3517,14 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "In1"
-		    SID			    "1293"
+		    SID			    "1790"
 		    Position		    [55, 68, 85, 82]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Inport
 		    Name		    "In2"
-		    SID			    "1294"
+		    SID			    "1791"
 		    Position		    [60, 133, 90, 147]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -3361,7 +3532,7 @@ Model {
 		    Block {
 		    BlockType		    Inport
 		    Name		    "In3"
-		    SID			    "1295"
+		    SID			    "1792"
 		    Position		    [65, 213, 95, 227]
 		    Port		    "3"
 		    IconDisplay		    "Port number"
@@ -3369,7 +3540,7 @@ Model {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Resize"
-		    SID			    "1296"
+		    SID			    "1793"
 		    Ports		    [1, 1]
 		    Position		    [110, 55, 175, 95]
 		    LibraryVersion	    "1.236"
@@ -3405,7 +3576,7 @@ Model {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Resize1"
-		    SID			    "1297"
+		    SID			    "1794"
 		    Ports		    [1, 1]
 		    Position		    [115, 120, 170, 160]
 		    LibraryVersion	    "1.236"
@@ -3441,7 +3612,7 @@ Model {
 		    Block {
 		    BlockType		    Reference
 		    Name		    "Resize2"
-		    SID			    "1298"
+		    SID			    "1795"
 		    Ports		    [1, 1]
 		    Position		    [120, 200, 170, 240]
 		    LibraryVersion	    "1.236"
@@ -3477,14 +3648,14 @@ Model {
 		    Block {
 		    BlockType		    Outport
 		    Name		    "Out1"
-		    SID			    "1299"
+		    SID			    "1796"
 		    Position		    [200, 68, 230, 82]
 		    IconDisplay		    "Port number"
 		    }
 		    Block {
 		    BlockType		    Outport
 		    Name		    "Out2"
-		    SID			    "1300"
+		    SID			    "1797"
 		    Position		    [195, 133, 225, 147]
 		    Port		    "2"
 		    IconDisplay		    "Port number"
@@ -3492,7 +3663,7 @@ Model {
 		    Block {
 		    BlockType		    Outport
 		    Name		    "Out3"
-		    SID			    "1301"
+		    SID			    "1798"
 		    Position		    [195, 213, 225, 227]
 		    Port		    "3"
 		    IconDisplay		    "Port number"
@@ -3538,7 +3709,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "LabelMatrix"
-		  SID			  "1302"
+		  SID			  "1799"
 		  Position		  [1015, 88, 1045, 102]
 		  NamePlacement		  "alternate"
 		  IconDisplay		  "Port number"
@@ -3546,7 +3717,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "num_colors"
-		  SID			  "1303"
+		  SID			  "1800"
 		  Position		  [540, 208, 570, 222]
 		  Port			  "2"
 		  IconDisplay		  "Port number"
@@ -3554,7 +3725,7 @@ Model {
 		Block {
 		  BlockType		  Outport
 		  Name			  "ref_colors"
-		  SID			  "1304"
+		  SID			  "1801"
 		  Position		  [540, 263, 570, 277]
 		  Port			  "3"
 		  IconDisplay		  "Port number"
@@ -3672,14 +3843,14 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "LabelMatrix"
-	      SID		      "1305"
+	      SID		      "1802"
 	      Position		      [1005, 88, 1035, 102]
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
 	      BlockType		      Outport
 	      Name		      "num_colors"
-	      SID		      "1306"
+	      SID		      "1803"
 	      Position		      [1005, 128, 1035, 142]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
@@ -3687,7 +3858,7 @@ Model {
 	    Block {
 	      BlockType		      Outport
 	      Name		      "ref_colors"
-	      SID		      "1307"
+	      SID		      "1804"
 	      Position		      [1005, 168, 1035, 182]
 	      Port		      "3"
 	      IconDisplay	      "Port number"
@@ -3783,127 +3954,127 @@ Model {
 	Block {
 	  BlockType		  Outport
 	  Name			  "Area"
-	  SID			  "1308"
-	  Position		  [1665, 98, 1695, 112]
+	  SID			  "1805"
+	  Position		  [1625, 43, 1655, 57]
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "Centroid"
-	  SID			  "1309"
-	  Position		  [1665, 138, 1695, 152]
+	  SID			  "1806"
+	  Position		  [1625, 83, 1655, 97]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "BBox"
-	  SID			  "1310"
-	  Position		  [1665, 183, 1695, 197]
+	  SID			  "1807"
+	  Position		  [1625, 128, 1655, 142]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "MajorAxis"
-	  SID			  "1311"
-	  Position		  [1665, 228, 1695, 242]
+	  SID			  "1808"
+	  Position		  [1625, 173, 1655, 187]
 	  Port			  "4"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "MinorAxis"
-	  SID			  "1312"
-	  Position		  [1665, 273, 1695, 287]
+	  SID			  "1809"
+	  Position		  [1625, 218, 1655, 232]
 	  Port			  "5"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "Orientation"
-	  SID			  "1313"
-	  Position		  [1665, 318, 1695, 332]
+	  SID			  "1810"
+	  Position		  [1625, 263, 1655, 277]
 	  Port			  "6"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "Eccentricity"
-	  SID			  "1314"
-	  Position		  [1665, 363, 1695, 377]
+	  SID			  "1811"
+	  Position		  [1625, 308, 1655, 322]
 	  Port			  "7"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "Extent"
-	  SID			  "1315"
-	  Position		  [1665, 413, 1695, 427]
+	  SID			  "1812"
+	  Position		  [1625, 358, 1655, 372]
 	  Port			  "8"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "BlobCount"
-	  SID			  "1316"
-	  Position		  [1665, 458, 1695, 472]
+	  SID			  "1813"
+	  Position		  [1625, 403, 1655, 417]
 	  Port			  "9"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "BlobHues"
-	  SID			  "1317"
-	  Position		  [1665, 558, 1695, 572]
+	  SID			  "1814"
+	  Position		  [1625, 503, 1655, 517]
 	  Port			  "10"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "num_colors"
-	  SID			  "1318"
-	  Position		  [1665, 1583, 1695, 1597]
+	  SID			  "1815"
+	  Position		  [1625, 1528, 1655, 1542]
 	  Port			  "11"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "ref_colors"
-	  SID			  "1324"
-	  Position		  [1665, 1633, 1695, 1647]
+	  SID			  "1816"
+	  Position		  [1625, 1578, 1655, 1592]
 	  Port			  "12"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "bw_image"
-	  SID			  "1319"
-	  Position		  [1665, 1483, 1695, 1497]
+	  SID			  "1817"
+	  Position		  [1625, 1428, 1655, 1442]
 	  Port			  "13"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "R_out"
-	  SID			  "1320"
-	  Position		  [1395, 1743, 1425, 1757]
+	  SID			  "1818"
+	  Position		  [1355, 1688, 1385, 1702]
 	  Port			  "14"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "G_out"
-	  SID			  "1321"
-	  Position		  [1395, 1788, 1425, 1802]
+	  SID			  "1819"
+	  Position		  [1355, 1733, 1385, 1747]
 	  Port			  "15"
 	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "B_out"
-	  SID			  "1322"
-	  Position		  [1395, 1833, 1425, 1847]
+	  SID			  "1820"
+	  Position		  [1355, 1778, 1385, 1792]
 	  Port			  "16"
 	  IconDisplay		  "Port number"
 	}
@@ -4072,169 +4243,169 @@ Model {
 	  DstPort		  3
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh1"
+	  SrcBlock		  "white_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  5
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh2"
+	  SrcBlock		  "white_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  6
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh3"
+	  SrcBlock		  "white_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  7
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh4"
+	  SrcBlock		  "white_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  8
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh5"
+	  SrcBlock		  "black_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  9
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh6"
+	  SrcBlock		  "black_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  10
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh7"
+	  SrcBlock		  "black_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  11
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh8"
+	  SrcBlock		  "black_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  12
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh9"
+	  SrcBlock		  "blue_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  13
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh10"
+	  SrcBlock		  "blue_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  14
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh11"
+	  SrcBlock		  "blue_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  15
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh12"
+	  SrcBlock		  "blue_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  16
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh13"
+	  SrcBlock		  "red_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  17
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh14"
+	  SrcBlock		  "red_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  18
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh15"
+	  SrcBlock		  "red_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  19
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh16"
+	  SrcBlock		  "red_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  20
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh24"
+	  SrcBlock		  "orange_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  21
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh25"
+	  SrcBlock		  "orane_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  22
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh26"
+	  SrcBlock		  "orange_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  23
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh27"
+	  SrcBlock		  "orange_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  24
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh28"
+	  SrcBlock		  "yellow_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  25
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh17"
+	  SrcBlock		  "yellow_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  26
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh18"
+	  SrcBlock		  "yellow_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  27
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh19"
+	  SrcBlock		  "yellow_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  28
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh20"
+	  SrcBlock		  "green_al"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  29
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh21"
+	  SrcBlock		  "green_au"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  30
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh22"
+	  SrcBlock		  "breen_bl"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  31
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh23"
+	  SrcBlock		  "green_bu"
 	  SrcPort		  1
 	  DstBlock		  "Blob Extraction"
 	  DstPort		  32
@@ -4242,7 +4413,7 @@ Model {
 	Line {
 	  SrcBlock		  "If"
 	  SrcPort		  1
-	  Points		  [185, 0; 0, 1342; 615, 0]
+	  Points		  [185, 0; 0, 1342]
 	  DstBlock		  "If Action\nSubsystem"
 	  DstPort		  ifaction
 	}
@@ -4284,1551 +4455,261 @@ Model {
       BlockType		      Constant
       Name		      "ColorFilter"
       SID		      "996"
-      Position		      [675, 620, 705, 650]
+      Position		      [350, 565, 380, 595]
       Value		      "0"
-      SampleTime	      "-1"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "ColorFilter1"
-      SID		      "1009"
-      Position		      [3835, 85, 3865, 115]
-      Value		      "2"
-      SampleTime	      "-1"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "ColorFilter2"
-      SID		      "1010"
-      Position		      [3835, 140, 3865, 170]
-      SampleTime	      "-1"
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "ColorFilter3"
-      SID		      "1011"
-      Position		      [3890, 155, 3920, 185]
       SampleTime	      "-1"
     }
     Block {
       BlockType		      Constant
       Name		      "ColorFilter4"
       SID		      "1323"
-      Position		      [675, 500, 705, 530]
-      Value		      "[5]"
+      Position		      [460, 495, 490, 525]
+      Value		      "[5 0 0]"
       SampleTime	      "-1"
-    }
-    Block {
-      BlockType		      DataTypeConversion
-      Name		      "Data Type Conversion1"
-      SID		      "798"
-      Position		      [2490, 678, 2565, 712]
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      DataTypeConversion
-      Name		      "Data Type Conversion2"
-      SID		      "797"
-      Position		      [2225, 678, 2300, 712]
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      DataTypeConversion
-      Name		      "Data Type Conversion3"
-      SID		      "799"
-      Position		      [2225, 783, 2300, 817]
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      DataTypeConversion
-      Name		      "Data Type Conversion4"
-      SID		      "800"
-      Position		      [2605, 783, 2680, 817]
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      DataTypeConversion
-      Name		      "Data Type Conversion5"
-      SID		      "806"
-      Position		      [1355, 588, 1430, 622]
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	off
-    }
-    Block {
-      BlockType		      Constant
-      Name		      "Down_Camera_Dimensions"
-      SID		      "801"
-      Position		      [2785, 793, 2910, 827]
-      Value		      "Down_Camera_Dimensions"
-      SampleTime	      "-1"
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Draw Shapes1"
-      SID		      "803"
-      Ports		      [2, 1]
-      Position		      [3575, 902, 3680, 978]
-      LibraryVersion	      "1.183"
-      DialogController	      "vipDDGCreate"
-      DialogControllerArgs    "DataTag3"
-      SourceBlock	      "viptextngfix/Draw Shapes"
-      SourceType	      "Draw Shapes"
-      shape		      "Lines"
-      fill		      off
-      fillClrSource	      "Specify via dialog"
-      display		      "User-specified value"
-      intensity		      "200"
-      color		      ".2"
-      opacity		      "0.6"
-      viewport		      "Entire image"
-      antialiasing	      off
-      inType		      "Obsolete"
-      imagePorts	      "One multidimensional signal"
-      accumMode		      "Same as product output"
-      accumWordLength	      "32"
-      accumFracLength	      "14"
-      prodOutputMode	      "Binary point scaling"
-      prodOutputWordLength    "32"
-      prodOutputFracLength    "14"
-      memoryMode	      "Specify word length"
-      memoryWordLength	      "16"
-      memoryFracLength	      "15"
-      roundingMode	      "Floor"
-      overflowMode	      off
-      LockScale		      off
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Draw Target1"
-      SID		      "805"
-      Ports		      [4, 3]
-      Position		      [1495, 791, 1650, 854]
-      LibraryVersion	      "1.183"
-      DialogController	      "vipDDGCreate"
-      DialogControllerArgs    "DataTag4"
-      SourceBlock	      "viptextngfix/Draw Markers"
-      SourceType	      "Draw Markers"
-      shape		      "X-mark"
-      size		      "7"
-      fill		      off
-      fillClrSource	      "Specify via dialog"
-      display		      "Black"
-      intensity		      "200"
-      color		      "[0 0 0]"
-      opacity		      "0.6"
-      viewport		      "Entire image"
-      antialiasing	      off
-      inType		      "Obsolete"
-      imagePorts	      "Separate color signals"
-      accumMode		      "Same as product output"
-      accumWordLength	      "32"
-      accumFracLength	      "14"
-      prodOutputMode	      "Binary point scaling"
-      prodOutputWordLength    "32"
-      prodOutputFracLength    "14"
-      memoryMode	      "Specify word length"
-      memoryWordLength	      "16"
-      memoryFracLength	      "15"
-      roundingMode	      "Floor"
-      overflowMode	      off
-      LockScale		      off
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Edge Detection"
-      SID		      "795"
-      Ports		      [1, 1]
-      Position		      [2345, 665, 2445, 725]
-      LibraryVersion	      "1.378"
-      DialogController	      "vipDDGCreate"
-      DialogControllerArgs    "DataTag5"
-      SourceBlock	      "vipanalysis/Edge Detection"
-      SourceType	      "Edge Detection"
-      method		      "Sobel"
-      outputType	      "Binary image"
-      userDefinedThreshold    off
-      thresholdSource	      "Specify via dialog"
-      threshold		      "20"
-      thresholdTuning	      "3"
-      edgeThinning	      on
-      threshold_canny	      "[0.25 0.60]"
-      autoPercent	      "70"
-      sigma		      "1"
-      outputMode	      "Same as first input"
-      outputWordLength	      "16"
-      outputFracLength	      "4"
-      accumMode		      "Same as product output"
-      accumWordLength	      "32"
-      accumFracLength	      "8"
-      prodOutputMode	      "Same as first input"
-      prodOutputWordLength    "32"
-      prodOutputFracLength    "8"
-      roundingMode	      "Floor"
-      overflowMode	      off
-      LockScale		      off
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Hough Lines2"
-      SID		      "804"
-      Ports		      [3, 1]
-      Position		      [3395, 930, 3500, 990]
-      LibraryVersion	      "1.273"
-      DialogController	      "vipDDGCreate"
-      DialogControllerArgs    "DataTag6"
-      SourceBlock	      "viptransforms/Hough Lines"
-      SourceType	      "Hough Lines"
-      sineCompMethod	      "Trigonometric function"
-      thetaRes		      "pi/180"
-      firstCoeffMode	      "Specify word length"
-      firstCoeffWordLength    "16"
-      firstCoeffFracLength    "15"
-      accumMode		      "Same as product output"
-      accumWordLength	      "32"
-      accumFracLength	      "16"
-      prodOutputMode	      "Binary point scaling"
-      prodOutputWordLength    "32"
-      prodOutputFracLength    "16"
-      roundingMode	      "Nearest"
-      overflowMode	      on
-      LockScale		      off
-    }
-    Block {
-      BlockType		      Reference
-      Name		      "Hough Transform1"
-      SID		      "796"
-      Ports		      [1, 3]
-      Position		      [2605, 666, 2710, 724]
-      LibraryVersion	      "1.273"
-      DialogController	      "vipDDGCreate"
-      DialogControllerArgs    "DataTag7"
-      SourceBlock	      "viptransforms/Hough Transform"
-      SourceType	      "Hough Transform"
-      theta_res		      "pi/180"
-      rho_res		      "1"
-      out_theta_rho	      on
-      outdtmode		      "double"
-      firstCoeffMode	      "Binary point scaling"
-      firstCoeffWordLength    "16"
-      firstCoeffFracLength    "14"
-      secondCoeffMode	      "Binary point scaling"
-      secondCoeffWordLength   "32"
-      secondCoeffFracLength   "16"
-      outputMode	      "Binary point scaling"
-      outputWordLength	      "16"
-      outputFracLength	      "0"
-      accumMode		      "Binary point scaling"
-      accumWordLength	      "32"
-      accumFracLength	      "20"
-      prodOutputMode	      "Binary point scaling"
-      prodOutputWordLength    "32"
-      prodOutputFracLength    "20"
-      memoryMode	      "Binary point scaling"
-      memoryWordLength	      "32"
-      memoryFracLength	      "16"
-      roundingMode	      "Nearest"
-      overflowMode	      on
-      LockScale		      off
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "Identify Path Elements"
-      SID		      "802"
-      Ports		      [8, 7]
-      Position		      [2955, 666, 3235, 814]
-      LibraryVersion	      "1.31"
-      PermitHierarchicalResolution "ExplicitOnly"
-      TreatAsAtomicUnit	      on
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      SystemSampleTime	      "[1/30 0]"
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
-      RequestExecContextInheritance off
-      MaskHideContents	      off
-      MaskType		      "Stateflow"
-      MaskDescription	      "Embedded MATLAB block"
-      MaskSelfModifiable      on
-      MaskDisplay	      "disp('path_detection');"
-      MaskIconFrame	      on
-      MaskIconOpaque	      off
-      MaskIconRotate	      "none"
-      MaskPortRotate	      "default"
-      MaskIconUnits	      "autoscale"
-      System {
-	Name			"Identify Path Elements"
-	Location		[257, 457, 812, 717]
-	Open			off
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SIDHighWatermark	"59"
-	Block {
-	  BlockType		  Inport
-	  Name			  "hough_table"
-	  SID			  "802::1"
-	  Position		  [20, 101, 40, 119]
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "theta_in"
-	  SID			  "802::34"
-	  Position		  [20, 136, 40, 154]
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "rho_in"
-	  SID			  "802::35"
-	  Position		  [20, 171, 40, 189]
-	  Port			  "3"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "blob_count"
-	  SID			  "802::56"
-	  Position		  [20, 206, 40, 224]
-	  Port			  "4"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "blob_area"
-	  SID			  "802::55"
-	  Position		  [20, 246, 40, 264]
-	  Port			  "5"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "blob_centroids"
-	  SID			  "802::59"
-	  Position		  [20, 281, 40, 299]
-	  Port			  "6"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "blob_orientation"
-	  SID			  "802::48"
-	  Position		  [20, 316, 40, 334]
-	  Port			  "7"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "Down_Camera_Dimensions"
-	  SID			  "802::41"
-	  Position		  [20, 351, 40, 369]
-	  Port			  "8"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Demux
-	  Name			  " Demux "
-	  SID			  "802::23"
-	  Ports			  [1, 1]
-	  Position		  [270, 355, 320, 395]
-	  Outputs		  "1"
-	}
-	Block {
-	  BlockType		  "S-Function"
-	  Name			  " SFunction "
-	  SID			  "802::22"
-	  Tag			  "Stateflow S-Function path_detector 7"
-	  Ports			  [8, 8]
-	  Position		  [180, 126, 230, 354]
-	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[8 8]"
-	  EnableBusSupport	  on
-	  Port {
-	    PortNumber		    2
-	    Name		    "theta"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    3
-	    Name		    "rho"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    4
-	    Name		    "path_headings"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    5
-	    Name		    "path_found"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    6
-	    Name		    "rho_out"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    7
-	    Name		    "theta_out"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    8
-	    Name		    "orientation"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  " Terminator "
-	  SID			  "802::25"
-	  Position		  [460, 366, 480, 384]
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "theta"
-	  SID			  "802::36"
-	  Position		  [460, 101, 480, 119]
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "rho"
-	  SID			  "802::37"
-	  Position		  [460, 136, 480, 154]
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "path_headings"
-	  SID			  "802::38"
-	  Position		  [460, 171, 480, 189]
-	  Port			  "3"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "path_found"
-	  SID			  "802::33"
-	  Position		  [460, 206, 480, 224]
-	  Port			  "4"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "rho_out"
-	  SID			  "802::53"
-	  Position		  [460, 246, 480, 264]
-	  Port			  "5"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "theta_out"
-	  SID			  "802::54"
-	  Position		  [460, 281, 480, 299]
-	  Port			  "6"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "orientation"
-	  SID			  "802::57"
-	  Position		  [460, 316, 480, 334]
-	  Port			  "7"
-	  IconDisplay		  "Port number"
-	}
-	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  1
-	  DstBlock		  " Demux "
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "hough_table"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "theta_in"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "rho_in"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  3
-	}
-	Line {
-	  SrcBlock		  "blob_count"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  4
-	}
-	Line {
-	  SrcBlock		  "blob_area"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  5
-	}
-	Line {
-	  SrcBlock		  "blob_centroids"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  6
-	}
-	Line {
-	  SrcBlock		  "blob_orientation"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  7
-	}
-	Line {
-	  SrcBlock		  "Down_Camera_Dimensions"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  8
-	}
-	Line {
-	  Name			  "theta"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  2
-	  DstBlock		  "theta"
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "rho"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  3
-	  DstBlock		  "rho"
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "path_headings"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  4
-	  DstBlock		  "path_headings"
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "path_found"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  5
-	  DstBlock		  "path_found"
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "rho_out"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  6
-	  DstBlock		  "rho_out"
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "theta_out"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  7
-	  DstBlock		  "theta_out"
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "orientation"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  8
-	  DstBlock		  "orientation"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  " Demux "
-	  SrcPort		  1
-	  DstBlock		  " Terminator "
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      SubSystem
-      Name		      "Identify Path Elements1"
-      SID		      "934"
-      Ports		      [3, 4]
-      Position		      [3400, 507, 3680, 663]
-      LibraryVersion	      "1.31"
-      PermitHierarchicalResolution "ExplicitOnly"
-      TreatAsAtomicUnit	      on
-      MinAlgLoopOccurrences   off
-      PropExecContextOutsideSubsystem off
-      SystemSampleTime	      "[1/30 0]"
-      RTWSystemCode	      "Auto"
-      FunctionWithSeparateData off
-      Opaque		      off
-      RequestExecContextInheritance off
-      MaskHideContents	      off
-      MaskType		      "Stateflow"
-      MaskDescription	      "Embedded MATLAB block"
-      MaskSelfModifiable      on
-      MaskDisplay	      "disp('choose_path');"
-      MaskIconFrame	      on
-      MaskIconOpaque	      off
-      MaskIconRotate	      "none"
-      MaskPortRotate	      "default"
-      MaskIconUnits	      "autoscale"
-      System {
-	Name			"Identify Path Elements1"
-	Location		[257, 457, 812, 717]
-	Open			off
-	ModelBrowserVisibility	off
-	ModelBrowserWidth	200
-	ScreenColor		"white"
-	PaperOrientation	"landscape"
-	PaperPositionMode	"auto"
-	PaperType		"usletter"
-	PaperUnits		"inches"
-	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
-	TiledPageScale		1
-	ShowPageBoundaries	off
-	ZoomFactor		"100"
-	SIDHighWatermark	"67"
-	Block {
-	  BlockType		  Inport
-	  Name			  "path_headings"
-	  SID			  "934::66"
-	  Position		  [20, 101, 40, 119]
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "path_found"
-	  SID			  "934::67"
-	  Position		  [20, 136, 40, 154]
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "which_path"
-	  SID			  "934::65"
-	  Position		  [20, 171, 40, 189]
-	  Port			  "3"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Demux
-	  Name			  " Demux "
-	  SID			  "934::23"
-	  Ports			  [1, 1]
-	  Position		  [270, 370, 320, 410]
-	  Outputs		  "1"
-	}
-	Block {
-	  BlockType		  "S-Function"
-	  Name			  " SFunction "
-	  SID			  "934::22"
-	  Tag			  "Stateflow S-Function path_detector 1"
-	  Ports			  [3, 5]
-	  Position		  [180, 138, 230, 372]
-	  FunctionName		  "sf_sfun"
-	  PortCounts		  "[3 5]"
-	  EnableBusSupport	  on
-	  Port {
-	    PortNumber		    2
-	    Name		    "target_x"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    3
-	    Name		    "target_y"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    4
-	    Name		    "target_yaw"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	  Port {
-	    PortNumber		    5
-	    Name		    "path_state"
-	    RTWStorageClass	    "Auto"
-	    DataLoggingNameMode	    "SignalName"
-	  }
-	}
-	Block {
-	  BlockType		  Terminator
-	  Name			  " Terminator "
-	  SID			  "934::25"
-	  Position		  [460, 381, 480, 399]
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "target_x"
-	  SID			  "934::61"
-	  Position		  [460, 101, 480, 119]
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "target_y"
-	  SID			  "934::62"
-	  Position		  [460, 136, 480, 154]
-	  Port			  "2"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "target_yaw"
-	  SID			  "934::63"
-	  Position		  [460, 171, 480, 189]
-	  Port			  "3"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Outport
-	  Name			  "path_state"
-	  SID			  "934::64"
-	  Position		  [460, 206, 480, 224]
-	  Port			  "4"
-	  IconDisplay		  "Port number"
-	}
-	Line {
-	  SrcBlock		  " SFunction "
-	  SrcPort		  1
-	  DstBlock		  " Demux "
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "path_headings"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "path_found"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "which_path"
-	  SrcPort		  1
-	  DstBlock		  " SFunction "
-	  DstPort		  3
-	}
-	Line {
-	  Name			  "target_x"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  2
-	  DstBlock		  "target_x"
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "target_y"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  3
-	  DstBlock		  "target_y"
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "target_yaw"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  4
-	  DstBlock		  "target_yaw"
-	  DstPort		  1
-	}
-	Line {
-	  Name			  "path_state"
-	  Labels		  [0, 0; 0, 0]
-	  SrcBlock		  " SFunction "
-	  SrcPort		  5
-	  DstBlock		  "path_state"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  " Demux "
-	  SrcPort		  1
-	  DstBlock		  " Terminator "
-	  DstPort		  1
-	}
-      }
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "TargetSelect"
-      SID		      "1001"
-      Position		      [3970, 93, 4000, 107]
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "TargetFound"
-      SID		      "1002"
-      Position		      [3970, 128, 4000, 142]
-      Port		      "2"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "MaintainHeading"
-      SID		      "1003"
-      Position		      [3970, 163, 4000, 177]
-      Port		      "3"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "TargetX"
-      SID		      "1004"
-      Position		      [3970, 198, 4000, 212]
-      Port		      "4"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "TargetY"
-      SID		      "1005"
-      Position		      [3970, 233, 4000, 247]
-      Port		      "5"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "TargetYaw"
-      SID		      "1006"
-      Position		      [3970, 268, 4000, 282]
-      Port		      "6"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "TargetDetected"
-      SID		      "1007"
-      Position		      [3970, 303, 4000, 317]
-      Port		      "7"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "PathState"
-      SID		      "1008"
-      Position		      [3970, 353, 4000, 367]
-      Port		      "8"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "R"
-      SID		      "774"
-      Position		      [1710, 798, 1740, 812]
-      Port		      "9"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "G"
-      SID		      "775"
-      Position		      [1710, 838, 1740, 852]
-      Port		      "10"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "B"
-      SID		      "776"
-      Position		      [1710, 878, 1740, 892]
-      Port		      "11"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "bw_image"
-      SID		      "777"
-      Position		      [2330, 793, 2360, 807]
-      Port		      "12"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "edge_image"
-      SID		      "778"
-      Position		      [2710, 793, 2740, 807]
-      Port		      "13"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "line_image"
-      SID		      "779"
-      Position		      [3715, 933, 3745, 947]
-      Port		      "14"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "hough_table"
-      SID		      "780"
-      Position		      [2800, 583, 2830, 597]
-      Port		      "15"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "BlobCount"
-      SID		      "781"
-      Position		      [2395, 148, 2425, 162]
-      Port		      "16"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "BlobHues"
-      SID		      "782"
-      Position		      [2395, 188, 2425, 202]
-      Port		      "17"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "Area"
-      SID		      "783"
-      Position		      [2395, 233, 2425, 247]
-      Port		      "18"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "BBox"
-      SID		      "784"
-      Position		      [2395, 273, 2425, 287]
-      Port		      "19"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "Centroid"
-      SID		      "785"
-      Position		      [2395, 308, 2425, 322]
-      Port		      "20"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "Eccentricity"
-      SID		      "786"
-      Position		      [2395, 348, 2425, 362]
-      Port		      "21"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "Extent"
-      SID		      "787"
-      Position		      [2395, 388, 2425, 402]
-      Port		      "22"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "Orientation"
-      SID		      "788"
-      Position		      [2395, 428, 2425, 442]
-      Port		      "23"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "path_headings"
-      SID		      "789"
-      Position		      [3290, 643, 3320, 657]
-      Port		      "24"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "MajorAxis"
-      SID		      "790"
-      Position		      [2395, 478, 2425, 492]
-      Port		      "25"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "MinorAxis"
-      SID		      "791"
-      Position		      [2395, 513, 2425, 527]
-      Port		      "26"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "ref_colors"
-      SID		      "792"
-      Position		      [2395, 618, 2425, 632]
-      Port		      "27"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "theta"
-      SID		      "929"
-      Position		      [3290, 558, 3320, 572]
-      Port		      "28"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "rho"
-      SID		      "930"
-      Position		      [3290, 598, 3320, 612]
-      Port		      "29"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "debug_orientation"
-      SID		      "931"
-      Position		      [3280, 798, 3310, 812]
-      Port		      "30"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "num_colors"
-      SID		      "1013"
-      Position		      [2395, 583, 2425, 597]
-      Port		      "31"
-      IconDisplay	      "Port number"
-    }
-    Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      1
-      Points		      [105, 0; 0, 70; 825, 0]
-      Branch {
-	Points			[565, 0; 0, 535]
-	DstBlock		"Identify Path Elements"
-	DstPort			5
-      }
-      Branch {
-	Points			[0, 25]
-	DstBlock		"Area"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      2
-      Points		      [50, 0; 0, 55]
-      Branch {
-	Points			[855, 0]
-	Branch {
-	  Points		  [0, 80]
-	  DstBlock		  "Centroid"
-	  DstPort		  1
-	}
-	Branch {
-	  Points		  [555, 0; 0, 535]
-	  DstBlock		  "Identify Path Elements"
-	  DstPort		  6
-	}
-      }
-      Branch {
-	Points			[0, 370]
-	DstBlock		"Data Type Conversion5"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      6
-      Points		      [0, -5; 810, 0; 0, 145; 115, 0]
-      Branch {
-	Points			[565, 0; 0, 330]
-	DstBlock		"Identify Path Elements"
-	DstPort			7
-      }
-      Branch {
-	Points			[0, -25]
-	DstBlock		"Orientation"
-	DstPort			1
-      }
     }
     Line {
       SrcBlock		      "R_in"
       SrcPort		      1
-      Points		      [150, 0]
+      Points		      [150, 0; 0, -55]
       DstBlock		      "Blob Analysis"
       DstPort		      1
     }
     Line {
       SrcBlock		      "G_in"
       SrcPort		      1
-      Points		      [150, 0]
+      Points		      [170, 0; 0, -75]
       DstBlock		      "Blob Analysis"
       DstPort		      2
     }
     Line {
       SrcBlock		      "B_in"
       SrcPort		      1
-      Points		      [150, 0]
+      Points		      [170, 0; 0, -95]
       DstBlock		      "Blob Analysis"
       DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Edge Detection"
-      SrcPort		      1
-      DstBlock		      "Data Type Conversion1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Data Type Conversion2"
-      SrcPort		      1
-      DstBlock		      "Edge Detection"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Data Type Conversion1"
-      SrcPort		      1
-      Points		      [10, 0]
-      Branch {
-	DstBlock		"Hough Transform1"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 105]
-	DstBlock		"Data Type Conversion4"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Data Type Conversion3"
-      SrcPort		      1
-      DstBlock		      "bw_image"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Data Type Conversion4"
-      SrcPort		      1
-      DstBlock		      "edge_image"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Hough Transform1"
-      SrcPort		      1
-      Points		      [55, 0]
-      Branch {
-	Points			[170, 0]
-	DstBlock		"Identify Path Elements"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, -85]
-	DstBlock		"hough_table"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Hough Transform1"
-      SrcPort		      2
-      Points		      [30, 0; 0, -5]
-      DstBlock		      "Identify Path Elements"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Hough Transform1"
-      SrcPort		      3
-      Points		      [30, 0; 0, -5]
-      DstBlock		      "Identify Path Elements"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Down_Camera_Dimensions"
-      SrcPort		      1
-      DstBlock		      "Identify Path Elements"
-      DstPort		      8
-    }
-    Line {
-      Labels		      [0, 0]
-      SrcBlock		      "Identify Path Elements"
-      SrcPort		      3
-      Points		      [25, 0]
-      Branch {
-	Points			[10, 0]
-	DstBlock		"path_headings"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, -185]
-	DstBlock		"Identify Path Elements1"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Hough Lines2"
-      SrcPort		      1
-      DstBlock		      "Draw Shapes1"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Draw Shapes1"
-      SrcPort		      1
-      DstBlock		      "line_image"
-      DstPort		      1
-    }
-    Line {
-      Labels		      [0, 0]
-      SrcBlock		      "Identify Path Elements"
-      SrcPort		      4
-      Points		      [120, 0]
-      Branch {
-	Points			[0, -155]
-	DstBlock		"Identify Path Elements1"
-	DstPort			2
-      }
-      Branch {
-	Points			[560, 0; 0, -430]
-	DstBlock		"TargetDetected"
-	DstPort			1
-      }
-    }
-    Line {
-      SrcBlock		      "Identify Path Elements"
-      SrcPort		      1
-      Points		      [5, 0; 0, -115]
-      DstBlock		      "theta"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Identify Path Elements"
-      SrcPort		      2
-      Points		      [0, 5; 10, 0; 0, -100]
-      DstBlock		      "rho"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Identify Path Elements"
-      SrcPort		      7
-      Points		      [15, 0; 0, 5]
-      DstBlock		      "debug_orientation"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Identify Path Elements"
-      SrcPort		      5
-      Points		      [105, 0; 0, 200]
-      DstBlock		      "Hough Lines2"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Identify Path Elements"
-      SrcPort		      6
-      Points		      [100, 0; 0, 160]
-      DstBlock		      "Hough Lines2"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      13
-      Points		      [35, 0; 0, 130; 735, 0]
-      Branch {
-	DstBlock		"Data Type Conversion2"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 105]
-	Branch {
-	  DstBlock		  "Data Type Conversion3"
-	  DstPort		  1
-	}
-	Branch {
-	  Points		  [-45, 0; 0, 90; 1190, 0]
-	  Branch {
-	    Points		    [0, 90]
-	    DstBlock		    "Hough Lines2"
-	    DstPort		    3
-	  }
-	  Branch {
-	    Points		    [135, 0; 0, 30]
-	    DstBlock		    "Draw Shapes1"
-	    DstPort		    1
-	  }
-	}
-      }
-    }
-    Line {
-      SrcBlock		      "WhichPath"
-      SrcPort		      1
-      Points		      [1390, 0]
-      DstBlock		      "Identify Path Elements1"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Identify Path Elements1"
-      SrcPort		      1
-      Points		      [15, 0; 0, -310; 255, 0]
-      DstBlock		      "TargetX"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Identify Path Elements1"
-      SrcPort		      2
-      Points		      [225, 0; 0, -335; 45, 0]
-      DstBlock		      "TargetY"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Identify Path Elements1"
-      SrcPort		      3
-      Points		      [230, 0; 0, -345; 40, 0]
-      DstBlock		      "TargetYaw"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Identify Path Elements1"
-      SrcPort		      4
-      Points		      [245, 0; 0, -285]
-      DstBlock		      "PathState"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "ColorFilter1"
-      SrcPort		      1
-      DstBlock		      "TargetSelect"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "ColorFilter2"
-      SrcPort		      1
-      Points		      [80, 0; 0, -20]
-      DstBlock		      "TargetFound"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "ColorFilter3"
-      SrcPort		      1
-      DstBlock		      "MaintainHeading"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      10
-      Points		      [20, 0; 0, -65; 820, 0; 0, -200]
-      DstBlock		      "BlobHues"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      3
-      Points		      [45, 0; 0, 40; 900, 0; 0, 25]
-      DstBlock		      "BBox"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      7
-      Points		      [5, 0; 0, -20; 915, 0; 0, 20]
-      DstBlock		      "Eccentricity"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      8
-      Points		      [10, 0; 0, -35; 900, 0; 0, 40]
-      DstBlock		      "Extent"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      4
-      Points		      [120, 0; 0, 25; 810, 0; 0, 210]
-      DstBlock		      "MajorAxis"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      5
-      Points		      [0, 5; 925, 0; 0, 230]
-      DstBlock		      "MinorAxis"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      11
-      Points		      [25, 0; 0, -60; 775, 0; 0, 155]
-      DstBlock		      "num_colors"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      12
-      Points		      [40, 0; 0, -75; 750, 0; 0, 170]
-      DstBlock		      "ref_colors"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Data Type Conversion5"
-      SrcPort		      1
-      Points		      [5, 0; 0, 240]
-      DstBlock		      "Draw Target1"
-      DstPort		      4
-    }
-    Line {
-      SrcBlock		      "ColorFilter"
-      SrcPort		      1
-      Points		      [135, 0]
-      DstBlock		      "Blob Analysis"
-      DstPort		      5
     }
     Line {
       SrcBlock		      "ColorFilter4"
       SrcPort		      1
-      Points		      [135, 0]
+      Points		      [190, 0; 0, -280]
       DstBlock		      "Blob Analysis"
       DstPort		      4
     }
     Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      9
-      Points		      [80, 0; 0, -270; 1045, 0]
-      Branch {
-	DstBlock		"BlobCount"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 25; 610, 0]
-	DstBlock		"Identify Path Elements"
-	DstPort			4
-      }
-    }
-    Line {
-      SrcBlock		      "Draw Target1"
+      SrcBlock		      "white_al"
       SrcPort		      1
-      DstBlock		      "R"
-      DstPort		      1
+      DstBlock		      "Blob Analysis"
+      DstPort		      6
     }
     Line {
-      SrcBlock		      "Draw Target1"
-      SrcPort		      2
-      Points		      [15, 0; 0, 20]
-      DstBlock		      "G"
-      DstPort		      1
+      SrcBlock		      "white_au"
+      SrcPort		      1
+      Points		      [40, 0; 0, -25]
+      DstBlock		      "Blob Analysis"
+      DstPort		      7
     }
     Line {
-      SrcBlock		      "Draw Target1"
-      SrcPort		      3
-      Points		      [5, 0; 0, 40]
-      DstBlock		      "B"
-      DstPort		      1
+      SrcBlock		      "white_bl"
+      SrcPort		      1
+      Points		      [50, 0; 0, -50]
+      DstBlock		      "Blob Analysis"
+      DstPort		      8
     }
     Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      14
-      Points		      [125, 0; 0, 200]
-      DstBlock		      "Draw Target1"
-      DstPort		      1
+      SrcBlock		      "white_bu"
+      SrcPort		      1
+      Points		      [60, 0; 0, -75]
+      DstBlock		      "Blob Analysis"
+      DstPort		      9
     }
     Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      15
-      Points		      [125, 0; 0, 180]
-      DstBlock		      "Draw Target1"
-      DstPort		      2
+      SrcBlock		      "black_al"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      10
     }
     Line {
-      SrcBlock		      "Blob Analysis"
-      SrcPort		      16
-      Points		      [270, 0; 0, 160]
-      DstBlock		      "Draw Target1"
-      DstPort		      3
+      SrcBlock		      "black_au"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      11
+    }
+    Line {
+      SrcBlock		      "black_bl"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      12
+    }
+    Line {
+      SrcBlock		      "black_bu"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      13
+    }
+    Line {
+      SrcBlock		      "blue_al"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      14
+    }
+    Line {
+      SrcBlock		      "blue_au"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      15
+    }
+    Line {
+      SrcBlock		      "blue_bl"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      16
+    }
+    Line {
+      SrcBlock		      "blue_bu"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      17
+    }
+    Line {
+      SrcBlock		      "red_al"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      18
+    }
+    Line {
+      SrcBlock		      "red_au"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      19
+    }
+    Line {
+      SrcBlock		      "red_bl"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      20
+    }
+    Line {
+      SrcBlock		      "red_bu"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      21
+    }
+    Line {
+      SrcBlock		      "orange_al"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      22
+    }
+    Line {
+      SrcBlock		      "orane_au"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      23
+    }
+    Line {
+      SrcBlock		      "orange_bl"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      24
+    }
+    Line {
+      SrcBlock		      "orange_bu"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      25
+    }
+    Line {
+      SrcBlock		      "yellow_al"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      26
+    }
+    Line {
+      SrcBlock		      "yellow_au"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      27
+    }
+    Line {
+      SrcBlock		      "yellow_bl"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      28
+    }
+    Line {
+      SrcBlock		      "yellow_bu"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      29
+    }
+    Line {
+      SrcBlock		      "green_al"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      30
+    }
+    Line {
+      SrcBlock		      "green_au"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      31
+    }
+    Line {
+      SrcBlock		      "breen_bl"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      32
+    }
+    Line {
+      SrcBlock		      "green_bu"
+      SrcPort		      1
+      Points		      [85, 0]
+      DstBlock		      "Blob Analysis"
+      DstPort		      33
+    }
+    Line {
+      SrcBlock		      "ColorFilter"
+      SrcPort		      1
+      Points		      [305, 0; 0, -15; 120, 0; 0, -320]
+      DstBlock		      "Blob Analysis"
+      DstPort		      5
     }
     Annotation {
       Name		      "Down-facing camera"
-      Position		      [591, 218]
+      Position		      [411, 233]
     }
     Annotation {
       Name		      "WhichPath\n0 = Use internal default\n1 = Take left path when Y-split encountered\n2 = Take right pa"
       "th"
-      Position		      [598, 141]
+      Position		      [418, 156]
     }
   }
 }
 MatData {
-  NumRecords		  8
-  DataRecord {
-    Tag			    DataTag7
-    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
-    "     %    \"     $    %     0         0    !0   $A/54=(    "
-  }
-  DataRecord {
-    Tag			    DataTag6
-    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
-    "     %    \"     $    *     0         0    \"@   $AO=6=H3&EN97,        "
-  }
-  DataRecord {
-    Tag			    DataTag5
-    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
-    "     %    \"     $    -     0         0    #0   $5D9V5$971E8W1I;VX    "
-  }
-  DataRecord {
-    Tag			    DataTag4
-    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
-    "     %    \"     $    +     0         0    \"P   $1R87=-87)K97)S       "
-  }
-  DataRecord {
-    Tag			    DataTag3
-    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
-    "     %    \"     $    *     0         0    \"@   $1R87=3:&%P97,        "
-  }
+  NumRecords		  3
   DataRecord {
     Tag			    DataTag2
     Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
@@ -5858,13 +4739,13 @@ Stateflow {
     name		    "path_detector"
     created		    "26-Jun-2011 05:43:17"
     isLibrary		    0
-    firstTarget		    136
+    firstTarget		    104
     sfVersion		    75014000.000003
   }
   chart {
     id			    2
-    name		    "Identify Path Elements1"
-    windowPosition	    [488.98 106.448 200.25 189.75]
+    name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
+    windowPosition	    [626.813 9 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
     treeNode		    [0 3 0 0]
@@ -5872,15 +4753,18 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    ssIdHighWaterMark	    46
+    subviewS {
+    }
+    ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    6
-    chartFileNumber	    1
+    chartFileNumber	    2
     disableImplicitCasting  1
     eml {
-      name		      "choose_path"
+      name		      "GaussianBlurr"
     }
+    supportVariableSizing   0
   }
   state {
     id			    3
@@ -5896,13 +4780,26 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [target_x, target_y, target_yaw, path_state] =  choose_path(path_headings, path_found, w"
-      "hich_path)\n%#eml\n\n% Input\n%   which_path = indicates which direction to take; left (1) right (2) or\n%     s"
-      "traight (0)\n\n% Return the relative heading of the path element pointing \"left\" or\n%   \"right\"\nif(which_p"
-      "ath == 1)\n    % Take left path\n    target_yaw = min(path_headings)*180/pi;\nelseif(which_path == 2)\n    % Tak"
-      "e right path\n    target_yaw = max(path_headings)*180/pi;\nelse\n    % Continue straight\n    target_yaw = 0;\ne"
-      "nd\n\ntarget_x = 0;\ntarget_y = 0;\npath_state = 0;\n\nreturn\n"
-      editorLayout	      "100 M4x1[205 227 1080 733]"
+      script		      "function Iout = GaussianBlurr(I)\n% This function calculates the gaussian blur of an intensity im"
+      "age\n\nsigma = sqrt(2);\n\nGrows = 3;    % Gaussian matrix rows\nGcols = 3;    % Gaussian matrix columns\n\n[Iro"
+      "ws Icols] = size(I);\n\nIout = double(zeros(Irows,Icols));\n\nTrows = Irows - Grows + 1;\nTcols = Icols - Gcols "
+      "+ 1;\nItemp = double(zeros(Trows,Tcols));\n\nG = zeros(Grows,Gcols);\n\nFirstRow = ceil(-Grows/2);\nLastRow = fl"
+      "oor(Grows/2);\nFirstCol = ceil(-Gcols/2);\nLastCol = floor(Gcols/2);\nGsum = 0;\nfor i=FirstRow:LastRow\n    for"
+      " j = FirstCol:LastCol\n        G(i-FirstRow+1,j-FirstCol+1) = exp(-(j*j+i*i)/(2*sigma*sigma));\n        Gsum = G"
+      "sum + G(i-FirstRow+1,j-FirstCol+1);\n    end\nend\n\nG = G./Gsum;\n\nItemp = conv2(double(I),double(G),'valid');"
+      "\n\n% reflect boundaries to keep image the same size\n% top\nIout((1:LastRow),(LastCol+1:Icols-LastCol)) = Itemp"
+      "((1:LastRow),(1:Tcols));\n% bottom\nIout((Irows-LastRow+1:Irows),(LastCol+1:Icols-LastCol)) = Itemp((Trows-LastR"
+      "ow+1:Trows),(1:Tcols));\n% left\nIout((1+LastRow:Irows-LastRow),(1:LastCol)) = Itemp((1:Trows),(1:LastCol));\n% "
+      "right\nIout((1+LastRow:Irows-LastRow),(Icols-LastCol+1:Icols)) = Itemp((1:Trows),(Tcols-LastCol+1:Tcols));\n% ce"
+      "nter\nIout((1+LastRow:Irows-LastRow),(1+LastCol:Icols-LastCol)) = Itemp;\n% top left corner\nIout(1:LastRow,1:La"
+      "stCol) = Itemp(1:LastRow,1:LastCol);\n% top right corner\nIout(1:LastRow,Icols-LastCol:Icols) = Itemp(1:LastRow,"
+      "Tcols-LastCol:Tcols);\n% bottom left corner\nIout(Irows-LastRow:Irows,1:LastCol) = Itemp(Trows-LastRow:Trows,1:L"
+      "astCol);\n% bottom right corner\nIout(Irows-LastRow:Irows,Icols-LastCol:Icols) = Itemp(Trows-LastRow:Trows,Tcols"
+      "-LastCol:Tcols);\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
     }
   }
   junction {
@@ -5937,8 +4834,8 @@ Stateflow {
   }
   data {
     id			    6
-    ssIdNumber		    45
-    name		    "path_headings"
+    ssIdNumber		    4
+    name		    "I"
     linkNode		    [2 0 7]
     scope		    INPUT_DATA
     machine		    1
@@ -5949,41 +4846,16 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    7
-    ssIdNumber		    46
-    name		    "path_found"
-    linkNode		    [2 6 8]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    8
-    ssIdNumber		    40
-    name		    "target_x"
-    linkNode		    [2 7 9]
+    ssIdNumber		    5
+    name		    "Iout"
+    linkNode		    [2 6 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -5993,140 +4865,50 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
       frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    9
-    ssIdNumber		    41
-    name		    "target_y"
-    linkNode		    [2 8 10]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    10
-    ssIdNumber		    42
-    name		    "target_yaw"
-    linkNode		    [2 9 11]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    11
-    ssIdNumber		    43
-    name		    "path_state"
-    linkNode		    [2 10 12]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    12
-    ssIdNumber		    44
-    name		    "which_path"
-    linkNode		    [2 11 0]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    13
-    name		    "Identify Path Elements1"
+    id			    8
+    name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
     machine		    1
     chart		    2
   }
   chart {
-    id			    14
+    id			    9
     name		    "Blob Analysis/Blob Extraction"
-    windowPosition	    [555.747 75 200.25 189.75]
+    windowPosition	    [600.747 30 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 15 0 0]
-    firstTransition	    17
-    firstJunction	    16
-    viewObj		    14
+    treeNode		    [0 10 0 0]
+    firstTransition	    12
+    firstJunction	    11
+    viewObj		    9
     machine		    1
     subviewS {
     }
     ssIdHighWaterMark	    61
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    18
-    chartFileNumber	    2
+    firstData		    13
+    chartFileNumber	    3
     disableImplicitCasting  1
     eml {
       name		      "GetBlobInfo"
     }
   }
   state {
-    id			    15
+    id			    10
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    14
-    treeNode		    [14 0 0 0]
+    chart		    9
+    treeNode		    [9 0 0 0]
     superState		    SUBCHART
-    subviewer		    14
+    subviewer		    9
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -6187,16 +4969,16 @@ Stateflow {
     }
   }
   junction {
-    id			    16
+    id			    11
     position		    [23.5747 49.5747 7]
-    chart		    14
-    linkNode		    [14 0 0]
-    subviewer		    14
+    chart		    9
+    linkNode		    [9 0 0]
+    subviewer		    9
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    17
+    id			    12
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -6204,23 +4986,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      16
+      id		      11
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    14
-    linkNode		    [14 0 0]
+    chart		    9
+    linkNode		    [9 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    14
+    subviewer		    9
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    18
+    id			    13
     ssIdNumber		    16
     name		    "LabelMatrix"
-    linkNode		    [14 0 19]
+    linkNode		    [9 0 14]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6235,15 +5017,125 @@ Stateflow {
       }
       complexity	      SF_COMPLEX_INHERITED
       frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    14
+    ssIdNumber		    17
+    name		    "ref_colors"
+    linkNode		    [9 13 15]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    15
+    ssIdNumber		    18
+    name		    "num_colors"
+    linkNode		    [9 14 16]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    16
+    ssIdNumber		    19
+    name		    "blob_count"
+    linkNode		    [9 15 17]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    17
+    ssIdNumber		    11
+    name		    "blob_hues"
+    linkNode		    [9 16 18]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    18
+    ssIdNumber		    20
+    name		    "blob_area"
+    linkNode		    [9 17 19]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    19
-    ssIdNumber		    17
-    name		    "ref_colors"
-    linkNode		    [14 18 20]
-    scope		    INPUT_DATA
+    ssIdNumber		    21
+    name		    "blob_bbox"
+    linkNode		    [9 18 20]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -6256,16 +5148,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    20
-    ssIdNumber		    18
-    name		    "num_colors"
-    linkNode		    [14 19 21]
-    scope		    INPUT_DATA
+    ssIdNumber		    26
+    name		    "blob_major_axis"
+    linkNode		    [9 19 21]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -6278,15 +5170,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    21
-    ssIdNumber		    19
-    name		    "blob_count"
-    linkNode		    [14 20 22]
+    ssIdNumber		    27
+    name		    "blob_minor_axis"
+    linkNode		    [9 20 22]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -6306,9 +5198,9 @@ Stateflow {
   }
   data {
     id			    22
-    ssIdNumber		    11
-    name		    "blob_hues"
-    linkNode		    [14 21 23]
+    ssIdNumber		    22
+    name		    "blob_centroids"
+    linkNode		    [9 21 23]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -6328,9 +5220,9 @@ Stateflow {
   }
   data {
     id			    23
-    ssIdNumber		    20
-    name		    "blob_area"
-    linkNode		    [14 22 24]
+    ssIdNumber		    23
+    name		    "blob_eccentricity"
+    linkNode		    [9 22 24]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -6350,9 +5242,9 @@ Stateflow {
   }
   data {
     id			    24
-    ssIdNumber		    21
-    name		    "blob_bbox"
-    linkNode		    [14 23 25]
+    ssIdNumber		    24
+    name		    "blob_extent"
+    linkNode		    [9 23 25]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -6372,9 +5264,9 @@ Stateflow {
   }
   data {
     id			    25
-    ssIdNumber		    26
-    name		    "blob_major_axis"
-    linkNode		    [14 24 26]
+    ssIdNumber		    25
+    name		    "blob_orientation"
+    linkNode		    [9 24 26]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -6394,10 +5286,10 @@ Stateflow {
   }
   data {
     id			    26
-    ssIdNumber		    27
-    name		    "blob_minor_axis"
-    linkNode		    [14 25 27]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    31
+    name		    "ColorFilter"
+    linkNode		    [9 25 27]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -6410,15 +5302,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    27
-    ssIdNumber		    22
-    name		    "blob_centroids"
-    linkNode		    [14 26 28]
+    ssIdNumber		    32
+    name		    "bw_image"
+    linkNode		    [9 26 28]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -6438,10 +5330,10 @@ Stateflow {
   }
   data {
     id			    28
-    ssIdNumber		    23
-    name		    "blob_eccentricity"
-    linkNode		    [14 27 29]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    34
+    name		    "white_al"
+    linkNode		    [9 27 29]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -6454,16 +5346,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    29
-    ssIdNumber		    24
-    name		    "blob_extent"
-    linkNode		    [14 28 30]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    35
+    name		    "white_au"
+    linkNode		    [9 28 30]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -6476,16 +5368,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    30
-    ssIdNumber		    25
-    name		    "blob_orientation"
-    linkNode		    [14 29 31]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    36
+    name		    "white_bl"
+    linkNode		    [9 29 31]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -6498,15 +5390,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    31
-    ssIdNumber		    31
-    name		    "ColorFilter"
-    linkNode		    [14 30 32]
+    ssIdNumber		    37
+    name		    "white_bu"
+    linkNode		    [9 30 32]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6526,10 +5418,10 @@ Stateflow {
   }
   data {
     id			    32
-    ssIdNumber		    32
-    name		    "bw_image"
-    linkNode		    [14 31 33]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    38
+    name		    "black_al"
+    linkNode		    [9 31 33]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -6542,15 +5434,15 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    33
-    ssIdNumber		    34
-    name		    "white_al"
-    linkNode		    [14 32 34]
+    ssIdNumber		    39
+    name		    "black_au"
+    linkNode		    [9 32 34]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6570,9 +5462,9 @@ Stateflow {
   }
   data {
     id			    34
-    ssIdNumber		    35
-    name		    "white_au"
-    linkNode		    [14 33 35]
+    ssIdNumber		    40
+    name		    "black_bl"
+    linkNode		    [9 33 35]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6592,9 +5484,9 @@ Stateflow {
   }
   data {
     id			    35
-    ssIdNumber		    36
-    name		    "white_bl"
-    linkNode		    [14 34 36]
+    ssIdNumber		    41
+    name		    "black_bu"
+    linkNode		    [9 34 36]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6614,9 +5506,9 @@ Stateflow {
   }
   data {
     id			    36
-    ssIdNumber		    37
-    name		    "white_bu"
-    linkNode		    [14 35 37]
+    ssIdNumber		    42
+    name		    "blue_al"
+    linkNode		    [9 35 37]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6636,9 +5528,9 @@ Stateflow {
   }
   data {
     id			    37
-    ssIdNumber		    38
-    name		    "black_al"
-    linkNode		    [14 36 38]
+    ssIdNumber		    43
+    name		    "blue_au"
+    linkNode		    [9 36 38]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6658,9 +5550,9 @@ Stateflow {
   }
   data {
     id			    38
-    ssIdNumber		    39
-    name		    "black_au"
-    linkNode		    [14 37 39]
+    ssIdNumber		    44
+    name		    "blue_bl"
+    linkNode		    [9 37 39]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6680,9 +5572,9 @@ Stateflow {
   }
   data {
     id			    39
-    ssIdNumber		    40
-    name		    "black_bl"
-    linkNode		    [14 38 40]
+    ssIdNumber		    45
+    name		    "blue_bu"
+    linkNode		    [9 38 40]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6702,9 +5594,9 @@ Stateflow {
   }
   data {
     id			    40
-    ssIdNumber		    41
-    name		    "black_bu"
-    linkNode		    [14 39 41]
+    ssIdNumber		    46
+    name		    "red_al"
+    linkNode		    [9 39 41]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6724,9 +5616,9 @@ Stateflow {
   }
   data {
     id			    41
-    ssIdNumber		    42
-    name		    "blue_al"
-    linkNode		    [14 40 42]
+    ssIdNumber		    47
+    name		    "red_au"
+    linkNode		    [9 40 42]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6746,9 +5638,9 @@ Stateflow {
   }
   data {
     id			    42
-    ssIdNumber		    43
-    name		    "blue_au"
-    linkNode		    [14 41 43]
+    ssIdNumber		    48
+    name		    "red_bl"
+    linkNode		    [9 41 43]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6768,9 +5660,9 @@ Stateflow {
   }
   data {
     id			    43
-    ssIdNumber		    44
-    name		    "blue_bl"
-    linkNode		    [14 42 44]
+    ssIdNumber		    49
+    name		    "red_bu"
+    linkNode		    [9 42 44]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6790,9 +5682,9 @@ Stateflow {
   }
   data {
     id			    44
-    ssIdNumber		    45
-    name		    "blue_bu"
-    linkNode		    [14 43 45]
+    ssIdNumber		    50
+    name		    "orange_al"
+    linkNode		    [9 43 45]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6812,9 +5704,9 @@ Stateflow {
   }
   data {
     id			    45
-    ssIdNumber		    46
-    name		    "red_al"
-    linkNode		    [14 44 46]
+    ssIdNumber		    51
+    name		    "orange_au"
+    linkNode		    [9 44 46]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6834,9 +5726,9 @@ Stateflow {
   }
   data {
     id			    46
-    ssIdNumber		    47
-    name		    "red_au"
-    linkNode		    [14 45 47]
+    ssIdNumber		    52
+    name		    "orange_bl"
+    linkNode		    [9 45 47]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6856,9 +5748,9 @@ Stateflow {
   }
   data {
     id			    47
-    ssIdNumber		    48
-    name		    "red_bl"
-    linkNode		    [14 46 48]
+    ssIdNumber		    53
+    name		    "orange_bu"
+    linkNode		    [9 46 48]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6878,9 +5770,9 @@ Stateflow {
   }
   data {
     id			    48
-    ssIdNumber		    49
-    name		    "red_bu"
-    linkNode		    [14 47 49]
+    ssIdNumber		    54
+    name		    "yellow_al"
+    linkNode		    [9 47 49]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6900,9 +5792,9 @@ Stateflow {
   }
   data {
     id			    49
-    ssIdNumber		    50
-    name		    "orange_al"
-    linkNode		    [14 48 50]
+    ssIdNumber		    55
+    name		    "yellow_au"
+    linkNode		    [9 48 50]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6922,9 +5814,9 @@ Stateflow {
   }
   data {
     id			    50
-    ssIdNumber		    51
-    name		    "orange_au"
-    linkNode		    [14 49 51]
+    ssIdNumber		    56
+    name		    "yellow_bl"
+    linkNode		    [9 49 51]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6944,9 +5836,9 @@ Stateflow {
   }
   data {
     id			    51
-    ssIdNumber		    52
-    name		    "orange_bl"
-    linkNode		    [14 50 52]
+    ssIdNumber		    57
+    name		    "yellow_bu"
+    linkNode		    [9 50 52]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6966,9 +5858,9 @@ Stateflow {
   }
   data {
     id			    52
-    ssIdNumber		    53
-    name		    "orange_bu"
-    linkNode		    [14 51 53]
+    ssIdNumber		    58
+    name		    "green_al"
+    linkNode		    [9 51 53]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -6988,9 +5880,9 @@ Stateflow {
   }
   data {
     id			    53
-    ssIdNumber		    54
-    name		    "yellow_al"
-    linkNode		    [14 52 54]
+    ssIdNumber		    59
+    name		    "green_au"
+    linkNode		    [9 52 54]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -7010,9 +5902,9 @@ Stateflow {
   }
   data {
     id			    54
-    ssIdNumber		    55
-    name		    "yellow_au"
-    linkNode		    [14 53 55]
+    ssIdNumber		    60
+    name		    "green_bl"
+    linkNode		    [9 53 55]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -7032,119 +5924,9 @@ Stateflow {
   }
   data {
     id			    55
-    ssIdNumber		    56
-    name		    "yellow_bl"
-    linkNode		    [14 54 56]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    56
-    ssIdNumber		    57
-    name		    "yellow_bu"
-    linkNode		    [14 55 57]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    57
-    ssIdNumber		    58
-    name		    "green_al"
-    linkNode		    [14 56 58]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    58
-    ssIdNumber		    59
-    name		    "green_au"
-    linkNode		    [14 57 59]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    59
-    ssIdNumber		    60
-    name		    "green_bl"
-    linkNode		    [14 58 60]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    60
     ssIdNumber		    61
     name		    "green_bu"
-    linkNode		    [14 59 0]
+    linkNode		    [9 54 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -7163,163 +5945,28 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    61
+    id			    56
     name		    "Blob Analysis/Blob Extraction"
     machine		    1
-    chart		    14
+    chart		    9
   }
   chart {
-    id			    62
-    name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
-    windowPosition	    [581.813 54 200.25 189.75]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 63 0 0]
-    firstTransition	    65
-    firstJunction	    64
-    viewObj		    62
-    machine		    1
-    subviewS {
-    }
-    ssIdHighWaterMark	    7
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    66
-    chartFileNumber	    3
-    disableImplicitCasting  1
-    eml {
-      name		      "GaussianBlurr"
-    }
-    supportVariableSizing   0
-  }
-  state {
-    id			    63
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    62
-    treeNode		    [62 0 0 0]
-    superState		    SUBCHART
-    subviewer		    62
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function Iout = GaussianBlurr(I)\n% This function calculates the gaussian blur of an intensity im"
-      "age\n\nsigma = sqrt(2);\n\nGrows = 3;    % Gaussian matrix rows\nGcols = 3;    % Gaussian matrix columns\n\n[Iro"
-      "ws Icols] = size(I);\n\nIout = double(zeros(Irows,Icols));\n\nTrows = Irows - Grows + 1;\nTcols = Icols - Gcols "
-      "+ 1;\nItemp = double(zeros(Trows,Tcols));\n\nG = zeros(Grows,Gcols);\n\nFirstRow = ceil(-Grows/2);\nLastRow = fl"
-      "oor(Grows/2);\nFirstCol = ceil(-Gcols/2);\nLastCol = floor(Gcols/2);\nGsum = 0;\nfor i=FirstRow:LastRow\n    for"
-      " j = FirstCol:LastCol\n        G(i-FirstRow+1,j-FirstCol+1) = exp(-(j*j+i*i)/(2*sigma*sigma));\n        Gsum = G"
-      "sum + G(i-FirstRow+1,j-FirstCol+1);\n    end\nend\n\nG = G./Gsum;\n\nItemp = conv2(double(I),double(G),'valid');"
-      "\n\n% reflect boundaries to keep image the same size\n% top\nIout((1:LastRow),(LastCol+1:Icols-LastCol)) = Itemp"
-      "((1:LastRow),(1:Tcols));\n% bottom\nIout((Irows-LastRow+1:Irows),(LastCol+1:Icols-LastCol)) = Itemp((Trows-LastR"
-      "ow+1:Trows),(1:Tcols));\n% left\nIout((1+LastRow:Irows-LastRow),(1:LastCol)) = Itemp((1:Trows),(1:LastCol));\n% "
-      "right\nIout((1+LastRow:Irows-LastRow),(Icols-LastCol+1:Icols)) = Itemp((1:Trows),(Tcols-LastCol+1:Tcols));\n% ce"
-      "nter\nIout((1+LastRow:Irows-LastRow),(1+LastCol:Icols-LastCol)) = Itemp;\n% top left corner\nIout(1:LastRow,1:La"
-      "stCol) = Itemp(1:LastRow,1:LastCol);\n% top right corner\nIout(1:LastRow,Icols-LastCol:Icols) = Itemp(1:LastRow,"
-      "Tcols-LastCol:Tcols);\n% bottom left corner\nIout(Irows-LastRow:Irows,1:LastCol) = Itemp(Trows-LastRow:Trows,1:L"
-      "astCol);\n% bottom right corner\nIout(Irows-LastRow:Irows,Icols-LastCol:Icols) = Itemp(Trows-LastRow:Trows,Tcols"
-      "-LastCol:Tcols);\n\nreturn\n"
-      editorLayout	      "100 M4x1[101 68 1056 606]"
-      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
-      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
-      emlDefaultFimath	      FimathUserSpecified
-    }
-  }
-  junction {
-    id			    64
-    position		    [23.5747 49.5747 7]
-    chart		    62
-    linkNode		    [62 0 0]
-    subviewer		    62
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    65
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      64
-      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    62
-    linkNode		    [62 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    62
-    drawStyle		    SMART
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  data {
-    id			    66
-    ssIdNumber		    4
-    name		    "I"
-    linkNode		    [62 0 67]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    67
-    ssIdNumber		    5
-    name		    "Iout"
-    linkNode		    [62 66 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  instance {
-    id			    68
-    name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
-    machine		    1
-    chart		    62
-  }
-  chart {
-    id			    69
+    id			    57
     name		    "Blob Analysis/If Action\nSubsystem/Filter Image1"
-    windowPosition	    [486.939 -19.433 200.25 189.75]
+    windowPosition	    [531.939 -64.433 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 70 0 0]
-    firstTransition	    72
-    firstJunction	    71
-    viewObj		    69
+    treeNode		    [0 58 0 0]
+    firstTransition	    60
+    firstJunction	    59
+    viewObj		    57
     machine		    1
     subviewS {
     }
     ssIdHighWaterMark	    58
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    73
+    firstData		    61
     chartFileNumber	    4
     disableImplicitCasting  1
     eml {
@@ -7328,14 +5975,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    70
+    id			    58
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    69
-    treeNode		    [69 0 0 0]
+    chart		    57
+    treeNode		    [57 0 0 0]
     superState		    SUBCHART
-    subviewer		    69
+    subviewer		    57
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -7353,16 +6000,16 @@ Stateflow {
     }
   }
   junction {
-    id			    71
+    id			    59
     position		    [23.5747 49.5747 7]
-    chart		    69
-    linkNode		    [69 0 0]
-    subviewer		    69
+    chart		    57
+    linkNode		    [57 0 0]
+    subviewer		    57
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    72
+    id			    60
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -7370,23 +6017,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      71
+      id		      59
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    69
-    linkNode		    [69 0 0]
+    chart		    57
+    linkNode		    [57 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    69
+    subviewer		    57
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    73
+    id			    61
     ssIdNumber		    54
     name		    "LabelMatrix"
-    linkNode		    [69 0 74]
+    linkNode		    [57 0 62]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -7405,10 +6052,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    74
+    id			    62
     ssIdNumber		    55
     name		    "num_colors"
-    linkNode		    [69 73 75]
+    linkNode		    [57 61 63]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -7427,10 +6074,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    75
+    id			    63
     ssIdNumber		    56
     name		    "ref_colors"
-    linkNode		    [69 74 76]
+    linkNode		    [57 62 64]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -7449,10 +6096,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    76
+    id			    64
     ssIdNumber		    41
     name		    "L"
-    linkNode		    [69 75 77]
+    linkNode		    [57 63 65]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -7471,10 +6118,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    77
+    id			    65
     ssIdNumber		    57
     name		    "a"
-    linkNode		    [69 76 78]
+    linkNode		    [57 64 66]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -7493,10 +6140,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    78
+    id			    66
     ssIdNumber		    58
     name		    "b"
-    linkNode		    [69 77 0]
+    linkNode		    [57 65 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -7515,28 +6162,28 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    79
+    id			    67
     name		    "Blob Analysis/If Action\nSubsystem/Filter Image1"
     machine		    1
-    chart		    69
+    chart		    57
   }
   chart {
-    id			    80
+    id			    68
     name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter"
-    windowPosition	    [596.813 39 200.25 189.75]
+    windowPosition	    [641.813 -6 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 81 0 0]
-    firstTransition	    83
-    firstJunction	    82
-    viewObj		    80
+    treeNode		    [0 69 0 0]
+    firstTransition	    71
+    firstJunction	    70
+    viewObj		    68
     machine		    1
     subviewS {
     }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    84
+    firstData		    72
     chartFileNumber	    5
     disableImplicitCasting  1
     eml {
@@ -7545,14 +6192,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    81
+    id			    69
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    80
-    treeNode		    [80 0 0 0]
+    chart		    68
+    treeNode		    [68 0 0 0]
     superState		    SUBCHART
-    subviewer		    80
+    subviewer		    68
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -7581,16 +6228,16 @@ Stateflow {
     }
   }
   junction {
-    id			    82
+    id			    70
     position		    [23.5747 49.5747 7]
-    chart		    80
-    linkNode		    [80 0 0]
-    subviewer		    80
+    chart		    68
+    linkNode		    [68 0 0]
+    subviewer		    68
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    83
+    id			    71
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -7598,23 +6245,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      82
+      id		      70
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    80
-    linkNode		    [80 0 0]
+    chart		    68
+    linkNode		    [68 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    80
+    subviewer		    68
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    84
+    id			    72
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [80 0 85]
+    linkNode		    [68 0 73]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -7630,10 +6277,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    85
+    id			    73
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [80 84 0]
+    linkNode		    [68 72 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -7650,28 +6297,28 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    86
+    id			    74
     name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter"
     machine		    1
-    chart		    80
+    chart		    68
   }
   chart {
-    id			    87
+    id			    75
     name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
-    windowPosition	    [581.813 54 200.25 189.75]
+    windowPosition	    [626.813 9 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 88 0 0]
-    firstTransition	    90
-    firstJunction	    89
-    viewObj		    87
+    treeNode		    [0 76 0 0]
+    firstTransition	    78
+    firstJunction	    77
+    viewObj		    75
     machine		    1
     subviewS {
     }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    91
+    firstData		    79
     chartFileNumber	    6
     disableImplicitCasting  1
     eml {
@@ -7680,14 +6327,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    88
+    id			    76
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    87
-    treeNode		    [87 0 0 0]
+    chart		    75
+    treeNode		    [75 0 0 0]
     superState		    SUBCHART
-    subviewer		    87
+    subviewer		    75
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -7716,16 +6363,16 @@ Stateflow {
     }
   }
   junction {
-    id			    89
+    id			    77
     position		    [23.5747 49.5747 7]
-    chart		    87
-    linkNode		    [87 0 0]
-    subviewer		    87
+    chart		    75
+    linkNode		    [75 0 0]
+    subviewer		    75
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    90
+    id			    78
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -7733,23 +6380,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      89
+      id		      77
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    87
-    linkNode		    [87 0 0]
+    chart		    75
+    linkNode		    [75 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    87
+    subviewer		    75
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    91
+    id			    79
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [87 0 92]
+    linkNode		    [75 0 80]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -7765,10 +6412,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    92
+    id			    80
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [87 91 0]
+    linkNode		    [75 79 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -7785,482 +6432,28 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    93
+    id			    81
     name		    "Blob Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
     machine		    1
-    chart		    87
+    chart		    75
   }
   chart {
-    id			    94
-    name		    "Identify Path Elements"
-    windowPosition	    [473.98 121.448 200.25 189.75]
-    viewLimits		    [0 156.75 0 153.75]
-    screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 95 0 0]
-    firstTransition	    97
-    firstJunction	    96
-    viewObj		    94
-    machine		    1
-    ssIdHighWaterMark	    39
-    decomposition	    CLUSTER_CHART
-    type		    EML_CHART
-    firstData		    98
-    chartFileNumber	    7
-    disableImplicitCasting  1
-    eml {
-      name		      "path_detection"
-    }
-  }
-  state {
-    id			    95
-    labelString		    "eML_blk_kernel()"
-    position		    [18 64.5 118 66]
-    fontSize		    12
-    chart		    94
-    treeNode		    [94 0 0 0]
-    superState		    SUBCHART
-    subviewer		    94
-    ssIdNumber		    1
-    type		    FUNC_STATE
-    decomposition	    CLUSTER_STATE
-    eml {
-      isEML		      1
-      script		      "function [theta, rho, path_headings, path_found, rho_out, theta_out, orientation] = path_detectio"
-      "n(hough_table, theta_in, rho_in, blob_count, blob_area, blob_centroids, blob_orientation, Down_Camera_Dimensions"
-      ")\n%#eml\n\n% This function attempts to identfiy path elements, and returns lines,\n%   information about the pa"
-      "ths that are present, and a true/false\n%   path_found parameter.\n%\n% 5-30-11\n%\n% Input\n%\n% Output\n%  pat"
-      "h_headings = vector of path orientations in terms of headings\n%    relative to the auv (degrees)\n%  rho, theta"
-      " = vectors containing lines determined by Hough Transform,\n%    ordered by number of votes\n%\n% Notes:\n%   Th"
-      "e hough_table is destroyed in this function (acceptable if\n%     hough_table is not an output)\n%   blob_orient"
-      "ation is destroyed\n\n\n% Initialize\nmax_num_lines = 200;  % Considers this many popular lines as candidates\nm"
-      "ax_num_paths = 3;\n\n[rho_length, theta_length] = size(hough_table);\nrows = Down_Camera_Dimensions(1);\ncols = "
-      "Down_Camera_Dimensions(2);\nimage_area = rows*cols;\n\nrho_tol = .1*max(rows,cols);  % Tolerance within which tw"
-      "o lines are coincident\ntheta_tol = 10*pi/180;  % Tolerence within which two slopes are equal (radians)\narea_th"
-      "resh = 0.8;  % Ratio of blob area to image area considered to imply the blob is actually background noise\n\nrho"
-      " = zeros(1,max_num_lines);\ntheta = zeros(1,max_num_lines);\ntheta_hold = zeros(1,max_num_lines);  % theta_hold "
-      "is a copy of theta which gets destroyed\n\nrho_out = zeros(1,max_num_lines);\ntheta_out = zeros(1,max_num_lines)"
-      ";\n\npath_headings = zeros(1,max_num_paths);\npath_locations = zeros(2,max_num_paths);\npath_found = 0;\n%path_f"
-      "ound_vector = zeros(1,max_num_paths);\n\n\n% Identify the most likely max_num_lines lines\nfor( m = 1:max_num_li"
-      "nes )\n    \n    max_votes = 0;\n    i_index = 1;\n    j_index = 1;\n    for i = 1:rho_length\n        for j = 1"
-      ":theta_length\n            if( hough_table(i,j) > max_votes )\n                i_index = i;\n                j_i"
-      "ndex = j;\n                max_votes = hough_table(i,j);\n            end\n        end\n    end\n    \n    if(ma"
-      "x_votes == 0)\n        break;\n    end\n    \n    rho(m) = rho_in(i_index);\n    theta(m) = theta_in(j_index);\n"
-      "    theta_hold(m) = theta_in(j_index);\n    hough_table(i_index,j_index) = 0;\n    \nend    \n\n\n% Correct orie"
-      "ntations to vehicle coordinates\nfor j = 1:blob_count\n    % theta_hold:\n    %   -is between [-pi/2, +pi/2]\n  "
-      "  % blob_orientation:\n    %   -is potentially outside this range\n    %   -needs to be corrected by pi/2 to get"
-      " relative heading\n%    blob_orientation(j) = (pi/2) - blob_orientation(j);\n\n    blob_orientation(j) = mod(pi "
-      "- blob_orientation(j), pi) - pi/2;\n%    if(blob_orientation(j) > pi/2)\n%        blob_orientation(j) = blob_ori"
-      "entation(j) - pi;\n%    elseif(blob_orientation(j) < -pi/2)\n%        blob_orientation(j) = blob_orientation(j) "
-      "+ pi;\n%    end\nend\n\n\n% Compare most popular lines with blob orientations\nc = 1;\nfor p = 1:max_num_paths\n"
-      "    \n    found = 0;\n    for i = 1:max_num_lines\n        for j = 1:blob_count\n            \n            % Sea"
-      "rch for a match between one blob and one line\n            if( abs(theta_hold(i) - blob_orientation(j)) <= theta"
-      "_tol  &&  blob_area(j)/image_area <= area_thresh  &&  (theta_hold(i) ~= 1000 && blob_orientation(j) ~= 1000) )\n"
-      "                path_headings(p) = theta_hold(i);\n%                path_found_vector(p) = \n                pat"
-      "h_locations(1,p) = blob_centroids(1,j);\n                path_locations(2,p) = blob_centroids(2,j);\n           "
-      "     \n                \n                \n                %\n                rho_out(c) = rho(i);\n            "
-      "    theta_out(c) = theta(i);\n                c = c + 1;\n                %/\n                \n                "
-      "\n                theta_hold(i) = 1000;  % Invalid angle; do not want this line to be selected again\n          "
-      "      blob_orientation(j) = 1000;\n                found = 1;\n                break;\n            end\n        "
-      "    \n        end\n        \n        if(found == 1)\n            break;\n        end\n    end\n    \nend\n\n\n% "
-      "Order path_headings to reflect actual path locations (left to right in\n%   image)\nvalue = Down_Camera_Dimensio"
-      "ns(2).*ones(1,max_num_paths);\nj_index = ones(1,max_num_paths);\nfound = zeros(1,max_num_paths);\n\nfor p = 1:ma"
-      "x_num_paths\n    for j = 1:max_num_paths\n        if(path_locations(2,j) < value(p) && found(j) == 0)\n         "
-      "   value(p) = path_locations(2,j);\n            j_index(p) = j;\n        end\n    end\n    found(j_index(p)) = 1"
-      ";\nend\n\nmatr = [path_headings; path_locations];\nfor p = 1:max_num_paths\n    path_headings(p) = matr(1,j_inde"
-      "x(p));\n    path_locations(1,p) = matr(2,j_index(p));\n    path_locations(2,p) = matr(3,j_index(p));\nend\n\n\n\n"
-      "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n% old code \\/ \\/\n\n% Determine which way the 'Y' shape is pointing\n%path_headi"
-      "ngs = sort(path_headings, 2, 'ascend');\n%heading_diff = abs([ path_headings(2) - path_headings(1), path_heading"
-      "s(3) - path_headings(2), path_headings(1) - path_headings(3)]);\n%if(heading_diff(1) < heading_diff(2) && headin"
-      "g_diff(1) < heading_diff(3))\n%    y_heading = path_headings(3);\n%elseif(heading_diff(2) < heading_diff(1) && h"
-      "eading_diff(2) < heading_diff(3))\n%    y_heading = path_headings(1);\n%elseif(heading_diff(3) < heading_diff(1)"
-      " && heading_diff(3) < heading_diff(2))\n%    y_heading = path_headings(2);\n%else\n%    y_heading = 0;\n%end\n\n"
-      "\n\n\n% Determine a good approximation of the median lines (ignore effectively\n%   duplicate lines)\n%{\nrho(1)"
-      " = rho(1);\ntheta(1) = theta(1);\n\nm = 2;\nfor i = 2:max_num_lines\n    \n    % If rho, theta do not match with"
-      "in tolerance, then store as the next\n    %   line\n    if( abs(rho(i) - rho(i-1)) >= 30 )\n        rho_out(m) ="
-      " rho(i);\n        theta_out(m) = theta(i);\n        m = m + 1;\n        if( m > 3 )\n            break;\n       "
-      " end\n    end\n    \nend\n\n\n\n\n% Select the most popular lines assuming that they correspond to the path\n%  "
-      " edges\n%}\n\n\n\n\ntheta = theta_hold;\norientation = blob_orientation;\n\nreturn\n"
-      editorLayout	      "100 M4x1[205 227 1080 733]"
-    }
-  }
-  junction {
-    id			    96
-    position		    [23.5747 49.5747 7]
-    chart		    94
-    linkNode		    [94 0 0]
-    subviewer		    94
-    ssIdNumber		    3
-    type		    CONNECTIVE_JUNCTION
-  }
-  transition {
-    id			    97
-    labelString		    "{eML_blk_kernel();}"
-    labelPosition	    [32.125 19.875 102.544 14.964]
-    fontSize		    12
-    src {
-      intersection	      [0 0 1 0 23.5747 14.625 0 0]
-    }
-    dst {
-      id		      96
-      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
-    }
-    midPoint		    [23.5747 24.9468]
-    chart		    94
-    linkNode		    [94 0 0]
-    dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    94
-    drawStyle		    SMART
-    executionOrder	    1
-    ssIdNumber		    2
-  }
-  data {
-    id			    98
-    ssIdNumber		    4
-    name		    "hough_table"
-    linkNode		    [94 0 99]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    99
-    ssIdNumber		    16
-    name		    "theta_in"
-    linkNode		    [94 98 100]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    100
-    ssIdNumber		    17
-    name		    "rho_in"
-    linkNode		    [94 99 101]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    101
-    ssIdNumber		    36
-    name		    "blob_count"
-    linkNode		    [94 100 102]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    102
-    ssIdNumber		    35
-    name		    "blob_area"
-    linkNode		    [94 101 103]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    103
-    ssIdNumber		    39
-    name		    "blob_centroids"
-    linkNode		    [94 102 104]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    104
-    ssIdNumber		    28
-    name		    "blob_orientation"
-    linkNode		    [94 103 105]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    105
-    ssIdNumber		    21
-    name		    "Down_Camera_Dimensions"
-    linkNode		    [94 104 106]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    106
-    ssIdNumber		    5
-    name		    "theta"
-    linkNode		    [94 105 107]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    107
-    ssIdNumber		    9
-    name		    "rho"
-    linkNode		    [94 106 108]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    108
-    ssIdNumber		    18
-    name		    "path_headings"
-    linkNode		    [94 107 109]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    109
-    ssIdNumber		    15
-    name		    "path_found"
-    linkNode		    [94 108 110]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    110
-    ssIdNumber		    33
-    name		    "rho_out"
-    linkNode		    [94 109 111]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    111
-    ssIdNumber		    34
-    name		    "theta_out"
-    linkNode		    [94 110 112]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  data {
-    id			    112
-    ssIdNumber		    37
-    name		    "orientation"
-    linkNode		    [94 111 0]
-    scope		    OUTPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
-    }
-    dataType		    "Inherit: Same as Simulink"
-  }
-  instance {
-    id			    113
-    name		    "Identify Path Elements"
-    machine		    1
-    chart		    94
-  }
-  chart {
-    id			    114
+    id			    82
     name		    "Blob Analysis/IterativeSegmentation/Segmentation/LabSegmentation"
-    windowPosition	    [551.813 75 200.25 189.75]
+    windowPosition	    [596.813 30 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 115 0 0]
-    firstTransition	    117
-    firstJunction	    116
-    viewObj		    114
+    treeNode		    [0 83 0 0]
+    firstTransition	    85
+    firstJunction	    84
+    viewObj		    82
     machine		    1
     subviewS {
     }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    118
+    firstData		    86
     chartFileNumber	    8
     disableImplicitCasting  1
     eml {
@@ -8269,14 +6462,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    115
+    id			    83
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    114
-    treeNode		    [114 0 0 0]
+    chart		    82
+    treeNode		    [82 0 0 0]
     superState		    SUBCHART
-    subviewer		    114
+    subviewer		    82
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -8295,16 +6488,16 @@ Stateflow {
     }
   }
   junction {
-    id			    116
+    id			    84
     position		    [23.5747 49.5747 7]
-    chart		    114
-    linkNode		    [114 0 0]
-    subviewer		    114
+    chart		    82
+    linkNode		    [82 0 0]
+    subviewer		    82
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    117
+    id			    85
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -8312,23 +6505,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      116
+      id		      84
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    114
-    linkNode		    [114 0 0]
+    chart		    82
+    linkNode		    [82 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    114
+    subviewer		    82
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    118
+    id			    86
     ssIdNumber		    4
     name		    "L"
-    linkNode		    [114 0 119]
+    linkNode		    [82 0 87]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -8344,10 +6537,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    119
+    id			    87
     ssIdNumber		    5
     name		    "LabelMatrix"
-    linkNode		    [114 118 120]
+    linkNode		    [82 86 88]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -8364,10 +6557,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    120
+    id			    88
     ssIdNumber		    6
     name		    "a"
-    linkNode		    [114 119 121]
+    linkNode		    [82 87 89]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -8386,10 +6579,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    121
+    id			    89
     ssIdNumber		    7
     name		    "b"
-    linkNode		    [114 120 122]
+    linkNode		    [82 88 90]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -8408,10 +6601,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    122
+    id			    90
     ssIdNumber		    8
     name		    "ref_colors"
-    linkNode		    [114 121 123]
+    linkNode		    [82 89 91]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -8430,10 +6623,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    123
+    id			    91
     ssIdNumber		    9
     name		    "num_colors"
-    linkNode		    [114 122 0]
+    linkNode		    [82 90 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -8452,28 +6645,28 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    124
+    id			    92
     name		    "Blob Analysis/IterativeSegmentation/Segmentation/LabSegmentation"
     machine		    1
-    chart		    114
+    chart		    82
   }
   chart {
-    id			    125
+    id			    93
     name		    "Blob Analysis/IterativeSegmentation/Segmentation/Reference Color Selection"
-    windowPosition	    [551.813 75 200.25 189.75]
+    windowPosition	    [596.813 30 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 126 0 0]
-    firstTransition	    128
-    firstJunction	    127
-    viewObj		    125
+    treeNode		    [0 94 0 0]
+    firstTransition	    96
+    firstJunction	    95
+    viewObj		    93
     machine		    1
     subviewS {
     }
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    129
+    firstData		    97
     chartFileNumber	    11
     disableImplicitCasting  1
     eml {
@@ -8482,14 +6675,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    126
+    id			    94
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    125
-    treeNode		    [125 0 0 0]
+    chart		    93
+    treeNode		    [93 0 0 0]
     superState		    SUBCHART
-    subviewer		    125
+    subviewer		    93
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -8528,16 +6721,16 @@ Stateflow {
     }
   }
   junction {
-    id			    127
+    id			    95
     position		    [23.5747 49.5747 7]
-    chart		    125
-    linkNode		    [125 0 0]
-    subviewer		    125
+    chart		    93
+    linkNode		    [93 0 0]
+    subviewer		    93
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    128
+    id			    96
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -8545,23 +6738,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      127
+      id		      95
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    125
-    linkNode		    [125 0 0]
+    chart		    93
+    linkNode		    [93 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    125
+    subviewer		    93
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    129
+    id			    97
     ssIdNumber		    4
     name		    "L"
-    linkNode		    [125 0 130]
+    linkNode		    [93 0 98]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -8577,10 +6770,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    130
+    id			    98
     ssIdNumber		    5
     name		    "ref_colors"
-    linkNode		    [125 129 131]
+    linkNode		    [93 97 99]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -8597,10 +6790,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    131
+    id			    99
     ssIdNumber		    6
     name		    "a"
-    linkNode		    [125 130 132]
+    linkNode		    [93 98 100]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -8619,10 +6812,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    132
+    id			    100
     ssIdNumber		    7
     name		    "b"
-    linkNode		    [125 131 133]
+    linkNode		    [93 99 101]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -8641,10 +6834,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    133
+    id			    101
     ssIdNumber		    8
     name		    "num_colors"
-    linkNode		    [125 132 134]
+    linkNode		    [93 100 102]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -8663,10 +6856,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    134
+    id			    102
     ssIdNumber		    10
     name		    "Dist_Thresh"
-    linkNode		    [125 133 0]
+    linkNode		    [93 101 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -8685,22 +6878,22 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    135
+    id			    103
     name		    "Blob Analysis/IterativeSegmentation/Segmentation/Reference Color Selection"
     machine		    1
-    chart		    125
+    chart		    93
   }
   target {
-    id			    136
+    id			    104
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 137]
+    linkNode		    [1 0 105]
   }
   target {
-    id			    137
+    id			    105
     name		    "rtw"
     machine		    1
-    linkNode		    [1 136 0]
+    linkNode		    [1 104 0]
   }
 }

@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1055"
+    ComputedModelVersion    "1.1067"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 29 18:19:16 2011"
+  LastModifiedDate	  "Wed Jun 29 19:09:28 2011"
   RTWModifiedTimeStamp	  231269928
-  ModelVersionFormat	  "1.%<AutoIncrement:1055>"
+  ModelVersionFormat	  "1.%<AutoIncrement:1067>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -647,13 +647,13 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "674"
+    SIDHighWatermark	    "731"
     Block {
       BlockType		      Display
       Name		      "Display"
       SID		      "455"
       Ports		      [1]
-      Position		      [1935, 560, 2025, 590]
+      Position		      [2485, 575, 2575, 605]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -662,7 +662,7 @@ Model {
       Name		      "Display1"
       SID		      "456"
       Ports		      [1]
-      Position		      [1935, 605, 2025, 635]
+      Position		      [2485, 620, 2575, 650]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -671,7 +671,7 @@ Model {
       Name		      "Display10"
       SID		      "457"
       Ports		      [1]
-      Position		      [1925, 930, 2015, 960]
+      Position		      [2475, 945, 2565, 975]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -680,7 +680,7 @@ Model {
       Name		      "Display11"
       SID		      "458"
       Ports		      [1]
-      Position		      [1925, 995, 2015, 1025]
+      Position		      [2475, 1010, 2565, 1040]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -689,7 +689,7 @@ Model {
       Name		      "Display12"
       SID		      "459"
       Ports		      [1]
-      Position		      [1925, 1055, 2015, 1085]
+      Position		      [2475, 1070, 2565, 1100]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -698,7 +698,7 @@ Model {
       Name		      "Display13"
       SID		      "460"
       Ports		      [1]
-      Position		      [1925, 1105, 2015, 1135]
+      Position		      [2475, 1120, 2565, 1150]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -707,7 +707,7 @@ Model {
       Name		      "Display14"
       SID		      "461"
       Ports		      [1]
-      Position		      [1920, 1160, 2010, 1190]
+      Position		      [2470, 1175, 2560, 1205]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -716,7 +716,7 @@ Model {
       Name		      "Display16"
       SID		      "463"
       Ports		      [1]
-      Position		      [1920, 1220, 2010, 1250]
+      Position		      [2470, 1235, 2560, 1265]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -725,7 +725,7 @@ Model {
       Name		      "Display17"
       SID		      "464"
       Ports		      [1]
-      Position		      [1920, 1280, 2010, 1310]
+      Position		      [2470, 1295, 2560, 1325]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -734,7 +734,7 @@ Model {
       Name		      "Display2"
       SID		      "465"
       Ports		      [1]
-      Position		      [1935, 650, 2025, 680]
+      Position		      [2485, 665, 2575, 695]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -743,7 +743,7 @@ Model {
       Name		      "Display3"
       SID		      "672"
       Ports		      [1]
-      Position		      [1920, 1340, 2010, 1370]
+      Position		      [2470, 1355, 2560, 1385]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -752,7 +752,7 @@ Model {
       Name		      "Display7"
       SID		      "470"
       Ports		      [1]
-      Position		      [1925, 780, 2015, 810]
+      Position		      [2475, 795, 2565, 825]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -761,7 +761,7 @@ Model {
       Name		      "Display8"
       SID		      "471"
       Ports		      [1]
-      Position		      [1925, 830, 2015, 860]
+      Position		      [2475, 845, 2565, 875]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -770,16 +770,240 @@ Model {
       Name		      "Display9"
       SID		      "472"
       Ports		      [1]
-      Position		      [1925, 880, 2015, 910]
+      Position		      [2475, 895, 2565, 925]
       Decimation	      "1"
       Lockdown		      off
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh1"
+      SID		      "704"
+      Position		      [1050, 873, 1175, 897]
+      Value		      "white_al"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh10"
+      SID		      "705"
+      Position		      [1050, 1233, 1175, 1257]
+      Value		      "blue_au"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh11"
+      SID		      "706"
+      Position		      [1050, 1273, 1175, 1297]
+      Value		      "blue_bl"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh12"
+      SID		      "707"
+      Position		      [1050, 1313, 1175, 1337]
+      Value		      "blue_bu"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh13"
+      SID		      "708"
+      Position		      [1050, 1353, 1175, 1377]
+      Value		      "red_al"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh14"
+      SID		      "709"
+      Position		      [1050, 1393, 1175, 1417]
+      Value		      "red_au"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh15"
+      SID		      "710"
+      Position		      [1050, 1433, 1175, 1457]
+      Value		      "red_bl"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh16"
+      SID		      "711"
+      Position		      [1050, 1473, 1175, 1497]
+      Value		      "red_bu"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh17"
+      SID		      "712"
+      Position		      [1050, 1713, 1175, 1737]
+      Value		      "yellow_au"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh18"
+      SID		      "713"
+      Position		      [1050, 1753, 1175, 1777]
+      Value		      "yellow_bl"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh19"
+      SID		      "714"
+      Position		      [1050, 1793, 1175, 1817]
+      Value		      "yellow_bu"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh2"
+      SID		      "715"
+      Position		      [1050, 913, 1175, 937]
+      Value		      "white_au"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh20"
+      SID		      "716"
+      Position		      [1050, 1833, 1175, 1857]
+      Value		      "green_al"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh21"
+      SID		      "717"
+      Position		      [1050, 1873, 1175, 1897]
+      Value		      "green_au"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh22"
+      SID		      "718"
+      Position		      [1050, 1913, 1175, 1937]
+      Value		      "green_bl"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh23"
+      SID		      "719"
+      Position		      [1050, 1953, 1175, 1977]
+      Value		      "green_bu"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh24"
+      SID		      "720"
+      Position		      [1050, 1513, 1175, 1537]
+      Value		      "orange_al"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh25"
+      SID		      "721"
+      Position		      [1050, 1553, 1175, 1577]
+      Value		      "orange_au"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh26"
+      SID		      "722"
+      Position		      [1050, 1593, 1175, 1617]
+      Value		      "orange_bl"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh27"
+      SID		      "723"
+      Position		      [1050, 1633, 1175, 1657]
+      Value		      "orange_bu"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh28"
+      SID		      "724"
+      Position		      [1050, 1673, 1175, 1697]
+      Value		      "yellow_al"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh3"
+      SID		      "725"
+      Position		      [1050, 953, 1175, 977]
+      Value		      "white_bl"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh4"
+      SID		      "726"
+      Position		      [1050, 993, 1175, 1017]
+      Value		      "white_bu"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh5"
+      SID		      "727"
+      Position		      [1050, 1033, 1175, 1057]
+      Value		      "black_al"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh6"
+      SID		      "728"
+      Position		      [1050, 1073, 1175, 1097]
+      Value		      "black_au"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh7"
+      SID		      "729"
+      Position		      [1050, 1113, 1175, 1137]
+      Value		      "black_bl"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh8"
+      SID		      "730"
+      Position		      [1050, 1153, 1175, 1177]
+      Value		      "black_bu"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Dist_Thresh9"
+      SID		      "731"
+      Position		      [1050, 1193, 1175, 1217]
+      Value		      "blue_al"
+      SampleTime	      "-1"
     }
     Block {
       BlockType		      Reference
       Name		      "Down Camera"
       SID		      "671"
       Ports		      [3]
-      Position		      [1320, 1180, 1435, 1250]
+      Position		      [1870, 1195, 1985, 1265]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag0"
@@ -804,7 +1028,7 @@ Model {
       SID		      "447"
       Tag		      "vipblks_nd"
       Ports		      [0, 3]
-      Position		      [255, 794, 380, 906]
+      Position		      [235, 749, 360, 861]
       LibraryVersion	      "1.308"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag2"
@@ -835,7 +1059,7 @@ Model {
       Name		      "Forward Camera"
       SID		      "454"
       Ports		      [3]
-      Position		      [1320, 1085, 1435, 1155]
+      Position		      [1870, 1100, 1985, 1170]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag3"
@@ -860,7 +1084,7 @@ Model {
       SID		      "438"
       Tag		      "vipblks_nd"
       Ports		      [0, 3]
-      Position		      [180, 584, 305, 696]
+      Position		      [160, 539, 285, 651]
       LibraryVersion	      "1.308"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag5"
@@ -890,18 +1114,18 @@ Model {
       BlockType		      Constant
       Name		      "ModeSelect"
       SID		      "493"
-      Position		      [600, 995, 630, 1025]
+      Position		      [295, 890, 325, 920]
       SampleTime	      "-1"
     }
     Block {
       BlockType		      ModelReference
       Name		      "Model"
       SID		      "491"
-      Ports		      [13, 32]
-      Position		      [720, 549, 1210, 1466]
+      Ports		      [41, 32]
+      Position		      [1320, 808, 1815, 1822]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.478"
+      ModelReferenceVersion   "1.504"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -917,6 +1141,34 @@ Model {
 	port10			"ProceedToSecondTarget"
 	port11			"DefaultTargetShape"
 	port12			"DefaultTargetColor"
+	port13			"white_al"
+	port14			"white_au"
+	port15			"white_bl"
+	port16			"white_bu"
+	port17			"black_al"
+	port18			"black_au"
+	port19			"black_bl"
+	port20			"black_bu"
+	port21			"blue_al"
+	port22			"blue_au"
+	port23			"blue_bl"
+	port24			"blue_bu"
+	port25			"red_al"
+	port26			"red_au"
+	port27			"red_bl"
+	port28			"red_bu"
+	port29			"orange_al"
+	port30			"orane_au"
+	port31			"orange_bl"
+	port32			"orange_bu"
+	port33			"yellow_al"
+	port34			"yellow_au"
+	port35			"yellow_bl"
+	port36			"yellow_bu"
+	port37			"green_al"
+	port38			"green_au"
+	port39			"breen_bl"
+	port40			"green_bu"
       }
       List {
 	ListType		OutputPortNames
@@ -995,7 +1247,7 @@ Model {
       Name		      "TargetDetected"
       SID		      "583"
       Ports		      [1]
-      Position		      [960, 485, 1050, 515]
+      Position		      [1510, 500, 1600, 530]
       BlockMirror	      on
       NamePlacement	      "alternate"
       Decimation	      "1"
@@ -1006,7 +1258,7 @@ Model {
       Name		      "TargetX"
       SID		      "466"
       Ports		      [1]
-      Position		      [1330, 310, 1420, 340]
+      Position		      [1880, 325, 1970, 355]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -1015,7 +1267,7 @@ Model {
       Name		      "TargetY"
       SID		      "467"
       Ports		      [1]
-      Position		      [1330, 365, 1420, 395]
+      Position		      [1880, 380, 1970, 410]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -1024,7 +1276,7 @@ Model {
       Name		      "TargetYaw"
       SID		      "469"
       Ports		      [1]
-      Position		      [1330, 485, 1420, 515]
+      Position		      [1880, 500, 1970, 530]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -1033,7 +1285,7 @@ Model {
       Name		      "TargetZ"
       SID		      "468"
       Ports		      [1]
-      Position		      [1330, 425, 1420, 455]
+      Position		      [1880, 440, 1970, 470]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -1041,251 +1293,453 @@ Model {
       BlockType		      Constant
       Name		      "WhichPath"
       SID		      "651"
-      Position		      [600, 1065, 630, 1095]
+      Position		      [295, 960, 325, 990]
       SampleTime	      "-1"
     }
     Block {
       BlockType		      Constant
       Name		      "WhichPath1"
       SID		      "673"
-      Position		      [600, 1135, 630, 1165]
+      Position		      [295, 1030, 325, 1060]
       SampleTime	      "-1"
     }
     Line {
       SrcBlock		      "Down Test Image"
       SrcPort		      1
-      Points		      [320, 0]
+      Points		      [320, 0; 0, -145]
       DstBlock		      "Model"
       DstPort		      4
     }
     Line {
       SrcBlock		      "Down Test Image"
       SrcPort		      2
-      Points		      [320, 0]
+      Points		      [320, 0; 0, -160]
       DstBlock		      "Model"
       DstPort		      5
     }
     Line {
       SrcBlock		      "Down Test Image"
       SrcPort		      3
-      Points		      [320, 0]
+      Points		      [320, 0; 0, -175]
       DstBlock		      "Model"
       DstPort		      6
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      2
-      Points		      [0, -10; 705, 0]
+      Points		      [0, -230; 650, 0]
       DstBlock		      "Display1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      8
+      Points		      [0, -250]
       DstBlock		      "Display7"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      9
-      Points		      [695, 0]
+      Points		      [640, 0]
       DstBlock		      "Display8"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      10
-      Points		      [695, 0]
+      Points		      [640, 0]
       DstBlock		      "Display9"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      11
-      Points		      [535, 0; 0, 180]
+      Points		      [480, 0; 0, -85]
       DstBlock		      "Display10"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      12
-      Points		      [525, 0; 0, 210]
+      Points		      [470, 0; 0, -60]
       DstBlock		      "Display11"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      13
-      Points		      [515, 0; 0, 245]
+      Points		      [460, 0; 0, -30]
       DstBlock		      "Display12"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      14
-      Points		      [505, 0; 0, 280]
+      Points		      [450, 0]
       DstBlock		      "Display13"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      15
-      Points		      [495, 0; 0, 310]
+      Points		      [440, 0; 0, 25]
       DstBlock		      "Display14"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      17
-      Points		      [475, 0; 0, 215]
+      Points		      [420, 0; 0, -80]
       DstBlock		      "Display16"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      18
-      Points		      [465, 0; 0, 250]
+      Points		      [410, 0; 0, -50]
       DstBlock		      "Display17"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      1
-      Points		      [190, 0; 0, -15]
+      Points		      [190, 0; 0, 255]
       DstBlock		      "Model"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      2
-      Points		      [190, 0; 0, 20]
+      Points		      [190, 0; 0, 245]
       DstBlock		      "Model"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      3
-      Points		      [190, 0; 0, 55]
+      Points		      [190, 0; 0, 235]
       DstBlock		      "Model"
       DstPort		      3
     }
     Line {
       SrcBlock		      "ModeSelect"
       SrcPort		      1
+      Points		      [355, 0; 0, -220]
       DstBlock		      "Model"
       DstPort		      7
     }
     Line {
       SrcBlock		      "WhichPath"
       SrcPort		      1
+      Points		      [355, 0; 0, -270]
       DstBlock		      "Model"
       DstPort		      8
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      1
-      Points		      [650, 0; 0, -45]
+      Points		      [595, 0; 0, -260]
       DstBlock		      "Display"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      3
-      Points		      [0, -5]
+      Points		      [0, -230]
       DstBlock		      "Display2"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      20
+      Points		      [0, -310]
       DstBlock		      "Forward Camera"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      21
+      Points		      [0, -315]
       DstBlock		      "Forward Camera"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      22
+      Points		      [0, -320]
       DstBlock		      "Forward Camera"
       DstPort		      3
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      23
-      Points		      [40, 0; 0, 20]
+      Points		      [-15, 0; 0, -305]
       DstBlock		      "Down Camera"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      24
-      Points		      [30, 0; 0, 20]
+      Points		      [-25, 0; 0, -310]
       DstBlock		      "Down Camera"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      25
-      Points		      [20, 0; 0, 20]
+      Points		      [-35, 0; 0, -315]
       DstBlock		      "Down Camera"
       DstPort		      3
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      4
-      Points		      [85, 0; 0, -370]
+      Points		      [30, 0; 0, -600]
       DstBlock		      "TargetX"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      5
-      Points		      [90, 0; 0, -340]
+      Points		      [35, 0; 0, -575]
       DstBlock		      "TargetY"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      6
-      Points		      [95, 0; 0, -305]
+      Points		      [40, 0; 0, -545]
       DstBlock		      "TargetZ"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      7
-      Points		      [100, 0]
+      Points		      [45, 0]
       DstBlock		      "TargetYaw"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      16
-      Points		      [20, 0; 0, -495]
+      Points		      [-35, 0; 0, -785]
       DstBlock		      "TargetDetected"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      19
-      Points		      [455, 0; 0, 285]
+      Points		      [400, 0; 0, -20]
       DstBlock		      "Display3"
       DstPort		      1
     }
     Line {
       SrcBlock		      "WhichPath1"
       SrcPort		      1
+      Points		      [355, 0; 0, -320]
       DstBlock		      "Model"
       DstPort		      9
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh1"
+      SrcPort		      1
+      Points		      [25, 0; 0, 255]
+      DstBlock		      "Model"
+      DstPort		      14
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh2"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      15
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh3"
+      SrcPort		      1
+      Points		      [25, 0; 0, 225]
+      DstBlock		      "Model"
+      DstPort		      16
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh4"
+      SrcPort		      1
+      Points		      [25, 0; 0, 210]
+      DstBlock		      "Model"
+      DstPort		      17
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh5"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      18
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh6"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      19
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh7"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      20
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh8"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      21
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh9"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      22
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh10"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      23
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh11"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      24
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh12"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      25
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh13"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      26
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh14"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      27
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh15"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      28
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh16"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      29
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh24"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      30
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh25"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      31
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh26"
+      SrcPort		      1
+      Points		      [60, 0; 0, -15]
+      DstBlock		      "Model"
+      DstPort		      32
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh27"
+      SrcPort		      1
+      Points		      [60, 0; 0, -30]
+      DstBlock		      "Model"
+      DstPort		      33
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh28"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      34
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh17"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      35
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh18"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      36
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh19"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      37
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh20"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      38
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh21"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      39
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh22"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      40
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh23"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      41
     }
     Annotation {
       Name		      "Modes:\n0 = Do not execute any tasks\n1 = Validation gate\n2 = Follow path\n3 = Buoy\n4 = Torpedo\n"
       "5 = L-obstacle\n6 = Drop mecahnism"
-      Position		      [476, 1019]
+      Position		      [191, 974]
     }
   }
 }
