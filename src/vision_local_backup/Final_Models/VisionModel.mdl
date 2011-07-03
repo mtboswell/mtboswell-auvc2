@@ -3,7 +3,7 @@ Model {
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
-    NumRootInports	    7
+    NumRootInports	    36
     Inport {
       BusObject		      ""
       Name		      "R_forward_in"
@@ -30,7 +30,123 @@ Model {
     }
     Inport {
       BusObject		      ""
-      Name		      "ModeSelect4"
+      Name		      "ModeSelect"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "white_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "white_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "white_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "white_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "black_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "black_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "black_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "black_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "blue_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "blue_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "blue_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "blue_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "red_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "red_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "red_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "red_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "orange_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "orane_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "orange_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "orange_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "yellow_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "yellow_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "yellow_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "yellow_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "green_al"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "green_au"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "breen_bl"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "green_bu"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "OutputImage"
     }
     NumRootOutports	    6
     Outport {
@@ -64,7 +180,7 @@ Model {
       Name		      "B_down_out"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.553"
+    ComputedModelVersion    "1.753"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -84,9 +200,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jun 30 15:02:56 2011"
-  RTWModifiedTimeStamp	  231344265
-  ModelVersionFormat	  "1.%<AutoIncrement:553>"
+  LastModifiedDate	  "Sun Jul  3 00:08:37 2011"
+  RTWModifiedTimeStamp	  231550941
+  ModelVersionFormat	  "1.%<AutoIncrement:753>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -619,8 +735,8 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Simulation Target"
-      ConfigPrmDlgPosition    " [ 1444, 78, 2429, 804 ] "
+      CurrentDlgPage	      "Solver"
+      ConfigPrmDlgPosition    " [ 1436, 34, 2437, 812 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -789,9 +905,9 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "64"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "2039"
+    SIDHighWatermark	    "2150"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -847,11 +963,244 @@ Model {
     }
     Block {
       BlockType		      Inport
-      Name		      "ModeSelect4"
+      Name		      "ModeSelect"
       SID		      "2039"
       Position		      [270, 473, 300, 487]
       Port		      "7"
       IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_al"
+      SID		      "2048"
+      Position		      [575, 823, 605, 837]
+      Port		      "8"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_au"
+      SID		      "2049"
+      Position		      [575, 868, 605, 882]
+      Port		      "9"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_bl"
+      SID		      "2050"
+      Position		      [575, 913, 605, 927]
+      Port		      "10"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "white_bu"
+      SID		      "2051"
+      Position		      [575, 958, 605, 972]
+      Port		      "11"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_al"
+      SID		      "2052"
+      Position		      [575, 1003, 605, 1017]
+      Port		      "12"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_au"
+      SID		      "2053"
+      Position		      [575, 1048, 605, 1062]
+      Port		      "13"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_bl"
+      SID		      "2054"
+      Position		      [575, 1093, 605, 1107]
+      Port		      "14"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "black_bu"
+      SID		      "2055"
+      Position		      [575, 1138, 605, 1152]
+      Port		      "15"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_al"
+      SID		      "2056"
+      Position		      [575, 1183, 605, 1197]
+      Port		      "16"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_au"
+      SID		      "2057"
+      Position		      [575, 1228, 605, 1242]
+      Port		      "17"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_bl"
+      SID		      "2058"
+      Position		      [575, 1273, 605, 1287]
+      Port		      "18"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "blue_bu"
+      SID		      "2059"
+      Position		      [575, 1318, 605, 1332]
+      Port		      "19"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_al"
+      SID		      "2060"
+      Position		      [575, 1363, 605, 1377]
+      Port		      "20"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_au"
+      SID		      "2061"
+      Position		      [575, 1408, 605, 1422]
+      Port		      "21"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_bl"
+      SID		      "2062"
+      Position		      [575, 1453, 605, 1467]
+      Port		      "22"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "red_bu"
+      SID		      "2063"
+      Position		      [575, 1498, 605, 1512]
+      Port		      "23"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orange_al"
+      SID		      "2064"
+      Position		      [575, 1543, 605, 1557]
+      Port		      "24"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orane_au"
+      SID		      "2065"
+      Position		      [575, 1588, 605, 1602]
+      Port		      "25"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orange_bl"
+      SID		      "2066"
+      Position		      [575, 1633, 605, 1647]
+      Port		      "26"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "orange_bu"
+      SID		      "2067"
+      Position		      [575, 1678, 605, 1692]
+      Port		      "27"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_al"
+      SID		      "2068"
+      Position		      [575, 1723, 605, 1737]
+      Port		      "28"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_au"
+      SID		      "2069"
+      Position		      [575, 1768, 605, 1782]
+      Port		      "29"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_bl"
+      SID		      "2070"
+      Position		      [575, 1813, 605, 1827]
+      Port		      "30"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "yellow_bu"
+      SID		      "2071"
+      Position		      [575, 1858, 605, 1872]
+      Port		      "31"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "green_al"
+      SID		      "2072"
+      Position		      [575, 1903, 605, 1917]
+      Port		      "32"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "green_au"
+      SID		      "2073"
+      Position		      [575, 1948, 605, 1962]
+      Port		      "33"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "breen_bl"
+      SID		      "2074"
+      Position		      [575, 1993, 605, 2007]
+      Port		      "34"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "green_bu"
+      SID		      "2075"
+      Position		      [575, 2038, 605, 2052]
+      Port		      "35"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "OutputImage"
+      SID		      "2150"
+      Position		      [270, 803, 300, 817]
+      Port		      "36"
+      IconDisplay	      "Port number"
+      PortDimensions	      "Forward_Camera_Dimensions"
     }
     Block {
       BlockType		      SubSystem
@@ -7709,7 +8058,7 @@ Model {
       System {
 	Name			"Forward Filter"
 	Location		[4, 83, 1016, 731]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -7978,18 +8327,21 @@ Model {
       ShowElse		      off
     }
     Block {
-      BlockType		      Constant
-      Name		      "ModeSelect"
-      SID		      "2034"
-      Position		      [475, 725, 505, 755]
-      Value		      "[0]"
-      SampleTime	      "-1"
+      BlockType		      If
+      Name		      "If2"
+      SID		      "2106"
+      Ports		      [1, 6]
+      Position		      [820, 236, 925, 449]
+      IfExpression	      "u1 == 1"
+      ElseIfExpressions	      "u1 == 2, u1 == 3, u1 == 4, u1 == 5, u1 == 6"
+      ShowElse		      off
     }
     Block {
       BlockType		      Constant
       Name		      "ModeSelect1"
       SID		      "2035"
       Position		      [475, 770, 505, 800]
+      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
@@ -8008,10 +8360,1193 @@ Model {
       SampleTime	      "-1"
     }
     Block {
+      BlockType		      Constant
+      Name		      "ModeSelect4"
+      SID		      "2076"
+      Position		      [1075, 985, 1105, 1015]
+      Value		      "0"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "ModeSelectt"
+      SID		      "2034"
+      Position		      [475, 725, 505, 755]
+      Value		      "[1 5]"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Validation Gate"
+      SID		      "2081"
+      Ports		      [2, 10, 0, 0, 0, 0, 0, 1]
+      Position		      [1140, 702, 1320, 1098]
+      LibraryVersion	      "1.225"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Validation Gate"
+	Location		[1440, 50, 3120, 1050]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "bw_image"
+	  SID			  "2110"
+	  Position		  [95, 308, 125, 322]
+	  IconDisplay		  "Port number"
+	  PortDimensions	  "Forward_Camera_Dimensions"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "output_image"
+	  SID			  "2111"
+	  Position		  [95, 343, 125, 357]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  ActionPort
+	  Name			  "Action Port"
+	  SID			  "2109"
+	  Position		  [295, 30, 354, 58]
+	  ActionType		  "then"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  SID			  "2112"
+	  Position		  [435, 365, 465, 395]
+	  Value			  ".6"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  SID			  "2113"
+	  Position		  [435, 430, 465, 460]
+	  Value			  ".47"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant3"
+	  SID			  "2114"
+	  Position		  [920, 125, 950, 155]
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant4"
+	  SID			  "2115"
+	  Position		  [920, 180, 950, 210]
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant5"
+	  SID			  "2116"
+	  Position		  [920, 235, 950, 265]
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Edge Detection"
+	  SID			  "2117"
+	  Ports			  [1, 1]
+	  Position		  [210, 285, 310, 345]
+	  LibraryVersion	  "1.378"
+	  DialogController	  "vipDDGCreate"
+	  DialogControllerArgs	  "DataTag6"
+	  SourceBlock		  "vipanalysis/Edge Detection"
+	  SourceType		  "Edge Detection"
+	  method		  "Sobel"
+	  outputType		  "Binary image"
+	  userDefinedThreshold	  off
+	  thresholdSource	  "Specify via dialog"
+	  threshold		  "0"
+	  thresholdTuning	  "3"
+	  edgeThinning		  on
+	  threshold_canny	  "[0.25 0.60]"
+	  autoPercent		  "70"
+	  sigma			  "1"
+	  outputMode		  "Same as first input"
+	  outputWordLength	  "16"
+	  outputFracLength	  "4"
+	  accumMode		  "Same as product output"
+	  accumWordLength	  "32"
+	  accumFracLength	  "8"
+	  prodOutputMode	  "Same as first input"
+	  prodOutputWordLength	  "32"
+	  prodOutputFracLength	  "8"
+	  roundingMode		  "Floor"
+	  overflowMode		  off
+	  LockScale		  off
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Forward_Camera_Dimensions"
+	  SID			  "2118"
+	  Position		  [340, 493, 465, 517]
+	  Value			  "Forward_Camera_Dimensions"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Forward_Camera_Dimensions1"
+	  SID			  "2119"
+	  Position		  [725, 858, 850, 882]
+	  Value			  "Forward_Camera_Dimensions"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Forward_Fov"
+	  SID			  "2120"
+	  Position		  [340, 548, 465, 572]
+	  Value			  "Forward_Fov"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Hough Transform1"
+	  SID			  "2121"
+	  Ports			  [1, 3]
+	  Position		  [340, 286, 445, 344]
+	  LibraryVersion	  "1.273"
+	  DialogController	  "vipDDGCreate"
+	  DialogControllerArgs	  "DataTag7"
+	  SourceBlock		  "viptransforms/Hough Transform"
+	  SourceType		  "Hough Transform"
+	  theta_res		  "pi/180"
+	  rho_res		  "1"
+	  out_theta_rho		  on
+	  outdtmode		  "double"
+	  firstCoeffMode	  "Binary point scaling"
+	  firstCoeffWordLength	  "16"
+	  firstCoeffFracLength	  "14"
+	  secondCoeffMode	  "Binary point scaling"
+	  secondCoeffWordLength	  "32"
+	  secondCoeffFracLength	  "16"
+	  outputMode		  "Binary point scaling"
+	  outputWordLength	  "16"
+	  outputFracLength	  "0"
+	  accumMode		  "Binary point scaling"
+	  accumWordLength	  "32"
+	  accumFracLength	  "20"
+	  prodOutputMode	  "Binary point scaling"
+	  prodOutputWordLength	  "32"
+	  prodOutputFracLength	  "20"
+	  memoryMode		  "Binary point scaling"
+	  memoryWordLength	  "32"
+	  memoryFracLength	  "16"
+	  roundingMode		  "Nearest"
+	  overflowMode		  on
+	  LockScale		  off
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Identify Validation Gate"
+	  SID			  "2122"
+	  Ports			  [7, 4]
+	  Position		  [525, 287, 805, 453]
+	  LibraryVersion	  "1.31"
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Embedded MATLAB block"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "disp('validation_gate');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "autoscale"
+	  System {
+	    Name		    "Identify Validation Gate"
+	    Location		    [257, 457, 812, 717]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "59"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "hough_table"
+	      SID		      "2122::1"
+	      Position		      [20, 101, 40, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "theta_in"
+	      SID		      "2122::34"
+	      Position		      [20, 136, 40, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "rho_in"
+	      SID		      "2122::35"
+	      Position		      [20, 171, 40, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "target_height"
+	      SID		      "2122::43"
+	      Position		      [20, 206, 40, 224]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "gate_aspect_ratio"
+	      SID		      "2122::42"
+	      Position		      [20, 246, 40, 264]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Forward_Camera_Dimensions"
+	      SID		      "2122::56"
+	      Position		      [20, 281, 40, 299]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Forward_Fov"
+	      SID		      "2122::58"
+	      Position		      [20, 316, 40, 334]
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      SID		      "2122::23"
+	      Ports		      [1, 1]
+	      Position		      [270, 365, 320, 405]
+	      Outputs		      "1"
+	    }
+	    Block {
+	      BlockType		      "S-Function"
+	      Name		      " SFunction "
+	      SID		      "2122::22"
+	      Tag		      "Stateflow S-Function VisionModel 8"
+	      Ports		      [7, 5]
+	      Position		      [180, 123, 230, 367]
+	      FunctionName	      "sf_sfun"
+	      PortCounts	      "[7 5]"
+	      EnableBusSupport	      on
+	      Port {
+		PortNumber		2
+		Name			"target_y"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"target_z"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		4
+		Name			"target_yaw"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		5
+		Name			"gate_found"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      " Terminator "
+	      SID		      "2122::25"
+	      Position		      [460, 376, 480, 394]
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "target_y"
+	      SID		      "2122::39"
+	      Position		      [460, 101, 480, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "target_z"
+	      SID		      "2122::38"
+	      Position		      [460, 136, 480, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "target_yaw"
+	      SID		      "2122::59"
+	      Position		      [460, 171, 480, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "gate_found"
+	      SID		      "2122::33"
+	      Position		      [460, 206, 480, 224]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "hough_table"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "theta_in"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "rho_in"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "target_height"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "gate_aspect_ratio"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "Forward_Camera_Dimensions"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "Forward_Fov"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      7
+	    }
+	    Line {
+	      Name		      "target_y"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      2
+	      DstBlock		      "target_y"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "target_z"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      3
+	      DstBlock		      "target_z"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "target_yaw"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      4
+	      DstBlock		      "target_yaw"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "gate_found"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      5
+	      DstBlock		      "gate_found"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      " Terminator "
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "If Action\nSubsystem"
+	  SID			  "2123"
+	  Ports			  [8, 3, 0, 0, 0, 0, 0, 1]
+	  Position		  [870, 709, 1075, 836]
+	  LibraryVersion	  "1.225"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "If Action\nSubsystem"
+	    Location		    [1548, 131, 2988, 915]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "R_in"
+	      SID		      "2124"
+	      Position		      [130, 158, 160, 172]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "G_in"
+	      SID		      "2125"
+	      Position		      [130, 193, 160, 207]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "B_in"
+	      SID		      "2126"
+	      Position		      [130, 228, 160, 242]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "which_camera"
+	      SID		      "2127"
+	      Position		      [130, 283, 160, 297]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "x_in"
+	      SID		      "2128"
+	      Position		      [130, 323, 160, 337]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "y_in"
+	      SID		      "2129"
+	      Position		      [130, 363, 160, 377]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "z_in"
+	      SID		      "2130"
+	      Position		      [130, 403, 160, 417]
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Camera_Dimensions"
+	      SID		      "2131"
+	      Position		      [130, 443, 160, 457]
+	      Port		      "8"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "2132"
+	      Position		      [170, 15, 229, 43]
+	      ActionType	      "then"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Draw Target"
+	      SID		      "2133"
+	      Ports		      [4, 3]
+	      Position		      [645, 276, 795, 339]
+	      LibraryVersion	      "1.183"
+	      DialogController	      "vipDDGCreate"
+	      DialogControllerArgs    "DataTag8"
+	      SourceBlock	      "viptextngfix/Draw Markers"
+	      SourceType	      "Draw Markers"
+	      shape		      "X-mark"
+	      size		      "7"
+	      fill		      off
+	      fillClrSource	      "Specify via dialog"
+	      display		      "User-specified value"
+	      intensity		      "200"
+	      color		      "[1 0 0]"
+	      opacity		      "0.6"
+	      viewport		      "Entire image"
+	      antialiasing	      off
+	      inType		      "Obsolete"
+	      imagePorts	      "Separate color signals"
+	      accumMode		      "Same as product output"
+	      accumWordLength	      "32"
+	      accumFracLength	      "14"
+	      prodOutputMode	      "Binary point scaling"
+	      prodOutputWordLength    "32"
+	      prodOutputFracLength    "14"
+	      memoryMode	      "Specify word length"
+	      memoryWordLength	      "16"
+	      memoryFracLength	      "15"
+	      roundingMode	      "Floor"
+	      overflowMode	      off
+	      LockScale		      off
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Transform Coordinates3"
+	      SID		      "2134"
+	      Ports		      [5, 1]
+	      Position		      [310, 280, 560, 380]
+	      LibraryVersion	      "1.31"
+	      PermitHierarchicalResolution "ExplicitOnly"
+	      TreatAsAtomicUnit	      on
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      MaskType		      "Stateflow"
+	      MaskDescription	      "Embedded MATLAB block"
+	      MaskSelfModifiable      on
+	      MaskDisplay	      "disp('transform_G2L');"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      off
+	      MaskIconRotate	      "none"
+	      MaskPortRotate	      "default"
+	      MaskIconUnits	      "autoscale"
+	      System {
+		Name			"Transform Coordinates3"
+		Location		[257, 457, 812, 717]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		SIDHighWatermark	"47"
+		Block {
+		  BlockType		  Inport
+		  Name			  "which_camera"
+		  SID			  "2134::47"
+		  Position		  [20, 101, 40, 119]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "x_in"
+		  SID			  "2134::46"
+		  Position		  [20, 136, 40, 154]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "y_in"
+		  SID			  "2134::41"
+		  Position		  [20, 171, 40, 189]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "z_in"
+		  SID			  "2134::45"
+		  Position		  [20, 206, 40, 224]
+		  Port			  "4"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Camera_Dimensions"
+		  SID			  "2134::44"
+		  Position		  [20, 246, 40, 264]
+		  Port			  "5"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Demux
+		  Name			  " Demux "
+		  SID			  "2134::23"
+		  Ports			  [1, 1]
+		  Position		  [270, 270, 320, 310]
+		  Outputs		  "1"
+		}
+		Block {
+		  BlockType		  "S-Function"
+		  Name			  " SFunction "
+		  SID			  "2134::22"
+		  Tag			  "Stateflow S-Function VisionModel 9"
+		  Ports			  [5, 2]
+		  Position		  [180, 108, 230, 272]
+		  FunctionName		  "sf_sfun"
+		  PortCounts		  "[5 2]"
+		  EnableBusSupport	  on
+		  Port {
+		    PortNumber		    2
+		    Name		    "points"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Terminator
+		  Name			  " Terminator "
+		  SID			  "2134::25"
+		  Position		  [460, 281, 480, 299]
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "points"
+		  SID			  "2134::36"
+		  Position		  [460, 101, 480, 119]
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  " SFunction "
+		  SrcPort		  1
+		  DstBlock		  " Demux "
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "which_camera"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "x_in"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "y_in"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "z_in"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  4
+		}
+		Line {
+		  SrcBlock		  "Camera_Dimensions"
+		  SrcPort		  1
+		  DstBlock		  " SFunction "
+		  DstPort		  5
+		}
+		Line {
+		  Name			  "points"
+		  Labels		  [0, 0; 0, 0]
+		  SrcBlock		  " SFunction "
+		  SrcPort		  2
+		  DstBlock		  "points"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  " Demux "
+		  SrcPort		  1
+		  DstBlock		  " Terminator "
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "R_out"
+	      SID		      "2135"
+	      Position		      [870, 283, 900, 297]
+	      IconDisplay	      "Port number"
+	      OutDataTypeStr	      "double"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "G_out"
+	      SID		      "2136"
+	      Position		      [870, 323, 900, 337]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataTypeStr	      "double"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "B_out"
+	      SID		      "2137"
+	      Position		      [870, 363, 900, 377]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataTypeStr	      "double"
+	    }
+	    Line {
+	      SrcBlock		      "which_camera"
+	      SrcPort		      1
+	      DstBlock		      "Transform Coordinates3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "x_in"
+	      SrcPort		      1
+	      Points		      [65, 0; 0, -20]
+	      DstBlock		      "Transform Coordinates3"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "y_in"
+	      SrcPort		      1
+	      Points		      [90, 0; 0, -40]
+	      DstBlock		      "Transform Coordinates3"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "z_in"
+	      SrcPort		      1
+	      Points		      [100, 0; 0, -60]
+	      DstBlock		      "Transform Coordinates3"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "Camera_Dimensions"
+	      SrcPort		      1
+	      Points		      [120, 0; 0, -80]
+	      DstBlock		      "Transform Coordinates3"
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "Draw Target"
+	      SrcPort		      1
+	      DstBlock		      "R_out"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Transform Coordinates3"
+	      SrcPort		      1
+	      DstBlock		      "Draw Target"
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "Draw Target"
+	      SrcPort		      2
+	      Points		      [25, 0; 0, 20]
+	      DstBlock		      "G_out"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Draw Target"
+	      SrcPort		      3
+	      Points		      [15, 0; 0, 40]
+	      DstBlock		      "B_out"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "R_in"
+	      SrcPort		      1
+	      Points		      [465, 0]
+	      DstBlock		      "Draw Target"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "G_in"
+	      SrcPort		      1
+	      Points		      [455, 0; 0, 100]
+	      DstBlock		      "Draw Target"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "B_in"
+	      SrcPort		      1
+	      Points		      [445, 0; 0, 80]
+	      DstBlock		      "Draw Target"
+	      DstPort		      3
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  If
+	  Name			  "If1"
+	  SID			  "2138"
+	  Ports			  [1, 1]
+	  Position		  [825, 616, 925, 654]
+	  ShowElse		  off
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "which_camera"
+	  SID			  "2139"
+	  Position		  [775, 750, 805, 780]
+	  Value			  "0"
+	  SampleTime		  "-1"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TargetSelect"
+	  SID			  "2140"
+	  Position		  [1030, 278, 1060, 292]
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TargetFound"
+	  SID			  "2141"
+	  Position		  [1030, 313, 1060, 327]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "MaintainHeading"
+	  SID			  "2142"
+	  Position		  [1030, 348, 1060, 362]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TargetY"
+	  SID			  "2143"
+	  Position		  [1030, 383, 1060, 397]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TargetZ"
+	  SID			  "2144"
+	  Position		  [1030, 418, 1060, 432]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TargetYaw"
+	  SID			  "2145"
+	  Position		  [1030, 453, 1060, 467]
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TargetDetected"
+	  SID			  "2146"
+	  Position		  [1030, 528, 1060, 542]
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "R"
+	  SID			  "2147"
+	  Position		  [1125, 728, 1155, 742]
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "G"
+	  SID			  "2148"
+	  Position		  [1125, 768, 1155, 782]
+	  Port			  "9"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "B"
+	  SID			  "2149"
+	  Position		  [1125, 808, 1155, 822]
+	  Port			  "10"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  Points		  [40, 0]
+	  DstBlock		  "Identify Validation Gate"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  Points		  [20, 0; 0, -50]
+	  DstBlock		  "Identify Validation Gate"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Constant3"
+	  SrcPort		  1
+	  Points		  [50, 0; 0, 145]
+	  DstBlock		  "TargetSelect"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant4"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, 125]
+	  DstBlock		  "TargetFound"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant5"
+	  SrcPort		  1
+	  Points		  [20, 0; 0, 105]
+	  DstBlock		  "MaintainHeading"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Forward_Camera_Dimensions"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, -85]
+	  DstBlock		  "Identify Validation Gate"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "Forward_Fov"
+	  SrcPort		  1
+	  Points		  [40, 0]
+	  DstBlock		  "Identify Validation Gate"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "Identify Validation Gate"
+	  SrcPort		  1
+	  Points		  [30, 0]
+	  Branch {
+	    Points		    [70, 0; 0, 80]
+	    DstBlock		    "TargetY"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 485]
+	    DstBlock		    "If Action\nSubsystem"
+	    DstPort		    6
+	  }
+	}
+	Line {
+	  SrcBlock		  "Identify Validation Gate"
+	  SrcPort		  2
+	  Points		  [35, 0]
+	  Branch {
+	    Points		    [55, 0; 0, 75]
+	    DstBlock		    "TargetZ"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 460]
+	    DstBlock		    "If Action\nSubsystem"
+	    DstPort		    7
+	  }
+	}
+	Line {
+	  SrcBlock		  "Identify Validation Gate"
+	  SrcPort		  4
+	  Points		  [80, 0; 0, 105]
+	  DstBlock		  "TargetDetected"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Identify Validation Gate"
+	  SrcPort		  3
+	  Points		  [85, 0; 0, 70]
+	  DstBlock		  "TargetYaw"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "If1"
+	  SrcPort		  1
+	  Points		  [40, 0]
+	  DstBlock		  "If Action\nSubsystem"
+	  DstPort		  ifaction
+	}
+	Line {
+	  SrcBlock		  "which_camera"
+	  SrcPort		  1
+	  DstBlock		  "If Action\nSubsystem"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "output_image"
+	  SrcPort		  1
+	  Points		  [40, 0; 0, 285]
+	  DstBlock		  "If1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem"
+	  SrcPort		  1
+	  DstBlock		  "R"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem"
+	  SrcPort		  2
+	  DstBlock		  "G"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "If Action\nSubsystem"
+	  SrcPort		  3
+	  DstBlock		  "B"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "bw_image"
+	  SrcPort		  1
+	  Points		  [55, 0]
+	  Branch {
+	    Points		    [0, 405; 640, 0]
+	    Branch {
+	      DstBlock		      "If Action\nSubsystem"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [0, 15]
+	      Branch {
+		DstBlock		"If Action\nSubsystem"
+		DstPort			2
+	      }
+	      Branch {
+		Points			[0, 15]
+		DstBlock		"If Action\nSubsystem"
+		DstPort			3
+	      }
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "Edge Detection"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Forward_Camera_Dimensions1"
+	  SrcPort		  1
+	  DstBlock		  "If Action\nSubsystem"
+	  DstPort		  8
+	}
+	Line {
+	  SrcBlock		  "Hough Transform1"
+	  SrcPort		  1
+	  DstBlock		  "Identify Validation Gate"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Hough Transform1"
+	  SrcPort		  2
+	  Points		  [30, 0; 0, 5]
+	  DstBlock		  "Identify Validation Gate"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Hough Transform1"
+	  SrcPort		  3
+	  Points		  [30, 0; 0, 10]
+	  DstBlock		  "Identify Validation Gate"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Edge Detection"
+	  SrcPort		  1
+	  DstBlock		  "Hough Transform1"
+	  DstPort		  1
+	}
+	Annotation {
+	  Name			  "Notes:\n1. The validation_gate function outputs target\ninformation using a potentially dangerous\nassump"
+	  "tion, that the target points \"up\". May\nwant to add a safeguard."
+	  Position		  [637, 167]
+	}
+      }
+    }
+    Block {
       BlockType		      Outport
       Name		      "R_forward_out"
       SID		      "348"
-      Position		      [1005, 1878, 1035, 1892]
+      Position		      [1460, 993, 1490, 1007]
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
@@ -8019,7 +9554,7 @@ Model {
       BlockType		      Outport
       Name		      "G_forward_out"
       SID		      "349"
-      Position		      [1005, 1948, 1035, 1962]
+      Position		      [1460, 1053, 1490, 1067]
       Port		      "2"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -8028,7 +9563,7 @@ Model {
       BlockType		      Outport
       Name		      "B_forward_out"
       SID		      "350"
-      Position		      [1005, 2018, 1035, 2032]
+      Position		      [1460, 1113, 1490, 1127]
       Port		      "3"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -8155,7 +9690,7 @@ Model {
       DstPort		      3
     }
     Line {
-      SrcBlock		      "ModeSelect"
+      SrcBlock		      "ModeSelectt"
       SrcPort		      1
       DstBlock		      "Blob_Analysis"
       DstPort		      4
@@ -8179,9 +9714,246 @@ Model {
       DstPort		      5
     }
     Line {
+      SrcBlock		      "ModeSelect"
+      SrcPort		      1
+      Points		      [20, 0]
+      Branch {
+	DstBlock		"If1"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -140]
+	DstBlock		"If2"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis1"
+      SrcPort		      14
+      Points		      [55, 0; 0, 40]
+      DstBlock		      "R_down_out"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis1"
+      SrcPort		      15
+      Points		      [55, 0; 0, 15]
+      DstBlock		      "G_down_out"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis1"
+      SrcPort		      16
+      Points		      [55, 0; 0, -10]
+      DstBlock		      "B_down_out"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      11
+      Points		      [100, 0; 0, -765]
+      DstBlock		      "Validation Gate"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "white_al"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      6
+    }
+    Line {
+      SrcBlock		      "white_au"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      7
+    }
+    Line {
+      SrcBlock		      "white_bl"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      8
+    }
+    Line {
+      SrcBlock		      "white_bu"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      9
+    }
+    Line {
+      SrcBlock		      "black_al"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      10
+    }
+    Line {
+      SrcBlock		      "black_au"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      11
+    }
+    Line {
+      SrcBlock		      "black_bl"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      12
+    }
+    Line {
+      SrcBlock		      "black_bu"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      13
+    }
+    Line {
+      SrcBlock		      "blue_al"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      14
+    }
+    Line {
+      SrcBlock		      "blue_au"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      15
+    }
+    Line {
+      SrcBlock		      "blue_bl"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      16
+    }
+    Line {
+      SrcBlock		      "blue_bu"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      17
+    }
+    Line {
+      SrcBlock		      "red_al"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      18
+    }
+    Line {
+      SrcBlock		      "red_au"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      19
+    }
+    Line {
+      SrcBlock		      "red_bl"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      20
+    }
+    Line {
+      SrcBlock		      "red_bu"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      21
+    }
+    Line {
+      SrcBlock		      "orange_al"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      22
+    }
+    Line {
+      SrcBlock		      "orane_au"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      23
+    }
+    Line {
+      SrcBlock		      "orange_bl"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      24
+    }
+    Line {
+      SrcBlock		      "orange_bu"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      25
+    }
+    Line {
+      SrcBlock		      "yellow_al"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      26
+    }
+    Line {
+      SrcBlock		      "yellow_au"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      27
+    }
+    Line {
+      SrcBlock		      "yellow_bl"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      28
+    }
+    Line {
+      SrcBlock		      "yellow_bu"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      29
+    }
+    Line {
+      SrcBlock		      "green_al"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      30
+    }
+    Line {
+      SrcBlock		      "green_au"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      31
+    }
+    Line {
+      SrcBlock		      "breen_bl"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      32
+    }
+    Line {
+      SrcBlock		      "green_bu"
+      SrcPort		      1
+      DstBlock		      "Blob_Analysis"
+      DstPort		      33
+    }
+    Line {
       SrcBlock		      "ModeSelect4"
       SrcPort		      1
-      DstBlock		      "If1"
+      DstBlock		      "Validation Gate"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "If2"
+      SrcPort		      1
+      Points		      [300, 0]
+      DstBlock		      "Validation Gate"
+      DstPort		      ifaction
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      8
+      DstBlock		      "R_forward_out"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      9
+      Points		      [110, 0; 0, 20]
+      DstBlock		      "G_forward_out"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Validation Gate"
+      SrcPort		      10
+      Points		      [60, 0; 0, 40]
+      DstBlock		      "B_forward_out"
       DstPort		      1
     }
     Annotation {
@@ -8203,7 +9975,22 @@ Model {
   }
 }
 MatData {
-  NumRecords		  6
+  NumRecords		  9
+  DataRecord {
+    Tag			    DataTag8
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    +     0         0    \"P   $1R87=-87)K97)S       "
+  }
+  DataRecord {
+    Tag			    DataTag7
+    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
+    "     %    \"     $    %     0         0    !0   $A/54=(    "
+  }
+  DataRecord {
+    Tag			    DataTag6
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    -     0         0    #0   $5D9V5$971E8W1I;VX    "
+  }
   DataRecord {
     Tag			    DataTag5
     Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
@@ -8248,7 +10035,7 @@ Stateflow {
     name		    "VisionModel"
     created		    "30-May-2011 12:35:50"
     isLibrary		    0
-    firstTarget		    204
+    firstTarget		    231
     sfVersion		    75014000.000003
   }
   chart {
@@ -8262,8 +10049,6 @@ Stateflow {
     firstJunction	    4
     viewObj		    2
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    108
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -8319,26 +10104,29 @@ Stateflow {
       "tputPort',true,...\n        'EccentricityOutputPort',true,'ExtentOutputPort',true,'NumBlobsOutputPort',true,...\n"
       "        'MinimumBlobAreaSource','Property','MinimumBlobArea', min_blob_area);\nend\n\n\n% Calculate geometric in"
       "formation about the blobs\n%\n% LogicMatrix is a binary version of LabelMatrix, with ones at all\n%   locations "
-      "for which color values are k, and zeros everywhere else\ncondition0 = (num_col_filter == 0);\nfor k = 1:num_colo"
-      "rs\n    \n    condition1 = 0;\n    \n    if(condition0)\n        condition1 = 1;\n    else\n        a = ref_colo"
-      "rs(k, 2);\n        b = ref_colors(k, 3);\n        for i = 1:num_col_filter\n            if( a >= a_range(1,i) &&"
-      " a <= a_range(2,i) && b >= b_range(1,i) && b <= b_range(2,i)  &&  (a_range(1,i)~=0 && a_range(2,i)~=0) )\n      "
-      "          condition1 = 1;\n                break;\n            end\n        end\n    end\n    \n    if( conditio"
-      "n1 == 1 )\n        \n        for i = 1:rows\n            for j = 1:cols\n                if(LabelMatrix(i,j) ~= "
-      "k)\n                    LogicMatrix(i,j) = false;\n                else\n                    LogicMatrix(i,j) = "
-      "true;\n                    bw_image(i,j) = 1;\n                end\n            end\n        end\n\n        [TAr"
-      "ea,TCentroid,TBBox,TMajorAxis,TMinorAxis,TOrientation,TEccent,TExtent,TNumBlobs] = step(hblob,LogicMatrix);\n\n "
-      "       for i = 1:TNumBlobs\n            if(blob_count + TNumBlobs <= max_num_blobs)\n\n                blob_cent"
-      "roids(1,blob_count+i) = TCentroid(1,i);\n                blob_centroids(2,blob_count+i) = TCentroid(2,i);\n\n   "
-      "             ii = round(blob_centroids(1,blob_count+i));\n                jj = round(blob_centroids(2,blob_count"
-      "+i));\n\n                blob_hues(1,blob_count+i) = ref_colors( LabelMatrix(ii,jj), 1 );\n                blob_"
-      "hues(2,blob_count+i) = ref_colors( LabelMatrix(ii,jj), 2 );\n                blob_hues(3,blob_count+i) = ref_col"
-      "ors( LabelMatrix(ii,jj), 3 );\n\n                blob_area(blob_count+i) = TArea(i);\n                blob_bbox("
-      "blob_count+i) = TBBox(i);\n                blob_major_axis(blob_count+i) = TMajorAxis(i);\n                blob_"
-      "minor_axis(blob_count+i) = TMinorAxis(i);\n                blob_eccentricity(blob_count+i) = TEccent(i);\n      "
-      "          blob_extent(blob_count+i) = TExtent(i);\n                blob_orientation(blob_count+i) = TOrientation"
-      "(i);\n\n            end\n        end\n\n        blob_count = blob_count + double(TNumBlobs);\n\n    end\n    \ne"
-      "nd\n\n\nreturn\n"
+      "for which color values are k, and zeros everywhere else\n%\n% Explanation\n%   condition1 == 1 causes the k'th c"
+      "olor to be analyzed by blob analysis,\n%     as well as be included in the black-and-white image\n%   condition1"
+      " == 0 disallows both of these items and simply ignores color\n%     k\n%   condition0 == 1 ensures that conditio"
+      "n1 is true for all k\n%   condition0 == 0 enforces a filter which allows only the colors\n%     specified in the"
+      " ColorFilter vector\ncondition0 = (num_col_filter == 0);\nfor k = 1:num_colors\n    \n    condition1 = 0;\n    \n"
+      "    if(condition0)\n        condition1 = 1;\n    else\n        a = ref_colors(k, 2);\n        b = ref_colors(k, "
+      "3);\n        for i = 1:num_col_filter\n            if( a >= a_range(1,i) && a <= a_range(2,i) && b >= b_range(1,"
+      "i) && b <= b_range(2,i)  &&  (a_range(1,i)~=0 && a_range(2,i)~=0) )\n                condition1 = 1;\n          "
+      "      break;\n            end\n        end\n    end\n    \n    if( condition1 == 1 )\n        \n        for i = "
+      "1:rows\n            for j = 1:cols\n                if(LabelMatrix(i,j) ~= k)\n                    LogicMatrix(i"
+      ",j) = false;\n                else\n                    LogicMatrix(i,j) = true;\n                    bw_image(i"
+      ",j) = 1;\n                end\n            end\n        end\n\n        [TArea,TCentroid,TBBox,TMajorAxis,TMinorA"
+      "xis,TOrientation,TEccent,TExtent,TNumBlobs] = step(hblob,LogicMatrix);\n\n        for i = 1:TNumBlobs\n         "
+      "   if(blob_count + TNumBlobs <= max_num_blobs)\n\n                blob_centroids(1,blob_count+i) = TCentroid(1,i"
+      ");\n                blob_centroids(2,blob_count+i) = TCentroid(2,i);\n\n                ii = round(blob_centroid"
+      "s(1,blob_count+i));\n                jj = round(blob_centroids(2,blob_count+i));\n\n                blob_hues(1,"
+      "blob_count+i) = ref_colors( LabelMatrix(ii,jj), 1 );\n                blob_hues(2,blob_count+i) = ref_colors( La"
+      "belMatrix(ii,jj), 2 );\n                blob_hues(3,blob_count+i) = ref_colors( LabelMatrix(ii,jj), 3 );\n\n    "
+      "            blob_area(blob_count+i) = TArea(i);\n                blob_bbox(blob_count+i) = TBBox(i);\n          "
+      "      blob_major_axis(blob_count+i) = TMajorAxis(i);\n                blob_minor_axis(blob_count+i) = TMinorAxis"
+      "(i);\n                blob_eccentricity(blob_count+i) = TEccent(i);\n                blob_extent(blob_count+i) ="
+      " TExtent(i);\n                blob_orientation(blob_count+i) = TOrientation(i);\n\n            end\n        end\n"
+      "\n        blob_count = blob_count + double(TNumBlobs);\n\n    end\n    \nend\n\n\nreturn\n"
       editorLayout	      "100 M4x1[205 227 1080 733]"
     }
   }
@@ -9335,8 +11123,6 @@ Stateflow {
     firstJunction	    52
     viewObj		    50
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -9470,8 +11256,6 @@ Stateflow {
     firstJunction	    59
     viewObj		    57
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -9605,8 +11389,6 @@ Stateflow {
     firstJunction	    66
     viewObj		    64
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -9740,8 +11522,6 @@ Stateflow {
     firstJunction	    73
     viewObj		    71
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -9953,8 +11733,6 @@ Stateflow {
     firstJunction	    84
     viewObj		    82
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -10186,8 +11964,6 @@ Stateflow {
     firstJunction	    95
     viewObj		    93
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    58
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -10372,8 +12148,8 @@ Stateflow {
   }
   chart {
     id			    103
-    name		    "Blob_Analysis/Blob Extraction"
-    windowPosition	    [705.747 -75 200.25 189.75]
+    name		    "Validation Gate/Identify Validation Gate"
+    windowPosition	    [443.98 151.448 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
     treeNode		    [0 104 0 0]
@@ -10383,14 +12159,14 @@ Stateflow {
     machine		    1
     subviewS {
     }
-    ssIdHighWaterMark	    108
+    ssIdHighWaterMark	    39
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
     firstData		    107
-    chartFileNumber	    29
+    chartFileNumber	    8
     disableImplicitCasting  1
     eml {
-      name		      "GetBlobInfo"
+      name		      "validation_gate"
     }
   }
   state {
@@ -10407,57 +12183,73 @@ Stateflow {
     decomposition	    CLUSTER_STATE
     eml {
       isEML		      1
-      script		      "function [blob_hues, blob_area, blob_centroids, blob_bbox, blob_major_axis, blob_minor_axis, blob"
-      "_orientation, blob_eccentricity, blob_extent, blob_count, bw_image] = GetBlobInfo(LabelMatrix, num_colors, ref_c"
-      "olors, ColorFilter,  white_al, white_au, white_bl, white_bu, black_al, black_au, black_bl, black_bu, blue_al, bl"
-      "ue_au, blue_bl, blue_bu, red_al, red_au, red_bl, red_bu, orange_al, orange_au, orange_bl, orange_bu, yellow_al, "
-      "yellow_au, yellow_bl, yellow_bu, green_al, green_au, green_bl, green_bu)\n\n\n% This function calculates blob in"
-      "formation for each color component after\n%   iterative segmentation\n\n\n% Initialize\nmax_num_blobs = 50;\nmin"
-      "_blob_area = 5;\n\n[rows, cols] = size(LabelMatrix);\nLogicMatrix = false(rows,cols);\nbw_image = zeros(rows,col"
-      "s);\n\nblob_count = 0;\nblob_hues = zeros(3,max_num_blobs);\n\nblob_area = -1.*ones(1,max_num_blobs);\nblob_bbox"
-      " = zeros(4,max_num_blobs);\nblob_major_axis = zeros(1,max_num_blobs);\nblob_minor_axis = zeros(1,max_num_blobs);"
-      "\nblob_centroids = zeros(2,max_num_blobs);\nblob_eccentricity = zeros(1,max_num_blobs);\nblob_extent = zeros(1,m"
-      "ax_num_blobs);\nblob_orientation = zeros(1,max_num_blobs);\n\nmax_num_col_filter = length(ColorFilter);\nnum_col"
-      "_filter = max_num_col_filter;\n\n\n% Populate a and b color component ranges for each color\na_range = zeros(2,m"
-      "ax_num_col_filter);\nb_range = zeros(2,max_num_col_filter);\n\nc = 1;\nfor k = 1:max_num_col_filter\n    if(Colo"
-      "rFilter(k) == 0)\n        num_col_filter = k - 1;\n        break;\n    end\n    \n    switch(ColorFilter(k))\n  "
-      "      case 1\n            a_range(1,c) = white_al;\n            a_range(2,c) = white_au;\n            b_range(1,"
-      "c) = white_bl;\n            b_range(2,c) = white_bu;\n        case 2\n            a_range(1,c) = black_al;\n    "
-      "        a_range(2,c) = black_au;\n            b_range(1,c) = black_bl;\n            b_range(2,c) = black_bu;\n  "
-      "      case 3\n            a_range(1,c) = blue_al;\n            a_range(2,c) = blue_au;\n            b_range(1,c)"
-      " = blue_bl;\n            b_range(2,c) = blue_bu;\n        case 4\n            a_range(1,c) = red_al;\n          "
-      "  a_range(2,c) = red_au;\n            b_range(1,c) = red_bl;\n            b_range(2,c) = red_bu;\n        case 5"
-      "\n            a_range(1,c) = orange_al;\n            a_range(2,c) = orange_au;\n            b_range(1,c) = orang"
-      "e_bl;\n            b_range(2,c) = orange_bu;\n        case 6\n            a_range(1,c) = yellow_al;\n           "
-      " a_range(2,c) = yellow_au;\n            b_range(1,c) = yellow_bl;\n            b_range(2,c) = yellow_bu;\n      "
-      "  case 7\n            a_range(1,c) = green_al;\n            a_range(2,c) = green_au;\n            b_range(1,c) ="
-      " green_bl;\n            b_range(2,c) = green_bu;\n    end\n    \n    c = c + 1;\n    \nend\n\n\n% Input hblob, a"
-      " matrix containing [Area, blob_centroids, Eccentricity] for each\n% identified blob\npersistent hblob\nif isempt"
-      "y(hblob)\n    hblob = video.BlobAnalysis('AreaOutputPort',true,'CentroidOutputPort',true,...\n        'BoundingB"
-      "oxOutputPort',true,'MajorAxisLengthOutputPort',true,'MinorAxisLengthOutputPort',true,...\n        'OrientationOu"
-      "tputPort',true,...\n        'EccentricityOutputPort',true,'ExtentOutputPort',true,'NumBlobsOutputPort',true,...\n"
-      "        'MinimumBlobAreaSource','Property','MinimumBlobArea', min_blob_area);\nend\n\n\n% Calculate geometric in"
-      "formation about the blobs\n%\n% LogicMatrix is a binary version of LabelMatrix, with ones at all\n%   locations "
-      "for which color values are k, and zeros everywhere else\ncondition0 = (num_col_filter == 0);\nfor k = 1:num_colo"
-      "rs\n    \n    condition1 = 0;\n    \n    if(condition0)\n        condition1 = 1;\n    else\n        a = ref_colo"
-      "rs(k, 2);\n        b = ref_colors(k, 3);\n        for i = 1:num_col_filter\n            if( a >= a_range(1,i) &&"
-      " a <= a_range(2,i) && b >= b_range(1,i) && b <= b_range(2,i)  &&  (a_range(1,i)~=0 && a_range(2,i)~=0) )\n      "
-      "          condition1 = 1;\n                break;\n            end\n        end\n    end\n    \n    if( conditio"
-      "n1 == 1 )\n        \n        for i = 1:rows\n            for j = 1:cols\n                if(LabelMatrix(i,j) ~= "
-      "k)\n                    LogicMatrix(i,j) = false;\n                else\n                    LogicMatrix(i,j) = "
-      "true;\n                    bw_image(i,j) = 1;\n                end\n            end\n        end\n\n        [TAr"
-      "ea,TCentroid,TBBox,TMajorAxis,TMinorAxis,TOrientation,TEccent,TExtent,TNumBlobs] = step(hblob,LogicMatrix);\n\n "
-      "       for i = 1:TNumBlobs\n            if(blob_count + TNumBlobs <= max_num_blobs)\n\n                blob_cent"
-      "roids(1,blob_count+i) = TCentroid(1,i);\n                blob_centroids(2,blob_count+i) = TCentroid(2,i);\n\n   "
-      "             ii = round(blob_centroids(1,blob_count+i));\n                jj = round(blob_centroids(2,blob_count"
-      "+i));\n\n                blob_hues(1,blob_count+i) = ref_colors( LabelMatrix(ii,jj), 1 );\n                blob_"
-      "hues(2,blob_count+i) = ref_colors( LabelMatrix(ii,jj), 2 );\n                blob_hues(3,blob_count+i) = ref_col"
-      "ors( LabelMatrix(ii,jj), 3 );\n\n                blob_area(blob_count+i) = TArea(i);\n                blob_bbox("
-      "blob_count+i) = TBBox(i);\n                blob_major_axis(blob_count+i) = TMajorAxis(i);\n                blob_"
-      "minor_axis(blob_count+i) = TMinorAxis(i);\n                blob_eccentricity(blob_count+i) = TEccent(i);\n      "
-      "          blob_extent(blob_count+i) = TExtent(i);\n                blob_orientation(blob_count+i) = TOrientation"
-      "(i);\n\n            end\n        end\n\n        blob_count = blob_count + double(TNumBlobs);\n\n    end\n    \ne"
-      "nd\n\n\nreturn\n"
+      script		      "function [target_y, target_z, target_yaw, gate_found] = validation_gate(hough_table, theta_in, rh"
+      "o_in, target_height, gate_aspect_ratio, Forward_Camera_Dimensions, Forward_Fov)\n%#eml\n\n\n\n% This function at"
+      "tempts to identfiy the validation gate, and returns\n%   targeting information, and a true/false gate_found para"
+      "meter.\n%\n% 5-29-11\n%\n% Input\n%\n%   target_height = fraction of goal post height to aim AUV at\n%   gate_as"
+      "pect_ratio = used to infer unknown points with little extra\n%     processing (height/width of large goalpost-sh"
+      "ape)\n%\n% Output\n%\n% Notes:\n%   The hough_table is destroyed in this function (acceptable if\n%     hough_ta"
+      "ble is not an output)\n%   Process:\n%     1. Identify primary, relatively \"long\" lines\n%     2. \n\n\n%% Ini"
+      "tialize\n% Only the (max_num_lines) with the most votes will be considered as\n%   candidates for the validation"
+      " gate\nmax_num_lines = 200;\n[rho_length, theta_length] = size(hough_table);\n%rows = Forward_Camera_Dimensions("
+      "1);\n%cols = Forward_Camera_Dimensions(2);\nrows = 160;\ncols = 120;\n\n\n% eps_rho must be at least as big as t"
+      "he gate leg diameter (units of\n%   pixels)\neps_rho = .1*max(rows,cols);\n% eps_theta is used to distinguish li"
+      "nes as \"horizontal\" or \"vertical\";\n%   units are radians\neps_theta = 10*pi/180;\n\n\n% These vectors conta"
+      "in the final three lines that compose the validation gate\nrho_gate = zeros(1,3);\ntheta_gate = zeros(1,3);\n\n%"
+      " These vectors contain intermediate line information; as lines are\n%   eliminated from these vectors, their val"
+      "ues are set to zero\nrho = zeros(1,max_num_lines);\ntheta = zeros(1,max_num_lines);\n\n\n\n\n\n% Identify the mo"
+      "st popular max_num_lines lines\ni_index = ones(1,max_num_lines);\nj_index = ones(1,max_num_lines);\n\nm = 1;\nwh"
+      "ile( m <= max_num_lines )\n    \n    max_votes = 0;\n    for i = 1:rho_length\n        for j = 1:theta_length\n "
+      "           if( hough_table(i,j) > max_votes )\n                i_index(m) = i;\n                j_index(m) = j;\n"
+      "                max_votes = hough_table(i,j);\n            end\n        end\n    end\n    \n    rho(m) = rho_in("
+      "i_index(m));\n    theta(m) = theta_in(j_index(m));\n    hough_table(i_index(m),j_index(m)) = 0;\n    m = m + 1;\n"
+      "    \nend\n\n\n% Effectively generate a small Hough table which contains only values of\n%   interest for the va"
+      "lidation gate application\n\nrbinv = [0:(2*eps_rho):max(rows, cols)];  % Rho bins for vertical lines\nnbinsv = l"
+      "ength(rbinv);  % Number of rho bins for vertical lines\nravgv = zeros(1,nbinsv);  % Average rho values for each "
+      "bin (note that the average value will generally differ slightly than the bin value)\ntavgv = zeros(1,nbinsv);  %"
+      " Average theta values for each bin\nvbinv = zeros(1,nbinsv);  % Votes bins for vertical lines\n\nrbinh = [0:(2*e"
+      "ps_rho):max(rows, cols)];\nnbinsh = length(rbinh);\nravgh = zeros(1,nbinsh);\ntavgh = zeros(1,nbinsh);\nvbinh = "
+      "zeros(1,nbinsh);\n\n% Allow vertical lines along the left side of the image\nrbinv(1) = 1;\nrbinh(1) = 1;\n\nfor"
+      " i = 1:max_num_lines\n    \n    % Consider only lines that are either vertical or horizontal, within\n    %   to"
+      "lerance\n    condition1 = ( abs(theta(i) - pi/2) <= eps_theta || abs(theta(i) + pi/2) <= eps_theta );  % Horizon"
+      "tal line\n    condition2 = ( abs(theta(i) - 0) <= eps_theta );  % Vertical line\n    \n    if(condition2 && ~( r"
+      "ho(i) == 0 && theta(i) == 0 ))  % Analyze vertical lines (ignore lines exactly along the left side of the image)"
+      "\n        \n        for b = 1:nbinsv\n            \n            % Place each rho value into a bin\n            i"
+      "f( abs(rho(i) - rbinv(b)) <= eps_rho )\n                ravgv(b) = ravgv(b) + rho(i);\n                tavgv(b) "
+      "= tavgv(b) + theta(i);\n                vbinv(b) = vbinv(b) + 1;\n                break;\n            end\n     "
+      "       \n        end\n        \n    elseif(condition1)  % Analyze horizontal lines\n        \n        if( theta("
+      "i) < 0 )\n            theta(i) = theta(i) + pi;\n            rho(i) = -rho(i);\n        end\n        \n        f"
+      "or b = 1:nbinsh\n            \n            % Place each rho value into a bin\n            if( abs(rho(i) - rbinh"
+      "(b)) <= eps_rho )\n                ravgh(b) = ravgh(b) + rho(i);\n                tavgh(b) = tavgh(b) + theta(i)"
+      ";\n                vbinh(b) = vbinh(b) + 1;\n                break;\n            end\n            \n        end\n"
+      "        \n    end\nend\n\n% Average the values in ravg and tavg for horizontal and vertical lines\nfor b = 1:nbi"
+      "nsv\n    if( vbinv(b) == 0 )\n        ravgv(b) = 0;\n        tavgv(b) = 0;\n    else\n        ravgv(b) = ravgv(b"
+      ")./vbinv(b);\n        tavgv(b) = tavgv(b)./vbinv(b);\n    end\nend\nfor b = 1:nbinsh\n    if( vbinh(b) == 0 )\n "
+      "       ravgh(b) = 0;\n        tavgh(b) = 0;\n    else\n        ravgh(b) = ravgh(b)./vbinh(b);\n        tavgh(b) "
+      "= tavgh(b)./vbinh(b);\n    end\nend\n\n\n%% Extract three lines that fit the criteria for being the validation g"
+      "ate\nrmin = 10000;\nrmax = -10000;\nfor b = 1:nbinsv\n    \n    % Extract the left-most vertical line\n    if( r"
+      "avgv(b) < rmin && ravgv(b) ~= 0 )\n        rmin = ravgv(b);\n        rho_gate(1) = ravgv(b);\n        theta_gate"
+      "(1) = tavgv(b);\n    end\n    \n    % Extract the right-most vertical line\n    if( ravgv(b) > rmax && ravgv(b) "
+      "~= 0 )\n        rmax = ravgv(b);\n        rho_gate(3) = ravgv(b);\n        theta_gate(3) = tavgv(b);\n    end\n "
+      "   \nend\n\n% Check that the distance between the vertical lines is much greater than\n%   the minimum expected "
+      "distance, eps_rho\nif( abs(rho_gate(3) - rho_gate(1)) < 2*eps_rho )\n    rho_gate(1) = 0;\n    rho_gate(3) = 0;\n"
+      "    theta_gate(1) = 0;\n    theta_gate(3) = 0;\nend\n\n%rmin = 10000;\nvmax = 0;\nfor b = 1:nbinsh\n    \n    % "
+      "Extract the horizontal line with the most votes\n    if( vbinh(b) > vmax && ravgh(b) ~= 0 )\n        vmax = vbin"
+      "h(b);\n        rho_gate(2) = ravgh(b);\n        theta_gate(2) = tavgh(b);\n    end\n    \n%    % Extract the hor"
+      "izontal line that is highest up in the image\n%    if( ravgh(b) < rmin && ravgh(b) ~= 0 )\n%        rmin = ravgh"
+      "(b);\n%        rho_gate(2) = ravgh(b);\n%        theta_gate(2) = tavgh(b);\n%    end\nend\n\n\n%% Compute target"
+      "ing information\n% Compute intersections\nr1 = (  ( rho_gate(1)/cos(theta_gate(1)) ) - ( rho_gate(2)/cos(theta_g"
+      "ate(2)) )  )*(  1/( tan(theta_gate(1)) - tan(theta_gate(2)) )  );\nc1 = ( 1/cos(theta_gate(1)) )*( rho_gate(1) -"
+      " r1*sin(theta_gate(1)) );\n\nr3 = (  ( rho_gate(2)/cos(theta_gate(2)) ) - ( rho_gate(3)/cos(theta_gate(3)) )  )*"
+      "(  1/( tan(theta_gate(2)) - tan(theta_gate(3)) )  );\nc3 = ( 1/cos(theta_gate(2)) )*( rho_gate(2) - r3*sin(theta"
+      "_gate(2)) );\n\nr2 = (r1 + r3)/2;\nc2 = (c1 + c3)/2;\n\n% Compute gate width\nw = sqrt( (r3 - r1)^2 + (c3 - c1)^"
+      "2 );\n\n% Form unit vector pointing downward, parallel to gate posts\ntavg = ( theta_gate(1) + (theta_gate(2) - "
+      "pi/2) + theta_gate(3) )/3;\nu = [1 tan(tavg)];\nu = u./norm(u);\n\n% Compute target location\nth = target_height"
+      "*gate_aspect_ratio*w;\nr_t = r2 + th*u(1);\nc_t = c2 + th*u(2);\n\n% Determine if a gate is present (very simple"
+      ", potentially inaccurate)\nif( sum( (rho_gate == 0) + (theta_gate == 0) ) > 0 )\n    \n    gate_found = 0;\n    "
+      "target_z = 0;\n    target_y = 0;\n    target_yaw = 0;\n    \nelse\n    \n    gate_found = 1;\n    \n    % Transf"
+      "orm target r, c to global coordinate system\n    target_z = r_t - floor(rows/2);\n    target_y = c_t - floor(col"
+      "s/2);\n    target_yaw = Forward_Fov*(target_y/cols);\n    \nend\n\n\nreturn\n"
       editorLayout	      "100 M4x1[205 227 1080 733]"
     }
   }
@@ -10493,8 +12285,8 @@ Stateflow {
   }
   data {
     id			    107
-    ssIdNumber		    66
-    name		    "LabelMatrix"
+    ssIdNumber		    4
+    name		    "hough_table"
     linkNode		    [103 0 108]
     scope		    INPUT_DATA
     machine		    1
@@ -10505,20 +12297,17 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    108
-    ssIdNumber		    68
-    name		    "num_colors"
+    ssIdNumber		    19
+    name		    "target_y"
     linkNode		    [103 107 109]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -10531,16 +12320,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    109
-    ssIdNumber		    67
-    name		    "ref_colors"
+    ssIdNumber		    18
+    name		    "target_z"
     linkNode		    [103 108 110]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -10553,16 +12342,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    110
-    ssIdNumber		    69
-    name		    "ColorFilter"
+    ssIdNumber		    39
+    name		    "target_yaw"
     linkNode		    [103 109 111]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -10575,16 +12364,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    111
-    ssIdNumber		    70
-    name		    "white_al"
+    ssIdNumber		    15
+    name		    "gate_found"
     linkNode		    [103 110 112]
-    scope		    INPUT_DATA
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -10597,14 +12386,14 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    112
-    ssIdNumber		    71
-    name		    "white_au"
+    ssIdNumber		    16
+    name		    "theta_in"
     linkNode		    [103 111 113]
     scope		    INPUT_DATA
     machine		    1
@@ -10625,8 +12414,8 @@ Stateflow {
   }
   data {
     id			    113
-    ssIdNumber		    72
-    name		    "white_bl"
+    ssIdNumber		    17
+    name		    "rho_in"
     linkNode		    [103 112 114]
     scope		    INPUT_DATA
     machine		    1
@@ -10647,8 +12436,8 @@ Stateflow {
   }
   data {
     id			    114
-    ssIdNumber		    73
-    name		    "white_bu"
+    ssIdNumber		    23
+    name		    "target_height"
     linkNode		    [103 113 115]
     scope		    INPUT_DATA
     machine		    1
@@ -10669,8 +12458,8 @@ Stateflow {
   }
   data {
     id			    115
-    ssIdNumber		    74
-    name		    "black_al"
+    ssIdNumber		    22
+    name		    "gate_aspect_ratio"
     linkNode		    [103 114 116]
     scope		    INPUT_DATA
     machine		    1
@@ -10691,8 +12480,8 @@ Stateflow {
   }
   data {
     id			    116
-    ssIdNumber		    75
-    name		    "black_au"
+    ssIdNumber		    36
+    name		    "Forward_Camera_Dimensions"
     linkNode		    [103 115 117]
     scope		    INPUT_DATA
     machine		    1
@@ -10713,9 +12502,9 @@ Stateflow {
   }
   data {
     id			    117
-    ssIdNumber		    76
-    name		    "black_bl"
-    linkNode		    [103 116 118]
+    ssIdNumber		    38
+    name		    "Forward_Fov"
+    linkNode		    [103 116 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -10733,121 +12522,96 @@ Stateflow {
     }
     dataType		    "Inherit: Same as Simulink"
   }
-  data {
+  instance {
     id			    118
-    ssIdNumber		    77
-    name		    "black_bu"
-    linkNode		    [103 117 119]
-    scope		    INPUT_DATA
+    name		    "Validation Gate/Identify Validation Gate"
     machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
+    chart		    103
   }
-  data {
+  chart {
     id			    119
-    ssIdNumber		    78
-    name		    "blue_al"
-    linkNode		    [103 118 120]
-    scope		    INPUT_DATA
+    name		    "Validation Gate/If Action\nSubsystem/Transform Coordinates3"
+    windowPosition	    [427.184 94.12 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 120 0 0]
+    firstTransition	    122
+    firstJunction	    121
+    viewObj		    119
     machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+    subviewS {
     }
-    dataType		    "Inherit: Same as Simulink"
+    ssIdHighWaterMark	    27
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    123
+    chartFileNumber	    9
+    disableImplicitCasting  1
+    eml {
+      name		      "transform_G2L"
+    }
   }
-  data {
+  state {
     id			    120
-    ssIdNumber		    79
-    name		    "blue_au"
-    linkNode		    [103 119 121]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    119
+    treeNode		    [119 0 0 0]
+    superState		    SUBCHART
+    subviewer		    119
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function points = transform_G2L(which_camera, x_in, y_in, z_in, Camera_Dimensions)\n% This functi"
+      "on, \"transform Global to Local coordinates,\" transforms\n%   global coordinates that are sent to the controlle"
+      "r into local\n%   coordinates that can be displayed over images.\n%\n% 5-29-11\n%\n% Input\n%   x_in, y_in, z_in"
+      " = vectors of points in global (vehicle-centered)\n%     coordinate system\n%   bw_image_in = a 2-D array of pix"
+      "el values (used only to extract image\n%     size)\n%   which_camera = selects which camera for relative coordin"
+      "ates\n%                = 0 -> Forward camera\n%                = 1 -> Down camera\n%\n% Output\n%   r_out, c_out"
+      " = row, column pairs in local coordinate system\n\nrows = Camera_Dimensions(1);\ncols = Camera_Dimensions(2);\ni"
+      "f( which_camera == 0 )\n    points = [z_in + floor(rows/2);\n              y_in + floor(cols/2)];\nelse\n    poi"
+      "nts = [floor(rows/2) - x_in;\n              y_in + floor(cols/2)];\nend\n\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
     }
-    dataType		    "Inherit: Same as Simulink"
   }
-  data {
+  junction {
     id			    121
-    ssIdNumber		    80
-    name		    "blue_bl"
-    linkNode		    [103 120 122]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
+    position		    [23.5747 49.5747 7]
+    chart		    119
+    linkNode		    [119 0 0]
+    subviewer		    119
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
   }
-  data {
+  transition {
     id			    122
-    ssIdNumber		    81
-    name		    "blue_bu"
-    linkNode		    [103 121 123]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
-    dataType		    "Inherit: Same as Simulink"
+    dst {
+      id		      121
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    119
+    linkNode		    [119 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    119
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
   }
   data {
     id			    123
-    ssIdNumber		    82
-    name		    "red_al"
-    linkNode		    [103 122 124]
+    ssIdNumber		    27
+    name		    "which_camera"
+    linkNode		    [119 0 124]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -10867,9 +12631,9 @@ Stateflow {
   }
   data {
     id			    124
-    ssIdNumber		    83
-    name		    "red_au"
-    linkNode		    [103 123 125]
+    ssIdNumber		    26
+    name		    "x_in"
+    linkNode		    [119 123 125]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -10889,9 +12653,9 @@ Stateflow {
   }
   data {
     id			    125
-    ssIdNumber		    84
-    name		    "red_bl"
-    linkNode		    [103 124 126]
+    ssIdNumber		    21
+    name		    "y_in"
+    linkNode		    [119 124 126]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -10911,9 +12675,9 @@ Stateflow {
   }
   data {
     id			    126
-    ssIdNumber		    85
-    name		    "red_bu"
-    linkNode		    [103 125 127]
+    ssIdNumber		    25
+    name		    "z_in"
+    linkNode		    [119 125 127]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -10933,9 +12697,9 @@ Stateflow {
   }
   data {
     id			    127
-    ssIdNumber		    86
-    name		    "orange_al"
-    linkNode		    [103 126 128]
+    ssIdNumber		    24
+    name		    "Camera_Dimensions"
+    linkNode		    [119 126 128]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -10955,10 +12719,10 @@ Stateflow {
   }
   data {
     id			    128
-    ssIdNumber		    87
-    name		    "orange_au"
-    linkNode		    [103 127 129]
-    scope		    INPUT_DATA
+    ssIdNumber		    5
+    name		    "points"
+    linkNode		    [119 127 0]
+    scope		    OUTPUT_DATA
     machine		    1
     props {
       array {
@@ -10967,129 +12731,167 @@ Stateflow {
       type {
 	method			SF_INHERITED_TYPE
 	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+      frame		      SF_FRAME_NO
     }
     dataType		    "Inherit: Same as Simulink"
   }
-  data {
+  instance {
     id			    129
-    ssIdNumber		    88
-    name		    "orange_bl"
-    linkNode		    [103 128 130]
-    scope		    INPUT_DATA
+    name		    "Validation Gate/If Action\nSubsystem/Transform Coordinates3"
     machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
+    chart		    119
   }
-  data {
+  chart {
     id			    130
-    ssIdNumber		    89
-    name		    "orange_bu"
-    linkNode		    [103 129 131]
-    scope		    INPUT_DATA
+    name		    "Blob_Analysis/Blob Extraction"
+    windowPosition	    [705.747 -75 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 131 0 0]
+    firstTransition	    133
+    firstJunction	    132
+    viewObj		    130
     machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+    ssIdHighWaterMark	    108
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    134
+    chartFileNumber	    29
+    disableImplicitCasting  1
+    eml {
+      name		      "GetBlobInfo"
     }
-    dataType		    "Inherit: Same as Simulink"
   }
-  data {
+  state {
     id			    131
-    ssIdNumber		    90
-    name		    "yellow_al"
-    linkNode		    [103 130 132]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    130
+    treeNode		    [130 0 0 0]
+    superState		    SUBCHART
+    subviewer		    130
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [blob_hues, blob_area, blob_centroids, blob_bbox, blob_major_axis, blob_minor_axis, blob"
+      "_orientation, blob_eccentricity, blob_extent, blob_count, bw_image] = GetBlobInfo(LabelMatrix, num_colors, ref_c"
+      "olors, ColorFilter,  white_al, white_au, white_bl, white_bu, black_al, black_au, black_bl, black_bu, blue_al, bl"
+      "ue_au, blue_bl, blue_bu, red_al, red_au, red_bl, red_bu, orange_al, orange_au, orange_bl, orange_bu, yellow_al, "
+      "yellow_au, yellow_bl, yellow_bu, green_al, green_au, green_bl, green_bu)\n\n\n% This function calculates blob in"
+      "formation for each color component after\n%   iterative segmentation\n\n\n% Initialize\nmax_num_blobs = 50;\nmin"
+      "_blob_area = 5;\n\n[rows, cols] = size(LabelMatrix);\nimage_area = rows*cols;\nLogicMatrix = false(rows,cols);\n"
+      "bw_image = zeros(rows,cols);\n\nblob_count = 0;\nblob_hues = zeros(3,max_num_blobs);\n\nblob_area = -1.*ones(1,m"
+      "ax_num_blobs);\nblob_bbox = zeros(4,max_num_blobs);\nblob_major_axis = zeros(1,max_num_blobs);\nblob_minor_axis "
+      "= zeros(1,max_num_blobs);\nblob_centroids = zeros(2,max_num_blobs);\nblob_eccentricity = zeros(1,max_num_blobs);"
+      "\nblob_extent = zeros(1,max_num_blobs);\nblob_orientation = zeros(1,max_num_blobs);\n\nmax_num_col_filter = leng"
+      "th(ColorFilter);\nnum_col_filter = max_num_col_filter;\n\narea_thresh = .1;\n\n\n% Populate a and b color compon"
+      "ent ranges for each color\na_range = zeros(2,max_num_col_filter);\nb_range = zeros(2,max_num_col_filter);\nfind_"
+      "white = 0;\nfind_black = 0;\nL_white = 101;\nL_black = -1;\ncolor_areas = zeros(1,size(ref_colors,1));\n\nc = 1;"
+      "\nfor i = 1:max_num_col_filter\n    if(ColorFilter(i) == 0)\n        num_col_filter = i - 1;\n        break;\n  "
+      "  end\n    \n    switch(ColorFilter(i))\n        case 1\n            % Determine the brightest colors, but allow"
+      " a maximum area\n            %   ratio of the image to be \"white\"\n            find_white = 1;\n            \n"
+      "            for row = 1:rows\n                for col = 1:cols\n                    color_areas(LabelMatrix(row,"
+      "col)) = color_areas(LabelMatrix(row,col)) + 1;\n                end\n            end\n            \n            "
+      "positive_area = 0;\n            for n = 1:num_colors\n                \n                maxL = -1;\n            "
+      "    k_max = -1;\n                for k = 1:num_colors\n                    L = ref_colors(k,1);\n               "
+      "     if(L > maxL && L < L_white)\n                        maxL = L;\n                        k_max = k;\n       "
+      "             end\n                end\n                \n                positive_area = positive_area + color_a"
+      "reas(k_max);\n                if(positive_area/image_area >= area_thresh && n > 1)\n                    break;\n"
+      "                end\n                \n                L_white = maxL;\n                \n            end\n     "
+      "   case 2\n            % Determine the darkest colors, but allow a maximum area\n            %   ratio of the im"
+      "age to be \"black\"\n            find_black = 1;\n            \n            for row = 1:rows\n                fo"
+      "r col = 1:cols\n                    color_areas(LabelMatrix(row,col)) = color_areas(LabelMatrix(row,col)) + 1;\n"
+      "                end\n            end\n            \n            positive_area = 0;\n            for n = 1:num_co"
+      "lors\n                \n                minL = 101;\n                k_min = -1;\n                for k = 1:num_"
+      "colors\n                    L = ref_colors(k,1);\n                    if(L < minL && L > L_black)\n             "
+      "           minL = L;\n                        k_min = k;\n                    end\n                end\n        "
+      "        \n                positive_area = positive_area + color_areas(k_min);\n                if(positive_area/"
+      "image_area >= area_thresh && n > 1)\n                    break;\n                end\n                \n        "
+      "        L_black = minL;\n                \n            end\n        case 3\n            a_range(1,c) = blue_al;\n"
+      "            a_range(2,c) = blue_au;\n            b_range(1,c) = blue_bl;\n            b_range(2,c) = blue_bu;\n "
+      "       case 4\n            a_range(1,c) = red_al;\n            a_range(2,c) = red_au;\n            b_range(1,c) "
+      "= red_bl;\n            b_range(2,c) = red_bu;\n        case 5\n            a_range(1,c) = orange_al;\n          "
+      "  a_range(2,c) = orange_au;\n            b_range(1,c) = orange_bl;\n            b_range(2,c) = orange_bu;\n     "
+      "   case 6\n            a_range(1,c) = yellow_al;\n            a_range(2,c) = yellow_au;\n            b_range(1,c"
+      ") = yellow_bl;\n            b_range(2,c) = yellow_bu;\n        case 7\n            a_range(1,c) = green_al;\n   "
+      "         a_range(2,c) = green_au;\n            b_range(1,c) = green_bl;\n            b_range(2,c) = green_bu;\n "
+      "   end\n    \n    c = c + 1;\n    \nend\n\n\n% Input hblob, a matrix containing [Area, blob_centroids, Eccentric"
+      "ity] for each\n% identified blob\npersistent hblob\nif isempty(hblob)\n    hblob = video.BlobAnalysis('AreaOutpu"
+      "tPort',true,'CentroidOutputPort',true,...\n        'BoundingBoxOutputPort',true,'MajorAxisLengthOutputPort',true"
+      ",'MinorAxisLengthOutputPort',true,...\n        'OrientationOutputPort',true,...\n        'EccentricityOutputPort"
+      "',true,'ExtentOutputPort',true,'NumBlobsOutputPort',true,...\n        'MinimumBlobAreaSource','Property','Minimu"
+      "mBlobArea', min_blob_area);\nend\n\n\n% Calculate geometric information about the blobs\n%\n% LogicMatrix is a b"
+      "inary version of LabelMatrix, with ones at all\n%   locations for which color values are k, and zeros everywhere"
+      " else\n%\n% Explanation\n%   condition1 == 1 causes the k'th color to be analyzed by blob analysis,\n%     as we"
+      "ll as be included in the black-and-white image\n%   condition1 == 0 disallows both of these items and simply ign"
+      "ores color\n%     k\n%   condition0 == 1 ensures that condition1 is true for all k\n%   condition0 == 0 enforces"
+      " a filter which allows only the colors\n%     specified in the ColorFilter vector\ncondition0 = (num_col_filter "
+      "== 0);\nfor k = 1:num_colors\n    \n    % Decide whether or not to perform blob analysis\n    condition1 = 0;\n "
+      "   if(condition0)\n        condition1 = 1;\n    else\n        a = ref_colors(k, 2);\n        b = ref_colors(k, 3"
+      ");\n        for i = 1:num_col_filter\n            \n            if( find_white == 1 && ref_colors(k,1) >= L_whit"
+      "e)  % Handle \"white\" differently than other colors\n                condition1 = 1;\n                break;\n "
+      "           elseif( find_black == 1 && ref_colors(k,1) <= L_black)  % Handle \"black\" differently than other col"
+      "ors\n                condition1 = 1;\n                break;\n            elseif( a >= a_range(1,i) && a <= a_ra"
+      "nge(2,i) && b >= b_range(1,i) && b <= b_range(2,i)  &&  (a_range(1,i)~=0 && a_range(2,i)~=0) )\n                "
+      "condition1 = 1;\n                break;\n            end\n            \n        end\n    end\n    \n    % Blob a"
+      "nalysis\n    if( condition1 == 1 )\n        \n        for i = 1:rows\n            for j = 1:cols\n              "
+      "  if(LabelMatrix(i,j) ~= k)\n                    LogicMatrix(i,j) = false;\n                else\n              "
+      "      LogicMatrix(i,j) = true;\n                    bw_image(i,j) = 1;\n                end\n            end\n  "
+      "      end\n\n        [TArea,TCentroid,TBBox,TMajorAxis,TMinorAxis,TOrientation,TEccent,TExtent,TNumBlobs] = step"
+      "(hblob,LogicMatrix);\n\n        for i = 1:TNumBlobs\n            if(blob_count + TNumBlobs <= max_num_blobs)\n\n"
+      "                blob_centroids(1,blob_count+i) = TCentroid(1,i);\n                blob_centroids(2,blob_count+i)"
+      " = TCentroid(2,i);\n\n                ii = round(blob_centroids(1,blob_count+i));\n                jj = round(bl"
+      "ob_centroids(2,blob_count+i));\n\n                blob_hues(1,blob_count+i) = ref_colors( LabelMatrix(ii,jj), 1 "
+      ");\n                blob_hues(2,blob_count+i) = ref_colors( LabelMatrix(ii,jj), 2 );\n                blob_hues("
+      "3,blob_count+i) = ref_colors( LabelMatrix(ii,jj), 3 );\n\n                blob_area(blob_count+i) = TArea(i);\n "
+      "               blob_bbox(blob_count+i) = TBBox(i);\n                blob_major_axis(blob_count+i) = TMajorAxis(i"
+      ");\n                blob_minor_axis(blob_count+i) = TMinorAxis(i);\n                blob_eccentricity(blob_count"
+      "+i) = TEccent(i);\n                blob_extent(blob_count+i) = TExtent(i);\n                blob_orientation(blo"
+      "b_count+i) = TOrientation(i);\n\n            end\n        end\n\n        blob_count = blob_count + double(TNumBl"
+      "obs);\n\n    end\n    \nend\n\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
     }
-    dataType		    "Inherit: Same as Simulink"
   }
-  data {
+  junction {
     id			    132
-    ssIdNumber		    91
-    name		    "yellow_au"
-    linkNode		    [103 131 133]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
-    }
-    dataType		    "Inherit: Same as Simulink"
+    position		    [23.5747 49.5747 7]
+    chart		    130
+    linkNode		    [130 0 0]
+    subviewer		    130
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
   }
-  data {
+  transition {
     id			    133
-    ssIdNumber		    92
-    name		    "yellow_bl"
-    linkNode		    [103 132 134]
-    scope		    INPUT_DATA
-    machine		    1
-    props {
-      array {
-	size			"-1"
-      }
-      type {
-	method			SF_INHERITED_TYPE
-	primitive		SF_DOUBLE_TYPE
-	isSigned		1
-	wordLength		"16"
-      }
-      complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_INHERITED
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
-    dataType		    "Inherit: Same as Simulink"
+    dst {
+      id		      132
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    130
+    linkNode		    [130 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    130
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
   }
   data {
     id			    134
-    ssIdNumber		    93
-    name		    "yellow_bu"
-    linkNode		    [103 133 135]
+    ssIdNumber		    66
+    name		    "LabelMatrix"
+    linkNode		    [130 0 135]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -11109,9 +12911,9 @@ Stateflow {
   }
   data {
     id			    135
-    ssIdNumber		    94
-    name		    "green_al"
-    linkNode		    [103 134 136]
+    ssIdNumber		    68
+    name		    "num_colors"
+    linkNode		    [130 134 136]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -11131,9 +12933,9 @@ Stateflow {
   }
   data {
     id			    136
-    ssIdNumber		    95
-    name		    "green_au"
-    linkNode		    [103 135 137]
+    ssIdNumber		    67
+    name		    "ref_colors"
+    linkNode		    [130 135 137]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -11153,9 +12955,9 @@ Stateflow {
   }
   data {
     id			    137
-    ssIdNumber		    96
-    name		    "green_bl"
-    linkNode		    [103 136 138]
+    ssIdNumber		    69
+    name		    "ColorFilter"
+    linkNode		    [130 136 138]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -11175,9 +12977,9 @@ Stateflow {
   }
   data {
     id			    138
-    ssIdNumber		    97
-    name		    "green_bu"
-    linkNode		    [103 137 139]
+    ssIdNumber		    70
+    name		    "white_al"
+    linkNode		    [130 137 139]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -11197,10 +12999,10 @@ Stateflow {
   }
   data {
     id			    139
-    ssIdNumber		    98
-    name		    "blob_hues"
-    linkNode		    [103 138 140]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    71
+    name		    "white_au"
+    linkNode		    [130 138 140]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -11213,16 +13015,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    140
-    ssIdNumber		    99
-    name		    "blob_area"
-    linkNode		    [103 139 141]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    72
+    name		    "white_bl"
+    linkNode		    [130 139 141]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -11235,16 +13037,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    141
-    ssIdNumber		    100
-    name		    "blob_centroids"
-    linkNode		    [103 140 142]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    73
+    name		    "white_bu"
+    linkNode		    [130 140 142]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -11257,16 +13059,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    142
-    ssIdNumber		    101
-    name		    "blob_bbox"
-    linkNode		    [103 141 143]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    74
+    name		    "black_al"
+    linkNode		    [130 141 143]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -11279,16 +13081,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    143
-    ssIdNumber		    102
-    name		    "blob_major_axis"
-    linkNode		    [103 142 144]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    75
+    name		    "black_au"
+    linkNode		    [130 142 144]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -11301,16 +13103,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    144
-    ssIdNumber		    103
-    name		    "blob_minor_axis"
-    linkNode		    [103 143 145]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    76
+    name		    "black_bl"
+    linkNode		    [130 143 145]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -11323,16 +13125,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    145
-    ssIdNumber		    104
-    name		    "blob_orientation"
-    linkNode		    [103 144 146]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    77
+    name		    "black_bu"
+    linkNode		    [130 144 146]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -11345,16 +13147,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    146
-    ssIdNumber		    105
-    name		    "blob_eccentricity"
-    linkNode		    [103 145 147]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    78
+    name		    "blue_al"
+    linkNode		    [130 145 147]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -11367,16 +13169,16 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    147
-    ssIdNumber		    106
-    name		    "blob_extent"
-    linkNode		    [103 146 148]
-    scope		    OUTPUT_DATA
+    ssIdNumber		    79
+    name		    "blue_au"
+    linkNode		    [130 146 148]
+    scope		    INPUT_DATA
     machine		    1
     props {
       array {
@@ -11389,15 +13191,411 @@ Stateflow {
 	wordLength		"16"
       }
       complexity	      SF_COMPLEX_INHERITED
-      frame		      SF_FRAME_NO
+      frame		      SF_FRAME_INHERITED
     }
     dataType		    "Inherit: Same as Simulink"
   }
   data {
     id			    148
-    ssIdNumber		    107
-    name		    "blob_count"
-    linkNode		    [103 147 149]
+    ssIdNumber		    80
+    name		    "blue_bl"
+    linkNode		    [130 147 149]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    149
+    ssIdNumber		    81
+    name		    "blue_bu"
+    linkNode		    [130 148 150]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    150
+    ssIdNumber		    82
+    name		    "red_al"
+    linkNode		    [130 149 151]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    151
+    ssIdNumber		    83
+    name		    "red_au"
+    linkNode		    [130 150 152]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    152
+    ssIdNumber		    84
+    name		    "red_bl"
+    linkNode		    [130 151 153]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    153
+    ssIdNumber		    85
+    name		    "red_bu"
+    linkNode		    [130 152 154]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    154
+    ssIdNumber		    86
+    name		    "orange_al"
+    linkNode		    [130 153 155]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    155
+    ssIdNumber		    87
+    name		    "orange_au"
+    linkNode		    [130 154 156]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    156
+    ssIdNumber		    88
+    name		    "orange_bl"
+    linkNode		    [130 155 157]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    157
+    ssIdNumber		    89
+    name		    "orange_bu"
+    linkNode		    [130 156 158]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    158
+    ssIdNumber		    90
+    name		    "yellow_al"
+    linkNode		    [130 157 159]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    159
+    ssIdNumber		    91
+    name		    "yellow_au"
+    linkNode		    [130 158 160]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    160
+    ssIdNumber		    92
+    name		    "yellow_bl"
+    linkNode		    [130 159 161]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    161
+    ssIdNumber		    93
+    name		    "yellow_bu"
+    linkNode		    [130 160 162]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    162
+    ssIdNumber		    94
+    name		    "green_al"
+    linkNode		    [130 161 163]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    163
+    ssIdNumber		    95
+    name		    "green_au"
+    linkNode		    [130 162 164]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    164
+    ssIdNumber		    96
+    name		    "green_bl"
+    linkNode		    [130 163 165]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    165
+    ssIdNumber		    97
+    name		    "green_bu"
+    linkNode		    [130 164 166]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    166
+    ssIdNumber		    98
+    name		    "blob_hues"
+    linkNode		    [130 165 167]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -11416,10 +13614,208 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    149
+    id			    167
+    ssIdNumber		    99
+    name		    "blob_area"
+    linkNode		    [130 166 168]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    168
+    ssIdNumber		    100
+    name		    "blob_centroids"
+    linkNode		    [130 167 169]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    169
+    ssIdNumber		    101
+    name		    "blob_bbox"
+    linkNode		    [130 168 170]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    170
+    ssIdNumber		    102
+    name		    "blob_major_axis"
+    linkNode		    [130 169 171]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    171
+    ssIdNumber		    103
+    name		    "blob_minor_axis"
+    linkNode		    [130 170 172]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    172
+    ssIdNumber		    104
+    name		    "blob_orientation"
+    linkNode		    [130 171 173]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    173
+    ssIdNumber		    105
+    name		    "blob_eccentricity"
+    linkNode		    [130 172 174]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    174
+    ssIdNumber		    106
+    name		    "blob_extent"
+    linkNode		    [130 173 175]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    175
+    ssIdNumber		    107
+    name		    "blob_count"
+    linkNode		    [130 174 176]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    176
     ssIdNumber		    108
     name		    "bw_image"
-    linkNode		    [103 148 0]
+    linkNode		    [130 175 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -11438,28 +13834,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    150
+    id			    177
     name		    "Blob_Analysis/Blob Extraction"
     machine		    1
-    chart		    103
+    chart		    130
   }
   chart {
-    id			    151
+    id			    178
     name		    "Blob_Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter"
     windowPosition	    [746.813 -111 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 152 0 0]
-    firstTransition	    154
-    firstJunction	    153
-    viewObj		    151
+    treeNode		    [0 179 0 0]
+    firstTransition	    181
+    firstJunction	    180
+    viewObj		    178
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    155
+    firstData		    182
     chartFileNumber	    30
     disableImplicitCasting  1
     eml {
@@ -11468,14 +13862,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    152
+    id			    179
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    151
-    treeNode		    [151 0 0 0]
+    chart		    178
+    treeNode		    [178 0 0 0]
     superState		    SUBCHART
-    subviewer		    151
+    subviewer		    178
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -11504,16 +13898,16 @@ Stateflow {
     }
   }
   junction {
-    id			    153
+    id			    180
     position		    [23.5747 49.5747 7]
-    chart		    151
-    linkNode		    [151 0 0]
-    subviewer		    151
+    chart		    178
+    linkNode		    [178 0 0]
+    subviewer		    178
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    154
+    id			    181
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -11521,23 +13915,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      153
+      id		      180
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    151
-    linkNode		    [151 0 0]
+    chart		    178
+    linkNode		    [178 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    151
+    subviewer		    178
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    155
+    id			    182
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [151 0 156]
+    linkNode		    [178 0 183]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -11553,10 +13947,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    156
+    id			    183
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [151 155 0]
+    linkNode		    [178 182 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -11573,28 +13967,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    157
+    id			    184
     name		    "Blob_Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter"
     machine		    1
-    chart		    151
+    chart		    178
   }
   chart {
-    id			    158
+    id			    185
     name		    "Blob_Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
     windowPosition	    [731.813 -96 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 159 0 0]
-    firstTransition	    161
-    firstJunction	    160
-    viewObj		    158
+    treeNode		    [0 186 0 0]
+    firstTransition	    188
+    firstJunction	    187
+    viewObj		    185
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    162
+    firstData		    189
     chartFileNumber	    31
     disableImplicitCasting  1
     eml {
@@ -11603,14 +13995,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    159
+    id			    186
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    158
-    treeNode		    [158 0 0 0]
+    chart		    185
+    treeNode		    [185 0 0 0]
     superState		    SUBCHART
-    subviewer		    158
+    subviewer		    185
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -11639,16 +14031,16 @@ Stateflow {
     }
   }
   junction {
-    id			    160
+    id			    187
     position		    [23.5747 49.5747 7]
-    chart		    158
-    linkNode		    [158 0 0]
-    subviewer		    158
+    chart		    185
+    linkNode		    [185 0 0]
+    subviewer		    185
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    161
+    id			    188
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -11656,23 +14048,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      160
+      id		      187
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    158
-    linkNode		    [158 0 0]
+    chart		    185
+    linkNode		    [185 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    158
+    subviewer		    185
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    162
+    id			    189
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [158 0 163]
+    linkNode		    [185 0 190]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -11688,10 +14080,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    163
+    id			    190
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [158 162 0]
+    linkNode		    [185 189 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -11708,28 +14100,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    164
+    id			    191
     name		    "Blob_Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
     machine		    1
-    chart		    158
+    chart		    185
   }
   chart {
-    id			    165
+    id			    192
     name		    "Blob_Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
     windowPosition	    [731.813 -96 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 166 0 0]
-    firstTransition	    168
-    firstJunction	    167
-    viewObj		    165
+    treeNode		    [0 193 0 0]
+    firstTransition	    195
+    firstJunction	    194
+    viewObj		    192
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    169
+    firstData		    196
     chartFileNumber	    32
     disableImplicitCasting  1
     eml {
@@ -11738,14 +14128,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    166
+    id			    193
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    165
-    treeNode		    [165 0 0 0]
+    chart		    192
+    treeNode		    [192 0 0 0]
     superState		    SUBCHART
-    subviewer		    165
+    subviewer		    192
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -11774,16 +14164,16 @@ Stateflow {
     }
   }
   junction {
-    id			    167
+    id			    194
     position		    [23.5747 49.5747 7]
-    chart		    165
-    linkNode		    [165 0 0]
-    subviewer		    165
+    chart		    192
+    linkNode		    [192 0 0]
+    subviewer		    192
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    168
+    id			    195
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -11791,23 +14181,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      167
+      id		      194
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    165
-    linkNode		    [165 0 0]
+    chart		    192
+    linkNode		    [192 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    165
+    subviewer		    192
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    169
+    id			    196
     ssIdNumber		    4
     name		    "I"
-    linkNode		    [165 0 170]
+    linkNode		    [192 0 197]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -11823,10 +14213,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    170
+    id			    197
     ssIdNumber		    5
     name		    "Iout"
-    linkNode		    [165 169 0]
+    linkNode		    [192 196 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -11843,28 +14233,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    171
+    id			    198
     name		    "Blob_Analysis/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
     machine		    1
-    chart		    165
+    chart		    192
   }
   chart {
-    id			    172
+    id			    199
     name		    "Blob_Analysis/IterativeSegmentation/Segmentation/LabSegmentation"
     windowPosition	    [701.813 -75 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 173 0 0]
-    firstTransition	    175
-    firstJunction	    174
-    viewObj		    172
+    treeNode		    [0 200 0 0]
+    firstTransition	    202
+    firstJunction	    201
+    viewObj		    199
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    176
+    firstData		    203
     chartFileNumber	    33
     disableImplicitCasting  1
     eml {
@@ -11873,14 +14261,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    173
+    id			    200
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    172
-    treeNode		    [172 0 0 0]
+    chart		    199
+    treeNode		    [199 0 0 0]
     superState		    SUBCHART
-    subviewer		    172
+    subviewer		    199
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -11899,16 +14287,16 @@ Stateflow {
     }
   }
   junction {
-    id			    174
+    id			    201
     position		    [23.5747 49.5747 7]
-    chart		    172
-    linkNode		    [172 0 0]
-    subviewer		    172
+    chart		    199
+    linkNode		    [199 0 0]
+    subviewer		    199
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    175
+    id			    202
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -11916,23 +14304,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      174
+      id		      201
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    172
-    linkNode		    [172 0 0]
+    chart		    199
+    linkNode		    [199 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    172
+    subviewer		    199
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    176
+    id			    203
     ssIdNumber		    4
     name		    "L"
-    linkNode		    [172 0 177]
+    linkNode		    [199 0 204]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -11948,10 +14336,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    177
+    id			    204
     ssIdNumber		    5
     name		    "LabelMatrix"
-    linkNode		    [172 176 178]
+    linkNode		    [199 203 205]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -11968,10 +14356,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    178
+    id			    205
     ssIdNumber		    6
     name		    "a"
-    linkNode		    [172 177 179]
+    linkNode		    [199 204 206]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -11990,10 +14378,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    179
+    id			    206
     ssIdNumber		    7
     name		    "b"
-    linkNode		    [172 178 180]
+    linkNode		    [199 205 207]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -12012,10 +14400,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    180
+    id			    207
     ssIdNumber		    8
     name		    "ref_colors"
-    linkNode		    [172 179 181]
+    linkNode		    [199 206 208]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -12034,10 +14422,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    181
+    id			    208
     ssIdNumber		    9
     name		    "num_colors"
-    linkNode		    [172 180 0]
+    linkNode		    [199 207 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -12056,28 +14444,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    182
+    id			    209
     name		    "Blob_Analysis/IterativeSegmentation/Segmentation/LabSegmentation"
     machine		    1
-    chart		    172
+    chart		    199
   }
   chart {
-    id			    183
+    id			    210
     name		    "Blob_Analysis/IterativeSegmentation/Segmentation/Reference Color Selection"
     windowPosition	    [701.813 -75 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 184 0 0]
-    firstTransition	    186
-    firstJunction	    185
-    viewObj		    183
+    treeNode		    [0 211 0 0]
+    firstTransition	    213
+    firstJunction	    212
+    viewObj		    210
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    187
+    firstData		    214
     chartFileNumber	    34
     disableImplicitCasting  1
     eml {
@@ -12086,14 +14472,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    184
+    id			    211
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    183
-    treeNode		    [183 0 0 0]
+    chart		    210
+    treeNode		    [210 0 0 0]
     superState		    SUBCHART
-    subviewer		    183
+    subviewer		    210
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -12132,16 +14518,16 @@ Stateflow {
     }
   }
   junction {
-    id			    185
+    id			    212
     position		    [23.5747 49.5747 7]
-    chart		    183
-    linkNode		    [183 0 0]
-    subviewer		    183
+    chart		    210
+    linkNode		    [210 0 0]
+    subviewer		    210
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    186
+    id			    213
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -12149,23 +14535,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      185
+      id		      212
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    183
-    linkNode		    [183 0 0]
+    chart		    210
+    linkNode		    [210 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    183
+    subviewer		    210
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    187
+    id			    214
     ssIdNumber		    4
     name		    "L"
-    linkNode		    [183 0 188]
+    linkNode		    [210 0 215]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -12181,10 +14567,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    188
+    id			    215
     ssIdNumber		    5
     name		    "ref_colors"
-    linkNode		    [183 187 189]
+    linkNode		    [210 214 216]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -12201,10 +14587,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    189
+    id			    216
     ssIdNumber		    6
     name		    "a"
-    linkNode		    [183 188 190]
+    linkNode		    [210 215 217]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -12223,10 +14609,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    190
+    id			    217
     ssIdNumber		    7
     name		    "b"
-    linkNode		    [183 189 191]
+    linkNode		    [210 216 218]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -12245,10 +14631,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    191
+    id			    218
     ssIdNumber		    8
     name		    "num_colors"
-    linkNode		    [183 190 192]
+    linkNode		    [210 217 219]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -12267,10 +14653,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    192
+    id			    219
     ssIdNumber		    10
     name		    "Dist_Thresh"
-    linkNode		    [183 191 0]
+    linkNode		    [210 218 0]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -12289,28 +14675,26 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    193
+    id			    220
     name		    "Blob_Analysis/IterativeSegmentation/Segmentation/Reference Color Selection"
     machine		    1
-    chart		    183
+    chart		    210
   }
   chart {
-    id			    194
+    id			    221
     name		    "Blob_Analysis/Segmented Image/Display Image"
     windowPosition	    [636.939 -168.574 200.25 189.75]
     viewLimits		    [0 156.75 0 153.75]
     screen		    [1 1 3120 1050 1.180555555555556]
-    treeNode		    [0 195 0 0]
-    firstTransition	    197
-    firstJunction	    196
-    viewObj		    194
+    treeNode		    [0 222 0 0]
+    firstTransition	    224
+    firstJunction	    223
+    viewObj		    221
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    58
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
-    firstData		    198
+    firstData		    225
     chartFileNumber	    35
     disableImplicitCasting  1
     eml {
@@ -12319,14 +14703,14 @@ Stateflow {
     supportVariableSizing   0
   }
   state {
-    id			    195
+    id			    222
     labelString		    "eML_blk_kernel()"
     position		    [18 64.5 118 66]
     fontSize		    12
-    chart		    194
-    treeNode		    [194 0 0 0]
+    chart		    221
+    treeNode		    [221 0 0 0]
     superState		    SUBCHART
-    subviewer		    194
+    subviewer		    221
     ssIdNumber		    1
     type		    FUNC_STATE
     decomposition	    CLUSTER_STATE
@@ -12344,16 +14728,16 @@ Stateflow {
     }
   }
   junction {
-    id			    196
+    id			    223
     position		    [23.5747 49.5747 7]
-    chart		    194
-    linkNode		    [194 0 0]
-    subviewer		    194
+    chart		    221
+    linkNode		    [221 0 0]
+    subviewer		    221
     ssIdNumber		    3
     type		    CONNECTIVE_JUNCTION
   }
   transition {
-    id			    197
+    id			    224
     labelString		    "{eML_blk_kernel();}"
     labelPosition	    [32.125 19.875 102.544 14.964]
     fontSize		    12
@@ -12361,23 +14745,23 @@ Stateflow {
       intersection	      [0 0 1 0 23.5747 14.625 0 0]
     }
     dst {
-      id		      196
+      id		      223
       intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
     }
     midPoint		    [23.5747 24.9468]
-    chart		    194
-    linkNode		    [194 0 0]
+    chart		    221
+    linkNode		    [221 0 0]
     dataLimits		    [23.575 23.575 14.625 34.575]
-    subviewer		    194
+    subviewer		    221
     drawStyle		    SMART
     executionOrder	    1
     ssIdNumber		    2
   }
   data {
-    id			    198
+    id			    225
     ssIdNumber		    54
     name		    "LabelMatrix"
-    linkNode		    [194 0 199]
+    linkNode		    [221 0 226]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -12396,10 +14780,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    199
+    id			    226
     ssIdNumber		    56
     name		    "ref_colors"
-    linkNode		    [194 198 200]
+    linkNode		    [221 225 227]
     scope		    INPUT_DATA
     machine		    1
     props {
@@ -12418,10 +14802,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    200
+    id			    227
     ssIdNumber		    41
     name		    "L"
-    linkNode		    [194 199 201]
+    linkNode		    [221 226 228]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -12440,10 +14824,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    201
+    id			    228
     ssIdNumber		    57
     name		    "a"
-    linkNode		    [194 200 202]
+    linkNode		    [221 227 229]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -12462,10 +14846,10 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   data {
-    id			    202
+    id			    229
     ssIdNumber		    58
     name		    "b"
-    linkNode		    [194 201 0]
+    linkNode		    [221 228 0]
     scope		    OUTPUT_DATA
     machine		    1
     props {
@@ -12484,22 +14868,22 @@ Stateflow {
     dataType		    "Inherit: Same as Simulink"
   }
   instance {
-    id			    203
+    id			    230
     name		    "Blob_Analysis/Segmented Image/Display Image"
     machine		    1
-    chart		    194
+    chart		    221
   }
   target {
-    id			    204
+    id			    231
     name		    "sfun"
     description		    "Default Simulink S-Function Target."
     machine		    1
-    linkNode		    [1 0 205]
+    linkNode		    [1 0 232]
   }
   target {
-    id			    205
+    id			    232
     name		    "rtw"
     machine		    1
-    linkNode		    [1 204 0]
+    linkNode		    [1 231 0]
   }
 }

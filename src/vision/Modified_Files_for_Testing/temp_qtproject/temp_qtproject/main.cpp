@@ -40,6 +40,9 @@ int blob_area[max_num_blobs];
 double blob_eccentricity[max_num_blobs];
 double blob_centroid[2][max_num_blobs];
 double bounding_box[4][max_num_blobs];
+double major_axis[max_num_blobs];
+double minor_axis[max_num_blobs];
+double eccentricity[max_num_blobs];
 int found = 0;
 
 
@@ -76,6 +79,16 @@ void mergeBlobs(int fromBlob, int toBlob);
 
 // Determine if current row, column pair is outside bounding box and update
 void updateBoundingBox(int blob_track, int r, int c);
+
+// Return the min or max of two values, but ignore any value that is -1
+double minIgnore(double a, double b);
+double maxIgnore(double a, double b);
+
+// Draw bounding boxes around each identified blob
+void drawBoundingBox(int blob_track);
+
+// Perform actions to extract blob information that require complete image analysis prior
+void postProcess();
 
 
 
@@ -129,15 +142,26 @@ int main(int argc, char *argv[])
     // Perform naive blob analysis
     blobAnalysis1();
 
+    // Determine quantities that require entire image to be processed first
+    postProcess();
 
     // Debugging output
-    // Save RGB arrays to an image file
-    fileOutput("/home/auvt/auvc/src/vision/Modified_Files_for_Testing/temp_qtproject/temp_qtproject/outputImage.jpg");
 
     for(int i = 0; i < max_num_blobs; i++)
     {
-        std::cout << "Bounding box: " << bounding_box()
+//        std::cout << "Bounding box: " << bounding_box[0][i] << " " << bounding_box[1][i] << " " << bounding_box[2][i] << " " << bounding_box[3][i] << endl;
+//        std::cout << "Eccentricity: " << eccentricity[i] << endl;
+//        std::cout << "Major axis: " << major_axis[i] << " Minor axis: " << minor_axis[i] << endl;
+
+        drawBoundingBox(i);
+
     }
+
+    std::cout << maxIgnore(-1, -1) << " " << maxIgnore(-1, -8) << " " << maxIgnore(8, -1) << " " << maxIgnore(300, 301) << endl;
+
+    // Save RGB arrays to an image file
+    fileOutput("/home/auvt/auvc/src/vision/Modified_Files_for_Testing/temp_qtproject/temp_qtproject/outputImage.bmp");
+//    fileOutput("/home/auvt/auvc/src/vision/Modified_Files_for_Testing/temp_qtproject/temp_qtproject/outputImage.jpg");
 
     std::cout << "Program finished." << endl;
 
@@ -192,6 +216,7 @@ void subsetImage()
 
     return;
 }
+
 
 void filterImage()
 {
@@ -248,7 +273,8 @@ void fileOutput(char* file)
     }
 
     // Write output image file
-    bool success = imOut.save(file, "JPG", 100);
+    bool success = imOut.save(file, "BMP", 100);
+//    bool success = imOut.save(file, "JPG", 100);
 
     return;
 }
@@ -282,7 +308,7 @@ void transform(int transformType)
 void blobAnalysis1()
 {
 
-    // Initialize all arrays to zeros
+    // Initialize all arrays
     for(int b = 0; b < max_num_blobs; b++)
     {
         blob_bound[0][b] = 0;  // Left bound
@@ -292,10 +318,13 @@ void blobAnalysis1()
         blob_eccentricity[b] = 0;
         blob_centroid[0][b] = 0;
         blob_centroid[1][b] = 0;
-        bounding_box[0][b] = 0;
-        bounding_box[1][b] = 0;
-        bounding_box[2][b] = 0;
-        bounding_box[3][b] = 0;
+        bounding_box[0][b] = -1;
+        bounding_box[1][b] = -1;
+        bounding_box[2][b] = -1;
+        bounding_box[3][b] = -1;
+        major_axis[b] = 0;
+        minor_axis[b] = 0;
+        eccentricity[b] = 0;
     }
 
     // Loop through bw image line-by-line
@@ -493,10 +522,10 @@ void mergeBlobs(int fromBlob, int toBlob)
 
     blob_area[toBlob] += blob_area[fromBlob];
 
-    bounding_box[0][toBlob] = min( bounding_box[0][fromBlob], bounding_box[0][toBlob] );
-    bounding_box[1][toBlob] = max( bounding_box[1][fromBlob], bounding_box[1][toBlob] );
-    bounding_box[2][toBlob] = min( bounding_box[2][fromBlob], bounding_box[2][toBlob] );
-    bounding_box[3][toBlob] = max( bounding_box[3][fromBlob], bounding_box[3][toBlob] );
+    bounding_box[0][toBlob] = minIgnore( bounding_box[0][fromBlob], bounding_box[0][toBlob] );
+    bounding_box[1][toBlob] = maxIgnore( bounding_box[1][fromBlob], bounding_box[1][toBlob] );
+    bounding_box[2][toBlob] = minIgnore( bounding_box[2][fromBlob], bounding_box[2][toBlob] );
+    bounding_box[3][toBlob] = maxIgnore( bounding_box[3][fromBlob], bounding_box[3][toBlob] );
 
     // Set information for fromBlob to zero
     blob_bound[0][fromBlob] = 0;
@@ -515,11 +544,31 @@ void mergeBlobs(int fromBlob, int toBlob)
 
 void updateBoundingBox(int blob_track, int r, int c)
 {
+    /*
+    // Handle uninitialized bounding_box array (uninitialized contains -1)
+    if(bounding_box[0][blob_track] == -1)
+{
+        bounding_box[0][blob_track] = (double)r;
+    }
+    else
+    {
+        bounding_box[0][blob_track] = min( (double)r, bounding_box[0][blob_track] );
+    }
 
-    bounding_box[0][blob_track] = min( (double)r, bounding_box[0][blob_track] );
-    bounding_box[1][blob_track] = max( (double)r, bounding_box[1][blob_track] );
-    bounding_box[2][blob_track] = min( (double)c, bounding_box[2][blob_track] );
-    bounding_box[3][blob_track] = max( (double)c, bounding_box[3][blob_track] );
+    if(blob_box[2][blob_track] == -1)
+    {
+        bounding_box[2][blob_track] = (double)c;
+    }
+    else
+    {
+        bounding_box[2][blob_track] = min( (double)c, bounding_box[2][blob_track] );
+    }
+*/
+
+    bounding_box[0][blob_track] = minIgnore( (double)r, bounding_box[0][blob_track] );
+    bounding_box[1][blob_track] = maxIgnore( (double)r, bounding_box[1][blob_track] );
+    bounding_box[2][blob_track] = minIgnore( (double)c, bounding_box[2][blob_track] );
+    bounding_box[3][blob_track] = maxIgnore( (double)c, bounding_box[3][blob_track] );
 
 /*
 
@@ -541,5 +590,104 @@ void updateBoundingBox(int blob_track, int r, int c)
         bounding_box[3][blob_track] = c;
     }
 */
+    return;
+}
+
+
+double minIgnore(double a, double b)
+{
+    if(b != -1 && a == -1)
+    {
+        // If one number is == -1, then return the other number
+        return b;
+    }
+    else if(a != -1 && b == -1)
+    {
+        return a;
+    }
+    else if(a == -1 && b == -1)
+    {
+        // If both numbers are == -1, then return 0
+        return 0;
+    }
+
+    // If neither number is == -1, then return the minimum
+    return min(a, b);
+}
+
+
+double maxIgnore(double a, double b)
+{
+    if(b != -1 && a == -1)
+    {
+        // If one number is == -1, then return the other number
+        return b;
+    }
+    if(a != -1 && b == -1)
+    {
+        return a;
+    }
+    if(a == -1 && b == -1)
+    {
+        // If both numbers are == -1, then return 0
+        return 0;
+    }
+
+    // If neither number is == -1, then return the minimum
+    return max(a, b);
+}
+
+
+void drawBoundingBox(int blob_track)
+{
+    double rdisplay = 255;
+    double gdisplay = 0;
+    double bdisplay = 0;
+
+    for(int r = bounding_box[0][blob_track]; r < bounding_box[1][blob_track]; r++)
+    {
+        c1[ (int)bounding_box[2][blob_track] ][r] = rdisplay;
+        c2[ (int)bounding_box[2][blob_track] ][r] = gdisplay;
+        c3[ (int)bounding_box[2][blob_track] ][r] = bdisplay;
+
+        c1[ (int)bounding_box[3][blob_track] ][r] = rdisplay;
+        c2[ (int)bounding_box[3][blob_track] ][r] = gdisplay;
+        c3[ (int)bounding_box[3][blob_track] ][r] = bdisplay;
+    }
+
+    for(int c = bounding_box[2][blob_track]; c < bounding_box[3][blob_track]; c++)
+    {
+        c1[c][ (int)bounding_box[0][blob_track] ] = rdisplay;
+        c2[c][ (int)bounding_box[0][blob_track] ] = gdisplay;
+        c3[c][ (int)bounding_box[0][blob_track] ] = bdisplay;
+
+        c1[c][ (int)bounding_box[1][blob_track] ] = rdisplay;
+        c2[c][ (int)bounding_box[1][blob_track] ] = gdisplay;
+        c3[c][ (int)bounding_box[1][blob_track] ] = bdisplay;
+    }
+
+    return;
+}
+
+
+void postProcess()
+{
+    for(int b = 0; b < num_blobs; b++)
+    {
+        // Store major and minor axes for each blob
+        major_axis[b] = maxIgnore( bounding_box[1][b] - bounding_box[0][b], bounding_box[3][b] - bounding_box[2][b] );
+        minor_axis[b] = minIgnore( bounding_box[1][b] - bounding_box[0][b], bounding_box[3][b] - bounding_box[2][b] );
+
+        std::cout << bounding_box[1][b] - bounding_box[0][b] << " " << bounding_box[3][b] - bounding_box[2][b] << endl;
+        std::cout << bounding_box[1][b] - bounding_box[0][b] << " " << bounding_box[3][b] - bounding_box[2][b] << endl;
+
+        // Determine eccentricity for each blob
+        if(major_axis[b] == 0)
+        {
+            eccentricity[b] = 1;
+        }
+        eccentricity[b] = (double)sqrt(  (double)1 - ( pow(.5*minor_axis[b], 2)/pow(.5*major_axis[b], 2) )  );
+    }
+
     return;
 }
