@@ -13,9 +13,9 @@ Down_Fov = 120;
 Scale_Forward_R = 1;
 Scale_Forward_G = 1;
 Scale_Forward_B = 1;
-Scale_Forward_H = .8;
+Scale_Forward_H = 1;
 Scale_Forward_S = 1;
-Scale_Forward_V = 1;
+Scale_Forward_V = 2;
 
 Scale_Down_R = 1;
 Scale_Down_G = 1;
@@ -79,10 +79,10 @@ red_ggu = 0;
 red_bbl = 0;
 red_bbu = 0;
 
-orange_al = 5;
-orange_au = 10;
-orange_bl = 30;
-orange_bu = 34;
+orange_al = 15;
+orange_au = 30;
+orange_bl = 50;
+orange_bu = 70;
 
 orange_rrl = 0;
 orange_rru = 0;
