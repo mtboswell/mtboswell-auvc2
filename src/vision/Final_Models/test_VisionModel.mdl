@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1163"
+    ComputedModelVersion    "1.1186"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "auvt"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jul  3 00:08:51 2011"
-  RTWModifiedTimeStamp	  231550903
-  ModelVersionFormat	  "1.%<AutoIncrement:1163>"
+  LastModifiedDate	  "Sun Jul  3 23:31:28 2011"
+  RTWModifiedTimeStamp	  231629092
+  ModelVersionFormat	  "1.%<AutoIncrement:1186>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -647,130 +647,49 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "735"
+    SIDHighWatermark	    "742"
     Block {
       BlockType		      Display
-      Name		      "Display"
-      SID		      "455"
+      Name		      "BuoyColors"
+      SID		      "741"
       Ports		      [1]
-      Position		      [2485, 575, 2575, 605]
+      Position		      [2460, 175, 2550, 205]
       Decimation	      "1"
       Lockdown		      off
     }
     Block {
       BlockType		      Display
-      Name		      "Display1"
-      SID		      "456"
-      Ports		      [1]
-      Position		      [2485, 620, 2575, 650]
-      Decimation	      "1"
-      Lockdown		      off
-    }
-    Block {
-      BlockType		      Display
-      Name		      "Display10"
-      SID		      "457"
-      Ports		      [1]
-      Position		      [2475, 945, 2565, 975]
-      Decimation	      "1"
-      Lockdown		      off
-    }
-    Block {
-      BlockType		      Display
-      Name		      "Display11"
-      SID		      "458"
-      Ports		      [1]
-      Position		      [2475, 1010, 2565, 1040]
-      Decimation	      "1"
-      Lockdown		      off
-    }
-    Block {
-      BlockType		      Display
-      Name		      "Display12"
-      SID		      "459"
-      Ports		      [1]
-      Position		      [2475, 1070, 2565, 1100]
-      Decimation	      "1"
-      Lockdown		      off
-    }
-    Block {
-      BlockType		      Display
-      Name		      "Display13"
-      SID		      "460"
-      Ports		      [1]
-      Position		      [2475, 1120, 2565, 1150]
-      Decimation	      "1"
-      Lockdown		      off
-    }
-    Block {
-      BlockType		      Display
-      Name		      "Display14"
-      SID		      "461"
-      Ports		      [1]
-      Position		      [2470, 1175, 2560, 1205]
-      Decimation	      "1"
-      Lockdown		      off
-    }
-    Block {
-      BlockType		      Display
-      Name		      "Display16"
-      SID		      "463"
-      Ports		      [1]
-      Position		      [2470, 1235, 2560, 1265]
-      Decimation	      "1"
-      Lockdown		      off
-    }
-    Block {
-      BlockType		      Display
-      Name		      "Display17"
-      SID		      "464"
-      Ports		      [1]
-      Position		      [2470, 1295, 2560, 1325]
-      Decimation	      "1"
-      Lockdown		      off
-    }
-    Block {
-      BlockType		      Display
-      Name		      "Display2"
+      Name		      "DesiredTargetX"
       SID		      "465"
       Ports		      [1]
-      Position		      [2485, 665, 2575, 695]
+      Position		      [2300, 120, 2390, 150]
       Decimation	      "1"
       Lockdown		      off
     }
     Block {
       BlockType		      Display
-      Name		      "Display3"
-      SID		      "672"
+      Name		      "DesiredTargetY"
+      SID		      "737"
       Ports		      [1]
-      Position		      [2470, 1355, 2560, 1385]
+      Position		      [2300, 175, 2390, 205]
       Decimation	      "1"
       Lockdown		      off
     }
     Block {
       BlockType		      Display
-      Name		      "Display7"
-      SID		      "470"
+      Name		      "DesiredTargetYaw"
+      SID		      "739"
       Ports		      [1]
-      Position		      [2475, 795, 2565, 825]
+      Position		      [2300, 295, 2390, 325]
       Decimation	      "1"
       Lockdown		      off
     }
     Block {
       BlockType		      Display
-      Name		      "Display8"
-      SID		      "471"
+      Name		      "DesiredTargetZ"
+      SID		      "738"
       Ports		      [1]
-      Position		      [2475, 845, 2565, 875]
-      Decimation	      "1"
-      Lockdown		      off
-    }
-    Block {
-      BlockType		      Display
-      Name		      "Display9"
-      SID		      "472"
-      Ports		      [1]
-      Position		      [2475, 895, 2565, 925]
+      Position		      [2300, 235, 2390, 265]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -1003,7 +922,7 @@ Model {
       Name		      "Down Camera"
       SID		      "671"
       Ports		      [3]
-      Position		      [1995, 1795, 2110, 1865]
+      Position		      [2300, 820, 2415, 890]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag0"
@@ -1017,7 +936,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[2606 839 364 553]"
+      FigPos		      "[996 778 364 553]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -1028,7 +947,7 @@ Model {
       SID		      "447"
       Tag		      "vipblks_nd"
       Ports		      [0, 3]
-      Position		      [395, 709, 520, 821]
+      Position		      [1115, 589, 1240, 701]
       LibraryVersion	      "1.308"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag2"
@@ -1055,11 +974,20 @@ Model {
       OutPortLabels	      "R|G|B"
     }
     Block {
+      BlockType		      Display
+      Name		      "FireAuthorization"
+      SID		      "742"
+      Ports		      [1]
+      Position		      [2460, 235, 2550, 265]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
       BlockType		      Reference
       Name		      "Forward Camera"
       SID		      "454"
       Ports		      [3]
-      Position		      [1925, 1105, 2040, 1175]
+      Position		      [2300, 550, 2415, 620]
       LibraryVersion	      "1.251"
       UserDataPersistent      on
       UserData		      "DataTag3"
@@ -1073,7 +1001,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[1039 758 364 553]"
+      FigPos		      "[614 779 364 553]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -1084,7 +1012,7 @@ Model {
       SID		      "438"
       Tag		      "vipblks_nd"
       Ports		      [0, 3]
-      Position		      [1115, 634, 1240, 746]
+      Position		      [1115, 424, 1240, 536]
       LibraryVersion	      "1.308"
       DialogController	      "vipDDGCreate"
       DialogControllerArgs    "DataTag5"
@@ -1111,21 +1039,30 @@ Model {
       OutPortLabels	      "R|G|B"
     }
     Block {
+      BlockType		      Display
+      Name		      "MaintainHeading"
+      SID		      "456"
+      Ports		      [1]
+      Position		      [2155, 175, 2245, 205]
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
       BlockType		      Constant
       Name		      "ModeSelect"
       SID		      "493"
-      Position		      [1210, 1025, 1240, 1055]
+      Position		      [1210, 755, 1240, 785]
       SampleTime	      "-1"
     }
     Block {
       BlockType		      ModelReference
       Name		      "Model"
       SID		      "491"
-      Ports		      [35, 6]
-      Position		      [1325, 789, 1820, 2191]
+      Ports		      [42, 20]
+      Position		      [1385, 445, 1885, 2255]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.751"
+      ModelReferenceVersion   "1.877"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1135,34 +1072,41 @@ Model {
 	port4			"G_down_in"
 	port5			"B_down_in"
 	port6			"ModeSelect"
-	port7			"white_al"
-	port8			"white_au"
-	port9			"white_bl"
-	port10			"white_bu"
-	port11			"black_al"
-	port12			"black_au"
-	port13			"black_bl"
-	port14			"black_bu"
-	port15			"blue_al"
-	port16			"blue_au"
-	port17			"blue_bl"
-	port18			"blue_bu"
-	port19			"red_al"
-	port20			"red_au"
-	port21			"red_bl"
-	port22			"red_bu"
-	port23			"orange_al"
-	port24			"orane_au"
-	port25			"orange_bl"
-	port26			"orange_bu"
-	port27			"yellow_al"
-	port28			"yellow_au"
-	port29			"yellow_bl"
-	port30			"yellow_bu"
-	port31			"green_al"
-	port32			"green_au"
-	port33			"breen_bl"
-	port34			"green_bu"
+	port7			"OutputImage"
+	port8			"DesiredPathDirection"
+	port9			"DesiredBuoyColor"
+	port10			"DesiredTorpedoColor"
+	port11			"ProceedToSecondTarget"
+	port12			"DefaultTargetShape"
+	port13			"DefaultTargetColor"
+	port14			"white_al"
+	port15			"white_au"
+	port16			"white_bl"
+	port17			"white_bu"
+	port18			"black_al"
+	port19			"black_au"
+	port20			"black_bl"
+	port21			"black_bu"
+	port22			"blue_al"
+	port23			"blue_au"
+	port24			"blue_bl"
+	port25			"blue_bu"
+	port26			"red_al"
+	port27			"red_au"
+	port28			"red_bl"
+	port29			"red_bu"
+	port30			"orange_al"
+	port31			"orane_au"
+	port32			"orange_bl"
+	port33			"orange_bu"
+	port34			"yellow_al"
+	port35			"yellow_au"
+	port36			"yellow_bl"
+	port37			"yellow_bu"
+	port38			"green_al"
+	port39			"green_au"
+	port40			"breen_bl"
+	port41			"green_bu"
       }
       List {
 	ListType		OutputPortNames
@@ -1172,6 +1116,20 @@ Model {
 	port3			"R_down_out"
 	port4			"G_down_out"
 	port5			"B_down_out"
+	port6			"TargetSelect"
+	port7			"MaintainHeading"
+	port8			"TargetX"
+	port9			"TargetY"
+	port10			"TargetZ"
+	port11			"TargetYaw"
+	port12			"DesiredTargetX"
+	port13			"DesiredTargetY"
+	port14			"DesiredTargetZ"
+	port15			"DesiredTargetYaw"
+	port16			"TargetDetected"
+	port17			"PathState"
+	port18			"BuoyColors"
+	port19			"FireAuthorization"
       }
       List {
 	ListType		OutputPortOutputBusAsStructs
@@ -1181,17 +1139,56 @@ Model {
 	port3			"off"
 	port4			"off"
 	port5			"off"
+	port6			"off"
+	port7			"off"
+	port8			"off"
+	port9			"off"
+	port10			"off"
+	port11			"off"
+	port12			"off"
+	port13			"off"
+	port14			"off"
+	port15			"off"
+	port16			"off"
+	port17			"off"
+	port18			"off"
+	port19			"off"
       }
       CopyOfModelName	      "VisionModel"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "OutputImage"
+      SID		      "736"
+      Position		      [1210, 810, 1240, 840]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Display
+      Name		      "PathState"
+      SID		      "740"
+      Ports		      [1]
+      Position		      [2460, 120, 2550, 150]
+      Decimation	      "1"
+      Lockdown		      off
     }
     Block {
       BlockType		      Display
       Name		      "TargetDetected"
       SID		      "583"
       Ports		      [1]
-      Position		      [1510, 500, 1600, 530]
+      Position		      [1590, 355, 1680, 385]
       BlockMirror	      on
       NamePlacement	      "alternate"
+      Decimation	      "1"
+      Lockdown		      off
+    }
+    Block {
+      BlockType		      Display
+      Name		      "TargetSelect"
+      SID		      "455"
+      Ports		      [1]
+      Position		      [2155, 120, 2245, 150]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -1200,7 +1197,7 @@ Model {
       Name		      "TargetX"
       SID		      "466"
       Ports		      [1]
-      Position		      [1880, 325, 1970, 355]
+      Position		      [2005, 120, 2095, 150]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -1209,7 +1206,7 @@ Model {
       Name		      "TargetY"
       SID		      "467"
       Ports		      [1]
-      Position		      [1880, 380, 1970, 410]
+      Position		      [2005, 175, 2095, 205]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -1218,7 +1215,7 @@ Model {
       Name		      "TargetYaw"
       SID		      "469"
       Ports		      [1]
-      Position		      [1880, 500, 1970, 530]
+      Position		      [2005, 295, 2095, 325]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -1227,7 +1224,7 @@ Model {
       Name		      "TargetZ"
       SID		      "468"
       Ports		      [1]
-      Position		      [1880, 440, 1970, 470]
+      Position		      [2005, 235, 2095, 265]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -1248,218 +1245,363 @@ Model {
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      1
-      Points		      [30, 0; 0, 155]
+      Points		      [115, 0; 0, 85]
       DstBlock		      "Model"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      2
-      Points		      [20, 0; 0, 160]
+      Points		      [110, 0; 0, 90]
       DstBlock		      "Model"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Forward Test Image"
       SrcPort		      3
-      Points		      [10, 0; 0, 165]
+      Points		      [105, 0; 0, 95]
       DstBlock		      "Model"
       DstPort		      3
     }
     Line {
-      SrcBlock		      "Dist_Thresh1"
+      SrcBlock		      "Model"
+      SrcPort		      3
+      Points		      [25, 0; 0, -65]
+      DstBlock		      "Forward Camera"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      2
+      DstBlock		      "Forward Camera"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Model"
       SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      8
+      Points		      [25, 0; 0, 65]
+      DstBlock		      "Forward Camera"
+      DstPort		      1
     }
     Line {
       SrcBlock		      "Dist_Thresh23"
       SrcPort		      1
       DstBlock		      "Model"
-      DstPort		      35
+      DstPort		      42
     }
     Line {
-      SrcBlock		      "Dist_Thresh2"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      9
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh3"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      10
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh4"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      11
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh5"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      12
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh6"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      13
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh7"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      14
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh8"
+      SrcBlock		      "Dist_Thresh1"
       SrcPort		      1
       DstBlock		      "Model"
       DstPort		      15
     }
     Line {
-      SrcBlock		      "Dist_Thresh9"
+      SrcBlock		      "Dist_Thresh22"
       SrcPort		      1
       DstBlock		      "Model"
-      DstPort		      16
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh10"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      17
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh11"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      18
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh12"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      19
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh13"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      20
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh14"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      21
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh15"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      22
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh16"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      23
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh24"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      24
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh25"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      25
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh26"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      26
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh27"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      27
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh28"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      28
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh17"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      29
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh18"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      30
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh19"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      31
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh20"
-      SrcPort		      1
-      DstBlock		      "Model"
-      DstPort		      32
+      DstPort		      41
     }
     Line {
       SrcBlock		      "Dist_Thresh21"
       SrcPort		      1
       DstBlock		      "Model"
-      DstPort		      33
+      DstPort		      40
     }
     Line {
-      SrcBlock		      "Dist_Thresh22"
+      SrcBlock		      "Dist_Thresh20"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      39
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh19"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      38
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh18"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      37
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh17"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      36
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh28"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      35
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh27"
       SrcPort		      1
       DstBlock		      "Model"
       DstPort		      34
     }
     Line {
-      SrcBlock		      "Model"
-      SrcPort		      3
-      Points		      [85, 0]
-      DstBlock		      "Forward Camera"
-      DstPort		      3
-    }
-    Line {
-      SrcBlock		      "Model"
-      SrcPort		      2
-      DstBlock		      "Forward Camera"
-      DstPort		      2
-    }
-    Line {
-      SrcBlock		      "Model"
+      SrcBlock		      "Dist_Thresh26"
       SrcPort		      1
-      Points		      [85, 0]
-      DstBlock		      "Forward Camera"
-      DstPort		      1
+      DstBlock		      "Model"
+      DstPort		      33
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh25"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      32
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh24"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      31
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh16"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      30
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh15"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      29
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh14"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      28
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh13"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      27
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh12"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      26
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh11"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      25
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh10"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      24
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh9"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      23
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh8"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      22
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh7"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      21
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh6"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      20
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh5"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      19
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh4"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      18
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh3"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      17
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh2"
+      SrcPort		      1
+      DstBlock		      "Model"
+      DstPort		      16
     }
     Line {
       SrcBlock		      "ModeSelect"
       SrcPort		      1
-      Points		      [30, 0; 0, 10]
       DstBlock		      "Model"
       DstPort		      7
+    }
+    Line {
+      SrcBlock		      "OutputImage"
+      SrcPort		      1
+      Points		      [125, 0]
+      DstBlock		      "Model"
+      DstPort		      8
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      9
+      Points		      [70, 0; 0, -1080]
+      DstBlock		      "TargetX"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Down Test Image"
+      SrcPort		      1
+      Points		      [60, 0; 0, 40]
+      DstBlock		      "Model"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Down Test Image"
+      SrcPort		      2
+      Points		      [50, 0; 0, 45]
+      DstBlock		      "Model"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "Down Test Image"
+      SrcPort		      3
+      Points		      [40, 0; 0, 50]
+      DstBlock		      "Model"
+      DstPort		      6
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      5
+      DstBlock		      "Down Camera"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      4
+      Points		      [25, 0; 0, 65]
+      DstBlock		      "Down Camera"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      6
+      Points		      [25, 0; 0, -65]
+      DstBlock		      "Down Camera"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      10
+      Points		      [75, 0; 0, -1115]
+      DstBlock		      "TargetY"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      12
+      Points		      [85, 0; 0, -1175]
+      DstBlock		      "TargetYaw"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      11
+      Points		      [80, 0; 0, -1145]
+      DstBlock		      "TargetZ"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      17
+      Points		      [90, 0; 0, -1565]
+      DstBlock		      "TargetDetected"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      8
+      Points		      [235, 0; 0, -935]
+      DstBlock		      "MaintainHeading"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      13
+      Points		      [375, 0; 0, -1440]
+      DstBlock		      "DesiredTargetX"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      14
+      Points		      [380, 0; 0, -1475]
+      DstBlock		      "DesiredTargetY"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      15
+      Points		      [385, 0; 0, -1505]
+      DstBlock		      "DesiredTargetZ"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      16
+      Points		      [390, 0; 0, -1535]
+      DstBlock		      "DesiredTargetYaw"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      18
+      Points		      [535, 0; 0, -1890]
+      DstBlock		      "PathState"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      19
+      Points		      [540, 0; 0, -1925]
+      DstBlock		      "BuoyColors"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      20
+      Points		      [545, 0; 0, -1955]
+      DstBlock		      "FireAuthorization"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Model"
+      SrcPort		      7
+      Points		      [230, 0; 0, -900]
+      DstBlock		      "TargetSelect"
+      DstPort		      1
     }
     Annotation {
       Name		      "Modes:\n0 = Do not execute any tasks\n1 = Validation gate\n2 = Follow path\n3 = Buoy\n4 = Torpedo\n"
