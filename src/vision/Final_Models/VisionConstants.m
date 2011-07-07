@@ -15,7 +15,7 @@ Scale_Forward_G = 1;
 Scale_Forward_B = 1;
 Scale_Forward_H = 1;
 Scale_Forward_S = 1;
-Scale_Forward_V = 2;
+Scale_Forward_V = 1;
 
 Scale_Down_R = 1;
 Scale_Down_G = 1;
@@ -26,10 +26,14 @@ Scale_Down_V = 5;
 
 
 %% Colors
-%a_lower = -10;
-%a_upper = 10;
-%b_lower = 0;
-%b_upper = 50;
+% Color ranges (Lab color space):
+%   1 -> White
+%   2 -> Black
+%   3 -> Blue
+%   4 -> Red
+%   5 -> Orange
+%   6 -> Yellow
+%   7 -> Green
 
 white_al = 0;
 white_au = 0;
