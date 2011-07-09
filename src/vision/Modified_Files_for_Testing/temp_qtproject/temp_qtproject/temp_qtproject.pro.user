@@ -120,7 +120,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-BrzDU5NTYB,guid=440f9181756dee63ddbafa9000067f20</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-2H2AHnfE4w,guid=f461806e8e2ba546be69cc91001374a3</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/xfce.default.path</value>
     <value type="QString">DESKTOP_SESSION=xfce</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -129,8 +129,8 @@
     <value type="QString">GLADE_CATALOG_PATH=:/usr/share/glade3/catalogs</value>
     <value type="QString">GLADE_MODULE_PATH=:/usr/lib/glade3/modules</value>
     <value type="QString">GLADE_PIXMAP_PATH=:/usr/share/glade3/pixmaps</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-z7qADa</value>
-    <value type="QString">GNOME_KEYRING_PID=27993</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-7IAfXe</value>
+    <value type="QString">GNOME_KEYRING_PID=13874</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">GTK_PATH=:/usr/lib/gtk-2.0</value>
     <value type="QString">HOME=/home/auvt</value>
@@ -144,19 +144,19 @@
     <value type="QString">PATH=/home/auvt/qtsdk-2010.01/qt/bin:/home/auvt/cmucam/arm-2010q1/bin:/home/auvt/matlab2010b/bin:/usr/local/Trolltech/Qt-4.6.1/bin:/usr/local/cuda/bin:/home/auvt/auvc:/home/auvt/auvc/utils:/home/auvt/auvc/dashboard:/home/auvt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
     <value type="QString">PWD=/home/auvt</value>
     <value type="QString">QTDIR=/home/auvt/qtsdk-2010.01/qt</value>
-    <value type="QString">SESSION_MANAGER=local/AUVT-SERVER:@/tmp/.ICE-unix/28069,unix/AUVT-SERVER:/tmp/.ICE-unix/28069</value>
+    <value type="QString">SESSION_MANAGER=local/AUVT-SERVER:@/tmp/.ICE-unix/13950,unix/AUVT-SERVER:/tmp/.ICE-unix/13950</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=1</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=28051</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-vsrnQ28012/agent.28012</value>
+    <value type="QString">SSH_AGENT_PID=13932</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-enCBa13893/agent.13893</value>
     <value type="QString">USER=auvt</value>
     <value type="QString">USERNAME=auvt</value>
     <value type="QString">WINDOWPATH=8</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-auvt-Y7pUXC/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-auvt-E4IX3e/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-xfce:/etc/xdg</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/xfce:/usr/local/share/:/usr/share/:/usr/share</value>
-    <value type="QString">XDG_SESSION_COOKIE=2a983e3c4625e203628234894a2f3a46-1309231348.150431-1360989948</value>
+    <value type="QString">XDG_SESSION_COOKIE=2a983e3c4625e203628234894a2f3a46-1310080631.161398-1605337554</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
     <value type="QString">/home/auvt/auvc/src/vision/Modified_Files_for_Testing/temp_qtproject/temp_qtproject/temp_qtproject.pro</value>
@@ -175,7 +175,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-BrzDU5NTYB,guid=440f9181756dee63ddbafa9000067f20</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-2H2AHnfE4w,guid=f461806e8e2ba546be69cc91001374a3</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/xfce.default.path</value>
     <value type="QString">DESKTOP_SESSION=xfce</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -184,8 +184,8 @@
     <value type="QString">GLADE_CATALOG_PATH=:/usr/share/glade3/catalogs</value>
     <value type="QString">GLADE_MODULE_PATH=:/usr/lib/glade3/modules</value>
     <value type="QString">GLADE_PIXMAP_PATH=:/usr/share/glade3/pixmaps</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-z7qADa</value>
-    <value type="QString">GNOME_KEYRING_PID=27993</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-7IAfXe</value>
+    <value type="QString">GNOME_KEYRING_PID=13874</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">GTK_PATH=:/usr/lib/gtk-2.0</value>
     <value type="QString">HOME=/home/auvt</value>
@@ -199,19 +199,19 @@
     <value type="QString">PATH=/home/auvt/qtsdk-2010.01/qt/bin:/home/auvt/cmucam/arm-2010q1/bin:/home/auvt/matlab2010b/bin:/usr/local/Trolltech/Qt-4.6.1/bin:/usr/local/cuda/bin:/home/auvt/auvc:/home/auvt/auvc/utils:/home/auvt/auvc/dashboard:/home/auvt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games</value>
     <value type="QString">PWD=/home/auvt</value>
     <value type="QString">QTDIR=/home/auvt/qtsdk-2010.01/qt</value>
-    <value type="QString">SESSION_MANAGER=local/AUVT-SERVER:@/tmp/.ICE-unix/28069,unix/AUVT-SERVER:/tmp/.ICE-unix/28069</value>
+    <value type="QString">SESSION_MANAGER=local/AUVT-SERVER:@/tmp/.ICE-unix/13950,unix/AUVT-SERVER:/tmp/.ICE-unix/13950</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=1</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=28051</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-vsrnQ28012/agent.28012</value>
+    <value type="QString">SSH_AGENT_PID=13932</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-enCBa13893/agent.13893</value>
     <value type="QString">USER=auvt</value>
     <value type="QString">USERNAME=auvt</value>
     <value type="QString">WINDOWPATH=8</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-auvt-Y7pUXC/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-auvt-E4IX3e/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-xfce:/etc/xdg</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/xfce:/usr/local/share/:/usr/share/:/usr/share</value>
-    <value type="QString">XDG_SESSION_COOKIE=2a983e3c4625e203628234894a2f3a46-1309231348.150431-1360989948</value>
+    <value type="QString">XDG_SESSION_COOKIE=2a983e3c4625e203628234894a2f3a46-1310080631.161398-1605337554</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
