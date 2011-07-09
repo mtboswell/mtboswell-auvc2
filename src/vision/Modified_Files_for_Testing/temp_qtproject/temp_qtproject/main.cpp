@@ -1,3 +1,5 @@
+aA1~aA1~
+
 #include <QtCore>
 #include <QtCore/QCoreApplication>
 #include <QImage>

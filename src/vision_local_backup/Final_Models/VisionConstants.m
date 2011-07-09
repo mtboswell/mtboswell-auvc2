@@ -22,7 +22,7 @@ Scale_Down_G = 1;
 Scale_Down_B = 1;
 Scale_Down_H = 1;
 Scale_Down_S = 1;
-Scale_Down_V = 5;
+Scale_Down_V = 1;
 
 
 %% Colors
@@ -95,10 +95,10 @@ orange_ggu = 0;
 orange_bbl = 0;
 orange_bbu = 0;
 
-yellow_al = 0;
-yellow_au = 0;
-yellow_bl = 0;
-yellow_bu = 0;
+yellow_al = -40;
+yellow_au = -13;%-20;
+yellow_bl = 30;
+yellow_bu = 50;
 
 yellow_rrl = 0;
 yellow_rru = 0;
@@ -107,10 +107,10 @@ yellow_ggu = 0;
 yellow_bbl = 0;
 yellow_bbu = 0;
 
-green_al = -128;
-green_au = -25;
-green_bl = -5;
-green_bu = 127;
+green_al = -45;
+green_au = -40;
+green_bl = 9;
+green_bu = 10;
 
 green_rrl = 0;
 green_rru = 0;
@@ -121,7 +121,7 @@ green_bbu = 0;
 
 
 %% Iterative segmentation default value
-Iter_Segment_Thresh = 20;
+Iter_Segment_Thresh = 35;%20;
 
 
 %% Hedge constants
@@ -144,10 +144,14 @@ a_range = [0, 0, 0, 25, 0, 0, -128;
 b_range = [0, 0, 0, 0, 0, 0, -5;
     0, 0, 0, 127, 0, 0, 127];
 
-Buoy_Min_Eccentricity = 0;
-Buoy_Max_Eccentricity = 1.2;
-Buoy_Min_Extent = 0.6;
-Buoy_Max_Extent = 0.9;
+Buoy_Min_Eccentricity = -1;
+Buoy_Max_Eccentricity = 3;
+Buoy_Min_Extent = 0;
+Buoy_Max_Extent = 2;
+%Buoy_Min_Eccentricity = 0;
+%Buoy_Max_Eccentricity = 1.2;
+%Buoy_Min_Extent = 0.6;
+%Buoy_Max_Extent = 0.9;
 
 Max_Num_Blobs_Buoy = 10;
 
