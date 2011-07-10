@@ -15,7 +15,7 @@ Scale_Forward_G = 1;
 Scale_Forward_B = 1;
 Scale_Forward_H = 1;
 Scale_Forward_S = 1;
-Scale_Forward_V = 1;
+Scale_Forward_V = 3;
 
 Scale_Down_R = 1;
 Scale_Down_G = 1;
@@ -83,9 +83,9 @@ red_ggu = 0;
 red_bbl = 0;
 red_bbu = 0;
 
-orange_al = 15;
+orange_al = -18;
 orange_au = 30;
-orange_bl = 50;
+orange_bl = -10;
 orange_bu = 70;
 
 orange_rrl = 0;
@@ -107,10 +107,10 @@ yellow_ggu = 0;
 yellow_bbl = 0;
 yellow_bbu = 0;
 
-green_al = -45;
+green_al = -82;
 green_au = -40;
 green_bl = 9;
-green_bu = 10;
+green_bu = 56;
 
 green_rrl = 0;
 green_rru = 0;
