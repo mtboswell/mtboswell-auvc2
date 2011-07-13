@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1365"
+    ComputedModelVersion    "1.1377"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -27,11 +27,11 @@ Model {
   Creator		  "Thing 1"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "auvt"
+  LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jul 10 05:56:54 2011"
-  RTWModifiedTimeStamp	  232175945
-  ModelVersionFormat	  "1.%<AutoIncrement:1365>"
+  LastModifiedDate	  "Wed Jul 13 16:46:48 2011"
+  RTWModifiedTimeStamp	  232476406
+  ModelVersionFormat	  "1.%<AutoIncrement:1377>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -633,7 +633,7 @@ Model {
   }
   System {
     Name		    "test_VisionModel"
-    Location		    [1440, 50, 3120, 1050]
+    Location		    [0, 51, 1280, 800]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -647,7 +647,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "753"
+    SIDHighWatermark	    "766"
     Block {
       BlockType		      Reference
       Name		      "AllMarkers"
@@ -711,6 +711,98 @@ Model {
       SID		      "673"
       Position		      [260, 855, 290, 885]
       Value		      "4"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor1"
+      SID		      "754"
+      Position		      [590, 2295, 620, 2325]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor10"
+      SID		      "763"
+      Position		      [605, 2735, 635, 2765]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor11"
+      SID		      "764"
+      Position		      [605, 2795, 635, 2825]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor12"
+      SID		      "765"
+      Position		      [600, 2835, 630, 2865]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor13"
+      SID		      "766"
+      Position		      [670, 2855, 700, 2885]
+      Value		      "35"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor2"
+      SID		      "755"
+      Position		      [585, 2335, 615, 2365]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor3"
+      SID		      "756"
+      Position		      [590, 2390, 620, 2420]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor4"
+      SID		      "757"
+      Position		      [585, 2430, 615, 2460]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor5"
+      SID		      "758"
+      Position		      [585, 2490, 615, 2520]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor6"
+      SID		      "759"
+      Position		      [580, 2530, 610, 2560]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor7"
+      SID		      "760"
+      Position		      [610, 2600, 640, 2630]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor8"
+      SID		      "761"
+      Position		      [605, 2640, 635, 2670]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor9"
+      SID		      "762"
+      Position		      [610, 2695, 640, 2725]
       SampleTime	      "-1"
     }
     Block {
@@ -1018,7 +1110,7 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      FileName		      "/home/auvt/auvc/src/vision/Test_Images/drop1.png"
+      FileName		      "/home/administrator/Documents/Academics/Summer_2011/AUVT/auvc/src/vision/Test_Images/drop1.png"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
@@ -1143,7 +1235,7 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      FileName		      "/home/auvt/auvc/src/vision/Test_Images/L2.PNG"
+      FileName		      "/home/administrator/Desktop/Screenshot-1.png"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
@@ -1168,17 +1260,18 @@ Model {
       Name		      "ModeSelect"
       SID		      "493"
       Position		      [260, 680, 290, 710]
+      Value		      "3"
       SampleTime	      "-1"
     }
     Block {
       BlockType		      ModelReference
       Name		      "Model"
       SID		      "491"
-      Ports		      [46, 22]
-      Position		      [435, 370, 935, 2180]
+      Ports		      [59, 22]
+      Position		      [830, 914, 1330, 2726]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.1332"
+      ModelReferenceVersion   "1.1350"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1209,7 +1302,7 @@ Model {
 	port25			"red_bl"
 	port26			"red_bu"
 	port27			"orange_al"
-	port28			"orane_au"
+	port28			"orange_au"
 	port29			"orange_bl"
 	port30			"orange_bu"
 	port31			"yellow_al"
@@ -1218,7 +1311,7 @@ Model {
 	port34			"yellow_bu"
 	port35			"green_al"
 	port36			"green_au"
-	port37			"breen_bl"
+	port37			"green_bl"
 	port38			"green_bu"
 	port39			"black_override"
 	port40			"white_override"
@@ -1227,6 +1320,19 @@ Model {
 	port43			"orange_override"
 	port44			"yellow_override"
 	port45			"green_override"
+	port46			"Scale_Forward_R"
+	port47			"Scale_Forward_G"
+	port48			"Scale_Forward_B"
+	port49			"Scale_Forward_H"
+	port50			"Scale_Forward_S"
+	port51			"Scale_Forward_V"
+	port52			"Scale_Down_R"
+	port53			"Scale_Down_G"
+	port54			"Scale_Down_B"
+	port55			"Scale_Down_H"
+	port56			"Scale_Down_S"
+	port57			"Scale_Down_V"
+	port58			"IterSegmentThresh"
       }
       List {
 	ListType		OutputPortNames
@@ -1382,7 +1488,7 @@ Model {
       SrcPort		      1
       Points		      [55, 0]
       Branch {
-	Points			[70, 0; 0, -35]
+	Points			[70, 0; 0, 540]
 	DstBlock		"Model"
 	DstPort			1
       }
@@ -1397,7 +1503,7 @@ Model {
       SrcPort		      2
       Points		      [45, 0]
       Branch {
-	Points			[75, 0; 0, -30]
+	Points			[75, 0; 0, 535]
 	DstBlock		"Model"
 	DstPort			2
       }
@@ -1412,7 +1518,7 @@ Model {
       SrcPort		      3
       Points		      [30, 0]
       Branch {
-	Points			[85, 0; 0, -25]
+	Points			[85, 0; 0, 530]
 	DstBlock		"Model"
 	DstPort			3
       }
@@ -1425,238 +1531,41 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      3
-      Points		      [25, 0; 0, -60]
+      Points		      [-370, 0; 0, -610]
       DstBlock		      "Forward Camera"
       DstPort		      3
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      2
-      Points		      [0, -5]
       DstBlock		      "Forward Camera"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      1
-      Points		      [25, 0; 0, 50]
+      Points		      [-370, 0; 0, -500]
       DstBlock		      "Forward Camera"
       DstPort		      1
     }
     Line {
-      SrcBlock		      "Dist_Thresh23"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      42
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh1"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      15
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh22"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      41
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh21"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      40
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh20"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      39
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh19"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      38
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh18"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      37
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh17"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      36
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh28"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      35
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh27"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      34
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh26"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      33
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh25"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      32
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh24"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      31
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh16"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      30
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh15"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      29
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh14"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      28
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh13"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      27
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh12"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      26
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh11"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      25
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh10"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      24
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh9"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      23
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh8"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      22
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh7"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      21
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh6"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      20
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh5"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      19
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh4"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      18
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh3"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      17
-    }
-    Line {
-      SrcBlock		      "Dist_Thresh2"
-      SrcPort		      1
-      Points		      [80, 0]
-      DstBlock		      "Model"
-      DstPort		      16
-    }
-    Line {
       SrcBlock		      "ModeSelect"
       SrcPort		      1
-      Points		      [125, 0]
+      Points		      [520, 0]
       DstBlock		      "Model"
       DstPort		      7
     }
     Line {
       SrcBlock		      "OutputImage"
       SrcPort		      1
-      Points		      [125, 0]
+      Points		      [520, 0]
       DstBlock		      "Model"
       DstPort		      8
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      9
-      Points		      [70, 0; 0, -1015]
+      Points		      [-325, 0; 0, -1565]
       DstBlock		      "TargetX"
       DstPort		      1
     }
@@ -1665,7 +1574,7 @@ Model {
       SrcPort		      1
       Points		      [0, -5; 60, 0]
       Branch {
-	Points			[210, 0]
+	Points			[605, 0]
 	DstBlock		"Model"
 	DstPort			4
       }
@@ -1680,7 +1589,7 @@ Model {
       SrcPort		      2
       Points		      [0, -5; 65, 0]
       Branch {
-	Points			[130, 0; 0, -75]
+	Points			[130, 0; 0, 460]
 	DstBlock		"Model"
 	DstPort			5
       }
@@ -1695,7 +1604,7 @@ Model {
       SrcPort		      3
       Points		      [0, -5; 70, 0]
       Branch {
-	Points			[115, 0; 0, -70]
+	Points			[115, 0; 0, 455]
 	DstBlock		"Model"
 	DstPort			6
       }
@@ -1708,142 +1617,429 @@ Model {
     Line {
       SrcBlock		      "Model"
       SrcPort		      5
-      Points		      [0, 25]
       DstBlock		      "Down Camera"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      4
-      Points		      [25, 0; 0, 80]
+      Points		      [-370, 0; 0, -470]
       DstBlock		      "Down Camera"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      6
-      Points		      [25, 0; 0, -30]
+      Points		      [-370, 0; 0, -580]
       DstBlock		      "Down Camera"
       DstPort		      3
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      10
-      Points		      [75, 0; 0, -1040]
+      Points		      [-320, 0; 0, -1590]
       DstBlock		      "TargetY"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      12
-      Points		      [85, 0; 0, -1080]
+      Points		      [-310, 0; 0, -1630]
       DstBlock		      "TargetYaw"
       DstPort		      1
     }
     Line {
+      Labels		      [2, 0]
       SrcBlock		      "Model"
       SrcPort		      11
-      Points		      [80, 0; 0, -1060]
+      Points		      [-315, 0; 0, -1610]
       DstBlock		      "TargetZ"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      17
-      Points		      [90, 0; 0, -1425]
+      Points		      [-305, 0; 0, -1975]
       DstBlock		      "TargetDetected"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      8
-      Points		      [235, 0; 0, -880]
+      Points		      [-160, 0; 0, -1430]
       DstBlock		      "MaintainHeading"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      13
-      Points		      [375, 0; 0, -1335]
+      Points		      [-20, 0; 0, -1885]
       DstBlock		      "DesiredTargetX"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      14
-      Points		      [380, 0; 0, -1360]
+      Points		      [-15, 0; 0, -1910]
       DstBlock		      "DesiredTargetY"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      15
-      Points		      [385, 0; 0, -1380]
+      Points		      [-10, 0; 0, -1930]
       DstBlock		      "DesiredTargetZ"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      16
-      Points		      [390, 0; 0, -1400]
+      Points		      [-5, 0; 0, -1950]
       DstBlock		      "DesiredTargetYaw"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      18
-      Points		      [535, 0; 0, -1735]
+      Points		      [140, 0; 0, -2285]
       DstBlock		      "PathState"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      19
-      Points		      [540, 0; 0, -1260]
+      Points		      [145, 0; 0, -1810]
       DstBlock		      "BuoyColors"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      20
-      Points		      [545, 0; 0, -1720]
+      Points		      [150, 0; 0, -2270]
       DstBlock		      "FireAuthorization"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      7
-      Points		      [230, 0; 0, -855]
+      Points		      [-165, 0; 0, -1405]
       DstBlock		      "TargetSelect"
       DstPort		      1
     }
     Line {
       SrcBlock		      "DesiredBuoyColor"
       SrcPort		      1
-      Points		      [45, 0; 0, -135]
+      Points		      [45, 0; 0, 350]
       DstBlock		      "Model"
       DstPort		      10
     }
     Line {
       SrcBlock		      "WhichPath"
       SrcPort		      1
-      Points		      [35, 0; 0, -120]
+      Points		      [35, 0; 0, 375]
       DstBlock		      "Model"
       DstPort		      9
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      21
-      Points		      [550, 0; 0, -1920]
+      Points		      [155, 0; 0, -2470]
       DstBlock		      "TargetType"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Model"
       SrcPort		      22
-      Points		      [65, 0; 0, -35]
+      Points		      [-330, 0; 0, -585]
       DstBlock		      "BW Image"
       DstPort		      1
+    }
+    Line {
+      SrcBlock		      "DesiredBuoyColor1"
+      SrcPort		      1
+      Points		      [40, 0; 0, 20]
+      DstBlock		      "Model"
+      DstPort		      47
+    }
+    Line {
+      SrcBlock		      "DesiredBuoyColor2"
+      SrcPort		      1
+      Points		      [40, 0; 0, 10]
+      DstBlock		      "Model"
+      DstPort		      48
+    }
+    Line {
+      SrcBlock		      "DesiredBuoyColor3"
+      SrcPort		      1
+      Points		      [190, 0]
+      DstBlock		      "Model"
+      DstPort		      49
+    }
+    Line {
+      SrcBlock		      "DesiredBuoyColor4"
+      SrcPort		      1
+      Points		      [195, 0]
+      DstBlock		      "Model"
+      DstPort		      50
+    }
+    Line {
+      SrcBlock		      "DesiredBuoyColor5"
+      SrcPort		      1
+      Points		      [195, 0]
+      DstBlock		      "Model"
+      DstPort		      51
+    }
+    Line {
+      SrcBlock		      "DesiredBuoyColor6"
+      SrcPort		      1
+      Points		      [200, 0]
+      DstBlock		      "Model"
+      DstPort		      52
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh1"
+      SrcPort		      1
+      Points		      [310, 0; 0, 265]
+      DstBlock		      "Model"
+      DstPort		      12
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh2"
+      SrcPort		      1
+      Points		      [325, 0; 0, 255]
+      DstBlock		      "Model"
+      DstPort		      13
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh3"
+      SrcPort		      1
+      Points		      [330, 0; 0, 245]
+      DstBlock		      "Model"
+      DstPort		      14
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh4"
+      SrcPort		      1
+      Points		      [335, 0; 0, 235]
+      DstBlock		      "Model"
+      DstPort		      15
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh5"
+      SrcPort		      1
+      Points		      [340, 0; 0, 225]
+      DstBlock		      "Model"
+      DstPort		      16
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh6"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      17
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh7"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      18
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh8"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      19
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh9"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      20
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh10"
+      SrcPort		      1
+      Points		      [420, 0; 0, 175]
+      DstBlock		      "Model"
+      DstPort		      21
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh11"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      22
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh12"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      23
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh13"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      24
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh14"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      25
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh15"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      26
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh16"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      27
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh24"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      28
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh25"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      29
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh26"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      30
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh27"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      31
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh28"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      32
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh17"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      33
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh18"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      34
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh19"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      35
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh20"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      36
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh21"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      37
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh22"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      38
+    }
+    Line {
+      SrcBlock		      "Dist_Thresh23"
+      SrcPort		      1
+      Points		      [475, 0]
+      DstBlock		      "Model"
+      DstPort		      39
+    }
+    Line {
+      SrcBlock		      "DesiredBuoyColor7"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Model"
+      DstPort		      53
+    }
+    Line {
+      SrcBlock		      "DesiredBuoyColor8"
+      SrcPort		      1
+      Points		      [175, 0]
+      DstBlock		      "Model"
+      DstPort		      54
+    }
+    Line {
+      SrcBlock		      "DesiredBuoyColor9"
+      SrcPort		      1
+      Points		      [170, 0]
+      DstBlock		      "Model"
+      DstPort		      55
+    }
+    Line {
+      SrcBlock		      "DesiredBuoyColor10"
+      SrcPort		      1
+      Points		      [175, 0]
+      DstBlock		      "Model"
+      DstPort		      56
+    }
+    Line {
+      SrcBlock		      "DesiredBuoyColor11"
+      SrcPort		      1
+      Points		      [175, 0]
+      DstBlock		      "Model"
+      DstPort		      57
+    }
+    Line {
+      SrcBlock		      "DesiredBuoyColor12"
+      SrcPort		      1
+      Points		      [180, 0]
+      DstBlock		      "Model"
+      DstPort		      58
+    }
+    Line {
+      SrcBlock		      "DesiredBuoyColor13"
+      SrcPort		      1
+      Points		      [110, 0]
+      DstBlock		      "Model"
+      DstPort		      59
     }
     Annotation {
       Name		      "Modes:\n0 = Do not execute any tasks\n1 = Validation gate\n2 = Follow path\n3 = Buoy\n4 = Torpedo\n"
@@ -2416,15 +2612,15 @@ MatData {
     "             X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8   "
     "      !0    @               $         \"0         .    ,     8    (    !@         %    \"                0        "
     " )          X    P    !@    @    &          4    (               !          D         #@   %     &    \"     8    "
-    "     !0    @    !    !     $         \"0   \"           \"R50       <'=       \"@>4       ,!R0 X    X    !@    @  "
-    "  $          4    (     0    @    !         !     (    =6YD;V-K960.    R $   8    (     @         %    \"     $   "
-    " !     0         %  0 *@    $   \"H    06QL;W=38V]P94-H86YG97,                                 06QL;W=\";&]C:T-H86"
-    "YG97,                                 27-38V]P94-F9T]L9                                       <VEG=71I;',N07!P;&EC"
-    "871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\ #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    "
-    ".    ,     8    (    \"0(        %    \"     $    !     0         \"  $  0    X    P    !@    @    ) @        4   "
-    " (     0    $    !          (  0      #@   #@    &    \"     (         !0    @    !     0    $         !0 $  $    "
-    "!          X   \"8    !@    @    )          4    (     0   &@    !          (   !H      %)30     .    6     8    ("
-    "     @         %    \"     $    !     0         %  0 !P    $    .    34-/4P   &AA;F1L90    X         #@         "
+    "     !0    @    !    !     $         \"0   \"           #![0       0&]       \"@>4       ,!R0 X    X    !@    @   "
+    " $          4    (     0    @    !         !     (    =6YD;V-K960.    R $   8    (     @         %    \"     $    "
+    "!     0         %  0 *@    $   \"H    06QL;W=38V]P94-H86YG97,                                 06QL;W=\";&]C:T-H86Y"
+    "G97,                                 27-38V]P94-F9T]L9                                       <VEG=71I;',N07!P;&EC8"
+    "71I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\ #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    ."
+    "    ,     8    (    \"0(        %    \"     $    !     0         \"  $  0    X    P    !@    @    ) @        4    "
+    "(     0    $    !          (  0      #@   #@    &    \"     (         !0    @    !     0    $         !0 $  $    !"
+    "          X   \"8    !@    @    )          4    (     0   &@    !          (   !H      %)30     .    6     8    ( "
+    "    @         %    \"     $    !     0         %  0 !P    $    .    34-/4P   &AA;F1L90    X         #@         "
   }
   DataRecord {
     Tag			    DataTag9
@@ -2987,7 +3183,7 @@ MatData {
     "1O=U-T>6QE                #@   #     &    \"     8         !0    @               $         \"0         .    ,     "
     "8    (    !@         %    \"                0         )          X    P    !@    @    &          4    (           "
     "    !          D         #@   #     &    \"     8         !0    @               $         \"0         .    4     8"
-    "    (    !@         %    \"     $    $     0         )    (           +)5       !P=T       *!Y0       P') #@   #@ "
+    "    (    !@         %    \"     $    $     0         )    (           ,'M       ! ;T       *!Y0       P') #@   #@ "
     "   &    \"     0         !0    @    !    \"     $         $     @   !U;F1O8VME9 X   #( 0  !@    @    \"          4"
     "    (     0    $    !          4 !  J     0   *@   !!;&QO=U-C;W!E0VAA;F=E<P                                !!;&QO="
     "T)L;V-K0VAA;F=E<P                                !)<U-C;W!E0V9G3VQD                                      !S:6=U=&E"
@@ -3560,15 +3756,15 @@ MatData {
     "           X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8     "
     "    !0    @               $         \"0         .    ,     8    (    !@         %    \"                0         )"
     "          X    P    !@    @    &          4    (               !          D         #@   %     &    \"     8      "
-    "   !0    @    !    !     $         \"0   \"           \"R50       <'=       \"@>4       ,!R0 X    X    !@    @    "
-    "$          4    (     0    @    !         !     (    =6YD;V-K960.    R $   8    (     @         %    \"     $    !"
-    "     0         %  0 *@    $   \"H    06QL;W=38V]P94-H86YG97,                                 06QL;W=\";&]C:T-H86YG"
-    "97,                                 27-38V]P94-F9T]L9                                       <VEG=71I;',N07!P;&EC87"
-    "1I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\ #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    . "
-    "   ,     8    (    \"0(        %    \"     $    !     0         \"  $  0    X    P    !@    @    ) @        4    ("
-    "     0    $    !          (  0      #@   #@    &    \"     (         !0    @    !     0    $         !0 $  $    ! "
-    "         X   \"8    !@    @    )          4    (     0   &@    !          (   !H      %)30     .    6     8    (  "
-    "   @         %    \"     $    !     0         %  0 !P    $    .    34-/4P   &AA;F1L90    X         #@         "
+    "   !0    @    !    !     $         \"0   \"           #![0       0&]       \"@>4       ,!R0 X    X    !@    @    $"
+    "          4    (     0    @    !         !     (    =6YD;V-K960.    R $   8    (     @         %    \"     $    ! "
+    "    0         %  0 *@    $   \"H    06QL;W=38V]P94-H86YG97,                                 06QL;W=\";&]C:T-H86YG9"
+    "7,                                 27-38V]P94-F9T]L9                                       <VEG=71I;',N07!P;&EC871"
+    "I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\ #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    .  "
+    "  ,     8    (    \"0(        %    \"     $    !     0         \"  $  0    X    P    !@    @    ) @        4    ( "
+    "    0    $    !          (  0      #@   #@    &    \"     (         !0    @    !     0    $         !0 $  $    !  "
+    "        X   \"8    !@    @    )          4    (     0   &@    !          (   !H      %)30     .    6     8    (   "
+    "  @         %    \"     $    !     0         %  0 !P    $    .    34-/4P   &AA;F1L90    X         #@         "
   }
   DataRecord {
     Tag			    DataTag3
@@ -4126,15 +4322,15 @@ MatData {
     "             X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8   "
     "      !0    @               $         \"0         .    ,     8    (    !@         %    \"                0        "
     " )          X    P    !@    @    &          4    (               !          D         #@   %     &    \"     8    "
-    "     !0    @    !    !     $         \"0   \"           \"R50       <'=       \"@>4       ,!R0 X    X    !@    @  "
-    "  $          4    (     0    @    !         !     (    =6YD;V-K960.    R $   8    (     @         %    \"     $   "
-    " !     0         %  0 *@    $   \"H    06QL;W=38V]P94-H86YG97,                                 06QL;W=\";&]C:T-H86"
-    "YG97,                                 27-38V]P94-F9T]L9                                       <VEG=71I;',N07!P;&EC"
-    "871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\ #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    "
-    ".    ,     8    (    \"0(        %    \"     $    !     0         \"  $  0    X    P    !@    @    ) @        4   "
-    " (     0    $    !          (  0      #@   #@    &    \"     (         !0    @    !     0    $         !0 $  $    "
-    "!          X   \"8    !@    @    )          4    (     0   &@    !          (   !H      %)30     .    6     8    ("
-    "     @         %    \"     $    !     0         %  0 !P    $    .    34-/4P   &AA;F1L90    X         #@         "
+    "     !0    @    !    !     $         \"0   \"           #![0       0&]       \"@>4       ,!R0 X    X    !@    @   "
+    " $          4    (     0    @    !         !     (    =6YD;V-K960.    R $   8    (     @         %    \"     $    "
+    "!     0         %  0 *@    $   \"H    06QL;W=38V]P94-H86YG97,                                 06QL;W=\";&]C:T-H86Y"
+    "G97,                                 27-38V]P94-F9T]L9                                       <VEG=71I;',N07!P;&EC8"
+    "71I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\ #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    ."
+    "    ,     8    (    \"0(        %    \"     $    !     0         \"  $  0    X    P    !@    @    ) @        4    "
+    "(     0    $    !          (  0      #@   #@    &    \"     (         !0    @    !     0    $         !0 $  $    !"
+    "          X   \"8    !@    @    )          4    (     0   &@    !          (   !H      %)30     .    6     8    ( "
+    "    @         %    \"     $    !     0         %  0 !P    $    .    34-/4P   &AA;F1L90    X         #@         "
   }
   DataRecord {
     Tag			    DataTag1
@@ -4692,15 +4888,15 @@ MatData {
     "             X    P    !@    @    &          4    (               !          D         #@   #     &    \"     8   "
     "      !0    @               $         \"0         .    ,     8    (    !@         %    \"                0        "
     " )          X    P    !@    @    &          4    (               !          D         #@   %     &    \"     8    "
-    "     !0    @    !    !     $         \"0   \"           \"R50       <'=       \"@>4       ,!R0 X    X    !@    @  "
-    "  $          4    (     0    @    !         !     (    =6YD;V-K960.    R $   8    (     @         %    \"     $   "
-    " !     0         %  0 *@    $   \"H    06QL;W=38V]P94-H86YG97,                                 06QL;W=\";&]C:T-H86"
-    "YG97,                                 27-38V]P94-F9T]L9                                       <VEG=71I;',N07!P;&EC"
-    "871I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\ #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    "
-    ".    ,     8    (    \"0(        %    \"     $    !     0         \"  $  0    X    P    !@    @    ) @        4   "
-    " (     0    $    !          (  0      #@   #@    &    \"     (         !0    @    !     0    $         !0 $  $    "
-    "!          X   \"8    !@    @    )          4    (     0   &@    !          (   !H      %)30     .    6     8    ("
-    "     @         %    \"     $    !     0         %  0 !P    $    .    34-/4P   &AA;F1L90    X         #@         "
+    "     !0    @    !    !     $         \"0   \"           #![0       0&]       \"@>4       ,!R0 X    X    !@    @   "
+    " $          4    (     0    @    !         !     (    =6YD;V-K960.    R $   8    (     @         %    \"     $    "
+    "!     0         %  0 *@    $   \"H    06QL;W=38V]P94-H86YG97,                                 06QL;W=\";&]C:T-H86Y"
+    "G97,                                 27-38V]P94-F9T]L9                                       <VEG=71I;',N07!P;&EC8"
+    "71I;VY$871A+D%P<&QI8V%T:6]N1&%T85\\ #@   #     &    \"     D\"        !0    @    !     0    $          @ !  $    ."
+    "    ,     8    (    \"0(        %    \"     $    !     0         \"  $  0    X    P    !@    @    ) @        4    "
+    "(     0    $    !          (  0      #@   #@    &    \"     (         !0    @    !     0    $         !0 $  $    !"
+    "          X   \"8    !@    @    )          4    (     0   &@    !          (   !H      %)30     .    6     8    ( "
+    "    @         %    \"     $    !     0         %  0 !P    $    .    34-/4P   &AA;F1L90    X         #@         "
   }
 }
 # Finite State Machines

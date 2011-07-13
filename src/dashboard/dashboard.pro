@@ -41,6 +41,9 @@ INCLUDEPATH += . \
 fedora {
 	INCLUDEPATH += /usr/local/qwt-5.2.2-svn/include/ \
 }
+else {
+	INCLUDEPATH += /usr/local/qwt-5.2.1/include \
+}
 
 # for Arch:
 # /usr/include/qwt
@@ -50,7 +53,8 @@ fedora  {
 	LIBS += -L/usr/local/qwt-5.2.2-svn/lib/ -lqwt -lSDL
 }
 else {
-	LIBS += -lqwt-qt4 -lSDL
+	LIBS += -L/usr/local/qwt-5.2.1/lib/ -lqwt -lSDL
+#	LIBS += -lqwt-qt4 -lSDL
 }
 # for Arch:
 # LIBS += -lqwt

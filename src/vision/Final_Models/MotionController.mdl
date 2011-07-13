@@ -113,7 +113,7 @@ Model {
       Name		      "RightAngled"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.106"
+    ComputedModelVersion    "1.109"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -131,11 +131,11 @@ Model {
   Creator		  "auvt"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "auvt"
+  LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jun 29 15:15:27 2011"
-  RTWModifiedTimeStamp	  231258548
-  ModelVersionFormat	  "1.%<AutoIncrement:106>"
+  LastModifiedDate	  "Wed Jul 13 16:27:18 2011"
+  RTWModifiedTimeStamp	  232475237
+  ModelVersionFormat	  "1.%<AutoIncrement:109>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -968,7 +968,7 @@ Model {
   }
   System {
     Name		    "MotionController"
-    Location		    [0, 83, 1440, 867]
+    Location		    [0, 51, 1280, 800]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1322,7 +1322,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nauvt\\n29-Jun-2011 15:07:25"
+      "nroot\\n13-Jul-2011 16:08:45"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -1343,7 +1343,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Non-Targeting Controllers"
-	Location		[2, 76, 1270, 731]
+	Location		[0, 51, 1280, 800]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1488,7 +1488,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Heading and Straight Line\nController"
-	    Location		    [352, 199, 1061, 674]
+	    Location		    [108, 181, 817, 656]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -1565,7 +1565,7 @@ Model {
 	      System {
 		Name			"Maintain Desired Yaw (uses compass)"
 		Location		[108, 181, 891, 414]
-		Open			on
+		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -2152,7 +2152,7 @@ Model {
 		  System {
 		    Name		    "PID Controller\nHeading"
 		    Location		    [768, 96, 1254, 387]
-		    Open		    on
+		    Open		    off
 		    ModelBrowserVisibility  off
 		    ModelBrowserWidth	    200
 		    ScreenColor		    "white"
@@ -3540,8 +3540,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Targeting Controllers"
-	Location		[4, 83, 1272, 738]
-	Open			off
+	Location		[0, 51, 1280, 800]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -3776,7 +3776,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "Track Target"
-	    Location		    [4, 83, 1272, 738]
+	    Location		    [0, 51, 1280, 800]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -4021,8 +4021,8 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Down Target"
-		Location		[386, 102, 715, 507]
-		Open			on
+		Location		[386, 103, 715, 508]
+		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -4119,7 +4119,7 @@ Model {
 		  Position		  [110, 56, 225, 114]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4141,7 +4141,7 @@ Model {
 		  Position		  [105, 181, 225, 239]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4163,7 +4163,7 @@ Model {
 		  Position		  [105, 306, 225, 364]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4297,7 +4297,7 @@ Model {
 	      MaskHideContents	      off
 	      System {
 		Name			"Forward Target"
-		Location		[38, 103, 367, 550]
+		Location		[67, 103, 396, 550]
 		Open			off
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
@@ -4395,7 +4395,7 @@ Model {
 		  Position		  [110, 65, 215, 120]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4417,7 +4417,7 @@ Model {
 		  Position		  [110, 200, 220, 255]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -4439,7 +4439,7 @@ Model {
 		  Position		  [110, 342, 220, 398]
 		  LibraryVersion	  "1.6"
 		  SourceBlock		  "libAUVT/PID Controller with Enable"
-		  SourceType		  ""
+		  SourceType		  "Unknown"
 		  ShowPortLabels	  "FromPortIcon"
 		  SystemSampleTime	  "-1"
 		  FunctionWithSeparateData off
@@ -5134,8 +5134,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Thruster Arrangement"
-	Location		[2, 76, 1270, 731]
-	Open			off
+	Location		[0, 51, 1280, 800]
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -5897,6 +5897,7 @@ Model {
       }
     }
     Line {
+      Labels		      [2, 0]
       SrcBlock		      "MaintainHeading"
       SrcPort		      1
       Points		      [200, 0; 0, 140]

@@ -3,7 +3,7 @@ Model {
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
-    NumRootInports	    46
+    NumRootInports	    59
     Inport {
       BusObject		      ""
       Name		      "R_forward_in"
@@ -118,7 +118,7 @@ Model {
     }
     Inport {
       BusObject		      ""
-      Name		      "orane_au"
+      Name		      "orange_au"
     }
     Inport {
       BusObject		      ""
@@ -154,7 +154,7 @@ Model {
     }
     Inport {
       BusObject		      ""
-      Name		      "breen_bl"
+      Name		      "green_bl"
     }
     Inport {
       BusObject		      ""
@@ -187,6 +187,58 @@ Model {
     Inport {
       BusObject		      ""
       Name		      "green_override"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "Scale_Forward_R"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "Scale_Forward_G"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "Scale_Forward_B"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "Scale_Forward_H"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "Scale_Forward_S"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "Scale_Forward_V"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "Scale_Down_R"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "Scale_Down_G"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "Scale_Down_B"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "Scale_Down_H"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "Scale_Down_S"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "Scale_Down_V"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "IterSegmentThresh"
     }
     NumRootOutports	    22
     Outport {
@@ -300,7 +352,7 @@ Model {
       Name		      "TargetSize"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1332"
+    ComputedModelVersion    "1.1350"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -318,11 +370,11 @@ Model {
   Creator		  "Administrator"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "auvt"
+  LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sun Jul 10 05:56:05 2011"
-  RTWModifiedTimeStamp	  232152547
-  ModelVersionFormat	  "1.%<AutoIncrement:1332>"
+  LastModifiedDate	  "Wed Jul 13 16:45:35 2011"
+  RTWModifiedTimeStamp	  232476194
+  ModelVersionFormat	  "1.%<AutoIncrement:1350>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -922,21 +974,6 @@ Model {
       BusSelectionMode	      off
     }
     Block {
-      BlockType		      Gain
-      Gain		      "1"
-      Multiplication	      "Element-wise(K.*u)"
-      ParamMin		      "[]"
-      ParamMax		      "[]"
-      ParamDataTypeStr	      "Inherit: Same as input"
-      OutMin		      "[]"
-      OutMax		      "[]"
-      OutDataTypeStr	      "Inherit: Same as input"
-      LockScale		      off
-      RndMeth		      "Floor"
-      SaturateOnIntegerOverflow	on
-      SampleTime	      "-1"
-    }
-    Block {
       BlockType		      If
       NumInputs		      "1"
       IfExpression	      "u1 > 0"
@@ -977,6 +1014,21 @@ Model {
       SourceOfInitialOutputValue "Dialog"
       OutputWhenDisabled      "held"
       InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Product
+      Inputs		      "2"
+      Multiplication	      "Element-wise(.*)"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
     }
     Block {
       BlockType		      "S-Function"
@@ -1029,7 +1081,7 @@ Model {
   }
   System {
     Name		    "VisionModel"
-    Location		    [1440, 50, 3120, 1050]
+    Location		    [0, 51, 1280, 800]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -1043,12 +1095,12 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "3868"
+    SIDHighWatermark	    "3907"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
       SID		      "333"
-      Position		      [480, 573, 510, 587]
+      Position		      [705, 298, 735, 312]
       IconDisplay	      "Port number"
       PortDimensions	      "Forward_Camera_Dimensions"
     }
@@ -1056,7 +1108,7 @@ Model {
       BlockType		      Inport
       Name		      "G_forward_in"
       SID		      "334"
-      Position		      [480, 608, 510, 622]
+      Position		      [705, 333, 735, 347]
       Port		      "2"
       IconDisplay	      "Port number"
       PortDimensions	      "Forward_Camera_Dimensions"
@@ -1065,7 +1117,7 @@ Model {
       BlockType		      Inport
       Name		      "B_forward_in"
       SID		      "335"
-      Position		      [480, 643, 510, 657]
+      Position		      [705, 368, 735, 382]
       Port		      "3"
       IconDisplay	      "Port number"
       PortDimensions	      "Forward_Camera_Dimensions"
@@ -1074,7 +1126,7 @@ Model {
       BlockType		      Inport
       Name		      "R_down_in"
       SID		      "336"
-      Position		      [480, 2168, 510, 2182]
+      Position		      [760, 2343, 790, 2357]
       Port		      "4"
       IconDisplay	      "Port number"
       PortDimensions	      "Down_Camera_Dimensions"
@@ -1083,7 +1135,7 @@ Model {
       BlockType		      Inport
       Name		      "G_down_in"
       SID		      "337"
-      Position		      [480, 2203, 510, 2217]
+      Position		      [760, 2378, 790, 2392]
       Port		      "5"
       IconDisplay	      "Port number"
       PortDimensions	      "Down_Camera_Dimensions"
@@ -1092,7 +1144,7 @@ Model {
       BlockType		      Inport
       Name		      "B_down_in"
       SID		      "338"
-      Position		      [480, 2238, 510, 2252]
+      Position		      [760, 2413, 790, 2427]
       Port		      "6"
       IconDisplay	      "Port number"
       PortDimensions	      "Down_Camera_Dimensions"
@@ -1101,7 +1153,7 @@ Model {
       BlockType		      Inport
       Name		      "ModeSelect"
       SID		      "2039"
-      Position		      [480, 413, 510, 427]
+      Position		      [705, 248, 735, 262]
       Port		      "7"
       IconDisplay	      "Port number"
     }
@@ -1109,7 +1161,7 @@ Model {
       BlockType		      Inport
       Name		      "OutputImage"
       SID		      "2150"
-      Position		      [2100, 1108, 2130, 1122]
+      Position		      [2380, 1283, 2410, 1297]
       Port		      "8"
       IconDisplay	      "Port number"
     }
@@ -1117,7 +1169,7 @@ Model {
       BlockType		      Inport
       Name		      "DesiredPathDirection"
       SID		      "2738"
-      Position		      [2100, 1688, 2130, 1702]
+      Position		      [2380, 1863, 2410, 1877]
       Port		      "9"
       IconDisplay	      "Port number"
     }
@@ -1125,7 +1177,7 @@ Model {
       BlockType		      Inport
       Name		      "DesiredBuoyColor"
       SID		      "2739"
-      Position		      [2100, 2303, 2130, 2317]
+      Position		      [2380, 2478, 2410, 2492]
       Port		      "10"
       IconDisplay	      "Port number"
     }
@@ -1133,7 +1185,7 @@ Model {
       BlockType		      Inport
       Name		      "DesiredTorpedoColor"
       SID		      "2740"
-      Position		      [2100, 2778, 2130, 2792]
+      Position		      [2380, 2953, 2410, 2967]
       Port		      "11"
       IconDisplay	      "Port number"
     }
@@ -1141,7 +1193,7 @@ Model {
       BlockType		      Inport
       Name		      "white_al"
       SID		      "2048"
-      Position		      [480, 828, 510, 842]
+      Position		      [760, 1003, 790, 1017]
       Port		      "12"
       IconDisplay	      "Port number"
     }
@@ -1149,7 +1201,7 @@ Model {
       BlockType		      Inport
       Name		      "white_au"
       SID		      "2049"
-      Position		      [480, 873, 510, 887]
+      Position		      [760, 1048, 790, 1062]
       Port		      "13"
       IconDisplay	      "Port number"
     }
@@ -1157,7 +1209,7 @@ Model {
       BlockType		      Inport
       Name		      "white_bl"
       SID		      "2050"
-      Position		      [480, 918, 510, 932]
+      Position		      [760, 1093, 790, 1107]
       Port		      "14"
       IconDisplay	      "Port number"
     }
@@ -1165,7 +1217,7 @@ Model {
       BlockType		      Inport
       Name		      "white_bu"
       SID		      "2051"
-      Position		      [480, 963, 510, 977]
+      Position		      [760, 1138, 790, 1152]
       Port		      "15"
       IconDisplay	      "Port number"
     }
@@ -1173,7 +1225,7 @@ Model {
       BlockType		      Inport
       Name		      "black_al"
       SID		      "2052"
-      Position		      [480, 1008, 510, 1022]
+      Position		      [760, 1183, 790, 1197]
       Port		      "16"
       IconDisplay	      "Port number"
     }
@@ -1181,7 +1233,7 @@ Model {
       BlockType		      Inport
       Name		      "black_au"
       SID		      "2053"
-      Position		      [480, 1053, 510, 1067]
+      Position		      [760, 1228, 790, 1242]
       Port		      "17"
       IconDisplay	      "Port number"
     }
@@ -1189,7 +1241,7 @@ Model {
       BlockType		      Inport
       Name		      "black_bl"
       SID		      "2054"
-      Position		      [480, 1098, 510, 1112]
+      Position		      [760, 1273, 790, 1287]
       Port		      "18"
       IconDisplay	      "Port number"
     }
@@ -1197,7 +1249,7 @@ Model {
       BlockType		      Inport
       Name		      "black_bu"
       SID		      "2055"
-      Position		      [480, 1143, 510, 1157]
+      Position		      [760, 1318, 790, 1332]
       Port		      "19"
       IconDisplay	      "Port number"
     }
@@ -1205,7 +1257,7 @@ Model {
       BlockType		      Inport
       Name		      "blue_al"
       SID		      "2056"
-      Position		      [480, 1188, 510, 1202]
+      Position		      [760, 1363, 790, 1377]
       Port		      "20"
       IconDisplay	      "Port number"
     }
@@ -1213,7 +1265,7 @@ Model {
       BlockType		      Inport
       Name		      "blue_au"
       SID		      "2057"
-      Position		      [480, 1233, 510, 1247]
+      Position		      [760, 1408, 790, 1422]
       Port		      "21"
       IconDisplay	      "Port number"
     }
@@ -1221,7 +1273,7 @@ Model {
       BlockType		      Inport
       Name		      "blue_bl"
       SID		      "2058"
-      Position		      [480, 1278, 510, 1292]
+      Position		      [760, 1453, 790, 1467]
       Port		      "22"
       IconDisplay	      "Port number"
     }
@@ -1229,7 +1281,7 @@ Model {
       BlockType		      Inport
       Name		      "blue_bu"
       SID		      "2059"
-      Position		      [480, 1323, 510, 1337]
+      Position		      [760, 1498, 790, 1512]
       Port		      "23"
       IconDisplay	      "Port number"
     }
@@ -1237,7 +1289,7 @@ Model {
       BlockType		      Inport
       Name		      "red_al"
       SID		      "2060"
-      Position		      [480, 1368, 510, 1382]
+      Position		      [760, 1543, 790, 1557]
       Port		      "24"
       IconDisplay	      "Port number"
     }
@@ -1245,7 +1297,7 @@ Model {
       BlockType		      Inport
       Name		      "red_au"
       SID		      "2061"
-      Position		      [480, 1413, 510, 1427]
+      Position		      [760, 1588, 790, 1602]
       Port		      "25"
       IconDisplay	      "Port number"
     }
@@ -1253,7 +1305,7 @@ Model {
       BlockType		      Inport
       Name		      "red_bl"
       SID		      "2062"
-      Position		      [480, 1458, 510, 1472]
+      Position		      [760, 1633, 790, 1647]
       Port		      "26"
       IconDisplay	      "Port number"
     }
@@ -1261,7 +1313,7 @@ Model {
       BlockType		      Inport
       Name		      "red_bu"
       SID		      "2063"
-      Position		      [480, 1503, 510, 1517]
+      Position		      [760, 1678, 790, 1692]
       Port		      "27"
       IconDisplay	      "Port number"
     }
@@ -1269,15 +1321,15 @@ Model {
       BlockType		      Inport
       Name		      "orange_al"
       SID		      "2064"
-      Position		      [480, 1548, 510, 1562]
+      Position		      [760, 1723, 790, 1737]
       Port		      "28"
       IconDisplay	      "Port number"
     }
     Block {
       BlockType		      Inport
-      Name		      "orane_au"
+      Name		      "orange_au"
       SID		      "2065"
-      Position		      [480, 1593, 510, 1607]
+      Position		      [760, 1768, 790, 1782]
       Port		      "29"
       IconDisplay	      "Port number"
     }
@@ -1285,7 +1337,7 @@ Model {
       BlockType		      Inport
       Name		      "orange_bl"
       SID		      "2066"
-      Position		      [480, 1638, 510, 1652]
+      Position		      [760, 1813, 790, 1827]
       Port		      "30"
       IconDisplay	      "Port number"
     }
@@ -1293,7 +1345,7 @@ Model {
       BlockType		      Inport
       Name		      "orange_bu"
       SID		      "2067"
-      Position		      [480, 1683, 510, 1697]
+      Position		      [760, 1858, 790, 1872]
       Port		      "31"
       IconDisplay	      "Port number"
     }
@@ -1301,7 +1353,7 @@ Model {
       BlockType		      Inport
       Name		      "yellow_al"
       SID		      "2068"
-      Position		      [480, 1728, 510, 1742]
+      Position		      [760, 1903, 790, 1917]
       Port		      "32"
       IconDisplay	      "Port number"
     }
@@ -1309,7 +1361,7 @@ Model {
       BlockType		      Inport
       Name		      "yellow_au"
       SID		      "2069"
-      Position		      [480, 1773, 510, 1787]
+      Position		      [760, 1948, 790, 1962]
       Port		      "33"
       IconDisplay	      "Port number"
     }
@@ -1317,7 +1369,7 @@ Model {
       BlockType		      Inport
       Name		      "yellow_bl"
       SID		      "2070"
-      Position		      [480, 1818, 510, 1832]
+      Position		      [760, 1993, 790, 2007]
       Port		      "34"
       IconDisplay	      "Port number"
     }
@@ -1325,7 +1377,7 @@ Model {
       BlockType		      Inport
       Name		      "yellow_bu"
       SID		      "2071"
-      Position		      [480, 1863, 510, 1877]
+      Position		      [760, 2038, 790, 2052]
       Port		      "35"
       IconDisplay	      "Port number"
     }
@@ -1333,7 +1385,7 @@ Model {
       BlockType		      Inport
       Name		      "green_al"
       SID		      "2072"
-      Position		      [480, 1908, 510, 1922]
+      Position		      [760, 2083, 790, 2097]
       Port		      "36"
       IconDisplay	      "Port number"
     }
@@ -1341,15 +1393,15 @@ Model {
       BlockType		      Inport
       Name		      "green_au"
       SID		      "2073"
-      Position		      [480, 1953, 510, 1967]
+      Position		      [760, 2128, 790, 2142]
       Port		      "37"
       IconDisplay	      "Port number"
     }
     Block {
       BlockType		      Inport
-      Name		      "breen_bl"
+      Name		      "green_bl"
       SID		      "2074"
-      Position		      [480, 1998, 510, 2012]
+      Position		      [760, 2173, 790, 2187]
       Port		      "38"
       IconDisplay	      "Port number"
     }
@@ -1357,7 +1409,7 @@ Model {
       BlockType		      Inport
       Name		      "green_bu"
       SID		      "2075"
-      Position		      [480, 2043, 510, 2057]
+      Position		      [760, 2218, 790, 2232]
       Port		      "39"
       IconDisplay	      "Port number"
     }
@@ -1365,7 +1417,7 @@ Model {
       BlockType		      Inport
       Name		      "black_override"
       SID		      "3522"
-      Position		      [350, 663, 380, 677]
+      Position		      [630, 838, 660, 852]
       Port		      "40"
       IconDisplay	      "Port number"
     }
@@ -1373,7 +1425,7 @@ Model {
       BlockType		      Inport
       Name		      "white_override"
       SID		      "3523"
-      Position		      [350, 708, 380, 722]
+      Position		      [630, 883, 660, 897]
       Port		      "41"
       IconDisplay	      "Port number"
     }
@@ -1381,7 +1433,7 @@ Model {
       BlockType		      Inport
       Name		      "blue_override"
       SID		      "3524"
-      Position		      [350, 753, 380, 767]
+      Position		      [630, 928, 660, 942]
       Port		      "42"
       IconDisplay	      "Port number"
     }
@@ -1389,7 +1441,7 @@ Model {
       BlockType		      Inport
       Name		      "red_override"
       SID		      "3525"
-      Position		      [350, 798, 380, 812]
+      Position		      [630, 973, 660, 987]
       Port		      "43"
       IconDisplay	      "Port number"
     }
@@ -1397,7 +1449,7 @@ Model {
       BlockType		      Inport
       Name		      "orange_override"
       SID		      "3526"
-      Position		      [350, 838, 380, 852]
+      Position		      [630, 1013, 660, 1027]
       Port		      "44"
       IconDisplay	      "Port number"
     }
@@ -1405,7 +1457,7 @@ Model {
       BlockType		      Inport
       Name		      "yellow_override"
       SID		      "3527"
-      Position		      [350, 888, 380, 902]
+      Position		      [630, 1063, 660, 1077]
       Port		      "45"
       IconDisplay	      "Port number"
     }
@@ -1413,16 +1465,121 @@ Model {
       BlockType		      Inport
       Name		      "green_override"
       SID		      "3528"
-      Position		      [350, 933, 380, 947]
+      Position		      [630, 1108, 660, 1122]
       Port		      "46"
       IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Scale_Forward_R"
+      SID		      "3876"
+      Position		      [715, 403, 745, 417]
+      Port		      "47"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Scale_Forward_G"
+      SID		      "3877"
+      Position		      [715, 438, 745, 452]
+      Port		      "48"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Scale_Forward_B"
+      SID		      "3878"
+      Position		      [715, 473, 745, 487]
+      Port		      "49"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Scale_Forward_H"
+      SID		      "3879"
+      Position		      [715, 528, 745, 542]
+      Port		      "50"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Scale_Forward_S"
+      SID		      "3880"
+      Position		      [715, 568, 745, 582]
+      Port		      "51"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Scale_Forward_V"
+      SID		      "3881"
+      Position		      [715, 608, 745, 622]
+      Port		      "52"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Scale_Down_R"
+      SID		      "3899"
+      Position		      [760, 2478, 790, 2492]
+      Port		      "53"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Scale_Down_G"
+      SID		      "3900"
+      Position		      [760, 2513, 790, 2527]
+      Port		      "54"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Scale_Down_B"
+      SID		      "3901"
+      Position		      [760, 2548, 790, 2562]
+      Port		      "55"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Scale_Down_H"
+      SID		      "3902"
+      Position		      [760, 2603, 790, 2617]
+      Port		      "56"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Scale_Down_S"
+      SID		      "3903"
+      Position		      [760, 2643, 790, 2657]
+      Port		      "57"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "Scale_Down_V"
+      SID		      "3904"
+      Position		      [760, 2683, 790, 2697]
+      Port		      "58"
+      IconDisplay	      "Port number"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "IterSegmentThresh"
+      SID		      "3905"
+      Position		      [715, 698, 745, 712]
+      Port		      "59"
+      IconDisplay	      "Port number"
+      PortDimensions	      "Forward_Camera_Dimensions"
     }
     Block {
       BlockType		      Sum
       Name		      "Add"
       SID		      "2204"
       Ports		      [6, 1]
-      Position		      [3720, 941, 3775, 984]
+      Position		      [4000, 1116, 4055, 1159]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1433,7 +1590,7 @@ Model {
       Name		      "Add18"
       SID		      "2211"
       Ports		      [6, 1]
-      Position		      [3720, 1721, 3775, 1764]
+      Position		      [4000, 1896, 4055, 1939]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1444,7 +1601,7 @@ Model {
       Name		      "Add19"
       SID		      "2212"
       Ports		      [6, 1]
-      Position		      [3720, 1876, 3775, 1919]
+      Position		      [4000, 2051, 4055, 2094]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1455,7 +1612,7 @@ Model {
       Name		      "Add2"
       SID		      "2213"
       Ports		      [6, 1]
-      Position		      [3720, 1061, 3775, 1104]
+      Position		      [4000, 1236, 4055, 1279]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1466,7 +1623,7 @@ Model {
       Name		      "Add20"
       SID		      "2214"
       Ports		      [6, 1]
-      Position		      [3720, 1946, 3775, 1989]
+      Position		      [4000, 2121, 4055, 2164]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1477,7 +1634,7 @@ Model {
       Name		      "Add21"
       SID		      "2215"
       Ports		      [6, 1]
-      Position		      [3720, 2021, 3775, 2064]
+      Position		      [4000, 2196, 4055, 2239]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1488,7 +1645,7 @@ Model {
       Name		      "Add22"
       SID		      "2216"
       Ports		      [6, 1]
-      Position		      [3720, 401, 3775, 444]
+      Position		      [4000, 576, 4055, 619]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1499,7 +1656,7 @@ Model {
       Name		      "Add23"
       SID		      "2217"
       Ports		      [6, 1]
-      Position		      [3720, 471, 3775, 514]
+      Position		      [4000, 646, 4055, 689]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1510,7 +1667,7 @@ Model {
       Name		      "Add24"
       SID		      "2218"
       Ports		      [6, 1]
-      Position		      [3720, 541, 3775, 584]
+      Position		      [4000, 716, 4055, 759]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1521,7 +1678,7 @@ Model {
       Name		      "Add25"
       SID		      "2219"
       Ports		      [6, 1]
-      Position		      [3720, 666, 3775, 709]
+      Position		      [4000, 841, 4055, 884]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1532,7 +1689,7 @@ Model {
       Name		      "Add26"
       SID		      "2220"
       Ports		      [6, 1]
-      Position		      [3720, 736, 3775, 779]
+      Position		      [4000, 911, 4055, 954]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1543,7 +1700,7 @@ Model {
       Name		      "Add27"
       SID		      "2221"
       Ports		      [6, 1]
-      Position		      [3720, 806, 3775, 849]
+      Position		      [4000, 981, 4055, 1024]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1554,7 +1711,7 @@ Model {
       Name		      "Add3"
       SID		      "2222"
       Ports		      [6, 1]
-      Position		      [3720, 1121, 3775, 1164]
+      Position		      [4000, 1296, 4055, 1339]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1565,7 +1722,7 @@ Model {
       Name		      "Add4"
       SID		      "2223"
       Ports		      [6, 1]
-      Position		      [3720, 1186, 3775, 1229]
+      Position		      [4000, 1361, 4055, 1404]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1576,7 +1733,7 @@ Model {
       Name		      "Add5"
       SID		      "2224"
       Ports		      [6, 1]
-      Position		      [3720, 1251, 3775, 1294]
+      Position		      [4000, 1426, 4055, 1469]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1587,7 +1744,7 @@ Model {
       Name		      "Add6"
       SID		      "2225"
       Ports		      [6, 1]
-      Position		      [3720, 1316, 3775, 1359]
+      Position		      [4000, 1491, 4055, 1534]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1597,8 +1754,8 @@ Model {
       BlockType		      SubSystem
       Name		      "Blob_Analysis"
       SID		      "3137"
-      Ports		      [7, 17, 0, 0, 0, 0, 0, 1]
-      Position		      [1005, 545, 1300, 1285]
+      Ports		      [8, 17, 0, 0, 0, 0, 0, 1]
+      Position		      [1285, 720, 1580, 1460]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -1610,7 +1767,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Blob_Analysis"
-	Location		[1440, 50, 3120, 1050]
+	Location		[0, 51, 1280, 800]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1677,6 +1834,15 @@ Model {
 	  Position		  [750, 713, 780, 727]
 	  Port			  "7"
 	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "IterSegmentThresh"
+	  SID			  "3906"
+	  Position		  [235, 183, 265, 197]
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	  PortDimensions	  "Forward_Camera_Dimensions"
 	}
 	Block {
 	  BlockType		  ActionPort
@@ -2112,14 +2278,6 @@ Model {
 	  }
 	}
 	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh"
-	  SID			  "3146"
-	  Position		  [135, 178, 260, 202]
-	  Value			  "Iter_Segment_Thresh"
-	  SampleTime		  "-1"
-	}
-	Block {
 	  BlockType		  If
 	  Name			  "If"
 	  SID			  "3147"
@@ -2144,7 +2302,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "IterativeSegmentation"
-	    Location		    [4, 83, 1272, 738]
+	    Location		    [0, 51, 1280, 800]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -4118,7 +4276,7 @@ Model {
 	  }
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh"
+	  SrcBlock		  "IterSegmentThresh"
 	  SrcPort		  1
 	  DstBlock		  "IterativeSegmentation"
 	  DstPort		  4
@@ -4189,8 +4347,8 @@ Model {
       BlockType		      SubSystem
       Name		      "Blob_Analysis1"
       SID		      "3792"
-      Ports		      [7, 17, 0, 0, 0, 0, 0, 1]
-      Position		      [1005, 2140, 1300, 2880]
+      Ports		      [8, 17, 0, 0, 0, 0, 0, 1]
+      Position		      [1285, 2315, 1580, 3055]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -4202,7 +4360,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Blob_Analysis1"
-	Location		[1440, 50, 3120, 1050]
+	Location		[1, 80, 1281, 853]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -4269,6 +4427,15 @@ Model {
 	  Position		  [750, 713, 780, 727]
 	  Port			  "7"
 	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "IterSegmentThresh"
+	  SID			  "3907"
+	  Position		  [230, 188, 260, 202]
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	  PortDimensions	  "Forward_Camera_Dimensions"
 	}
 	Block {
 	  BlockType		  ActionPort
@@ -4702,14 +4869,6 @@ Model {
 	      DstPort		      1
 	    }
 	  }
-	}
-	Block {
-	  BlockType		  Constant
-	  Name			  "Dist_Thresh"
-	  SID			  "3802"
-	  Position		  [135, 178, 260, 202]
-	  Value			  "Iter_Segment_Thresh"
-	  SampleTime		  "-1"
 	}
 	Block {
 	  BlockType		  If
@@ -6167,6 +6326,7 @@ Model {
 	      Name		      "Action Port"
 	      SID		      "3846"
 	      Position		      [170, 15, 229, 43]
+	      ActionType	      "then"
 	    }
 	    Block {
 	      BlockType		      Reference
@@ -6630,8 +6790,9 @@ Model {
 	  DstPort		  1
 	}
 	Line {
-	  SrcBlock		  "Dist_Thresh"
+	  SrcBlock		  "IterSegmentThresh"
 	  SrcPort		  1
+	  Points		  [0, -5]
 	  DstBlock		  "IterativeSegmentation"
 	  DstPort		  4
 	}
@@ -6781,7 +6942,7 @@ Model {
       Name		      "ColorSelect"
       SID		      "2631"
       Ports		      [1, 2]
-      Position		      [750, 660, 890, 735]
+      Position		      [1030, 835, 1170, 910]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -6793,7 +6954,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"ColorSelect"
-	Location		[1676, 159, 3116, 943]
+	Location		[1, 80, 1281, 853]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -6946,7 +7107,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "buoy_detector"
-	    Location		    [1560, 147, 3000, 931]
+	    Location		    [1, 80, 1281, 853]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -7279,7 +7440,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "validation_gate"
-	    Location		    [1560, 147, 3000, 931]
+	    Location		    [1, 80, 1281, 853]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -7511,36 +7672,36 @@ Model {
       BlockType		      Constant
       Name		      "Constant"
       SID		      "2483"
-      Position		      [3730, 1390, 3760, 1420]
+      Position		      [4010, 1565, 4040, 1595]
       Value		      "0"
     }
     Block {
       BlockType		      Constant
       Name		      "Constant1"
       SID		      "2484"
-      Position		      [3730, 1455, 3760, 1485]
+      Position		      [4010, 1630, 4040, 1660]
       Value		      "0"
     }
     Block {
       BlockType		      Constant
       Name		      "Constant2"
       SID		      "2485"
-      Position		      [3730, 1520, 3760, 1550]
+      Position		      [4010, 1695, 4040, 1725]
       Value		      "0"
     }
     Block {
       BlockType		      Constant
       Name		      "Constant3"
       SID		      "2486"
-      Position		      [3730, 1580, 3760, 1610]
+      Position		      [4010, 1755, 4040, 1785]
       Value		      "0"
     }
     Block {
       BlockType		      SubSystem
       Name		      "Down Filter"
       SID		      "303"
-      Ports		      [3, 3]
-      Position		      [570, 2189, 670, 2231]
+      Ports		      [9, 3]
+      Position		      [850, 2371, 960, 2669]
       LibraryVersion	      "1.225"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -7551,7 +7712,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Down Filter"
-	Location		[4, 83, 1016, 731]
+	Location		[67, 83, 1079, 731]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -7576,7 +7737,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "G_in"
 	  SID			  "305"
-	  Position		  [30, 123, 60, 137]
+	  Position		  [30, 183, 60, 197]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	  PortDimensions	  "Down_Camera_Dimensions"
@@ -7585,17 +7746,65 @@ Model {
 	  BlockType		  Inport
 	  Name			  "B_in"
 	  SID			  "306"
-	  Position		  [30, 163, 60, 177]
+	  Position		  [30, 303, 60, 317]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	  PortDimensions	  "Down_Camera_Dimensions"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Scale_Down_R"
+	  SID			  "3887"
+	  Position		  [30, 123, 60, 137]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Scale_Down_G"
+	  SID			  "3888"
+	  Position		  [30, 233, 60, 247]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Scale_Down_B"
+	  SID			  "3889"
+	  Position		  [30, 348, 60, 362]
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Scale_Down_H"
+	  SID			  "3890"
+	  Position		  [395, 108, 425, 122]
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Scale_Down_S"
+	  SID			  "3891"
+	  Position		  [395, 213, 425, 227]
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Scale_Down_V"
+	  SID			  "3892"
+	  Position		  [395, 328, 425, 342]
+	  Port			  "9"
+	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Color Space\n Conversion3"
 	  SID			  "307"
 	  Ports			  [3, 3]
-	  Position		  [210, 91, 310, 149]
+	  Position		  [225, 186, 325, 244]
 	  LibraryVersion	  "1.328"
 	  SourceBlock		  "vipconversions/Color Space\n Conversion"
 	  SourceType		  "Color Space Conversion"
@@ -7611,7 +7820,7 @@ Model {
 	  Name			  "Color Space\n Conversion4"
 	  SID			  "308"
 	  Ports			  [3, 3]
-	  Position		  [415, 91, 515, 149]
+	  Position		  [535, 186, 635, 244]
 	  LibraryVersion	  "1.328"
 	  SourceBlock		  "vipconversions/Color Space\n Conversion"
 	  SourceType		  "Color Space Conversion"
@@ -7623,70 +7832,82 @@ Model {
 	  imagePorts		  "Separate color signals"
 	}
 	Block {
-	  BlockType		  Gain
-	  Name			  "Gain10"
-	  SID			  "309"
-	  Position		  [350, 105, 380, 135]
-	  Gain			  "Scale_Down_S"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  BlockType		  Product
+	  Name			  "Divide"
+	  SID			  "3893"
+	  Ports			  [2, 1]
+	  Position		  [115, 92, 145, 123]
+	  Inputs		  "**"
+	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  Gain
-	  Name			  "Gain11"
-	  SID			  "310"
-	  Position		  [350, 155, 380, 185]
-	  Gain			  "Scale_Down_V"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  BlockType		  Product
+	  Name			  "Divide1"
+	  SID			  "3894"
+	  Ports			  [2, 1]
+	  Position		  [115, 197, 145, 228]
+	  Inputs		  "**"
+	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  Gain
-	  Name			  "Gain6"
-	  SID			  "311"
-	  Position		  [155, 55, 185, 85]
-	  Gain			  "Scale_Down_R"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  BlockType		  Product
+	  Name			  "Divide2"
+	  SID			  "3895"
+	  Ports			  [2, 1]
+	  Position		  [115, 312, 145, 343]
+	  Inputs		  "**"
+	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  Gain
-	  Name			  "Gain7"
-	  SID			  "312"
-	  Position		  [155, 105, 185, 135]
-	  Gain			  "Scale_Down_G"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  BlockType		  Product
+	  Name			  "Divide3"
+	  SID			  "3896"
+	  Ports			  [2, 1]
+	  Position		  [470, 92, 500, 123]
+	  Inputs		  "**"
+	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  Gain
-	  Name			  "Gain8"
-	  SID			  "313"
-	  Position		  [155, 155, 185, 185]
-	  Gain			  "Scale_Down_B"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  BlockType		  Product
+	  Name			  "Divide4"
+	  SID			  "3897"
+	  Ports			  [2, 1]
+	  Position		  [470, 197, 500, 228]
+	  Inputs		  "**"
+	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  Gain
-	  Name			  "Gain9"
-	  SID			  "314"
-	  Position		  [350, 55, 380, 85]
-	  Gain			  "Scale_Down_H"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  BlockType		  Product
+	  Name			  "Divide5"
+	  SID			  "3898"
+	  Ports			  [2, 1]
+	  Position		  [470, 312, 500, 343]
+	  Inputs		  "**"
+	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "R_out"
 	  SID			  "315"
-	  Position		  [580, 73, 610, 87]
+	  Position		  [700, 168, 730, 182]
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
 	}
@@ -7694,7 +7915,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "G_out"
 	  SID			  "316"
-	  Position		  [580, 113, 610, 127]
+	  Position		  [700, 208, 730, 222]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -7703,90 +7924,10 @@ Model {
 	  BlockType		  Outport
 	  Name			  "B_out"
 	  SID			  "317"
-	  Position		  [580, 148, 610, 162]
+	  Position		  [700, 243, 730, 257]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
-	}
-	Line {
-	  SrcBlock		  "Gain6"
-	  SrcPort		  1
-	  Points		  [0, 30]
-	  DstBlock		  "Color Space\n Conversion3"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Gain7"
-	  SrcPort		  1
-	  DstBlock		  "Color Space\n Conversion3"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Gain8"
-	  SrcPort		  1
-	  Points		  [0, -30]
-	  DstBlock		  "Color Space\n Conversion3"
-	  DstPort		  3
-	}
-	Line {
-	  SrcBlock		  "Color Space\n Conversion3"
-	  SrcPort		  1
-	  Points		  [10, 0; 0, -30]
-	  DstBlock		  "Gain9"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Color Space\n Conversion3"
-	  SrcPort		  2
-	  DstBlock		  "Gain10"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Color Space\n Conversion3"
-	  SrcPort		  3
-	  Points		  [10, 0; 0, 30]
-	  DstBlock		  "Gain11"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Gain9"
-	  SrcPort		  1
-	  Points		  [5, 0; 0, 30]
-	  DstBlock		  "Color Space\n Conversion4"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Gain10"
-	  SrcPort		  1
-	  DstBlock		  "Color Space\n Conversion4"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Gain11"
-	  SrcPort		  1
-	  Points		  [5, 0; 0, -30]
-	  DstBlock		  "Color Space\n Conversion4"
-	  DstPort		  3
-	}
-	Line {
-	  SrcBlock		  "R_in"
-	  SrcPort		  1
-	  Points		  [60, 0; 0, -20]
-	  DstBlock		  "Gain6"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "G_in"
-	  SrcPort		  1
-	  Points		  [60, 0; 0, -10]
-	  DstBlock		  "Gain7"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "B_in"
-	  SrcPort		  1
-	  DstBlock		  "Gain8"
-	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "Color Space\n Conversion4"
@@ -7808,14 +7949,135 @@ Model {
 	  DstBlock		  "B_out"
 	  DstPort		  1
 	}
+	Line {
+	  SrcBlock		  "R_in"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, 10]
+	  DstBlock		  "Divide"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Scale_Down_R"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, -15]
+	  DstBlock		  "Divide"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "G_in"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, 15]
+	  DstBlock		  "Divide1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Scale_Down_G"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, -20]
+	  DstBlock		  "Divide1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "B_in"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, 10]
+	  DstBlock		  "Divide2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Scale_Down_B"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, -20]
+	  DstBlock		  "Divide2"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Divide1"
+	  SrcPort		  1
+	  DstBlock		  "Color Space\n Conversion3"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Divide"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, 85]
+	  DstBlock		  "Color Space\n Conversion3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Divide2"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, -95]
+	  DstBlock		  "Color Space\n Conversion3"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Scale_Down_H"
+	  SrcPort		  1
+	  DstBlock		  "Divide3"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Scale_Down_S"
+	  SrcPort		  1
+	  DstBlock		  "Divide4"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Scale_Down_V"
+	  SrcPort		  1
+	  DstBlock		  "Divide5"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion3"
+	  SrcPort		  3
+	  Points		  [30, 0; 0, 85]
+	  DstBlock		  "Divide5"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion3"
+	  SrcPort		  2
+	  Points		  [60, 0; 0, -10]
+	  DstBlock		  "Divide4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion3"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, -95]
+	  DstBlock		  "Divide3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Divide3"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, 85]
+	  DstBlock		  "Color Space\n Conversion4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Divide4"
+	  SrcPort		  1
+	  DstBlock		  "Color Space\n Conversion4"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Divide5"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, -95]
+	  DstBlock		  "Color Space\n Conversion4"
+	  DstPort		  3
+	}
       }
     }
     Block {
       BlockType		      SubSystem
       Name		      "Forward Filter"
       SID		      "318"
-      Ports		      [3, 3]
-      Position		      [570, 594, 670, 636]
+      Ports		      [9, 3]
+      Position		      [780, 290, 895, 600]
       LibraryVersion	      "1.225"
       MinAlgLoopOccurrences   off
       PropExecContextOutsideSubsystem off
@@ -7826,7 +8088,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"Forward Filter"
-	Location		[4, 83, 1016, 731]
+	Location		[267, 145, 1279, 793]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -7843,7 +8105,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "R_in"
 	  SID			  "319"
-	  Position		  [45, 78, 75, 92]
+	  Position		  [60, 63, 90, 77]
 	  IconDisplay		  "Port number"
 	  PortDimensions	  "Forward_Camera_Dimensions"
 	}
@@ -7851,7 +8113,7 @@ Model {
 	  BlockType		  Inport
 	  Name			  "G_in"
 	  SID			  "320"
-	  Position		  [45, 118, 75, 132]
+	  Position		  [60, 163, 90, 177]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	  PortDimensions	  "Forward_Camera_Dimensions"
@@ -7860,17 +8122,65 @@ Model {
 	  BlockType		  Inport
 	  Name			  "B_in"
 	  SID			  "321"
-	  Position		  [45, 158, 75, 172]
+	  Position		  [60, 263, 90, 277]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	  PortDimensions	  "Forward_Camera_Dimensions"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Scale_Forward_R"
+	  SID			  "3870"
+	  Position		  [60, 103, 90, 117]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Scale_Forward_G"
+	  SID			  "3871"
+	  Position		  [60, 198, 90, 212]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Scale_Forward_B"
+	  SID			  "3872"
+	  Position		  [60, 303, 90, 317]
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Scale_Forward_H"
+	  SID			  "3873"
+	  Position		  [385, 98, 415, 112]
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Scale_Forward_S"
+	  SID			  "3874"
+	  Position		  [385, 198, 415, 212]
+	  Port			  "8"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "Scale_Forward_V"
+	  SID			  "3875"
+	  Position		  [385, 298, 415, 312]
+	  Port			  "9"
+	  IconDisplay		  "Port number"
 	}
 	Block {
 	  BlockType		  Reference
 	  Name			  "Color Space\n Conversion1"
 	  SID			  "322"
 	  Ports			  [3, 3]
-	  Position		  [180, 96, 280, 154]
+	  Position		  [235, 161, 335, 219]
 	  LibraryVersion	  "1.328"
 	  SourceBlock		  "vipconversions/Color Space\n Conversion"
 	  SourceType		  "Color Space Conversion"
@@ -7886,7 +8196,7 @@ Model {
 	  Name			  "Color Space\n Conversion2"
 	  SID			  "323"
 	  Ports			  [3, 3]
-	  Position		  [385, 96, 485, 154]
+	  Position		  [595, 171, 695, 229]
 	  LibraryVersion	  "1.328"
 	  SourceBlock		  "vipconversions/Color Space\n Conversion"
 	  SourceType		  "Color Space Conversion"
@@ -7898,70 +8208,82 @@ Model {
 	  imagePorts		  "Separate color signals"
 	}
 	Block {
-	  BlockType		  Gain
-	  Name			  "Gain"
-	  SID			  "324"
-	  Position		  [125, 60, 155, 90]
-	  Gain			  "Scale_Forward_R"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  BlockType		  Product
+	  Name			  "Divide"
+	  SID			  "3869"
+	  Ports			  [2, 1]
+	  Position		  [135, 72, 165, 103]
+	  Inputs		  "**"
+	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  Gain
-	  Name			  "Gain1"
-	  SID			  "325"
-	  Position		  [125, 110, 155, 140]
-	  Gain			  "Scale_Forward_G"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  BlockType		  Product
+	  Name			  "Divide1"
+	  SID			  "3882"
+	  Ports			  [2, 1]
+	  Position		  [135, 172, 165, 203]
+	  Inputs		  "**"
+	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  Gain
-	  Name			  "Gain2"
-	  SID			  "326"
-	  Position		  [125, 160, 155, 190]
-	  Gain			  "Scale_Forward_B"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  BlockType		  Product
+	  Name			  "Divide2"
+	  SID			  "3883"
+	  Ports			  [2, 1]
+	  Position		  [135, 272, 165, 303]
+	  Inputs		  "**"
+	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  Gain
-	  Name			  "Gain3"
-	  SID			  "327"
-	  Position		  [320, 60, 350, 90]
-	  Gain			  "Scale_Forward_H"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  BlockType		  Product
+	  Name			  "Divide3"
+	  SID			  "3884"
+	  Ports			  [2, 1]
+	  Position		  [455, 82, 485, 113]
+	  Inputs		  "**"
+	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  Gain
-	  Name			  "Gain4"
-	  SID			  "328"
-	  Position		  [320, 110, 350, 140]
-	  Gain			  "Scale_Forward_S"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  BlockType		  Product
+	  Name			  "Divide4"
+	  SID			  "3885"
+	  Ports			  [2, 1]
+	  Position		  [455, 182, 485, 213]
+	  Inputs		  "**"
+	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
-	  BlockType		  Gain
-	  Name			  "Gain5"
-	  SID			  "329"
-	  Position		  [320, 160, 350, 190]
-	  Gain			  "Scale_Forward_V"
-	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  BlockType		  Product
+	  Name			  "Divide5"
+	  SID			  "3886"
+	  Ports			  [2, 1]
+	  Position		  [455, 282, 485, 313]
+	  Inputs		  "**"
+	  InputSameDT		  off
 	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  RndMeth		  "Floor"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
 	  BlockType		  Outport
 	  Name			  "R_out"
 	  SID			  "330"
-	  Position		  [555, 78, 585, 92]
+	  Position		  [765, 153, 795, 167]
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
 	}
@@ -7969,7 +8291,7 @@ Model {
 	  BlockType		  Outport
 	  Name			  "G_out"
 	  SID			  "331"
-	  Position		  [555, 118, 585, 132]
+	  Position		  [765, 193, 795, 207]
 	  Port			  "2"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
@@ -7978,90 +8300,10 @@ Model {
 	  BlockType		  Outport
 	  Name			  "B_out"
 	  SID			  "332"
-	  Position		  [555, 153, 585, 167]
+	  Position		  [765, 228, 795, 242]
 	  Port			  "3"
 	  IconDisplay		  "Port number"
 	  OutDataTypeStr	  "double"
-	}
-	Line {
-	  SrcBlock		  "R_in"
-	  SrcPort		  1
-	  Points		  [15, 0; 0, -10]
-	  DstBlock		  "Gain"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "G_in"
-	  SrcPort		  1
-	  DstBlock		  "Gain1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "B_in"
-	  SrcPort		  1
-	  Points		  [15, 0; 0, 10]
-	  DstBlock		  "Gain2"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Gain"
-	  SrcPort		  1
-	  Points		  [0, 30]
-	  DstBlock		  "Color Space\n Conversion1"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Gain1"
-	  SrcPort		  1
-	  DstBlock		  "Color Space\n Conversion1"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Gain2"
-	  SrcPort		  1
-	  Points		  [0, -30]
-	  DstBlock		  "Color Space\n Conversion1"
-	  DstPort		  3
-	}
-	Line {
-	  SrcBlock		  "Color Space\n Conversion1"
-	  SrcPort		  1
-	  Points		  [10, 0; 0, -30]
-	  DstBlock		  "Gain3"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Color Space\n Conversion1"
-	  SrcPort		  2
-	  DstBlock		  "Gain4"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Color Space\n Conversion1"
-	  SrcPort		  3
-	  Points		  [10, 0; 0, 30]
-	  DstBlock		  "Gain5"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Gain3"
-	  SrcPort		  1
-	  Points		  [5, 0; 0, 30]
-	  DstBlock		  "Color Space\n Conversion2"
-	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "Gain4"
-	  SrcPort		  1
-	  DstBlock		  "Color Space\n Conversion2"
-	  DstPort		  2
-	}
-	Line {
-	  SrcBlock		  "Gain5"
-	  SrcPort		  1
-	  Points		  [5, 0; 0, -30]
-	  DstBlock		  "Color Space\n Conversion2"
-	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "Color Space\n Conversion2"
@@ -8083,6 +8325,126 @@ Model {
 	  DstBlock		  "B_out"
 	  DstPort		  1
 	}
+	Line {
+	  SrcBlock		  "R_in"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, 10]
+	  DstBlock		  "Divide"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Scale_Forward_R"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, -15]
+	  DstBlock		  "Divide"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "G_in"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, 10]
+	  DstBlock		  "Divide1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Scale_Forward_G"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, -10]
+	  DstBlock		  "Divide1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "B_in"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, 10]
+	  DstBlock		  "Divide2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Scale_Forward_B"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, -15]
+	  DstBlock		  "Divide2"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Divide"
+	  SrcPort		  1
+	  Points		  [25, 0; 0, 80]
+	  DstBlock		  "Color Space\n Conversion1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Divide1"
+	  SrcPort		  1
+	  DstBlock		  "Color Space\n Conversion1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Divide2"
+	  SrcPort		  1
+	  Points		  [25, 0; 0, -80]
+	  DstBlock		  "Color Space\n Conversion1"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Scale_Forward_H"
+	  SrcPort		  1
+	  DstBlock		  "Divide3"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Scale_Forward_S"
+	  SrcPort		  1
+	  DstBlock		  "Divide4"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Scale_Forward_V"
+	  SrcPort		  1
+	  DstBlock		  "Divide5"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, -80]
+	  DstBlock		  "Divide3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcPort		  2
+	  DstBlock		  "Divide4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcPort		  3
+	  Points		  [10, 0; 0, 80]
+	  DstBlock		  "Divide5"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Divide4"
+	  SrcPort		  1
+	  DstBlock		  "Color Space\n Conversion2"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Divide3"
+	  SrcPort		  1
+	  Points		  [45, 0; 0, 80]
+	  DstBlock		  "Color Space\n Conversion2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Divide5"
+	  SrcPort		  1
+	  Points		  [45, 0; 0, -80]
+	  DstBlock		  "Color Space\n Conversion2"
+	  DstPort		  3
+	}
       }
     }
     Block {
@@ -8090,7 +8452,7 @@ Model {
       Name		      "If1"
       SID		      "1361"
       Ports		      [1, 2]
-      Position		      [770, 401, 870, 439]
+      Position		      [1050, 576, 1150, 614]
       IfExpression	      "u1 == 1 | u1 == 3 | u1 == 4 | u1 == 5"
       ElseIfExpressions	      "u1 == 2 | u1 == 6"
       ShowElse		      off
@@ -8100,7 +8462,7 @@ Model {
       Name		      "If2"
       SID		      "2106"
       Ports		      [1, 6]
-      Position		      [1405, 126, 1510, 339]
+      Position		      [1685, 301, 1790, 514]
       IfExpression	      "u1 == 1"
       ElseIfExpressions	      "u1 == 2, u1 == 3, u1 == 4, u1 == 5, u1 == 6"
       ShowElse		      off
@@ -8110,7 +8472,7 @@ Model {
       Name		      "L_detector"
       SID		      "2383"
       Ports		      [7, 9, 0, 0, 0, 0, 0, 1]
-      Position		      [2475, 3132, 2655, 3538]
+      Position		      [2755, 3307, 2935, 3713]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -9423,7 +9785,7 @@ Model {
       Name		      "buoy_detector"
       SID		      "2299"
       Ports		      [9, 10, 0, 0, 0, 0, 0, 1]
-      Position		      [2475, 1969, 2655, 2381]
+      Position		      [2755, 2144, 2935, 2556]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -9435,7 +9797,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"buoy_detector"
-	Location		[1440, 50, 3120, 1050]
+	Location		[0, 51, 1280, 800]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -9892,7 +10254,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "If Action\nSubsystem"
-	    Location		    [1440, 50, 3120, 1050]
+	    Location		    [1, 80, 1281, 853]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -10920,7 +11282,7 @@ Model {
       Name		      "drop_mech"
       SID		      "2425"
       Ports		      [6, 12, 0, 0, 0, 0, 0, 1]
-      Position		      [2475, 3714, 2655, 4121]
+      Position		      [2755, 3889, 2935, 4296]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -11285,7 +11647,7 @@ Model {
       Name		      "make_color_range"
       SID		      "3136"
       Ports		      [28, 2]
-      Position		      [550, 801, 845, 2084]
+      Position		      [830, 976, 1125, 2259]
       LibraryVersion	      "1.31"
       PermitHierarchicalResolution "ExplicitOnly"
       TreatAsAtomicUnit	      on
@@ -11799,7 +12161,7 @@ Model {
       Name		      "path_detector"
       SID		      "2257"
       Ports		      [7, 10, 0, 0, 0, 0, 0, 1]
-      Position		      [2475, 1364, 2655, 1786]
+      Position		      [2755, 1539, 2935, 1961]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -11982,7 +12344,7 @@ Model {
       Name		      "torpedo"
       SID		      "2341"
       Ports		      [7, 10, 0, 0, 0, 0, 0, 1]
-      Position		      [2475, 2552, 2655, 2958]
+      Position		      [2755, 2727, 2935, 3133]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -13364,7 +13726,7 @@ Model {
       Name		      "validation_gate"
       SID		      "2081"
       Ports		      [5, 9, 0, 0, 0, 0, 0, 1]
-      Position		      [2475, 771, 2655, 1229]
+      Position		      [2755, 946, 2935, 1404]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -13376,7 +13738,7 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"validation_gate"
-	Location		[1440, 50, 3120, 1050]
+	Location		[1, 80, 1281, 853]
 	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -14715,7 +15077,7 @@ Model {
       BlockType		      Outport
       Name		      "R_forward_out"
       SID		      "2249"
-      Position		      [3835, 418, 3865, 432]
+      Position		      [4115, 593, 4145, 607]
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
@@ -14723,7 +15085,7 @@ Model {
       BlockType		      Outport
       Name		      "G_forward_out"
       SID		      "2250"
-      Position		      [3835, 488, 3865, 502]
+      Position		      [4115, 663, 4145, 677]
       Port		      "2"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14732,7 +15094,7 @@ Model {
       BlockType		      Outport
       Name		      "B_forward_out"
       SID		      "2251"
-      Position		      [3835, 558, 3865, 572]
+      Position		      [4115, 733, 4145, 747]
       Port		      "3"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14741,7 +15103,7 @@ Model {
       BlockType		      Outport
       Name		      "R_down_out"
       SID		      "2252"
-      Position		      [3835, 683, 3865, 697]
+      Position		      [4115, 858, 4145, 872]
       Port		      "4"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14750,7 +15112,7 @@ Model {
       BlockType		      Outport
       Name		      "G_down_out"
       SID		      "2253"
-      Position		      [3835, 753, 3865, 767]
+      Position		      [4115, 928, 4145, 942]
       Port		      "5"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14759,7 +15121,7 @@ Model {
       BlockType		      Outport
       Name		      "B_down_out"
       SID		      "2254"
-      Position		      [3835, 823, 3865, 837]
+      Position		      [4115, 998, 4145, 1012]
       Port		      "6"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14768,7 +15130,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetSelect"
       SID		      "2230"
-      Position		      [3835, 958, 3865, 972]
+      Position		      [4115, 1133, 4145, 1147]
       Port		      "7"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14777,7 +15139,7 @@ Model {
       BlockType		      Outport
       Name		      "MaintainHeading"
       SID		      "2232"
-      Position		      [3835, 1078, 3865, 1092]
+      Position		      [4115, 1253, 4145, 1267]
       Port		      "8"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14786,7 +15148,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetX"
       SID		      "2233"
-      Position		      [3910, 1138, 3940, 1152]
+      Position		      [4190, 1313, 4220, 1327]
       Port		      "9"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14795,7 +15157,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetY"
       SID		      "2234"
-      Position		      [3910, 1203, 3940, 1217]
+      Position		      [4190, 1378, 4220, 1392]
       Port		      "10"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14804,7 +15166,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetZ"
       SID		      "2235"
-      Position		      [3910, 1268, 3940, 1282]
+      Position		      [4190, 1443, 4220, 1457]
       Port		      "11"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14813,7 +15175,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetYaw"
       SID		      "2236"
-      Position		      [3910, 1333, 3940, 1347]
+      Position		      [4190, 1508, 4220, 1522]
       Port		      "12"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14822,7 +15184,7 @@ Model {
       BlockType		      Outport
       Name		      "DesiredTargetX"
       SID		      "2237"
-      Position		      [3835, 1398, 3865, 1412]
+      Position		      [4115, 1573, 4145, 1587]
       Port		      "13"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14831,7 +15193,7 @@ Model {
       BlockType		      Outport
       Name		      "DesiredTargetY"
       SID		      "2238"
-      Position		      [3835, 1463, 3865, 1477]
+      Position		      [4115, 1638, 4145, 1652]
       Port		      "14"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14840,7 +15202,7 @@ Model {
       BlockType		      Outport
       Name		      "DesiredTargetZ"
       SID		      "2239"
-      Position		      [3835, 1528, 3865, 1542]
+      Position		      [4115, 1703, 4145, 1717]
       Port		      "15"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14849,7 +15211,7 @@ Model {
       BlockType		      Outport
       Name		      "DesiredTargetYaw"
       SID		      "2240"
-      Position		      [3835, 1588, 3865, 1602]
+      Position		      [4115, 1763, 4145, 1777]
       Port		      "16"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14858,7 +15220,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetDetected"
       SID		      "2245"
-      Position		      [3835, 1738, 3865, 1752]
+      Position		      [4115, 1913, 4145, 1927]
       Port		      "17"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14867,7 +15229,7 @@ Model {
       BlockType		      Outport
       Name		      "PathState"
       SID		      "2246"
-      Position		      [3835, 1893, 3865, 1907]
+      Position		      [4115, 2068, 4145, 2082]
       Port		      "18"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14876,7 +15238,7 @@ Model {
       BlockType		      Outport
       Name		      "BuoyColors"
       SID		      "2247"
-      Position		      [2705, 2348, 2735, 2362]
+      Position		      [2985, 2523, 3015, 2537]
       Port		      "19"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14885,7 +15247,7 @@ Model {
       BlockType		      Outport
       Name		      "FireAuthorization"
       SID		      "2248"
-      Position		      [3835, 2038, 3865, 2052]
+      Position		      [4115, 2213, 4145, 2227]
       Port		      "20"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14894,7 +15256,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetType"
       SID		      "3712"
-      Position		      [2705, 4068, 2735, 4082]
+      Position		      [2985, 4243, 3015, 4257]
       Port		      "21"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14903,7 +15265,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetSize"
       SID		      "3713"
-      Position		      [2705, 4103, 2735, 4117]
+      Position		      [2985, 4278, 3015, 4292]
       Port		      "22"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -14911,20 +15273,21 @@ Model {
     Line {
       SrcBlock		      "G_down_in"
       SrcPort		      1
+      Points		      [40, 0]
       DstBlock		      "Down Filter"
       DstPort		      2
     }
     Line {
       SrcBlock		      "R_down_in"
       SrcPort		      1
-      Points		      [20, 0; 0, 20]
+      Points		      [20, 0; 0, 30]
       DstBlock		      "Down Filter"
       DstPort		      1
     }
     Line {
       SrcBlock		      "B_down_in"
       SrcPort		      1
-      Points		      [20, 0; 0, -20]
+      Points		      [20, 0; 0, 30]
       DstBlock		      "Down Filter"
       DstPort		      3
     }
@@ -14938,7 +15301,6 @@ Model {
     Line {
       SrcBlock		      "R_forward_in"
       SrcPort		      1
-      Points		      [20, 0; 0, 20]
       DstBlock		      "Forward Filter"
       DstPort		      1
     }
@@ -14951,7 +15313,6 @@ Model {
     Line {
       SrcBlock		      "B_forward_in"
       SrcPort		      1
-      Points		      [20, 0; 0, -20]
       DstBlock		      "Forward Filter"
       DstPort		      3
     }
@@ -15464,12 +15825,12 @@ Model {
 	DstPort			1
       }
       Branch {
-	Points			[0, 280]
+	Points			[0, 620]
 	DstBlock		"ColorSelect"
 	DstPort			1
       }
       Branch {
-	Points			[0, -185]
+	Points			[0, 155]
 	DstBlock		"If2"
 	DstPort			1
       }
@@ -15757,7 +16118,7 @@ Model {
       DstPort		      17
     }
     Line {
-      SrcBlock		      "orane_au"
+      SrcBlock		      "orange_au"
       SrcPort		      1
       DstBlock		      "make_color_range"
       DstPort		      18
@@ -15811,7 +16172,7 @@ Model {
       DstPort		      26
     }
     Line {
-      SrcBlock		      "breen_bl"
+      SrcBlock		      "green_bl"
       SrcPort		      1
       DstBlock		      "make_color_range"
       DstPort		      27
@@ -15827,11 +16188,12 @@ Model {
       SrcPort		      1
       Points		      [85, 0]
       Branch {
+	Points			[55, 0]
 	DstBlock		"Blob_Analysis"
 	DstPort			6
       }
       Branch {
-	Points			[0, 1595]
+	Points			[0, 1520]
 	DstBlock		"Blob_Analysis1"
 	DstPort			6
       }
@@ -15839,20 +16201,21 @@ Model {
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      1
+      Points		      [0, 435]
       DstBlock		      "Blob_Analysis"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      2
-      Points		      [315, 0]
+      Points		      [370, 0]
       DstBlock		      "Blob_Analysis"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      3
-      Points		      [310, 0; 0, 180]
+      Points		      [365, 0; 0, 405]
       DstBlock		      "Blob_Analysis"
       DstPort		      3
     }
@@ -15882,11 +16245,12 @@ Model {
       SrcPort		      1
       Points		      [30, 0; 0, 235]
       Branch {
+	Points			[65, 0]
 	DstBlock		"Blob_Analysis"
 	DstPort			4
       }
       Branch {
-	Points			[0, 1595]
+	Points			[0, 1550]
 	DstBlock		"Blob_Analysis1"
 	DstPort			4
       }
@@ -15896,11 +16260,12 @@ Model {
       SrcPort		      2
       Points		      [35, 0; 0, 305]
       Branch {
+	Points			[60, 0]
 	DstBlock		"Blob_Analysis"
 	DstPort			5
       }
       Branch {
-	Points			[0, 1595]
+	Points			[0, 1535]
 	DstBlock		"Blob_Analysis1"
 	DstPort			5
       }
@@ -15910,12 +16275,12 @@ Model {
       SrcPort		      2
       Points		      [90, 0]
       Branch {
-	Points			[0, -535]
+	Points			[0, -625]
 	DstBlock		"Blob_Analysis"
 	DstPort			7
       }
       Branch {
-	Points			[0, 1060]
+	Points			[0, 970]
 	DstBlock		"Blob_Analysis1"
 	DstPort			7
       }
@@ -16096,60 +16461,154 @@ Model {
     Line {
       SrcBlock		      "Down Filter"
       SrcPort		      1
+      Points		      [0, -50]
       DstBlock		      "Blob_Analysis1"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Down Filter"
       SrcPort		      2
-      Points		      [315, 0]
+      Points		      [305, 0]
       DstBlock		      "Blob_Analysis1"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Down Filter"
       SrcPort		      3
-      Points		      [310, 0; 0, 180]
+      Points		      [300, 0; 0, -70]
       DstBlock		      "Blob_Analysis1"
       DstPort		      3
     }
+    Line {
+      SrcBlock		      "Scale_Forward_R"
+      SrcPort		      1
+      DstBlock		      "Forward Filter"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Scale_Forward_G"
+      SrcPort		      1
+      DstBlock		      "Forward Filter"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "Scale_Forward_B"
+      SrcPort		      1
+      DstBlock		      "Forward Filter"
+      DstPort		      6
+    }
+    Line {
+      SrcBlock		      "Scale_Forward_H"
+      SrcPort		      1
+      Points		      [5, 0; 0, -20]
+      DstBlock		      "Forward Filter"
+      DstPort		      7
+    }
+    Line {
+      SrcBlock		      "Scale_Forward_S"
+      SrcPort		      1
+      Points		      [5, 0; 0, -25]
+      DstBlock		      "Forward Filter"
+      DstPort		      8
+    }
+    Line {
+      SrcBlock		      "Scale_Forward_V"
+      SrcPort		      1
+      Points		      [0, -15; -70, 0; 0, -35; 85, 0]
+      DstBlock		      "Forward Filter"
+      DstPort		      9
+    }
+    Line {
+      SrcBlock		      "Scale_Down_R"
+      SrcPort		      1
+      DstBlock		      "Down Filter"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Scale_Down_G"
+      SrcPort		      1
+      DstBlock		      "Down Filter"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "Scale_Down_B"
+      SrcPort		      1
+      DstBlock		      "Down Filter"
+      DstPort		      6
+    }
+    Line {
+      SrcBlock		      "Scale_Down_H"
+      SrcPort		      1
+      Points		      [20, 0; 0, -20]
+      DstBlock		      "Down Filter"
+      DstPort		      7
+    }
+    Line {
+      SrcBlock		      "Scale_Down_S"
+      SrcPort		      1
+      Points		      [40, 0]
+      DstBlock		      "Down Filter"
+      DstPort		      8
+    }
+    Line {
+      SrcBlock		      "Scale_Down_V"
+      SrcPort		      1
+      Points		      [40, 0]
+      DstBlock		      "Down Filter"
+      DstPort		      9
+    }
+    Line {
+      SrcBlock		      "IterSegmentThresh"
+      SrcPort		      1
+      Points		      [0, 90]
+      Branch {
+	Points			[0, 155; 395, 0; 0, 455]
+	DstBlock		"Blob_Analysis"
+	DstPort			8
+      }
+      Branch {
+	Points			[0, -5; -160, 0; 0, 2210]
+	DstBlock		"Blob_Analysis1"
+	DstPort			8
+      }
+    }
     Annotation {
       Name		      "Forward camera QImage array"
-      Position		      [371, 577]
+      Position		      [586, 332]
     }
     Annotation {
       Name		      "Down camera QImage array"
-      Position		      [366, 2172]
+      Position		      [646, 2347]
     }
     Annotation {
       Name		      "Forward"
-      Position		      [957, 391]
+      Position		      [1237, 566]
     }
     Annotation {
       Name		      "Down"
-      Position		      [954, 457]
+      Position		      [1234, 632]
     }
     Annotation {
       Name		      "Current target information"
-      Position		      [4054, 1148]
+      Position		      [4334, 1323]
     }
     Annotation {
       Name		      "Desired target information"
-      Position		      [4042, 1407]
+      Position		      [4322, 1582]
     }
     Annotation {
       Name		      "Mode and general target information"
-      Position		      [4073, 959]
+      Position		      [4353, 1134]
     }
     Annotation {
       Name		      "Note: TargetFound, and the last three inputs to MotionController.mdl,\ncan be changed by the script"
       ", not the vision model."
-      Position		      [3624, 313]
+      Position		      [3904, 488]
     }
     Annotation {
       Name		      "Path-following variables\nDesiredPathDirection:\n0 = Use internal default\n1 = Take left path\n2 = "
       "Take right path"
-      Position		      [1988, 1721]
+      Position		      [2268, 1896]
     }
   }
 }
@@ -19567,8 +20026,6 @@ Stateflow {
     firstJunction	    155
     viewObj		    153
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    109
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -20103,8 +20560,6 @@ Stateflow {
     firstJunction	    178
     viewObj		    176
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -20238,8 +20693,6 @@ Stateflow {
     firstJunction	    185
     viewObj		    183
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -20373,8 +20826,6 @@ Stateflow {
     firstJunction	    192
     viewObj		    190
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    7
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -20508,8 +20959,6 @@ Stateflow {
     firstJunction	    199
     viewObj		    197
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    11
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -20721,8 +21170,6 @@ Stateflow {
     firstJunction	    210
     viewObj		    208
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    10
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
@@ -20954,8 +21401,6 @@ Stateflow {
     firstJunction	    221
     viewObj		    219
     machine		    1
-    subviewS {
-    }
     ssIdHighWaterMark	    58
     decomposition	    CLUSTER_CHART
     type		    EML_CHART
