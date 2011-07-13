@@ -35,6 +35,7 @@ class director : public Module
                         sub << "Orientation.Heading";
                         sub << "Director.scriptFile";
                         sub << "Vision.Output.TargetDetected";
+                        sub << "Maestro.Start";
 			return sub;
 		}
                 void process();
