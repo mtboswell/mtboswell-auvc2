@@ -980,21 +980,22 @@ void Dashboard::loadStateValues() {
 	if(scriptFile.open(QIODevice::ReadOnly)) {
 		QTextStream stream(&scriptFile);
 		for (int i = 0; i < 300; i++) {
+			qDebug() << i;
 			input = stream.readLine();
 			QStringList list = input.split("=");		
 			if (list.length() != 2) {
 				qDebug() << "Failure";
-				return;
+				continue;
 			}
 			if (list[1] == "false" || list[1] == "False" || list[1] == "FALSE" || list[1] == "F" || list[1] == "f") {
 				setData(list[0], false);
 				qDebug() << "Added " << list[0] << " as " << list[1];
-				return;
+				continue;
 			}
 			if (list[1] == "true" || list[1] == "True" || list[1] == "TRUE" || list[1] == "T" || list[1] == "t") {
 				setData(list[0], true);
 				qDebug() << "Added " << list[0] << " as " << list[1];
-				return;
+				continue;
 			}
 			bool ok = false;
 			list[1].toInt(&ok);
@@ -1002,7 +1003,7 @@ void Dashboard::loadStateValues() {
 				setData(list[0], list[1].toInt(&ok));
 				qDebug() << "Added " << list[0] << " as " << list[1];
 				stateLine->setText("Done (int)");
-				return;
+				continue;
 			}
 			list[1].toFloat(&ok);
 			if(ok) {
