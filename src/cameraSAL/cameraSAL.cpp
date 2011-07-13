@@ -124,6 +124,12 @@ void CameraSAL::dataIn(VDatum datum) {
 			default: break;
 		}
 	}
+	if(datum.id == "Camera.Front.Pixelclock" && cameraCreated) {
+		forwardCamera->updateClock(datum.value.toInt());
+	}
+	if( datum.id == "Camera.Down.Pixelclock" && cameraCreated) { 
+		downCamera->updateClock(datum.value.toInt());
+	}
 	qDebug() << "Finished DataIn()";
 }
 
