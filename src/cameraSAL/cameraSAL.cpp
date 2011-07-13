@@ -113,6 +113,7 @@ void CameraSAL::init(){
 
 void CameraSAL::dataIn(VDatum datum) {
 	qDebug() << "CameraSAL DataIn() Called";
+	qDebug() << datum.id << " " << cameraCreated;
 	if (datum.id == "Parameter.Vision.ModeSelect" && cameraCreated) {
 		qDebug() << "Camera Mode set to " << datum.value.toInt();
 		switch (datum.value.toInt()) {
@@ -125,6 +126,7 @@ void CameraSAL::dataIn(VDatum datum) {
 		}
 	}
 	if(datum.id == "Camera.Front.Pixelclock" && cameraCreated) {
+		qDebug() << "This far";
 		forwardCamera->updateClock(datum.value.toInt());
 	}
 	if( datum.id == "Camera.Down.Pixelclock" && cameraCreated) { 

@@ -21,7 +21,7 @@ state =
 		o3_value = 0;
 
 		o4_label = "Parameter.Depth.Kp";
-		o4_value = 1;
+		o4_value = 6;
 
 		o5_label = "Parameter.Depth.Ki";
 		o5_value = 0;

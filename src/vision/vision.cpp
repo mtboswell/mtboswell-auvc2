@@ -77,12 +77,50 @@ void Vision::dataIn(VDatum datum)
 		qDebug() << "Changing ModeSelect to in Vision: " << datum.value.toInt();
 		count = 0;
 		switch (datum.value.toInt()) {
-			case 0: processingFrontCamera = false; processingDownCamera = false; break;
+			case 0: processingFrontCamera = true; processingDownCamera = true; break;
 			case 1: processingFrontCamera = true;  processingDownCamera = false; break;
 			case 2: processingFrontCamera = false; processingDownCamera = true;  break;
+			case 3: processingFrontCamera = true;  processingDownCamera = false; break;
 			default: break;
 		}
 	}
+}
+
+void Vision::printStuff()
+{
+    std::cout << "Vision_white_al"<< " " <<  VisionModel_U.white_al<< std::endl;
+    std::cout << "Vision_white_au"<< " " <<  VisionModel_U.white_au<< std::endl;
+    std::cout << "Vision_white_bl"<< " " <<  VisionModel_U.white_bl<< std::endl;
+    std::cout << "Vision_white_bu"<< " " <<  VisionModel_U.white_bu<< std::endl;
+    std::cout << "Vision_black_al"<< " " <<  VisionModel_U.black_al<< std::endl;
+    std::cout << "Vision_black_au"<< " " <<  VisionModel_U.black_au<< std::endl;
+    std::cout << "Vision_black_bl"<< " " <<  VisionModel_U.black_bl<< std::endl;
+    std::cout << "Vision_black_bu"<< " " <<  VisionModel_U.black_bu<< std::endl;
+    std::cout << "Vision_blue_al"<< " " <<  VisionModel_U.blue_al<< std::endl;
+    std::cout << "Vision_blue_au"<< " " <<  VisionModel_U.blue_au<< std::endl;
+    std::cout << "Vision_blue_bl"<< " " <<  VisionModel_U.blue_bl<< std::endl;
+    std::cout << "Vision_red_al"<< " " <<  VisionModel_U.red_al<< std::endl;
+    std::cout << "Vision_red_au"<< " " <<  VisionModel_U.red_au<< std::endl;
+    std::cout << "Vision_red_bl"<< " " <<  VisionModel_U.red_bl<< std::endl;
+    std::cout << "Vision_red_bu"<< " " <<  VisionModel_U.red_bu<< std::endl;
+    std::cout << "Vision_orange_al"<< " " <<  VisionModel_U.orange_al<< std::endl;
+    std::cout << "Vision_orane_au"<< " " <<  VisionModel_U.orane_au<< std::endl;
+    std::cout << "Vision_orange_bl"<< " " <<  VisionModel_U.orange_bl<< std::endl;
+    std::cout << "Vision_orange_bu"<< " " <<  VisionModel_U.orange_bu<< std::endl;
+    std::cout << "Vision_yellow_al"<< " " <<  VisionModel_U.yellow_al<< std::endl;
+    std::cout << "Vision_yellow_bl"<< " " <<  VisionModel_U.yellow_bl<< std::endl;
+    std::cout << "Vision_yellow_bu"<< " " <<  VisionModel_U.yellow_bu<< std::endl;
+    std::cout << "Vision_green_al"<< " " <<  VisionModel_U.green_al<< std::endl;
+    std::cout << "Vision_green_au"<< " " <<  VisionModel_U.green_au<< std::endl;
+    std::cout << "Vision_breen_bl"<< " " <<  VisionModel_U.breen_bl<< std::endl;
+    std::cout << "Vision_green_bu"<< " " <<  VisionModel_U.green_bu<< std::endl;
+    std::cout << "Vision_black_override"<< " " <<  VisionModel_U.black_override<< std::endl;
+    std::cout << "Vision_white_override"<< " " <<  VisionModel_U.white_override<< std::endl;
+    std::cout << "Vision_blue_override"<< " " <<  VisionModel_U.blue_override<< std::endl;
+    std::cout << "Vision_red_override"<< " " <<  VisionModel_U.red_override<< std::endl;
+    std::cout << "Vision_orange_override"<< " " <<  VisionModel_U.orange_override<< std::endl;
+    std::cout << "Vision_yellow_override"<< " " <<  VisionModel_U.yellow_override<< std::endl;
+    std::cout << "Vision_green_override"<< " " <<  VisionModel_U.green_override<< std::endl;
 }
 
 /**
@@ -112,8 +150,8 @@ void Vision::init()
                 videoOutDown->setQuality(config("TargetedImageDown.quality").toInt());
 	}
 	
-	processingFrontCamera = false;
-	processingDownCamera = false;
+	processingFrontCamera = true;
+	processingDownCamera = true;
 	//Have vision run as fast as possible instead of on a timer
 	//QObject::connect(this, SIGNAL(processVision()), this, SLOT(step()));
 	//emit processVision();
@@ -135,6 +173,7 @@ void Vision::step()
              *  before executin the Simulink function
      */
     updateParameters();
+    //printStuff();
 
     // pull latest image from hard drive
     QImage *forwardCam = &(value("Camera.Forward.Frame").value<QImage>());
@@ -245,6 +284,7 @@ void Vision::step()
     //    setData("Vision.Output.PathState", VisionModel_Y.PathState);
     //    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
     //    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
+	//qDebug() << networkStreams << f_height << f_width << processingFrontCamera;
     if (networkStreams && f_height == 160 && f_width == 120 && processingFrontCamera)
     {
         targetedImageFront = new QImage(60, 80, QImage::Format_RGB32);
@@ -255,10 +295,13 @@ void Vision::step()
             {
                 int index = j*(f_height)+i;
                 QRgb col;
+		//std::cout << VisionModel_Y.R_forward_out[index] << " ";
                 col = qRgb(VisionModel_Y.R_forward_out[index] * 255.0, VisionModel_Y.G_forward_out[index] * 255.0, VisionModel_Y.B_forward_out[index] * 255.0);
                 targetedImageFront->setPixel(j/2, i/2, col);
             }
         }
+		targetedImageFront->save("targetedFront.bmp");
+		//qDebug() << "Writing targeted front image to comptuer";
         videoOutFront->write(*targetedImageFront);
         targetedImageFront->~QImage();
     }

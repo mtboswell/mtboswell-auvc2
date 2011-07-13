@@ -23,6 +23,7 @@ class Vision : public SimulinkModule
     Q_OBJECT;
     public:
         Vision();
+	void printStuff();
         QStringList subscriptions()
         {
                 QStringList sub;
@@ -33,7 +34,6 @@ class Vision : public SimulinkModule
         }
 	signals:
 		void processVision();
-
     public slots:
 
         void dataIn(VDatum message);
