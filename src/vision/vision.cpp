@@ -22,19 +22,44 @@ Vision::Vision() : SimulinkModule()
 //    paramList["Vision_B_down_in"] = &VisionModel_U.B_down_in;
 
     paramList["Vision_ModeSelect"] = &VisionModel_U.ModeSelect;
+    paramList["Vision_OutputImage"] = &VisionModel_U.OutputImage;
     paramList["Vision_DesiredPathDirection"] = &VisionModel_U.DesiredPathDirection;
     paramList["Vision_DesiredBuoyColor"] = &VisionModel_U.DesiredBuoyColor;
     paramList["Vision_DesiredTorpedoColor"] = &VisionModel_U.DesiredTorpedoColor;
-    paramList["Vision_ProceedToSecondTarget"] = &VisionModel_U.ProceedToSecondTarget;
-    paramList["Vision_DefaultTargetShape"] = &VisionModel_U.DefaultTargetShape;
-    paramList["Vision_DefaultTargetColor"] = &VisionModel_U.DefaultTargetColor;
-    paramList["Vision_ScaleForwardR"] = &VisionModel_P.Gain_Gain;
-    paramList["Vision_ScaleForwardG"] = &VisionModel_P.Gain1_Gain;
-    paramList["Vision_ScaleForwardB"] = &VisionModel_P.Gain2_Gain;
-    paramList["Vision_ScaleForwardH"] = &VisionModel_P.Gain3_Gain;
-    paramList["Vision_ScaleForwardS"] = &VisionModel_P.Gain4_Gain;
-    paramList["Vision_ScaleForwardV"] = &VisionModel_P.Gain5_Gain;
-    paramList["Vision_IterSegmentThresh"] = &VisionModel_P.Constant2_Value;
+    paramList["Vision_white_al"] = &VisionModel_U.white_al;
+    paramList["Vision_white_au"] = &VisionModel_U.white_au;
+    paramList["Vision_white_bl"] = &VisionModel_U.white_bl;
+    paramList["Vision_white_bu"] = &VisionModel_U.white_bu;
+    paramList["Vision_black_al"] = &VisionModel_U.black_al;
+    paramList["Vision_black_au"] = &VisionModel_U.black_au;
+    paramList["Vision_black_bl"] = &VisionModel_U.black_bl;
+    paramList["Vision_black_bu"] = &VisionModel_U.black_bu;
+    paramList["Vision_blue_al"] = &VisionModel_U.blue_al;
+    paramList["Vision_blue_au"] = &VisionModel_U.blue_au;
+    paramList["Vision_blue_bl"] = &VisionModel_U.blue_bl;
+    paramList["Vision_red_al"] = &VisionModel_U.red_al;
+    paramList["Vision_red_au"] = &VisionModel_U.red_au;
+    paramList["Vision_red_bl"] = &VisionModel_U.red_bl;
+    paramList["Vision_red_bu"] = &VisionModel_U.red_bu;
+    paramList["Vision_orange_al"] = &VisionModel_U.orange_al;
+    paramList["Vision_orane_au"] = &VisionModel_U.orane_au;
+    paramList["Vision_orange_bl"] = &VisionModel_U.orange_bl;
+    paramList["Vision_orange_bu"] = &VisionModel_U.orange_bu;
+    paramList["Vision_yellow_al"] = &VisionModel_U.yellow_al;
+    paramList["Vision_yellow_bl"] = &VisionModel_U.yellow_bl;
+    paramList["Vision_yellow_bu"] = &VisionModel_U.yellow_bu;
+    paramList["Vision_green_al"] = &VisionModel_U.green_al;
+    paramList["Vision_green_au"] = &VisionModel_U.green_au;
+    paramList["Vision_breen_bl"] = &VisionModel_U.breen_bl;
+    paramList["Vision_green_bu"] = &VisionModel_U.green_bu;
+    paramList["Vision_black_override"] = &VisionModel_U.black_override;
+    paramList["Vision_white_override"] = &VisionModel_U.white_override;
+    paramList["Vision_blue_override"] = &VisionModel_U.blue_override;
+    paramList["Vision_red_override"] = &VisionModel_U.red_override;
+    paramList["Vision_orange_override"] = &VisionModel_U.orange_override;
+    paramList["Vision_yellow_override"] = &VisionModel_U.yellow_override;
+    paramList["Vision_green_override"] = &VisionModel_U.green_override;
+
     VisionModel_initialize();
 }
 
@@ -161,14 +186,15 @@ void Vision::step()
     else if (debug) std::cerr << "Vision::step(): Could not populate Simulink Camera parameters" << std::endl;
     // call the function
     VisionModel_step();
-    //qDebug() << ++count;
-    // set the outputs of the function
-    //setData("TargetOptions.TargetSelect", VisionModel_Y.TargetSelect);
+
+//    real_T PathState;                    /* '<Root>/PathState' */
+//    real_T BuoyColors[100];              /* '<Root>/BuoyColors' */
+//    real_T FireAuthorization;            /* '<Root>/FireAuthorization' */
+//    real_T TargetType;                   /* '<Root>/TargetType' */
+//    real_T TargetSize[19200];            /* '<Root>/TargetSize' */
+
     setData("Vision.Output.TargetSelect", VisionModel_Y.TargetSelect);
     setData("Vision.Output.MaintainHeading", VisionModel_Y.MaintainHeading);
-    setData("Vision.Output.TargetData.Found", VisionModel_Y.TargetFound);
-    //setData("TargetData.Found", VisionModel_Y.TargetFound);
-    //setData("TargetOptions.MaintainHeading", VisionModel_Y.MaintainHeading);
     setData("TargetData.Position.X", VisionModel_Y.TargetX);
     setData("TargetData.Position.Y", VisionModel_Y.TargetY);
     setData("TargetData.Position.Z", VisionModel_Y.TargetZ);
@@ -177,20 +203,25 @@ void Vision::step()
     setData("Vision.Output.DesiredTargetY", VisionModel_Y.DesiredTargetY);      // redundant
     setData("Vision.Output.DesiredTargetZ", VisionModel_Y.DesiredTargetZ);      // redundant
     setData("Vision.Output.DesiredTargetYaw", VisionModel_Y.DesiredTargetYaw);  // redundant
-    setData("Vision.Output.MeasuredZ", VisionModel_Y.MeasuredZ);                // sensor
-    setData("Vision.Output.MeasuredYAccel", VisionModel_Y.MeasuredYAccel);      // sensor
-    setData("Vision.Output.MeasuredYaw", VisionModel_Y.MeasuredYaw);            // sensor
-    setData("Vision.Output.MeasuredYawRate", VisionModel_Y.MeasuredYawRate);    // sensor
+    setData("Vision.Output.TargetDetected", VisionModel_Y.TargetDetected);
+    setData("Vision.Output.PathState", VisionModel_Y.PathState);
+    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
+    setData("Vision.Output.TargetType", VisionModel_Y.TargetType);
+
+//    setData("Vision.Output.MeasuredZ", VisionModel_Y.MeasuredZ);                // sensor
+//    setData("Vision.Output.MeasuredYAccel", VisionModel_Y.MeasuredYAccel);      // sensor
+//    setData("Vision.Output.MeasuredYaw", VisionModel_Y.MeasuredYaw);            // sensor
+//    setData("Vision.Output.MeasuredYawRate", VisionModel_Y.MeasuredYawRate);    // sensor
 //    if (value("Command")=="DeadReckon")
 //    {
 //        setData("DeadReckon.Depth", VisionModel_Y.DesiredZ);
 //        setData("DeadReckon.ForwardSpeed", VisionModel_Y.DesiredXVelocity);
 //        setData("DeadReckon.Heading", VisionModel_Y.DesiredYaw);
 //    }
-    setData("Vision.Output.TargetDetected", VisionModel_Y.TargetDetected);      //custom output
-    setData("Vision.Output.PathState", VisionModel_Y.PathState);                //custom output
-    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);              //custom output
-    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);//custom output
+//    setData("Vision.Output.TargetDetected", VisionModel_Y.TargetDetected);      //custom output
+//    setData("Vision.Output.PathState", VisionModel_Y.PathState);                //custom output
+//    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);              //custom output
+//    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);//custom output
 
     //    setData("TargetOptions.TargetSelect", VisionModel_Y.TargetSelect);
     //    setData("TargetData.Found", VisionModel_Y.TargetFound);
@@ -214,40 +245,40 @@ void Vision::step()
     //    setData("Vision.Output.PathState", VisionModel_Y.PathState);
     //    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
     //    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
-        if (networkStreams && f_height == 160 && f_width == 120 && processingFrontCamera)
+    if (networkStreams && f_height == 160 && f_width == 120 && processingFrontCamera)
+    {
+        targetedImageFront = new QImage(60, 80, QImage::Format_RGB32);
+        //used for streaming the targeted image
+        for (int i = 0; i < f_height; i = i + 2)
         {
-    		targetedImageFront = new QImage(60, 80, QImage::Format_RGB32);
-			//used for streaming the targeted image
-			for (int i = 0; i < f_height; i = i + 2)
-			{
-            	for (int j = 0; j < f_width; j = j + 2)
-		    	{
-                	int index = j*(f_height)+i;
-                    QRgb col;
-                    col = qRgb(VisionModel_Y.R_forward_out[index] * 255.0, VisionModel_Y.G_forward_out[index] * 255.0, VisionModel_Y.B_forward_out[index] * 255.0);
-                    targetedImageFront->setPixel(j/2, i/2, col);
-                }
-			}
-            videoOutFront->write(*targetedImageFront);
-            targetedImageFront->~QImage();
-		}
-		if (networkStreams && d_height == 160 && d_width == 120 && processingDownCamera)
-		{
-        	targetedImageDown = new QImage(80, 60, QImage::Format_RGB32);
-            //used for streaming the targeted image
-            for (int i = 0; i < d_height; i = i + 2)
+            for (int j = 0; j < f_width; j = j + 2)
             {
-            	for (int j = 0; j < d_width; j = j + 2)
-            	{
-                    int index = j*(d_height)+i;
-                    QRgb col;
-                    col = qRgb(VisionModel_Y.R_down_out[index] * 255.0, VisionModel_Y.G_down_out[index] * 255.0, VisionModel_Y.B_down_out[index] * 255.0);
-                    targetedImageDown->setPixel(j/2, i/2, col);
-                }
+                int index = j*(f_height)+i;
+                QRgb col;
+                col = qRgb(VisionModel_Y.R_forward_out[index] * 255.0, VisionModel_Y.G_forward_out[index] * 255.0, VisionModel_Y.B_forward_out[index] * 255.0);
+                targetedImageFront->setPixel(j/2, i/2, col);
             }
-            videoOutDown->write(*targetedImageFront);
-            targetedImageDown->~QImage();
-		}
+        }
+        videoOutFront->write(*targetedImageFront);
+        targetedImageFront->~QImage();
+    }
+    if (networkStreams && d_height == 160 && d_width == 120 && processingDownCamera)
+    {
+        targetedImageDown = new QImage(80, 60, QImage::Format_RGB32);
+        //used for streaming the targeted image
+        for (int i = 0; i < d_height; i = i + 2)
+        {
+            for (int j = 0; j < d_width; j = j + 2)
+            {
+                int index = j*(d_height)+i;
+                QRgb col;
+                col = qRgb(VisionModel_Y.R_down_out[index] * 255.0, VisionModel_Y.G_down_out[index] * 255.0, VisionModel_Y.B_down_out[index] * 255.0);
+                targetedImageDown->setPixel(j/2, i/2, col);
+            }
+        }
+        videoOutDown->write(*targetedImageFront);
+        targetedImageDown->~QImage();
+    }
 //	qDebug() << "Finished Vision";
 	//usleep(3000000);
 	//emit processVision();
