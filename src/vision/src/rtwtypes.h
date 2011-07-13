@@ -1,13 +1,18 @@
 /*
  * File: rtwtypes.h
  *
- * Real-Time Workshop code generated for Simulink model buoy_detector.
+ * Real-Time Workshop code generated for Simulink model VisionModel.
  *
- * Model version                        : 1.645
+ * Model version                        : 1.1332
  * Real-Time Workshop file version      : 7.6  (R2010b)  03-Aug-2010
- * Real-Time Workshop file generated on : Tue Jun  7 22:47:27 2011
+ * Real-Time Workshop file generated on : Sun Jul 10 05:57:56 2011
  * TLC version                          : 7.6 (Jul 13 2010)
- * C/C++ source code generated on       : Tue Jun  7 22:47:28 2011
+ * C/C++ source code generated on       : Sun Jul 10 05:57:56 2011
+ *
+ * Target selection: ert.tlc
+ * Embedded hardware selection: 32-bit Generic
+ * Code generation objectives: Unspecified
+ * Validation result: Not run
  */
 
 #ifndef RTW_HEADER_rtwtypes_h_
@@ -164,21 +169,6 @@ typedef void * pointer_T;
 /* Simulink specific types */
 #ifndef __SIMSTRUC_TYPES_H__
 #define __SIMSTRUC_TYPES_H__
-
-/*
- * This structure is used by model reference to
- * communicate timing information through the hierarchy.
- */
-typedef struct _rtTimingBridge_tag rtTimingBridge;
-struct _rtTimingBridge_tag {
-  uint32_T nTasks;
-  uint32_T** clockTick;
-  uint32_T** clockTickH;
-  uint32_T* taskCounter;
-  real_T* taskTime;
-  boolean_T** rateTransition;
-  boolean_T *firstInitCond;
-};
 
 /* Trigger directions: falling, either, and rising */
 typedef enum {

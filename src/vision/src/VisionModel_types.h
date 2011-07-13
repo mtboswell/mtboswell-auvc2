@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model VisionModel.
  *
- * Model version                        : 1.470
+ * Model version                        : 1.1332
  * Real-Time Workshop file version      : 7.6  (R2010b)  03-Aug-2010
- * Real-Time Workshop file generated on : Tue Jun 28 18:13:43 2011
+ * Real-Time Workshop file generated on : Sun Jul 10 05:57:56 2011
  * TLC version                          : 7.6 (Jul 13 2010)
- * C/C++ source code generated on       : Tue Jun 28 18:13:43 2011
+ * C/C++ source code generated on       : Sun Jul 10 05:57:56 2011
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic
@@ -18,6 +18,12 @@
 #ifndef RTW_HEADER_VisionModel_types_h_
 #define RTW_HEADER_VisionModel_types_h_
 #include "rtwtypes.h"
+
+/* Parameters for system: '<S3>/validation_gate' */
+typedef struct rtP_validation_gate_VisionModel_ rtP_validation_gate_VisionModel;
+
+/* Parameters for system: '<S7>/If Action Subsystem' */
+typedef struct rtP_IfActionSubsystem_VisionMod_ rtP_IfActionSubsystem_VisionMod;
 
 /* Parameters (auto storage) */
 typedef struct Parameters_VisionModel_ Parameters_VisionModel;
