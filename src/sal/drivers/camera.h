@@ -49,6 +49,7 @@ class Camera : public QObject
 	public slots:
 		void step();
 		void toggleCamera(bool on);
+		void updateClock(int clock);
 		
 	private:
 		

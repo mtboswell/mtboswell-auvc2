@@ -204,3 +204,11 @@ bool Camera::init()
 void Camera::toggleCamera(bool on) {
 	cameraOn = on;
 }
+void Camera::updateClock(int clock) {
+	if (clock != params->pixelclock) {
+		params->pixelclock = clock;
+		is_SetPixelClock(m_hCam, params->pixelclock);
+		qDebug() << "set clock " << params->identity << " to " << clock;
+	}
+	else qDebug() << "clock " << params->identity << " was already set to " << clock;
+}

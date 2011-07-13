@@ -52,6 +52,8 @@ class CameraSAL: public Module
 			//sub << "Command";
 			//sub << "TargetOptions";
 			sub << "Parameter.Vision.ModeSelect";
+			sub << "Camera.Front.Pixelclock";
+			sub << "Camera.Down.Pixelclock";
 			return sub;
 		}
 

@@ -13,6 +13,8 @@
 #include <QtGui>
 #include <QTimer>
 #include <QTime>
+#include <QFile>
+#include <QTextStream>
 
 #include "videosocket.h"
 #include "videowidget.h"
@@ -124,6 +126,7 @@ class Dashboard : public GuiModule, private Ui::DashboardWindow
 		
 		//
 		void updateState();
+		void loadStateValues();
 
 	private:
 

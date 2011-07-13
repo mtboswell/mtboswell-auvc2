@@ -935,6 +935,11 @@ void Dashboard::loadParameter(QString param){
 void Dashboard::updateState() {
 	qDebug() << "Updating State";
 	QString input = stateLine->text();
+	if (input == "load") {
+		loadStateValues();
+		stateLine->setText("Loaded!");
+		return;
+	}
 	QStringList list = input.split("=");
 	if (list.length() != 2) {
 		stateLine->setText("Failure");
@@ -942,7 +947,7 @@ void Dashboard::updateState() {
 	}
 	if (list[1] == "false" || list[1] == "False" || list[1] == "FALSE" || list[1] == "F" || list[1] == "f") {
 		setData(list[0], false);
-		stateLine->setText("Done (bool)");
+		stateLine->setText("done (bool)");
 		return;
 	}
 	if (list[1] == "true" || list[1] == "True" || list[1] == "TRUE" || list[1] == "T" || list[1] == "t") {
@@ -965,4 +970,49 @@ void Dashboard::updateState() {
 	}
 	setData(list[0], list[1]);
 	stateLine->setText("Done (string)");
+}
+
+//functin that loads from a stateData file into stateData to force any inputs we need
+void Dashboard::loadStateValues() {
+	qDebug() << "loadingState";
+	QString input; 
+	QFile scriptFile("stateValues.txt");
+	if(scriptFile.open(QIODevice::ReadOnly)) {
+		QTextStream stream(&scriptFile);
+		for (int i = 0; i < 300; i++) {
+			input = stream.readLine();
+			QStringList list = input.split("=");		
+			if (list.length() != 2) {
+				qDebug() << "Failure";
+				return;
+			}
+			if (list[1] == "false" || list[1] == "False" || list[1] == "FALSE" || list[1] == "F" || list[1] == "f") {
+				setData(list[0], false);
+				qDebug() << "Added " << list[0] << " as " << list[1];
+				return;
+			}
+			if (list[1] == "true" || list[1] == "True" || list[1] == "TRUE" || list[1] == "T" || list[1] == "t") {
+				setData(list[0], true);
+				qDebug() << "Added " << list[0] << " as " << list[1];
+				return;
+			}
+			bool ok = false;
+			list[1].toInt(&ok);
+			if(ok) {
+				setData(list[0], list[1].toInt(&ok));
+				qDebug() << "Added " << list[0] << " as " << list[1];
+				stateLine->setText("Done (int)");
+				return;
+			}
+			list[1].toFloat(&ok);
+			if(ok) {
+				setData(list[0], list[1].toFloat(&ok));
+				stateLine->setText("Done (float)");
+				qDebug() << "Added " << list[0] << " as " << list[1];
+			}
+		}
+	}
+	else {
+			qDebug() << "FIle opening fail";
+	}
 }
