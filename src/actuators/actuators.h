@@ -37,8 +37,8 @@ class Actuators: public Module
 	private:
 		Pololu* pololu;
 		VDatum oldData;
-		bool forwardON;
-		bool angledON;
+		int forwardON;
+		int  angledON;
 		bool fired1;
 		bool fired2;
 };

@@ -388,7 +388,7 @@ void Dashboard::sendScript(){
 }
 
 
-/* *** Networking ******************************************** */
+//*** Networking ******************************************** */
 
 /**
  * This gargantuan function is responsible for decoding the 
@@ -451,6 +451,9 @@ void Dashboard::dataIn(VDatum datum) {
 		bar0->setPalette(pal0);
 		bar1->setPalette(pal1);
 		
+	}
+	else if (datum.id == "Director.Debug.State") {
+		messageLabel->setText(datum.value.toString());
 	}
 	
 	/*

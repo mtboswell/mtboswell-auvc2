@@ -16,10 +16,11 @@ void Actuators::init(){
 	if(debug) qDebug("Actuators thread id: %d", (int) QThread::currentThreadId());
 	if(debug) qDebug() << "Set motor 1 to 64";
 	if(debug) pololu->setMotorSpeed(1, 64);
-	forwardON = true;
-	angledON = true;
+	forwardON = 1;
+	angledON = 1;
 	fired1 = false;
 	fired2 = false;
+
 }
 
 void Actuators::dataIn(VDatum datum){
@@ -37,8 +38,8 @@ void Actuators::dataIn(VDatum datum){
 		setThrusters(thrusters);
 	}
 	if (datum.id == "ThrustersON.Forward") {
-		if (debug) qDebug() << "ThrustersON.Forward is set to " << datum.value.toBool();
-		forwardON = datum.value.toBool();
+		if (debug) qDebug() << "ThrustersON.Forward is set to " << datum.value.toInt();
+		forwardON = datum.value.toInt();
 		if(!forwardON) {
 			if (debug) qDebug() << "Setting forward Thrusters to 0";
 			pololu->setMotorSpeed(0, 0);
@@ -46,7 +47,7 @@ void Actuators::dataIn(VDatum datum){
 		}
 	}
 	else if (datum.id == "ThrustersON.Angled") {
-		angledON = datum.value.toBool();
+		angledON = datum.value.toInt();
 		if(!angledON) {
 			pololu->setMotorSpeed(1, 0);
 			pololu->setMotorSpeed(2, 0);
