@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.106"
+    ComputedModelVersion    "1.153"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_MotionController_v1/vision_model.mdl|MotionController"
@@ -27,11 +27,11 @@ Model {
   Creator		  "Administrator"
   UpdateHistory		  "UpdateHistoryNever"
   ModifiedByFormat	  "%<Auto>"
-  LastModifiedBy	  "auvt"
+  LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Mon Jun 27 18:01:42 2011"
-  RTWModifiedTimeStamp	  231096137
-  ModelVersionFormat	  "1.%<AutoIncrement:106>"
+  LastModifiedDate	  "Thu Jul 14 01:04:37 2011"
+  RTWModifiedTimeStamp	  232501058
+  ModelVersionFormat	  "1.%<AutoIncrement:153>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -562,6 +562,7 @@ Model {
 	PropName		"Components"
       }
       Name		      "Configuration"
+      ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
       CurrentDlgPage	      "Solver"
       ConfigPrmDlgPosition    " [ 1064, 56, 2049, 782 ] "
     }
@@ -669,7 +670,7 @@ Model {
   }
   System {
     Name		    "test_MotionController_v1"
-    Location		    [1440, 50, 3120, 1050]
+    Location		    [0, 51, 1280, 800]
     Open		    on
     ModelBrowserVisibility  off
     ModelBrowserWidth	    200
@@ -736,7 +737,7 @@ Model {
       Name		      "DesiredYaw"
       SID		      "19"
       Position		      [430, 1220, 460, 1250]
-      Value		      "0"
+      Value		      "90"
       SampleTime	      "-1"
     }
     Block {
@@ -772,8 +773,8 @@ Model {
       Ports		      [1]
       Position		      [1230, 844, 1260, 876]
       Floating		      off
-      Location		      [46, 62, 370, 299]
-      Open		      on
+      Location		      [46, 82, 370, 319]
+      Open		      off
       NumInputPorts	      "1"
       List {
 	ListType		AxesTitles
@@ -800,7 +801,7 @@ Model {
       Position		      [1230, 314, 1260, 346]
       Floating		      off
       Location		      [32, 393, 356, 632]
-      Open		      on
+      Open		      off
       NumInputPorts	      "1"
       List {
 	ListType		AxesTitles
@@ -815,6 +816,7 @@ Model {
       Name		      "MaintainHeading"
       SID		      "4"
       Position		      [430, 320, 460, 350]
+      Value		      "0"
       OutDataTypeStr	      "uint8"
       SampleTime	      "-1"
     }
@@ -831,7 +833,7 @@ Model {
       Name		      "MeasuredYaw"
       SID		      "15"
       Position		      [320, 980, 350, 1010]
-      Value		      "325"
+      Value		      "80"
       SampleTime	      "-1"
     }
     Block {
@@ -866,8 +868,8 @@ Model {
       Ports		      [1]
       Position		      [1230, 1109, 1260, 1141]
       Floating		      off
-      Location		      [902, 52, 1226, 291]
-      Open		      on
+      Location		      [902, 82, 1226, 321]
+      Open		      off
       NumInputPorts	      "1"
       List {
 	ListType		AxesTitles
@@ -894,7 +896,7 @@ Model {
       Position		      [1230, 579, 1260, 611]
       Floating		      off
       Location		      [908, 397, 1232, 636]
-      Open		      on
+      Open		      off
       NumInputPorts	      "1"
       List {
 	ListType		AxesTitles
@@ -916,6 +918,7 @@ Model {
       Name		      "TargetSelect"
       SID		      "2"
       Position		      [430, 200, 460, 230]
+      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
@@ -939,7 +942,7 @@ Model {
       Name		      "TargetYaw"
       SID		      "8"
       Position		      [320, 560, 350, 590]
-      Value		      "-20"
+      Value		      "0"
       SampleTime	      "-1"
     }
     Block {
@@ -967,7 +970,7 @@ Model {
       Position		      [545, 191, 970, 1259]
       ModelNameDialog	      "MotionController"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.130"
+      ModelReferenceVersion   "1.136"
       List {
 	ListType		InputPortNames
 	port0			"TargetSelect"
