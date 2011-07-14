@@ -80,8 +80,8 @@ int main(int argc, char *argv[]){
 	AUVC_State_Data stateData;
 	//Set inital Data
 	stateData.setData("Simulate", simulate);
-	stateData.setData("ThrustersON.Forward", true);
-	stateData.setData("ThrustersON.Angled", true);
+	stateData.setData("ThrustersON.Forward", 1);
+	stateData.setData("ThrustersON.Angled", 1);
 
 	ModuleHub hub(&stateData, &config, &debug, true, 5325, 5743);
 

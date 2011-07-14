@@ -181,9 +181,10 @@ void SAL::updateDepth(VDatum datum) {
 	}
 	depth = depth / (depthArraySize * 1.0);
 	depth = (depth - depthBaseline) / depthMultiplier;
-	int tempDepth = depth * 10;
-	depth = tempDepth / 10.0;
+	int tempDepth = depth * 100;
+	depth = tempDepth / 100.0;
 	setData("Position.Depth", depth);
+	qDebug() << "Calculated Depth" << depth;
 
 }
 
