@@ -1,0 +1,71 @@
+Example SID for commanding Actor:
+"Actor.Mode=Targeting;"
+"Actor.Track{Target=RedBuoy,Dir=Ahead/Forward?,KeepHeading=true,ApproachSpeed=40%}"
+"Actor.Move=Heading:204,Depth:5,Surge:40,Sway:0;"
+or
+"Actor.Track.Target=RedBuoy;"
+
+Module.DataType.Name
+or
+DataType.Module.Name
+?
+
+New data stucture
+uses TreeModel as base model
+includes metadata in columns:
+
+ID/Name // obviously
+value // more obviously
+timestamp
+availability // defaults to unavailable w/other fields missing when ID created by lookup/access
+
+source // user/sensor/output/state // could just use ID
+data type // data/param/mode/command
+
+
+need: functions for serializing an item and all children?
+
+Sources:
+QMap<QString, QMap<QString, QVariant>> sourceMeta; // sourceID, metaKey, value
+
+
+Phys Data:
+	Position:
+	Depth
+
+	Orientation:
+	Roll
+	Pitch
+	Heading
+
+	Motion:
+	XSpeed
+	RollRate
+	PitchRate
+	YawRate
+
+AUV.Actuators.Thrusters.Left
+AUV.Actuators.Mechanisms.DropO/X
+AUV.Sensors.Heading QList<sensorValue> ?
+AUV.Sensors.MicroStrain.Heading double ?
+AUV.Sensors.OS5000.Heading
+AUV.Sensors.OS5000.Accel.Y
+AUV.Sensors.Depth
+AUV.Position.Depth 
+AUV.Orientation.Heading
+AUV.Motion.Velocity.X
+AUV.Motion.Accel.Y
+AUV.Sys.Power.MainVoltage
+AUV.Sys.EnvBrightness
+AUV.Mode // autonomous, rc, off
+AUV.Command // direct, deadReckoning, tracking, hold, surface
+AUV.DeadReckoning.Heading
+AUV.DeadReckoning.Velocity.X
+AUV.DeadReckoning.Velocity.Y
+AUV.DeadReckoning.Velocity.Z
+AUV.DeadReckoning.Sway
+
+
+Message Signals/Message handlers take care of synchronous data transfer
+Hub/StateTree keeps track of data for asynchronous access
+Low-Latency, but no need for redundant copies

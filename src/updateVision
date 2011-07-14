@@ -1,0 +1,27 @@
+#! /bin/bash
+#Script file for updating vision code from the model
+
+#Create the new directory of files (from the zip file)
+rm -r -f vision/src
+mkdir vision/src
+unzip -q -a vision/Final_Models/VisionModel.zip -d vision/src
+rm vision/src/ert_main.cpp
+
+#delete old agent.pro lines
+AGENTLINE=`grep -n "# vision ###" agent.pro | head -n 1 | sed -n 's/^\([0-9]*\)[:].*/\1/p'`
+let "AGENTLINE += 2"
+head -n $AGENTLINE agent.pro > agent_temp.pro
+rm agent.pro
+cp agent_temp.pro agent.pro
+rm agent_temp.pro
+
+#add headers
+ls vision/src | sed 's/.*\.cpp//' | sed 's/.*\.c//'  | sed '/^$/d' | sed 's/^/\t vision\/src\//' | sed 's/\.h/\.h \\/' | sed '/.mat/d'  >> agent.pro
+
+#add source files
+echo >> agent.pro
+echo 'SOURCES += \' >> agent.pro
+echo '     vision/vision.cpp \' >> agent.pro
+ls vision/src | sed 's/.*\.h//' | sed '/^$/d' | sed 's/^/\t vision\/src\//' | sed 's/\.c\(pp\)\?/& \\/' | sed '/.mat/d'  >> agent.pro
+echo >> agent.pro
+

@@ -1,0 +1,5432 @@
+Model {
+  Name			  "validation_gate_v4"
+  Version		  7.6
+  MdlSubVersion		  0
+  GraphicalInterface {
+    NumRootInports	    3
+    Inport {
+      BusObject		      ""
+      Name		      "R_forward_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "G_forward_in"
+    }
+    Inport {
+      BusObject		      ""
+      Name		      "B_forward_in"
+    }
+    NumRootOutports	    7
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetSelect"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetFound"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "MaintainHeading"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetY"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetZ"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetYaw"
+    }
+    Outport {
+      BusObject		      ""
+      BusOutputAsStruct	      "off"
+      Name		      "TargetDetected"
+    }
+    ParameterArgumentNames  ""
+    ComputedModelVersion    "1.1120"
+    NumModelReferences	    0
+    NumTestPointedSignals   0
+  }
+  SavedCharacterEncoding  "windows-1252"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  DataTypeOverride	  "UseLocalSettings"
+  DataTypeOverrideAppliesTo "AllNumericTypes"
+  MinMaxOverflowLogging	  "UseLocalSettings"
+  MinMaxOverflowArchiveMode "Overwrite"
+  MaxMDLFileLineLength	  120
+  Created		  "Fri Feb 11 11:52:30 2011"
+  Creator		  "Thing 1"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "auvt"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Thu Jun  9 20:06:01 2011"
+  RTWModifiedTimeStamp	  229548490
+  ModelVersionFormat	  "1.%<AutoIncrement:1120>"
+  ConfigurationManager	  "None"
+  SampleTimeColors	  off
+  SampleTimeAnnotations	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  AccelSystemTargetFile	  "accel.tlc"
+  AccelTemplateMakefile	  "accel_default_tmf"
+  AccelMakeCommand	  "make_rtw"
+  TryForcingSFcnDF	  off
+  RecordCoverage	  off
+  CovPath		  "/"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  CovForceBlockReductionOff on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeVarName	  "covCumulativeData"
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  CovExternalEMLEnable	  off
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  BufferReuse		  on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  Array {
+    Type		    "Handle"
+    Dimension		    1
+    Simulink.ConfigSet {
+      $ObjectID		      1
+      Version		      "1.10.0"
+      Array {
+	Type			"Handle"
+	Dimension		8
+	Simulink.SolverCC {
+	  $ObjectID		  2
+	  Version		  "1.10.0"
+	  StartTime		  "0.0"
+	  StopTime		  "0"
+	  AbsTol		  "auto"
+	  FixedStep		  "auto"
+	  InitialStep		  "auto"
+	  MaxNumMinSteps	  "-1"
+	  MaxOrder		  5
+	  ZcThreshold		  "auto"
+	  ConsecutiveZCsStepRelTol "10*128*eps"
+	  MaxConsecutiveZCs	  "1000"
+	  ExtrapolationOrder	  4
+	  NumberNewtonIterations  1
+	  MaxStep		  "auto"
+	  MinStep		  "auto"
+	  MaxConsecutiveMinStep	  "1"
+	  RelTol		  "1e-3"
+	  SolverMode		  "Auto"
+	  ConcurrentTasks	  off
+	  Solver		  "FixedStepDiscrete"
+	  SolverName		  "FixedStepDiscrete"
+	  SolverJacobianMethodControl "auto"
+	  ShapePreserveControl	  "DisableAll"
+	  ZeroCrossControl	  "UseLocalSettings"
+	  ZeroCrossAlgorithm	  "Nonadaptive"
+	  AlgebraicLoopSolver	  "TrustRegion"
+	  SolverResetMethod	  "Fast"
+	  PositivePriorityOrder	  off
+	  AutoInsertRateTranBlk	  off
+	  SampleTimeConstraint	  "Unconstrained"
+	  InsertRTBMode		  "Whenever possible"
+	}
+	Simulink.DataIOCC {
+	  $ObjectID		  3
+	  Version		  "1.10.0"
+	  Decimation		  "1"
+	  ExternalInput		  "[t, u]"
+	  FinalStateName	  "xFinal"
+	  InitialState		  "xInitial"
+	  LimitDataPoints	  on
+	  MaxDataPoints		  "1000"
+	  LoadExternalInput	  off
+	  LoadInitialState	  off
+	  SaveFinalState	  off
+	  SaveCompleteFinalSimState off
+	  SaveFormat		  "Array"
+	  SaveOutput		  on
+	  SaveState		  off
+	  SignalLogging		  on
+	  DSMLogging		  on
+	  InspectSignalLogs	  off
+	  SaveTime		  on
+	  ReturnWorkspaceOutputs  off
+	  StateSaveName		  "xout"
+	  TimeSaveName		  "tout"
+	  OutputSaveName	  "yout"
+	  SignalLoggingName	  "logsout"
+	  DSMLoggingName	  "dsmout"
+	  OutputOption		  "RefineOutputTimes"
+	  OutputTimes		  "[]"
+	  ReturnWorkspaceOutputsName "out"
+	  Refine		  "1"
+	}
+	Simulink.OptimizationCC {
+	  $ObjectID		  4
+	  Version		  "1.10.0"
+	  BlockReduction	  on
+	  BooleanDataType	  on
+	  ConditionallyExecuteInputs on
+	  InlineParams		  off
+	  UseIntDivNetSlope	  off
+	  UseSpecifiedMinMax	  off
+	  InlineInvariantSignals  off
+	  OptimizeBlockIOStorage  on
+	  BufferReuse		  on
+	  EnhancedBackFolding	  off
+	  StrengthReduction	  off
+	  ExpressionFolding	  on
+	  BooleansAsBitfields	  off
+	  BitfieldContainerType	  "uint_T"
+	  EnableMemcpy		  on
+	  MemcpyThreshold	  64
+	  PassReuseOutputArgsAs	  "Structure reference"
+	  ExpressionDepthLimit	  2147483647
+	  FoldNonRolledExpr	  on
+	  LocalBlockOutputs	  on
+	  RollThreshold		  5
+	  SystemCodeInlineAuto	  off
+	  StateBitsets		  off
+	  DataBitsets		  off
+	  UseTempVars		  off
+	  ZeroExternalMemoryAtStartup on
+	  ZeroInternalMemoryAtStartup on
+	  InitFltsAndDblsToZero	  off
+	  NoFixptDivByZeroProtection off
+	  EfficientFloat2IntCast  off
+	  EfficientMapNaN2IntZero on
+	  OptimizeModelRefInitCode on
+	  LifeSpan		  "inf"
+	  MaxStackSize		  "Inherit from target"
+	  BufferReusableBoundary  on
+	  SimCompilerOptimization "Off"
+	  AccelVerboseBuild	  off
+	}
+	Simulink.DebuggingCC {
+	  $ObjectID		  5
+	  Version		  "1.10.0"
+	  RTPrefix		  "error"
+	  ConsistencyChecking	  "none"
+	  ArrayBoundsChecking	  "none"
+	  SignalInfNanChecking	  "none"
+	  SignalRangeChecking	  "none"
+	  ReadBeforeWriteMsg	  "UseLocalSettings"
+	  WriteAfterWriteMsg	  "UseLocalSettings"
+	  WriteAfterReadMsg	  "UseLocalSettings"
+	  AlgebraicLoopMsg	  "warning"
+	  ArtificialAlgebraicLoopMsg "warning"
+	  SaveWithDisabledLinksMsg "warning"
+	  SaveWithParameterizedLinksMsg	"warning"
+	  CheckSSInitialOutputMsg on
+	  UnderspecifiedInitializationDetection	"Classic"
+	  MergeDetectMultiDrivingBlocksExec "none"
+	  CheckExecutionContextPreStartOutputMsg off
+	  CheckExecutionContextRuntimeOutputMsg	off
+	  SignalResolutionControl "UseLocalSettings"
+	  BlockPriorityViolationMsg "warning"
+	  MinStepSizeMsg	  "warning"
+	  TimeAdjustmentMsg	  "none"
+	  MaxConsecutiveZCsMsg	  "error"
+	  MaskedZcDiagnostic	  "warning"
+	  IgnoredZcDiagnostic	  "warning"
+	  SolverPrmCheckMsg	  "warning"
+	  InheritedTsInSrcMsg	  "warning"
+	  DiscreteInheritContinuousMsg "warning"
+	  MultiTaskDSMMsg	  "error"
+	  MultiTaskCondExecSysMsg "error"
+	  MultiTaskRateTransMsg	  "error"
+	  SingleTaskRateTransMsg  "none"
+	  TasksWithSamePriorityMsg "warning"
+	  SigSpecEnsureSampleTimeMsg "warning"
+	  CheckMatrixSingularityMsg "none"
+	  IntegerOverflowMsg	  "warning"
+	  Int32ToFloatConvMsg	  "warning"
+	  ParameterDowncastMsg	  "error"
+	  ParameterOverflowMsg	  "error"
+	  ParameterUnderflowMsg	  "none"
+	  ParameterPrecisionLossMsg "warning"
+	  ParameterTunabilityLossMsg "warning"
+	  FixptConstUnderflowMsg  "none"
+	  FixptConstOverflowMsg	  "none"
+	  FixptConstPrecisionLossMsg "none"
+	  UnderSpecifiedDataTypeMsg "none"
+	  UnnecessaryDatatypeConvMsg "none"
+	  VectorMatrixConversionMsg "none"
+	  InvalidFcnCallConnMsg	  "error"
+	  FcnCallInpInsideContextMsg "Use local settings"
+	  SignalLabelMismatchMsg  "none"
+	  UnconnectedInputMsg	  "warning"
+	  UnconnectedOutputMsg	  "warning"
+	  UnconnectedLineMsg	  "warning"
+	  SFcnCompatibilityMsg	  "none"
+	  UniqueDataStoreMsg	  "none"
+	  BusObjectLabelMismatch  "warning"
+	  RootOutportRequireBusObject "warning"
+	  AssertControl		  "UseLocalSettings"
+	  EnableOverflowDetection off
+	  ModelReferenceIOMsg	  "none"
+	  ModelReferenceMultiInstanceNormalModeStructChecksumCheck "error"
+	  ModelReferenceVersionMismatchMessage "none"
+	  ModelReferenceIOMismatchMessage "none"
+	  ModelReferenceCSMismatchMessage "none"
+	  UnknownTsInhSupMsg	  "warning"
+	  ModelReferenceDataLoggingMessage "warning"
+	  ModelReferenceSymbolNameMessage "warning"
+	  ModelReferenceExtraNoncontSigs "error"
+	  StateNameClashWarn	  "warning"
+	  SimStateInterfaceChecksumMismatchMsg "warning"
+	  InitInArrayFormatMsg	  "warning"
+	  StrictBusMsg		  "ErrorLevel1"
+	  BusNameAdapt		  "WarnAndRepair"
+	  NonBusSignalsTreatedAsBus "none"
+	  LoggingUnavailableSignals "error"
+	  BlockIODiagnostic	  "none"
+	  SFUnusedDataAndEventsDiag "warning"
+	  SFUnexpectedBacktrackingDiag "warning"
+	  SFInvalidInputDataAccessInChartInitDiag "warning"
+	  SFNoUnconditionalDefaultTransitionDiag "warning"
+	  SFTransitionOutsideNaturalParentDiag "warning"
+	}
+	Simulink.HardwareCC {
+	  $ObjectID		  6
+	  Version		  "1.10.0"
+	  ProdBitPerChar	  8
+	  ProdBitPerShort	  16
+	  ProdBitPerInt		  32
+	  ProdBitPerLong	  32
+	  ProdBitPerFloat	  32
+	  ProdBitPerDouble	  64
+	  ProdBitPerPointer	  32
+	  ProdLargestAtomicInteger "Char"
+	  ProdLargestAtomicFloat  "None"
+	  ProdIntDivRoundTo	  "Undefined"
+	  ProdEndianess		  "Unspecified"
+	  ProdWordSize		  32
+	  ProdShiftRightIntArith  on
+	  ProdHWDeviceType	  "32-bit Generic"
+	  TargetBitPerChar	  8
+	  TargetBitPerShort	  16
+	  TargetBitPerInt	  32
+	  TargetBitPerLong	  32
+	  TargetBitPerFloat	  32
+	  TargetBitPerDouble	  64
+	  TargetBitPerPointer	  32
+	  TargetLargestAtomicInteger "Char"
+	  TargetLargestAtomicFloat "None"
+	  TargetShiftRightIntArith on
+	  TargetIntDivRoundTo	  "Undefined"
+	  TargetEndianess	  "Unspecified"
+	  TargetWordSize	  32
+	  TargetTypeEmulationWarnSuppressLevel 0
+	  TargetPreprocMaxBitsSint 32
+	  TargetPreprocMaxBitsUint 32
+	  TargetHWDeviceType	  "Specified"
+	  TargetUnknown		  off
+	  ProdEqTarget		  on
+	}
+	Simulink.ModelReferenceCC {
+	  $ObjectID		  7
+	  Version		  "1.10.0"
+	  UpdateModelReferenceTargets "IfOutOfDateOrStructuralChange"
+	  CheckModelReferenceTargetMessage "error"
+	  EnableParallelModelReferenceBuilds off
+	  ParallelModelReferenceErrorOnInvalidPool on
+	  ParallelModelReferenceMATLABWorkerInit "None"
+	  ModelReferenceNumInstancesAllowed "Multi"
+	  PropagateVarSize	  "Infer from blocks in model"
+	  ModelReferencePassRootInputsByReference on
+	  ModelReferenceMinAlgLoopOccurrences off
+	  PropagateSignalLabelsOutOfModel off
+	  SupportModelReferenceSimTargetCustomCode off
+	}
+	Simulink.SFSimCC {
+	  $ObjectID		  8
+	  Version		  "1.10.0"
+	  SFSimEnableDebug	  on
+	  SFSimOverflowDetection  on
+	  SFSimEcho		  on
+	  SimBlas		  on
+	  SimCtrlC		  on
+	  SimExtrinsic		  on
+	  SimIntegrity		  on
+	  SimUseLocalCustomCode	  off
+	  SimParseCustomCode	  on
+	  SimBuildMode		  "sf_incremental_build"
+	}
+	Simulink.RTWCC {
+	  $BackupClass		  "Simulink.RTWCC"
+	  $ObjectID		  9
+	  Version		  "1.10.0"
+	  SystemTargetFile	  "ert.tlc"
+	  GenCodeOnly		  on
+	  MakeCommand		  "make_rtw"
+	  GenerateMakefile	  on
+	  TemplateMakefile	  "ert_default_tmf"
+	  Description		  "Real-Time Workshop Embedded Coder"
+	  GenerateReport	  on
+	  SaveLog		  off
+	  RTWVerbose		  on
+	  RetainRTWFile		  off
+	  ProfileTLC		  off
+	  TLCDebug		  off
+	  TLCCoverage		  off
+	  TLCAssert		  off
+	  ProcessScriptMode	  "Default"
+	  ConfigurationMode	  "Optimized"
+	  ProcessScript		  "ert_make_rtw_hook"
+	  ConfigAtBuild		  off
+	  RTWUseLocalCustomCode	  off
+	  RTWUseSimCustomCode	  off
+	  IncludeHyperlinkInReport on
+	  LaunchReport		  on
+	  TargetLang		  "C++"
+	  IncludeBusHierarchyInRTWFileBlockHierarchyMap	off
+	  IncludeERTFirstTime	  off
+	  GenerateTraceInfo	  off
+	  GenerateTraceReport	  off
+	  GenerateTraceReportSl	  off
+	  GenerateTraceReportSf	  off
+	  GenerateTraceReportEml  off
+	  GenerateCodeInfo	  off
+	  GenerateSLWebview	  off
+	  RTWCompilerOptimization "Off"
+	  CheckMdlBeforeBuild	  "Off"
+	  CustomRebuildMode	  "OnUpdate"
+	  Array {
+	    Type		    "Handle"
+	    Dimension		    2
+	    Simulink.CodeAppCC {
+	      $ObjectID		      10
+	      Version		      "1.10.0"
+	      ForceParamTrailComments off
+	      GenerateComments	      on
+	      IgnoreCustomStorageClasses off
+	      IgnoreTestpoints	      off
+	      IncHierarchyInIds	      off
+	      MaxIdLength	      31
+	      PreserveName	      off
+	      PreserveNameWithParent  off
+	      ShowEliminatedStatement off
+	      IncAutoGenComments      off
+	      SimulinkDataObjDesc     off
+	      SFDataObjDesc	      off
+	      MATLABFcnDesc	      off
+	      IncDataTypeInIds	      off
+	      MangleLength	      1
+	      CustomSymbolStrGlobalVar "$R$N$M"
+	      CustomSymbolStrType     "$N$R$M"
+	      CustomSymbolStrField    "$N$M"
+	      CustomSymbolStrFcn      "$R$N$M$F"
+	      CustomSymbolStrFcnArg   "rt$I$N$M"
+	      CustomSymbolStrBlkIO    "rtb_$N$M"
+	      CustomSymbolStrTmpVar   "$N$M"
+	      CustomSymbolStrMacro    "$R$N$M"
+	      DefineNamingRule	      "None"
+	      ParamNamingRule	      "None"
+	      SignalNamingRule	      "None"
+	      InsertBlockDesc	      off
+	      InsertPolySpaceComments off
+	      SimulinkBlockComments   on
+	      MATLABSourceComments    off
+	      EnableCustomComments    off
+	      InlinedPrmAccess	      "Literals"
+	      ReqsInCode	      off
+	      UseSimReservedNames     off
+	    }
+	    Simulink.ERTTargetCC {
+	      $BackupClass	      "Simulink.TargetCC"
+	      $ObjectID		      11
+	      Version		      "1.10.0"
+	      TargetFcnLib	      "ansi_tfl_table_tmw.mat"
+	      TargetLibSuffix	      ""
+	      TargetPreCompLibLocation ""
+	      TargetFunctionLibrary   "ANSI_C"
+	      UtilityFuncGeneration   "Auto"
+	      ERTMultiwordTypeDef     "System defined"
+	      ERTCodeCoverageTool     "None"
+	      ERTMultiwordLength      256
+	      MultiwordLength	      2048
+	      GenerateFullHeader      on
+	      GenerateSampleERTMain   on
+	      GenerateTestInterfaces  off
+	      IsPILTarget	      off
+	      ModelReferenceCompliant on
+	      ParMdlRefBuildCompliant on
+	      CompOptLevelCompliant   on
+	      IncludeMdlTerminateFcn  on
+	      GeneratePreprocessorConditionals "Use local settings"
+	      CombineOutputUpdateFcns on
+	      CombineSignalStateStructs	off
+	      SuppressErrorStatus     off
+	      ERTFirstTimeCompliant   on
+	      IncludeFileDelimiter    "Auto"
+	      ERTCustomFileBanners    on
+	      SupportAbsoluteTime     on
+	      LogVarNameModifier      "rt_"
+	      MatFileLogging	      off
+	      MultiInstanceERTCode    off
+	      SupportNonFinite	      on
+	      SupportComplex	      on
+	      PurelyIntegerCode	      off
+	      SupportContinuousTime   off
+	      SupportNonInlinedSFcns  off
+	      SupportVariableSizeSignals off
+	      EnableShiftOperators    on
+	      ParenthesesLevel	      "Nominal"
+	      PortableWordSizes	      off
+	      ModelStepFunctionPrototypeControlCompliant on
+	      CPPClassGenCompliant    on
+	      AutosarCompliant	      off
+	      GenerateErtSFunction    off
+	      CreateSILPILBlock	      "None"
+	      GenerateASAP2	      off
+	      ExtMode		      off
+	      ExtModeTransport	      0
+	      ExtModeStaticAlloc      off
+	      ExtModeStaticAllocSize  1000000
+	      ExtModeTesting	      off
+	      ExtModeMexFile	      "ext_comm"
+	      ExtModeIntrfLevel	      "Level1"
+	      InlinedParameterPlacement	"Hierarchical"
+	      TargetOS		      "BareBoardExample"
+	      MultiInstanceErrorCode  "Error"
+	      RateGroupingCode	      on
+	      RootIOFormat	      "Individual arguments"
+	      RTWCAPISignals	      off
+	      RTWCAPIParams	      off
+	      RTWCAPIStates	      off
+	      ERTSrcFileBannerTemplate "ert_code_template.cgt"
+	      ERTHdrFileBannerTemplate "ert_code_template.cgt"
+	      ERTDataSrcFileTemplate  "ert_code_template.cgt"
+	      ERTDataHdrFileTemplate  "ert_code_template.cgt"
+	      ERTCustomFileTemplate   "example_file_process.tlc"
+	      CoverageDialogOpen      "off"
+	      ModuleNamingRule	      "Unspecified"
+	      SignalDisplayLevel      10
+	      ParamTuneLevel	      10
+	      GlobalDataDefinition    "Auto"
+	      DataDefinitionFile      "global.c"
+	      GlobalDataReference     "Auto"
+	      ERTFilePackagingFormat  "Modular"
+	      DataReferenceFile	      "global.h"
+	      GRTInterface	      off
+	      PreserveExpressionOrder off
+	      PreserveIfCondition     off
+	      ConvertIfToSwitch	      off
+	      PreserveExternInFcnDecls on
+	      EnableUserReplacementTypes off
+	      Array {
+		Type			"Struct"
+		Dimension		1
+		MATStruct {
+		  double		  ""
+		  single		  ""
+		  int32			  ""
+		  int16			  ""
+		  int8			  ""
+		  uint32		  ""
+		  uint16		  ""
+		  uint8			  ""
+		  boolean		  ""
+		  int			  ""
+		  uint			  ""
+		  char			  ""
+		}
+		PropName		"ReplacementTypes"
+	      }
+	      MemSecPackage	      "--- None ---"
+	      MemSecDataConstants     "Default"
+	      MemSecDataIO	      "Default"
+	      MemSecDataInternal      "Default"
+	      MemSecDataParameters    "Default"
+	      MemSecFuncInitTerm      "Default"
+	      MemSecFuncExecute	      "Default"
+	    }
+	    PropName		    "Components"
+	  }
+	}
+	PropName		"Components"
+      }
+      Name		      "Configuration"
+      ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
+      CurrentDlgPage	      "Solver"
+      ConfigPrmDlgPosition    " [ 1863, 46, 2767, 754 ] "
+    }
+    PropName		    "ConfigurationSets"
+  }
+  Simulink.ConfigSet {
+    $PropName		    "ActiveConfigurationSet"
+    $ObjectID		    1
+  }
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    BlockRotation	    0
+    BlockMirror		    off
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Helvetica"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Helvetica"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+      PreserveConstantTs      off
+    }
+    Block {
+      BlockType		      DataTypeConversion
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+      LockScale		      off
+      ConvertRealWorld	      "Real World Value (RWV)"
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchInputForFeedbackSignals off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Logic
+      Operator		      "AND"
+      Inputs		      "2"
+      IconShape		      "rectangular"
+      AllPortsSameDT	      on
+      OutDataTypeStr	      "Inherit: Logical (see Configuration Parameters: Optimization)"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      VarSizeSig	      "Inherit"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      SourceOfInitialOutputValue "Dialog"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+      SFunctionDeploymentMode off
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      DataTypeOverrideAppliesTo	"AllNumericTypes"
+      MinMaxOverflowLogging   "UseLocalSettings"
+      Variant		      off
+      GeneratePreprocessorConditionals off
+    }
+    Block {
+      BlockType		      Terminator
+    }
+  }
+  System {
+    Name		    "validation_gate_v4"
+    Location		    [0, 83, 1440, 867]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    SIDHighWatermark	    "513"
+    Block {
+      BlockType		      Inport
+      Name		      "R_forward_in"
+      SID		      "500"
+      Position		      [80, 228, 110, 242]
+      IconDisplay	      "Port number"
+      PortDimensions	      "[160 120]"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "G_forward_in"
+      SID		      "501"
+      Position		      [80, 263, 110, 277]
+      Port		      "2"
+      IconDisplay	      "Port number"
+      PortDimensions	      "[160 120]"
+    }
+    Block {
+      BlockType		      Inport
+      Name		      "B_forward_in"
+      SID		      "502"
+      Position		      [80, 298, 110, 312]
+      Port		      "3"
+      IconDisplay	      "Port number"
+      PortDimensions	      "[160 120]"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant1"
+      SID		      "358"
+      Position		      [585, 310, 615, 340]
+      Value		      ".6"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant2"
+      SID		      "359"
+      Position		      [585, 370, 615, 400]
+      Value		      ".47"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant3"
+      SID		      "510"
+      Position		      [1085, 70, 1115, 100]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant4"
+      SID		      "511"
+      Position		      [1085, 125, 1115, 155]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant5"
+      SID		      "512"
+      Position		      [1085, 180, 1115, 210]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "Constant6"
+      SID		      "513"
+      Position		      [1085, 390, 1115, 420]
+      Value		      "0"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Convert to BW"
+      SID		      "186"
+      Ports		      [3, 1]
+      Position		      [205, 242, 305, 298]
+      LibraryVersion	      "1.225"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      System {
+	Name			"Convert to BW"
+	Location		[1440, 50, 3120, 1050]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "R"
+	  SID			  "187"
+	  Position		  [65, 208, 95, 222]
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "G"
+	  SID			  "188"
+	  Position		  [65, 243, 95, 257]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "B"
+	  SID			  "189"
+	  Position		  [65, 278, 95, 292]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataTypeStr	  "double"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Color Space\n Conversion1"
+	  SID			  "190"
+	  Ports			  [3, 3]
+	  Position		  [180, 221, 280, 279]
+	  LibraryVersion	  "1.328"
+	  SourceBlock		  "vipconversions/Color Space\n Conversion"
+	  SourceType		  "Color Space Conversion"
+	  conversion		  "Obsolete"
+	  conversionActive	  "R'G'B' to HSV"
+	  wp_str		  "D65"
+	  rec			  "Rec. 601 (SDTV)"
+	  sys			  "1125/60/2:1"
+	  imagePorts		  "Separate color signals"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Color Space\n Conversion2"
+	  SID			  "389"
+	  Ports			  [3, 3]
+	  Position		  [270, 771, 370, 829]
+	  LibraryVersion	  "1.328"
+	  SourceBlock		  "vipconversions/Color Space\n Conversion"
+	  SourceType		  "Color Space Conversion"
+	  conversion		  "Obsolete"
+	  conversionActive	  "R'G'B' to HSV"
+	  wp_str		  "D65"
+	  rec			  "Rec. 601 (SDTV)"
+	  sys			  "1125/60/2:1"
+	  imagePorts		  "Separate color signals"
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "Data Type Conversion2"
+	  SID			  "404"
+	  Position		  [1025, 283, 1100, 317]
+	  OutDataTypeStr	  "double"
+	  RndMeth		  "Floor"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Display
+	  Name			  "Display1"
+	  SID			  "191"
+	  Ports			  [1]
+	  Position		  [705, 552, 790, 578]
+	  Decimation		  "1"
+	  Lockdown		  off
+	}
+	Block {
+	  BlockType		  Display
+	  Name			  "Display2"
+	  SID			  "192"
+	  Ports			  [1]
+	  Position		  [705, 403, 790, 427]
+	  Decimation		  "1"
+	  Lockdown		  off
+	}
+	Block {
+	  BlockType		  Display
+	  Name			  "Display3"
+	  SID			  "193"
+	  Ports			  [1]
+	  Position		  [705, 517, 790, 543]
+	  NamePlacement		  "alternate"
+	  Decimation		  "1"
+	  Lockdown		  off
+	}
+	Block {
+	  BlockType		  Display
+	  Name			  "Display4"
+	  SID			  "194"
+	  Ports			  [1]
+	  Position		  [705, 372, 790, 398]
+	  NamePlacement		  "alternate"
+	  Decimation		  "1"
+	  Lockdown		  off
+	}
+	Block {
+	  BlockType		  Display
+	  Name			  "Display5"
+	  SID			  "195"
+	  Ports			  [1]
+	  Position		  [705, 257, 790, 283]
+	  NamePlacement		  "alternate"
+	  Decimation		  "1"
+	  Lockdown		  off
+	}
+	Block {
+	  BlockType		  Display
+	  Name			  "Display6"
+	  SID			  "196"
+	  Ports			  [1]
+	  Position		  [705, 288, 790, 312]
+	  Decimation		  "1"
+	  Lockdown		  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Hue Higher Comparison"
+	  SID			  "197"
+	  Ports			  [1, 1]
+	  Position		  [550, 17, 660, 53]
+	  LibraryVersion	  "1.225"
+	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
+	  SourceType		  "Compare To Constant"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  GeneratePreprocessorConditionals off
+	  relop			  "<"
+	  const			  "Hedge_Hue"
+	  LogicOutDataTypeMode	  "boolean"
+	  ZeroCross		  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Hue Lower Comparison"
+	  SID			  "198"
+	  Ports			  [1, 1]
+	  Position		  [550, 91, 660, 129]
+	  LibraryVersion	  "1.225"
+	  SourceBlock		  "simulink/Logic and Bit\nOperations/Compare\nTo Constant"
+	  SourceType		  "Compare To Constant"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  GeneratePreprocessorConditionals off
+	  relop			  ">"
+	  const			  "Hedge_Hue"
+	  LogicOutDataTypeMode	  "boolean"
+	  ZeroCross		  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "HueAutothreshold"
+	  SID			  "199"
+	  Ports			  [1, 3]
+	  Position		  [540, 225, 670, 315]
+	  LibraryVersion	  "1.328"
+	  DialogController	  "vipDDGCreate"
+	  DialogControllerArgs	  "DataTag0"
+	  SourceBlock		  "vipconversions/Autothreshold"
+	  SourceType		  "Autothreshold"
+	  operator		  ">"
+	  threshOut		  on
+	  effMetricOut		  on
+	  userDefinedRange	  off
+	  umin			  "0"
+	  umax			  "255"
+	  outOfRngOpt		  "Warn and saturate"
+	  scaleThreshold	  off
+	  scaleFactor		  "1"
+	  P1Mode		  "Specify word length"
+	  P1WordLength		  "32"
+	  P1FracLength		  "30"
+	  A1Mode		  "Same as Product 1"
+	  A1WordLength		  "32"
+	  A1FracLength		  "30"
+	  P2Mode		  "Specify word length"
+	  P2WordLength		  "32"
+	  P2FracLength		  "22"
+	  A2Mode		  "Same as Product 2"
+	  A2WordLength		  "32"
+	  A2FracLength		  "22"
+	  P3Mode		  "Specify word length"
+	  P3WordLength		  "32"
+	  P3FracLength		  "14"
+	  A3Mode		  "Same as Product 3"
+	  A3WordLength		  "32"
+	  A3FracLength		  "14"
+	  P4Mode		  "Binary point scaling"
+	  P4WordLength		  "32"
+	  P4FracLength		  "15"
+	  A4Mode		  "Same as Product 4"
+	  A4WordLength		  "16"
+	  A4FracLength		  "4"
+	  Q1Mode		  "Specify word length"
+	  Q1WordLength		  "32"
+	  Q1FracLength		  "16"
+	  EMMode		  "Specify word length"
+	  EMWordLength		  "16"
+	  EMFracLength		  "14"
+	  roundingMode		  "Floor"
+	  overflowMode		  off
+	  LockScale		  off
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Identify Validation Gate1"
+	  SID			  "391"
+	  Ports			  [7, 5]
+	  Position		  [490, 752, 770, 888]
+	  LibraryVersion	  "1.31"
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  SystemSampleTime	  "[1/30 0]"
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Embedded MATLAB block"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "disp('hue_filter');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "autoscale"
+	  System {
+	    Name		    "Identify Validation Gate1"
+	    Location		    [257, 457, 812, 717]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "47"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "bw_image_in"
+	      SID		      "391::41"
+	      Position		      [20, 101, 40, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "hough_table"
+	      SID		      "391::1"
+	      Position		      [20, 136, 40, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "theta_in"
+	      SID		      "391::34"
+	      Position		      [20, 171, 40, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "rho_in"
+	      SID		      "391::35"
+	      Position		      [20, 206, 40, 224]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "threshold"
+	      SID		      "391::40"
+	      Position		      [20, 246, 40, 264]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "target_height"
+	      SID		      "391::43"
+	      Position		      [20, 281, 40, 299]
+	      Port		      "6"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "gate_aspect_ratio"
+	      SID		      "391::42"
+	      Position		      [20, 316, 40, 334]
+	      Port		      "7"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      SID		      "391::23"
+	      Ports		      [1, 1]
+	      Position		      [270, 335, 320, 375]
+	      Outputs		      "1"
+	    }
+	    Block {
+	      BlockType		      "S-Function"
+	      Name		      " SFunction "
+	      SID		      "391::22"
+	      Tag		      "Stateflow S-Function validation_gate_v4 3"
+	      Ports		      [7, 6]
+	      Position		      [180, 114, 230, 336]
+	      FunctionName	      "sf_sfun"
+	      PortCounts	      "[7 6]"
+	      EnableBusSupport	      on
+	      Port {
+		PortNumber		2
+		Name			"theta_out"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		3
+		Name			"rho_out"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		4
+		Name			"target_y"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		5
+		Name			"target_z"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		6
+		Name			"gate_found"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      " Terminator "
+	      SID		      "391::25"
+	      Position		      [460, 346, 480, 364]
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "theta_out"
+	      SID		      "391::36"
+	      Position		      [460, 101, 480, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "rho_out"
+	      SID		      "391::37"
+	      Position		      [460, 136, 480, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "target_y"
+	      SID		      "391::39"
+	      Position		      [460, 171, 480, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "target_z"
+	      SID		      "391::38"
+	      Position		      [460, 206, 480, 224]
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "gate_found"
+	      SID		      "391::33"
+	      Position		      [460, 246, 480, 264]
+	      Port		      "5"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      " Terminator "
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "gate_found"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      6
+	      DstBlock		      "gate_found"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "target_z"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      5
+	      DstBlock		      "target_z"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "target_y"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      4
+	      DstBlock		      "target_y"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "rho_out"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      3
+	      DstBlock		      "rho_out"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "theta_out"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      2
+	      DstBlock		      "theta_out"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "gate_aspect_ratio"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      7
+	    }
+	    Line {
+	      SrcBlock		      "target_height"
+	      SrcPort		      1
+	      Points		      [120, 0]
+	      DstBlock		      " SFunction "
+	      DstPort		      6
+	    }
+	    Line {
+	      SrcBlock		      "threshold"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      5
+	    }
+	    Line {
+	      SrcBlock		      "rho_in"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      4
+	    }
+	    Line {
+	      SrcBlock		      "theta_in"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "hough_table"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "bw_image_in"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Identify Validation Gate2"
+	  SID			  "488"
+	  Ports			  [1, 1]
+	  Position		  [485, 611, 765, 749]
+	  LibraryVersion	  "1.31"
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  SystemSampleTime	  "[1/30 0]"
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Embedded MATLAB block"
+	  MaskSelfModifiable	  on
+	  MaskDisplay		  "disp('makeIntensityImage');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskPortRotate	  "default"
+	  MaskIconUnits		  "autoscale"
+	  System {
+	    Name		    "Identify Validation Gate2"
+	    Location		    [257, 457, 812, 717]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    SIDHighWatermark	    "47"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "LabelMatrix"
+	      SID		      "488::41"
+	      Position		      [20, 101, 40, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      SID		      "488::23"
+	      Ports		      [1, 1]
+	      Position		      [270, 350, 320, 390]
+	      Outputs		      "1"
+	    }
+	    Block {
+	      BlockType		      "S-Function"
+	      Name		      " SFunction "
+	      SID		      "488::22"
+	      Tag		      "Stateflow S-Function validation_gate_v4 4"
+	      Ports		      [1, 2]
+	      Position		      [180, 124, 230, 351]
+	      FunctionName	      "sf_sfun"
+	      PortCounts	      "[1 2]"
+	      EnableBusSupport	      on
+	      Port {
+		PortNumber		2
+		Name			"intensity_image"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Terminator
+	      Name		      " Terminator "
+	      SID		      "488::25"
+	      Position		      [460, 361, 480, 379]
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "intensity_image"
+	      SID		      "488::36"
+	      Position		      [460, 101, 480, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "LabelMatrix"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "intensity_image"
+	      Labels		      [0, 0; 0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      2
+	      DstBlock		      "intensity_image"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      " Terminator "
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "IterativeSegmentation"
+	  SID			  "447"
+	  Ports			  [3, 3]
+	  Position		  [170, 607, 445, 733]
+	  UndoDeleteFcn		  "Stateflow.SLINSF.SimulinkMan.restorePreDeleteFcn"
+	  PreDeleteFcn		  "Stateflow.SLINSF.SimulinkMan.removePreDeleteFcn"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  RequestExecContextInheritance	off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "IterativeSegmentation"
+	    Location		    [65, 192, 1333, 847]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "R"
+	      SID		      "448"
+	      Position		      [30, 98, 60, 112]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "G"
+	      SID		      "449"
+	      Position		      [30, 128, 60, 142]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "B"
+	      SID		      "450"
+	      Position		      [30, 158, 60, 172]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Color Space\n Conversion1"
+	      SID		      "451"
+	      Ports		      [3, 3]
+	      Position		      [470, 106, 570, 164]
+	      LibraryVersion	      "1.328"
+	      SourceBlock	      "vipconversions/Color Space\n Conversion"
+	      SourceType	      "Color Space Conversion"
+	      conversion	      "Obsolete"
+	      conversionActive	      "sR'G'B' to L*a*b*"
+	      wp_str		      "D50"
+	      rec		      "Rec. 601 (SDTV)"
+	      sys		      "1125/60/2:1"
+	      imagePorts	      "Separate color signals"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Low Pass Filter"
+	      SID		      "453"
+	      Ports		      [3, 3]
+	      Position		      [250, 107, 325, 163]
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      System {
+		Name			"Low Pass Filter"
+		Location		[4, 83, 1272, 738]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "R"
+		  SID			  "454"
+		  Position		  [25, 38, 55, 52]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "G"
+		  SID			  "455"
+		  Position		  [25, 103, 55, 117]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "B"
+		  SID			  "456"
+		  Position		  [25, 173, 55, 187]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Low Pass Filter"
+		  SID			  "457"
+		  Ports			  [1, 1]
+		  Position		  [100, 23, 210, 67]
+		  PermitHierarchicalResolution "ExplicitOnly"
+		  TreatAsAtomicUnit	  on
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  MaskType		  "Stateflow"
+		  MaskDescription	  "Embedded MATLAB block"
+		  MaskSelfModifiable	  on
+		  MaskDisplay		  "disp('GaussianBlurr');"
+		  MaskIconFrame		  on
+		  MaskIconOpaque	  off
+		  MaskIconRotate	  "none"
+		  MaskPortRotate	  "default"
+		  MaskIconUnits		  "autoscale"
+		  System {
+		    Name		    "Low Pass Filter"
+		    Location		    [257, 457, 812, 717]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    SIDHighWatermark	    "13"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "I"
+		    SID			    "457::1"
+		    Position		    [20, 101, 40, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Demux
+		    Name		    " Demux "
+		    SID			    "457::11"
+		    Ports		    [1, 1]
+		    Position		    [270, 160, 320, 200]
+		    Outputs		    "1"
+		    }
+		    Block {
+		    BlockType		    "S-Function"
+		    Name		    " SFunction "
+		    SID			    "457::10"
+		    Tag			    "Stateflow S-Function validation_gate_v4 45"
+		    Ports		    [1, 2]
+		    Position		    [180, 100, 230, 160]
+		    FunctionName	    "sf_sfun"
+		    PortCounts		    "[1 2]"
+		    EnableBusSupport	    on
+		    Port {
+		    PortNumber		    2
+		    Name		    "Iout"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    }
+		    Block {
+		    BlockType		    Terminator
+		    Name		    " Terminator "
+		    SID			    "457::13"
+		    Position		    [460, 171, 480, 189]
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Iout"
+		    SID			    "457::5"
+		    Position		    [460, 101, 480, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    " Demux "
+		    SrcPort		    1
+		    DstBlock		    " Terminator "
+		    DstPort		    1
+		    }
+		    Line {
+		    Name		    "Iout"
+		    Labels		    [0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    2
+		    DstBlock		    "Iout"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "I"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    " SFunction "
+		    SrcPort		    1
+		    DstBlock		    " Demux "
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Low Pass Filter1"
+		  SID			  "458"
+		  Ports			  [1, 1]
+		  Position		  [100, 88, 210, 132]
+		  PermitHierarchicalResolution "ExplicitOnly"
+		  TreatAsAtomicUnit	  on
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  MaskType		  "Stateflow"
+		  MaskDescription	  "Embedded MATLAB block"
+		  MaskSelfModifiable	  on
+		  MaskDisplay		  "disp('GaussianBlurr');"
+		  MaskIconFrame		  on
+		  MaskIconOpaque	  off
+		  MaskIconRotate	  "none"
+		  MaskPortRotate	  "default"
+		  MaskIconUnits		  "autoscale"
+		  System {
+		    Name		    "Low Pass Filter1"
+		    Location		    [257, 457, 812, 717]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    SIDHighWatermark	    "13"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "I"
+		    SID			    "458::1"
+		    Position		    [20, 101, 40, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Demux
+		    Name		    " Demux "
+		    SID			    "458::11"
+		    Ports		    [1, 1]
+		    Position		    [270, 160, 320, 200]
+		    Outputs		    "1"
+		    }
+		    Block {
+		    BlockType		    "S-Function"
+		    Name		    " SFunction "
+		    SID			    "458::10"
+		    Tag			    "Stateflow S-Function validation_gate_v4 46"
+		    Ports		    [1, 2]
+		    Position		    [180, 100, 230, 160]
+		    FunctionName	    "sf_sfun"
+		    PortCounts		    "[1 2]"
+		    EnableBusSupport	    on
+		    Port {
+		    PortNumber		    2
+		    Name		    "Iout"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    }
+		    Block {
+		    BlockType		    Terminator
+		    Name		    " Terminator "
+		    SID			    "458::13"
+		    Position		    [460, 171, 480, 189]
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Iout"
+		    SID			    "458::5"
+		    Position		    [460, 101, 480, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    " Demux "
+		    SrcPort		    1
+		    DstBlock		    " Terminator "
+		    DstPort		    1
+		    }
+		    Line {
+		    Name		    "Iout"
+		    Labels		    [0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    2
+		    DstBlock		    "Iout"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "I"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    " SFunction "
+		    SrcPort		    1
+		    DstBlock		    " Demux "
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Low Pass Filter2"
+		  SID			  "459"
+		  Ports			  [1, 1]
+		  Position		  [100, 158, 210, 202]
+		  PermitHierarchicalResolution "ExplicitOnly"
+		  TreatAsAtomicUnit	  on
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  MaskType		  "Stateflow"
+		  MaskDescription	  "Embedded MATLAB block"
+		  MaskSelfModifiable	  on
+		  MaskDisplay		  "disp('GaussianBlurr');"
+		  MaskIconFrame		  on
+		  MaskIconOpaque	  off
+		  MaskIconRotate	  "none"
+		  MaskPortRotate	  "default"
+		  MaskIconUnits		  "autoscale"
+		  System {
+		    Name		    "Low Pass Filter2"
+		    Location		    [257, 457, 812, 717]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    SIDHighWatermark	    "13"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "I"
+		    SID			    "459::1"
+		    Position		    [20, 101, 40, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Demux
+		    Name		    " Demux "
+		    SID			    "459::11"
+		    Ports		    [1, 1]
+		    Position		    [270, 160, 320, 200]
+		    Outputs		    "1"
+		    }
+		    Block {
+		    BlockType		    "S-Function"
+		    Name		    " SFunction "
+		    SID			    "459::10"
+		    Tag			    "Stateflow S-Function validation_gate_v4 47"
+		    Ports		    [1, 2]
+		    Position		    [180, 100, 230, 160]
+		    FunctionName	    "sf_sfun"
+		    PortCounts		    "[1 2]"
+		    EnableBusSupport	    on
+		    Port {
+		    PortNumber		    2
+		    Name		    "Iout"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    }
+		    Block {
+		    BlockType		    Terminator
+		    Name		    " Terminator "
+		    SID			    "459::13"
+		    Position		    [460, 171, 480, 189]
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Iout"
+		    SID			    "459::5"
+		    Position		    [460, 101, 480, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    " Demux "
+		    SrcPort		    1
+		    DstBlock		    " Terminator "
+		    DstPort		    1
+		    }
+		    Line {
+		    Name		    "Iout"
+		    Labels		    [0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    2
+		    DstBlock		    "Iout"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "I"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    " SFunction "
+		    SrcPort		    1
+		    DstBlock		    " Demux "
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "R'"
+		  SID			  "460"
+		  Position		  [235, 38, 265, 52]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "G'"
+		  SID			  "461"
+		  Position		  [235, 103, 265, 117]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "B'"
+		  SID			  "462"
+		  Position		  [235, 173, 265, 187]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  "Low Pass Filter"
+		  SrcPort		  1
+		  DstBlock		  "R'"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Low Pass Filter2"
+		  SrcPort		  1
+		  DstBlock		  "B'"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Low Pass Filter1"
+		  SrcPort		  1
+		  DstBlock		  "G'"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "B"
+		  SrcPort		  1
+		  DstBlock		  "Low Pass Filter2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "G"
+		  SrcPort		  1
+		  DstBlock		  "Low Pass Filter1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "R"
+		  SrcPort		  1
+		  DstBlock		  "Low Pass Filter"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Segmentation"
+	      SID		      "463"
+	      Ports		      [3, 3]
+	      Position		      [680, 104, 790, 166]
+	      MinAlgLoopOccurrences   off
+	      PropExecContextOutsideSubsystem off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      Opaque		      off
+	      RequestExecContextInheritance off
+	      MaskHideContents	      off
+	      System {
+		Name			"Segmentation"
+		Location		[2, 76, 1270, 731]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "L"
+		  SID			  "464"
+		  Position		  [35, 63, 65, 77]
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "a"
+		  SID			  "465"
+		  Position		  [35, 123, 65, 137]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "b"
+		  SID			  "466"
+		  Position		  [35, 173, 65, 187]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "Dist_Thresh"
+		  SID			  "467"
+		  Position		  [35, 233, 160, 257]
+		  Value			  "Iter_Segment_Thresh"
+		  SampleTime		  "-1"
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "LabSegmentation"
+		  SID			  "468"
+		  Ports			  [5, 1]
+		  Position		  [675, 33, 920, 157]
+		  PermitHierarchicalResolution "ExplicitOnly"
+		  TreatAsAtomicUnit	  on
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  MaskType		  "Stateflow"
+		  MaskDescription	  "Embedded MATLAB block"
+		  MaskSelfModifiable	  on
+		  MaskDisplay		  "disp('LabSegmentation');"
+		  MaskIconFrame		  on
+		  MaskIconOpaque	  off
+		  MaskIconRotate	  "none"
+		  MaskPortRotate	  "default"
+		  MaskIconUnits		  "autoscale"
+		  System {
+		    Name		    "LabSegmentation"
+		    Location		    [257, 457, 812, 717]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    SIDHighWatermark	    "19"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "L"
+		    SID			    "468::1"
+		    Position		    [20, 101, 40, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "a"
+		    SID			    "468::2"
+		    Position		    [20, 136, 40, 154]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "b"
+		    SID			    "468::3"
+		    Position		    [20, 171, 40, 189]
+		    Port		    "3"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "ref_colors"
+		    SID			    "468::4"
+		    Position		    [20, 206, 40, 224]
+		    Port		    "4"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "num_colors"
+		    SID			    "468::5"
+		    Position		    [20, 246, 40, 264]
+		    Port		    "5"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Demux
+		    Name		    " Demux "
+		    SID			    "468::17"
+		    Ports		    [1, 1]
+		    Position		    [270, 220, 320, 260]
+		    Outputs		    "1"
+		    }
+		    Block {
+		    BlockType		    "S-Function"
+		    Name		    " SFunction "
+		    SID			    "468::16"
+		    Tag			    "Stateflow S-Function validation_gate_v4 48"
+		    Ports		    [5, 2]
+		    Position		    [180, 100, 230, 220]
+		    FunctionName	    "sf_sfun"
+		    PortCounts		    "[5 2]"
+		    EnableBusSupport	    on
+		    Port {
+		    PortNumber		    2
+		    Name		    "LabelMatrix"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    }
+		    Block {
+		    BlockType		    Terminator
+		    Name		    " Terminator "
+		    SID			    "468::19"
+		    Position		    [460, 231, 480, 249]
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "LabelMatrix"
+		    SID			    "468::9"
+		    Position		    [460, 101, 480, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    " Demux "
+		    SrcPort		    1
+		    DstBlock		    " Terminator "
+		    DstPort		    1
+		    }
+		    Line {
+		    Name		    "LabelMatrix"
+		    Labels		    [0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    2
+		    DstBlock		    "LabelMatrix"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "num_colors"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    5
+		    }
+		    Line {
+		    SrcBlock		    "ref_colors"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    4
+		    }
+		    Line {
+		    SrcBlock		    "b"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    3
+		    }
+		    Line {
+		    SrcBlock		    "a"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "L"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    " SFunction "
+		    SrcPort		    1
+		    DstBlock		    " Demux "
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Reference Color Selection"
+		  SID			  "469"
+		  Ports			  [4, 2]
+		  Position		  [335, 128, 475, 197]
+		  PermitHierarchicalResolution "ExplicitOnly"
+		  TreatAsAtomicUnit	  on
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  MaskType		  "Stateflow"
+		  MaskDescription	  "Embedded MATLAB block"
+		  MaskSelfModifiable	  on
+		  MaskDisplay		  "disp('Segmentation');"
+		  MaskIconFrame		  on
+		  MaskIconOpaque	  off
+		  MaskIconRotate	  "none"
+		  MaskPortRotate	  "default"
+		  MaskIconUnits		  "autoscale"
+		  System {
+		    Name		    "Reference Color Selection"
+		    Location		    [257, 457, 812, 717]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    SIDHighWatermark	    "17"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "L"
+		    SID			    "469::1"
+		    Position		    [20, 101, 40, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "a"
+		    SID			    "469::2"
+		    Position		    [20, 136, 40, 154]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "b"
+		    SID			    "469::3"
+		    Position		    [20, 171, 40, 189]
+		    Port		    "3"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "Dist_Thresh"
+		    SID			    "469::13"
+		    Position		    [20, 206, 40, 224]
+		    Port		    "4"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Demux
+		    Name		    " Demux "
+		    SID			    "469::15"
+		    Ports		    [1, 1]
+		    Position		    [270, 205, 320, 245]
+		    Outputs		    "1"
+		    }
+		    Block {
+		    BlockType		    "S-Function"
+		    Name		    " SFunction "
+		    SID			    "469::14"
+		    Tag			    "Stateflow S-Function validation_gate_v4 49"
+		    Ports		    [4, 3]
+		    Position		    [180, 102, 230, 203]
+		    FunctionName	    "sf_sfun"
+		    PortCounts		    "[4 3]"
+		    EnableBusSupport	    on
+		    Port {
+		    PortNumber		    2
+		    Name		    "ref_colors"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    Port {
+		    PortNumber		    3
+		    Name		    "num_colors"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		    }
+		    }
+		    Block {
+		    BlockType		    Terminator
+		    Name		    " Terminator "
+		    SID			    "469::17"
+		    Position		    [460, 216, 480, 234]
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "ref_colors"
+		    SID			    "469::7"
+		    Position		    [460, 101, 480, 119]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "num_colors"
+		    SID			    "469::8"
+		    Position		    [460, 136, 480, 154]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    " Demux "
+		    SrcPort		    1
+		    DstBlock		    " Terminator "
+		    DstPort		    1
+		    }
+		    Line {
+		    Name		    "num_colors"
+		    Labels		    [0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    3
+		    DstBlock		    "num_colors"
+		    DstPort		    1
+		    }
+		    Line {
+		    Name		    "ref_colors"
+		    Labels		    [0, 0]
+		    SrcBlock		    " SFunction "
+		    SrcPort		    2
+		    DstBlock		    "ref_colors"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Dist_Thresh"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    4
+		    }
+		    Line {
+		    SrcBlock		    "b"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    3
+		    }
+		    Line {
+		    SrcBlock		    "a"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "L"
+		    SrcPort		    1
+		    DstBlock		    " SFunction "
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    " SFunction "
+		    SrcPort		    1
+		    DstBlock		    " Demux "
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Resize"
+		  SID			  "470"
+		  Ports			  [3, 3]
+		  Position		  [210, 130, 250, 190]
+		  MinAlgLoopOccurrences	  off
+		  PropExecContextOutsideSubsystem off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  Opaque		  off
+		  RequestExecContextInheritance	off
+		  MaskHideContents	  off
+		  System {
+		    Name		    "Resize"
+		    Location		    [209, 82, 608, 456]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In1"
+		    SID			    "471"
+		    Position		    [55, 68, 85, 82]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In2"
+		    SID			    "472"
+		    Position		    [60, 133, 90, 147]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "In3"
+		    SID			    "473"
+		    Position		    [65, 213, 95, 227]
+		    Port		    "3"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Reference
+		    Name		    "Resize"
+		    SID			    "474"
+		    Ports		    [1, 1]
+		    Position		    [110, 55, 175, 95]
+		    LibraryVersion	    "1.236"
+		    DialogController	    "vipDDGCreate"
+		    DialogControllerArgs    "DataTag1"
+		    SourceBlock		    "vipgeotforms/Resize"
+		    SourceType		    "Resize"
+		    specify		    "Number of output rows and columns"
+		    rfactor		    "[]"
+		    outCols		    "25"
+		    outRows		    "25"
+		    outRowsCols		    "[60 80]"
+		    interp_method	    "Bilinear"
+		    antialias		    on
+		    useROI		    off
+		    roiFlag		    off
+		    firstCoeffMode	    "Same word length as input"
+		    firstCoeffWordLength    "32"
+		    firstCoeffFracLength    "31"
+		    outputMode		    "Same as input"
+		    outputWordLength	    "32"
+		    outputFracLength	    "10"
+		    accumMode		    "Same as product output"
+		    accumWordLength	    "32"
+		    accumFracLength	    "10"
+		    prodOutputMode	    "Binary point scaling"
+		    prodOutputWordLength    "32"
+		    prodOutputFracLength    "10"
+		    roundingMode	    "Nearest"
+		    overflowMode	    on
+		    LockScale		    off
+		    }
+		    Block {
+		    BlockType		    Reference
+		    Name		    "Resize1"
+		    SID			    "475"
+		    Ports		    [1, 1]
+		    Position		    [115, 120, 170, 160]
+		    LibraryVersion	    "1.236"
+		    DialogController	    "vipDDGCreate"
+		    DialogControllerArgs    "DataTag2"
+		    SourceBlock		    "vipgeotforms/Resize"
+		    SourceType		    "Resize"
+		    specify		    "Number of output rows and columns"
+		    rfactor		    "[200 150]"
+		    outCols		    "25"
+		    outRows		    "25"
+		    outRowsCols		    "[60 80]"
+		    interp_method	    "Bilinear"
+		    antialias		    on
+		    useROI		    off
+		    roiFlag		    off
+		    firstCoeffMode	    "Same word length as input"
+		    firstCoeffWordLength    "32"
+		    firstCoeffFracLength    "31"
+		    outputMode		    "Same as input"
+		    outputWordLength	    "32"
+		    outputFracLength	    "10"
+		    accumMode		    "Same as product output"
+		    accumWordLength	    "32"
+		    accumFracLength	    "10"
+		    prodOutputMode	    "Binary point scaling"
+		    prodOutputWordLength    "32"
+		    prodOutputFracLength    "10"
+		    roundingMode	    "Nearest"
+		    overflowMode	    on
+		    LockScale		    off
+		    }
+		    Block {
+		    BlockType		    Reference
+		    Name		    "Resize2"
+		    SID			    "476"
+		    Ports		    [1, 1]
+		    Position		    [120, 200, 170, 240]
+		    LibraryVersion	    "1.236"
+		    DialogController	    "vipDDGCreate"
+		    DialogControllerArgs    "DataTag3"
+		    SourceBlock		    "vipgeotforms/Resize"
+		    SourceType		    "Resize"
+		    specify		    "Number of output rows and columns"
+		    rfactor		    "[200 150]"
+		    outCols		    "25"
+		    outRows		    "25"
+		    outRowsCols		    "[60 80]"
+		    interp_method	    "Bilinear"
+		    antialias		    on
+		    useROI		    off
+		    roiFlag		    off
+		    firstCoeffMode	    "Same word length as input"
+		    firstCoeffWordLength    "32"
+		    firstCoeffFracLength    "31"
+		    outputMode		    "Same as input"
+		    outputWordLength	    "32"
+		    outputFracLength	    "10"
+		    accumMode		    "Same as product output"
+		    accumWordLength	    "32"
+		    accumFracLength	    "10"
+		    prodOutputMode	    "Binary point scaling"
+		    prodOutputWordLength    "32"
+		    prodOutputFracLength    "10"
+		    roundingMode	    "Nearest"
+		    overflowMode	    on
+		    LockScale		    off
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Out1"
+		    SID			    "477"
+		    Position		    [200, 68, 230, 82]
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Out2"
+		    SID			    "478"
+		    Position		    [195, 133, 225, 147]
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Out3"
+		    SID			    "479"
+		    Position		    [195, 213, 225, 227]
+		    Port		    "3"
+		    IconDisplay		    "Port number"
+		    }
+		    Line {
+		    SrcBlock		    "Resize2"
+		    SrcPort		    1
+		    DstBlock		    "Out3"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "In3"
+		    SrcPort		    1
+		    DstBlock		    "Resize2"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Resize1"
+		    SrcPort		    1
+		    DstBlock		    "Out2"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "In2"
+		    SrcPort		    1
+		    DstBlock		    "Resize1"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Resize"
+		    SrcPort		    1
+		    DstBlock		    "Out1"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "In1"
+		    SrcPort		    1
+		    DstBlock		    "Resize"
+		    DstPort		    1
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "LabelMatrix"
+		  SID			  "480"
+		  Position		  [1015, 88, 1045, 102]
+		  NamePlacement		  "alternate"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "num_colors"
+		  SID			  "481"
+		  Position		  [540, 208, 570, 222]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "ref_colors"
+		  SID			  "482"
+		  Position		  [540, 263, 570, 277]
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		}
+		Line {
+		  SrcBlock		  "Dist_Thresh"
+		  SrcPort		  1
+		  Points		  [155, 0]
+		  DstBlock		  "Reference Color Selection"
+		  DstPort		  4
+		}
+		Line {
+		  SrcBlock		  "LabSegmentation"
+		  SrcPort		  1
+		  DstBlock		  "LabelMatrix"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Reference Color Selection"
+		  SrcPort		  2
+		  Points		  [0, -10; 35, 0]
+		  Branch {
+		    Points		    [0, -25]
+		    DstBlock		    "LabSegmentation"
+		    DstPort		    5
+		  }
+		  Branch {
+		    Points		    [0, 45]
+		    DstBlock		    "num_colors"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Reference Color Selection"
+		  SrcPort		  1
+		  Points		  [0, -5; 15, 0]
+		  Branch {
+		    Points		    [0, 130]
+		    DstBlock		    "ref_colors"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, -20]
+		    DstBlock		    "LabSegmentation"
+		    DstPort		    4
+		  }
+		}
+		Line {
+		  SrcBlock		  "Resize"
+		  SrcPort		  3
+		  Points		  [65, 0]
+		  DstBlock		  "Reference Color Selection"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "Resize"
+		  SrcPort		  2
+		  Points		  [65, 0]
+		  DstBlock		  "Reference Color Selection"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Resize"
+		  SrcPort		  1
+		  DstBlock		  "Reference Color Selection"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "b"
+		  SrcPort		  1
+		  Points		  [0, -30; 15, 0]
+		  Branch {
+		    Points		    [0, 350; 575, 0]
+		    DstBlock		    "LabSegmentation"
+		    DstPort		    3
+		  }
+		  Branch {
+		    Points		    [110, 0]
+		    DstBlock		    "Resize"
+		    DstPort		    3
+		  }
+		}
+		Line {
+		  SrcBlock		  "a"
+		  SrcPort		  1
+		  Points		  [10, 0]
+		  Branch {
+		    Points		    [0, -60]
+		    DstBlock		    "LabSegmentation"
+		    DstPort		    2
+		  }
+		  Branch {
+		    Points		    [115, 0]
+		    DstBlock		    "Resize"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "L"
+		  SrcPort		  1
+		  Points		  [5, 0]
+		  Branch {
+		    Points		    [0, -25]
+		    DstBlock		    "LabSegmentation"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 70]
+		    DstBlock		    "Resize"
+		    DstPort		    1
+		  }
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "LabelMatrix"
+	      SID		      "483"
+	      Position		      [965, 88, 995, 102]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "num_colors"
+	      SID		      "484"
+	      Position		      [965, 128, 995, 142]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "ref_colors"
+	      SID		      "485"
+	      Position		      [965, 168, 995, 182]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "Segmentation"
+	      SrcPort		      3
+	      Points		      [45, 0; 0, 20]
+	      DstBlock		      "ref_colors"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Segmentation"
+	      SrcPort		      2
+	      DstBlock		      "num_colors"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Segmentation"
+	      SrcPort		      1
+	      Points		      [45, 0; 0, -20]
+	      DstBlock		      "LabelMatrix"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Low Pass Filter"
+	      SrcPort		      3
+	      DstBlock		      "Color Space\n Conversion1"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Low Pass Filter"
+	      SrcPort		      2
+	      DstBlock		      "Color Space\n Conversion1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Low Pass Filter"
+	      SrcPort		      1
+	      DstBlock		      "Color Space\n Conversion1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Color Space\n Conversion1"
+	      SrcPort		      3
+	      DstBlock		      "Segmentation"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Color Space\n Conversion1"
+	      SrcPort		      2
+	      DstBlock		      "Segmentation"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Color Space\n Conversion1"
+	      SrcPort		      1
+	      DstBlock		      "Segmentation"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "R"
+	      SrcPort		      1
+	      Points		      [90, 0; 0, 10]
+	      DstBlock		      "Low Pass Filter"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "G"
+	      SrcPort		      1
+	      DstBlock		      "Low Pass Filter"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "B"
+	      SrcPort		      1
+	      Points		      [90, 0; 0, -10]
+	      DstBlock		      "Low Pass Filter"
+	      DstPort		      3
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Logic
+	  Name			  "Logical\nOperator"
+	  SID			  "200"
+	  Ports			  [2, 1]
+	  Position		  [735, 27, 765, 58]
+	  AllPortsSameDT	  off
+	  OutDataTypeStr	  "fixdt('boolean', 'DataTypeOverride', 'Off')"
+	}
+	Block {
+	  BlockType		  Logic
+	  Name			  "Logical\nOperator1"
+	  SID			  "201"
+	  Ports			  [2, 1]
+	  Position		  [875, 286, 905, 319]
+	}
+	Block {
+	  BlockType		  Logic
+	  Name			  "Logical\nOperator2"
+	  SID			  "403"
+	  Ports			  [1, 1]
+	  Position		  [805, 293, 835, 327]
+	  Operator		  "NOT"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Opening"
+	  SID			  "206"
+	  Ports			  [1, 1]
+	  Position		  [980, 330, 1060, 380]
+	  LibraryVersion	  "1.306"
+	  SourceBlock		  "vipmorphops/Opening"
+	  SourceType		  "Opening"
+	  nhoodsrc		  "Specify via dialog"
+	  strel			  "strel('disk',2)"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "SaturationAutothreshold"
+	  SID			  "202"
+	  Ports			  [1, 3]
+	  Position		  [535, 336, 670, 434]
+	  LibraryVersion	  "1.328"
+	  DialogController	  "vipDDGCreate"
+	  DialogControllerArgs	  "DataTag4"
+	  SourceBlock		  "vipconversions/Autothreshold"
+	  SourceType		  "Autothreshold"
+	  operator		  ">"
+	  threshOut		  on
+	  effMetricOut		  on
+	  userDefinedRange	  off
+	  umin			  "0"
+	  umax			  "255"
+	  outOfRngOpt		  "Warn and saturate"
+	  scaleThreshold	  off
+	  scaleFactor		  "1"
+	  P1Mode		  "Specify word length"
+	  P1WordLength		  "32"
+	  P1FracLength		  "30"
+	  A1Mode		  "Same as Product 1"
+	  A1WordLength		  "32"
+	  A1FracLength		  "30"
+	  P2Mode		  "Specify word length"
+	  P2WordLength		  "32"
+	  P2FracLength		  "22"
+	  A2Mode		  "Same as Product 2"
+	  A2WordLength		  "32"
+	  A2FracLength		  "22"
+	  P3Mode		  "Specify word length"
+	  P3WordLength		  "32"
+	  P3FracLength		  "14"
+	  A3Mode		  "Same as Product 3"
+	  A3WordLength		  "32"
+	  A3FracLength		  "14"
+	  P4Mode		  "Binary point scaling"
+	  P4WordLength		  "32"
+	  P4FracLength		  "15"
+	  A4Mode		  "Same as Product 4"
+	  A4WordLength		  "16"
+	  A4FracLength		  "4"
+	  Q1Mode		  "Specify word length"
+	  Q1WordLength		  "32"
+	  Q1FracLength		  "16"
+	  EMMode		  "Specify word length"
+	  EMWordLength		  "16"
+	  EMFracLength		  "14"
+	  roundingMode		  "Floor"
+	  overflowMode		  off
+	  LockScale		  off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "ValueAutothreshold"
+	  SID			  "203"
+	  Ports			  [1, 3]
+	  Position		  [535, 478, 665, 582]
+	  LibraryVersion	  "1.328"
+	  DialogController	  "vipDDGCreate"
+	  DialogControllerArgs	  "DataTag5"
+	  SourceBlock		  "vipconversions/Autothreshold"
+	  SourceType		  "Autothreshold"
+	  operator		  ">"
+	  threshOut		  on
+	  effMetricOut		  on
+	  userDefinedRange	  off
+	  umin			  "0"
+	  umax			  "255"
+	  outOfRngOpt		  "Warn and saturate"
+	  scaleThreshold	  off
+	  scaleFactor		  "1"
+	  P1Mode		  "Specify word length"
+	  P1WordLength		  "32"
+	  P1FracLength		  "30"
+	  A1Mode		  "Same as Product 1"
+	  A1WordLength		  "32"
+	  A1FracLength		  "30"
+	  P2Mode		  "Specify word length"
+	  P2WordLength		  "32"
+	  P2FracLength		  "22"
+	  A2Mode		  "Same as Product 2"
+	  A2WordLength		  "32"
+	  A2FracLength		  "22"
+	  P3Mode		  "Specify word length"
+	  P3WordLength		  "32"
+	  P3FracLength		  "14"
+	  A3Mode		  "Same as Product 3"
+	  A3WordLength		  "32"
+	  A3FracLength		  "14"
+	  P4Mode		  "Binary point scaling"
+	  P4WordLength		  "32"
+	  P4FracLength		  "15"
+	  A4Mode		  "Same as Product 4"
+	  A4WordLength		  "16"
+	  A4FracLength		  "4"
+	  Q1Mode		  "Specify word length"
+	  Q1WordLength		  "32"
+	  Q1FracLength		  "16"
+	  EMMode		  "Specify word length"
+	  EMWordLength		  "16"
+	  EMFracLength		  "14"
+	  roundingMode		  "Floor"
+	  overflowMode		  off
+	  LockScale		  off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "BW"
+	  SID			  "204"
+	  Position		  [1205, 348, 1235, 362]
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcPort		  2
+	  Points		  [235, 0]
+	  DstBlock		  "SaturationAutothreshold"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcPort		  1
+	  Points		  [240, 0]
+	  DstBlock		  "HueAutothreshold"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "SaturationAutothreshold"
+	  SrcPort		  3
+	  DstBlock		  "Display2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "ValueAutothreshold"
+	  SrcPort		  2
+	  DstBlock		  "Display3"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Color Space\n Conversion1"
+	  SrcPort		  3
+	  Points		  [225, 0; 0, 260]
+	  DstBlock		  "ValueAutothreshold"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "HueAutothreshold"
+	  SrcPort		  2
+	  DstBlock		  "Display5"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "HueAutothreshold"
+	  SrcPort		  3
+	  DstBlock		  "Display6"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "SaturationAutothreshold"
+	  SrcPort		  2
+	  DstBlock		  "Display4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "ValueAutothreshold"
+	  SrcPort		  3
+	  DstBlock		  "Display1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Hue Higher Comparison"
+	  SrcPort		  1
+	  DstBlock		  "Logical\nOperator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Hue Lower Comparison"
+	  SrcPort		  1
+	  Points		  [30, 0; 0, -60]
+	  DstBlock		  "Logical\nOperator"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "HueAutothreshold"
+	  SrcPort		  1
+	  Points		  [185, 0]
+	  DstBlock		  "Logical\nOperator1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "SaturationAutothreshold"
+	  SrcPort		  1
+	  Points		  [115, 0]
+	  DstBlock		  "Logical\nOperator2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Logical\nOperator2"
+	  SrcPort		  1
+	  DstBlock		  "Logical\nOperator1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Logical\nOperator1"
+	  SrcPort		  1
+	  Points		  [50, 0; 0, -5]
+	  DstBlock		  "Data Type Conversion2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "R"
+	  SrcPort		  1
+	  Points		  [35, 0; 0, 415]
+	  DstBlock		  "IterativeSegmentation"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "G"
+	  SrcPort		  1
+	  Points		  [25, 0; 0, 420]
+	  DstBlock		  "IterativeSegmentation"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "B"
+	  SrcPort		  1
+	  Points		  [0, 425]
+	  DstBlock		  "IterativeSegmentation"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "IterativeSegmentation"
+	  SrcPort		  1
+	  Points		  [10, 0; 0, 50]
+	  DstBlock		  "Identify Validation Gate2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Identify Validation Gate2"
+	  SrcPort		  1
+	  Points		  [250, 0; 0, -325]
+	  DstBlock		  "BW"
+	  DstPort		  1
+	}
+	Annotation {
+	  Position		  [788, 34]
+	}
+	Annotation {
+	  Position		  [784, 93]
+	}
+	Annotation {
+	  Name			  "Debuggin note: Consider identifying the gate Lab set that is unique to the gate.\nThen set all pixels in "
+	  "LabelMatrix that do not match Lab for the gate to zero.\nThen analyze edges."
+	  Position		  [1090, 757]
+	}
+      }
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Edge Detection"
+      SID		      "33"
+      Ports		      [1, 1]
+      Position		      [345, 240, 445, 300]
+      LibraryVersion	      "1.378"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag6"
+      SourceBlock	      "vipanalysis/Edge Detection"
+      SourceType	      "Edge Detection"
+      method		      "Sobel"
+      outputType	      "Binary image"
+      userDefinedThreshold    off
+      thresholdSource	      "Specify via dialog"
+      threshold		      "20"
+      thresholdTuning	      "3"
+      edgeThinning	      on
+      threshold_canny	      "[0.25 0.60]"
+      autoPercent	      "70"
+      sigma		      "1"
+      outputMode	      "Same as first input"
+      outputWordLength	      "16"
+      outputFracLength	      "4"
+      accumMode		      "Same as product output"
+      accumWordLength	      "32"
+      accumFracLength	      "8"
+      prodOutputMode	      "Same as first input"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "8"
+      roundingMode	      "Floor"
+      overflowMode	      off
+      LockScale		      off
+    }
+    Block {
+      BlockType		      Reference
+      Name		      "Hough Transform1"
+      SID		      "341"
+      Ports		      [1, 3]
+      Position		      [480, 241, 585, 299]
+      LibraryVersion	      "1.273"
+      DialogController	      "vipDDGCreate"
+      DialogControllerArgs    "DataTag7"
+      SourceBlock	      "viptransforms/Hough Transform"
+      SourceType	      "Hough Transform"
+      theta_res		      "pi/180"
+      rho_res		      "1"
+      out_theta_rho	      on
+      outdtmode		      "double"
+      firstCoeffMode	      "Binary point scaling"
+      firstCoeffWordLength    "16"
+      firstCoeffFracLength    "14"
+      secondCoeffMode	      "Binary point scaling"
+      secondCoeffWordLength   "32"
+      secondCoeffFracLength   "16"
+      outputMode	      "Binary point scaling"
+      outputWordLength	      "16"
+      outputFracLength	      "0"
+      accumMode		      "Binary point scaling"
+      accumWordLength	      "32"
+      accumFracLength	      "20"
+      prodOutputMode	      "Binary point scaling"
+      prodOutputWordLength    "32"
+      prodOutputFracLength    "20"
+      memoryMode	      "Binary point scaling"
+      memoryWordLength	      "32"
+      memoryFracLength	      "16"
+      roundingMode	      "Nearest"
+      overflowMode	      on
+      LockScale		      off
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Identify Validation Gate"
+      SID		      "321"
+      Ports		      [6, 3]
+      Position		      [645, 206, 925, 369]
+      LibraryVersion	      "1.31"
+      PermitHierarchicalResolution "ExplicitOnly"
+      TreatAsAtomicUnit	      on
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      SystemSampleTime	      "[1/30 0]"
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      RequestExecContextInheritance off
+      MaskHideContents	      off
+      MaskType		      "Stateflow"
+      MaskDescription	      "Embedded MATLAB block"
+      MaskSelfModifiable      on
+      MaskDisplay	      "disp('validation_gate');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskPortRotate	      "default"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Identify Validation Gate"
+	Location		[257, 457, 812, 717]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	SIDHighWatermark	"54"
+	Block {
+	  BlockType		  Inport
+	  Name			  "bw_image_in"
+	  SID			  "321::41"
+	  Position		  [20, 101, 40, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "hough_table"
+	  SID			  "321::1"
+	  Position		  [20, 136, 40, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "theta_in"
+	  SID			  "321::34"
+	  Position		  [20, 171, 40, 189]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "rho_in"
+	  SID			  "321::35"
+	  Position		  [20, 206, 40, 224]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "target_height"
+	  SID			  "321::43"
+	  Position		  [20, 246, 40, 264]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "gate_aspect_ratio"
+	  SID			  "321::42"
+	  Position		  [20, 281, 40, 299]
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  " Demux "
+	  SID			  "321::23"
+	  Ports			  [1, 1]
+	  Position		  [270, 365, 320, 405]
+	  Outputs		  "1"
+	}
+	Block {
+	  BlockType		  "S-Function"
+	  Name			  " SFunction "
+	  SID			  "321::22"
+	  Tag			  "Stateflow S-Function validation_gate_v4 1"
+	  Ports			  [6, 4]
+	  Position		  [180, 123, 230, 367]
+	  FunctionName		  "sf_sfun"
+	  PortCounts		  "[6 4]"
+	  EnableBusSupport	  on
+	  Port {
+	    PortNumber		    2
+	    Name		    "target_y"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    3
+	    Name		    "target_z"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	  Port {
+	    PortNumber		    4
+	    Name		    "gate_found"
+	    RTWStorageClass	    "Auto"
+	    DataLoggingNameMode	    "SignalName"
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  " Terminator "
+	  SID			  "321::25"
+	  Position		  [460, 376, 480, 394]
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "target_y"
+	  SID			  "321::39"
+	  Position		  [460, 101, 480, 119]
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "target_z"
+	  SID			  "321::38"
+	  Position		  [460, 136, 480, 154]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "gate_found"
+	  SID			  "321::33"
+	  Position		  [460, 171, 480, 189]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  " SFunction "
+	  SrcPort		  1
+	  DstBlock		  " Demux "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "bw_image_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "hough_table"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "theta_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "rho_in"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "target_height"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "gate_aspect_ratio"
+	  SrcPort		  1
+	  DstBlock		  " SFunction "
+	  DstPort		  6
+	}
+	Line {
+	  Name			  "target_y"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  2
+	  DstBlock		  "target_y"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "target_z"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  3
+	  DstBlock		  "target_z"
+	  DstPort		  1
+	}
+	Line {
+	  Name			  "gate_found"
+	  Labels		  [0, 0; 0, 0]
+	  SrcBlock		  " SFunction "
+	  SrcPort		  4
+	  DstBlock		  "gate_found"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  " Demux "
+	  SrcPort		  1
+	  DstBlock		  " Terminator "
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetSelect"
+      SID		      "503"
+      Position		      [1195, 223, 1225, 237]
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetFound"
+      SID		      "504"
+      Position		      [1195, 258, 1225, 272]
+      Port		      "2"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "MaintainHeading"
+      SID		      "505"
+      Position		      [1195, 293, 1225, 307]
+      Port		      "3"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetY"
+      SID		      "506"
+      Position		      [1195, 328, 1225, 342]
+      Port		      "4"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetZ"
+      SID		      "507"
+      Position		      [1195, 363, 1225, 377]
+      Port		      "5"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetYaw"
+      SID		      "508"
+      Position		      [1195, 398, 1225, 412]
+      Port		      "6"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Block {
+      BlockType		      Outport
+      Name		      "TargetDetected"
+      SID		      "509"
+      Position		      [1195, 473, 1225, 487]
+      Port		      "7"
+      IconDisplay	      "Port number"
+      OutDataTypeStr	      "double"
+    }
+    Line {
+      SrcBlock		      "Hough Transform1"
+      SrcPort		      1
+      DstBlock		      "Identify Validation Gate"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Hough Transform1"
+      SrcPort		      2
+      Points		      [40, 0]
+      DstBlock		      "Identify Validation Gate"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Hough Transform1"
+      SrcPort		      3
+      Points		      [40, 0]
+      DstBlock		      "Identify Validation Gate"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Edge Detection"
+      SrcPort		      1
+      DstBlock		      "Hough Transform1"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Constant1"
+      SrcPort		      1
+      DstBlock		      "Identify Validation Gate"
+      DstPort		      5
+    }
+    Line {
+      SrcBlock		      "Constant2"
+      SrcPort		      1
+      Points		      [10, 0]
+      DstBlock		      "Identify Validation Gate"
+      DstPort		      6
+    }
+    Line {
+      SrcBlock		      "Convert to BW"
+      SrcPort		      1
+      Points		      [10, 0]
+      Branch {
+	DstBlock		"Edge Detection"
+	DstPort			1
+      }
+      Branch {
+	Points			[0, -45]
+	DstBlock		"Identify Validation Gate"
+	DstPort			1
+      }
+    }
+    Line {
+      SrcBlock		      "R_forward_in"
+      SrcPort		      1
+      Points		      [35, 0; 0, 15]
+      DstBlock		      "Convert to BW"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "G_forward_in"
+      SrcPort		      1
+      DstBlock		      "Convert to BW"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "B_forward_in"
+      SrcPort		      1
+      Points		      [35, 0; 0, -15]
+      DstBlock		      "Convert to BW"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Identify Validation Gate"
+      SrcPort		      1
+      Points		      [125, 0; 0, 100]
+      DstBlock		      "TargetY"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Identify Validation Gate"
+      SrcPort		      2
+      Points		      [115, 0; 0, 80]
+      DstBlock		      "TargetZ"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Identify Validation Gate"
+      SrcPort		      3
+      Points		      [105, 0; 0, 135]
+      DstBlock		      "TargetDetected"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Constant3"
+      SrcPort		      1
+      Points		      [50, 0; 0, 145]
+      DstBlock		      "TargetSelect"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Constant4"
+      SrcPort		      1
+      Points		      [30, 0; 0, 125]
+      DstBlock		      "TargetFound"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Constant5"
+      SrcPort		      1
+      Points		      [20, 0; 0, 105]
+      DstBlock		      "MaintainHeading"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Constant6"
+      SrcPort		      1
+      DstBlock		      "TargetYaw"
+      DstPort		      1
+    }
+    Annotation {
+      Name		      "Notes:\n1. The validation_gate function outputs target\ninformation using a potentially dangerous\n"
+      "assumption, that the target points \"up\". May\nwant to add a safeguard."
+      Position		      [1142, 657]
+    }
+  }
+}
+MatData {
+  NumRecords		  8
+  DataRecord {
+    Tag			    DataTag7
+    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
+    "     %    \"     $    %     0         0    !0   $A/54=(    "
+  }
+  DataRecord {
+    Tag			    DataTag6
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    -     0         0    #0   $5D9V5$971E8W1I;VX    "
+  }
+  DataRecord {
+    Tag			    DataTag5
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    -     0         0    #0   $%U=&]T:')E<VAO;&0    "
+  }
+  DataRecord {
+    Tag			    DataTag4
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    -     0         0    #0   $%U=&]T:')E<VAO;&0    "
+  }
+  DataRecord {
+    Tag			    DataTag3
+    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
+    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
+  }
+  DataRecord {
+    Tag			    DataTag2
+    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
+    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
+  }
+  DataRecord {
+    Tag			    DataTag1
+    Data		    "  %)30     .    :     8    (     0         %    \"     $    !     0         .    .     8    (    !     "
+    "     %    \"     $    (     0         0    \"    %)E<VEZ93)$"
+  }
+  DataRecord {
+    Tag			    DataTag0
+    Data		    "  %)30     .    <     8    (     0         %    \"     $    !     0         .    0     8    (    !     "
+    "     %    \"     $    -     0         0    #0   $%U=&]T:')E<VAO;&0    "
+  }
+}
+# Finite State Machines
+#
+#    Stateflow Version 7.5 (R2010a) dated Aug  8 2010, 22:51:52
+#
+#
+
+
+Stateflow {
+  machine {
+    id			    1
+    name		    "validation_gate_v4"
+    created		    "11-Feb-2011 11:53:00"
+    isLibrary		    0
+    firstTarget		    83
+    sfVersion		    75014000.000003
+  }
+  chart {
+    id			    2
+    name		    "Identify Validation Gate"
+    windowPosition	    [428.98 166.448 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1280 800 1.333333333333333]
+    treeNode		    [0 3 0 0]
+    firstTransition	    5
+    firstJunction	    4
+    viewObj		    2
+    machine		    1
+    ssIdHighWaterMark	    34
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    6
+    chartFileNumber	    1
+    disableImplicitCasting  1
+    eml {
+      name		      "validation_gate"
+    }
+  }
+  state {
+    id			    3
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    2
+    treeNode		    [2 0 0 0]
+    superState		    SUBCHART
+    subviewer		    2
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [target_y, target_z, gate_found] = validation_gate(bw_image_in, hough_table, theta_in, r"
+      "ho_in, target_height, gate_aspect_ratio)\n%#eml\n\n\n\n% This function attempts to identfiy the validation gate,"
+      " and returns\n%   targeting information, and a true/false gate_found parameter.\n%\n% 5-29-11\n%\n% Input\n%\n% "
+      "  target_height = fraction of goal post height to aim AUV at\n%   gate_aspect_ratio = used to infer unknown poin"
+      "ts with little extra\n%     processing (height/width of large goalpost-shape)\n%\n% Output\n%\n% Notes:\n%   The"
+      " hough_table is destroyed in this function (acceptable if\n%     hough_table is not an output)\n%   Process:\n% "
+      "    1. Identify primary, relatively \"long\" lines\n%     2. \n\n\n%% Initialize\n% Only the (max_num_lines) wit"
+      "h the most votes will be considered as\n%   candidates for the validation gate\nmax_num_lines = 200;\n[rho_lengt"
+      "h, theta_length] = size(hough_table);\n[rows, cols] = size(bw_image_in);\n\n\n\n% eps_rho must be at least as bi"
+      "g as the gate leg diameter (units of\n%   pixels)\neps_rho = .1*max(rows,cols);\n% eps_theta is used to distingu"
+      "ish lines as \"horizontal\" or \"vertical\";\n%   units are radians\neps_theta = 10*pi/180;\n\n\n% These vectors"
+      " contain the final three lines that compose the validation gate\nrho_gate = zeros(1,3);\ntheta_gate = zeros(1,3)"
+      ";\n\n% These vectors contain intermediate line information; as lines are\n%   eliminated from these vectors, the"
+      "ir values are set to zero\nrho = zeros(1,max_num_lines);\ntheta = zeros(1,max_num_lines);\n\n\n\n\n\n% Identify "
+      "the most popular max_num_lines lines\ni_index = ones(1,max_num_lines);\nj_index = ones(1,max_num_lines);\n\nm = "
+      "1;\nwhile( m <= max_num_lines )\n    \n    max_votes = 0;\n    for i = 1:rho_length\n        for j = 1:theta_len"
+      "gth\n            if( hough_table(i,j) > max_votes )\n                i_index(m) = i;\n                j_index(m)"
+      " = j;\n                max_votes = hough_table(i,j);\n            end\n        end\n    end\n    \n    rho(m) = "
+      "rho_in(i_index(m));\n    theta(m) = theta_in(j_index(m));\n    hough_table(i_index(m),j_index(m)) = 0;\n    m = "
+      "m + 1;\n    \nend\n\n\n% Effectively generate a small Hough table which contains only values of\n%   interest fo"
+      "r the validation gate application\n\nrbinv = [0:(2*eps_rho):max(rows, cols)];  % Rho bins for vertical lines\nnb"
+      "insv = length(rbinv);  % Number of rho bins for vertical lines\nravgv = zeros(1,nbinsv);  % Average rho values f"
+      "or each bin (note that the average value will generally differ slightly than the bin value)\ntavgv = zeros(1,nbi"
+      "nsv);  % Average theta values for each bin\nvbinv = zeros(1,nbinsv);  % Votes bins for vertical lines\n\nrbinh ="
+      " [0:(2*eps_rho):max(rows, cols)];\nnbinsh = length(rbinh);\nravgh = zeros(1,nbinsh);\ntavgh = zeros(1,nbinsh);\n"
+      "vbinh = zeros(1,nbinsh);\n\n% Allow vertical lines along the left side of the image\nrbinv(1) = 1;\nrbinh(1) = 1"
+      ";\n\nfor i = 1:max_num_lines\n    \n    % Consider only lines that are either vertical or horizontal, within\n  "
+      "  %   tolerance\n    condition1 = ( abs(theta(i) - pi/2) <= eps_theta || abs(theta(i) + pi/2) <= eps_theta );  %"
+      " Horizontal line\n    condition2 = ( abs(theta(i) - 0) <= eps_theta );  % Vertical line\n    \n    if(condition2"
+      " && ~( rho(i) == 0 && theta(i) == 0 ))  % Analyze vertical lines (ignore lines exactly along the left side of th"
+      "e image)\n        \n        for b = 1:nbinsv\n            \n            % Place each rho value into a bin\n     "
+      "       if( abs(rho(i) - rbinv(b)) <= eps_rho )\n                ravgv(b) = ravgv(b) + rho(i);\n                t"
+      "avgv(b) = tavgv(b) + theta(i);\n                vbinv(b) = vbinv(b) + 1;\n                break;\n            en"
+      "d\n            \n        end\n        \n    elseif(condition1)  % Analyze horizontal lines\n        \n        if"
+      "( theta(i) < 0 )\n            theta(i) = theta(i) + pi;\n            rho(i) = -rho(i);\n        end\n        \n "
+      "       for b = 1:nbinsh\n            \n            % Place each rho value into a bin\n            if( abs(rho(i)"
+      " - rbinh(b)) <= eps_rho )\n                ravgh(b) = ravgh(b) + rho(i);\n                tavgh(b) = tavgh(b) + "
+      "theta(i);\n                vbinh(b) = vbinh(b) + 1;\n                break;\n            end\n            \n    "
+      "    end\n        \n    end\nend\n\n% Average the values in ravg and tavg for horizontal and vertical lines\nfor "
+      "b = 1:nbinsv\n    if( vbinv(b) == 0 )\n        ravgv(b) = 0;\n        tavgv(b) = 0;\n    else\n        ravgv(b) "
+      "= ravgv(b)./vbinv(b);\n        tavgv(b) = tavgv(b)./vbinv(b);\n    end\nend\nfor b = 1:nbinsh\n    if( vbinh(b) "
+      "== 0 )\n        ravgh(b) = 0;\n        tavgh(b) = 0;\n    else\n        ravgh(b) = ravgh(b)./vbinh(b);\n        "
+      "tavgh(b) = tavgh(b)./vbinh(b);\n    end\nend\n\n\n%% Extract three lines that fit the criteria for being the val"
+      "idation gate\nrmin = 10000;\nrmax = -10000;\nfor b = 1:nbinsv\n    \n    % Extract the left-most vertical line\n"
+      "    if( ravgv(b) < rmin && ravgv(b) ~= 0 )\n        rmin = ravgv(b);\n        rho_gate(1) = ravgv(b);\n        t"
+      "heta_gate(1) = tavgv(b);\n    end\n    \n    % Extract the right-most vertical line\n    if( ravgv(b) > rmax && "
+      "ravgv(b) ~= 0 )\n        rmax = ravgv(b);\n        rho_gate(3) = ravgv(b);\n        theta_gate(3) = tavgv(b);\n "
+      "   end\n    \nend\n\n% Check that the distance between the vertical lines is much greater than\n%   the minimum "
+      "expected distance, eps_rho\nif( abs(rho_gate(3) - rho_gate(1)) < 2*eps_rho )\n    rho_gate(1) = 0;\n    rho_gate"
+      "(3) = 0;\n    theta_gate(1) = 0;\n    theta_gate(3) = 0;\nend\n\n%rmin = 10000;\nvmax = 0;\nfor b = 1:nbinsh\n  "
+      "  \n    % Extract the horizontal line with the most votes\n    if( vbinh(b) > vmax && ravgh(b) ~= 0 )\n        v"
+      "max = vbinh(b);\n        rho_gate(2) = ravgh(b);\n        theta_gate(2) = tavgh(b);\n    end\n    \n%    % Extra"
+      "ct the horizontal line that is highest up in the image\n%    if( ravgh(b) < rmin && ravgh(b) ~= 0 )\n%        rm"
+      "in = ravgh(b);\n%        rho_gate(2) = ravgh(b);\n%        theta_gate(2) = tavgh(b);\n%    end\nend\n\n\n%% Comp"
+      "ute targeting information\n% Compute intersections\nr1 = (  ( rho_gate(1)/cos(theta_gate(1)) ) - ( rho_gate(2)/c"
+      "os(theta_gate(2)) )  )*(  1/( tan(theta_gate(1)) - tan(theta_gate(2)) )  );\nc1 = ( 1/cos(theta_gate(1)) )*( rho"
+      "_gate(1) - r1*sin(theta_gate(1)) );\n\nr3 = (  ( rho_gate(2)/cos(theta_gate(2)) ) - ( rho_gate(3)/cos(theta_gate"
+      "(3)) )  )*(  1/( tan(theta_gate(2)) - tan(theta_gate(3)) )  );\nc3 = ( 1/cos(theta_gate(2)) )*( rho_gate(2) - r3"
+      "*sin(theta_gate(2)) );\n\nr2 = (r1 + r3)/2;\nc2 = (c1 + c3)/2;\n\n% Compute gate width\nw = sqrt( (r3 - r1)^2 + "
+      "(c3 - c1)^2 );\n\n% Form unit vector pointing downward, parallel to gate posts\ntavg = ( theta_gate(1) + (theta_"
+      "gate(2) - pi/2) + theta_gate(3) )/3;\nu = [1 tan(tavg)];\nu = u./norm(u);\n\n% Compute target location\nth = tar"
+      "get_height*gate_aspect_ratio*w;\nr_t = r2 + th*u(1);\nc_t = c2 + th*u(2);\n\n% Determine if a gate is present (v"
+      "ery simple, potentially inaccurate)\nif( sum( (rho_gate == 0) + (theta_gate == 0) ) > 0 )\n    \n    gate_found "
+      "= 0;\n    target_z = 0;\n    target_y = 0;\n    \nelse\n    \n    gate_found = 1;\n    \n    % Transform target "
+      "r, c to global coordinate system\n    target_z = r_t - floor(rows/2);\n    target_y = c_t - floor(cols/2);\n    "
+      "\nend\n\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
+    }
+  }
+  junction {
+    id			    4
+    position		    [23.5747 49.5747 7]
+    chart		    2
+    linkNode		    [2 0 0]
+    subviewer		    2
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    5
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      4
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    2
+    linkNode		    [2 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    2
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    6
+    ssIdNumber		    21
+    name		    "bw_image_in"
+    linkNode		    [2 0 7]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    7
+    ssIdNumber		    4
+    name		    "hough_table"
+    linkNode		    [2 6 8]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    8
+    ssIdNumber		    19
+    name		    "target_y"
+    linkNode		    [2 7 9]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    9
+    ssIdNumber		    18
+    name		    "target_z"
+    linkNode		    [2 8 10]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    10
+    ssIdNumber		    15
+    name		    "gate_found"
+    linkNode		    [2 9 11]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    11
+    ssIdNumber		    16
+    name		    "theta_in"
+    linkNode		    [2 10 12]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    12
+    ssIdNumber		    17
+    name		    "rho_in"
+    linkNode		    [2 11 13]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    13
+    ssIdNumber		    23
+    name		    "target_height"
+    linkNode		    [2 12 14]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    14
+    ssIdNumber		    22
+    name		    "gate_aspect_ratio"
+    linkNode		    [2 13 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    15
+    name		    "Identify Validation Gate"
+    machine		    1
+    chart		    2
+  }
+  chart {
+    id			    16
+    name		    "Convert to BW/Identify Validation Gate1"
+    windowPosition	    [458.98 136.448 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 1280 800 1.333333333333333]
+    treeNode		    [0 17 0 0]
+    firstTransition	    19
+    firstJunction	    18
+    viewObj		    16
+    machine		    1
+    ssIdHighWaterMark	    27
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    20
+    chartFileNumber	    3
+    disableImplicitCasting  1
+    eml {
+      name		      "hue_filter"
+    }
+  }
+  state {
+    id			    17
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    16
+    treeNode		    [16 0 0 0]
+    superState		    SUBCHART
+    subviewer		    16
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [theta_out, rho_out, target_y, target_z, gate_found] = hue_filter(bw_image_in, hough_tab"
+      "le, theta_in, rho_in, threshold, target_height, gate_aspect_ratio)\n%#eml\n\n% This function attempts to identfi"
+      "y the validation gate, and returns line\n%   information, targeting information, and a true/false gate_found\n% "
+      "  parameter.\n%\n% 5-29-11\n%\n% Input\n%\n%   target_height = fraction of goal post height to aim AUV at\n%   g"
+      "ate_aspect_ratio = used to infer unknown points with little extra\n%     processing (height/width of large T-sha"
+      "pe)\n%\n% Output\n%\n% Notes:\n%   The hough_table is destroyed in this function (acceptable if\n%     hough_tab"
+      "le is not an output)\n%   Process:\n%     1. Identify primary, relatively \"long\" lines\n%     2. \n\n% Initial"
+      "ize\npeak_tol_ratio = .1;  % Fraction of max(rows,cols) of image within which a\n%                         peak "
+      "is assumed to reside; this helps reduce\n%                         incorrect line extraction\nmax_num_lines = 10"
+      ";  % Considers this many popular lines as candidates\n\n[rho_length, theta_length] = size(hough_table);\n[rows, "
+      "cols] = size(bw_image_in);\nrho_tol = .1*max(rows,cols);\ntheta_tol = 10*pi/180;  % Tolerence within which two s"
+      "lopes are equal (radians)\n\nrho_out = zeros(1,3);\ntheta_out = zeros(1,3);\nrho = zeros(1,max_num_lines);\nthet"
+      "a = zeros(1,max_num_lines);\n\n\n\n% Apply appropriate threshold\nhough_table = hough_table.*( hough_table > thr"
+      "eshold );\n\n\n% Identify the most likely max_num_lines lines\ni_index = ones(1,max_num_lines);\nj_index = ones("
+      "1,max_num_lines);\n\nm = 1;\nwhile( m <= max_num_lines )\n    \n    max_votes = 0;\n    for i = 1:rho_length\n  "
+      "      for j = 1:theta_length\n            if( hough_table(i,j) > max_votes )\n                i_index(m) = i;\n "
+      "               j_index(m) = j;\n                max_votes = hough_table(i,j);\n            end\n        end\n   "
+      " end\n    \n    rho(m) = rho_in(i_index(m));\n    theta(m) = theta_in(j_index(m));\n    hough_table(i_index(m),j"
+      "_index(m)) = 0;\n    m = m + 1;\n    \nend\n\n\n% Extract the three most popular lines that fit the geometric cr"
+      "iteria for\n%   the goalpost\nrho_out(1) = rho(1);\ntheta_out(1) = theta(1);\n\nm = 2;\n\n%rho_radius = 10;\n%th"
+      "eta_radius = 5*pi/180;\n\nfor i = 2:max_num_lines\n    \n    % If rho, theta do not match within tolerance, then"
+      " store as the next\n    %   line\n%    if( ( (rho(m) - rho(1))/rho_radius)^2 + ( (theta(m) - theta(1))/theta_rad"
+      "ius)^2 > 1 )\n    if( abs(rho(i) - rho(i-1)) >= 30 )\n        rho_out(m) = rho(i);\n        theta_out(m) = theta"
+      "(i);\n        m = m + 1;\n        if( m > 3 )\n            break;\n        end\n    end\n    \nend\n\n\n% Determ"
+      "ine whether or not the top three lines constitute the goal post\n%   Note that the Simulink block feeding this f"
+      "unction keeps theta between\n%   +/- pi/2\nif( abs(theta_out(1) - theta_out(2)) < theta_tol && ( max(theta_out(1"
+      "),theta_out(3)) - min(theta_out(1),theta_out(3)) - pi/2 < theta_tol ) )\n    gate_found = 1;\n    avg_slope = -("
+      " 1/tan(theta_out(1)) + 1/tan(theta_out(2)) )/2;\n    y1 = ( (rho_out(1)/cos(theta_out(1))) - (rho_out(3)/cos(the"
+      "ta_out(3))) )*( 1/( tan(theta_out(1)) - tan(theta_out(3)) ) );\n    x1 = ( 1/cos(theta_out(1)) )*( rho_out(1) - "
+      "y1*sin(theta_out(1)) );\n    y2 = ( (rho_out(2)/cos(theta_out(2))) - (rho_out(3)/cos(theta_out(3))) )*( 1/( tan("
+      "theta_out(2)) - tan(theta_out(3)) ) );\n    x2 = ( 1/cos(theta_out(2)) )*( rho_out(2) - y2*sin(theta_out(2)) );\n"
+      "    \nelseif( abs(theta_out(1) - theta_out(3)) < theta_tol && ( max(theta_out(1),theta_out(2)) - min(theta_out(1"
+      "),theta_out(2)) - pi/2 < theta_tol ) )\n    gate_found = 1;\n    avg_slope = -( 1/tan(theta_out(1)) + 1/tan(thet"
+      "a_out(3)) )/2;\n    y1 = ( (rho_out(1)/cos(theta_out(1))) - (rho_out(2)/cos(theta_out(2))) )*( 1/( tan(theta_out"
+      "(1)) - tan(theta_out(2)) ) );\n    x1 = ( 1/cos(theta_out(1)) )*( rho_out(1) - y1*sin(theta_out(1)) );\n    y2 ="
+      " ( (rho_out(2)/cos(theta_out(2))) - (rho_out(3)/cos(theta_out(3))) )*( 1/( tan(theta_out(2)) - tan(theta_out(3))"
+      " ) );\n    x2 = ( 1/cos(theta_out(2)) )*( rho_out(2) - y2*sin(theta_out(2)) );\n    \nelseif( abs(theta_out(2) -"
+      " theta_out(3)) < theta_tol && ( max(theta_out(1),theta_out(2)) - min(theta_out(1),theta_out(2)) - pi/2 < theta_t"
+      "ol ) )\n    gate_found = 1;\n    avg_slope = -( 1/tan(theta_out(2)) + 1/tan(theta_out(3)) )/2;\n    y1 = ( (rho_"
+      "out(1)/cos(theta_out(1))) - (rho_out(2)/cos(theta_out(2))) )*( 1/( tan(theta_out(1)) - tan(theta_out(2)) ) );\n "
+      "   x1 = ( 1/cos(theta_out(1)) )*( rho_out(1) - y1*sin(theta_out(1)) );\n    y2 = ( (rho_out(1)/cos(theta_out(1))"
+      ") - (rho_out(3)/cos(theta_out(3))) )*( 1/( tan(theta_out(1)) - tan(theta_out(3)) ) );\n    x2 = ( 1/cos(theta_ou"
+      "t(1)) )*( rho_out(1) - y2*sin(theta_out(1)) );\n    \nelse\n    gate_found = 0;\n    avg_slope = 0;\n    \n    x"
+      "1 = 0;\n    y1 = 0;\n    x2 = 0;\n    y2 = 0;\n    \nend\n\n\n% Determine targeting information (default to cent"
+      "er of viewing area if no\n%   gate found)\nif( gate_found ~= 0 )\n    \n    % Determine width and half-height (t"
+      "o center of goal post)\n    w = sqrt( (x2 - x1)^2 + (y2 - y1)^2 );\n    hh = target_height*gate_aspect_ratio*w;\n"
+      "    \n    % Project a line \"up\" (relative to camera) and determine target\n    %   information\n    x12 = (x1 "
+      "+ x2)/2;\n    y12 = (y1 + y2)/2;\n    \n    u = [1 -abs(avg_slope)];\n    u = u./norm(u);\n    \n    target_x = "
+      "x12 + hh*u(1);\n    target_y = y12 + hh*u(2);\n    \n    \n    % old code that works, partially\n    %phi = atan"
+      "(avg_slope);\n    %target_x = x12 - hh*cos(phi);\n    %target_y = y12 - hh*sin(phi);\n    \n    \n    \n    \n  "
+      "  \n    \n    %{\n    intercept = y12 - avg_slope*x12;\n    \n    a = avg_slope^2 + 1;\n    b = 2*(avg_slope*(in"
+      "tercept - y12) - x12);\n    c = x12^2 + (avg_slope - y12)^2 - hh^2;\n    \n    target_x = real( (-b + sqrt(b^2 -"
+      " 4*a*c))/(2*a) );\n    target_y = avg_slope*target_x + intercept;\n    %}\n    \n    \n    \n    % Transform tar"
+      "get x, y to global coordinate system\n    target_z = target_y - floor(rows/2);\n    target_y = target_x - floor("
+      "cols/2);\n    \nelse\n    \n    % Default is center of viewing area\n    target_x = 0;\n    target_y = 0;\n    t"
+      "arget_z = 0;\n    \nend\n\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+    }
+  }
+  junction {
+    id			    18
+    position		    [23.5747 49.5747 7]
+    chart		    16
+    linkNode		    [16 0 0]
+    subviewer		    16
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    19
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      18
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    16
+    linkNode		    [16 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    16
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    20
+    ssIdNumber		    21
+    name		    "bw_image_in"
+    linkNode		    [16 0 21]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    21
+    ssIdNumber		    4
+    name		    "hough_table"
+    linkNode		    [16 20 22]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    22
+    ssIdNumber		    5
+    name		    "theta_out"
+    linkNode		    [16 21 23]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    23
+    ssIdNumber		    9
+    name		    "rho_out"
+    linkNode		    [16 22 24]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    24
+    ssIdNumber		    19
+    name		    "target_y"
+    linkNode		    [16 23 25]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    25
+    ssIdNumber		    18
+    name		    "target_z"
+    linkNode		    [16 24 26]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    26
+    ssIdNumber		    15
+    name		    "gate_found"
+    linkNode		    [16 25 27]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    27
+    ssIdNumber		    16
+    name		    "theta_in"
+    linkNode		    [16 26 28]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    28
+    ssIdNumber		    17
+    name		    "rho_in"
+    linkNode		    [16 27 29]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    29
+    ssIdNumber		    20
+    name		    "threshold"
+    linkNode		    [16 28 30]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    30
+    ssIdNumber		    23
+    name		    "target_height"
+    linkNode		    [16 29 31]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    31
+    ssIdNumber		    22
+    name		    "gate_aspect_ratio"
+    linkNode		    [16 30 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    32
+    name		    "Convert to BW/Identify Validation Gate1"
+    machine		    1
+    chart		    16
+  }
+  chart {
+    id			    33
+    name		    "Convert to BW/Identify Validation Gate2"
+    windowPosition	    [473.98 121.448 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 34 0 0]
+    firstTransition	    36
+    firstJunction	    35
+    viewObj		    33
+    machine		    1
+    ssIdHighWaterMark	    27
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    37
+    chartFileNumber	    4
+    disableImplicitCasting  1
+    eml {
+      name		      "makeIntensityImage"
+    }
+  }
+  state {
+    id			    34
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    33
+    treeNode		    [33 0 0 0]
+    superState		    SUBCHART
+    subviewer		    33
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function intensity_image  = makeIntensityImage(LabelMatrix)\n%#eml\n\n\nintensity_image = LabelMa"
+      "trix./max(max(max(abs(LabelMatrix))));\n\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+    }
+  }
+  junction {
+    id			    35
+    position		    [23.5747 49.5747 7]
+    chart		    33
+    linkNode		    [33 0 0]
+    subviewer		    33
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    36
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      35
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    33
+    linkNode		    [33 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    33
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    37
+    ssIdNumber		    21
+    name		    "LabelMatrix"
+    linkNode		    [33 0 38]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    38
+    ssIdNumber		    5
+    name		    "intensity_image"
+    linkNode		    [33 37 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    39
+    name		    "Convert to BW/Identify Validation Gate2"
+    machine		    1
+    chart		    33
+  }
+  chart {
+    id			    40
+    name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter"
+    windowPosition	    [476.813 159 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 41 0 0]
+    firstTransition	    43
+    firstJunction	    42
+    viewObj		    40
+    machine		    1
+    ssIdHighWaterMark	    7
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    44
+    chartFileNumber	    45
+    disableImplicitCasting  1
+    eml {
+      name		      "GaussianBlurr"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    41
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    40
+    treeNode		    [40 0 0 0]
+    superState		    SUBCHART
+    subviewer		    40
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function Iout = GaussianBlurr(I)\n% This function calculates the gaussian blur of an intensity im"
+      "age\n\nsigma = sqrt(2);\n\nGrows = 3;    % Gaussian matrix rows\nGcols = 3;    % Gaussian matrix columns\n\n[Iro"
+      "ws Icols] = size(I);\n\nIout = double(zeros(Irows,Icols));\n\nTrows = Irows - Grows + 1;\nTcols = Icols - Gcols "
+      "+ 1;\nItemp = double(zeros(Trows,Tcols));\n\nG = zeros(Grows,Gcols);\n\nFirstRow = ceil(-Grows/2);\nLastRow = fl"
+      "oor(Grows/2);\nFirstCol = ceil(-Gcols/2);\nLastCol = floor(Gcols/2);\nGsum = 0;\nfor i=FirstRow:LastRow\n    for"
+      " j = FirstCol:LastCol\n        G(i-FirstRow+1,j-FirstCol+1) = exp(-(j*j+i*i)/(2*sigma*sigma));\n        Gsum = G"
+      "sum + G(i-FirstRow+1,j-FirstCol+1);\n    end\nend\n\nG = G./Gsum;\n\nItemp = conv2(double(I),double(G),'valid');"
+      "\n\n% reflect boundaries to keep image the same size\n% top\nIout((1:LastRow),(LastCol+1:Icols-LastCol)) = Itemp"
+      "((1:LastRow),(1:Tcols));\n% bottom\nIout((Irows-LastRow+1:Irows),(LastCol+1:Icols-LastCol)) = Itemp((Trows-LastR"
+      "ow+1:Trows),(1:Tcols));\n% left\nIout((1+LastRow:Irows-LastRow),(1:LastCol)) = Itemp((1:Trows),(1:LastCol));\n% "
+      "right\nIout((1+LastRow:Irows-LastRow),(Icols-LastCol+1:Icols)) = Itemp((1:Trows),(Tcols-LastCol+1:Tcols));\n% ce"
+      "nter\nIout((1+LastRow:Irows-LastRow),(1+LastCol:Icols-LastCol)) = Itemp;\n% top left corner\nIout(1:LastRow,1:La"
+      "stCol) = Itemp(1:LastRow,1:LastCol);\n% top right corner\nIout(1:LastRow,Icols-LastCol:Icols) = Itemp(1:LastRow,"
+      "Tcols-LastCol:Tcols);\n% bottom left corner\nIout(Irows-LastRow:Irows,1:LastCol) = Itemp(Trows-LastRow:Trows,1:L"
+      "astCol);\n% bottom right corner\nIout(Irows-LastRow:Irows,Icols-LastCol:Icols) = Itemp(Trows-LastRow:Trows,Tcols"
+      "-LastCol:Tcols);\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    42
+    position		    [23.5747 49.5747 7]
+    chart		    40
+    linkNode		    [40 0 0]
+    subviewer		    40
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    43
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      42
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    40
+    linkNode		    [40 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    40
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    44
+    ssIdNumber		    4
+    name		    "I"
+    linkNode		    [40 0 45]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    45
+    ssIdNumber		    5
+    name		    "Iout"
+    linkNode		    [40 44 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    46
+    name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter"
+    machine		    1
+    chart		    40
+  }
+  chart {
+    id			    47
+    name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
+    windowPosition	    [461.813 174 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 48 0 0]
+    firstTransition	    50
+    firstJunction	    49
+    viewObj		    47
+    machine		    1
+    ssIdHighWaterMark	    7
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    51
+    chartFileNumber	    46
+    disableImplicitCasting  1
+    eml {
+      name		      "GaussianBlurr"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    48
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    47
+    treeNode		    [47 0 0 0]
+    superState		    SUBCHART
+    subviewer		    47
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function Iout = GaussianBlurr(I)\n% This function calculates the gaussian blur of an intensity im"
+      "age\n\nsigma = sqrt(2);\n\nGrows = 3;    % Gaussian matrix rows\nGcols = 3;    % Gaussian matrix columns\n\n[Iro"
+      "ws Icols] = size(I);\n\nIout = double(zeros(Irows,Icols));\n\nTrows = Irows - Grows + 1;\nTcols = Icols - Gcols "
+      "+ 1;\nItemp = double(zeros(Trows,Tcols));\n\nG = zeros(Grows,Gcols);\n\nFirstRow = ceil(-Grows/2);\nLastRow = fl"
+      "oor(Grows/2);\nFirstCol = ceil(-Gcols/2);\nLastCol = floor(Gcols/2);\nGsum = 0;\nfor i=FirstRow:LastRow\n    for"
+      " j = FirstCol:LastCol\n        G(i-FirstRow+1,j-FirstCol+1) = exp(-(j*j+i*i)/(2*sigma*sigma));\n        Gsum = G"
+      "sum + G(i-FirstRow+1,j-FirstCol+1);\n    end\nend\n\nG = G./Gsum;\n\nItemp = conv2(double(I),double(G),'valid');"
+      "\n\n% reflect boundaries to keep image the same size\n% top\nIout((1:LastRow),(LastCol+1:Icols-LastCol)) = Itemp"
+      "((1:LastRow),(1:Tcols));\n% bottom\nIout((Irows-LastRow+1:Irows),(LastCol+1:Icols-LastCol)) = Itemp((Trows-LastR"
+      "ow+1:Trows),(1:Tcols));\n% left\nIout((1+LastRow:Irows-LastRow),(1:LastCol)) = Itemp((1:Trows),(1:LastCol));\n% "
+      "right\nIout((1+LastRow:Irows-LastRow),(Icols-LastCol+1:Icols)) = Itemp((1:Trows),(Tcols-LastCol+1:Tcols));\n% ce"
+      "nter\nIout((1+LastRow:Irows-LastRow),(1+LastCol:Icols-LastCol)) = Itemp;\n% top left corner\nIout(1:LastRow,1:La"
+      "stCol) = Itemp(1:LastRow,1:LastCol);\n% top right corner\nIout(1:LastRow,Icols-LastCol:Icols) = Itemp(1:LastRow,"
+      "Tcols-LastCol:Tcols);\n% bottom left corner\nIout(Irows-LastRow:Irows,1:LastCol) = Itemp(Trows-LastRow:Trows,1:L"
+      "astCol);\n% bottom right corner\nIout(Irows-LastRow:Irows,Icols-LastCol:Icols) = Itemp(Trows-LastRow:Trows,Tcols"
+      "-LastCol:Tcols);\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    49
+    position		    [23.5747 49.5747 7]
+    chart		    47
+    linkNode		    [47 0 0]
+    subviewer		    47
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    50
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      49
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    47
+    linkNode		    [47 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    47
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    51
+    ssIdNumber		    4
+    name		    "I"
+    linkNode		    [47 0 52]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    52
+    ssIdNumber		    5
+    name		    "Iout"
+    linkNode		    [47 51 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    53
+    name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter1"
+    machine		    1
+    chart		    47
+  }
+  chart {
+    id			    54
+    name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
+    windowPosition	    [461.813 174 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 55 0 0]
+    firstTransition	    57
+    firstJunction	    56
+    viewObj		    54
+    machine		    1
+    ssIdHighWaterMark	    7
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    58
+    chartFileNumber	    47
+    disableImplicitCasting  1
+    eml {
+      name		      "GaussianBlurr"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    55
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    54
+    treeNode		    [54 0 0 0]
+    superState		    SUBCHART
+    subviewer		    54
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function Iout = GaussianBlurr(I)\n% This function calculates the gaussian blur of an intensity im"
+      "age\n\nsigma = sqrt(2);\n\nGrows = 3;    % Gaussian matrix rows\nGcols = 3;    % Gaussian matrix columns\n\n[Iro"
+      "ws Icols] = size(I);\n\nIout = double(zeros(Irows,Icols));\n\nTrows = Irows - Grows + 1;\nTcols = Icols - Gcols "
+      "+ 1;\nItemp = double(zeros(Trows,Tcols));\n\nG = zeros(Grows,Gcols);\n\nFirstRow = ceil(-Grows/2);\nLastRow = fl"
+      "oor(Grows/2);\nFirstCol = ceil(-Gcols/2);\nLastCol = floor(Gcols/2);\nGsum = 0;\nfor i=FirstRow:LastRow\n    for"
+      " j = FirstCol:LastCol\n        G(i-FirstRow+1,j-FirstCol+1) = exp(-(j*j+i*i)/(2*sigma*sigma));\n        Gsum = G"
+      "sum + G(i-FirstRow+1,j-FirstCol+1);\n    end\nend\n\nG = G./Gsum;\n\nItemp = conv2(double(I),double(G),'valid');"
+      "\n\n% reflect boundaries to keep image the same size\n% top\nIout((1:LastRow),(LastCol+1:Icols-LastCol)) = Itemp"
+      "((1:LastRow),(1:Tcols));\n% bottom\nIout((Irows-LastRow+1:Irows),(LastCol+1:Icols-LastCol)) = Itemp((Trows-LastR"
+      "ow+1:Trows),(1:Tcols));\n% left\nIout((1+LastRow:Irows-LastRow),(1:LastCol)) = Itemp((1:Trows),(1:LastCol));\n% "
+      "right\nIout((1+LastRow:Irows-LastRow),(Icols-LastCol+1:Icols)) = Itemp((1:Trows),(Tcols-LastCol+1:Tcols));\n% ce"
+      "nter\nIout((1+LastRow:Irows-LastRow),(1+LastCol:Icols-LastCol)) = Itemp;\n% top left corner\nIout(1:LastRow,1:La"
+      "stCol) = Itemp(1:LastRow,1:LastCol);\n% top right corner\nIout(1:LastRow,Icols-LastCol:Icols) = Itemp(1:LastRow,"
+      "Tcols-LastCol:Tcols);\n% bottom left corner\nIout(Irows-LastRow:Irows,1:LastCol) = Itemp(Trows-LastRow:Trows,1:L"
+      "astCol);\n% bottom right corner\nIout(Irows-LastRow:Irows,Icols-LastCol:Icols) = Itemp(Trows-LastRow:Trows,Tcols"
+      "-LastCol:Tcols);\n\nreturn\n"
+      editorLayout	      "100 M4x1[101 68 1056 606]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    56
+    position		    [23.5747 49.5747 7]
+    chart		    54
+    linkNode		    [54 0 0]
+    subviewer		    54
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    57
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      56
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    54
+    linkNode		    [54 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    54
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    58
+    ssIdNumber		    4
+    name		    "I"
+    linkNode		    [54 0 59]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    59
+    ssIdNumber		    5
+    name		    "Iout"
+    linkNode		    [54 58 0]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    60
+    name		    "Convert to BW/IterativeSegmentation/Low Pass Filter/Low Pass Filter2"
+    machine		    1
+    chart		    54
+  }
+  chart {
+    id			    61
+    name		    "Convert to BW/IterativeSegmentation/Segmentation/LabSegmentation"
+    windowPosition	    [431.813 195 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 62 0 0]
+    firstTransition	    64
+    firstJunction	    63
+    viewObj		    61
+    machine		    1
+    ssIdHighWaterMark	    11
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    65
+    chartFileNumber	    48
+    disableImplicitCasting  1
+    eml {
+      name		      "LabSegmentation"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    62
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    61
+    treeNode		    [61 0 0 0]
+    superState		    SUBCHART
+    subviewer		    61
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function LabelMatrix  = LabSegmentation(L,a,b,ref_colors,num_colors)\n% This function generates t"
+      "he label matrix\n\n[rows cols] = size(L);\n\nLout = zeros(rows,cols);\naout = zeros(rows,cols);\nbout = zeros(ro"
+      "ws,cols);\n\nLabelMatrix = zeros(rows,cols);\n\nfor i = 1:rows\n    for j = 1:cols\n        min_dist = 1000;\n  "
+      "      index = 1;\n        for k = 1:num_colors\n            dist = sqrt((ref_colors(k,1) - L(i,j))^2 + (ref_colo"
+      "rs(k,2) - a(i,j))^2 + (ref_colors(k,3) - b(i,j))^2);\n            if(dist < min_dist)\n                min_dist "
+      "= double(dist);\n                index = k;\n            end\n        end\n        LabelMatrix(i,j) = index;\n  "
+      "  end\nend\n\nfor i = 1:rows\n    for j = 1:cols\n        Lout(i,j) = ref_colors(LabelMatrix(i,j),1);\n        a"
+      "out(i,j) = ref_colors(LabelMatrix(i,j),2);\n        bout(i,j) = ref_colors(LabelMatrix(i,j),3);\n    end\nend\n\n"
+      "cow = 1;\n\nreturn\n"
+      editorLayout	      "100 M4x1[205 227 1080 733]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    63
+    position		    [23.5747 49.5747 7]
+    chart		    61
+    linkNode		    [61 0 0]
+    subviewer		    61
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    64
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      63
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    61
+    linkNode		    [61 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    61
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    65
+    ssIdNumber		    4
+    name		    "L"
+    linkNode		    [61 0 66]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    66
+    ssIdNumber		    5
+    name		    "LabelMatrix"
+    linkNode		    [61 65 67]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    67
+    ssIdNumber		    6
+    name		    "a"
+    linkNode		    [61 66 68]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    68
+    ssIdNumber		    7
+    name		    "b"
+    linkNode		    [61 67 69]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    69
+    ssIdNumber		    8
+    name		    "ref_colors"
+    linkNode		    [61 68 70]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    70
+    ssIdNumber		    9
+    name		    "num_colors"
+    linkNode		    [61 69 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    71
+    name		    "Convert to BW/IterativeSegmentation/Segmentation/LabSegmentation"
+    machine		    1
+    chart		    61
+  }
+  chart {
+    id			    72
+    name		    "Convert to BW/IterativeSegmentation/Segmentation/Reference Color Selection"
+    windowPosition	    [431.813 195 200.25 189.75]
+    viewLimits		    [0 156.75 0 153.75]
+    screen		    [1 1 3120 1050 1.180555555555556]
+    treeNode		    [0 73 0 0]
+    firstTransition	    75
+    firstJunction	    74
+    viewObj		    72
+    machine		    1
+    ssIdHighWaterMark	    10
+    decomposition	    CLUSTER_CHART
+    type		    EML_CHART
+    firstData		    76
+    chartFileNumber	    49
+    disableImplicitCasting  1
+    eml {
+      name		      "Segmentation"
+    }
+    supportVariableSizing   0
+  }
+  state {
+    id			    73
+    labelString		    "eML_blk_kernel()"
+    position		    [18 64.5 118 66]
+    fontSize		    12
+    chart		    72
+    treeNode		    [72 0 0 0]
+    superState		    SUBCHART
+    subviewer		    72
+    ssIdNumber		    1
+    type		    FUNC_STATE
+    decomposition	    CLUSTER_STATE
+    eml {
+      isEML		      1
+      script		      "function [ref_colors, num_colors] = Segmentation(L,a,b,Dist_Thresh)\n% This function tries segmen"
+      "tation by adding new reference colors everytime\n% a pixel is found with a distance greater than a certain amoun"
+      "t from\n% every other reference color\n\n[rows cols] = size(L);\n\nDist_Threshold = Dist_Thresh;% L = 0 to 100, "
+      "a = -100 to 100, b = -100 to 100\n                    % max dist = 300 -> 60/300 is 20%\nx = 1;  % coefficients "
+      "determining distance calculation\ny = 1.5;\nz = 1.5;\n\nmax_num_colors = 50;\nref_colors = zeros(max_num_colors,"
+      "3);   % At most 50 different reference colors\nLabelMatrix = zeros(rows,cols);\nnum_colors = 1;\n\ncenter_row = "
+      "floor(rows/2);\ncenter_col = floor(cols/2);\n\n% Define first reference color to be colr\nref_colors(1,:) = [L(c"
+      "enter_row,center_col) a(center_row,center_col) b(center_row,center_col)];\n\nflag = 0;\ni = 1;\nj = 1;\nwhile(i "
+      "<= rows)        % perform initial segmentation\n    while(i <= rows && flag == 0)\n        while(j <= cols && fl"
+      "ag == 0)\n            k = 1;\n            min_dist = 1000;\n            index = 1;\n            while(k <= num_c"
+      "olors)\n                dist = sqrt(x*(ref_colors(k,1) - L(i,j))^2 + y*(ref_colors(k,2) - a(i,j))^2 + z*(ref_col"
+      "ors(k,3) - b(i,j))^2);\n                if(min_dist > dist)\n                    min_dist = double(dist);\n     "
+      "               index = k;\n                end\n                k = k + 1;\n            end\n            if(j =="
+      " 117)\n                cow = 1;\n            end\n            if(min_dist > Dist_Threshold && num_colors < max_n"
+      "um_colors)\n                ref_colors(num_colors+1,:) = [L(i,j) a(i,j) b(i,j)];\n                num_colors = n"
+      "um_colors + 1;\n                flag = 1;\n                i = 0;\n                j = 0;\n            else\n   "
+      "             LabelMatrix(i,j) = index;\n            end\n            j = j + 1;\n        end\n        j = 1;\n  "
+      "      i = i + 1;\n    end\n    flag = 0;\nend\n\n% Go through image once more to get more accurate values for th"
+      "e different regions\nref_color_L_avg = zeros(50,1);\nref_color_a_avg = zeros(50,1);\nref_color_b_avg = zeros(50,"
+      "1);\ncolor_count = zeros(50,1);\nfor i = 1:rows\n    for j = 1:cols\n        index = LabelMatrix(i,j);\n        "
+      "ref_color_L_avg(index) = ref_color_L_avg(index) + L(i,j);\n        ref_color_a_avg(index) = ref_color_a_avg(inde"
+      "x) + a(i,j);\n        ref_color_b_avg(index) = ref_color_b_avg(index) + b(i,j);\n        color_count(index) = co"
+      "lor_count(index) + 1;\n    end\nend\nref_color_L_avg = ref_color_L_avg ./ color_count;\nref_color_a_avg = ref_co"
+      "lor_a_avg ./ color_count;\nref_color_b_avg = ref_color_b_avg ./ color_count;\n\nfor i = 1:num_colors\n    ref_co"
+      "lors(i,1) = ref_color_L_avg(i);\n    ref_colors(i,2) = ref_color_a_avg(i);\n    ref_colors(i,3) = ref_color_b_av"
+      "g(i);\nend\n\nreturn\n"
+      editorLayout	      "100 M4x1[1646 122 744 728]"
+      fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
+      "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
+      emlDefaultFimath	      FimathUserSpecified
+    }
+  }
+  junction {
+    id			    74
+    position		    [23.5747 49.5747 7]
+    chart		    72
+    linkNode		    [72 0 0]
+    subviewer		    72
+    ssIdNumber		    3
+    type		    CONNECTIVE_JUNCTION
+  }
+  transition {
+    id			    75
+    labelString		    "{eML_blk_kernel();}"
+    labelPosition	    [32.125 19.875 102.544 14.964]
+    fontSize		    12
+    src {
+      intersection	      [0 0 1 0 23.5747 14.625 0 0]
+    }
+    dst {
+      id		      74
+      intersection	      [7 0 -1 -1 23.5747 42.5747 0 0]
+    }
+    midPoint		    [23.5747 24.9468]
+    chart		    72
+    linkNode		    [72 0 0]
+    dataLimits		    [23.575 23.575 14.625 34.575]
+    subviewer		    72
+    drawStyle		    SMART
+    executionOrder	    1
+    ssIdNumber		    2
+  }
+  data {
+    id			    76
+    ssIdNumber		    4
+    name		    "L"
+    linkNode		    [72 0 77]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    77
+    ssIdNumber		    5
+    name		    "ref_colors"
+    linkNode		    [72 76 78]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    78
+    ssIdNumber		    6
+    name		    "a"
+    linkNode		    [72 77 79]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    79
+    ssIdNumber		    7
+    name		    "b"
+    linkNode		    [72 78 80]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    80
+    ssIdNumber		    8
+    name		    "num_colors"
+    linkNode		    [72 79 81]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  data {
+    id			    81
+    ssIdNumber		    10
+    name		    "Dist_Thresh"
+    linkNode		    [72 80 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      array {
+	size			"-1"
+      }
+      type {
+	method			SF_INHERITED_TYPE
+	primitive		SF_DOUBLE_TYPE
+	isSigned		1
+	wordLength		"16"
+      }
+      complexity	      SF_COMPLEX_INHERITED
+      frame		      SF_FRAME_INHERITED
+    }
+    dataType		    "Inherit: Same as Simulink"
+  }
+  instance {
+    id			    82
+    name		    "Convert to BW/IterativeSegmentation/Segmentation/Reference Color Selection"
+    machine		    1
+    chart		    72
+  }
+  target {
+    id			    83
+    name		    "sfun"
+    description		    "Default Simulink S-Function Target."
+    machine		    1
+    linkNode		    [1 0 84]
+  }
+  target {
+    id			    84
+    name		    "rtw"
+    machine		    1
+    linkNode		    [1 83 0]
+  }
+}
