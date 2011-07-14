@@ -1,8 +1,13 @@
 
-Thruster_RightFwd_Gain = 1;
-Thruster_LeftFwd_Gain = 1;
-Thruster_RightAngled_Gain = 1;
-Thruster_LeftAngled_Gain = 1;
+Thruster_RightFwd_Gain = double(1.01);
+Thruster_LeftFwd_Gain = double(1.01);
+Thruster_RightAngled_Gain = double(1.01);
+Thruster_LeftAngled_Gain = double(1.01);
+
+%Thruster_RightFwd_Gain = 1;
+%Thruster_LeftFwd_Gain = 1;
+%Thruster_RightAngled_Gain = 1;
+%Thruster_LeftAngled_Gain = 1;
 
 % Value at which thruster starts moving (percent)
 Thruster_Friction_Zero = 15; 

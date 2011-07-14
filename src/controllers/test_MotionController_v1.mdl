@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.153"
+    ComputedModelVersion    "1.158"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_MotionController_v1/vision_model.mdl|MotionController"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jul 14 01:04:37 2011"
-  RTWModifiedTimeStamp	  232501058
-  ModelVersionFormat	  "1.%<AutoIncrement:153>"
+  LastModifiedDate	  "Thu Jul 14 10:21:37 2011"
+  RTWModifiedTimeStamp	  232539498
+  ModelVersionFormat	  "1.%<AutoIncrement:158>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -970,7 +970,7 @@ Model {
       Position		      [545, 191, 970, 1259]
       ModelNameDialog	      "MotionController"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.136"
+      ModelReferenceVersion   "1.137"
       List {
 	ListType		InputPortNames
 	port0			"TargetSelect"

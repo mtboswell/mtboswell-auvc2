@@ -46,7 +46,12 @@ Parameter.Target.Down.Yaw.Kp=1
 Parameter.Target.Down.Yaw.Ki=0
 Parameter.Target.Down.Yaw.Kd=0
 Parameter.Thruster.Friction.Zero=15
-Thrusters.LeftFwd.Gain=1
+
+
+Paramater.Thruster.LeftFwd.Gain=1.0
+
+Paramater.Thruster.LeftFwd.Gain=1
+
 Thrusters.RightFwd.Gain=1
 Thrusters.LeftAngled.Gain=1
 Thrusters.RightAngled.Gain=1

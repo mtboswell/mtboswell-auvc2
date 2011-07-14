@@ -113,7 +113,7 @@ Model {
       Name		      "RightAngled"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.136"
+    ComputedModelVersion    "1.138"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -133,9 +133,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jul 14 00:24:30 2011"
-  RTWModifiedTimeStamp	  232500970
-  ModelVersionFormat	  "1.%<AutoIncrement:136>"
+  LastModifiedDate	  "Thu Jul 14 10:21:31 2011"
+  RTWModifiedTimeStamp	  232539627
+  ModelVersionFormat	  "1.%<AutoIncrement:138>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -1391,7 +1391,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nroot\\n14-Jul-2011 00:24:14"
+      "nroot\\n14-Jul-2011 10:20:29"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -6651,7 +6651,7 @@ Model {
       System {
 	Name			"Thruster Arrangement"
 	Location		[458, 143, 1229, 616]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -6792,7 +6792,7 @@ Model {
 	  Position		  [595, 255, 625, 285]
 	  Gain			  "Thruster_LeftAngled_Gain/100"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "double"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
@@ -6823,7 +6823,7 @@ Model {
 	  Position		  [595, 45, 625, 75]
 	  Gain			  "Thruster_LeftFwd_Gain/100"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "double"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
@@ -6854,7 +6854,7 @@ Model {
 	  Position		  [595, 345, 625, 375]
 	  Gain			  "Thruster_RightAngled_Gain/100"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "double"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
@@ -6885,7 +6885,7 @@ Model {
 	  Position		  [595, 135, 625, 165]
 	  Gain			  "Thruster_RightFwd_Gain/100"
 	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
-	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "double"
 	  SaturateOnIntegerOverflow off
 	}
 	Block {
