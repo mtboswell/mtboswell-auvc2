@@ -57,24 +57,28 @@ void Controllers::init(){
 
 void Controllers::printVars()
 {
-        qDebug() << "MotionController_U.DesiredTargetX" << MotionController_U.DesiredTargetX;
-        qDebug() << "MotionController_U.DesiredTargetY" << MotionController_U.DesiredTargetY;
-        qDebug() << "MotionController_U.DesiredTargetZ" << MotionController_U.DesiredTargetZ;
-        qDebug() << "MotionController_U.DesiredTargetYaw" << MotionController_U.DesiredTargetYaw;
-        qDebug() << "MotionController_U.DesiredTargetXVelocity" << MotionController_U.DesiredXVelocity;
-        qDebug() << "MotionController_U.DesiredTargetYaw" << MotionController_U.DesiredYaw;
-        qDebug() << "MotionController_U.DesiredZ" << MotionController_U.DesiredZ;
-        qDebug() << "MotionController_U.MaintainHeading" << MotionController_U.MaintainHeading;
-        qDebug() << "MotionController_U.MeasuredYAccel" << MotionController_U.MeasuredYAccel;
-        qDebug() << "MotionController_U.MeasuredYaw" << MotionController_U.MeasuredYaw;
-        qDebug() << "MotionController_U.MeasuredYawRate" << MotionController_U.MeasuredYawRate;
-        qDebug() << "MotionController_U.MeasuredZ" << MotionController_U.MeasuredZ;
-        qDebug() << "MotionController_U.TargetFound" << MotionController_U.TargetFound;
-        qDebug() << "MotionController_U.TargetSelect" << MotionController_U.TargetSelect;
-        qDebug() << "MotionController_U.TargetX" << MotionController_U.TargetX;
-        qDebug() << "MotionController_U.TargetY" << MotionController_U.TargetY;
-        qDebug() << "MotionController_U.TargetYaw" << MotionController_U.TargetYaw;
-        qDebug() << "MotionController_U.TargetZ" << MotionController_U.TargetZ;
+    qDebug() << "MotionController_U.DesiredTargetX" << MotionController_U.DesiredTargetX;
+    qDebug() << "MotionController_U.DesiredTargetY" << MotionController_U.DesiredTargetY;
+    qDebug() << "MotionController_U.DesiredTargetZ" << MotionController_U.DesiredTargetZ;
+    qDebug() << "MotionController_U.DesiredTargetYaw" << MotionController_U.DesiredTargetYaw;
+    qDebug() << "MotionController_U.DesiredTargetXVelocity" << MotionController_U.DesiredXVelocity;
+    qDebug() << "MotionController_U.DesiredTargetYaw" << MotionController_U.DesiredYaw;
+    qDebug() << "MotionController_U.DesiredZ" << MotionController_U.DesiredZ;
+    qDebug() << "MotionController_U.MaintainHeading" << MotionController_U.MaintainHeading;
+    qDebug() << "MotionController_U.MeasuredYAccel" << MotionController_U.MeasuredYAccel;
+    qDebug() << "MotionController_U.MeasuredYaw" << MotionController_U.MeasuredYaw;
+    qDebug() << "MotionController_U.MeasuredYawRate" << MotionController_U.MeasuredYawRate;
+    qDebug() << "MotionController_U.MeasuredZ" << MotionController_U.MeasuredZ;
+    qDebug() << "MotionController_U.TargetFound" << MotionController_U.TargetFound;
+    qDebug() << "MotionController_U.TargetSelect" << MotionController_U.TargetSelect;
+    qDebug() << "MotionController_U.TargetX" << MotionController_U.TargetX;
+    qDebug() << "MotionController_U.TargetY" << MotionController_U.TargetY;
+    qDebug() << "MotionController_U.TargetYaw" << MotionController_U.TargetYaw;
+    qDebug() << "MotionController_U.TargetZ" << MotionController_U.TargetZ;
+    qDebug() << "Thruster_LeftAngled_Gain" << MotionController_P.Thruster_LeftAngled_Gain;
+    qDebug() << "Thruster_LeftFwd_Gain" << MotionController_P.Thruster_LeftFwd_Gain;
+    qDebug() << "Thruster_RightAngled_Gain" << MotionController_P.Thruster_RightAngled_Gain;
+    qDebug() << "Thruster_RightFwd_Gain" << MotionController_P.Thruster_RightFwd_Gain;
 
 }
 
@@ -82,7 +86,7 @@ void Controllers::step(){
 	//qDebug() << "Stepping Controllers";
 
 	updateParameters();
-
+        printVars();
 	// set inputs based on all relevant data (primarily the currentCMD)
 
 	// vim cmd used to parse .h:
