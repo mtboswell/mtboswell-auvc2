@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model MotionController.
  *
- * Model version                        : 1.130
+ * Model version                        : 1.136
  * Real-Time Workshop file version      : 7.6  (R2010b)  03-Aug-2010
- * Real-Time Workshop file generated on : Mon Jun 27 18:02:01 2011
+ * Real-Time Workshop file generated on : Thu Jul 14 00:26:35 2011
  * TLC version                          : 7.6 (Jul 13 2010)
- * C/C++ source code generated on       : Mon Jun 27 18:02:02 2011
+ * C/C++ source code generated on       : Thu Jul 14 00:26:35 2011
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic
@@ -33,25 +33,22 @@
 #endif                                 /* TMWTYPES_PREVIOUSLY_INCLUDED */
 #endif                                 /* __RTWTYPES_H__ */
 
-extern void MotionCont_DownXController_Init(rtDW_DownXController_MotionCont
-  *localDW);
-extern void MotionCon_DownXController_Start(rtDW_DownXController_MotionCont
-  *localDW);
-extern void MotionC_DownXController_Disable(real_T *rty_Output,
-  rtDW_DownXController_MotionCont *localDW);
-extern void MotionControlle_DownXController(real_T rtu_0, real_T rtu_Measured,
-  real_T rtu_Setpoint, real_T *rty_Output, rtDW_DownXController_MotionCont
-  *localDW, real_T rtp_Kd, real_T rtp_Ki, real_T rtp_Kp);
-extern void MotionCo_DownYawController_Init(rtDW_DownYawController_MotionCo
-  *localDW);
-extern void MotionC_DownYawController_Start(rtDW_DownYawController_MotionCo
-  *localDW);
-extern void Motio_DownYawController_Disable(real_T *rty_Output,
-  rtDW_DownYawController_MotionCo *localDW);
-extern void MotionControl_DownYawController(boolean_T rtu_0, real_T rtu_Measured,
-  real_T rtu_Setpoint, real_T *rty_Output, rtDW_DownYawController_MotionCo
-  *localDW, real_T rtp_Kd, real_T rtp_Ki, real_T rtp_Kp);
+/* Macros for accessing real-time model data structure */
+#ifndef rtmGetErrorStatus
+# define rtmGetErrorStatus(rtm)        (*((rtm)->errorStatus))
+#endif
 
+#ifndef rtmSetErrorStatus
+# define rtmSetErrorStatus(rtm, val)   (*((rtm)->errorStatus) = (val))
+#endif
+
+#ifndef rtmGetErrorStatusPointer
+# define rtmGetErrorStatusPointer(rtm) (rtm)->errorStatus
+#endif
+
+#ifndef rtmSetErrorStatusPointer
+# define rtmSetErrorStatusPointer(rtm, val) ((rtm)->errorStatus = (val))
+#endif
 #endif                                 /* RTW_HEADER_MotionController_private_h_ */
 
 /*

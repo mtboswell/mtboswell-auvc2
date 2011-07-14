@@ -3,11 +3,11 @@
  *
  * Real-Time Workshop code generated for Simulink model MotionController.
  *
- * Model version                        : 1.130
+ * Model version                        : 1.136
  * Real-Time Workshop file version      : 7.6  (R2010b)  03-Aug-2010
- * Real-Time Workshop file generated on : Mon Jun 27 18:02:01 2011
+ * Real-Time Workshop file generated on : Thu Jul 14 00:26:35 2011
  * TLC version                          : 7.6 (Jul 13 2010)
- * C/C++ source code generated on       : Mon Jun 27 18:02:02 2011
+ * C/C++ source code generated on       : Thu Jul 14 00:26:35 2011
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: 32-bit Generic
@@ -19,29 +19,12 @@
 #define RTW_HEADER_MotionController_h_
 #ifndef MotionController_COMMON_INCLUDES_
 # define MotionController_COMMON_INCLUDES_
-#include <stddef.h>
 #include <math.h>
 #include <string.h>
 #include "rtwtypes.h"
 #endif                                 /* MotionController_COMMON_INCLUDES_ */
 
 #include "MotionController_types.h"
-
-/* Macros for accessing real-time model data structure */
-#ifndef rtmGetErrorStatus
-# define rtmGetErrorStatus(rtm)        ((rtm)->errorStatus)
-#endif
-
-#ifndef rtmSetErrorStatus
-# define rtmSetErrorStatus(rtm, val)   ((rtm)->errorStatus = (val))
-#endif
-
-/* Block states (auto storage) for system '<S40>/Down X Controller' */
-typedef struct {
-  real_T UD_DSTATE;                    /* '<S45>/UD' */
-  real_T DiscreteTimeIntegrator_DSTATE;/* '<S42>/Discrete-Time Integrator' */
-  boolean_T DownXController_MODE;      /* '<S40>/Down X Controller' */
-} rtDW_DownXController_MotionCont;
 
 /* Block states (auto storage) for system '<S40>/Down Yaw Controller' */
 typedef struct {
@@ -50,7 +33,7 @@ typedef struct {
   boolean_T DownYawController_MODE;    /* '<S40>/Down Yaw Controller' */
 } rtDW_DownYawController_MotionCo;
 
-/* Block signals (auto storage) */
+/* Block signals for model 'MotionController' */
 typedef struct {
   real_T MergeDesiredYVelocity;        /* '<S5>/Merge DesiredYVelocity' */
   real_T Merge;                        /* '<S3>/Merge' */
@@ -61,14 +44,20 @@ typedef struct {
   real_T Constant1;                    /* '<S15>/Constant1' */
   real_T Add_l;                        /* '<S14>/Add' */
   real_T Constant1_e;                  /* '<S14>/Constant1' */
-} BlockIO_MotionController;
+} rtB_mr_MotionController;
 
-/* Block states (auto storage) for system '<Root>' */
+/* Block states (auto storage) for model 'MotionController' */
 typedef struct {
   real_T UD_DSTATE;                    /* '<S22>/UD' */
   real_T DepthDiscreteTimeIntegrator_DST;/* '<S21>/Depth Discrete-Time Integrator' */
+  real_T UD_DSTATE_d;                  /* '<S52>/UD' */
+  real_T DiscreteTimeIntegrator_DSTATE;/* '<S49>/Discrete-Time Integrator' */
   real_T UD_DSTATE_j;                  /* '<S51>/UD' */
-  real_T DiscreteTimeIntegrator_DSTATE;/* '<S48>/Discrete-Time Integrator' */
+  real_T DiscreteTimeIntegrator_DSTATE_b;/* '<S48>/Discrete-Time Integrator' */
+  real_T UD_DSTATE_je;                 /* '<S46>/UD' */
+  real_T DiscreteTimeIntegrator_DSTAT_bx;/* '<S43>/Discrete-Time Integrator' */
+  real_T UD_DSTATE_p;                  /* '<S45>/UD' */
+  real_T DiscreteTimeIntegrator_DSTATE_i;/* '<S42>/Discrete-Time Integrator' */
   real_T UD_DSTATE_jn;                 /* '<S20>/UD' */
   real_T HeadingDiscreteTimeIntegrator_D;/* '<S18>/Heading Discrete-Time Integrator' */
   real_T DiscreteTimeIntegrator_DSTATE_d;/* '<S8>/Discrete-Time Integrator' */
@@ -84,212 +73,54 @@ typedef struct {
   int8_T If_ActiveSubsystem_b;         /* '<S3>/If' */
   int8_T If_ActiveSubsystem_l;         /* '<S10>/If' */
   boolean_T TargetingControllers_MODE; /* '<Root>/Targeting Controllers' */
+  boolean_T DownXController_MODE;      /* '<S40>/Down X Controller' */
+  boolean_T DownYController_MODE;      /* '<S40>/Down Y Controller' */
   boolean_T PIDControllerwithEnable_MODE;/* '<S41>/PID Controller with Enable' */
+  boolean_T PIDControllerwithEnable1_MODE;/* '<S41>/PID Controller with Enable1' */
   rtDW_DownYawController_MotionCo PIDControllerwithEnable2;/* '<S41>/PID Controller with Enable2' */
-  rtDW_DownYawController_MotionCo PIDControllerwithEnable1;/* '<S41>/PID Controller with Enable1' */
   rtDW_DownYawController_MotionCo DownYawController;/* '<S40>/Down Yaw Controller' */
-  rtDW_DownXController_MotionCont DownYController;/* '<S40>/Down Y Controller' */
-  rtDW_DownXController_MotionCont DownXController;/* '<S40>/Down X Controller' */
-} D_Work_MotionController;
-
-/* External inputs (root inport signals with auto storage) */
-typedef struct {
-  real_T TargetSelect;                 /* '<Root>/TargetSelect' */
-  real_T TargetFound;                  /* '<Root>/TargetFound' */
-  uint8_T MaintainHeading;             /* '<Root>/MaintainHeading' */
-  real_T TargetX;                      /* '<Root>/TargetX' */
-  real_T TargetY;                      /* '<Root>/TargetY' */
-  real_T TargetZ;                      /* '<Root>/TargetZ' */
-  real_T TargetYaw;                    /* '<Root>/TargetYaw' */
-  real_T DesiredTargetX;               /* '<Root>/DesiredTargetX' */
-  real_T DesiredTargetY;               /* '<Root>/DesiredTargetY' */
-  real_T DesiredTargetZ;               /* '<Root>/DesiredTargetZ' */
-  real_T DesiredTargetYaw;             /* '<Root>/DesiredTargetYaw' */
-  real_T MeasuredZ;                    /* '<Root>/MeasuredZ' */
-  real_T MeasuredYAccel;               /* '<Root>/MeasuredYAccel' */
-  real_T MeasuredYaw;                  /* '<Root>/MeasuredYaw' */
-  real_T MeasuredYawRate;              /* '<Root>/MeasuredYawRate' */
-  real_T DesiredZ;                     /* '<Root>/DesiredZ' */
-  real_T DesiredXVelocity;             /* '<Root>/DesiredXVelocity' */
-  real_T DesiredYaw;                   /* '<Root>/DesiredYaw' */
-} ExternalInputs_MotionController;
-
-/* External outputs (root outports fed by signals with auto storage) */
-typedef struct {
-  real_T LeftFwd;                      /* '<Root>/LeftFwd' */
-  real_T RightFwd;                     /* '<Root>/RightFwd' */
-  real_T LeftAngled;                   /* '<Root>/LeftAngled' */
-  real_T RightAngled;                  /* '<Root>/RightAngled' */
-} ExternalOutputs_MotionControlle;
-
-/* Parameters (auto storage) */
-struct Parameters_MotionController_ {
-  real_T Compass_Yaw_Kd;               /* Variable: Compass_Yaw_Kd
-                                        * Referenced by: '<S11>/Heading Derivative Gain'
-                                        */
-  real_T Compass_Yaw_Ki;               /* Variable: Compass_Yaw_Ki
-                                        * Referenced by: '<S11>/Heading Integral Gain'
-                                        */
-  real_T Compass_Yaw_Kp;               /* Variable: Compass_Yaw_Kp
-                                        * Referenced by: '<S11>/Heading Proportional Gain'
-                                        */
-  real_T Depth_Kd;                     /* Variable: Depth_Kd
-                                        * Referenced by: '<S21>/Depth Derivative Gain'
-                                        */
-  real_T Depth_Ki;                     /* Variable: Depth_Ki
-                                        * Referenced by: '<S21>/Depth Integral Gain'
-                                        */
-  real_T Depth_Kp;                     /* Variable: Depth_Kp
-                                        * Referenced by: '<S21>/Depth Proportional Gain'
-                                        */
-  real_T IMU_YVel_Kd;                  /* Variable: IMU_YVel_Kd
-                                        * Referenced by: '<S17>/Y-Accelerometer Derivative Gain'
-                                        */
-  real_T IMU_YVel_Ki;                  /* Variable: IMU_YVel_Ki
-                                        * Referenced by: '<S17>/Y-Accelerometer Integral Gain'
-                                        */
-  real_T IMU_YVel_Kp;                  /* Variable: IMU_YVel_Kp
-                                        * Referenced by: '<S17>/Y-Accelerometer Proportional Gain'
-                                        */
-  real_T IMU_YawRate_Kd;               /* Variable: IMU_YawRate_Kd
-                                        * Referenced by: '<S18>/YawRate Derivative Gain'
-                                        */
-  real_T IMU_YawRate_Ki;               /* Variable: IMU_YawRate_Ki
-                                        * Referenced by: '<S18>/YawRate Integral Gain'
-                                        */
-  real_T IMU_YawRate_Kp;               /* Variable: IMU_YawRate_Kp
-                                        * Referenced by: '<S18>/YawRate Proportional Gain'
-                                        */
-  real_T Target_Down_X_Kd;             /* Variable: Target_Down_X_Kd
-                                        * Referenced by: '<S40>/Down X Controller'
-                                        */
-  real_T Target_Down_X_Ki;             /* Variable: Target_Down_X_Ki
-                                        * Referenced by: '<S40>/Down X Controller'
-                                        */
-  real_T Target_Down_X_Kp;             /* Variable: Target_Down_X_Kp
-                                        * Referenced by: '<S40>/Down X Controller'
-                                        */
-  real_T Target_Down_Y_Kd;             /* Variable: Target_Down_Y_Kd
-                                        * Referenced by: '<S40>/Down Y Controller'
-                                        */
-  real_T Target_Down_Y_Ki;             /* Variable: Target_Down_Y_Ki
-                                        * Referenced by: '<S40>/Down Y Controller'
-                                        */
-  real_T Target_Down_Y_Kp;             /* Variable: Target_Down_Y_Kp
-                                        * Referenced by: '<S40>/Down Y Controller'
-                                        */
-  real_T Target_Down_Yaw_Kd;           /* Variable: Target_Down_Yaw_Kd
-                                        * Referenced by: '<S40>/Down Yaw Controller'
-                                        */
-  real_T Target_Down_Yaw_Ki;           /* Variable: Target_Down_Yaw_Ki
-                                        * Referenced by: '<S40>/Down Yaw Controller'
-                                        */
-  real_T Target_Down_Yaw_Kp;           /* Variable: Target_Down_Yaw_Kp
-                                        * Referenced by: '<S40>/Down Yaw Controller'
-                                        */
-  real_T Target_Forward_Y_Kd;          /* Variable: Target_Forward_Y_Kd
-                                        * Referenced by: '<S41>/PID Controller with Enable2'
-                                        */
-  real_T Target_Forward_Y_Ki;          /* Variable: Target_Forward_Y_Ki
-                                        * Referenced by: '<S41>/PID Controller with Enable2'
-                                        */
-  real_T Target_Forward_Y_Kp;          /* Variable: Target_Forward_Y_Kp
-                                        * Referenced by: '<S41>/PID Controller with Enable2'
-                                        */
-  real_T Target_Forward_Yaw_Kd;        /* Variable: Target_Forward_Yaw_Kd
-                                        * Referenced by: '<S41>/PID Controller with Enable1'
-                                        */
-  real_T Target_Forward_Yaw_Ki;        /* Variable: Target_Forward_Yaw_Ki
-                                        * Referenced by: '<S41>/PID Controller with Enable1'
-                                        */
-  real_T Target_Forward_Yaw_Kp;        /* Variable: Target_Forward_Yaw_Kp
-                                        * Referenced by: '<S41>/PID Controller with Enable1'
-                                        */
-  real_T Target_Forward_Z_Kd;          /* Variable: Target_Forward_Z_Kd
-                                        * Referenced by: '<S48>/Derivative Gain'
-                                        */
-  real_T Target_Forward_Z_Ki;          /* Variable: Target_Forward_Z_Ki
-                                        * Referenced by: '<S48>/Integral Gain'
-                                        */
-  real_T Target_Forward_Z_Kp;          /* Variable: Target_Forward_Z_Kp
-                                        * Referenced by: '<S48>/Proportional Gain'
-                                        */
-  real_T Thruster_Friction_Zero;       /* Variable: Thruster_Friction_Zero
-                                        * Referenced by:
-                                        *   '<S54>/Gain'
-                                        *   '<S54>/Gain1'
-                                        *   '<S55>/Gain'
-                                        *   '<S55>/Gain1'
-                                        *   '<S56>/Gain'
-                                        *   '<S56>/Gain1'
-                                        *   '<S57>/Gain'
-                                        *   '<S57>/Gain1'
-                                        */
-  real_T Thruster_LeftAngled_Gain;     /* Variable: Thruster_LeftAngled_Gain
-                                        * Referenced by: '<S4>/LeftAngled Thruster Normalize'
-                                        */
-  real_T Thruster_LeftFwd_Gain;        /* Variable: Thruster_LeftFwd_Gain
-                                        * Referenced by: '<S4>/LeftFwd Thruster  Normalize'
-                                        */
-  real_T Thruster_RightAngled_Gain;    /* Variable: Thruster_RightAngled_Gain
-                                        * Referenced by: '<S4>/RightAngled Thruster Normalize'
-                                        */
-  real_T Thruster_RightFwd_Gain;       /* Variable: Thruster_RightFwd_Gain
-                                        * Referenced by: '<S4>/RightFwd Thruster Normalize'
-                                        */
-  real_T ZVelocity_Neg_Max;            /* Variable: ZVelocity_Neg_Max
-                                        * Referenced by: '<S4>/Buoyancy  Compensation Limiter'
-                                        */
-};
+} rtDW_mr_MotionController;
 
 /* Real-time Model Data Structure */
 struct RT_MODEL_MotionController {
-  const char_T * volatile errorStatus;
+  const char_T **errorStatus;
 };
 
-/* Block parameters (auto storage) */
-extern Parameters_MotionController MotionController_P;
+typedef struct {
+  rtB_mr_MotionController rtb;
+  rtDW_mr_MotionController rtdw;
+  RT_MODEL_MotionController rtm;
+} rtMdlrefDWork_mr_MotionControll;
 
-/* Block signals (auto storage) */
-extern BlockIO_MotionController MotionController_B;
-
-/* Block states (auto storage) */
-extern D_Work_MotionController MotionController_DWork;
-
-/* External inputs (root inport signals with auto storage) */
-extern ExternalInputs_MotionController MotionController_U;
-
-/* External outputs (root outports fed by signals with auto storage) */
-extern ExternalOutputs_MotionControlle MotionController_Y;
-
-#ifdef __cplusplus
-
-extern "C" {
-
-#endif
-
-  /* Model entry point functions */
-  extern void MotionController_initialize(void);
-  extern void MotionController_step(void);
-
-#ifdef __cplusplus
-
-}
-#endif
-
-/* Real-time Model object */
-#ifdef __cplusplus
-
-extern "C" {
-
-#endif
-
-  extern struct RT_MODEL_MotionController *MotionController_M;
-
-#ifdef __cplusplus
-
-}
-#endif
+/* Model reference registration function */
+extern void mr_MotionController_initialize(const char_T **rt_errorStatus,
+  RT_MODEL_MotionController *const MotionController_M, rtB_mr_MotionController
+  *localB, rtDW_mr_MotionController *localDW);
+extern void MotionCo_DownYawController_Init(rtDW_DownYawController_MotionCo
+  *localDW);
+extern void MotionC_DownYawController_Start(rtDW_DownYawController_MotionCo
+  *localDW);
+extern void Motio_DownYawController_Disable(real_T *rty_Output,
+  rtDW_DownYawController_MotionCo *localDW);
+extern void MotionControl_DownYawController(boolean_T rtu_0, const real_T
+  *rtu_Measured, const real_T *rtu_Setpoint, real_T *rty_Output,
+  rtDW_DownYawController_MotionCo *localDW, real_T rtp_Kd, real_T rtp_Ki, real_T
+  rtp_Kp);
+extern void mr_MotionController_Start(rtB_mr_MotionController *localB,
+  rtDW_mr_MotionController *localDW);
+extern void mr_MotionController_Disable(rtB_mr_MotionController *localB,
+  rtDW_mr_MotionController *localDW);
+extern void mr_MotionController(const real_T *rtu_TargetSelect, const real_T
+  *rtu_TargetFound, const uint8_T *rtu_MaintainHeading, const real_T
+  *rtu_TargetX, const real_T *rtu_TargetY, const real_T *rtu_TargetZ, const
+  real_T *rtu_TargetYaw, const real_T *rtu_DesiredTargetX, const real_T
+  *rtu_DesiredTargetY, const real_T *rtu_DesiredTargetZ, const real_T
+  *rtu_DesiredTargetYaw, const real_T *rtu_MeasuredZ, const real_T
+  *rtu_MeasuredYAccel, const real_T *rtu_MeasuredYaw, const real_T
+  *rtu_MeasuredYawRate, const real_T *rtu_DesiredZ, const real_T
+  *rtu_DesiredXVelocity, const real_T *rtu_DesiredYaw, real_T *rty_LeftFwd,
+  real_T *rty_RightFwd, real_T *rty_LeftAngled, real_T *rty_RightAngled,
+  rtB_mr_MotionController *localB, rtDW_mr_MotionController *localDW);
 
 /*-
  * The generated code includes comments that allow you to trace directly
