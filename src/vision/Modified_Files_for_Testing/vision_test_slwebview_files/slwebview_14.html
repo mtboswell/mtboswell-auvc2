@@ -1,0 +1,51 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <title>VisionModel_test/No longer needed function</title></head><link rel="StyleSheet" href="slwebview.css" type="text/css"><script type="text/javascript" src="id_mapping.js"></script><script type="text/javascript" src="slwebview.js"></script><script type="text/javascript" src="slwebview_utils.js"></script><script type="text/javascript" src="slhtmltoolbar.js"></script><body onload="addToolbar('toolbarDiv');"><table><tr><td><div id="toolbarDiv" style="display:inline"></div></td><td class="content" style="vertical-align:middle">No longer needed function</td></tr></table><pre xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd"><span style="color:blue">function</span> [c1_out, c2_out, c3_out] = rotateImage(c1_in, c2_in, c3_in, rotation_angle_ccw)
+<span style="color:green">%#eml</span>
+
+<span style="color:green">% This function rotates an image in 90 degree increments</span>
+<span style="color:green">%</span>
+<span style="color:green">% Input</span>
+<span style="color:green">%   c1_in = input image component 1 data</span>
+<span style="color:green">%                   Note: Must be a 2-D (single color component) or 3-D</span>
+<span style="color:green">%                     (RGB or similar) array; first two dimensions</span>
+<span style="color:green">%                     specify image height and width, respectively</span>
+<span style="color:green">%   c2_in = input image component 2 data</span>
+<span style="color:green">%   c3_in = input image component 3 data</span>
+<span style="color:green">%</span>
+<span style="color:green">% Output</span>
+<span style="color:green">%   c1_out = output image component 1 data</span>
+<span style="color:green">%   c1_out = output image component 2 data</span>
+<span style="color:green">%   c1_out = output image component 3 data</span>
+
+<span style="color:green">% Determine loop indices</span>
+[m, n, depth] = size(c1_in);
+
+
+<span style="color:green">% Initialize output</span>
+c1_out = double(zeros([120 160]));
+c2_out = double(zeros([120 160]));
+c3_out = double(zeros([120 160]));
+
+
+<span style="color:green">% Loop</span>
+<span style="color:blue">for</span> i = 1:m
+    <span style="color:blue">for</span> j = 1:n
+        <span style="color:blue">if</span>(rotation_angle_ccw == 0)
+            c1_out(i,j,:) = c1_in(i,j,:);
+            c2_out(i,j,:) = c2_in(i,j,:);
+            c3_out(i,j,:) = c3_in(i,j,:);
+        <span style="color:blue">elseif</span>(rotation_angle_ccw == 90)
+            c1_out(n-j+1,i,:) = c1_in(i,j,:);
+            c2_out(n-j+1,i,:) = c2_in(i,j,:);
+            c3_out(n-j+1,i,:) = c3_in(i,j,:);
+<span style="color:green">%        elseif(rotation_angle_ccw == 180)</span>
+<span style="color:green">%            image_out(m-i+1,n-j+1) = image_in(i,j,:);</span>
+<span style="color:green">%        elseif(rotation_angle_ccw == 270)</span>
+<span style="color:green">%            image_out(j,m-i+1) = image_in(i,j,:);</span>
+        <span style="color:blue">end</span>
+    <span style="color:blue">end</span>
+<span style="color:blue">end</span>
+
+
+<span style="color:blue">return</span></pre></body></html>

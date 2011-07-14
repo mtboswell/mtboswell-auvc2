@@ -1,0 +1,78 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <title>buoyDetector_test3/Look for Buoys/Blob Extraction</title></head><link rel="StyleSheet" href="slwebview.css" type="text/css"><script type="text/javascript" src="id_mapping.js"></script><script type="text/javascript" src="slwebview.js"></script><script type="text/javascript" src="slwebview_utils.js"></script><script type="text/javascript" src="slhtmltoolbar.js"></script><body onload="addToolbar('toolbarDiv');"><table><tr><td><div id="toolbarDiv" style="display:inline"></div></td><td class="content" style="vertical-align:middle">Blob Extraction</td></tr></table><pre xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd"><span style="color:blue">function</span> [blob_count, blob_hues, blob_centroids, blob_eccentricity, blob_extent] = GetBlobInfo(LabelMatrix, ref_colors, num_colors)
+<span style="color:green">% This function will determine the characteristics of the blobs in an image</span>
+<span style="color:green">% given a label matrix defining the different binary images contained in a</span>
+<span style="color:green">% that label matrix</span>
+<span style="color:green">%</span>
+<span style="color:green">% Input</span>
+<span style="color:green">%   LabelMatrix = 2-D matrix of integer values, each of which represents a</span>
+<span style="color:green">%     color; location in matrix corresponds to pixel location in image</span>
+<span style="color:green">%   num_colors = integer number of colors present in LabelMatrix</span>
+<span style="color:green">%</span>
+<span style="color:green">% Output</span>
+<span style="color:green">%   blob_count = integer number of blobs in image</span>
+<span style="color:green">%   blob_hues = Nx1 vector of hues of blobs in image</span>
+<span style="color:green">%   blob_centroids = Nx2 matrix of x-y pairs of blob centroid locations</span>
+<span style="color:green">%   blob_eccentricity = Nx1 vector of blob eccentricites</span>
+<span style="color:green">%   blob_extent = Nx1 vector of blob extents</span>
+
+
+<span style="color:green">% Initialize</span>
+[rows, cols] = size(LabelMatrix);
+LogicMatrix = false(rows,cols);
+
+max_num_blobs = 50;
+min_blob_area = 5;
+
+blob_hues = double(zeros(max_num_blobs,3));
+blob_centroids = double(zeros(max_num_blobs,2));
+blob_eccentricity = double(zeros(max_num_blobs,1));
+blob_extent = double(zeros(max_num_blobs,1));
+
+blob_count = double(0);<span style="color:green">%uint8(0);</span>
+
+<span style="color:green">% Input hblob, a matrix containing [Area, blob_centroids, Eccentricity] for each</span>
+<span style="color:green">% identified blob</span>
+<span style="color:blue">persistent</span> hblob
+<span style="color:blue">if</span> isempty(hblob)
+    hblob = video.BlobAnalysis(<span style="color:#B20000">'AreaOutputPort'</span>,false,<span style="color:#B20000">'BoundingBoxOutputPort'</span>,false,<span style="color:blue">...</span>
+        <span style="color:#B20000">'CentroidOutputPort'</span>,true,<span style="color:#B20000">'EccentricityOutputPort'</span>,true,<span style="color:#B20000">'ExtentOutputPort'</span>,true,<span style="color:blue">...</span>
+        <span style="color:#B20000">'NumBlobsOutputPort'</span>,true,<span style="color:#B20000">'MinimumBlobAreaSource'</span>,<span style="color:#B20000">'Property'</span>,<span style="color:blue">...</span>
+        <span style="color:#B20000">'MinimumBlobArea'</span>, min_blob_area);
+<span style="color:blue">end</span>
+
+<span style="color:green">%% Calculate geometric information about the blobs</span>
+<span style="color:green">%</span>
+<span style="color:green">% LogicMatrix is a binary version of LabelMatrix, with ones at all</span>
+<span style="color:green">%   locations for which color values are k, and zeros everywhere else</span>
+<span style="color:blue">for</span> k = 1:num_colors
+    <span style="color:blue">for</span> i = 1:rows
+        <span style="color:blue">for</span> j = 1:cols
+            <span style="color:blue">if</span>(LabelMatrix(i,j) ~= k)
+                LogicMatrix(i,j) = false;
+            <span style="color:blue">else</span>
+                LogicMatrix(i,j) = true;
+            <span style="color:blue">end</span>
+        <span style="color:blue">end</span>
+    <span style="color:blue">end</span>
+    [TCentroid,TEccent,TExtent,TNumBlobs] = step(hblob,LogicMatrix);
+    
+    <span style="color:blue">if</span>(blob_count+TNumBlobs &lt; max_num_blobs)
+        <span style="color:blue">for</span> i = 1:TNumBlobs
+            
+            blob_centroids(blob_count+i,1) = TCentroid(1,i);
+            blob_centroids(blob_count+i,2) = TCentroid(2,i);
+            blob_eccentricity(blob_count+i) = TEccent(i);
+            blob_extent(blob_count+i) = TExtent(i);
+            
+            ii = round(blob_centroids(blob_count+i,1));
+            jj = round(blob_centroids(blob_count+i,2));
+            blob_hues(blob_count+i,1) = ref_colors( LabelMatrix(ii,jj) );
+            
+        <span style="color:blue">end</span>
+        blob_count = blob_count + 1;<span style="color:green">%TNumBlobs;</span>
+    <span style="color:blue">end</span>
+<span style="color:blue">end</span>
+
+<span style="color:blue">return</span></pre></body></html>

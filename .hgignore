@@ -1,0 +1,22 @@
+# use glob syntax.
+syntax: glob
+
+*~
+*.o
+*.orig
+*.rej
+moc_*
+ui_*.h
+recorded_video.*
+brain.zip
+*.log
+*.csv
+agent
+dashboard
+Makefile
+doc/*
+Doxytags
+*slprj/*
+*_ert_rtw/*
+*.autosave
+game/*

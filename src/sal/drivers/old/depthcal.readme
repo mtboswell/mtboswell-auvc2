@@ -1,0 +1,12 @@
+Depth Sensor Calibration
+The depth sensor is calibrated with two values: the zero and scale. Both of these are set in the calibration.h file.
+The Zero value corresponds to the sensor reading when the depth is zero, i.e. when the AUV is out of the water.  Note that the zero reading should be read when the AUV has been sealed and in the water for a while to compensate for normal pressure build-up. A normal value for the zero reading is 80-100, and will change depending on ambient pressure (elevation) and temperature.
+The Scale value represents the number of sensor value changes over the range of one foot.  A normal value will be in the 5-10 range, and will depend on the water and temperature.
+
+Last good Blacksburg Values:
+Zero: 82
+Scale: Hasn't been calibrated properly yet.
+
+Last San Diego Values:
+Zero: 82
+Scale: 7.50
