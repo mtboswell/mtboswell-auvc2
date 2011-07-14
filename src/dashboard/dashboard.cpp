@@ -979,7 +979,7 @@ void Dashboard::loadStateValues() {
 	QFile scriptFile("stateValues.txt");
 	if(scriptFile.open(QIODevice::ReadOnly)) {
 		QTextStream stream(&scriptFile);
-		for (int i = 0; i < 300; i++) {
+		for (int i = 0; i < 100; i++) {
 			qDebug() << i;
 			input = stream.readLine();
 			QStringList list = input.split("=");		

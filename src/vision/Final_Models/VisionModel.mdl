@@ -352,7 +352,7 @@ Model {
       Name		      "TargetSize"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1350"
+    ComputedModelVersion    "1.1354"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -372,9 +372,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Wed Jul 13 16:45:35 2011"
+  LastModifiedDate	  "Wed Jul 13 17:56:54 2011"
   RTWModifiedTimeStamp	  232476194
-  ModelVersionFormat	  "1.%<AutoIncrement:1350>"
+  ModelVersionFormat	  "1.%<AutoIncrement:1354>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -907,8 +907,8 @@ Model {
       }
       Name		      "Configuration"
       ExtraOptions	      "-aGenerateTraceInfo=0 -aIgnoreTestpoints=0 "
-      CurrentDlgPage	      "Solver"
-      ConfigPrmDlgPosition    " [ 1436, 34, 2437, 812 ] "
+      CurrentDlgPage	      "Real-Time Workshop/Report"
+      ConfigPrmDlgPosition    " [ 213, 133, 1066, 666 ] "
     }
     PropName		    "ConfigurationSets"
   }
@@ -6955,7 +6955,7 @@ Model {
       System {
 	Name			"ColorSelect"
 	Location		[1, 80, 1281, 853]
-	Open			off
+	Open			on
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -7023,7 +7023,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "L_detector"
-	    Location		    [1648, 151, 3088, 935]
+	    Location		    [1, 80, 1281, 853]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -7048,7 +7048,7 @@ Model {
 	      Name		      "ColorFilter1"
 	      SID		      "2727"
 	      Position		      [185, 140, 215, 170]
-	      Value		      "[0 1 0 0 0 0 1]"
+	      Value		      "[0 0 0 0 0 0 1]"
 	      SampleTime	      "-1"
 	    }
 	    Block {
@@ -7056,7 +7056,6 @@ Model {
 	      Name		      "OutputSegmentedImage1"
 	      SID		      "2728"
 	      Position		      [185, 210, 215, 240]
-	      Value		      "0"
 	      SampleTime	      "-1"
 	    }
 	    Block {
@@ -7132,7 +7131,7 @@ Model {
 	      Name		      "ColorFilter1"
 	      SID		      "2715"
 	      Position		      [185, 140, 215, 170]
-	      Value		      "[0 0 1 1 0 1 1]"
+	      Value		      "[0 0 1 1 1 1 1]"
 	      SampleTime	      "-1"
 	    }
 	    Block {
@@ -7190,8 +7189,8 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "drop_mech"
-	    Location		    [1609, 152, 3049, 936]
-	    Open		    off
+	    Location		    [1, 80, 1281, 853]
+	    Open		    on
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -7273,7 +7272,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "path_detector"
-	    Location		    [1560, 147, 3000, 931]
+	    Location		    [1, 80, 1281, 853]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -7356,7 +7355,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "torpedo"
-	    Location		    [1676, 149, 3116, 933]
+	    Location		    [1, 80, 1281, 853]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -7389,7 +7388,6 @@ Model {
 	      Name		      "OutputSegmentedImage1"
 	      SID		      "2722"
 	      Position		      [185, 210, 215, 240]
-	      Value		      "0"
 	      SampleTime	      "-1"
 	    }
 	    Block {
@@ -7465,7 +7463,7 @@ Model {
 	      Name		      "ColorFilter1"
 	      SID		      "3446"
 	      Position		      [180, 140, 210, 170]
-	      Value		      "[1 0 0 0 1 0 0]"
+	      Value		      "[0 1 0 0 1 0 0]"
 	      SampleTime	      "-1"
 	    }
 	    Block {
@@ -13738,8 +13736,8 @@ Model {
       MaskHideContents	      off
       System {
 	Name			"validation_gate"
-	Location		[1, 80, 1281, 853]
-	Open			on
+	Location		[0, 51, 1280, 800]
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
