@@ -157,12 +157,12 @@ void SAL::checkStability(VDatum datum) {
 	}
 	else if(atHeading && prevAtHeading) {
 		if (datum.timestamp > headingTime) {
-			setData("Orientation.Stable", true);
+			setData("Orientation.Stable", 1);
 			headingStable = true;
 		}
 	}
 	else if (!atHeading && headingStable) {
-			setData("Orientation.Stable", false);
+			setData("Orientation.Stable", 0);
 			headingStable = false;
 	}
 	prevAtHeading = atHeading;

@@ -242,6 +242,7 @@ void Vision::step()
     setData("Vision.Output.DesiredTargetY", VisionModel_Y.DesiredTargetY);      // redundant
     setData("Vision.Output.DesiredTargetZ", VisionModel_Y.DesiredTargetZ);      // redundant
     setData("Vision.Output.DesiredTargetYaw", VisionModel_Y.DesiredTargetYaw);  // redundant
+	setData("Vision.Output.AbsolutePathDirection", (intValue("Orientation.Heading") + VisionModel_Y.DesiredTargetYaw));
     setData("Vision.Output.TargetDetected", VisionModel_Y.TargetDetected);
     setData("Vision.Output.PathState", VisionModel_Y.PathState);
     setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
