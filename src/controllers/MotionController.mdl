@@ -113,7 +113,7 @@ Model {
       Name		      "RightAngled"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.138"
+    ComputedModelVersion    "1.139"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -133,9 +133,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jul 14 10:21:31 2011"
-  RTWModifiedTimeStamp	  232539627
-  ModelVersionFormat	  "1.%<AutoIncrement:138>"
+  LastModifiedDate	  "Fri Jul 15 03:04:14 2011"
+  RTWModifiedTimeStamp	  232599513
+  ModelVersionFormat	  "1.%<AutoIncrement:139>"
   ConfigurationManager	  "None"
   SampleTimeColors	  on
   SampleTimeAnnotations	  off
@@ -1046,7 +1046,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "809"
+    SIDHighWatermark	    "810"
     Block {
       BlockType		      Inport
       Name		      "TargetSelect"
@@ -1391,7 +1391,7 @@ Model {
       "tModifiedBy>\n%<LastModificationDate>"
       MaskDisplayString	      "This Model directly controls the\\n thrusters by using several controllers. \\n The con"
       "trollers are based on current\\n state information (heading, depth, etc.)\\n as well as desired state info.\\n\\"
-      "nroot\\n14-Jul-2011 10:20:29"
+      "nroot\\n15-Jul-2011 02:58:43"
       HorizontalTextAlignment "Left"
       LeftAlignmentValue      "0.02"
       SourceBlockDiagram      "MotionController"
@@ -5489,7 +5489,7 @@ Model {
 	      System {
 		Name			"Down Target"
 		Location		[0, 51, 1280, 800]
-		Open			off
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -5655,6 +5655,16 @@ Model {
 		  SaturateOnIntegerOverflow off
 		}
 		Block {
+		  BlockType		  Gain
+		  Name			  "Gain2"
+		  SID			  "810"
+		  Position		  [95, 305, 125, 335]
+		  Gain			  "-1"
+		  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+		  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
 		  BlockType		  Outport
 		  Name			  "DesiredXVelocity"
 		  SID			  "639"
@@ -5682,12 +5692,6 @@ Model {
 		  IconDisplay		  "Port number"
 		  OutputWhenDisabled	  "reset"
 		  InitialOutput		  "0"
-		}
-		Line {
-		  SrcBlock		  "TargetYaw"
-		  SrcPort		  1
-		  DstBlock		  "Down Yaw Controller"
-		  DstPort		  1
 		}
 		Line {
 		  SrcBlock		  "DesiredTargetYaw"
@@ -5763,6 +5767,18 @@ Model {
 		  DstBlock		  "Down X Controller"
 		  DstPort		  1
 		}
+		Line {
+		  SrcBlock		  "TargetYaw"
+		  SrcPort		  1
+		  DstBlock		  "Gain2"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Gain2"
+		  SrcPort		  1
+		  DstBlock		  "Down Yaw Controller"
+		  DstPort		  1
+		}
 	      }
 	    }
 	    Block {
@@ -5781,7 +5797,7 @@ Model {
 	      System {
 		Name			"Forward Target"
 		Location		[475, 153, 892, 666]
-		Open			off
+		Open			on
 		ModelBrowserVisibility	off
 		ModelBrowserWidth	200
 		ScreenColor		"white"
@@ -6651,7 +6667,7 @@ Model {
       System {
 	Name			"Thruster Arrangement"
 	Location		[458, 143, 1229, 616]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"

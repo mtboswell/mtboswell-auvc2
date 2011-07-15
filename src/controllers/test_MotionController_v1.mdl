@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.158"
+    ComputedModelVersion    "1.170"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_MotionController_v1/vision_model.mdl|MotionController"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Thu Jul 14 10:21:37 2011"
-  RTWModifiedTimeStamp	  232539498
-  ModelVersionFormat	  "1.%<AutoIncrement:158>"
+  LastModifiedDate	  "Fri Jul 15 03:07:58 2011"
+  RTWModifiedTimeStamp	  232599309
+  ModelVersionFormat	  "1.%<AutoIncrement:170>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -689,14 +689,14 @@ Model {
       BlockType		      Clock
       Name		      "Clock"
       SID		      "32"
-      Position		      [130, 385, 150, 405]
+      Position		      [185, 505, 205, 525]
       Decimation	      "10"
     }
     Block {
       BlockType		      Constant
       Name		      "DesiredTargetX"
       SID		      "9"
-      Position		      [430, 620, 460, 650]
+      Position		      [485, 740, 515, 770]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -704,7 +704,7 @@ Model {
       BlockType		      Constant
       Name		      "DesiredTargetY"
       SID		      "10"
-      Position		      [430, 680, 460, 710]
+      Position		      [485, 800, 515, 830]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -712,7 +712,7 @@ Model {
       BlockType		      Constant
       Name		      "DesiredTargetYaw"
       SID		      "12"
-      Position		      [430, 800, 460, 830]
+      Position		      [485, 920, 515, 950]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -720,7 +720,7 @@ Model {
       BlockType		      Constant
       Name		      "DesiredTargetZ"
       SID		      "11"
-      Position		      [430, 740, 460, 770]
+      Position		      [485, 860, 515, 890]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -728,7 +728,7 @@ Model {
       BlockType		      Constant
       Name		      "DesiredXVelocity"
       SID		      "18"
-      Position		      [430, 1160, 460, 1190]
+      Position		      [485, 1280, 515, 1310]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -736,15 +736,15 @@ Model {
       BlockType		      Constant
       Name		      "DesiredYaw"
       SID		      "19"
-      Position		      [430, 1220, 460, 1250]
-      Value		      "90"
+      Position		      [485, 1340, 515, 1370]
+      Value		      "80"
       SampleTime	      "-1"
     }
     Block {
       BlockType		      Constant
       Name		      "DesiredZ"
       SID		      "17"
-      Position		      [430, 1100, 460, 1130]
+      Position		      [485, 1220, 515, 1250]
       Value		      "5"
       SampleTime	      "-1"
     }
@@ -752,7 +752,7 @@ Model {
       BlockType		      Gain
       Name		      "Gain"
       SID		      "34"
-      Position		      [175, 380, 205, 410]
+      Position		      [230, 500, 260, 530]
       ParamDataTypeStr	      "Inherit: Inherit via internal rule"
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
       SaturateOnIntegerOverflow	off
@@ -762,7 +762,7 @@ Model {
       Name		      "LeftAngled"
       SID		      "27"
       Ports		      [1]
-      Position		      [1045, 885, 1135, 915]
+      Position		      [1100, 1005, 1190, 1035]
       Decimation	      "5"
       Lockdown		      off
     }
@@ -771,7 +771,7 @@ Model {
       Name		      "LeftAngled Scope"
       SID		      "30"
       Ports		      [1]
-      Position		      [1230, 844, 1260, 876]
+      Position		      [1285, 964, 1315, 996]
       Floating		      off
       Location		      [46, 82, 370, 319]
       Open		      off
@@ -789,7 +789,7 @@ Model {
       Name		      "LeftFwd"
       SID		      "25"
       Ports		      [1]
-      Position		      [1045, 355, 1135, 385]
+      Position		      [1100, 475, 1190, 505]
       Decimation	      "5"
       Lockdown		      off
     }
@@ -798,7 +798,7 @@ Model {
       Name		      "LeftFwd Scope"
       SID		      "24"
       Ports		      [1]
-      Position		      [1230, 314, 1260, 346]
+      Position		      [1285, 434, 1315, 466]
       Floating		      off
       Location		      [32, 393, 356, 632]
       Open		      off
@@ -815,7 +815,7 @@ Model {
       BlockType		      Constant
       Name		      "MaintainHeading"
       SID		      "4"
-      Position		      [430, 320, 460, 350]
+      Position		      [485, 440, 515, 470]
       Value		      "0"
       OutDataTypeStr	      "uint8"
       SampleTime	      "-1"
@@ -824,7 +824,7 @@ Model {
       BlockType		      Constant
       Name		      "MeasuredYAccel"
       SID		      "14"
-      Position		      [320, 920, 350, 950]
+      Position		      [375, 1040, 405, 1070]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -832,7 +832,7 @@ Model {
       BlockType		      Constant
       Name		      "MeasuredYaw"
       SID		      "15"
-      Position		      [320, 980, 350, 1010]
+      Position		      [375, 1100, 405, 1130]
       Value		      "80"
       SampleTime	      "-1"
     }
@@ -840,7 +840,7 @@ Model {
       BlockType		      Constant
       Name		      "MeasuredYawRate"
       SID		      "16"
-      Position		      [320, 1040, 350, 1070]
+      Position		      [375, 1160, 405, 1190]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -848,7 +848,7 @@ Model {
       BlockType		      Constant
       Name		      "MeasuredZ"
       SID		      "13"
-      Position		      [320, 860, 350, 890]
+      Position		      [375, 980, 405, 1010]
       Value		      "5"
       SampleTime	      "-1"
     }
@@ -857,7 +857,7 @@ Model {
       Name		      "RightAngled"
       SID		      "28"
       Ports		      [1]
-      Position		      [1045, 1155, 1135, 1185]
+      Position		      [1100, 1275, 1190, 1305]
       Decimation	      "5"
       Lockdown		      off
     }
@@ -866,7 +866,7 @@ Model {
       Name		      "RightAngled Scope"
       SID		      "31"
       Ports		      [1]
-      Position		      [1230, 1109, 1260, 1141]
+      Position		      [1285, 1229, 1315, 1261]
       Floating		      off
       Location		      [902, 82, 1226, 321]
       Open		      off
@@ -884,7 +884,7 @@ Model {
       Name		      "RightFwd"
       SID		      "26"
       Ports		      [1]
-      Position		      [1045, 615, 1135, 645]
+      Position		      [1100, 735, 1190, 765]
       Decimation	      "5"
       Lockdown		      off
     }
@@ -893,7 +893,7 @@ Model {
       Name		      "RightFwd Scope"
       SID		      "29"
       Ports		      [1]
-      Position		      [1230, 579, 1260, 611]
+      Position		      [1285, 699, 1315, 731]
       Floating		      off
       Location		      [908, 397, 1232, 636]
       Open		      off
@@ -910,22 +910,21 @@ Model {
       BlockType		      Constant
       Name		      "TargetFound"
       SID		      "3"
-      Position		      [430, 260, 460, 290]
+      Position		      [485, 380, 515, 410]
       SampleTime	      "-1"
     }
     Block {
       BlockType		      Constant
       Name		      "TargetSelect"
       SID		      "2"
-      Position		      [430, 200, 460, 230]
-      Value		      "0"
+      Position		      [485, 320, 515, 350]
       SampleTime	      "-1"
     }
     Block {
       BlockType		      Constant
       Name		      "TargetX"
       SID		      "5"
-      Position		      [320, 380, 350, 410]
+      Position		      [375, 500, 405, 530]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -933,7 +932,7 @@ Model {
       BlockType		      Constant
       Name		      "TargetY"
       SID		      "6"
-      Position		      [320, 440, 350, 470]
+      Position		      [375, 560, 405, 590]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -941,15 +940,15 @@ Model {
       BlockType		      Constant
       Name		      "TargetYaw"
       SID		      "8"
-      Position		      [320, 560, 350, 590]
-      Value		      "0"
+      Position		      [375, 680, 405, 710]
+      Value		      "15"
       SampleTime	      "-1"
     }
     Block {
       BlockType		      Constant
       Name		      "TargetZ"
       SID		      "7"
-      Position		      [320, 500, 350, 530]
+      Position		      [375, 620, 405, 650]
       Value		      "0"
       SampleTime	      "-1"
     }
@@ -958,7 +957,7 @@ Model {
       Name		      "Time"
       SID		      "35"
       Ports		      [1]
-      Position		      [280, 280, 370, 310]
+      Position		      [335, 400, 425, 430]
       Decimation	      "1"
       Lockdown		      off
     }
@@ -967,10 +966,10 @@ Model {
       Name		      "vision_model.mdl"
       SID		      "1"
       Ports		      [18, 4]
-      Position		      [545, 191, 970, 1259]
+      Position		      [600, 311, 1025, 1379]
       ModelNameDialog	      "MotionController"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.137"
+      ModelReferenceVersion   "1.139"
       List {
 	ListType		InputPortNames
 	port0			"TargetSelect"
@@ -1209,7 +1208,13 @@ Model {
       Name		      "TargetSelect:\n 0: not targeting\n1: targeting forward\n2: targeting down\n\nTargetFound:\n0: Searc"
       "hes for target\n1: Directs AUV towards target\n\nMaintainHeading\n0: Yaw, but do not strafe (Compass controller)"
       "\n1: Strafe, but do not yaw (Gyro controller)"
-      Position		      [176, 111]
+      Position		      [236, 106]
+    }
+    Annotation {
+      Name		      "TargetYaw\n*This is the relative heading of the target\nfrom center\n*Value of zero is \"straight a"
+      "head\"\n*Value of ninety is \"right 90 degrees\"\n*Value of negative ninety is \"left 90 deg\"\n*Units are degre"
+      "es"
+      Position		      [234, 284]
     }
   }
 }
