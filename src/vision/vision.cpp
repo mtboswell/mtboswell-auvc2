@@ -42,15 +42,16 @@ Vision::Vision() : SimulinkModule()
     paramList["Vision_red_bl"] = &VisionModel_U.red_bl;
     paramList["Vision_red_bu"] = &VisionModel_U.red_bu;
     paramList["Vision_orange_al"] = &VisionModel_U.orange_al;
-    paramList["Vision_orane_au"] = &VisionModel_U.orane_au;
+    paramList["Vision_orange_au"] = &VisionModel_U.orange_au;
     paramList["Vision_orange_bl"] = &VisionModel_U.orange_bl;
     paramList["Vision_orange_bu"] = &VisionModel_U.orange_bu;
     paramList["Vision_yellow_al"] = &VisionModel_U.yellow_al;
+    paramList["Vision_yellow_au"] = &VisionModel_U.yellow_au;
     paramList["Vision_yellow_bl"] = &VisionModel_U.yellow_bl;
     paramList["Vision_yellow_bu"] = &VisionModel_U.yellow_bu;
     paramList["Vision_green_al"] = &VisionModel_U.green_al;
     paramList["Vision_green_au"] = &VisionModel_U.green_au;
-    paramList["Vision_breen_bl"] = &VisionModel_U.breen_bl;
+    paramList["Vision_green_bl"] = &VisionModel_U.green_bl;
     paramList["Vision_green_bu"] = &VisionModel_U.green_bu;
     paramList["Vision_black_override"] = &VisionModel_U.black_override;
     paramList["Vision_white_override"] = &VisionModel_U.white_override;
@@ -59,6 +60,25 @@ Vision::Vision() : SimulinkModule()
     paramList["Vision_orange_override"] = &VisionModel_U.orange_override;
     paramList["Vision_yellow_override"] = &VisionModel_U.yellow_override;
     paramList["Vision_green_override"] = &VisionModel_U.green_override;
+
+    paramList["Vision_Scale_Forward_R"] = &VisionModel_U.Scale_Forward_R;
+    paramList["Vision_Scale_Forward_G"] = &VisionModel_U.Scale_Forward_G;
+    paramList["Vision_Scale_Forward_B"] = &VisionModel_U.Scale_Forward_B;
+    paramList["Vision_Scale_Forward_H"] = &VisionModel_U.Scale_Forward_H;
+    paramList["Vision_Scale_Forward_S"] = &VisionModel_U.Scale_Forward_S;
+    paramList["Vision_Scale_Forward_V"] = &VisionModel_U.Scale_Forward_V;
+
+    paramList["Vision_Scale_Down_R"] = &VisionModel_U.Scale_Down_R;
+    paramList["Vision_Scale_Down_G"] = &VisionModel_U.Scale_Down_G;
+    paramList["Vision_Scale_Down_B"] = &VisionModel_U.Scale_Down_B;
+    paramList["Vision_Scale_Down_H"] = &VisionModel_U.Scale_Down_H;
+    paramList["Vision_Scale_Down_S"] = &VisionModel_U.Scale_Down_S;
+    paramList["Vision_Scale_Down_V"] = &VisionModel_U.Scale_Down_V;
+
+//    real_T IterSegmentThresh[19200];     /* '<Root>/IterSegmentThresh' */
+
+    paramList["Vision_MeasuredYaw"] = &VisionModel_U.MeasuredYaw;
+
 
     VisionModel_initialize();
 }
@@ -104,7 +124,7 @@ void Vision::printStuff()
     std::cout << "Vision_red_bl"<< " " <<  VisionModel_U.red_bl<< std::endl;
     std::cout << "Vision_red_bu"<< " " <<  VisionModel_U.red_bu<< std::endl;
     std::cout << "Vision_orange_al"<< " " <<  VisionModel_U.orange_al<< std::endl;
-    std::cout << "Vision_orane_au"<< " " <<  VisionModel_U.orane_au<< std::endl;
+    std::cout << "Vision_orange_au"<< " " <<  VisionModel_U.orange_au<< std::endl;
     std::cout << "Vision_orange_bl"<< " " <<  VisionModel_U.orange_bl<< std::endl;
     std::cout << "Vision_orange_bu"<< " " <<  VisionModel_U.orange_bu<< std::endl;
     std::cout << "Vision_yellow_al"<< " " <<  VisionModel_U.yellow_al<< std::endl;
@@ -112,7 +132,7 @@ void Vision::printStuff()
     std::cout << "Vision_yellow_bu"<< " " <<  VisionModel_U.yellow_bu<< std::endl;
     std::cout << "Vision_green_al"<< " " <<  VisionModel_U.green_al<< std::endl;
     std::cout << "Vision_green_au"<< " " <<  VisionModel_U.green_au<< std::endl;
-    std::cout << "Vision_breen_bl"<< " " <<  VisionModel_U.breen_bl<< std::endl;
+    std::cout << "Vision_green_bl"<< " " <<  VisionModel_U.green_bl<< std::endl;
     std::cout << "Vision_green_bu"<< " " <<  VisionModel_U.green_bu<< std::endl;
     std::cout << "Vision_black_override"<< " " <<  VisionModel_U.black_override<< std::endl;
     std::cout << "Vision_white_override"<< " " <<  VisionModel_U.white_override<< std::endl;
@@ -242,11 +262,14 @@ void Vision::step()
     setData("Vision.Output.DesiredTargetY", VisionModel_Y.DesiredTargetY);      // redundant
     setData("Vision.Output.DesiredTargetZ", VisionModel_Y.DesiredTargetZ);      // redundant
     setData("Vision.Output.DesiredTargetYaw", VisionModel_Y.DesiredTargetYaw);  // redundant
-	setData("Vision.Output.AbsolutePathDirection", (intValue("Orientation.Heading") + VisionModel_Y.DesiredTargetYaw));
+    setData("Vision.Output.AbsolutePathDirection", (intValue("Orientation.Heading") + VisionModel_Y.DesiredTargetYaw));
     setData("Vision.Output.TargetDetected", VisionModel_Y.TargetDetected);
     setData("Vision.Output.PathState", VisionModel_Y.PathState);
     setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
     setData("Vision.Output.TargetType", VisionModel_Y.TargetType);
+
+//    real_T BuoyColors[100];              /* '<Root>/BuoyColors' */
+//    real_T TargetSize[9];                /* '<Root>/TargetSize' */
 
 //    setData("Vision.Output.MeasuredZ", VisionModel_Y.MeasuredZ);                // sensor
 //    setData("Vision.Output.MeasuredYAccel", VisionModel_Y.MeasuredYAccel);      // sensor
