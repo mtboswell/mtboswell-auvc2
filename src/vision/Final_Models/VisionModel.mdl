@@ -3,7 +3,7 @@ Model {
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
-    NumRootInports	    60
+    NumRootInports	    59
     Inport {
       BusObject		      ""
       Name		      "R_forward_in"
@@ -238,10 +238,6 @@ Model {
     }
     Inport {
       BusObject		      ""
-      Name		      "IterSegmentThresh"
-    }
-    Inport {
-      BusObject		      ""
       Name		      "MeasuredYaw"
     }
     NumRootOutports	    22
@@ -356,7 +352,7 @@ Model {
       Name		      "TargetSize"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1380"
+    ComputedModelVersion    "1.1389"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -376,9 +372,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jul 15 09:42:19 2011"
+  LastModifiedDate	  "Fri Jul 15 10:06:45 2011"
   RTWModifiedTimeStamp	  232600763
-  ModelVersionFormat	  "1.%<AutoIncrement:1380>"
+  ModelVersionFormat	  "1.%<AutoIncrement:1389>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1099,7 +1095,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "80"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "3942"
+    SIDHighWatermark	    "3952"
     Block {
       BlockType		      Inport
       Name		      "R_forward_in"
@@ -1571,18 +1567,10 @@ Model {
     }
     Block {
       BlockType		      Inport
-      Name		      "IterSegmentThresh"
-      SID		      "3905"
-      Position		      [715, 698, 745, 712]
-      Port		      "59"
-      IconDisplay	      "Port number"
-    }
-    Block {
-      BlockType		      Inport
       Name		      "MeasuredYaw"
       SID		      "3938"
       Position		      [705, 78, 735, 92]
-      Port		      "60"
+      Port		      "59"
       IconDisplay	      "Port number"
     }
     Block {
@@ -1765,7 +1753,7 @@ Model {
       BlockType		      SubSystem
       Name		      "Blob_Analysis"
       SID		      "3137"
-      Ports		      [8, 17, 0, 0, 0, 0, 0, 1]
+      Ports		      [7, 17, 0, 0, 0, 0, 0, 1]
       Position		      [1285, 720, 1580, 1460]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
@@ -1845,15 +1833,6 @@ Model {
 	  Position		  [750, 713, 780, 727]
 	  Port			  "7"
 	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "IterSegmentThresh"
-	  SID			  "3906"
-	  Position		  [235, 183, 265, 197]
-	  Port			  "8"
-	  IconDisplay		  "Port number"
-	  PortDimensions	  "Forward_Camera_Dimensions"
 	}
 	Block {
 	  BlockType		  ActionPort
@@ -2300,7 +2279,7 @@ Model {
 	  BlockType		  SubSystem
 	  Name			  "IterativeSegmentation"
 	  SID			  "3148"
-	  Ports			  [4, 3]
+	  Ports			  [3, 3]
 	  Position		  [310, 82, 585, 208]
 	  UndoDeleteFcn		  "Stateflow.SLINSF.SimulinkMan.restorePreDeleteFcn"
 	  PreDeleteFcn		  "Stateflow.SLINSF.SimulinkMan.removePreDeleteFcn"
@@ -2347,14 +2326,6 @@ Model {
 	      SID		      "3151"
 	      Position		      [30, 158, 60, 172]
 	      Port		      "3"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Iter_Segment_Thresh"
-	      SID		      "3152"
-	      Position		      [600, 213, 630, 227]
-	      Port		      "4"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
@@ -2828,8 +2799,8 @@ Model {
 	      BlockType		      SubSystem
 	      Name		      "Segmentation"
 	      SID		      "3164"
-	      Ports		      [4, 3]
-	      Position		      [680, 110, 925, 175]
+	      Ports		      [3, 3]
+	      Position		      [680, 116, 925, 184]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
 	      RTWSystemCode	      "Auto"
@@ -2876,12 +2847,20 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Block {
-		  BlockType		  Inport
-		  Name			  "Iter_Segment_Thresh"
-		  SID			  "3168"
-		  Position		  [35, 253, 65, 267]
-		  Port			  "4"
-		  IconDisplay		  "Port number"
+		  BlockType		  Constant
+		  Name			  "DesiredBuoyColor1"
+		  SID			  "3952"
+		  Position		  [220, 270, 250, 300]
+		  Value			  "35"
+		  SampleTime		  "-1"
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "DesiredBuoyColor13"
+		  SID			  "3951"
+		  Position		  [880, 2845, 910, 2875]
+		  Value			  "35"
+		  SampleTime		  "-1"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -3474,13 +3453,6 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Line {
-		  SrcBlock		  "Iter_Segment_Thresh"
-		  SrcPort		  1
-		  Points		  [250, 0]
-		  DstBlock		  "Reference Color Selection"
-		  DstPort		  4
-		}
-		Line {
 		  SrcBlock		  "LabSegmentation"
 		  SrcPort		  1
 		  DstBlock		  "LabelMatrix"
@@ -3581,6 +3553,13 @@ Model {
 		    DstPort		    1
 		  }
 		}
+		Line {
+		  SrcBlock		  "DesiredBuoyColor1"
+		  SrcPort		  1
+		  Points		  [65, 0]
+		  DstBlock		  "Reference Color Selection"
+		  DstPort		  4
+		}
 	      }
 	    }
 	    Block {
@@ -3634,6 +3613,7 @@ Model {
 	    Line {
 	      SrcBlock		      "Color Space\n Conversion1"
 	      SrcPort		      2
+	      Points		      [90, 0]
 	      DstBlock		      "Segmentation"
 	      DstPort		      2
 	    }
@@ -3667,30 +3647,23 @@ Model {
 	    Line {
 	      SrcBlock		      "Segmentation"
 	      SrcPort		      1
-	      Points		      [30, 0; 0, -30]
+	      Points		      [30, 0; 0, -35]
 	      DstBlock		      "LabelMatrix"
 	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "Segmentation"
 	      SrcPort		      2
-	      Points		      [30, 0; 0, -10]
+	      Points		      [30, 0; 0, -15]
 	      DstBlock		      "num_colors"
 	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "Segmentation"
 	      SrcPort		      3
-	      Points		      [30, 0; 0, 10]
+	      Points		      [30, 0; 0, 5]
 	      DstBlock		      "ref_colors"
 	      DstPort		      1
-	    }
-	    Line {
-	      SrcBlock		      "Iter_Segment_Thresh"
-	      SrcPort		      1
-	      Points		      [15, 0; 0, -55]
-	      DstBlock		      "Segmentation"
-	      DstPort		      4
 	    }
 	  }
 	}
@@ -4287,29 +4260,23 @@ Model {
 	  }
 	}
 	Line {
-	  SrcBlock		  "IterSegmentThresh"
-	  SrcPort		  1
-	  DstBlock		  "IterativeSegmentation"
-	  DstPort		  4
-	}
-	Line {
 	  SrcBlock		  "R_in"
 	  SrcPort		  1
-	  Points		  [95, 0; 0, 25]
+	  Points		  [95, 0; 0, 30]
 	  DstBlock		  "IterativeSegmentation"
 	  DstPort		  1
 	}
 	Line {
 	  SrcBlock		  "G_in"
 	  SrcPort		  1
-	  Points		  [95, 0; 0, 15]
+	  Points		  [95, 0; 0, 30]
 	  DstBlock		  "IterativeSegmentation"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "B_in"
 	  SrcPort		  1
-	  Points		  [95, 0; 0, 5]
+	  Points		  [95, 0; 0, 30]
 	  DstBlock		  "IterativeSegmentation"
 	  DstPort		  3
 	}
@@ -4352,13 +4319,16 @@ Model {
 	  DstBlock		  "BlobColor"
 	  DstPort		  1
 	}
+	Line {
+	  Points		  [280, 180; 5, 0; 0, 10; 20, 0]
+	}
       }
     }
     Block {
       BlockType		      SubSystem
       Name		      "Blob_Analysis1"
       SID		      "3792"
-      Ports		      [8, 17, 0, 0, 0, 0, 0, 1]
+      Ports		      [7, 17, 0, 0, 0, 0, 0, 1]
       Position		      [1285, 2315, 1580, 3055]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
@@ -4437,14 +4407,6 @@ Model {
 	  SID			  "3799"
 	  Position		  [750, 713, 780, 727]
 	  Port			  "7"
-	  IconDisplay		  "Port number"
-	}
-	Block {
-	  BlockType		  Inport
-	  Name			  "IterSegmentThresh"
-	  SID			  "3907"
-	  Position		  [230, 188, 260, 202]
-	  Port			  "8"
 	  IconDisplay		  "Port number"
 	}
 	Block {
@@ -4892,7 +4854,7 @@ Model {
 	  BlockType		  SubSystem
 	  Name			  "IterativeSegmentation"
 	  SID			  "3804"
-	  Ports			  [4, 3]
+	  Ports			  [3, 3]
 	  Position		  [310, 82, 585, 208]
 	  UndoDeleteFcn		  "Stateflow.SLINSF.SimulinkMan.restorePreDeleteFcn"
 	  PreDeleteFcn		  "Stateflow.SLINSF.SimulinkMan.removePreDeleteFcn"
@@ -4905,7 +4867,7 @@ Model {
 	  MaskHideContents	  off
 	  System {
 	    Name		    "IterativeSegmentation"
-	    Location		    [4, 83, 1272, 738]
+	    Location		    [0, 51, 1280, 800]
 	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
@@ -4939,14 +4901,6 @@ Model {
 	      SID		      "3807"
 	      Position		      [30, 158, 60, 172]
 	      Port		      "3"
-	      IconDisplay	      "Port number"
-	    }
-	    Block {
-	      BlockType		      Inport
-	      Name		      "Iter_Segment_Thresh"
-	      SID		      "3808"
-	      Position		      [600, 213, 630, 227]
-	      Port		      "4"
 	      IconDisplay	      "Port number"
 	    }
 	    Block {
@@ -5420,8 +5374,8 @@ Model {
 	      BlockType		      SubSystem
 	      Name		      "Segmentation"
 	      SID		      "3820"
-	      Ports		      [4, 3]
-	      Position		      [680, 110, 925, 175]
+	      Ports		      [3, 3]
+	      Position		      [680, 116, 925, 184]
 	      MinAlgLoopOccurrences   off
 	      PropExecContextOutsideSubsystem off
 	      RTWSystemCode	      "Auto"
@@ -5468,12 +5422,12 @@ Model {
 		  IconDisplay		  "Port number"
 		}
 		Block {
-		  BlockType		  Inport
-		  Name			  "Iter_Segment_Thresh"
-		  SID			  "3824"
-		  Position		  [35, 253, 65, 267]
-		  Port			  "4"
-		  IconDisplay		  "Port number"
+		  BlockType		  Constant
+		  Name			  "DesiredBuoyColor13"
+		  SID			  "3950"
+		  Position		  [270, 300, 300, 330]
+		  Value			  "35"
+		  SampleTime		  "-1"
 		}
 		Block {
 		  BlockType		  SubSystem
@@ -6167,9 +6121,9 @@ Model {
 		  DstPort		  1
 		}
 		Line {
-		  SrcBlock		  "Iter_Segment_Thresh"
+		  SrcBlock		  "DesiredBuoyColor13"
 		  SrcPort		  1
-		  Points		  [250, 0]
+		  Points		  [15, 0]
 		  DstBlock		  "Reference Color Selection"
 		  DstPort		  4
 		}
@@ -6199,30 +6153,23 @@ Model {
 	      IconDisplay	      "Port number"
 	    }
 	    Line {
-	      SrcBlock		      "Iter_Segment_Thresh"
-	      SrcPort		      1
-	      Points		      [15, 0; 0, -55]
-	      DstBlock		      "Segmentation"
-	      DstPort		      4
-	    }
-	    Line {
 	      SrcBlock		      "Segmentation"
 	      SrcPort		      3
-	      Points		      [30, 0; 0, 10]
+	      Points		      [30, 0; 0, 5]
 	      DstBlock		      "ref_colors"
 	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "Segmentation"
 	      SrcPort		      2
-	      Points		      [30, 0; 0, -10]
+	      Points		      [30, 0; 0, -15]
 	      DstBlock		      "num_colors"
 	      DstPort		      1
 	    }
 	    Line {
 	      SrcBlock		      "Segmentation"
 	      SrcPort		      1
-	      Points		      [30, 0; 0, -30]
+	      Points		      [30, 0; 0, -35]
 	      DstBlock		      "LabelMatrix"
 	      DstPort		      1
 	    }
@@ -6256,6 +6203,7 @@ Model {
 	    Line {
 	      SrcBlock		      "Color Space\n Conversion1"
 	      SrcPort		      2
+	      Points		      [90, 0]
 	      DstBlock		      "Segmentation"
 	      DstPort		      2
 	    }
@@ -6781,30 +6729,23 @@ Model {
 	Line {
 	  SrcBlock		  "B_in"
 	  SrcPort		  1
-	  Points		  [95, 0; 0, 5]
+	  Points		  [95, 0; 0, 30]
 	  DstBlock		  "IterativeSegmentation"
 	  DstPort		  3
 	}
 	Line {
 	  SrcBlock		  "G_in"
 	  SrcPort		  1
-	  Points		  [95, 0; 0, 15]
+	  Points		  [95, 0; 0, 30]
 	  DstBlock		  "IterativeSegmentation"
 	  DstPort		  2
 	}
 	Line {
 	  SrcBlock		  "R_in"
 	  SrcPort		  1
-	  Points		  [95, 0; 0, 25]
+	  Points		  [95, 0; 0, 30]
 	  DstBlock		  "IterativeSegmentation"
 	  DstPort		  1
-	}
-	Line {
-	  SrcBlock		  "IterSegmentThresh"
-	  SrcPort		  1
-	  Points		  [0, -5]
-	  DstBlock		  "IterativeSegmentation"
-	  DstPort		  4
 	}
 	Line {
 	  SrcBlock		  "IterativeSegmentation"
@@ -6965,7 +6906,7 @@ Model {
       System {
 	Name			"ColorSelect"
 	Location		[1, 80, 1281, 853]
-	Open			on
+	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
 	ScreenColor		"white"
@@ -7200,7 +7141,7 @@ Model {
 	  System {
 	    Name		    "drop_mech"
 	    Location		    [1, 80, 1281, 853]
-	    Open		    on
+	    Open		    off
 	    ModelBrowserVisibility  off
 	    ModelBrowserWidth	    200
 	    ScreenColor		    "white"
@@ -17019,12 +16960,11 @@ Model {
       SrcPort		      1
       Points		      [85, 0]
       Branch {
-	Points			[55, 0]
 	DstBlock		"Blob_Analysis"
 	DstPort			6
       }
       Branch {
-	Points			[0, 1520]
+	Points			[0, 1595]
 	DstBlock		"Blob_Analysis1"
 	DstPort			6
       }
@@ -17046,7 +16986,7 @@ Model {
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      3
-      Points		      [365, 0; 0, 405]
+      Points		      [365, 0; 0, 435]
       DstBlock		      "Blob_Analysis"
       DstPort		      3
     }
@@ -17076,12 +17016,11 @@ Model {
       SrcPort		      1
       Points		      [30, 0; 0, 235]
       Branch {
-	Points			[65, 0]
 	DstBlock		"Blob_Analysis"
 	DstPort			4
       }
       Branch {
-	Points			[0, 1550]
+	Points			[0, 1595]
 	DstBlock		"Blob_Analysis1"
 	DstPort			4
       }
@@ -17091,12 +17030,11 @@ Model {
       SrcPort		      2
       Points		      [35, 0; 0, 305]
       Branch {
-	Points			[60, 0]
 	DstBlock		"Blob_Analysis"
 	DstPort			5
       }
       Branch {
-	Points			[0, 1535]
+	Points			[0, 1595]
 	DstBlock		"Blob_Analysis1"
 	DstPort			5
       }
@@ -17106,12 +17044,12 @@ Model {
       SrcPort		      2
       Points		      [90, 0]
       Branch {
-	Points			[0, -625]
+	Points			[0, -535]
 	DstBlock		"Blob_Analysis"
 	DstPort			7
       }
       Branch {
-	Points			[0, 970]
+	Points			[0, 1060]
 	DstBlock		"Blob_Analysis1"
 	DstPort			7
       }
@@ -17300,7 +17238,7 @@ Model {
     Line {
       SrcBlock		      "Down Filter"
       SrcPort		      3
-      Points		      [300, 0; 0, -70]
+      Points		      [300, 0; 0, -40]
       DstBlock		      "Blob_Analysis1"
       DstPort		      3
     }
@@ -17381,21 +17319,6 @@ Model {
       Points		      [40, 0]
       DstBlock		      "Down Filter"
       DstPort		      9
-    }
-    Line {
-      SrcBlock		      "IterSegmentThresh"
-      SrcPort		      1
-      Points		      [0, 90]
-      Branch {
-	Points			[0, 155; 395, 0; 0, 455]
-	DstBlock		"Blob_Analysis"
-	DstPort			8
-      }
-      Branch {
-	Points			[0, -5; -160, 0; 0, 2210]
-	DstBlock		"Blob_Analysis1"
-	DstPort			8
-      }
     }
     Line {
       SrcBlock		      "MeasuredYaw"
@@ -22046,30 +21969,30 @@ Stateflow {
       isEML		      1
       script		      "function [ref_colors, num_colors] = Segmentation(L,a,b,Dist_Thresh)\n% This function tries segmen"
       "tation by adding new reference colors everytime\n% a pixel is found with a distance greater than a certain amoun"
-      "t from\n% every other reference color\n\n[rows cols] = size(L);\n\nDist_Threshold = Dist_Thresh(1);% L = 0 to 10"
-      "0, a = -100 to 100, b = -100 to 100\n                    % max dist = 300 -> 60/300 is 20%\nx = 1;  % coefficien"
-      "ts determining distance calculation\ny = 1.5;\nz = 1.5;\n\nmax_num_colors = 50;\nref_colors = zeros(max_num_colo"
-      "rs,3);   % At most 50 different reference colors\nLabelMatrix = zeros(rows,cols);\nnum_colors = 1;\n\ncenter_row"
-      " = floor(rows/2);\ncenter_col = floor(cols/2);\n\n% Define first reference color to be colr\nref_colors(1,:) = ["
-      "L(center_row,center_col) a(center_row,center_col) b(center_row,center_col)];\n\nflag = 0;\ni = 1;\nj = 1;\nwhile"
-      "(i <= rows)        % perform initial segmentation\n    while(i <= rows && flag == 0)\n        while(j <= cols &&"
-      " flag == 0)\n            k = 1;\n            min_dist = 1000;\n            index = 1;\n            while(k <= nu"
-      "m_colors)\n                dist = sqrt(x*(ref_colors(k,1) - L(i,j))^2 + y*(ref_colors(k,2) - a(i,j))^2 + z*(ref_"
-      "colors(k,3) - b(i,j))^2);\n                if(min_dist > dist)\n                    min_dist = double(dist);\n  "
-      "                  index = k;\n                end\n                k = k + 1;\n            end\n            if(j"
-      " == 117)\n                cow = 1;\n            end\n            if(min_dist > Dist_Threshold && num_colors < ma"
-      "x_num_colors)\n                ref_colors(num_colors+1,:) = [L(i,j) a(i,j) b(i,j)];\n                num_colors "
-      "= num_colors + 1;\n                flag = 1;\n                i = 0;\n                j = 0;\n            else\n"
-      "                LabelMatrix(i,j) = index;\n            end\n            j = j + 1;\n        end\n        j = 1;\n"
-      "        i = i + 1;\n    end\n    flag = 0;\nend\n\n% Go through image once more to get more accurate values for "
-      "the different regions\nref_color_L_avg = zeros(50,1);\nref_color_a_avg = zeros(50,1);\nref_color_b_avg = zeros(5"
-      "0,1);\ncolor_count = zeros(50,1);\nfor i = 1:rows\n    for j = 1:cols\n        index = LabelMatrix(i,j);\n      "
-      "  ref_color_L_avg(index) = ref_color_L_avg(index) + L(i,j);\n        ref_color_a_avg(index) = ref_color_a_avg(in"
-      "dex) + a(i,j);\n        ref_color_b_avg(index) = ref_color_b_avg(index) + b(i,j);\n        color_count(index) = "
-      "color_count(index) + 1;\n    end\nend\nref_color_L_avg = ref_color_L_avg ./ color_count;\nref_color_a_avg = ref_"
-      "color_a_avg ./ color_count;\nref_color_b_avg = ref_color_b_avg ./ color_count;\n\nfor i = 1:num_colors\n    ref_"
-      "colors(i,1) = ref_color_L_avg(i);\n    ref_colors(i,2) = ref_color_a_avg(i);\n    ref_colors(i,3) = ref_color_b_"
-      "avg(i);\nend\n\nreturn\n"
+      "t from\n% every other reference color\n\n[rows cols] = size(L);\n\nDist_Threshold = Dist_Thresh;% L = 0 to 100, "
+      "a = -100 to 100, b = -100 to 100\n                    % max dist = 300 -> 60/300 is 20%\nx = 1;  % coefficients "
+      "determining distance calculation\ny = 1.5;\nz = 1.5;\n\nmax_num_colors = 50;\nref_colors = zeros(max_num_colors,"
+      "3);   % At most 50 different reference colors\nLabelMatrix = zeros(rows,cols);\nnum_colors = 1;\n\ncenter_row = "
+      "floor(rows/2);\ncenter_col = floor(cols/2);\n\n% Define first reference color to be colr\nref_colors(1,:) = [L(c"
+      "enter_row,center_col) a(center_row,center_col) b(center_row,center_col)];\n\nflag = 0;\ni = 1;\nj = 1;\nwhile(i "
+      "<= rows)        % perform initial segmentation\n    while(i <= rows && flag == 0)\n        while(j <= cols && fl"
+      "ag == 0)\n            k = 1;\n            min_dist = 1000;\n            index = 1;\n            while(k <= num_c"
+      "olors)\n                dist = sqrt(x*(ref_colors(k,1) - L(i,j))^2 + y*(ref_colors(k,2) - a(i,j))^2 + z*(ref_col"
+      "ors(k,3) - b(i,j))^2);\n                if(min_dist > dist)\n                    min_dist = double(dist);\n     "
+      "               index = k;\n                end\n                k = k + 1;\n            end\n            if(j =="
+      " 117)\n                cow = 1;\n            end\n            if(min_dist > Dist_Threshold && num_colors < max_n"
+      "um_colors)\n                ref_colors(num_colors+1,:) = [L(i,j) a(i,j) b(i,j)];\n                num_colors = n"
+      "um_colors + 1;\n                flag = 1;\n                i = 0;\n                j = 0;\n            else\n   "
+      "             LabelMatrix(i,j) = index;\n            end\n            j = j + 1;\n        end\n        j = 1;\n  "
+      "      i = i + 1;\n    end\n    flag = 0;\nend\n\n% Go through image once more to get more accurate values for th"
+      "e different regions\nref_color_L_avg = zeros(50,1);\nref_color_a_avg = zeros(50,1);\nref_color_b_avg = zeros(50,"
+      "1);\ncolor_count = zeros(50,1);\nfor i = 1:rows\n    for j = 1:cols\n        index = LabelMatrix(i,j);\n        "
+      "ref_color_L_avg(index) = ref_color_L_avg(index) + L(i,j);\n        ref_color_a_avg(index) = ref_color_a_avg(inde"
+      "x) + a(i,j);\n        ref_color_b_avg(index) = ref_color_b_avg(index) + b(i,j);\n        color_count(index) = co"
+      "lor_count(index) + 1;\n    end\nend\nref_color_L_avg = ref_color_L_avg ./ color_count;\nref_color_a_avg = ref_co"
+      "lor_a_avg ./ color_count;\nref_color_b_avg = ref_color_b_avg ./ color_count;\n\nfor i = 1:num_colors\n    ref_co"
+      "lors(i,1) = ref_color_L_avg(i);\n    ref_colors(i,2) = ref_color_a_avg(i);\n    ref_colors(i,3) = ref_color_b_av"
+      "g(i);\nend\n\nreturn\n"
       editorLayout	      "100 M4x1[205 227 1080 733]"
       fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
       "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
@@ -24306,30 +24229,30 @@ Stateflow {
       isEML		      1
       script		      "function [ref_colors, num_colors] = Segmentation(L,a,b,Dist_Thresh)\n% This function tries segmen"
       "tation by adding new reference colors everytime\n% a pixel is found with a distance greater than a certain amoun"
-      "t from\n% every other reference color\n\n[rows cols] = size(L);\n\nDist_Threshold = Dist_Thresh(1);% L = 0 to 10"
-      "0, a = -100 to 100, b = -100 to 100\n                    % max dist = 300 -> 60/300 is 20%\nx = 1;  % coefficien"
-      "ts determining distance calculation\ny = 1.5;\nz = 1.5;\n\nmax_num_colors = 50;\nref_colors = zeros(max_num_colo"
-      "rs,3);   % At most 50 different reference colors\nLabelMatrix = zeros(rows,cols);\nnum_colors = 1;\n\ncenter_row"
-      " = floor(rows/2);\ncenter_col = floor(cols/2);\n\n% Define first reference color to be colr\nref_colors(1,:) = ["
-      "L(center_row,center_col) a(center_row,center_col) b(center_row,center_col)];\n\nflag = 0;\ni = 1;\nj = 1;\nwhile"
-      "(i <= rows)        % perform initial segmentation\n    while(i <= rows && flag == 0)\n        while(j <= cols &&"
-      " flag == 0)\n            k = 1;\n            min_dist = 1000;\n            index = 1;\n            while(k <= nu"
-      "m_colors)\n                dist = sqrt(x*(ref_colors(k,1) - L(i,j))^2 + y*(ref_colors(k,2) - a(i,j))^2 + z*(ref_"
-      "colors(k,3) - b(i,j))^2);\n                if(min_dist > dist)\n                    min_dist = double(dist);\n  "
-      "                  index = k;\n                end\n                k = k + 1;\n            end\n            if(j"
-      " == 117)\n                cow = 1;\n            end\n            if(min_dist > Dist_Threshold && num_colors < ma"
-      "x_num_colors)\n                ref_colors(num_colors+1,:) = [L(i,j) a(i,j) b(i,j)];\n                num_colors "
-      "= num_colors + 1;\n                flag = 1;\n                i = 0;\n                j = 0;\n            else\n"
-      "                LabelMatrix(i,j) = index;\n            end\n            j = j + 1;\n        end\n        j = 1;\n"
-      "        i = i + 1;\n    end\n    flag = 0;\nend\n\n% Go through image once more to get more accurate values for "
-      "the different regions\nref_color_L_avg = zeros(50,1);\nref_color_a_avg = zeros(50,1);\nref_color_b_avg = zeros(5"
-      "0,1);\ncolor_count = zeros(50,1);\nfor i = 1:rows\n    for j = 1:cols\n        index = LabelMatrix(i,j);\n      "
-      "  ref_color_L_avg(index) = ref_color_L_avg(index) + L(i,j);\n        ref_color_a_avg(index) = ref_color_a_avg(in"
-      "dex) + a(i,j);\n        ref_color_b_avg(index) = ref_color_b_avg(index) + b(i,j);\n        color_count(index) = "
-      "color_count(index) + 1;\n    end\nend\nref_color_L_avg = ref_color_L_avg ./ color_count;\nref_color_a_avg = ref_"
-      "color_a_avg ./ color_count;\nref_color_b_avg = ref_color_b_avg ./ color_count;\n\nfor i = 1:num_colors\n    ref_"
-      "colors(i,1) = ref_color_L_avg(i);\n    ref_colors(i,2) = ref_color_a_avg(i);\n    ref_colors(i,3) = ref_color_b_"
-      "avg(i);\nend\n\nreturn\n"
+      "t from\n% every other reference color\n\n[rows cols] = size(L);\n\nDist_Threshold = Dist_Thresh;% L = 0 to 100, "
+      "a = -100 to 100, b = -100 to 100\n                    % max dist = 300 -> 60/300 is 20%\nx = 1;  % coefficients "
+      "determining distance calculation\ny = 1.5;\nz = 1.5;\n\nmax_num_colors = 50;\nref_colors = zeros(max_num_colors,"
+      "3);   % At most 50 different reference colors\nLabelMatrix = zeros(rows,cols);\nnum_colors = 1;\n\ncenter_row = "
+      "floor(rows/2);\ncenter_col = floor(cols/2);\n\n% Define first reference color to be colr\nref_colors(1,:) = [L(c"
+      "enter_row,center_col) a(center_row,center_col) b(center_row,center_col)];\n\nflag = 0;\ni = 1;\nj = 1;\nwhile(i "
+      "<= rows)        % perform initial segmentation\n    while(i <= rows && flag == 0)\n        while(j <= cols && fl"
+      "ag == 0)\n            k = 1;\n            min_dist = 1000;\n            index = 1;\n            while(k <= num_c"
+      "olors)\n                dist = sqrt(x*(ref_colors(k,1) - L(i,j))^2 + y*(ref_colors(k,2) - a(i,j))^2 + z*(ref_col"
+      "ors(k,3) - b(i,j))^2);\n                if(min_dist > dist)\n                    min_dist = double(dist);\n     "
+      "               index = k;\n                end\n                k = k + 1;\n            end\n            if(j =="
+      " 117)\n                cow = 1;\n            end\n            if(min_dist > Dist_Threshold && num_colors < max_n"
+      "um_colors)\n                ref_colors(num_colors+1,:) = [L(i,j) a(i,j) b(i,j)];\n                num_colors = n"
+      "um_colors + 1;\n                flag = 1;\n                i = 0;\n                j = 0;\n            else\n   "
+      "             LabelMatrix(i,j) = index;\n            end\n            j = j + 1;\n        end\n        j = 1;\n  "
+      "      i = i + 1;\n    end\n    flag = 0;\nend\n\n% Go through image once more to get more accurate values for th"
+      "e different regions\nref_color_L_avg = zeros(50,1);\nref_color_a_avg = zeros(50,1);\nref_color_b_avg = zeros(50,"
+      "1);\ncolor_count = zeros(50,1);\nfor i = 1:rows\n    for j = 1:cols\n        index = LabelMatrix(i,j);\n        "
+      "ref_color_L_avg(index) = ref_color_L_avg(index) + L(i,j);\n        ref_color_a_avg(index) = ref_color_a_avg(inde"
+      "x) + a(i,j);\n        ref_color_b_avg(index) = ref_color_b_avg(index) + b(i,j);\n        color_count(index) = co"
+      "lor_count(index) + 1;\n    end\nend\nref_color_L_avg = ref_color_L_avg ./ color_count;\nref_color_a_avg = ref_co"
+      "lor_a_avg ./ color_count;\nref_color_b_avg = ref_color_b_avg ./ color_count;\n\nfor i = 1:num_colors\n    ref_co"
+      "lors(i,1) = ref_color_L_avg(i);\n    ref_colors(i,2) = ref_color_a_avg(i);\n    ref_colors(i,3) = ref_color_b_av"
+      "g(i);\nend\n\nreturn\n"
       editorLayout	      "100 M4x1[205 227 1080 733]"
       fimathString	      "fimath(...\n'RoundMode', 'floor',...\n'OverflowMode', 'wrap',...\n'ProductMode', 'KeepLSB', "
       "'ProductWordLength', 32,...\n'SumMode', 'KeepLSB', 'SumWordLength', 32,...\n'CastBeforeSum', true)"
