@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1396"
+    ComputedModelVersion    "1.1401"
     NumModelReferences	    1
     ModelReference {
       ModelRefBlockPath	      "test_VisionModel/Model|VisionModel"
@@ -29,9 +29,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Fri Jul 15 09:42:22 2011"
+  LastModifiedDate	  "Fri Jul 15 10:06:47 2011"
   RTWModifiedTimeStamp	  232622307
-  ModelVersionFormat	  "1.%<AutoIncrement:1396>"
+  ModelVersionFormat	  "1.%<AutoIncrement:1401>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -647,7 +647,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "767"
+    SIDHighWatermark	    "768"
     Block {
       BlockType		      Reference
       Name		      "AllMarkers"
@@ -739,6 +739,14 @@ Model {
       Name		      "DesiredBuoyColor12"
       SID		      "765"
       Position		      [600, 2835, 630, 2865]
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Constant
+      Name		      "DesiredBuoyColor13"
+      SID		      "768"
+      Position		      [850, 2815, 880, 2845]
+      Value		      "35"
       SampleTime	      "-1"
     }
     Block {
@@ -1259,11 +1267,11 @@ Model {
       BlockType		      ModelReference
       Name		      "Model"
       SID		      "491"
-      Ports		      [59, 22]
+      Ports		      [60, 22]
       Position		      [830, 914, 1330, 2726]
       ModelNameDialog	      "VisionModel"
       SimulationMode	      "Accelerator"
-      ModelReferenceVersion   "1.1373"
+      ModelReferenceVersion   "1.1388"
       List {
 	ListType		InputPortNames
 	port0			"R_forward_in"
@@ -1324,7 +1332,8 @@ Model {
 	port55			"Scale_Down_H"
 	port56			"Scale_Down_S"
 	port57			"Scale_Down_V"
-	port58			"IterSegmentThresh"
+	port58			"MeasuredYaw"
+	port59			"aa"
       }
       List {
 	ListType		OutputPortNames
@@ -1480,7 +1489,7 @@ Model {
       SrcPort		      1
       Points		      [55, 0]
       Branch {
-	Points			[70, 0; 0, 540]
+	Points			[70, 0; 0, 525]
 	DstBlock		"Model"
 	DstPort			1
       }
@@ -1495,7 +1504,7 @@ Model {
       SrcPort		      2
       Points		      [45, 0]
       Branch {
-	Points			[75, 0; 0, 535]
+	Points			[75, 0; 0, 520]
 	DstBlock		"Model"
 	DstPort			2
       }
@@ -1510,7 +1519,7 @@ Model {
       SrcPort		      3
       Points		      [30, 0]
       Branch {
-	Points			[85, 0; 0, 530]
+	Points			[85, 0; 0, 515]
 	DstBlock		"Model"
 	DstPort			3
       }
@@ -1581,7 +1590,7 @@ Model {
       SrcPort		      2
       Points		      [0, -5; 65, 0]
       Branch {
-	Points			[130, 0; 0, 460]
+	Points			[130, 0; 0, 445]
 	DstBlock		"Model"
 	DstPort			5
       }
@@ -1596,7 +1605,7 @@ Model {
       SrcPort		      3
       Points		      [0, -5; 70, 0]
       Branch {
-	Points			[115, 0; 0, 455]
+	Points			[115, 0; 0, 440]
 	DstBlock		"Model"
 	DstPort			6
       }
@@ -1721,14 +1730,14 @@ Model {
     Line {
       SrcBlock		      "DesiredBuoyColor"
       SrcPort		      1
-      Points		      [45, 0; 0, 350]
+      Points		      [45, 0; 0, 335]
       DstBlock		      "Model"
       DstPort		      10
     }
     Line {
       SrcBlock		      "WhichPath"
       SrcPort		      1
-      Points		      [35, 0; 0, 375]
+      Points		      [35, 0; 0, 360]
       DstBlock		      "Model"
       DstPort		      9
     }
@@ -1749,14 +1758,14 @@ Model {
     Line {
       SrcBlock		      "DesiredBuoyColor1"
       SrcPort		      1
-      Points		      [40, 0; 0, 20]
+      Points		      [40, 0; 0, 5]
       DstBlock		      "Model"
       DstPort		      47
     }
     Line {
       SrcBlock		      "DesiredBuoyColor2"
       SrcPort		      1
-      Points		      [40, 0; 0, 10]
+      Points		      [40, 0; 0, -5]
       DstBlock		      "Model"
       DstPort		      48
     }
@@ -1791,35 +1800,35 @@ Model {
     Line {
       SrcBlock		      "Dist_Thresh1"
       SrcPort		      1
-      Points		      [310, 0; 0, 265]
+      Points		      [310, 0; 0, 250]
       DstBlock		      "Model"
       DstPort		      12
     }
     Line {
       SrcBlock		      "Dist_Thresh2"
       SrcPort		      1
-      Points		      [325, 0; 0, 255]
+      Points		      [325, 0; 0, 240]
       DstBlock		      "Model"
       DstPort		      13
     }
     Line {
       SrcBlock		      "Dist_Thresh3"
       SrcPort		      1
-      Points		      [330, 0; 0, 245]
+      Points		      [330, 0; 0, 230]
       DstBlock		      "Model"
       DstPort		      14
     }
     Line {
       SrcBlock		      "Dist_Thresh4"
       SrcPort		      1
-      Points		      [335, 0; 0, 235]
+      Points		      [335, 0; 0, 220]
       DstBlock		      "Model"
       DstPort		      15
     }
     Line {
       SrcBlock		      "Dist_Thresh5"
       SrcPort		      1
-      Points		      [340, 0; 0, 225]
+      Points		      [340, 0; 0, 210]
       DstBlock		      "Model"
       DstPort		      16
     }
@@ -1854,7 +1863,7 @@ Model {
     Line {
       SrcBlock		      "Dist_Thresh10"
       SrcPort		      1
-      Points		      [420, 0; 0, 175]
+      Points		      [420, 0; 0, 160]
       DstBlock		      "Model"
       DstPort		      21
     }
@@ -1966,7 +1975,6 @@ Model {
     Line {
       SrcBlock		      "Dist_Thresh21"
       SrcPort		      1
-      Points		      [475, 0]
       DstBlock		      "Model"
       DstPort		      37
     }
@@ -2025,11 +2033,6 @@ Model {
       Points		      [180, 0]
       DstBlock		      "Model"
       DstPort		      58
-    }
-    Line {
-      Points		      [725, 2885; 90, 0]
-      DstBlock		      "Model"
-      DstPort		      59
     }
     Annotation {
       Name		      "Modes:\n0 = Do not execute any tasks\n1 = Validation gate\n2 = Follow path\n3 = Buoy\n4 = Torpedo\n"
