@@ -86,7 +86,7 @@ void Controllers::step(){
 	//qDebug() << "Stepping Controllers";
 
 	updateParameters();
-        printVars();
+        //printVars();
 	// set inputs based on all relevant data (primarily the currentCMD)
 
 	// vim cmd used to parse .h:
