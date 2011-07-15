@@ -6,7 +6,8 @@
 -- Make sure you change the starting heading to face the gate
 -- Note to self: What is the name of the Vision output state with the absolute heading for bouy
 -- One of the flexible parts of this script is the time to go forward for the gate until backing up searching for path
-
+--Please note the TODO's down below for things that can be improved
+--When you get a chance, update the vision input iter_segment_thrush=35
 state =
 {
 	Name = "standby";
@@ -15,7 +16,7 @@ state =
 	--this state must reinitalize every options variable in the script
 	Options = 
 	{
-		count = 10;
+		count = 31;
 		
 		o1_label = "Parameter.Thruster.LeftFwd.Gain";
 		o1_value = 0;
@@ -30,7 +31,7 @@ state =
 		o4_value = 0;
 		
 		o5_label = "DeadReckon.Depth";
-		o5_value = 3.0;
+		o5_value = 0;
 
 		o6_label = "TargetOptions.MaintainHeading";
 		o6_value = 0;
@@ -47,8 +48,56 @@ state =
 		o10_label = "Parameter.Vision.ModeSelect";
 		o10_value = 0;
 
-	};
+		o12_label = "Parameter.Vision.blue.al";
+		o12_value = 0;
 
+		o13_label = "Parameter.Vision.blue.au";
+		o13_value = 0;
+
+		o14_label = "Parameter.Vision.blue.bl";
+		o14_value = 0;
+
+		o15_label = "Parameter.Vision.blue.bl";
+		o15_value = 0;
+
+		o16_label = "Parameter.Vision.red.al";
+		o16_value = 25;
+
+		o17_label = "Parameter.Vision.red.au";
+		o17_value = 127;
+
+		o18_label = "Parameter.Vision.red.bl";
+		o18_value = 0;
+
+		o19_label = "Parameter.Vision.red.bu";
+		o19_value = 127;	
+
+		o20_label = "Parameter.Vision.orange.al";
+		o20_value = -18;
+		o21_label = "Parameter.Vision.orange.au";
+		o21_value = 30;
+		o22_label = "Parameter.Vision.orange.bl";
+		o22_value = -10;
+		o23_label = "Parameter.Vision.orange.bu";
+		o23_value = 70;
+		o24_label = "Parameter.Vision.yellow.al";
+		o24_value = -40;
+		o25_label = "Parameter.Vision.yellow.au";
+		o25_value = -13;
+		o26_label = "Parameter.Vision.yellow.bl";
+		o26_value = 30;
+		o27_label = "Parameter.Vision.yellow.bu";
+		o27_value = 50;
+		o28_label = "Parameter.Vision.green.al";
+		o28_value = -82;
+		o29_label = "Parameter.Vision.green.au";
+		o29_value = -40;
+		o30_label = "Parameter.Vision.green.bl";
+		o30_value = 9;
+		o31_label = "Parameter.Vision.green.bu";
+		o31_value = 56;
+
+	};
 	TriggerTransitions = 
 	{
 		count = 1;
