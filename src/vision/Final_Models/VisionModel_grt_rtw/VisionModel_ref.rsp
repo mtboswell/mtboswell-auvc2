@@ -1,0 +1,4 @@
+drop_mech_rtwlib.a
+path_detector_rtwlib.a
+torpedo_rtwlib.a
+validation_gate_rtwlib.a

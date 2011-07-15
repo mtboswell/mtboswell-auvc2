@@ -1,0 +1,6 @@
+thruster 1	thruster 2
+state 127 0 0
+wait 5000
+state 0 127 0
+wait 10000
+

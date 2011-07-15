@@ -1,0 +1,745 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<?xml-stylesheet href='./slwebview.css' type='text/css' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' onload='initialize(evt)' zoomAndPan='disable' id='canvas.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize' class='canvas' display='inline' x='0' y='0' height='95%' width='100%' preserveAspectRatio='xMinYMin meet' original_viewBox='50 50 185 209' viewBox='50 50 185 209'> 
+<script type='text/javascript' xlink:href='./slwebview.js' />
+<script type='text/javascript' xlink:href='./id_mapping.js' />
+  <title id='title.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize'>Resize</title>
+<rect id='background.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize' x='-4041' y='-4041' width='8312' height='8336' pointer-events='none' fill='rgb(100%,100%,100%) ' />
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Out3' class='proptable' pointer-events='none' extent_Height='131' extent_Width='133' preferred_X='230' preferred_Y='218'>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='77' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>3</text>
+  <rect x='0' y='19' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='77' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='77' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='77' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='77' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='77' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='77' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='77' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='77' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='77' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='77' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Out3' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Out3'>Out3</title>
+<g><rect x='195' y='213' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='195' y='213' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='196' y='241' font-size='12' fill='rgb(0%,0%,0%)' font-family='FreeSans'>Out3</text>
+</g>
+</g>
+<g><g><text stroke='none' x='206.5' y='225.5' font-size='12' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_396)' font-family='FreeSans'>3</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Out2' class='proptable' pointer-events='none' extent_Height='131' extent_Width='133' preferred_X='230' preferred_Y='138'>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='77' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='19' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='77' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='77' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='77' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='77' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='77' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='77' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='77' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='77' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='77' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='77' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Out2' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Out2'>Out2</title>
+<g><rect x='195' y='133' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='195' y='133' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='196' y='161' font-size='12' fill='rgb(0%,0%,0%)' font-family='FreeSans'>Out2</text>
+</g>
+</g>
+<g><g><text stroke='none' x='206.5' y='145.5' font-size='12' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_397)' font-family='FreeSans'>2</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Out1' class='proptable' pointer-events='none' extent_Height='131' extent_Width='133' preferred_X='235' preferred_Y='73'>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='77' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='19' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='77' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='77' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='77' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='77' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='77' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='77' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='77' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='77' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='133' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='77' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='77' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='0' width='133' height='131' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Out1' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Out1'>Out1</title>
+<g><rect x='200' y='68' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='200' y='68' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='201' y='96' font-size='12' fill='rgb(0%,0%,0%)' font-family='FreeSans'>Out1</text>
+</g>
+</g>
+<g><g><text stroke='none' x='211.5' y='80.5' font-size='12' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_398)' font-family='FreeSans'>1</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Resize2' class='proptable' pointer-events='none' extent_Height='263' extent_Width='263' preferred_X='175' preferred_Y='205'>
+  <rect x='0' y='0' width='263' height='263' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>specify</text>
+  <text stroke='none' x='106' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Number of output rows and columns</text>
+  <rect x='0' y='19' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>rfactor</text>
+  <text stroke='none' x='106' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[200 150]</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outCols</text>
+  <text stroke='none' x='106' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>25</text>
+  <rect x='0' y='41' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outRows</text>
+  <text stroke='none' x='106' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>25</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outRowsCols</text>
+  <text stroke='none' x='106' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[60 80]</text>
+  <rect x='0' y='63' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>interp_method</text>
+  <text stroke='none' x='106' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Bilinear</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>antialias</text>
+  <text stroke='none' x='106' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>on</text>
+  <rect x='0' y='85' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>useROI</text>
+  <text stroke='none' x='106' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>roiFlag</text>
+  <text stroke='none' x='106' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='107' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>firstCoeffMode</text>
+  <text stroke='none' x='106' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Same word length as input</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>firstCoeffWordLength</text>
+  <text stroke='none' x='106' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>32</text>
+  <rect x='0' y='129' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outputMode</text>
+  <text stroke='none' x='106' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Same as input</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outputWordLength</text>
+  <text stroke='none' x='106' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>32</text>
+  <rect x='0' y='151' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outputFracLength</text>
+  <text stroke='none' x='106' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>10</text>
+  <text stroke='none' x='5' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>accumMode</text>
+  <text stroke='none' x='106' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Same as product output</text>
+  <rect x='0' y='173' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>accumWordLength</text>
+  <text stroke='none' x='106' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>32</text>
+  <text stroke='none' x='5' y='192' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>accumFracLength</text>
+  <text stroke='none' x='106' y='192' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>10</text>
+  <rect x='0' y='195' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='203' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>prodOutputMode</text>
+  <text stroke='none' x='106' y='203' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Binary point scaling</text>
+  <text stroke='none' x='5' y='214' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>prodOutputWordLength</text>
+  <text stroke='none' x='106' y='214' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>32</text>
+  <rect x='0' y='217' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='225' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>prodOutputFracLength</text>
+  <text stroke='none' x='106' y='225' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>10</text>
+  <text stroke='none' x='5' y='236' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>roundingMode</text>
+  <text stroke='none' x='106' y='236' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Nearest</text>
+  <rect x='0' y='239' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='247' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>overflowMode</text>
+  <text stroke='none' x='106' y='247' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>on</text>
+  <text stroke='none' x='5' y='258' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='106' y='258' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='263' height='263' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Resize2' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Resize2'>Resize2</title>
+<g><rect x='120' y='200' width='50' height='40' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='125' y='254' font-size='12' fill='rgb(0%,0%,0%)' font-family='FreeSans'>Resize2</text>
+</g>
+</g>
+<g><g><text stroke='none' x='128.5' y='225.5' font-size='12' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_399)' font-family='FreeSans'>Resize</text>
+</g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+</g>
+<g><rect x='120' y='200' width='50' height='40' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Resize1' class='proptable' pointer-events='none' extent_Height='263' extent_Width='263' preferred_X='175' preferred_Y='125'>
+  <rect x='0' y='0' width='263' height='263' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>specify</text>
+  <text stroke='none' x='106' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Number of output rows and columns</text>
+  <rect x='0' y='19' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>rfactor</text>
+  <text stroke='none' x='106' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[200 150]</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outCols</text>
+  <text stroke='none' x='106' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>25</text>
+  <rect x='0' y='41' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outRows</text>
+  <text stroke='none' x='106' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>25</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outRowsCols</text>
+  <text stroke='none' x='106' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[60 80]</text>
+  <rect x='0' y='63' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>interp_method</text>
+  <text stroke='none' x='106' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Bilinear</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>antialias</text>
+  <text stroke='none' x='106' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>on</text>
+  <rect x='0' y='85' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>useROI</text>
+  <text stroke='none' x='106' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>roiFlag</text>
+  <text stroke='none' x='106' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='107' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>firstCoeffMode</text>
+  <text stroke='none' x='106' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Same word length as input</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>firstCoeffWordLength</text>
+  <text stroke='none' x='106' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>32</text>
+  <rect x='0' y='129' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outputMode</text>
+  <text stroke='none' x='106' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Same as input</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outputWordLength</text>
+  <text stroke='none' x='106' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>32</text>
+  <rect x='0' y='151' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outputFracLength</text>
+  <text stroke='none' x='106' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>10</text>
+  <text stroke='none' x='5' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>accumMode</text>
+  <text stroke='none' x='106' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Same as product output</text>
+  <rect x='0' y='173' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>accumWordLength</text>
+  <text stroke='none' x='106' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>32</text>
+  <text stroke='none' x='5' y='192' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>accumFracLength</text>
+  <text stroke='none' x='106' y='192' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>10</text>
+  <rect x='0' y='195' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='203' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>prodOutputMode</text>
+  <text stroke='none' x='106' y='203' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Binary point scaling</text>
+  <text stroke='none' x='5' y='214' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>prodOutputWordLength</text>
+  <text stroke='none' x='106' y='214' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>32</text>
+  <rect x='0' y='217' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='225' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>prodOutputFracLength</text>
+  <text stroke='none' x='106' y='225' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>10</text>
+  <text stroke='none' x='5' y='236' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>roundingMode</text>
+  <text stroke='none' x='106' y='236' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Nearest</text>
+  <rect x='0' y='239' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='247' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>overflowMode</text>
+  <text stroke='none' x='106' y='247' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>on</text>
+  <text stroke='none' x='5' y='258' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='106' y='258' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='263' height='263' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Resize1' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Resize1'>Resize1</title>
+<g><rect x='115' y='120' width='55' height='40' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='122' y='174' font-size='12' fill='rgb(0%,0%,0%)' font-family='FreeSans'>Resize1</text>
+</g>
+</g>
+<g><g><text stroke='none' x='125.5' y='145.5' font-size='12' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_400)' font-family='FreeSans'>Resize</text>
+</g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+</g>
+<g><rect x='115' y='120' width='55' height='40' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Resize' class='proptable' pointer-events='none' extent_Height='263' extent_Width='263' preferred_X='180' preferred_Y='60'>
+  <rect x='0' y='0' width='263' height='263' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>specify</text>
+  <text stroke='none' x='106' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Number of output rows and columns</text>
+  <rect x='0' y='19' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>rfactor</text>
+  <text stroke='none' x='106' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outCols</text>
+  <text stroke='none' x='106' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>25</text>
+  <rect x='0' y='41' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outRows</text>
+  <text stroke='none' x='106' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>25</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outRowsCols</text>
+  <text stroke='none' x='106' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[60 80]</text>
+  <rect x='0' y='63' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>interp_method</text>
+  <text stroke='none' x='106' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Bilinear</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>antialias</text>
+  <text stroke='none' x='106' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>on</text>
+  <rect x='0' y='85' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>useROI</text>
+  <text stroke='none' x='106' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>roiFlag</text>
+  <text stroke='none' x='106' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='107' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>firstCoeffMode</text>
+  <text stroke='none' x='106' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Same word length as input</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>firstCoeffWordLength</text>
+  <text stroke='none' x='106' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>32</text>
+  <rect x='0' y='129' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outputMode</text>
+  <text stroke='none' x='106' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Same as input</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outputWordLength</text>
+  <text stroke='none' x='106' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>32</text>
+  <rect x='0' y='151' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>outputFracLength</text>
+  <text stroke='none' x='106' y='159' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>10</text>
+  <text stroke='none' x='5' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>accumMode</text>
+  <text stroke='none' x='106' y='170' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Same as product output</text>
+  <rect x='0' y='173' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>accumWordLength</text>
+  <text stroke='none' x='106' y='181' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>32</text>
+  <text stroke='none' x='5' y='192' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>accumFracLength</text>
+  <text stroke='none' x='106' y='192' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>10</text>
+  <rect x='0' y='195' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='203' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>prodOutputMode</text>
+  <text stroke='none' x='106' y='203' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Binary point scaling</text>
+  <text stroke='none' x='5' y='214' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>prodOutputWordLength</text>
+  <text stroke='none' x='106' y='214' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>32</text>
+  <rect x='0' y='217' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='225' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>prodOutputFracLength</text>
+  <text stroke='none' x='106' y='225' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>10</text>
+  <text stroke='none' x='5' y='236' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>roundingMode</text>
+  <text stroke='none' x='106' y='236' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Nearest</text>
+  <rect x='0' y='239' width='263' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='247' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>overflowMode</text>
+  <text stroke='none' x='106' y='247' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>on</text>
+  <text stroke='none' x='5' y='258' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='106' y='258' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='263' height='263' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Resize' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/Resize'>Resize</title>
+<g><rect x='110' y='55' width='65' height='40' stroke='none' fill='rgb(100%,100%,100%)' />
+<g><text stroke='none' x='125.5' y='109' font-size='12' fill='rgb(0%,0%,0%)' font-family='FreeSans'>Resize</text>
+</g>
+</g>
+<g><g><text stroke='none' x='125.5' y='80.5' font-size='12' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_401)' font-family='FreeSans'>Resize</text>
+</g>
+<g></g>
+<g></g>
+<g></g>
+<g></g>
+</g>
+<g><rect x='110' y='55' width='65' height='40' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/In3' class='proptable' pointer-events='none' extent_Height='153' extent_Width='195' preferred_X='100' preferred_Y='218'>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>3</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/In3' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/In3'>In3</title>
+<g><rect x='65' y='213' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='65' y='213' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='71' y='241' font-size='12' fill='rgb(0%,0%,0%)' font-family='FreeSans'>In3</text>
+</g>
+</g>
+<g><g><text stroke='none' x='76.5' y='225.5' font-size='12' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_402)' font-family='FreeSans'>3</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/In2' class='proptable' pointer-events='none' extent_Height='153' extent_Width='195' preferred_X='95' preferred_Y='138'>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/In2' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/In2'>In2</title>
+<g><rect x='60' y='133' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='60' y='133' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='66' y='161' font-size='12' fill='rgb(0%,0%,0%)' font-family='FreeSans'>In2</text>
+</g>
+</g>
+<g><g><text stroke='none' x='71.5' y='145.5' font-size='12' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_403)' font-family='FreeSans'>2</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/In1' class='proptable' pointer-events='none' extent_Height='153' extent_Width='195' preferred_X='90' preferred_Y='73'>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port</text>
+  <text stroke='none' x='139' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>1</text>
+  <rect x='0' y='19' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>IconDisplay</text>
+  <text stroke='none' x='139' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Port number</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMin</text>
+  <text stroke='none' x='139' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <rect x='0' y='41' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutMax</text>
+  <text stroke='none' x='139' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>[]</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>OutDataTypeStr</text>
+  <text stroke='none' x='139' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit: auto</text>
+  <rect x='0' y='63' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LockScale</text>
+  <text stroke='none' x='139' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>PortDimensions</text>
+  <text stroke='none' x='139' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='85' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>VarSizeSig</text>
+  <text stroke='none' x='139' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Inherit</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SampleTime</text>
+  <text stroke='none' x='139' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>-1</text>
+  <rect x='0' y='107' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalType</text>
+  <text stroke='none' x='139' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <text stroke='none' x='5' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SamplingMode</text>
+  <text stroke='none' x='139' y='126' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>auto</text>
+  <rect x='0' y='129' width='195' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchByDelayingOutsideSignal</text>
+  <text stroke='none' x='139' y='137' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>LatchInputForFeedbackSignals</text>
+  <text stroke='none' x='139' y='148' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <rect x='0' y='0' width='195' height='153' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/In1' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+  <title id='title.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/In1'>In1</title>
+<g><rect x='55' y='68' width='30' height='14' rx='6.77419' ry='6.77419' stroke='none' fill='rgb(100%,100%,100%)' />
+<rect x='55' y='68' width='30' height='14' rx='6.77419' ry='6.77419' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+<g><text stroke='none' x='61' y='96' font-size='12' fill='rgb(0%,0%,0%)' font-family='FreeSans'>In1</text>
+</g>
+</g>
+<g><g><text stroke='none' x='66.5' y='80.5' font-size='12' fill='rgb(0%,0%,0%)' clip-path='url(#clip_rect_404)' font-family='FreeSans'>1</text>
+</g>
+</g>
+<g></g>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/_uniq_id_301' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='200' preferred_Y='220'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/_uniq_id_301' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='170' y1='220' x2='175' y2='220' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='190' y1='220' x2='180' y2='220' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='185,215 185,225 195,220 185,215 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='173,220 175,220 180,220 182,220 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/_uniq_id_302' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='125' preferred_Y='220'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/_uniq_id_302' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='95' y1='220' x2='100' y2='220' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='115' y1='220' x2='105' y2='220' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='110,215 110,225 120,220 110,215 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='98,220 100,220 105,220 107,220 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/_uniq_id_303' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='200' preferred_Y='140'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/_uniq_id_303' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='170' y1='140' x2='175' y2='140' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='190' y1='140' x2='180' y2='140' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='185,135 185,145 195,140 185,135 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='173,140 175,140 180,140 182,140 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/_uniq_id_304' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='120' preferred_Y='140'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/_uniq_id_304' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='90' y1='140' x2='95' y2='140' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='110' y1='140' x2='100' y2='140' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='105,135 105,145 115,140 105,135 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='93,140 95,140 100,140 102,140 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/_uniq_id_305' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='205' preferred_Y='75'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/_uniq_id_305' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='175' y1='75' x2='180' y2='75' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='195' y1='75' x2='185' y2='75' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='190,70 190,80 200,75 190,70 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='178,75 180,75 185,75 187,75 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<g display='none' id='prop.buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/_uniq_id_306' class='proptable' pointer-events='none' extent_Height='120' extent_Width='203' preferred_X='115' preferred_Y='75'>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='none' fill='rgb(100%,100%,100%)'  filter='url(#drop-shadow)' />
+  <text stroke='none' x='5' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLogging</text>
+  <text stroke='none' x='128' y='16' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='19' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingNameMode</text>
+  <text stroke='none' x='128' y='27' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Use signal name</text>
+  <text stroke='none' x='5' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimateData</text>
+  <text stroke='none' x='128' y='38' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='41' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingDecimation</text>
+  <text stroke='none' x='128' y='49' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>2</text>
+  <text stroke='none' x='5' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingLimitDataPoints</text>
+  <text stroke='none' x='128' y='60' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='63' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>DataLoggingMaxPoints</text>
+  <text stroke='none' x='128' y='71' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>5000</text>
+  <text stroke='none' x='5' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>TestPoint</text>
+  <text stroke='none' x='128' y='82' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='85' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>SignalPropagation</text>
+  <text stroke='none' x='128' y='93' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>off</text>
+  <text stroke='none' x='5' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>MustResolveToSignalObject</text>
+  <text stroke='none' x='128' y='104' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>0</text>
+  <rect x='0' y='107' width='203' height='11' stroke='none' fill='rgb(90.1961%,90.1961%,90.1961%)' />
+  <text stroke='none' x='5' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>StorageClass</text>
+  <text stroke='none' x='128' y='115' font-size='9' fill='rgb(0%,0%,0%)' font-family='Helvetica'>Auto</text>
+  <rect x='0' y='0' width='203' height='120' rx='5' ry='5' stroke='rgb(0%,0%,0%)' stroke-width='1' fill='none' />
+</g>
+<g id='buoyDetector_test3/IterativeSegmentation/Segmentation/Resize/_uniq_id_306' linkid='' onclick='changeSys(evt)' onmouseover='showPropAndHighlight(evt)' onmouseout='hidePropAndUnhighlight(evt)'>
+<line x1='85' y1='75' x2='90' y2='75' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<g></g>
+<line x1='105' y1='75' x2='95' y2='75' stroke='rgb(0%,0%,0%)' stroke-width='1' />
+<polygon points='100,70 100,80 110,75 100,70 ' stroke='none' fill='rgb(0%,0%,0%)' />
+<g></g>
+<polyline points='88,75 90,75 95,75 97,75 ' stroke='rgb(0%,0%,0%)' stroke-width='1' fill = 'none'/>
+</g>
+<defs>
+  <clipPath id='clip_rect_396'><rect x='195' y='213' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_397'><rect x='195' y='133' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_398'><rect x='200' y='68' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_399'><rect x='120' y='200' width='50' height='40' /></clipPath>
+  <clipPath id='clip_rect_400'><rect x='115' y='120' width='55' height='40' /></clipPath>
+  <clipPath id='clip_rect_401'><rect x='110' y='55' width='65' height='40' /></clipPath>
+  <clipPath id='clip_rect_402'><rect x='65' y='213' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_403'><rect x='60' y='133' width='30' height='14' /></clipPath>
+  <clipPath id='clip_rect_404'><rect x='55' y='68' width='30' height='14' /></clipPath>
+</defs>
+</svg>
