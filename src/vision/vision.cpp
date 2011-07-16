@@ -77,7 +77,7 @@ Vision::Vision() : SimulinkModule()
 
 //    real_T IterSegmentThresh[19200];     /* '<Root>/IterSegmentThresh' */
 
-    paramList["Vision_MeasuredYaw"] = &VisionModel_U.MeasuredYaw;
+//    paramList["Vision_MeasuredYaw"] = &VisionModel_U.MeasuredYaw;
 
 
     VisionModel_initialize();
@@ -254,7 +254,7 @@ void Vision::step()
 //    real_T TargetSize[19200];            /* '<Root>/TargetSize' */
 
     setData("Vision.Output.TargetSelect", VisionModel_Y.TargetSelect);
-    setData("Vision.Output.MaintainHeading", VisionModel_Y.MaintainHeading);
+//    setData("Vision.Output.MaintainHeading", VisionModel_Y.MaintainHeading);
     setData("TargetData.Position.X", VisionModel_Y.TargetX);
     setData("TargetData.Position.Y", VisionModel_Y.TargetY);
     setData("TargetData.Position.Z", VisionModel_Y.TargetZ);
