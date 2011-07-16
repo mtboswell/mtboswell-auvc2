@@ -20,7 +20,7 @@ Scale_Forward_G = 1;
 Scale_Forward_B = 1;
 Scale_Forward_H = 1;
 Scale_Forward_S = 1;
-Scale_Forward_V = 3;
+Scale_Forward_V = 1;
 
 Scale_Down_R = 1;
 Scale_Down_G = 1;
@@ -88,10 +88,10 @@ red_ggu = 0;
 red_bbl = 0;
 red_bbu = 0;
 
-orange_al = -18;
-orange_au = 30;
-orange_bl = -10;
-orange_bu = 70;
+orange_al = 46;
+orange_au = 52;
+orange_bl = 41;
+orange_bu = 45;
 
 orange_rrl = 0;
 orange_rru = 0;
