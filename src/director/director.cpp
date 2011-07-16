@@ -236,6 +236,7 @@ void director::setStateData(QString stateName)
  */
 void director::setOptions()
 {
+    qDebug() << "Set Options Called";
     QList<Option> opts = getOptions(currentState);
     for (int i = 0; i < opts.size(); ++i)
     {
@@ -243,13 +244,26 @@ void director::setOptions()
         QString label = opts[i].label;
         QVariant value = opts[i].value;
         int mode = opts[i].mode;
-
         if (mode == ABSOLUTE)   // see QueryLua.h for enumerations
-            setData(label, value);
+        {
+            // Determine if value is a Lua type or specifies a State Data Variable
+            // parse for state data variable
+            const QChar hash = '#';
+            if (value.toString().at(0) == hash)
+            {
+                QString stateVariable = value.toString().remove(0,1);   // remove the # symbol
+                setData(label, director::value(stateVariable));   // the value() function is defined in Module.cpp
+            }
+            else
+            { // set it normally
+                setData(label, value);
+            }            
+        }
         else    // relative mode
         {   // most likely this will be Orientation.Heading or some periodic variable
-            double curValue = doubleValue(label);   // might want to do type-checking here
-            curValue += value.toDouble();           // add "value" to the current value in AUVT state data
+            double curValue = director::doubleValue(label);   // might want to do type-checking here
+
+            curValue += value.toDouble();   // add "value" to the current value in AUVT state data
             setData(label, curValue);   // set the incremented value
         }
     }
