@@ -24,6 +24,11 @@ Microstrain::Microstrain(const QString & dev){
 	}else {
 		qDebug() << "device failed to open:" << port->errorString();
 	}
+        char myCmd[7] = {0x24, 0x00, 0x64, 0x00, 0x20, 0x00, 0x0a};
+        port->write(myCmd, 7);
+        QByteArray retArray = port->readAll();
+
+        qDebug() << "\t" << retArray;
 	// put the AHRS in continuous mode (constantly sending results from command 0x31, which is "Send Gyro-Stabilized Euler Angles & Accel & Rate Vector")
 	char cmd[3] = {0x10, 0x00, 0x31};
 	//qDebug() << "AHRS Continuous command:" << cmd;

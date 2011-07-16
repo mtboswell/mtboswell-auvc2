@@ -159,6 +159,7 @@ void Vision::init()
 	//sets up the network stream if required
         if(networkStreams)
         {
+            qDebug() << "\t NETWORK STREAMS ON";
                 videoSocketFront = new QUdpSocket();
                 videoSocketFront->connectToHost(QHostAddress(config("TargetedImageFront.address")), config("TargetedImageFront.port").toInt());
                 videoOutFront = new QImageWriter(videoSocketFront, "jpeg");
@@ -309,8 +310,12 @@ void Vision::step()
     //    setData("Vision.Output.BuoyColors", VisionModel_Y.BuoyColors);
     //    setData("Vision.Output.FireAuthorization", VisionModel_Y.FireAuthorization);
 	//qDebug() << networkStreams << f_height << f_width << processingFrontCamera;
+
+    qDebug() << "STEP";
+    qDebug() << f_height << " " << f_width << " " << processingFrontCamera;
     if (networkStreams && f_height == 160 && f_width == 120 && processingFrontCamera)
     {
+        qDebug() << "PROCESSING FRONT CAMERA";
         targetedImageFront = new QImage(60, 80, QImage::Format_RGB32);
         //used for streaming the targeted image
         for (int i = 0; i < f_height; i = i + 2)
