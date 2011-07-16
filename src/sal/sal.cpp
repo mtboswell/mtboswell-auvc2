@@ -80,7 +80,7 @@ void SAL::init(){
 		//Connect the microstrain and the os5000 to the system
 
 		//os5000 = new OS5000("");			//takes in serial port name as a string
-		microstrain = new Microstrain("/dev/ttyS0");	//takes in dev
+                microstrain = new Microstrain("/dev/ttyUSB0");	//takes in dev
 		
 		
 		//QObject::connect(os5000, SIGNAL(compassDataReady(QList<VDatum>)), this, SLOT(setData(QList<VDatum>)));
