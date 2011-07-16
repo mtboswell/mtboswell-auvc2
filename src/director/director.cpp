@@ -249,7 +249,7 @@ void director::setOptions()
         else    // relative mode
         {   // most likely this will be Orientation.Heading or some periodic variable
             double curValue = doubleValue(label);   // might want to do type-checking here
-            curValue += value.toDouble();   // add "value" to the current value in AUVT state data
+            curValue += value.toDouble();           // add "value" to the current value in AUVT state data
             setData(label, curValue);   // set the incremented value
         }
     }
