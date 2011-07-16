@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1082"
+    ComputedModelVersion    "1.1090"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -26,9 +26,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jul 16 02:10:04 2011"
-  RTWModifiedTimeStamp	  232682997
-  ModelVersionFormat	  "1.%<AutoIncrement:1082>"
+  LastModifiedDate	  "Sat Jul 16 07:52:53 2011"
+  RTWModifiedTimeStamp	  232703557
+  ModelVersionFormat	  "1.%<AutoIncrement:1090>"
   ConfigurationManager	  "customverctrl"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -811,7 +811,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[645 818 380 590]"
+      FigPos		      "[661 876 380 590]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -846,7 +846,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[439 500 426 308]"
+      FigPos		      "[447 529 426 308]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -1155,7 +1155,7 @@ Model {
       RTWMemSecDataInternal   "Inherit from model"
       RTWMemSecDataParameters "Inherit from model"
       GeneratePreprocessorConditionals off
-      FileName		      "/home/administrator/Documents/Academics/Summer_2011/AUVT/auvc/src/vision/Test_Images/buoy7.JPG"
+      FileName		      "/home/administrator/Pictures/vlcsnap-2011-07-16-06h13m06s170.png"
       imagePorts	      "Separate color signals"
       Ts		      "-1"
       ImageDataType	      "double"
@@ -5541,7 +5541,7 @@ Model {
       Name		      "Iter_Segment_Thresh"
       SID		      "727"
       Position		      [150, 190, 180, 220]
-      Value		      "35"
+      Value		      "30"
       VectorParams1D	      off
       OutDataTypeStr	      "double"
       SampleTime	      "-1"
@@ -5580,7 +5580,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[838 790 426 337]"
+      FigPos		      "[854 848 426 337]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -5669,7 +5669,7 @@ Model {
       specRange		      off
       minInputVal	      "0"
       maxInputVal	      "255"
-      FigPos		      "[76 789 410 447]"
+      FigPos		      "[68 804 432 491]"
       AxisZoom		      on
       trueSizedOnce	      off
       OpenAtMdlStart	      on
@@ -6284,7 +6284,7 @@ Model {
       Name		      "ref_colors"
       SID		      "765"
       Ports		      [1]
-      Position		      [1480, 732, 1785, 1058]
+      Position		      [1480, 729, 1790, 1101]
       Decimation	      "1"
       Lockdown		      off
     }
