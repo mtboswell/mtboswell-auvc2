@@ -3,6 +3,11 @@
 
 
 %% Camera dimensions
+%Forward_Camera_Dimensions = [640 480];
+%Down_Camera_Dimensions = [480 640];
+%Forward_Camera_Dimensions = [120 160];
+%Down_Camera_Dimensions = [120 160];
+
 Forward_Camera_Dimensions = [160 120];
 Down_Camera_Dimensions = [120 160];
 Forward_Fov = 120;  % Field of view in degrees
