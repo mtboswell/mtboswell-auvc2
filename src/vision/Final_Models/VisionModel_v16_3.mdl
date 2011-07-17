@@ -347,7 +347,7 @@ Model {
       Name		      "TargetSize"
     }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1602"
+    ComputedModelVersion    "1.1607"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -367,9 +367,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jul 16 20:24:15 2011"
+  LastModifiedDate	  "Sun Jul 17 00:28:06 2011"
   RTWModifiedTimeStamp	  232711379
-  ModelVersionFormat	  "1.%<AutoIncrement:1602>"
+  ModelVersionFormat	  "1.%<AutoIncrement:1607>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1088,7 +1088,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "40"
+    ZoomFactor		    "62"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "4096"
     Block {
@@ -1573,7 +1573,7 @@ Model {
       Name		      "Add"
       SID		      "2204"
       Ports		      [6, 1]
-      Position		      [4000, 1116, 4055, 1159]
+      Position		      [3265, 1191, 3320, 1234]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1584,7 +1584,7 @@ Model {
       Name		      "Add18"
       SID		      "3941"
       Ports		      [6, 1]
-      Position		      [4000, 1896, 4055, 1939]
+      Position		      [3265, 1971, 3320, 2014]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1595,7 +1595,7 @@ Model {
       Name		      "Add19"
       SID		      "2212"
       Ports		      [6, 1]
-      Position		      [4000, 2051, 4055, 2094]
+      Position		      [3265, 2126, 3320, 2169]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1606,7 +1606,7 @@ Model {
       Name		      "Add2"
       SID		      "2213"
       Ports		      [6, 1]
-      Position		      [4000, 1236, 4055, 1279]
+      Position		      [3265, 1311, 3320, 1354]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1617,7 +1617,7 @@ Model {
       Name		      "Add20"
       SID		      "2214"
       Ports		      [6, 1]
-      Position		      [4000, 2121, 4055, 2164]
+      Position		      [3265, 2196, 3320, 2239]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1628,7 +1628,7 @@ Model {
       Name		      "Add21"
       SID		      "2215"
       Ports		      [6, 1]
-      Position		      [4000, 2196, 4055, 2239]
+      Position		      [3265, 2271, 3320, 2314]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1639,7 +1639,7 @@ Model {
       Name		      "Add22"
       SID		      "2216"
       Ports		      [6, 1]
-      Position		      [4000, 576, 4055, 619]
+      Position		      [3265, 651, 3320, 694]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1650,7 +1650,7 @@ Model {
       Name		      "Add23"
       SID		      "2217"
       Ports		      [6, 1]
-      Position		      [4000, 646, 4055, 689]
+      Position		      [3265, 721, 3320, 764]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1661,7 +1661,7 @@ Model {
       Name		      "Add24"
       SID		      "2218"
       Ports		      [6, 1]
-      Position		      [4000, 716, 4055, 759]
+      Position		      [3265, 791, 3320, 834]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1672,7 +1672,7 @@ Model {
       Name		      "Add25"
       SID		      "2219"
       Ports		      [6, 1]
-      Position		      [4000, 841, 4055, 884]
+      Position		      [3265, 916, 3320, 959]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1683,7 +1683,7 @@ Model {
       Name		      "Add26"
       SID		      "2220"
       Ports		      [6, 1]
-      Position		      [4000, 911, 4055, 954]
+      Position		      [3265, 986, 3320, 1029]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1694,7 +1694,7 @@ Model {
       Name		      "Add27"
       SID		      "2221"
       Ports		      [6, 1]
-      Position		      [4000, 981, 4055, 1024]
+      Position		      [3265, 1056, 3320, 1099]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1705,7 +1705,7 @@ Model {
       Name		      "Add3"
       SID		      "2222"
       Ports		      [6, 1]
-      Position		      [4000, 1296, 4055, 1339]
+      Position		      [3265, 1371, 3320, 1414]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1716,7 +1716,7 @@ Model {
       Name		      "Add4"
       SID		      "2223"
       Ports		      [6, 1]
-      Position		      [4000, 1361, 4055, 1404]
+      Position		      [3265, 1436, 3320, 1479]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1727,7 +1727,7 @@ Model {
       Name		      "Add5"
       SID		      "2224"
       Ports		      [6, 1]
-      Position		      [4000, 1426, 4055, 1469]
+      Position		      [3265, 1501, 3320, 1544]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1738,7 +1738,7 @@ Model {
       Name		      "Add6"
       SID		      "2225"
       Ports		      [6, 1]
-      Position		      [4000, 1491, 4055, 1534]
+      Position		      [3265, 1566, 3320, 1609]
       Inputs		      "++++++"
       InputSameDT	      off
       OutDataTypeStr	      "Inherit: Inherit via internal rule"
@@ -1749,7 +1749,7 @@ Model {
       Name		      "Blob_Analysis"
       SID		      "3137"
       Ports		      [7, 17, 0, 0, 0, 0, 0, 1]
-      Position		      [1285, 720, 1580, 1460]
+      Position		      [2495, 760, 2790, 1500]
       LibraryVersion	      "1.225"
       TreatAsAtomicUnit	      on
       MinAlgLoopOccurrences   off
@@ -5049,28 +5049,28 @@ Model {
       BlockType		      Constant
       Name		      "Constant"
       SID		      "2483"
-      Position		      [4010, 1565, 4040, 1595]
+      Position		      [3275, 1640, 3305, 1670]
       Value		      "0"
     }
     Block {
       BlockType		      Constant
       Name		      "Constant1"
       SID		      "2484"
-      Position		      [4010, 1630, 4040, 1660]
+      Position		      [3275, 1705, 3305, 1735]
       Value		      "0"
     }
     Block {
       BlockType		      Constant
       Name		      "Constant2"
       SID		      "2485"
-      Position		      [4010, 1695, 4040, 1725]
+      Position		      [3275, 1770, 3305, 1800]
       Value		      "0"
     }
     Block {
       BlockType		      Constant
       Name		      "Constant3"
       SID		      "2486"
-      Position		      [4010, 1755, 4040, 1785]
+      Position		      [3275, 1830, 3305, 1860]
       Value		      "0"
     }
     Block {
@@ -5456,16 +5456,6 @@ Model {
       Position		      [1050, 576, 1150, 614]
       IfExpression	      "u1 == 1 | u1 == 3 | u1 == 4 | u1 == 5"
       ElseIfExpressions	      "u1 == 2 | u1 == 6"
-      ShowElse		      off
-    }
-    Block {
-      BlockType		      If
-      Name		      "If2"
-      SID		      "2106"
-      Ports		      [1, 6]
-      Position		      [1685, 301, 1790, 514]
-      IfExpression	      "u1 == 1"
-      ElseIfExpressions	      "u1 == 2, u1 == 3, u1 == 4, u1 == 5, u1 == 6"
       ShowElse		      off
     }
     Block {
@@ -5986,7 +5976,7 @@ Model {
       BlockType		      Outport
       Name		      "R_forward_out"
       SID		      "2249"
-      Position		      [4115, 593, 4145, 607]
+      Position		      [3380, 668, 3410, 682]
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
@@ -5994,7 +5984,7 @@ Model {
       BlockType		      Outport
       Name		      "G_forward_out"
       SID		      "2250"
-      Position		      [4115, 663, 4145, 677]
+      Position		      [3380, 738, 3410, 752]
       Port		      "2"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6003,7 +5993,7 @@ Model {
       BlockType		      Outport
       Name		      "B_forward_out"
       SID		      "2251"
-      Position		      [4115, 733, 4145, 747]
+      Position		      [3380, 808, 3410, 822]
       Port		      "3"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6012,7 +6002,7 @@ Model {
       BlockType		      Outport
       Name		      "R_down_out"
       SID		      "2252"
-      Position		      [1695, 2948, 1725, 2962]
+      Position		      [2825, 1393, 2855, 1407]
       Port		      "4"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6021,7 +6011,7 @@ Model {
       BlockType		      Outport
       Name		      "G_down_out"
       SID		      "2253"
-      Position		      [1695, 3018, 1725, 3032]
+      Position		      [2825, 1463, 2855, 1477]
       Port		      "5"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6030,7 +6020,7 @@ Model {
       BlockType		      Outport
       Name		      "B_down_out"
       SID		      "2254"
-      Position		      [1695, 3088, 1725, 3102]
+      Position		      [2825, 1533, 2855, 1547]
       Port		      "6"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6039,7 +6029,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetSelect"
       SID		      "2230"
-      Position		      [4115, 1133, 4145, 1147]
+      Position		      [3380, 1208, 3410, 1222]
       Port		      "7"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6048,7 +6038,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetX"
       SID		      "2233"
-      Position		      [4190, 1313, 4220, 1327]
+      Position		      [3455, 1388, 3485, 1402]
       Port		      "8"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6057,7 +6047,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetY"
       SID		      "2234"
-      Position		      [4190, 1378, 4220, 1392]
+      Position		      [3455, 1453, 3485, 1467]
       Port		      "9"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6066,7 +6056,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetZ"
       SID		      "2235"
-      Position		      [4190, 1443, 4220, 1457]
+      Position		      [3455, 1518, 3485, 1532]
       Port		      "10"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6075,7 +6065,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetYaw"
       SID		      "2236"
-      Position		      [4190, 1508, 4220, 1522]
+      Position		      [3455, 1583, 3485, 1597]
       Port		      "11"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6084,7 +6074,7 @@ Model {
       BlockType		      Outport
       Name		      "DesiredTargetX"
       SID		      "2237"
-      Position		      [4115, 1573, 4145, 1587]
+      Position		      [3380, 1648, 3410, 1662]
       Port		      "12"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6093,7 +6083,7 @@ Model {
       BlockType		      Outport
       Name		      "DesiredTargetY"
       SID		      "2238"
-      Position		      [4115, 1638, 4145, 1652]
+      Position		      [3380, 1713, 3410, 1727]
       Port		      "13"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6102,7 +6092,7 @@ Model {
       BlockType		      Outport
       Name		      "DesiredTargetZ"
       SID		      "2239"
-      Position		      [4115, 1703, 4145, 1717]
+      Position		      [3380, 1778, 3410, 1792]
       Port		      "14"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6111,7 +6101,7 @@ Model {
       BlockType		      Outport
       Name		      "DesiredTargetYaw"
       SID		      "2240"
-      Position		      [4115, 1763, 4145, 1777]
+      Position		      [3380, 1838, 3410, 1852]
       Port		      "15"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6120,7 +6110,7 @@ Model {
       BlockType		      Outport
       Name		      "TargetDetected"
       SID		      "2245"
-      Position		      [4115, 1913, 4145, 1927]
+      Position		      [3380, 1988, 3410, 2002]
       Port		      "16"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6129,7 +6119,7 @@ Model {
       BlockType		      Outport
       Name		      "PathState"
       SID		      "2246"
-      Position		      [4115, 2068, 4145, 2082]
+      Position		      [3380, 2143, 3410, 2157]
       Port		      "17"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6147,7 +6137,7 @@ Model {
       BlockType		      Outport
       Name		      "FireAuthorization"
       SID		      "2248"
-      Position		      [4115, 2213, 4145, 2227]
+      Position		      [3380, 2288, 3410, 2302]
       Port		      "19"
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
@@ -6274,11 +6264,6 @@ Model {
       Branch {
 	Points			[0, 620]
 	DstBlock		"ColorSelect"
-	DstPort			1
-      }
-      Branch {
-	Points			[0, 155]
-	DstBlock		"If2"
 	DstPort			1
       }
     }
@@ -6465,55 +6450,56 @@ Model {
     Line {
       SrcBlock		      "make_color_range"
       SrcPort		      1
+      Points		      [1350, 0]
       DstBlock		      "Blob_Analysis"
       DstPort		      6
     }
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      1
-      Points		      [0, 435]
+      Points		      [0, 475]
       DstBlock		      "Blob_Analysis"
       DstPort		      1
     }
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      2
-      Points		      [370, 0]
+      Points		      [1580, 0]
       DstBlock		      "Blob_Analysis"
       DstPort		      2
     }
     Line {
       SrcBlock		      "Forward Filter"
       SrcPort		      3
-      Points		      [365, 0; 0, 435]
+      Points		      [365, 0; 0, 475]
       DstBlock		      "Blob_Analysis"
       DstPort		      3
     }
     Line {
       SrcBlock		      "ColorSelect"
       SrcPort		      1
-      Points		      [30, 0; 0, 235]
+      Points		      [30, 0; 0, 275]
       DstBlock		      "Blob_Analysis"
       DstPort		      4
     }
     Line {
       SrcBlock		      "ColorSelect"
       SrcPort		      2
-      Points		      [35, 0; 0, 305]
+      Points		      [35, 0; 0, 345]
       DstBlock		      "Blob_Analysis"
       DstPort		      5
     }
     Line {
       SrcBlock		      "make_color_range"
       SrcPort		      2
-      Points		      [90, 0; 0, -535]
+      Points		      [90, 0; 0, -495]
       DstBlock		      "Blob_Analysis"
       DstPort		      7
     }
     Line {
       SrcBlock		      "If1"
       SrcPort		      1
-      Points		      [275, 0]
+      Points		      [1485, 0]
       DstBlock		      "Blob_Analysis"
       DstPort		      ifaction
     }
@@ -6604,6 +6590,124 @@ Model {
       SrcPort		      1
       Points		      [40, 0; 0, -30; 10, 0]
     }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      1
+      Points		      [-745, 0; 0, -110]
+      DstBlock		      "Add22"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      2
+      Points		      [225, 0; 0, -80]
+      DstBlock		      "Add23"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      3
+      Points		      [455, 0]
+      DstBlock		      "Add24"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      4
+      Points		      [225, 0; 0, 295]
+      DstBlock		      "Add"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      5
+      Points		      [215, 0; 0, 375]
+      DstBlock		      "Add2"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      6
+      Points		      [205, 0; 0, 385]
+      DstBlock		      "Add3"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      7
+      Points		      [195, 0; 0, 415]
+      DstBlock		      "Add4"
+      DstPort		      3
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      8
+      Points		      [185, 0; 0, 440]
+      DstBlock		      "Add5"
+      DstPort		      4
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      9
+      Points		      [175, 0; 0, 445]
+      DstBlock		      "Add6"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      10
+      Points		      [315, 0; 0, 805]
+      DstBlock		      "Add18"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      11
+      Points		      [165, 0; 0, 920]
+      DstBlock		      "Add19"
+      DstPort		      2
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      12
+      Points		      [155, 0; 0, 1015]
+      DstBlock		      "Add21"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      13
+      Points		      [105, 0; 0, 1220]
+      DstBlock		      "BuoyColors"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      14
+      Points		      [75, 0; -1, 2440; 516, 0; 0, 455]
+      DstBlock		      "TargetType"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      15
+      DstBlock		      "R_down_out"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      16
+      Points		      [5, 0; 0, 25]
+      DstBlock		      "G_down_out"
+      DstPort		      1
+    }
+    Line {
+      SrcBlock		      "Blob_Analysis"
+      SrcPort		      17
+      Points		      [5, 0; 0, 50]
+      DstBlock		      "B_down_out"
+      DstPort		      1
+    }
     Annotation {
       Name		      "Forward camera QImage array"
       Position		      [586, 332]
@@ -6622,15 +6726,15 @@ Model {
     }
     Annotation {
       Name		      "Current target information"
-      Position		      [4334, 1323]
+      Position		      [3599, 1398]
     }
     Annotation {
       Name		      "Desired target information"
-      Position		      [4322, 1582]
+      Position		      [3587, 1657]
     }
     Annotation {
       Name		      "Mode and general target information"
-      Position		      [4353, 1134]
+      Position		      [3618, 1209]
     }
     Annotation {
       Name		      "Note: TargetFound, and the last three inputs to MotionController.mdl,\ncan be changed by the script"
