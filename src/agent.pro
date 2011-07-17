@@ -193,7 +193,6 @@ HEADERS += \
     vision/src/VisionModel_private.h \
     vision/src/VisionModel_types.h
 
-
 SOURCES += \
 	   misc/configloader.cpp \
            main.cpp \
@@ -205,8 +204,6 @@ SOURCES += \
            state/treemodel/treeitem.cpp \
            state/treemodel/treemodel.cpp \
     vision/src/ert_main.cpp \
-    vision/src/hough_d_rt.c \
-    vision/src/hough_r_rt.c \
     vision/src/rtGetInf.cpp \
     vision/src/rtGetNaN.cpp \
     vision/src/rt_nonfinite.cpp \
@@ -348,3 +345,7 @@ HEADERS +=  \
 
 SOURCES += \
      vision/vision.cpp \
+
+OTHER_FILES += \
+    vision/src/buildInfo.mat \
+    vision/src/VisionModel.zip
