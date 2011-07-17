@@ -367,7 +367,7 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jul 16 20:30:30 2011"
+  LastModifiedDate	  "Sat Jul 16 21:24:17 2011"
   RTWModifiedTimeStamp	  232711379
   ModelVersionFormat	  "1.%<AutoIncrement:1609>"
   ConfigurationManager	  "None"
@@ -1088,7 +1088,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "40"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "4096"
     Block {
