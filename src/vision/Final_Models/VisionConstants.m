@@ -13,7 +13,7 @@ Down_Camera_Dimensions = [120 160];
 Forward_Fov = 120;  % Field of view in degrees
 Down_Fov = 120;
 
-
+MotionController.mdl
 %% Pre-filtering
 Scale_Forward_R = 1;
 Scale_Forward_G = 1;
@@ -21,6 +21,12 @@ Scale_Forward_B = 1;
 Scale_Forward_H = 1;
 Scale_Forward_S = 1;
 Scale_Forward_V = 1;
+if( abs(rho_gate(3) - rho_gate(1)) < 2*eps_rho )
+    rho_gate(1) = 0;
+    rho_gate(3) = 0;
+    theta_gate(1) = 0;
+    theta_gate(3) = 0;
+end
 
 Scale_Down_R = 1;
 Scale_Down_G = 1;

@@ -13,7 +13,7 @@ Down_Camera_Dimensions = [120 160];
 Forward_Fov = 120;  % Field of view in degrees
 Down_Fov = 120;
 
-
+MotionController.mdl
 %% Pre-filtering
 Scale_Forward_R = 1;
 Scale_Forward_G = 1;
@@ -21,6 +21,12 @@ Scale_Forward_B = 1;
 Scale_Forward_H = 1;
 Scale_Forward_S = 1;
 Scale_Forward_V = 1;
+if( abs(rho_gate(3) - rho_gate(1)) < 2*eps_rho )
+    rho_gate(1) = 0;
+    rho_gate(3) = 0;
+    theta_gate(1) = 0;
+    theta_gate(3) = 0;
+end
 
 Scale_Down_R = 1;
 Scale_Down_G = 1;
@@ -223,3 +229,118 @@ Track_Saturation = 0.5;
 %Track_HueHigher = 0.75;
 %Track_HueLower = 0.4;
 %Track_Saturation = 0.75;
+
+
+
+
+
+
+%% STANDARDIZED INPUTS TO VISION MODEL FOR VERIFICATION PURPOSES
+white_al = 0;
+white_au = 0;
+white_bl = 0;
+white_bu = 0;
+
+white_rrl = 0;
+white_rru = 0;
+white_ggl = 0;
+white_ggu = 0;
+white_bbl = 0;
+white_bbu = 0;
+
+black_al = 0;
+black_au = 0;
+black_bl = 0;
+black_bu = 0;
+
+black_rrl = 0;
+black_rru = 0;
+black_ggl = 0;
+black_ggu = 0;
+black_bbl = 0;
+black_bbu = 0;
+
+blue_al = 0;
+blue_au = 0;
+blue_bl = 0;
+blue_bu = 0;
+
+blue_rrl = 0;
+blue_rru = 0;
+blue_ggl = 0;
+blue_ggu = 0;
+blue_bbl = 0;
+blue_bbu = 0;
+
+red_al = 0;
+red_au = 0;
+red_bl = 0;
+red_bu = 0;
+
+red_rrl = 0;
+red_rru = 0;
+red_ggl = 0;
+red_ggu = 0;
+red_bbl = 0;
+red_bbu = 0;
+
+orange_al = 0;
+orange_au = 0;
+orange_bl = 0;
+orange_bu = 0;
+
+orange_rrl = 0;
+orange_rru = 0;
+orange_ggl = 0;
+orange_ggu = 0;
+orange_bbl = 0;
+orange_bbu = 0;
+
+yellow_al = 0;
+yellow_au = 0;
+yellow_bl = 0;
+yellow_bu = 0;
+
+yellow_rrl = 0;
+yellow_rru = 0;
+yellow_ggl = 0;
+yellow_ggu = 0;
+yellow_bbl = 0;
+yellow_bbu = 0;
+
+green_al = 0;
+green_au = 0;
+green_bl = 0;
+green_bu = 0;
+
+green_rrl = 0;
+green_rru = 0;
+green_ggl = 0;
+green_ggu = 0;
+green_bbl = 0;
+green_bbu = 0;
+
+
+%{
+
+orange_al = -500;
+orange_au = 500;
+orange_bl = -500;
+orange_bu = 500;
+%}
+
+
+
+
+
+orange_al = 46;
+orange_au = 52;
+orange_bl = 41;
+orange_bu = 45;
+
+
+
+
+
+
+
