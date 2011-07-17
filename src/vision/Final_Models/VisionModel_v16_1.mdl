@@ -1,5 +1,5 @@
 Model {
-  Name			  "VisionModel"
+  Name			  "VisionModel_v16_1"
   Version		  7.6
   MdlSubVersion		  0
   GraphicalInterface {
@@ -240,7 +240,7 @@ Model {
       BusObject		      ""
       Name		      "DeadReckonHeading"
     }
-    NumRootOutports	    24
+    NumRootOutports	    21
     Outport {
       BusObject		      ""
       BusOutputAsStruct	      "off"
@@ -346,23 +346,8 @@ Model {
       BusOutputAsStruct	      "off"
       Name		      "TargetSize"
     }
-    Outport {
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "R_forward_out1"
-    }
-    Outport {
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "G_forward_out1"
-    }
-    Outport {
-      BusObject		      ""
-      BusOutputAsStruct	      "off"
-      Name		      "B_forward_out1"
-    }
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.1598"
+    ComputedModelVersion    "1.1597"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -382,9 +367,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "root"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Sat Jul 16 12:38:00 2011"
+  LastModifiedDate	  "Sat Jul 16 20:24:22 2011"
   RTWModifiedTimeStamp	  232711379
-  ModelVersionFormat	  "1.%<AutoIncrement:1598>"
+  ModelVersionFormat	  "1.%<AutoIncrement:1597>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1090,7 +1075,7 @@ Model {
     }
   }
   System {
-    Name		    "VisionModel"
+    Name		    "VisionModel_v16_1"
     Location		    [0, 51, 1280, 800]
     Open		    on
     ModelBrowserVisibility  off
@@ -1103,7 +1088,7 @@ Model {
     TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "100"
+    ZoomFactor		    "40"
     ReportName		    "simulink-default.rpt"
     SIDHighWatermark	    "4096"
     Block {
@@ -1951,7 +1936,7 @@ Model {
 	      BlockType		      "S-Function"
 	      Name		      " SFunction "
 	      SID		      "3145::22"
-	      Tag		      "Stateflow S-Function VisionModel 50"
+	      Tag		      "Stateflow S-Function VisionModel_v16_1 50"
 	      Ports		      [6, 13]
 	      Position		      [180, 215, 230, 915]
 	      FunctionName	      "sf_sfun"
@@ -2464,7 +2449,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    "3158::10"
-		    Tag			    "Stateflow S-Function VisionModel 51"
+		    Tag			    "Stateflow S-Function VisionModel_v16_1 51"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
 		    FunctionName	    "sf_sfun"
@@ -2577,7 +2562,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    "3159::10"
-		    Tag			    "Stateflow S-Function VisionModel 52"
+		    Tag			    "Stateflow S-Function VisionModel_v16_1 52"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
 		    FunctionName	    "sf_sfun"
@@ -2690,7 +2675,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    "3160::10"
-		    Tag			    "Stateflow S-Function VisionModel 53"
+		    Tag			    "Stateflow S-Function VisionModel_v16_1 53"
 		    Ports		    [1, 2]
 		    Position		    [180, 100, 230, 160]
 		    FunctionName	    "sf_sfun"
@@ -2869,7 +2854,7 @@ Model {
 		  Name			  "Iter_Segment_Thresh"
 		  SID			  "3963"
 		  Position		  [265, 225, 295, 255]
-		  Value			  "35"
+		  Value			  "30"
 		  SampleTime		  "-1"
 		}
 		Block {
@@ -2963,7 +2948,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    "3169::16"
-		    Tag			    "Stateflow S-Function VisionModel 54"
+		    Tag			    "Stateflow S-Function VisionModel_v16_1 54"
 		    Ports		    [5, 2]
 		    Position		    [180, 100, 230, 220]
 		    FunctionName	    "sf_sfun"
@@ -3124,7 +3109,7 @@ Model {
 		    BlockType		    "S-Function"
 		    Name		    " SFunction "
 		    SID			    "3170::14"
-		    Tag			    "Stateflow S-Function VisionModel 55"
+		    Tag			    "Stateflow S-Function VisionModel_v16_1 55"
 		    Ports		    [4, 3]
 		    Position		    [180, 102, 230, 203]
 		    FunctionName	    "sf_sfun"
@@ -3681,7 +3666,7 @@ Model {
 	  BlockType		  SubSystem
 	  Name			  "Segmented Image"
 	  SID			  "3187"
-	  Ports			  [2, 3]
+	  Ports			  [2, 3, 0, 0, 0, 0, 0, 1]
 	  Position		  [945, 1002, 1140, 1198]
 	  LibraryVersion	  "1.225"
 	  TreatAsAtomicUnit	  on
@@ -3721,6 +3706,13 @@ Model {
 	      Position		      [80, 303, 110, 317]
 	      Port		      "2"
 	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      ActionPort
+	      Name		      "Action Port"
+	      SID		      "4096"
+	      Position		      [140, 75, 199, 103]
+	      ActionType	      "then"
 	    }
 	    Block {
 	      BlockType		      Reference
@@ -3805,7 +3797,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  "3192::18"
-		  Tag			  "Stateflow S-Function VisionModel 56"
+		  Tag			  "Stateflow S-Function VisionModel_v16_1 56"
 		  Ports			  [2, 4]
 		  Position		  [180, 184, 230, 576]
 		  FunctionName		  "sf_sfun"
@@ -4286,7 +4278,9 @@ Model {
 	Line {
 	  SrcBlock		  "If"
 	  SrcPort		  1
-	  Points		  [175, 0; 0, 637; 710, 0; 0, 25; -105, 0; 0, 15; 5, 0; 0, 10]
+	  Points		  [175, 0; 0, 637; 710, 0; 0, 25; -105, 0; 0, 15]
+	  DstBlock		  "Segmented Image"
+	  DstPort		  ifaction
 	}
 	Line {
 	  SrcBlock		  "OutputSegmentedImage"
@@ -5826,7 +5820,7 @@ Model {
 	      BlockType		      "S-Function"
 	      Name		      " SFunction "
 	      SID		      "3254::22"
-	      Tag		      "Stateflow S-Function VisionModel 7"
+	      Tag		      "Stateflow S-Function VisionModel_v16_1 7"
 	      Ports		      [12, 7]
 	      Position		      [180, 135, 230, 395]
 	      FunctionName	      "sf_sfun"
@@ -6284,7 +6278,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  "3283::22"
-		  Tag			  "Stateflow S-Function VisionModel 10"
+		  Tag			  "Stateflow S-Function VisionModel_v16_1 10"
 		  Ports			  [5, 2]
 		  Position		  [180, 108, 230, 272]
 		  FunctionName		  "sf_sfun"
@@ -6994,7 +6988,7 @@ Model {
 	      BlockType		      "S-Function"
 	      Name		      " SFunction "
 	      SID		      "3093::18"
-	      Tag		      "Stateflow S-Function VisionModel 6"
+	      Tag		      "Stateflow S-Function VisionModel_v16_1 6"
 	      Ports		      [6, 7]
 	      Position		      [180, 168, 230, 552]
 	      FunctionName	      "sf_sfun"
@@ -7472,7 +7466,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  "3129::22"
-		  Tag			  "Stateflow S-Function VisionModel 1"
+		  Tag			  "Stateflow S-Function VisionModel_v16_1 1"
 		  Ports			  [5, 2]
 		  Position		  [180, 108, 230, 272]
 		  FunctionName		  "sf_sfun"
@@ -7798,7 +7792,7 @@ Model {
 	      BlockType		      "S-Function"
 	      Name		      " SFunction "
 	      SID		      "3481::18"
-	      Tag		      "Stateflow S-Function VisionModel 4"
+	      Tag		      "Stateflow S-Function VisionModel_v16_1 4"
 	      Ports		      [10, 4]
 	      Position		      [180, 176, 230, 564]
 	      FunctionName	      "sf_sfun"
@@ -8560,7 +8554,7 @@ Model {
 	  BlockType		  "S-Function"
 	  Name			  " SFunction "
 	  SID			  "3136::22"
-	  Tag			  "Stateflow S-Function VisionModel 57"
+	  Tag			  "Stateflow S-Function VisionModel_v16_1 57"
 	  Ports			  [28, 3]
 	  Position		  [180, 245, 230, 960]
 	  FunctionName		  "sf_sfun"
@@ -9013,7 +9007,7 @@ Model {
 	      BlockType		      "S-Function"
 	      Name		      " SFunction "
 	      SID		      "3219::18"
-	      Tag		      "Stateflow S-Function VisionModel 3"
+	      Tag		      "Stateflow S-Function VisionModel_v16_1 3"
 	      Ports		      [9, 3]
 	      Position		      [180, 144, 230, 516]
 	      FunctionName	      "sf_sfun"
@@ -9245,7 +9239,7 @@ Model {
 	      BlockType		      "S-Function"
 	      Name		      " SFunction "
 	      SID		      "3218::14"
-	      Tag		      "Stateflow S-Function VisionModel 2"
+	      Tag		      "Stateflow S-Function VisionModel_v16_1 2"
 	      Ports		      [3, 8]
 	      Position		      [180, 105, 230, 285]
 	      FunctionName	      "sf_sfun"
@@ -9679,7 +9673,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  "3248::22"
-		  Tag			  "Stateflow S-Function VisionModel 5"
+		  Tag			  "Stateflow S-Function VisionModel_v16_1 5"
 		  Ports			  [5, 2]
 		  Position		  [180, 108, 230, 272]
 		  FunctionName		  "sf_sfun"
@@ -10466,7 +10460,7 @@ Model {
 	      BlockType		      "S-Function"
 	      Name		      " SFunction "
 	      SID		      "2122::22"
-	      Tag		      "Stateflow S-Function VisionModel 8"
+	      Tag		      "Stateflow S-Function VisionModel_v16_1 8"
 	      Ports		      [7, 7]
 	      Position		      [180, 123, 230, 367]
 	      FunctionName	      "sf_sfun"
@@ -10971,7 +10965,7 @@ Model {
 		  BlockType		  "S-Function"
 		  Name			  " SFunction "
 		  SID			  "2134::22"
-		  Tag			  "Stateflow S-Function VisionModel 9"
+		  Tag			  "Stateflow S-Function VisionModel_v16_1 9"
 		  Ports			  [5, 2]
 		  Position		  [180, 108, 230, 272]
 		  FunctionName		  "sf_sfun"
@@ -11697,33 +11691,6 @@ Model {
       IconDisplay	      "Port number"
       OutDataTypeStr	      "double"
     }
-    Block {
-      BlockType		      Outport
-      Name		      "R_forward_out1"
-      SID		      "4093"
-      Position		      [1685, 1353, 1715, 1367]
-      Port		      "22"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "G_forward_out1"
-      SID		      "4094"
-      Position		      [1685, 1423, 1715, 1437]
-      Port		      "23"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
-    Block {
-      BlockType		      Outport
-      Name		      "B_forward_out1"
-      SID		      "4095"
-      Position		      [1685, 1493, 1715, 1507]
-      Port		      "24"
-      IconDisplay	      "Port number"
-      OutDataTypeStr	      "double"
-    }
     Line {
       SrcBlock		      "G_down_in"
       SrcPort		      1
@@ -11738,11 +11705,6 @@ Model {
       SrcBlock		      "B_down_in"
       SrcPort		      1
       Points		      [20, 0; 0, 30; 30, 0]
-    }
-    Line {
-      SrcBlock		      "If1"
-      SrcPort		      2
-      Points		      [45, 0; 0, 1680; 230, 0; 0, 25]
     }
     Line {
       SrcBlock		      "R_forward_in"
@@ -11918,56 +11880,6 @@ Model {
       SrcPort		      9
       Points		      [275, 0; 0, 530]
       DstBlock		      "Add18"
-      DstPort		      1
-    }
-    Line {
-      Points		      [2940, 1570; 290, 0; 0, -720]
-      DstBlock		      "Add25"
-      DstPort		      1
-    }
-    Line {
-      Points		      [2940, 1610; 295, 0; 0, -690]
-      DstBlock		      "Add26"
-      DstPort		      1
-    }
-    Line {
-      Points		      [2940, 1650; 300, 0; 0, -660]
-      DstBlock		      "Add27"
-      DstPort		      1
-    }
-    Line {
-      Points		      [2940, 1690; 305, 0; 0, -560]
-      DstBlock		      "Add"
-      DstPort		      2
-    }
-    Line {
-      Points		      [2940, 1730; 310, 0; 0, -480]
-      DstBlock		      "Add2"
-      DstPort		      2
-    }
-    Line {
-      Points		      [2940, 1770; 315, 0; 0, -465]
-      DstBlock		      "Add3"
-      DstPort		      1
-    }
-    Line {
-      Points		      [2940, 1810; 320, 0; 0, -435]
-      DstBlock		      "Add4"
-      DstPort		      2
-    }
-    Line {
-      Points		      [2940, 1850; 325, 0; 0, -345]
-      DstBlock		      "Add6"
-      DstPort		      2
-    }
-    Line {
-      Points		      [2940, 1890; 330, 0; 0, 20]
-      DstBlock		      "Add18"
-      DstPort		      2
-    }
-    Line {
-      Points		      [2940, 1930; 335, 0; 0, 130]
-      DstBlock		      "Add19"
       DstPort		      1
     }
     Line {
@@ -12187,11 +12099,6 @@ Model {
     }
     Line {
       SrcBlock		      "If2"
-      SrcPort		      2
-      Points		      [910, 0; 0, 1169; 140, 0; 0, 10]
-    }
-    Line {
-      SrcBlock		      "If2"
       SrcPort		      3
       Points		      [905, 0; 0, 1739]
       DstBlock		      "buoy_detector"
@@ -12220,28 +12127,22 @@ Model {
 	DstPort			2
       }
       Branch {
-	Points			[0, 535]
+	Points			[0, 1240]
 	Branch {
-	  Points		  [0, 705]
+	  DstBlock		  "buoy_detector"
+	  DstPort		  9
+	}
+	Branch {
+	  Points		  [0, 580]
 	  Branch {
-	    DstBlock		    "buoy_detector"
-	    DstPort		    9
+	    DstBlock		    "torpedo"
+	    DstPort		    7
 	  }
 	  Branch {
 	    Points		    [0, 580]
-	    Branch {
-	      DstBlock		      "torpedo"
-	      DstPort		      7
-	    }
-	    Branch {
-	      Points		      [0, 580]
-	      DstBlock		      "L_detector"
-	      DstPort		      7
-	    }
+	    DstBlock		    "L_detector"
+	    DstPort		    7
 	  }
-	}
-	Branch {
-	  Points		  [155, 0]
 	}
       }
     }
@@ -12518,26 +12419,8 @@ Model {
     Line {
       SrcBlock		      "make_color_range"
       SrcPort		      1
-      Points		      [85, 0]
-      Branch {
-	Points			[0, 1545]
-	Branch {
-	  Points		  [0, 50; 65, 0]
-	}
-	Branch {
-	  Points		  [-400, 0; 0, 240]
-	  Branch {
-	    Points		    [0, 20; 15, 0]
-	  }
-	  Branch {
-	    Points		    [-205, 0; 0, -190; 15, 0]
-	  }
-	}
-      }
-      Branch {
-	DstBlock		"Blob_Analysis"
-	DstPort			6
-      }
+      DstBlock		      "Blob_Analysis"
+      DstPort		      6
     }
     Line {
       SrcBlock		      "Forward Filter"
@@ -12585,93 +12468,22 @@ Model {
       SrcBlock		      "ColorSelect"
       SrcPort		      1
       Points		      [30, 0; 0, 235]
-      Branch {
-	DstBlock		"Blob_Analysis"
-	DstPort			4
-      }
-      Branch {
-	Points			[0, 1595; -400, 0; 0, 80]
-	Branch {
-	  Points		  [0, 290; 25, 0]
-	}
-	Branch {
-	  Points		  [-190, 0; 0, 80; 10, 0]
-	}
-      }
+      DstBlock		      "Blob_Analysis"
+      DstPort		      4
     }
     Line {
       SrcBlock		      "ColorSelect"
       SrcPort		      2
       Points		      [35, 0; 0, 305]
-      Branch {
-	DstBlock		"Blob_Analysis"
-	DstPort			5
-      }
-      Branch {
-	Points			[0, 1595; 70, 0]
-      }
+      DstBlock		      "Blob_Analysis"
+      DstPort		      5
     }
     Line {
       SrcBlock		      "make_color_range"
       SrcPort		      2
-      Points		      [90, 0]
-      Branch {
-	Points			[0, -535]
-	DstBlock		"Blob_Analysis"
-	DstPort			7
-      }
-      Branch {
-	Points			[0, 970]
-	Branch {
-	  Points		  [0, 90; 60, 0]
-	}
-	Branch {
-	  Points		  [-400, 0; 0, 230]
-	  Branch {
-	    Points		    [0, 15; 10, 0]
-	  }
-	  Branch {
-	    Points		    [-205, 0; 0, -195; 10, 0]
-	  }
-	}
-      }
-    }
-    Line {
-      Points		      [1585, 2820; 45, 0]
-      Branch {
-	Points			[0, 135]
-	Branch {
-	  DstBlock		  "R_down_out"
-	  DstPort		  1
-	}
-	Branch {
-	  Points		  [0, 70]
-	  Branch {
-	    DstBlock		    "G_down_out"
-	    DstPort		    1
-	  }
-	  Branch {
-	    Points		    [0, 70]
-	    DstBlock		    "B_down_out"
-	    DstPort		    1
-	  }
-	}
-      }
-      Branch {
-	Points			[320, 0; 0, -1245; 800, 0]
-      }
-    }
-    Line {
-      Points		      [1585, 2730; 370, 0; 0, -1105; 795, 0]
-    }
-    Line {
-      Points		      [1585, 2370; 375, 0; 0, -695; 790, 0]
-    }
-    Line {
-      Points		      [1585, 2415; 380, 0; 0, -690; 785, 0]
-    }
-    Line {
-      Points		      [1585, 2595; 385, 0; 0, -820; 780, 0]
+      Points		      [90, 0; 0, -535]
+      DstBlock		      "Blob_Analysis"
+      DstPort		      7
     }
     Line {
       SrcBlock		      "Blob_Analysis"
@@ -12710,15 +12522,6 @@ Model {
       SrcPort		      1
       DstBlock		      "B_forward_out"
       DstPort		      1
-    }
-    Line {
-      Points		      [965, 2420; 0, -50; 315, 0]
-    }
-    Line {
-      Points		      [965, 2520; 305, 0; 0, -45; 10, 0]
-    }
-    Line {
-      Points		      [965, 2620; 300, 0; 0, -40; 15, 0]
     }
     Line {
       SrcBlock		      "Scale_Forward_R"
@@ -12788,39 +12591,6 @@ Model {
       SrcBlock		      "Scale_Down_V"
       SrcPort		      1
       Points		      [40, 0; 0, -30; 10, 0]
-    }
-    Line {
-      SrcBlock		      "DesiredPathDirection"
-      SrcPort		      1
-      Points		      [320, 0; 0, 15; 15, 0]
-    }
-    Line {
-      SrcBlock		      "DeadReckonHeading"
-      SrcPort		      1
-      Points		      [210, 0]
-    }
-    Line {
-      Points		      [965, 2895; 300, 0; 0, -210; 15, 0]
-    }
-    Line {
-      SrcBlock		      "Blob_Analysis"
-      SrcPort		      15
-      DstBlock		      "R_forward_out1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Blob_Analysis"
-      SrcPort		      16
-      Points		      [40, 0; 0, 25]
-      DstBlock		      "G_forward_out1"
-      DstPort		      1
-    }
-    Line {
-      SrcBlock		      "Blob_Analysis"
-      SrcPort		      17
-      Points		      [40, 0; 0, 50]
-      DstBlock		      "B_forward_out1"
-      DstPort		      1
     }
     Annotation {
       Name		      "Forward camera QImage array"
@@ -12940,7 +12710,7 @@ MatData {
 Stateflow {
   machine {
     id			    1
-    name		    "VisionModel"
+    name		    "VisionModel_v16_1"
     created		    "30-May-2011 12:35:50"
     isLibrary		    0
     firstTarget		    264
