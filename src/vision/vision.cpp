@@ -1,5 +1,6 @@
 #include "vision.h"
 #include <iostream>
+#include <QColor>
 
 // These are the desired MAX values for (width, height) for both cameras.
 // These are a poor man's error checking test so we don't write past array bounds
@@ -334,23 +335,25 @@ void Vision::step()
         videoOutFront->write(*targetedImageFront);
         targetedImageFront->~QImage();
     }
-    if (networkStreams && d_height == 160 && d_width == 120 && processingDownCamera)
-    {
-        targetedImageDown = new QImage(80, 60, QImage::Format_RGB32);
-        //used for streaming the targeted image
-        for (int i = 0; i < d_height; i = i + 2)
-        {
-            for (int j = 0; j < d_width; j = j + 2)
-            {
-                int index = j*(d_height)+i;
-                QRgb col;
-                col = qRgb(VisionModel_Y.R_down_out[index] * 255.0, VisionModel_Y.G_down_out[index] * 255.0, VisionModel_Y.B_down_out[index] * 255.0);
-                targetedImageDown->setPixel(j/2, i/2, col);
-            }
-        }
-        videoOutDown->write(*targetedImageFront);
-        targetedImageDown->~QImage();
-    }
+//    if (networkStreams && d_height == 160 && d_width == 120 && processingDownCamera)
+//    {
+//        targetedImageDown = new QImage(80, 60, QImage::Format_RGB32);
+//        //used for streaming the targeted image
+//        for (int i = 0; i < d_height; i = i + 2)
+//        {
+//            for (int j = 0; j < d_width; j = j + 2)
+//            {
+//                int index = j*(d_height)+i;
+//                QRgb col;
+////                col = qRgb(VisionModel_Y.R_down_out[index] * 255.0, VisionModel_Y.G_down_out[index] * 255.0, VisionModel_Y.B_down_out[index] * 255.0);
+////                qDebug() << VisionModel_Y.R_down_out;
+//                targetedImageDown->setPixel(j/2, i/2, col);
+
+//            }
+//        }
+//        videoOutDown->write(*targetedImageFront);
+//        targetedImageDown->~QImage();
+//    }
 //	qDebug() << "Finished Vision";
 	//usleep(3000000);
 	//emit processVision();
